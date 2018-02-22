@@ -12,8 +12,10 @@
 			</div>
 			<div class="col-sm-12 col-lg-8">
 				<p>
-					(C) 2016 - 2018, aryalinux.org. All Rights Reserved.
-				</p>
+					 The contents of this site are the intellectual property of aryalinux.org and team AryaLinux. AryaLinux build scripts are released under GPL and are free as in free speech as well as free as in free beer. You can access the build scripts at github.com/FluidIdeas/aryalinux
+The Builder DVDs and AryaLinux ISOs are also released under GPL. For more information about GPL visit here. LFS and BLFS are intellectual properties of their respective authors. Visit here for more. 
+				</p><br>
+				<p><a style="font-size: 45px; color: #0084FF" href="#"><i class="fa fa-facebook-official"></i></a>&nbsp;&nbsp;<a style="font-size: 45px; color: #1DA1F2" href="#"><i class="fa fa-twitter-square"></i></a>&nbsp;&nbsp;<a style="font-size: 45px; color: #DB4437" href="#"><i class="fa fa-youtube-square"></i></a></p>
 			</div>
 		</div>
 	</div>
