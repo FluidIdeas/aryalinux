@@ -5,9 +5,9 @@
     <div class="jumbotron">
       <div class="row">
         <div class="col-lg-8 col-sm-12">
-          <h2>AryaLinux 1.1 Released</h2>
+          <h2>Welcome to AryaLinux</h2>
           <p>
-            AryaLinux 1.1 was released today with package updates and a built-from-scratch Gnome Desktop Environment. The Gnome 3 desktop environemnt is the prime focus of this release and we have taken great care to make sure that things simply run out of the box. You can read the full Release notes <a href="#">here</a>.
+            AryaLinux is a modern GNU/Linux based Operating System that is built from scratch. A from scratch Linux is one that is built by building the source code of the various components that a fully functional Linux system is composed of. AryaLinux also provides you the ways and means to build your own Linux system from scratch. You can learn more about AryaLinux <a href="#">here</a>.
           </p>
         </div>
         <div class="col-lg-4 col-sm-12">

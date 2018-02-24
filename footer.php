@@ -1,16 +1,12 @@
-<div class="bg-gray1 pt-3 pb-3">
+<div class="bg-gray2 pt-3 pb-3">
+	<div class="container">
+			(C) 2016-18 aryalinux.org
+	</div>
+</div>
+<div class="bg-gray1 pt-3">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12 col-lg-4">
-				<p>
-				Home<br>
-				News<br>
-				About Us<br>
-				Contact Us<br>
-				Documentation<br>
-				</p>
-			</div>
-			<div class="col-sm-12 col-lg-8">
+			<div class="col-sm-12 col-lg-12">
 				<p>
 					 The contents of this site are the intellectual property of aryalinux.org and team AryaLinux. AryaLinux build scripts are released under GPL and are free as in free speech as well as free as in free beer. You can access the build scripts at github.com/FluidIdeas/aryalinux
 The Builder DVDs and AryaLinux ISOs are also released under GPL. For more information about GPL visit here. LFS and BLFS are intellectual properties of their respective authors. Visit here for more. 
@@ -20,11 +16,6 @@ The Builder DVDs and AryaLinux ISOs are also released under GPL. For more inform
 		</div>
 	</div>
 </div>
-<!--<div class="bg-gray2">
-	<div class="container">
-		
-	</div>
-</div>-->
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
