@@ -43,14 +43,14 @@ rm -r dracut-master
 rm -r master.zip
 
 wget -nc https://sourceware.org/ftp/lvm2/releases/LVM2.2.02.171.tgz
-wget -nc https://github.com/FluidIdeas/patches/raw/$VERSION/aufs-4.16.tar.gz
-wget -nc https://raw.githubusercontent.com/FluidIdeas/patches/$VERSION/aufs4-base.patch
-wget -nc https://raw.githubusercontent.com/FluidIdeas/patches/$VERSION/aufs4-kbuild.patch
-wget -nc https://raw.githubusercontent.com/FluidIdeas/patches/$VERSION/aufs4-loopback.patch
-wget -nc https://raw.githubusercontent.com/FluidIdeas/patches/$VERSION/aufs4-mmap.patch
-wget -nc https://raw.githubusercontent.com/FluidIdeas/patches/$VERSION/aufs4-standalone.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs-4.16.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs4-base.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs4-kbuild.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs4-loopback.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs4-mmap.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs4-standalone.patch
 wget -nc https://sourceware.org/ftp/elfutils/0.170/elfutils-0.170.tar.bz2
-wget -nc https://raw.githubusercontent.com/FluidIdeas/patches/$VERSION/0.21-nvme_ioctl.h.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/0.21-nvme_ioctl.h.patch
 
 pushd $CURRENT_DIR/../applications
 git checkout $VERSION
@@ -68,10 +68,10 @@ wget -nc http://downloads.sourceforge.net/infozip/unzip60.tar.gz
 
 set +e
 
-wget https://raw.githubusercontent.com/FluidIdeas/alps/master/var/lib/alps/functions -O functions
-wget https://raw.githubusercontent.com/FluidIdeas/alps/master/usr/bin/alps -O alps
-wget https://raw.githubusercontent.com/FluidIdeas/alps/master/etc/alps/alps.conf -O alps.conf
-wget https://raw.githubusercontent.com/FluidIdeas/package-builder/master/makepkg.sh -O makepkg.sh
+wget https://bitbucket.org/chandrakantsingh/alps/raw/master/var/lib/alps/functions -O functions
+wget https://bitbucket.org/chandrakantsingh/alps/raw/master/usr/bin/alps -O alps
+wget https://bitbucket.org/chandrakantsingh/alps/raw/master/etc/alps/alps.conf -O alps.conf
+wget https://bitbucket.org/chandrakantsingh/package-builder/raw/master/makepkg.sh -O makepkg.sh
 
 set -e
 
