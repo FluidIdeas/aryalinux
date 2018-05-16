@@ -49,7 +49,7 @@ sed -i 's# libcrypto.a##;s# libssl.a##;/INSTALL_LIBS/s#libcrypto.a##' Makefile
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make MANSUFFIX=ssl install           &&
-mv -v /usr/share/doc/openssl{,-1.1.0g} &&
+mv -vf /usr/share/doc/openssl{,-1.1.0g} &&
 cp -vfr doc/* /usr/share/doc/openssl-1.1.0g
 
 ENDOFROOTSCRIPT
