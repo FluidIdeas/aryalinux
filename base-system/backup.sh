@@ -3,6 +3,8 @@
 set -e
 set +h
 
+# Unmount everything except root, even the overlay so that we have a proper tarball.
+
 ./umountal.sh
 
 . ./build-properties
@@ -12,7 +14,6 @@ TOOLCHAIN_BACKUP=$2
 sleep 5
 
 LFS=/mnt/lfs
-mount $ROOT_PART $LFS
 
 if [ ! -z "$HOME_PART" ]
 then

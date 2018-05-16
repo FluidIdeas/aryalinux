@@ -18,7 +18,7 @@ for mountpoint in $mountpoints; do
 fi
 
 echo "Unmounting overlay if present..."
-if mount | grep "overlay on $LFS" &> /dev/null; then
+if mount | grep "overlay on $LFS" &> /dev/null && [ "x$1" != "xkeepoverlay" ]; then
 	umount -v $LFS
 fi
 

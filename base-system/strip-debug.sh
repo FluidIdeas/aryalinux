@@ -3,13 +3,14 @@
 set -e
 set +h
 
-( ./umountal.sh && echo "Unmounted partition before performing actions..." ) || ( echo "Nothing mounted. Continuing..." )
+( ./umountal.sh keepoverlay && echo "Unmounted partition before performing actions..." ) || ( echo "Nothing mounted. Continuing..." )
 
 . ./build-properties
 
 export LFS=/mnt/lfs
 mkdir -pv $LFS
-mount $ROOT_PART $LFS
+
+# mount $ROOT_PART $LFS
 
 cat > $LFS/tools/bin/stripdebug <<EOF
 /tools/bin/find /usr/lib -type f -name \*.a \
@@ -53,11 +54,13 @@ chroot $LFS /tools/bin/env -i            \
     /tools/bin/bash --login /tools/bin/stripdebug
 
 rm $LFS/tools/bin/stripdebug
+
+# Now unmount the overlay because grub has to be reinstalled in the base system
+
 umount $LFS
 
 sleep 5
 
-mount $ROOT_PART $LFS
 mount -v --bind /dev $LFS/dev
 
 mount -vt devpts devpts $LFS/dev/pts -o gid=5,mode=620
@@ -71,5 +74,7 @@ chroot "$LFS" /usr/bin/env -i              \
     HOME=/root TERM="$TERM" PS1='\u:\w\$ ' \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
     /bin/bash /sources/fix-grub.sh
+
+# Unmount everything except the root partition
 
 ./umountal.sh

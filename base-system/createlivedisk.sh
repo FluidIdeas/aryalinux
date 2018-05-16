@@ -117,6 +117,21 @@ chroot "$LFS" /usr/bin/env -i              \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
     /bin/bash /sources/mkliveinitramfs.sh
 
+XSERVER="$LFS/opt/x-server"
+DE="$LFS/opt/desktop-environment"
+
+if [ -d "$XSERVER" ]; then
+    if [ -d "$DE" ]; then
+        if ! mount | grep "overlay on $LFS" &> /dev/null; then
+            mount -t overlay -olowerdir=$XSERVER:$LFS,upperdir=$DE,workdir=$LFS/tmp overlay $LFS
+        fi
+    else
+        if ! mount | grep "overlay on $LFS" &> /dev/null; then
+            mount -t overlay -olowerdir=$LFS,upperdir=$XSERVER,workdir=$LFS/tmp overlay $LFS
+        fi
+    fi
+fi
+
 chroot "$LFS" /usr/bin/env -i              \
     HOME=/root TERM="$TERM" PS1='\u:\w\$ ' \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
@@ -127,9 +142,11 @@ chroot "$LFS" /usr/bin/env -i              \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
     usermod -a -G autologin $USERNAME
 
+umount $LFS
+
 sleep 5
 set +e
-./umountal.sh
+./umountal.sh all
 set -e
 
 mount $ROOT_PART $LFS
