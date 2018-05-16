@@ -69,7 +69,7 @@ wget -nc http://downloads.sourceforge.net/infozip/unzip60.tar.gz
 set +e
 
 wget https://bitbucket.org/chandrakantsingh/alps/raw/master/var/lib/alps/functions -O functions
-wget https://bitbucket.org/chandrakantsingh/alps/raw/master/usr/bin/nalps -O alps
+wget https://bitbucket.org/chandrakantsingh/alps/raw/master/usr/bin/alps -O alps
 wget https://bitbucket.org/chandrakantsingh/alps/raw/master/etc/alps/alps.conf -O alps.conf
 wget https://bitbucket.org/chandrakantsingh/package-builder/raw/master/makepkg.sh -O makepkg.sh
 
