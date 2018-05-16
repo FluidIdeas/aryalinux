@@ -23,7 +23,7 @@ if mount | grep "overlay on $LFS" &> /dev/null && [ "x$1" != "xkeepoverlay" ]; t
 fi
 
 echo "Unmounting root if mounted and requested"
-if [ "x$1" == "xall"]; then
+if [ "x$1" == "xall" ]; then
 	if mount | grep "$ROOT_PART on $LFS" &> /dev/null; then
 		umount -v $LFS
 	fi
