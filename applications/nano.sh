@@ -14,7 +14,8 @@ NAME="nano"
 
 
 echo "PATH: $PATH"
-asdsd
+
+asdsdadad
 
 cd $SOURCE_DIR
 
