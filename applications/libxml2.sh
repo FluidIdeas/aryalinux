@@ -16,8 +16,6 @@ NAME="libxml2"
 #OPT:icu
 #OPT:valgrind
 
-echo "PATH: $PATH"
-exit 1
 
 cd $SOURCE_DIR
 
