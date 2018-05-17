@@ -31,6 +31,8 @@ cd $SOURCE_DIR
 
 URL=https://mesa.freedesktop.org/archive/mesa-18.0.3.tar.xz
 
+echo "PATH : $PATH"
+
 if [ ! -z $URL ]
 then
 
