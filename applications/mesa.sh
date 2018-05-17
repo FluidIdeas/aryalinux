@@ -35,7 +35,6 @@ if [ ! -z $URL ]
 then
 
 wget -nc $URL
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.0/mesa-18.0.1-add_xdemos-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -52,8 +51,6 @@ whoami > /tmp/currentuser
 
 export XORG_PREFIX=/usr
 export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
-
-patch -Np1 -i ../mesa-18.0.1-add_xdemos-1.patch
 
 DRI_DRIVERS="i915,i965,nouveau,r200,radeon,swrast"
 GALLIUM_DRIVERS="nouveau,r300,r600,svga,radeonsi,swrast,virgl"
@@ -92,16 +89,6 @@ make -C xdemos DEMOS_PREFIX=$XORG_PREFIX
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make -C xdemos DEMOS_PREFIX=$XORG_PREFIX install
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
