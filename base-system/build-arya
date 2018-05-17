@@ -223,9 +223,9 @@ def freshBuild(startFrom):
 				logCurrentStage('6')
 				subprocess.Popen('/bin/bash ./prepare-overlay.sh x-server'.split()).communicate()
 				print 'Installing essentials...'
-				runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/essentials.sh', getParamValue('USERNAME')])
+				runScriptWithArgs('./enteral.sh', '/sources', ['./apps/essentials.sh', getParamValue('USERNAME')])
 				print 'Installing xserver...'
-				runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'xserver-meta'])
+				runScriptWithArgs('./enteral.sh', '/sources', ['./apps/app.sh', getParamValue('USERNAME'), 'xserver-meta'])
 				startFrom = startFrom + 1
 				if getParamValue('CREATE_BACKUPS') == 'y' or getParamValue('CREATE_BACKUPS') == 'Y':
 					try:
