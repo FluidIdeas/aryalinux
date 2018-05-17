@@ -221,11 +221,11 @@ def freshBuild(startFrom):
 		if getParamValue('INSTALL_XSERVER') == 'y' or getParamValue('INSTALL_XSERVER') == 'Y':
 			try:
 				logCurrentStage('6')
-				subprocess.Popen('/bin/bash ./prepare-overlay.sh x-server'.split()).communicate()
+				subprocess.Popen('/bin/bash prepare-overlay.sh x-server'.split()).communicate()
 				print 'Installing essentials...'
-				runScriptWithArgs('./enteral.sh', '/sources', ['./apps/essentials.sh', getParamValue('USERNAME')])
+				runScriptWithArgs('enteral.sh', '/sources', ['apps/essentials.sh', getParamValue('USERNAME')])
 				print 'Installing xserver...'
-				runScriptWithArgs('./enteral.sh', '/sources', ['./apps/app.sh', getParamValue('USERNAME'), 'xserver-meta'])
+				runScriptWithArgs('enteral.sh', '/sources', ['apps/app.sh', getParamValue('USERNAME'), 'xserver-meta'])
 				startFrom = startFrom + 1
 				if getParamValue('CREATE_BACKUPS') == 'y' or getParamValue('CREATE_BACKUPS') == 'Y':
 					try:
@@ -236,9 +236,9 @@ def freshBuild(startFrom):
 				        	                found = True
 				                	        break
 					        if not found:
-					                p = subprocess.Popen(['./strip-debug.sh'], shell=True)
+					                p = subprocess.Popen(['strip-debug.sh'], shell=True)
 					                p.wait()
-				        	        p = subprocess.Popen(['./backup.sh base-system-with-xserver n'], shell=True)
+				        	        p = subprocess.Popen(['backup.sh base-system-with-xserver n'], shell=True)
 					        	p.wait()
 						else:
 					                print 'X-Server backup already present. Not backing up again.'
