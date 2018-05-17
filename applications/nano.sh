@@ -13,6 +13,8 @@ VERSION=2.9.5
 NAME="nano"
 
 
+echo "PATH: $PATH"
+asdsd
 
 cd $SOURCE_DIR
 
