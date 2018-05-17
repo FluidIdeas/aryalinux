@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Mesa is an OpenGL compatible 3Dbr3ak graphics library.br3ak"
 SECTION="x"
-VERSION=18.0.1
+VERSION=18.0.3
 NAME="mesa"
 
 #REQ:x7lib
@@ -29,12 +29,13 @@ NAME="mesa"
 
 cd $SOURCE_DIR
 
-URL=https://mesa.freedesktop.org/archive/mesa-18.0.1.tar.xz
+URL=https://mesa.freedesktop.org/archive/mesa-18.0.3.tar.xz
 
 if [ ! -z $URL ]
 then
 
 wget -nc $URL
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.0/mesa-18.0.3-add_xdemos-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -51,6 +52,8 @@ whoami > /tmp/currentuser
 
 export XORG_PREFIX=/usr
 export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
+
+patch -Np1 -i ../mesa-18.0.3-add_xdemos-1.patch
 
 DRI_DRIVERS="i915,i965,nouveau,r200,radeon,swrast"
 GALLIUM_DRIVERS="nouveau,r300,r600,svga,radeonsi,swrast,virgl"
@@ -98,8 +101,18 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -dm755 /usr/share/doc/mesa-18.0.1 &&
-cp -rfv docs/* /usr/share/doc/mesa-18.0.1
+make -C xdemos DEMOS_PREFIX=$XORG_PREFIX install
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+install -v -dm755 /usr/share/doc/mesa-18.0.3 &&
+cp -rfv docs/* /usr/share/doc/mesa-18.0.3
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
