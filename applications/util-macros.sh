@@ -13,7 +13,8 @@ VERSION=1.19.2
 NAME="util-macros"
 
 
-
+echo "PATH: $PATH"
+sdfsdgdfh
 cd $SOURCE_DIR
 
 URL=https://www.x.org/pub/individual/util/util-macros-1.19.2.tar.bz2
