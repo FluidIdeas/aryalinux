@@ -35,7 +35,7 @@ if [ ! -z $URL ]
 then
 
 wget -nc $URL
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/mesa-18.0.1-add_xdemos-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.0/mesa-18.0.1-add_xdemos-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
