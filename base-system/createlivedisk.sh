@@ -147,6 +147,7 @@ set +e
 set -e
 
 mount $ROOT_PART $LFS
+
 if [ "x$HOME_PART" != "x" ]
 then
 	mount $HOME_PART $LFS/home
@@ -169,12 +170,45 @@ EOF
 	popd
 fi
 
-rm -f $LFS/sources/root.sfs
-sudo mksquashfs $LFS $LFS/sources/root.sfs -b 1048576 -comp xz -Xdict-size 100% -e $LFS/sources -e $LFS/var/cache/alps/sources/* -e $LFS/tools -e $LFS/etc/fstab
-
-# Let's unmount everything except root and then mount overlay on it
-# because this would be needed for overlay
+# Let's unmount everything to create the squashed filesystem
 ./umountal.sh
+
+rm -f $LFS/sources/root.sfs
+OPTIONS=""
+DIRS="
+/sources
+/home/$USERNAME/.ccache
+/root/.ccache
+/var/cache/alps/sources/*
+/var/cache/alps/binaries/*
+"
+
+OPTDIRS="
+x-server
+gnome
+xfce
+kde
+mate"
+
+for OPTDIR in $OPTDIRS; do
+    if [ -d $LFS/opt/$OPTDIR ]; then
+        for DIR in $DIRS; do
+            OPTIONS="$OPTIONS -e $LFS/opt/$OPTDIR/$DIR"
+        done
+    fi
+done
+sudo mksquashfs $LFS $LFS/sources/root.sfs -b 1048576 -comp xz -Xdict-size 100% \
+    -e $LFS/etc/fstab \
+    -e $LFS/sources \
+    -e $LFS/tools \
+    -e $LFS/$USERNAME/.ccache \
+    -e $LFS/root/.ccache \
+    -e $LFS/var/cache/alps/sources/* \
+    -e $LFS/var/cache/alps/binaries/* \
+    $OPTIONS
+
+
+# Now mount the overlay so that we can revert back the changes we have made
 
 XSERVER="$LFS/opt/x-server"
 DE="$LFS/opt/desktop-environment"
@@ -204,6 +238,8 @@ chroot "$LFS" /usr/bin/env -i              \
     HOME=/root TERM="$TERM" PS1='\u:\w\$ ' \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
     gpasswd -d $USERNAME autologin
+
+./umountal.sh
 
 cd $LFS/sources/
 
