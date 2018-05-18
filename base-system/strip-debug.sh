@@ -56,7 +56,10 @@ rm $LFS/tools/bin/stripdebug
 
 # Now unmount the overlay because grub has to be reinstalled in the base system
 
-umount $LFS
+if mount | grep "overlay on $LFS" &> /dev/null; then
+	echo "Unmounting overlay..."
+	umount $LFS
+fi
 
 sleep 5
 

@@ -4,8 +4,9 @@ set -e
 set +h
 
 # Unmount everything except root, even the overlay so that we have a proper tarball.
+# This is not needed as backup.sh is called immediately after strip-debug which takes care of umounting...
 
-./umountal.sh
+# ./umountal.sh
 
 . ./build-properties
 
