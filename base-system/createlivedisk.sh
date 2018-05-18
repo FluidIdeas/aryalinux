@@ -5,8 +5,6 @@
 LFS=/mnt/lfs
 mkdir -pv $LFS
 
-./umountal.sh
-
 . ./build-properties
 
 set -e
@@ -81,7 +79,6 @@ CREATE_ROOTSFS="y"
 
 fi
 
-mount $ROOT_PART $LFS
 if [ "x$HOME_PART" != "x" ]
 then
 	mount $HOME_PART $LFS/home
