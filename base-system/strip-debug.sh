@@ -3,7 +3,7 @@
 set -e
 set +h
 
-( ./umountal.sh keepoverlay && echo "Unmounted partition before performing actions..." ) || ( echo "Nothing mounted. Continuing..." )
+( ./umountal.sh && echo "Unmounted partition before performing actions..." ) || ( echo "Nothing mounted. Continuing..." )
 
 . ./build-properties
 
@@ -13,45 +13,44 @@ mkdir -pv $LFS
 # mount $ROOT_PART $LFS
 
 cat > $LFS/tools/bin/stripdebug <<EOF
+
 /tools/bin/find /usr/lib -type f -name \*.a \
-   -exec /tools/bin/strip --strip-debug {} ';'
+-exec /tools/bin/strip --strip-debug {} ';'
 
 /tools/bin/find /lib /usr/lib -type f -name \*.so* \
-   -exec /tools/bin/strip --strip-unneeded {} ';'
+-exec /tools/bin/strip --strip-unneeded {} ';'
 
 /tools/bin/find /{bin,sbin} /usr/{bin,sbin,libexec} -type f \
-    -exec /tools/bin/strip --strip-all {} ';'
+-exec /tools/bin/strip --strip-all {} ';'
 
-if [ -L /opt/qt5 ]; then
-/tools/bin/find /opt/qt5/usr/lib -type f -name \*.a \
-   -exec /tools/bin/strip --strip-debug {} ';'
+directories="/opt/x-server
+/opt/qt5
+/opt/kf5
+/opt/gnome
+/opt/mate
+/opt/xfce"
 
-/tools/bin/find /opt/qt5/lib /opt/qt5/usr/lib -type f -name \*.so* \
-   -exec /tools/bin/strip --strip-unneeded {} ';'
+for dir_prefix in $directories; do
+	if [ -d $dir_prefix ]; then
+		/tools/bin/find $dir_prefix/usr/lib -type f -name \*.a \
+		-exec /tools/bin/strip --strip-debug {} ';'
 
-/tools/bin/find /opt/qt5/{bin,sbin} /opt/qt5/usr/{bin,sbin,libexec} -type f \
-    -exec /tools/bin/strip --strip-all {} ';'
-fi
+		/tools/bin/find $dir_prefix/lib /usr/lib -type f -name \*.so* \
+		-exec /tools/bin/strip --strip-unneeded {} ';'
 
-if [ -L /opt/kf5 ]; then
-/tools/bin/find /opt/kf5/usr/lib -type f -name \*.a \
-   -exec /tools/bin/strip --strip-debug {} ';'
-
-/tools/bin/find /opt/kf5/lib /opt/kf5/usr/lib -type f -name \*.so* \
-   -exec /tools/bin/strip --strip-unneeded {} ';'
-
-/tools/bin/find /opt/kf5/{bin,sbin} /opt/kf5/usr/{bin,sbin,libexec} -type f \
-    -exec /tools/bin/strip --strip-all {} ';'
-fi 
+		/tools/bin/find $dir_prefix/{bin,sbin} /usr/{bin,sbin,libexec} -type f \
+		-exec /tools/bin/strip --strip-all {} ';'
+	fi
+done
 
 EOF
 
 chmod a+x $LFS/tools/bin/stripdebug
 
 chroot $LFS /tools/bin/env -i            \
-    HOME=/root TERM=$TERM PS1='\u:\w\$ ' \
-    PATH=/bin:/usr/bin:/sbin:/usr/sbin   \
-    /tools/bin/bash --login /tools/bin/stripdebug
+HOME=/root TERM=$TERM PS1='\u:\w\$ ' \
+PATH=/bin:/usr/bin:/sbin:/usr/sbin   \
+/tools/bin/bash --login /tools/bin/stripdebug
 
 rm $LFS/tools/bin/stripdebug
 
@@ -71,9 +70,9 @@ mount -vt tmpfs tmpfs $LFS/run
 mount -vt tmpfs tmpfs $LFS/dev/shm
 
 chroot "$LFS" /usr/bin/env -i              \
-    HOME=/root TERM="$TERM" PS1='\u:\w\$ ' \
-    PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
-    /bin/bash /sources/fix-grub.sh
+HOME=/root TERM="$TERM" PS1='\u:\w\$ ' \
+PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
+/bin/bash /sources/fix-grub.sh
 
 # Unmount everything except the root partition
 
