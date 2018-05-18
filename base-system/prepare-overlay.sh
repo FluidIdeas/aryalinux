@@ -15,6 +15,6 @@ fi
 
 if [ "x$1" == "xgnome" ] || [ "x$2" == "xkde5" ] || [ "x$2" == "xxfce" ] || [ "x$2" == "xmate" ]; then
 	pushd "$LFS/opt/"
-	sudo ln -svf "$LFS/opt/$DIR" "desktop-environment"
+	sudo ln -svf "$DIR" "desktop-environment"
 	popd
 fi
