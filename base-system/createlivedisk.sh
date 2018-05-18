@@ -172,6 +172,25 @@ fi
 rm -f $LFS/sources/root.sfs
 sudo mksquashfs $LFS $LFS/sources/root.sfs -b 1048576 -comp xz -Xdict-size 100% -e $LFS/sources -e $LFS/var/cache/alps/sources/* -e $LFS/tools -e $LFS/etc/fstab
 
+# Let's unmount everything except root and then mount overlay on it
+# because this would be needed for overlay
+./umountal.sh
+
+XSERVER="$LFS/opt/x-server"
+DE="$LFS/opt/desktop-environment"
+
+if [ -d "$XSERVER" ]; then
+    if [ -d "$DE" ]; then
+        if ! mount | grep "overlay on $LFS" &> /dev/null; then
+            mount -t overlay -olowerdir=$XSERVER:$LFS,upperdir=$DE,workdir=$LFS/tmp overlay $LFS
+        fi
+    else
+        if ! mount | grep "overlay on $LFS" &> /dev/null; then
+            mount -t overlay -olowerdir=$LFS,upperdir=$XSERVER,workdir=$LFS/tmp overlay $LFS
+        fi
+    fi
+fi
+
 if [ -f $LFS/etc/lightdm/lightdm.conf ]
 then
 	sed -i "s@autologin-user=$USERNAME@#autologin-user=@g" $LFS/etc/lightdm/lightdm.conf
@@ -261,3 +280,5 @@ fi
 
 rm -rvf $LFS/boot/initram.fs
 rm -rvf $LFS/boot/id_label
+
+./umountal.sh
