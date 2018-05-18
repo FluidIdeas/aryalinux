@@ -179,10 +179,6 @@ DIRS="
 sources
 home/$USERNAME/.ccache
 root/.ccache
-var/cache/alps/sources/app
-var/cache/alps/sources/font
-var/cache/alps/sources/lib
-var/cache/alps/sources/proto
 var/cache/alps/sources/*
 var/cache/alps/binaries/*
 "
