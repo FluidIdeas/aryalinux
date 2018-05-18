@@ -12,7 +12,7 @@ mkdir -pv $LFS
 
 # mount $ROOT_PART $LFS
 
-cat > $LFS/tools/bin/stripdebug <<EOF
+cat > $LFS/tools/bin/stripdebug <<"EOF"
 
 /tools/bin/find /usr/lib -type f -name \*.a \
 -exec /tools/bin/strip --strip-debug {} ';'
@@ -23,22 +23,24 @@ cat > $LFS/tools/bin/stripdebug <<EOF
 /tools/bin/find /{bin,sbin} /usr/{bin,sbin,libexec} -type f \
 -exec /tools/bin/strip --strip-all {} ';'
 
-directories="/opt/x-server
-/opt/qt5
-/opt/kf5
+DIRS="/opt/x-server
 /opt/gnome
 /opt/mate
-/opt/xfce"
+/opt/xfce
+/opt/qt5
+/opt/kf5"
 
-for dir_prefix in $directories; do
-	if [ -d $dir_prefix ]; then
-		/tools/bin/find $dir_prefix/usr/lib -type f -name \*.a \
+for DIR in $DIRS; do
+	echo "Stripping $DIR..."
+	if [ -d $DIR ]; then
+		echo "$DIR found..."
+		/tools/bin/find $DIR/usr/lib -type f -name \*.a \
 		-exec /tools/bin/strip --strip-debug {} ';'
 
-		/tools/bin/find $dir_prefix/lib /usr/lib -type f -name \*.so* \
+		/tools/bin/find $DIR/lib /usr/lib -type f -name \*.so* \
 		-exec /tools/bin/strip --strip-unneeded {} ';'
 
-		/tools/bin/find $dir_prefix/{bin,sbin} /usr/{bin,sbin,libexec} -type f \
+		/tools/bin/find $DIR/{bin,sbin} /usr/{bin,sbin,libexec} -type f \
 		-exec /tools/bin/strip --strip-all {} ';'
 	fi
 done

@@ -27,7 +27,18 @@ pushd /
 
 if [ ! -f $LFS/sources/aryalinux-$OS_VERSION-$LABEL-$(uname -m).tar.gz ]
 then
-	GZIP=-9 tar --exclude="/mnt/lfs/sources" --exclude="/mnt/lfs/tools" --exclude="/mnt/lfs/root/.ccache" --exclude="/mnt/lfs/home/aryalinux/.ccache" --exclude="/mnt/lfs/var/cache/alps/binaries" --exclude="/mnt/lfs/var/cache/alps/sources" -czvf $LFS/sources/aryalinux-$OS_VERSION-$LABEL-$(uname -m).tar.gz $LFS
+	GZIP=-9 tar \
+	--exclude="/mnt/lfs/sources" \
+	--exclude="/mnt/lfs/tools" \
+	--exclude="/mnt/lfs/root/.ccache" \
+	--exclude="/mnt/lfs/home/aryalinux/.ccache" \
+	--exclude="/mnt/lfs/var/cache/alps/binaries" \
+	--exclude="/mnt/lfs/var/cache/alps/sources" \
+	--exclude="/mnt/ls/opt/x-server/sources" \
+	--exclude="/mnt/lfs/opt/x-server/var/cache/alps/sources/*" \
+	--exclude="/mnt/ls/opt/desktop-environment/sources" \
+	--exclude="/mnt/lfs/opt/desktop-environment/var/cache/alps/sources/*"  \
+	-czvf $LFS/sources/aryalinux-$OS_VERSION-$LABEL-$(uname -m).tar.gz $LFS
 	if [ "$TOOLCHAIN_BACKUP" == "y" ] || [ "$TOOLCHAIN_BACKUP" == "Y" ] && [ ! -f $LFS/sources/toolchain-$OS_VERSION-$(uname -m).tar.xz ] ; then
 		XZ_OPT=-9 tar -cJvf $LFS/sources/toolchain-$OS_VERSION-$(uname -m).tar.xz $LFS/tools
 	fi
