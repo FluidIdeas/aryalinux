@@ -202,14 +202,14 @@ for OPTDIR in $OPTDIRS; do
     fi
 done
 sudo mksquashfs $LFS $LFS/sources/root.sfs -b 1048576 -comp xz -Xdict-size 100% \
-    -e $LFS/etc/fstab \
-    -e $LFS/sources \
-    -e $LFS/tools \
-    -e $LFS/$USERNAME/.ccache \
-    -e $LFS/root/.ccache \
-    -e $LFS/var/cache/alps/sources/* \
-    -e $LFS/var/cache/alps/binaries/* \
-    $OPTIONS
+-e $LFS/etc/fstab \
+-e $LFS/sources \
+-e $LFS/tools \
+-e $LFS/$USERNAME/.ccache \
+-e $LFS/root/.ccache \
+-e $LFS/var/cache/alps/sources/* \
+-e $LFS/var/cache/alps/binaries/* \
+$OPTIONS
 
 
 # Now mount the overlay so that we can revert back the changes we have made
