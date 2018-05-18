@@ -31,16 +31,15 @@ DIRS="/opt/x-server
 /opt/kf5"
 
 for DIR in $DIRS; do
-	echo "Stripping $DIR..."
 	if [ -d $DIR ]; then
-		echo "$DIR found..."
+		echo "Stripping $DIR..."
 		/tools/bin/find $DIR/usr/lib -type f -name \*.a \
 		-exec /tools/bin/strip --strip-debug {} ';'
 
-		/tools/bin/find $DIR/lib /usr/lib -type f -name \*.so* \
+		/tools/bin/find $DIR/lib $DIR/usr/lib -type f -name \*.so* \
 		-exec /tools/bin/strip --strip-unneeded {} ';'
 
-		/tools/bin/find $DIR/{bin,sbin} /usr/{bin,sbin,libexec} -type f \
+		/tools/bin/find $DIR/{bin,sbin} $DIR/usr/{bin,sbin,libexec} -type f \
 		-exec /tools/bin/strip --strip-all {} ';'
 	fi
 done
