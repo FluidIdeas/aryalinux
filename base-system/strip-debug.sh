@@ -3,6 +3,8 @@
 set -e
 set +h
 
+if [ ! -f /sources/.stripped ]; then
+
 ( ./umountal.sh && echo "Unmounted partition before performing actions..." ) || ( echo "Nothing mounted. Continuing..." )
 
 . ./build-properties
@@ -55,15 +57,6 @@ PATH=/bin:/usr/bin:/sbin:/usr/sbin   \
 
 rm $LFS/tools/bin/stripdebug
 
-# Now unmount the overlay because grub has to be reinstalled in the base system
-
-if mount | grep "overlay on $LFS" &> /dev/null; then
-	echo "Unmounting overlay..."
-	umount $LFS
-fi
-
-sleep 5
-
 mount -v --bind /dev $LFS/dev
 
 mount -vt devpts devpts $LFS/dev/pts -o gid=5,mode=620
@@ -81,3 +74,7 @@ PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
 # Unmount everything except the root partition
 
 ./umountal.sh
+
+touch /sources/.stripped
+
+fi

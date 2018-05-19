@@ -7,8 +7,7 @@ $LFS/dev/shm
 $LFS/dev
 $LFS/sys
 $LFS/proc
-$LFS/run
-$LFS/home"
+$LFS/run"
 
 echo "Unmounting virtual directories..."
 for mountpoint in $mountpoints; do

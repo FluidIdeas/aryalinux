@@ -95,9 +95,6 @@ def getCurrentStage():
 def inputBuildProperties():
 	readInput("Bootloader Device: ", 'DEV_NAME', propsFile, '', False)
 	readInput("Root Partition: ", 'ROOT_PART', propsFile, '')
-	readInput("Home Partition: ", 'HOME_PART', propsFile, '')
-	if getParamValue('HOME_PART') != '':
-		readInput('Format Home Partition? (y/N): ', 'FORMAT_HOME', propsFile, 'n')
 	readInput("Swap Partition: ", 'SWAP_PART', propsFile, '')
 	if getParamValue('SWAP_PART') != '':
 		readInput('Format swap partition? (y/N): ', 'FORMAT_SWAP', propsFile, 'n')
@@ -247,7 +244,6 @@ def freshBuild(startFrom):
 			except:
 				print 'Error occured in the installation of desktop environment'
 				exit()
-
         p = subprocess.Popen(['./strip-debug.sh'], shell=True)
         p.wait()
 	if getParamValue('CREATE_LIVE_ISO') == 'y' or getParamValue('CREATE_LIVE_ISO') == 'Y':

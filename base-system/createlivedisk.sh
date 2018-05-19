@@ -79,11 +79,6 @@ CREATE_ROOTSFS="y"
 
 fi
 
-if [ "x$HOME_PART" != "x" ]
-then
-	mount $HOME_PART $LFS/home
-fi
-
 mount -v --bind /dev $LFS/dev
 
 mount -vt devpts devpts $LFS/dev/pts -o gid=5,mode=620
@@ -114,6 +109,10 @@ chroot "$LFS" /usr/bin/env -i              \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
     /bin/bash /sources/mkliveinitramfs.sh
 
+# Lets unmount so that we can mount the overlay first and then the virtual filesystems
+
+./umountal.sh
+
 XSERVER="$LFS/opt/x-server"
 DE="$LFS/opt/desktop-environment"
 
@@ -139,12 +138,6 @@ chroot "$LFS" /usr/bin/env -i              \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
     usermod -a -G autologin $USERNAME
 
-./umountal.sh keepoverlay
-
-if [ "x$HOME_PART" != "x" ]
-then
-	mount $HOME_PART $LFS/home
-fi
 
 if [ -f $LFS/etc/lightdm/lightdm.conf ]
 then

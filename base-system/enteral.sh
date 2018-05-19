@@ -18,12 +18,6 @@ fi
 export LFS=/mnt/lfs
 mkdir -pv $LFS
 
-if [ "$HOME_PART" != "" ]
-then
-	mkdir -pv $LFS/home
-	mount -v -t ext4 $HOME_PART $LFS/home
-fi
-
 if [ "$SWAP_PART" != "" ] && [ ! -z '`swapon -s | grep "$SWAP_PART"`' ]
 then
 	swapon -v $SWAP_PART
