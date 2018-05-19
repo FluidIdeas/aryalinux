@@ -168,7 +168,7 @@ sudo wget https://sourceforge.net/projects/aryalinux-bin/files/artifacts/aryalin
 popd
 fi
 
-sudo sed -i "s@/share/backgrounds/mate/desktop/Stripes.png@/share/backgrounds/aryalinux/pexels-photo-411595.jpeg@g" /usr/share/glib-2.0/schemas/org.mate.background.gschema.xml
+sudo sed -i "s@/share/backgrounds/mate/desktop/Stripes.png@/share/backgrounds/aryalinux/pexels-photo-459059.jpeg@g" /usr/share/glib-2.0/schemas/org.mate.background.gschema.xml
 sudo sed -i "s@'Sans 10'@'Noto Sans 10'@g" /usr/share/glib-2.0/schemas/*.xml
 sudo sed -i "s@'Sans 8'@'Noto Sans 8'@g" /usr/share/glib-2.0/schemas/*.xml
 sudo sed -i "s@'Sans 11'@'Noto Sans 11'@g" /usr/share/glib-2.0/schemas/*.xml

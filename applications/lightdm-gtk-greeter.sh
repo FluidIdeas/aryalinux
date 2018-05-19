@@ -47,7 +47,7 @@ xft-antialias = true
 xft-rgba = rgb
 icon-theme-name = Numix-Circle
 theme-name = Greybird
-background = /usr/share/backgrounds/aryalinux/pexels-photo-411595.jpeg
+background = /usr/share/backgrounds/aryalinux/pexels-photo-459059.jpeg
 font-name = Droid Sans 10
 EOF
 
