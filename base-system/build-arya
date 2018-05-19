@@ -196,8 +196,6 @@ def freshBuild(startFrom):
         	pr.wait()
 	except Exception as ex:
 		print ex
-	p = subprocess.Popen(['./strip-debug.sh'], shell=True)
-	p.wait()
 
 	if startFrom == 6:
 		if getParamValue('INSTALL_XSERVER') == 'y' or getParamValue('INSTALL_XSERVER') == 'Y':
@@ -209,8 +207,6 @@ def freshBuild(startFrom):
 				print 'Installing xserver...'
 				runScriptWithArgs('./enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'xserver-meta'])
 				startFrom = startFrom + 1
-		                p = subprocess.Popen(['./strip-debug.sh'], shell=True)
-		                p.wait()
 			except:
 				print 'Error occured in the installation of x-server'
 				exit()
@@ -248,11 +244,12 @@ def freshBuild(startFrom):
 				if os.path.exists('/sources/distro-build.sh'):
 					runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/executioner.sh', getParamValue('USERNAME'), '/sources/distro-build.sh']);
 				startFrom = startFrom + 1
-		                p = subprocess.Popen(['./strip-debug.sh'], shell=True)
-		                p.wait()
 			except:
 				print 'Error occured in the installation of desktop environment'
 				exit()
+
+        p = subprocess.Popen(['./strip-debug.sh'], shell=True)
+        p.wait()
 	if getParamValue('CREATE_LIVE_ISO') == 'y' or getParamValue('CREATE_LIVE_ISO') == 'Y':
 		pr = subprocess.Popen(['./createlivedisk.sh'], shell=True)
 		pr.wait()
