@@ -383,8 +383,8 @@ BusName=org.freedesktop.DisplayManager
 Alias=display-manager.service
 EOF
 
-sudo getent group lightdm || groupadd -g 63 lightdm
-sudo getent passwd lightdm || useradd -c "Light Display Manager" -u 63 -g lightdm -d /var/lib/lightdm -s /sbin/nologin lightdm
+sudo getent group lightdm || sudo groupadd -g 63 lightdm
+sudo getent passwd lightdm || sudo useradd -c "Light Display Manager" -u 63 -g lightdm -d /var/lib/lightdm -s /sbin/nologin lightdm
 
 sudo chown -R lightdm:lightdm /var/lib/lightdm /var/log/lightdm
 
