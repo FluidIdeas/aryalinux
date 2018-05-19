@@ -12,7 +12,7 @@ DESCRIPTION="Fonts of the aryalinux XFCE, Mate, KDE and Gnome Desktops"
 
 cd $SOURCE_DIR
 
-URL=https://sourceforge.net/projects/aryalinux-bin/files/artifacts/aryalinux-gnome-defaults.tar.gz
+URL=https://sourceforge.net/projects/aryalinux-bin/files/releases/1.0/aryalinux-gnome-defaults.tar.gz
 wget -nc $URL
 
 sudo tar xf aryalinux-gnome-defaults.tar.gz -C /
