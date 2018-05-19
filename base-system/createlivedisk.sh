@@ -139,14 +139,7 @@ chroot "$LFS" /usr/bin/env -i              \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
     usermod -a -G autologin $USERNAME
 
-umount $LFS
-
-sleep 5
-set +e
-./umountal.sh all
-set -e
-
-mount $ROOT_PART $LFS
+./umountal.sh keepoverlay
 
 if [ "x$HOME_PART" != "x" ]
 then
