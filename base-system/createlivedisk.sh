@@ -171,7 +171,9 @@ OPTIONS=""
 DIRS="
 sources
 home/$USERNAME/.ccache
+home/$USERNAME/.cargo
 root/.ccache
+root/.cargo
 var/cache/alps/sources/*
 var/cache/alps/binaries/*
 "
