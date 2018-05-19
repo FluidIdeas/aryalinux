@@ -112,7 +112,6 @@ def inputBuildProperties():
 	readInput('Username: ', 'USERNAME', propsFile, 'aryalinux')
 	readInput('Computer Name: ', 'HOST_NAME', propsFile, 'aryalinux')
 	readInput('Use multiple cores for build?: (Y/n)', 'MULTICORE', propsFile, 'y')
-	readInput('Create backups? (y/N) ', 'CREATE_BACKUPS', propsFile, 'n')
 	readInput("Install X Server? (y/N) ", 'INSTALL_XSERVER', propsFile, 'n')
 	if getParamValue('INSTALL_XSERVER') == 'y' or getParamValue('INSTALL_XSERVER') == 'Y':
 		readInput("Install Desktop Environment? (y/N) ", 'INSTALL_DESKTOP_ENVIRONMENT', propsFile, 'n')
@@ -197,25 +196,8 @@ def freshBuild(startFrom):
         	pr.wait()
 	except Exception as ex:
 		print ex
-
-	if getParamValue('CREATE_BACKUPS') == 'y' or getParamValue('CREATE_BACKUPS') == 'Y':
-		try:
-			files = os.listdir('/mnt/lfs/sources')
-			found = False
-			for file in files:
-				if file.startswith('aryalinux') and 'base-system' in file and file.endswith('.tar.gz'):
-					found = True
-					break
-			if not found:
-				p = subprocess.Popen(['./strip-debug.sh'], shell=True)
-				p.wait()
-				p = subprocess.Popen(['./backup.sh base-system y'], shell=True)
-				p.wait()
-			else:
-				print 'Base system backup already present. Not creating again'
-		except:
-			print 'Error occured while backing up base-system. Aborting.'
-			exit()
+	p = subprocess.Popen(['./strip-debug.sh'], shell=True)
+	p.wait()
 
 	if startFrom == 6:
 		if getParamValue('INSTALL_XSERVER') == 'y' or getParamValue('INSTALL_XSERVER') == 'Y':
@@ -227,24 +209,8 @@ def freshBuild(startFrom):
 				print 'Installing xserver...'
 				runScriptWithArgs('./enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'xserver-meta'])
 				startFrom = startFrom + 1
-				if getParamValue('CREATE_BACKUPS') == 'y' or getParamValue('CREATE_BACKUPS') == 'Y':
-					try:
-					        files = os.listdir('/mnt/lfs/sources/')
-					        found = False
-					        for file in files:
-					                if file.startswith('aryalinux') and 'base-system-with-xserver' in file and file.endswith('.tar.xz'):
-				        	                found = True
-				                	        break
-					        if not found:
-					                p = subprocess.Popen(['./strip-debug.sh'], shell=True)
-					                p.wait()
-				        	        p = subprocess.Popen(['./backup.sh base-system-with-xserver n'], shell=True)
-					        	p.wait()
-						else:
-					                print 'X-Server backup already present. Not backing up again.'
-					except:
-					        print 'Error occured while backing up base-system-with-xserver. Aborting.'
-					        exit()
+		                p = subprocess.Popen(['./strip-debug.sh'], shell=True)
+		                p.wait()
 			except:
 				print 'Error occured in the installation of x-server'
 				exit()
@@ -282,24 +248,8 @@ def freshBuild(startFrom):
 				if os.path.exists('/sources/distro-build.sh'):
 					runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/executioner.sh', getParamValue('USERNAME'), '/sources/distro-build.sh']);
 				startFrom = startFrom + 1
-				if getParamValue('CREATE_BACKUPS') == 'y' or getParamValue('CREATE_BACKUPS') == 'Y':
-					try:
-				        	files = os.listdir('/mnt/lfs/sources/')
-					        found = False
-					        for file in files:
-					                if file.startswith('aryalinux') and 'base-system-with-' + desktopEnv in file and file.endswith('.tar.gz'):
-				        	                found = True
-				                	        break
-					        if not found:
-					                p = subprocess.Popen(['./strip-debug.sh'], shell=True)
-					                p.wait()
-				        	        p = subprocess.Popen(['./backup.sh base-system-with-' + desktopEnv + ' n'], shell=True)
-				                	p.wait()
-					        else:
-					                print 'Desktop environment backup already present. Not backing up again.'
-					except:
-					        print 'Error occured while backing up base-system-with-' + desktopEnv + '. Aborting.'
-					        exit()
+		                p = subprocess.Popen(['./strip-debug.sh'], shell=True)
+		                p.wait()
 			except:
 				print 'Error occured in the installation of desktop environment'
 				exit()
