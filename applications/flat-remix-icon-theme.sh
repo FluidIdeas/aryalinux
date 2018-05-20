@@ -18,7 +18,7 @@ cd $SOURCE_DIR
 
 URL=https://sourceforge.net/projects/aryalinux-bin/files/artifacts/flat-remix-icon-theme.tar.xz
 TARBALL=flat-remix-icon-theme.tar.xz
-wget -c $URL
+wget -nc $URL
 sudo tar xf $TARBALL -C /
 
 cd $SOURCE_DIR
