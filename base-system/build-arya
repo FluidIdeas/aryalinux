@@ -49,7 +49,7 @@ def runScript(script, cwd):
 def runScriptWithArgs(script, cwd, args):
 	lst = ['/bin/bash', script]
 	lst.extend(args)
-	process = subprocess.Popen(lst, cwd=cwd, shell=True)
+	process = subprocess.Popen(lst, cwd=cwd)
 	result = process.wait()
 	if result != 0:
 		exit()
