@@ -22,12 +22,14 @@ cd $SOURCE_DIR
 
 URL="https://download.gnome.org/sources/rhythmbox/3.4/rhythmbox-3.4.2.tar.xz"
 wget -nc $URL
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.0/rhythmbox-3.4.2-gstreamer.patch
 TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
+patch -Np1 -i ../rhythmbox-3.4.2-gstreamer.patch &&
 ./configure --prefix=/usr --with-mtp --with-ipod &&
 make "-j`nproc`"
 sudo make install
