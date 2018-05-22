@@ -47,10 +47,7 @@ def runScript(script, cwd):
 		exit()
 
 def runScriptWithArgs(script, cwd, args):
-	if len(args) > 3 and args[3] == 'debug':
-		lst = ['/bin/bash', script, 'debug']
-	else:
-		lst = ['/bin/bash', script]
+	lst = ['/bin/bash', script]
 	lst.extend(args)
 	process = subprocess.Popen(lst, cwd=cwd)
 	result = process.wait()
@@ -240,11 +237,9 @@ def freshBuild(startFrom):
 					desktopEnv = 'gnome'
 					print 'Installing ' + desktopEnv
 					subprocess.Popen(('/bin/bash ./prepare-overlay.sh ' + desktopEnv).split()).communicate()
-					runScriptWithArgs('./enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'gnome-desktop-environment', 'debug']);
-				print ('About to run distro-build.sh')
+					runScriptWithArgs('./enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'gnome-desktop-environment']);
 				if os.path.exists('/sources/distro-build.sh') or os.path.exists('/mnt/lfs/opt/x-server/sources/distro-build.sh') or os.path.exists('/mnt/lfs/opt/gnome/sources/distro-build.sh'):
-					print ('Running distro-build.sh...')
-					runScriptWithArgs('./enteral.sh', '/sources', ['/sources/apps/executioner.sh', getParamValue('USERNAME'), '/sources/distro-build.sh', 'debug']);
+					runScriptWithArgs('./enteral.sh', '/sources', ['/sources/apps/executioner.sh', getParamValue('USERNAME'), '/sources/distro-build.sh']);
 				startFrom = startFrom + 1
 			except:
 				print 'Error occured in the installation of desktop environment'
