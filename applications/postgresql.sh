@@ -67,9 +67,7 @@ make "-j`nproc`" || make
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make install      &&
-make install-docs
-
+make install
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
@@ -81,7 +79,6 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 install -v -dm700 /srv/pgsql/data &&
 install -v -dm755 /run/postgresql &&
 chown -Rv postgres:postgres /srv/pgsql /run/postgresql
-
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
@@ -91,7 +88,6 @@ sudo rm rootscript.sh
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 su - postgres -c '/usr/bin/initdb -D /srv/pgsql/data'
-
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
@@ -120,16 +116,11 @@ sudo rm rootscript.sh
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 su - postgres -c '/usr/bin/postgres -D /srv/pgsql/data > \
-                  /srv/pgsql/data/logfile 2>&1 &'
-
+                  /srv/pgsql/data/logfile 2>&1 & sleep 5'
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
-
-
-sleep 5
-clear
 
 
 
