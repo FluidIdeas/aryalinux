@@ -110,46 +110,6 @@ sudo rm rootscript.sh
 
 
 
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-su postgres -c '/usr/bin/postgres -D /srv/pgsql/data > \
-                  /srv/pgsql/data/logfile 2>&1 & sleep 5'
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-su postgres -c '/usr/bin/createdb test' &&
-echo "create table t1 ( name varchar(20), state_province varchar(20) );" \
-    | (su postgres -c '/usr/bin/psql test ') &&
-echo "insert into t1 values ('Billy', 'NewYork');" \
-    | (su postgres -c '/usr/bin/psql test ') &&
-echo "insert into t1 values ('Evanidus', 'Quebec');" \
-    | (su postgres -c '/usr/bin/psql test ') &&
-echo "insert into t1 values ('Jesse', 'Ontario');" \
-    | (su postgres -c '/usr/bin/psql test ') &&
-echo "select * from t1;" | (su - postgres -c '/usr/bin/psql test')
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-su postgres -c "/usr/bin/pg_ctl stop -D /srv/pgsql/data"
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-
-
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
