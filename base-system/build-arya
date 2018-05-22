@@ -47,7 +47,10 @@ def runScript(script, cwd):
 		exit()
 
 def runScriptWithArgs(script, cwd, args):
-	lst = ['/bin/bash', script]
+	if len(args) > 3 and args[3] == 'debug':
+		lst = ['/bin/bash', script, 'debug']
+	else:
+		lst = ['/bin/bash', script]
 	lst.extend(args)
 	process = subprocess.Popen(lst, cwd=cwd)
 	result = process.wait()
