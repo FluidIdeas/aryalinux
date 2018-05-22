@@ -112,10 +112,10 @@ patch -Np1 -i ../libreoffice-$VERSION_MAJOR.$VERSION_MINOR-poppler64-1.patch
 
 export LO_PREFIX=/usr
 
-./autogen.sh --prefix=$         \
+./autogen.sh --prefix=$LO_PREFIX         \
              --sysconfdir=/etc           \
-             --with-vendor=AryaLinux          \
-             --with-lang='ALL'      \
+             --with-vendor=AryaLinux     \
+             --with-lang='ALL'           \
              --with-help                 \
              --with-myspell-dicts        \
              --with-alloc=system         \
