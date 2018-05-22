@@ -76,6 +76,7 @@ then
 wget -nc $URL
 wget -nc $PARENT_DIR_URL/libreoffice-dictionaries-$VERSION.tar.xz
 wget -nc $PARENT_DIR_URL/libreoffice-translations-$VERSION.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.0/libreoffice-$VERSION_MAJOR.$VERSION_MINOR-poppler64-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
