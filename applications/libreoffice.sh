@@ -46,6 +46,7 @@ NAME="libreoffice"
 #REC:openssl10
 #REC:gnutls
 #REC:poppler
+#REC:postgresql
 #REC:python3
 #REC:redland
 #REC:serf
