@@ -43,7 +43,7 @@ NAME="libreoffice"
 #REC:neon
 #REC:nss
 #REC:openldap
-#REC:openssl
+#REC:openssl10
 #REC:gnutls
 #REC:poppler
 #REC:python3

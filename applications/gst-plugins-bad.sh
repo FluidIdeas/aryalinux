@@ -12,7 +12,7 @@ VERSION="0.10.23"
 #REC:faac
 #REC:libpng
 #REC:libvpx
-#REC:openssl
+#REC:openssl10
 #REC:xvid
 #OPT:curl
 #OPT:faad2

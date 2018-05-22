@@ -30,7 +30,7 @@ the major users of Qt is KDE Frameworks 5 (KF5)."
 #REC:mesa
 #REC:mtdev
 #REC:nss
-#REC:openssl
+#REC:openssl10
 #REC:pcre
 #REC:sqlite
 #REC:wayland
