@@ -48,10 +48,10 @@ whoami > /tmp/currentuser
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-groupadd -g 41 postgres &&
-useradd -c "PostgreSQL Server" -g postgres -d /srv/pgsql/data \
+getent group postgres || groupadd -g 41 postgres &&
+getent passwd postgres || useradd -c "PostgreSQL Server" -g postgres -d /srv/pgsql/data \
         -u 41 postgres
-
+rm -rf /srv/pgsql/data/*
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
