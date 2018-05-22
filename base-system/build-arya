@@ -238,7 +238,9 @@ def freshBuild(startFrom):
 					print 'Installing ' + desktopEnv
 					subprocess.Popen(('/bin/bash ./prepare-overlay.sh ' + desktopEnv).split()).communicate()
 					runScriptWithArgs('./enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'gnome-desktop-environment']);
+				print ('About to run distro-build.sh')
 				if os.path.exists('/sources/distro-build.sh') or os.path.exists('/mnt/lfs/opt/x-server/sources/distro-build.sh') or os.path.exists('/mnt/lfs/opt/gnome/sources/distro-build.sh'):
+					print ('Running distro-build.sh...')
 					runScriptWithArgs('./enteral.sh', '/sources', ['/sources/apps/executioner.sh', getParamValue('USERNAME'), '/sources/distro-build.sh']);
 				startFrom = startFrom + 1
 			except:
