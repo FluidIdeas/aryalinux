@@ -103,11 +103,17 @@ ln -sv ../../../libreoffice-translations-$VERSION_MAJOR.$VERSION_MINOR.tar.xz ex
 sed -e "/gzip -f/d"   \
     -e "s|.1.gz|.1|g" \
     -i bin/distro-install-desktop-integration &&
+
 sed -e "/distro-install-file-lists/d" -i Makefile.in &&
-./autogen.sh --prefix=/usr               \
+
+patch -Np1 -i ../libreoffice-$VERSION_MAJOR.$VERSION_MINOR-poppler64-1.patch
+
+export LO_PREFIX=/usr
+
+./autogen.sh --prefix=$         \
              --sysconfdir=/etc           \
-             --with-vendor=AryaLinux     \
-             --with-lang="$LANGUAGE"     \
+             --with-vendor=AryaLinux          \
+             --with-lang='ALL'      \
              --with-help                 \
              --with-myspell-dicts        \
              --with-alloc=system         \
@@ -115,7 +121,6 @@ sed -e "/distro-install-file-lists/d" -i Makefile.in &&
              --without-system-dicts      \
              --disable-dconf             \
              --disable-odk               \
-             --disable-firebird-sdbc     \
              --enable-release-build=yes  \
              --enable-python=system      \
              --with-system-apr           \
@@ -138,23 +143,35 @@ sed -e "/distro-install-file-lists/d" -i Makefile.in &&
              --with-system-openldap      \
              --with-system-openssl       \
              --with-system-poppler       \
-             --disable-postgresql-sdbc   \
-             --without-java              \
+             --with-system-postgresql    \
              --with-system-redland       \
              --with-system-serf          \
              --with-system-zlib
 
 
-make build-nocheck
+CPPFLAGS='-DU_USING_ICU_NAMESPACE=1' make build-nocheck
 sudo make distro-pack-install
+
+if [ "$LO_PREFIX" != "/usr" ]; then
+      ln -svf $LO_PREFIX/lib/libreoffice/program/soffice /usr/bin/libreoffice &&
+
+      mkdir -vp /usr/share/pixmaps
+      for i in $LO_PREFIX/share/icons/hicolor/32x32/apps/*; do
+            ln -svf $i /usr/share/pixmaps
+      done &&
+
+      for i in $LO_PREFIX/lib/libreoffice/share/xdg/*; do
+            ln -svf $i /usr/share/applications/libreoffice-$(basename $i)
+      done &&
+
+      for i in $LO_PREFIX/share/man/man1/*; do
+            ln -svf $i /usr/share/man/man1/
+      done
+
+      unset i
+fi
+
 sudo update-desktop-database
-
-# Create the package
-
-sudo make distro-pack-install DESTDIR=$BINARY_DIR/libreoffice-$VERSION-$(uname -m)
-pushd $BINARY_DIR/libreoffice-$VERSION-$(uname -m)
-sudo tar -cJvf $BINARY_DIR/libreoffice-$VERSION-$(uname -m).tar.xz *
-popd
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
