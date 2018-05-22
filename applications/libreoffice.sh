@@ -147,6 +147,7 @@ export LO_PREFIX=/usr
              --with-system-postgresql    \
              --with-system-redland       \
              --with-system-serf          \
+             --without-java              \
              --with-system-zlib
 
 
