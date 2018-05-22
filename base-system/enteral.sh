@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ "$4" == "debug" ]; then
+	sudo mount
+fi
+
 ./umountal.sh
 
 RUNASUSER="$2"
