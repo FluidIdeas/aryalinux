@@ -145,7 +145,7 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-su - postgres -c "/usr/bin/pg_ctl stop -D /srv/pgsql/data"
+su postgres -c "/usr/bin/pg_ctl stop -D /srv/pgsql/data"
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
