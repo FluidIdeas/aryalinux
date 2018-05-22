@@ -82,7 +82,7 @@ sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 install -v -dm700 /srv/pgsql/data &&
 install -v -dm755 /run/postgresql &&
 chown -Rv postgres:postgres /srv/pgsql /run/postgresql
-su postgres -c '/usr/bin/initdb -D /srv/pgsql/data' &
+su postgres -c '/usr/bin/initdb -D /srv/pgsql/data'
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
