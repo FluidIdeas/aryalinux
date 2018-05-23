@@ -238,7 +238,7 @@ def freshBuild(startFrom):
 					print 'Installing ' + desktopEnv
 					subprocess.Popen(('/bin/bash ./prepare-overlay.sh ' + desktopEnv).split()).communicate()
 					runScriptWithArgs('./enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'gnome-desktop-environment'])
-				runScriptWithArgs('./finalizer.sh', '/sources', [])
+				subprocess.Popen('/bin/bash ./finalizer.sh'.split()).communicate()
 				startFrom = startFrom + 1
 			except:
 				print 'Error occured in the installation of desktop environment'
