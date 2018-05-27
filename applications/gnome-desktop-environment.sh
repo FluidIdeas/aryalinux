@@ -84,7 +84,6 @@ DESCRIPTION="GNOME is a desktop environment that is composed entirely of free an
 #REQ:gnome-power-manager
 #REQ:gnome-system-monitor
 #REQ:gnome-terminal
-#REQ:gnome-tweak-tool
 #REQ:gnome-weather
 #REQ:gucharmap
 #REQ:network-manager-applet
