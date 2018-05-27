@@ -6,6 +6,8 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#REQ:libgcrypt
+
 NAME="vpnc"
 VERSION="0.5.3"
 
