@@ -2,6 +2,43 @@
 
 PATH=/bin:/usr/bin:/sbin:/usr/sbin
 export PATH
+do_upgrade()
+{
+  echo "Starting upgrade..."
+  ISO_PATH=$(find /.root/updates -name "aryalinux*iso")
+  ISO_MOUNTPOINT="/mnt/mountpoint"
+  mkdir -p $ISO_MOUNTPOINT
+  mount -ro -o loop $ISO_PATH $ISO_MOUNTPOINT
+  touch /.root/upgrade-in-progress
+  unsquashfs -f -d /.root $ISO_PATH
+  rm /.root/upgrade-in-progress
+  umount $ISO_MOUNTPOINT
+  rm ISO_PATH
+  echo "Upgrade complete."
+}
+apply_updates()
+{
+  echo "Applying updates. Please wait..."
+  for d in /.root/updates; do
+    if [ -d $d ]; then
+      if [ -f /.root/updates/$d/info ]; then
+        update_info=$(cat /.root/updates/$d/info)
+      fi
+      echo "Processing update $update_info..."
+      if [ -f /.root/updates/$d/update.tar.xz ]; then
+        if [ -f /.root/updates/$d/layer ]; then
+          layer=$(cat /.root/updates/$d/layer)
+        else
+          layer="base"
+        fi
+        if [ "x$layer" == "x" ] || [ "x$layer" == "xbase" ]; then
+          tar xf /.root/updates/$d/update.tar.xz -C /.root
+          rm -r /.root/updates/$d
+        fi
+      fi
+    fi
+  done
+}
 problem()
 {
    printf "Encountered a problem!\n\nDropping you to a shell.\n\n"
@@ -43,6 +80,18 @@ do_mount_root()
        cat /proc/partitions
        while true ; do sleep 10000 ; done
    else
+    # Check and apply any pending distro-update
+    if [ -f /.root/upgrade-in-progress ]; then
+      do_upgrade
+    fi
+    if [ -f /.root/updates/aryalinux*iso ]; then
+      read -p "Distro update pending. Do you want to do perform the update now? (Y/n) " response
+      if [ "x$response" == "xy" ] || [ "x$response" == "xY" ] || [ "x$response" == "x" ]; then
+        do_upgrade
+      fi
+    fi
+    # Check and apply any pending update for a given layer
+    apply_updates
 	# Now that we mounted root, lets overlay
 	BASE="/.root"
 	XSERVER_DIR="$BASE/opt/x-server"
