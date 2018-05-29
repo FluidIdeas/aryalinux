@@ -48,11 +48,7 @@ NAME="qt5"
 cd $SOURCE_DIR
 
 URL=http://aryalinux.com/files/binaries/qt-5.10.1-x86_64.tar.xz
-
-if [ ! -z $URL ]
-then
 wget -nc $URL
-
 TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 sudo tar xf $TARBALL -C /
 sudo mkdir -pv /opt/qt-5.10.1
