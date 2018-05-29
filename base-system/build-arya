@@ -242,8 +242,7 @@ def freshBuild(startFrom):
 			except:
 				print 'Error occured in the installation of desktop environment'
 				exit()
-	p = subprocess.Popen('./enteral.sh ./finalizer.sh'.split()).communicate()
-	p.wait()
+	runScriptWithArgs('./enteral.sh', '/sources', ['./finalizer.sh', getParamValue('USERNAME')])
         p = subprocess.Popen(['./strip-debug.sh'], shell=True)
         p.wait()
 	if getParamValue('CREATE_LIVE_ISO') == 'y' or getParamValue('CREATE_LIVE_ISO') == 'Y':
