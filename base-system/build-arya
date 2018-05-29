@@ -238,11 +238,12 @@ def freshBuild(startFrom):
 					print 'Installing ' + desktopEnv
 					subprocess.Popen(('/bin/bash ./prepare-overlay.sh ' + desktopEnv).split()).communicate()
 					runScriptWithArgs('./enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'gnome-desktop-environment'])
-				subprocess.Popen('/bin/bash ./finalizer.sh'.split()).communicate()
 				startFrom = startFrom + 1
 			except:
 				print 'Error occured in the installation of desktop environment'
 				exit()
+	p = subprocess.Popen('./enteral.sh ./finalizer.sh'.split()).communicate()
+	p.wait()
         p = subprocess.Popen(['./strip-debug.sh'], shell=True)
         p.wait()
 	if getParamValue('CREATE_LIVE_ISO') == 'y' or getParamValue('CREATE_LIVE_ISO') == 'Y':
