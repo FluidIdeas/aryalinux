@@ -127,6 +127,7 @@ turnOn CONFIG_AUFS_BR_RAMFS
 turnOn CONFIG_AUFS_BDEV_LOOP
 turnOff CONFIG_AUFS_DEBUG
 
+
 turnOn CONFIG_ISO9660_FS
 turnOn CONFIG_AUFS_BR_HFSPLUS
 turnOff CONFIG_RANDOMIZE_BASE
@@ -201,9 +202,7 @@ make install
 cd /sources
 rm -rf $FIRMWARE_DIR
 
-# dracut -f /boot/initrd.img-$LINUX_VERSION `ls /lib/modules`
-mkinitramfs $(ls /lib/modules)
-mv initrd.img* /boot/
+dracut -f /boot/initrd.img-$LINUX_VERSION `ls /lib/modules`
 
 echo "$STEPNAME" | tee -a $LOGFILE
 

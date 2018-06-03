@@ -173,8 +173,8 @@ for device in $(ls /dev); do
         DEVICE="${device}"
         break
     fi
-	busybox clear
-	echo "Loading AryaLinux. Please wait..."
+    busybox clear
+    echo "Loading AryaLinux. Please wait..."
 done
 
 if [ "${DEVICE}" == "" ]; then
@@ -189,19 +189,19 @@ mount -t squashfs -o ro,loop /mnt/medium/aryalinux/root.sfs /mnt/system || {
 }
 
 if [ -d /mnt/system/opt/x-server ]; then
-	echo "x-server found.."
-	if [ -d /mnt/system/opt/desktop-environment ]; then
-		echo "desktop-environment found.."
-		mount -t overlay -olowerdir=/mnt/system/opt/desktop-environment:/mnt/system/opt/x-server:/mnt/system,workdir=/mnt/system/tmp overlay /mnt/system || {
-			echo "Could not mount desktop-environment and x-server"
-			/bin/busybox sh
-		}
-	else
-		mount -t overlay -olowerdir=/mnt/system/opt/x-server:/mnt/system,workdir=/mnt/system/tmp overlay /mnt/system || {
-			echo "Could not mount x-server"
-			/bin/busybox sh
-		}
-	fi
+    echo "x-server found.."
+    if [ -d /mnt/system/opt/desktop-environment ]; then
+        echo "desktop-environment found.."
+        mount -t overlay -olowerdir=/mnt/system/opt/desktop-environment:/mnt/system/opt/x-server:/mnt/system,workdir=/mnt/system/tmp overlay /mnt/system || {
+            echo "Could not mount desktop-environment and x-server"
+            /bin/busybox sh
+        }
+    else
+        mount -t overlay -olowerdir=/mnt/system/opt/x-server:/mnt/system,workdir=/mnt/system/tmp overlay /mnt/system || {
+            echo "Could not mount x-server"
+            /bin/busybox sh
+        }
+    fi
 fi
 
 busybox clear
