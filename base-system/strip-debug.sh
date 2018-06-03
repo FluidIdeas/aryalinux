@@ -3,8 +3,6 @@
 set -e
 set +h
 
-if [ ! -f /sources/.stripped ]; then
-
 ( ./umountal.sh && echo "Unmounted partition before performing actions..." ) || ( echo "Nothing mounted. Continuing..." )
 
 . ./build-properties
@@ -12,7 +10,7 @@ if [ ! -f /sources/.stripped ]; then
 export LFS=/mnt/lfs
 mkdir -pv $LFS
 
-# mount $ROOT_PART $LFS
+mount $ROOT_PART $LFS
 
 cat > $LFS/tools/bin/stripdebug <<"EOF"
 
@@ -74,7 +72,3 @@ PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
 # Unmount everything except the root partition
 
 ./umountal.sh
-
-touch /sources/.stripped
-
-fi
