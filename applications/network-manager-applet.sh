@@ -21,6 +21,7 @@ NAME="network-manager-applet"
 #REQ:ModemManager
 #REC:gobject-introspection
 #REC:ModemManager
+#REQ:gtk-doc
 #OPT:gc
 #OPT:gnome-bluetooth
 
