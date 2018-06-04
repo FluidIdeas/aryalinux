@@ -25,7 +25,7 @@ TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 
 wget -nc $URL
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
-unzip -o $TARBALL
+tar xf $TARBALL
 cd $DIRECTORY
 
 make
