@@ -22,6 +22,8 @@ DESCRIPTION="Compton is a compositor for X, and a fork of xcompmgr-dana"
 cd $SOURCE_DIR
 URL="https://github.com/chjj/compton/archive/v0.1_beta2.tar.gz"
 TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
+
+wget -nc $URL
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 unzip -o $TARBALL
 cd $DIRECTORY
