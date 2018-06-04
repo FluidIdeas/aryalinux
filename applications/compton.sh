@@ -29,7 +29,7 @@ tar xf $TARBALL
 cd $DIRECTORY
 
 make
-sudo make MANPAGES= install
+sudo make install
 mkdir -pv ~/.config
 sudo mkdir -pv /etc/skel/.config
 sed -i 's/menu-opacity = 0.8;/menu-opacity = 1.0;/g' compton.sample.conf
