@@ -10,6 +10,7 @@ NAME="xfce4-screenshooter"
 VERSION="1.9.2"
 
 #REQ:libsoup
+#REQ:xfce4-dev-tools
 
 KDE_PREFIX=/usr
 cd $SOURCE_DIR
