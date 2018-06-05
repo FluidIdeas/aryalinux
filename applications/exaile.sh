@@ -11,10 +11,11 @@ VERSION="4.0.0"
 
 NAME="exaile"
 
-#REQ:gst-plugins-base
-#REQ:gst-plugins-good
-#REQ:gst-plugins-bad
-#REQ:gst-plugins-ugly
+#REQ:gst10-plugins-base
+#REQ:gst10-plugins-good
+#REQ:gst10-plugins-bad
+#REQ:gst10-plugins-ugly
+#REQ:gst10-libav
 #REQ:mutagen
 
 cd $SOURCE_DIR
