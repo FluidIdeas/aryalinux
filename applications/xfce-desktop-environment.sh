@@ -71,6 +71,11 @@ VERSION=4.12
 #REQ:usb_modeswitch
 #REQ:compton
 
+#REQ:arc-gtk-theme
+#REQ:breeze-gtk-theme
+#REQ:greybird-gtk-theme
+#REQ:numix-icons
+
 cd $SOURCE_DIR
 wget -nc http://aryalinux.com/files/binaries/aryalinux-xfce-config.tar.gz
 tar xf aryalinux-xfce-config.tar.gz -C ~
