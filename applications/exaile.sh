@@ -7,21 +7,18 @@ set +h
 . /var/lib/alps/functions
 
 NAME="exaile"
-VERSION="3.4.5"
+VERSION="4.0.0"
 
 NAME="exaile"
 
-#REQ:gstreamer-0.10
-#REQ:gstreamer-0.10-plugins-base
-#REQ:gstreamer-0.10-plugins-good
-#REQ:gstreamer-0.10-plugins-bad
-#REQ:gstreamer-0.10-plugins-ugly
-#REQ:gstreamer-0.10-ffmpeg
+#REQ:gst-plugins-base
+#REQ:gst-plugins-good
+#REQ:gst-plugins-bad
+#REQ:gst-plugins-ugly
 #REQ:mutagen
-#REQ:gstreamer-0.10-python
 
 cd $SOURCE_DIR
-URL="http://archive.ubuntu.com/ubuntu/pool/universe/e/exaile/exaile_3.4.5.orig.tar.gz"
+URL="https://github.com/exaile/exaile/releases/download/4.0.0-beta3/exaile-4.0.0beta3.tar.gz"
 wget -nc $URL
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
