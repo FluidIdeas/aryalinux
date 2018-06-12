@@ -23,9 +23,13 @@ tar -xf $TARBALL
 
 cd $DIRECTORY
 
-./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static &&
-make
-sudo make install
+mkdir build &&
+cd    build &&
+meson --prefix=/usr         \
+      --sysconfdir=/etc     \
+      --localstatedir=/var &&
+ninja
+sudo ninja install
 
 cd $SOURCE_DIR
 cleanup "$NAME" "$DIRECTORY"
