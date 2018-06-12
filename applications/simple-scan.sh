@@ -6,7 +6,7 @@ set +h
 . /var/lib/alps/functions
 
 NAME="simple-scan"
-VERSION="3.17.90"
+VERSION="3.25.1"
 
 #REQ:packagekit
 #REQ:sane
@@ -14,7 +14,7 @@ VERSION="3.17.90"
 
 cd $SOURCE_DIR
 
-URL=https://launchpad.net/simple-scan/3.17/3.17.90/+download/simple-scan-3.17.90.tar.xz
+URL=https://launchpad.net/simple-scan/3.25/3.25.1/+download/simple-scan-3.25.1.tar.xz
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | sed -e 's@/.*@@' | uniq `
