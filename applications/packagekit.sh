@@ -6,13 +6,13 @@ set +h
 . /var/lib/alps/functions
 
 NAME="PackageKit"
-VERSION="1.1.1"
+VERSION="1.1.10"
 
 #REQ:bash-completion
 
 cd $SOURCE_DIR
 
-URL=https://www.freedesktop.org/software/PackageKit/releases/PackageKit-1.1.1.tar.xz
+URL=https://www.freedesktop.org/software/PackageKit/releases/PackageKit-1.1.10.tar.xz
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | sed -e 's@/.*@@' | uniq `
