@@ -104,7 +104,7 @@ DESCRIPTION="GNOME is a desktop environment that is composed entirely of free an
 #REQ:flat-remix-icon-theme
 #REQ:numix-icons
 #REQ:aryalinux-gnome-settings
-#REQ:lightdm-gtk-greeter
+#OPT:lightdm-gtk-greeter
 
 pushd $SOURCE_DIR
 wget https://raw.githubusercontent.com/FluidIdeas/utils/master/wallpaper-list-update.sh
@@ -113,8 +113,8 @@ sudo ./wallpaper-list-update.sh
 sudo rm wallpaper-list-update.sh
 popd
 
-sudo systemctl disable gdm
-sudo systemctl enable lightdm
+sudo systemctl enable gdm
+# sudo systemctl enable lightdm
 
 sudo rm -rf /etc/X11/xorg.conf.d/*
 
