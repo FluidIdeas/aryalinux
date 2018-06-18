@@ -11,8 +11,8 @@ pushd ~/sources
 wget -nc https://github.com/dosfstools/dosfstools/releases/download/v4.1/dosfstools-4.1.tar.xz
 wget -nc http://ftp.gnu.org/gnu/which/which-2.21.tar.gz
 wget -nc http://mirrors.ocf.berkeley.edu/tanglu/pool/main/o/os-prober/os-prober_1.71.tar.xz
-wget -nc https://github.com/rhboot/efivar/releases/download/31/efivar-31.tar.bz2
-wget -nc https://github.com/rhboot/efibootmgr/releases/download/14/efibootmgr-14.tar.bz2
+wget -nc https://github.com/rhboot/efivar/releases/download/36/efivar-36.tar.bz2
+wget -nc https://github.com/rhboot/efibootmgr/releases/download/16/efibootmgr-16.tar.bz2
 wget -nc https://downloads.sourceforge.net/freetype/freetype-2.9.tar.bz2
 wget -nc http://unifoundry.com/pub/unifont-7.0.05/font-builds/unifont-7.0.05.pcf.gz
 wget -nc https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.5.5.tar.xz
@@ -43,7 +43,7 @@ rm -r dracut-master
 rm -r master.zip
 
 wget -nc https://sourceware.org/ftp/lvm2/releases/LVM2.2.02.171.tgz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs-4.16.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs-4.17.tar.gz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs4-base.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs4-kbuild.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs4-loopback.patch

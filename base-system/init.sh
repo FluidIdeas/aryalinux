@@ -104,7 +104,6 @@ done
 
 busybox clear
 echo "Loading AryaLinux. Please wait..."
-sleep 3
 
 # Clear the screen
 #clear # Don't! This will clear the Linux boot logo when using a framebuffer.
