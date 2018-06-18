@@ -32,6 +32,7 @@ URL=http://ftp.gnome.org/pub/gnome/sources/file-roller/3.28/file-roller-3.28.0.t
 if [ ! -z $URL ]
 then
 wget -nc http://ftp.gnome.org/pub/gnome/sources/file-roller/3.28/file-roller-3.28.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/file-roller/file-roller-3.28.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/file-roller/file-roller-3.28.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/file-roller/file-roller-3.28.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/file-roller/file-roller-3.28.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/file-roller/file-roller-3.28.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/file-roller/file-roller-3.28.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/file-roller/3.28/file-roller-3.28.0.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/b420fa2771b8f11d89e01d2669c58bf3bcc50b58/file-roller-3.28.0-unicode.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -46,6 +47,7 @@ fi
 
 whoami > /tmp/currentuser
 
+patch -Np1 -i ../file-roller-3.28.0-unicode.patch
 mkdir build &&
 cd    build &&
 meson --prefix=/usr -Dpackagekit=false .. &&
