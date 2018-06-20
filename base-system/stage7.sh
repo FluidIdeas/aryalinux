@@ -128,7 +128,7 @@ cat > /etc/fstab << EOF
 # file system  mount-point  type     options             dump  fsck
 #                                                              order
 
-# UUID=$ROOT_PART_BY_UUID     /            ext4     defaults            1     1
+UUID=$ROOT_PART_BY_UUID     /            ext4     defaults            1     1
 EOF
 
 if [ "x$SWAP_PART_BY_UUID" != "x" ]

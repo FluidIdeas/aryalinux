@@ -80,13 +80,12 @@ cd /
 # in the kernel, which can only be accomplished by patching the kernel as there
 # is no such feature in a vanilla kernel.
 
-mkdir -p /mnt/writable
-mount -t tmpfs -o rw tmpfs /mnt/writable
+mkdir -p /mnt/tmpdir
+mount -t tmpfs -o rw tmpfs /mnt/tmpdir
+mkdir -p /mnt/tmpdir/writable
+mkdir -p /mnt/tmpdir/workdir
 
-UNIONFSOPT="/mnt/writable=rw:/mnt/system=ro"
-AUFSOPT="/mnt/writable=rw:/mnt/system=ro"
-mount -t unionfs -o dirs=${UNIONFSOPT} unionfs ${ROOT} 2> /dev/null || \
-mount -t aufs -o br=${AUFSOPT} none ${ROOT} 2> /dev/null || \
+mount -t overlay overlay -oupperdir=/mnt/tmpdir/writable,lowerdir=/mnt/system,workdir=/mnt/tmpdir/workdir ${ROOT} || \
 {
     # If UnionFS fails, fall back to copy/bind mounting
     copyBindMount
@@ -104,6 +103,7 @@ done
 
 busybox clear
 echo "Loading AryaLinux. Please wait..."
+sleep 3
 
 # Clear the screen
 #clear # Don't! This will clear the Linux boot logo when using a framebuffer.
@@ -187,6 +187,22 @@ mount -t squashfs -o ro,loop /mnt/medium/aryalinux/root.sfs /mnt/system || {
     echo "FATAL: Boot medium found, but system image is missing."
     /bin/busybox sh
 }
+
+if [ -d /mnt/system/opt/x-server ]; then
+	echo "x-server found.."
+	if [ -d /mnt/system/opt/desktop-environment ]; then
+		echo "desktop-environment found.."
+		mount -t overlay -olowerdir=/mnt/system/opt/desktop-environment:/mnt/system/opt/x-server:/mnt/system,workdir=/mnt/system/tmp overlay /mnt/system || {
+			echo "Could not mount desktop-environment and x-server"
+			/bin/busybox sh
+		}
+	else
+		mount -t overlay -olowerdir=/mnt/system/opt/x-server:/mnt/system,workdir=/mnt/system/tmp overlay /mnt/system || {
+			echo "Could not mount x-server"
+			/bin/busybox sh
+		}
+	fi
+fi
 
 busybox clear
 echo "Loading AryaLinux. Please wait..."

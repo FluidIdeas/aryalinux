@@ -9,7 +9,7 @@ export MAKEFLAGS="-j `nproc`"
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="007-efibootmgr.sh"
-TARBALL="efibootmgr-16.tar.bz2"
+TARBALL="efibootmgr-14.tar.bz2"
 
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null
 then
@@ -23,8 +23,7 @@ then
 	cd $DIRECTORY
 fi
 
-patch -Np1 -i ../efibootmgr-16-efidir.patch
-make
+CFLAGS="-Wno-error=duplicate-decl-specifier" make
 install -v -D -m0755 src/efibootmgr /usr/sbin/efibootmgr
 install -v -D -m0644 src/efibootmgr.8 \
 	/usr/share/man/man8/efibootmgr.8

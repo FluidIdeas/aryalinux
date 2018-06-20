@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./umountal.sh &> /dev/null
+# ./umountal.sh &> /dev/null
 
 RUNASUSER="$2"
 COMMAND="$1"
@@ -29,14 +29,26 @@ then
 	swapon -v $SWAP_PART
 fi
 
-mount -v --bind /dev $LFS/dev
+if ! mount | grep "udev on $LFS/dev"; then
+	mount -v --bind /dev $LFS/dev
+fi
 
-mount -vt devpts devpts $LFS/dev/pts -o gid=5,mode=620
-mount -vt proc proc $LFS/proc
-mount -vt sysfs sysfs $LFS/sys
-mount -vt tmpfs tmpfs $LFS/run
+if ! mount | grep "devpts on $LFS/dev/pts"; then
+	mount -vt devpts devpts $LFS/dev/pts -o gid=5,mode=620
+fi
+if ! mount | grep "proc on $LFS/proc"; then
+	mount -vt proc proc $LFS/proc
+fi
+if ! mount | grep "sysfs on $LFS/sys"; then
+	mount -vt sysfs sysfs $LFS/sys
+fi
+if ! mount | grep "tmpfs on $LFS/run"; then
+	mount -vt tmpfs tmpfs $LFS/run
+fi
 
-mount -vt tmpfs tmpfs $LFS/dev/shm
+if ! mount | grep "tmpfs on $LFS/dev/shm"; then
+	mount -vt tmpfs tmpfs $LFS/dev/shm
+fi
 
 chroot "$LFS" /usr/bin/env -i              \
     HOME=/root TERM="$TERM" PS1='\u:\w\$ ' \

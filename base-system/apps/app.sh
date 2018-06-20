@@ -8,8 +8,7 @@ PACKAGE="$2"
 
 alps selfupdate
 alps updatescripts
-
-su - $USERNAME -c "PKG_BUILDER=$1 alps install --options nr --packages $PACKAGE"
+su - $USERNAME -c "PKG_BUILDER=$1 alps install-no-prompt $PACKAGE"
 if ! grep "$PACKAGE" /etc/alps/installed-list &> /dev/null
 then
 	echo "Application installation incomplete ($PACKAGE). Aborting..."

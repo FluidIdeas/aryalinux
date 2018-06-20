@@ -9,6 +9,9 @@ umount $LFS/sys &> /dev/null
 umount $LFS/proc &> /dev/null
 umount $LFS/run &> /dev/null
 umount $LFS/home &> /dev/null
+if mount | grep "overlay on $LFS" &> /dev/null; then
+	umount $LFS
+fi
 umount $LFS &> /dev/null
 
 exit 0
