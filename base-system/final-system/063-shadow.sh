@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="063-shadow.sh"
-TARBALL="shadow-4.5.tar.xz"
+TARBALL="shadow-4.6.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 

@@ -54,27 +54,27 @@ done
 else
 
 if [ "x$INSTALL_DESKTOP_ENVIRONMENT" == "xy" ]; then
-	if [ "x$DESKTOP_ENVIRONMENT" == "x1" ]; then
-		DE="XFCE"
-	elif [ "x$DESKTOP_ENVIRONMENT" == "x2" ]; then
-		DE="Mate";
-	elif [ "x$DESKTOP_ENVIRONMENT" == "x3" ]; then
-		DE="KDE5"
-	elif [ "x$DESKTOP_ENVIRONMENT" == "x4" ]; then
-		DE="GNOME"
-	else
-		DE="Builder"
-	fi
-	LABEL="$OS_NAME $DE $OS_VERSION"
+    if [ "x$DESKTOP_ENVIRONMENT" == "x1" ]; then
+        DE="XFCE"
+    elif [ "x$DESKTOP_ENVIRONMENT" == "x2" ]; then
+        DE="Mate";
+    elif [ "x$DESKTOP_ENVIRONMENT" == "x3" ]; then
+        DE="KDE5"
+    elif [ "x$DESKTOP_ENVIRONMENT" == "x4" ]; then
+        DE="GNOME"
+    else
+        DE="Builder"
+    fi
+    LABEL="$OS_NAME $DE $OS_VERSION"
 else
-	LABEL="$OS_NAME $OS_VERSION"
+    LABEL="$OS_NAME $OS_VERSION"
 fi
 
 if [ "x$DE" != "x" ]
 then
-	OUTFILE="$(echo $OS_NAME | tr '[:upper:]' [:lower:])-$(echo $DE | tr '[:upper:]' '[:lower:]')-$OS_VERSION-$(uname -m).iso"
+    OUTFILE="$(echo $OS_NAME | tr '[:upper:]' [:lower:])-$(echo $DE | tr '[:upper:]' '[:lower:]')-$OS_VERSION-$(uname -m).iso"
 else
-	OUTFILE="$(echo $OS_NAME | tr '[:upper:]' [:lower:])-$OS_VERSION-$(uname -m).iso"
+    OUTFILE="$(echo $OS_NAME | tr '[:upper:]' [:lower:])-$OS_VERSION-$(uname -m).iso"
 fi
 
 CREATE_ROOTSFS="y"
@@ -84,7 +84,7 @@ fi
 mount $ROOT_PART $LFS
 if [ "x$HOME_PART" != "x" ]
 then
-	mount $HOME_PART $LFS/home
+    mount $HOME_PART $LFS/home
 fi
 
 mount -v --bind /dev $LFS/dev
@@ -135,24 +135,24 @@ set -e
 mount $ROOT_PART $LFS
 if [ "x$HOME_PART" != "x" ]
 then
-	mount $HOME_PART $LFS/home
+    mount $HOME_PART $LFS/home
 fi
 
 if [ -f $LFS/etc/lightdm/lightdm.conf ]
 then
-	sed -i "s@#autologin-user=@autologin-user=$USERNAME@g" $LFS/etc/lightdm/lightdm.conf
-	sed -i "s@#autologin-user-timeout=0@autologin-user-timeout=0@g" $LFS/etc/lightdm/lightdm.conf
-	sed -i "s@#pam-service=lightdm-autologin@pam-service=lightdm-autologin@g" $LFS/etc/lightdm/lightdm.conf
+    sed -i "s@#autologin-user=@autologin-user=$USERNAME@g" $LFS/etc/lightdm/lightdm.conf
+    sed -i "s@#autologin-user-timeout=0@autologin-user-timeout=0@g" $LFS/etc/lightdm/lightdm.conf
+    sed -i "s@#pam-service=lightdm-autologin@pam-service=lightdm-autologin@g" $LFS/etc/lightdm/lightdm.conf
 else
-	mkdir -pv $LFS/etc/systemd/system/getty@tty1.service.d/
-	pushd $LFS/etc/systemd/system/getty@tty1.service.d/
+    mkdir -pv $LFS/etc/systemd/system/getty@tty1.service.d/
+    pushd $LFS/etc/systemd/system/getty@tty1.service.d/
 cat >override.conf<<EOF
 [Service]
 Type=simple
 ExecStart=
 ExecStart=-/sbin/agetty --autologin $USERNAME --noclear %I 38400 linux
 EOF
-	popd
+    popd
 fi
 
 rm -f $LFS/sources/root.sfs
@@ -160,11 +160,11 @@ sudo mksquashfs $LFS $LFS/sources/root.sfs -b 1048576 -comp xz -Xdict-size 100% 
 
 if [ -f $LFS/etc/lightdm/lightdm.conf ]
 then
-	sed -i "s@autologin-user=$USERNAME@#autologin-user=@g" $LFS/etc/lightdm/lightdm.conf
-	sed -i "s@autologin-user-timeout=0@#autologin-user-timeout=0@g" $LFS/etc/lightdm/lightdm.conf
+    sed -i "s@autologin-user=$USERNAME@#autologin-user=@g" $LFS/etc/lightdm/lightdm.conf
+    sed -i "s@autologin-user-timeout=0@#autologin-user-timeout=0@g" $LFS/etc/lightdm/lightdm.conf
     sed -i "s@pam-service=lightdm-autologin@#pam-service=lightdm-autologin@g" $LFS/etc/lightdm/lightdm.conf
 else
-	rm -fv /etc/systemd/system/getty@tty1.service.d/override.conf
+    rm -fv /etc/systemd/system/getty@tty1.service.d/override.conf
 fi
 
 chroot "$LFS" /usr/bin/env -i              \

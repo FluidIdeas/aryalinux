@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="033-xz.sh"
-TARBALL="xz-5.2.4.tar.xz"
+STEPNAME="083-libelf.sh"
+TARBALL="elfutils-0.170.tar.bz2"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,9 +29,14 @@ then
 	cd $DIRECTORY
 fi
 
-./configure --prefix=/tools
+sed -e '/ALIGN_PRSTATUS)/{ 
+        s/__attribute/attribute_packed &/
+        s/packed, //}' \
+    -i backends/linux-core-note.c
+./configure --prefix=/usr
 make
-make install
+make -C libelf install
+install -vm644 config/libelf.pc /usr/lib/pkgconfig
 
 
 cd $SOURCE_DIR

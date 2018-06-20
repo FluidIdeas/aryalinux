@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="009-gcc-pass2.sh"
-TARBALL="gcc-7.3.0.tar.xz"
+TARBALL="gcc-8.1.0.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 

@@ -27,7 +27,9 @@ chmod -R a+rw /var/cache/alps/binaries
 chmod -R a+rw /var/cache/alps/sources
 chmod -R a+rw /var/cache/alps/logs
 mkdir -pv /var/lib/alps
-cp -v functions /var/lib/alps
+cp -v functions /var/lib/alps/
+cp -v selfupdate.sh /var/lib/alps/
+cp -v updatescripts.sh /var/lib/alps/
 tar xf alps-scripts*.tar.gz -C /var/cache/alps/scripts/
 chmod a+x /usr/bin/alps
 chmod a+x /usr/bin/makepkg.sh

@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="111-vim.sh"
-TARBALL="vim-8.0.586.tar.bz2"
+TARBALL="vim-8.1.tar.bz2"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -30,7 +30,6 @@ then
 fi
 
 echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h
-sed -i '/call/{s/split/xsplit/;s/303/492/}' src/testdir/test_recover.vim
 ./configure --prefix=/usr
 make
 make install
@@ -38,7 +37,7 @@ ln -sv vim /usr/bin/vi
 for L in  /usr/share/man/{,*/}man1/vim.1; do
     ln -sv vim.1 $(dirname $L)/vi.1
 done
-ln -sv ../vim/vim80/doc /usr/share/doc/vim-8.0.586
+ln -sv ../vim/vim81/doc /usr/share/doc/vim-8.1
 cat > /etc/vimrc << "EOF"
 " Begin /etc/vimrc
 " Ensure defaults are set before customizing settings, not after

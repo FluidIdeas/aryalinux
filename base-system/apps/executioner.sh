@@ -8,4 +8,5 @@ SCRIPT="$2"
 
 alps selfupdate
 alps updatescripts
+
 su - $USERNAME -c "$SCRIPT"

@@ -31,7 +31,6 @@ fi
 
 ./configure --prefix=/usr
 make
-make install
 
 
 cd $SOURCE_DIR

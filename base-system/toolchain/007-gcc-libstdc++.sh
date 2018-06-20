@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="007-gcc-libstdc++.sh"
-TARBALL="gcc-7.3.0.tar.xz"
+TARBALL="gcc-8.1.0.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -38,7 +38,7 @@ cd       build
     --disable-nls                   \
     --disable-libstdcxx-threads     \
     --disable-libstdcxx-pch         \
-    --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/7.3.0
+    --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/8.1.0
 make
 make install
 

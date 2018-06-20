@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="066-bison.sh"
-TARBALL="bison-3.0.4.tar.xz"
+TARBALL="bison-3.0.5.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,7 +29,7 @@ then
 	cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --docdir=/usr/share/doc/bison-3.0.4
+./configure --prefix=/usr --docdir=/usr/share/doc/bison-3.0.5
 make
 make install
 

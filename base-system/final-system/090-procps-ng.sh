@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="090-procps-ng.sh"
-TARBALL="procps-ng-3.3.14.tar.xz"
+TARBALL="procps-ng-3.3.15.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -32,7 +32,7 @@ fi
 ./configure --prefix=/usr                            \
             --exec-prefix=                           \
             --libdir=/usr/lib                        \
-            --docdir=/usr/share/doc/procps-ng-3.3.14 \
+            --docdir=/usr/share/doc/procps-ng-3.3.15 \
             --disable-static                         \
             --disable-kill                           \
             --with-systemd

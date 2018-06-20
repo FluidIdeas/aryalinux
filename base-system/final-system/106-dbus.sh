@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="106-dbus.sh"
-TARBALL="dbus-1.12.6.tar.gz"
+TARBALL="dbus-1.12.8.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -35,7 +35,7 @@ fi
               --disable-static                    \
               --disable-doxygen-docs              \
               --disable-xml-docs                  \
-              --docdir=/usr/share/doc/dbus-1.12.6 \
+              --docdir=/usr/share/doc/dbus-1.12.8 \
               --with-console-auth-dir=/run/console
 make
 make install

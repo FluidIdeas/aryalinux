@@ -9,7 +9,7 @@ export MAKEFLAGS="-j `nproc`"
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="006-efivar.sh"
-TARBALL="efivar-31.tar.bz2"
+TARBALL="efivar-36.tar.bz2"
 
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null
 then

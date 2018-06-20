@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="080-xz.sh"
-TARBALL="xz-5.2.3.tar.xz"
+TARBALL="xz-5.2.4.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -31,7 +31,7 @@ fi
 
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/xz-5.2.3
+            --docdir=/usr/share/doc/xz-5.2.4
 make
 make install
 mv -v   /usr/bin/{lzma,unlzma,lzcat,xz,unxz,xzcat} /bin
