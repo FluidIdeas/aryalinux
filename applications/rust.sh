@@ -75,6 +75,7 @@ export RUSTFLAGS="$RUSTFLAGS -C link-args=-lffi" &&
 DESTDIR=${PWD}/install ./x.py install
 
 
+cp -r ${PWD}/install $BINARY_DIR
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 chown -R root:root install &&
