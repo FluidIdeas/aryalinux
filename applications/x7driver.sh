@@ -648,6 +648,17 @@ sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
+cd $SOURCE_DIR
+
+sudo rm -rf $DIRECTORY
+
+URL="https://github.com/intel/intel-vaapi-driver/releases/download/2.1.0/intel-vaapi-driver-2.1.0.tar.bz2"
+
+TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
+DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
+
+tar xf $TARBALL
+cd $DIRECTORY
 
 ./configure $XORG_CONFIG &&
 make
