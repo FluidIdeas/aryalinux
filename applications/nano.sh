@@ -13,7 +13,9 @@ VERSION=2.9.5
 NAME="nano"
 
 
+
 cd $SOURCE_DIR
+
 URL=https://www.nano-editor.org/dist/v2.9/nano-2.9.5.tar.xz
 
 if [ ! -z $URL ]

@@ -14,12 +14,6 @@ NAME=lightdm-gtk-greeter
 VERSION=2.0.1
 DESCRIPTION="GTK Based greeter for lightdm display manager"
 
-#REQ:xserver-meta
-#REQ:itstool
-#REQ:libgcrypt
-#REQ:libxklavier
-#REQ:systemd
-#REQ:polkit
 #REQ:lightdm
 #REQ:greybird-gtk-theme
 #REQ:aryalinux-wallpapers
@@ -53,7 +47,7 @@ xft-antialias = true
 xft-rgba = rgb
 icon-theme-name = Numix-Circle
 theme-name = Greybird
-background = /usr/share/backgrounds/aryalinux/pexels-photo-459059.jpeg
+background = /usr/share/backgrounds/aryalinux/pexels-photo-411595.jpeg
 font-name = Droid Sans 10
 EOF
 

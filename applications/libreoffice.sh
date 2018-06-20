@@ -43,10 +43,9 @@ NAME="libreoffice"
 #REC:neon
 #REC:nss
 #REC:openldap
-#REC:openssl10
+#REC:openssl
 #REC:gnutls
 #REC:poppler
-#REC:postgresql
 #REC:python3
 #REC:redland
 #REC:serf
@@ -77,7 +76,6 @@ then
 wget -nc $URL
 wget -nc $PARENT_DIR_URL/libreoffice-dictionaries-$VERSION.tar.xz
 wget -nc $PARENT_DIR_URL/libreoffice-translations-$VERSION.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.0/libreoffice-$VERSION_MAJOR.$VERSION_MINOR-poppler64-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -105,17 +103,11 @@ ln -sv ../../../libreoffice-translations-$VERSION_MAJOR.$VERSION_MINOR.tar.xz ex
 sed -e "/gzip -f/d"   \
     -e "s|.1.gz|.1|g" \
     -i bin/distro-install-desktop-integration &&
-
 sed -e "/distro-install-file-lists/d" -i Makefile.in &&
-
-patch -Np1 -i ../libreoffice-$VERSION_MAJOR.$VERSION_MINOR-poppler64-1.patch
-
-export LO_PREFIX=/usr
-
-./autogen.sh --prefix=$LO_PREFIX         \
+./autogen.sh --prefix=/usr               \
              --sysconfdir=/etc           \
              --with-vendor=AryaLinux     \
-             --with-lang='ALL'           \
+             --with-lang="$LANGUAGE"     \
              --with-help                 \
              --with-myspell-dicts        \
              --with-alloc=system         \
@@ -123,6 +115,7 @@ export LO_PREFIX=/usr
              --without-system-dicts      \
              --disable-dconf             \
              --disable-odk               \
+             --disable-firebird-sdbc     \
              --enable-release-build=yes  \
              --enable-python=system      \
              --with-system-apr           \
@@ -145,37 +138,23 @@ export LO_PREFIX=/usr
              --with-system-openldap      \
              --with-system-openssl       \
              --with-system-poppler       \
-             --with-system-postgresql    \
+             --disable-postgresql-sdbc   \
+             --without-java              \
              --with-system-redland       \
              --with-system-serf          \
-             --without-java              \
              --with-system-zlib
 
 
-export CPPFLAGS='-DU_USING_ICU_NAMESPACE=1'
 make build-nocheck
 sudo make distro-pack-install
-
-if [ "$LO_PREFIX" != "/usr" ]; then
-      ln -svf $LO_PREFIX/lib/libreoffice/program/soffice /usr/bin/libreoffice &&
-
-      mkdir -vp /usr/share/pixmaps
-      for i in $LO_PREFIX/share/icons/hicolor/32x32/apps/*; do
-            ln -svf $i /usr/share/pixmaps
-      done &&
-
-      for i in $LO_PREFIX/lib/libreoffice/share/xdg/*; do
-            ln -svf $i /usr/share/applications/libreoffice-$(basename $i)
-      done &&
-
-      for i in $LO_PREFIX/share/man/man1/*; do
-            ln -svf $i /usr/share/man/man1/
-      done
-
-      unset i
-fi
-
 sudo update-desktop-database
+
+# Create the package
+
+sudo make distro-pack-install DESTDIR=$BINARY_DIR/libreoffice-$VERSION-$(uname -m)
+pushd $BINARY_DIR/libreoffice-$VERSION-$(uname -m)
+sudo tar -cJvf $BINARY_DIR/libreoffice-$VERSION-$(uname -m).tar.xz *
+popd
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

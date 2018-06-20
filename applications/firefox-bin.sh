@@ -50,7 +50,7 @@ if [ "x$INSTALL_LANGUAGE" == "x" ]; then
 
 echo "These are the languages in which firefox is available:"
 echo ""
-wget -O /tmp/langfile https://ftp.mozilla.org/pub/firefox/releases/latest/README.txt &> /dev/null
+wget --no-check-certificate -O /tmp/langfile https://ftp.mozilla.org/pub/firefox/releases/latest/README.txt &> /dev/null
 cat /tmp/langfile | grep "lang=" | grep -v "wget" | grep -v "http" | grep -v "For" | tr -s ' ' | sed "s@ (@@g" | rev | cut -d= -f1 | rev | sed "s@lang=@@g" | tr "\n" " " | sed "s@en-GB@en-US en-GB@g"
 echo ""
 read -p "Enter the language for Firefox " LANG
@@ -62,7 +62,7 @@ fi
 
 if [ $(uname -m) == "x86_64" ]
 then
-	wget -O $SOURCE_DIR/firefox.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=$LANG"
+	wget -O --no-check-certificate $SOURCE_DIR/firefox.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=$LANG"
 else
 	wget -O $SOURCE_DIR/firefox.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux&lang=$LANG"
 fi

@@ -9,7 +9,11 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak LibreOffice is a full-featuredbr3ak office suite. It is largely compatible with Microsoft Office and is descended frombr3ak OpenOffice.org.br3ak"
 SECTION="xsoft"
-URL="http://aryalinux.com/files/binaries/libreoffice-6.0.1.1-x86_64.tar.xz"
+VERSION_MAJOR=5.3.0
+VERSION_MINOR=3
+VERSION=$VERSION_MAJOR.$VERSION_MINOR
+PARENT_DIR_URL="http://download.documentfoundation.org/libreoffice/src/$VERSION_MAJOR/"
+NAME="libreoffice"
 
 #REQ:perl-modules#perl-archive-zip
 #REQ:unzip
@@ -39,10 +43,9 @@ URL="http://aryalinux.com/files/binaries/libreoffice-6.0.1.1-x86_64.tar.xz"
 #REC:neon
 #REC:nss
 #REC:openldap
-#REC:openssl10
+#REC:openssl
 #REC:gnutls
 #REC:poppler
-#REC:postgresql
 #REC:python3
 #REC:redland
 #REC:serf
@@ -66,11 +69,9 @@ URL="http://aryalinux.com/files/binaries/libreoffice-6.0.1.1-x86_64.tar.xz"
 
 cd $SOURCE_DIR
 
-wget -nc $URL
+URL=https://sourceforge.net/projects/aryalinux-bin/files/releases/2017.06/bin/libreoffice-5.3.0.3-x86_64.tar.xz
 TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 sudo tar xf $TARBALL -C /
 sudo update-desktop-database
-
-if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"

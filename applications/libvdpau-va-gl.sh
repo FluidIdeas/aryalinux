@@ -33,6 +33,9 @@ DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
 tar xf $TARBALL
 cd $DIRECTORY
 
+wget https://github.com/i-rinat/libvdpau-va-gl/archive/v0.4.0.tar.gz \
+     -O libvdpau-va-gl-0.4.0.tar.gz
+
 mkdir build &&
 cd    build &&
 

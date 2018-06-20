@@ -22,14 +22,12 @@ DESCRIPTION="Compton is a compositor for X, and a fork of xcompmgr-dana"
 cd $SOURCE_DIR
 URL="https://github.com/chjj/compton/archive/v0.1_beta2.tar.gz"
 TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
-
-wget -nc $URL
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
-tar xf $TARBALL
+unzip -o $TARBALL
 cd $DIRECTORY
 
 make
-sudo make install
+sudo make MANPAGES= install
 mkdir -pv ~/.config
 sudo mkdir -pv /etc/skel/.config
 sed -i 's/menu-opacity = 0.8;/menu-opacity = 1.0;/g' compton.sample.conf

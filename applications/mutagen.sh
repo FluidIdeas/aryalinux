@@ -7,10 +7,9 @@ set +h
 . /var/lib/alps/functions
 
 NAME="mutagen"
-VERSION=1.40.0
 
 cd $SOURCE_DIR
-URL="https://github.com/quodlibet/mutagen/releases/download/release-1.40.0/mutagen-1.40.0.tar.gz"
+URL="http://archive.ubuntu.com/ubuntu/pool/main/m/mutagen/mutagen_1.30.orig.tar.gz"
 wget -nc $URL
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`

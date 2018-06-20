@@ -19,43 +19,43 @@ NAME="vlc"
 #REC:libmad
 #REC:lua
 #REC:xorg-server
-#REC:dbus
-#REC:libcddb
-#REC:libdv
-#REC:libdvdcss
-#REC:libdvdread
-#REC:libdvdnav
-#REC:opencv
-#REC:samba
-#REC:v4l-utils
-#REC:libcdio
-#REC:libogg
-#REC:faad2
-#REC:flac
-#REC:libass
-#REC:libmpeg2
-#REC:libpng
-#REC:libtheora
-#REC:x7driver
-#REC:libvorbis
-#REC:opus
-#REC:speex
-#REC:x264
-#REC:aalib
-#REC:fontconfig
-#REC:freetype2
-#REC:fribidi
-#REC:librsvg
-#REC:sdl
-#REC:pulseaudio
-#REC:libsamplerate
-#REC:qt5
-#REC:avahi
-#REC:gnutls
-#REC:libnotify
-#REC:libxml2
-#REC:taglib
-#REC:xdg-utils
+#OPT:dbus
+#OPT:libcddb
+#OPT:libdv
+#OPT:libdvdcss
+#OPT:libdvdread
+#OPT:libdvdnav
+#OPT:opencv
+#OPT:samba
+#OPT:v4l-utils
+#OPT:libcdio
+#OPT:libogg
+#OPT:faad2
+#OPT:flac
+#OPT:libass
+#OPT:libmpeg2
+#OPT:libpng
+#OPT:libtheora
+#OPT:x7driver
+#OPT:libvorbis
+#OPT:opus
+#OPT:speex
+#OPT:x264
+#OPT:aalib
+#OPT:fontconfig
+#OPT:freetype2
+#OPT:fribidi
+#OPT:librsvg
+#OPT:sdl
+#OPT:pulseaudio
+#OPT:libsamplerate
+#OPT:qt5
+#OPT:avahi
+#OPT:gnutls
+#OPT:libnotify
+#OPT:libxml2
+#OPT:taglib
+#OPT:xdg-utils
 
 
 cd $SOURCE_DIR
@@ -79,26 +79,26 @@ fi
 
 whoami > /tmp/currentuser
 
-export QT5PREFIX="/opt/qt5"
-export QT5BINDIR="$QT5PREFIX/bin"
-export QT5DIR="$QT5PREFIX"
-export QTDIR="$QT5PREFIX"
-export PATH="$PATH:$QT5BINDIR"
-export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/opt/qt5/lib/pkgconfig"
+export QT4PREFIX="/opt/qt4"
+export QT4BINDIR="$QT4PREFIX/bin"
+export QT4DIR="$QT4PREFIX"
+export QTDIR="$QT4PREFIX"
+export PATH="$PATH:$QT4BINDIR"
+export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/opt/qt4/lib/pkgconfig"
 sed -i '/vlc_demux.h/a #define LUA_COMPAT_APIINTCASTS' modules/lua/vlc.h   &&
 sed -i '/DEPRECATED/s:^://:'  modules/text_renderer/freetype/text_layout.c &&
-BUILDCC=gcc ./configure --prefix=/usr --disable-opencv --enable-qt &&
+BUILDCC=gcc ./configure --prefix=/usr --disable-opencv &&
 make "-j`nproc`" || make
 
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-export QT5PREFIX="/opt/qt5"
-export QT5BINDIR="$QT5PREFIX/bin"
-export QT5DIR="$QT5PREFIX"
-export QTDIR="$QT5PREFIX"
-export PATH="$PATH:$QT5BINDIR"
-export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/opt/qt5/lib/pkgconfig"
+export QT4PREFIX="/opt/qt4"
+export QT4BINDIR="$QT4PREFIX/bin"
+export QT4DIR="$QT4PREFIX"
+export QTDIR="$QT4PREFIX"
+export PATH="$PATH:$QT4BINDIR"
+export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/opt/qt4/lib/pkgconfig"
 make docdir=/usr/share/doc/vlc-3.0.2 install
 
 ENDOFROOTSCRIPT
@@ -109,12 +109,12 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-export QT5PREFIX="/opt/qt5"
-export QT5BINDIR="$QT5PREFIX/bin"
-export QT5DIR="$QT5PREFIX"
-export QTDIR="$QT5PREFIX"
-export PATH="$PATH:$QT5BINDIR"
-export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/opt/qt5/lib/pkgconfig"
+export QT4PREFIX="/opt/qt4"
+export QT4BINDIR="$QT4PREFIX/bin"
+export QT4DIR="$QT4PREFIX"
+export QTDIR="$QT4PREFIX"
+export PATH="$PATH:$QT4BINDIR"
+export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/opt/qt4/lib/pkgconfig"
 gtk-update-icon-cache &&
 update-desktop-database
 

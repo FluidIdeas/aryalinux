@@ -9,7 +9,7 @@ NAME="mysql"
 VERSION="5.6.27"
 
 #REQ:cmake
-#REQ:openssl10
+#REQ:openssl
 #REC:libevent
 #OPT:boost
 #OPT:libxml2
