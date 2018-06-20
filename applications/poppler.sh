@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Poppler package contains a PDFbr3ak rendering library and command line tools used to manipulate PDFbr3ak files. This is useful for providing PDF rendering functionality asbr3ak a shared library.br3ak"
 SECTION="general"
-VERSION=0.64.0
+VERSION=0.65.0
 NAME="poppler"
 
 #REQ:cmake
@@ -33,11 +33,11 @@ NAME="poppler"
 
 cd $SOURCE_DIR
 
-URL=https://poppler.freedesktop.org/poppler-0.64.0.tar.xz
+URL=https://poppler.freedesktop.org/poppler-0.65.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://poppler.freedesktop.org/poppler-0.64.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/poppler/poppler-0.64.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/poppler/poppler-0.64.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/poppler/poppler-0.64.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/poppler/poppler-0.64.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/poppler/poppler-0.64.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/poppler/poppler-0.64.0.tar.xz
+wget -nc https://poppler.freedesktop.org/poppler-0.65.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/poppler/poppler-0.65.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/poppler/poppler-0.65.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/poppler/poppler-0.65.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/poppler/poppler-0.65.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/poppler/poppler-0.65.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/poppler/poppler-0.65.0.tar.xz
 wget -nc https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/poppler/poppler-data-0.4.9.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/poppler/poppler-data-0.4.9.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/poppler/poppler-data-0.4.9.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/poppler/poppler-data-0.4.9.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/poppler/poppler-data-0.4.9.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/poppler/poppler-data-0.4.9.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
@@ -75,8 +75,8 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -m755 -d           /usr/share/doc/poppler-0.64.0 &&
-cp -vr ../glib/reference/html /usr/share/doc/poppler-0.64.0
+install -v -m755 -d           /usr/share/doc/poppler-0.65.0 &&
+cp -vr ../glib/reference/html /usr/share/doc/poppler-0.65.0
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

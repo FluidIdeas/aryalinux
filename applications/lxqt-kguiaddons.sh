@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The KDE GUI addons provide utilities for graphical user interfacesbr3ak in the areas of colors, fonts, text, images, and keyboard input.br3ak"
 SECTION="lxqt"
-VERSION=5.43.0
+VERSION=5.46.0
 NAME="lxqt-kguiaddons"
 
 #REQ:extra-cmake-modules
@@ -19,11 +19,11 @@ NAME="lxqt-kguiaddons"
 
 cd $SOURCE_DIR
 
-URL=http://download.kde.org/stable/frameworks/5.43/kguiaddons-5.43.0.tar.xz
+URL=http://download.kde.org/stable/frameworks/5.46/kguiaddons-5.46.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://download.kde.org/stable/frameworks/5.43/kguiaddons-5.43.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/kguiaddons/kguiaddons-5.43.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/kguiaddons/kguiaddons-5.43.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/kguiaddons/kguiaddons-5.43.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/kguiaddons/kguiaddons-5.43.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/kguiaddons/kguiaddons-5.43.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/kguiaddons/kguiaddons-5.43.0.tar.xz
+wget -nc http://download.kde.org/stable/frameworks/5.46/kguiaddons-5.46.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/kguiaddons/kguiaddons-5.46.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/kguiaddons/kguiaddons-5.46.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/kguiaddons/kguiaddons-5.46.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/kguiaddons/kguiaddons-5.46.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/kguiaddons/kguiaddons-5.46.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/kguiaddons/kguiaddons-5.46.0.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

@@ -18,11 +18,11 @@ NAME="python-modules#Mako"
 
 cd $SOURCE_DIR
 
-URL=https://ftp.osuosl.org/pub/blfs/8.1/python-modules/Mako-1.0.4.tar.gz
+URL=https://files.pythonhosted.org/packages/source/M/Mako/Mako-1.0.4.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc $URL
+wget -nc https://files.pythonhosted.org/packages/source/M/Mako/Mako-1.0.4.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

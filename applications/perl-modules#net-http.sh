@@ -8,8 +8,8 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/O/OA/OALDERS/Net-HTTP-6.17.tar.gz"
-VERSION=6.17
+URL="http://search.cpan.org/CPAN/authors/id/O/OA/OALDERS/Net-HTTP-6.18.tar.gz"
+VERSION=6.18
 NAME="perl-modules#net-http"
 
 cd $SOURCE_DIR
@@ -37,5 +37,5 @@ cd $SOURCE_DIR
 
 cleanup "$NAME" "$DIRECTORY"
 
-register_installed "$NAME=>`date`" "$VERSION" "$INSTALLED_LIST"
+register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 

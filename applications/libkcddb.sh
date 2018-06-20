@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The libkcddb package contains abr3ak library used to retrieve audio CD meta data from the internet.br3ak"
 SECTION="kde"
-VERSION=17.12.2
+VERSION=18.04.1
 NAME="libkcddb"
 
 #REQ:libmusicbrainz5
@@ -18,11 +18,11 @@ NAME="libkcddb"
 
 cd $SOURCE_DIR
 
-URL=http://download.kde.org/stable/applications/17.12.2/src/libkcddb-17.12.2.tar.xz
+URL=http://download.kde.org/stable/applications/18.04.1/src/libkcddb-18.04.1.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://download.kde.org/stable/applications/17.12.2/src/libkcddb-17.12.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libkcddb/libkcddb-17.12.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libkcddb/libkcddb-17.12.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libkcddb/libkcddb-17.12.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libkcddb/libkcddb-17.12.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libkcddb/libkcddb-17.12.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libkcddb/libkcddb-17.12.2.tar.xz
+wget -nc http://download.kde.org/stable/applications/18.04.1/src/libkcddb-18.04.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libkcddb/libkcddb-18.04.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libkcddb/libkcddb-18.04.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libkcddb/libkcddb-18.04.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libkcddb/libkcddb-18.04.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libkcddb/libkcddb-18.04.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libkcddb/libkcddb-18.04.1.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

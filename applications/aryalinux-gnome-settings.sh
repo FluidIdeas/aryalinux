@@ -12,12 +12,14 @@ DESCRIPTION="Fonts of the aryalinux XFCE, Mate, KDE and Gnome Desktops"
 
 cd $SOURCE_DIR
 
-URL=https://sourceforge.net/projects/aryalinux-bin/files/artifacts/aryalinux-gnome-defaults.tar.gz
+URL=https://sourceforge.net/projects/aryalinux-bin/files/releases/1.0/aryalinux-gnome-defaults.tar.gz
 wget -nc $URL
 
+THEUSER=$(echo $USER)
 sudo tar xf aryalinux-gnome-defaults.tar.gz -C /
-cp -r /etc/skel/.config ~
-cp -r /etc/skel/.Xresources ~
-cp -r /etc/skel/.bash{_logout,_profile,rc}  ~
+sudo cp -r /etc/skel/.config ~
+sudo cp -r /etc/skel/.Xresources ~
+sudo cp -r /etc/skel/.bash{_logout,_profile,rc}  ~
+sudo chown -R $USER:$USER ~
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"

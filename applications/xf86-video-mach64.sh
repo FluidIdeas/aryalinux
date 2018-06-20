@@ -7,13 +7,13 @@ set +h
 . /var/lib/alps/functions
 
 NAME="xf86-video-mach64"
-VERSION="6.9.5"
+VERSION="6.9.6"
 
 #REQ:xorg-server
 
 cd $SOURCE_DIR
 
-URL="http://ftp.kaist.ac.kr/x.org/individual/driver/xf86-video-mach64-6.9.5.tar.bz2"
+URL="http://ftp.kaist.ac.kr/x.org/individual/driver/xf86-video-mach64-6.9.6.tar.gz"
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`

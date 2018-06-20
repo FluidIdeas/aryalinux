@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Mercurial is a distributed sourcebr3ak control management tool similar to Git and Bazaar. Mercurial is written in Python and is used by projects such as Mozillabr3ak and Vim.br3ak"
 SECTION="general"
-VERSION=4.5.3
+VERSION=4.6
 NAME="mercurial"
 
 #REQ:python2
@@ -22,11 +22,11 @@ NAME="mercurial"
 
 cd $SOURCE_DIR
 
-URL=https://www.mercurial-scm.org/release/mercurial-4.5.3.tar.gz
+URL=https://www.mercurial-scm.org/release/mercurial-4.6.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://www.mercurial-scm.org/release/mercurial-4.5.3.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/mercurial/mercurial-4.5.3.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/mercurial/mercurial-4.5.3.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/mercurial/mercurial-4.5.3.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/mercurial/mercurial-4.5.3.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/mercurial/mercurial-4.5.3.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/mercurial/mercurial-4.5.3.tar.gz
+wget -nc https://www.mercurial-scm.org/release/mercurial-4.6.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/mercurial/mercurial-4.6.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/mercurial/mercurial-4.6.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/mercurial/mercurial-4.6.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/mercurial/mercurial-4.6.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/mercurial/mercurial-4.6.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/mercurial/mercurial-4.6.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

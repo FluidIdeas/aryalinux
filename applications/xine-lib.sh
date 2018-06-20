@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Xine Libraries packagebr3ak contains xine libraries. These are useful for interfacing withbr3ak external plug-ins that allow the flow of information from thebr3ak source to the audio and video hardware.br3ak"
 SECTION="multimedia"
-VERSION=1.2.8
+VERSION=1.2.9
 NAME="xine-lib"
 
 #REQ:ffmpeg
@@ -39,11 +39,11 @@ NAME="xine-lib"
 
 cd $SOURCE_DIR
 
-URL=https://downloads.sourceforge.net/xine/xine-lib-1.2.8.tar.xz
+URL=https://downloads.sourceforge.net/xine/xine-lib-1.2.9.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://downloads.sourceforge.net/xine/xine-lib-1.2.8.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/xine-lib/xine-lib-1.2.8.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/xine-lib/xine-lib-1.2.8.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/xine-lib/xine-lib-1.2.8.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/xine-lib/xine-lib-1.2.8.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/xine-lib/xine-lib-1.2.8.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/xine-lib/xine-lib-1.2.8.tar.xz || wget -nc ftp://mirror.ovh.net/gentoo-distfiles/distfiles/xine-lib-1.2.8.tar.xz
+wget -nc https://downloads.sourceforge.net/xine/xine-lib-1.2.9.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/xine-lib/xine-lib-1.2.9.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/xine-lib/xine-lib-1.2.9.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/xine-lib/xine-lib-1.2.9.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/xine-lib/xine-lib-1.2.9.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/xine-lib/xine-lib-1.2.9.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/xine-lib/xine-lib-1.2.9.tar.xz || wget -nc ftp://ftp.mirrorservice.org/sites/distfiles.gentoo.org/distfiles/xine-lib-1.2.9.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -65,7 +65,7 @@ sed -e 's/\(xcb-shape >= 1.0\)/xcb \1/' \
 ./configure --prefix=/usr          \
             --disable-vcd          \
             --with-external-dvdnav \
-            --docdir=/usr/share/doc/xine-lib-1.2.8 &&
+            --docdir=/usr/share/doc/xine-lib-1.2.9 &&
 make "-j`nproc`" || make
 
 

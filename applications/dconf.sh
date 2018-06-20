@@ -59,8 +59,9 @@ sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
+cd ..              &&
 tar -xf ../dconf-editor-3.28.0.tar.xz &&
-cd dconf-editor-3.28.0 &&
+cd dconf-editor-3.28.0                &&
 mkdir build &&
 cd    build &&
 meson --prefix=/usr --sysconfdir=/etc &&

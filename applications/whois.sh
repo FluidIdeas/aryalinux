@@ -13,6 +13,7 @@ VERSION=5.2.20
 NAME="whois"
 
 #OPT:libidn
+#OPT:libidn2
 
 
 cd $SOURCE_DIR

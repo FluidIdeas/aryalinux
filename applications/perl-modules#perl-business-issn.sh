@@ -8,8 +8,8 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.002.tar.gz"
-VERSION=1.002
+URL="https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.003.tar.gz"
+VERSION=1.003
 NAME="perl-modules#perl-business-issn"
 
 cd $SOURCE_DIR
@@ -37,4 +37,4 @@ cd $SOURCE_DIR
 
 cleanup "$NAME" "$DIRECTORY"
 
-register_installed "$NAME=>`date`" "$VERSION" "$INSTALLED_LIST"
+register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak x265 package provides a librarybr3ak for encoding video streams into the H.265/HEVC format.br3ak"
 SECTION="multimedia"
-VERSION=265_2.7
+VERSION=265_2.8
 NAME="x265"
 
 #REQ:cmake
@@ -18,11 +18,11 @@ NAME="x265"
 
 cd $SOURCE_DIR
 
-URL=https://bitbucket.org/multicoreware/x265/downloads/x265_2.7.tar.gz
+URL=https://bitbucket.org/multicoreware/x265/downloads/x265_2.8.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://bitbucket.org/multicoreware/x265/downloads/x265_2.7.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/x265/x265_2.7.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/x265/x265_2.7.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/x265/x265_2.7.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/x265/x265_2.7.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/x265/x265_2.7.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/x265/x265_2.7.tar.gz
+wget -nc https://bitbucket.org/multicoreware/x265/downloads/x265_2.8.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/x265/x265_2.8.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/x265/x265_2.8.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/x265/x265_2.8.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/x265/x265_2.8.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/x265/x265_2.8.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/x265/x265_2.8.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

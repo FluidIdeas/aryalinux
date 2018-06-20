@@ -12,7 +12,7 @@ SECTION="postlfs"
 NAME="cacerts"
 VERSION="latest"
 
-#REQ:openssl
+#REQ:openssl10
 #OPT:java
 #OPT:openjdk
 #OPT:nss

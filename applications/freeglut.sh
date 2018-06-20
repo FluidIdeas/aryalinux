@@ -38,12 +38,17 @@ fi
 
 whoami > /tmp/currentuser
 
+export XORG_PREFIX=/usr
+export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
+
 mkdir build &&
 cd    build &&
-cmake -DCMAKE_INSTALL_PREFIX=/usr      \
-      -DCMAKE_BUILD_TYPE=Release       \
-      -DFREEGLUT_BUILD_DEMOS=OFF       \
-      -DFREEGLUT_BUILD_STATIC_LIBS=OFF \
+CMAKE_LIBRARY_PATH=/usr/lib     \
+CMAKE_INCLUDE_PATH=/usr/include \
+cmake -DCMAKE_INSTALL_PREFIX=/usr       \
+      -DCMAKE_BUILD_TYPE=Release        \
+      -DFREEGLUT_BUILD_DEMOS=OFF        \
+      -DFREEGLUT_BUILD_STATIC_LIBS=OFF  \
       .. &&
 make "-j`nproc`" || make
 

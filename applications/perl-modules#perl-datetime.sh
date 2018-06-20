@@ -14,8 +14,8 @@ set +h
 #REQ:perl-modules#perl-try-tiny
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org//CPAN/authors/id/D/DR/DROLSKY/DateTime-1.48.tar.gz"
-VERSION=1.48
+URL="http://search.cpan.org//CPAN/authors/id/D/DR/DROLSKY/DateTime-1.49.tar.gz"
+VERSION=1.49
 NAME="perl-modules#perl-datetime"
 
 cd $SOURCE_DIR
@@ -43,4 +43,4 @@ cd $SOURCE_DIR
 
 cleanup "$NAME" "$DIRECTORY"
 
-register_installed "$NAME=>`date`" "$VERSION" "$INSTALLED_LIST"
+register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"

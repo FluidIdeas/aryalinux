@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The libgcrypt package contains abr3ak general purpose crypto library based on the code used inbr3ak GnuPG. The library provides a highbr3ak level interface to cryptographic building blocks using anbr3ak extendable and flexible API.br3ak"
 SECTION="general"
-VERSION=1.8.2
+VERSION=1.8.3
 NAME="libgcrypt"
 
 #REQ:libgpg-error
@@ -20,11 +20,11 @@ NAME="libgcrypt"
 
 cd $SOURCE_DIR
 
-URL=https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.8.2.tar.bz2
+URL=https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.8.3.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.8.2.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libgcrypt/libgcrypt-1.8.2.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libgcrypt/libgcrypt-1.8.2.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libgcrypt/libgcrypt-1.8.2.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libgcrypt/libgcrypt-1.8.2.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libgcrypt/libgcrypt-1.8.2.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libgcrypt/libgcrypt-1.8.2.tar.bz2
+wget -nc https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.8.3.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libgcrypt/libgcrypt-1.8.3.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libgcrypt/libgcrypt-1.8.3.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libgcrypt/libgcrypt-1.8.3.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libgcrypt/libgcrypt-1.8.3.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libgcrypt/libgcrypt-1.8.3.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libgcrypt/libgcrypt-1.8.3.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -46,9 +46,9 @@ make "-j`nproc`" || make
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install &&
-install -v -dm755   /usr/share/doc/libgcrypt-1.8.2 &&
+install -v -dm755   /usr/share/doc/libgcrypt-1.8.3 &&
 install -v -m644    README doc/{README.apichanges,fips*,libgcrypt*} \
-                    /usr/share/doc/libgcrypt-1.8.2
+                    /usr/share/doc/libgcrypt-1.8.3
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

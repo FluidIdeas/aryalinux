@@ -9,18 +9,18 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak c-ares is a C library forbr3ak asynchronous DNS requests.br3ak"
 SECTION="basicnet"
-VERSION=1.12.0
+VERSION=1.14.0
 NAME="c-ares"
 
 
 
 cd $SOURCE_DIR
 
-URL=https://c-ares.haxx.se/download/c-ares-1.12.0.tar.gz
+URL=https://c-ares.haxx.se/download/c-ares-1.14.0.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://c-ares.haxx.se/download/c-ares-1.12.0.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/c-ares/c-ares-1.12.0.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/c-ares/c-ares-1.12.0.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/c-ares/c-ares-1.12.0.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/c-ares/c-ares-1.12.0.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/c-ares/c-ares-1.12.0.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/c-ares/c-ares-1.12.0.tar.gz
+wget -nc https://c-ares.haxx.se/download/c-ares-1.14.0.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/c-ares/c-ares-1.14.0.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/c-ares/c-ares-1.14.0.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/c-ares/c-ares-1.14.0.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/c-ares/c-ares-1.14.0.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/c-ares/c-ares-1.14.0.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/c-ares/c-ares-1.14.0.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

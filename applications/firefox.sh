@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Firefox is a stand-alone browserbr3ak based on the Mozilla codebase.br3ak"
 SECTION="xsoft"
-VERSION=59.0.2
+VERSION=60.0.2
 NAME="firefox"
 
 #REQ:autoconf213
@@ -54,15 +54,15 @@ NAME="firefox"
 
 cd $SOURCE_DIR
 
-URL=https://hg.mozilla.org/releases/mozilla-release/archive/239e434d6d2b8e1e2b697c3416d1e96d48fe98e5.tar.bz2
+URL=https://archive.mozilla.org/pub/firefox/releases/60.0.2/source/firefox-60.0.2.source.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc $URL
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/firefox-59.0.2-ffmpeg4.0-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/firefox/firefox-59.0.2-ffmpeg4.0-1.patch
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/firefox-59.0.2-system_graphite2_harfbuzz-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/firefox/firefox-59.0.2-system_graphite2_harfbuzz-1.patch
+wget -nc https://archive.mozilla.org/pub/firefox/releases/60.0.2/source/firefox-60.0.2.source.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/firefox/firefox-60.0.2.source.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/firefox/firefox-60.0.2.source.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/firefox/firefox-60.0.2.source.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/firefox/firefox-60.0.2.source.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/firefox/firefox-60.0.2.source.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/firefox/firefox-60.0.2.source.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/firefox-60.0.2-ffmpeg4.0-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/firefox/firefox-60.0.2-ffmpeg4.0-1.patch
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/firefox-60.0.2-system_graphite2_harfbuzz-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/firefox/firefox-60.0.2-system_graphite2_harfbuzz-1.patch
 
-TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
+TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
 	DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$"`
 	tar --no-overwrite-dir -xf $TARBALL
@@ -148,14 +148,14 @@ mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/firefox-build-dir
 EOF
 
 
-patch -Np1 -i ../firefox-59.0.2-system_graphite2_harfbuzz-1.patch
+patch -Np1 -i ../firefox-60.0.2-system_graphite2_harfbuzz-1.patch
 
 
-#echo "AIzaSyDxKL42zsPjbke5O8_rPVpVrLrJ8aeE9rQ" > google-key
-#echo "d2284a20-0505-4927-a809-7ffaf4d91e55" > mozilla-key
+echo "AIzaSyDxKL42zsPjbke5O8_rPVpVrLrJ8aeE9rQ" > google-key
+echo "d2284a20-0505-4927-a809-7ffaf4d91e55" > mozilla-key
 
 
-patch -Np1 -i ../firefox-59.0.2-ffmpeg4.0-1.patch &&
+patch -Np1 -i ../firefox-60.0.2-ffmpeg4.0-1.patch &&
 ./mach build
 
 

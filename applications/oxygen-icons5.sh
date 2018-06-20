@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The oxygen icons 5 theme is a photo-realistic icon style, with abr3ak high standard of graphics quality.br3ak"
 SECTION="x"
-VERSION=5.43.0
+VERSION=5.46.0
 NAME="oxygen-icons5"
 
 #REQ:extra-cmake-modules
@@ -18,11 +18,11 @@ NAME="oxygen-icons5"
 
 cd $SOURCE_DIR
 
-URL=http://download.kde.org/stable/frameworks/5.43/oxygen-icons5-5.43.0.tar.xz
+URL=http://download.kde.org/stable/frameworks/5.46/oxygen-icons5-5.46.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://download.kde.org/stable/frameworks/5.43/oxygen-icons5-5.43.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/oxygen-icons/oxygen-icons5-5.43.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/oxygen-icons/oxygen-icons5-5.43.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/oxygen-icons/oxygen-icons5-5.43.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/oxygen-icons/oxygen-icons5-5.43.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/oxygen-icons/oxygen-icons5-5.43.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/oxygen-icons/oxygen-icons5-5.43.0.tar.xz
+wget -nc http://download.kde.org/stable/frameworks/5.46/oxygen-icons5-5.46.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/oxygen-icons/oxygen-icons5-5.46.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/oxygen-icons/oxygen-icons5-5.46.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/oxygen-icons/oxygen-icons5-5.46.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/oxygen-icons/oxygen-icons5-5.46.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/oxygen-icons/oxygen-icons5-5.46.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/oxygen-icons/oxygen-icons5-5.46.0.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

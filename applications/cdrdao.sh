@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Cdrdao package contains CDbr3ak recording utilities. These are useful for burning a CD inbr3ak disk-at-once mode.br3ak"
 SECTION="multimedia"
-VERSION=1.2.3
+VERSION=1.2.4
 NAME="cdrdao"
 
 #REC:libao
@@ -20,11 +20,11 @@ NAME="cdrdao"
 
 cd $SOURCE_DIR
 
-URL=https://downloads.sourceforge.net/cdrdao/cdrdao-1.2.3.tar.bz2
+URL=https://downloads.sourceforge.net/cdrdao/cdrdao-1.2.4.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc https://downloads.sourceforge.net/cdrdao/cdrdao-1.2.3.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/cdrdao/cdrdao-1.2.3.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/cdrdao/cdrdao-1.2.3.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/cdrdao/cdrdao-1.2.3.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/cdrdao/cdrdao-1.2.3.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/cdrdao/cdrdao-1.2.3.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/cdrdao/cdrdao-1.2.3.tar.bz2
+wget -nc https://downloads.sourceforge.net/cdrdao/cdrdao-1.2.4.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/cdrdao/cdrdao-1.2.4.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/cdrdao/cdrdao-1.2.4.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/cdrdao/cdrdao-1.2.4.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/cdrdao/cdrdao-1.2.4.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/cdrdao/cdrdao-1.2.4.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/cdrdao/cdrdao-1.2.4.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -39,10 +39,6 @@ fi
 
 whoami > /tmp/currentuser
 
-
-sed -i '/ioctl.h/a #include <sys/stat.h>' dao/ScsiIf-linux.cc             &&
-sed -i 's/\(char .*REMOTE\)/unsigned \1/' dao/CdrDriver.{cc,h}            &&
-sed -i 's/bitrate_table.1..i./lame_get_bitrate(1, i)/g' utils/toc2mp3.cc  &&
 ./configure --prefix=/usr --mandir=/usr/share/man &&
 make "-j`nproc`" || make
 
@@ -50,8 +46,8 @@ make "-j`nproc`" || make
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install &&
-install -v -m755 -d /usr/share/doc/cdrdao-1.2.3 &&
-install -v -m644 README /usr/share/doc/cdrdao-1.2.3
+install -v -m755 -d /usr/share/doc/cdrdao-1.2.4 &&
+install -v -m644 README /usr/share/doc/cdrdao-1.2.4
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

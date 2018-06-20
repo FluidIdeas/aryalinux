@@ -8,8 +8,8 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="https://www.cpan.org/authors/id/S/SH/SHLOMIF/Error-0.17025.tar.gz"
-VERSION=0.17025
+URL="https://www.cpan.org/authors/id/S/SH/SHLOMIF/Error-0.17026.tar.gz"
+VERSION=0.17026
 NAME="perl-modules#perl-error"
 
 cd $SOURCE_DIR
@@ -37,4 +37,4 @@ cd $SOURCE_DIR
 
 cleanup "$NAME" "$DIRECTORY"
 
-register_installed "$NAME=>`date`" "$VERSION" "$INSTALLED_LIST"
+register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"

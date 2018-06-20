@@ -84,7 +84,6 @@ DESCRIPTION="GNOME is a desktop environment that is composed entirely of free an
 #REQ:gnome-power-manager
 #REQ:gnome-system-monitor
 #REQ:gnome-terminal
-#REQ:gnome-tweak-tool
 #REQ:gnome-weather
 #REQ:gucharmap
 #REQ:network-manager-applet
@@ -108,9 +107,10 @@ DESCRIPTION="GNOME is a desktop environment that is composed entirely of free an
 #REQ:lightdm-gtk-greeter
 
 pushd $SOURCE_DIR
-wget https://raw.githubusercontent.com/FluidIdeas/utils/master/wallpaper-list-update.sh -O udpate-wallpapers.sh
-chmod a+x udpate-wallpapers.sh
-sudo ./udpate-wallpapers.sh
+wget https://raw.githubusercontent.com/FluidIdeas/utils/master/wallpaper-list-update.sh
+sudo chmod a+x wallpaper-list-update.sh
+sudo ./wallpaper-list-update.sh
+sudo rm wallpaper-list-update.sh
 popd
 
 sudo systemctl disable gdm

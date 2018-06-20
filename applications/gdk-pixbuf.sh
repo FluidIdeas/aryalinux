@@ -16,7 +16,6 @@ NAME="gdk-pixbuf"
 #REQ:libjpeg
 #REQ:libpng
 #REQ:shared-mime-info
-#OPT:librsvg
 #REC:libtiff
 #REC:x7lib
 #OPT:gobject-introspection

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak libidn2 is a package designed forbr3ak internationalized string handling based on standards from thebr3ak Internet Engineering Task Force (IETF)'s IDN working group,br3ak designed for internationalized domain names.br3ak"
 SECTION="general"
-VERSION=2.0.4
+VERSION=2.0.5
 NAME="libidn2"
 
 #REQ:libunistring
@@ -18,11 +18,11 @@ NAME="libidn2"
 
 cd $SOURCE_DIR
 
-URL=https://ftp.gnu.org/gnu/libidn/libidn2-2.0.4.tar.gz
+URL=https://ftp.gnu.org/gnu/libidn/libidn2-2.0.5.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://ftp.gnu.org/gnu/libidn/libidn2-2.0.4.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libidn/libidn2-2.0.4.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libidn/libidn2-2.0.4.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libidn/libidn2-2.0.4.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libidn/libidn2-2.0.4.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libidn/libidn2-2.0.4.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libidn/libidn2-2.0.4.tar.gz || wget -nc ftp://ftp.gnu.org/gnu/libidn/libidn2-2.0.4.tar.gz
+wget -nc https://ftp.gnu.org/gnu/libidn/libidn2-2.0.5.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libidn/libidn2-2.0.5.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libidn/libidn2-2.0.5.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libidn/libidn2-2.0.5.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libidn/libidn2-2.0.5.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libidn/libidn2-2.0.5.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libidn/libidn2-2.0.5.tar.gz || wget -nc ftp://ftp.gnu.org/gnu/libidn/libidn2-2.0.5.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

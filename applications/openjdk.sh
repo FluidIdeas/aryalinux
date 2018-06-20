@@ -104,7 +104,7 @@ sudo rm rootscript.sh
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 mkdir -pv /usr/share/applications &&
-cat > /usr/share/applications/openjdk-9-java.desktop << "EOF" &&
+cat > /usr/share/applications/openjdk-java.desktop << "EOF" &&
 [Desktop Entry]
 Name=OpenJDK Java 10.0.1 Runtime
 Comment=OpenJDK Java 10.0.1 Runtime
@@ -115,19 +115,7 @@ Icon=java
 MimeType=application/x-java-archive;application/java-archive;application/x-jar;
 NoDisplay=true
 EOF
-cat > /usr/share/applications/openjdk-9-policytool.desktop << "EOF" &&
-[Desktop Entry]
-Name=OpenJDK Java 10.0.1 Policy Tool
-Name[pt_BR]=OpenJDK Java 10.0.1 - Ferramenta de Pol�tica
-Comment=OpenJDK Java 10.0.1 Policy Tool
-Comment[pt_BR]=OpenJDK Java 10.0.1 - Ferramenta de Pol�tica
-Exec=/opt/jdk/bin/policytool
-Terminal=false
-Type=Application
-Icon=java
-Categories=Settings;
-EOF
-cat > /usr/share/applications/openjdk-9-jconsole.desktop << "EOF"
+cat > /usr/share/applications/openjdk-jconsole.desktop << "EOF"
 [Desktop Entry]
 Name=OpenJDK Java 10.0.1 Console
 Comment=OpenJDK Java 10.0.1 Console

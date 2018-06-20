@@ -39,9 +39,9 @@ export TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/') &&
 cat >> /etc/profile.d/extrapaths.sh << EOF
 
 # Begin texlive addition
-pathappend /opt/texlive/2017/texmf-dist/doc/man MANPATH
-pathappend /opt/texlive/2017/texmf-dist/doc/info INFOPATH
-pathappend /opt/texlive/2017/bin/$TEXARCH
+pathappend /opt/texlive/2018/texmf-dist/doc/man MANPATH
+pathappend /opt/texlive/2018/texmf-dist/doc/info INFOPATH
+pathappend /opt/texlive/2018/bin/$TEXARCH
 # End texlive addition
 
 EOF

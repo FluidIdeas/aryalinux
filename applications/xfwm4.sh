@@ -39,7 +39,7 @@ fi
 
 whoami > /tmp/currentuser
 
-./configure --prefix=/usr &&
+./configure --prefix=/usr --disable-compositor &&
 make "-j`nproc`" || make
 
 

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Qt5 is a cross-platformbr3ak application framework that is widely used for developingbr3ak application software with a graphical user interface (GUI) (inbr3ak which cases Qt5 is classified as abr3ak widget toolkit), and also used for developing non-GUI programs suchbr3ak as command-line tools and consoles for servers. One of the majorbr3ak users of Qt is KDE Frameworks 5 (KF5).br3ak"
 SECTION="x"
-VERSION=5.10.1
+VERSION=5.11.0
 NAME="qt5"
 
 #REQ:x7lib
@@ -47,11 +47,11 @@ NAME="qt5"
 
 cd $SOURCE_DIR
 
-URL=https://download.qt.io/archive/qt/5.10/5.10.1/single/qt-everywhere-src-5.10.1.tar.xz
+URL=https://download.qt.io/archive/qt/5.11/5.11.0/single/qt-everywhere-src-5.11.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://download.qt.io/archive/qt/5.10/5.10.1/single/qt-everywhere-src-5.10.1.tar.xz
+wget -nc https://download.qt.io/archive/qt/5.11/5.11.0/single/qt-everywhere-src-5.11.0.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -71,8 +71,8 @@ export QT5PREFIX=/opt/qt5
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-mkdir /opt/qt-5.10.1
-ln -sfnv qt-5.10.1 /opt/qt5
+mkdir /opt/qt-5.11.0
+ln -sfnv qt-5.11.0 /opt/qt5
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

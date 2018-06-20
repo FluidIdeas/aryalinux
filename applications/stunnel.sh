@@ -9,18 +9,18 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The stunnel package contains abr3ak program that allows you to encrypt arbitrary TCP connections insidebr3ak SSL (Secure Sockets Layer) so you can easily communicate withbr3ak clients over secure channels. stunnel can be used to add SSL functionalitybr3ak to commonly used Inetd daemonsbr3ak such as POP-2, POP-3, and IMAP servers, along with standalonebr3ak daemons such as NNTP, SMTP, and HTTP. stunnel can also be used to tunnel PPP overbr3ak network sockets without changes to the server package source code.br3ak"
 SECTION="postlfs"
-VERSION=5.44
+VERSION=5.46
 NAME="stunnel"
 
 
 
 cd $SOURCE_DIR
 
-URL=ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.44.tar.gz
+URL=ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.46.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.44.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/stunnel/stunnel-5.44.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/stunnel/stunnel-5.44.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/stunnel/stunnel-5.44.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/stunnel/stunnel-5.44.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/stunnel/stunnel-5.44.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/stunnel/stunnel-5.44.tar.gz
+wget -nc ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.46.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/stunnel/stunnel-5.46.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/stunnel/stunnel-5.46.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/stunnel/stunnel-5.46.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/stunnel/stunnel-5.46.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/stunnel/stunnel-5.46.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/stunnel/stunnel-5.46.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -58,7 +58,7 @@ make "-j`nproc`" || make
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make docdir=/usr/share/doc/stunnel-5.44 install
+make docdir=/usr/share/doc/stunnel-5.46 install
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

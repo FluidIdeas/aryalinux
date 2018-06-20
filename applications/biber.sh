@@ -82,7 +82,7 @@ perl ./Build.PL &&
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-tar -xf ../biblatex-3.11.tds.tgz -C /opt/texlive/2017/texmf-dist &&
+tar -xf ../biblatex-3.11.tds.tgz -C /opt/texlive/2018/texmf-dist &&
 texhash &&
 ./Build install
 

@@ -71,10 +71,15 @@ VERSION=4.12
 #REQ:usb_modeswitch
 #REQ:compton
 
+#REQ:arc-gtk-theme
+#REQ:breeze-gtk-theme
+#REQ:greybird-gtk-theme
+#REQ:numix-icons
+
 cd $SOURCE_DIR
-wget -nc https://sourceforge.net/projects/aryalinux-bin/releases/2017.06/bin/aryalinux-xfce-config.tar.xz
-tar xf aryalinux-xfce-config.tar.xz -C ~
-sudo tar xf aryalinux-xfce-config.tar.xz -C /etc/skel/
+wget -nc http://aryalinux.com/files/binaries/aryalinux-xfce-config.tar.gz
+tar xf aryalinux-xfce-config.tar.gz -C ~
+sudo tar xf aryalinux-xfce-config.tar.gz -C /etc/skel/
 
 sudo tee /etc/gtk-2.0/gtkrc <<"EOF"
 include "/usr/share/themes/Clearlooks/gtk-2.0/gtkrc"
@@ -138,7 +143,7 @@ EOF
 if [ ! -f /usr/share/pixmaps/aryalinux.png ]
 then
 cd $SOURCE_DIR
-wget -nc https://sourceforge.net/projects/aryalinux-bin/files/artifacts/aryalinux.png
+wget -nc http://aryalinux.com/files/aryalinux.png
 pushd /usr/share/pixmaps/
 sudo cp -v $SOURCE_DIR/aryalinux.png .
 popd

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The GOffice package contains abr3ak library of GLib/GTK document centric objects and utilities.br3ak This is useful for performing common operations for documentbr3ak centric applications that are conceptually simple, but complex tobr3ak implement fully. Some of the operations provided by thebr3ak GOffice library include supportbr3ak for plugins, load/save routines for application documents andbr3ak undo/redo functions.br3ak"
 SECTION="x"
-VERSION=0.10.39
+VERSION=0.10.41
 NAME="goffice010"
 
 #REQ:gtk3
@@ -25,11 +25,11 @@ NAME="goffice010"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/goffice/0.10/goffice-0.10.39.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/goffice/0.10/goffice-0.10.41.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.gnome.org/pub/gnome/sources/goffice/0.10/goffice-0.10.39.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/goffice/goffice-0.10.39.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/goffice/goffice-0.10.39.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/goffice/goffice-0.10.39.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/goffice/goffice-0.10.39.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/goffice/goffice-0.10.39.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/goffice/goffice-0.10.39.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/goffice/0.10/goffice-0.10.39.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/goffice/0.10/goffice-0.10.41.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/goffice/goffice-0.10.41.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/goffice/goffice-0.10.41.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/goffice/goffice-0.10.41.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/goffice/goffice-0.10.41.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/goffice/goffice-0.10.41.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/goffice/goffice-0.10.41.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/goffice/0.10/goffice-0.10.41.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

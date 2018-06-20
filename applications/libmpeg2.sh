@@ -22,7 +22,7 @@ URL=http://libmpeg2.sourceforge.net/files/libmpeg2-0.5.1.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://libmpeg2.sourceforge.net/files/libmpeg2-0.5.1.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libmpeg2/libmpeg2-0.5.1.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libmpeg2/libmpeg2-0.5.1.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libmpeg2/libmpeg2-0.5.1.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libmpeg2/libmpeg2-0.5.1.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libmpeg2/libmpeg2-0.5.1.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libmpeg2/libmpeg2-0.5.1.tar.gz || wget -nc ftp://mirror.ovh.net/gentoo-distfiles/distfiles/libmpeg2-0.5.1.tar.gz
+wget -nc http://libmpeg2.sourceforge.net/files/libmpeg2-0.5.1.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libmpeg2/libmpeg2-0.5.1.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libmpeg2/libmpeg2-0.5.1.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libmpeg2/libmpeg2-0.5.1.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libmpeg2/libmpeg2-0.5.1.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libmpeg2/libmpeg2-0.5.1.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libmpeg2/libmpeg2-0.5.1.tar.gz || wget -nc ftp://ftp.mirrorservice.org/sites/distfiles.gentoo.org/distfiles/libmpeg2-0.5.1.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

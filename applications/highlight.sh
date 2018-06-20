@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Highlight is an utility thatbr3ak converts source code to formatted text with syntax highlighting.br3ak"
 SECTION="general"
-VERSION=3.42
+VERSION=3.43
 NAME="highlight"
 
 #REQ:boost
@@ -19,11 +19,11 @@ NAME="highlight"
 
 cd $SOURCE_DIR
 
-URL=http://www.andre-simon.de/zip/highlight-3.42.tar.bz2
+URL=http://www.andre-simon.de/zip/highlight-3.43.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://www.andre-simon.de/zip/highlight-3.42.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/highlight/highlight-3.42.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/highlight/highlight-3.42.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/highlight/highlight-3.42.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/highlight/highlight-3.42.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/highlight/highlight-3.42.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/highlight/highlight-3.42.tar.bz2
+wget -nc http://www.andre-simon.de/zip/highlight-3.43.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/highlight/highlight-3.43.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/highlight/highlight-3.43.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/highlight/highlight-3.43.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/highlight/highlight-3.43.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/highlight/highlight-3.43.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/highlight/highlight-3.43.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

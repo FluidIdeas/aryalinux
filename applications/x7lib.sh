@@ -72,7 +72,7 @@ ef8c2c1d16a00bd95b9fdcef63b8a2ca libXtst-1.2.3.tar.bz2
 4cbe1c1def7a5e1b0ed5fce8e512f4c6 libXvMC-1.0.10.tar.bz2
 d7dd9b9df336b7dd4028b6b56542ff2c libXxf86dga-1.1.4.tar.bz2
 298b8fff82df17304dfdb5fe4066fe3a libXxf86vm-1.1.4.tar.bz2
-ba983eba5a9f05d152a0725b8e863151 libdmx-1.1.3.tar.bz2
+d2f1f0ec68ac3932dd7f1d9aa0a7a11c libdmx-1.1.4.tar.bz2
 8f436e151d5106a9cfaa71857a066d33 libpciaccess-0.14.tar.bz2
 4a4cfeaf24dab1b991903455d6d7d404 libxkbfile-1.0.9.tar.bz2
 42dda8016943dc12aff2c03a036e0937 libxshmfence-1.3.tar.bz2

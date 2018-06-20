@@ -14,13 +14,13 @@ NAME="gvfs"
 
 #REQ:dbus
 #REQ:glib2
+#REQ:libsecret
+#REQ:libsoup
 #REC:gcr
 #REC:gtk3
 #REC:libcdio
 #REC:libgdata
 #REC:libgudev
-#REC:libsecret
-#REC:libsoup
 #REC:systemd
 #REC:udisks2
 #OPT:apache

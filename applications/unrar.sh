@@ -9,18 +9,18 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The UnRar package contains abr3ak <code class=\"filename\">RAR extraction utility used forbr3ak extracting files from <code class=\"filename\">RAR archives.br3ak <code class=\"filename\">RAR archives are usually created withbr3ak WinRAR, primarily in a Windowsbr3ak environment.br3ak"
 SECTION="general"
-VERSION=5.6.3
+VERSION=5.6.4
 NAME="unrar"
 
 
 
 cd $SOURCE_DIR
 
-URL=http://www.rarlab.com/rar/unrarsrc-5.6.3.tar.gz
+URL=http://www.rarlab.com/rar/unrarsrc-5.6.4.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://www.rarlab.com/rar/unrarsrc-5.6.3.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/unrarsrc/unrarsrc-5.6.3.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/unrarsrc/unrarsrc-5.6.3.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/unrarsrc/unrarsrc-5.6.3.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/unrarsrc/unrarsrc-5.6.3.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/unrarsrc/unrarsrc-5.6.3.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/unrarsrc/unrarsrc-5.6.3.tar.gz
+wget -nc http://www.rarlab.com/rar/unrarsrc-5.6.4.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/unrarsrc/unrarsrc-5.6.4.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/unrarsrc/unrarsrc-5.6.4.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/unrarsrc/unrarsrc-5.6.4.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/unrarsrc/unrarsrc-5.6.4.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/unrarsrc/unrarsrc-5.6.4.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/unrarsrc/unrarsrc-5.6.4.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

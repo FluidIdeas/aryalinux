@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Khelpcenter is an application tobr3ak show KDE Applications' documentation.br3ak"
 SECTION="kde"
-VERSION=17.12.2
+VERSION=18.04.1
 NAME="khelpcenter"
 
 #REQ:grantlee
@@ -20,11 +20,11 @@ NAME="khelpcenter"
 
 cd $SOURCE_DIR
 
-URL=http://download.kde.org/stable/applications/17.12.2/src/khelpcenter-17.12.2.tar.xz
+URL=http://download.kde.org/stable/applications/18.04.1/src/khelpcenter-18.04.1.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://download.kde.org/stable/applications/17.12.2/src/khelpcenter-17.12.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/khelpcenter/khelpcenter-17.12.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/khelpcenter/khelpcenter-17.12.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/khelpcenter/khelpcenter-17.12.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/khelpcenter/khelpcenter-17.12.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/khelpcenter/khelpcenter-17.12.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/khelpcenter/khelpcenter-17.12.2.tar.xz
+wget -nc http://download.kde.org/stable/applications/18.04.1/src/khelpcenter-18.04.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/khelpcenter/khelpcenter-18.04.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/khelpcenter/khelpcenter-18.04.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/khelpcenter/khelpcenter-18.04.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/khelpcenter/khelpcenter-18.04.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/khelpcenter/khelpcenter-18.04.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/khelpcenter/khelpcenter-18.04.1.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

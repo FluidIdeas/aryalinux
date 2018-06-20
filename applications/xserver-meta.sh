@@ -16,7 +16,7 @@ sudo usermod -a -G video `cat /tmp/currentuser`
 
 #REQ:libxml2
 #REQ:util-macros
-#REQ:x7proto
+#REQ:xorgproto
 #REQ:libXau
 #REQ:libXdmcp
 #REQ:xcb-proto

@@ -38,7 +38,6 @@ if [ ! -z $URL ]
 then
 wget -nc https://github.com/systemd/systemd/archive/v238/systemd-238.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/systemd/systemd-238.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/systemd/systemd-238.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/systemd/systemd-238.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/systemd/systemd-238.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/systemd/systemd-238.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/systemd/systemd-238.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/systemd-238-upstream_fixes-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/systemd/systemd-238-upstream_fixes-1.patch
-wget -nc  https://raw.githubusercontent.com/FluidIdeas/patches/1.0/238-libmount-include.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -54,7 +53,12 @@ fi
 whoami > /tmp/currentuser
 
 patch -Np1 -i ../systemd-238-upstream_fixes-1.patch
-patch -Np1 -i ../238-libmount-include.patch
+
+
+sed -i '527,565 d'                  src/basic/missing.h
+sed -i '24 d'                       src/core/load-fragment.c
+sed -i '53 a#include <sys/mount.h>' src/shared/bus-unit-util.c
+
 
 sed -i 's/GROUP="render", //' rules/50-udev-default.rules.in
 

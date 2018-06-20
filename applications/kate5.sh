@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Kate package contains anbr3ak advanced KF5 based graphical text editor.br3ak"
 SECTION="postlfs"
-VERSION=17.12.2
+VERSION=18.04.1
 NAME="kate5"
 
 #REQ:kframeworks5
@@ -17,11 +17,11 @@ NAME="kate5"
 
 cd $SOURCE_DIR
 
-URL=http://download.kde.org/stable/applications/17.12.2/src/kate-17.12.2.tar.xz
+URL=http://download.kde.org/stable/applications/18.04.1/src/kate-18.04.1.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://download.kde.org/stable/applications/17.12.2/src/kate-17.12.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/kate/kate-17.12.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/kate/kate-17.12.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/kate/kate-17.12.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/kate/kate-17.12.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/kate/kate-17.12.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/kate/kate-17.12.2.tar.xz
+wget -nc http://download.kde.org/stable/applications/18.04.1/src/kate-18.04.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/kate/kate-18.04.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/kate/kate-18.04.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/kate/kate-18.04.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/kate/kate-18.04.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/kate/kate-18.04.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/kate/kate-18.04.1.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

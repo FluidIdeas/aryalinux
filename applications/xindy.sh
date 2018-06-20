@@ -42,12 +42,12 @@ export TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/') &&
 sed -i "s/ grep -v '^;'/ awk NF/" make-rules/inputenc/Makefile.in &&
 sed -i 's%\(indexentry\)%\1\\%' make-rules/inputenc/make-inp-rules.pl &&
 patch -Np1 -i ../xindy-2.5.1-upstream_fixes-1.patch &&
-./configure --prefix=/opt/texlive/2017              \
-            --bindir=/opt/texlive/2017/bin/$TEXARCH \
-            --datarootdir=/opt/texlive/2017         \
+./configure --prefix=/opt/texlive/2018              \
+            --bindir=/opt/texlive/2018/bin/$TEXARCH \
+            --datarootdir=/opt/texlive/2018         \
             --includedir=/usr/include               \
-            --libdir=/opt/texlive/2017/texmf-dist   \
-            --mandir=/opt/texlive/2017/texmf-dist/doc/man &&
+            --libdir=/opt/texlive/2018/texmf-dist   \
+            --mandir=/opt/texlive/2018/texmf-dist/doc/man &&
 make LC_ALL=POSIX
 
 

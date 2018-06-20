@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Sudo package allows a systembr3ak administrator to give certain users (or groups of users) thebr3ak ability to run some (or all) commands as <code class=\"systemitem\">root or another user while logging the commandsbr3ak and arguments.br3ak"
 SECTION="postlfs"
-VERSION=1.8.22
+VERSION=1.8.23
 NAME="sudo"
 
 #OPT:linux-pam
@@ -19,11 +19,11 @@ NAME="sudo"
 
 cd $SOURCE_DIR
 
-URL=http://www.sudo.ws/dist/sudo-1.8.22.tar.gz
+URL=http://www.sudo.ws/dist/sudo-1.8.23.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://www.sudo.ws/dist/sudo-1.8.22.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/sudo/sudo-1.8.22.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/sudo/sudo-1.8.22.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/sudo/sudo-1.8.22.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/sudo/sudo-1.8.22.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/sudo/sudo-1.8.22.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/sudo/sudo-1.8.22.tar.gz || wget -nc ftp://ftp.sudo.ws/pub/sudo/sudo-1.8.22.tar.gz
+wget -nc http://www.sudo.ws/dist/sudo-1.8.23.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/sudo/sudo-1.8.23.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/sudo/sudo-1.8.23.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/sudo/sudo-1.8.23.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/sudo/sudo-1.8.23.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/sudo/sudo-1.8.23.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/sudo/sudo-1.8.23.tar.gz || wget -nc ftp://ftp.sudo.ws/pub/sudo/sudo-1.8.23.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -43,7 +43,7 @@ whoami > /tmp/currentuser
             --with-secure-path         \
             --with-all-insults         \
             --with-env-editor          \
-            --docdir=/usr/share/doc/sudo-1.8.22 \
+            --docdir=/usr/share/doc/sudo-1.8.23 \
             --with-passprompt="[sudo] password for %p: " &&
 make "-j`nproc`" || make
 
