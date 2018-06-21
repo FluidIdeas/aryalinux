@@ -16,6 +16,7 @@ NAME="curl"
 #OPT:c-ares
 #OPT:gnutls
 #OPT:libidn2
+#OPT:libssh2
 #OPT:mitkrb
 #OPT:nghttp2
 #OPT:openldap

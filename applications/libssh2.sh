@@ -7,21 +7,22 @@ set +h
 . /var/lib/alps/functions
 
 SOURCE_ONLY=n
-DESCRIPTION="%DESCRIPTION%"
-SECTION="kde-apps"
-VERSION=17.04.1
-NAME="kblog"
+DESCRIPTION="br3ak Libssh2 package is a client-side Cbr3ak library implementing the SSH2 protocol.br3ak"
+SECTION="general"
+VERSION=1.8.0
+NAME="libssh2"
 
-#REQ:plasma-all
+#OPT:libgcrypt
+#OPT:openssh
 
 
 cd $SOURCE_DIR
 
-URL=http://download.kde.org/stable/applications/17.04.1/src/kblog-17.04.1.tar.xz
+URL=https://www.libssh2.org/download/libssh2-1.8.0.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://download.kde.org/stable/applications/17.04.1/src/kblog-17.04.1.tar.xz
+wget -nc https://www.libssh2.org/download/libssh2-1.8.0.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -34,11 +35,20 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir -pv build
-cd build
-cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DLIB_INSTALL_DIR=lib -DBUILD_TESTING=OFF -Wno-dev .. &&
-make -j$(nproc)
-sudo make install
+whoami > /tmp/currentuser
+
+./configure --prefix=/usr --disable-static &&
+make "-j`nproc`" || make
+
+
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+make install
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
 
 
 

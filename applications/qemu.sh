@@ -26,6 +26,7 @@ NAME="qemu"
 #OPT:gtk3
 #OPT:libusb
 #OPT:libgcrypt
+#OPT:libssh2
 #OPT:lzo
 #OPT:nettle
 #OPT:mesa

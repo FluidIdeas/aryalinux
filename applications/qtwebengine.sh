@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak QtWebEngine integratesbr3ak chromium\"s web capabilities intobr3ak Qt. It ships with its own copy of ninja which it uses for the buildbr3ak if it cannot find a system copy, and various copies of librariesbr3ak from ffmpeg, icu, libvpx, and zlib (including libminizip) whichbr3ak have been forked by the chromiumbr3ak developers.br3ak"
 SECTION="x"
-VERSION=5.11.0
+VERSION=5.11.1
 NAME="qtwebengine"
 
 #REQ:nss
@@ -23,11 +23,11 @@ NAME="qtwebengine"
 
 cd $SOURCE_DIR
 
-URL=https://download.qt.io/archive/qt/5.11/5.11.0/submodules/qtwebengine-everywhere-src-5.11.0.tar.xz
+URL=https://download.qt.io/archive/qt/5.11/5.11.1/submodules/qtwebengine-everywhere-src-5.11.1.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://download.qt.io/archive/qt/5.11/5.11.0/submodules/qtwebengine-everywhere-src-5.11.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/qtwebengine/qtwebengine-everywhere-src-5.11.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/qtwebengine/qtwebengine-everywhere-src-5.11.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/qtwebengine/qtwebengine-everywhere-src-5.11.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/qtwebengine/qtwebengine-everywhere-src-5.11.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/qtwebengine/qtwebengine-everywhere-src-5.11.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/qtwebengine/qtwebengine-everywhere-src-5.11.0.tar.xz
+wget -nc https://download.qt.io/archive/qt/5.11/5.11.1/submodules/qtwebengine-everywhere-src-5.11.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/qtwebengine/qtwebengine-everywhere-src-5.11.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/qtwebengine/qtwebengine-everywhere-src-5.11.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/qtwebengine/qtwebengine-everywhere-src-5.11.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/qtwebengine/qtwebengine-everywhere-src-5.11.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/qtwebengine/qtwebengine-everywhere-src-5.11.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/qtwebengine/qtwebengine-everywhere-src-5.11.1.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -41,16 +41,6 @@ cd $DIRECTORY
 fi
 
 whoami > /tmp/currentuser
-
-sed -i '/kPaddingSize/s/32/64/' \
-       src/3rdparty/chromium/media/base/decoder_buffer.h &&
-D=src/3rdparty/chromium/mojo/public/cpp/bindings         &&
-sed -i '/explicit/s/return handle_/return (bool) handle_/' \
-       $D/associated_interface_ptr_info.h \
-       $D/associated_interface_request.h  \
-       $D/interface_request.h                            &&
-unset D
-
 
 mkdir build &&
 cd    build &&
