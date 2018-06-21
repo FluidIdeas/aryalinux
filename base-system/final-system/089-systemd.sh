@@ -1,4 +1,4 @@
-#!/bin/bash
+7#!/bin/bash
 
 set -e
 set +h
