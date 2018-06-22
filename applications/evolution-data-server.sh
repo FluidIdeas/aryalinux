@@ -39,6 +39,7 @@ URL=http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.28/evolution-
 if [ ! -z $URL ]
 then
 wget -nc http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.28/evolution-data-server-3.28.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/evolution-data-server/evolution-data-server-3.28.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/evolution-data-server/evolution-data-server-3.28.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/evolution-data-server/evolution-data-server-3.28.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/evolution-data-server/evolution-data-server-3.28.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/evolution-data-server/evolution-data-server-3.28.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/evolution-data-server/evolution-data-server-3.28.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.28/evolution-data-server-3.28.0.tar.xz
+wget -nc https://raw.githubusercontent.com/FluidIdeas/patches/1.0/evolution-data-server-3.28.0-icu.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -52,6 +53,8 @@ cd $DIRECTORY
 fi
 
 whoami > /tmp/currentuser
+
+patch -Np1 -i ../evolution-data-server-3.28.0-icu.patch
 
 mkdir build &&
 cd    build &&
