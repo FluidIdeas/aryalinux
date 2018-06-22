@@ -7,13 +7,13 @@ set +h
 . /var/lib/alps/functions
 
 NAME="xf86-video-openchrome"
-VERSION="0.4.0"
+VERSION="0.6.0"
 
 #REQ:xorg-server
 
 cd $SOURCE_DIR
 
-URL="http://ftp.kaist.ac.kr/x.org/individual/driver/xf86-video-openchrome-0.4.0.tar.bz2"
+URL="https://www.x.org/releases/individual/driver/xf86-video-openchrome-0.6.0.tar.gz"
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`

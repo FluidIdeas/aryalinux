@@ -13,7 +13,7 @@ VERSION="6.9.6"
 
 cd $SOURCE_DIR
 
-URL="http://ftp.kaist.ac.kr/x.org/individual/driver/xf86-video-mach64-6.9.6.tar.gz"
+URL="https://www.x.org/archive/individual/driver/xf86-video-mach64-6.9.6.tar.gz"
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`

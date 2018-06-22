@@ -7,12 +7,12 @@ set +h
 . /var/lib/alps/functions
 
 NAME="xf86-video-vesa"
-VERSION="2.3.4"
+VERSION="2.4.0"
 
 #REQ:xorg-server
 #REC:mtdev
 
-URL=http://ftp.kaist.ac.kr/x.org/individual/driver/xf86-video-vesa-2.3.4.tar.bz2
+URL=https://www.x.org/releases/individual/driver/xf86-video-vesa-2.4.0.tar.bz2
 
 export XORG_PREFIX=/usr
 export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
