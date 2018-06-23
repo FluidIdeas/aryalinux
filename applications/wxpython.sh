@@ -14,7 +14,7 @@ VERSION="latest"
 cd $SOURCE_DIR
 
 sudo pip3 install --upgrade pip
-sudo pip3 install -U --pre -f https://wxpython.org/Phoenix/snapshot-builds/ wxPython_Phoenix
+sudo pip3 install --upgrade --pre -f https://wxpython.org/Phoenix/snapshot-builds/ wxPython sudo pip install -U --pre -f https://wxpython.org/Phoenix/snapshot-builds/ wxPython_Phoenix
 
 cd $SOURCE_DIR
 cleanup "$NAME" "$DIRECTORY"
