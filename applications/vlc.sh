@@ -79,12 +79,12 @@ fi
 
 whoami > /tmp/currentuser
 
-export QT4PREFIX="/opt/qt4"
-export QT4BINDIR="$QT4PREFIX/bin"
-export QT4DIR="$QT4PREFIX"
-export QTDIR="$QT4PREFIX"
-export PATH="$PATH:$QT4BINDIR"
-export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/opt/qt4/lib/pkgconfig"
+export QT5PREFIX="/opt/qt5"
+export QT5BINDIR="$QT5PREFIX/bin"
+export QT5DIR="$QT5PREFIX"
+export QTDIR="$QT5PREFIX"
+export PATH="$PATH:$QT5BINDIR"
+export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/opt/qt5/lib/pkgconfig"
 sed -i '/vlc_demux.h/a #define LUA_COMPAT_APIINTCASTS' modules/lua/vlc.h   &&
 sed -i '/DEPRECATED/s:^://:'  modules/text_renderer/freetype/text_layout.c &&
 sed -i '/#include <QString>/i#include <QButtonGroup>' \
@@ -95,12 +95,12 @@ make "-j`nproc`" || make
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-export QT4PREFIX="/opt/qt4"
-export QT4BINDIR="$QT4PREFIX/bin"
-export QT4DIR="$QT4PREFIX"
-export QTDIR="$QT4PREFIX"
-export PATH="$PATH:$QT4BINDIR"
-export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/opt/qt4/lib/pkgconfig"
+export QT5PREFIX="/opt/qt5"
+export QT5BINDIR="$QT5PREFIX/bin"
+export QT5DIR="$QT5PREFIX"
+export QTDIR="$QT5PREFIX"
+export PATH="$PATH:$QT5BINDIR"
+export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/opt/qt5/lib/pkgconfig"
 make docdir=/usr/share/doc/vlc-3.0.3 install
 
 ENDOFROOTSCRIPT
@@ -111,12 +111,12 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-export QT4PREFIX="/opt/qt4"
-export QT4BINDIR="$QT4PREFIX/bin"
-export QT4DIR="$QT4PREFIX"
-export QTDIR="$QT4PREFIX"
-export PATH="$PATH:$QT4BINDIR"
-export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/opt/qt4/lib/pkgconfig"
+export QT5PREFIX="/opt/qt5"
+export QT5BINDIR="$QT5PREFIX/bin"
+export QT5DIR="$QT5PREFIX"
+export QTDIR="$QT5PREFIX"
+export PATH="$PATH:$QT5BINDIR"
+export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/opt/qt5/lib/pkgconfig"
 gtk-update-icon-cache &&
 update-desktop-database
 
