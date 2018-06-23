@@ -21,8 +21,21 @@ tar -xf $TARBALL
 
 cd $DIRECTORY
 
-./autogen.sh --prefix=/usr
-./configure --prefix=/usr &&
+if [ ! -f configure ]; then
+	./autogen.sh --prefix=/usr
+fi
+./configure			\
+	--prefix=/usr   	\
+	--sysconfdir=/etc   	\
+	--enable-shared   	\
+	--enable-mediactrl   	\
+	--with-opengl   	\
+	--enable-graphics_ctx   \
+	--with-gtk=3   		\
+	--enable-unicode	\
+	--enable-plugins	\
+	--enable-ipv6		\
+	--enable-stl
 make "-j`nproc`"
 sudo make install
 
