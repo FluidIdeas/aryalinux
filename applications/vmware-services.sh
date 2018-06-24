@@ -25,6 +25,7 @@ RemainAfterExit=yes
 WantedBy=multi-user.target
 EOF
 
+sudo systemctl enable vmware.service
 status='1'
 
 fi
@@ -46,6 +47,7 @@ RemainAfterExit=yes
 WantedBy=multi-user.target
 EOF
 
+sudo systemctl enable vmware-usbarbitrator.service
 status='1'
 
 fi
@@ -67,6 +69,7 @@ RemainAfterExit=yes
 [Install]
 EOF
 
+sudo systemctl enable vmware-workstation-server.service
 status='1'
 
 fi
