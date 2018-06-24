@@ -11,6 +11,6 @@ VERSION="latest"
 
 #REQ:wxwidgets
 
-sudo pip install wxWidgets
+sudo pip install -U wxPython
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
