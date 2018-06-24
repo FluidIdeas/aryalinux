@@ -31,7 +31,7 @@ fi
 	--enable-mediactrl   	\
 	--with-opengl   	\
 	--enable-graphics_ctx   \
-	--with-gtk=3   		\
+	--with-gtk=2   		\
 	--enable-unicode	\
 	--enable-plugins	\
 	--enable-ipv6		\
