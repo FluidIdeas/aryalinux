@@ -6,11 +6,11 @@ set +h
 . /var/lib/alps/functions
 
 NAME="jack"
-VERSION="1.9.10"
+VERSION="1.9.12"
 
 cd $SOURCE_DIR
 
-URL=https://github.com/jackaudio/jackaudio.github.com/releases/download/1.9.10_6-jack2/jack-1.9.10.tar.bz2
+URL=https://github.com/jackaudio/jack2/releases/download/v1.9.12/jack2-1.9.12.tar.gz
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | sed -e 's@/.*@@' | uniq `
@@ -19,7 +19,7 @@ tar -xf $TARBALL
 
 cd $DIRECTORY
 
-CXXFLAGS="-Wno-narrowing" ./waf configure --prefix=/usr &&
+./waf configure --prefix=/usr &&
 ./waf build
 sudo ./waf install
 
