@@ -28,7 +28,9 @@ export QTDIR="$QT5PREFIX"
 export PATH="$PATH:$QT5BINDIR"
 export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/opt/qt5/lib/pkgconfig"
 
-CXXFLAGS="-fPIC" ./configure --prefix=/usr --with-qt5 --with-jack --with-pulseaudio &&
+mkdir -pv build
+cd build
+cmake -DWITH_QT5=1 -DWITH_PULSEAUDIO=1 -DWITH_JACK=1 .. &&
 make "-j`nproc`"
 sudo make install
 
