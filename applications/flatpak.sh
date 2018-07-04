@@ -11,6 +11,7 @@ URL=http://aryalinux.com/files/sources/flatpak-0.11.7.tar.xz
 VERSION=0.11.7
 
 #REQ:libostree
+#REQ:appstream-glib
 
 cd $SOURCE_DIR
 wget -nc $URL
