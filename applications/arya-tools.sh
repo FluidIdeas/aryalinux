@@ -25,4 +25,4 @@ sudo rm -r $TARBALL
 sudo rm -r $DIRECTORY
 
 echo "$NAME=>`date`" | sudo tee -a /etc/alps/installed-list
-echo "$NAME=>$VERSION" | sudo tee -a /etc/alps/versions
+echo "$NAME:$VERSION" | sudo tee -a /etc/alps/versions
