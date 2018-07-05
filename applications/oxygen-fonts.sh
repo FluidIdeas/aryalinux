@@ -6,6 +6,8 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/alps.conf
 
+#REQ:fontforge
+
 NAME="oxygen-fonts"
 VERSION="5.4.3"
 DESCRIPTION="Oxygen Fonts"
