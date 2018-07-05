@@ -21,7 +21,6 @@ VERSION=5.46
 #REQ:libpng
 #REQ:libxslt
 #REQ:lmdb
-#REQ:qtwebkit5
 #REQ:phonon
 #REQ:shared-mime-info
 #REQ:perl-modules#perl-uri
