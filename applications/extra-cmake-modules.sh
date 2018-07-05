@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Extra Cmake Modules packagebr3ak contains extra CMake modules usedbr3ak by KDE Frameworks 5 and otherbr3ak packages.br3ak"
 SECTION="kde"
-VERSION=5.32
+VERSION=5.46
 NAME="extra-cmake-modules"
 
 #REQ:cmake
