@@ -12,39 +12,38 @@ cd $SOURCE_DIR
 
 if [ `uname -m` == "x86_64" ]
 then
-	wget -nc http://download.virtualbox.org/virtualbox/5.1.0/VirtualBox-5.1.0-108711-Linux_amd64.run
+	URL=https://download.virtualbox.org/virtualbox/5.2.14/VirtualBox-5.2.14-123301-Linux_amd64.run
 else
-	wget -nc http://download.virtualbox.org/virtualbox/5.1.0/VirtualBox-5.1.0-108711-Linux_x86.run
+	URL=https://download.virtualbox.org/virtualbox/5.2.14/VirtualBox-5.2.14-123301-Linux_x86.run
 fi
-wget -nc https://www.kernel.org/pub/linux/kernel/v4.x/linux-4.7.tar.xz
-tar xf linux-4.7.tar.xz
-if [ `uname -m` == "x86_64" ]
-then
-	wget -nc https://raw.githubusercontent.com/FluidIdeas/aryalinux/2016.08/lfs/en/config-64
-	cp config-64 linux-4.7/.config
-else
-	wget -nc https://raw.githubusercontent.com/FluidIdeas/aryalinux/2016.08/lfs/en/config-32
-	cp config-32 linux-4.7/.config
-fi
-pushd linux-4.7
+
+KERNEL_URL=https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.17.3.tar.xz
+KERNEL_TARBALL=$(echo $KERNEL_URL | rev | cut -d/ -f1 | rev)
+VBOX_INSTALLER=$(echo $URL | rev | cut -d/ -f1 | rev)
+
+wget -nc $URL
+wget -nc $KERNEL_URL
+
+KERNEL_DIR=$(tar tf $KERNEL_TARBALL | cut -d/ -f1 | uniq)
+
+mkdir -pv /usr/src/
+tar xf $KERNEL_TARBALL -C /usr/src
+sudo ln -svf /usr/src/$KERNEL_DIR /lib/modules/4.16.10/build
+
+pushd /usr/src/$KERNEL_DIR
 make oldconfig
 make prepare
 make scripts
 popd
-if [ `uname -m` == "x86_64" ]
-then
-	chmod a+x VirtualBox-5.1.0-108711-Linux_amd64.run
-else
-	chmod a+x VirtualBox-5.1.0-108711-Linux_x86.run
-fi
-sudo KERN_DIR="`pwd`/linux-4.7" ./VirtualBox-5.1.0-108711-Linux_amd64.run
+
+chmod a+x $VBOX_INSTALLER
+
+sudo KERN_DIR="/usr/src/$KERNEL_DIR" ./$VBOX_INSTALLER
 
 sudo ln -svf /opt/VirtualBox/virtualbox.desktop /usr/share/applications/
 sudo update-desktop-database
-su
-do update-mime-database /usr/share/mime
+sudo update-mime-database /usr/share/mime
 
 cd $SOURCE_DIR
-rm -rf linux-4.7
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
