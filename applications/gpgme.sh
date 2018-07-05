@@ -42,7 +42,7 @@ fi
 
 whoami > /tmp/currentuser
 
-./configure --prefix=/usr --disable-gpg-test &&
+./configure --prefix=/usr --disable-gpg-test --disable-gpgconf-test --disable-gpgsm-test &&
 make
 
 
