@@ -43,7 +43,7 @@ fi
 whoami > /tmp/currentuser
 
 ./configure --prefix=/usr --disable-gpg-test &&
-make "-j`nproc`" || make
+make
 
 
 
