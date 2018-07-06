@@ -32,7 +32,6 @@ knotifications
 ktextwidgets
 kpackage
 kxmlgui
-gpgmepp
 kwallet
 kbookmarks
 prison
