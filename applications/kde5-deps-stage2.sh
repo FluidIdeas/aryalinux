@@ -49,6 +49,7 @@ kactivities
 frameworkintegration
 kdesignerplugin
 portingAids/khtml
+syntax-highlighting
 ktexteditor
 kdewebkit
 portingAids/kross
