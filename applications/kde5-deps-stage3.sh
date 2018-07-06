@@ -19,6 +19,7 @@ libkscreen
 kscreen
 libksysguard
 bluedevil
+kdecoration
 kwin
 plasma-workspace
 kde-cli-tools
