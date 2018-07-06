@@ -208,7 +208,7 @@ export QT5DIR=/opt/qt5
 
 touch /tmp/completed
 while read -r line; do
-    if ! grep $line /tmp/completed
+    if ! grep "$line" /tmp/completed
     then
       # Get the file name, ignoring comments and blank lines
       if $(echo $line | grep -E -q '^ *$|^#' ); then continue; fi
