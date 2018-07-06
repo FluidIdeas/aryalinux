@@ -76,9 +76,9 @@ touch build-log
 
 for package in $packages; do
 	if ! grep $package build-log &> /dev/null; then
-		wget -nc $BASE_URL/$package-$VERSION.0.tar.xz
-		TARBALL="$(echo $package-$VERSION.0.tar.xz | sed 's@portingAids/@@g')"
-		DIRECTORY="$(echo $package-$VERSION.0 | sed 's@portingAids/@@g')"
+		wget -nc $BASE_URL/$package-$VERSION.tar.xz
+		TARBALL="$(echo $package-$VERSION.tar.xz | sed 's@portingAids/@@g')"
+		DIRECTORY="$(echo $package-$VERSION | sed 's@portingAids/@@g')"
 		tar xf $TARBALL
 		pushd $DIRECTORY
 		mkdir build
