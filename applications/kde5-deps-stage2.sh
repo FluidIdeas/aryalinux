@@ -52,6 +52,7 @@ portingAids/khtml
 syntax-highlighting
 ktexteditor
 portingAids/kross
+kirigami2
 plasma-framework
 portingAids/krunner
 portingAids/kmediaplayer
