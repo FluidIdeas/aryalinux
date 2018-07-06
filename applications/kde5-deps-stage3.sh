@@ -18,7 +18,6 @@ bluedevil
 libkscreen
 kscreen
 libksysguard
-libmm-qt
 bluedevil
 kde-cli-tools
 kdecoration
