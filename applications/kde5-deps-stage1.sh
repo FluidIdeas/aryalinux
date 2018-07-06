@@ -91,6 +91,29 @@ for package in $packages; do
 	fi
 done
 
+if ! grep "kjs" build-log &> /dev/null; then
+	wget -nc $BASE_URL/portingAids/kjs-$VERSION.0.tar.xz
+	TARBALL="kjs-$VERSION.0.tar.xz"
+	DIRECTORY="kjs-$VERSION.0"
+	tar xf $TARBALL
+	pushd $DIRECTORY
+	mkdir build
+	cd    build
+	cmake -DCMAKE_INSTALL_PREFIX=$KF5_PREFIX \
+		-DCMAKE_PREFIX_PATH=$QT5DIR        \
+		-DCMAKE_BUILD_TYPE=Release         \
+		-DLIB_INSTALL_DIR=lib              \
+		-DBUILD_TESTING=OFF                \
+		-Wno-dev ..
+	make "-j`nproc`"
+	sudo make install
+	popd
+
+	echo "$package=>`date`" >> build-log
+
+	rm -rf $DIRECTORY
+fi
+
 popd
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
