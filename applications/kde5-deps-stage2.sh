@@ -54,7 +54,7 @@ ktexteditor
 portingAids/kross
 kirigami2
 plasma-framework
-portingAids/krunner
+krunner
 portingAids/kmediaplayer
 kded
 portingAids/kdelibs4support
