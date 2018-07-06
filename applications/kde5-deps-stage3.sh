@@ -19,6 +19,7 @@ libkscreen
 kscreen
 libksysguard
 bluedevil
+plasma-workspace
 kde-cli-tools
 kdecoration
 kde-gtk-config
