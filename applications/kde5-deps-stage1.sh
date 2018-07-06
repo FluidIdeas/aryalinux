@@ -57,6 +57,7 @@ sudo ln -sfv /usr/share/icons/hicolor $KF5_PREFIX/share/icons
 export KF5_PREFIX=/opt/kf5
 export QT5DIR=/opt/qt5
 
+cd $SOURCE_DIR
 
 mkdir -pv $NAME
 pushd $NAME
