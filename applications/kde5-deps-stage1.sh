@@ -24,7 +24,7 @@ kidletime
 kimageformats
 kplotting
 kwidgetsaddons
-oxygen-icons
+oxygen-icons5
 kwindowsystem
 solid
 sonnet
