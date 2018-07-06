@@ -59,7 +59,6 @@ portingAids/kmediaplayer
 kded
 portingAids/kdelibs4support
 baloo
-kscreenlocker
 kfilemetadata
 kwayland"
 

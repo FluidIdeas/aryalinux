@@ -13,7 +13,8 @@ NAME="kde5-deps-stage3"
 DESCRIPTION="KDE Frameworks 5 is a collection of libraries based on top of Qt5 and QML derived from the monolithic KDE 4 libraries."
 VERSION=5.13.2
 
-packages="libbluedevil
+packages="kscreenlocker
+libbluedevil
 libkscreen
 kscreen
 libksysguard
