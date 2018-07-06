@@ -48,7 +48,9 @@ commonBinDir="/var/cache/alps/binaries/"
 
 url=http://download.kde.org/stable/frameworks/$VERSION/
 wget -nc -r -nH --cut-dirs=3 -A '*.xz' -np $url
-
+if [ -d portingAids ]; then
+	mv portingAids/* .
+fi
 
 cat > frameworks-$VERSION.0.md5 << EOF
 744dc9e456797eb65dc17708a4f6930f  attica-$VERSION.0.tar.xz
