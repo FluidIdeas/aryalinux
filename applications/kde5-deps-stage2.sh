@@ -51,7 +51,6 @@ kdesignerplugin
 portingAids/khtml
 syntax-highlighting
 ktexteditor
-kdewebkit
 portingAids/kross
 plasma-framework
 portingAids/krunner
