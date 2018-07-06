@@ -60,7 +60,8 @@ kded
 portingAids/kdelibs4support
 baloo
 kfilemetadata
-kwayland"
+kwayland
+bluez-qt"
 
 BASE_URL=http://download.kde.org/stable/frameworks/$VERSION
 
