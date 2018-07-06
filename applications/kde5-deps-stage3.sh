@@ -14,7 +14,7 @@ DESCRIPTION="KDE Frameworks 5 is a collection of libraries based on top of Qt5 a
 VERSION=5.13.2
 
 packages="kscreenlocker
-libbluedevil
+bluedevil
 libkscreen
 kscreen
 libksysguard
