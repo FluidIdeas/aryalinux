@@ -32,7 +32,7 @@ threadweaver
 ki18n
 portingAids/kjs"
 
-BASE_URL=http://download.kde.org/stable/frameworks/$VERSION/
+BASE_URL=http://download.kde.org/stable/frameworks/$VERSION
 
 export KF5_PREFIX=/opt/kf5
 export QT5DIR=/opt/qt5

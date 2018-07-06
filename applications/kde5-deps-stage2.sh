@@ -21,7 +21,7 @@ kunitconversion
 kpty
 kservice
 kpeople
-kfilemetadata5
+kfilemetadata
 portingAids/kjsembed
 kconfigwidgets
 kdesu
@@ -33,9 +33,9 @@ ktextwidgets
 kpackage
 kxmlgui
 gpgmepp
-kwallet5
+kwallet
 kbookmarks
-prison5
+prison
 kio
 kxmlrpcclient
 kparts
@@ -59,7 +59,7 @@ portingAids/kdelibs4support
 baloo5
 kscreenlocker"
 
-BASE_URL=http://download.kde.org/stable/frameworks/$VERSION/
+BASE_URL=http://download.kde.org/stable/frameworks/$VERSION
 
 export KF5_PREFIX=/opt/kf5
 export QT5DIR=/opt/qt5
