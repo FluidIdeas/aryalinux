@@ -15,7 +15,7 @@ NAME="khelpcenter"
 #REQ:grantlee
 #REQ:libxml2
 #REQ:xapian
-#REQ:kframeworks5
+#REQ:kde5-deps-stage2
 
 
 cd $SOURCE_DIR
