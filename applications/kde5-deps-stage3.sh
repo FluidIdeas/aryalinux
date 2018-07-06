@@ -19,6 +19,7 @@ libkscreen
 kscreen
 libksysguard
 bluedevil
+kwin
 plasma-workspace
 kde-cli-tools
 kdecoration
@@ -26,7 +27,6 @@ kde-gtk-config
 baloo
 milou
 oxygen
-kwin
 breeze
 kwrited
 systemsettings
