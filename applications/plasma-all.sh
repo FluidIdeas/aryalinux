@@ -62,6 +62,7 @@ wget -nc -r -nH --cut-dirs=3 -A '*.xz' -np $url
 
 
 cat > plasma-$VERSION.md5 << EOF
+5ed64282b5aa36bb77bd3a89334b851d plasma-workspace-$VERSION.tar.xz
 bc2dd43ace2d8674f1d0468e1205474a kde-cli-tools-$VERSION.tar.xz
 d72584ff8363c903ea58b2d56cab965f kdecoration-$VERSION.tar.xz
 f40f3015e4c0cbadba893ea9aec37ec2 libkscreen-$VERSION.tar.xz
@@ -74,7 +75,6 @@ e9d2bdeadcbd378f12a2e54c6b3b9224 kinfocenter-$VERSION.tar.xz
 99d46f170a9143883c207e0a8999e268 ksysguard-$VERSION.tar.xz
 e1dd04fcaf1abd31df89d037af4d2258 kwin-$VERSION.tar.xz
 2b5f4dbc85193941708509e51.181f14 systemsettings-$VERSION.tar.xz
-5ed64282b5aa36bb77bd3a89334b851d plasma-workspace-$VERSION.tar.xz
 57c1e8aa62aa5791102e94160bb5e2b3 bluedevil-$VERSION.tar.xz
 12c5bc74c567f65fbb11907909752ba2 kde-gtk-config-$VERSION.tar.xz
 db39c52e7bdf1ec21888aae5f9f3113a khotkeys-$VERSION.tar.xz
