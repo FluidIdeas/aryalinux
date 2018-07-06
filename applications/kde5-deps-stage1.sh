@@ -12,8 +12,8 @@ VERSION=5.47
 
 packages="kitemmodels
 kitemviews
-kdoctools
 karchive
+kdoctools
 kcodecs
 kconfig
 kcoreaddons
