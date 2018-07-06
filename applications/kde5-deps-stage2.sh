@@ -6,6 +6,8 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#REQ:qrencode
+
 SOURCE_ONLY=n
 NAME="kde5-deps-stage2"
 DESCRIPTION="KDE Frameworks 5 is a collection of libraries based on top of Qt5 and QML derived from the monolithic KDE 4 libraries."
