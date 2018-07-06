@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:qrencode
+#REQ:khelpcenter
 
 SOURCE_ONLY=n
 NAME="kde5-deps-stage3"
@@ -14,16 +14,15 @@ DESCRIPTION="KDE Frameworks 5 is a collection of libraries based on top of Qt5 a
 VERSION=5.13.2
 
 packages="libbluedevil
-libkscreen5
-kscreen5
+libkscreen
+kscreen
 libksysguard
 libmm-qt
-bluedevil5
+bluedevil
 kde-cli-tools
 kdecoration
-kde-gtk-config5
-kfilemetadata5
-baloo5
+kde-gtk-config
+baloo
 milou
 oxygen
 kwin
@@ -31,14 +30,11 @@ breeze
 kwrited
 systemsettings
 ksysguard
-kwayland
-khelpcenter
 kinfocenter
 plasma-workspace
 plasma-nm
 kdeplasma-addons
 khotkeys
-kio-extras
 kmenuedit
 plasma-desktop
 plasma-workspace-wallpapers
