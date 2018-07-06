@@ -58,7 +58,7 @@ krunner
 portingAids/kmediaplayer
 kded
 portingAids/kdelibs4support
-baloo5
+baloo
 kscreenlocker
 kfilemetadata"
 
