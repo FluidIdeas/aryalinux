@@ -16,7 +16,6 @@ VERSION=5.9.1
 #REQ:GConf
 #REQ:pulseaudio
 #REQ:qt5
-#REQ:qtwebengine
 #REQ:extra-cmake-modules
 #REQ:phonon
 #REQ:phonon-backend-gstreamer
