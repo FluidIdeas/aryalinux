@@ -95,8 +95,7 @@ d16a91ea15fc12e7c18d420370ad0bd6  kdeplasma-addons-$VERSION.tar.xz
 #e7de5fcb703e47edc4f3fa5c9094dd9a  plasma-sdk-$VERSION.tar.xz
 ba33b3187ddee122be32ffe0445564fb  sddm-kcm-$VERSION.tar.xz
 f4268471d391b2fb7f51818b7b96c9f6  user-manager-$VERSION.tar.xz
-8ae2ca25329d2126311e552fc24bff5c  discover-$VERSION.1.tar.xz
-#9101bdf4a6664dddc0e15b8fda4681e9  discover-$VERSION.tar.xz
+9101bdf4a6664dddc0e15b8fda4681e9  discover-$VERSION.tar.xz
 #420c6369da5761fcee359cce8693badd  breeze-grub-$VERSION.tar.xz
 #dbba7538a93056a57f52ecfe31eaf8cb  breeze-plymouth-$VERSION.tar.xz
 d28812344e8e0f47b1121f56d3e13750  kactivitymanagerd-$VERSION.tar.xz
