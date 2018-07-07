@@ -33,6 +33,7 @@ systemsettings
 ksysguard
 kinfocenter
 plasma-workspace
+networkmanager-qt
 plasma-nm
 kdeplasma-addons
 khotkeys
