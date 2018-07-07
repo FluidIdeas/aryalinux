@@ -8,7 +8,7 @@ set -e
 SOURCE_ONLY=n
 NAME="kframeworks5"
 DESCRIPTION="KDE Frameworks 5 is a collection of libraries based on top of Qt5 and QML derived from the monolithic KDE 4 libraries."
-VERSION=5.46
+VERSION=5.47
 
 #REQ:boost
 #REQ:extra-cmake-modules
@@ -39,6 +39,8 @@ VERSION=5.46
 #OPT:mitkrb
 #REC:udisks2
 #REC:upower
+#REQ:qrencode
+#REQ:qtwebengine
 
 
 cd $SOURCE_DIR
@@ -54,7 +56,6 @@ fi
 
 cat > frameworks-$VERSION.0.md5 << EOF
 744dc9e456797eb65dc17708a4f6930f  attica-$VERSION.0.tar.xz
-#f5a2ddb5160e16399f748313647d4916  extra-cmake-modules-$VERSION.0.tar.xz
 b7c7dd61a1975fccbe2223f3d96dfa7e  kapidox-$VERSION.0.tar.xz
 9a82e32ecaeecb65fa43393ab4f3a48f  karchive-$VERSION.0.tar.xz
 7320c55f1394465d801a0f838e847bd1  kcodecs-$VERSION.0.tar.xz
@@ -105,7 +106,7 @@ af8348379145e77ce82731ff99d59332  kinit-$VERSION.0.tar.xz
 04c8cd1ab1e59b11836b33b012297bdd  kparts-$VERSION.0.tar.xz
 c5a455b91f0fce3fa9d05b5dd7b6e4ba  kactivities-$VERSION.0.tar.xz
 7f34228533707b5c85f8ab2bae7b97a4  kded-$VERSION.0.tar.xz
-#c0ee2de3ff585aefd74e16c766d183f3  kdewebkit-$VERSION.0.tar.xz
+c0ee2de3ff585aefd74e16c766d183f3  kdewebkit-$VERSION.0.tar.xz
 ab7de9568bec23ad56f11183570dee07  syntax-highlighting-$VERSION.0.tar.xz
 82c8036688d81514b25dc83d535027c9  ktexteditor-$VERSION.0.tar.xz
 6731356c0c86e9c706e58ce2cd621286  kdesignerplugin-$VERSION.0.tar.xz
@@ -117,11 +118,11 @@ bb1058cbd1142e34e2b5dbbed790e507  kxmlrpcclient-$VERSION.0.tar.xz
 2147a40a14d725bdf7538eb4f7a631e8  bluez-qt-$VERSION.0.tar.xz
 5109a64c107385a71f7de575ebe0ce94  kfilemetadata-$VERSION.0.tar.xz
 899dfc68daf13a71fb1146b57b1d26c9  baloo-$VERSION.0.tar.xz
-#9db3c27c991006fef65b3a5ec82c2ba6  breeze-icons-$VERSION.0.tar.xz
-#7c7a54154aa904d6a6ea9f3ce120376e  oxygen-icons5-$VERSION.0.tar.xz
+9db3c27c991006fef65b3a5ec82c2ba6  breeze-icons-$VERSION.0.tar.xz
+7c7a54154aa904d6a6ea9f3ce120376e  oxygen-icons5-$VERSION.0.tar.xz
 58a50ac1aab2b36bcdcd6591ffd91d65  kactivities-stats-$VERSION.0.tar.xz
 624ac26b1c64a06056535eaae7f1c73b  krunner-$VERSION.0.tar.xz
-#9e76c7991e42b1f2edbd6e942c5519f0  prison-$VERSION.0.tar.xz
+9e76c7991e42b1f2edbd6e942c5519f0  prison-$VERSION.0.tar.xz
 35b9cb4ec4fb46911da127a7403e7947  qqc2-desktop-style-$VERSION.0.tar.xz
 a7c73a1b7563f8210a5dc26a3796a20f  kjs-$VERSION.0.tar.xz
 c715aa25dd115088670ac89b4f41ceeb  kdelibs4support-$VERSION.0.tar.xz
