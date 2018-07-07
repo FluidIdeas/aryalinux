@@ -147,10 +147,10 @@ while read -r line; do
     as_root /sbin/ldconfig
     echo "$line" >> /tmp/plasma-build-list
 done < plasma-$VERSION.md5
-cd /opt/kf5/share/plasma/plasmoids
-for j in $(find -name \*.js); do
-  as_root ln -sfv ../code/$(basename $j) $(dirname $j)/../ui/
-done
+#cd /opt/kf5/share/plasma/plasmoids
+#for j in $(find -name \*.js); do
+#  as_root ln -sfv ../code/$(basename $j) $(dirname $j)/../ui/
+#done
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
