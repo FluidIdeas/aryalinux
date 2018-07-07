@@ -89,7 +89,8 @@ sudo rm rootscript.sh
             -system-harfbuzz                            \
             -system-sqlite                              \
             -nomake examples                            \
-            -no-rpath                                  &&
+            -no-rpath                                   \
+            -skip qtwebengine                          &&
 make "-j`nproc`" || make
 
 
