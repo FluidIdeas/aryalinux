@@ -63,7 +63,8 @@ kfilemetadata
 kwayland
 bluez-qt
 kactivities-stats
-networkmanager-qt"
+networkmanager-qt
+kholidays"
 
 BASE_URL=http://download.kde.org/stable/frameworks/$VERSION
 
