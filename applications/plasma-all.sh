@@ -31,7 +31,6 @@ VERSION="5.13.2"
 #REC:x7driver
 #REC:linux-pam
 #REC:lm_sensors
-#REC:oxygen-icons5
 #REC:pciutils
 #OPT:glu
 #OPT:x7driver
