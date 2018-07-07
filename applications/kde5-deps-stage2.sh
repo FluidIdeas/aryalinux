@@ -62,7 +62,8 @@ baloo
 kfilemetadata
 kwayland
 bluez-qt
-kactivities-stats"
+kactivities-stats
+networkmanager-qt"
 
 BASE_URL=http://download.kde.org/stable/frameworks/$VERSION
 
