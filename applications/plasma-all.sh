@@ -61,11 +61,11 @@ wget -nc -r -nH --cut-dirs=3 -A '*.xz' -np $url
 
 
 cat > plasma-$VERSION.md5 << EOF
+2ffb11f91a451f90c034b5b657d38563  libksysguard-$VERSION.tar.xz
 28906f048a968798f7311c1068aebb8b  plasma-workspace-$VERSION.tar.xz
 15e8b3abd34c7bed89247dcd89677da9  kde-cli-tools-$VERSION.tar.xz
 7a6426a12788a1dc5fceb3ed0cf15818  kdecoration-$VERSION.tar.xz
 1e3b3aa0026bf51121fa36f4380db6e5  libkscreen-$VERSION.tar.xz
-2ffb11f91a451f90c034b5b657d38563  libksysguard-$VERSION.tar.xz
 45cc26a47b5c742e93ba17e59d72d91a  breeze-$VERSION.tar.xz
 4df4338cb8781e068e8b53987430cbda  breeze-gtk-$VERSION.tar.xz
 30afafc98d6d3eecec15c1bad3ce0362  kscreenlocker-$VERSION.tar.xz
@@ -134,7 +134,7 @@ while read -r line; do
     esac
     tar -xf $file
     pushd $packagedir
-       mkdir build
+       mkdir -pv build
        cd    build
        cmake -DCMAKE_INSTALL_PREFIX=/opt/kf5 \
              -DCMAKE_BUILD_TYPE=Release         \

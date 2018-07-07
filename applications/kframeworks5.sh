@@ -220,7 +220,7 @@ while read -r line; do
       packagedir=$(echo $pkg|sed 's|\.tar.*||') # Package directory
       tar -xf $file
       pushd $packagedir
-        mkdir build
+        mkdir -pv build
         cd    build
         cmake -DCMAKE_INSTALL_PREFIX=$KF5_PREFIX \
               -DCMAKE_PREFIX_PATH=$QT5DIR        \
