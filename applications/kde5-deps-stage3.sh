@@ -25,7 +25,6 @@ plasma-workspace
 kde-cli-tools
 kdecoration
 kde-gtk-config
-baloo
 milou
 oxygen
 breeze
