@@ -62,9 +62,10 @@ wget -nc -r -nH --cut-dirs=3 -A '*.xz' -np $url
 
 cat > plasma-$VERSION.md5 << EOF
 2ffb11f91a451f90c034b5b657d38563  libksysguard-$VERSION.tar.xz
+7a6426a12788a1dc5fceb3ed0cf15818  kdecoration-$VERSION.tar.xz
+39cc7321fe28c2b4a76426da8a830d7c  kwin-$VERSION.tar.xz
 28906f048a968798f7311c1068aebb8b  plasma-workspace-$VERSION.tar.xz
 15e8b3abd34c7bed89247dcd89677da9  kde-cli-tools-$VERSION.tar.xz
-7a6426a12788a1dc5fceb3ed0cf15818  kdecoration-$VERSION.tar.xz
 1e3b3aa0026bf51121fa36f4380db6e5  libkscreen-$VERSION.tar.xz
 45cc26a47b5c742e93ba17e59d72d91a  breeze-$VERSION.tar.xz
 4df4338cb8781e068e8b53987430cbda  breeze-gtk-$VERSION.tar.xz
@@ -72,7 +73,6 @@ cat > plasma-$VERSION.md5 << EOF
 7622748eafe631e46574e44ba53bdaea  oxygen-$VERSION.tar.xz
 5d0f3d5844ac31f2665ed0d5966d7751  kinfocenter-$VERSION.tar.xz
 25bfe4cb9bbb782c938f92963ca1cd59  ksysguard-$VERSION.tar.xz
-39cc7321fe28c2b4a76426da8a830d7c  kwin-$VERSION.tar.xz
 08b5ebd84ee25d2306d30e1afe33f924  systemsettings-$VERSION.tar.xz
 60e92f4d444cba7e31041bf9c426d1aa  bluedevil-$VERSION.tar.xz
 26706a36cb19c270281a0b69f8ab2609  kde-gtk-config-$VERSION.tar.xz
