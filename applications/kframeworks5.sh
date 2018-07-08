@@ -106,7 +106,6 @@ af8348379145e77ce82731ff99d59332  kinit-$VERSION.0.tar.xz
 04c8cd1ab1e59b11836b33b012297bdd  kparts-$VERSION.0.tar.xz
 c5a455b91f0fce3fa9d05b5dd7b6e4ba  kactivities-$VERSION.0.tar.xz
 7f34228533707b5c85f8ab2bae7b97a4  kded-$VERSION.0.tar.xz
-# c0ee2de3ff585aefd74e16c766d183f3  kdewebkit-$VERSION.0.tar.xz
 ab7de9568bec23ad56f11183570dee07  syntax-highlighting-$VERSION.0.tar.xz
 82c8036688d81514b25dc83d535027c9  ktexteditor-$VERSION.0.tar.xz
 6731356c0c86e9c706e58ce2cd621286  kdesignerplugin-$VERSION.0.tar.xz
