@@ -27,13 +27,13 @@ wget -nc $KERNEL_URL
 KERNEL_DIR=$(tar tf $KERNEL_TARBALL | cut -d/ -f1 | uniq)
 
 mkdir -pv /usr/src/
-tar xf $KERNEL_TARBALL -C /usr/src
+sudo tar xf $KERNEL_TARBALL -C /usr/src
 sudo ln -svf /usr/src/$KERNEL_DIR /lib/modules/4.16.10/build
 
 pushd /usr/src/$KERNEL_DIR
-make oldconfig
-make prepare
-make scripts
+sudo make oldconfig
+sudo make prepare
+sudo make scripts
 popd
 
 chmod a+x $VBOX_INSTALLER
