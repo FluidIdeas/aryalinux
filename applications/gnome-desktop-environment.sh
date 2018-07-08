@@ -105,6 +105,7 @@ DESCRIPTION="GNOME is a desktop environment that is composed entirely of free an
 #REQ:numix-icons
 #REQ:aryalinux-gnome-settings
 #REQ:lightdm-gtk-greeter
+#REQ:gnome-tweak-tool
 
 pushd $SOURCE_DIR
 wget https://raw.githubusercontent.com/FluidIdeas/utils/master/wallpaper-list-update.sh
