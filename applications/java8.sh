@@ -24,9 +24,10 @@ URL=https://sourceforge.net/projects/aryalinux-bin/files/releases/2016.11/OpenJD
 wget -nc $URL
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+DIR=$(tar tf OpenJDK-1.8.0.112-x86_64-bin.tar.xz | cut -d/ -f1 | uniq)
 tar xf OpenJDK-1.8.0.112-x86_64-bin.tar.xz -C /opt &&
-chown -R root:root /opt/OpenJDK-1.8.0.112-bin
-ln -sfn /opt/OpenJDK-1.8.0.112-bin /opt/jdk
+chown -R root:root /opt/$DIR
+ln -sfn /opt/$DIR /opt/jdk
 
 cat > /etc/profile.d/jdk.sh << "EOF"
 # Begin /etc/profile.d/jdk.sh
