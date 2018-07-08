@@ -8,6 +8,9 @@ set +h
 
 #REQ:qt5
 
+NAME=virtualbox
+VERSION=5.2.14
+
 cd $SOURCE_DIR
 
 export KERNEL_VERSION=$(uname -r)
