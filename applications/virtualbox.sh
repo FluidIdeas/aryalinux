@@ -40,7 +40,7 @@ popd
 
 chmod a+x $VBOX_INSTALLER
 
-sudo KERN_DIR="/usr/src/$KERNEL_DIR" ./$VBOX_INSTALLER
+sudo ./$VBOX_INSTALLER
 
 sudo ln -svf /opt/VirtualBox/virtualbox.desktop /usr/share/applications/
 sudo update-desktop-database
