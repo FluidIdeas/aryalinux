@@ -51,6 +51,7 @@ cd    build &&
 meson --prefix=/usr     \
       --sysconfdir=/etc \
       -Dselinux=false   \
+      -Dgtk_doc=false   \
       -Dteam=false      &&
 ninja
 
