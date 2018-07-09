@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="libgd"
+NAME="gd"
 VERSION="2.1.1"
 
 cd $SOURCE_DIR
