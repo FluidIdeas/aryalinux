@@ -5,6 +5,9 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+NAME=simple-screen-recorder
+VERSION=0.3.11
+
 #REQ:jack2
 #REQ:qt5
 #REQ:ffmpeg
@@ -12,9 +15,9 @@ set +h
 
 cd $SOURCE_DIR
 
-URL=https://github.com/MaartenBaert/ssr/archive/master.tar.gz
-wget -nc $URL
-TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
+URL=https://github.com/MaartenBaert/ssr/archive/0.3.11.tar.gz
+wget -nc $URL -O $NAME-$VERSION.tar.gz
+TARBALL="$NAME-$VERSION.tar.gz"
 DIRECTORY=`tar -tf $TARBALL | sed -e 's@/.*@@' | uniq `
 
 tar -xf $TARBALL
