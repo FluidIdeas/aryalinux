@@ -11,7 +11,7 @@ set +h
 NAME=thunar-archive-plugin
 VERSION=0.4.0
 DESCRIPTION="The Thunar Archive Plugin allows you to create and extract archive files using the file context menus in the Thunar file manager."
-URL=https://git.xfce.org/thunar-plugins/thunar-archive-plugin/snapshot/thunar-archive-plugin-0.4.0.tar.gz
+URL=https://git.xfce.org/thunar-plugins/thunar-archive-plugin/snapshot/thunar-archive-plugin-thunar-archive-plugin-0.4.0.tar.gz
 
 cd $SOURCE_DIR
 wget -nc $URL
