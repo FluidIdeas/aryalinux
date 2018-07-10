@@ -12,6 +12,7 @@ VERSION=0.11.7
 
 #REQ:libostree
 #REQ:appstream-glib
+#REQ:libseccomp
 
 cd $SOURCE_DIR
 wget -nc $URL
