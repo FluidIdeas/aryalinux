@@ -15,27 +15,23 @@ then
 
 cd $SOURCE_DIR
 
-cp -v alps /usr/bin/
-cp -v makepkg.sh /usr/bin
-mkdir -pv /etc/alps
-cp -v alps.conf /etc/alps/
-mkdir -pv /var/cache/alps/scripts
-mkdir -pv /var/cache/alps/sources
-mkdir -pv /var/cache/alps/logs
-mkdir -pv /var/cache/alps/binaries
-chmod -R a+rw /var/cache/alps/binaries
-chmod -R a+rw /var/cache/alps/sources
-chmod -R a+rw /var/cache/alps/logs
-mkdir -pv /var/lib/alps
-cp -v functions /var/lib/alps/
-cp -v selfupdate.sh /var/lib/alps/
-cp -v updatescripts.sh /var/lib/alps/
-cp -v *py /var/lib/alps
-tar xf alps-scripts*.tar.gz -C /var/cache/alps/scripts/
+TARBALL="alps-master.tar.bz2"
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
+
+tar xf $TARBALL
+cd $DIRECTORY
+
+rm -rf LICENSE
+rm -rf README.md
+cp -r * /
+chmod a+x /var/lib/alps/*.sh
 chmod a+x /usr/bin/alps
-chmod a+x /usr/bin/makepkg.sh
-touch /etc/alps/installed-list
-touch /etc/alps/versions
+
+mkdir -pv /var/cache/alps/{sources,scripts,binaries}
+tar xf alps-scripts*.tar.gz -C /var/cache/alps/scripts/
+
+cd $SOURCE_DIR
+rm -rf $DIRECTORY
 
 echo "$STEPNAME" | tee -a $LOGFILE
 
