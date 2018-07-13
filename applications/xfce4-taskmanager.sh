@@ -10,7 +10,7 @@ DESCRIPTION="A very simple task manager for XFCE"
 NAME="xfce4-taskmanager"
 VERSION="1.2.0"
 
-URL="https://git.xfce.org/apps/xfce4-taskmanager/snapshot/xfce4-taskmanager-1.2.0.tar.gz"
+URL="https://github.com/xfce-mirror/xfce4-taskmanager/archive/xfce4-taskmanager-1.2.1.tar.gz"
 
 cd $SOURCE_DIR
 wget -nc $URL
