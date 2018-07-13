@@ -17,6 +17,7 @@ NAME="exaile"
 #REQ:gst10-plugins-ugly
 #REQ:gst10-libav
 #REQ:mutagen
+#REQ:db
 
 cd $SOURCE_DIR
 URL="https://github.com/exaile/exaile/releases/download/4.0.0-beta3/exaile-4.0.0beta3.tar.gz"
@@ -28,6 +29,7 @@ DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
 tar xf $TARBALL
 cd $DIRECTORY
 
+sudo pip install bsddb
 sed -i "s@/usr/local@/usr@g" Makefile
 make
 sudo make install
