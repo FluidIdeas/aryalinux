@@ -8,7 +8,7 @@ set +h
 
 DESCRIPTION="A very simple task manager for XFCE"
 NAME="xfce4-taskmanager"
-VERSION="1.2.0"
+VERSION="1.2.1"
 
 URL="https://github.com/xfce-mirror/xfce4-taskmanager/archive/xfce4-taskmanager-1.2.1.tar.gz"
 
@@ -21,8 +21,7 @@ DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
 tar xf $TARBALL
 cd $DIRECTORY
 
-./autogen.sh &&
-./configure --prefix=/usr &&
+./autogen.sh --prefix=/usr &&
 make "-j`nproc`"
 sudo make install
 
