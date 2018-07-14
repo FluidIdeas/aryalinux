@@ -77,8 +77,8 @@ VERSION=4.12
 #REQ:numix-icons
 
 cd $SOURCE_DIR
-wget -nc http://aryalinux.com/files/binaries/aryalinux-default-xfce-config.tar.gz
-sudo tar xf aryalinux-xfce-config.tar.gz -C /
+wget -nc http://aryalinux.com/files/binaries/aryalinux-xfce-config.tar.gz
+sudo tar xf aryalinux-xfce-config.tar.gz -C /etc/skel
 cp -rf /etc/skel/.config ~
 cp -rf /etc/skel/* ~
 
