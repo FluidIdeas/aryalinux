@@ -77,9 +77,10 @@ VERSION=4.12
 #REQ:numix-icons
 
 cd $SOURCE_DIR
-wget -nc http://aryalinux.com/files/binaries/aryalinux-xfce-config.tar.gz
-tar xf aryalinux-xfce-config.tar.gz -C ~
-sudo tar xf aryalinux-xfce-config.tar.gz -C /etc/skel/
+wget -nc http://aryalinux.com/files/binaries/aryalinux-default-xfce-config.tar.gz
+sudo tar xf aryalinux-xfce-config.tar.gz -C /
+cp -rf /etc/skel/.config ~
+cp -rf /etc/skel/* ~
 
 sudo tee /etc/gtk-2.0/gtkrc <<"EOF"
 include "/usr/share/themes/Clearlooks/gtk-2.0/gtkrc"
