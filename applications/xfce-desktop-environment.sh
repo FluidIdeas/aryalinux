@@ -80,9 +80,10 @@ cd $SOURCE_DIR
 wget -nc http://aryalinux.com/files/binaries/aryalinux-xfce-config.tar.gz
 sudo tar xf aryalinux-xfce-config.tar.gz -C /etc/skel
 sudo cp -rf /etc/skel/.config ~
-sudo cp -rf /etc/skel/.* ~
+sudo cp -rf /etc/skel/.bash* ~
 sudo chown -R $USER:$USER ~/.config
 sudo chown -R $USER:$USER ~/.bash*
+xdg-user-dirs-update --force
 
 sudo tee /etc/gtk-2.0/gtkrc <<"EOF"
 include "/usr/share/themes/Clearlooks/gtk-2.0/gtkrc"
