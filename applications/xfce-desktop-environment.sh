@@ -80,7 +80,7 @@ cd $SOURCE_DIR
 wget -nc http://aryalinux.com/files/binaries/aryalinux-xfce-config.tar.gz
 sudo tar xf aryalinux-xfce-config.tar.gz -C /etc/skel
 sudo cp -rf /etc/skel/.config ~
-sudo cp -rf /etc/skel/* ~
+sudo cp -rf /etc/skel/.* ~
 sudo chown -R $USER:$USER ~/.config
 sudo chown -R $USER:$USER ~/.bash*
 
