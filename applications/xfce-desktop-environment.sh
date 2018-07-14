@@ -40,6 +40,7 @@ VERSION=4.12
 #REQ:ristretto
 #REQ:xfce4-notifyd
 #REQ:pnmixer
+#REQ:pavucontrol
 #REQ:xfce4-whiskermenu-plugin
 #REQ:xfce4-screenshooter
 #REQ:p7zip-full
