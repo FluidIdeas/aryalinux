@@ -25,6 +25,7 @@ DESCRIPTION="GTK Based greeter for lightdm display manager"
 #REC:aryalinux-fonts
 #REQ:flat-remix-icon-theme
 #REQ:adapta-gtk-theme
+#REQ:accountsservice
 
 cd $SOURCE_DIR
 
