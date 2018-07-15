@@ -93,13 +93,12 @@ MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/vnd.mo
 StartupNotify=true
 EOF
 
-for s in 16 32 48
+for s in 16 32 48 128
 do
 install -v -Dm644 /opt/firefox/browser/chrome/icons/default/default${s}.png \
                   /usr/share/icons/hicolor/${s}x${s}/apps/firefox.png
-done &&
-install -v -Dm644 /opt/firefox/browser/icons/mozicon128.png \
-                  /usr/share/icons/hicolor/128x128/apps/firefox.png
+done
+
 ENDOFFILE
 chmod a+x 1434987998846.sh
 sudo ./1434987998846.sh
