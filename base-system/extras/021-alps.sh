@@ -27,11 +27,11 @@ cp -r * /
 chmod a+x /var/lib/alps/*.sh
 chmod a+x /usr/bin/alps
 
-mkdir -pv /var/cache/alps/{sources,scripts,binaries}
-tar xf alps-scripts*.tar.gz -C /var/cache/alps/scripts/
-
 cd $SOURCE_DIR
 rm -rf $DIRECTORY
+
+mkdir -pv /var/cache/alps/{sources,scripts,binaries}
+tar xf alps-scripts*.tar.gz -C /var/cache/alps/scripts/
 
 echo "$STEPNAME" | tee -a $LOGFILE
 
