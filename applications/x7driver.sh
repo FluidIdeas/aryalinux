@@ -30,9 +30,6 @@ cd $DIRECTORY
 export XORG_PREFIX=/usr
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
-if [ "uname -m" != "x86_64" ]; then
-	sed -i "s@define force_inline inline __attribute__((always_inline))@define force_inline inline@g" src/sna/compiler.h
-fi
 ./configure $XORG_CONFIG &&
 make
 
@@ -428,6 +425,10 @@ DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
 
 tar xf $TARBALL
 cd $DIRECTORY
+
+if [ "uname -m" != "x86_64" ]; then
+        sed -i "s@define force_inline inline __attribute__((always_inline))@define force_inline inline@g" src/sna/compiler.h
+fi
 
 ./autogen.sh $XORG_CONFIG     \
             --enable-kms-only \
