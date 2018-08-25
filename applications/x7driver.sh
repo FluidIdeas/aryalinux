@@ -576,55 +576,6 @@ cd $SOURCE_DIR
 URL=https://github.com/intel/libva/releases/download/2.1.0/libva-2.1.0.tar.bz2
 
 wget -nc https://github.com/intel/libva/releases/download/2.1.0/libva-2.1.0.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
-wget -nc https://github.com/intel/intel-vaapi-driver/releases/download/2.1.0/intel-vaapi-driver-2.1.0.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
@@ -648,6 +599,8 @@ cd $SOURCE_DIR
 sudo rm -rf $DIRECTORY
 
 URL="https://github.com/intel/intel-vaapi-driver/releases/download/2.1.0/intel-vaapi-driver-2.1.0.tar.bz2"
+
+wget -nc $URL
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`

@@ -7,15 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 NAME="libva-wo-mesa"
-VERSION="1.7.3"
-
-#REQ:mesa
-#OPT:doxygen
-#OPT:wayland
+VERSION="2.1.0"
 
 cd $SOURCE_DIR
 
-URL=http://www.freedesktop.org/software/vaapi/releases/libva/libva-1.7.3.tar.bz2
+URL=http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
 
 wget -nc $URL
 
