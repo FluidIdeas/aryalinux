@@ -87,20 +87,8 @@ EGL_PLATFORMS="drm,x11"
 make "-j`nproc`" || make
 
 
-make -C xdemos DEMOS_PREFIX=$XORG_PREFIX
-
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make -C xdemos DEMOS_PREFIX=$XORG_PREFIX install
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -117,8 +105,6 @@ ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
-
-
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
