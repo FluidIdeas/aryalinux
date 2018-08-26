@@ -14,6 +14,7 @@ NAME="gparted-gtk3"
 
 #REQ:gtkmm2
 #REQ:parted
+#REQ:gnome-common
 #OPT:btrfs-progs
 #OPT:rarian
 
