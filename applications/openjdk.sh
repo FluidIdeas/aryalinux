@@ -74,8 +74,8 @@ sudo cp -Rv build/*/images/jdk/* /opt/jdk-$VERSION &&
 sudo chown -R root:root /opt/jdk-$VERSION          &&
 sudo find /opt/jdk-$VERSION -name \*.diz -delete   &&
 for s in 16 24 32 48; do
-  sudo install -Dm 644 src/java.desktop/unix/classes/sun/awt/X11/java-icon\${s}.png \
-                  /usr/share/icons/hicolor/${s}x\${s}/apps/java.png
+  sudo install -Dm 644 src/java.desktop/unix/classes/sun/awt/X11/java-icon${s}.png \
+                  /usr/share/icons/hicolor/${s}x${s}/apps/java.png
 done
 
 
