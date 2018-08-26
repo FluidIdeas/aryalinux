@@ -6,36 +6,11 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="blender_2.77.a+dfsg.orig"
-VERSION="0"
+NAME="blender"
+VERSION="2.79"
+DESCRIPTION="Blender is the free and open source 3D creation suite. It supports the entirety of the 3D pipeline—modeling, rigging, animation, simulation, rendering, compositing and motion tracking, even video editing and game creation."
 
-#REQ:fonts-dejavu
-#REQ:ffmpeg
-#REQ:boost
-#REQ:libfftw3
-#REQ:freetype2
-#REQ:fontconfig
-#REQ:mesa
-#REQ:libglew
-#REQ:glu
-#REQ:ilmbase
-#REQ:jack2
-#REQ:jemalloc
-#REQ:libjpeg
-#REQ:openal-soft
-#REQ:openexr
-#REQ:opencolorio
-#REQ:openimageio
-#REQ:openjpeg
-#REQ:libpng
-#REQ:python2
-#REQ:libsndfile
-#REQ:libspnav
-#REQ:tbb
-#REQ:libtiff
-#REQ:xserver-meta
-
-URL=http://archive.ubuntu.com/ubuntu/pool/universe/b/blender/blender_2.77.a+dfsg0.orig.tar.xz
+URL=https://download.blender.org/release/Blender2.79/blender-2.79b-linux-glibc219-x86_64.tar.bz2
 
 cd $SOURCE_DIR
 
@@ -43,36 +18,17 @@ wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
 
-tar -xf $TARBALL
-cd $DIRECTORY
+sudo tar xf $TARBALL -C /opt
 
-mkdir -pv build &&
-cd build &&
-cmake -DCMAKE_INSTALL_PREFIX=/opt/blender-2.77	\
--DWITH_PLAYER=ON 			\
--DWITH_OPENCOLLADA=ON 			\
--DWITH_FFTW3=ON 			\
--DWITH_INPUT_NDOF=ON 			\
--DWITH_OPENCOLORIO=ON 			\
--DWITH_OPENVDB=ON			\
--DWITH_MEM_VALGRIND=ON			\
--DWITH_SYSTEM_OPENJPEG=ON		\
--DWITH_SDL=ON				\
--DWITH_SDL_DYNLOAD=ON			\
--DWITH_JACK=ON				\
--DWITH_JACK_DYNLOAD=ON			\
--DWITH_CODEC_FFMPEG=ON			\
--DWITH_CODEC_SNDFILE=ON			\
--DWITH_PYTHON_INSTALL_NUMPY=ON		\
--DWITH_PYTHON_SAFETY=ON			\
--DWITH_MOD_OCEANSIM=ON			\
-	.. &&
-make "-j`nproc`"
-sudo make install
-sudo ln -svf /opt/blender-2.77/blender.desktop /usr/share/applications/
-sudo tee /etc/profile.d/blender.sh <<"EOF"
-pathappend /opt/blender-2.77
+sudo tee /etc/profile.d/blender.sh <<EOF
+export PATH=$PATH:/opt/blender
 EOF
+
+sudo ln -svf /opt/$DIRECTORY /opt/blender
+sudo ln -svf /opt/blender/blender.desktop /usr/share/applications/
+sudo sed -i "s@Exec=blender@Exec=/opt/blender/blender@g" /opt/blender/blender.desktop
+
+sudo update-desktop-database
 
 cd $SOURCE_DIR
 cleanup "$NAME" "$DIRECTORY"
