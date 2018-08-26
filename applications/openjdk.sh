@@ -52,7 +52,6 @@ fi
 
 whoami > /tmp/currentuser
 
-sudo ln -sfv /etc/ssl/java/cacerts.jks /opt/jdk/lib/security/cacerts
 unset JAVA_HOME                             &&
 bash configure --enable-unlimited-crypto    \
                --disable-warnings-as-errors \
