@@ -61,7 +61,7 @@ fi
 
 whoami > /tmp/currentuser
 
-./configure --prefix=/usr \
+./autogen.sh --prefix=/usr \
             --sysconfdir=/etc &&
 make "-j`nproc`" || make
 sudo make install
