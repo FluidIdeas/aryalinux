@@ -33,7 +33,7 @@ NAME="openjdk10"
 
 cd $SOURCE_DIR
 
-URL=http://hg.openjdk.java.net/jdk-updates/jdk10u/archive/jdk-10.0.2+13.tar.bz2
+URL=http://hg.openjdk.java.net/jdk-updates/jdk10u/archive/jdk-$VERSION.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -71,11 +71,11 @@ make images
 
 
 
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -vdm755 /opt/jdk-10.0.1+10             &&
-cp -Rv build/*/images/jdk/* /opt/jdk-10.0.1+10 &&
-chown -R root:root /opt/jdk-10.0.1+10          &&
-find /opt/jdk-10.0.1+10 -name \*.diz -delete   &&
+sudo tee rootscript.sh << ENDOFROOTSCRIPT
+install -vdm755 /opt/jdk-$VERSION             &&
+cp -Rv build/*/images/jdk/* /opt/jdk-$VERSION &&
+chown -R root:root /opt/jdk-$VERSION          &&
+find /opt/jdk-$VERSION -name \*.diz -delete   &&
 for s in 16 24 32 48; do
   install -Dm 644 src/java.desktop/unix/classes/sun/awt/X11/java-icon${s}.png \
                   /usr/share/icons/hicolor/${s}x${s}/apps/java.png
@@ -89,7 +89,8 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-ln -v -nsf jdk-10.0.1+10 /opt/jdk
+VERSION=10.0.2+13
+ln -v -nsf jdk-$VERSION /opt/jdk
 cat > /etc/profile.d/jdk.sh << "EOF"
 # Begin /etc/profile.d/jdk.sh
 

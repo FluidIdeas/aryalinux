@@ -25,6 +25,8 @@ TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 wget -nc $URL
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+URL=https://sourceforge.net/projects/aryalinux-bin/files/releases/1.0/OpenJDK-10.0.1+10-x86_64-bin.tar.xz
+TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 DIR=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 tar xf $TARBALL -C /opt &&
 chown -R root:root /opt/$DIR
