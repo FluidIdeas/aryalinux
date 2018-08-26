@@ -91,7 +91,54 @@ sudo rm rootscript.sh
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 ln -v -nsf jdk-10.0.1+10 /opt/jdk
+cat > /etc/profile.d/jdk.sh << "EOF"
+# Begin /etc/profile.d/jdk.sh
 
+# Set JAVA_HOME directory
+JAVA_HOME=/opt/jdk
+
+# Adjust PATH
+pathappend $JAVA_HOME/bin
+
+# Add to MANPATH
+pathappend $JAVA_HOME/man MANPATH
+
+# Auto Java CLASSPATH: Copy jar files to, or create symlinks in, the
+# /usr/share/java directory. Note that having gcj jars with OpenJDK 8
+# may lead to errors.
+
+AUTO_CLASSPATH_DIR=/usr/share/java
+
+pathprepend . CLASSPATH
+
+for dir in `find ${AUTO_CLASSPATH_DIR} -type d 2>/dev/null`; do
+    pathappend $dir CLASSPATH
+done
+
+for jar in `find ${AUTO_CLASSPATH_DIR} -name "*.jar" 2>/dev/null`; do
+    pathappend $jar CLASSPATH
+done
+
+export JAVA_HOME
+unset AUTO_CLASSPATH_DIR dir jar
+
+# End /etc/profile.d/jdk.sh
+EOF
+
+if ! grep '/opt/jdk/man' /etc/man_db.conf; then
+
+cat >> /etc/man_db.conf << "EOF" &&
+# Begin Java addition
+MANDATORY_MANPATH     /opt/jdk/man
+MANPATH_MAP           /opt/jdk/bin     /opt/jdk/man
+MANDB_MAP             /opt/jdk/man     /var/cache/man/jdk
+# End Java addition
+EOF
+
+fi
+
+mkdir -p /var/cache/man
+mandb -c /opt/jdk/man
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
