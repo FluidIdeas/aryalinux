@@ -12,7 +12,6 @@ SECTION="general"
 VERSION=10.0.2+13
 NAME="openjdk10"
 
-#REQ:java
 #REQ:java10
 #REQ:alsa-lib
 #REQ:cpio
