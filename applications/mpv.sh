@@ -10,7 +10,7 @@ SOURCE_ONLY=n
 DESCRIPTION="MPV is a free, open source, and cross-platform media player"
 SECTION="multimedia"
 VERSION=0.29.0
-NAME="audacious"
+NAME="mpv"
 
 
 cd $SOURCE_DIR
