@@ -24,15 +24,12 @@ URL=https://sourceforge.net/projects/aryalinux-bin/files/releases/2016.11/OpenJD
 TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 wget -nc $URL
 
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-URL=https://sourceforge.net/projects/aryalinux-bin/files/releases/2016.11/OpenJDK-1.8.0.112-x86_64-bin.tar.xz
-TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 DIR=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
-tar xf $TARBALL -C /opt &&
-chown -R root:root /opt/$DIR
-ln -sfn /opt/$DIR /opt/jdk
+sudo tar xf $TARBALL -C /opt &&
+sudo chown -R root:root /opt/$DIR
+sudo ln -sfn /opt/$DIR /opt/jdk
 
-cat > /etc/profile.d/jdk.sh << "EOF"
+sudo tee /etc/profile.d/jdk.sh << "EOF"
 # Begin /etc/profile.d/jdk.sh
 
 # Set JAVA_HOME directory
@@ -66,7 +63,7 @@ unset AUTO_CLASSPATH_DIR dir jar
 # End /etc/profile.d/jdk.sh
 EOF
 
-cat >> /etc/man_db.conf << "EOF" &&
+sudo tee -a /etc/man_db.conf << "EOF" &&
 # Begin Java addition
 MANDATORY_MANPATH     /opt/jdk/man
 MANPATH_MAP           /opt/jdk/bin     /opt/jdk/man
@@ -74,13 +71,11 @@ MANDB_MAP             /opt/jdk/man     /var/cache/man/jdk
 # End Java addition
 EOF
 
-mkdir -p /var/cache/man
-mandb -c /opt/jdk/man
+sudo mkdir -p /var/cache/man
+sudo mandb -c /opt/jdk/man
 
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
+sudo /usr/sbin/make-ca -g --force &&
+sudo ln -sfv /etc/ssl/java/cacerts.jks /opt/jdk/lib/security/cacerts
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

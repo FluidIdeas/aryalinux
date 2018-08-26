@@ -52,7 +52,6 @@ fi
 
 whoami > /tmp/currentuser
 
-sudo /usr/sbin/make-ca -g --force &&
 sudo ln -sfv /etc/ssl/java/cacerts.jks /opt/jdk/lib/security/cacerts
 unset JAVA_HOME                             &&
 bash configure --enable-unlimited-crypto    \
@@ -71,27 +70,19 @@ make images
 
 
 
-sudo tee rootscript.sh << ENDOFROOTSCRIPT
-install -vdm755 /opt/jdk-$VERSION             &&
-cp -Rv build/*/images/jdk/* /opt/jdk-$VERSION &&
-chown -R root:root /opt/jdk-$VERSION          &&
-find /opt/jdk-$VERSION -name \*.diz -delete   &&
+sudo install -vdm755 /opt/jdk-$VERSION             &&
+sudo cp -Rv build/*/images/jdk/* /opt/jdk-$VERSION &&
+sudo chown -R root:root /opt/jdk-$VERSION          &&
+sudo find /opt/jdk-$VERSION -name \*.diz -delete   &&
 for s in 16 24 32 48; do
-  install -Dm 644 src/java.desktop/unix/classes/sun/awt/X11/java-icon\${s}.png \
+  sudo install -Dm 644 src/java.desktop/unix/classes/sun/awt/X11/java-icon\${s}.png \
                   /usr/share/icons/hicolor/${s}x\${s}/apps/java.png
 done
 
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
 
 
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-VERSION=10.0.2+13
-ln -v -nsf jdk-$VERSION /opt/jdk
-cat > /etc/profile.d/jdk.sh << "EOF"
+sudo ln -v -nsf jdk-$VERSION /opt/jdk
+sudo tee /etc/profile.d/jdk.sh << "EOF"
 # Begin /etc/profile.d/jdk.sh
 
 # Set JAVA_HOME directory
@@ -125,9 +116,9 @@ unset AUTO_CLASSPATH_DIR dir jar
 # End /etc/profile.d/jdk.sh
 EOF
 
-if ! grep '/opt/jdk/man' /etc/man_db.conf; then
+if ! grep '/opt/jdk/man' /etc/man_db.conf &> /dev/null; then
 
-cat >> /etc/man_db.conf << EOF &&
+sudo tee -a /etc/man_db.conf << EOF &&
 # Begin Java addition
 MANDATORY_MANPATH     /opt/jdk/man
 MANPATH_MAP           /opt/jdk/bin     /opt/jdk/man
@@ -137,18 +128,11 @@ EOF
 
 fi
 
-mkdir -p /var/cache/man
-mandb -c /opt/jdk/man
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
+sudo mkdir -p /var/cache/man
+sudo mandb -c /opt/jdk/man
 
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-mkdir -pv /usr/share/applications &&
-cat > /usr/share/applications/openjdk-java.desktop << "EOF" &&
+sudo mkdir -pv /usr/share/applications &&
+sudo tee /usr/share/applications/openjdk-java.desktop << "EOF" &&
 [Desktop Entry]
 Name=OpenJDK Java 10.0.1 Runtime
 Comment=OpenJDK Java 10.0.1 Runtime
@@ -159,7 +143,8 @@ Icon=java
 MimeType=application/x-java-archive;application/java-archive;application/x-jar;
 NoDisplay=true
 EOF
-cat > /usr/share/applications/openjdk-jconsole.desktop << "EOF"
+
+sudo tee /usr/share/applications/openjdk-jconsole.desktop << "EOF"
 [Desktop Entry]
 Name=OpenJDK Java 10.0.1 Console
 Comment=OpenJDK Java 10.0.1 Console
@@ -171,30 +156,9 @@ Icon=java
 Categories=Application;System;
 EOF
 
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
 
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-ln -sfv /etc/ssl/java/cacerts.jks /opt/jdk/lib/security/cacerts
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-rm -rf OpenJDK-10.0.1+10-x86_64-bin
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
+sudo ln -sfv /etc/ssl/java/cacerts.jks /opt/jdk/lib/security/cacerts
+sudo rm -rf OpenJDK-10.0.1+10-x86_64-bin
 
 
 
