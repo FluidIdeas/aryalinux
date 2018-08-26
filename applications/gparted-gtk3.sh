@@ -27,7 +27,7 @@ whoami > /tmp/currentuser
 
 git clone $URL
 cd $DIRECTORY
-./configure --prefix=/usr    \
+./autogen.sh --prefix=/usr    \
             --disable-doc    \
             --disable-static &&
 make "-j`nproc`" || make
