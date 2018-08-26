@@ -7,7 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 SOURCE_ONLY=n
-DESCRIPTION="br3ak Creating a JVM from source requires a set of circular dependencies.br3ak The first thing that's needed is a set of programs called a Javabr3ak Development Kit (JDK). This set of programs includes <span class=\"command\"><strong>java</strong>, <span class=\"command\"><strong>javac</strong>, <span class=\"command\"><strong>jar</strong>, and several others. It alsobr3ak includes several base <span class=\"emphasis\"><em>jar</em>br3ak files.br3ak"
+DESCRIPTION="The Java programming language is a versatile multi-platform supporting programming language."
 SECTION="Programming Languages"
 VERSION=1.8.0.112
 NAME="java8"
@@ -21,11 +21,12 @@ NAME="java8"
 cd $SOURCE_DIR
 
 URL=https://sourceforge.net/projects/aryalinux-bin/files/releases/2016.11/OpenJDK-1.8.0.112-x86_64-bin.tar.xz
+TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 wget -nc $URL
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-DIR=$(tar tf OpenJDK-1.8.0.112-x86_64-bin.tar.xz | cut -d/ -f1 | uniq)
-tar xf OpenJDK-1.8.0.112-x86_64-bin.tar.xz -C /opt &&
+DIR=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
+tar xf $TARBALL -C /opt &&
 chown -R root:root /opt/$DIR
 ln -sfn /opt/$DIR /opt/jdk
 

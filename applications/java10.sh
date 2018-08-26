@@ -7,10 +7,10 @@ set +h
 . /var/lib/alps/functions
 
 SOURCE_ONLY=n
-DESCRIPTION="The Java programming language is a versatile multi-platform supporting programming language"
+DESCRIPTION="The Java programming language is a versatile multi-platform supporting programming language."
 SECTION="Programming Languages"
-VERSION=1.7.0.9
-NAME="java7"
+VERSION=10.0.1
+NAME="java10"
 
 #REQ:alsa-lib
 #REQ:cups
@@ -20,7 +20,7 @@ NAME="java7"
 
 cd $SOURCE_DIR
 
-URL=https://sourceforge.net/projects/aryalinux-bin/files/releases/2016.11/OpenJDK-1.7.0.9-x86_64-bin.tar.xz
+URL=https://sourceforge.net/projects/aryalinux-bin/files/releases/1.0/OpenJDK-10.0.1+10-x86_64-bin.tar.xz
 TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 wget -nc $URL
 
