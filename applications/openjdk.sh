@@ -77,8 +77,8 @@ cp -Rv build/*/images/jdk/* /opt/jdk-$VERSION &&
 chown -R root:root /opt/jdk-$VERSION          &&
 find /opt/jdk-$VERSION -name \*.diz -delete   &&
 for s in 16 24 32 48; do
-  install -Dm 644 src/java.desktop/unix/classes/sun/awt/X11/java-icon${s}.png \
-                  /usr/share/icons/hicolor/${s}x${s}/apps/java.png
+  install -Dm 644 src/java.desktop/unix/classes/sun/awt/X11/java-icon\${s}.png \
+                  /usr/share/icons/hicolor/${s}x\${s}/apps/java.png
 done
 
 ENDOFROOTSCRIPT
