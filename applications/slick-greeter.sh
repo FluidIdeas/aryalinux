@@ -21,8 +21,8 @@ URL=https://github.com/linuxmint/slick-greeter/archive/1.2.2.tar.gz
 whoami > /tmp/currentuser
 
 wget -nc $URL
-DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
