@@ -117,7 +117,7 @@ EOF
 
 if ! grep '/opt/jdk/man' /etc/man_db.conf &> /dev/null; then
 
-sudo tee -a /etc/man_db.conf << EOF &&
+sudo tee -a /etc/man_db.conf << EOF
 # Begin Java addition
 MANDATORY_MANPATH     /opt/jdk/man
 MANPATH_MAP           /opt/jdk/bin     /opt/jdk/man
