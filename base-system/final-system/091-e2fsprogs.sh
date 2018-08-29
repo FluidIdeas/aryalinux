@@ -29,6 +29,9 @@ then
 	cd $DIRECTORY
 fi
 
+mkdir -pv /usr/include/blkid
+ln -svf /tools/include/blkid/blkid.h /usr/include/blkid/blkid.sh
+
 mkdir -v build
 cd build
 LIBS=-L/tools/lib                    \
