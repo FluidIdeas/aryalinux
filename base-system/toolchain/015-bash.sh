@@ -29,7 +29,7 @@ then
 	cd $DIRECTORY
 fi
 
-./configure --prefix=/tools --without-bash-malloc
+CFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/tools --without-bash-malloc
 make
 make install
 ln -sv bash /tools/bin/sh

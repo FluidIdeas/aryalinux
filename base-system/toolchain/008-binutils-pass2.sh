@@ -34,7 +34,7 @@ cd       build
 CC=$LFS_TGT-gcc                \
 AR=$LFS_TGT-ar                 \
 RANLIB=$LFS_TGT-ranlib         \
-../configure                   \
+CFLAGS="-march=skylake -mtune=generic -O3" ../configure                   \
     --prefix=/tools            \
     --disable-nls              \
     --disable-werror           \

@@ -31,7 +31,7 @@ fi
 
 mkdir -v build
 cd       build
-../libstdc++-v3/configure           \
+CFLAGS="-march=skylake -mtune=generic -O3" ../libstdc++-v3/configure           \
     --host=$LFS_TGT                 \
     --prefix=/tools                 \
     --disable-multilib              \

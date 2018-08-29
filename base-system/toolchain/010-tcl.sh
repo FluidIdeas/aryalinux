@@ -30,7 +30,7 @@ then
 fi
 
 cd unix
-./configure --prefix=/tools
+CFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/tools
 make
 make install
 chmod -v u+w /tools/lib/libtcl8.6.so

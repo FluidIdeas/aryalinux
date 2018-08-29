@@ -29,6 +29,7 @@ then
 	cd $DIRECTORY
 fi
 
+export CFLAGS="-march=skylake -mtune=generic -O3"
 sh Configure -des -Dprefix=/tools -Dlibs=-lm
 make
 cp -v perl cpan/podlators/scripts/pod2man /tools/bin

@@ -31,7 +31,7 @@ fi
 
 mkdir -v build
 cd       build
-../configure                             \
+CFLAGS="-march=skylake -mtune=generic -O3" ../configure                             \
       --prefix=/tools                    \
       --host=$LFS_TGT                    \
       --build=$(../scripts/config.guess) \

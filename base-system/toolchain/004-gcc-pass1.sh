@@ -55,7 +55,7 @@ case $(uname -m) in
 esac
 mkdir -v build
 cd       build
-../configure                                       \
+CFLAGS="-march=skylake -mtune=generic -O3" ../configure                                       \
     --target=$LFS_TGT                              \
     --prefix=/tools                                \
     --with-glibc-version=2.11                      \

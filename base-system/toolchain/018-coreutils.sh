@@ -29,7 +29,7 @@ then
 	cd $DIRECTORY
 fi
 
-./configure --prefix=/tools --enable-install-program=hostname
+CFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/tools --enable-install-program=hostname
 make
 make install
 

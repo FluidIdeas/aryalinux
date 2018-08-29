@@ -29,6 +29,7 @@ then
 	cd $DIRECTORY
 fi
 
+export CFLAGS="-march=skylake -mtune=generic -O3"
 make
 make PREFIX=/tools install
 

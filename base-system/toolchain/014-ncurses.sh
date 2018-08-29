@@ -30,7 +30,7 @@ then
 fi
 
 sed -i s/mawk// configure
-./configure --prefix=/tools \
+CFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/tools \
             --with-shared   \
             --without-debug \
             --without-ada   \
