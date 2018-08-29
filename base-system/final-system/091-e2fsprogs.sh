@@ -29,15 +29,11 @@ then
 	cd $DIRECTORY
 fi
 
-mkdir -pv /usr/include/blkid
-ln -svf /tools/include/blkid/blkid.h /usr/include/blkid/blkid.sh
-
 mkdir -v build
 cd build
 LIBS=-L/tools/lib                    \
-CFLAGS=-I/tools/include              \
 PKG_CONFIG_PATH=/tools/lib/pkgconfig \
-CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ../configure --prefix=/usr           \
+CFLAGS="-I/tools/include -march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ../configure --prefix=/usr           \
              --bindir=/bin           \
              --with-root-prefix=""   \
              --enable-elf-shlibs     \
