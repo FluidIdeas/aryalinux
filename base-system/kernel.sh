@@ -44,6 +44,11 @@ LINUX_SRC_DIR=`tar -tf $LINUX_TARBALL | cut "-d/" -f1 | uniq`
 tar xf $LINUX_TARBALL
 cd $LINUX_SRC_DIR
 
+tar xf ../aufs-4.17.tar.gz
+for p in ../aufs*patch; do
+	patch -Np1 -i $p
+done
+
 make mrproper
 
 if [ `uname -m` != "x86_64" ]
@@ -52,6 +57,10 @@ then
 else
 	cp ../config-64 ./.config
 fi
+
+export CFLAGS="-march=skylake -mtune=generic -O3"
+export CXXFLAGS="-march=skylake -mtune=generic -O3"
+export CPPFLAGS="-march=skylake -mtune=generic -O3"
 
 make "-j`nproc`"
 make modules_install
