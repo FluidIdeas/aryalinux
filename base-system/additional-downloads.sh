@@ -53,6 +53,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.1/aufs4-mmap.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.1/aufs4-standalone.patch
 wget -nc https://sourceware.org/ftp/elfutils/0.170/elfutils-0.170.tar.bz2
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.1/0.21-nvme_ioctl.h.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.1/elfutils-0.170-compiler.patch
 
 pushd $CURRENT_DIR/../applications
 git checkout $VERSION

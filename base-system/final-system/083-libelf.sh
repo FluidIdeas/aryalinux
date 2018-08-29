@@ -33,6 +33,7 @@ sed -e '/ALIGN_PRSTATUS)/{
         s/__attribute/attribute_packed &/
         s/packed, //}' \
     -i backends/linux-core-note.c
+patch -Np1 -i ../elfutils-0.170-compiler.patch
 CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/usr
 make
 make -C libelf install
