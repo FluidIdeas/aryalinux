@@ -43,7 +43,7 @@ sed -ri "s:.*(AUX_MODULES.*valid):\1:" modules.cfg &&
 sed -r "s:.*(#.*SUBPIXEL_RENDERING) .*:\1:" \
     -i include/freetype/config/ftoption.h  &&
 
-./configure --prefix=/usr --disable-static &&
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/usr --disable-static &&
 make
 make install
 
@@ -63,7 +63,7 @@ sed -i "s@GNU GRUB  version %s@$OS_NAME $OS_VERSION $OS_CODENAME \- GNU GRUB@g" 
 if [ `uname -m` == "x86_64" ]
 then
 
-./configure --prefix=/usr      \
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/usr      \
 	--sbindir=/sbin        \
 	--localstatedir=/var   \
 	--sysconfdir=/etc      \
@@ -79,7 +79,7 @@ make clean
 
 fi
 
-./configure --prefix=/usr      \
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/usr      \
 	--sbindir=/sbin        \
 	--localstatedir=/var   \
 	--sysconfdir=/etc      \

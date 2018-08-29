@@ -30,7 +30,7 @@ then
 fi
 
 sed -i '/LIBTOOL_INSTALL/d' c++/Makefile.in
-./configure --prefix=/usr           \
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/usr           \
             --mandir=/usr/share/man \
             --with-shared           \
             --without-debug         \
@@ -52,7 +52,7 @@ ln -sfv libncurses.so      /usr/lib/libcurses.so
 mkdir -v       /usr/share/doc/ncurses-6.1
 cp -v -R doc/* /usr/share/doc/ncurses-6.1
 make distclean
-./configure --prefix=/usr    \
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/usr    \
             --with-shared    \
             --without-normal \
             --without-debug  \

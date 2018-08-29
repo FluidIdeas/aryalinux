@@ -29,7 +29,7 @@ then
 	cd $DIRECTORY
 fi
 
-PAGE=PAPER_SIZE ./configure --prefix=/usr
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" PAGE=PAPER_SIZE ./configure --prefix=/usr
 make -j1
 make install
 

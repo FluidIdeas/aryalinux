@@ -30,7 +30,7 @@ then
 fi
 
 echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h
-./configure --prefix=/usr
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/usr
 make
 make install
 ln -sv vim /usr/bin/vi

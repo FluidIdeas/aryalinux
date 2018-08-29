@@ -30,7 +30,7 @@ then
 fi
 
 FORCE_UNSAFE_CONFIGURE=1  \
-./configure --prefix=/usr \
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/usr \
             --bindir=/bin
 make
 make install

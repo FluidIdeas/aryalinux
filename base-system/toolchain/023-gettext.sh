@@ -30,7 +30,7 @@ then
 fi
 
 cd gettext-tools
-EMACS="no" CFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/tools --disable-shared
+EMACS="no" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" CFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/tools --disable-shared
 make -C gnulib-lib
 make -C intl pluralx.c
 make -C src msgfmt

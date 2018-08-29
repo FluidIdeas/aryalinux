@@ -34,7 +34,7 @@ sed -i "s:| sed.*::g" test/{sbits-restore,cp,misc}.test
 sed -i 's/{(/\\{(/' test/run
 sed -i -e "/TABS-1;/a if (x > (TABS-1)) x = (TABS-1);" \
     libacl/__acl_to_any_text.c
-./configure --prefix=/usr    \
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/usr    \
             --disable-static \
             --libexecdir=/usr/lib
 make

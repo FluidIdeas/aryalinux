@@ -34,7 +34,7 @@ sed -e '/^includesdir/ s/$(libdir).*$/$(includedir)/' \
 sed -e '/^includedir/ s/=.*$/=@includedir@/' \
     -e 's/^Cflags: -I${includedir}/Cflags:/' \
     -i libffi.pc.in
-./configure --prefix=/usr --disable-static
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/usr --disable-static
 make
 make install
 

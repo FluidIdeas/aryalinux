@@ -29,7 +29,7 @@ then
 	cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --docdir=/usr/share/doc/automake-1.16.1
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/usr --docdir=/usr/share/doc/automake-1.16.1
 make
 make install
 

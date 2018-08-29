@@ -39,7 +39,7 @@ rm -f /usr/lib/gcc
 mkdir -v build
 cd       build
 SED=sed                               \
-../configure --prefix=/usr            \
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ../configure --prefix=/usr            \
              --enable-languages=c,c++ \
              --disable-multilib       \
              --disable-bootstrap      \

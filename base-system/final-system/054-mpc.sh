@@ -29,7 +29,7 @@ then
 	cd $DIRECTORY
 fi
 
-./configure --prefix=/usr    \
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/usr    \
             --disable-static \
             --docdir=/usr/share/doc/mpc-1.1.0
 make

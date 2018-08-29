@@ -29,7 +29,7 @@ then
 	cd $DIRECTORY
 fi
 
-CFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/tools                \
+CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" CFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/tools                \
             --without-python               \
             --disable-makeinstall-chown    \
             --without-systemdsystemunitdir \

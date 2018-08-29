@@ -31,7 +31,7 @@ fi
 
 cp -v configure{,.orig}
 sed 's:/usr/local/bin:/bin:' configure.orig > configure
-CFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/tools       \
+CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" CFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/tools       \
             --with-tcl=/tools/lib \
             --with-tclinclude=/tools/include
 make

@@ -30,7 +30,7 @@ then
 fi
 
 sed -i 's/extras//' Makefile.in
-./configure --prefix=/usr
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/usr
 make
 make install
 mkdir -v /usr/share/doc/gawk-4.2.1

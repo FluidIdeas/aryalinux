@@ -29,7 +29,7 @@ then
 	cd $DIRECTORY
 fi
 
-./configure --prefix=/usr                       \
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/usr                       \
               --sysconfdir=/etc                   \
               --localstatedir=/var                \
               --disable-static                    \

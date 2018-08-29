@@ -29,6 +29,10 @@ then
 	cd $DIRECTORY
 fi
 
+export CFLAGS="-march=skylake -mtune=generic -O3"
+export CXXFLAGS="-march=skylake -mtune=generic -O3"
+export CPPFLAGS="-march=skylake -mtune=generic -O3"
+
 patch -Np1 -i ../bzip2-1.0.6-install_docs-1.patch
 sed -i 's@\(ln -s -f \)$(PREFIX)/bin/@\1@' Makefile
 sed -i "s@(PREFIX)/man@(PREFIX)/share/man@g" Makefile

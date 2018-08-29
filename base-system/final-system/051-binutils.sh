@@ -32,7 +32,7 @@ fi
 expect -c "spawn ls"
 mkdir -v build
 cd       build
-../configure --prefix=/usr       \
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ../configure --prefix=/usr       \
              --enable-gold       \
              --enable-ld=default \
              --enable-plugins    \

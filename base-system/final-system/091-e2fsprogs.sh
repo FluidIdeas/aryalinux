@@ -34,7 +34,7 @@ cd build
 LIBS=-L/tools/lib                    \
 CFLAGS=-I/tools/include              \
 PKG_CONFIG_PATH=/tools/lib/pkgconfig \
-../configure --prefix=/usr           \
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ../configure --prefix=/usr           \
              --bindir=/bin           \
              --with-root-prefix=""   \
              --enable-elf-shlibs     \

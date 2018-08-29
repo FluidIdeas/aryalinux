@@ -44,6 +44,11 @@ sed -i '527,565 d'                  src/basic/missing.h
 sed -i '24 d'                       src/core/load-fragment.c
 sed -i '53 a#include <sys/mount.h>' src/shared/bus-unit-util.c
 sed -i 's/GROUP="render", //' rules/50-udev-default.rules.in
+
+export CFLAGS="-march=skylake -mtune=generic -O3"
+export CXXFLAGS="-march=skylake -mtune=generic -O3"
+export CPPFLAGS="-march=skylake -mtune=generic -O3"
+
 mkdir -p build
 cd       build
 LANG=en_US.UTF-8                   \

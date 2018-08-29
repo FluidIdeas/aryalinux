@@ -30,7 +30,7 @@ then
 fi
 
 sed -i 's|usr/bin/env |bin/|' run.sh.in
-./configure --prefix=/usr    \
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/usr    \
             --disable-static \
             --docdir=/usr/share/doc/expat-2.2.5
 make

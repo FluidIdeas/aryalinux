@@ -29,6 +29,8 @@ then
 	cd $DIRECTORY
 fi
 
+export CXXFLAGS="-march=skylake -mtune=generic -O3"
+export CPPFLAGS="-march=skylake -mtune=generic -O3"
 export CFLAGS="-march=skylake -mtune=generic -O3"
 sh Configure -des -Dprefix=/tools -Dlibs=-lm
 make

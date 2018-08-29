@@ -31,7 +31,7 @@ fi
 
 sed -i '/MV.*old/d' Makefile.in
 sed -i '/{OLDSUFF}/c:' support/shlib-install
-./configure --prefix=/usr    \
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/usr    \
             --disable-static \
             --docdir=/usr/share/doc/readline-7.0
 make SHLIB_LIBS="-L/tools/lib -lncursesw"

@@ -33,7 +33,7 @@ sed -e '/ALIGN_PRSTATUS)/{
         s/__attribute/attribute_packed &/
         s/packed, //}' \
     -i backends/linux-core-note.c
-./configure --prefix=/usr
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/usr
 make
 make -C libelf install
 install -vm644 config/libelf.pc /usr/lib/pkgconfig

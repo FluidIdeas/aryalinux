@@ -29,6 +29,9 @@ then
 	cd $DIRECTORY
 fi
 
+export CFLAGS="-march=skylake -mtune=generic -O3"
+export CXXFLAGS="-march=skylake -mtune=generic -O3"
+export CPPFLAGS="-march=skylake -mtune=generic -O3" 
 patch -Np1 -i ../coreutils-8.29-i18n-1.patch
 sed -i '/test.lock/s/^/#/' gnulib-tests/gnulib.mk
 autoreconf -fiv

@@ -44,7 +44,7 @@ rm -f /usr/include/limits.h
 mkdir -v build
 cd       build
 CC="gcc -isystem $GCC_INCDIR -isystem /usr/include" \
-../configure --prefix=/usr                          \
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ../configure --prefix=/usr                          \
              --disable-werror                       \
              --enable-kernel=3.2                    \
              --enable-stack-protector=strong        \

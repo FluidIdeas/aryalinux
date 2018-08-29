@@ -31,7 +31,7 @@ fi
 
 cp -v configfsf.guess config.guess
 cp -v configfsf.sub   config.sub
-./configure --prefix=/usr    \
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/usr    \
             --enable-cxx     \
             --disable-static \
             --docdir=/usr/share/doc/gmp-6.1.2

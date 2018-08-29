@@ -31,7 +31,7 @@ fi
 
 mkdir -pv /var/lib/hwclock
 rm -vf /usr/include/{blkid,libmount,uuid}
-./configure ADJTIME_PATH=/var/lib/hwclock/adjtime   \
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure ADJTIME_PATH=/var/lib/hwclock/adjtime   \
             --docdir=/usr/share/doc/util-linux-2.32 \
             --disable-chfn-chsh  \
             --disable-login      \

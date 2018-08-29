@@ -31,7 +31,7 @@ fi
 
 sed -i 's/usr/tools/'                 build-aux/help2man
 sed -i 's/testsuite.panic-tests.sh//' Makefile.in
-./configure --prefix=/usr --bindir=/bin
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/usr --bindir=/bin
 make
 make html
 make install

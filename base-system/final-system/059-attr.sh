@@ -32,7 +32,7 @@ fi
 sed -i -e 's|/@pkg_name@|&-@pkg_version@|' include/builddefs.in
 sed -i -e "/SUBDIRS/s|man[25]||g" man/Makefile
 sed -i 's:{(:\\{(:' test/run
-./configure --prefix=/usr \
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/usr \
             --disable-static
 make
 make install install-dev install-lib

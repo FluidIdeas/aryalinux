@@ -30,7 +30,7 @@ then
 fi
 
 sed -i '211,217 d; 219,229 d; 232 d' glob/glob.c
-./configure --prefix=/usr
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/usr
 make
 make install
 

@@ -32,6 +32,9 @@ fi
 echo "127.0.0.1 localhost $(hostname)" > /etc/hosts
 export BUILD_ZLIB=False
 export BUILD_BZIP2=0
+export CFLAGS="-march=skylake -mtune=generic -O3"
+export CXXFLAGS="-march=skylake -mtune=generic -O3"
+export CPPFLAGS="-march=skylake -mtune=generic -O3"
 sh Configure -des -Dprefix=/usr                 \
                   -Dvendorprefix=/usr           \
                   -Dman1dir=/usr/share/man/man1 \

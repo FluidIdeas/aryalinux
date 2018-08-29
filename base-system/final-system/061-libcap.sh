@@ -29,6 +29,10 @@ then
 	cd $DIRECTORY
 fi
 
+export CFLAGS="-march=skylake -mtune=generic -O3"
+export CXXFLAGS="-march=skylake -mtune=generic -O3"
+export CPPFLAGS="-march=skylake -mtune=generic -O3"
+
 sed -i '/install.*STALIBNAME/d' libcap/Makefile
 make
 make RAISE_SETFCAP=no lib=lib prefix=/usr install

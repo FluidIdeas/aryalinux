@@ -61,7 +61,7 @@ CC=$LFS_TGT-gcc                                    \
 CXX=$LFS_TGT-g++                                   \
 AR=$LFS_TGT-ar                                     \
 RANLIB=$LFS_TGT-ranlib                             \
-CFLAGS="-march=skylake -mtune=generic -O3" ../configure                                       \
+CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" CFLAGS="-march=skylake -mtune=generic -O3" ../configure                                       \
     --prefix=/tools                                \
     --with-local-prefix=/tools                     \
     --with-native-system-header-dir=/tools/include \

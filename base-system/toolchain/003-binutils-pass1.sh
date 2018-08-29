@@ -31,7 +31,7 @@ fi
 
 mkdir -v build
 cd       build
-CFLAGS="-march=skylake -mtune=generic -O3" ../configure --prefix=/tools            \
+CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" CFLAGS="-march=skylake -mtune=generic -O3" ../configure --prefix=/tools            \
              --with-sysroot=$LFS        \
              --with-lib-path=/tools/lib \
              --target=$LFS_TGT          \
