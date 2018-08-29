@@ -23,7 +23,7 @@ then
 	cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/usr \
 	--with-default-trust-store-pkcs11="pkcs11:" \
 	--with-included-unistring &&
 make

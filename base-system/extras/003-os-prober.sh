@@ -23,6 +23,10 @@ then
 	cd $DIRECTORY
 fi
 
+export CFLAGS="-march=skylake -mtune=generic -O3"
+export CXXFLAGS="-march=skylake -mtune=generic -O3"
+export CPPFLAGS="-march=skylake -mtune=generic -O3"
+
 make
 mkdir -pv /usr/{lib,share}/os-prober
 cp -v os-prober /usr/bin

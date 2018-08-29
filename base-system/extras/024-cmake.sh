@@ -26,6 +26,10 @@ fi
 sed -i '/CMAKE_USE_LIBUV 1/s/1/0/' CMakeLists.txt     &&
 sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake &&
 
+export CFLAGS="-march=skylake -mtune=generic -O3"
+export CXXFLAGS="-march=skylake -mtune=generic -O3"
+export CPPFLAGS="-march=skylake -mtune=generic -O3"
+
 ./bootstrap --prefix=/usr        \
             --system-libs        \
             --mandir=/share/man  \

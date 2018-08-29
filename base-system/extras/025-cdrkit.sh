@@ -26,6 +26,10 @@ fi
 mkdir build
 cd build
 
+export CFLAGS="-march=skylake -mtune=generic -O3"
+export CXXFLAGS="-march=skylake -mtune=generic -O3"
+export CPPFLAGS="-march=skylake -mtune=generic -O3"
+
 cmake -DCMAKE_INSTALL_PREFIX=/usr .. &&
 make "-j`nproc`"
 make install

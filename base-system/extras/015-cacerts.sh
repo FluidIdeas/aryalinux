@@ -32,6 +32,11 @@ openssl x509 -in ../root.crt -text -fingerprint -setalias "CAcert Class 1 root" 
 openssl x509 -in ../class3.crt -text -fingerprint -setalias "CAcert Class 3 root" \
         -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning \
         > /etc/ssl/local/CAcert_Class_3_root.pem
+
+export CFLAGS="-march=skylake -mtune=generic -O3"
+export CXXFLAGS="-march=skylake -mtune=generic -O3"
+export CPPFLAGS="-march=skylake -mtune=generic -O3"
+
 make install
 sed -e 's%= /etc/ssl;%= "/etc/ssl";%' \
     -e 's%= /usr;%= "/usr";%'         \

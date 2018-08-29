@@ -26,6 +26,11 @@ fi
 cd squashfs-tools
 sed 's@#XZ_SUPPORT@XZ_SUPPORT@g' -i Makefile
 sed 's@COMP_DEFAULT = gzip@COMP_DEFAULT = xz@g' -i Makefile
+
+export CFLAGS="-march=skylake -mtune=generic -O3"
+export CXXFLAGS="-march=skylake -mtune=generic -O3"
+export CPPFLAGS="-march=skylake -mtune=generic -O3"
+
 make
 sudo make INSTALL_DIR=/bin install
 

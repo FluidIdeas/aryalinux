@@ -23,7 +23,7 @@ then
 	cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --disable-static &&
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/usr --disable-static &&
 make
 make install
 make -C doc/reference install-data-local

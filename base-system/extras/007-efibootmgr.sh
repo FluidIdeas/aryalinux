@@ -23,6 +23,10 @@ then
 	cd $DIRECTORY
 fi
 
+export CFLAGS="-march=skylake -mtune=generic -O3"
+export CXXFLAGS="-march=skylake -mtune=generic -O3"
+export CPPFLAGS="-march=skylake -mtune=generic -O3"
+
 patch -Np1 -i ../efibootmgr-16-efidir.patch
 make
 install -v -D -m0755 src/efibootmgr /usr/sbin/efibootmgr

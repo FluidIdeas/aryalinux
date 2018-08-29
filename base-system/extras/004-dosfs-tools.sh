@@ -23,7 +23,7 @@ then
 	cd $DIRECTORY
 fi
 
-./configure --prefix=/               \
+CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3" ./configure --prefix=/               \
             --enable-compat-symlinks \
             --mandir=/usr/share/man  \
             --docdir=/usr/share/doc/dosfstools-4.1 &&
