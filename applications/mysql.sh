@@ -125,10 +125,10 @@ interactive-timeout
 # End /etc/my.cnf
 EOF
 
-sudo bin/mysqld_safe --user=mysql &
+sudo mysqld_safe --user=mysql &
 sleep 5 &&
-sudo bin/mysqladmin -u root password
-sudo bin/mysqladmin -p shutdown
+sudo mysqladmin -u root password
+sudo mysqladmin -p shutdown
 
 sudo tee /lib/systemd/system/mysqld.service <<"EOF"
 [Unit]
