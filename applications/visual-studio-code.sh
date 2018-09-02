@@ -26,15 +26,15 @@ EOF
 
 sudo tee /usr/share/applications/vscode.desktop <<EOF
 [Desktop Entry]
-Name=Eclipse IDE
-GenericName=Eclipse IDE
-Comment=Programming in Java
+Name=Visual Studio Code
+GenericName=Visual Studio Code Editor
+Comment=Open Source Code Editor
 Exec=/opt/$DIRECTORY/code
 Icon=code.png
 Terminal=false
 Encoding=UTF-8
 Type=Application
-Categories=Java;Development;Debugger;
+Categories=Development;Debugger;
 EOF
 
 cd $SOURCE_DIR
