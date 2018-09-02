@@ -5,6 +5,9 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+NAME="eclipse-ide"
+VERSION="photon"
+
 cd $SOURCE_DIR
 
 ARCH=$(uname -m)
