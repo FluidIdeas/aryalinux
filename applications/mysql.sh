@@ -45,14 +45,10 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_CONFIG=mysql_release .. &&
 make "-j`nproc`"
 sudo make install
 
-chmod a+x scripts/mysql_install_db
-sudo mkdir -pv /usr/scripts/
-sudo cp scripts/mysql_install_db /usr/scripts
+sudo mkdir -pv /var/lib/mysql/
+sudo chown -R mysql /var/lib/mysql/
 
-pushd /usr
-
-sudo scripts/mysql_install_db --user=mysql
-sudo chown -R mysql data
+sudo mysqld --initialize --user=mysql
 
 sudo mkdir -pv /var/mysqld
 sudo chown -R mysql /var/mysqld
@@ -70,7 +66,7 @@ socket          = /var/mysqld/mysqld.sock
 [mysqld]
 port            = 3306
 socket          = /var/mysqld/mysqld.sock
-datadir         = /usr/data
+datadir         = /var/lib/mysql/
 skip-external-locking
 key_buffer_size = 16M
 max_allowed_packet = 1M
