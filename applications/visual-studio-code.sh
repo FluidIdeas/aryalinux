@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 URL="https://go.microsoft.com/fwlink/?LinkID=620884"
 TARBALL="$NAME-$VERSION.tar.gz"
 
-wget -c "$URL" -o $TARBALL
+wget -c "$URL" -O $TARBALL
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 sudo tar xf $TARBALL -C /opt/
 sudo ln -svf /opt/$DIRECTORY/resources/app/resources/linux/code.png /usr/share/pixmaps/
