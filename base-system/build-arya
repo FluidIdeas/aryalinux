@@ -119,17 +119,14 @@ def inputBuildProperties():
 		if getParamValue('INSTALL_DESKTOP_ENVIRONMENT') == 'y' or getParamValue('INSTALL_DESKTOP_ENVIRONMENT') == 'Y':
 			readInput("Choose the Desktop Environment you want to install:\n1) XFCE\n2) Mate\n3) KDE\n4) Gnome\n\nEnter your choice (1-4): ", 'DESKTOP_ENVIRONMENT', propsFile, '2')
 	response = raw_input('Do you want to configure advanced build options? (y/n) : ')
-	if response == 'y' or response == 'Y':
-		print 'How do you want to compile the kernel?'
-		print '    1) Compile using a generic configuration (This gives the best support for all hardware but kernel size increases a bit)'
-		print '    2) Compile using "make defconfig" (A minimum set of kernel options are enabled which makes the kernel lighter, suitable for servers)'
-		print '    3) Compile using "make menuconfig" (You would be presented with the kernel configuration menu and would have do to it yourself somewhere in the middle of build process and build would not proceed unless you provide the config options and ask the build to proceed)'
-		print '    4) Compile using "make localmodconfig" (This gives you a smaller kernel than generic and better hardware support than defconfig)'
-		readInput('Enter you choice (1 - 4) If in doubt choose 1 : ', 'KERNEL_CONFIG_OPT', propsFile, '1')
 	passwords['root'] = getpassword('Enter the root password : ', 'Re-enter the root password : ')
 	passwords['user'] = getpassword('Enter the user password : ', 'Re-enter the user password : ')
 	readInput('Install bootloader? (Y/n) : ', 'INSTALL_BOOTLOADER', propsFile, 'y')
 	readInput('Create Live ISO? (Y/n) : ', 'CREATE_LIVE_ISO', propsFile, 'y')
+	if response == 'y' or response == 'Y':
+		readInput("Enter build architecture/gcc -march flag value (generic): ", 'BUILD_ARCH', propsFile, 'generic')
+		readInput("To which architecture should the code be tuned to/gcc -mtune value (generic): ", 'BUILD_TUNE', propsFile, 'generic')
+		readInput("Enter gcc optimization level. 1 ... 3 (1): ", 'BUILD_OPT_LEVEL', propsFile, '1')
 
 def freshBuild(startFrom):
 	startFrom = int(startFrom)

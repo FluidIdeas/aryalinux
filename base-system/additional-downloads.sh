@@ -48,7 +48,6 @@ wget -nc https://sourceware.org/ftp/lvm2/releases/LVM2.2.02.171.tgz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.1/aufs-4.17.tar.gz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.1/aufs4-base.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.1/aufs4-kbuild.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.1/aufs4-loopback.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.1/aufs4-mmap.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.1/aufs4-standalone.patch
 wget -nc https://sourceware.org/ftp/elfutils/0.170/elfutils-0.170.tar.bz2

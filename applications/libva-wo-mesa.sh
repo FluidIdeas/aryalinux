@@ -11,7 +11,7 @@ VERSION="2.1.0"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
+URL=https://ftp.osuosl.org/pub/blfs/conglomeration/Xorg/libva-2.1.0.tar.bz2
 
 wget -nc $URL
 

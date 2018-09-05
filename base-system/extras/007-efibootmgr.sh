@@ -23,6 +23,10 @@ then
 	cd $DIRECTORY
 fi
 
+export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+
 patch -Np1 -i ../efibootmgr-16-efidir.patch
 make
 install -v -D -m0755 src/efibootmgr /usr/sbin/efibootmgr

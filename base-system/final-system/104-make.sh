@@ -30,7 +30,7 @@ then
 fi
 
 sed -i '211,217 d; 219,229 d; 232 d' glob/glob.c
-./configure --prefix=/usr
+CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" ./configure --prefix=/usr
 make
 make install
 

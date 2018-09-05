@@ -33,7 +33,8 @@ sed -e '/ALIGN_PRSTATUS)/{
         s/__attribute/attribute_packed &/
         s/packed, //}' \
     -i backends/linux-core-note.c
-./configure --prefix=/usr
+
+CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL -Wno-format-truncation" ./configure --prefix=/usr
 make
 make -C libelf install
 install -vm644 config/libelf.pc /usr/lib/pkgconfig

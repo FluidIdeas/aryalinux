@@ -23,6 +23,10 @@ then
 	cd $DIRECTORY
 fi
 
+export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+
 make -f unix/Makefile generic
 make prefix=/usr MANDIR=/usr/share/man/man1 \
  -f unix/Makefile install

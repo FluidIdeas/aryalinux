@@ -39,7 +39,7 @@ rm -f /usr/lib/gcc
 mkdir -v build
 cd       build
 SED=sed                               \
-../configure --prefix=/usr            \
+CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" ../configure --prefix=/usr            \
              --enable-languages=c,c++ \
              --disable-multilib       \
              --disable-bootstrap      \

@@ -29,7 +29,7 @@ then
 	cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --docdir=/usr/share/doc/bison-3.0.5
+CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" ./configure --prefix=/usr --docdir=/usr/share/doc/bison-3.0.5
 make
 make install
 

@@ -31,7 +31,7 @@ fi
 
 mkdir -v build
 cd       build
-../configure                             \
+CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" ../configure                             \
       --prefix=/tools                    \
       --host=$LFS_TGT                    \
       --build=$(../scripts/config.guess) \

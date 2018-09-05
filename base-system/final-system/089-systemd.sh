@@ -1,4 +1,4 @@
-7#!/bin/bash
+#!/bin/bash
 
 set -e
 set +h
@@ -44,6 +44,11 @@ sed -i '527,565 d'                  src/basic/missing.h
 sed -i '24 d'                       src/core/load-fragment.c
 sed -i '53 a#include <sys/mount.h>' src/shared/bus-unit-util.c
 sed -i 's/GROUP="render", //' rules/50-udev-default.rules.in
+
+export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+
 mkdir -p build
 cd       build
 LANG=en_US.UTF-8                   \

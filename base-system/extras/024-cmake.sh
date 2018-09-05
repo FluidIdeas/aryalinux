@@ -26,6 +26,10 @@ fi
 sed -i '/CMAKE_USE_LIBUV 1/s/1/0/' CMakeLists.txt     &&
 sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake &&
 
+export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+
 ./bootstrap --prefix=/usr        \
             --system-libs        \
             --mandir=/share/man  \

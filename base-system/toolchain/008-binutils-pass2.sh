@@ -34,7 +34,7 @@ cd       build
 CC=$LFS_TGT-gcc                \
 AR=$LFS_TGT-ar                 \
 RANLIB=$LFS_TGT-ranlib         \
-../configure                   \
+CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" ../configure                   \
     --prefix=/tools            \
     --disable-nls              \
     --disable-werror           \

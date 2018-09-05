@@ -32,9 +32,8 @@ fi
 mkdir -v build
 cd build
 LIBS=-L/tools/lib                    \
-CFLAGS=-I/tools/include              \
 PKG_CONFIG_PATH=/tools/lib/pkgconfig \
-../configure --prefix=/usr           \
+CFLAGS="-I/tools/include -march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" ../configure --prefix=/usr           \
              --bindir=/bin           \
              --with-root-prefix=""   \
              --enable-elf-shlibs     \

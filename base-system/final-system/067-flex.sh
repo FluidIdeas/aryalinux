@@ -31,7 +31,7 @@ fi
 
 sed -i "/math.h/a #include <malloc.h>" src/flexdef.h
 HELP2MAN=/tools/bin/true \
-./configure --prefix=/usr --docdir=/usr/share/doc/flex-2.6.4
+CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" ./configure --prefix=/usr --docdir=/usr/share/doc/flex-2.6.4
 make
 make install
 ln -sv flex /usr/bin/lex

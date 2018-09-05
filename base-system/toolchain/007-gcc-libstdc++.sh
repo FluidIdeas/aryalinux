@@ -31,7 +31,7 @@ fi
 
 mkdir -v build
 cd       build
-../libstdc++-v3/configure           \
+CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" ../libstdc++-v3/configure           \
     --host=$LFS_TGT                 \
     --prefix=/tools                 \
     --disable-multilib              \

@@ -30,7 +30,7 @@ then
 fi
 
 FORCE_UNSAFE_CONFIGURE=1  \
-./configure --prefix=/usr \
+CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" ./configure --prefix=/usr \
             --bindir=/bin
 make
 make install

@@ -23,6 +23,10 @@ then
 	cd $DIRECTORY
 fi
 
+export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+
 make libdir="/usr/lib/" bindir="/usr/bin/" \
 	mandir="/usr/share/man/"     \
 	includedir="/usr/include/" V=1 -j1
