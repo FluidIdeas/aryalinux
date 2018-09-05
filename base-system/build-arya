@@ -119,14 +119,14 @@ def inputBuildProperties():
 		if getParamValue('INSTALL_DESKTOP_ENVIRONMENT') == 'y' or getParamValue('INSTALL_DESKTOP_ENVIRONMENT') == 'Y':
 			readInput("Choose the Desktop Environment you want to install:\n1) XFCE\n2) Mate\n3) KDE\n4) Gnome\n\nEnter your choice (1-4): ", 'DESKTOP_ENVIRONMENT', propsFile, '2')
 	response = raw_input('Do you want to configure advanced build options? (y/n) : ')
-	passwords['root'] = getpassword('Enter the root password : ', 'Re-enter the root password : ')
-	passwords['user'] = getpassword('Enter the user password : ', 'Re-enter the user password : ')
-	readInput('Install bootloader? (Y/n) : ', 'INSTALL_BOOTLOADER', propsFile, 'y')
-	readInput('Create Live ISO? (Y/n) : ', 'CREATE_LIVE_ISO', propsFile, 'y')
 	if response == 'y' or response == 'Y':
 		readInput("Enter build architecture/gcc -march flag value (generic): ", 'BUILD_ARCH', propsFile, 'generic')
 		readInput("To which architecture should the code be tuned to/gcc -mtune value (generic): ", 'BUILD_TUNE', propsFile, 'generic')
 		readInput("Enter gcc optimization level. 1 ... 3 (1): ", 'BUILD_OPT_LEVEL', propsFile, '1')
+	passwords['root'] = getpassword('Enter the root password : ', 'Re-enter the root password : ')
+	passwords['user'] = getpassword('Enter the user password : ', 'Re-enter the user password : ')
+	readInput('Install bootloader? (Y/n) : ', 'INSTALL_BOOTLOADER', propsFile, 'y')
+	readInput('Create Live ISO? (Y/n) : ', 'CREATE_LIVE_ISO', propsFile, 'y')
 
 def freshBuild(startFrom):
 	startFrom = int(startFrom)
