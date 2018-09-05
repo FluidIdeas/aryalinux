@@ -72,9 +72,9 @@ fi
 
 if [ "x$DE" != "x" ]
 then
-    OUTFILE="$(echo $OS_NAME | tr '[:upper:]' [:lower:])-$(echo $DE | tr '[:upper:]' '[:lower:]')-$OS_VERSION-$(uname -m).iso"
+    OUTFILE="$(echo $OS_NAME | sed "s/\s/_/g" | tr '[:upper:]' [:lower:])-$(echo $DE | tr '[:upper:]' '[:lower:]')-$OS_VERSION-$(uname -m).iso"
 else
-    OUTFILE="$(echo $OS_NAME | tr '[:upper:]' [:lower:])-$OS_VERSION-$(uname -m).iso"
+    OUTFILE="$(echo $OS_NAME | sed "s/\s/_/g" | tr '[:upper:]' [:lower:])-$OS_VERSION-$(uname -m).iso"
 fi
 
 CREATE_ROOTSFS="y"
