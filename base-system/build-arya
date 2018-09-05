@@ -95,6 +95,9 @@ def getCurrentStage():
 def inputBuildProperties():
 	readInput("Bootloader Device: ", 'DEV_NAME', propsFile, '', False)
 	readInput("Root Partition: ", 'ROOT_PART', propsFile, '')
+	readInput("Home Partition: ", 'HOME_PART', propsFile, '')
+	if getParamValue('HOME_PART') != '':
+		readInput('Format Home Partition? (y/N): ', 'FORMAT_HOME', propsFile, 'n')
 	readInput("Swap Partition: ", 'SWAP_PART', propsFile, '')
 	if getParamValue('SWAP_PART') != '':
 		readInput('Format swap partition? (y/N): ', 'FORMAT_SWAP', propsFile, 'n')
@@ -109,23 +112,21 @@ def inputBuildProperties():
 	readInput('Username: ', 'USERNAME', propsFile, 'aryalinux')
 	readInput('Computer Name: ', 'HOST_NAME', propsFile, 'aryalinux')
 	readInput('Use multiple cores for build?: (Y/n)', 'MULTICORE', propsFile, 'y')
+	readInput('Create backups? (y/N) ', 'CREATE_BACKUPS', propsFile, 'n')
 	readInput("Install X Server? (y/N) ", 'INSTALL_XSERVER', propsFile, 'n')
 	if getParamValue('INSTALL_XSERVER') == 'y' or getParamValue('INSTALL_XSERVER') == 'Y':
 		readInput("Install Desktop Environment? (y/N) ", 'INSTALL_DESKTOP_ENVIRONMENT', propsFile, 'n')
 		if getParamValue('INSTALL_DESKTOP_ENVIRONMENT') == 'y' or getParamValue('INSTALL_DESKTOP_ENVIRONMENT') == 'Y':
 			readInput("Choose the Desktop Environment you want to install:\n1) XFCE\n2) Mate\n3) KDE\n4) Gnome\n\nEnter your choice (1-4): ", 'DESKTOP_ENVIRONMENT', propsFile, '2')
 	response = raw_input('Do you want to configure advanced build options? (y/n) : ')
-	if response == 'y' or response == 'Y':
-		print 'How do you want to compile the kernel?'
-		print '    1) Compile using a generic configuration (This gives the best support for all hardware but kernel size increases a bit)'
-		print '    2) Compile using "make defconfig" (A minimum set of kernel options are enabled which makes the kernel lighter, suitable for servers)'
-		print '    3) Compile using "make menuconfig" (You would be presented with the kernel configuration menu and would have do to it yourself somewhere in the middle of build process and build would not proceed unless you provide the config options and ask the build to proceed)'
-		print '    4) Compile using "make localmodconfig" (This gives you a smaller kernel than generic and better hardware support than defconfig)'
-		readInput('Enter you choice (1 - 4) If in doubt choose 1 : ', 'KERNEL_CONFIG_OPT', propsFile, '1')
 	passwords['root'] = getpassword('Enter the root password : ', 'Re-enter the root password : ')
 	passwords['user'] = getpassword('Enter the user password : ', 'Re-enter the user password : ')
 	readInput('Install bootloader? (Y/n) : ', 'INSTALL_BOOTLOADER', propsFile, 'y')
 	readInput('Create Live ISO? (Y/n) : ', 'CREATE_LIVE_ISO', propsFile, 'y')
+	if response == 'y' or response == 'Y':
+		readInput("Enter build architecture/gcc -march flag value (generic): ", 'BUILD_ARCH', propsFile, 'generic')
+		readInput("To which architecture should the code be tuned to/gcc -mtune value (generic): ", 'BUILD_TUNE', propsFile, 'generic')
+		readInput("Enter gcc optimization level. 1 ... 3 (1): ", 'BUILD_OPT_LEVEL', propsFile, '1')
 
 def freshBuild(startFrom):
 	startFrom = int(startFrom)
@@ -194,16 +195,52 @@ def freshBuild(startFrom):
 	except Exception as ex:
 		print ex
 
+	if getParamValue('CREATE_BACKUPS') == 'y' or getParamValue('CREATE_BACKUPS') == 'Y':
+		try:
+			files = os.listdir('/mnt/lfs/sources')
+			found = False
+			for file in files:
+				if file.startswith('aryalinux') and 'base-system' in file and file.endswith('.tar.gz'):
+					found = True
+					break
+			if not found:
+				p = subprocess.Popen(['./strip-debug.sh'], shell=True)
+				p.wait()
+				p = subprocess.Popen(['./backup.sh base-system y'], shell=True)
+				p.wait()
+			else:
+				print 'Base system backup already present. Not creating again'
+		except:
+			print 'Error occured while backing up base-system. Aborting.'
+			exit()
+
 	if startFrom == 6:
 		if getParamValue('INSTALL_XSERVER') == 'y' or getParamValue('INSTALL_XSERVER') == 'Y':
 			try:
 				logCurrentStage('6')
-				subprocess.Popen('/bin/bash ./prepare-overlay.sh x-server'.split()).communicate()
 				print 'Installing essentials...'
-				runScriptWithArgs('./enteral.sh', '/sources', ['/sources/apps/essentials.sh', getParamValue('USERNAME')])
+				runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/essentials.sh', getParamValue('USERNAME')])
 				print 'Installing xserver...'
-				runScriptWithArgs('./enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'xserver-meta'])
+				runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'xserver-meta'])
 				startFrom = startFrom + 1
+				if getParamValue('CREATE_BACKUPS') == 'y' or getParamValue('CREATE_BACKUPS') == 'Y':
+					try:
+					        files = os.listdir('/mnt/lfs/sources/')
+					        found = False
+					        for file in files:
+					                if file.startswith('aryalinux') and 'base-system-with-xserver' in file and file.endswith('.tar.xz'):
+				        	                found = True
+				                	        break
+					        if not found:
+					                p = subprocess.Popen(['./strip-debug.sh'], shell=True)
+					                p.wait()
+				        	        p = subprocess.Popen(['./backup.sh base-system-with-xserver n'], shell=True)
+					        	p.wait()
+						else:
+					                print 'X-Server backup already present. Not backing up again.'
+					except:
+					        print 'Error occured while backing up base-system-with-xserver. Aborting.'
+					        exit()
 			except:
 				print 'Error occured in the installation of x-server'
 				exit()
@@ -216,35 +253,48 @@ def freshBuild(startFrom):
 				if getParamValue('DESKTOP_ENVIRONMENT') == '2':
 					desktopEnv = 'mate'
 					print 'Installing ' + desktopEnv
-					subprocess.Popen(('/bin/bash ./prepare-overlay.sh ' + desktopEnv).split()).communicate()
-					runScriptWithArgs('./enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'mate-desktop-environment'])
+					runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'mate-desktop-environment'])
 				elif getParamValue('DESKTOP_ENVIRONMENT') == '1':
 					desktopEnv = 'xfce'
 					print 'Installing ' + desktopEnv
-					subprocess.Popen(('/bin/bash ./prepare-overlay.sh ' + desktopEnv).split()).communicate()
-					runScriptWithArgs('./enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'xfce-desktop-environment'])
+					runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'xfce-desktop-environment'])
 				elif getParamValue('DESKTOP_ENVIRONMENT') == '3':
 					desktopEnv = 'kde5'
 					print 'Installing ' + desktopEnv
-					subprocess.Popen(('/bin/bash ./prepare-overlay.sh ' + desktopEnv).split()).communicate()
-					runScriptWithArgs('./enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'gtk2'])
-					runScriptWithArgs('./enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'gtk3'])
-					runScriptWithArgs('./enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'GConf'])
-					runScriptWithArgs('./enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'pulseaudio'])
-					runScriptWithArgs('./enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'qt5'])
-					runScriptWithArgs('./enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'kde-desktop-environment'])
+					runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'gtk2'])
+					runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'gtk3'])
+					runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'GConf'])
+					runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'pulseaudio'])
+					runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'qt5'])
+					runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'kde-desktop-environment'])
 				elif getParamValue('DESKTOP_ENVIRONMENT') == '4':
 					desktopEnv = 'gnome'
 					print 'Installing ' + desktopEnv
-					subprocess.Popen(('/bin/bash ./prepare-overlay.sh ' + desktopEnv).split()).communicate()
-					runScriptWithArgs('./enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'gnome-desktop-environment'])
-				subprocess.Popen('/bin/bash ./finalizer.sh'.split()).communicate()
+					runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'gnome-desktop-environment']);
+				if os.path.exists('/sources/distro-build.sh'):
+					runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/executioner.sh', getParamValue('USERNAME'), '/sources/distro-build.sh']);
 				startFrom = startFrom + 1
+				if getParamValue('CREATE_BACKUPS') == 'y' or getParamValue('CREATE_BACKUPS') == 'Y':
+					try:
+				        	files = os.listdir('/mnt/lfs/sources/')
+					        found = False
+					        for file in files:
+					                if file.startswith('aryalinux') and 'base-system-with-' + desktopEnv in file and file.endswith('.tar.gz'):
+				        	                found = True
+				                	        break
+					        if not found:
+					                p = subprocess.Popen(['./strip-debug.sh'], shell=True)
+					                p.wait()
+				        	        p = subprocess.Popen(['./backup.sh base-system-with-' + desktopEnv + ' n'], shell=True)
+				                	p.wait()
+					        else:
+					                print 'Desktop environment backup already present. Not backing up again.'
+					except:
+					        print 'Error occured while backing up base-system-with-' + desktopEnv + '. Aborting.'
+					        exit()
 			except:
 				print 'Error occured in the installation of desktop environment'
 				exit()
-        p = subprocess.Popen(['./strip-debug.sh'], shell=True)
-        p.wait()
 	if getParamValue('CREATE_LIVE_ISO') == 'y' or getParamValue('CREATE_LIVE_ISO') == 'Y':
 		pr = subprocess.Popen(['./createlivedisk.sh'], shell=True)
 		pr.wait()

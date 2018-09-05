@@ -152,7 +152,8 @@ export LO_PREFIX=/usr
              --with-system-zlib
 
 
-CPPFLAGS='-DU_USING_ICU_NAMESPACE=1' make build-nocheck
+export CPPFLAGS='-DU_USING_ICU_NAMESPACE=1'
+make build-nocheck
 sudo make distro-pack-install
 
 if [ "$LO_PREFIX" != "/usr" ]; then

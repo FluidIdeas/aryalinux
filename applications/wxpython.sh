@@ -11,11 +11,7 @@ VERSION="latest"
 
 #REQ:wxwidgets
 
-cd $SOURCE_DIR
-
-sudo pip install -U wxPython
-
-cd $SOURCE_DIR
-cleanup "$NAME" "$DIRECTORY"
+sudo pip2 install -U wxPython
+sudo pip3 install -U wxPython
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"

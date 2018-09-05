@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Solid is a device integrationbr3ak framework. It provides a way of querying and interacting withbr3ak hardware independently of the underlying operating system.br3ak"
 SECTION="lxqt"
-VERSION=5.43.0
+VERSION=5.46.0
 NAME="lxqt-solid"
 
 #REQ:extra-cmake-modules
@@ -20,11 +20,11 @@ NAME="lxqt-solid"
 
 cd $SOURCE_DIR
 
-URL=http://download.kde.org/stable/frameworks/5.43/solid-5.43.0.tar.xz
+URL=http://download.kde.org/stable/frameworks/5.46/solid-5.46.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://download.kde.org/stable/frameworks/5.43/solid-5.43.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/solid/solid-5.43.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/solid/solid-5.43.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/solid/solid-5.43.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/solid/solid-5.43.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/solid/solid-5.43.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/solid/solid-5.43.0.tar.xz
+wget -nc http://download.kde.org/stable/frameworks/5.46/solid-5.46.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/solid/solid-5.46.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/solid/solid-5.46.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/solid/solid-5.46.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/solid/solid-5.46.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/solid/solid-5.46.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/solid/solid-5.46.0.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

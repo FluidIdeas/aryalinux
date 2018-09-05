@@ -7,7 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 SOURCE_ONLY=n
-DESCRIPTION="br3ak Transcode is a fast, versatile andbr3ak command-line based audio/video everything to everything converter.br3ak For a rundown of the features and capabilities, along with usagebr3ak examples, visit the Transcode Wiki at <a class=\"ulink\" href=\"http://www.transcoding.org/\">http://www.transcoding.org/</a>.br3ak"
+DESCRIPTION="br3ak Transcode was a fast, versatilebr3ak and command-line based audio/video everything to everythingbr3ak converter primarily focussed on producing AVI video files with MP3br3ak audio, but also including a program to read all the video and audiobr3ak streams from a DVD.br3ak"
 SECTION="multimedia"
 VERSION=1.1.7
 NAME="transcode"
@@ -20,7 +20,7 @@ NAME="transcode"
 #REC:x7lib
 #OPT:faac
 #OPT:freetype2
-#OPT:imagemagick
+#OPT:imagemagick6
 #OPT:liba52
 #OPT:libdv
 #OPT:libjpeg
@@ -42,8 +42,8 @@ URL=https://bitbucket.org/france/transcode-tcforge/downloads/transcode-1.1.7.tar
 
 if [ ! -z $URL ]
 then
-wget -nc https://bitbucket.org/france/transcode-tcforge/downloads/transcode-1.1.7.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/transcode/transcode-1.1.7.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/transcode/transcode-1.1.7.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/transcode/transcode-1.1.7.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/transcode/transcode-1.1.7.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/transcode/transcode-1.1.7.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/transcode/transcode-1.1.7.tar.bz2 || wget -nc ftp://mirror.ovh.net/gentoo-distfiles/distfiles/transcode-1.1.7.tar.bz2
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/transcode-1.1.7-ffmpeg3-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/transcode/transcode-1.1.7-ffmpeg3-1.patch
+wget -nc https://bitbucket.org/france/transcode-tcforge/downloads/transcode-1.1.7.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/transcode/transcode-1.1.7.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/transcode/transcode-1.1.7.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/transcode/transcode-1.1.7.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/transcode/transcode-1.1.7.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/transcode/transcode-1.1.7.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/transcode/transcode-1.1.7.tar.bz2 || wget -nc ftp://ftp.mirrorservice.org/sites/distfiles.gentoo.org/distfiles/transcode-1.1.7.tar.bz2
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/transcode-1.1.7-ffmpeg4-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/transcode/transcode-1.1.7-ffmpeg4-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -58,12 +58,9 @@ fi
 
 whoami > /tmp/currentuser
 
-sed -i "s:#include <freetype/ftglyph.h>:#include FT_GLYPH_H:" filter/subtitler/load_font.c
-
-
 sed -i 's|doc/transcode|&-$(PACKAGE_VERSION)|' \
        $(find . -name Makefile.in -exec grep -l 'docsdir =' {} \;) &&
-patch -Np1 -i ../transcode-1.1.7-ffmpeg3-1.patch                   &&
+patch -Np1 -i ../transcode-1.1.7-ffmpeg4-1.patch                   &&
 ./configure --prefix=/usr \
             --enable-alsa \
             --enable-libmpeg2 &&

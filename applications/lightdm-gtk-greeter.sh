@@ -14,10 +14,18 @@ NAME=lightdm-gtk-greeter
 VERSION=2.0.1
 DESCRIPTION="GTK Based greeter for lightdm display manager"
 
+#REQ:xserver-meta
+#REQ:itstool
+#REQ:libgcrypt
+#REQ:libxklavier
+#REQ:systemd
+#REQ:polkit
 #REQ:lightdm
-#REQ:greybird-gtk-theme
 #REQ:aryalinux-wallpapers
 #REC:aryalinux-fonts
+#REQ:flat-remix-icon-theme
+#REQ:adapta-gtk-theme
+#REQ:accountsservice
 
 cd $SOURCE_DIR
 
@@ -45,8 +53,8 @@ sudo tee -a /etc/lightdm/lightdm-gtk-greeter.conf << EOF
 xft-hintstyle = hintmedium
 xft-antialias = true
 xft-rgba = rgb
-icon-theme-name = Numix-Circle
-theme-name = Greybird
+icon-theme-name = 'Flat Remix'
+theme-name = Adapta-Nokto
 background = /usr/share/backgrounds/aryalinux/pexels-photo-459059.jpeg
 font-name = Droid Sans 10
 EOF

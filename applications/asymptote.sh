@@ -45,15 +45,15 @@ fi
 whoami > /tmp/currentuser
 
 export TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/') &&
-./configure --prefix=/opt/texlive/2017                          \
-            --bindir=/opt/texlive/2017/bin/$TEXARCH             \
-            --datarootdir=/opt/texlive/2017/texmf-dist          \
-            --infodir=/opt/texlive/2017/texmf-dist/doc/info     \
-            --libdir=/opt/texlive/2017/texmf-dist               \
-            --mandir=/opt/texlive/2017/texmf-dist/doc/man       \
+./configure --prefix=/opt/texlive/2018                          \
+            --bindir=/opt/texlive/2018/bin/$TEXARCH             \
+            --datarootdir=/opt/texlive/2018/texmf-dist          \
+            --infodir=/opt/texlive/2018/texmf-dist/doc/info     \
+            --libdir=/opt/texlive/2018/texmf-dist               \
+            --mandir=/opt/texlive/2018/texmf-dist/doc/man       \
             --enable-gc=system                                  \
-            --with-latex=/opt/texlive/2017/texmf-dist/tex/latex \
-            --with-context=/opt/texlive/2017/texmf-dist/tex/context/third &&
+            --with-latex=/opt/texlive/2018/texmf-dist/tex/latex \
+            --with-context=/opt/texlive/2018/texmf-dist/tex/context/third &&
 make "-j`nproc`" || make
 
 

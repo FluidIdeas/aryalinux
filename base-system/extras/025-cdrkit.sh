@@ -26,6 +26,10 @@ fi
 mkdir build
 cd build
 
+export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+
 cmake -DCMAKE_INSTALL_PREFIX=/usr .. &&
 make "-j`nproc`"
 make install

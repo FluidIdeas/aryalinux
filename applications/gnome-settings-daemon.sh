@@ -60,7 +60,7 @@ ninja
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-sudo udevrulesdir=/lib/udev/rules.d ninja install
+udevrulesdir=/lib/udev/rules.d ninja install
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

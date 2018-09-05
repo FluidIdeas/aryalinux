@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Even though D-Bus was built inbr3ak LFS, there are some features provided by the package that otherbr3ak BLFS packages need, but their dependencies didn't fit into LFS.br3ak"
 SECTION="general"
-VERSION=1.12.6
+VERSION=1.12.8
 NAME="dbus"
 
 #REQ:systemd
@@ -24,11 +24,11 @@ NAME="dbus"
 
 cd $SOURCE_DIR
 
-URL=https://dbus.freedesktop.org/releases/dbus/dbus-1.12.6.tar.gz
+URL=https://dbus.freedesktop.org/releases/dbus/dbus-1.12.8.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://dbus.freedesktop.org/releases/dbus/dbus-1.12.6.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/db/dbus-1.12.6.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/db/dbus-1.12.6.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/db/dbus-1.12.6.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/db/dbus-1.12.6.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/db/dbus-1.12.6.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/db/dbus-1.12.6.tar.gz
+wget -nc https://dbus.freedesktop.org/releases/dbus/dbus-1.12.8.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/db/dbus-1.12.8.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/db/dbus-1.12.8.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/db/dbus-1.12.8.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/db/dbus-1.12.8.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/db/dbus-1.12.8.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/db/dbus-1.12.8.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -50,7 +50,7 @@ whoami > /tmp/currentuser
             --disable-doxygen-docs               \
             --disable-xml-docs                   \
             --disable-static                     \
-            --docdir=/usr/share/doc/dbus-1.12.6 \
+            --docdir=/usr/share/doc/dbus-1.12.8 \
             --with-console-auth-dir=/run/console \
             --with-system-pid-file=/run/dbus/pid \
             --with-system-socket=/run/dbus/system_bus_socket &&

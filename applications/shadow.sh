@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Shadow was indeed installed in LFSbr3ak and there is no reason to reinstall it unless you installedbr3ak CrackLib or Linux-PAM after your LFS system was completed.br3ak If you have installed CrackLibbr3ak after LFS, then reinstalling Shadow will enable strong password support. Ifbr3ak you have installed Linux-PAM,br3ak reinstalling Shadow will allowbr3ak programs such as <span class=\"command\"><strong>login</strong> and <span class=\"command\"><strong>su</strong> to utilize PAM.br3ak"
 SECTION="postlfs"
-VERSION=4.5
+VERSION=4.6
 NAME="shadow"
 
 #REQ:linux-pam
@@ -18,11 +18,11 @@ NAME="shadow"
 
 cd $SOURCE_DIR
 
-URL=https://github.com/shadow-maint/shadow/releases/download/4.5/shadow-4.5.tar.xz
+URL=https://github.com/shadow-maint/shadow/releases/download/4.6/shadow-4.6.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://github.com/shadow-maint/shadow/releases/download/4.5/shadow-4.5.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/shadow/shadow-4.5.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/shadow/shadow-4.5.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/shadow/shadow-4.5.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/shadow/shadow-4.5.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/shadow/shadow-4.5.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/shadow/shadow-4.5.tar.xz
+wget -nc https://github.com/shadow-maint/shadow/releases/download/4.6/shadow-4.6.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/shadow/shadow-4.6.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/shadow/shadow-4.6.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/shadow/shadow-4.6.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/shadow/shadow-4.6.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/shadow/shadow-4.6.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/shadow/shadow-4.6.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

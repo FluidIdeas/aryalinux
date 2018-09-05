@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="063-shadow.sh"
-TARBALL="shadow-4.5.tar.xz"
+TARBALL="shadow-4.6.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -37,7 +37,7 @@ sed -i -e 's@#ENCRYPT_METHOD DES@ENCRYPT_METHOD SHA512@' \
        -e 's@/var/spool/mail@/var/mail@' etc/login.defs
 sed -i 's@DICTPATH.*@DICTPATH\t/lib/cracklib/pw_dict@' etc/login.defs
 sed -i 's/1000/999/' etc/useradd
-./configure --sysconfdir=/etc --with-group-name-max-length=32
+CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" ./configure --sysconfdir=/etc --with-group-name-max-length=32
 make
 make install
 mv -v /usr/bin/passwd /bin

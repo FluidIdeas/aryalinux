@@ -77,8 +77,10 @@ sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
-tar xf ../audacious-plugins-3.9.tar.bz2
-cd `tar -tf ../audacious-plugins-3.9.tar.bz2 | cut -d ' ' -f1 | uniq`
+cd $SOURCE_DIR
+
+tar xf audacious-plugins-3.9.tar.bz2
+cd `tar -tf audacious-plugins-3.9.tar.bz2 | cut -d/ -f1 | uniq`
 
 
 

@@ -16,7 +16,7 @@ sudo usermod -a -G video `cat /tmp/currentuser`
 
 #REQ:libxml2
 #REQ:util-macros
-#REQ:x7proto
+#REQ:xorgproto
 #REQ:libXau
 #REQ:libXdmcp
 #REQ:xcb-proto
@@ -29,6 +29,7 @@ sudo usermod -a -G video `cat /tmp/currentuser`
 #REQ:xcb-util-wm
 #REQ:xcb-util-cursor
 #REQ:mesa
+#REQ:libva
 #REQ:xbitmaps
 #REQ:x7app
 #REQ:xcursor-themes
@@ -45,7 +46,6 @@ sudo usermod -a -G video `cat /tmp/currentuser`
 #OPT:xf86-video-savage
 #OPT:xf86-video-tdfx
 #REQ:xf86-video-vesa
-#REQ:libva
 #REQ:libva-intel-driver
 #REQ:libvdpau
 #REQ:libvdpau-va-gl

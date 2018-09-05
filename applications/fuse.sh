@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak FUSE (Filesystem in Userspace) isbr3ak a simple interface for userspace programs to export a virtualbr3ak filesystem to the Linux kernel. Fuse also aims to provide a secure method forbr3ak non privileged users to create and mount their own filesystembr3ak implementations.br3ak"
 SECTION="postlfs"
-VERSION=3.2.2
+VERSION=3.2.3
 NAME="fuse"
 
 #OPT:doxygen
@@ -17,11 +17,11 @@ NAME="fuse"
 
 cd $SOURCE_DIR
 
-URL=https://github.com/libfuse/libfuse/releases/download/fuse-3.2.2/fuse-3.2.2.tar.xz
+URL=https://github.com/libfuse/libfuse/releases/download/fuse-3.2.3/fuse-3.2.3.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://github.com/libfuse/libfuse/releases/download/fuse-3.2.2/fuse-3.2.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/fuse/fuse-3.2.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/fuse/fuse-3.2.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/fuse/fuse-3.2.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/fuse/fuse-3.2.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/fuse/fuse-3.2.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/fuse/fuse-3.2.2.tar.xz
+wget -nc https://github.com/libfuse/libfuse/releases/download/fuse-3.2.3/fuse-3.2.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/fuse/fuse-3.2.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/fuse/fuse-3.2.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/fuse/fuse-3.2.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/fuse/fuse-3.2.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/fuse/fuse-3.2.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/fuse/fuse-3.2.3.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -36,7 +36,6 @@ fi
 
 whoami > /tmp/currentuser
 
-sed -i 's/3.2.1/3.2.2/'   meson.build      &&
 sed -i '/^udev/,$ s/^/#/' util/meson.build &&
 mkdir build &&
 cd    build &&

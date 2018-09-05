@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak xdg-utils is a a set of commandbr3ak line tools that assist applications with a variety of desktopbr3ak integration tasks. It is required for Linux Standards Base (LSB)br3ak conformance.br3ak"
 SECTION="xsoft"
-VERSION=1.1.2
+VERSION=1.1.3
 NAME="xdg-utils"
 
 #REQ:xmlto
@@ -22,11 +22,11 @@ NAME="xdg-utils"
 
 cd $SOURCE_DIR
 
-URL=https://portland.freedesktop.org/download/xdg-utils-1.1.2.tar.gz
+URL=https://portland.freedesktop.org/download/xdg-utils-1.1.3.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://portland.freedesktop.org/download/xdg-utils-1.1.2.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/xdg-utils/xdg-utils-1.1.2.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/xdg-utils/xdg-utils-1.1.2.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/xdg-utils/xdg-utils-1.1.2.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/xdg-utils/xdg-utils-1.1.2.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/xdg-utils/xdg-utils-1.1.2.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/xdg-utils/xdg-utils-1.1.2.tar.gz
+wget -nc https://portland.freedesktop.org/download/xdg-utils-1.1.3.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/xdg-utils/xdg-utils-1.1.3.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/xdg-utils/xdg-utils-1.1.3.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/xdg-utils/xdg-utils-1.1.3.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/xdg-utils/xdg-utils-1.1.3.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/xdg-utils/xdg-utils-1.1.3.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/xdg-utils/xdg-utils-1.1.3.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

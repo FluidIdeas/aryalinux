@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak PHP is the PHP Hypertextbr3ak Preprocessor. Primarily used in dynamic web sites, it allows forbr3ak programming code to be directly embedded into the HTML markup. Itbr3ak is also useful as a general purpose scripting language.br3ak"
 SECTION="general"
-VERSION=7.2.4
+VERSION=7.2.6
 NAME="php"
 
 #REC:apache
@@ -61,11 +61,11 @@ NAME="php"
 
 cd $SOURCE_DIR
 
-URL=http://www.php.net/distributions/php-7.2.4.tar.xz
+URL=http://www.php.net/distributions/php-7.2.6.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://www.php.net/distributions/php-7.2.4.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/php/php-7.2.4.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/php/php-7.2.4.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/php/php-7.2.4.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/php/php-7.2.4.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/php/php-7.2.4.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/php/php-7.2.4.tar.xz
+wget -nc http://www.php.net/distributions/php-7.2.6.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/php/php-7.2.6.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/php/php-7.2.6.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/php/php-7.2.6.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/php/php-7.2.6.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/php/php-7.2.6.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/php/php-7.2.6.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -137,13 +137,13 @@ make
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install                                     &&
 install -v -m644 php.ini-production /etc/php.ini &&
-install -v -m755 -d /usr/share/doc/php-7.2.4 &&
+install -v -m755 -d /usr/share/doc/php-7.2.6 &&
 install -v -m644    CODING_STANDARDS EXTENSIONS INSTALL NEWS README* UPGRADING* php.gif \
-                    /usr/share/doc/php-7.2.4 &&
+                    /usr/share/doc/php-7.2.6 &&
 ln -v -sfn          /usr/lib/php/doc/Archive_Tar/docs/Archive_Tar.txt \
-                    /usr/share/doc/php-7.2.4 &&
+                    /usr/share/doc/php-7.2.6 &&
 ln -v -sfn          /usr/lib/php/doc/Structures_Graph/docs \
-                    /usr/share/doc/php-7.2.4
+                    /usr/share/doc/php-7.2.6
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

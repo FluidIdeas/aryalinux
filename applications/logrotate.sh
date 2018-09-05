@@ -38,7 +38,9 @@ fi
 whoami > /tmp/currentuser
 
 sed -i '/exit 5/s/^/echo uncompress failed -- skipping #/' test/test &&
-./configure --prefix=/usr &&
+sed 's/-Werror//' Makefile.am &&
+./autogen.sh                  &&
+./configure --prefix=/usr     &&
 make "-j`nproc`" || make
 
 

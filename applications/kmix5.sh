@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The KMix package contains a KF5br3ak based Sound Mixer application.br3ak"
 SECTION="kde"
-VERSION=17.12.2
+VERSION=18.04.1
 NAME="kmix5"
 
 #REQ:kframeworks5
@@ -20,11 +20,11 @@ NAME="kmix5"
 
 cd $SOURCE_DIR
 
-URL=http://download.kde.org/stable/applications/17.12.2/src/kmix-17.12.2.tar.xz
+URL=http://download.kde.org/stable/applications/18.04.1/src/kmix-18.04.1.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://download.kde.org/stable/applications/17.12.2/src/kmix-17.12.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/kmix/kmix-17.12.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/kmix/kmix-17.12.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/kmix/kmix-17.12.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/kmix/kmix-17.12.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/kmix/kmix-17.12.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/kmix/kmix-17.12.2.tar.xz
+wget -nc http://download.kde.org/stable/applications/18.04.1/src/kmix-18.04.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/kmix/kmix-18.04.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/kmix/kmix-18.04.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/kmix/kmix-18.04.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/kmix/kmix-18.04.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/kmix/kmix-18.04.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/kmix/kmix-18.04.1.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

@@ -53,6 +53,8 @@ sed -i '/_PyVerify_fd/,+1d' python/types.c
 make "-j`nproc`" || make
 
 
+tar xf ../xmlts20130923.tar.gz
+
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install

@@ -40,6 +40,7 @@ VERSION=4.12
 #REQ:ristretto
 #REQ:xfce4-notifyd
 #REQ:pnmixer
+#REQ:pavucontrol
 #REQ:xfce4-whiskermenu-plugin
 #REQ:xfce4-screenshooter
 #REQ:p7zip-full
@@ -71,10 +72,19 @@ VERSION=4.12
 #REQ:usb_modeswitch
 #REQ:compton
 
+#REQ:arc-gtk-theme
+#REQ:breeze-gtk-theme
+#REQ:greybird-gtk-theme
+#REQ:numix-icons
+
 cd $SOURCE_DIR
-wget -nc https://sourceforge.net/projects/aryalinux-bin/releases/2017.06/bin/aryalinux-xfce-config.tar.xz
-tar xf aryalinux-xfce-config.tar.xz -C ~
-sudo tar xf aryalinux-xfce-config.tar.xz -C /etc/skel/
+wget -nc http://aryalinux.com/files/binaries/aryalinux-xfce-config.tar.gz
+sudo tar xf aryalinux-xfce-config.tar.gz -C /etc/skel
+sudo cp -rf /etc/skel/.config ~
+sudo cp -rf /etc/skel/.bash* ~
+sudo chown -R $USER:$USER ~/.config
+sudo chown -R $USER:$USER ~/.bash*
+xdg-user-dirs-update --force
 
 sudo tee /etc/gtk-2.0/gtkrc <<"EOF"
 include "/usr/share/themes/Clearlooks/gtk-2.0/gtkrc"
@@ -138,7 +148,7 @@ EOF
 if [ ! -f /usr/share/pixmaps/aryalinux.png ]
 then
 cd $SOURCE_DIR
-wget -nc https://sourceforge.net/projects/aryalinux-bin/files/artifacts/aryalinux.png
+wget -nc http://aryalinux.com/files/aryalinux.png
 pushd /usr/share/pixmaps/
 sudo cp -v $SOURCE_DIR/aryalinux.png .
 popd

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak MIT Kerberos V5 is a freebr3ak implementation of Kerberos 5. Kerberos is a network authenticationbr3ak protocol. It centralizes the authentication database and usesbr3ak kerberized applications to work with servers or services thatbr3ak support Kerberos allowing single logins and encrypted communicationbr3ak over internal networks or the Internet.br3ak"
 SECTION="postlfs"
-VERSION=1.16
+VERSION=1.16.1
 NAME="mitkrb"
 
 #OPT:dejagnu
@@ -23,11 +23,11 @@ NAME="mitkrb"
 
 cd $SOURCE_DIR
 
-URL=https://web.mit.edu/kerberos/dist/krb5/1.16/krb5-1.16.tar.gz
+URL=https://web.mit.edu/kerberos/dist/krb5/1.16/krb5-1.16.1.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://web.mit.edu/kerberos/dist/krb5/1.16/krb5-1.16.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/krb5/krb5-1.16.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/krb5/krb5-1.16.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/krb5/krb5-1.16.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/krb5/krb5-1.16.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/krb5/krb5-1.16.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/krb5/krb5-1.16.tar.gz
+wget -nc https://web.mit.edu/kerberos/dist/krb5/1.16/krb5-1.16.1.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/krb5/krb5-1.16.1.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/krb5/krb5-1.16.1.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/krb5/krb5-1.16.1.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/krb5/krb5-1.16.1.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/krb5/krb5-1.16.1.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/krb5/krb5-1.16.1.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -71,8 +71,8 @@ ln -v -sf ../../lib/libk5crypto.so.3.1    /usr/lib/libk5crypto.so    &&
 ln -v -sf ../../lib/libkrb5support.so.0.1 /usr/lib/libkrb5support.so &&
 mv -v /usr/bin/ksu /bin &&
 chmod -v 755 /bin/ksu   &&
-install -v -dm755 /usr/share/doc/krb5-1.16 &&
-cp -vfr ../doc/*  /usr/share/doc/krb5-1.16
+install -v -dm755 /usr/share/doc/krb5-1.16.1 &&
+cp -vfr ../doc/*  /usr/share/doc/krb5-1.16.1
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

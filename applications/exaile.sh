@@ -7,21 +7,20 @@ set +h
 . /var/lib/alps/functions
 
 NAME="exaile"
-VERSION="3.4.5"
+VERSION="4.0.0beta1"
 
 NAME="exaile"
 
-#REQ:gstreamer-0.10
-#REQ:gstreamer-0.10-plugins-base
-#REQ:gstreamer-0.10-plugins-good
-#REQ:gstreamer-0.10-plugins-bad
-#REQ:gstreamer-0.10-plugins-ugly
-#REQ:gstreamer-0.10-ffmpeg
+#REQ:gst10-plugins-base
+#REQ:gst10-plugins-good
+#REQ:gst10-plugins-bad
+#REQ:gst10-plugins-ugly
+#REQ:gst10-libav
 #REQ:mutagen
-#REQ:gstreamer-0.10-python
+#REQ:python-modules#dbus-python
 
 cd $SOURCE_DIR
-URL="http://archive.ubuntu.com/ubuntu/pool/universe/e/exaile/exaile_3.4.5.orig.tar.gz"
+URL=https://github.com/exaile/exaile/releases/download/4.0.0-beta1/exaile-4.0.0beta1.tar.gz
 wget -nc $URL
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
@@ -30,9 +29,7 @@ DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
 tar xf $TARBALL
 cd $DIRECTORY
 
-sed -i "s@/usr/local@/usr@g" Makefile
-make
-sudo make install
+sudo make PREFIX=/usr install
 
 cd $SOURCE_DIR
 cleanup "$NAME" "$DIRECTORY"

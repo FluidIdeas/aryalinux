@@ -39,6 +39,11 @@ whoami > /tmp/currentuser
 tar -xf ../nasm-2.13.03-xdoc.tar.xz --strip-components=1
 
 
+sed -e '/seg_init/d'                      \
+    -e 's/pure_func seg_alloc/seg_alloc/' \
+    -i include/nasmlib.h
+
+
 ./configure --prefix=/usr &&
 make "-j`nproc`" || make
 

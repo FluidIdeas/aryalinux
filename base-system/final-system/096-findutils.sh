@@ -30,7 +30,7 @@ then
 fi
 
 sed -i 's/test-lock..EXEEXT.//' tests/Makefile.in
-./configure --prefix=/usr --localstatedir=/var/lib/locate
+CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" ./configure --prefix=/usr --localstatedir=/var/lib/locate
 make
 make install
 mv -v /usr/bin/find /bin

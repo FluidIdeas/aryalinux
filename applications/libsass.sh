@@ -28,7 +28,7 @@ make
 sudo make install
 
 cd $SOURCE_DIR
-sudo rm -rf libsass-3.4.9
+sudo rm -rf libsass-3.5.2
 
 echo "libsass=>$(date)" | sudo tee -a /etc/alps/installed-list
 echo "libsass:$VERSION" | sudo tee -a /etc/alps/versions

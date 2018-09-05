@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The USB Utils package containsbr3ak utilities used to display information about USB buses in the systembr3ak and the devices connected to them.br3ak"
 SECTION="general"
-VERSION=009
+VERSION=010
 NAME="usbutils"
 
 #REQ:libusb
@@ -18,11 +18,11 @@ NAME="usbutils"
 
 cd $SOURCE_DIR
 
-URL=https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-009.tar.xz
+URL=https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-010.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-009.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/usbutils/usbutils-009.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/usbutils/usbutils-009.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/usbutils/usbutils-009.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/usbutils/usbutils-009.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/usbutils/usbutils-009.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/usbutils/usbutils-009.tar.xz
+wget -nc https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-010.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/usbutils/usbutils-010.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/usbutils/usbutils-010.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/usbutils/usbutils-010.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/usbutils/usbutils-010.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/usbutils/usbutils-010.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/usbutils/usbutils-010.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

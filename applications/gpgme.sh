@@ -14,7 +14,7 @@ NAME="gpgme"
 
 #REQ:libassuan
 #OPT:doxygen
-#OPT:gnupg
+#REQ:gnupg
 #OPT:clisp
 #OPT:python2
 #OPT:qt5
@@ -42,8 +42,8 @@ fi
 
 whoami > /tmp/currentuser
 
-./configure --prefix=/usr --disable-gpg-test &&
-make "-j`nproc`" || make
+./configure --prefix=/usr --disable-gpg-test --disable-gpgconf-test --disable-gpgsm-test --disable-g13-test &&
+make
 
 
 

@@ -42,7 +42,7 @@ EOF
 ln -sv /tools/lib/libncursesw.so.6 /usr/lib/libncursesw.so.6
 ln -sfv libncurses.so.6 /usr/lib/libncurses.so
 sed -i -e '/flex/s/as_fn_error/: ;; # &/' configure
-./configure --prefix=/usr           \
+CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" ./configure --prefix=/usr           \
             --with-readline         \
             --mandir=/usr/share/man \
             --infodir=/usr/share/info

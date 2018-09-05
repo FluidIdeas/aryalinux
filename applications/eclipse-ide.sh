@@ -5,13 +5,16 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+NAME="eclipse-ide"
+VERSION="photon"
+
 cd $SOURCE_DIR
 
 ARCH=$(uname -m)
 
 if [ $ARCH == "x86_64" ]
 then
-	URL=http://eclipse.stu.edu.tw/technology/epp/downloads/release/neon/R/eclipse-jee-neon-R-linux-gtk-x86_64.tar.gz
+	URL=http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/photon/R/eclipse-jee-photon-R-linux-gtk-x86_64.tar.gz
 else
 	URL=http://eclipse.stu.edu.tw/technology/epp/downloads/release/neon/R/eclipse-jee-neon-R-linux-gtk.tar.gz
 fi

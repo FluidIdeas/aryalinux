@@ -23,6 +23,10 @@ then
 	cd $DIRECTORY
 fi
 
+export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+
 patch -Np1 -i ../busybox-1.20.2-sys-resource.patch
 make defconfig
 sed 's/# CONFIG_STATIC is not set/CONFIG_STATIC=y/' -i .config

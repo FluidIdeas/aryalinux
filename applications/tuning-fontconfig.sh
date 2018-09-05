@@ -102,8 +102,8 @@ cat > /etc/fonts/conf.d/09-texlive.conf << "EOF"
 <?xml version='1.0'?>
 <!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>
 <fontconfig>
- <dir>/opt/texlive/2017/texmf-dist/fonts/opentype/arkandis/berenisadf</dir>
- <dir>/opt/texlive/2017/texmf-dist/fonts/truetype/paratype</dir>
+ <dir>/opt/texlive/2018/texmf-dist/fonts/opentype/arkandis/berenisadf</dir>
+ <dir>/opt/texlive/2018/texmf-dist/fonts/truetype/paratype</dir>
 </fontconfig>
 EOF
 

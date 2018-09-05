@@ -7,6 +7,10 @@ SOURCE_DIR="/sources"
 
 . /sources/build-properties
 
+export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+
 if ! grep "config-files" /sources/build-log &> /dev/null
 then
 
@@ -128,7 +132,7 @@ cat > /etc/fstab << EOF
 # file system  mount-point  type     options             dump  fsck
 #                                                              order
 
-# UUID=$ROOT_PART_BY_UUID     /            ext4     defaults            1     1
+UUID=$ROOT_PART_BY_UUID     /            ext4     defaults            1     1
 EOF
 
 if [ "x$SWAP_PART_BY_UUID" != "x" ]
@@ -162,10 +166,10 @@ if ! grep lvm2 /sources/build-log &> /dev/null; then
 	/sources/lvm2.sh
 fi
 
-if ! grep "026-elfutils" /sources/build-log &> /dev/null
-then
-	/sources/extras/026-elf-utils.sh
-fi
+#if ! grep "026-elfutils" /sources/build-log &> /dev/null
+#then
+#	/sources/extras/026-elf-utils.sh
+#fi
 
 if ! grep kernel /sources/build-log &> /dev/null
 then

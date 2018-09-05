@@ -16,11 +16,11 @@ NAME="python-modules#MarkupSafe"
 
 cd $SOURCE_DIR
 
-URL=https://ftp.osuosl.org/pub/blfs/8.1/python-modules/MarkupSafe-1.0.tar.gz
+URL=https://files.pythonhosted.org/packages/source/M/MarkupSafe/MarkupSafe-1.0.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc $URL
+wget -nc https://files.pythonhosted.org/packages/source/M/MarkupSafe/MarkupSafe-1.0.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

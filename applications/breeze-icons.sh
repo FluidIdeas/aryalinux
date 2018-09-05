@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Breeze Icons package containsbr3ak the default icons for KDE Plasma 5br3ak applications, but it can be used for other window environments.br3ak"
 SECTION="x"
-VERSION=5.43.0
+VERSION=5.46.0
 NAME="breeze-icons"
 
 #REQ:extra-cmake-modules
@@ -19,11 +19,11 @@ NAME="breeze-icons"
 
 cd $SOURCE_DIR
 
-URL=http://download.kde.org/stable/frameworks/5.43/breeze-icons-5.43.0.tar.xz
+URL=http://download.kde.org/stable/frameworks/5.46/breeze-icons-5.46.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://download.kde.org/stable/frameworks/5.43/breeze-icons-5.43.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/breeze-icons/breeze-icons-5.43.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/breeze-icons/breeze-icons-5.43.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/breeze-icons/breeze-icons-5.43.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/breeze-icons/breeze-icons-5.43.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/breeze-icons/breeze-icons-5.43.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/breeze-icons/breeze-icons-5.43.0.tar.xz
+wget -nc http://download.kde.org/stable/frameworks/5.46/breeze-icons-5.46.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/breeze-icons/breeze-icons-5.46.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/breeze-icons/breeze-icons-5.46.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/breeze-icons/breeze-icons-5.46.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/breeze-icons/breeze-icons-5.46.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/breeze-icons/breeze-icons-5.46.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/breeze-icons/breeze-icons-5.46.0.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

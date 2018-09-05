@@ -35,6 +35,7 @@ fi
 
 whoami > /tmp/currentuser
 
+LIBS=-lm                      \
 ./configure --prefix=/usr     \
             --without-doxygen \
             --docdir=/usr/share/doc/gavl-1.4.0 &&

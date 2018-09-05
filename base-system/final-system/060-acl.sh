@@ -34,7 +34,7 @@ sed -i "s:| sed.*::g" test/{sbits-restore,cp,misc}.test
 sed -i 's/{(/\\{(/' test/run
 sed -i -e "/TABS-1;/a if (x > (TABS-1)) x = (TABS-1);" \
     libacl/__acl_to_any_text.c
-./configure --prefix=/usr    \
+CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" ./configure --prefix=/usr    \
             --disable-static \
             --libexecdir=/usr/lib
 make

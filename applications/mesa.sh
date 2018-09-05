@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Mesa is an OpenGL compatible 3Dbr3ak graphics library.br3ak"
 SECTION="x"
-VERSION=18.0.3
+VERSION=18.1.7
 NAME="mesa"
 
 #REQ:x7lib
@@ -18,7 +18,6 @@ NAME="mesa"
 #REQ:python2
 #REQ:wayland
 #REC:wayland-protocols
-#REC:elfutils
 #REC:llvm
 #REC:wayland
 #REC:libva-wo-mesa
@@ -29,7 +28,7 @@ NAME="mesa"
 
 cd $SOURCE_DIR
 
-URL=https://mesa.freedesktop.org/archive/mesa-18.0.3.tar.xz
+URL=https://mesa.freedesktop.org/archive/$NAME-$VERSION.tar.xz
 
 echo "PATH : $PATH"
 
@@ -37,7 +36,6 @@ if [ ! -z $URL ]
 then
 
 wget -nc $URL
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.0/mesa-18.0.3-add_xdemos-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -54,8 +52,6 @@ whoami > /tmp/currentuser
 
 export XORG_PREFIX=/usr
 export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
-
-patch -Np1 -i ../mesa-18.0.3-add_xdemos-1.patch
 
 DRI_DRIVERS="i915,i965,nouveau,r200,radeon,swrast"
 GALLIUM_DRIVERS="nouveau,r300,r600,svga,radeonsi,swrast,virgl"
@@ -86,11 +82,10 @@ EGL_PLATFORMS="drm,x11"
   --enable-glx-tls \
   --enable-gles1 \
   --enable-gles2 \
-  --enable-vdpau
+  --enable-vdpau \
+  --enable-va
 make "-j`nproc`" || make
 
-
-make -C xdemos DEMOS_PREFIX=$XORG_PREFIX
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
@@ -103,25 +98,13 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make -C xdemos DEMOS_PREFIX=$XORG_PREFIX install
+install -v -dm755 /usr/share/doc/$NAME-$VERSION &&
+cp -rfv docs/* /usr/share/doc/$NAME-$VERSION
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -dm755 /usr/share/doc/mesa-18.0.3 &&
-cp -rfv docs/* /usr/share/doc/mesa-18.0.3
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -7,7 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 SOURCE_ONLY=n
-DESCRIPTION="br3ak Creating a JVM from source requires a set of circular dependencies.br3ak The first thing that's needed is a set of programs called a Javabr3ak Development Kit (JDK). This set of programs includes <span class=\"command\"><strong>java</strong>, <span class=\"command\"><strong>javac</strong>, <span class=\"command\"><strong>jar</strong>, and several others. It alsobr3ak includes several base <span class=\"emphasis\"><em>jar</em>br3ak files.br3ak"
+DESCRIPTION="The Java programming language is a versatile multi-platform supporting programming language"
 SECTION="Programming Languages"
 VERSION=1.7.0.9
 NAME="java7"
@@ -21,14 +21,15 @@ NAME="java7"
 cd $SOURCE_DIR
 
 URL=https://sourceforge.net/projects/aryalinux-bin/files/releases/2016.11/OpenJDK-1.7.0.9-x86_64-bin.tar.xz
+TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 wget -nc $URL
+DIR=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-tar xf OpenJDK-1.7.0.9-x86_64-bin.tar.xz -C /opt &&
-chown -R root:root /opt/OpenJDK-1.7.0.5-x86_64-bin
-ln -sfn /opt/OpenJDK-1.7.0.5-x86_64-bin /opt/jdk
+sudo tar xf $TARBALL -C /opt &&
+sudo chown -R root:root /opt/$DIR
+sudo ln -sfn /opt/$DIR /opt/jdk
 
-cat > /etc/profile.d/jdk.sh << "EOF"
+sudo tee /etc/profile.d/jdk.sh << "EOF"
 # Begin /etc/profile.d/jdk.sh
 
 # Set JAVA_HOME directory
@@ -62,7 +63,7 @@ unset AUTO_CLASSPATH_DIR dir jar
 # End /etc/profile.d/jdk.sh
 EOF
 
-cat >> /etc/man_db.conf << "EOF" &&
+sudo tee -a /etc/man_db.conf << "EOF" &&
 # Begin Java addition
 MANDATORY_MANPATH     /opt/jdk/man
 MANPATH_MAP           /opt/jdk/bin     /opt/jdk/man
@@ -70,13 +71,11 @@ MANDB_MAP             /opt/jdk/man     /var/cache/man/jdk
 # End Java addition
 EOF
 
-mkdir -p /var/cache/man
-mandb -c /opt/jdk/man
+sudo mkdir -p /var/cache/man
+sudo mandb -c /opt/jdk/man
 
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
+sudo /usr/sbin/make-ca -g --force &&
+sudo ln -sfv /etc/ssl/java/cacerts.jks /opt/jdk/lib/security/cacerts
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

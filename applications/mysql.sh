@@ -6,7 +6,7 @@ set +h
 . /var/lib/alps/functions
 
 NAME="mysql"
-VERSION="5.6.27"
+VERSION="8.0.12"
 
 #REQ:cmake
 #REQ:openssl10
@@ -29,7 +29,7 @@ fi
 sudo groupadd -g 40 mysql &&
 sudo useradd -c "MySQL Server" -d /srv/mysql -g mysql -s /bin/false -u 40 mysql
 
-URL=http://pkgs.fedoraproject.org/repo/pkgs/community-mysql/mysql-5.6.27.tar.gz/7754df40bb5567b03b041ccb6b5ddffa/mysql-5.6.27.tar.gz
+URL=https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.12.tar.gz
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 DIRECTORY=`tar -tf $TARBALL | sed -e 's@/.*@@' | uniq `
@@ -45,14 +45,10 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_CONFIG=mysql_release .. &&
 make "-j`nproc`"
 sudo make install
 
-chmod a+x scripts/mysql_install_db
-sudo mkdir -pv /usr/scripts/
-sudo cp scripts/mysql_install_db /usr/scripts
+sudo mkdir -pv /var/lib/mysql/
+sudo chown -R mysql /var/lib/mysql/
 
-pushd /usr
-
-sudo scripts/mysql_install_db --user=mysql
-sudo chown -R mysql data
+sudo mysqld --initialize --user=mysql
 
 sudo mkdir -pv /var/mysqld
 sudo chown -R mysql /var/mysqld
@@ -70,7 +66,7 @@ socket          = /var/mysqld/mysqld.sock
 [mysqld]
 port            = 3306
 socket          = /var/mysqld/mysqld.sock
-datadir         = /usr/data
+datadir         = /var/lib/mysql/
 skip-external-locking
 key_buffer_size = 16M
 max_allowed_packet = 1M
@@ -129,10 +125,10 @@ interactive-timeout
 # End /etc/my.cnf
 EOF
 
-sudo bin/mysqld_safe --user=mysql &
+sudo mysqld_safe --user=mysql &
 sleep 5 &&
-sudo bin/mysqladmin -u root password
-sudo bin/mysqladmin -p shutdown
+sudo mysqladmin -u root password
+sudo mysqladmin -p shutdown
 
 sudo tee /lib/systemd/system/mysqld.service <<"EOF"
 [Unit]

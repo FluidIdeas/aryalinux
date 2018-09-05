@@ -5,7 +5,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-NAME="bash-completion_.orig"
+NAME="bash-completion"
 VERSION="2.1"
 
 cd $SOURCE_DIR

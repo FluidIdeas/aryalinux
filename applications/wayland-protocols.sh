@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Wayland-Protocols packagebr3ak contains additional Wayland protocols that add functionalitybr3ak outside of protocols already in the Wayland core.br3ak"
 SECTION="general"
-VERSION=1.13
+VERSION=1.14
 NAME="wayland-protocols"
 
 #REQ:wayland
@@ -17,11 +17,11 @@ NAME="wayland-protocols"
 
 cd $SOURCE_DIR
 
-URL=https://wayland.freedesktop.org/releases/wayland-protocols-1.13.tar.xz
+URL=https://wayland.freedesktop.org/releases/wayland-protocols-1.14.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://wayland.freedesktop.org/releases/wayland-protocols-1.13.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/wayland/wayland-protocols-1.13.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/wayland/wayland-protocols-1.13.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/wayland/wayland-protocols-1.13.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/wayland/wayland-protocols-1.13.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/wayland/wayland-protocols-1.13.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/wayland/wayland-protocols-1.13.tar.xz
+wget -nc https://wayland.freedesktop.org/releases/wayland-protocols-1.14.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/wayland/wayland-protocols-1.14.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/wayland/wayland-protocols-1.14.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/wayland/wayland-protocols-1.14.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/wayland/wayland-protocols-1.14.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/wayland/wayland-protocols-1.14.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/wayland/wayland-protocols-1.14.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

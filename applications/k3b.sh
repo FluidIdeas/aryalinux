@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The K3b package contains abr3ak KF5-based graphical interface to the Cdrtools and dvd+rw-tools CD/DVD manipulation tools. Itbr3ak also combines the capabilities of many other multimedia packagesbr3ak into one central interface to provide a simple-to-operatebr3ak application that can be used to handle many of your CD/DVDbr3ak recording and formatting requirements. It is used for creatingbr3ak audio, data, video and mixed-mode CDs as well as copying, rippingbr3ak and burning CDs and DVDs.br3ak"
 SECTION="kde"
-VERSION=17.12.2
+VERSION=18.04.1
 NAME="k3b"
 
 #REQ:libkcddb
@@ -17,6 +17,7 @@ NAME="k3b"
 #REQ:shared-mime-info
 #REQ:kframeworks5
 #REC:ffmpeg
+#REC:libburn
 #REC:libdvdread
 #REC:taglib
 #REC:cdrtools
@@ -32,11 +33,11 @@ NAME="k3b"
 
 cd $SOURCE_DIR
 
-URL=http://download.kde.org/stable/applications/17.12.2/src/k3b-17.12.2.tar.xz
+URL=http://download.kde.org/stable/applications/18.04.1/src/k3b-18.04.1.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://download.kde.org/stable/applications/17.12.2/src/k3b-17.12.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/k3b/k3b-17.12.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/k3b/k3b-17.12.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/k3b/k3b-17.12.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/k3b/k3b-17.12.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/k3b/k3b-17.12.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/k3b/k3b-17.12.2.tar.xz
+wget -nc http://download.kde.org/stable/applications/18.04.1/src/k3b-18.04.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/k3b/k3b-18.04.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/k3b/k3b-18.04.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/k3b/k3b-18.04.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/k3b/k3b-18.04.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/k3b/k3b-18.04.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/k3b/k3b-18.04.1.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

@@ -5,6 +5,8 @@
 LFS=/mnt/lfs
 mkdir -pv $LFS
 
+./umountal.sh
+
 . ./build-properties
 
 set -e
@@ -52,31 +54,37 @@ done
 else
 
 if [ "x$INSTALL_DESKTOP_ENVIRONMENT" == "xy" ]; then
-	if [ "x$DESKTOP_ENVIRONMENT" == "x1" ]; then
-		DE="XFCE"
-	elif [ "x$DESKTOP_ENVIRONMENT" == "x2" ]; then
-		DE="Mate";
-	elif [ "x$DESKTOP_ENVIRONMENT" == "x3" ]; then
-		DE="KDE5"
-	elif [ "x$DESKTOP_ENVIRONMENT" == "x4" ]; then
-		DE="GNOME"
-	else
-		DE="Builder"
-	fi
-	LABEL="$OS_NAME $DE $OS_VERSION"
+    if [ "x$DESKTOP_ENVIRONMENT" == "x1" ]; then
+        DE="XFCE"
+    elif [ "x$DESKTOP_ENVIRONMENT" == "x2" ]; then
+        DE="Mate";
+    elif [ "x$DESKTOP_ENVIRONMENT" == "x3" ]; then
+        DE="KDE5"
+    elif [ "x$DESKTOP_ENVIRONMENT" == "x4" ]; then
+        DE="GNOME"
+    else
+        DE="Builder"
+    fi
+    LABEL="$OS_NAME $DE $OS_VERSION"
 else
-	LABEL="$OS_NAME $OS_VERSION"
+    LABEL="$OS_NAME $OS_VERSION"
 fi
 
 if [ "x$DE" != "x" ]
 then
-	OUTFILE="$(echo $OS_NAME | tr '[:upper:]' [:lower:])-$(echo $DE | tr '[:upper:]' '[:lower:]')-$OS_VERSION-$(uname -m).iso"
+    OUTFILE="$(echo $OS_NAME | tr '[:upper:]' [:lower:])-$(echo $DE | tr '[:upper:]' '[:lower:]')-$OS_VERSION-$(uname -m).iso"
 else
-	OUTFILE="$(echo $OS_NAME | tr '[:upper:]' [:lower:])-$OS_VERSION-$(uname -m).iso"
+    OUTFILE="$(echo $OS_NAME | tr '[:upper:]' [:lower:])-$OS_VERSION-$(uname -m).iso"
 fi
 
 CREATE_ROOTSFS="y"
 
+fi
+
+mount $ROOT_PART $LFS
+if [ "x$HOME_PART" != "x" ]
+then
+    mount $HOME_PART $LFS/home
 fi
 
 mount -v --bind /dev $LFS/dev
@@ -109,25 +117,6 @@ chroot "$LFS" /usr/bin/env -i              \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
     /bin/bash /sources/mkliveinitramfs.sh
 
-# Lets unmount so that we can mount the overlay first and then the virtual filesystems
-
-./umountal.sh
-
-XSERVER="$LFS/opt/x-server"
-DE="$LFS/opt/desktop-environment"
-
-if [ -d "$XSERVER" ]; then
-    if [ -d "$DE" ]; then
-        if ! mount | grep "overlay on $LFS" &> /dev/null; then
-            mount -t overlay -olowerdir=$XSERVER:$LFS,upperdir=$DE,workdir=$LFS/tmp overlay $LFS
-        fi
-    else
-        if ! mount | grep "overlay on $LFS" &> /dev/null; then
-            mount -t overlay -olowerdir=$LFS,upperdir=$XSERVER,workdir=$LFS/tmp overlay $LFS
-        fi
-    fi
-fi
-
 chroot "$LFS" /usr/bin/env -i              \
     HOME=/root TERM="$TERM" PS1='\u:\w\$ ' \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
@@ -138,96 +127,50 @@ chroot "$LFS" /usr/bin/env -i              \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
     usermod -a -G autologin $USERNAME
 
+sleep 5
+set +e
+./umountal.sh
+set -e
+
+mount $ROOT_PART $LFS
+if [ "x$HOME_PART" != "x" ]
+then
+    mount $HOME_PART $LFS/home
+fi
 
 if [ -f $LFS/etc/lightdm/lightdm.conf ]
 then
-	sed -i "s@#autologin-user=@autologin-user=$USERNAME@g" $LFS/etc/lightdm/lightdm.conf
-	sed -i "s@#autologin-user-timeout=0@autologin-user-timeout=0@g" $LFS/etc/lightdm/lightdm.conf
-	sed -i "s@#pam-service=lightdm-autologin@pam-service=lightdm-autologin@g" $LFS/etc/lightdm/lightdm.conf
+    sed -i "s@#autologin-user=@autologin-user=$USERNAME@g" $LFS/etc/lightdm/lightdm.conf
+    sed -i "s@#autologin-user-timeout=0@autologin-user-timeout=0@g" $LFS/etc/lightdm/lightdm.conf
+    sed -i "s@#pam-service=lightdm-autologin@pam-service=lightdm-autologin@g" $LFS/etc/lightdm/lightdm.conf
 else
-	mkdir -pv $LFS/etc/systemd/system/getty@tty1.service.d/
-	pushd $LFS/etc/systemd/system/getty@tty1.service.d/
+    mkdir -pv $LFS/etc/systemd/system/getty@tty1.service.d/
+    pushd $LFS/etc/systemd/system/getty@tty1.service.d/
 cat >override.conf<<EOF
 [Service]
 Type=simple
 ExecStart=
 ExecStart=-/sbin/agetty --autologin $USERNAME --noclear %I 38400 linux
 EOF
-	popd
+    popd
 fi
-
-# Let's unmount everything to create the squashed filesystem
-./umountal.sh
 
 rm -f $LFS/sources/root.sfs
-OPTIONS=""
-DIRS="
-sources
-home/$USERNAME/.ccache
-home/$USERNAME/.cargo
-root/.ccache
-root/.cargo
-var/cache/alps/sources/*
-var/cache/alps/binaries/*
-"
-
-OPTDIRS="
-x-server
-gnome
-xfce
-kde
-mate"
-
-for OPTDIR in $OPTDIRS; do
-    if [ -d $LFS/opt/$OPTDIR ]; then
-        for DIR in $DIRS; do
-            OPTIONS="$OPTIONS -e $LFS/opt/$OPTDIR/$DIR"
-        done
-    fi
-done
-sudo mksquashfs $LFS $LFS/sources/root.sfs -b 1048576 -comp xz -Xdict-size 100% \
--e $LFS/etc/fstab \
--e $LFS/sources \
--e $LFS/tools \
--e $LFS/$USERNAME/.ccache \
--e $LFS/root/.ccache \
--e $LFS/var/cache/alps/sources/* \
--e $LFS/var/cache/alps/binaries/* \
-$OPTIONS
-
-
-# Now mount the overlay so that we can revert back the changes we have made
-
-XSERVER="$LFS/opt/x-server"
-DE="$LFS/opt/desktop-environment"
-
-if [ -d "$XSERVER" ]; then
-    if [ -d "$DE" ]; then
-        if ! mount | grep "overlay on $LFS" &> /dev/null; then
-            mount -t overlay -olowerdir=$XSERVER:$LFS,upperdir=$DE,workdir=$LFS/tmp overlay $LFS
-        fi
-    else
-        if ! mount | grep "overlay on $LFS" &> /dev/null; then
-            mount -t overlay -olowerdir=$LFS,upperdir=$XSERVER,workdir=$LFS/tmp overlay $LFS
-        fi
-    fi
-fi
+sudo mksquashfs $LFS $LFS/sources/root.sfs -b 1048576 -comp xz -Xdict-size 100% -e $LFS/sources -e $LFS/var/cache/alps/sources/* -e $LFS/tools -e $LFS/etc/fstab
 
 if [ -f $LFS/etc/lightdm/lightdm.conf ]
 then
-	sed -i "s@autologin-user=$USERNAME@#autologin-user=@g" $LFS/etc/lightdm/lightdm.conf
-	sed -i "s@autologin-user-timeout=0@#autologin-user-timeout=0@g" $LFS/etc/lightdm/lightdm.conf
+    sed -i "s@autologin-user=$USERNAME@#autologin-user=@g" $LFS/etc/lightdm/lightdm.conf
+    sed -i "s@autologin-user-timeout=0@#autologin-user-timeout=0@g" $LFS/etc/lightdm/lightdm.conf
     sed -i "s@pam-service=lightdm-autologin@#pam-service=lightdm-autologin@g" $LFS/etc/lightdm/lightdm.conf
 else
-	rm -fv /etc/systemd/system/getty@tty1.service.d/override.conf
+    rm -fv /etc/systemd/system/getty@tty1.service.d/override.conf
 fi
 
 chroot "$LFS" /usr/bin/env -i              \
     HOME=/root TERM="$TERM" PS1='\u:\w\$ ' \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
     gpasswd -d $USERNAME autologin
-
-./umountal.sh
 
 cd $LFS/sources/
 
@@ -304,5 +247,3 @@ fi
 
 rm -rvf $LFS/boot/initram.fs
 rm -rvf $LFS/boot/id_label
-
-./umountal.sh

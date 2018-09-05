@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The volume_key package provides abr3ak library for manipulating storage volume encryption keys and storingbr3ak them separately from volumes to handle forgotten passphrases.br3ak"
 SECTION="postlfs"
-VERSION=0.3.9
+VERSION=0.3.10
 NAME="volume_key"
 
 #REQ:cryptsetup
@@ -21,12 +21,11 @@ NAME="volume_key"
 
 cd $SOURCE_DIR
 
-URL=https://releases.pagure.org/volume_key/volume_key-0.3.9.tar.xz
+URL=https://releases.pagure.org/volume_key/volume_key-0.3.10.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://releases.pagure.org/volume_key/volume_key-0.3.9.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/volume_key/volume_key-0.3.9.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/volume_key/volume_key-0.3.9.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/volume_key/volume_key-0.3.9.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/volume_key/volume_key-0.3.9.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/volume_key/volume_key-0.3.9.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/volume_key/volume_key-0.3.9.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/volume_key-0.3.9-cryptsetup2-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/volume_key/volume_key-0.3.9-cryptsetup2-1.patch
+wget -nc https://releases.pagure.org/volume_key/volume_key-0.3.10.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/volume_key/volume_key-0.3.10.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/volume_key/volume_key-0.3.10.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/volume_key/volume_key-0.3.10.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/volume_key/volume_key-0.3.10.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/volume_key/volume_key-0.3.10.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/volume_key/volume_key-0.3.10.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -41,7 +40,6 @@ fi
 
 whoami > /tmp/currentuser
 
-patch -Np1 -i ../volume_key-0.3.9-cryptsetup2-1.patch &&
 ./configure --prefix=/usr &&
 make "-j`nproc`" || make
 

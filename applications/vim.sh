@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Vim package, which is anbr3ak abbreviation for VI IMproved, contains a <span class=\"command\"><strong>vi</strong> clone with extra features asbr3ak compared to the original <span class=\"command\"><strong>vi</strong>.br3ak"
 SECTION="postlfs"
-VERSION=8.0.586
+VERSION=8.1
 NAME="vim"
 
 #REC:gtk2
@@ -23,11 +23,11 @@ NAME="vim"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.vim.org/vim/unix/vim-8.0.586.tar.bz2
+URL=http://ftp.vim.org/vim/unix/vim-8.1.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.vim.org/vim/unix/vim-8.0.586.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/vim/vim-8.0.586.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/vim/vim-8.0.586.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/vim/vim-8.0.586.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/vim/vim-8.0.586.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/vim/vim-8.0.586.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/vim/vim-8.0.586.tar.bz2
+wget -nc http://ftp.vim.org/vim/unix/vim-8.1.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/vim/vim-8.1.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/vim/vim-8.1.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/vim/vim-8.1.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/vim/vim-8.1.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/vim/vim-8.1.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/vim/vim-8.1.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -62,7 +62,7 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-ln -snfv ../vim/vim80/doc /usr/share/doc/vim-8.0.586
+ln -snfv ../vim/vim80/doc /usr/share/doc/vim-8.1
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -77,7 +77,7 @@ rsync -avzcP --exclude="/dos/" --exclude="/spell/" \
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make -C src installruntime &&
-vim -c ":helptags /usr/share/doc/vim-8.0.586" -c ":q"
+vim -c ":helptags /usr/share/doc/vim-8.1" -c ":q"
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

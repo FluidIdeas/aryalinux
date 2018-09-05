@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak nghttp2 is an implementation ofbr3ak HTTP/2 and its header compression algorithm, HPACK.br3ak"
 SECTION="basicnet"
-VERSION=1.31.1
+VERSION=1.32.0
 NAME="nghttp2"
 
 #REQ:libxml2
@@ -20,11 +20,11 @@ NAME="nghttp2"
 
 cd $SOURCE_DIR
 
-URL=https://github.com/nghttp2/nghttp2/releases/download/v1.31.1/nghttp2-1.31.1.tar.xz
+URL=https://github.com/nghttp2/nghttp2/releases/download/v1.32.0/nghttp2-1.32.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://github.com/nghttp2/nghttp2/releases/download/v1.31.1/nghttp2-1.31.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/nghttp2/nghttp2-1.31.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/nghttp2/nghttp2-1.31.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/nghttp2/nghttp2-1.31.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/nghttp2/nghttp2-1.31.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/nghttp2/nghttp2-1.31.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/nghttp2/nghttp2-1.31.1.tar.xz
+wget -nc https://github.com/nghttp2/nghttp2/releases/download/v1.32.0/nghttp2-1.32.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/nghttp2/nghttp2-1.32.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/nghttp2/nghttp2-1.32.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/nghttp2/nghttp2-1.32.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/nghttp2/nghttp2-1.32.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/nghttp2/nghttp2-1.32.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/nghttp2/nghttp2-1.32.0.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -42,7 +42,7 @@ whoami > /tmp/currentuser
 ./configure --prefix=/usr     \
             --disable-static  \
             --enable-lib-only \
-            --docdir=/usr/share/doc/nghttp2-1.31.1 &&
+            --docdir=/usr/share/doc/nghttp2-1.32.0 &&
 make "-j`nproc`" || make
 
 

@@ -9,7 +9,7 @@ export MAKEFLAGS="-j `nproc`"
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="006-efivar.sh"
-TARBALL="efivar-31.tar.bz2"
+TARBALL="efivar-36.tar.bz2"
 
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null
 then
@@ -22,6 +22,10 @@ then
 	tar xf $TARBALL
 	cd $DIRECTORY
 fi
+
+export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 
 make libdir="/usr/lib/" bindir="/usr/bin/" \
 	mandir="/usr/share/man/"     \

@@ -9,13 +9,13 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Wget package contains abr3ak utility useful for non-interactive downloading of files from thebr3ak Web.br3ak"
 SECTION="basicnet"
-VERSION=1.19.4
+VERSION=1.19.5
 NAME="wget"
 
 #REC:make-ca
 #OPT:gnutls
 #OPT:gpgme
-#OPT:libidn
+#OPT:libidn2
 #OPT:pcre
 #OPT:python2
 #OPT:valgrind
@@ -23,11 +23,11 @@ NAME="wget"
 
 cd $SOURCE_DIR
 
-URL=https://ftp.gnu.org/gnu/wget/wget-1.19.4.tar.gz
+URL=https://ftp.gnu.org/gnu/wget/wget-1.19.5.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://ftp.gnu.org/gnu/wget/wget-1.19.4.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/wget/wget-1.19.4.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/wget/wget-1.19.4.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/wget/wget-1.19.4.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/wget/wget-1.19.4.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/wget/wget-1.19.4.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/wget/wget-1.19.4.tar.gz || wget -nc ftp://ftp.gnu.org/gnu/wget/wget-1.19.4.tar.gz
+wget -nc https://ftp.gnu.org/gnu/wget/wget-1.19.5.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/wget/wget-1.19.5.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/wget/wget-1.19.5.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/wget/wget-1.19.5.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/wget/wget-1.19.5.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/wget/wget-1.19.5.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/wget/wget-1.19.5.tar.gz || wget -nc ftp://ftp.gnu.org/gnu/wget/wget-1.19.5.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
