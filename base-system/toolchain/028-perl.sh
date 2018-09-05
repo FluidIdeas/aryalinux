@@ -29,9 +29,9 @@ then
 	cd $DIRECTORY
 fi
 
-export CXXFLAGS="-march=skylake -mtune=generic -O3"
-export CPPFLAGS="-march=skylake -mtune=generic -O3"
-export CFLAGS="-march=skylake -mtune=generic -O3"
+export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 sh Configure -des -Dprefix=/tools -Dlibs=-lm
 make
 cp -v perl cpan/podlators/scripts/pod2man /tools/bin

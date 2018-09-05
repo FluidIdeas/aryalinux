@@ -45,9 +45,9 @@ sed -i '24 d'                       src/core/load-fragment.c
 sed -i '53 a#include <sys/mount.h>' src/shared/bus-unit-util.c
 sed -i 's/GROUP="render", //' rules/50-udev-default.rules.in
 
-export CFLAGS="-march=skylake -mtune=generic -O3"
-export CXXFLAGS="-march=skylake -mtune=generic -O3"
-export CPPFLAGS="-march=skylake -mtune=generic -O3"
+export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 
 mkdir -p build
 cd       build

@@ -34,7 +34,7 @@ sed -e '/ALIGN_PRSTATUS)/{
         s/packed, //}' \
     -i backends/linux-core-note.c
 
-CFLAGS="-march=skylake -mtune=generic -O3" CXXFLAGS="-march=skylake -mtune=generic -O3" CPPFLAGS="-march=skylake -mtune=generic -O3 -Wno-format-truncation" ./configure --prefix=/usr
+CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL -Wno-format-truncation" ./configure --prefix=/usr
 make
 make -C libelf install
 install -vm644 config/libelf.pc /usr/lib/pkgconfig

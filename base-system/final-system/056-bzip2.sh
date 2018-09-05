@@ -29,9 +29,9 @@ then
 	cd $DIRECTORY
 fi
 
-export CFLAGS="-march=skylake -mtune=generic -O3"
-export CXXFLAGS="-march=skylake -mtune=generic -O3"
-export CPPFLAGS="-march=skylake -mtune=generic -O3"
+export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 
 patch -Np1 -i ../bzip2-1.0.6-install_docs-1.patch
 sed -i 's@\(ln -s -f \)$(PREFIX)/bin/@\1@' Makefile
