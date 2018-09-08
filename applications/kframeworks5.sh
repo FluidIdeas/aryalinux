@@ -159,7 +159,7 @@ pathappend $QT5DIR/lib/qml         QML2_IMPORT_PATH
 # End extension for /etc/profile.d/qt5.sh
 EOF
 
-cat > /etc/profile.d/kf5.sh << "EOF"
+sudo tee /etc/profile.d/kf5.sh << "EOF"
 # Begin /etc/profile.d/kf5.sh
 
 export KF5_PREFIX=/usr
