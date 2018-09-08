@@ -40,9 +40,6 @@ VERSION=5.9.1
 #REQ:lightdm
 #REQ:lightdm-gtk-greeter
 
-sudo mkdir -pv /usr/share/xsessions/
-sudo cp -v /opt/kf5/share/xsessions/* /usr/share/xsessions/
-
 sudo tee /etc/gtk-2.0/gtkrc <<"EOF"
 include "/usr/share/themes/Clearlooks/gtk-2.0/gtkrc"
 gtk-icon-theme-name = "elementary"
@@ -57,12 +54,6 @@ polkit.addRule(function(action, subject) {
     return polkit.Result.YES;
   }
 });
-EOF
-
-sudo mkdir -pv /usr/share/icons/default/
-sudo tee /usr/share/icons/default/index.theme <<"EOF"
-[Icon Theme]
-Inherits=Adwaita
 EOF
 
 ccache -C
