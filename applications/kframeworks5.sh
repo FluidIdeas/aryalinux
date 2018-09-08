@@ -144,69 +144,28 @@ as_root()
 export -f as_root
 
 
-export KF5_PREFIX=/opt/kf5
+export KF5_PREFIX=/usr
 export QT5DIR=/opt/qt5
 
-sudo tee /etc/profile.d/kf5.sh << "EOF"
+sudo tee -a /etc/profile.d/qt5.sh << "EOF"
+# Begin kf5 extension for /etc/profile.d/qt5.sh
+
+pathappend /usr/lib/qt5/plugins    QT_PLUGIN_PATH
+pathappend $QT5DIR/lib/plugins     QT_PLUGIN_PATH
+
+pathappend /usr/lib/qt5/qml        QML2_IMPORT_PATH
+pathappend $QT5DIR/lib/qml         QML2_IMPORT_PATH
+
+# End extension for /etc/profile.d/qt5.sh
+EOF
+
+cat > /etc/profile.d/kf5.sh << "EOF"
 # Begin /etc/profile.d/kf5.sh
 
-export KF5_PREFIX=/opt/kf5
-export QT5DIR=/opt/qt5
-pathappend $KF5_PREFIX/bin             PATH
-pathappend $KF5_PREFIX/lib/pkgconfig   PKG_CONFIG_PATH
-pathappend /etc/xdg                    XDG_CONFIG_DIRS
-pathappend $KF5_PREFIX/etc/xdg         XDG_CONFIG_DIRS
-pathappend /usr/share                  XDG_DATA_DIRS
-pathappend $KF5_PREFIX/share           XDG_DATA_DIRS
-pathappend $KF5_PREFIX/lib/plugins     QT_PLUGIN_PATH
-pathappend $KF5_PREFIX/lib/qml         QML2_IMPORT_PATH
-pathappend $KF5_PREFIX/lib/python2.7/site-packages PYTHONPATH
+export KF5_PREFIX=/usr
 
 # End /etc/profile.d/kf5.sh
 EOF
-
-sudo tee -a /etc/profile.d/qt5.sh << "EOF"
-# Begin Qt5 changes for KF5
-
-pathappend $QT5DIR/plugins             QT_PLUGIN_PATH
-pathappend $QT5DIR/qml                 QML2_IMPORT_PATH
-
-# End Qt5 changes for KF5
-EOF
-
-sudo tee -a /etc/ld.so.conf << "EOF"
-# Begin KF5 addition
-
-/opt/kf5/lib
-
-# End KF5 addition
-EOF
-
-export KF5_PREFIX=/opt/kf5
-export QT5DIR=/opt/qt5
-
-pathappend $KF5_PREFIX/bin             PATH
-pathappend $KF5_PREFIX/lib/pkgconfig   PKG_CONFIG_PATH
-pathappend /etc/xdg                    XDG_CONFIG_DIRS
-pathappend $KF5_PREFIX/etc/xdg         XDG_CONFIG_DIRS
-pathappend /usr/share                  XDG_DATA_DIRS
-pathappend $KF5_PREFIX/share           XDG_DATA_DIRS
-pathappend $KF5_PREFIX/lib/plugins     QT_PLUGIN_PATH
-pathappend $KF5_PREFIX/lib/qml         QML2_IMPORT_PATH
-pathappend $KF5_PREFIX/lib/python2.7/site-packages PYTHONPATH
-pathappend $QT5DIR/plugins             QT_PLUGIN_PATH
-pathappend $QT5DIR/qml                 QML2_IMPORT_PATH
-
-
-sudo install -v -dm755           $KF5_PREFIX/{etc,share} &&
-sudo ln -sfv /etc/dbus-1         $KF5_PREFIX/etc         &&
-sudo ln -sfv /usr/share/dbus-1   $KF5_PREFIX/share
-sudo install -v -dm755                $KF5_PREFIX/share/icons &&
-sudo ln -sfv /usr/share/icons/hicolor $KF5_PREFIX/share/icons
-
-export KF5_PREFIX=/opt/kf5
-export QT5DIR=/opt/qt5
-
 
 touch /tmp/completed
 while read -r line; do
@@ -235,10 +194,6 @@ while read -r line; do
     echo $line >> /tmp/completed
   fi
 done < frameworks-$VERSION.0.md5
-
-sudo mv -v /opt/kf5 /opt/kf5-$VERSION.0
-sudo ln -sfvn kf5-$VERSION.0 /opt/kf5
-
 
 cd $SOURCE_DIR
 
