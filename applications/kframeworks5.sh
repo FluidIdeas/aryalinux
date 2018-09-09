@@ -40,7 +40,7 @@ VERSION=5.47
 #REC:udisks2
 #REC:upower
 #REQ:qrencode
-#REQ:qtwebengine
+#OPT:qtwebengine
 
 
 cd $SOURCE_DIR
