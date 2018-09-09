@@ -56,7 +56,7 @@ fi
 
 whoami > /tmp/currentuser
 
-url=http://download.kde.org/stable/plasma/5.12.5/
+url=http://kde.c3sl.ufpr.br/stable/plasma/5.12.5/
 wget -nc -r -nH --cut-dirs=3 -A '*.xz' -np $url
 
 
