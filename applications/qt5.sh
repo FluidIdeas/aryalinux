@@ -91,7 +91,7 @@ export QT5PREFIX=/usr
             -skip qtwebengine                          &&
 make "-j`nproc`" || make
 sudo make install
-find $QT5PREFIX/ -name \*.prl \
+sudo find $QT5PREFIX/ -name \*.prl \
    -exec sudo sed -i -e '/^QMAKE_PRL_BUILD_DIR/d' {} \;
 
 QT5BINDIR=$QT5PREFIX/bin
