@@ -41,7 +41,7 @@ whoami > /tmp/currentuser
 
 mkdir build &&
 cd    build &&
-cmake -DCMAKE_INSTALL_PREFIX=/opt/kf5 \
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
       -DCMAKE_BUILD_TYPE=Release         \
       -DBUILD_TESTING=OFF                \
       -DKMIX_KF5_BUILD=1                 \

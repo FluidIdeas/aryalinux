@@ -35,7 +35,7 @@ fi
 
 mkdir -pv build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=/opt/kf5 -DCMAKE_BUILD_TYPE=Release .. &&
+cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release .. &&
 make -j$(nproc)
 sudo make install
 
