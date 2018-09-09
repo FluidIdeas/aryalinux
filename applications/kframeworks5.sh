@@ -48,7 +48,7 @@ cd $SOURCE_DIR
 whoami > /tmp/currentuser
 commonBinDir="/var/cache/alps/binaries/"
 
-url=http://download.kde.org/stable/frameworks/$VERSION/
+url=http://kde.c3sl.ufpr.br/stable/frameworks/5.46/
 wget -nc -r -nH --cut-dirs=3 -A '*.xz' -np $url
 if [ -d portingAids ]; then
 	mv portingAids/* .
