@@ -39,7 +39,7 @@ cd $DIRECTORY
 mkdir build &&
 cd build &&
 cmake -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_WITH_QT4=off .. &&
-LIBRARY_PATH=/opt/qt5/lib make "-j`nproc`"
+LIBRARY_PATH=/usr/lib make "-j`nproc`"
 sudo make install
 
 cd $SOURCE_DIR

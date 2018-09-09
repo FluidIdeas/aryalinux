@@ -80,52 +80,15 @@ fi
 
 whoami > /tmp/currentuser
 
-export QT5PREFIX="/opt/qt5"
-export QT5BINDIR="$QT5PREFIX/bin"
-export QT5DIR="$QT5PREFIX"
-export QTDIR="$QT5PREFIX"
-export PATH="$PATH:$QT5BINDIR"
-export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/opt/qt5/lib/pkgconfig"
 sed -i '/vlc_demux.h/a #define LUA_COMPAT_APIINTCASTS' modules/lua/vlc.h   &&
 sed -i '/DEPRECATED/s:^://:'  modules/text_renderer/freetype/text_layout.c &&
 sed -i '/#include <QString>/i#include <QButtonGroup>' \
         modules/gui/qt/components/simple_preferences.cpp                   &&
 BUILDCC=gcc ./configure --prefix=/usr --disable-opencv &&
 make "-j`nproc`" || make
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-export QT5PREFIX="/opt/qt5"
-export QT5BINDIR="$QT5PREFIX/bin"
-export QT5DIR="$QT5PREFIX"
-export QTDIR="$QT5PREFIX"
-export PATH="$PATH:$QT5BINDIR"
-export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/opt/qt5/lib/pkgconfig"
-make docdir=/usr/share/doc/vlc-3.0.3 install
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-export QT5PREFIX="/opt/qt5"
-export QT5BINDIR="$QT5PREFIX/bin"
-export QT5DIR="$QT5PREFIX"
-export QTDIR="$QT5PREFIX"
-export PATH="$PATH:$QT5BINDIR"
-export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/opt/qt5/lib/pkgconfig"
-gtk-update-icon-cache &&
-update-desktop-database
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
+sudo make docdir=/usr/share/doc/vlc-3.0.3 install
+sudo gtk-update-icon-cache &&
+sudo update-desktop-database
 
 
 

@@ -60,7 +60,7 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-find /opt/qt5/ -name \*.prl \
+find /usr/ -name \*.prl \
    -exec sed -i -e '/^QMAKE_PRL_BUILD_DIR/d' {} \;
 
 ENDOFROOTSCRIPT
