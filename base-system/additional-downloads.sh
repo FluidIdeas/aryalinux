@@ -3,7 +3,7 @@
 set -e
 set +h
 
-VERSION=1.0
+VERSION=1.3
 
 CURRENT_DIR=$(pwd)
 pushd ~/sources
@@ -45,11 +45,11 @@ rm -r master.zip
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/399ee7eb552ec30015e1a7e07e357f5815d25951/grub-2.02-gcc.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/f17f18defa4d88c427e54457e02c6ca94d76b673/efibootmgr-16-efidir.patch
 wget -nc https://sourceware.org/ftp/lvm2/releases/LVM2.2.02.171.tgz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.1/aufs-4.17.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.1/aufs4-base.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.1/aufs4-kbuild.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.1/aufs4-mmap.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.1/aufs4-standalone.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs-4.19.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs4-base.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs4-kbuild.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs4-mmap.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs4-standalone.patch
 wget -nc https://sourceware.org/ftp/elfutils/0.170/elfutils-0.170.tar.bz2
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.1/0.21-nvme_ioctl.h.patch
 
