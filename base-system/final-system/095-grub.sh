@@ -63,6 +63,10 @@ sed -i "s@GNU GRUB  version %s@$OS_NAME $OS_VERSION $OS_CODENAME \- GNU GRUB@g" 
 if [ `uname -m` == "x86_64" ]
 then
 
+export CFLAGS=
+export CXXFLAGS=
+export CPPFLAGS=
+
 ./configure --prefix=/usr      \
 	--sbindir=/sbin        \
 	--localstatedir=/var   \
@@ -78,6 +82,10 @@ make install
 make clean
 
 fi
+
+export CFLAGS=
+export CXXFLAGS=
+export CPPFLAGS=
 
 ./configure --prefix=/usr      \
 	--sbindir=/sbin        \
