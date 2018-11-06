@@ -43,6 +43,10 @@ make clean
 
 fi
 
+export CFLAGS=
+export CXXFLAGS=
+export CPPFLAGS=
+
 ./configure --prefix=/usr      \
 	--sbindir=/sbin        \
 	--localstatedir=/var   \
