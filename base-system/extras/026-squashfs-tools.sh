@@ -23,6 +23,7 @@ then
 	cd $DIRECTORY
 fi
 
+patch -Np1 -i ../squashfs-tools-4.3-sysmacros.patch
 cd squashfs-tools
 sed 's@#XZ_SUPPORT@XZ_SUPPORT@g' -i Makefile
 sed 's@COMP_DEFAULT = gzip@COMP_DEFAULT = xz@g' -i Makefile
