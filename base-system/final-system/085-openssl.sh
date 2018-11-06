@@ -33,6 +33,8 @@ export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 
+ln -svf /tools/bin/env /usr/bin/env
+
 ./config --prefix=/usr         \
          --openssldir=/etc/ssl \
          --libdir=lib          \
@@ -44,6 +46,8 @@ make MANSUFFIX=ssl install
 mv -v /usr/share/doc/openssl /usr/share/doc/openssl-1.1.1
 cp -vfr doc/* /usr/share/doc/openssl-1.1.1
 
+
+rm /usr/bin/env
 
 cd $SOURCE_DIR
 if [ "$TARBALL" != "" ]
