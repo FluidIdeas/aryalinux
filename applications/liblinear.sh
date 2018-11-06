@@ -9,18 +9,18 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak This package provides a library for learning linear classifiers forbr3ak large scale applications. It supports Support Vector Machines (SVM)br3ak with L2 and L1 loss, logistic regression, multi classbr3ak classification and also Linear Programming Machines (L1-regularizedbr3ak SVMs). Its computational complexity scales linearly with the numberbr3ak of training examples making it one of the fastest SVM solversbr3ak around.br3ak"
 SECTION="general"
-VERSION=220
+VERSION=221
 NAME="liblinear"
 
 
 
 cd $SOURCE_DIR
 
-URL=https://github.com/cjlin1/liblinear/archive/v220/liblinear-220.tar.gz
+URL=https://github.com/cjlin1/liblinear/archive/v221/liblinear-221.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://github.com/cjlin1/liblinear/archive/v220/liblinear-220.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/liblinear/liblinear-220.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/liblinear/liblinear-220.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/liblinear/liblinear-220.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/liblinear/liblinear-220.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/liblinear/liblinear-220.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/liblinear/liblinear-220.tar.gz
+wget -nc https://github.com/cjlin1/liblinear/archive/v221/liblinear-221.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/liblinear/liblinear-221.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/liblinear/liblinear-221.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/liblinear/liblinear-221.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/liblinear/liblinear-221.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/liblinear/liblinear-221.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/liblinear/liblinear-221.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

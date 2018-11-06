@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="042-linux-headers.sh"
-TARBALL="linux-4.17.7.tar.xz"
+TARBALL="linux-4.19.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -28,6 +28,10 @@ then
 	tar xf $TARBALL
 	cd $DIRECTORY
 fi
+
+export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 
 make mrproper
 make INSTALL_HDR_PATH=dest headers_install

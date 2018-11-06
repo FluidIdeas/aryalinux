@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The At-Spi2 Core package is a partbr3ak of the GNOME Accessibility Project. It provides a Service Providerbr3ak Interface for the Assistive Technologies available on thebr3ak GNOME platform and a librarybr3ak against which applications can be linked.br3ak"
 SECTION="x"
-VERSION=2.28.0
+VERSION=2.30.0
 NAME="at-spi2-core"
 
 #REQ:dbus
@@ -21,11 +21,11 @@ NAME="at-spi2-core"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.28/at-spi2-core-2.28.0.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.30/at-spi2-core-2.30.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.28/at-spi2-core-2.28.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/at-spi/at-spi2-core-2.28.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/at-spi/at-spi2-core-2.28.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/at-spi/at-spi2-core-2.28.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/at-spi/at-spi2-core-2.28.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/at-spi/at-spi2-core-2.28.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/at-spi/at-spi2-core-2.28.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.28/at-spi2-core-2.28.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.30/at-spi2-core-2.30.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/at-spi/at-spi2-core-2.30.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/at-spi/at-spi2-core-2.30.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/at-spi/at-spi2-core-2.30.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/at-spi/at-spi2-core-2.30.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/at-spi/at-spi2-core-2.30.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/at-spi/at-spi2-core-2.30.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.30/at-spi2-core-2.30.0.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

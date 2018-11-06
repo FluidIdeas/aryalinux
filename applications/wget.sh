@@ -15,7 +15,10 @@ NAME="wget"
 #REC:make-ca
 #OPT:gnutls
 #OPT:gpgme
+#OPT:perl-modules#perl-http-daemon
+#OPT:perl-modules#perl-io-socket-ssl
 #OPT:libidn2
+#OPT:libpsl
 #OPT:pcre
 #OPT:python2
 #OPT:valgrind

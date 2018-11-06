@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The opencv package containsbr3ak graphics libraries mainly aimed at real-time computer vision.br3ak"
 SECTION="general"
-VERSION=3.4.1
+VERSION=3.4.3
 NAME="opencv"
 
 #REQ:cmake
@@ -32,13 +32,13 @@ NAME="opencv"
 
 cd $SOURCE_DIR
 
-URL=https://sourceforge.net/projects/opencvlibrary/files/opencv-unix/3.4.1/opencv-3.4.1.zip
+URL=https://sourceforge.net/projects/opencvlibrary/files/opencv-unix/3.4.3/opencv-3.4.3.zip
 
 if [ ! -z $URL ]
 then
-wget -nc https://sourceforge.net/projects/opencvlibrary/files/opencv-unix/3.4.1/opencv-3.4.1.zip || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/opencv/opencv-3.4.1.zip || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/opencv/opencv-3.4.1.zip || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/opencv/opencv-3.4.1.zip || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/opencv/opencv-3.4.1.zip || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/opencv/opencv-3.4.1.zip || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/opencv/opencv-3.4.1.zip
-wget -nc https://raw.githubusercontent.com/opencv/opencv_3rdparty/dfe3162c237af211e98b8960018b564bc209261d/ippicv/ippicv_2017u3_lnx_intel64_general_20170822.tgz
-wget -nc https://github.com/opencv/opencv_contrib/archive/3.4.1/opencv_contrib-3.4.1.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/opencv/opencv_contrib-3.4.1.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/opencv/opencv_contrib-3.4.1.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/opencv/opencv_contrib-3.4.1.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/opencv/opencv_contrib-3.4.1.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/opencv/opencv_contrib-3.4.1.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/opencv/opencv_contrib-3.4.1.tar.gz
+wget -nc https://sourceforge.net/projects/opencvlibrary/files/opencv-unix/3.4.3/opencv-3.4.3.zip || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/opencv/opencv-3.4.3.zip || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/opencv/opencv-3.4.3.zip || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/opencv/opencv-3.4.3.zip || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/opencv/opencv-3.4.3.zip || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/opencv/opencv-3.4.3.zip || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/opencv/opencv-3.4.3.zip
+wget -nc https://raw.githubusercontent.com/opencv/opencv_3rdparty/bdb7bb85f34a8cb0d35e40a81f58da431aa1557a/ippicv/ippicv_2017u3_lnx_intel64_general_20180518.tgz
+wget -nc https://github.com/opencv/opencv_contrib/archive/3.4.3/opencv_contrib-3.4.3.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/opencv/opencv_contrib-3.4.3.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/opencv/opencv_contrib-3.4.3.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/opencv/opencv_contrib-3.4.3.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/opencv/opencv_contrib-3.4.3.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/opencv/opencv_contrib-3.4.3.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/opencv/opencv_contrib-3.4.3.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -53,14 +53,14 @@ fi
 
 whoami > /tmp/currentuser
 
-ipp_file=ippicv_2017u3_lnx_intel64_general_20170822.tgz &&
+ipp_file=ippicv_2017u3_lnx_intel64_general_20180518.tgz &&
 ipp_hash=$(md5sum ../$ipp_file | cut -d" " -f1) &&
 ipp_dir=.cache/ippicv                           &&
 mkdir -p $ipp_dir &&
 cp ../$ipp_file $ipp_dir/$ipp_hash-$ipp_file
 
 
-tar xf ../opencv_contrib-3.4.1.tar.gz
+tar xf ../opencv_contrib-3.4.3.tar.gz
 
 
 mkdir build &&

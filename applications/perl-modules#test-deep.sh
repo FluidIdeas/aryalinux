@@ -8,7 +8,7 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/R/RJ/RJBS/Test-Deep-1.128.tar.gz"
+URL="https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Deep-1.128.tar.gz"
 VERSION=1.128
 NAME="perl-modules#test-deep"
 

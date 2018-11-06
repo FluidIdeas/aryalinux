@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak xterm is a terminal emulator forbr3ak the X Window System.br3ak"
 SECTION="x"
-VERSION=333
+VERSION=337
 NAME="xterm"
 
 #REQ:x7app
@@ -19,11 +19,11 @@ NAME="xterm"
 
 cd $SOURCE_DIR
 
-URL=http://invisible-mirror.net/archives/xterm/xterm-333.tgz
+URL=http://invisible-mirror.net/archives/xterm/xterm-337.tgz
 
 if [ ! -z $URL ]
 then
-wget -nc http://invisible-mirror.net/archives/xterm/xterm-333.tgz
+wget -nc http://invisible-mirror.net/archives/xterm/xterm-337.tgz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -51,8 +51,10 @@ make "-j`nproc`" || make
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make install &&
-make install-ti
+make install    &&
+make install-ti &&
+mkdir -pv /usr/share/applications &&
+cp -v *.desktop /usr/share/applications/
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

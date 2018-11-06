@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The GLib Networking packagebr3ak contains Network related gio modules for GLib.br3ak"
 SECTION="basicnet"
-VERSION=2.56.1
+VERSION=2.58.0
 NAME="glib-networking"
 
 #REQ:glib2
@@ -21,11 +21,11 @@ NAME="glib-networking"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/glib-networking/2.56/glib-networking-2.56.1.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/glib-networking/2.58/glib-networking-2.58.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.gnome.org/pub/gnome/sources/glib-networking/2.56/glib-networking-2.56.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/glib-networking/glib-networking-2.56.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/glib-networking/glib-networking-2.56.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/glib-networking/glib-networking-2.56.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/glib-networking/glib-networking-2.56.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/glib-networking/glib-networking-2.56.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/glib-networking/glib-networking-2.56.1.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glib-networking/2.56/glib-networking-2.56.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/glib-networking/2.58/glib-networking-2.58.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/glib-networking/glib-networking-2.58.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/glib-networking/glib-networking-2.58.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/glib-networking/glib-networking-2.58.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/glib-networking/glib-networking-2.58.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/glib-networking/glib-networking-2.58.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/glib-networking/glib-networking-2.58.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glib-networking/2.58/glib-networking-2.58.0.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -44,7 +44,7 @@ mkdir build &&
 cd    build &&
 meson --prefix=/usr            \
       -Dlibproxy_support=false \
-      -Dca_certificates_path=/etc/ssl/ca-bundle.crt &&
+      -Dpkcs11_support=true .. &&
 ninja
 
 

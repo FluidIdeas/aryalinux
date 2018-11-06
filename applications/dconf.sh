@@ -45,7 +45,7 @@ whoami > /tmp/currentuser
 
 mkdir build &&
 cd    build &&
-meson --prefix=/usr --sysconfdir=/etc &&
+meson --prefix=/usr --sysconfdir=/etc .. &&
 ninja
 
 
@@ -64,7 +64,7 @@ tar -xf ../dconf-editor-3.28.0.tar.xz &&
 cd dconf-editor-3.28.0                &&
 mkdir build &&
 cd    build &&
-meson --prefix=/usr --sysconfdir=/etc &&
+meson --prefix=/usr --sysconfdir=/etc .. &&
 ninja
 
 

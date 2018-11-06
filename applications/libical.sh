@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The libical package contains anbr3ak implementation of the iCalendar protocols and data formats.br3ak"
 SECTION="general"
-VERSION=3.0.3
+VERSION=3.0.4
 NAME="libical"
 
 #REQ:cmake
@@ -21,11 +21,11 @@ NAME="libical"
 
 cd $SOURCE_DIR
 
-URL=https://github.com/libical/libical/releases/download/v3.0.3/libical-3.0.3.tar.gz
+URL=https://github.com/libical/libical/releases/download/v3.0.4/libical-3.0.4.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://github.com/libical/libical/releases/download/v3.0.3/libical-3.0.3.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libical/libical-3.0.3.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libical/libical-3.0.3.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libical/libical-3.0.3.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libical/libical-3.0.3.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libical/libical-3.0.3.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libical/libical-3.0.3.tar.gz
+wget -nc https://github.com/libical/libical/releases/download/v3.0.4/libical-3.0.4.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libical/libical-3.0.4.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libical/libical-3.0.4.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libical/libical-3.0.4.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libical/libical-3.0.4.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libical/libical-3.0.4.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libical/libical-3.0.4.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

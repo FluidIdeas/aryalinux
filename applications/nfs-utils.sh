@@ -9,10 +9,11 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The NFS Utilities package containsbr3ak the userspace server and client tools necessary to use the kernel'sbr3ak NFS abilities. NFS is a protocol that allows sharing file systemsbr3ak over the network.br3ak"
 SECTION="basicnet"
-VERSION=2.3.2
+VERSION=2.3.3
 NAME="nfs-utils"
 
 #REQ:libtirpc
+#REQ:rpcsvc-proto
 #REQ:rpcbind
 #OPT:lvm2
 #OPT:libnfsidmap
@@ -24,11 +25,11 @@ NAME="nfs-utils"
 
 cd $SOURCE_DIR
 
-URL=https://downloads.sourceforge.net/nfs/nfs-utils-2.3.2.tar.xz
+URL=https://downloads.sourceforge.net/nfs/nfs-utils-2.3.3.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://downloads.sourceforge.net/nfs/nfs-utils-2.3.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/nfs-utils/nfs-utils-2.3.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/nfs-utils/nfs-utils-2.3.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/nfs-utils/nfs-utils-2.3.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/nfs-utils/nfs-utils-2.3.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/nfs-utils/nfs-utils-2.3.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/nfs-utils/nfs-utils-2.3.2.tar.xz
+wget -nc https://downloads.sourceforge.net/nfs/nfs-utils-2.3.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/nfs-utils/nfs-utils-2.3.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/nfs-utils/nfs-utils-2.3.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/nfs-utils/nfs-utils-2.3.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/nfs-utils/nfs-utils-2.3.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/nfs-utils/nfs-utils-2.3.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/nfs-utils/nfs-utils-2.3.3.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -51,14 +52,9 @@ sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
-sed -i '/strict-prototypes/d' configure.ac &&
-autoreconf -fiv
-
-
 ./configure --prefix=/usr          \
             --sysconfdir=/etc      \
             --sbindir=/sbin        \
-            --without-tcp-wrappers \
             --disable-nfsv4        \
             --disable-gss &&
 make "-j`nproc`" || make

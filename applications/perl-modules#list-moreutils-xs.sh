@@ -8,7 +8,7 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/R/RE/REHSACK/List-MoreUtils-XS-0.428.tar.gz"
+URL="https://cpan.metacpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-XS-0.428.tar.gz"
 VERSION=0.428
 NAME="perl-modules#list-moreutils-xs"
 

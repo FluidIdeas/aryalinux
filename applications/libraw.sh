@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Libraw is a library for readingbr3ak RAW files obtained from digital photo cameras (CRW/CR2, NEF, RAF,br3ak DNG, and others).br3ak"
 SECTION="general"
-VERSION=0.18.11
+VERSION=0.19.0
 NAME="libraw"
 
 #REC:libjpeg
@@ -19,11 +19,11 @@ NAME="libraw"
 
 cd $SOURCE_DIR
 
-URL=http://www.libraw.org/data/LibRaw-0.18.11.tar.gz
+URL=http://www.libraw.org/data/LibRaw-0.19.0.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://www.libraw.org/data/LibRaw-0.18.11.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/LibRaw/LibRaw-0.18.11.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/LibRaw/LibRaw-0.18.11.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/LibRaw/LibRaw-0.18.11.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/LibRaw/LibRaw-0.18.11.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/LibRaw/LibRaw-0.18.11.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/LibRaw/LibRaw-0.18.11.tar.gz
+wget -nc http://www.libraw.org/data/LibRaw-0.19.0.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/LibRaw/LibRaw-0.19.0.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/LibRaw/LibRaw-0.19.0.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/LibRaw/LibRaw-0.19.0.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/LibRaw/LibRaw-0.19.0.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/LibRaw/LibRaw-0.19.0.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/LibRaw/LibRaw-0.19.0.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -43,7 +43,7 @@ whoami > /tmp/currentuser
             --enable-jasper  \
             --enable-lcms    \
             --disable-static \
-            --docdir=/usr/share/doc/libraw-0.18.11 &&
+            --docdir=/usr/share/doc/libraw-0.19.0 &&
 make "-j`nproc`" || make
 
 

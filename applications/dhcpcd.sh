@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak dhcpcd is an implementation of thebr3ak DHCP client specified in RFC2131. A DHCP client is useful forbr3ak connecting your computer to a network which uses DHCP to assignbr3ak network addresses. dhcpcd strives to be a fully featured, yet verybr3ak lightweight DHCP client.br3ak"
 SECTION="basicnet"
-VERSION=7.0.4
+VERSION=7.0.8
 NAME="dhcpcd"
 
 #OPT:llvm
@@ -17,11 +17,11 @@ NAME="dhcpcd"
 
 cd $SOURCE_DIR
 
-URL=http://roy.marples.name/downloads/dhcpcd/dhcpcd-7.0.4.tar.xz
+URL=http://roy.marples.name/downloads/dhcpcd/dhcpcd-7.0.8.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://roy.marples.name/downloads/dhcpcd/dhcpcd-7.0.4.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/dhcp/dhcpcd-7.0.4.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/dhcp/dhcpcd-7.0.4.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/dhcp/dhcpcd-7.0.4.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/dhcp/dhcpcd-7.0.4.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/dhcp/dhcpcd-7.0.4.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/dhcp/dhcpcd-7.0.4.tar.xz || wget -nc ftp://roy.marples.name/pub/dhcpcd/dhcpcd-7.0.4.tar.xz
+wget -nc http://roy.marples.name/downloads/dhcpcd/dhcpcd-7.0.8.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/dhcp/dhcpcd-7.0.8.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/dhcp/dhcpcd-7.0.8.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/dhcp/dhcpcd-7.0.8.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/dhcp/dhcpcd-7.0.8.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/dhcp/dhcpcd-7.0.8.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/dhcp/dhcpcd-7.0.8.tar.xz || wget -nc ftp://roy.marples.name/pub/dhcpcd/dhcpcd-7.0.8.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

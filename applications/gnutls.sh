@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The GnuTLS package containsbr3ak libraries and userspace tools which provide a secure layer over abr3ak reliable transport layer. Currently the GnuTLS library implements the proposedbr3ak standards by the IETF's TLS working group. Quoting from the TLSbr3ak protocol specification:br3ak"
 SECTION="postlfs"
-VERSION=3.5.18
+VERSION=3.5.19
 NAME="gnutls"
 
 #REQ:nettle
@@ -31,11 +31,11 @@ NAME="gnutls"
 
 cd $SOURCE_DIR
 
-URL=https://www.gnupg.org/ftp/gcrypt/gnutls/v3.5/gnutls-3.5.18.tar.xz
+URL=https://www.gnupg.org/ftp/gcrypt/gnutls/v3.5/gnutls-3.5.19.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://www.gnupg.org/ftp/gcrypt/gnutls/v3.5/gnutls-3.5.18.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gnutls/gnutls-3.5.18.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gnutls/gnutls-3.5.18.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnutls/gnutls-3.5.18.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnutls/gnutls-3.5.18.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gnutls/gnutls-3.5.18.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gnutls/gnutls-3.5.18.tar.xz
+wget -nc https://www.gnupg.org/ftp/gcrypt/gnutls/v3.5/gnutls-3.5.19.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gnutls/gnutls-3.5.19.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gnutls/gnutls-3.5.19.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnutls/gnutls-3.5.19.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnutls/gnutls-3.5.19.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gnutls/gnutls-3.5.19.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gnutls/gnutls-3.5.19.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

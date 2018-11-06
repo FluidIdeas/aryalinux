@@ -11,7 +11,7 @@ set +h
 #REQ:perl-modules#sub-name
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/Package-DeprecationManager-0.17.tar.gz"
+URL="https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Package-DeprecationManager-0.17.tar.gz"
 VERSION=0.17
 NAME="perl-modules#package-deprecationmanager"
 

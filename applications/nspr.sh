@@ -9,18 +9,18 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Netscape Portable Runtime (NSPR)br3ak provides a platform-neutral API for system level and libc likebr3ak functions.br3ak"
 SECTION="general"
-VERSION=4.19
+VERSION=4.20
 NAME="nspr"
 
 
 
 cd $SOURCE_DIR
 
-URL=https://archive.mozilla.org/pub/nspr/releases/v4.19/src/nspr-4.19.tar.gz
+URL=https://archive.mozilla.org/pub/nspr/releases/v4.20/src/nspr-4.20.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://archive.mozilla.org/pub/nspr/releases/v4.19/src/nspr-4.19.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/nspr/nspr-4.19.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/nspr/nspr-4.19.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/nspr/nspr-4.19.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/nspr/nspr-4.19.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/nspr/nspr-4.19.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/nspr/nspr-4.19.tar.gz
+wget -nc https://archive.mozilla.org/pub/nspr/releases/v4.20/src/nspr-4.20.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/nspr/nspr-4.20.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/nspr/nspr-4.20.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/nspr/nspr-4.20.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/nspr/nspr-4.20.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/nspr/nspr-4.20.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/nspr/nspr-4.20.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

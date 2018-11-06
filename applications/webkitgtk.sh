@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The WebKitGTK+ package is a portbr3ak of the portable web rendering engine WebKit to the GTK+br3ak 3 and GTK+ 2 platforms.br3ak"
 SECTION="x"
-VERSION=2.20.2
+VERSION=2.22.2
 NAME="webkitgtk"
 
 #REQ:cairo
@@ -40,11 +40,11 @@ NAME="webkitgtk"
 
 cd $SOURCE_DIR
 
-URL=https://webkitgtk.org/releases/webkitgtk-2.20.2.tar.xz
+URL=https://webkitgtk.org/releases/webkitgtk-2.22.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://webkitgtk.org/releases/webkitgtk-2.20.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/webkit/webkitgtk-2.20.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/webkit/webkitgtk-2.20.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/webkit/webkitgtk-2.20.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/webkit/webkitgtk-2.20.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/webkit/webkitgtk-2.20.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/webkit/webkitgtk-2.20.2.tar.xz
+wget -nc https://webkitgtk.org/releases/webkitgtk-2.22.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/webkit/webkitgtk-2.22.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/webkit/webkitgtk-2.22.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/webkit/webkitgtk-2.22.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/webkit/webkitgtk-2.22.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/webkit/webkitgtk-2.22.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/webkit/webkitgtk-2.22.2.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -71,13 +71,13 @@ cmake -DCMAKE_BUILD_TYPE=Release  \
       -DUSE_LIBHYPHEN=OFF         \
       -DENABLE_MINIBROWSER=ON     \
       -DUSE_WOFF2=OFF             \
-      -Wno-dev .. &&
-make "-j`nproc`" || make
+      -Wno-dev -G Ninja .. &&
+ninja
 
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make install &&
+ninja install &&
 install -vdm755 /usr/share/gtk-doc/html/webkit{2,dom}gtk-4.0 &&
 install -vm644  ../Documentation/webkit2gtk-4.0/html/*   \
                 /usr/share/gtk-doc/html/webkit2gtk-4.0       &&

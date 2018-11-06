@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The BlueZ package contains thebr3ak Bluetooth protocol stack for Linux.br3ak"
 SECTION="general"
-VERSION=5.49
+VERSION=5.50
 NAME="bluez"
 
 #REQ:dbus
@@ -19,11 +19,11 @@ NAME="bluez"
 
 cd $SOURCE_DIR
 
-URL=https://www.kernel.org/pub/linux/bluetooth/bluez-5.49.tar.xz
+URL=https://www.kernel.org/pub/linux/bluetooth/bluez-5.50.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://www.kernel.org/pub/linux/bluetooth/bluez-5.49.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/bluez/bluez-5.49.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/bluez/bluez-5.49.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/bluez/bluez-5.49.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/bluez/bluez-5.49.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/bluez/bluez-5.49.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/bluez/bluez-5.49.tar.xz
+wget -nc https://www.kernel.org/pub/linux/bluetooth/bluez-5.50.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/bluez/bluez-5.50.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/bluez/bluez-5.50.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/bluez/bluez-5.50.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/bluez/bluez-5.50.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/bluez/bluez-5.50.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/bluez/bluez-5.50.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -69,8 +69,8 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -dm755 /usr/share/doc/bluez-5.49 &&
-install -v -m644 doc/*.txt /usr/share/doc/bluez-5.49
+install -v -dm755 /usr/share/doc/bluez-5.50 &&
+install -v -m644 doc/*.txt /usr/share/doc/bluez-5.50
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

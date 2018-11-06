@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Apache HTTPD package containsbr3ak an open-source HTTP server. It is useful for creating localbr3ak intranet web sites or running huge web serving operations.br3ak"
 SECTION="server"
-VERSION=2.4.33
+VERSION=2.4.37
 NAME="apache"
 
 #REQ:apr-util
@@ -17,23 +17,23 @@ NAME="apache"
 #OPT:db
 #OPT:doxygen
 #OPT:libxml2
+#OPT:lua
 #OPT:lynx
 #OPT:links
 #OPT:nghttp2
 #OPT:openldap
 #OPT:apr-util
 #OPT:rsync
-#OPT:lua
 
 
 cd $SOURCE_DIR
 
-URL=https://archive.apache.org/dist/httpd/httpd-2.4.33.tar.bz2
+URL=https://archive.apache.org/dist/httpd/httpd-2.4.37.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc https://archive.apache.org/dist/httpd/httpd-2.4.33.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/httpd/httpd-2.4.33.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/httpd/httpd-2.4.33.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/httpd/httpd-2.4.33.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/httpd/httpd-2.4.33.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/httpd/httpd-2.4.33.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/httpd/httpd-2.4.33.tar.bz2
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/httpd-2.4.33-blfs_layout-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/httpd/httpd-2.4.33-blfs_layout-1.patch
+wget -nc https://archive.apache.org/dist/httpd/httpd-2.4.37.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/httpd/httpd-2.4.37.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/httpd/httpd-2.4.37.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/httpd/httpd-2.4.37.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/httpd/httpd-2.4.37.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/httpd/httpd-2.4.37.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/httpd/httpd-2.4.37.tar.bz2
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/httpd-2.4.37-blfs_layout-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/httpd/httpd-2.4.37-blfs_layout-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -60,7 +60,7 @@ sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
-patch -Np1 -i ../httpd-2.4.33-blfs_layout-1.patch             &&
+patch -Np1 -i ../httpd-2.4.37-blfs_layout-1.patch             &&
 sed '/dir.*CFG_PREFIX/s@^@#@' -i support/apxs.in              &&
 ./configure --enable-authnz-fcgi                              \
             --enable-layout=BLFS                              \

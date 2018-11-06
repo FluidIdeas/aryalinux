@@ -8,7 +8,7 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org//CPAN/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.48.tar.gz"
+URL="https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.48.tar.gz"
 VERSION=0.48
 NAME="perl-modules#perl-capture-tiny"
 

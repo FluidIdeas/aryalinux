@@ -6,10 +6,10 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:perl-modules#algorithm-diff(forthetestsuite)
+#REQ:perl-modules#algorithm-diff
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/N/NE/NEILB/Text-Diff-1.45.tar.gz"
+URL="https://cpan.metacpan.org/authors/id/N/NE/NEILB/Text-Diff-1.45.tar.gz"
 VERSION=1.45
 NAME="perl-modules#text-diff"
 

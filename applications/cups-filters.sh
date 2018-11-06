@@ -9,13 +9,12 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The CUPS Filters package containsbr3ak backends, filters and other software that was once part of the corebr3ak CUPS distribution but is no longerbr3ak maintained by Apple Inc.br3ak"
 SECTION="pst"
-VERSION=1.20.3
+VERSION=1.21.1
 NAME="cups-filters"
 
 #REQ:cups
 #REQ:glib2
 #REQ:gs
-#REQ:ijs
 #REQ:lcms2
 #REQ:mupdf
 #REQ:poppler
@@ -25,6 +24,7 @@ NAME="cups-filters"
 #REC:libtiff
 #OPT:avahi
 #OPT:TTF-and-OTF-fonts#dejavu-fonts
+#OPT:ijs
 #OPT:openldap
 #OPT:php
 #OPT:gutenprint
@@ -32,11 +32,11 @@ NAME="cups-filters"
 
 cd $SOURCE_DIR
 
-URL=https://www.openprinting.org/download/cups-filters/cups-filters-1.20.3.tar.xz
+URL=https://www.openprinting.org/download/cups-filters/cups-filters-1.21.1.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://www.openprinting.org/download/cups-filters/cups-filters-1.20.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/cups/cups-filters-1.20.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/cups/cups-filters-1.20.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/cups/cups-filters-1.20.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/cups/cups-filters-1.20.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/cups/cups-filters-1.20.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/cups/cups-filters-1.20.3.tar.xz
+wget -nc https://www.openprinting.org/download/cups-filters/cups-filters-1.21.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/cups/cups-filters-1.21.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/cups/cups-filters-1.21.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/cups/cups-filters-1.21.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/cups/cups-filters-1.21.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/cups/cups-filters-1.21.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/cups/cups-filters-1.21.1.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -54,14 +54,13 @@ whoami > /tmp/currentuser
 sed -i "s:cups.service:org.cups.cupsd.service:g" utils/cups-browsed.service
 
 
-./configure                  \
-        --prefix=/usr        \
-        --sysconfdir=/etc    \
-        --localstatedir=/var \
-        --without-rcdir      \
-        --disable-static     \
-        --disable-avahi      \
-        --docdir=/usr/share/doc/cups-filters-1.20.3 &&
+./configure --prefix=/usr        \
+            --sysconfdir=/etc    \
+            --localstatedir=/var \
+            --without-rcdir      \
+            --disable-static     \
+            --disable-avahi      \
+            --docdir=/usr/share/doc/cups-filters-1.21.1 &&
 make "-j`nproc`" || make
 
 

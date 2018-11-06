@@ -9,7 +9,7 @@ set +h
 #REQ:perl-modules#perl-xml-sax
 #REQ:libxml2
 SOURCE_ONLY=y
-URL="http://search.cpan.org//CPAN/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0132.tar.gz"
+URL="https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0132.tar.gz"
 VERSION=2.0132
 NAME="perl-modules#perl-xml-libxml"
 

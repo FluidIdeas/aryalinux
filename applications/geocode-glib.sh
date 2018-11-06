@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Geocode GLib is a conveniencebr3ak library for the Yahoo! Place Finder APIs. The Place Finder webbr3ak service allows to do geocoding (finding longitude and latitude frombr3ak an address), and reverse geocoding (finding an address frombr3ak coordinates).br3ak"
 SECTION="gnome"
-VERSION=3.25.4.1
+VERSION=3.26.0
 NAME="geocode-glib"
 
 #REQ:gtk-doc
@@ -20,11 +20,11 @@ NAME="geocode-glib"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/geocode-glib/3.25/geocode-glib-3.25.4.1.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/geocode-glib/3.26/geocode-glib-3.26.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.gnome.org/pub/gnome/sources/geocode-glib/3.25/geocode-glib-3.25.4.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/geocode-glib/geocode-glib-3.25.4.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/geocode-glib/geocode-glib-3.25.4.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/geocode-glib/geocode-glib-3.25.4.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/geocode-glib/geocode-glib-3.25.4.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/geocode-glib/geocode-glib-3.25.4.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/geocode-glib/geocode-glib-3.25.4.1.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/geocode-glib/3.25/geocode-glib-3.25.4.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/geocode-glib/3.26/geocode-glib-3.26.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/geocode-glib/geocode-glib-3.26.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/geocode-glib/geocode-glib-3.26.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/geocode-glib/geocode-glib-3.26.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/geocode-glib/geocode-glib-3.26.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/geocode-glib/geocode-glib-3.26.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/geocode-glib/geocode-glib-3.26.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/geocode-glib/3.26/geocode-glib-3.26.0.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

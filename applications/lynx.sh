@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Lynx is a text based web browser.br3ak"
 SECTION="basicnet"
-VERSION=.2
+VERSION=.1
 NAME="lynx"
 
 #OPT:gnutls
@@ -20,13 +20,11 @@ NAME="lynx"
 
 cd $SOURCE_DIR
 
-URL=http://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.8rel.2.tar.bz2
+URL=https://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.9rel.1.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.8rel.2.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/lynx/lynx2.8.8rel.2.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/lynx/lynx2.8.8rel.2.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/lynx/lynx2.8.8rel.2.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/lynx/lynx2.8.8rel.2.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/lynx/lynx2.8.8rel.2.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/lynx/lynx2.8.8rel.2.tar.bz2
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/lynx-2.8.8rel.2-openssl_1.1.0-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/lynx/lynx-2.8.8rel.2-openssl_1.1.0-1.patch
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/lynx-2.8.8rel.2-ncurses_6.1-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/lynx/lynx-2.8.8rel.2-ncurses_6.1-1.patch
+wget -nc https://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.9rel.1.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/lynx/lynx2.8.9rel.1.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/lynx/lynx2.8.9rel.1.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/lynx/lynx2.8.9rel.1.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/lynx/lynx2.8.9rel.1.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/lynx/lynx2.8.9rel.1.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/lynx/lynx2.8.9rel.1.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -41,15 +39,9 @@ fi
 
 whoami > /tmp/currentuser
 
-patch -p1 -i ../lynx-2.8.8rel.2-openssl_1.1.0-1.patch
-
-
-patch -p1 -i ../lynx-2.8.8rel.2-ncurses_6.1-1.patch
-
-
 ./configure --prefix=/usr          \
             --sysconfdir=/etc/lynx \
-            --datadir=/usr/share/doc/lynx-2.8.8rel.2 \
+            --datadir=/usr/share/doc/lynx-2.8.9rel.1 \
             --with-zlib            \
             --with-bzlib           \
             --with-ssl             \
@@ -61,7 +53,7 @@ make "-j`nproc`" || make
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install-full &&
-chgrp -v -R root /usr/share/doc/lynx-2.8.8rel.2/lynx_doc
+chgrp -v -R root /usr/share/doc/lynx-2.8.9rel.1/lynx_doc
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

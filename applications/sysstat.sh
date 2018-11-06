@@ -9,18 +9,18 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Sysstat package containsbr3ak utilities to monitor system performance and usage activity.br3ak Sysstat contains the <span class=\"command\"><strong>sar</strong> utility, common to manybr3ak commercial Unixes, and tools you can schedule via cron to collectbr3ak and historize performance and activity data.br3ak"
 SECTION="general"
-VERSION=11.6.3
+VERSION=11.6.5
 NAME="sysstat"
 
 
 
 cd $SOURCE_DIR
 
-URL=http://perso.wanadoo.fr/sebastien.godard/sysstat-11.6.3.tar.xz
+URL=http://perso.wanadoo.fr/sebastien.godard/sysstat-11.6.5.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://perso.wanadoo.fr/sebastien.godard/sysstat-11.6.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/sysstat/sysstat-11.6.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/sysstat/sysstat-11.6.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/sysstat/sysstat-11.6.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/sysstat/sysstat-11.6.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/sysstat/sysstat-11.6.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/sysstat/sysstat-11.6.3.tar.xz
+wget -nc http://perso.wanadoo.fr/sebastien.godard/sysstat-11.6.5.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/sysstat/sysstat-11.6.5.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/sysstat/sysstat-11.6.5.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/sysstat/sysstat-11.6.5.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/sysstat/sysstat-11.6.5.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/sysstat/sysstat-11.6.5.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/sysstat/sysstat-11.6.5.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

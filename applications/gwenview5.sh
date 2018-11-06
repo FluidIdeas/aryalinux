@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Gwenview is a fast and easy-to-usebr3ak image viewer for KDE.br3ak"
 SECTION="kde"
-VERSION=18.04.1
+VERSION=18.08.0
 NAME="gwenview5"
 
 #REQ:exiv2
@@ -20,11 +20,11 @@ NAME="gwenview5"
 
 cd $SOURCE_DIR
 
-URL=http://download.kde.org/stable/applications/18.04.1/src/gwenview-18.04.1.tar.xz
+URL=http://download.kde.org/stable/applications/18.08.0/src/gwenview-18.08.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://download.kde.org/stable/applications/18.04.1/src/gwenview-18.04.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gwenview/gwenview-18.04.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gwenview/gwenview-18.04.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gwenview/gwenview-18.04.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gwenview/gwenview-18.04.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gwenview/gwenview-18.04.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gwenview/gwenview-18.04.1.tar.xz
+wget -nc http://download.kde.org/stable/applications/18.08.0/src/gwenview-18.08.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gwenview/gwenview-18.08.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gwenview/gwenview-18.08.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gwenview/gwenview-18.08.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gwenview/gwenview-18.08.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gwenview/gwenview-18.08.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gwenview/gwenview-18.08.0.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -41,7 +41,7 @@ whoami > /tmp/currentuser
 
 mkdir build &&
 cd    build &&
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
+cmake -DCMAKE_INSTALL_PREFIX=/opt/kf5 \
       -DCMAKE_BUILD_TYPE=Release         \
       -DBUILD_TESTING=OFF                \
       -Wno-dev .. &&

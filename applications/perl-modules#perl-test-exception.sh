@@ -9,7 +9,7 @@ set +h
 #REQ:perl-modules#sub-uplevel
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org//CPAN/authors/id/E/EX/EXODIST/Test-Exception-0.43.tar.gz"
+URL="https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Exception-0.43.tar.gz"
 VERSION=0.43
 NAME="perl-modules#perl-test-exception"
 

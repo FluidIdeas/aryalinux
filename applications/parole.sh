@@ -13,6 +13,7 @@ VERSION=1.0.1
 NAME="parole"
 
 #REQ:gst10-plugins-base
+#REQ:gst10-plugins-good
 #REQ:libxfce4ui
 #REC:libnotify
 #REC:taglib

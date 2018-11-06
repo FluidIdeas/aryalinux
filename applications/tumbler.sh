@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Tumbler package contains abr3ak D-Bus thumbnailing service basedbr3ak on the thumbnail management D-Busbr3ak specification. This is useful for generating thumbnail images ofbr3ak files.br3ak"
 SECTION="xfce"
-VERSION=0.2.1
+VERSION=0.2.3
 NAME="tumbler"
 
 #REQ:glib2
@@ -26,11 +26,11 @@ NAME="tumbler"
 
 cd $SOURCE_DIR
 
-URL=http://archive.xfce.org/src/xfce/tumbler/0.2/tumbler-0.2.1.tar.bz2
+URL=http://archive.xfce.org/src/xfce/tumbler/0.2/tumbler-0.2.3.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://archive.xfce.org/src/xfce/tumbler/0.2/tumbler-0.2.1.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/tumbler/tumbler-0.2.1.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/tumbler/tumbler-0.2.1.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/tumbler/tumbler-0.2.1.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/tumbler/tumbler-0.2.1.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/tumbler/tumbler-0.2.1.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/tumbler/tumbler-0.2.1.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/tumbler/0.2/tumbler-0.2.3.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/tumbler/tumbler-0.2.3.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/tumbler/tumbler-0.2.3.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/tumbler/tumbler-0.2.3.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/tumbler/tumbler-0.2.3.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/tumbler/tumbler-0.2.3.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/tumbler/tumbler-0.2.3.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

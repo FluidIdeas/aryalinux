@@ -8,7 +8,7 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/C/CO/CORION/Test-Without-Module-0.20.tar.gz"
+URL="https://cpan.metacpan.org/authors/id/C/CO/CORION/Test-Without-Module-0.20.tar.gz"
 VERSION=0.20
 NAME="perl-modules#test-without-module"
 

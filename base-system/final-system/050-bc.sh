@@ -29,6 +29,10 @@ then
 	cd $DIRECTORY
 fi
 
+export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+
 cat > bc/fix-libmath_h << "EOF"
 #! /bin/bash
 sed -e '1   s/^/{"/' \
@@ -42,7 +46,7 @@ EOF
 ln -sv /tools/lib/libncursesw.so.6 /usr/lib/libncursesw.so.6
 ln -sfv libncurses.so.6 /usr/lib/libncurses.so
 sed -i -e '/flex/s/as_fn_error/: ;; # &/' configure
-CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" ./configure --prefix=/usr           \
+./configure --prefix=/usr           \
             --with-readline         \
             --mandir=/usr/share/man \
             --infodir=/usr/share/info

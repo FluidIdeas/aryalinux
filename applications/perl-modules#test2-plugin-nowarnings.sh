@@ -9,7 +9,7 @@ set +h
 #REQ:perl-modules#test2-suite
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/Test2-Plugin-NoWarnings-0.06.tar.gz"
+URL="https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Test2-Plugin-NoWarnings-0.06.tar.gz"
 VERSION=0.06
 NAME="perl-modules#test2-plugin-nowarnings"
 

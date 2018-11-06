@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="086-Python.sh"
-TARBALL="Python-3.6.5.tar.xz"
+TARBALL="python-3.7.1-docs-html.tar.bz2"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,21 +29,25 @@ then
 	cd $DIRECTORY
 fi
 
-CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" ./configure --prefix=/usr       \
+export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+
+./configure --prefix=/usr       \
             --enable-shared     \
             --with-system-expat \
             --with-system-ffi   \
             --with-ensurepip=yes
 make
 make install
-chmod -v 755 /usr/lib/libpython3.6m.so
+chmod -v 755 /usr/lib/libpython3.7m.so
 chmod -v 755 /usr/lib/libpython3.so
-install -v -dm755 /usr/share/doc/python-3.6.5/html 
+install -v -dm755 /usr/share/doc/python-3.7.1/html 
 tar --strip-components=1  \
     --no-same-owner       \
     --no-same-permissions \
-    -C /usr/share/doc/python-3.6.5/html \
-    -xvf ../python-3.6.5-docs-html.tar.bz2
+    -C /usr/share/doc/python-3.7.1/html \
+    -xvf ../python-3.7.1-docs-html.tar.bz2
 
 
 cd $SOURCE_DIR

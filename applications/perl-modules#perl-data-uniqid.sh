@@ -8,7 +8,7 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/M/MW/MWX/Data-Uniqid-0.12.tar.gz"
+URL="https://www.cpan.org/authors/id/M/MW/MWX/Data-Uniqid-0.12.tar.gz"
 VERSION=0.12
 NAME="perl-modules#perl-data-uniqid"
 

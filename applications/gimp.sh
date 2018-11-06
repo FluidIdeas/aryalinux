@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Gimp package contains the GNUbr3ak Image Manipulation Program which is useful for photo retouching,br3ak image composition and image authoring.br3ak"
 SECTION="xsoft"
-VERSION=2.10.2
+VERSION=2.10.6
 NAME="gimp"
 
 #REQ:gegl
@@ -28,13 +28,13 @@ NAME="gimp"
 #REQ:xorg-server
 #REC:dbus-glib
 #REC:gs
+#REC:gvfs
 #REC:iso-codes
 #REC:libgudev
 #REC:python-modules#pygtk
 #REC:xdg-utils
 #OPT:aalib
 #OPT:alsa-lib
-#OPT:gvfs
 #OPT:libmng
 #OPT:libwebp
 #OPT:openjpeg2
@@ -43,11 +43,11 @@ NAME="gimp"
 
 cd $SOURCE_DIR
 
-URL=https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.2.tar.bz2
+URL=https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.6.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.2.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gimp/gimp-2.10.2.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gimp/gimp-2.10.2.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gimp/gimp-2.10.2.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gimp/gimp-2.10.2.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gimp/gimp-2.10.2.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gimp/gimp-2.10.2.tar.bz2
+wget -nc https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.6.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gimp/gimp-2.10.6.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gimp/gimp-2.10.6.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gimp/gimp-2.10.6.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gimp/gimp-2.10.6.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gimp/gimp-2.10.6.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gimp/gimp-2.10.6.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

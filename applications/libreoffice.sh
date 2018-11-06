@@ -9,10 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak LibreOffice is a full-featuredbr3ak office suite. It is largely compatible with Microsoft Office and is descended frombr3ak OpenOffice.org.br3ak"
 SECTION="xsoft"
-VERSION_MAJOR=6.0.1
-VERSION_MINOR=1
-VERSION=$VERSION_MAJOR.$VERSION_MINOR
-PARENT_DIR_URL="http://download.documentfoundation.org/libreoffice/src/$VERSION_MAJOR/"
+VERSION=6.1.2.1
 NAME="libreoffice"
 
 #REQ:perl-modules#perl-archive-zip
@@ -43,11 +40,7 @@ NAME="libreoffice"
 #REC:neon
 #REC:nss
 #REC:openldap
-#REC:openssl10
-#REC:gnutls
 #REC:poppler
-#REC:postgresql
-#REC:python3
 #REC:redland
 #REC:serf
 #REC:unixodbc
@@ -57,6 +50,7 @@ NAME="libreoffice"
 #OPT:desktop-file-utils
 #OPT:doxygen
 #OPT:gdb
+#OPT:gnutls
 #OPT:junit
 #OPT:mariadb
 #OPT:mitkrb
@@ -70,14 +64,13 @@ NAME="libreoffice"
 
 cd $SOURCE_DIR
 
-URL=$PARENT_DIR_URL/libreoffice-$VERSION.tar.xz
+URL=http://download.documentfoundation.org/libreoffice/src/6.1.2/libreoffice-6.1.2.1.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc $URL
-wget -nc $PARENT_DIR_URL/libreoffice-dictionaries-$VERSION.tar.xz
-wget -nc $PARENT_DIR_URL/libreoffice-translations-$VERSION.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.0/libreoffice-$VERSION_MAJOR.$VERSION_MINOR-poppler64-1.patch
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.1.2/libreoffice-6.1.2.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-6.1.2.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-6.1.2.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-6.1.2.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-6.1.2.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-6.1.2.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-6.1.2.1.tar.xz
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.1.2/libreoffice-dictionaries-6.1.2.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-dictionaries-6.1.2.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-dictionaries-6.1.2.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-6.1.2.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-6.1.2.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-6.1.2.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-dictionaries-6.1.2.1.tar.xz
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.1.2/libreoffice-translations-6.1.2.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-translations-6.1.2.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libreoffice/libreoffice-translations-6.1.2.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-translations-6.1.2.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libreoffice/libreoffice-translations-6.1.2.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-translations-6.1.2.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libreoffice/libreoffice-translations-6.1.2.1.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -92,30 +85,27 @@ fi
 
 whoami > /tmp/currentuser
 
-if [ -z "$LANGUAGE" ]; then export LANGUAGE=ALL; fi
+if [ -z "$LANGUAGE" ]; then export LANGUAGE=en-US; fi
 
 install -dm755 external/tarballs &&
-ln -sv ../../../libreoffice-dictionaries-$VERSION_MAJOR.$VERSION_MINOR.tar.xz external/tarballs/ &&
-ln -sv ../../../libreoffice-help-$VERSION_MAJOR.$VERSION_MINOR.tar.xz         external/tarballs/
+ln -sv ../../../libreoffice-dictionaries-6.1.2.1.tar.xz external/tarballs/ &&
+ln -sv ../../../libreoffice-help-6.1.2.1.tar.xz         external/tarballs/
 
 
-ln -sv ../../../libreoffice-translations-$VERSION_MAJOR.$VERSION_MINOR.tar.xz external/tarballs/
+ln -sv ../../../libreoffice-translations-6.1.2.1.tar.xz external/tarballs/
+
+
+export LO_PREFIX=/usr
 
 
 sed -e "/gzip -f/d"   \
     -e "s|.1.gz|.1|g" \
     -i bin/distro-install-desktop-integration &&
-
 sed -e "/distro-install-file-lists/d" -i Makefile.in &&
-
-patch -Np1 -i ../libreoffice-$VERSION_MAJOR.$VERSION_MINOR-poppler64-1.patch
-
-export LO_PREFIX=/usr
-
 ./autogen.sh --prefix=$LO_PREFIX         \
              --sysconfdir=/etc           \
-             --with-vendor=AryaLinux     \
-             --with-lang='ALL'           \
+             --with-vendor=AryaLinux          \
+             --with-lang="$LANGUAGE"      \
              --with-help                 \
              --with-myspell-dicts        \
              --with-alloc=system         \
@@ -145,37 +135,49 @@ export LO_PREFIX=/usr
              --with-system-openldap      \
              --with-system-openssl       \
              --with-system-poppler       \
-             --with-system-postgresql    \
+             --disable-postgresql-sdbc --without-java    \
              --with-system-redland       \
              --with-system-serf          \
-             --without-java              \
              --with-system-zlib
 
 
-export CPPFLAGS='-DU_USING_ICU_NAMESPACE=1'
-make build-nocheck
-sudo make distro-pack-install
+CPPFLAGS='-DU_USING_ICU_NAMESPACE=1' make build-nocheck
 
-if [ "$LO_PREFIX" != "/usr" ]; then
-      ln -svf $LO_PREFIX/lib/libreoffice/program/soffice /usr/bin/libreoffice &&
 
-      mkdir -vp /usr/share/pixmaps
-      for i in $LO_PREFIX/share/icons/hicolor/32x32/apps/*; do
-            ln -svf $i /usr/share/pixmaps
-      done &&
 
-      for i in $LO_PREFIX/lib/libreoffice/share/xdg/*; do
-            ln -svf $i /usr/share/applications/libreoffice-$(basename $i)
-      done &&
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+make distro-pack-install
 
-      for i in $LO_PREFIX/share/man/man1/*; do
-            ln -svf $i /usr/share/man/man1/
-      done
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
 
-      unset i
-fi
 
-sudo update-desktop-database
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+update-desktop-database
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
+sudo ln -svf /usr/lib/libreoffice/program/soffice /usr/bin/libreoffice
+
+sudo mkdir -vp /usr/share/pixmaps
+for i in /usr/share/icons/hicolor/32x32/apps/*; do
+    sudo ln -svf $i /usr/share/pixmaps
+done
+
+for i in /usr/lib/libreoffice/share/xdg/*; do
+    sudo ln -svf $i /usr/share/applications/libreoffice-$(basename $i)
+done
+
+unset i
+
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

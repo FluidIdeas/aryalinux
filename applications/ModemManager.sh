@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak ModemManager provides a unifiedbr3ak high level API for communicating with mobile broadband modems,br3ak regardless of the protocol used to communicate with the actualbr3ak device.br3ak"
 SECTION="general"
-VERSION=1.6.12
+VERSION=1.8.2
 NAME="ModemManager"
 
 #REQ:libgudev
@@ -23,11 +23,11 @@ NAME="ModemManager"
 
 cd $SOURCE_DIR
 
-URL=https://www.freedesktop.org/software/ModemManager/ModemManager-1.6.12.tar.xz
+URL=https://www.freedesktop.org/software/ModemManager/ModemManager-1.8.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://www.freedesktop.org/software/ModemManager/ModemManager-1.6.12.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/ModemManager/ModemManager-1.6.12.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/ModemManager/ModemManager-1.6.12.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/ModemManager/ModemManager-1.6.12.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/ModemManager/ModemManager-1.6.12.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/ModemManager/ModemManager-1.6.12.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/ModemManager/ModemManager-1.6.12.tar.xz
+wget -nc https://www.freedesktop.org/software/ModemManager/ModemManager-1.8.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/ModemManager/ModemManager-1.8.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/ModemManager/ModemManager-1.8.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/ModemManager/ModemManager-1.8.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/ModemManager/ModemManager-1.8.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/ModemManager/ModemManager-1.8.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/ModemManager/ModemManager-1.8.2.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -46,7 +46,8 @@ whoami > /tmp/currentuser
             --sysconfdir=/etc             \
             --localstatedir=/var          \
             --enable-more-warnings=no     \
-            --with-suspend-resume=systemd \
+            --with-systemd-journal        \
+            --with-systemd-suspend-resume \
             --disable-static &&
 make "-j`nproc`" || make
 

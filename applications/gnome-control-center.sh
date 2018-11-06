@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The GNOME Control Center packagebr3ak contains the GNOME settingsbr3ak manager.br3ak"
 SECTION="gnome"
-VERSION=3.28.0
+VERSION=3.28.2
 NAME="gnome-control-center"
 
 #REQ:accountsservice
@@ -37,11 +37,11 @@ NAME="gnome-control-center"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.28/gnome-control-center-3.28.0.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.28/gnome-control-center-3.28.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.28/gnome-control-center-3.28.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gnome-control-center/gnome-control-center-3.28.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gnome-control-center/gnome-control-center-3.28.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnome-control-center/gnome-control-center-3.28.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnome-control-center/gnome-control-center-3.28.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gnome-control-center/gnome-control-center-3.28.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gnome-control-center/gnome-control-center-3.28.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.28/gnome-control-center-3.28.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.28/gnome-control-center-3.28.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gnome-control-center/gnome-control-center-3.28.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gnome-control-center/gnome-control-center-3.28.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnome-control-center/gnome-control-center-3.28.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnome-control-center/gnome-control-center-3.28.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gnome-control-center/gnome-control-center-3.28.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gnome-control-center/gnome-control-center-3.28.2.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.28/gnome-control-center-3.28.2.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -59,7 +59,7 @@ whoami > /tmp/currentuser
 sed -i '/ln -s/s/s /sf /' panels/user-accounts/meson.build &&
 mkdir build &&
 cd    build &&
-meson --prefix=/usr &&
+meson --prefix=/usr .. &&
 ninja
 
 

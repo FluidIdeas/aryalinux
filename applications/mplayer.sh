@@ -60,6 +60,7 @@ URL=http://www.mplayerhq.hu/MPlayer/releases/MPlayer-1.3.0.tar.xz
 if [ ! -z $URL ]
 then
 wget -nc http://www.mplayerhq.hu/MPlayer/releases/MPlayer-1.3.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/MPlayer/MPlayer-1.3.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/MPlayer/MPlayer-1.3.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/MPlayer/MPlayer-1.3.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/MPlayer/MPlayer-1.3.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/MPlayer/MPlayer-1.3.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/MPlayer/MPlayer-1.3.0.tar.xz || wget -nc ftp://ftp.mplayerhq.hu/MPlayer/releases/MPlayer-1.3.0.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/MPlayer-1.3.0-x264_fix-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/MPlayer/MPlayer-1.3.0-x264_fix-1.patch
 wget -nc https://www.mplayerhq.hu/MPlayer/skins/Clearlooks-2.0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/clearlooks/Clearlooks-2.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/clearlooks/Clearlooks-2.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/clearlooks/Clearlooks-2.0.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/clearlooks/Clearlooks-2.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/clearlooks/Clearlooks-2.0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/clearlooks/Clearlooks-2.0.tar.bz2 || wget -nc ftp://ftp.mplayerhq.hu/MPlayer/skins/Clearlooks-2.0.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
@@ -75,6 +76,7 @@ fi
 
 whoami > /tmp/currentuser
 
+patch -Np0 -i ../MPlayer-1.3.0-x264_fix-1.patch &&
 ./configure --prefix=/usr            \
             --confdir=/etc/mplayer   \
             --enable-dynamic-plugins \

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The OpenSSH package containsbr3ak <span class=\"command\"><strong>ssh</strong> clients and thebr3ak <span class=\"command\"><strong>sshd</strong> daemon. This isbr3ak useful for encrypting authentication and subsequent traffic over abr3ak network. The <span class=\"command\"><strong>ssh</strong> andbr3ak <span class=\"command\"><strong>scp</strong> commands arebr3ak secure implementations of <span class=\"command\"><strong>telnet</strong> and <span class=\"command\"><strong>rcp</strong> respectively.br3ak"
 SECTION="postlfs"
-VERSION=7.7p1
+VERSION=7.9p1
 NAME="openssh"
 
 #OPT:linux-pam
@@ -22,12 +22,11 @@ NAME="openssh"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.7p1.tar.gz
+URL=http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.9p1.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.7p1.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/openssh/openssh-7.7p1.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/openssh/openssh-7.7p1.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/openssh/openssh-7.7p1.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/openssh/openssh-7.7p1.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/openssh/openssh-7.7p1.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/openssh/openssh-7.7p1.tar.gz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/openssh-7.7p1-openssl-1.1.0-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/openssh/openssh-7.7p1-openssl-1.1.0-1.patch
+wget -nc http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.9p1.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/openssh/openssh-7.9p1.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/openssh/openssh-7.9p1.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/openssh/openssh-7.9p1.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/openssh/openssh-7.9p1.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/openssh/openssh-7.9p1.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/openssh/openssh-7.9p1.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -59,7 +58,6 @@ sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
 
 
-patch -Np1 -i ../openssh-7.7p1-openssl-1.1.0-1.patch &&
 ./configure --prefix=/usr                     \
             --sysconfdir=/etc/ssh             \
             --with-md5-passwords              \
@@ -73,9 +71,9 @@ make install &&
 install -v -m755    contrib/ssh-copy-id /usr/bin     &&
 install -v -m644    contrib/ssh-copy-id.1 \
                     /usr/share/man/man1              &&
-install -v -m755 -d /usr/share/doc/openssh-7.7p1     &&
+install -v -m755 -d /usr/share/doc/openssh-7.9p1     &&
 install -v -m644    INSTALL LICENCE OVERVIEW README* \
-                    /usr/share/doc/openssh-7.7p1
+                    /usr/share/doc/openssh-7.9p1
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

@@ -9,12 +9,11 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Evolution Data Server packagebr3ak provides a unified backend for programs that work with contacts,br3ak tasks, and calendar information. It was originally developed forbr3ak Evolution (hence the name), but isbr3ak now used by other packages as well.br3ak"
 SECTION="gnome"
-VERSION=3.28.0
+VERSION=3.28.5
 NAME="evolution-data-server"
 
 #REQ:db
 #REQ:gcr
-#REQ:libgdata
 #REQ:libical
 #REQ:libsecret
 #REQ:nss
@@ -34,12 +33,11 @@ NAME="evolution-data-server"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.28/evolution-data-server-3.28.0.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.28/evolution-data-server-3.28.5.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.28/evolution-data-server-3.28.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/evolution-data-server/evolution-data-server-3.28.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/evolution-data-server/evolution-data-server-3.28.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/evolution-data-server/evolution-data-server-3.28.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/evolution-data-server/evolution-data-server-3.28.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/evolution-data-server/evolution-data-server-3.28.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/evolution-data-server/evolution-data-server-3.28.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.28/evolution-data-server-3.28.0.tar.xz
-wget -nc https://raw.githubusercontent.com/FluidIdeas/patches/1.0/evolution-data-server-3.28.0-icu.patch
+wget -nc http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.28/evolution-data-server-3.28.5.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/evolution-data-server/evolution-data-server-3.28.5.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/evolution-data-server/evolution-data-server-3.28.5.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/evolution-data-server/evolution-data-server-3.28.5.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/evolution-data-server/evolution-data-server-3.28.5.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/evolution-data-server/evolution-data-server-3.28.5.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/evolution-data-server/evolution-data-server-3.28.5.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.28/evolution-data-server-3.28.5.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -53,8 +51,6 @@ cd $DIRECTORY
 fi
 
 whoami > /tmp/currentuser
-
-patch -Np1 -i ../evolution-data-server-3.28.0-icu.patch
 
 mkdir build &&
 cd    build &&

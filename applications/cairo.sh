@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Cairo is a 2D graphics librarybr3ak with support for multiple output devices. Currently supportedbr3ak output targets include the Xbr3ak Window System, win32, image buffers, PostScript, PDF and SVG.br3ak Experimental backends include OpenGL, Quartz and XCB file output.br3ak Cairo is designed to producebr3ak consistent output on all output media while taking advantage ofbr3ak display hardware acceleration when available (e.g., through the Xbr3ak Render Extension). The Cairo APIbr3ak provides operations similar to the drawing operators of PostScriptbr3ak and PDF. Operations in Cairobr3ak include stroking and filling cubic B�zier splines, transforming andbr3ak compositing translucent images, and antialiased text rendering. Allbr3ak drawing operations can be transformed by any <a class=\"ulink\" href=\"http://en.wikipedia.org/wiki/Affine_transformation\">affinebr3ak transformation</a> (scale, rotation, shear, etc.).br3ak"
 SECTION="x"
-VERSION=1.14.12
+VERSION=1.16.0
 NAME="cairo"
 
 #REQ:libpng
@@ -32,11 +32,11 @@ NAME="cairo"
 
 cd $SOURCE_DIR
 
-URL=https://www.cairographics.org/releases/cairo-1.14.12.tar.xz
+URL=https://www.cairographics.org/releases/cairo-1.16.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://www.cairographics.org/releases/cairo-1.14.12.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/cairo/cairo-1.14.12.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/cairo/cairo-1.14.12.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/cairo/cairo-1.14.12.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/cairo/cairo-1.14.12.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/cairo/cairo-1.14.12.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/cairo/cairo-1.14.12.tar.xz
+wget -nc https://www.cairographics.org/releases/cairo-1.16.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/cairo/cairo-1.16.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/cairo/cairo-1.16.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/cairo/cairo-1.16.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/cairo/cairo-1.16.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/cairo/cairo-1.16.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/cairo/cairo-1.16.0.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

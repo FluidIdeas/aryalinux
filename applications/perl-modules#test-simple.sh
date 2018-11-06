@@ -8,8 +8,8 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/E/EX/EXODIST/Test-Simple-1.302136.tar.gz"
-VERSION=1.302136
+URL="https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302138.tar.gz"
+VERSION=1.302138
 NAME="perl-modules#test-simple"
 
 cd $SOURCE_DIR

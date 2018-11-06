@@ -9,11 +9,12 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The librsvg package contains abr3ak library and tools used to manipulate, convert and view Scalablebr3ak Vector Graphic (SVG) images.br3ak"
 SECTION="general"
-VERSION=2.42.2
+VERSION=2.44.8
 NAME="librsvg"
 
 #REQ:gdk-pixbuf
 #REQ:libcroco
+#REQ:cairo
 #REQ:pango
 #REQ:rust
 #REC:gobject-introspection
@@ -24,11 +25,11 @@ NAME="librsvg"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/librsvg/2.42/librsvg-2.42.2.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.8.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.gnome.org/pub/gnome/sources/librsvg/2.42/librsvg-2.42.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/librsvg/librsvg-2.42.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/librsvg/librsvg-2.42.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/librsvg/librsvg-2.42.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/librsvg/librsvg-2.42.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/librsvg/librsvg-2.42.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/librsvg/librsvg-2.42.2.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/librsvg/2.42/librsvg-2.42.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.8.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/librsvg/librsvg-2.44.8.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/librsvg/librsvg-2.44.8.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/librsvg/librsvg-2.44.8.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/librsvg/librsvg-2.44.8.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/librsvg/librsvg-2.44.8.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/librsvg/librsvg-2.44.8.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.8.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

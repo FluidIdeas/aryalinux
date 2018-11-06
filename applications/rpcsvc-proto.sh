@@ -7,7 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 SOURCE_ONLY=n
-DESCRIPTION="br3ak The rpcsvc-proto package containsbr3ak the rcpsvc protocol.x files and headers, formerly included withbr3ak GlibC, that are not included in replacement <a class=\"xref\" href=\"libtirpc.html\" title=\"libtirpc-1.0.3\">libtirpc-1.0.3</a>, alongbr3ak with the rpcgen program.br3ak"
+DESCRIPTION="br3ak The rpcsvc-proto package containsbr3ak the rcpsvc protocol.x files and headers, formerly included withbr3ak glibc, that are not included in replacement <a class=\"xref\" href=\"libtirpc.html\" title=\"libtirpc-1.1.4\">libtirpc-1.1.4</a>, alongbr3ak with the rpcgen program.br3ak"
 SECTION="basicnet"
 VERSION=1.4
 NAME="rpcsvc-proto"
@@ -16,11 +16,11 @@ NAME="rpcsvc-proto"
 
 cd $SOURCE_DIR
 
-URL=https://github.com/thkukuk/rpcsvc-proto/archive/v1.4/rpcsvc-proto-1.4.tar.gz
+URL=https://github.com/thkukuk/rpcsvc-proto/releases/download/v1.4/rpcsvc-proto-1.4.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://github.com/thkukuk/rpcsvc-proto/archive/v1.4/rpcsvc-proto-1.4.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/rpcsvc-proto/rpcsvc-proto-1.4.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/rpcsvc-proto/rpcsvc-proto-1.4.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/rpcsvc-proto/rpcsvc-proto-1.4.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/rpcsvc-proto/rpcsvc-proto-1.4.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/rpcsvc-proto/rpcsvc-proto-1.4.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/rpcsvc-proto/rpcsvc-proto-1.4.tar.gz
+wget -nc https://github.com/thkukuk/rpcsvc-proto/releases/download/v1.4/rpcsvc-proto-1.4.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/rpcsvc-proto/rpcsvc-proto-1.4.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/rpcsvc-proto/rpcsvc-proto-1.4.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/rpcsvc-proto/rpcsvc-proto-1.4.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/rpcsvc-proto/rpcsvc-proto-1.4.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/rpcsvc-proto/rpcsvc-proto-1.4.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/rpcsvc-proto/rpcsvc-proto-1.4.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

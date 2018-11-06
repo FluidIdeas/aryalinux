@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The libxcb package provides anbr3ak interface to the X Window System protocol, which replaces thebr3ak current Xlib interface. Xlib can also use XCB as a transport layer,br3ak allowing software to make requests and receive responses with both.br3ak"
 SECTION="x"
-VERSION=1.13
+VERSION=1.13.1
 NAME="libxcb"
 
 #REQ:libXau
@@ -21,11 +21,11 @@ NAME="libxcb"
 
 cd $SOURCE_DIR
 
-URL=https://xcb.freedesktop.org/dist/libxcb-1.13.tar.bz2
+URL=https://xcb.freedesktop.org/dist/libxcb-1.13.1.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc https://xcb.freedesktop.org/dist/libxcb-1.13.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libxcb/libxcb-1.13.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libxcb/libxcb-1.13.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libxcb/libxcb-1.13.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libxcb/libxcb-1.13.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libxcb/libxcb-1.13.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libxcb/libxcb-1.13.tar.bz2
+wget -nc https://xcb.freedesktop.org/dist/libxcb-1.13.1.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libxcb/libxcb-1.13.1.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libxcb/libxcb-1.13.1.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libxcb/libxcb-1.13.1.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libxcb/libxcb-1.13.1.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libxcb/libxcb-1.13.1.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libxcb/libxcb-1.13.1.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -46,7 +46,7 @@ export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disab
 sed -i "s/pthread-stubs//" configure &&
 ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static      \
             --without-doxygen \
-            --docdir='${datadir}'/doc/libxcb-1.13 &&
+            --docdir='${datadir}'/doc/libxcb-1.13.1 &&
 make "-j`nproc`" || make
 
 

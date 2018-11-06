@@ -12,6 +12,7 @@ SECTION="general"
 VERSION=4.13
 NAME="libtasn1"
 
+#REQ:python-modules#six
 #OPT:gtk-doc
 #OPT:valgrind
 

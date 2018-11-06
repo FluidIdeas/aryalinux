@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="%DESCRIPTION%"
 SECTION="general"
-VERSION=3.12
+VERSION=3.13
 NAME="python-modules#PyYAML"
 
 #REQ:yaml
@@ -18,11 +18,11 @@ NAME="python-modules#PyYAML"
 
 cd $SOURCE_DIR
 
-URL=http://pyyaml.org/download/pyyaml/PyYAML-3.12.tar.gz
+URL=http://pyyaml.org/download/pyyaml/PyYAML-3.13.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://pyyaml.org/download/pyyaml/PyYAML-3.12.tar.gz
+wget -nc http://pyyaml.org/download/pyyaml/PyYAML-3.13.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

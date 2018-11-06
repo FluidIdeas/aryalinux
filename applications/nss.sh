@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Network Security Services (NSS) package is a set of libraries designed tobr3ak support cross-platform development of security-enabled client andbr3ak server applications. Applications built with NSS can support SSL v2br3ak and v3, TLS, PKCS #5, PKCS #7, PKCS #11, PKCS #12, S/MIME, X.509 v3br3ak certificates, and other security standards. This is useful forbr3ak implementing SSL and S/MIME or other Internet security standardsbr3ak into an application.br3ak"
 SECTION="postlfs"
-VERSION=3.37.3
+VERSION=3.39
 NAME="nss"
 
 #REQ:nspr
@@ -19,12 +19,12 @@ NAME="nss"
 
 cd $SOURCE_DIR
 
-URL=https://archive.mozilla.org/pub/security/nss/releases/NSS_3_37_3_RTM/src/nss-3.37.3.tar.gz
+URL=https://archive.mozilla.org/pub/security/nss/releases/NSS_3_39_RTM/src/nss-3.39.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://archive.mozilla.org/pub/security/nss/releases/NSS_3_37_3_RTM/src/nss-3.37.3.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/nss/nss-3.37.3.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/nss/nss-3.37.3.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/nss/nss-3.37.3.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/nss/nss-3.37.3.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/nss/nss-3.37.3.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/nss/nss-3.37.3.tar.gz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/nss-3.37.3-standalone-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/nss/nss-3.37.3-standalone-1.patch
+wget -nc https://archive.mozilla.org/pub/security/nss/releases/NSS_3_39_RTM/src/nss-3.39.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/nss/nss-3.39.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/nss/nss-3.39.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/nss/nss-3.39.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/nss/nss-3.39.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/nss/nss-3.39.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/nss/nss-3.39.tar.gz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/nss-3.39-standalone-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/nss/nss-3.39-standalone-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -39,7 +39,7 @@ fi
 
 whoami > /tmp/currentuser
 
-patch -Np1 -i ../nss-3.37.3-standalone-1.patch &&
+patch -Np1 -i ../nss-3.39-standalone-1.patch &&
 cd nss &&
 make -j1 BUILD_OPT=1                  \
   NSPR_INCLUDE_DIR=/usr/include/nspr  \

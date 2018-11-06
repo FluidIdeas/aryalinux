@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The LXTerminal package contains abr3ak VTE-based terminal emulator for LXDE with support for multiple tabs.br3ak"
 SECTION="lxde"
-VERSION=0.3.1
+VERSION=0.3.2
 NAME="lxterminal"
 
 #REQ:vte2
@@ -20,11 +20,11 @@ NAME="lxterminal"
 
 cd $SOURCE_DIR
 
-URL=https://downloads.sourceforge.net/lxde/lxterminal-0.3.1.tar.xz
+URL=https://downloads.sourceforge.net/lxde/lxterminal-0.3.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://downloads.sourceforge.net/lxde/lxterminal-0.3.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/lxterminal/lxterminal-0.3.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/lxterminal/lxterminal-0.3.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/lxterminal/lxterminal-0.3.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/lxterminal/lxterminal-0.3.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/lxterminal/lxterminal-0.3.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/lxterminal/lxterminal-0.3.1.tar.xz
+wget -nc https://downloads.sourceforge.net/lxde/lxterminal-0.3.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/lxterminal/lxterminal-0.3.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/lxterminal/lxterminal-0.3.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/lxterminal/lxterminal-0.3.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/lxterminal/lxterminal-0.3.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/lxterminal/lxterminal-0.3.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/lxterminal/lxterminal-0.3.2.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -39,7 +39,6 @@ fi
 
 whoami > /tmp/currentuser
 
-sed -ri '/^ +init/s/init/return init/' src/unixsocket.c &&
 ./configure --prefix=/usr &&
 make "-j`nproc`" || make
 

@@ -18,11 +18,12 @@ NAME="junit"
 
 cd $SOURCE_DIR
 
-URL=https://github.com/junit-team/junit4/archive/r4.12/junit-4.12.tar.gz
+URL=https://github.com/junit-team/junit4/archive/r4.12/junit4-r4.12.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://github.com/junit-team/junit4/archive/r4.12/junit-4.12.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/junit/junit-4.12.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/junit/junit-4.12.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/junit/junit-4.12.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/junit/junit-4.12.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/junit/junit-4.12.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/junit/junit-4.12.tar.gz
+wget -nc https://github.com/junit-team/junit4/archive/r4.12/junit4-r4.12.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/junit/junit4-r4.12.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/junit/junit4-r4.12.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/junit/junit4-r4.12.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/junit/junit4-r4.12.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/junit/junit4-r4.12.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/junit/junit4-r4.12.tar.gz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/junit4-r4.12-simplify_NoExitSecurityManager-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/junit/junit4-r4.12-simplify_NoExitSecurityManager-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -39,6 +40,9 @@ whoami > /tmp/currentuser
 
 sed -e '/MethodsSorted/i    @Ignore' \
     -i src/test/java/org/junit/runners/model/TestClassTest.java
+
+
+patch -Np1 -i ../junit4-r4.12-simplify_NoExitSecurityManager-1.patch
 
 
 mvn -DjdkVersion=1.6 install

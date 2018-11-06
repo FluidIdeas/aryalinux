@@ -9,12 +9,12 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The GPGME package is a C librarybr3ak that allows cryptography support to be added to a program. It isbr3ak designed to make access to public key crypto engines likebr3ak GnuPG or GpgSM easier forbr3ak applications. GPGME provides abr3ak high-level crypto API for encryption, decryption, signing,br3ak signature verification and key management.br3ak"
 SECTION="postlfs"
-VERSION=1.11.1
+VERSION=1.12.0
 NAME="gpgme"
 
 #REQ:libassuan
 #OPT:doxygen
-#REQ:gnupg
+#OPT:gnupg
 #OPT:clisp
 #OPT:python2
 #OPT:qt5
@@ -23,11 +23,11 @@ NAME="gpgme"
 
 cd $SOURCE_DIR
 
-URL=https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.11.1.tar.bz2
+URL=https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.12.0.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.11.1.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gpgme/gpgme-1.11.1.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gpgme/gpgme-1.11.1.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gpgme/gpgme-1.11.1.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gpgme/gpgme-1.11.1.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gpgme/gpgme-1.11.1.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gpgme/gpgme-1.11.1.tar.bz2
+wget -nc https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.12.0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gpgme/gpgme-1.12.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gpgme/gpgme-1.12.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gpgme/gpgme-1.12.0.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gpgme/gpgme-1.12.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gpgme/gpgme-1.12.0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gpgme/gpgme-1.12.0.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -42,8 +42,8 @@ fi
 
 whoami > /tmp/currentuser
 
-./configure --prefix=/usr --disable-gpg-test --disable-gpgconf-test --disable-gpgsm-test --disable-g13-test &&
-make
+./configure --prefix=/usr --disable-gpg-test &&
+make "-j`nproc`" || make
 
 
 

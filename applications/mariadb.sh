@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak MariaDB is a community-developedbr3ak fork and a drop-in replacement for the MySQL relational database management system.br3ak"
 SECTION="server"
-VERSION=10.3.7
+VERSION=10.3.10
 NAME="mariadb"
 
 #REQ:cmake
@@ -26,11 +26,11 @@ NAME="mariadb"
 
 cd $SOURCE_DIR
 
-URL=https://downloads.mariadb.org/interstitial/mariadb-10.3.7/source/mariadb-10.3.7.tar.gz
+URL=https://downloads.mariadb.org/interstitial/mariadb-10.3.10/source/mariadb-10.3.10.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://downloads.mariadb.org/interstitial/mariadb-10.3.7/source/mariadb-10.3.7.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/mariadb/mariadb-10.3.7.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/mariadb/mariadb-10.3.7.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/mariadb/mariadb-10.3.7.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/mariadb/mariadb-10.3.7.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/mariadb/mariadb-10.3.7.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/mariadb/mariadb-10.3.7.tar.gz || wget -nc ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.3.7/source/mariadb-10.3.7.tar.gz
+wget -nc https://downloads.mariadb.org/interstitial/mariadb-10.3.10/source/mariadb-10.3.10.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/mariadb/mariadb-10.3.10.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/mariadb/mariadb-10.3.10.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/mariadb/mariadb-10.3.10.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/mariadb/mariadb-10.3.10.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/mariadb/mariadb-10.3.10.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/mariadb/mariadb-10.3.10.tar.gz || wget -nc ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.3.10/source/mariadb-10.3.10.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -61,8 +61,8 @@ mkdir build &&
 cd build    &&
 cmake -DCMAKE_BUILD_TYPE=Release                      \
       -DCMAKE_INSTALL_PREFIX=/usr                     \
-      -DINSTALL_DOCDIR=share/doc/mariadb-10.3.7       \
-      -DINSTALL_DOCREADMEDIR=share/doc/mariadb-10.3.7 \
+      -DINSTALL_DOCDIR=share/doc/mariadb-10.3.10       \
+      -DINSTALL_DOCREADMEDIR=share/doc/mariadb-10.3.10 \
       -DINSTALL_MANDIR=share/man                      \
       -DINSTALL_MYSQLSHAREDIR=share/mysql             \
       -DINSTALL_MYSQLTESTDIR=share/mysql/test         \

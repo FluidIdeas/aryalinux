@@ -9,7 +9,7 @@ set +h
 #REQ:perl-modules#socket6
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz"
+URL="https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/IO-Socket-INET6-2.72.tar.gz"
 VERSION=2.72
 NAME="perl-modules#io-socket-inet6"
 

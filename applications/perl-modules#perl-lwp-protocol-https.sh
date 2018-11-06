@@ -6,13 +6,10 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:perl-modules#perl-lwp
-#REQ:perl-modules#io-socket-ssl
-#REQ:perl-modules#mozilla-ca
 
 SOURCE_ONLY=y
-URL="https://www.cpan.org/authors/id/M/MS/MSCHILLI/LWP-Protocol-https-6.06.tar.gz"
-VERSION=6.06
+URL="http://www.linuxfromscratch.org/patches/blfs/svn/LWP-Protocol-https-6.07-system_certs-1.patch"
+VERSION=1
 NAME="perl-modules#perl-lwp-protocol-https"
 
 cd $SOURCE_DIR

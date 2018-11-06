@@ -13,6 +13,7 @@ VERSION=2.0.5
 NAME="libidn2"
 
 #REQ:libunistring
+#OPT:git
 #OPT:gtk-doc
 
 

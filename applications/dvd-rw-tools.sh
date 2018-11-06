@@ -35,6 +35,7 @@ fi
 
 whoami > /tmp/currentuser
 
+sed -i '/stat.h/a #include <sys/sysmacros.h>/' growisofs.c &&
 sed -i '/stdlib/a #include <limits.h>' transport.hxx &&
 make all rpl8 btcflash
 

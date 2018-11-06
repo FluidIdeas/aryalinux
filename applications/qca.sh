@@ -49,10 +49,24 @@ fi
 
 whoami > /tmp/currentuser
 
+export QT4PREFIX="/opt/qt4"
+export QT4BINDIR="$QT4PREFIX/bin"
+export QT4DIR="$QT4PREFIX"
+export QTDIR="$QT4PREFIX"
+export PATH="$PATH:$QT4BINDIR"
+export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/opt/qt4/lib/pkgconfig"
 sed -i 's@ca-bundle.pem@ca-bundle.crt@' CMakeLists.txt
+
+
+export QT4PREFIX="/opt/qt4"
+export QT4BINDIR="$QT4PREFIX/bin"
+export QT4DIR="$QT4PREFIX"
+export QTDIR="$QT4PREFIX"
+export PATH="$PATH:$QT4BINDIR"
+export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/opt/qt4/lib/pkgconfig"
 mkdir build &&
 cd    build &&
-cmake -DCMAKE_INSTALL_PREFIX=/usr                             \
+cmake -DCMAKE_INSTALL_PREFIX=/opt/qt5                             \
       -DCMAKE_BUILD_TYPE=Release                                 \
       -DQCA_MAN_INSTALL_DIR:PATH=/usr/share/man                  \
       -DOPENSSL_INCLUDE_DIR=/usr/include/openssl-1.0             \
@@ -60,7 +74,23 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr                             \
       -DOPENSSL_CRYPTO_LIBRARY=/usr/lib/openssl-1.0/libcrypto.so \
       ..                                                         &&
 make "-j`nproc`" || make
-sudo make install
+
+
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+export QT4PREFIX="/opt/qt4"
+export QT4BINDIR="$QT4PREFIX/bin"
+export QT4DIR="$QT4PREFIX"
+export QTDIR="$QT4PREFIX"
+export PATH="$PATH:$QT4BINDIR"
+export PKG_CONFIG_PATH="/usr/lib/pkgconfig:/opt/qt4/lib/pkgconfig"
+make install
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
 
 
 

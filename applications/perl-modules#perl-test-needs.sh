@@ -8,7 +8,7 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org//CPAN/authors/id/H/HA/HAARG/Test-Needs-0.002005.tar.gz"
+URL="https://cpan.metacpan.org/authors/id/H/HA/HAARG/Test-Needs-0.002005.tar.gz"
 VERSION=0.002005
 NAME="perl-modules#perl-test-needs"
 

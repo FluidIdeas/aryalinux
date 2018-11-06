@@ -34,6 +34,7 @@ then
 wget -nc http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/readline/readline-6.3.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/downloads/readline/readline-6.3-upstream_fixes-3.patch
+wget -nc https://cpan.metacpan.org/authors/id/S/SR/SREZIC/Tk-804.034.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/tk/Tk-804.034.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/tk/Tk-804.034.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/tk/Tk-804.034.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/tk/Tk-804.034.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/tk/Tk-804.034.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/tk/Tk-804.034.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

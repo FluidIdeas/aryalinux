@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="%DESCRIPTION%"
 SECTION="general"
-VERSION=1.0.4
+VERSION=1.0.7
 NAME="python-modules#Mako"
 
 #REQ:python-modules#Beaker
@@ -18,11 +18,11 @@ NAME="python-modules#Mako"
 
 cd $SOURCE_DIR
 
-URL=https://files.pythonhosted.org/packages/source/M/Mako/Mako-1.0.4.tar.gz
+URL=https://files.pythonhosted.org/packages/source/M/Mako/Mako-1.0.7.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://files.pythonhosted.org/packages/source/M/Mako/Mako-1.0.4.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/M/Mako/Mako-1.0.7.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

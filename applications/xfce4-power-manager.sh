@@ -15,7 +15,6 @@ NAME="xfce4-power-manager"
 #REQ:libnotify
 #REQ:upower
 #REQ:xfce4-panel
-#OPT:udisks
 
 
 cd $SOURCE_DIR

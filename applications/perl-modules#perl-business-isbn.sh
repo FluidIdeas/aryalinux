@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:perl-modules#business-isbn-data
-#REQ:perl-modules#mojolicious
 
 SOURCE_ONLY=y
 URL="https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISBN-3.004.tar.gz"

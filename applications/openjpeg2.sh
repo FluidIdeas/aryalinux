@@ -26,6 +26,7 @@ URL=https://github.com/uclouvain/openjpeg/archive/v2.3.0/openjpeg-2.3.0.tar.gz
 if [ ! -z $URL ]
 then
 wget -nc https://github.com/uclouvain/openjpeg/archive/v2.3.0/openjpeg-2.3.0.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/openjpeg/openjpeg-2.3.0.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/openjpeg/openjpeg-2.3.0.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/openjpeg/openjpeg-2.3.0.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/openjpeg/openjpeg-2.3.0.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/openjpeg/openjpeg-2.3.0.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/openjpeg/openjpeg-2.3.0.tar.gz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/openjpeg-2.3.0-only_shared-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/openjpeg/openjpeg-2.3.0-only_shared-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -40,9 +41,12 @@ fi
 
 whoami > /tmp/currentuser
 
+patch -Np1 -i ../openjpeg-2.3.0-only_shared-1.patch &&
 mkdir -v build &&
 cd       build &&
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr .. &&
+cmake -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_INSTALL_PREFIX=/usr \
+      -DBUILD_STATIC_LIBS=OFF .. &&
 make "-j`nproc`" || make
 
 

@@ -8,7 +8,7 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/E/EX/EXODIST/Importer-0.025.tar.gz"
+URL="https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Importer-0.025.tar.gz"
 VERSION=0.025
 NAME="perl-modules#importer"
 

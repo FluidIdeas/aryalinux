@@ -7,9 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:perl-modules#perl-xml-sax
-#REQ:perl-modules#xml-sax-expat
-#REQ:perl-modules#perl-xml-libxml
-#REQ:perl-modules#tie-ixhash
 
 SOURCE_ONLY=y
 URL="https://www.cpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.25.tar.gz"

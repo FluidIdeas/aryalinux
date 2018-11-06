@@ -9,23 +9,23 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Rust programming language isbr3ak designed to be a safe, concurrent, practical language.br3ak"
 SECTION="general"
-VERSION=1.25.0
+VERSION=1.29.2
 NAME="rust"
 
 #REQ:curl
 #REQ:cmake
-#REQ:python2
+#REQ:libssh2
 #REC:llvm
 #OPT:gdb
 
 
 cd $SOURCE_DIR
 
-URL=https://static.rust-lang.org/dist/rustc-1.25.0-src.tar.gz
+URL=https://static.rust-lang.org/dist/rustc-1.29.2-src.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://static.rust-lang.org/dist/rustc-1.25.0-src.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/rustc/rustc-1.25.0-src.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/rustc/rustc-1.25.0-src.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/rustc/rustc-1.25.0-src.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/rustc/rustc-1.25.0-src.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/rustc/rustc-1.25.0-src.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/rustc/rustc-1.25.0-src.tar.gz
+wget -nc https://static.rust-lang.org/dist/rustc-1.29.2-src.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/rustc/rustc-1.29.2-src.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/rustc/rustc-1.29.2-src.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/rustc/rustc-1.29.2-src.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/rustc/rustc-1.29.2-src.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/rustc/rustc-1.29.2-src.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/rustc/rustc-1.29.2-src.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -40,7 +40,7 @@ fi
 
 whoami > /tmp/currentuser
 
-cat <<EOF > config.toml
+cat << EOF > config.toml
 # see config.toml.example for more possible options
 [llvm]
 targets = "X86"
@@ -51,12 +51,10 @@ link-shared = true
 extended = true
 [install]
 prefix = "/usr"
-docdir = "share/doc/rustc-1.25.0"
+docdir = "share/doc/rustc-1.29.2"
 [rust]
 channel = "stable"
 rpath = false
-# get reasonably clean output from the test harness
-quiet-tests = true
 # BLFS does not install the FileCheck executable from llvm,
 # so disable codegen tests
 codegen-tests = false
@@ -69,10 +67,13 @@ EOF
 
 
 export RUSTFLAGS="$RUSTFLAGS -C link-args=-lffi" &&
-./x.py build
+python3 ./x.py build
 
 
-DESTDIR=${PWD}/install ./x.py install
+export LIBSSH2_SYS_USE_PKG_CONFIG=1 &&
+DESTDIR=${PWD}/install python3 ./x.py install &&
+unset LIBSSH2_SYS_USE_PKG_CONFIG
+
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"

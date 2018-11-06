@@ -40,9 +40,6 @@ fi
 
 whoami > /tmp/currentuser
 
-sed -i '/#SSL/,+3 s/^#//' Modules/Setup.dist
-
-
 ./configure --prefix=/usr       \
             --enable-shared     \
             --with-system-expat \

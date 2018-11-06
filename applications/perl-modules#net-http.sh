@@ -8,7 +8,7 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/O/OA/OALDERS/Net-HTTP-6.18.tar.gz"
+URL="https://cpan.metacpan.org/authors/id/O/OA/OALDERS/Net-HTTP-6.18.tar.gz"
 VERSION=6.18
 NAME="perl-modules#net-http"
 

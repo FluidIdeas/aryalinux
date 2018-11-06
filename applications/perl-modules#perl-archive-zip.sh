@@ -8,8 +8,8 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="https://www.cpan.org/authors/id/P/PH/PHRED/Archive-Zip-1.60.tar.gz"
-VERSION=1.60
+URL="https://www.cpan.org/authors/id/P/PH/PHRED/Archive-Zip-1.63.tar.gz"
+VERSION=1.63
 NAME="perl-modules#perl-archive-zip"
 
 cd $SOURCE_DIR

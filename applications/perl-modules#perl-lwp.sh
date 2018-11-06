@@ -12,14 +12,14 @@ set +h
 #REQ:perl-modules#http-negotiate
 #REQ:perl-modules#net-http
 #REQ:perl-modules#www-robotrules
-#REQ:perl-modules#http-daemon
+#REQ:perl-modules#perl-http-daemon
 #REQ:perl-modules#file-listing
 #REQ:perl-modules#test-requiresinternet
 #REQ:perl-modules#perl-test-fatal
 
 SOURCE_ONLY=y
-URL="https://www.cpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.33.tar.gz"
-VERSION=6.33
+URL="https://www.cpan.org/authors/id/E/ET/ETHER/libwww-perl-6.35.tar.gz"
+VERSION=6.35
 NAME="perl-modules#perl-lwp"
 
 cd $SOURCE_DIR

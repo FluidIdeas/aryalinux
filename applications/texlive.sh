@@ -38,7 +38,8 @@ if [ ! -z $URL ]
 then
 wget -nc ftp://tug.org/texlive/historic/2018/texlive-20180414-source.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/texlive/texlive-20180414-source.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/texlive/texlive-20180414-source.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/texlive/texlive-20180414-source.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/texlive/texlive-20180414-source.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/texlive/texlive-20180414-source.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/texlive/texlive-20180414-source.tar.xz
 wget -nc ftp://tug.org/texlive/historic/2018/texlive-20180414-texmf.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/texlive/texlive-20180414-texmf.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/texlive/texlive-20180414-texmf.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/texlive/texlive-20180414-texmf.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/texlive/texlive-20180414-texmf.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/texlive/texlive-20180414-texmf.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/texlive/texlive-20180414-texmf.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/texlive-20180414-source-upstream_fixes-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/texlive/texlive-20180414-source-upstream_fixes-1.patch
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/texlive-20180414-source-upstream_fixes-2.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/texlive/texlive-20180414-source-upstream_fixes-2.patch
+wget -nc https://cpan.metacpan.org/authors/id/S/SR/SREZIC/Tk-804.034.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/tk/Tk-804.034.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/tk/Tk-804.034.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/tk/Tk-804.034.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/tk/Tk-804.034.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/tk/Tk-804.034.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/tk/Tk-804.034.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -68,9 +69,17 @@ sudo rm rootscript.sh
 
 
 export TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/') &&
-patch -Np1 -i ../texlive-20180414-source-upstream_fixes-1.patch &&
-mv -v texk/web2c/pdftexdir/pdftoepdf{-newpoppler,}.cc &&
-mv -v texk/web2c/pdftexdir/pdftosrc{-newpoppler,}.cc  &&
+patch -Np1 -i ../texlive-20180414-source-upstream_fixes-2.patch &&
+let MYPOPPLER=$(pkg-config --modversion poppler | cut -d '.' -f2)
+mv -v texk/web2c/pdftexdir/pdftosrc{-newpoppler,}.cc
+if [ $MYPOPPLER -lt 68 ]; then
+  mv -v texk/web2c/pdftexdir/pdftoepdf{-newpoppler,}.cc
+elif [ $MYPOPPLER -lt 69 ]; then
+  mv -v texk/web2c/pdftexdir/pdftoepdf{-poppler0.68.0,}.cc
+else
+  mv -v texk/web2c/pdftexdir/pdftoepdf{-poppler0.69.0,}.cc
+fi &&
+unset MYPOPPLER &&
 mkdir texlive-build &&
 cd texlive-build    &&
 ../configure                                                    \

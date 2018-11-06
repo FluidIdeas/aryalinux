@@ -86,7 +86,7 @@ sudo rm rootscript.sh
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 /usr/sbin/make-ca -g --force &&
-ln -sfv /etc/ssl/java/cacerts.jks /opt/jdk/lib/security/cacerts
+ln -sfv /etc/ssl/java/cacerts /opt/jdk/lib/security/cacerts
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

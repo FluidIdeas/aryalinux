@@ -9,7 +9,7 @@ set +h
 #REQ:perl-modules#class-data-inheritable
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/D/DR/DROLSKY/Exception-Class-1.44.tar.gz"
+URL="https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Exception-Class-1.44.tar.gz"
 VERSION=1.44
 NAME="perl-modules#exception-class"
 

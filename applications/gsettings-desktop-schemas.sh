@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The GSettings Desktop Schemasbr3ak package contains a collection of GSettings schemas for settingsbr3ak shared by various components of a GNOME Desktop.br3ak"
 SECTION="gnome"
-VERSION=3.28.0
+VERSION=3.28.1
 NAME="gsettings-desktop-schemas"
 
 #REQ:glib2
@@ -18,11 +18,11 @@ NAME="gsettings-desktop-schemas"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/gsettings-desktop-schemas/3.28/gsettings-desktop-schemas-3.28.0.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/gsettings-desktop-schemas/3.28/gsettings-desktop-schemas-3.28.1.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gsettings-desktop-schemas/3.28/gsettings-desktop-schemas-3.28.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gsettings-desktop-schemas/gsettings-desktop-schemas-3.28.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gsettings-desktop-schemas/gsettings-desktop-schemas-3.28.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gsettings-desktop-schemas/gsettings-desktop-schemas-3.28.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gsettings-desktop-schemas/gsettings-desktop-schemas-3.28.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gsettings-desktop-schemas/gsettings-desktop-schemas-3.28.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gsettings-desktop-schemas/gsettings-desktop-schemas-3.28.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gsettings-desktop-schemas/3.28/gsettings-desktop-schemas-3.28.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gsettings-desktop-schemas/3.28/gsettings-desktop-schemas-3.28.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gsettings-desktop-schemas/gsettings-desktop-schemas-3.28.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gsettings-desktop-schemas/gsettings-desktop-schemas-3.28.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gsettings-desktop-schemas/gsettings-desktop-schemas-3.28.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gsettings-desktop-schemas/gsettings-desktop-schemas-3.28.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gsettings-desktop-schemas/gsettings-desktop-schemas-3.28.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gsettings-desktop-schemas/gsettings-desktop-schemas-3.28.1.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gsettings-desktop-schemas/3.28/gsettings-desktop-schemas-3.28.1.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

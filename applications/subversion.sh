@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Subversion is a version controlbr3ak system that is designed to be a compelling replacement forbr3ak CVS in the open source community.br3ak It extends and enhances CVS'br3ak feature set, while maintaining a similar interface for thosebr3ak already familiar with CVS. Thesebr3ak instructions install the client and server software used tobr3ak manipulate a Subversionbr3ak repository. Creation of a repository is covered at <a class=\"xref\" br3ak href=\"svnserver.html\" title=\"Running a Subversion Server\">Running abr3ak Subversion Server</a>.br3ak"
 SECTION="general"
-VERSION=1.10.0
+VERSION=1.10.3
 NAME="subversion"
 
 #REQ:apr-util
@@ -28,11 +28,11 @@ NAME="subversion"
 
 cd $SOURCE_DIR
 
-URL=https://archive.apache.org/dist/subversion/subversion-1.10.0.tar.bz2
+URL=https://archive.apache.org/dist/subversion/subversion-1.10.3.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc https://archive.apache.org/dist/subversion/subversion-1.10.0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/subversion/subversion-1.10.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/subversion/subversion-1.10.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/subversion/subversion-1.10.0.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/subversion/subversion-1.10.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/subversion/subversion-1.10.0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/subversion/subversion-1.10.0.tar.bz2
+wget -nc https://archive.apache.org/dist/subversion/subversion-1.10.3.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/subversion/subversion-1.10.3.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/subversion/subversion-1.10.3.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/subversion/subversion-1.10.3.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/subversion/subversion-1.10.3.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/subversion/subversion-1.10.3.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/subversion/subversion-1.10.3.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -58,9 +58,9 @@ make "-j`nproc`" || make
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install &&
-install -v -m755 -d /usr/share/doc/subversion-1.10.0 &&
+install -v -m755 -d /usr/share/doc/subversion-1.10.3 &&
 cp      -v -R       doc/* \
-                    /usr/share/doc/subversion-1.10.0
+                    /usr/share/doc/subversion-1.10.3
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

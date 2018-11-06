@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Evince is a document viewer forbr3ak multiple document formats. It supports PDF, Postscript, DjVu, TIFFbr3ak and DVI. It is useful for viewing documents of various types usingbr3ak one simple application instead of the multiple document viewersbr3ak that once existed on the GNOMEbr3ak Desktop.br3ak"
 SECTION="gnome"
-VERSION=3.28.0
+VERSION=3.28.2
 NAME="evince"
 
 #REQ:adwaita-icon-theme
@@ -33,11 +33,11 @@ NAME="evince"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/evince/3.28/evince-3.28.0.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/evince/3.28/evince-3.28.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.gnome.org/pub/gnome/sources/evince/3.28/evince-3.28.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/evince/evince-3.28.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/evince/evince-3.28.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/evince/evince-3.28.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/evince/evince-3.28.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/evince/evince-3.28.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/evince/evince-3.28.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evince/3.28/evince-3.28.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/evince/3.28/evince-3.28.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/evince/evince-3.28.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/evince/evince-3.28.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/evince/evince-3.28.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/evince/evince-3.28.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/evince/evince-3.28.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/evince/evince-3.28.2.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evince/3.28/evince-3.28.2.tar.xz
 wget -nc http://www.ibiblio.org/pub/Linux/libs/graphics/t1lib-5.1.2.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`

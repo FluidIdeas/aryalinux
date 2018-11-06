@@ -9,22 +9,27 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Talloc provides a hierarchical,br3ak reference counted memory pool system with destructors. It is thebr3ak core memory allocator used in Samba.br3ak"
 SECTION="general"
-VERSION=2.1.13
+VERSION=2.1.14
 NAME="talloc"
 
 #OPT:docbook
 #OPT:docbook-xsl
 #OPT:libxslt
 #OPT:python2
+#OPT:gdb
+#OPT:git
+#OPT:xfsprogs
+#OPT:libtirpc
+#OPT:valgrind
 
 
 cd $SOURCE_DIR
 
-URL=https://www.samba.org/ftp/talloc/talloc-2.1.13.tar.gz
+URL=https://www.samba.org/ftp/talloc/talloc-2.1.14.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://www.samba.org/ftp/talloc/talloc-2.1.13.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/talloc/talloc-2.1.13.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/talloc/talloc-2.1.13.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/talloc/talloc-2.1.13.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/talloc/talloc-2.1.13.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/talloc/talloc-2.1.13.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/talloc/talloc-2.1.13.tar.gz
+wget -nc https://www.samba.org/ftp/talloc/talloc-2.1.14.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/talloc/talloc-2.1.14.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/talloc/talloc-2.1.14.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/talloc/talloc-2.1.14.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/talloc/talloc-2.1.14.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/talloc/talloc-2.1.14.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/talloc/talloc-2.1.14.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

@@ -8,9 +8,7 @@ set +h
 
 #REQ:perl-modules#perl-module-implementation
 #REQ:perl-modules#list-utilsby
-#REQ:perl-modules#number-compare
 #REQ:perl-modules#perl-test-warnings
-#REQ:perl-modules#text-glob
 
 SOURCE_ONLY=y
 URL="https://www.cpan.org/authors/id/D/DR/DROLSKY/List-AllUtils-0.14.tar.gz"

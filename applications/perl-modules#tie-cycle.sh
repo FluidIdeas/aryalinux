@@ -8,7 +8,7 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/B/BD/BDFOY/Tie-Cycle-1.225.tar.gz"
+URL="https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Tie-Cycle-1.225.tar.gz"
 VERSION=1.225
 NAME="perl-modules#tie-cycle"
 

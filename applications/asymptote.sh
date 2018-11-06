@@ -9,27 +9,27 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Asymptote is a powerfulbr3ak descriptive vector graphics language that provides a naturalbr3ak coordinate-based framework for technical drawing. Labels andbr3ak equations can be typeset with LaTeX.br3ak"
 SECTION="pst"
-VERSION=2.44
+VERSION=2.47
 NAME="asymptote"
 
 #REQ:gs
 #REQ:texlive
 #REC:freeglut
 #REC:gc
+#REC:libtirpc
+#OPT:fftw
 #OPT:gsl
 #OPT:libsigsegv
-#OPT:fftw
-#OPT:python2
-#OPT:tk
+#OPT:qt5
 
 
 cd $SOURCE_DIR
 
-URL=https://downloads.sourceforge.net/asymptote/asymptote-2.44.src.tgz
+URL=https://downloads.sourceforge.net/asymptote/asymptote-2.47.src.tgz
 
 if [ ! -z $URL ]
 then
-wget -nc https://downloads.sourceforge.net/asymptote/asymptote-2.44.src.tgz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/asymptote/asymptote-2.44.src.tgz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/asymptote/asymptote-2.44.src.tgz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/asymptote/asymptote-2.44.src.tgz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/asymptote/asymptote-2.44.src.tgz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/asymptote/asymptote-2.44.src.tgz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/asymptote/asymptote-2.44.src.tgz
+wget -nc https://downloads.sourceforge.net/asymptote/asymptote-2.47.src.tgz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/asymptote/asymptote-2.47.src.tgz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/asymptote/asymptote-2.47.src.tgz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/asymptote/asymptote-2.47.src.tgz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/asymptote/asymptote-2.47.src.tgz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/asymptote/asymptote-2.47.src.tgz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/asymptote/asymptote-2.47.src.tgz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

@@ -110,9 +110,6 @@ yes | ./blfs-yes-test2 > blfs-yes-test2.log 2>&1
 find /{,usr/}{bin,lib,sbin} -type f -exec strip --strip-unneeded {} \;
 
 
-find /lib /usr/lib -not -path "*Image*" -a -name \*.la -delete
-
-
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak NetworkManager is a set ofbr3ak co-operative tools that make networking simple and straightforward.br3ak Whether WiFi, wired, 3G, or Bluetooth, NetworkManager allows you tobr3ak quickly move from one network to another: Once a network has beenbr3ak configured and joined once, it can be detected and re-joinedbr3ak automatically the next time it's available.br3ak"
 SECTION="basicnet"
-VERSION=1.10.8
+VERSION=1.12.2
 NAME="networkmanager"
 
 #REQ:dbus-glib
@@ -30,6 +30,8 @@ NAME="networkmanager"
 #REC:wpa_supplicant
 #OPT:bluez
 #OPT:gtk-doc
+#OPT:jansson
+#OPT:libpsl
 #OPT:qt5
 #OPT:ModemManager
 #OPT:valgrind
@@ -37,11 +39,11 @@ NAME="networkmanager"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.10/NetworkManager-1.10.8.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.12/NetworkManager-1.12.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.10/NetworkManager-1.10.8.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/networkmanager/NetworkManager-1.10.8.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/networkmanager/NetworkManager-1.10.8.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/networkmanager/NetworkManager-1.10.8.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/networkmanager/NetworkManager-1.10.8.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/networkmanager/NetworkManager-1.10.8.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/networkmanager/NetworkManager-1.10.8.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.10/NetworkManager-1.10.8.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.12/NetworkManager-1.12.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/networkmanager/NetworkManager-1.12.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/networkmanager/NetworkManager-1.12.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/networkmanager/NetworkManager-1.12.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/networkmanager/NetworkManager-1.12.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/networkmanager/NetworkManager-1.12.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/networkmanager/NetworkManager-1.12.2.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.12/NetworkManager-1.12.2.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -61,18 +63,20 @@ sed -e '/Qt[CDN]/s/Qt/Qt5/g'       \
     -i configure
 
 
+sed -i 's/1,12,2/1,12.2/' libnm-core/nm-version.h &&
 CXXFLAGS="-O2 -fPIC"                                        \
 ./configure --prefix=/usr                                   \
             --sysconfdir=/etc                               \
             --localstatedir=/var                            \
             --with-nmtui                                    \
+            --with-libnm-glib                               \
             --disable-ppp                                   \
             --disable-json-validation                       \
             --disable-ovs                                   \
             --with-udev-dir=/lib/udev                       \
             --with-session-tracking=systemd                 \
             --with-systemdsystemunitdir=/lib/systemd/system \
-            --docdir=/usr/share/doc/network-manager-1.10.8 &&
+            --docdir=/usr/share/doc/network-manager-1.12.2 &&
 make "-j`nproc`" || make
 
 

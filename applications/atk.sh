@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak ATK provides the set ofbr3ak accessibility interfaces that are implemented by other toolkits andbr3ak applications. Using the ATKbr3ak interfaces, accessibility tools have full access to view andbr3ak control running applications.br3ak"
 SECTION="x"
-VERSION=2.28.1
+VERSION=2.30.0
 NAME="atk"
 
 #REQ:glib2
@@ -19,11 +19,11 @@ NAME="atk"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/atk/2.28/atk-2.28.1.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/atk/2.30/atk-2.30.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.gnome.org/pub/gnome/sources/atk/2.28/atk-2.28.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/at/atk-2.28.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/at/atk-2.28.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/at/atk-2.28.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/at/atk-2.28.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/at/atk-2.28.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/at/atk-2.28.1.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/atk/2.28/atk-2.28.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/atk/2.30/atk-2.30.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/at/atk-2.30.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/at/atk-2.30.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/at/atk-2.30.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/at/atk-2.30.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/at/atk-2.30.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/at/atk-2.30.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/atk/2.30/atk-2.30.0.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

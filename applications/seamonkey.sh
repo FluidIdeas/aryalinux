@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak SeaMonkey is a browser suite, thebr3ak Open Source sibling of Netscape.br3ak It includes the browser, composer, mail and news clients, and anbr3ak IRC client. It is the follow-on to the Mozilla browser suite.br3ak"
 SECTION="xsoft"
-VERSION=2.49.3
+VERSION=2.49.4
 NAME="seamonkey"
 
 #REQ:autoconf213
@@ -40,11 +40,11 @@ NAME="seamonkey"
 
 cd $SOURCE_DIR
 
-URL=https://archive.mozilla.org/pub/seamonkey/releases/2.49.3/source/seamonkey-2.49.3.source.tar.xz
+URL=https://archive.mozilla.org/pub/seamonkey/releases/2.49.4/source/seamonkey-2.49.4.source.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://archive.mozilla.org/pub/seamonkey/releases/2.49.3/source/seamonkey-2.49.3.source.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/seamonkey/seamonkey-2.49.3.source.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/seamonkey/seamonkey-2.49.3.source.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/seamonkey/seamonkey-2.49.3.source.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/seamonkey/seamonkey-2.49.3.source.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/seamonkey/seamonkey-2.49.3.source.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/seamonkey/seamonkey-2.49.3.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/seamonkey/releases/2.49.4/source/seamonkey-2.49.4.source.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/seamonkey/seamonkey-2.49.4.source.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/seamonkey/seamonkey-2.49.4.source.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/seamonkey/seamonkey-2.49.4.source.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/seamonkey/seamonkey-2.49.4.source.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/seamonkey/seamonkey-2.49.4.source.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/seamonkey/seamonkey-2.49.4.source.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -127,7 +127,7 @@ make -f client.mk
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make  -f client.mk install INSTALL_SDK= &&
-chown -R 0:0 /usr/lib/seamonkey-2.49.3    &&
+chown -R 0:0 /usr/lib/seamonkey-2.49.4    &&
 cp -v $(find -name seamonkey.1 | head -n1) /usr/share/man/man1
 
 ENDOFROOTSCRIPT
@@ -166,7 +166,7 @@ Categories=Network;GTK;Application;Email;Browser;WebBrowser;News;
 StartupNotify=true
 Terminal=false
 EOF
-ln -sfv /usr/lib/seamonkey-2.49.3/chrome/icons/default/seamonkey.png \
+ln -sfv /usr/lib/seamonkey-2.49.4/chrome/icons/default/seamonkey.png \
         /usr/share/pixmaps
 
 ENDOFROOTSCRIPT

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Tidy HTML5 package contains abr3ak command line tool and libraries used to read HTML, XHTML and XMLbr3ak files and write cleaned up markup. It detects and corrects manybr3ak common coding errors and strives to produce visually equivalentbr3ak markup that is both W3C compliant and compatible with mostbr3ak browsers.br3ak"
 SECTION="general"
-VERSION=5.4.0
+VERSION=5.6.0
 NAME="tidy-html5"
 
 #REQ:cmake
@@ -18,11 +18,11 @@ NAME="tidy-html5"
 
 cd $SOURCE_DIR
 
-URL=https://github.com/htacg/tidy-html5/releases/download/5.4.0/tidy-html5-5.4.0.tar.gz
+URL=https://github.com/htacg/tidy-html5/archive/5.6.0/tidy-html5-5.6.0.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://github.com/htacg/tidy-html5/releases/download/5.4.0/tidy-html5-5.4.0.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/tidy/tidy-html5-5.4.0.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/tidy/tidy-html5-5.4.0.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/tidy/tidy-html5-5.4.0.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/tidy/tidy-html5-5.4.0.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/tidy/tidy-html5-5.4.0.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/tidy/tidy-html5-5.4.0.tar.gz
+wget -nc https://github.com/htacg/tidy-html5/archive/5.6.0/tidy-html5-5.6.0.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/tidy/tidy-html5-5.6.0.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/tidy/tidy-html5-5.6.0.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/tidy/tidy-html5-5.6.0.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/tidy/tidy-html5-5.6.0.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/tidy/tidy-html5-5.6.0.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/tidy/tidy-html5-5.6.0.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

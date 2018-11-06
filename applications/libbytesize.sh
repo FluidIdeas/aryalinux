@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The libbytesize package is abr3ak library facilitates the common operations with sizes in bytes.br3ak"
 SECTION="general"
-VERSION=1.3
+VERSION=1.4
 NAME="libbytesize"
 
 #REQ:pcre
@@ -20,11 +20,11 @@ NAME="libbytesize"
 
 cd $SOURCE_DIR
 
-URL=https://github.com/storaged-project/libbytesize/releases/download/1.3/libbytesize-1.3.tar.gz
+URL=https://github.com/storaged-project/libbytesize/releases/download/1.4/libbytesize-1.4.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://github.com/storaged-project/libbytesize/releases/download/1.3/libbytesize-1.3.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libbytesize/libbytesize-1.3.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libbytesize/libbytesize-1.3.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libbytesize/libbytesize-1.3.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libbytesize/libbytesize-1.3.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libbytesize/libbytesize-1.3.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libbytesize/libbytesize-1.3.tar.gz
+wget -nc https://github.com/storaged-project/libbytesize/releases/download/1.4/libbytesize-1.4.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libbytesize/libbytesize-1.4.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libbytesize/libbytesize-1.4.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libbytesize/libbytesize-1.4.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libbytesize/libbytesize-1.4.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libbytesize/libbytesize-1.4.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libbytesize/libbytesize-1.4.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

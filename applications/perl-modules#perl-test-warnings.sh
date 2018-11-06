@@ -8,7 +8,7 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org//CPAN/authors/id/E/ET/ETHER/Test-Warnings-0.026.tar.gz"
+URL="https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Warnings-0.026.tar.gz"
 VERSION=0.026
 NAME="perl-modules#perl-test-warnings"
 

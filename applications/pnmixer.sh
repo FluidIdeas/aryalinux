@@ -9,20 +9,21 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Pnmixer package provides abr3ak lightweight volume control with a tray icon.br3ak"
 SECTION="multimedia"
-VERSION=0.5.1
+VERSION=0.7.2
 NAME="pnmixer"
 
 #REQ:alsa-utils
-#REQ:gtk2
+#REQ:gtk3
+#REQ:libnotify
 
 
 cd $SOURCE_DIR
 
-URL=https://github.com/downloads/nicklan/pnmixer/pnmixer-0.5.1.tar.gz
+URL=https://github.com/nicklan/pnmixer/releases/download/v0.7.2/pnmixer-v0.7.2.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://github.com/downloads/nicklan/pnmixer/pnmixer-0.5.1.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/pnmixer/pnmixer-0.5.1.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/pnmixer/pnmixer-0.5.1.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/pnmixer/pnmixer-0.5.1.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/pnmixer/pnmixer-0.5.1.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/pnmixer/pnmixer-0.5.1.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/pnmixer/pnmixer-0.5.1.tar.gz
+wget -nc https://github.com/nicklan/pnmixer/releases/download/v0.7.2/pnmixer-v0.7.2.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/pnmixer/pnmixer-v0.7.2.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/pnmixer/pnmixer-v0.7.2.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/pnmixer/pnmixer-v0.7.2.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/pnmixer/pnmixer-v0.7.2.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/pnmixer/pnmixer-v0.7.2.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/pnmixer/pnmixer-v0.7.2.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -37,7 +38,9 @@ fi
 
 whoami > /tmp/currentuser
 
-./autogen.sh --prefix=/usr &&
+mkdir build &&
+cd    build &&
+cmake -DCMAKE_INSTALL_PREFIX=/usr ..  &&
 make "-j`nproc`" || make
 
 

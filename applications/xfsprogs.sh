@@ -9,18 +9,18 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The xfsprogs package containsbr3ak administration and debugging tools for the XFS file system.br3ak"
 SECTION="postlfs"
-VERSION=4.16.1
+VERSION=4.18.0
 NAME="xfsprogs"
 
 
 
 cd $SOURCE_DIR
 
-URL=https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-4.16.1.tar.xz
+URL=https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-4.18.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-4.16.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/xfsprogs/xfsprogs-4.16.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/xfsprogs/xfsprogs-4.16.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/xfsprogs/xfsprogs-4.16.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/xfsprogs/xfsprogs-4.16.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/xfsprogs/xfsprogs-4.16.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/xfsprogs/xfsprogs-4.16.1.tar.xz
+wget -nc https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-4.18.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/xfsprogs/xfsprogs-4.18.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/xfsprogs/xfsprogs-4.18.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/xfsprogs/xfsprogs-4.18.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/xfsprogs/xfsprogs-4.18.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/xfsprogs/xfsprogs-4.18.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/xfsprogs/xfsprogs-4.18.0.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -43,8 +43,8 @@ make DEBUG=-DNDEBUG     \
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make PKG_DOC_DIR=/usr/share/doc/xfsprogs-4.16.1 install     &&
-make PKG_DOC_DIR=/usr/share/doc/xfsprogs-4.16.1 install-dev &&
+make PKG_DOC_DIR=/usr/share/doc/xfsprogs-4.18.0 install     &&
+make PKG_DOC_DIR=/usr/share/doc/xfsprogs-4.18.0 install-dev &&
 rm -rfv /usr/lib/libhandle.a                                &&
 rm -rfv /lib/libhandle.{a,la,so}                            &&
 ln -sfv ../../lib/libhandle.so.1 /usr/lib/libhandle.so      &&

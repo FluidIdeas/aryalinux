@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Tracker is the file indexing andbr3ak search provider used in the GNOMEbr3ak desktop environment.br3ak"
 SECTION="gnome"
-VERSION=2.0.3
+VERSION=2.0.4
 NAME="tracker"
 
 #REQ:json-glib
@@ -17,6 +17,7 @@ NAME="tracker"
 #REQ:libsoup
 #REQ:python2
 #REQ:vala
+#REC:gobject-introspection
 #REC:icu
 #REC:networkmanager
 #REC:sqlite
@@ -26,11 +27,11 @@ NAME="tracker"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/tracker/2.0/tracker-2.0.3.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/tracker/2.0/tracker-2.0.4.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.gnome.org/pub/gnome/sources/tracker/2.0/tracker-2.0.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/tracker/tracker-2.0.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/tracker/tracker-2.0.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/tracker/tracker-2.0.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/tracker/tracker-2.0.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/tracker/tracker-2.0.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/tracker/tracker-2.0.3.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/tracker/2.0/tracker-2.0.3.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/tracker/2.0/tracker-2.0.4.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/tracker/tracker-2.0.4.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/tracker/tracker-2.0.4.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/tracker/tracker-2.0.4.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/tracker/tracker-2.0.4.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/tracker/tracker-2.0.4.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/tracker/tracker-2.0.4.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/tracker/2.0/tracker-2.0.4.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The libqmi package contains abr3ak GLib-based library for talking to WWAN modems and devices whichbr3ak speak the Qualcomm MSM Interface (QMI) protocol.br3ak"
 SECTION="general"
-VERSION=1.20.0
+VERSION=1.20.2
 NAME="libqmi"
 
 #REQ:glib2
@@ -19,11 +19,11 @@ NAME="libqmi"
 
 cd $SOURCE_DIR
 
-URL=https://www.freedesktop.org/software/libqmi/libqmi-1.20.0.tar.xz
+URL=https://www.freedesktop.org/software/libqmi/libqmi-1.20.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://www.freedesktop.org/software/libqmi/libqmi-1.20.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libqmi/libqmi-1.20.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libqmi/libqmi-1.20.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libqmi/libqmi-1.20.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libqmi/libqmi-1.20.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libqmi/libqmi-1.20.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libqmi/libqmi-1.20.0.tar.xz
+wget -nc https://www.freedesktop.org/software/libqmi/libqmi-1.20.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libqmi/libqmi-1.20.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libqmi/libqmi-1.20.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libqmi/libqmi-1.20.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libqmi/libqmi-1.20.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libqmi/libqmi-1.20.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libqmi/libqmi-1.20.2.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

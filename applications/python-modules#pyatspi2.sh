@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="%DESCRIPTION%"
 SECTION="general"
-VERSION=2.26.0
+VERSION=2.30.0
 NAME="python-modules#pyatspi2"
 
 #REQ:python-modules#pygobject3
@@ -18,11 +18,11 @@ NAME="python-modules#pyatspi2"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/pyatspi/2.26/pyatspi-2.26.0.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/pyatspi/2.30/pyatspi-2.30.0.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.gnome.org/pub/gnome/sources/pyatspi/2.26/pyatspi-2.26.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pyatspi/2.26/pyatspi-2.26.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/pyatspi/2.30/pyatspi-2.30.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pyatspi/2.30/pyatspi-2.30.0.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -38,13 +38,11 @@ fi
 mkdir python2 &&
 pushd python2 &&
 ../configure --prefix=/usr --with-python=/usr/bin/python &&
-make &&
 popd
 
 mkdir python3 &&
 pushd python3 &&
 ../configure --prefix=/usr --with-python=/usr/bin/python3 &&
-make &&
 popd
 
 

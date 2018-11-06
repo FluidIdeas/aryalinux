@@ -16,6 +16,7 @@ NAME="pcmanfm"
 #REC:adwaita-icon-theme
 #REC:oxygen-icons5
 #REC:lxde-icon-theme
+#REC:fribidi
 
 
 cd $SOURCE_DIR

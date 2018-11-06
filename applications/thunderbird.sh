@@ -9,12 +9,13 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Thunderbird is a stand-alonebr3ak mail/news client based on the Mozilla codebase. It uses the Gecko renderingbr3ak engine to enable it to display and compose HTML emails.br3ak"
 SECTION="xsoft"
-VERSION=52.8.0
+VERSION=60.3.0
 NAME="thunderbird"
 
 #REQ:autoconf213
 #REQ:gtk3
 #REQ:gtk2
+#REQ:rust
 #REQ:zip
 #REQ:unzip
 #REQ:yasm
@@ -37,11 +38,11 @@ NAME="thunderbird"
 
 cd $SOURCE_DIR
 
-URL=https://archive.mozilla.org/pub/thunderbird/releases/52.8.0/source/thunderbird-52.8.0.source.tar.xz
+URL=https://archive.mozilla.org/pub/thunderbird/releases/60.3.0/source/thunderbird-60.3.0.source.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://archive.mozilla.org/pub/thunderbird/releases/52.8.0/source/thunderbird-52.8.0.source.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/thunderbird/thunderbird-52.8.0.source.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/thunderbird/thunderbird-52.8.0.source.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/thunderbird/thunderbird-52.8.0.source.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/thunderbird/thunderbird-52.8.0.source.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/thunderbird/thunderbird-52.8.0.source.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/thunderbird/thunderbird-52.8.0.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/thunderbird/releases/60.3.0/source/thunderbird-60.3.0.source.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/thunderbird/thunderbird-60.3.0.source.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/thunderbird/thunderbird-60.3.0.source.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/thunderbird/thunderbird-60.3.0.source.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/thunderbird/thunderbird-60.3.0.source.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/thunderbird/thunderbird-60.3.0.source.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/thunderbird/thunderbird-60.3.0.source.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -85,7 +86,7 @@ ac_add_options --with-system-nss
 ac_add_options --with-system-icu
 # The BLFS editors recommend not changing anything below this line:
 ac_add_options --prefix=/usr
-ac_add_options --enable-application=mail
+ac_add_options --enable-application=comm/mail
 ac_add_options --disable-crashreporter
 ac_add_options --disable-updater
 ac_add_options --disable-debug
@@ -93,13 +94,7 @@ ac_add_options --disable-tests
 ac_add_options --enable-optimize=-O2
 ac_add_options --enable-strip
 ac_add_options --enable-install-strip
-ac_add_options --enable-gio
 ac_add_options --enable-official-branding
-ac_add_options --enable-safe-browsing
-ac_add_options --enable-url-classifier
-# Using system cairo has been reported to make thunderbird execution unstable.
-# This appears to again work in thunderbird-52
-ac_add_options --enable-system-cairo
 ac_add_options --enable-system-ffi
 ac_add_options --enable-system-pixman
 ac_add_options --with-pthreads
@@ -110,13 +105,12 @@ ac_add_options --with-system-zlib
 EOF
 
 
-make -f client.mk
+./mach build
 
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make -f client.mk install INSTALL_SDK= &&
-chown -R 0:0 /usr/lib/thunderbird-52.8.0
+./mach install
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -140,7 +134,7 @@ Categories=Network;Email;
 MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/xml;application/rss+xml;x-scheme-handler/mailto;
 StartupNotify=true
 EOF
-ln -sfv /usr/lib/thunderbird-52.8.0/chrome/icons/default/default256.png \
+ln -sfv /usr/lib/thunderbird-60.3.0/chrome/icons/default/default256.png \
         /usr/share/pixmaps/thunderbird.png
 
 ENDOFROOTSCRIPT

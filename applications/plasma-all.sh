@@ -10,9 +10,8 @@ SOURCE_ONLY=n
 DESCRIPTION="%DESCRIPTION%"
 SECTION="kde"
 NAME="plasma-all"
-VERSION="5.12.5"
 
-#REQ:fontforge
+#REQ:GConf
 #REQ:gtk2
 #REQ:gtk3
 #REQ:libpwquality
@@ -31,8 +30,10 @@ VERSION="5.12.5"
 #REC:x7driver
 #REC:linux-pam
 #REC:lm_sensors
+#REC:oxygen-icons5
 #REC:pciutils
 #OPT:glu
+#OPT:ibus
 #OPT:x7driver
 
 
@@ -56,56 +57,56 @@ fi
 
 whoami > /tmp/currentuser
 
-url=http://kde.c3sl.ufpr.br/stable/plasma/5.12.5/
-wget -nc -r -nH --cut-dirs=3 -A '*.xz' -np $url
+url=http://download.kde.org/stable/plasma/5.13.4/
+wget -r -nH -nd -A '*.xz' -np $url
 
 
-cat > plasma-5.12.5.md5 << "EOF"
-15e8b3abd34c7bed89247dcd89677da9  kde-cli-tools-5.12.5.tar.xz
-7a6426a12788a1dc5fceb3ed0cf15818  kdecoration-5.12.5.tar.xz
-1e3b3aa0026bf51121fa36f4380db6e5  libkscreen-5.12.5.tar.xz
-2ffb11f91a451f90c034b5b657d38563  libksysguard-5.12.5.tar.xz
-45cc26a47b5c742e93ba17e59d72d91a  breeze-5.12.5.tar.xz
-4df4338cb8781e068e8b53987430cbda  breeze-gtk-5.12.5.tar.xz
-30afafc98d6d3eecec15c1bad3ce0362  kscreenlocker-5.12.5.tar.xz
-7622748eafe631e46574e44ba53bdaea  oxygen-5.12.5.tar.xz
-5d0f3d5844ac31f2665ed0d5966d7751  kinfocenter-5.12.5.tar.xz
-25bfe4cb9bbb782c938f92963ca1cd59  ksysguard-5.12.5.tar.xz
-39cc7321fe28c2b4a76426da8a830d7c  kwin-5.12.5.tar.xz
-08b5ebd84ee25d2306d30e1afe33f924  systemsettings-5.12.5.tar.xz
-28906f048a968798f7311c1068aebb8b  plasma-workspace-5.12.5.tar.xz
-60e92f4d444cba7e31041bf9c426d1aa  bluedevil-5.12.5.tar.xz
-26706a36cb19c270281a0b69f8ab2609  kde-gtk-config-5.12.5.tar.xz
-af8bda38832760df6bc0f07aa784f8f3  khotkeys-5.12.5.tar.xz
-450833cf1ccd244c40102cd249e73d2b  kmenuedit-5.12.5.tar.xz
-bdd7f9036220e39f23b1c57cb373174d  kscreen-5.12.5.tar.xz
-667a9ef9a5f5fa4664e337d405cdfdb6  kwallet-pam-5.12.5.tar.xz
-dffa9e29a181d6d70bcf20a5d9de0781  kwayland-integration-5.12.5.tar.xz
-bc51d2068b1f442214059059761db068  kwrited-5.12.5.tar.xz
-a6297963718e9315e72e1711e4f71e5c  milou-5.12.5.tar.xz
-2f52d77ade3582ce05bc58c4d2ea2677  plasma-nm-5.12.5.tar.xz
-0104e49c0e6332fdec3a61ddc9732c44  plasma-pa-5.12.5.tar.xz
-30c03aeab0d69d87d08a5b1e57468f8c  plasma-workspace-wallpapers-5.12.5.tar.xz
-b42ed1b4dfbc7f594529b12b4659a8e1  polkit-kde-agent-1-5.12.5.tar.xz
-5546090caa4cf11656091ae229351551  powerdevil-5.12.5.tar.xz
-bfcf9e48662c34d732b5f498b4627819  plasma-desktop-5.12.5.tar.xz
-d16a91ea15fc12e7c18d420370ad0bd6  kdeplasma-addons-5.12.5.tar.xz
-0ce29fe24ed752a36ce7fb6ff1be9fb1  kgamma5-5.12.5.tar.xz
-805ba1b34c292e43f7791796d552a48c  ksshaskpass-5.12.5.tar.xz
-#e7de5fcb703e47edc4f3fa5c9094dd9a  plasma-sdk-5.12.5.tar.xz
-ba33b3187ddee122be32ffe0445564fb  sddm-kcm-5.12.5.tar.xz
-f4268471d391b2fb7f51818b7b96c9f6  user-manager-5.12.5.tar.xz
-8ae2ca25329d2126311e552fc24bff5c  discover-5.12.5.1.tar.xz
-#9101bdf4a6664dddc0e15b8fda4681e9  discover-5.12.5.tar.xz
-#420c6369da5761fcee359cce8693badd  breeze-grub-5.12.5.tar.xz
-#dbba7538a93056a57f52ecfe31eaf8cb  breeze-plymouth-5.12.5.tar.xz
-d28812344e8e0f47b1121f56d3e13750  kactivitymanagerd-5.12.5.tar.xz
-df9ade96432e4f5eb968e12ed7a7a72c  plasma-integration-5.12.5.tar.xz
-ed8dbcc85b1a1f74dc04b2be5e64b36a  plasma-tests-5.12.5.tar.xz
-e1a1a785e1f6c4a64af95e4989a07bea  plymouth-kcm-5.12.5.tar.xz
-f9081bb509a565f3d11f28cd6b0a0914  xdg-desktop-portal-kde-5.12.5.tar.xz
-08c841d2ea5b29ec4ffca146deeac75a  drkonqi-5.12.5.tar.xz
-550e6df7522a10e5262136a54b88a254  plasma-vault-5.12.5.tar.xz
+cat > plasma-5.13.4.md5 << "EOF"
+2cfae8349d3c5a4d7b52269b6ef580bc kdecoration-5.13.4.tar.xz
+dfe4e097033f48d5f3b56d7d9fe91c91 libkscreen-5.13.4.tar.xz
+939be7f1b81f8948d3026ea0f6b71332 libksysguard-5.13.4.tar.xz
+a5811405ebf81ced2d96dddda14dc65c breeze-5.13.4.tar.xz
+544d7306a573a4b1af9cf15bea565f77 breeze-gtk-5.13.4.tar.xz
+6f1846e0f49c0e660ffea7b25d979f5c kscreenlocker-5.13.4.tar.xz
+431d2a2eea56e05659d4d9bfee75b8f9 oxygen-5.13.4.tar.xz
+787f4cf0ebb6a296a907526f8a05d96e kinfocenter-5.13.4.tar.xz
+38cdb99d3e7133dd8720073d184c0219 ksysguard-5.13.4.tar.xz
+886af79baa7b478ee25ce9491f0398bd kwin-5.13.4.tar.xz
+3035c264c2c00d274995216f135a2525 plasma-workspace-5.13.4.tar.xz
+3f3de6be50ce252d5f000f200fd274c7 bluedevil-5.13.4.tar.xz
+a092d24dfd11b41c56a6babe7c8ec460 kde-gtk-config-5.13.4.tar.xz
+9bcb6800aa2049b77dd0e31b1f48bd86 khotkeys-5.13.4.tar.xz
+f5a94fb11385cd4df4df330193ebb395 kmenuedit-5.13.4.tar.xz
+bf91e1d9eefc6660de6027aceeff6c97 kscreen-5.13.4.tar.xz
+e7f0bfb74c5d5a9ff43e6de6cb0f0d8d kwallet-pam-5.13.4.tar.xz
+7f666f407e8f1e076897e68295c8f5a7 kwayland-integration-5.13.4.tar.xz
+57638eed026c081df092baef0615eb92 kwrited-5.13.4.tar.xz
+69ff78fc195af7e4994429b44454f3f9 milou-5.13.4.tar.xz
+7c2bd25f90a7d55dc334897286facfc6 plasma-nm-5.13.4.tar.xz
+edef493711c1f8b7dde43390ff415eb4 plasma-pa-5.13.4.tar.xz
+4ab6df9997269d2263c3e6fb2d6b4bf7 plasma-workspace-wallpapers-5.13.4.tar.xz
+52deb7a41477d704a6895a7bdccaa1d7 polkit-kde-agent-1-5.13.4.tar.xz
+728661126e6f4d414c5fa2a7d596ecbf powerdevil-5.13.4.tar.xz
+c1461af55b31cbf0473df4b30d90c376 plasma-desktop-5.13.4.tar.xz
+35d28871e37fd28602066706967a9bb0 kdeplasma-addons-5.13.4.tar.xz
+0b3cabd2f882599dffd5bd49b55a231e kgamma5-5.13.4.tar.xz
+14e004c9d8112815b8bb0c6438a5d57f ksshaskpass-5.13.4.tar.xz
+#b97352709bd0ed4a7a8d3f28630b85a6 plasma-sdk-5.13.4.tar.xz
+0c9af753ed311600b218747fa6eb5dcd sddm-kcm-5.13.4.tar.xz
+b101c424b5b13cecf32aab93c4215e15 user-manager-5.13.4.tar.xz
+e46195de68d3cabbb0b73e4252aaf95b discover-5.13.4.tar.xz
+#db28bc45387c0f4be49de795040df888 breeze-grub-5.13.4.tar.xz
+#85f27da438e5e6476220112e0728cdbe breeze-plymouth-5.13.4.tar.xz
+4147607b008aefcc744eb19896a37f73 kactivitymanagerd-5.13.4.tar.xz
+a8ef5bd003ea74107d176d42ae0e83e9 plasma-integration-5.13.4.tar.xz
+7e4a31d74ae071054d225bb8075647fd plasma-tests-5.13.4.tar.xz
+0600243811dbda474d1c994de6973d3f plymouth-kcm-5.13.4.tar.xz
+643c83817fcd3668eedfc01b60ab4731 xdg-desktop-portal-kde-5.13.4.tar.xz
+147892484b3ba637840e47881b52434d drkonqi-5.13.4.tar.xz
+52899d46e4fa6b293699d20163fa10d1 plasma-vault-5.13.4.tar.xz
+d6963e6b203d0bbc864f35a272370370 plasma-browser-integration-5.13.4.tar.xz
+90f115ede33aef5582ac17bf2a95f324 kde-cli-tools-5.13.4.tar.xz
+9672ac04c144af86dae18eeb47da01b9 systemsettings-5.13.4.tar.xz
 EOF
 
 
@@ -118,95 +119,89 @@ as_root()
 }
 export -f as_root
 
-touch /tmp/plasma-build-list
 
-export KF5_PREFIX=/usr
-export QT5DIR=/usr
-pathappend /usr/lib/qt5/plugins    QT_PLUGIN_PATH
-pathappend $QT5DIR/lib/plugins     QT_PLUGIN_PATH
-pathappend /usr/lib/qt5/qml        QML2_IMPORT_PATH
-pathappend $QT5DIR/lib/qml         QML2_IMPORT_PATH
+bash -e
+
 
 while read -r line; do
-    if grep "$line" /tmp/plasma-build-list; then continue; fi
     # Get the file name, ignoring comments and blank lines
     if $(echo $line | grep -E -q '^ *$|^#' ); then continue; fi
     file=$(echo $line | cut -d" " -f2)
-
     pkg=$(echo $file|sed 's|^.*/||')          # Remove directory
     packagedir=$(echo $pkg|sed 's|\.tar.*||') # Package directory
-
     tar -xf $file
     pushd $packagedir
-
        mkdir build
        cd    build
-
-       cmake -DCMAKE_INSTALL_PREFIX=$KF5_PREFIX \
+       cmake -DCMAKE_INSTALL_PREFIX=/opt/kf5 \
              -DCMAKE_BUILD_TYPE=Release         \
              -DBUILD_TESTING=OFF                \
              -Wno-dev ..  &&
-
-        make
+        make "-j`nproc`" || make
         as_root make install
     popd
-
-
     as_root rm -rf $packagedir
     as_root /sbin/ldconfig
-    echo "$line" >> /tmp/plasma-build-list
-done < plasma-5.12.5.md5
-
+done < plasma-5.13.4.md5
 exit
-
-cd $KF5_PREFIX/share/plasma/plasmoids
-
+cd /usr/share/xsessions/
+[ -e plasma.desktop ] || as_root ln -sfv /opt/kf5/share/xsessions/plasma.desktop
+cd /opt/kf5/share/plasma/plasmoids
 for j in $(find -name \*.js); do
   as_root ln -sfv ../code/$(basename $j) $(dirname $j)/../ui/
 done
 
-sudo tee -a /etc/pam.d/kde << "EOF" 
-# Begin /etc/pam.d/kde
 
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+cat >> /etc/pam.d/kde << "EOF" 
+# Begin /etc/pam.d/kde
 auth     requisite      pam_nologin.so
 auth     required       pam_env.so
-
 auth     required       pam_succeed_if.so uid >= 1000 quiet
 auth     include        system-auth
-
 account  include        system-account
 password include        system-password
 session  include        system-session
-
 # End /etc/pam.d/kde
 EOF
-
-sudo tee /etc/pam.d/kde-np << "EOF" 
+cat > /etc/pam.d/kde-np << "EOF" 
 # Begin /etc/pam.d/kde-np
-
 auth     requisite      pam_nologin.so
 auth     required       pam_env.so
-
 auth     required       pam_succeed_if.so uid >= 1000 quiet
 auth     required       pam_permit.so
-
 account  include        system-account
 password include        system-password
 session  include        system-session
-
 # End /etc/pam.d/kde-np
 EOF
-
-sudo tee /etc/pam.d/kscreensaver << "EOF"
+cat > /etc/pam.d/kscreensaver << "EOF"
 # Begin /etc/pam.d/kscreensaver
-
 auth    include system-auth
 account include system-account
-
 # End /etc/pam.d/kscreensaver
 EOF
 
-sudo sed '/^Name=/s/Plasma/Plasma on Xorg/' -i /usr/share/xsessions/plasma.desktop
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
+cat > ~/.xinitrc << "EOF"
+dbus-launch --exit-with-session /opt/kf5/bin/startkde
+EOF
+startx
+
+
+startx &> ~/x-session-errors
+
+
+sed '/^Name=/s/Plasma/Plasma on Xorg/' -i /usr/share/xsessions/plasma.desktop
+
+
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

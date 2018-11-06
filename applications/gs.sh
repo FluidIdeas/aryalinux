@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Ghostscript is a versatilebr3ak processor for PostScript data with the ability to render PostScriptbr3ak to different targets. It is a mandatory part of the cups printingbr3ak stack.br3ak"
 SECTION="pst"
-VERSION=9.23
+VERSION=9.25
 NAME="gs"
 
 #REC:cups
@@ -29,11 +29,12 @@ NAME="gs"
 
 cd $SOURCE_DIR
 
-URL=https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs923/ghostscript-9.23.tar.gz
+URL=https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs925/ghostscript-9.25.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs923/ghostscript-9.23.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/ghostscript/ghostscript-9.23.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/ghostscript/ghostscript-9.23.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/ghostscript/ghostscript-9.23.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/ghostscript/ghostscript-9.23.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/ghostscript/ghostscript-9.23.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/ghostscript/ghostscript-9.23.tar.gz
+wget -nc https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs925/ghostscript-9.25.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/ghostscript/ghostscript-9.25.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/ghostscript/ghostscript-9.25.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/ghostscript/ghostscript-9.25.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/ghostscript/ghostscript-9.25.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/ghostscript/ghostscript-9.25.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/ghostscript/ghostscript-9.25.tar.gz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/ghostscript-9.25-security_fixes-2.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/ghostscript/ghostscript-9.25-security_fixes-2.patch
 wget -nc https://downloads.sourceforge.net/gs-fonts/ghostscript-fonts-std-8.11.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/ghostscript/ghostscript-fonts-std-8.11.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/ghostscript/ghostscript-fonts-std-8.11.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/ghostscript/ghostscript-fonts-std-8.11.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/ghostscript/ghostscript-fonts-std-8.11.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/ghostscript/ghostscript-fonts-std-8.11.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/ghostscript/ghostscript-fonts-std-8.11.tar.gz
 wget -nc https://downloads.sourceforge.net/gs-fonts/gnu-gs-fonts-other-6.0.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gnu-gs-fonts-other/gnu-gs-fonts-other-6.0.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gnu-gs-fonts-other/gnu-gs-fonts-other-6.0.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnu-gs-fonts-other/gnu-gs-fonts-other-6.0.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnu-gs-fonts-other/gnu-gs-fonts-other-6.0.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gnu-gs-fonts-other/gnu-gs-fonts-other-6.0.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gnu-gs-fonts-other/gnu-gs-fonts-other-6.0.tar.gz
 
@@ -50,10 +51,11 @@ fi
 
 whoami > /tmp/currentuser
 
-rm -rf freetype lcms2 jpeg libpng
+rm -rf freetype lcms2mt jpeg libpng
 
 
 rm -rf zlib &&
+patch -Np1 -i ../ghostscript-9.25-security_fixes-2.patch &&
 ./configure --prefix=/usr           \
             --disable-compile-inits \
             --enable-dynamic        \
@@ -88,7 +90,8 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-ln -sfvn ../ghostscript/9.23/doc /usr/share/doc/ghostscript-9.23
+ln -sfvn ../ghostscript/9.25/doc /usr/share/doc/ghostscript-9.25  &&
+sudo cp -a examples/ /usr/share/ghostscript/9.25/
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

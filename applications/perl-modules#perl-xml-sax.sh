@@ -6,13 +6,15 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:libxml2
+#REQ:libxml2#REQ:perl-modules#xml-namespacesupport
+#REQ:perl-modules#xml-sax-base
+
 #REQ:perl-modules#xml-namespacesupport
 #REQ:perl-modules#xml-sax-base
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org//CPAN/authors/id/G/GR/GRANTM/XML-SAX-0.99.tar.gz"
-VERSION=0.99
+URL="https://cpan.metacpan.org/authors/id/G/GR/GRANTM/XML-SAX-1.00.tar.gz"
+VERSION=1.00
 NAME="perl-modules#perl-xml-sax"
 
 cd $SOURCE_DIR

@@ -8,7 +8,7 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org//CPAN/authors/id/E/ET/ETHER/Try-Tiny-0.30.tar.gz"
+URL="https://cpan.metacpan.org/authors/id/E/ET/ETHER/Try-Tiny-0.30.tar.gz"
 VERSION=0.30
 NAME="perl-modules#perl-try-tiny"
 

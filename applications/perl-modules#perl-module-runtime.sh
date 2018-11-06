@@ -9,7 +9,7 @@ set +h
 #REQ:perl-modules#perl-module-build
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org//CPAN/authors/id/Z/ZE/ZEFRAM/Module-Runtime-0.016.tar.gz"
+URL="https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Module-Runtime-0.016.tar.gz"
 VERSION=0.016
 NAME="perl-modules#perl-module-runtime"
 

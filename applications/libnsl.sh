@@ -7,7 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 SOURCE_ONLY=n
-DESCRIPTION="br3ak The libnsl package contains thebr3ak public client interface for NIS(YP) and NIS+. It replaces the NISbr3ak library that used to be in GlibC.br3ak"
+DESCRIPTION="br3ak The libnsl package contains thebr3ak public client interface for NIS(YP) and NIS+. It replaces the NISbr3ak library that used to be in glibc.br3ak"
 SECTION="basicnet"
 VERSION=1.2.0
 NAME="libnsl"

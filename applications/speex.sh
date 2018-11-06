@@ -76,7 +76,7 @@ sudo rm rootscript.sh
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 cd $SOURCE_DIR
-rm -rf speexdsp-1.2rc3
+for f in speex*; do if [ -d $f ]; then rm -rf $f; fi; done;
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh

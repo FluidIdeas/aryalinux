@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Valgrind is an instrumentationbr3ak framework for building dynamic analysis tools. There are Valgrindbr3ak tools that can automatically detect many memory management andbr3ak threading bugs, and profile programs in detail. Valgrind can alsobr3ak be used to build new tools.br3ak"
 SECTION="general"
-VERSION=3.13.0
+VERSION=3.14.0
 NAME="valgrind"
 
 #OPT:bind
@@ -22,11 +22,11 @@ NAME="valgrind"
 
 cd $SOURCE_DIR
 
-URL=https://sourceware.org/ftp/valgrind/valgrind-3.13.0.tar.bz2
+URL=https://sourceware.org/ftp/valgrind/valgrind-3.14.0.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc https://sourceware.org/ftp/valgrind/valgrind-3.13.0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/valgrind/valgrind-3.13.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/valgrind/valgrind-3.13.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/valgrind/valgrind-3.13.0.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/valgrind/valgrind-3.13.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/valgrind/valgrind-3.13.0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/valgrind/valgrind-3.13.0.tar.bz2 || wget -nc ftp://sourceware.org/pub/valgrind/valgrind-3.13.0.tar.bz2
+wget -nc https://sourceware.org/ftp/valgrind/valgrind-3.14.0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/valgrind/valgrind-3.14.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/valgrind/valgrind-3.14.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/valgrind/valgrind-3.14.0.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/valgrind/valgrind-3.14.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/valgrind/valgrind-3.14.0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/valgrind/valgrind-3.14.0.tar.bz2 || wget -nc ftp://sourceware.org/pub/valgrind/valgrind-3.14.0.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -41,12 +41,9 @@ fi
 
 whoami > /tmp/currentuser
 
-sed -i '1904s/4/5/' coregrind/m_syswrap/syswrap-linux.c
-
-
 sed -i 's|/doc/valgrind||' docs/Makefile.in &&
 ./configure --prefix=/usr \
-            --datadir=/usr/share/doc/valgrind-3.13.0 &&
+            --datadir=/usr/share/doc/valgrind-3.14.0 &&
 make "-j`nproc`" || make
 
 

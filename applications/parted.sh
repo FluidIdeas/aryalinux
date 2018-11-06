@@ -43,6 +43,7 @@ whoami > /tmp/currentuser
 patch -Np1 -i ../parted-3.2-devmapper-1.patch
 
 
+sed -i '/utsname.h/a#include <sys/sysmacros.h>' libparted/arch/linux.c &&
 ./configure --prefix=/usr --disable-static &&
 make &&
 make -C doc html                                       &&

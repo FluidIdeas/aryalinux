@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="%DESCRIPTION%"
 SECTION="general"
-VERSION=0.36
+VERSION=0.37
 NAME="python-modules#scour"
 
 #OPT:python-modules#six
@@ -17,11 +17,11 @@ NAME="python-modules#scour"
 
 cd $SOURCE_DIR
 
-URL=https://github.com/scour-project/scour/archive/v0.36/scour-0.36.tar.gz
+URL=https://github.com/scour-project/scour/archive/v0.37/scour-0.37.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://github.com/scour-project/scour/archive/v0.36/scour-0.36.tar.gz
+wget -nc https://github.com/scour-project/scour/archive/v0.37/scour-0.37.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

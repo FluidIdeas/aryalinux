@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="004-gcc-pass1.sh"
-TARBALL="gcc-8.1.0.tar.xz"
+TARBALL="gcc-8.2.0.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -28,6 +28,10 @@ then
 	tar xf $TARBALL
 	cd $DIRECTORY
 fi
+
+export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 
 tar -xf ../mpfr-4.0.1.tar.xz
 mv -v mpfr-4.0.1 mpfr
@@ -55,7 +59,7 @@ case $(uname -m) in
 esac
 mkdir -v build
 cd       build
-CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" ../configure                                       \
+../configure                                       \
     --target=$LFS_TGT                              \
     --prefix=/tools                                \
     --with-glibc-version=2.11                      \

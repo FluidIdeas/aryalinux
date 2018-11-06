@@ -14,8 +14,8 @@ set +h
 #REQ:perl-modules#scope-guard
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/E/EX/EXODIST/Test2-Suite-0.000114.tar.gz"
-VERSION=0.000114
+URL="https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test2-Suite-0.000115.tar.gz"
+VERSION=0.000115
 NAME="perl-modules#test2-suite"
 
 cd $SOURCE_DIR

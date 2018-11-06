@@ -9,22 +9,23 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Vala is a new programming languagebr3ak that aims to bring modern programming language features tobr3ak GNOME developers without imposingbr3ak any additional runtime requirements and without using a differentbr3ak ABI compared to applications and libraries written in C.br3ak"
 SECTION="general"
-VERSION=0.40.3
+VERSION=0.42.2
 NAME="vala"
 
 #REQ:glib2
+#REC:graphviz
 #OPT:dbus
-#OPT:graphviz
 #OPT:libxslt
 
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/vala/0.40/vala-0.40.3.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/vala/0.42/vala-0.42.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.gnome.org/pub/gnome/sources/vala/0.40/vala-0.40.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/vala/vala-0.40.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/vala/vala-0.40.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/vala/vala-0.40.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/vala/vala-0.40.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/vala/vala-0.40.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/vala/vala-0.40.3.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/vala/0.40/vala-0.40.3.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/vala/0.42/vala-0.42.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/vala/vala-0.42.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/vala/vala-0.42.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/vala/vala-0.42.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/vala/vala-0.42.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/vala/vala-0.42.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/vala/vala-0.42.2.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/vala/0.42/vala-0.42.2.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/vala-0.42.2-avoid_graphviz-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/vala/vala-0.42.2-avoid_graphviz-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -39,10 +40,11 @@ fi
 
 whoami > /tmp/currentuser
 
-sed -i '115d; 121,137d; 139,140d'  configure.ac &&
-sed -i '/valadoc/d' Makefile.am                 &&
-ACLOCAL= autoreconf -fiv                        &&
-./configure --prefix=/usr                       &&
+patch -p1 -i ../vala-0.42.2-avoid_graphviz-1.patch &&
+ACLOCAL= autoreconf -fiv
+
+
+./configure --prefix=/usr &&
 make "-j`nproc`" || make
 
 

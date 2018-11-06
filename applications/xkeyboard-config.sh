@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The XKeyboardConfig packagebr3ak contains the keyboard configuration database for the X Windowbr3ak System.br3ak"
 SECTION="x"
-VERSION=2.23.1
+VERSION=2.25
 NAME="xkeyboard-config"
 
 #REQ:x7lib
@@ -17,11 +17,11 @@ NAME="xkeyboard-config"
 
 cd $SOURCE_DIR
 
-URL=https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.23.1.tar.bz2
+URL=https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.25.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.23.1.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/xkeyboard-config/xkeyboard-config-2.23.1.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/xkeyboard-config/xkeyboard-config-2.23.1.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/xkeyboard-config/xkeyboard-config-2.23.1.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/xkeyboard-config/xkeyboard-config-2.23.1.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/xkeyboard-config/xkeyboard-config-2.23.1.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/xkeyboard-config/xkeyboard-config-2.23.1.tar.bz2 || wget -nc ftp://ftp.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.23.1.tar.bz2
+wget -nc https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.25.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/xkeyboard-config/xkeyboard-config-2.25.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/xkeyboard-config/xkeyboard-config-2.25.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/xkeyboard-config/xkeyboard-config-2.25.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/xkeyboard-config/xkeyboard-config-2.25.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/xkeyboard-config/xkeyboard-config-2.25.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/xkeyboard-config/xkeyboard-config-2.25.tar.bz2 || wget -nc ftp://ftp.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.25.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

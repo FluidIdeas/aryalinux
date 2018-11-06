@@ -8,7 +8,7 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/S/SI/SIMONW/Module-Pluggable-5.2.tar.gz"
+URL="https://cpan.metacpan.org/authors/id/S/SI/SIMONW/Module-Pluggable-5.2.tar.gz"
 VERSION=5.2
 NAME="perl-modules#module-pluggable"
 

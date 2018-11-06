@@ -48,7 +48,8 @@ whoami > /tmp/currentuser
 
 sed -i -r 's:"(/desktop):"/org/gnome\1:' schema/*.xml &&
 ./configure --prefix=/usr     \
-            --sysconfdir=/etc &&
+            --sysconfdir=/etc \
+            --without-gtk-doc &&
 make "-j`nproc`" || make
 
 

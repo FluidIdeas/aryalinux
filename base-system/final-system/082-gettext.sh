@@ -29,11 +29,15 @@ then
 	cd $DIRECTORY
 fi
 
+export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+
 sed -i '/^TESTS =/d' gettext-runtime/tests/Makefile.in &&
 sed -i 's/test-lock..EXEEXT.//' gettext-tools/gnulib-tests/Makefile.in
 sed -e '/AppData/{N;N;p;s/\.appdata\./.metainfo./}' \
     -i gettext-tools/its/appdata.loc
-CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" ./configure --prefix=/usr    \
+./configure --prefix=/usr    \
             --disable-static \
             --docdir=/usr/share/doc/gettext-0.19.8.1
 make

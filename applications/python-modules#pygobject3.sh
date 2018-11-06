@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="%DESCRIPTION%"
 SECTION="general"
-VERSION=3.28.2
+VERSION=3.30.1
 NAME="python-modules#pygobject3"
 
 #REQ:gobject-introspection
@@ -18,11 +18,11 @@ NAME="python-modules#pygobject3"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/pygobject/3.28/pygobject-3.28.2.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/pygobject/3.30/pygobject-3.30.1.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.gnome.org/pub/gnome/sources/pygobject/3.28/pygobject-3.28.2.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pygobject/3.28/pygobject-3.28.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/pygobject/3.30/pygobject-3.30.1.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pygobject/3.30/pygobject-3.30.1.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -37,19 +37,19 @@ fi
 
 mkdir python2 &&
 pushd python2 &&
-../configure --prefix=/usr --with-python=/usr/bin/python &&
-make &&
+meson --prefix=/usr -Dpython=python2 .. &&
+ninja &&
 popd
 
 mkdir python3 &&
 pushd python3 &&
-../configure --prefix=/usr --with-python=/usr/bin/python3 &&
-make &&
+meson --prefix=/usr -Dpython=python3 &&
+ninja &&
 popd
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make -C python2 install
+ninja -C python2 install
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
@@ -58,7 +58,7 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make -C python3 install
+ninja -C python3 install
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh

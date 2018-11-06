@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Mousepad is a simple GTK+ 2 text editor for the Xfce desktop environment.br3ak"
 SECTION="postlfs"
-VERSION=0.4.0
+VERSION=0.4.1
 NAME="mousepad"
 
 #REQ:gtksourceview
@@ -19,11 +19,11 @@ NAME="mousepad"
 
 cd $SOURCE_DIR
 
-URL=http://archive.xfce.org/src/apps/mousepad/0.4/mousepad-0.4.0.tar.bz2
+URL=http://archive.xfce.org/src/apps/mousepad/0.4/mousepad-0.4.1.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://archive.xfce.org/src/apps/mousepad/0.4/mousepad-0.4.0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/mousepad/mousepad-0.4.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/mousepad/mousepad-0.4.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/mousepad/mousepad-0.4.0.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/mousepad/mousepad-0.4.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/mousepad/mousepad-0.4.0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/mousepad/mousepad-0.4.0.tar.bz2
+wget -nc http://archive.xfce.org/src/apps/mousepad/0.4/mousepad-0.4.1.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/mousepad/mousepad-0.4.1.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/mousepad/mousepad-0.4.1.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/mousepad/mousepad-0.4.1.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/mousepad/mousepad-0.4.1.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/mousepad/mousepad-0.4.1.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/mousepad/mousepad-0.4.1.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

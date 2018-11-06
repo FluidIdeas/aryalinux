@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Gparted is the Gnome Partition Editor, a Gtk 2 GUI for otherbr3ak command line tools that can create, reorganise or delete diskbr3ak partitions.br3ak"
 SECTION="xsoft"
-VERSION=0.31.0
+VERSION=0.32.0
 NAME="gparted"
 
 #REQ:gtkmm2
@@ -20,11 +20,11 @@ NAME="gparted"
 
 cd $SOURCE_DIR
 
-URL=https://downloads.sourceforge.net/gparted/gparted-0.31.0.tar.gz
+URL=https://downloads.sourceforge.net/gparted/gparted-0.32.0.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://downloads.sourceforge.net/gparted/gparted-0.31.0.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gparted/gparted-0.31.0.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gparted/gparted-0.31.0.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gparted/gparted-0.31.0.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gparted/gparted-0.31.0.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gparted/gparted-0.31.0.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gparted/gparted-0.31.0.tar.gz
+wget -nc https://downloads.sourceforge.net/gparted/gparted-0.32.0.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gparted/gparted-0.32.0.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gparted/gparted-0.32.0.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gparted/gparted-0.32.0.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gparted/gparted-0.32.0.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gparted/gparted-0.32.0.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gparted/gparted-0.32.0.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

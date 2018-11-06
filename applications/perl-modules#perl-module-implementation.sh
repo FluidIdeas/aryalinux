@@ -12,7 +12,7 @@ set +h
 #REQ:perl-modules#perl-test-requires
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org//CPAN/authors/id/D/DR/DROLSKY/Module-Implementation-0.09.tar.gz"
+URL="https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Module-Implementation-0.09.tar.gz"
 VERSION=0.09
 NAME="perl-modules#perl-module-implementation"
 

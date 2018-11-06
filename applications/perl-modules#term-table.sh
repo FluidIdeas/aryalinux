@@ -8,7 +8,7 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/E/EX/EXODIST/Term-Table-0.012.tar.gz"
+URL="https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Term-Table-0.012.tar.gz"
 VERSION=0.012
 NAME="perl-modules#term-table"
 

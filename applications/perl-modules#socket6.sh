@@ -8,7 +8,7 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/U/UM/UMEMOTO/Socket6-0.28.tar.gz"
+URL="https://cpan.metacpan.org/authors/id/U/UM/UMEMOTO/Socket6-0.28.tar.gz"
 VERSION=0.28
 NAME="perl-modules#socket6"
 

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Gvfs package is a userspacebr3ak virtual filesystem designed to work with the I/O abstractions ofbr3ak GLib's GIO library.br3ak"
 SECTION="gnome"
-VERSION=1.36.0
+VERSION=1.36.2
 NAME="gvfs"
 
 #REQ:dbus
@@ -40,11 +40,11 @@ NAME="gvfs"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/gvfs/1.36/gvfs-1.36.0.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/gvfs/1.36/gvfs-1.36.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gvfs/1.36/gvfs-1.36.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gvfs/gvfs-1.36.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gvfs/gvfs-1.36.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gvfs/gvfs-1.36.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gvfs/gvfs-1.36.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gvfs/gvfs-1.36.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gvfs/gvfs-1.36.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gvfs/1.36/gvfs-1.36.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gvfs/1.36/gvfs-1.36.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gvfs/gvfs-1.36.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gvfs/gvfs-1.36.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gvfs/gvfs-1.36.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gvfs/gvfs-1.36.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gvfs/gvfs-1.36.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gvfs/gvfs-1.36.2.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gvfs/1.36/gvfs-1.36.2.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -72,7 +72,7 @@ meson --prefix=/usr     \
       -Dsmb=false       \
       -Ddnssd=false     \
       -Dgoa=false       \
-      -Dgoogle=false    &&
+      -Dgoogle=false    .. &&
 ninja
 
 

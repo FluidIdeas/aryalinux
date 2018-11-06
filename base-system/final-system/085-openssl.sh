@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="085-openssl.sh"
-TARBALL="openssl-1.1.0h.tar.gz"
+TARBALL="openssl-1.1.1.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -41,8 +41,8 @@ export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 make
 sed -i '/INSTALL_LIBS/s/libcrypto.a libssl.a//' Makefile
 make MANSUFFIX=ssl install
-mv -v /usr/share/doc/openssl /usr/share/doc/openssl-1.1.0h
-cp -vfr doc/* /usr/share/doc/openssl-1.1.0h
+mv -v /usr/share/doc/openssl /usr/share/doc/openssl-1.1.1
+cp -vfr doc/* /usr/share/doc/openssl-1.1.1
 
 
 cd $SOURCE_DIR

@@ -10,12 +10,12 @@ set +h
 #REQ:perl-modules#perl-module-implementation
 #REQ:perl-modules#perl-test-needs
 #REQ:perl-modules#params-validationcompiler
-#REQ:perl-modules#perl-module-build
+#REQ:perl-modules#perl-test-exception
 #REQ:perl-modules#perl-try-tiny
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org//CPAN/authors/id/D/DR/DROLSKY/DateTime-1.49.tar.gz"
-VERSION=1.49
+URL="https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.50.tar.gz"
+VERSION=1.50
 NAME="perl-modules#perl-datetime"
 
 cd $SOURCE_DIR

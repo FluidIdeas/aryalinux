@@ -17,10 +17,9 @@ NAME="libfm"
 #REC:libexif
 #REC:vala
 #REC:lxmenu-data
-#OPT:dbus-glib
-#OPT:udisks
-#OPT:gvfs
 #OPT:gtk-doc
+#OPT:dbus-glib
+#OPT:gvfs
 
 
 cd $SOURCE_DIR

@@ -9,18 +9,18 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The sg3_utils package contains lowbr3ak level utilities for devices that use a SCSI command set. Apart frombr3ak SCSI parallel interface (SPI) devices, the SCSI command set is usedbr3ak by ATAPI devices (CD/DVDs and tapes), USB mass storage devices,br3ak Fibre Channel disks, IEEE 1394 storage devices (that use the \"SBP\"br3ak protocol), SAS, iSCSI and FCoE devices (amongst others).br3ak"
 SECTION="general"
-VERSION=1.42
+VERSION=1.44
 NAME="sg3_utils"
 
 
 
 cd $SOURCE_DIR
 
-URL=http://sg.danny.cz/sg/p/sg3_utils-1.42.tar.xz
+URL=http://sg.danny.cz/sg/p/sg3_utils-1.44.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://sg.danny.cz/sg/p/sg3_utils-1.42.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/sg3_utils/sg3_utils-1.42.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/sg3_utils/sg3_utils-1.42.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/sg3_utils/sg3_utils-1.42.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/sg3_utils/sg3_utils-1.42.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/sg3_utils/sg3_utils-1.42.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/sg3_utils/sg3_utils-1.42.tar.xz
+wget -nc http://sg.danny.cz/sg/p/sg3_utils-1.44.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/sg3_utils/sg3_utils-1.44.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/sg3_utils/sg3_utils-1.44.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/sg3_utils/sg3_utils-1.44.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/sg3_utils/sg3_utils-1.44.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/sg3_utils/sg3_utils-1.44.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/sg3_utils/sg3_utils-1.44.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

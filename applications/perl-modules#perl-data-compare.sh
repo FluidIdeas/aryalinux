@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:perl-modules#file-find-rule
+#REQ:perl-modules#perl-number-compare
 
 SOURCE_ONLY=y
 URL="https://www.cpan.org/authors/id/D/DC/DCANTRELL/Data-Compare-1.25.tar.gz"

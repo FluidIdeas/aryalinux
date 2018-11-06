@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak PulseAudio is a sound system forbr3ak POSIX OSes, meaning that it is a proxy for sound applications. Itbr3ak allows you to do advanced operations on your sound data as itbr3ak passes between your application and your hardware. Things likebr3ak transferring the audio to a different machine, changing the samplebr3ak format or channel count and mixing several sounds into one arebr3ak easily achieved using a sound server.br3ak"
 SECTION="multimedia"
-VERSION=11.1
+VERSION=12.2
 NAME="pulseaudio"
 
 #REQ:libsndfile
@@ -33,12 +33,11 @@ NAME="pulseaudio"
 
 cd $SOURCE_DIR
 
-URL=https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-11.1.tar.xz
+URL=https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-12.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-11.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/pulseaudio/pulseaudio-11.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/pulseaudio/pulseaudio-11.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/pulseaudio/pulseaudio-11.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/pulseaudio/pulseaudio-11.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/pulseaudio/pulseaudio-11.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/pulseaudio/pulseaudio-11.1.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/pulseaudio-11.1-glibc_2.27_fix-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/pulseaudio/pulseaudio-11.1-glibc_2.27_fix-1.patch
+wget -nc https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-12.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/pulseaudio/pulseaudio-12.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/pulseaudio/pulseaudio-12.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/pulseaudio/pulseaudio-12.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/pulseaudio/pulseaudio-12.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/pulseaudio/pulseaudio-12.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/pulseaudio/pulseaudio-12.2.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -53,8 +52,6 @@ fi
 
 whoami > /tmp/currentuser
 
-patch -Np1 -i ../pulseaudio-11.1-glibc_2.27_fix-1.patch &&
-AUTOPOINT='intltoolize --automake --copy' autoreconf -fiv &&
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \
             --localstatedir=/var \

@@ -9,18 +9,18 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The PCI Utils package contains abr3ak set of programs for listing PCI devices, inspecting their statusbr3ak and setting their configuration registers.br3ak"
 SECTION="general"
-VERSION=3.5.6
+VERSION=3.6.2
 NAME="pciutils"
 
 
 
 cd $SOURCE_DIR
 
-URL=https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.5.6.tar.xz
+URL=https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.6.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.5.6.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/pciutils/pciutils-3.5.6.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/pciutils/pciutils-3.5.6.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/pciutils/pciutils-3.5.6.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/pciutils/pciutils-3.5.6.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/pciutils/pciutils-3.5.6.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/pciutils/pciutils-3.5.6.tar.xz
+wget -nc https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.6.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/pciutils/pciutils-3.6.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/pciutils/pciutils-3.6.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/pciutils/pciutils-3.6.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/pciutils/pciutils-3.6.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/pciutils/pciutils-3.6.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/pciutils/pciutils-3.6.2.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

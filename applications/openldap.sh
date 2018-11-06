@@ -115,6 +115,7 @@ make "-j`nproc`" || make
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install &&
+sed -e "s/\.la/.so/" -i /etc/openldap/slapd.{conf,ldif}{,.default} &&
 install -v -dm700 -o ldap -g ldap /var/lib/openldap     &&
 install -v -dm700 -o ldap -g ldap /etc/openldap/slapd.d &&
 chmod   -v    640     /etc/openldap/slapd.{conf,ldif}   &&
@@ -122,16 +123,6 @@ chown   -v  root:ldap /etc/openldap/slapd.{conf,ldif}   &&
 install -v -dm755 /usr/share/doc/openldap-2.4.46 &&
 cp      -vfr      doc/{drafts,rfc,guide} \
                   /usr/share/doc/openldap-2.4.46
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-sed 's/\.la$/.so/' -i /etc/openldap/slapd.{conf,ldif}{,.default}
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

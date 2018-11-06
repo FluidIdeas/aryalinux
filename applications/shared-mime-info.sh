@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Shared Mime Info packagebr3ak contains a MIME database. This allows central updates of MIMEbr3ak information for all supporting applications.br3ak"
 SECTION="general"
-VERSION=1.9
+VERSION=1.10
 NAME="shared-mime-info"
 
 #REQ:glib2
@@ -18,11 +18,11 @@ NAME="shared-mime-info"
 
 cd $SOURCE_DIR
 
-URL=https://people.freedesktop.org/~hadess/shared-mime-info-1.9.tar.xz
+URL=https://people.freedesktop.org/~hadess/shared-mime-info-1.10.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://people.freedesktop.org/~hadess/shared-mime-info-1.9.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/shared-mime-info/shared-mime-info-1.9.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/shared-mime-info/shared-mime-info-1.9.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/shared-mime-info/shared-mime-info-1.9.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/shared-mime-info/shared-mime-info-1.9.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/shared-mime-info/shared-mime-info-1.9.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/shared-mime-info/shared-mime-info-1.9.tar.xz
+wget -nc https://people.freedesktop.org/~hadess/shared-mime-info-1.10.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/shared-mime-info/shared-mime-info-1.10.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/shared-mime-info/shared-mime-info-1.10.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/shared-mime-info/shared-mime-info-1.10.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/shared-mime-info/shared-mime-info-1.10.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/shared-mime-info/shared-mime-info-1.10.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/shared-mime-info/shared-mime-info-1.10.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

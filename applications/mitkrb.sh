@@ -23,11 +23,11 @@ NAME="mitkrb"
 
 cd $SOURCE_DIR
 
-URL=https://web.mit.edu/kerberos/dist/krb5/1.16/krb5-1.16.1.tar.gz
+URL=https://kerberos.org/dist/krb5/1.16/krb5-1.16.1.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://web.mit.edu/kerberos/dist/krb5/1.16/krb5-1.16.1.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/krb5/krb5-1.16.1.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/krb5/krb5-1.16.1.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/krb5/krb5-1.16.1.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/krb5/krb5-1.16.1.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/krb5/krb5-1.16.1.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/krb5/krb5-1.16.1.tar.gz
+wget -nc https://kerberos.org/dist/krb5/1.16/krb5-1.16.1.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/krb5/krb5-1.16.1.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/krb5/krb5-1.16.1.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/krb5/krb5-1.16.1.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/krb5/krb5-1.16.1.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/krb5/krb5-1.16.1.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/krb5/krb5-1.16.1.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

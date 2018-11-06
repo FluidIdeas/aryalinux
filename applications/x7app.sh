@@ -60,7 +60,7 @@ b58a87e6cd7145c70346adad551dba48 xcursorgen-1.0.6.tar.bz2
 90b4305157c2b966d5180e2ee61262be xgamma-1.0.6.tar.bz2
 f5d490738b148cb7f2fe760f40f92516 xhost-1.0.7.tar.bz2
 6a889412eff2e3c1c6bb19146f6fe84c xinput-1.6.2.tar.bz2
-07df9790d30f9a369d20a418af784de0 xkbcomp-1.4.1.tar.bz2
+12610df19df2af3797f2c130ee2bce97 xkbcomp-1.4.2.tar.bz2
 c747faf1f78f5a5962419f8bdd066501 xkbevd-1.1.4.tar.bz2
 502b14843f610af977dffc6cbf2102d5 xkbutils-1.0.4.tar.bz2
 938177e4472c346cf031c1aefd8934fc xkill-1.0.5.tar.bz2

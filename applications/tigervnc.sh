@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Tigervnc is an advanced VNCbr3ak (Virtual Network Computing) implementation. It allows creation ofbr3ak an Xorg server not tied to a physical console and also provides abr3ak client for viewing of the remote graphical desktop.br3ak"
 SECTION="xsoft"
-VERSION=1.8.0
+VERSION=1.9.0
 NAME="tigervnc"
 
 #REQ:cmake
@@ -26,12 +26,12 @@ NAME="tigervnc"
 
 cd $SOURCE_DIR
 
-URL=https://github.com/TigerVNC/tigervnc/archive/v1.8.0/tigervnc-1.8.0.tar.gz
+URL=https://github.com/TigerVNC/tigervnc/archive/v1.9.0/tigervnc-1.9.0.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://github.com/TigerVNC/tigervnc/archive/v1.8.0/tigervnc-1.8.0.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/tigervnc/tigervnc-1.8.0.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/tigervnc/tigervnc-1.8.0.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/tigervnc/tigervnc-1.8.0.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/tigervnc/tigervnc-1.8.0.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/tigervnc/tigervnc-1.8.0.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/tigervnc/tigervnc-1.8.0.tar.gz
-wget -nc https://www.x.org/pub/individual/xserver/xorg-server-1.19.3.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/Xorg/xorg-server-1.19.3.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/Xorg/xorg-server-1.19.3.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/Xorg/xorg-server-1.19.3.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/Xorg/xorg-server-1.19.3.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/Xorg/xorg-server-1.19.3.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/Xorg/xorg-server-1.19.3.tar.bz2
+wget -nc https://github.com/TigerVNC/tigervnc/archive/v1.9.0/tigervnc-1.9.0.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/tigervnc/tigervnc-1.9.0.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/tigervnc/tigervnc-1.9.0.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/tigervnc/tigervnc-1.9.0.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/tigervnc/tigervnc-1.9.0.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/tigervnc/tigervnc-1.9.0.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/tigervnc/tigervnc-1.9.0.tar.gz
+wget -nc https://www.x.org/pub/individual/xserver/xorg-server-1.20.0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/Xorg/xorg-server-1.20.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/Xorg/xorg-server-1.20.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/Xorg/xorg-server-1.20.0.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/Xorg/xorg-server-1.20.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/Xorg/xorg-server-1.20.0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/Xorg/xorg-server-1.20.0.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -49,21 +49,22 @@ whoami > /tmp/currentuser
 export XORG_PREFIX=/usr
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
-mkdir -vp build &&
-cd        build &&
+# Put code in place
+pushd unix/xserver &&
+  tar -xf $DIR/xorg-server-$XORG_VER.tar.bz2 --strip-components=1 &&
+  patch -Np1 -i ../xserver120.patch &&
+popd &&
 # Build viewer
 cmake -G "Unix Makefiles"         \
       -DCMAKE_INSTALL_PREFIX=/usr \
       -DCMAKE_BUILD_TYPE=Release  \
-      -Wno-dev .. &&
+      -Wno-dev &&
 make &&
 # Build server
-cp -vR ../unix/xserver unix/ &&
-tar -xf ../../xorg-server-1.19.3.tar.bz2 -C unix/xserver --strip-components=1 &&
 pushd unix/xserver &&
-  patch -Np1 -i ../../../unix/xserver119.patch &&
-  autoreconf -fi   &&
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static \
+  autoreconf -fiv  &&
+  CFLAGS="$CFLAGS -I/usr/include/drm" \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static            \
       --disable-xwayland    --disable-dri        --disable-dmx         \
       --disable-xorg        --disable-xnest      --disable-xvfb        \
       --disable-xwin        --disable-xephyr     --disable-kdrive      \
@@ -72,7 +73,7 @@ pushd unix/xserver &&
       --disable-static      --enable-dri3                              \
       --without-dtrace      --enable-dri2        --enable-glx          \
       --with-pic &&
-  make TIGERVNC_SRCDIR=`pwd`/../../../ &&
+  make  &&
 popd
 
 

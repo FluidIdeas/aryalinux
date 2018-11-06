@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The YAML package contains a Cbr3ak library for parsing and emitting YAML (YAML Ain't Markup Language).br3ak"
 SECTION="general"
-VERSION=0.1.7
+VERSION=0.2.1
 NAME="yaml"
 
 #OPT:doxygen
@@ -17,11 +17,11 @@ NAME="yaml"
 
 cd $SOURCE_DIR
 
-URL=http://pyyaml.org/download/libyaml/yaml-0.1.7.tar.gz
+URL=http://pyyaml.org/download/libyaml/yaml-0.2.1.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://pyyaml.org/download/libyaml/yaml-0.1.7.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/yaml/yaml-0.1.7.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/yaml/yaml-0.1.7.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/yaml/yaml-0.1.7.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/yaml/yaml-0.1.7.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/yaml/yaml-0.1.7.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/yaml/yaml-0.1.7.tar.gz
+wget -nc http://pyyaml.org/download/libyaml/yaml-0.2.1.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/yaml/yaml-0.2.1.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/yaml/yaml-0.2.1.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/yaml/yaml-0.2.1.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/yaml/yaml-0.2.1.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/yaml/yaml-0.2.1.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/yaml/yaml-0.2.1.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

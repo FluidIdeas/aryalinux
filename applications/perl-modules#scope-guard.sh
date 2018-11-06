@@ -8,7 +8,7 @@ set +h
 
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org/CPAN/authors/id/C/CH/CHOCOLATE/Scope-Guard-0.21.tar.gz"
+URL="https://cpan.metacpan.org/authors/id/C/CH/CHOCOLATE/Scope-Guard-0.21.tar.gz"
 VERSION=0.21
 NAME="perl-modules#scope-guard"
 

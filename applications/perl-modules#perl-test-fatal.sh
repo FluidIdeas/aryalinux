@@ -9,8 +9,8 @@ set +h
 #REQ:perl-modules#perl-try-tiny
 
 SOURCE_ONLY=y
-URL="http://search.cpan.org//CPAN/authors/id/R/RJ/RJBS/Test-Fatal-0.015-TRIAL.tar.gz"
-VERSION=0.015
+URL="https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Fatal-0.014.tar.gz"
+VERSION=0.014
 NAME="perl-modules#perl-test-fatal"
 
 cd $SOURCE_DIR

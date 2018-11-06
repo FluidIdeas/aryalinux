@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak MC (Midnight Commander) is abr3ak text-mode full-screen file manager and visual shell. It provides abr3ak clear, user-friendly, and somewhat protected interface to a Unixbr3ak system while making many frequent file operations more efficientbr3ak and preserving the full power of the command prompt.br3ak"
 SECTION="general"
-VERSION=4.8.20
+VERSION=4.8.21
 NAME="mc"
 
 #REQ:glib2
@@ -25,11 +25,11 @@ NAME="mc"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.midnight-commander.org/mc-4.8.20.tar.xz
+URL=http://ftp.midnight-commander.org/mc-4.8.21.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.midnight-commander.org/mc-4.8.20.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/mc/mc-4.8.20.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/mc/mc-4.8.20.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/mc/mc-4.8.20.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/mc/mc-4.8.20.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/mc/mc-4.8.20.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/mc/mc-4.8.20.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/midnightcommander/mc-4.8.20.tar.xz
+wget -nc http://ftp.midnight-commander.org/mc-4.8.21.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/mc/mc-4.8.21.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/mc/mc-4.8.21.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/mc/mc-4.8.21.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/mc/mc-4.8.21.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/mc/mc-4.8.21.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/mc/mc-4.8.21.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/midnightcommander/mc-4.8.21.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

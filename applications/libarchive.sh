@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The libarchive library provides abr3ak single interface for reading/writing various compression formats.br3ak"
 SECTION="general"
-VERSION=3.3.2
+VERSION=3.3.3
 NAME="libarchive"
 
 #OPT:libxml2
@@ -19,11 +19,11 @@ NAME="libarchive"
 
 cd $SOURCE_DIR
 
-URL=http://www.libarchive.org/downloads/libarchive-3.3.2.tar.gz
+URL=http://www.libarchive.org/downloads/libarchive-3.3.3.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://www.libarchive.org/downloads/libarchive-3.3.2.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libarchive/libarchive-3.3.2.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libarchive/libarchive-3.3.2.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libarchive/libarchive-3.3.2.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libarchive/libarchive-3.3.2.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libarchive/libarchive-3.3.2.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libarchive/libarchive-3.3.2.tar.gz
+wget -nc http://www.libarchive.org/downloads/libarchive-3.3.3.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libarchive/libarchive-3.3.3.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libarchive/libarchive-3.3.3.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libarchive/libarchive-3.3.3.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libarchive/libarchive-3.3.3.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libarchive/libarchive-3.3.3.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libarchive/libarchive-3.3.3.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

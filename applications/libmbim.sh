@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The libmbim package contains abr3ak GLib-based library for talking to WWAN modems and devices whichbr3ak speak the Mobile Interface Broadband Model (MBIM) protocol.br3ak"
 SECTION="general"
-VERSION=1.16.0
+VERSION=1.16.2
 NAME="libmbim"
 
 #REQ:libgudev
@@ -18,11 +18,11 @@ NAME="libmbim"
 
 cd $SOURCE_DIR
 
-URL=https://www.freedesktop.org/software/libmbim/libmbim-1.16.0.tar.xz
+URL=https://www.freedesktop.org/software/libmbim/libmbim-1.16.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://www.freedesktop.org/software/libmbim/libmbim-1.16.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libmbim/libmbim-1.16.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libmbim/libmbim-1.16.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libmbim/libmbim-1.16.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libmbim/libmbim-1.16.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libmbim/libmbim-1.16.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libmbim/libmbim-1.16.0.tar.xz
+wget -nc https://www.freedesktop.org/software/libmbim/libmbim-1.16.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libmbim/libmbim-1.16.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libmbim/libmbim-1.16.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libmbim/libmbim-1.16.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libmbim/libmbim-1.16.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libmbim/libmbim-1.16.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libmbim/libmbim-1.16.2.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

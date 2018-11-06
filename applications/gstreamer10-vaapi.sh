@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The gstreamer-vaapi packagebr3ak contains a gstreamer plugin forbr3ak hardware accelerated video decode/encode for the prevailing codingbr3ak standards today (MPEG-2, MPEG-4 ASP/H.263, MPEG-4 AVC/H.264, andbr3ak VC-1/VMW3).br3ak"
 SECTION="multimedia"
-VERSION=1.14.1
+VERSION=1.14.4
 NAME="gstreamer10-vaapi"
 
 #REQ:gstreamer10
@@ -20,11 +20,11 @@ NAME="gstreamer10-vaapi"
 
 cd $SOURCE_DIR
 
-URL=https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.14.1.tar.xz
+URL=https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.14.4.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.14.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gstreamer/gstreamer-vaapi-1.14.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gstreamer/gstreamer-vaapi-1.14.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gstreamer/gstreamer-vaapi-1.14.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gstreamer/gstreamer-vaapi-1.14.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gstreamer/gstreamer-vaapi-1.14.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gstreamer/gstreamer-vaapi-1.14.1.tar.xz
+wget -nc https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.14.4.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gstreamer/gstreamer-vaapi-1.14.4.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gstreamer/gstreamer-vaapi-1.14.4.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gstreamer/gstreamer-vaapi-1.14.4.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gstreamer/gstreamer-vaapi-1.14.4.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gstreamer/gstreamer-vaapi-1.14.4.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gstreamer/gstreamer-vaapi-1.14.4.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

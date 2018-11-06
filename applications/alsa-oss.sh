@@ -36,6 +36,7 @@ fi
 
 whoami > /tmp/currentuser
 
+sed -i '/#include <libio.h>/d' alsa/stdioemu.c &&
 ./configure --disable-static &&
 make "-j`nproc`" || make
 

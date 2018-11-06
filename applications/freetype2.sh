@@ -51,7 +51,8 @@ make "-j`nproc`" || make
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make install
+make install &&
+cp builds/unix/freetype-config /usr/bin
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
@@ -82,7 +83,8 @@ make "-j`nproc`" || make
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make install
+make install &&
+cp builds/unix/freetype-config /usr/bin
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

@@ -35,7 +35,8 @@ fi
 
 whoami > /tmp/currentuser
 
-sed "s@<unistd.h>@&\n#include <sys/types.h>@g" -i fscklog/extract.c &&
+sed -i "/unistd.h/a#include <sys/types.h>"    fscklog/extract.c &&
+sed -i "/ioctl.h/a#include <sys/sysmacros.h>" libfs/devices.c   &&
 ./configure &&
 make "-j`nproc`" || make
 

@@ -9,18 +9,18 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The libndp package provides abr3ak wrapper for IPv6 Neighbor Discovery Protocol. It also provides abr3ak tool named ndptool for sending and receiving NDP messages.br3ak"
 SECTION="basicnet"
-VERSION=1.6
+VERSION=1.7
 NAME="libndp"
 
 
 
 cd $SOURCE_DIR
 
-URL=http://libndp.org/files/libndp-1.6.tar.gz
+URL=http://libndp.org/files/libndp-1.7.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://libndp.org/files/libndp-1.6.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libndp/libndp-1.6.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libndp/libndp-1.6.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libndp/libndp-1.6.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libndp/libndp-1.6.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libndp/libndp-1.6.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libndp/libndp-1.6.tar.gz
+wget -nc http://libndp.org/files/libndp-1.7.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libndp/libndp-1.7.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libndp/libndp-1.7.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libndp/libndp-1.7.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libndp/libndp-1.7.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libndp/libndp-1.7.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libndp/libndp-1.7.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

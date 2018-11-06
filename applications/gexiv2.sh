@@ -40,7 +40,7 @@ whoami > /tmp/currentuser
 
 mkdir build &&
 cd    build &&
-meson --prefix=/usr &&
+meson --prefix=/usr .. &&
 ninja
 
 

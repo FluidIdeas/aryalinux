@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The PCRE2 package contains a newbr3ak generation of the Perl Compatible Regularbr3ak Expression libraries. These are useful for implementingbr3ak regular expression pattern matching using the same syntax andbr3ak semantics as Perl.br3ak"
 SECTION="general"
-VERSION=10.31
+VERSION=10.32
 NAME="pcre2"
 
 #OPT:valgrind
@@ -17,11 +17,11 @@ NAME="pcre2"
 
 cd $SOURCE_DIR
 
-URL=https://downloads.sourceforge.net/pcre/pcre2-10.31.tar.bz2
+URL=https://downloads.sourceforge.net/pcre/pcre2-10.32.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc https://downloads.sourceforge.net/pcre/pcre2-10.31.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/pcre2/pcre2-10.31.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/pcre2/pcre2-10.31.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/pcre2/pcre2-10.31.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/pcre2/pcre2-10.31.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/pcre2/pcre2-10.31.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/pcre2/pcre2-10.31.tar.bz2 || wget -nc ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre2-10.31.tar.bz2
+wget -nc https://downloads.sourceforge.net/pcre/pcre2-10.32.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/pcre2/pcre2-10.32.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/pcre2/pcre2-10.32.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/pcre2/pcre2-10.32.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/pcre2/pcre2-10.32.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/pcre2/pcre2-10.32.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/pcre2/pcre2-10.32.tar.bz2 || wget -nc ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre2-10.32.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -37,7 +37,7 @@ fi
 whoami > /tmp/currentuser
 
 ./configure --prefix=/usr                       \
-            --docdir=/usr/share/doc/pcre2-10.31 \
+            --docdir=/usr/share/doc/pcre2-10.32 \
             --enable-unicode                    \
             --enable-jit                        \
             --enable-pcre2-16                   \

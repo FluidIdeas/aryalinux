@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="083-libelf.sh"
-TARBALL="elfutils-0.170.tar.bz2"
+TARBALL="elfutils-0.174.tar.bz2"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,12 +29,11 @@ then
 	cd $DIRECTORY
 fi
 
-sed -e '/ALIGN_PRSTATUS)/{ 
-        s/__attribute/attribute_packed &/
-        s/packed, //}' \
-    -i backends/linux-core-note.c
+export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 
-CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL" CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL -Wno-format-truncation" ./configure --prefix=/usr
+./configure --prefix=/usr
 make
 make -C libelf install
 install -vm644 config/libelf.pc /usr/lib/pkgconfig

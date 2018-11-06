@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Ristretto is a fast andbr3ak lightweight image viewer for the Xfce desktop.br3ak"
 SECTION="xfce"
-VERSION=0.8.2
+VERSION=0.8.3
 NAME="ristretto"
 
 #REQ:libexif
@@ -19,11 +19,11 @@ NAME="ristretto"
 
 cd $SOURCE_DIR
 
-URL=http://archive.xfce.org/src/apps/ristretto/0.8/ristretto-0.8.2.tar.bz2
+URL=http://archive.xfce.org/src/apps/ristretto/0.8/ristretto-0.8.3.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc http://archive.xfce.org/src/apps/ristretto/0.8/ristretto-0.8.2.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/ristretto/ristretto-0.8.2.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/ristretto/ristretto-0.8.2.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/ristretto/ristretto-0.8.2.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/ristretto/ristretto-0.8.2.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/ristretto/ristretto-0.8.2.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/ristretto/ristretto-0.8.2.tar.bz2
+wget -nc http://archive.xfce.org/src/apps/ristretto/0.8/ristretto-0.8.3.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/ristretto/ristretto-0.8.3.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/ristretto/ristretto-0.8.3.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/ristretto/ristretto-0.8.3.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/ristretto/ristretto-0.8.3.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/ristretto/ristretto-0.8.3.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/ristretto/ristretto-0.8.3.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The ssh-askpass is a genericbr3ak executable name for many packages, with similar names, that providebr3ak a interactive X service to grab password for packages requiringbr3ak administrative privileges to be run. It prompts the user with abr3ak window box where the necessary password can be inserted. Here, webr3ak choose Damien Miller's package distributed in the OpenSSH tarball.br3ak"
 SECTION="postlfs"
-VERSION=7.7p1
+VERSION=7.9p1
 NAME="ssh-askpass"
 
 #REQ:gtk2
@@ -20,11 +20,11 @@ NAME="ssh-askpass"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.7p1.tar.gz
+URL=http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.9p1.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.7p1.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/openssh/openssh-7.7p1.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/openssh/openssh-7.7p1.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/openssh/openssh-7.7p1.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/openssh/openssh-7.7p1.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/openssh/openssh-7.7p1.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/openssh/openssh-7.7p1.tar.gz || wget -nc ftp://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.7p1.tar.gz
+wget -nc http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.9p1.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/openssh/openssh-7.9p1.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/openssh/openssh-7.9p1.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/openssh/openssh-7.9p1.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/openssh/openssh-7.9p1.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/openssh/openssh-7.9p1.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/openssh/openssh-7.9p1.tar.gz || wget -nc ftp://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.9p1.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

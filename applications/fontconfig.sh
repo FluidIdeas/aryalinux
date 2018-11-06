@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak The Fontconfig package contains abr3ak library and support programs used for configuring and customizingbr3ak font access.br3ak"
 SECTION="general"
-VERSION=2.13.0
+VERSION=2.13.1
 NAME="fontconfig"
 
 #REQ:freetype2
@@ -21,11 +21,11 @@ NAME="fontconfig"
 
 cd $SOURCE_DIR
 
-URL=https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.13.0.tar.bz2
+URL=https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.13.1.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.13.0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/fontconfig/fontconfig-2.13.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/fontconfig/fontconfig-2.13.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/fontconfig/fontconfig-2.13.0.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/fontconfig/fontconfig-2.13.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.13.0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.13.0.tar.bz2
+wget -nc https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.13.1.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/fontconfig/fontconfig-2.13.1.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/fontconfig/fontconfig-2.13.1.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/fontconfig/fontconfig-2.13.1.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/fontconfig/fontconfig-2.13.1.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.13.1.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.13.1.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -47,7 +47,7 @@ rm -f src/fcobjshash.h
             --sysconfdir=/etc    \
             --localstatedir=/var \
             --disable-docs       \
-            --docdir=/usr/share/doc/fontconfig-2.13.0 &&
+            --docdir=/usr/share/doc/fontconfig-2.13.1 &&
 make "-j`nproc`" || make
 
 
@@ -64,14 +64,14 @@ sudo rm rootscript.sh
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 install -v -dm755 \
-        /usr/share/{man/man{1,3,5},doc/fontconfig-2.13.0/fontconfig-devel} &&
+        /usr/share/{man/man{1,3,5},doc/fontconfig-2.13.1/fontconfig-devel} &&
 install -v -m644 fc-*/*.1         /usr/share/man/man1 &&
 install -v -m644 doc/*.3          /usr/share/man/man3 &&
 install -v -m644 doc/fonts-conf.5 /usr/share/man/man5 &&
 install -v -m644 doc/fontconfig-devel/* \
-                                  /usr/share/doc/fontconfig-2.13.0/fontconfig-devel &&
+                                  /usr/share/doc/fontconfig-2.13.1/fontconfig-devel &&
 install -v -m644 doc/*.{pdf,sgml,txt,html} \
-                                  /usr/share/doc/fontconfig-2.13.0
+                                  /usr/share/doc/fontconfig-2.13.1
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh

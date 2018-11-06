@@ -45,12 +45,12 @@ export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disab
 
 cat > lib-7.md5 << "EOF"
 c5ba432dd1514d858053ffe9f4737dd8 xtrans-1.3.5.tar.bz2
-0f618db70c4054ca67cee0cc156a4255 libX11-1.6.5.tar.bz2
+034fdd6cc5393974d88aec6f5bc96162 libX11-1.6.7.tar.bz2
 52df7c4c1f0badd9f82ab124fb32eb97 libXext-1.3.3.tar.bz2
 d79d9fe2aa55eb0f69b1a4351e1368f7 libFS-1.0.7.tar.bz2
 addfb1e897ca8079531669c7c7711726 libICE-1.0.9.tar.bz2
-499a7773c65aba513609fe651853c5f3 libSM-1.2.2.tar.bz2
-7a773b16165e39e938650bcc9027c1d5 libXScrnSaver-1.2.2.tar.bz2
+87c7fad1c1813517979184c8ccd76628 libSM-1.2.3.tar.bz2
+eeea9d5af3e6c143d0ea1721d27a5e49 libXScrnSaver-1.2.3.tar.bz2
 8f5b5576fbabba29a05f3ca2226f74d3 libXt-1.1.5.tar.bz2
 41d92ab627dfa06568076043f3e089e4 libXmu-1.1.2.tar.bz2
 20f4627672edb2bd06a749f11aa97302 libXpm-3.5.12.tar.bz2
@@ -64,7 +64,7 @@ f7a218dcbf6f0848599c6c36fc65c51a libXcomposite-0.4.4.tar.bz2
 b7ca87dfafeb5205b28a1e91ac3efe85 libXfont2-2.0.3.tar.bz2
 331b3a2a3a1a78b5b44cfbd43f86fcfe libXft-2.3.2.tar.bz2
 1f0f2719c020655a60aee334ddd26d67 libXi-1.7.9.tar.bz2
-9336dc46ae3bf5f81c247f7131461efd libXinerama-1.1.3.tar.bz2
+0d5f826a197dae74da67af4a9ef35885 libXinerama-1.1.4.tar.bz2
 28e486f1d491b757173dd85ba34ee884 libXrandr-1.5.1.tar.bz2
 5d6d443d1abc8e1f6fc1c57fb27729bb libXres-1.2.0.tar.bz2
 ef8c2c1d16a00bd95b9fdcef63b8a2ca libXtst-1.2.3.tar.bz2

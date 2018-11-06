@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:perl-modules#perl-xml-libxml
-#REQ:perl-modules#file-slurp-tiny
 
 SOURCE_ONLY=y
 URL="https://www.cpan.org/authors/id/M/MA/MARKOV/XML-LibXML-Simple-0.99.tar.gz"

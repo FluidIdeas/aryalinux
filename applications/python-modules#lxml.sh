@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="%DESCRIPTION%"
 SECTION="general"
-VERSION=4.2.1
+VERSION=4.2.5
 NAME="python-modules#lxml"
 
 #REQ:libxslt
@@ -19,11 +19,11 @@ NAME="python-modules#lxml"
 
 cd $SOURCE_DIR
 
-URL=https://files.pythonhosted.org/packages/source/l/lxml/lxml-4.2.1.tar.gz
+URL=https://files.pythonhosted.org/packages/source/l/lxml/lxml-4.2.5.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://files.pythonhosted.org/packages/source/l/lxml/lxml-4.2.1.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/l/lxml/lxml-4.2.5.tar.gz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

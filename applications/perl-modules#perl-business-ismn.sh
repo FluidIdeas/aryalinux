@@ -9,8 +9,8 @@ set +h
 #REQ:perl-modules#tie-cycle
 
 SOURCE_ONLY=y
-URL="https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISMN-1.131.tar.gz"
-VERSION=1.131
+URL="https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISMN-1.132.tar.gz"
+VERSION=1.132
 NAME="perl-modules#perl-business-ismn"
 
 cd $SOURCE_DIR

@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Epiphany is a simple yet powerfulbr3ak GNOME web browser targeted atbr3ak non-technical users. Its principles are simplicity and standardsbr3ak compliance.br3ak"
 SECTION="xsoft"
-VERSION=3.28.1
+VERSION=3.28.3.1
 NAME="epiphany"
 
 #REQ:gcr
@@ -27,11 +27,11 @@ NAME="epiphany"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/epiphany/3.28/epiphany-3.28.1.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/epiphany/3.28/epiphany-3.28.3.1.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.gnome.org/pub/gnome/sources/epiphany/3.28/epiphany-3.28.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/epiphany/epiphany-3.28.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/epiphany/epiphany-3.28.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/epiphany/epiphany-3.28.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/epiphany/epiphany-3.28.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/epiphany/epiphany-3.28.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/epiphany/epiphany-3.28.1.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/epiphany/3.28/epiphany-3.28.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/epiphany/3.28/epiphany-3.28.3.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/epiphany/epiphany-3.28.3.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/epiphany/epiphany-3.28.3.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/epiphany/epiphany-3.28.3.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/epiphany/epiphany-3.28.3.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/epiphany/epiphany-3.28.3.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/epiphany/epiphany-3.28.3.1.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/epiphany/3.28/epiphany-3.28.3.1.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then

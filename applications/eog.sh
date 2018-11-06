@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak EOG is an application used forbr3ak viewing and cataloging image files on the GNOME Desktop. It has basic editingbr3ak capabilites.br3ak"
 SECTION="gnome"
-VERSION=3.28.0
+VERSION=3.28.3
 NAME="eog"
 
 #REQ:adwaita-icon-theme
@@ -27,11 +27,11 @@ NAME="eog"
 
 cd $SOURCE_DIR
 
-URL=http://ftp.gnome.org/pub/gnome/sources/eog/3.28/eog-3.28.0.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/eog/3.28/eog-3.28.3.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc http://ftp.gnome.org/pub/gnome/sources/eog/3.28/eog-3.28.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/eog/eog-3.28.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/eog/eog-3.28.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/eog/eog-3.28.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/eog/eog-3.28.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/eog/eog-3.28.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/eog/eog-3.28.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/eog/3.28/eog-3.28.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/eog/3.28/eog-3.28.3.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/eog/eog-3.28.3.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/eog/eog-3.28.3.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/eog/eog-3.28.3.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/eog/eog-3.28.3.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/eog/eog-3.28.3.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/eog/eog-3.28.3.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/eog/3.28/eog-3.28.3.tar.xz
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -48,7 +48,7 @@ whoami > /tmp/currentuser
 
 mkdir build &&
 cd    build &&
-meson --prefix=/usr &&
+meson --prefix=/usr .. &&
 ninja
 
 

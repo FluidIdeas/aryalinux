@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak libdrm provides a user spacebr3ak library for accessing the DRM, direct rendering manager, onbr3ak operating systems that support the ioctl interface. libdrm is abr3ak low-level library, typically used by graphics drivers such as thebr3ak Mesa DRI drivers, the X drivers, libva and similar projects.br3ak"
 SECTION="x"
-VERSION=2.4.92
+VERSION=2.4.96
 NAME="libdrm"
 
 #REC:x7lib
@@ -22,11 +22,11 @@ NAME="libdrm"
 
 cd $SOURCE_DIR
 
-URL=https://dri.freedesktop.org/libdrm/libdrm-2.4.92.tar.bz2
+URL=https://dri.freedesktop.org/libdrm/libdrm-2.4.96.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc https://dri.freedesktop.org/libdrm/libdrm-2.4.92.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libdrm/libdrm-2.4.92.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libdrm/libdrm-2.4.92.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libdrm/libdrm-2.4.92.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libdrm/libdrm-2.4.92.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libdrm/libdrm-2.4.92.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libdrm/libdrm-2.4.92.tar.bz2
+wget -nc https://dri.freedesktop.org/libdrm/libdrm-2.4.96.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/libdrm/libdrm-2.4.96.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/libdrm/libdrm-2.4.96.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/libdrm/libdrm-2.4.96.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/libdrm/libdrm-2.4.96.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/libdrm/libdrm-2.4.96.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/libdrm/libdrm-2.4.96.tar.bz2
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
