@@ -18,6 +18,7 @@ tar xf $TARBALL
 cd grub-2.02
 
 patch -Np1 -i ../grub-2.02-gcc.patch
+patch -Np1 -i ../grub-2.02-relocation.patch
 sed -i "s@GNU GRUB  version %s@$OS_NAME $OS_VERSION $OS_CODENAME \- GNU GRUB@g" grub-core/normal/main.c
 
 if [ `uname -m` == "x86_64" ]
