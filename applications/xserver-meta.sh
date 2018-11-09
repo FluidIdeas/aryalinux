@@ -1,4 +1,4 @@
-#!/bin/bash
+7#!/bin/bash
 
 set -e
 set +h
@@ -34,6 +34,7 @@ sudo usermod -a -G video `cat /tmp/currentuser`
 #REQ:xcursor-themes
 #REQ:x7font
 #REQ:xkeyboard-config
+#REQ:mesa
 #REQ:xorg-server
 #REQ:x7driver
 #OPT:xf86-video-mga
