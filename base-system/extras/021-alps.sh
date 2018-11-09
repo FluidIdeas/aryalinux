@@ -32,6 +32,7 @@ rm -rf $DIRECTORY
 
 mkdir -pv /var/cache/alps/{sources,scripts,binaries}
 tar xf alps-scripts*.tar.gz -C /var/cache/alps/scripts/
+chmod a+rw /var/cache/alps/{sources,binaries}
 
 echo "$STEPNAME" | tee -a $LOGFILE
 
