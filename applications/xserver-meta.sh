@@ -28,7 +28,6 @@ sudo usermod -a -G video `cat /tmp/currentuser`
 #REQ:xcb-util-renderutil
 #REQ:xcb-util-wm
 #REQ:xcb-util-cursor
-#REQ:mesa
 #REQ:libva
 #REQ:xbitmaps
 #REQ:x7app
