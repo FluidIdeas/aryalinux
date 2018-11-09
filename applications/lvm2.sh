@@ -56,18 +56,6 @@ unset SAVEPATH
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make -C tools install_dmsetup_dynamic &&
-make -C udev  install                 &&
-make -C libdm install
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
 
 ENDOFROOTSCRIPT
