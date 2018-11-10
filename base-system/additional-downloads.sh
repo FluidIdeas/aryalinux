@@ -71,7 +71,7 @@ wget -nc http://downloads.sourceforge.net/infozip/unzip60.tar.gz
 
 set +e
 
-wget -c https://bitbucket.org/chandrakantsingh/alps/get/master.tar.bz2 -O alps-master.tar.bz2
+wget -c https://bitbucket.org/chandrakantsingh/alps-new/get/master.tar.bz2 -O alps-master.tar.bz2
 
 set -e
 
