@@ -19,8 +19,6 @@ NAME="mesa"
 #REQ:wayland
 #REC:llvm
 #REC:wayland-protocols
-#REC:plasma-all
-#REC:gtk3
 #REC:libva-wo-mesa
 #REC:libvdpau
 #OPT:libgcrypt
