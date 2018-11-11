@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Mesa is an OpenGL compatible 3Dbr3ak graphics library.br3ak"
 SECTION="x"
-VERSION=18.2.2
+VERSION=18.1.7
 NAME="mesa"
 
 #REQ:x7lib
@@ -17,8 +17,9 @@ NAME="mesa"
 #REQ:python-modules#Mako
 #REQ:python2
 #REQ:wayland
-#REC:llvm
 #REC:wayland-protocols
+#REC:llvm
+#REC:wayland
 #REC:libva-wo-mesa
 #REC:libvdpau
 #OPT:libgcrypt
@@ -27,12 +28,14 @@ NAME="mesa"
 
 cd $SOURCE_DIR
 
-URL=https://mesa.freedesktop.org/archive/mesa-18.2.2.tar.xz
+URL=https://mesa.freedesktop.org/archive/$NAME-$VERSION.tar.xz
+
+echo "PATH : $PATH"
 
 if [ ! -z $URL ]
 then
-wget -nc https://mesa.freedesktop.org/archive/mesa-18.2.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/mesa/mesa-18.2.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/mesa/mesa-18.2.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/mesa/mesa-18.2.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/mesa/mesa-18.2.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/mesa/mesa-18.2.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/mesa/mesa-18.2.2.tar.xz || wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-18.2.2.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/mesa-18.2.2-add_xdemos-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/mesa/mesa-18.2.2-add_xdemos-1.patch
+
+wget -nc $URL
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -48,28 +51,40 @@ fi
 whoami > /tmp/currentuser
 
 export XORG_PREFIX=/usr
-export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
+export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
 
-patch -Np1 -i ../mesa-18.2.2-add_xdemos-1.patch
-
-
-GLL_DRV="i915,r600,nouveau,radeonsi,svga,swrast"
+DRI_DRIVERS="i915,i965,nouveau,r200,radeon,swrast"
+GALLIUM_DRIVERS="nouveau,r300,r600,svga,radeonsi,swrast,virgl"
+VULKAN=" --with-vulkan-drivers=intel,radeon "
+EGL_PLATFORMS="drm,x11"
 
 
 ./configure CFLAGS='-O2' CXXFLAGS='-O2' LDFLAGS=-lLLVM \
-            --prefix=/usr              \
-            --sysconfdir=/etc                  \
-            --enable-osmesa                    \
-            --enable-xa                        \
-            --enable-glx-tls                   \
-            --with-platforms="drm,x11,wayland,wayland" \
-            --with-gallium-drivers=$GLL_DRV    &&
-unset GLL_DRV &&
+  --prefix=$XORG_PREFIX \
+  --sysconfdir=/etc \
+  --with-dri-driverdir=/usr/lib${LIBDIRSUFFIX}/xorg/modules/dri \
+  --with-dri-drivers="$DRI_DRIVERS" \
+  --with-gallium-drivers="$GALLIUM_DRIVERS" \
+  --with-egl-platforms="$EGL_PLATFORMS" \
+  $VULKAN \
+  --enable-llvm \
+  --enable-llvm-shared-libs \
+  --enable-egl \
+  --enable-texture-float \
+  --enable-shared-glapi \
+  --enable-xa \
+  --enable-nine \
+  --enable-osmesa \
+  --enable-dri \
+  --enable-dri3 \
+  --enable-gbm \
+  --enable-glx \
+  --enable-glx-tls \
+  --enable-gles1 \
+  --enable-gles2 \
+  --enable-vdpau \
+  --enable-va
 make "-j`nproc`" || make
-
-
-make -C xdemos DEMOS_PREFIX=/usr
-
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
@@ -83,25 +98,13 @@ sudo rm rootscript.sh
 
 
 sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make -C xdemos DEMOS_PREFIX=/usr install
+install -v -dm755 /usr/share/doc/$NAME-$VERSION &&
+cp -rfv docs/* /usr/share/doc/$NAME-$VERSION
 
 ENDOFROOTSCRIPT
 sudo chmod 755 rootscript.sh
 sudo bash -e ./rootscript.sh
 sudo rm rootscript.sh
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-install -v -dm755 /usr/share/doc/mesa-18.2.2 &&
-cp -rfv docs/* /usr/share/doc/mesa-18.2.2
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
