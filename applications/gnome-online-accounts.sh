@@ -32,6 +32,7 @@ URL=http://ftp.gnome.org/pub/gnome/sources/gnome-online-accounts/3.28/gnome-onli
 if [ ! -z $URL ]
 then
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-online-accounts/3.28/gnome-online-accounts-3.28.0.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gnome-online-accounts/gnome-online-accounts-3.28.0.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gnome-online-accounts/gnome-online-accounts-3.28.0.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnome-online-accounts/gnome-online-accounts-3.28.0.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnome-online-accounts/gnome-online-accounts-3.28.0.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gnome-online-accounts/gnome-online-accounts-3.28.0.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gnome-online-accounts/gnome-online-accounts-3.28.0.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-online-accounts/3.28/gnome-online-accounts-3.28.0.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.3/gnome-online-accounts-3.28.0-glib.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -46,6 +47,7 @@ fi
 
 whoami > /tmp/currentuser
 
+patch -Np1 -i ../gnome-online-accounts-3.28.0-glib.patch
 ./configure --prefix=/usr \
             --disable-static \
             --with-google-client-secret=5ntt6GbbkjnTVXx-MSxbmx5e \
