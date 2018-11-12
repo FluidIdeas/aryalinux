@@ -41,6 +41,9 @@ fi
 
 whoami > /tmp/currentuser
 
+mkdir -pv build
+cd build
+
 meson --prefix=/usr            \
             -Dadmin_group=adm  \
             -Dsystemd=true     \
