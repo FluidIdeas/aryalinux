@@ -9,7 +9,7 @@ set +h
 SOURCE_ONLY=n
 DESCRIPTION="br3ak Mesa is an OpenGL compatible 3Dbr3ak graphics library.br3ak"
 SECTION="x"
-VERSION=18.1.7
+VERSION=18.2.2
 NAME="mesa"
 
 #REQ:x7lib
@@ -36,6 +36,7 @@ if [ ! -z $URL ]
 then
 
 wget -nc $URL
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/mesa-18.2.2-add_xdemos-1.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -52,6 +53,8 @@ whoami > /tmp/currentuser
 
 export XORG_PREFIX=/usr
 export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
+
+patch -Np1 -i ../mesa-18.2.2-add_xdemos-1.patch
 
 DRI_DRIVERS="i915,i965,nouveau,r200,radeon,swrast"
 GALLIUM_DRIVERS="nouveau,r300,r600,svga,radeonsi,swrast,virgl"
