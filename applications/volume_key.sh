@@ -17,7 +17,7 @@ NAME="volume_key"
 #REQ:gpgme
 #REQ:nss
 #REQ:python2
-#OPT:swig
+#REQ:swig
 
 
 cd $SOURCE_DIR
