@@ -37,10 +37,8 @@ ln -sf /tools/bin/true /usr/bin/xsltproc
 for file in /tools/lib/lib{blkid,mount,uuid}*; do
     ln -sf $file /usr/lib/
 done
-tar -xf ../systemd-man-pages-239.tar.xz
+tar -xf ../systemd-man-pages-239-6b4878d.tar.xz
 sed '166,$ d' -i src/resolve/meson.build
-patch -Np1 -i ../systemd-239-glibc_statx_fix-1.patch
-patch -Np1 -i ../systemd-239-meson-0.48.0_fixes-1.patch
 sed -i 's/GROUP="render", //' rules/50-udev-default.rules.in
 mkdir -p build
 cd       build

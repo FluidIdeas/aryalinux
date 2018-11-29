@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="083-libelf.sh"
-TARBALL="elfutils-0.174.tar.bz2"
+TARBALL="elfutils-0.175.tar.bz2"
 
 echo "$LOGLENGTH" > /sources/lines2track
 

@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="010-tcl.sh"
-TARBALL="tcl8.6.8-src.tar.gz"
+TARBALL="tcl8.6.9-src.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
