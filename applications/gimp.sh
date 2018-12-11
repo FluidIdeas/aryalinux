@@ -6,12 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-SOURCE_ONLY=n
-DESCRIPTION="br3ak The Gimp package contains the GNUbr3ak Image Manipulation Program which is useful for photo retouching,br3ak image composition and image authoring.br3ak"
-SECTION="xsoft"
-VERSION=2.10.6
-NAME="gimp"
-
 #REQ:gegl
 #REQ:gexiv2
 #REQ:glib-networking
@@ -25,7 +19,7 @@ NAME="gimp"
 #REQ:lcms2
 #REQ:mypaint-brushes
 #REQ:poppler
-#REQ:xorg-server
+#REQ:installing
 #REC:dbus-glib
 #REC:gs
 #REC:gvfs
@@ -38,56 +32,66 @@ NAME="gimp"
 #OPT:libmng
 #OPT:libwebp
 #OPT:openjpeg2
+#OPT:mail
 #OPT:gtk-doc
-
+#OPT:libwmf
 
 cd $SOURCE_DIR
+
+wget -nc https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.6.tar.bz2
+wget -nc http://anduin.linuxfromscratch.org/BLFS/gimp/gimp-help-2018-08-21.tar.xz
 
 URL=https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.6.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.6.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gimp/gimp-2.10.6.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gimp/gimp-2.10.6.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gimp/gimp-2.10.6.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gimp/gimp-2.10.6.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gimp/gimp-2.10.6.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gimp/gimp-2.10.6.tar.bz2
 
-TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
+TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
-	DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$"`
+	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
 	tar --no-overwrite-dir -xf $TARBALL
 else
 	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
 	unzip_file $TARBALL $NAME
 fi
+
 cd $DIRECTORY
 fi
 
-whoami > /tmp/currentuser
-
 ./configure --prefix=/usr \
             --sysconfdir=/etc &&
-make "-j`nproc`" || make
+make
 
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
 make install
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
 
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
 gtk-update-icon-cache &&
 update-desktop-database
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
+ALL_LINGUAS="ca da de el en en_GB es fi fr it ja ko nl nn pt_BR ro ru zh_CN" \
+./autogen.sh --prefix=/usr &&
+make
 
-
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
+make install &&
+chown -R root:root /usr/share/gimp/2.0/help
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
