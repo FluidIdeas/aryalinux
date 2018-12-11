@@ -6,16 +6,10 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-SOURCE_ONLY=n
-DESCRIPTION="br3ak While systemd was installed whenbr3ak building LFS, there are many features provided by the package thatbr3ak were not included in the initial installation because Linux-PAM was not yet installed. Thebr3ak systemd package needs to bebr3ak rebuilt to provide a working <span class=\"command\"><strong>systemd-logind</strong> service, whichbr3ak provides many additional features for dependent packages.br3ak"
-SECTION="general"
-VERSION=239
-NAME="systemd"
-
 #REQ:linux-pam
 #REC:polkit
-#OPT:make-ca
 #OPT:curl
+#OPT:cryptsetup
 #OPT:git
 #OPT:gnutls
 #OPT:iptables
@@ -23,6 +17,7 @@ NAME="systemd"
 #OPT:libidn2
 #OPT:libseccomp
 #OPT:libxkbcommon
+#OPT:make-ca
 #OPT:qemu
 #OPT:valgrind
 #OPT:zsh
@@ -30,39 +25,31 @@ NAME="systemd"
 #OPT:docbook-xsl
 #OPT:libxslt
 
-
 cd $SOURCE_DIR
 
-URL=https://github.com/systemd/systemd/archive/v239/systemd-239.tar.gz
+wget -nc http://anduin.linuxfromscratch.org/LFS/systemd-239-6b4878d.tar.xz
+
+URL=http://anduin.linuxfromscratch.org/LFS/systemd-239-6b4878d.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://github.com/systemd/systemd/archive/v239/systemd-239.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/systemd/systemd-239.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/systemd/systemd-239.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/systemd/systemd-239.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/systemd/systemd-239.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/systemd/systemd-239.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/systemd/systemd-239.tar.gz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/systemd-239-glibc_statx_fix-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/systemd/systemd-239-glibc_statx_fix-1.patch
-wget -nc https://github.com/systemd/systemd/archive/v238/systemd-238.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.3/meson-rename-Ddebug-to-Ddebug-extra.patch
 
-TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
+TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
-	DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$"`
+	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
 	tar --no-overwrite-dir -xf $TARBALL
 else
 	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
 	unzip_file $TARBALL $NAME
 fi
+
 cd $DIRECTORY
 fi
 
-whoami > /tmp/currentuser
-
-patch -Np1 -i ../systemd-239-glibc_statx_fix-1.patch
-patch -Np1 -i ../meson-rename-Ddebug-to-Ddebug-extra.patch
-
 sed -i 's/GROUP="render", //' rules/50-udev-default.rules.in
-
-
 mkdir build &&
 cd    build &&
+
 meson --prefix=/usr         \
       --sysconfdir=/etc     \
       --localstatedir=/var  \
@@ -78,56 +65,59 @@ meson --prefix=/usr         \
       -Dsysusers=false      \
       -Db_lto=false         \
       ..                    &&
+
 ninja
 
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
+systemctl start rescue.target
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
 
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
 ninja install
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
 
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
 rm -rfv /usr/lib/rpm
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
 
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/pam.d/system-session << "EOF"
-# Begin Systemd addition
- 
-session required pam_loginuid.so
-session optional pam_systemd.so
-# End Systemd addition
+<code class="literal"># Begin Systemd addition session required pam_loginuid.so session optional pam_systemd.so # End Systemd addition</code>
 EOF
+
 cat > /etc/pam.d/systemd-user << "EOF"
-# Begin /etc/pam.d/systemd-user
-account required pam_access.so
-account include system-account
-session required pam_env.so
-session required pam_limits.so
-session include system-session
-auth required pam_deny.so
-password required pam_deny.so
-# End /etc/pam.d/systemd-user
+<code class="literal"># Begin /etc/pam.d/systemd-user account required pam_access.so account include system-account session required pam_env.so session required pam_limits.so session include system-session auth required pam_deny.so password required pam_deny.so # End /etc/pam.d/systemd-user</code>
 EOF
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
 
-
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
+systemctl daemon-reload
+systemctl start multi-user.target
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

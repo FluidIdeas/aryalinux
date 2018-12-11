@@ -6,12 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-SOURCE_ONLY=n
-DESCRIPTION="br3ak Ghostscript is a versatilebr3ak processor for PostScript data with the ability to render PostScriptbr3ak to different targets. It is a mandatory part of the cups printingbr3ak stack.br3ak"
-SECTION="pst"
-VERSION=9.25
-NAME="gs"
-
 #REC:cups
 #REC:fontconfig
 #REC:freetype2
@@ -24,82 +18,82 @@ NAME="gs"
 #OPT:libidn
 #OPT:libpaper
 #OPT:lcms
-#OPT:xorg-server
-
+#OPT:installing
 
 cd $SOURCE_DIR
 
-URL=https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs925/ghostscript-9.25.tar.gz
+wget -nc https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs926/ghostscript-9.26.tar.gz
+wget -nc https://downloads.sourceforge.net/gs-fonts/ghostscript-fonts-std-8.11.tar.gz
+wget -nc https://downloads.sourceforge.net/gs-fonts/gnu-gs-fonts-other-6.0.tar.gz
+
+URL=https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs926/ghostscript-9.26.tar.gz
 
 if [ ! -z $URL ]
 then
-wget -nc https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs925/ghostscript-9.25.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/ghostscript/ghostscript-9.25.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/ghostscript/ghostscript-9.25.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/ghostscript/ghostscript-9.25.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/ghostscript/ghostscript-9.25.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/ghostscript/ghostscript-9.25.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/ghostscript/ghostscript-9.25.tar.gz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/ghostscript-9.25-security_fixes-2.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/ghostscript/ghostscript-9.25-security_fixes-2.patch
-wget -nc https://downloads.sourceforge.net/gs-fonts/ghostscript-fonts-std-8.11.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/ghostscript/ghostscript-fonts-std-8.11.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/ghostscript/ghostscript-fonts-std-8.11.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/ghostscript/ghostscript-fonts-std-8.11.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/ghostscript/ghostscript-fonts-std-8.11.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/ghostscript/ghostscript-fonts-std-8.11.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/ghostscript/ghostscript-fonts-std-8.11.tar.gz
-wget -nc https://downloads.sourceforge.net/gs-fonts/gnu-gs-fonts-other-6.0.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gnu-gs-fonts-other/gnu-gs-fonts-other-6.0.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gnu-gs-fonts-other/gnu-gs-fonts-other-6.0.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnu-gs-fonts-other/gnu-gs-fonts-other-6.0.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gnu-gs-fonts-other/gnu-gs-fonts-other-6.0.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gnu-gs-fonts-other/gnu-gs-fonts-other-6.0.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gnu-gs-fonts-other/gnu-gs-fonts-other-6.0.tar.gz
 
-TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
+TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
-	DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$"`
+	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
 	tar --no-overwrite-dir -xf $TARBALL
 else
 	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
 	unzip_file $TARBALL $NAME
 fi
+
 cd $DIRECTORY
 fi
 
-whoami > /tmp/currentuser
-
 rm -rf freetype lcms2mt jpeg libpng
-
-
 rm -rf zlib &&
-patch -Np1 -i ../ghostscript-9.25-security_fixes-2.patch &&
+
 ./configure --prefix=/usr           \
             --disable-compile-inits \
             --enable-dynamic        \
             --with-system-libtiff   &&
-make "-j`nproc`" || make
-
-
+make
 make so
 
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
 make install
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
 
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
 make soinstall &&
 install -v -m644 base/*.h /usr/include/ghostscript &&
-ln -v -s ghostscript /usr/include/ps
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
+ln -sfvn ghostscript /usr/include/ps
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
 
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-ln -sfvn ../ghostscript/9.25/doc /usr/share/doc/ghostscript-9.25  &&
-sudo cp -a examples/ /usr/share/ghostscript/9.25/
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
+ln -sfvn ../ghostscript/9.26/doc /usr/share/doc/ghostscript-9.26  &&
+cp -a examples/ /usr/share/ghostscript/9.26/
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
 
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
+tar -xvf ../ghostscript-fonts-std-8.11.tar.gz -C /usr/share/ghostscript --no-same-owner &&
+tar -xvf ../gnu-gs-fonts-other-6.0.tar.gz     -C /usr/share/ghostscript --no-same-owner &&
+fc-cache -v /usr/share/ghostscript/fonts/
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
-
+gs -q -dBATCH /usr/share/ghostscript/9.26/examples/tiger.eps
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

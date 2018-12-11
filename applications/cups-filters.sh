@@ -6,22 +6,16 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-SOURCE_ONLY=n
-DESCRIPTION="br3ak The CUPS Filters package containsbr3ak backends, filters and other software that was once part of the corebr3ak CUPS distribution but is no longerbr3ak maintained by Apple Inc.br3ak"
-SECTION="pst"
-VERSION=1.21.1
-NAME="cups-filters"
-
 #REQ:cups
 #REQ:glib2
 #REQ:gs
 #REQ:lcms2
-#REQ:mupdf
 #REQ:poppler
 #REQ:qpdf
 #REC:libjpeg
 #REC:libpng
 #REC:libtiff
+#REC:mupdf
 #OPT:avahi
 #OPT:TTF-and-OTF-fonts#dejavu-fonts
 #OPT:ijs
@@ -29,71 +23,64 @@ NAME="cups-filters"
 #OPT:php
 #OPT:gutenprint
 
-
 cd $SOURCE_DIR
 
-URL=https://www.openprinting.org/download/cups-filters/cups-filters-1.21.1.tar.xz
+wget -nc https://www.openprinting.org/download/cups-filters/cups-filters-1.21.4.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/cups-filters-1.21.4-poppler71-1.patch
+
+URL=https://www.openprinting.org/download/cups-filters/cups-filters-1.21.4.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://www.openprinting.org/download/cups-filters/cups-filters-1.21.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/cups/cups-filters-1.21.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/cups/cups-filters-1.21.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/cups/cups-filters-1.21.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/cups/cups-filters-1.21.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/cups/cups-filters-1.21.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/cups/cups-filters-1.21.1.tar.xz
 
-TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
+TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
-	DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$"`
+	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
 	tar --no-overwrite-dir -xf $TARBALL
 else
 	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
 	unzip_file $TARBALL $NAME
 fi
+
 cd $DIRECTORY
 fi
 
-whoami > /tmp/currentuser
-
 sed -i "s:cups.service:org.cups.cupsd.service:g" utils/cups-browsed.service
-
-
+patch -Np1 -i ../cups-filters-1.21.4-poppler71-1.patch
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \
             --localstatedir=/var \
             --without-rcdir      \
             --disable-static     \
             --disable-avahi      \
-            --docdir=/usr/share/doc/cups-filters-1.21.1 &&
-make "-j`nproc`" || make
+            --docdir=/usr/share/doc/cups-filters-1.21.4 &&
+make
 
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
 make install
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
 
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
 install -v -m644 utils/cups-browsed.service /lib/systemd/system/cups-browsed.service
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
 
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
 systemctl enable cups-browsed
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

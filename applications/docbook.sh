@@ -6,54 +6,47 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-SOURCE_ONLY=y
-DESCRIPTION="br3ak The DocBook XML DTD-4.5 packagebr3ak contains document type definitions for verification of XML databr3ak files against the DocBook rule set. These are useful forbr3ak structuring books and software documentation to a standard allowingbr3ak you to utilize transformations already written for that standard.br3ak"
-SECTION="pst"
-VERSION=4.5
-NAME="docbook"
-
 #REQ:libxml2
 #REQ:sgml-common
 #REQ:unzip
 
-
 cd $SOURCE_DIR
+
+wget -nc http://www.docbook.org/xml/4.5/docbook-xml-4.5.zip
 
 URL=http://www.docbook.org/xml/4.5/docbook-xml-4.5.zip
 
 if [ ! -z $URL ]
 then
-wget -nc http://www.docbook.org/xml/4.5/docbook-xml-4.5.zip || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/docbook-xml/docbook-xml-4.5.zip || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/docbook-xml/docbook-xml-4.5.zip || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/docbook-xml/docbook-xml-4.5.zip || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/docbook-xml/docbook-xml-4.5.zip || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/docbook-xml/docbook-xml-4.5.zip || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/docbook-xml/docbook-xml-4.5.zip
 
-TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
+TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
-	DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$"`
+	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
 	tar --no-overwrite-dir -xf $TARBALL
 else
 	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
 	unzip_file $TARBALL $NAME
 fi
+
 cd $DIRECTORY
 fi
 
-whoami > /tmp/currentuser
 
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
 install -v -d -m755 /usr/share/xml/docbook/xml-dtd-4.5 &&
 install -v -d -m755 /etc/xml &&
 chown -R root:root . &&
 cp -v -af docbook.cat *.dtd ent/ *.mod \
     /usr/share/xml/docbook/xml-dtd-4.5
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
 
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
 if [ ! -e /etc/xml/docbook ]; then
     xmlcatalog --noout --create /etc/xml/docbook
 fi &&
@@ -101,15 +94,14 @@ xmlcatalog --noout --add "rewriteURI" \
     "http://www.oasis-open.org/docbook/xml/4.5" \
     "file:///usr/share/xml/docbook/xml-dtd-4.5" \
     /etc/xml/docbook
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
 
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
 if [ ! -e /etc/xml/catalog ]; then
     xmlcatalog --noout --create /etc/xml/catalog
 fi &&
@@ -129,15 +121,14 @@ xmlcatalog --noout --add "delegateURI" \
     "http://www.oasis-open.org/docbook/" \
     "file:///etc/xml/docbook" \
     /etc/xml/catalog
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
 
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
 for DTDVERSION in 4.1.2 4.2 4.3 4.4
 do
   xmlcatalog --noout --add "public" \
@@ -161,13 +152,10 @@ do
     "file:///etc/xml/docbook" \
     /etc/xml/catalog
 done
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

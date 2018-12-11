@@ -6,12 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-SOURCE_ONLY=n
-DESCRIPTION="br3ak Qt5 is a cross-platformbr3ak application framework that is widely used for developingbr3ak application software with a graphical user interface (GUI) (inbr3ak which cases Qt5 is classified as abr3ak widget toolkit), and also used for developing non-GUI programs suchbr3ak as command-line tools and consoles for servers. One of the majorbr3ak users of Qt is KDE Frameworks 5 (KF5).br3ak"
-SECTION="x"
-VERSION=5.11.2
-NAME="qt5"
-
 #REQ:x7lib
 #REC:alsa-lib
 #REC:make-ca
@@ -37,53 +31,47 @@ NAME="qt5"
 #REC:xcb-util-wm
 #OPT:bluez
 #OPT:ibus
-#OPT:x7driver
+#OPT:x7driver#libinput
 #OPT:mariadb
 #OPT:pciutils
 #OPT:postgresql
 #OPT:pulseaudio
 #OPT:unixodbc
 
-
 cd $SOURCE_DIR
+
+wget -nc https://download.qt.io/archive/qt/5.11/5.11.2/single/qt-everywhere-src-5.11.2.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/qt-5.11.2-glibc228-1.patch
 
 URL=https://download.qt.io/archive/qt/5.11/5.11.2/single/qt-everywhere-src-5.11.2.tar.xz
 
 if [ ! -z $URL ]
 then
-wget -nc https://download.qt.io/archive/qt/5.11/5.11.2/single/qt-everywhere-src-5.11.2.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/qt-5.11.2-glibc228-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/qt/qt-5.11.2-glibc228-1.patch
 
-TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
+TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
-	DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$"`
+	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
 	tar --no-overwrite-dir -xf $TARBALL
 else
 	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
 	unzip_file $TARBALL $NAME
 fi
+
 cd $DIRECTORY
 fi
 
-whoami > /tmp/currentuser
-
 export QT5PREFIX=/opt/qt5
 
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
 mkdir /opt/qt-5.11.2
 ln -sfnv qt-5.11.2 /opt/qt5
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
 patch -Np1 -i ../qt-5.11.2-glibc228-1.patch
-
-
 -archdatadir    /usr/lib/qt5                \
             -bindir         /usr/bin                    \
             -plugindir      /usr/lib/qt5/plugins        \
@@ -93,9 +81,7 @@ patch -Np1 -i ../qt-5.11.2-glibc228-1.patch
             -docdir         /usr/share/doc/qt5          \
             -translationdir /usr/share/qt5/translations \
             -examplesdir    /usr/share/doc/qt5/examples
-
-
-./configure -prefix /opt/qt5                          \
+./configure -prefix $QT5PREFIX                          \
             -sysconfdir /etc/xdg                        \
             -confirm-license                            \
             -opensource                                 \
@@ -106,158 +92,123 @@ patch -Np1 -i ../qt-5.11.2-glibc228-1.patch
             -nomake examples                            \
             -no-rpath                                   \
             -skip qtwebengine                           &&
-make "-j`nproc`" || make
+make
 
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
 make install
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
 
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-find /opt/qt5/ -name \*.prl \
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
+find $QT5PREFIX/ -name \*.prl \
    -exec sed -i -e '/^QMAKE_PRL_BUILD_DIR/d' {} \;
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
 
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-QT5BINDIR=/opt/qt5/bin
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
+QT5BINDIR=$QT5PREFIX/bin
+
 install -v -dm755 /usr/share/pixmaps/                  &&
+
 install -v -Dm644 qttools/src/assistant/assistant/images/assistant-128.png \
                   /usr/share/pixmaps/assistant-qt5.png &&
+
 install -v -Dm644 qttools/src/designer/src/designer/images/designer.png \
                   /usr/share/pixmaps/designer-qt5.png  &&
+
 install -v -Dm644 qttools/src/linguist/linguist/images/icons/linguist-128-32.png \
                   /usr/share/pixmaps/linguist-qt5.png  &&
+
 install -v -Dm644 qttools/src/qdbus/qdbusviewer/images/qdbusviewer-128.png \
                   /usr/share/pixmaps/qdbusviewer-qt5.png &&
+
 install -dm755 /usr/share/applications &&
+
 cat > /usr/share/applications/assistant-qt5.desktop << EOF
-[Desktop Entry]
-Name=Qt5 Assistant
-Comment=Shows Qt5 documentation and examples
-Exec=/opt/qt5/bin/assistant
-Icon=assistant-qt5.png
-Terminal=false
-Encoding=UTF-8
-Type=Application
-Categories=Qt;Development;Documentation;
+<code class="literal">[Desktop Entry] Name=Qt5 Assistant Comment=Shows Qt5 documentation and examples Exec=$QT5BINDIR/assistant Icon=assistant-qt5.png Terminal=false Encoding=UTF-8 Type=Application Categories=Qt;Development;Documentation;</code>
 EOF
+
 cat > /usr/share/applications/designer-qt5.desktop << EOF
-[Desktop Entry]
-Name=Qt5 Designer
-GenericName=Interface Designer
-Comment=Design GUIs for Qt5 applications
-Exec=/opt/qt5/bin/designer
-Icon=designer-qt5.png
-MimeType=application/x-designer;
-Terminal=false
-Encoding=UTF-8
-Type=Application
-Categories=Qt;Development;
+<code class="literal">[Desktop Entry] Name=Qt5 Designer GenericName=Interface Designer Comment=Design GUIs for Qt5 applications Exec=$QT5BINDIR/designer Icon=designer-qt5.png MimeType=application/x-designer; Terminal=false Encoding=UTF-8 Type=Application Categories=Qt;Development;</code>
 EOF
+
 cat > /usr/share/applications/linguist-qt5.desktop << EOF
-[Desktop Entry]
-Name=Qt5 Linguist
-Comment=Add translations to Qt5 applications
-Exec=/opt/qt5/bin/linguist
-Icon=linguist-qt5.png
-MimeType=text/vnd.trolltech.linguist;application/x-linguist;
-Terminal=false
-Encoding=UTF-8
-Type=Application
-Categories=Qt;Development;
+<code class="literal">[Desktop Entry] Name=Qt5 Linguist Comment=Add translations to Qt5 applications Exec=$QT5BINDIR/linguist Icon=linguist-qt5.png MimeType=text/vnd.trolltech.linguist;application/x-linguist; Terminal=false Encoding=UTF-8 Type=Application Categories=Qt;Development;</code>
 EOF
+
 cat > /usr/share/applications/qdbusviewer-qt5.desktop << EOF
-[Desktop Entry]
-Name=Qt5 QDbusViewer
-GenericName=D-Bus Debugger
-Comment=Debug D-Bus applications
-Exec=/opt/qt5/bin/qdbusviewer
-Icon=qdbusviewer-qt5.png
-Terminal=false
-Encoding=UTF-8
-Type=Application
-Categories=Qt;Development;Debugger;
+<code class="literal">[Desktop Entry] Name=Qt5 QDbusViewer GenericName=D-Bus Debugger Comment=Debug D-Bus applications Exec=$QT5BINDIR/qdbusviewer Icon=qdbusviewer-qt5.png Terminal=false Encoding=UTF-8 Type=Application Categories=Qt;Development;Debugger;</code>
 EOF
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
 
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
 for file in moc uic rcc qmake lconvert lrelease lupdate; do
-  ln -sfrvn /opt/qt5/bin/$file /usr/bin/$file-qt5
+  ln -sfrvn $QT5BINDIR/$file /usr/bin/$file-qt5
 done
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-cat > /etc/profile.d/qt5.sh << "EOF"
-# Begin /etc/profile.d/qt5.sh
-QT5DIR=/opt/qt5
-export QT5DIR
-pathappend /opt/qt5/bin
-# End /etc/profile.d/qt5.sh
 EOF
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
 
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
+cat > /etc/profile.d/qt5.sh << "EOF"
+<code class="literal"># Begin /etc/profile.d/qt5.sh QT5DIR=/usr export QT5DIR pathappend $QT5DIR/bin # End /etc/profile.d/qt5.sh</code>
+EOF
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
+cat > /etc/sudoers.d/qt << "EOF"
+<code class="literal">Defaults env_keep += QT5DIR</code>
+EOF
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
+
+
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/ld.so.conf << EOF
-# Begin Qt addition
-/opt/qt5/lib
-# End Qt addition
+<code class="literal"># Begin Qt addition /opt/qt5/lib # End Qt addition</code>
 EOF
+
 ldconfig
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-cat > /etc/profile.d/qt5.sh << "EOF"
-# Begin /etc/profile.d/qt5.sh
-QT5DIR=/opt/qt5
-pathappend /opt/qt5/bin PATH
-pathappend /opt/qt5/lib/pkgconfig PKG_CONFIG_PATH
-export QT5DIR
-# End /etc/profile.d/qt5.sh
 EOF
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
 
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
+cat > /etc/profile.d/qt5.sh << "EOF"
+<code class="literal"># Begin /etc/profile.d/qt5.sh QT5DIR=/opt/qt5 pathappend $QT5DIR/bin PATH pathappend $QT5DIR/lib/pkgconfig PKG_CONFIG_PATH export QT5DIR # End /etc/profile.d/qt5.sh</code>
+EOF
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

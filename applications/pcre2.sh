@@ -6,35 +6,30 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-SOURCE_ONLY=n
-DESCRIPTION="br3ak The PCRE2 package contains a newbr3ak generation of the Perl Compatible Regularbr3ak Expression libraries. These are useful for implementingbr3ak regular expression pattern matching using the same syntax andbr3ak semantics as Perl.br3ak"
-SECTION="general"
-VERSION=10.32
-NAME="pcre2"
-
 #OPT:valgrind
-
+#OPT:libedit
 
 cd $SOURCE_DIR
+
+wget -nc https://downloads.sourceforge.net/pcre/pcre2-10.32.tar.bz2
+wget -nc ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre2-10.32.tar.bz2
 
 URL=https://downloads.sourceforge.net/pcre/pcre2-10.32.tar.bz2
 
 if [ ! -z $URL ]
 then
-wget -nc https://downloads.sourceforge.net/pcre/pcre2-10.32.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/pcre2/pcre2-10.32.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/pcre2/pcre2-10.32.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/pcre2/pcre2-10.32.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/pcre2/pcre2-10.32.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/pcre2/pcre2-10.32.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/pcre2/pcre2-10.32.tar.bz2 || wget -nc ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre2-10.32.tar.bz2
 
-TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
+TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
-	DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$"`
+	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
 	tar --no-overwrite-dir -xf $TARBALL
 else
 	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
 	unzip_file $TARBALL $NAME
 fi
+
 cd $DIRECTORY
 fi
-
-whoami > /tmp/currentuser
 
 ./configure --prefix=/usr                       \
             --docdir=/usr/share/doc/pcre2-10.32 \
@@ -46,19 +41,15 @@ whoami > /tmp/currentuser
             --enable-pcre2grep-libbz2           \
             --enable-pcre2test-libreadline      \
             --disable-static                    &&
-make "-j`nproc`" || make
+make
 
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
 make install
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
-
-
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
