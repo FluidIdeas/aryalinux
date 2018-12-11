@@ -39,7 +39,7 @@ whoami > /tmp/currentuser
 
 mkdir build &&
 cd    build &&
-meson --prefix=/usr .. &&
+meson -Dextension_set=all --prefix=/usr .. &&
 ninja
 
 

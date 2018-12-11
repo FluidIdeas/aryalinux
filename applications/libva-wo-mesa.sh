@@ -7,11 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 NAME="libva-wo-mesa"
-VERSION="2.1.0"
+VERSION="2.2.0"
 
 cd $SOURCE_DIR
 
-URL=https://ftp.osuosl.org/pub/blfs/conglomeration/Xorg/libva-2.1.0.tar.bz2
+URL=https://github.com/intel/libva/releases/download/2.2.0/libva-2.2.0.tar.bz2
 
 wget -nc $URL
 

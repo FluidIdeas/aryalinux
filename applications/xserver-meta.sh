@@ -28,13 +28,13 @@ sudo usermod -a -G video `cat /tmp/currentuser`
 #REQ:xcb-util-renderutil
 #REQ:xcb-util-wm
 #REQ:xcb-util-cursor
-#REQ:mesa
 #REQ:libva
 #REQ:xbitmaps
 #REQ:x7app
 #REQ:xcursor-themes
 #REQ:x7font
 #REQ:xkeyboard-config
+#REQ:mesa
 #REQ:xorg-server
 #REQ:x7driver
 #OPT:xf86-video-mga

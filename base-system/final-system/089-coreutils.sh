@@ -50,7 +50,7 @@ mv -v /usr/bin/{rmdir,stty,sync,true,uname} /bin
 mv -v /usr/bin/chroot /usr/sbin
 mv -v /usr/share/man/man1/chroot.1 /usr/share/man/man8/chroot.8
 sed -i s/\"1\"/\"8\"/1 /usr/share/man/man8/chroot.8
-mv -v /usr/bin/{head,sleep,nice} /bin
+mv -v /usr/bin/{head,nice,sleep,touch} /bin
 
 
 cd $SOURCE_DIR

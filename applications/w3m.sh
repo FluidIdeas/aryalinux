@@ -28,6 +28,7 @@ if [ ! -z $URL ]
 then
 wget -nc https://downloads.sourceforge.net/w3m/w3m-0.5.3.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/w3m/w3m-0.5.3.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/w3m/w3m-0.5.3.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/w3m/w3m-0.5.3.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/w3m/w3m-0.5.3.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/w3m/w3m-0.5.3.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/w3m/w3m-0.5.3.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/w3m-0.5.3-bdwgc72-1.patch || wget -nc http://www.linuxfromscratch.org/patches/downloads/w3m/w3m-0.5.3-bdwgc72-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.3/w3m-0.5.3-gc.patch
 
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -43,6 +44,7 @@ fi
 whoami > /tmp/currentuser
 
 patch -Np1 -i ../w3m-0.5.3-bdwgc72-1.patch      &&
+patch -Np1 -i ../w3m-0.5.3-gc.patch             &&
 sed -i 's/file_handle/file_foo/' istream.{c,h}  &&
 sed -i 's#gdk-pixbuf-xlib-2.0#& x11#' configure &&
 sed -i '/USE_EGD/s/define/undef/' config.h.in   &&

@@ -46,7 +46,7 @@ fi
 whoami > /tmp/currentuser
 
 patch -Np1 -i ../mupdf-1.14.0-shared_libs-1.patch &&
-USE_SYSTEM_LIBS=yes make
+USE_SYSTEM_LIBS=yes make prefix=/usr
 
 
 

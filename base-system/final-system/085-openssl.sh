@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="085-openssl.sh"
-TARBALL="openssl-1.1.1.tar.gz"
+TARBALL="openssl-1.1.1a.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -43,8 +43,8 @@ ln -svf /tools/bin/env /usr/bin/env
 make
 sed -i '/INSTALL_LIBS/s/libcrypto.a libssl.a//' Makefile
 make MANSUFFIX=ssl install
-mv -v /usr/share/doc/openssl /usr/share/doc/openssl-1.1.1
-cp -vfr doc/* /usr/share/doc/openssl-1.1.1
+mv -v /usr/share/doc/openssl /usr/share/doc/openssl-1.1.1a
+cp -vfr doc/* /usr/share/doc/openssl-1.1.1a
 
 
 rm /usr/bin/env
