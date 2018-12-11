@@ -14,15 +14,16 @@ set +h
 #OPT:libidn2
 #OPT:libpsl
 #OPT:pcre
+#OPT:pcre2
 #OPT:python2
 #OPT:valgrind
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/wget/wget-1.19.5.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/wget/wget-1.19.5.tar.gz
+wget -nc https://ftp.gnu.org/gnu/wget/wget-1.20.tar.gz
+wget -nc ftp://ftp.gnu.org/gnu/wget/wget-1.20.tar.gz
 
-URL=https://ftp.gnu.org/gnu/wget/wget-1.19.5.tar.gz
+URL=https://ftp.gnu.org/gnu/wget/wget-1.20.tar.gz
 
 if [ ! -z $URL ]
 then

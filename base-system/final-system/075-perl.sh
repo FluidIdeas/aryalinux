@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="075-perl.sh"
-TARBALL="perl-5.28.0.tar.xz"
+TARBALL="perl-5.28.1.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 

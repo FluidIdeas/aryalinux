@@ -15,9 +15,9 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.kernel.org/pub/linux/utils/cryptsetup/v2.0/cryptsetup-2.0.5.tar.xz
+wget -nc https://www.kernel.org/pub/linux/utils/cryptsetup/v2.0/cryptsetup-2.0.6.tar.xz
 
-URL=https://www.kernel.org/pub/linux/utils/cryptsetup/v2.0/cryptsetup-2.0.5.tar.xz
+URL=https://www.kernel.org/pub/linux/utils/cryptsetup/v2.0/cryptsetup-2.0.6.tar.xz
 
 if [ ! -z $URL ]
 then

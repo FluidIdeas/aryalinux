@@ -22,10 +22,10 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.wireshark.org/download/src/all-versions/wireshark-2.6.4.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/wireshark-2.6.4-lua_5_3-1.patch
+wget -nc https://www.wireshark.org/download/src/all-versions/wireshark-2.6.5.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/wireshark-2.6.5-lua_5_3-1.patch
 
-URL=https://www.wireshark.org/download/src/all-versions/wireshark-2.6.4.tar.xz
+URL=https://www.wireshark.org/download/src/all-versions/wireshark-2.6.5.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -51,7 +51,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm /tmp/rootscript.sh
 
-patch -Np1 -i ../wireshark-2.6.4-lua_5_3-1.patch  &&
+patch -Np1 -i ../wireshark-2.6.5-lua_5_3-1.patch  &&
 
 ./configure --prefix=/usr --sysconfdir=/etc &&
 make
@@ -60,11 +60,11 @@ sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 
-install -v -m755 -d /usr/share/doc/wireshark-2.6.4 &&
+install -v -m755 -d /usr/share/doc/wireshark-2.6.5 &&
 install -v -m644    README.linux doc/README.* doc/*.{pod,txt} \
-                    /usr/share/doc/wireshark-2.6.4 &&
+                    /usr/share/doc/wireshark-2.6.5 &&
 
-pushd /usr/share/doc/wireshark-2.6.4 &&
+pushd /usr/share/doc/wireshark-2.6.5 &&
    for FILENAME in ../../wireshark/*.html; do
       ln -s -v -f $FILENAME .
    done &&
@@ -79,7 +79,7 @@ sudo rm /tmp/rootscript.sh
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -m644 <em class="replaceable"><code><Downloaded_Files></code></em> \
-                 /usr/share/doc/wireshark-2.6.4
+                 /usr/share/doc/wireshark-2.6.5
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

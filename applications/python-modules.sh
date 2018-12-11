@@ -32,6 +32,7 @@ set +h
 #REQ:yaml
 #REC:python2
 #REC:at-spi2-core
+#REC:python2
 #OPT:python2
 #OPT:python-modules#docutils
 #OPT:python2

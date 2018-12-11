@@ -15,9 +15,9 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.1.tar.xz
+wget -nc http://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.3.tar.xz
 
-URL=http://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.1.tar.xz
+URL=http://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.3.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -36,7 +36,7 @@ fi
 
 ./configure --prefix=/usr   \
             --enable-shared \
-            --docdir=/usr/share/doc/ruby-2.5.1 &&
+            --docdir=/usr/share/doc/ruby-2.5.3 &&
 make
 make capi
 

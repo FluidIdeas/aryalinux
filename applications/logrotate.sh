@@ -12,9 +12,9 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/logrotate/logrotate/releases/download/3.14.0/logrotate-3.14.0.tar.xz
+wget -nc https://github.com/logrotate/logrotate/releases/download/3.15.0/logrotate-3.15.0.tar.xz
 
-URL=https://github.com/logrotate/logrotate/releases/download/3.14.0/logrotate-3.14.0.tar.xz
+URL=https://github.com/logrotate/logrotate/releases/download/3.15.0/logrotate-3.15.0.tar.xz
 
 if [ ! -z $URL ]
 then

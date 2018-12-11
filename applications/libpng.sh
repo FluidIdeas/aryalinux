@@ -9,9 +9,9 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/libpng/libpng-1.6.35.tar.xz
+wget -nc https://downloads.sourceforge.net/libpng/libpng-1.6.36.tar.xz
 
-URL=https://downloads.sourceforge.net/libpng/libpng-1.6.35.tar.xz
+URL=https://downloads.sourceforge.net/libpng/libpng-1.6.36.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -28,15 +28,15 @@ fi
 cd $DIRECTORY
 fi
 
-gzip -cd ../libpng-1.6.35-apng.patch.gz | patch -p1
+gzip -cd ../libpng-1.6.36-apng.patch.gz | patch -p1
 LIBS=-lpthread ./configure --prefix=/usr --disable-static &&
 make
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
-mkdir -v /usr/share/doc/libpng-1.6.35 &&
-cp -v README libpng-manual.txt /usr/share/doc/libpng-1.6.35
+mkdir -v /usr/share/doc/libpng-1.6.36 &&
+cp -v README libpng-manual.txt /usr/share/doc/libpng-1.6.36
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

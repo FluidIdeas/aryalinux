@@ -9,9 +9,9 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.49.tar.gz
+wget -nc ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.50.tar.gz
 
-URL=ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.49.tar.gz
+URL=ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.50.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -47,7 +47,7 @@ make
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make docdir=/usr/share/doc/stunnel-5.49 install
+make docdir=/usr/share/doc/stunnel-5.50 install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

@@ -25,10 +25,9 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.openprinting.org/download/cups-filters/cups-filters-1.21.4.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/cups-filters-1.21.4-poppler71-1.patch
+wget -nc https://www.openprinting.org/download/cups-filters/cups-filters-1.21.5.tar.xz
 
-URL=https://www.openprinting.org/download/cups-filters/cups-filters-1.21.4.tar.xz
+URL=https://www.openprinting.org/download/cups-filters/cups-filters-1.21.5.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -46,14 +45,13 @@ cd $DIRECTORY
 fi
 
 sed -i "s:cups.service:org.cups.cupsd.service:g" utils/cups-browsed.service
-patch -Np1 -i ../cups-filters-1.21.4-poppler71-1.patch
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \
             --localstatedir=/var \
             --without-rcdir      \
             --disable-static     \
             --disable-avahi      \
-            --docdir=/usr/share/doc/cups-filters-1.21.4 &&
+            --docdir=/usr/share/doc/cups-filters-1.21.5 &&
 make
 
 sudo rm /tmp/rootscript.sh

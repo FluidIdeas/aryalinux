@@ -9,10 +9,10 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/nettle/nettle-3.4.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/nettle/nettle-3.4.tar.gz
+wget -nc https://ftp.gnu.org/gnu/nettle/nettle-3.4.1.tar.gz
+wget -nc ftp://ftp.gnu.org/gnu/nettle/nettle-3.4.1.tar.gz
 
-URL=https://ftp.gnu.org/gnu/nettle/nettle-3.4.tar.gz
+URL=https://ftp.gnu.org/gnu/nettle/nettle-3.4.1.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -36,8 +36,8 @@ sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 chmod   -v   755 /usr/lib/lib{hogweed,nettle}.so &&
-install -v -m755 -d /usr/share/doc/nettle-3.4 &&
-install -v -m644 nettle.html /usr/share/doc/nettle-3.4
+install -v -m755 -d /usr/share/doc/nettle-3.4.1 &&
+install -v -m644 nettle.html /usr/share/doc/nettle-3.4.1
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

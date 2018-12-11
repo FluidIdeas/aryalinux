@@ -17,10 +17,10 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gmime/3.2/gmime-3.2.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gmime/3.2/gmime-3.2.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gmime/3.2/gmime-3.2.3.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gmime/3.2/gmime-3.2.3.tar.xz
 
-URL=http://ftp.gnome.org/pub/gnome/sources/gmime/3.2/gmime-3.2.2.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/gmime/3.2/gmime-3.2.3.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -37,7 +37,7 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --disable-static --enable-vala=no &&
+./configure --prefix=/usr --disable-static &&
 make
 
 sudo rm /tmp/rootscript.sh

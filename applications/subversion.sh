@@ -21,9 +21,9 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.apache.org/dist/subversion/subversion-1.10.3.tar.bz2
+wget -nc https://archive.apache.org/dist/subversion/subversion-1.11.0.tar.bz2
 
-URL=https://archive.apache.org/dist/subversion/subversion-1.10.3.tar.bz2
+URL=https://archive.apache.org/dist/subversion/subversion-1.11.0.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -51,9 +51,9 @@ sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 
-install -v -m755 -d /usr/share/doc/subversion-1.10.3 &&
+install -v -m755 -d /usr/share/doc/subversion-1.11.0 &&
 cp      -v -R       doc/* \
-                    /usr/share/doc/subversion-1.10.3
+                    /usr/share/doc/subversion-1.11.0
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

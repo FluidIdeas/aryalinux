@@ -35,9 +35,9 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.php.net/distributions/php-7.2.12.tar.xz
+wget -nc http://www.php.net/distributions/php-7.3.0.tar.xz
 
-URL=http://www.php.net/distributions/php-7.2.12.tar.xz
+URL=http://www.php.net/distributions/php-7.3.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -83,13 +83,13 @@ cat > /tmp/rootscript.sh <<"EOF"
 make install                                     &&
 install -v -m644 php.ini-production /etc/php.ini &&
 
-install -v -m755 -d /usr/share/doc/php-7.2.12 &&
+install -v -m755 -d /usr/share/doc/php-7.3.0 &&
 install -v -m644    CODING_STANDARDS EXTENSIONS INSTALL NEWS README* UPGRADING* php.gif \
-                    /usr/share/doc/php-7.2.12 &&
+                    /usr/share/doc/php-7.3.0 &&
 ln -v -sfn          /usr/lib/php/doc/Archive_Tar/docs/Archive_Tar.txt \
-                    /usr/share/doc/php-7.2.12 &&
+                    /usr/share/doc/php-7.3.0 &&
 ln -v -sfn          /usr/lib/php/doc/Structures_Graph/docs \
-                    /usr/share/doc/php-7.2.12
+                    /usr/share/doc/php-7.3.0
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
@@ -111,8 +111,8 @@ sudo rm /tmp/rootscript.sh
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -m644 ../php_manual_en.html.gz \
-    /usr/share/doc/php-7.2.12 &&
-gunzip -v /usr/share/doc/php-7.2.12/php_manual_en.html.gz
+    /usr/share/doc/php-7.3.0 &&
+gunzip -v /usr/share/doc/php-7.3.0/php_manual_en.html.gz
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
@@ -122,7 +122,7 @@ sudo rm /tmp/rootscript.sh
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 tar -xvf ../php_manual_en.tar.gz \
-    -C /usr/share/doc/php-7.2.12 --no-same-owner
+    -C /usr/share/doc/php-7.3.0 --no-same-owner
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

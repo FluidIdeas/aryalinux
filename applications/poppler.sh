@@ -27,10 +27,10 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://poppler.freedesktop.org/poppler-0.71.0.tar.xz
+wget -nc https://poppler.freedesktop.org/poppler-0.72.0.tar.xz
 wget -nc https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz
 
-URL=https://poppler.freedesktop.org/poppler-0.71.0.tar.xz
+URL=https://poppler.freedesktop.org/poppler-0.72.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -68,8 +68,8 @@ sudo rm /tmp/rootscript.sh
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-install -v -m755 -d           /usr/share/doc/poppler-0.71.0 &&
-cp -vr ../glib/reference/html /usr/share/doc/poppler-0.71.0
+install -v -m755 -d           /usr/share/doc/poppler-0.72.0 &&
+cp -vr ../glib/reference/html /usr/share/doc/poppler-0.72.0
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

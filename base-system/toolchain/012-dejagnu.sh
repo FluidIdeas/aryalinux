@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="012-dejagnu.sh"
-TARBALL="dejagnu-1.6.1.tar.gz"
+TARBALL="dejagnu-1.6.2.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
