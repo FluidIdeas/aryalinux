@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.48.tar.gz
 
+NAME=capture::tiny-0.48
+VERSION=0.48
 URL=https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.48.tar.gz
 
 if [ ! -z $URL ]

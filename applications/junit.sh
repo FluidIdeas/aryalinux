@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 wget -nc https://github.com/junit-team/junit4/archive/r4.12/junit4-r4.12.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/junit4-r4.12-simplify_NoExitSecurityManager-1.patch
 
+NAME=junit
+VERSION=""
 URL=https://github.com/junit-team/junit4/archive/r4.12/junit4-r4.12.tar.gz
 
 if [ ! -z $URL ]

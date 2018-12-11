@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 wget -nc http://www.zsh.org/pub/zsh-5.6.2.tar.xz
 wget -nc http://www.zsh.org/pub/zsh-5.6.2-doc.tar.xz
 
+NAME=zsh
+VERSION=5.6.2
 URL=http://www.zsh.org/pub/zsh-5.6.2.tar.xz
 
 if [ ! -z $URL ]

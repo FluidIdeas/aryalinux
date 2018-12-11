@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc http://www.hboehm.info/gc/gc_source/gc-8.0.0.tar.gz
 
+NAME=gc
+VERSION=8.0.0
 URL=http://www.hboehm.info/gc/gc_source/gc-8.0.0.tar.gz
 
 if [ ! -z $URL ]

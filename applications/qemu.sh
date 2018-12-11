@@ -33,6 +33,8 @@ cd $SOURCE_DIR
 
 wget -nc http://download.qemu-project.org/qemu-3.0.0.tar.xz
 
+NAME=qemu
+VERSION=3.0.0
 URL=http://download.qemu-project.org/qemu-3.0.0.tar.xz
 
 if [ ! -z $URL ]

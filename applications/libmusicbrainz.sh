@@ -14,6 +14,8 @@ wget -nc http://ftp.musicbrainz.org/pub/musicbrainz/historical/libmusicbrainz-2.
 wget -nc ftp://ftp.musicbrainz.org/pub/musicbrainz/historical/libmusicbrainz-2.1.5.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/libmusicbrainz-2.1.5-missing-includes-1.patch
 
+NAME=libmusicbrainz
+VERSION=2.1.5
 URL=http://ftp.musicbrainz.org/pub/musicbrainz/historical/libmusicbrainz-2.1.5.tar.gz
 
 if [ ! -z $URL ]

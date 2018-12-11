@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:perl-modules#perl-io-socket-ssl
+#REQ:perl-io-socket-ssl
 #OPT:libcap
 #OPT:libevent
 
@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p12.tar.gz
 
+NAME=ntp
+VERSION=4.2.8p12
 URL=https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p12.tar.gz
 
 if [ ! -z $URL ]

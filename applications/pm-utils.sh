@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc https://pm-utils.freedesktop.org/releases/pm-utils-1.4.1.tar.gz
 
+NAME=pm-utils
+VERSION=1.4.1
 URL=https://pm-utils.freedesktop.org/releases/pm-utils-1.4.1.tar.gz
 
 if [ ! -z $URL ]

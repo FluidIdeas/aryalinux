@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 
 wget -nc https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.0.tar.xz
 
+NAME=libgusb
+VERSION=0.3.0
 URL=https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.0.tar.xz
 
 if [ ! -z $URL ]

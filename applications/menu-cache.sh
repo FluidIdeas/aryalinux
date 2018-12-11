@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/lxde/menu-cache-1.1.0.tar.xz
 
+NAME=menu-cache
+VERSION=1.1.0
 URL=https://downloads.sourceforge.net/lxde/menu-cache-1.1.0.tar.xz
 
 if [ ! -z $URL ]

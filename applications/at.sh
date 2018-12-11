@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc http://ftp.debian.org/debian/pool/main/a/at/at_3.1.23.orig.tar.gz
 
+NAME=at
+VERSION=""
 URL=http://ftp.debian.org/debian/pool/main/a/at/at_3.1.23.orig.tar.gz
 
 if [ ! -z $URL ]

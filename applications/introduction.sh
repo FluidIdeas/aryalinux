@@ -10,6 +10,8 @@ set +h
 cd $SOURCE_DIR
 
 
+NAME=introduction
+VERSION=""
 URL=""
 
 if [ ! -z $URL ]

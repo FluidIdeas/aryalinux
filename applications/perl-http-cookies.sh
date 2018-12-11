@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Cookies-6.04.tar.gz
 
+NAME=http::cookies-6.04
+VERSION=6.04
 URL=https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Cookies-6.04.tar.gz
 
 if [ ! -z $URL ]

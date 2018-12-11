@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Devel-StackTrace-2.03.tar.gz
 
+NAME=devel::stacktrace-2.03
+VERSION=2.03
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Devel-StackTrace-2.03.tar.gz
 
 if [ ! -z $URL ]

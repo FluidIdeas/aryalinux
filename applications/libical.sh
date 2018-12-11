@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/libical/libical/releases/download/v3.0.4/libical-3.0.4.tar.gz
 
+NAME=libical
+VERSION=3.0.4
 URL=https://github.com/libical/libical/releases/download/v3.0.4/libical-3.0.4.tar.gz
 
 if [ ! -z $URL ]

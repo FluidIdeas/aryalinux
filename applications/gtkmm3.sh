@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gtkmm/3.22/gtkmm-3.22.2.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtkmm/3.22/gtkmm-3.22.2.tar.xz
 
+NAME=gtkmm3
+VERSION=3.22.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gtkmm/3.22/gtkmm-3.22.2.tar.xz
 
 if [ ! -z $URL ]

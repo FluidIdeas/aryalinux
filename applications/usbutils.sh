@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-010.tar.xz
 
+NAME=usbutils
+VERSION=010
 URL=https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-010.tar.xz
 
 if [ ! -z $URL ]

@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.freedesktop.org/software/libevdev/libevdev-1.6.0.tar.xz
 
+NAME=libevdev 1.6.0
+VERSION=1.6.0
 URL=https://www.freedesktop.org/software/libevdev/libevdev-1.6.0.tar.xz
 
 if [ ! -z $URL ]

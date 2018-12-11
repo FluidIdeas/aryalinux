@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.x.org/pub/individual/driver/xf86-input-libinput-0.28.1.tar.bz2
 
+NAME=xorg libinput driver-0.28.1
+VERSION=0.28.1
 URL=https://www.x.org/pub/individual/driver/xf86-input-libinput-0.28.1.tar.bz2
 
 if [ ! -z $URL ]

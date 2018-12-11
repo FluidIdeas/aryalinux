@@ -8,7 +8,7 @@ set +h
 
 #REQ:gtk2
 #REC:gobject-introspection
-#REC:python-modules#pygtk
+#REC:pygtk
 #OPT:gtk-doc
 #OPT:lua
 
@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 
 wget -nc http://pkgs.fedoraproject.org/repo/pkgs/keybinder/keybinder-0.3.0.tar.gz/2a0aed62ba14d1bf5c79707e20cb4059/keybinder-0.3.0.tar.gz
 
+NAME=keybinder
+VERSION=0.3.0
 URL=http://pkgs.fedoraproject.org/repo/pkgs/keybinder/keybinder-0.3.0.tar.gz/2a0aed62ba14d1bf5c79707e20cb4059/keybinder-0.3.0.tar.gz
 
 if [ ! -z $URL ]

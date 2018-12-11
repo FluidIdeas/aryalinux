@@ -13,12 +13,14 @@ set +h
 #OPT:libexif
 #OPT:libjpeg
 #OPT:imagemagick
-#OPT:perl-modules#perl-test-command
+#OPT:perl-test-command
 
 cd $SOURCE_DIR
 
 wget -nc http://feh.finalrewind.org/feh-3.1.tar.bz2
 
+NAME=feh
+VERSION=3.1.
 URL=http://feh.finalrewind.org/feh-3.1.tar.bz2
 
 if [ ! -z $URL ]

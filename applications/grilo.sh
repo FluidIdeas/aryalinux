@@ -23,6 +23,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.6.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.6.tar.xz
 
+NAME=grilo
+VERSION=0.3.6
 URL=http://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.6.tar.xz
 
 if [ ! -z $URL ]

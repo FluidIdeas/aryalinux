@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/E/ET/ETHER/Try-Tiny-0.30.tar.gz
 
+NAME=try::tiny-0.30
+VERSION=0.30
 URL=https://cpan.metacpan.org/authors/id/E/ET/ETHER/Try-Tiny-0.30.tar.gz
 
 if [ ! -z $URL ]

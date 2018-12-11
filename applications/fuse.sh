@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/libfuse/libfuse/releases/download/fuse-3.3.0/fuse-3.3.0.tar.xz
 
+NAME=fuse
+VERSION=3.3.0
 URL=https://github.com/libfuse/libfuse/releases/download/fuse-3.3.0/fuse-3.3.0.tar.xz
 
 if [ ! -z $URL ]

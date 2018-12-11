@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/smartmontools/smartmontools-6.6.tar.gz
 
+NAME=smartmontools
+VERSION=6.6
 URL=https://downloads.sourceforge.net/smartmontools/smartmontools-6.6.tar.gz
 
 if [ ! -z $URL ]

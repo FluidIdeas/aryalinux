@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 
 wget -nc http://www.ece.uvic.ca/~frodo/jasper/software/jasper-2.0.14.tar.gz
 
+NAME=jasper
+VERSION=2.0.14
 URL=http://www.ece.uvic.ca/~frodo/jasper/software/jasper-2.0.14.tar.gz
 
 if [ ! -z $URL ]

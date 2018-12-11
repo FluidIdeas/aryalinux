@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.kernel.org/pub/linux/utils/net/bridge-utils/bridge-utils-1.6.tar.xz
 
+NAME=bridge-utils
+VERSION=1.6
 URL=https://www.kernel.org/pub/linux/utils/net/bridge-utils/bridge-utils-1.6.tar.xz
 
 if [ ! -z $URL ]

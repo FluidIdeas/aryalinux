@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/S/SA/SALVA/Sort-Key-1.33.tar.gz
 
+NAME=sort::key-1.33
+VERSION=1.33
 URL=https://www.cpan.org/authors/id/S/SA/SALVA/Sort-Key-1.33.tar.gz
 
 if [ ! -z $URL ]

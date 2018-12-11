@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 wget -nc https://sqlite.org/2018/sqlite-autoconf-3250200.tar.gz
 wget -nc https://sqlite.org/2018/sqlite-doc-3250200.zip
 
+NAME=sqlite
+VERSION=3250200
 URL=https://sqlite.org/2018/sqlite-autoconf-3250200.tar.gz
 
 if [ ! -z $URL ]

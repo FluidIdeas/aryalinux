@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/A/AB/ABIGAIL/Regexp-Common-2017060201.tar.gz
 
+NAME=regexp::common-2017060201
+VERSION=2017060201
 URL=https://www.cpan.org/authors/id/A/AB/ABIGAIL/Regexp-Common-2017060201.tar.gz
 
 if [ ! -z $URL ]

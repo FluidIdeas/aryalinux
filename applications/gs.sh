@@ -26,6 +26,8 @@ wget -nc https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download
 wget -nc https://downloads.sourceforge.net/gs-fonts/ghostscript-fonts-std-8.11.tar.gz
 wget -nc https://downloads.sourceforge.net/gs-fonts/gnu-gs-fonts-other-6.0.tar.gz
 
+NAME=gs
+VERSION=9.26
 URL=https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs926/ghostscript-9.26.tar.gz
 
 if [ ! -z $URL ]

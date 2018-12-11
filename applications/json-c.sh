@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://s3.amazonaws.com/json-c_releases/releases/json-c-0.13.1.tar.gz
 
+NAME=json-c
+VERSION=0.13.1
 URL=https://s3.amazonaws.com/json-c_releases/releases/json-c-0.13.1.tar.gz
 
 if [ ! -z $URL ]

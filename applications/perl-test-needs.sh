@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/H/HA/HAARG/Test-Needs-0.002005.tar.gz
 
+NAME=test::needs-0.002005
+VERSION=0.002005
 URL=https://cpan.metacpan.org/authors/id/H/HA/HAARG/Test-Needs-0.002005.tar.gz
 
 if [ ! -z $URL ]

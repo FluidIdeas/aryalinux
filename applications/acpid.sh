@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/acpid2/acpid-2.0.31.tar.xz
 
+NAME=acpid
+VERSION=2.0.31
 URL=https://downloads.sourceforge.net/acpid2/acpid-2.0.31.tar.xz
 
 if [ ! -z $URL ]

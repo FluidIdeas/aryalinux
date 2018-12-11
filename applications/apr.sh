@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 wget -nc https://archive.apache.org/dist/apr/apr-1.6.5.tar.bz2
 wget -nc ftp://ftp.mirrorservice.org/sites/ftp.apache.org/apr/apr-1.6.5.tar.bz2
 
+NAME=apr
+VERSION=1.6.5.
 URL=https://archive.apache.org/dist/apr/apr-1.6.5.tar.bz2
 
 if [ ! -z $URL ]

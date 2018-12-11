@@ -24,6 +24,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/nautilus/3.28/nautilus-3.28.1.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/nautilus/3.28/nautilus-3.28.1.tar.xz
 
+NAME=nautilus
+VERSION=3.28.1
 URL=http://ftp.gnome.org/pub/gnome/sources/nautilus/3.28/nautilus-3.28.1.tar.xz
 
 if [ ! -z $URL ]

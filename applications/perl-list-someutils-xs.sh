@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/List-SomeUtils-XS-0.58.tar.gz
 
+NAME=list::someutils::xs-0.58
+VERSION=0.58
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/List-SomeUtils-XS-0.58.tar.gz
 
 if [ ! -z $URL ]

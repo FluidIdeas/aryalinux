@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/O/OA/OALDERS/Net-HTTP-6.18.tar.gz
 
+NAME=net::http-6.18
+VERSION=6.18
 URL=https://cpan.metacpan.org/authors/id/O/OA/OALDERS/Net-HTTP-6.18.tar.gz
 
 if [ ! -z $URL ]

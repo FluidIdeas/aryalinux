@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.nano-editor.org/dist/v3/nano-3.2.tar.xz
 
+NAME=nano
+VERSION=3.2
 URL=https://www.nano-editor.org/dist/v3/nano-3.2.tar.xz
 
 if [ ! -z $URL ]

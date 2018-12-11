@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-2.0.1.tar.gz
 
+NAME=libjpeg
+VERSION=2.0.1
 URL=https://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-2.0.1.tar.gz
 
 if [ ! -z $URL ]

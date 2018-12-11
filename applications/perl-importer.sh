@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Importer-0.025.tar.gz
 
+NAME=importer-0.025
+VERSION=0.025
 URL=https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Importer-0.025.tar.gz
 
 if [ ! -z $URL ]

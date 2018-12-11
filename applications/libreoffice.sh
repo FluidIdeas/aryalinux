@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:perl-modules#perl-archive-zip
+#REQ:perl-archive-zip
 #REQ:unzip
 #REQ:wget
 #REQ:which
@@ -66,6 +66,8 @@ wget -nc http://download.documentfoundation.org/libreoffice/src/6.1.2/libreoffic
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-6.1.2.1-poppler70-1.patch
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-6.1.2.1-poppler71-1.patch
 
+NAME=libreoffice
+VERSION=6.1.2.1
 URL=http://download.documentfoundation.org/libreoffice/src/6.1.2/libreoffice-6.1.2.1.tar.xz
 
 if [ ! -z $URL ]

@@ -17,6 +17,8 @@ cd $SOURCE_DIR
 
 wget -nc https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.14.4.tar.xz
 
+NAME=gstreamer10
+VERSION=1.14.4
 URL=https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.14.4.tar.xz
 
 if [ ! -z $URL ]

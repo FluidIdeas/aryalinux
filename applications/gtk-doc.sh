@@ -11,7 +11,7 @@ set +h
 #REQ:itstool
 #REQ:libxslt
 #REQ:python2
-#REQ:python-modules#six
+#REQ:six
 #REC:highlight
 #OPT:fop
 #OPT:glib2
@@ -22,6 +22,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk-doc/1.29/gtk-doc-1.29.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk-doc/1.29/gtk-doc-1.29.tar.xz
 
+NAME=gtk-doc
+VERSION=1.29
 URL=http://ftp.gnome.org/pub/gnome/sources/gtk-doc/1.29/gtk-doc-1.29.tar.xz
 
 if [ ! -z $URL ]

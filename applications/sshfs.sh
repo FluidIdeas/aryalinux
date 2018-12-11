@@ -9,12 +9,14 @@ set +h
 #REQ:fuse
 #REQ:glib2
 #REQ:openssh
-#OPT:python-modules#docutils
+#OPT:docutils
 
 cd $SOURCE_DIR
 
 wget -nc https://github.com/libfuse/sshfs/releases/download/sshfs-3.5.0/sshfs-3.5.0.tar.xz
 
+NAME=sshfs
+VERSION=3.5.0
 URL=https://github.com/libfuse/sshfs/releases/download/sshfs-3.5.0/sshfs-3.5.0.tar.xz
 
 if [ ! -z $URL ]

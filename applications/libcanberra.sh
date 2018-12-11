@@ -18,6 +18,8 @@ cd $SOURCE_DIR
 
 wget -nc http://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz
 
+NAME=libcanberra
+VERSION=0.30
 URL=http://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz
 
 if [ ! -z $URL ]

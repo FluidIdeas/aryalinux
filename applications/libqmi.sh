@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.freedesktop.org/software/libqmi/libqmi-1.20.2.tar.xz
 
+NAME=libqmi
+VERSION=1.20.2
 URL=https://www.freedesktop.org/software/libqmi/libqmi-1.20.2.tar.xz
 
 if [ ! -z $URL ]

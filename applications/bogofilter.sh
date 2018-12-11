@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/bogofilter/bogofilter-1.2.4.tar.gz
 
+NAME=bogofilter
+VERSION=1.2.4
 URL=https://downloads.sourceforge.net/bogofilter/bogofilter-1.2.4.tar.gz
 
 if [ ! -z $URL ]

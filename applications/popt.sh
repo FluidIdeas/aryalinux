@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 wget -nc http://rpm5.org/files/popt/popt-1.16.tar.gz
 wget -nc ftp://anduin.linuxfromscratch.org/BLFS/popt/popt-1.16.tar.gz
 
+NAME=popt
+VERSION=1.16
 URL=http://rpm5.org/files/popt/popt-1.16.tar.gz
 
 if [ ! -z $URL ]

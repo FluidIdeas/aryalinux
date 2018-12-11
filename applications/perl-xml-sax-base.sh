@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/G/GR/GRANTM/XML-SAX-Base-1.09.tar.gz
 
+NAME=xml::sax::base-1.09
+VERSION=1.09
 URL=https://cpan.metacpan.org/authors/id/G/GR/GRANTM/XML-SAX-Base-1.09.tar.gz
 
 if [ ! -z $URL ]

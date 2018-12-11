@@ -12,10 +12,10 @@ set +h
 #REC:gobject-introspection
 #REC:gtk2
 #REC:libnotify
-#OPT:python-modules#dbus-python
-#OPT:python-modules#pygobject3
+#OPT:dbus-python
+#OPT:pygobject3
 #OPT:gtk-doc
-#OPT:python-modules#pyxdg
+#OPT:pyxdg
 #OPT:libxkbcommon
 #OPT:wayland
 
@@ -24,6 +24,8 @@ cd $SOURCE_DIR
 wget -nc https://github.com/ibus/ibus/releases/download/1.5.19/ibus-1.5.19.tar.gz
 wget -nc https://www.unicode.org/Public/zipped/10.0.0/UCD.zip
 
+NAME=ibus
+VERSION=1.5.19
 URL=https://github.com/ibus/ibus/releases/download/1.5.19/ibus-1.5.19.tar.gz
 
 if [ ! -z $URL ]

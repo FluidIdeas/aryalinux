@@ -20,6 +20,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/nfs/nfs-utils-2.3.3.tar.xz
 
+NAME=nfs-utils
+VERSION=2.3.3
 URL=https://downloads.sourceforge.net/nfs/nfs-utils-2.3.3.tar.xz
 
 if [ ! -z $URL ]

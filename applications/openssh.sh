@@ -18,6 +18,8 @@ cd $SOURCE_DIR
 
 wget -nc http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.9p1.tar.gz
 
+NAME=openssh
+VERSION=7.9p1
 URL=http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.9p1.tar.gz
 
 if [ ! -z $URL ]

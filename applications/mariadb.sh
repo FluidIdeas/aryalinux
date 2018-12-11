@@ -22,6 +22,8 @@ cd $SOURCE_DIR
 wget -nc https://downloads.mariadb.org/interstitial/mariadb-10.3.11/source/mariadb-10.3.11.tar.gz
 wget -nc ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.3.11/source/mariadb-10.3.11.tar.gz
 
+NAME=mariadb
+VERSION=10.3.11
 URL=https://downloads.mariadb.org/interstitial/mariadb-10.3.11/source/mariadb-10.3.11.tar.gz
 
 if [ ! -z $URL ]

@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 wget -nc ftp://ftp.sendmail.org/pub/sendmail/sendmail.8.15.2.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/sendmail.8.15.2-openssl-1.patch
 
+NAME=sendmail
+VERSION=""
 URL=ftp://ftp.sendmail.org/pub/sendmail/sendmail.8.15.2.tar.gz
 
 if [ ! -z $URL ]

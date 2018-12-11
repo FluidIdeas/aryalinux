@@ -18,6 +18,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.freedesktop.org/software/colord/releases/colord-gtk-0.1.26.tar.xz
 
+NAME=colord-gtk
+VERSION=0.1.26
 URL=https://www.freedesktop.org/software/colord/releases/colord-gtk-0.1.26.tar.xz
 
 if [ ! -z $URL ]

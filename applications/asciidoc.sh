@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/asciidoc/asciidoc-8.6.9.tar.gz
 
+NAME=asciidoc
+VERSION=8.6.9
 URL=https://downloads.sourceforge.net/asciidoc/asciidoc-8.6.9.tar.gz
 
 if [ ! -z $URL ]

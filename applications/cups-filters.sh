@@ -27,6 +27,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.openprinting.org/download/cups-filters/cups-filters-1.21.5.tar.xz
 
+NAME=cups-filters
+VERSION=1.21.5
 URL=https://www.openprinting.org/download/cups-filters/cups-filters-1.21.5.tar.xz
 
 if [ ! -z $URL ]

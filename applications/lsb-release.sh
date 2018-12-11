@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/lsb/lsb-release-1.4.tar.gz
 
+NAME=lsb-release
+VERSION=1.4
 URL=https://downloads.sourceforge.net/lsb/lsb-release-1.4.tar.gz
 
 if [ ! -z $URL ]

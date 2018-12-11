@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 wget -nc https://ftp.gnu.org/gnu/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz
 wget -nc ftp://ftp.gnu.org/gnu/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz
 
+NAME=gcc
+VERSION=8.2.0
 URL=https://ftp.gnu.org/gnu/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz
 
 if [ ! -z $URL ]

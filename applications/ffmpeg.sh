@@ -18,8 +18,8 @@ set +h
 #REC:x265
 #REC:yasm
 #REC:alsa-lib
-#REC:x7driver#libva
-#REC:x7driver#libvdpau
+#REC:libva
+#REC:libvdpau
 #REC:sdl2
 #OPT:fontconfig
 #OPT:frei0r
@@ -42,6 +42,8 @@ cd $SOURCE_DIR
 
 wget -nc http://ffmpeg.org/releases/ffmpeg-4.0.2.tar.xz
 
+NAME=ffmpeg
+VERSION=4.0.2
 URL=http://ffmpeg.org/releases/ffmpeg-4.0.2.tar.xz
 
 if [ ! -z $URL ]

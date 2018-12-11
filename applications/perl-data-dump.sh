@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/G/GA/GAAS/Data-Dump-1.23.tar.gz
 
+NAME=data::dump-1.23
+VERSION=1.23
 URL=https://www.cpan.org/authors/id/G/GA/GAAS/Data-Dump-1.23.tar.gz
 
 if [ ! -z $URL ]

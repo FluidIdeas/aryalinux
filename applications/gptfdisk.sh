@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 wget -nc https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.4.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/gptfdisk-1.0.4-convenience-1.patch
 
+NAME=gptfdisk
+VERSION=1.0.4
 URL=https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.4.tar.gz
 
 if [ ! -z $URL ]

@@ -22,6 +22,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/E/ET/ETHER/libwww-perl-6.36.tar.gz
 
+NAME=libwww-perl-6.36
+VERSION=6.36
 URL=https://cpan.metacpan.org/authors/id/E/ET/ETHER/libwww-perl-6.36.tar.gz
 
 if [ ! -z $URL ]

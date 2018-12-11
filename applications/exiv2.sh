@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 
 wget -nc http://www.exiv2.org/builds/exiv2-0.26-trunk.tar.gz
 
+NAME=exiv2
+VERSION=""
 URL=http://www.exiv2.org/builds/exiv2-0.26-trunk.tar.gz
 
 if [ ! -z $URL ]

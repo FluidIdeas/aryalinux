@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/A/AL/ALINKE/Lingua-Translit-0.28.tar.gz
 
+NAME=lingua::translit-0.28
+VERSION=0.28
 URL=https://www.cpan.org/authors/id/A/AL/ALINKE/Lingua-Translit-0.28.tar.gz
 
 if [ ! -z $URL ]

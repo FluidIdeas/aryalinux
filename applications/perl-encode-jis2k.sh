@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/D/DA/DANKOGAI/Encode-JIS2K-0.03.tar.gz
 
+NAME=encode::jis2k-0.03
+VERSION=0.03
 URL=https://www.cpan.org/authors/id/D/DA/DANKOGAI/Encode-JIS2K-0.03.tar.gz
 
 if [ ! -z $URL ]

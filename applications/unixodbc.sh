@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.7.tar.gz
 
+NAME=unixodbc
+VERSION=2.3.7
 URL=ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.7.tar.gz
 
 if [ ! -z $URL ]

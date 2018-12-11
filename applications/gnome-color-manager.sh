@@ -22,6 +22,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-color-manager/3.28/gnome-color-manager-3.28.0.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-color-manager/3.28/gnome-color-manager-3.28.0.tar.xz
 
+NAME=gnome-color-manager
+VERSION=3.28.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-color-manager/3.28/gnome-color-manager-3.28.0.tar.xz
 
 if [ ! -z $URL ]

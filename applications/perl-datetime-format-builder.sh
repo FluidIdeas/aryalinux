@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Builder-0.81.tar.gz
 
+NAME=datetime::format::builder-0.81
+VERSION=0.81
 URL=https://www.cpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Builder-0.81.tar.gz
 
 if [ ! -z $URL ]

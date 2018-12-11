@@ -21,9 +21,9 @@ set +h
 #OPT:libmad
 #OPT:libmng
 #OPT:libtheora
-#OPT:x7driver#libva
+#OPT:libva
 #OPT:glu
-#OPT:x7driver#libvdpau
+#OPT:libvdpau
 #OPT:libvorbis
 #OPT:libvpx
 #OPT:mesa
@@ -40,6 +40,8 @@ cd $SOURCE_DIR
 wget -nc https://downloads.sourceforge.net/xine/xine-lib-1.2.9.tar.xz
 wget -nc ftp://ftp.mirrorservice.org/sites/distfiles.gentoo.org/distfiles/xine-lib-1.2.9.tar.xz
 
+NAME=xine-lib
+VERSION=1.2.9
 URL=https://downloads.sourceforge.net/xine/xine-lib-1.2.9.tar.xz
 
 if [ ! -z $URL ]

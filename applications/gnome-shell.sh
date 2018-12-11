@@ -32,6 +32,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.28/gnome-shell-3.28.3.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.28/gnome-shell-3.28.3.tar.xz
 
+NAME=gnome-shell
+VERSION=3.28.3
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.28/gnome-shell-3.28.3.tar.xz
 
 if [ ! -z $URL ]

@@ -33,6 +33,8 @@ cd $SOURCE_DIR
 
 wget -nc https://archive.mozilla.org/pub/thunderbird/releases/60.3.2/source/thunderbird-60.3.2.source.tar.xz
 
+NAME=thunderbird
+VERSION=60.3.2.source
 URL=https://archive.mozilla.org/pub/thunderbird/releases/60.3.2/source/thunderbird-60.3.2.source.tar.xz
 
 if [ ! -z $URL ]

@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/alpine/alpine-2.21.tar.xz
 
+NAME=alpine
+VERSION=2.21
 URL=http://anduin.linuxfromscratch.org/BLFS/alpine/alpine-2.21.tar.xz
 
 if [ ! -z $URL ]

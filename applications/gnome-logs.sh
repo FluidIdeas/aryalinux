@@ -18,6 +18,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-logs/3.28/gnome-logs-3.28.5.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-logs/3.28/gnome-logs-3.28.5.tar.xz
 
+NAME=gnome-logs
+VERSION=3.28.5
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-logs/3.28/gnome-logs-3.28.5.tar.xz
 
 if [ ! -z $URL ]

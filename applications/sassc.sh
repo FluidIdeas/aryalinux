@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 wget -nc https://github.com/sass/sassc/archive/3.5.0/sassc-3.5.0.tar.gz
 wget -nc https://github.com/sass/libsass/archive/3.5.4/libsass-3.5.4.tar.gz
 
+NAME=sassc
+VERSION=3.5.0
 URL=https://github.com/sass/sassc/archive/3.5.0/sassc-3.5.0.tar.gz
 
 if [ ! -z $URL ]

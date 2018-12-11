@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/aa-project/aalib-1.4rc5.tar.gz
 
+NAME=aalib
+VERSION=1.4rc5
 URL=https://downloads.sourceforge.net/aa-project/aalib-1.4rc5.tar.gz
 
 if [ ! -z $URL ]

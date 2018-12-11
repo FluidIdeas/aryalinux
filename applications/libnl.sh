@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 wget -nc https://github.com/thom311/libnl/releases/download/libnl3_4_0/libnl-3.4.0.tar.gz
 wget -nc https://github.com/thom311/libnl/releases/download/libnl3_4_0/libnl-doc-3.4.0.tar.gz
 
+NAME=libnl
+VERSION=3.4.0
 URL=https://github.com/thom311/libnl/releases/download/libnl3_4_0/libnl-3.4.0.tar.gz
 
 if [ ! -z $URL ]

@@ -23,6 +23,8 @@ cd $SOURCE_DIR
 
 wget -nc https://curl.haxx.se/download/curl-7.62.0.tar.xz
 
+NAME=curl
+VERSION=7.62.0
 URL=https://curl.haxx.se/download/curl-7.62.0.tar.xz
 
 if [ ! -z $URL ]

@@ -10,6 +10,8 @@ set +h
 cd $SOURCE_DIR
 
 
+NAME=notes-on-building
+VERSION=""
 URL=""
 
 if [ ! -z $URL ]

@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 wget -nc https://downloads.sourceforge.net/infozip/unzip60.tar.gz
 wget -nc ftp://ftp.info-zip.org/pub/infozip/src/unzip60.tgz
 
+NAME=unzip
+VERSION=""
 URL=https://downloads.sourceforge.net/infozip/unzip60.tar.gz
 
 if [ ! -z $URL ]

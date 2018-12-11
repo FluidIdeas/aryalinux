@@ -19,7 +19,7 @@ set +h
 #REQ:pulseaudio
 #REQ:systemd
 #REQ:upower
-#REQ:x7driver#xorg-wacom-driver
+#REQ:xorg-wacom-driver
 #REC:alsa
 #REC:cups
 #REC:networkmanager
@@ -31,6 +31,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-settings-daemon/3.28/gnome-settings-daemon-3.28.1.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-settings-daemon/3.28/gnome-settings-daemon-3.28.1.tar.xz
 
+NAME=gnome-settings-daemon
+VERSION=3.28.1
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-settings-daemon/3.28/gnome-settings-daemon-3.28.1.tar.xz
 
 if [ ! -z $URL ]

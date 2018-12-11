@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/S/SH/SHLOMIF/XML-LibXSLT-1.96.tar.gz
 
+NAME=xml-libxslt-1.96
+VERSION=1.96
 URL=https://www.cpan.org/authors/id/S/SH/SHLOMIF/XML-LibXSLT-1.96.tar.gz
 
 if [ ! -z $URL ]

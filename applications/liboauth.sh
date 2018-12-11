@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 wget -nc https://downloads.sourceforge.net/liboauth/liboauth-1.0.3.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/liboauth-1.0.3-openssl-1.1.0-2.patch
 
+NAME=liboauth
+VERSION=1.0.3
 URL=https://downloads.sourceforge.net/liboauth/liboauth-1.0.3.tar.gz
 
 if [ ! -z $URL ]

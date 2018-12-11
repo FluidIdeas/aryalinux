@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/ivmai/libatomic_ops/releases/download/v7.6.6/libatomic_ops-7.6.6.tar.gz
 
+NAME=libatomic_ops
+VERSION=7.6.6
 URL=https://github.com/ivmai/libatomic_ops/releases/download/v7.6.6/libatomic_ops-7.6.6.tar.gz
 
 if [ ! -z $URL ]

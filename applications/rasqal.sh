@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc http://download.librdf.org/source/rasqal-0.9.33.tar.gz
 
+NAME=rasqal
+VERSION=0.9.33
 URL=http://download.librdf.org/source/rasqal-0.9.33.tar.gz
 
 if [ ! -z $URL ]

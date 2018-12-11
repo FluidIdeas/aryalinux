@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/lxde/lxde-icon-theme-0.5.1.tar.xz
 
+NAME=lxde-icon-theme
+VERSION=0.5.1
 URL=https://downloads.sourceforge.net/lxde/lxde-icon-theme-0.5.1.tar.xz
 
 if [ ! -z $URL ]

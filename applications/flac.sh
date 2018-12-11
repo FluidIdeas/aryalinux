@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.xiph.org/releases/flac/flac-1.3.2.tar.xz
 
+NAME=flac
+VERSION=1.3.2
 URL=https://downloads.xiph.org/releases/flac/flac-1.3.2.tar.xz
 
 if [ ! -z $URL ]

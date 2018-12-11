@@ -6,12 +6,14 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:perl-modules#perl-xml-simple
+#REQ:perl-xml-simple
 
 cd $SOURCE_DIR
 
 wget -nc http://tango.freedesktop.org/releases/icon-naming-utils-0.8.90.tar.bz2
 
+NAME=icon-naming-utils
+VERSION=0.8.90.
 URL=http://tango.freedesktop.org/releases/icon-naming-utils-0.8.90.tar.bz2
 
 if [ ! -z $URL ]

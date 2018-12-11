@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/libfuse/libfuse/releases/download/fuse-2.9.7/fuse-2.9.7.tar.gz
 
+NAME=fuse2
+VERSION=2.9.7
 URL=https://github.com/libfuse/libfuse/releases/download/fuse-2.9.7/fuse-2.9.7.tar.gz
 
 if [ ! -z $URL ]

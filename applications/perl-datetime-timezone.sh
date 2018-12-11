@@ -17,6 +17,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.21.tar.gz
 
+NAME=datetime::timezone-2.21
+VERSION=2.21
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.21.tar.gz
 
 if [ ! -z $URL ]

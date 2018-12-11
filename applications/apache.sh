@@ -24,6 +24,8 @@ cd $SOURCE_DIR
 wget -nc https://archive.apache.org/dist/httpd/httpd-2.4.37.tar.bz2
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/httpd-2.4.37-blfs_layout-1.patch
 
+NAME=apache
+VERSION=2.4.37.
 URL=https://archive.apache.org/dist/httpd/httpd-2.4.37.tar.bz2
 
 if [ ! -z $URL ]

@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/H/HA/HAARG/Sub-Quote-2.005001.tar.gz
 
+NAME=sub::quote-2.005001
+VERSION=2.005001
 URL=https://cpan.metacpan.org/authors/id/H/HA/HAARG/Sub-Quote-2.005001.tar.gz
 
 if [ ! -z $URL ]

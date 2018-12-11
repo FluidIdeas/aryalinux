@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/LMDB/lmdb/archive/LMDB_0.9.22.tar.gz
 
+NAME=lmdb
+VERSION=""
 URL=https://github.com/LMDB/lmdb/archive/LMDB_0.9.22.tar.gz
 
 if [ ! -z $URL ]

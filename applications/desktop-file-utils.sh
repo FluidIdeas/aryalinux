@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.23.tar.xz
 
+NAME=desktop-file-utils
+VERSION=0.23
 URL=https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.23.tar.xz
 
 if [ ! -z $URL ]

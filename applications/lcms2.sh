@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/lcms/lcms2-2.9.tar.gz
 
+NAME=lcms2
+VERSION=""
 URL=https://downloads.sourceforge.net/lcms/lcms2-2.9.tar.gz
 
 if [ ! -z $URL ]

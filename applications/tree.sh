@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 wget -nc http://mama.indstate.edu/users/ice/tree/src/tree-1.8.0.tgz
 wget -nc ftp://mama.indstate.edu/linux/tree/tree-1.8.0.tgz
 
+NAME=tree
+VERSION=1.8.0
 URL=http://mama.indstate.edu/users/ice/tree/src/tree-1.8.0.tgz
 
 if [ ! -z $URL ]

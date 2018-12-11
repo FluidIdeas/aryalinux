@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/dosfstools/dosfstools/releases/download/v4.1/dosfstools-4.1.tar.xz
 
+NAME=dosfstools
+VERSION=4.1
 URL=https://github.com/dosfstools/dosfstools/releases/download/v4.1/dosfstools-4.1.tar.xz
 
 if [ ! -z $URL ]

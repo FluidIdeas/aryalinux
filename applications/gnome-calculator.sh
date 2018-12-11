@@ -17,6 +17,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-calculator/3.28/gnome-calculator-3.28.2.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-calculator/3.28/gnome-calculator-3.28.2.tar.xz
 
+NAME=gnome-calculator
+VERSION=3.28.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-calculator/3.28/gnome-calculator-3.28.2.tar.xz
 
 if [ ! -z $URL ]

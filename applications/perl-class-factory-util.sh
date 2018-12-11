@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Class-Factory-Util-1.7.tar.gz
 
+NAME=class::factory::util-1.7
+VERSION=1.7
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Class-Factory-Util-1.7.tar.gz
 
 if [ ! -z $URL ]

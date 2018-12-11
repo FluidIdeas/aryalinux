@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc http://www.digip.org/jansson/releases/jansson-2.11.tar.gz
 
+NAME=jansson
+VERSION=2.11
 URL=http://www.digip.org/jansson/releases/jansson-2.11.tar.gz
 
 if [ ! -z $URL ]

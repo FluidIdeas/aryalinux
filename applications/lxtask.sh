@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/lxde/lxtask-0.1.8.tar.xz
 
+NAME=lxtask
+VERSION=0.1.8
 URL=https://downloads.sourceforge.net/lxde/lxtask-0.1.8.tar.xz
 
 if [ ! -z $URL ]

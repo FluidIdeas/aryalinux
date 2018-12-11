@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.6.2.tar.xz
 
+NAME=pciutils
+VERSION=3.6.2
 URL=https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.6.2.tar.xz
 
 if [ ! -z $URL ]

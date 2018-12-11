@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/libpng/libpng-1.6.36.tar.xz
 
+NAME=libpng
+VERSION=1.6.36
 URL=https://downloads.sourceforge.net/libpng/libpng-1.6.36.tar.xz
 
 if [ ! -z $URL ]

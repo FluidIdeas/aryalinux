@@ -21,6 +21,8 @@ cd $SOURCE_DIR
 
 wget -nc http://archive.xfce.org/src/xfce/tumbler/0.2/tumbler-0.2.3.tar.bz2
 
+NAME=tumbler
+VERSION=0.2.3.
 URL=http://archive.xfce.org/src/xfce/tumbler/0.2/tumbler-0.2.3.tar.bz2
 
 if [ ! -z $URL ]

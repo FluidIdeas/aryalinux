@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 
 wget -nc http://www.unbound.net/downloads/unbound-1.8.1.tar.gz
 
+NAME=unbound
+VERSION=1.8.1
 URL=http://www.unbound.net/downloads/unbound-1.8.1.tar.gz
 
 if [ ! -z $URL ]

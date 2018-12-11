@@ -30,6 +30,8 @@ cd $SOURCE_DIR
 wget -nc http://hg.openjdk.java.net/jdk-updates/jdk10u/archive/jdk-10.0.2+13.tar.bz2
 wget -nc http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-10.0.2/jtreg-4.2-b13-433.tar.gz
 
+NAME=openjdk
+VERSION=10.0.2+13.
 URL=http://hg.openjdk.java.net/jdk-updates/jdk10u/archive/jdk-10.0.2+13.tar.bz2
 
 if [ ! -z $URL ]

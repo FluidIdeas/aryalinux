@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.24.tar.gz
 
+NAME=b::hooks::endofscope-0.24
+VERSION=0.24
 URL=https://cpan.metacpan.org/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.24.tar.gz
 
 if [ ! -z $URL ]

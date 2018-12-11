@@ -18,6 +18,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.freedesktop.org/software/ModemManager/ModemManager-1.8.2.tar.xz
 
+NAME=modemmanager
+VERSION=1.8.2
 URL=https://www.freedesktop.org/software/ModemManager/ModemManager-1.8.2.tar.xz
 
 if [ ! -z $URL ]

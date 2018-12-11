@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/mltframework/mlt/releases/download/v6.12.0/mlt-6.12.0.tar.gz
 
+NAME=mlt
+VERSION=6.12.0
 URL=https://github.com/mltframework/mlt/releases/download/v6.12.0/mlt-6.12.0.tar.gz
 
 if [ ! -z $URL ]

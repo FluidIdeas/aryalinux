@@ -27,6 +27,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.freedesktop.org/software/colord/releases/colord-1.4.3.tar.xz
 
+NAME=colord
+VERSION=1.4.3
 URL=https://www.freedesktop.org/software/colord/releases/colord-1.4.3.tar.xz
 
 if [ ! -z $URL ]

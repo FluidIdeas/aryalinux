@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/LWP-Protocol-https-6.07-system_certs-1.patch
 
+NAME=lwp::protocol::https-6.07
+VERSION=1.patch
 URL=http://www.linuxfromscratch.org/patches/blfs/svn/LWP-Protocol-https-6.07-system_certs-1.patch
 
 if [ ! -z $URL ]

@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://gsdview.appspot.com/chromeos-localmirror/distfiles/crosextrafonts-20130214.tar.gz
-wget -nc http://gsdview.appspot.com/chromeos-localmirror/distfiles/crosextrafonts-carlito-20130920.tar.gz
-wget -nc http://download.kde.org/stable/plasma/5.4.3/oxygen-fonts-5.4.3.tar.xz
+wget -nc https://files.pythonhosted.org/packages/source/M/Mako/Mako-1.0.7.tar.gz
 
-URL=http://gsdview.appspot.com/chromeos-localmirror/distfiles/crosextrafonts-20130214.tar.gz
+NAME=mako-1.0.7
+VERSION=1.0.7
+URL=https://files.pythonhosted.org/packages/source/M/Mako/Mako-1.0.7.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -33,9 +33,17 @@ fi
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-install -v -d -m755 /usr/share/fonts/dejavu &&
-install -v -m644 ttf/*.ttf /usr/share/fonts/dejavu &&
-fc-cache -v /usr/share/fonts/dejavu
+python setup.py install --optimize=1
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
+
+
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
+sed -i "s:mako-render:&3:g" setup.py &&
+python3 setup.py install --optimize=1
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

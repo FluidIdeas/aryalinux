@@ -17,6 +17,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.freedesktop.org/software/geoclue/releases/2.4/geoclue-2.4.12.tar.xz
 
+NAME=geoclue2
+VERSION=2.4.12
 URL=https://www.freedesktop.org/software/geoclue/releases/2.4/geoclue-2.4.12.tar.xz
 
 if [ ! -z $URL ]

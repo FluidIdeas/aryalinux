@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/bbidulock/icewm/releases/download/1.4.2/icewm-1.4.2.tar.bz2
 
+NAME=icewm
+VERSION=1.4.2.
 URL=https://github.com/bbidulock/icewm/releases/download/1.4.2/icewm-1.4.2.tar.bz2
 
 if [ ! -z $URL ]

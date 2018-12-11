@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://launchpad.net/libzeitgeist/0.3/0.3.18/+download/libzeitgeist-0.3.18.tar.gz
 
+NAME=libzeitgeist
+VERSION=0.3.18
 URL=https://launchpad.net/libzeitgeist/0.3/0.3.18/+download/libzeitgeist-0.3.18.tar.gz
 
 if [ ! -z $URL ]

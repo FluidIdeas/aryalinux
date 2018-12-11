@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/libgudev/232/libgudev-232.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgudev/232/libgudev-232.tar.xz
 
+NAME=libgudev
+VERSION=232
 URL=http://ftp.gnome.org/pub/gnome/sources/libgudev/232/libgudev-232.tar.xz
 
 if [ ! -z $URL ]

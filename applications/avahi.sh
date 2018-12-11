@@ -12,13 +12,15 @@ set +h
 #REC:gtk3
 #REC:libdaemon
 #REC:libglade
-#OPT:python-modules#dbus-python
-#OPT:python-modules#pygtk
+#OPT:dbus-python
+#OPT:pygtk
 
 cd $SOURCE_DIR
 
 wget -nc https://github.com/lathiat/avahi/releases/download/v0.7/avahi-0.7.tar.gz
 
+NAME=avahi
+VERSION=0.7
 URL=https://github.com/lathiat/avahi/releases/download/v0.7/avahi-0.7.tar.gz
 
 if [ ! -z $URL ]

@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/joe-editor/joe-4.6.tar.gz
 
+NAME=joe
+VERSION=4.6
 URL=https://downloads.sourceforge.net/joe-editor/joe-4.6.tar.gz
 
 if [ ! -z $URL ]

@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.x.org/pub/individual/driver/xf86-input-evdev-2.10.6.tar.bz2
 
+NAME=xorg evdev driver-2.10.6
+VERSION=2.10.6
 URL=https://www.x.org/pub/individual/driver/xf86-input-evdev-2.10.6.tar.bz2
 
 if [ ! -z $URL ]

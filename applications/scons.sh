@@ -8,13 +8,15 @@ set +h
 
 #REQ:python2
 #OPT:docbook-xsl
-#OPT:python-modules#libxml2py2
+#OPT:libxml2py2
 #OPT:libxslt
 
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/scons/scons-3.0.0.tar.gz
 
+NAME=scons
+VERSION=3.0.0
 URL=https://downloads.sourceforge.net/scons/scons-3.0.0.tar.gz
 
 if [ ! -z $URL ]

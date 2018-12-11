@@ -10,6 +10,8 @@ set +h
 cd $SOURCE_DIR
 
 
+NAME=icons-introduction
+VERSION=""
 URL=""
 
 if [ ! -z $URL ]

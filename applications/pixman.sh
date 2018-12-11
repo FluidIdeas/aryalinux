@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cairographics.org/releases/pixman-0.36.0.tar.gz
 
+NAME=pixman
+VERSION=0.36.0
 URL=https://www.cairographics.org/releases/pixman-0.36.0.tar.gz
 
 if [ ! -z $URL ]

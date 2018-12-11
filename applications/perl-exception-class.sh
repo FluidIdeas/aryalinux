@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Exception-Class-1.44.tar.gz
 
+NAME=exception::class-1.44
+VERSION=1.44
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Exception-Class-1.44.tar.gz
 
 if [ ! -z $URL ]

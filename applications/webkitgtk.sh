@@ -35,6 +35,8 @@ cd $SOURCE_DIR
 
 wget -nc https://webkitgtk.org/releases/webkitgtk-2.22.2.tar.xz
 
+NAME=webkitgtk
+VERSION=2.22.2
 URL=https://webkitgtk.org/releases/webkitgtk-2.22.2.tar.xz
 
 if [ ! -z $URL ]

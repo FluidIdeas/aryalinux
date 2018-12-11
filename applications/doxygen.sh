@@ -22,6 +22,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.stack.nl/pub/doxygen/doxygen-1.8.14.src.tar.gz
 wget -nc ftp://ftp.stack.nl/pub/doxygen/doxygen-1.8.14.src.tar.gz
 
+NAME=doxygen
+VERSION=1.8.14.src
 URL=http://ftp.stack.nl/pub/doxygen/doxygen-1.8.14.src.tar.gz
 
 if [ ! -z $URL ]

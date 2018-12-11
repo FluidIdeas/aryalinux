@@ -29,6 +29,8 @@ cd $SOURCE_DIR
 
 wget -nc http://anduin.linuxfromscratch.org/LFS/systemd-239-6b4878d.tar.xz
 
+NAME=systemd
+VERSION=239-6b4878d
 URL=http://anduin.linuxfromscratch.org/LFS/systemd-239-6b4878d.tar.xz
 
 if [ ! -z $URL ]

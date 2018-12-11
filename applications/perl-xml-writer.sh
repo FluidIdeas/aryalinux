@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/J/JO/JOSEPHW/XML-Writer-0.625.tar.gz
 
+NAME=xml::writer-0.625
+VERSION=0.625
 URL=https://www.cpan.org/authors/id/J/JO/JOSEPHW/XML-Writer-0.625.tar.gz
 
 if [ ! -z $URL ]

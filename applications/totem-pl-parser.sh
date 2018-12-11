@@ -19,6 +19,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.1.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.1.tar.xz
 
+NAME=totem-pl-parser
+VERSION=3.26.1
 URL=http://ftp.gnome.org/pub/gnome/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.1.tar.xz
 
 if [ ! -z $URL ]

@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.0.tar.gz
 
+NAME=vorbistools
+VERSION=1.4.0
 URL=https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.0.tar.gz
 
 if [ ! -z $URL ]

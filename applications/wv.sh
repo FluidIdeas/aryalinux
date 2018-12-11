@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc http://www.abisource.com/downloads/wv/1.2.9/wv-1.2.9.tar.gz
 
+NAME=wv
+VERSION=1.2.9
 URL=http://www.abisource.com/downloads/wv/1.2.9/wv-1.2.9.tar.gz
 
 if [ ! -z $URL ]

@@ -15,7 +15,7 @@ set +h
 #REC:gobject-introspection
 #REC:libcanberra
 #REC:startup-notification
-#REC:x7driver#libinput
+#REC:libinput
 #REC:wayland
 #REC:wayland-protocols
 #REC:xorg-server
@@ -26,6 +26,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/mutter/3.28/mutter-3.28.3.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/mutter/3.28/mutter-3.28.3.tar.xz
 
+NAME=mutter
+VERSION=3.28.3
 URL=http://ftp.gnome.org/pub/gnome/sources/mutter/3.28/mutter-3.28.3.tar.xz
 
 if [ ! -z $URL ]

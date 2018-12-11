@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
 
+NAME=yasm
+VERSION=1.3.0
 URL=http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
 
 if [ ! -z $URL ]

@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc http://www.rarlab.com/rar/unrarsrc-5.6.8.tar.gz
 
+NAME=unrar
+VERSION=5.6.8
 URL=http://www.rarlab.com/rar/unrarsrc-5.6.8.tar.gz
 
 if [ ! -z $URL ]

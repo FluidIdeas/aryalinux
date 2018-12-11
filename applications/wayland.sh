@@ -18,6 +18,8 @@ cd $SOURCE_DIR
 
 wget -nc https://wayland.freedesktop.org/releases/wayland-1.16.0.tar.xz
 
+NAME=wayland
+VERSION=1.16.0
 URL=https://wayland.freedesktop.org/releases/wayland-1.16.0.tar.xz
 
 if [ ! -z $URL ]

@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/libdv/libdv-1.0.0.tar.gz
 
+NAME=libdv
+VERSION=1.0.0
 URL=https://downloads.sourceforge.net/libdv/libdv-1.0.0.tar.gz
 
 if [ ! -z $URL ]

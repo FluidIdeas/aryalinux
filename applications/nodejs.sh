@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 
 wget -nc https://nodejs.org/dist/v10.14.1/node-v10.14.1.tar.xz
 
+NAME=nodejs
+VERSION=v10.14.1
 URL=https://nodejs.org/dist/v10.14.1/node-v10.14.1.tar.xz
 
 if [ ! -z $URL ]

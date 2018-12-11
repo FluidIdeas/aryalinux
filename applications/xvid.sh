@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc http://downloads.xvid.org/downloads/xvidcore-1.3.5.tar.gz
 
+NAME=xvid
+VERSION=1.3.5
 URL=http://downloads.xvid.org/downloads/xvidcore-1.3.5.tar.gz
 
 if [ ! -z $URL ]

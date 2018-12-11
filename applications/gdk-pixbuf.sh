@@ -16,13 +16,15 @@ set +h
 #OPT:gobject-introspection
 #OPT:jasper
 #OPT:gtk-doc
-#OPT:python-modules#six
+#OPT:six
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.38/gdk-pixbuf-2.38.0.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.38/gdk-pixbuf-2.38.0.tar.xz
 
+NAME=gdk-pixbuf
+VERSION=2.38.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.38/gdk-pixbuf-2.38.0.tar.xz
 
 if [ ! -z $URL ]

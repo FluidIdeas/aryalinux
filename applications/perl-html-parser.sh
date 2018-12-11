@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/G/GA/GAAS/HTML-Parser-3.72.tar.gz
 
+NAME=html::parser-3.72
+VERSION=3.72
 URL=https://www.cpan.org/authors/id/G/GA/GAAS/HTML-Parser-3.72.tar.gz
 
 if [ ! -z $URL ]

@@ -17,6 +17,8 @@ cd $SOURCE_DIR
 
 wget -nc https://raw.githubusercontent.com/transmission/transmission-releases/master/transmission-2.94.tar.xz
 
+NAME=transmission
+VERSION=2.94
 URL=https://raw.githubusercontent.com/transmission/transmission-releases/master/transmission-2.94.tar.xz
 
 if [ ! -z $URL ]

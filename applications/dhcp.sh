@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc ftp://ftp.isc.org/isc/dhcp/4.4.1/dhcp-4.4.1.tar.gz
 
+NAME=dhcp
+VERSION=4.4.1
 URL=ftp://ftp.isc.org/isc/dhcp/4.4.1/dhcp-4.4.1.tar.gz
 
 if [ ! -z $URL ]

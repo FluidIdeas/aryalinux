@@ -22,6 +22,8 @@ cd $SOURCE_DIR
 
 wget -nc ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.3.1.tar.gz
 
+NAME=postfix
+VERSION=3.3.1
 URL=ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.3.1.tar.gz
 
 if [ ! -z $URL ]

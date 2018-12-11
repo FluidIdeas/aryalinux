@@ -30,6 +30,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.mutt.org/pub/mutt/mutt-1.11.0.tar.gz
 wget -nc ftp://ftp.mutt.org/pub/mutt/mutt-1.11.0.tar.gz
 
+NAME=mutt
+VERSION=1.11.0
 URL=http://ftp.mutt.org/pub/mutt/mutt-1.11.0.tar.gz
 
 if [ ! -z $URL ]

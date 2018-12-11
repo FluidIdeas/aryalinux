@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Module-Implementation-0.09.tar.gz
 
+NAME=module::implementation-0.09
+VERSION=0.09
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Module-Implementation-0.09.tar.gz
 
 if [ ! -z $URL ]

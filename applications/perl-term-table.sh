@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Term-Table-0.012.tar.gz
 
+NAME=term::table-0.012
+VERSION=0.012
 URL=https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Term-Table-0.012.tar.gz
 
 if [ ! -z $URL ]

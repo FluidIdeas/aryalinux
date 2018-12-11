@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/R/RE/REHSACK/File-ShareDir-1.116.tar.gz
 
+NAME=file::sharedir-1.116
+VERSION=1.116
 URL=https://cpan.metacpan.org/authors/id/R/RE/REHSACK/File-ShareDir-1.116.tar.gz
 
 if [ ! -z $URL ]

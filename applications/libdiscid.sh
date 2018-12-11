@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.musicbrainz.org/pub/musicbrainz/libdiscid/libdiscid-0.6.2.tar.gz
 wget -nc ftp://ftp.musicbrainz.org/pub/musicbrainz/libdiscid/libdiscid-0.6.2.tar.gz
 
+NAME=libdiscid
+VERSION=0.6.2
 URL=http://ftp.musicbrainz.org/pub/musicbrainz/libdiscid/libdiscid-0.6.2.tar.gz
 
 if [ ! -z $URL ]

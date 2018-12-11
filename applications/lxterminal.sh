@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/lxde/lxterminal-0.3.2.tar.xz
 
+NAME=lxterminal
+VERSION=0.3.2
 URL=https://downloads.sourceforge.net/lxde/lxterminal-0.3.2.tar.xz
 
 if [ ! -z $URL ]

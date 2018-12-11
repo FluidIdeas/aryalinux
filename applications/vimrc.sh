@@ -10,6 +10,8 @@ set +h
 cd $SOURCE_DIR
 
 
+NAME=vimrc
+VERSION=""
 URL=""
 
 if [ ! -z $URL ]

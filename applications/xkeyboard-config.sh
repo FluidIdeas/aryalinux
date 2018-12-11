@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 wget -nc https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.25.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.25.tar.bz2
 
+NAME=xkeyboard-config
+VERSION=2.25.
 URL=https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.25.tar.bz2
 
 if [ ! -z $URL ]

@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/expect/expect5.45.4.tar.gz
 
+NAME=expect
+VERSION=""
 URL=https://downloads.sourceforge.net/expect/expect5.45.4.tar.gz
 
 if [ ! -z $URL ]

@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/faac/faac-1.29.9.2.tar.gz
 
+NAME=faac
+VERSION=1.29.9.2
 URL=https://downloads.sourceforge.net/faac/faac-1.29.9.2.tar.gz
 
 if [ ! -z $URL ]

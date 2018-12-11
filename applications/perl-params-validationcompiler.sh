@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Params-ValidationCompiler-0.30.tar.gz
 
+NAME=params::validationcompiler-0.30
+VERSION=0.30
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Params-ValidationCompiler-0.30.tar.gz
 
 if [ ! -z $URL ]

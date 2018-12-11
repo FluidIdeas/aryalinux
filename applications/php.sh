@@ -37,6 +37,8 @@ cd $SOURCE_DIR
 
 wget -nc http://www.php.net/distributions/php-7.3.0.tar.xz
 
+NAME=php
+VERSION=7.3.0
 URL=http://www.php.net/distributions/php-7.3.0.tar.xz
 
 if [ ! -z $URL ]

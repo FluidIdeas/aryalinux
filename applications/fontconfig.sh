@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.13.1.tar.bz2
 
+NAME=fontconfig
+VERSION=2.13.1.
 URL=https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.13.1.tar.bz2
 
 if [ ! -z $URL ]

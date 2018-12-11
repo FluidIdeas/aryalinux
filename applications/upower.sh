@@ -12,12 +12,14 @@ set +h
 #REQ:polkit
 #OPT:gobject-introspection
 #OPT:gtk-doc
-#OPT:python-modules#pygobject3
+#OPT:pygobject3
 
 cd $SOURCE_DIR
 
 wget -nc https://upower.freedesktop.org/releases/upower-0.99.7.tar.xz
 
+NAME=upower
+VERSION=0.99.7
 URL=https://upower.freedesktop.org/releases/upower-0.99.7.tar.xz
 
 if [ ! -z $URL ]

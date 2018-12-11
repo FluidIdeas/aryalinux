@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/D/DC/DCANTRELL/Data-Compare-1.25.tar.gz
 
+NAME=data::compare-1.25
+VERSION=1.25
 URL=https://www.cpan.org/authors/id/D/DC/DCANTRELL/Data-Compare-1.25.tar.gz
 
 if [ ! -z $URL ]

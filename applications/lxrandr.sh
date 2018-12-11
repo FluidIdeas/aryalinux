@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/lxde/lxrandr-0.3.1.tar.xz
 
+NAME=lxrandr
+VERSION=0.3.1
 URL=https://downloads.sourceforge.net/lxde/lxrandr-0.3.1.tar.xz
 
 if [ ! -z $URL ]

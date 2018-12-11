@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/paps/paps-0.6.8.tar.gz
 
+NAME=paps
+VERSION=0.6.8
 URL=https://downloads.sourceforge.net/paps/paps-0.6.8.tar.gz
 
 if [ ! -z $URL ]

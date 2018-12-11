@@ -44,6 +44,8 @@ cd $SOURCE_DIR
 wget -nc https://archive.mozilla.org/pub/firefox/releases/63.0.3/source/firefox-63.0.3.source.tar.xz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/firefox-63.0.3-system_graphite2_harfbuzz-1.patch
 
+NAME=firefox
+VERSION=63.0.3.source
 URL=https://archive.mozilla.org/pub/firefox/releases/63.0.3/source/firefox-63.0.3.source.tar.xz
 
 if [ ! -z $URL ]

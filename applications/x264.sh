@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://download.videolan.org/x264/snapshots/x264-snapshot-20180819-2245-stable.tar.bz2
 
+NAME=x264
+VERSION=20180819-2245-stable.
 URL=https://download.videolan.org/x264/snapshots/x264-snapshot-20180819-2245-stable.tar.bz2
 
 if [ ! -z $URL ]

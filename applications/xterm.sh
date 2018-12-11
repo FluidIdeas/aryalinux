@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc http://invisible-mirror.net/archives/xterm/xterm-337.tgz
 
+NAME=xterm
+VERSION=337
 URL=http://invisible-mirror.net/archives/xterm/xterm-337.tgz
 
 if [ ! -z $URL ]

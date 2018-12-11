@@ -9,8 +9,8 @@ set +h
 #REC:make-ca
 #OPT:gnutls
 #OPT:gpgme
-#OPT:perl-modules#perl-http-daemon
-#OPT:perl-modules#perl-io-socket-ssl
+#OPT:perl-http-daemon
+#OPT:perl-io-socket-ssl
 #OPT:libidn2
 #OPT:libpsl
 #OPT:pcre
@@ -23,6 +23,8 @@ cd $SOURCE_DIR
 wget -nc https://ftp.gnu.org/gnu/wget/wget-1.20.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/wget/wget-1.20.tar.gz
 
+NAME=wget
+VERSION=1.20
 URL=https://ftp.gnu.org/gnu/wget/wget-1.20.tar.gz
 
 if [ ! -z $URL ]

@@ -18,6 +18,8 @@ cd $SOURCE_DIR
 
 wget -nc https://download.qt.io/archive/qt/5.11/5.11.2/submodules/qtwebengine-everywhere-src-5.11.2.tar.xz
 
+NAME=qtwebengine
+VERSION=5.11.2
 URL=https://download.qt.io/archive/qt/5.11/5.11.2/submodules/qtwebengine-everywhere-src-5.11.2.tar.xz
 
 if [ ! -z $URL ]

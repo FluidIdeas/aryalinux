@@ -48,6 +48,8 @@ wget -nc ftp://ftp.imagemagick.org/pub/ImageMagick/releases/ImageMagick-7.0.8-10
 wget -nc http://www.mcmurchy.com/ralcgm/ralcgm-3.51.tar.gz
 wget -nc http://www.mcmurchy.com/urt/urt-3.1b.tar.gz
 
+NAME=imagemagick
+VERSION=7.0.8-10
 URL=https://www.imagemagick.org/download/releases/ImageMagick-7.0.8-10.tar.xz
 
 if [ ! -z $URL ]

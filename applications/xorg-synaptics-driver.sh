@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.x.org/pub/individual/driver/xf86-input-synaptics-1.9.1.tar.bz2
 
+NAME=xorg synaptics driver-1.9.1
+VERSION=1.9.1
 URL=https://www.x.org/pub/individual/driver/xf86-input-synaptics-1.9.1.tar.bz2
 
 if [ ! -z $URL ]

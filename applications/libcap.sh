@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.26.tar.xz
 
+NAME=libcap
+VERSION=2.26
 URL=https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.26.tar.xz
 
 if [ ! -z $URL ]

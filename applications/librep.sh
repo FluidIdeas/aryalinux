@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc http://download.tuxfamily.org/librep/librep_0.92.7.tar.xz
 
+NAME=librep
+VERSION=""
 URL=http://download.tuxfamily.org/librep/librep_0.92.7.tar.xz
 
 if [ ! -z $URL ]

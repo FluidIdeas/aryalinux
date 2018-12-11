@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 wget -nc http://www.fftw.org/fftw-3.3.8.tar.gz
 wget -nc ftp://ftp.fftw.org/pub/fftw/fftw-3.3.8.tar.gz
 
+NAME=fftw
+VERSION=3.3.8
 URL=http://www.fftw.org/fftw-3.3.8.tar.gz
 
 if [ ! -z $URL ]

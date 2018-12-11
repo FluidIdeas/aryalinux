@@ -9,13 +9,15 @@ set +h
 #REQ:gtk3
 #REQ:libxfce4ui
 #REQ:libxfce4util
-#REQ:perl-modules#perl-uri
+#REQ:perl-uri
 #OPT:gtk-doc
 
 cd $SOURCE_DIR
 
 wget -nc http://archive.xfce.org/src/xfce/exo/0.12/exo-0.12.3.tar.bz2
 
+NAME=exo
+VERSION=0.12.3.
 URL=http://archive.xfce.org/src/xfce/exo/0.12/exo-0.12.3.tar.bz2
 
 if [ ! -z $URL ]

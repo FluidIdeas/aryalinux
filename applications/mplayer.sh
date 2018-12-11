@@ -8,7 +8,7 @@ set +h
 
 #REQ:yasm
 #REC:gtk2
-#REC:x7driver#libvdpau-va-gl
+#REC:libvdpau-va-gl
 #OPT:cdparanoia
 #OPT:libcdio
 #OPT:libdvdread
@@ -59,6 +59,8 @@ wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/MPlayer-1.3.0-x264_fix
 wget -nc https://www.mplayerhq.hu/MPlayer/skins/Clearlooks-2.0.tar.bz2
 wget -nc ftp://ftp.mplayerhq.hu/MPlayer/skins/Clearlooks-2.0.tar.bz2
 
+NAME=mplayer
+VERSION=1.3.0
 URL=http://www.mplayerhq.hu/MPlayer/releases/MPlayer-1.3.0.tar.xz
 
 if [ ! -z $URL ]

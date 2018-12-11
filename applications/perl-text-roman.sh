@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/S/SY/SYP/Text-Roman-3.5.tar.gz
 
+NAME=text::roman-3.5
+VERSION=3.5
 URL=https://www.cpan.org/authors/id/S/SY/SYP/Text-Roman-3.5.tar.gz
 
 if [ ! -z $URL ]

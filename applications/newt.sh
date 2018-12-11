@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 
 wget -nc https://releases.pagure.org/newt/newt-0.52.20.tar.gz
 
+NAME=newt
+VERSION=0.52.20
 URL=https://releases.pagure.org/newt/newt-0.52.20.tar.gz
 
 if [ ! -z $URL ]

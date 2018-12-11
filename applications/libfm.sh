@@ -19,6 +19,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/pcmanfm/libfm-1.3.0.2.tar.xz
 
+NAME=libfm
+VERSION=1.3.0.2
 URL=https://downloads.sourceforge.net/pcmanfm/libfm-1.3.0.2.tar.xz
 
 if [ ! -z $URL ]

@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 wget -nc https://ftp.gnu.org/gnu/aspell/aspell-0.60.6.1.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/aspell/aspell-0.60.6.1.tar.gz
 
+NAME=aspell
+VERSION=0.60.6.1
 URL=https://ftp.gnu.org/gnu/aspell/aspell-0.60.6.1.tar.gz
 
 if [ ! -z $URL ]

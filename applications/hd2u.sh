@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc http://hany.sk/~hany/_data/hd2u/hd2u-1.0.4.tgz
 
+NAME=hd2u
+VERSION=1.0.4
 URL=http://hany.sk/~hany/_data/hd2u/hd2u-1.0.4.tgz
 
 if [ ! -z $URL ]

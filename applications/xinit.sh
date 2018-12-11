@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 wget -nc https://www.x.org/pub/individual/app/xinit-1.4.0.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/app/xinit-1.4.0.tar.bz2
 
+NAME=xinit
+VERSION=1.4.0.
 URL=https://www.x.org/pub/individual/app/xinit-1.4.0.tar.bz2
 
 if [ ! -z $URL ]

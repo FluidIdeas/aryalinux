@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/qpdf/qpdf/releases/download/release-qpdf-8.2.1/qpdf-8.2.1.tar.gz
 
+NAME=qpdf
+VERSION=8.2.1
 URL=https://github.com/qpdf/qpdf/releases/download/release-qpdf-8.2.1/qpdf-8.2.1.tar.gz
 
 if [ ! -z $URL ]

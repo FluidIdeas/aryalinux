@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 wget -nc https://downloads.sourceforge.net/openjade/openjade-1.3.2.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/openjade-1.3.2-upstream-1.patch
 
+NAME=openjade
+VERSION=1.3.2
 URL=https://downloads.sourceforge.net/openjade/openjade-1.3.2.tar.gz
 
 if [ ! -z $URL ]

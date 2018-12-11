@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISBN-3.004.tar.gz
 
+NAME=business::isbn-3.004
+VERSION=3.004
 URL=https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISBN-3.004.tar.gz
 
 if [ ! -z $URL ]

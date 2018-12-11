@@ -27,6 +27,8 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/fontforge/fontforge/releases/download/20170731/fontforge-dist-20170731.tar.xz
 
+NAME=fontforge
+VERSION=20170731
 URL=https://github.com/fontforge/fontforge/releases/download/20170731/fontforge-dist-20170731.tar.xz
 
 if [ ! -z $URL ]

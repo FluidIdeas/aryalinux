@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 wget -nc http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-10.0.2/OpenJDK-10.0.2+13-i686-bin.tar.xz
 wget -nc http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-10.0.2/OpenJDK-10.0.2+13-x86_64-bin.tar.xz
 
+NAME=java
+VERSION=10.0.2+13-i686-bin
 URL=http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-10.0.2/OpenJDK-10.0.2+13-i686-bin.tar.xz
 
 if [ ! -z $URL ]

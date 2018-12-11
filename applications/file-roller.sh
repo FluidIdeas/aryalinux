@@ -23,6 +23,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/file-roller/3.28/file-roller-3.28.1.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/file-roller/3.28/file-roller-3.28.1.tar.xz
 
+NAME=file-roller
+VERSION=3.28.1
 URL=http://ftp.gnome.org/pub/gnome/sources/file-roller/3.28/file-roller-3.28.1.tar.xz
 
 if [ ! -z $URL ]

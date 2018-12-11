@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/E/ET/ETHER/URI-1.74.tar.gz
 
+NAME=uri-1.74
+VERSION=1.74
 URL=https://www.cpan.org/authors/id/E/ET/ETHER/URI-1.74.tar.gz
 
 if [ ! -z $URL ]

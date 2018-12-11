@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 
 wget -nc ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.1.7.tar.bz2
 
+NAME=alsa-tools
+VERSION=1.1.7.
 URL=ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.1.7.tar.bz2
 
 if [ ! -z $URL ]

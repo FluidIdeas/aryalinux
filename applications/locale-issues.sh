@@ -10,6 +10,8 @@ set +h
 cd $SOURCE_DIR
 
 
+NAME=locale-issues
+VERSION=""
 URL=""
 
 if [ ! -z $URL ]

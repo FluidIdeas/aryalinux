@@ -14,6 +14,8 @@ wget -nc https://ftp.gnu.org/gnu/libcdio/libcdio-2.0.0.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/libcdio/libcdio-2.0.0.tar.gz
 wget -nc https://ftp.gnu.org/gnu/libcdio/libcdio-paranoia-10.2+0.94+2.tar.gz
 
+NAME=libcdio
+VERSION=2.0.0
 URL=https://ftp.gnu.org/gnu/libcdio/libcdio-2.0.0.tar.gz
 
 if [ ! -z $URL ]

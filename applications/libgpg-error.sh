@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.32.tar.bz2
 
+NAME=libgpg-error
+VERSION=1.32.
 URL=https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.32.tar.bz2
 
 if [ ! -z $URL ]

@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 wget -nc https://ftp.gnu.org/gnu/enscript/enscript-1.6.6.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/enscript/enscript-1.6.6.tar.gz
 
+NAME=enscript
+VERSION=1.6.6
 URL=https://ftp.gnu.org/gnu/enscript/enscript-1.6.6.tar.gz
 
 if [ ! -z $URL ]

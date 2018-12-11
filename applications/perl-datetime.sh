@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.50.tar.gz
 
+NAME=datetime-1.50
+VERSION=1.50
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.50.tar.gz
 
 if [ ! -z $URL ]

@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.25.tar.gz
 
+NAME=xml::simple-2.25
+VERSION=2.25
 URL=https://www.cpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.25.tar.gz
 
 if [ ! -z $URL ]

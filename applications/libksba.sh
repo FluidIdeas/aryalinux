@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.gnupg.org/ftp/gcrypt/libksba/libksba-1.3.5.tar.bz2
 
+NAME=libksba
+VERSION=1.3.5.
 URL=https://www.gnupg.org/ftp/gcrypt/libksba/libksba-1.3.5.tar.bz2
 
 if [ ! -z $URL ]

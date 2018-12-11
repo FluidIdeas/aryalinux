@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc http://liba52.sourceforge.net/files/a52dec-0.7.4.tar.gz
 
+NAME=liba52
+VERSION=0.7.4
 URL=http://liba52.sourceforge.net/files/a52dec-0.7.4.tar.gz
 
 if [ ! -z $URL ]

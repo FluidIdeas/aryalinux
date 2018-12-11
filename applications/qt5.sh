@@ -31,7 +31,7 @@ set +h
 #REC:xcb-util-wm
 #OPT:bluez
 #OPT:ibus
-#OPT:x7driver#libinput
+#OPT:libinput
 #OPT:mariadb
 #OPT:pciutils
 #OPT:postgresql
@@ -43,6 +43,8 @@ cd $SOURCE_DIR
 wget -nc https://download.qt.io/archive/qt/5.11/5.11.2/single/qt-everywhere-src-5.11.2.tar.xz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/qt-5.11.2-glibc228-1.patch
 
+NAME=qt5
+VERSION=5.11.2
 URL=https://download.qt.io/archive/qt/5.11/5.11.2/single/qt-everywhere-src-5.11.2.tar.xz
 
 if [ ! -z $URL ]

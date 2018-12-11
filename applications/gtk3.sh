@@ -10,7 +10,7 @@ set +h
 #REQ:gdk-pixbuf
 #REQ:libepoxy
 #REQ:pango
-#REQ:python-modules#six
+#REQ:six
 #REC:adwaita-icon-theme
 #REC:hicolor-icon-theme
 #REC:iso-codes
@@ -23,7 +23,7 @@ set +h
 #OPT:docbook-utils
 #OPT:gtk-doc
 #OPT:json-glib
-#OPT:python-modules#pyatspi2
+#OPT:pyatspi2
 #OPT:rest
 
 cd $SOURCE_DIR
@@ -31,6 +31,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.1.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.1.tar.xz
 
+NAME=gtk3
+VERSION=""
 URL=http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.1.tar.xz
 
 if [ ! -z $URL ]

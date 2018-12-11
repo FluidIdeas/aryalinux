@@ -13,6 +13,8 @@ wget -nc https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/sgml-common
 wget -nc ftp://sourceware.org/pub/docbook-tools/new-trials/SOURCES/sgml-common-0.6.3.tgz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/sgml-common-0.6.3-manpage-1.patch
 
+NAME=sgml-common
+VERSION=0.6.3
 URL=https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/sgml-common-0.6.3.tgz
 
 if [ ! -z $URL ]

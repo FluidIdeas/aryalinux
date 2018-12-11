@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 wget -nc http://www.sudo.ws/dist/sudo-1.8.26.tar.gz
 wget -nc ftp://ftp.sudo.ws/pub/sudo/sudo-1.8.26.tar.gz
 
+NAME=sudo
+VERSION=1.8.26
 URL=http://www.sudo.ws/dist/sudo-1.8.26.tar.gz
 
 if [ ! -z $URL ]

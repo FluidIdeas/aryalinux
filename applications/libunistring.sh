@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 wget -nc https://ftp.gnu.org/gnu/libunistring/libunistring-0.9.10.tar.xz
 wget -nc ftp://ftp.gnu.org/gnu/libunistring/libunistring-0.9.10.tar.xz
 
+NAME=libunistring
+VERSION=0.9.10
 URL=https://ftp.gnu.org/gnu/libunistring/libunistring-0.9.10.tar.xz
 
 if [ ! -z $URL ]

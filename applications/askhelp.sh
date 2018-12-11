@@ -10,6 +10,8 @@ set +h
 cd $SOURCE_DIR
 
 
+NAME=askhelp
+VERSION=""
 URL=""
 
 if [ ! -z $URL ]

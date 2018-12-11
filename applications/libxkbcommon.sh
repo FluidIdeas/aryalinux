@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc https://xkbcommon.org/download/libxkbcommon-0.8.2.tar.xz
 
+NAME=libxkbcommon
+VERSION=0.8.2
 URL=https://xkbcommon.org/download/libxkbcommon-0.8.2.tar.xz
 
 if [ ! -z $URL ]

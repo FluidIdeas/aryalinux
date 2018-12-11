@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 wget -nc https://downloads.sourceforge.net/clucene/clucene-core-2.3.3.4.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/clucene-2.3.3.4-contribs_lib-1.patch
 
+NAME=clucene
+VERSION=2.3.3.4
 URL=https://downloads.sourceforge.net/clucene/clucene-core-2.3.3.4.tar.gz
 
 if [ ! -z $URL ]

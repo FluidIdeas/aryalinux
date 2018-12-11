@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://archive.mozilla.org/pub/nspr/releases/v4.20/src/nspr-4.20.tar.gz
 
+NAME=nspr
+VERSION=4.20
 URL=https://archive.mozilla.org/pub/nspr/releases/v4.20/src/nspr-4.20.tar.gz
 
 if [ ! -z $URL ]

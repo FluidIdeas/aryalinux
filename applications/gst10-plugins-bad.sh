@@ -28,7 +28,7 @@ set +h
 #OPT:libmpeg2
 #OPT:libssh2
 #OPT:libusb
-#OPT:x7driver#libvdpau
+#OPT:libvdpau
 #OPT:libwebp
 #OPT:neon
 #OPT:nettle
@@ -48,6 +48,8 @@ cd $SOURCE_DIR
 
 wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.14.4.tar.xz
 
+NAME=gst10-plugins-bad
+VERSION=1.14.4
 URL=https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.14.4.tar.xz
 
 if [ ! -z $URL ]

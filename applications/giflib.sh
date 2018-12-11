@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/giflib/giflib-5.1.4.tar.bz2
 
+NAME=giflib
+VERSION=5.1.4.
 URL=https://downloads.sourceforge.net/giflib/giflib-5.1.4.tar.bz2
 
 if [ ! -z $URL ]

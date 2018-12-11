@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 
 wget -nc ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.6.tar.gz
 
+NAME=proftpd
+VERSION=1.3.6
 URL=ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.6.tar.gz
 
 if [ ! -z $URL ]

@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/D/DA/DANBOO/Test-Command-0.11.tar.gz
 
+NAME=test::command-0.11
+VERSION=0.11
 URL=https://www.cpan.org/authors/id/D/DA/DANBOO/Test-Command-0.11.tar.gz
 
 if [ ! -z $URL ]

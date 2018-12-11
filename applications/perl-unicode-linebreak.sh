@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/N/NE/NEZUMI/Unicode-LineBreak-2018.003.tar.gz
 
+NAME=unicode::linebreak-2018.003
+VERSION=2018.003
 URL=https://www.cpan.org/authors/id/N/NE/NEZUMI/Unicode-LineBreak-2018.003.tar.gz
 
 if [ ! -z $URL ]

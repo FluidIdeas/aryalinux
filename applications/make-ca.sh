@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/djlucas/make-ca/releases/download/v1.0/make-ca-1.0.tar.xz
 
+NAME=make-ca
+VERSION=1.0
 URL=https://github.com/djlucas/make-ca/releases/download/v1.0/make-ca-1.0.tar.xz
 
 if [ ! -z $URL ]

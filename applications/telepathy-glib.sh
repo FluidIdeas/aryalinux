@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 
 wget -nc https://telepathy.freedesktop.org/releases/telepathy-glib/telepathy-glib-0.24.1.tar.gz
 
+NAME=telepathy-glib
+VERSION=0.24.1
 URL=https://telepathy.freedesktop.org/releases/telepathy-glib/telepathy-glib-0.24.1.tar.gz
 
 if [ ! -z $URL ]

@@ -22,6 +22,8 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/ptlib/2.10/ptlib-2.10.11.tar.xz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/ptlib-2.10.11-bison_fixes-2.patch
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/ptlib-2.10.11-openssl-1.1.0-1.patch
 
+NAME=ptlib
+VERSION=2.10.11
 URL=http://ftp.gnome.org/pub/gnome/sources/ptlib/2.10/ptlib-2.10.11.tar.xz
 
 if [ ! -z $URL ]

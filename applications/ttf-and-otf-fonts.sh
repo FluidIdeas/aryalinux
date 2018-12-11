@@ -6,14 +6,16 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:xorgproto
 
 cd $SOURCE_DIR
 
-wget -nc https://www.x.org/pub/individual/lib/libXau-1.0.8.tar.bz2
-wget -nc ftp://ftp.x.org/pub/individual/lib/libXau-1.0.8.tar.bz2
+wget -nc http://gsdview.appspot.com/chromeos-localmirror/distfiles/crosextrafonts-20130214.tar.gz
+wget -nc http://gsdview.appspot.com/chromeos-localmirror/distfiles/crosextrafonts-carlito-20130920.tar.gz
+wget -nc http://download.kde.org/stable/plasma/5.4.3/oxygen-fonts-5.4.3.tar.xz
 
-URL=https://www.x.org/pub/individual/lib/libXau-1.0.8.tar.bz2
+NAME=ttf-and-otf-fonts
+VERSION=20130214
+URL=http://gsdview.appspot.com/chromeos-localmirror/distfiles/crosextrafonts-20130214.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -30,12 +32,12 @@ fi
 cd $DIRECTORY
 fi
 
-./configure $XORG_CONFIG &&
-make
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make install
+install -v -d -m755 /usr/share/fonts/dejavu &&
+install -v -m644 ttf/*.ttf /usr/share/fonts/dejavu &&
+fc-cache -v /usr/share/fonts/dejavu
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

@@ -29,6 +29,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/pidgin/pidgin-2.13.0.tar.bz2
 
+NAME=pidgin
+VERSION=2.13.0.
 URL=https://downloads.sourceforge.net/pidgin/pidgin-2.13.0.tar.bz2
 
 if [ ! -z $URL ]

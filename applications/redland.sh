@@ -17,6 +17,8 @@ cd $SOURCE_DIR
 
 wget -nc http://download.librdf.org/source/redland-1.0.17.tar.gz
 
+NAME=redland
+VERSION=1.0.17
 URL=http://download.librdf.org/source/redland-1.0.17.tar.gz
 
 if [ ! -z $URL ]

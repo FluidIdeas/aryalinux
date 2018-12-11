@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.xiph.org/releases/ao/libao-1.2.0.tar.gz
 
+NAME=libao
+VERSION=1.2.0
 URL=https://downloads.xiph.org/releases/ao/libao-1.2.0.tar.gz
 
 if [ ! -z $URL ]

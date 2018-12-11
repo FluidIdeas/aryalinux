@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.samba.org/ftp/rsync/src/rsync-3.1.3.tar.gz
 
+NAME=rsync
+VERSION=3.1.3
 URL=https://www.samba.org/ftp/rsync/src/rsync-3.1.3.tar.gz
 
 if [ ! -z $URL ]

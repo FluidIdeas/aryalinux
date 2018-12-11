@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc http://launchpad.net/ubuntu/+archive/primary/+files/libdbusmenu-qt_0.9.3+16.04.20160218.orig.tar.gz
 
+NAME=libdbusmenu-qt
+VERSION=qt_0.9.3+16.04.20160218.orig
 URL=http://launchpad.net/ubuntu/+archive/primary/+files/libdbusmenu-qt_0.9.3+16.04.20160218.orig.tar.gz
 
 if [ ! -z $URL ]

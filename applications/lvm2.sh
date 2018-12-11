@@ -18,6 +18,8 @@ cd $SOURCE_DIR
 wget -nc https://sourceware.org/pub/lvm2/LVM2.2.03.01.tgz
 wget -nc ftp://sourceware.org/pub/lvm2/LVM2.2.03.01.tgz
 
+NAME=lvm2
+VERSION=""
 URL=https://sourceware.org/pub/lvm2/LVM2.2.03.01.tgz
 
 if [ ! -z $URL ]

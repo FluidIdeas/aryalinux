@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.kernel.org/pub/linux/kernel/people/jeffm/reiserfsprogs/v3.6.27/reiserfsprogs-3.6.27.tar.xz
 
+NAME=reiserfs
+VERSION=3.6.27
 URL=https://www.kernel.org/pub/linux/kernel/people/jeffm/reiserfsprogs/v3.6.27/reiserfsprogs-3.6.27.tar.xz
 
 if [ ! -z $URL ]

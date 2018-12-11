@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://people.freedesktop.org/~hadess/shared-mime-info-1.10.tar.xz
 
+NAME=shared-mime-info
+VERSION=1.10
 URL=https://people.freedesktop.org/~hadess/shared-mime-info-1.10.tar.xz
 
 if [ ! -z $URL ]

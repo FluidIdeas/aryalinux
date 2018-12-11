@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/lame/lame-3.100.tar.gz
 
+NAME=lame
+VERSION=3.100
 URL=https://downloads.sourceforge.net/lame/lame-3.100.tar.gz
 
 if [ ! -z $URL ]

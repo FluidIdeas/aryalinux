@@ -17,6 +17,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/zenity/3.28/zenity-3.28.1.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/zenity/3.28/zenity-3.28.1.tar.xz
 
+NAME=zenity
+VERSION=3.28.1
 URL=http://ftp.gnome.org/pub/gnome/sources/zenity/3.28/zenity-3.28.1.tar.xz
 
 if [ ! -z $URL ]

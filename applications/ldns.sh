@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 
 wget -nc http://www.nlnetlabs.nl/downloads/ldns/ldns-1.7.0.tar.gz
 
+NAME=ldns
+VERSION=1.7.0
 URL=http://www.nlnetlabs.nl/downloads/ldns/ldns-1.7.0.tar.gz
 
 if [ ! -z $URL ]

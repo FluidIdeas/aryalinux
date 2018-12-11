@@ -19,6 +19,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/lxde/lxpanel-0.9.3.tar.xz
 
+NAME=lxpanel
+VERSION=0.9.3
 URL=https://downloads.sourceforge.net/lxde/lxpanel-0.9.3.tar.xz
 
 if [ ! -z $URL ]

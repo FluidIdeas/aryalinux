@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc http://download.tuxfamily.org/sawfish/sawfish_1.12.0.tar.xz
 
+NAME=sawfish
+VERSION=""
 URL=http://download.tuxfamily.org/sawfish/sawfish_1.12.0.tar.xz
 
 if [ ! -z $URL ]

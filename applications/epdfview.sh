@@ -17,6 +17,8 @@ cd $SOURCE_DIR
 wget -nc http://anduin.linuxfromscratch.org/BLFS/epdfview/epdfview-0.1.8.tar.bz2
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/epdfview-0.1.8-fixes-2.patch
 
+NAME=epdfview
+VERSION=0.1.8.
 URL=http://anduin.linuxfromscratch.org/BLFS/epdfview/epdfview-0.1.8.tar.bz2
 
 if [ ! -z $URL ]

@@ -23,6 +23,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-online-accounts/3.28/gnome-online-accounts-3.28.0.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-online-accounts/3.28/gnome-online-accounts-3.28.0.tar.xz
 
+NAME=gnome-online-accounts
+VERSION=3.28.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-online-accounts/3.28/gnome-online-accounts-3.28.0.tar.xz
 
 if [ ! -z $URL ]

@@ -30,6 +30,8 @@ wget -nc https://sourceforge.net/projects/opencvlibrary/files/opencv-unix/3.4.3/
 wget -nc https://raw.githubusercontent.com/opencv/opencv_3rdparty/bdb7bb85f34a8cb0d35e40a81f58da431aa1557a/ippicv/ippicv_2017u3_lnx_intel64_general_20180518.tgz
 wget -nc https://github.com/opencv/opencv_contrib/archive/3.4.3/opencv_contrib-3.4.4.tar.gz
 
+NAME=opencv
+VERSION=3.4.3
 URL=https://sourceforge.net/projects/opencvlibrary/files/opencv-unix/3.4.3/opencv-3.4.3.zip
 
 if [ ! -z $URL ]

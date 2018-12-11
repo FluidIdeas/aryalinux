@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0132.tar.gz
 
+NAME=xml::libxml-2.0132
+VERSION=2.0132
 URL=https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0132.tar.gz
 
 if [ ! -z $URL ]

@@ -13,7 +13,7 @@ set +h
 #REC:gvfs
 #REC:iso-codes
 #REC:libsoup
-#REC:python-modules#pygobject3
+#REC:pygobject3
 #OPT:gtk-doc
 #OPT:vala
 
@@ -22,6 +22,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gedit/3.22/gedit-3.22.1.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gedit/3.22/gedit-3.22.1.tar.xz
 
+NAME=gedit
+VERSION=3.22.1
 URL=http://ftp.gnome.org/pub/gnome/sources/gedit/3.22/gedit-3.22.1.tar.xz
 
 if [ ! -z $URL ]

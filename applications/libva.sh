@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/intel/libva/releases/download/2.3.0/libva-2.3.0.tar.bz2
 
+NAME=libva-2.3.0
+VERSION=2.3.0
 URL=https://github.com/intel/libva/releases/download/2.3.0/libva-2.3.0.tar.bz2
 
 if [ ! -z $URL ]

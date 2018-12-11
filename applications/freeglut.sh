@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/freeglut/freeglut-3.0.0.tar.gz
 
+NAME=freeglut
+VERSION=3.0.0
 URL=https://downloads.sourceforge.net/freeglut/freeglut-3.0.0.tar.gz
 
 if [ ! -z $URL ]

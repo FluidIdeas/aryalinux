@@ -18,6 +18,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.12.0.tar.bz2
 
+NAME=gpgme
+VERSION=1.12.0.
 URL=https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.12.0.tar.bz2
 
 if [ ! -z $URL ]

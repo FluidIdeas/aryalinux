@@ -9,12 +9,14 @@ set +h
 #REQ:pcre
 #OPT:gtk-doc
 #OPT:python2
-#OPT:python-modules#six
+#OPT:six
 
 cd $SOURCE_DIR
 
 wget -nc https://github.com/storaged-project/libbytesize/releases/download/1.4/libbytesize-1.4.tar.gz
 
+NAME=libbytesize
+VERSION=1.4
 URL=https://github.com/storaged-project/libbytesize/releases/download/1.4/libbytesize-1.4.tar.gz
 
 if [ ! -z $URL ]

@@ -20,6 +20,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gucharmap/10.0/gucharmap-10.0.4.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gucharmap/10.0/gucharmap-10.0.4.tar.xz
 
+NAME=gucharmap
+VERSION=10.0.4
 URL=http://ftp.gnome.org/pub/gnome/sources/gucharmap/10.0/gucharmap-10.0.4.tar.xz
 
 if [ ! -z $URL ]

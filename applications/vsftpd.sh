@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc https://security.appspot.com/downloads/vsftpd-3.0.3.tar.gz
 
+NAME=vsftpd
+VERSION=3.0.3
 URL=https://security.appspot.com/downloads/vsftpd-3.0.3.tar.gz
 
 if [ ! -z $URL ]

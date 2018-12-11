@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 wget -nc http://roy.marples.name/downloads/dhcpcd/dhcpcd-7.0.8.tar.xz
 wget -nc ftp://roy.marples.name/pub/dhcpcd/dhcpcd-7.0.8.tar.xz
 
+NAME=dhcpcd
+VERSION=7.0.8
 URL=http://roy.marples.name/downloads/dhcpcd/dhcpcd-7.0.8.tar.xz
 
 if [ ! -z $URL ]

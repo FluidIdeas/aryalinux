@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 wget -nc https://ftp.gnu.org/gnu/guile/guile-2.2.4.tar.xz
 wget -nc ftp://ftp.gnu.org/gnu/guile/guile-2.2.4.tar.xz
 
+NAME=guile
+VERSION=2.2.4
 URL=https://ftp.gnu.org/gnu/guile/guile-2.2.4.tar.xz
 
 if [ ! -z $URL ]

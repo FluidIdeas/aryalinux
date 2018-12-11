@@ -26,6 +26,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.gnupg.org/ftp/gcrypt/gnutls/v3.5/gnutls-3.5.19.tar.xz
 
+NAME=gnutls
+VERSION=3.5.19
 URL=https://www.gnupg.org/ftp/gcrypt/gnutls/v3.5/gnutls-3.5.19.tar.xz
 
 if [ ! -z $URL ]

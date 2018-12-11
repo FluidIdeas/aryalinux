@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2017.3.23.tgz
 
+NAME=ntfs-3g
+VERSION=2017.3.23
 URL=https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2017.3.23.tgz
 
 if [ ! -z $URL ]

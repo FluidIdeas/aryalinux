@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 wget -nc https://ftp.gnu.org/gnu/dejagnu/dejagnu-1.6.2.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/dejagnu/dejagnu-1.6.2.tar.gz
 
+NAME=dejagnu
+VERSION=1.6.2
 URL=https://ftp.gnu.org/gnu/dejagnu/dejagnu-1.6.2.tar.gz
 
 if [ ! -z $URL ]

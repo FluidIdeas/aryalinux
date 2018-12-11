@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 wget -nc https://ftp.gnu.org/gnu/cpio/cpio-2.12.tar.bz2
 wget -nc ftp://ftp.gnu.org/gnu/cpio/cpio-2.12.tar.bz2
 
+NAME=cpio
+VERSION=2.12.
 URL=https://ftp.gnu.org/gnu/cpio/cpio-2.12.tar.bz2
 
 if [ ! -z $URL ]

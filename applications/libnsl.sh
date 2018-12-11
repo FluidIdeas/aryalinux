@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/thkukuk/libnsl/archive/v1.2.0/libnsl-1.2.0.tar.gz
 
+NAME=libnsl
+VERSION=1.2.0
 URL=https://github.com/thkukuk/libnsl/archive/v1.2.0/libnsl-1.2.0.tar.gz
 
 if [ ! -z $URL ]

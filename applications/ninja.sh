@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/ninja-build/ninja/archive/v1.8.2/ninja-1.8.2.tar.gz
 
+NAME=ninja
+VERSION=1.8.2
 URL=https://github.com/ninja-build/ninja/archive/v1.8.2/ninja-1.8.2.tar.gz
 
 if [ ! -z $URL ]

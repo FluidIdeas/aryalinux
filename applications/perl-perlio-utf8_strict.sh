@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/L/LE/LEONT/PerlIO-utf8_strict-0.007.tar.gz
 
+NAME=perlio::utf8_strict-0.007
+VERSION=0.007
 URL=https://www.cpan.org/authors/id/L/LE/LEONT/PerlIO-utf8_strict-0.007.tar.gz
 
 if [ ! -z $URL ]

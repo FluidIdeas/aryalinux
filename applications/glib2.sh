@@ -22,6 +22,8 @@ wget -nc http://ftp.gnome.org/pub/gnome/sources/glib/2.58/glib-2.58.1.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glib/2.58/glib-2.58.1.tar.xz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/glib-2.58.1-skip_warnings-1.patch
 
+NAME=glib2
+VERSION=2.58.1
 URL=http://ftp.gnome.org/pub/gnome/sources/glib/2.58/glib-2.58.1.tar.xz
 
 if [ ! -z $URL ]

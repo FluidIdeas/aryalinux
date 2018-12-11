@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc http://oligarchy.co.uk/xapian/1.4.9/xapian-core-1.4.9.tar.xz
 
+NAME=xapian
+VERSION=1.4.9
 URL=http://oligarchy.co.uk/xapian/1.4.9/xapian-core-1.4.9.tar.xz
 
 if [ ! -z $URL ]

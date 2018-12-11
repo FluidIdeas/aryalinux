@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20180223.tar.xz
 
+NAME=xorg intel driver-20180223
+VERSION=20180223
 URL=http://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20180223.tar.xz
 
 if [ ! -z $URL ]

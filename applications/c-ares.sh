@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://c-ares.haxx.se/download/c-ares-1.14.0.tar.gz
 
+NAME=c-ares
+VERSION=1.14.0
 URL=https://c-ares.haxx.se/download/c-ares-1.14.0.tar.gz
 
 if [ ! -z $URL ]

@@ -22,6 +22,8 @@ cd $SOURCE_DIR
 wget -nc https://github.com/TigerVNC/tigervnc/archive/v1.9.0/tigervnc-1.9.0.tar.gz
 wget -nc https://www.x.org/pub/individual/xserver/xorg-server-1.20.0.tar.bz2
 
+NAME=tigervnc
+VERSION=1.9.0
 URL=https://github.com/TigerVNC/tigervnc/archive/v1.9.0/tigervnc-1.9.0.tar.gz
 
 if [ ! -z $URL ]

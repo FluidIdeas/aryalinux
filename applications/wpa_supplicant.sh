@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 wget -nc https://w1.fi/releases/wpa_supplicant-2.6.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/wpa_supplicant-2.6-upstream_fixes-2.patch
 
+NAME=wpa_supplicant
+VERSION=2.6
 URL=https://w1.fi/releases/wpa_supplicant-2.6.tar.gz
 
 if [ ! -z $URL ]

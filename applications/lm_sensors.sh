@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 wget -nc https://ftp.gwdg.de/pub/linux/misc/lm-sensors/lm_sensors-3.4.0.tar.bz2
 wget -nc ftp://ftp.gwdg.de/pub/linux/misc/lm-sensors/lm_sensors-3.4.0.tar.bz2
 
+NAME=lm_sensors
+VERSION=3.4.0.
 URL=https://ftp.gwdg.de/pub/linux/misc/lm-sensors/lm_sensors-3.4.0.tar.bz2
 
 if [ ! -z $URL ]

@@ -11,6 +11,8 @@ set +h
 cd $SOURCE_DIR
 
 
+NAME=pax
+VERSION=""
 URL=""
 
 if [ ! -z $URL ]

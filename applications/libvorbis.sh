@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.xiph.org/releases/vorbis/libvorbis-1.3.6.tar.xz
 
+NAME=libvorbis
+VERSION=1.3.6
 URL=https://downloads.xiph.org/releases/vorbis/libvorbis-1.3.6.tar.xz
 
 if [ ! -z $URL ]

@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/List-SomeUtils-0.56.tar.gz
 
+NAME=list::someutils-0.56
+VERSION=0.56
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/List-SomeUtils-0.56.tar.gz
 
 if [ ! -z $URL ]

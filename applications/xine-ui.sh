@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/xine/xine-ui-0.99.10.tar.xz
 
+NAME=xine-ui
+VERSION=0.99.10
 URL=https://downloads.sourceforge.net/xine/xine-ui-0.99.10.tar.xz
 
 if [ ! -z $URL ]

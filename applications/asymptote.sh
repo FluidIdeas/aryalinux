@@ -20,6 +20,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/asymptote/asymptote-2.47.src.tgz
 
+NAME=asymptote
+VERSION=2.47.src
 URL=https://downloads.sourceforge.net/asymptote/asymptote-2.47.src.tgz
 
 if [ ! -z $URL ]

@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/rockdaboot/libpsl/releases/download/libpsl-0.20.2/libpsl-0.20.2.tar.gz
 
+NAME=libpsl
+VERSION=0.20.2
 URL=https://github.com/rockdaboot/libpsl/releases/download/libpsl-0.20.2/libpsl-0.20.2.tar.gz
 
 if [ ! -z $URL ]

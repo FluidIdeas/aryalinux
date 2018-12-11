@@ -10,6 +10,8 @@ set +h
 cd $SOURCE_DIR
 
 
+NAME=xorg7
+VERSION=""
 URL=""
 
 if [ ! -z $URL ]

@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc http://people.redhat.com/~dhowells/keyutils/keyutils-1.6.tar.bz2
 
+NAME=keyutils
+VERSION=1.6.
 URL=http://people.redhat.com/~dhowells/keyutils/keyutils-1.6.tar.bz2
 
 if [ ! -z $URL ]

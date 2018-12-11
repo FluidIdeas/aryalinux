@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.1.tar.bz2
 
+NAME=libassuan
+VERSION=2.5.1.
 URL=https://www.gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.1.tar.bz2
 
 if [ ! -z $URL ]

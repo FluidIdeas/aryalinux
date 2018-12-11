@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc http://www.docbook.org/sgml/3.1/docbk31.zip
 
+NAME=sgml-dtd-3
+VERSION=""
 URL=http://www.docbook.org/sgml/3.1/docbk31.zip
 
 if [ ! -z $URL ]

@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/shadow-maint/shadow/releases/download/4.6/shadow-4.6.tar.xz
 
+NAME=shadow
+VERSION=4.6
 URL=https://github.com/shadow-maint/shadow/releases/download/4.6/shadow-4.6.tar.xz
 
 if [ ! -z $URL ]

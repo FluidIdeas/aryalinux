@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tar.xz
 
+NAME=python3
+VERSION=3.7.1
 URL=https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tar.xz
 
 if [ ! -z $URL ]

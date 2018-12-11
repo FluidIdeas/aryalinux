@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc http://pyyaml.org/download/libyaml/yaml-0.2.1.tar.gz
 
+NAME=yaml
+VERSION=0.2.1
 URL=http://pyyaml.org/download/libyaml/yaml-0.2.1.tar.gz
 
 if [ ! -z $URL ]

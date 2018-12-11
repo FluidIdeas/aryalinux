@@ -23,6 +23,8 @@ cd $SOURCE_DIR
 wget -nc http://mirrors-usa.go-parts.com/eximftp/exim/exim4/exim-4.91.tar.xz
 wget -nc ftp://ftp.exim.org/pub/exim/exim4/exim-4.91.tar.xz
 
+NAME=exim
+VERSION=4.91
 URL=http://mirrors-usa.go-parts.com/eximftp/exim/exim4/exim-4.91.tar.xz
 
 if [ ! -z $URL ]

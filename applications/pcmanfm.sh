@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/pcmanfm/pcmanfm-1.3.0.tar.xz
 
+NAME=pcmanfm
+VERSION=1.3.0
 URL=https://downloads.sourceforge.net/pcmanfm/pcmanfm-1.3.0.tar.xz
 
 if [ ! -z $URL ]

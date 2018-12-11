@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.freedesktop.org/software/libmbim/libmbim-1.16.2.tar.xz
 
+NAME=libmbim
+VERSION=1.16.2
 URL=https://www.freedesktop.org/software/libmbim/libmbim-1.16.2.tar.xz
 
 if [ ! -z $URL ]

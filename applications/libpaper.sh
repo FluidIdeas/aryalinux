@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc http://ftp.debian.org/debian/pool/main/libp/libpaper/libpaper_1.1.24+nmu5.tar.gz
 
+NAME=libpaper
+VERSION=""
 URL=http://ftp.debian.org/debian/pool/main/libp/libpaper/libpaper_1.1.24+nmu5.tar.gz
 
 if [ ! -z $URL ]

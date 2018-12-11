@@ -9,12 +9,14 @@ set +h
 #REQ:gstreamer10
 #REQ:gst10-plugins-base
 #REQ:gst10-plugins-bad
-#REQ:x7driver#libva
+#REQ:libva
 
 cd $SOURCE_DIR
 
 wget -nc https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.14.4.tar.xz
 
+NAME=gstreamer10-vaapi
+VERSION=1.14.4
 URL=https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.14.4.tar.xz
 
 if [ ! -z $URL ]

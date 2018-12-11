@@ -19,7 +19,7 @@ set +h
 #REQ:lmdb
 #REQ:phonon
 #REQ:shared-mime-info
-#REQ:perl-modules#perl-uri
+#REQ:perl-uri
 #REQ:wget
 #REC:aspell
 #REC:avahi
@@ -31,8 +31,8 @@ set +h
 #OPT:TTF-and-OTF-fonts#oxygen-fonts
 #OPT:TTF-and-OTF-fonts#noto-fonts
 #OPT:doxygen
-#OPT:python-modules#Jinja2
-#OPT:python-modules#PyYAML
+#OPT:Jinja2
+#OPT:PyYAML
 #OPT:jasper
 #OPT:mitkrb
 #OPT:udisks2
@@ -41,6 +41,8 @@ set +h
 cd $SOURCE_DIR
 
 
+NAME=krameworks5
+VERSION=""
 URL=""
 
 if [ ! -z $URL ]

@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/lxde/lxmenu-data-0.1.5.tar.xz
 
+NAME=lxmenu-data
+VERSION=0.1.5
 URL=https://downloads.sourceforge.net/lxde/lxmenu-data-0.1.5.tar.xz
 
 if [ ! -z $URL ]

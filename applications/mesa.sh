@@ -8,10 +8,10 @@ set +h
 
 #REQ:x7lib
 #REQ:libdrm
-#REQ:python-modules#Mako
+#REQ:Mako
 #REQ:python2
-#REC:x7driver#libva
-#REC:x7driver#libvdpau
+#REC:libva
+#REC:libvdpau
 #REC:llvm
 #REC:systems
 #REC:wayland-protocols
@@ -26,6 +26,8 @@ wget -nc https://mesa.freedesktop.org/archive/mesa-18.2.6.tar.xz
 wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-18.2.6.tar.xz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/mesa-18.2.6-add_xdemos-1.patch
 
+NAME=mesa
+VERSION=18.2.6
 URL=https://mesa.freedesktop.org/archive/mesa-18.2.6.tar.xz
 
 if [ ! -z $URL ]

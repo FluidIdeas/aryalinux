@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-user-docs/3.28/gnome-user-docs-3.28.2.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-user-docs/3.28/gnome-user-docs-3.28.2.tar.xz
 
+NAME=gnome-user-docs
+VERSION=3.28.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-user-docs/3.28/gnome-user-docs-3.28.2.tar.xz
 
 if [ ! -z $URL ]

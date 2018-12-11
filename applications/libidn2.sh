@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 wget -nc https://ftp.gnu.org/gnu/libidn/libidn2-2.0.5.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/libidn/libidn2-2.0.5.tar.gz
 
+NAME=libidn2
+VERSION=""
 URL=https://ftp.gnu.org/gnu/libidn/libidn2-2.0.5.tar.gz
 
 if [ ! -z $URL ]

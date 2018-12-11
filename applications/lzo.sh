@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc http://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz
 
+NAME=lzo
+VERSION=2.10
 URL=http://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz
 
 if [ ! -z $URL ]

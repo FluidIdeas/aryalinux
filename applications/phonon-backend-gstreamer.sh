@@ -18,6 +18,8 @@ cd $SOURCE_DIR
 
 wget -nc http://download.kde.org/stable/phonon/phonon-backend-gstreamer/4.9.0/phonon-backend-gstreamer-4.9.0.tar.xz
 
+NAME=phonon-backend-gstreamer
+VERSION=4.9.0
 URL=http://download.kde.org/stable/phonon/phonon-backend-gstreamer/4.9.0/phonon-backend-gstreamer-4.9.0.tar.xz
 
 if [ ! -z $URL ]

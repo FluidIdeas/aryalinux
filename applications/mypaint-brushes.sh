@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 wget -nc https://github.com/Jehan/mypaint-brushes/archive/v1.3.0/mypaint-brushes-v1.3.0.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/mypaint-brushes-1.3.0-automake_1.16-1.patch
 
+NAME=mypaint-brushes
+VERSION=v1.3.0
 URL=https://github.com/Jehan/mypaint-brushes/archive/v1.3.0/mypaint-brushes-v1.3.0.tar.gz
 
 if [ ! -z $URL ]

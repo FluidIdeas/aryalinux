@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc http://dist.schmorp.de/rxvt-unicode/Attic/rxvt-unicode-9.22.tar.bz2
 
+NAME=rxvt-unicode
+VERSION=9.22.
 URL=http://dist.schmorp.de/rxvt-unicode/Attic/rxvt-unicode-9.22.tar.bz2
 
 if [ ! -z $URL ]

@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.14.4.tar.xz
 
+NAME=gst10-libav
+VERSION=1.14.4
 URL=https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.14.4.tar.xz
 
 if [ ! -z $URL ]

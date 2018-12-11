@@ -16,13 +16,15 @@ set +h
 #OPT:sgml-dtd
 #OPT:docbook-dsssl
 #OPT:openjade
-#OPT:perl-modules#perl-sgmlspm
+#OPT:perl-sgmlspm
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.postgresql.org/pub/source/v10.5/postgresql-10.5.tar.bz2
 wget -nc ftp://ftp.postgresql.org/pub/source/v10.5/postgresql-10.5.tar.bz2
 
+NAME=postgresql
+VERSION=10.5.
 URL=http://ftp.postgresql.org/pub/source/v10.5/postgresql-10.5.tar.bz2
 
 if [ ! -z $URL ]

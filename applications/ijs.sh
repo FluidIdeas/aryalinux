@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.openprinting.org/download/ijs/download/ijs-0.35.tar.bz2
 
+NAME=ijs
+VERSION=0.35.
 URL=https://www.openprinting.org/download/ijs/download/ijs-0.35.tar.bz2
 
 if [ ! -z $URL ]

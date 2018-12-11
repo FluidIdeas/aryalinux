@@ -25,6 +25,8 @@ wget -nc ftp://ftp.gnu.org/gnu/readline/readline-6.3.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/downloads/readline/readline-6.3-upstream_fixes-3.patch
 wget -nc https://cpan.metacpan.org/authors/id/S/SR/SREZIC/Tk-804.034.tar.gz
 
+NAME=tl-installer
+VERSION=unx
 URL=http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
 
 if [ ! -z $URL ]

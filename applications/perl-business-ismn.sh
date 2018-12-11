@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISMN-1.201.tar.gz
 
+NAME=business::ismn-1.201
+VERSION=1.201
 URL=https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISMN-1.201.tar.gz
 
 if [ ! -z $URL ]

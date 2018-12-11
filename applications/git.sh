@@ -22,6 +22,8 @@ wget -nc https://www.kernel.org/pub/software/scm/git/git-2.19.2.tar.xz
 wget -nc https://www.kernel.org/pub/software/scm/git/git-manpages-2.19.2.tar.xz
 wget -nc https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.19.2.tar.xz
 
+NAME=git
+VERSION=2.19.2
 URL=https://www.kernel.org/pub/software/scm/git/git-2.19.2.tar.xz
 
 if [ ! -z $URL ]

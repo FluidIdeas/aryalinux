@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 wget -nc http://tug.ctan.org/support/xindy/base/xindy-2.5.1.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/xindy-2.5.1-upstream_fixes-1.patch
 
+NAME=xindy
+VERSION=2.5.1
 URL=http://tug.ctan.org/support/xindy/base/xindy-2.5.1.tar.gz
 
 if [ ! -z $URL ]

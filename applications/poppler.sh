@@ -30,6 +30,8 @@ cd $SOURCE_DIR
 wget -nc https://poppler.freedesktop.org/poppler-0.72.0.tar.xz
 wget -nc https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz
 
+NAME=poppler
+VERSION=0.72.0
 URL=https://poppler.freedesktop.org/poppler-0.72.0.tar.xz
 
 if [ ! -z $URL ]

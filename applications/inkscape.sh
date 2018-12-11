@@ -19,8 +19,8 @@ set +h
 #REC:lcms2
 #REC:lcms
 #REC:potrace
-#REC:python-modules#lxml
-#REC:python-modules#scour
+#REC:lxml
+#REC:scour
 #OPT:aspell
 #OPT:dbus
 #OPT:doxygen
@@ -31,6 +31,8 @@ wget -nc https://media.inkscape.org/dl/resources/file/inkscape-0.92.3.tar.bz2
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/inkscape-0.92.3-use_versioned_ImageMagick6-1.patch
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/inkscape-0.92.3-upstream_poppler_fixes-1.patch
 
+NAME=inkscape
+VERSION=0.92.3.
 URL=https://media.inkscape.org/dl/resources/file/inkscape-0.92.3.tar.bz2
 
 if [ ! -z $URL ]

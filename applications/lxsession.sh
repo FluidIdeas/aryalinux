@@ -20,6 +20,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/lxde/lxsession-0.5.3.tar.xz
 
+NAME=lxsession
+VERSION=0.5.3
 URL=https://downloads.sourceforge.net/lxde/lxsession-0.5.3.tar.xz
 
 if [ ! -z $URL ]

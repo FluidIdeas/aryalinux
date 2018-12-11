@@ -20,6 +20,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.freedesktop.org/software/polkit/releases/polkit-0.114.tar.gz
 
+NAME=polkit
+VERSION=0.114
 URL=https://www.freedesktop.org/software/polkit/releases/polkit-0.114.tar.gz
 
 if [ ! -z $URL ]

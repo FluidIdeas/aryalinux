@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc http://download.kde.org/stable/phonon/phonon-backend-vlc/0.10.1/phonon-backend-vlc-0.10.1.tar.xz
 
+NAME=phonon-backend-vlc
+VERSION=0.10.1
 URL=http://download.kde.org/stable/phonon/phonon-backend-vlc/0.10.1/phonon-backend-vlc-0.10.1.tar.xz
 
 if [ ! -z $URL ]

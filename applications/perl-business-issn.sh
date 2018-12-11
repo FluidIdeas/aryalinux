@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.003.tar.gz
 
+NAME=business::issn-1.003
+VERSION=1.003
 URL=https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.003.tar.gz
 
 if [ ! -z $URL ]

@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/K/KA/KASEI/Class-Accessor-0.51.tar.gz
 
+NAME=class::accessor-0.51
+VERSION=0.51
 URL=https://www.cpan.org/authors/id/K/KA/KASEI/Class-Accessor-0.51.tar.gz
 
 if [ ! -z $URL ]

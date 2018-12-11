@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cairographics.org/releases/cairomm-1.12.2.tar.gz
 
+NAME=cairomm
+VERSION=1.12.2
 URL=https://www.cairographics.org/releases/cairomm-1.12.2.tar.gz
 
 if [ ! -z $URL ]

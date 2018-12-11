@@ -11,6 +11,8 @@ set +h
 cd $SOURCE_DIR
 
 
+NAME=ed
+VERSION=""
 URL=""
 
 if [ ! -z $URL ]

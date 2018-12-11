@@ -9,7 +9,7 @@ set +h
 #REQ:openjade
 #REQ:docbook-dsssl
 #REQ:sgml-dtd-3
-#OPT:perl-modules#perl-sgmlspm
+#OPT:perl-sgmlspm
 #OPT:lynx
 #OPT:links
 #OPT:w3m
@@ -20,6 +20,8 @@ wget -nc https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/docbook-uti
 wget -nc ftp://sourceware.org/pub/docbook-tools/new-trials/SOURCES/docbook-utils-0.6.14.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/docbook-utils-0.6.14-grep_fix-1.patch
 
+NAME=docbook-utils
+VERSION=0.6.14
 URL=https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/docbook-utils-0.6.14.tar.gz
 
 if [ ! -z $URL ]

@@ -22,6 +22,8 @@ wget -nc http://llvm.org/releases/7.0.0/llvm-7.0.0.src.tar.xz
 wget -nc http://llvm.org/releases/7.0.0/cfe-7.0.0.src.tar.xz
 wget -nc http://llvm.org/releases/7.0.0/compiler-rt-7.0.0.src.tar.xz
 
+NAME=llvm
+VERSION=7.0.0.src
 URL=http://llvm.org/releases/7.0.0/llvm-7.0.0.src.tar.xz
 
 if [ ! -z $URL ]

@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://bitbucket.org/mgorny/npapi-sdk/downloads/npapi-sdk-0.27.2.tar.bz2
 
+NAME=npapi-sdk
+VERSION=0.27.2.
 URL=https://bitbucket.org/mgorny/npapi-sdk/downloads/npapi-sdk-0.27.2.tar.bz2
 
 if [ ! -z $URL ]

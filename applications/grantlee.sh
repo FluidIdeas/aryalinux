@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc http://downloads.grantlee.org/grantlee-5.1.0.tar.gz
 
+NAME=grantlee
+VERSION=5.1.0
 URL=http://downloads.grantlee.org/grantlee-5.1.0.tar.gz
 
 if [ ! -z $URL ]

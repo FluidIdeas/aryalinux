@@ -8,7 +8,7 @@ set +h
 
 #REQ:gobject-introspection
 #REQ:gtk3
-#REC:python-modules#pygobject3
+#REC:pygobject3
 #OPT:gdb
 #OPT:gtk-doc
 #OPT:valgrind
@@ -19,6 +19,8 @@ wget -nc http://ftp.gnome.org/pub/gnome/sources/libpeas/1.22/libpeas-1.22.0.tar.
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libpeas/1.22/libpeas-1.22.0.tar.xz
 wget -nc http://www.lua.org/ftp/lua-5.1.5.tar.gz
 
+NAME=libpeas
+VERSION=1.22.0
 URL=http://ftp.gnome.org/pub/gnome/sources/libpeas/1.22/libpeas-1.22.0.tar.xz
 
 if [ ! -z $URL ]

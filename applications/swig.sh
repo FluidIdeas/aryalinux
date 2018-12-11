@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/swig/swig-3.0.12.tar.gz
 
+NAME=swig
+VERSION=3.0.12
 URL=https://downloads.sourceforge.net/swig/swig-3.0.12.tar.gz
 
 if [ ! -z $URL ]

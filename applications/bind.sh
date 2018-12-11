@@ -15,7 +15,7 @@ set +h
 #OPT:openldap
 #OPT:postgresql
 #OPT:unixodbc
-#OPT:perl-modules#perl-net-dns
+#OPT:perl-net-dns
 #OPT:doxygen
 #OPT:libxslt
 #OPT:texlive
@@ -25,6 +25,8 @@ cd $SOURCE_DIR
 
 wget -nc ftp://ftp.isc.org/isc/bind9/9.12.3/bind-9.12.3.tar.gz
 
+NAME=bind
+VERSION=9.12.3
 URL=ftp://ftp.isc.org/isc/bind9/9.12.3/bind-9.12.3.tar.gz
 
 if [ ! -z $URL ]

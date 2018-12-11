@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc http://files.libburnia-project.org/releases/libburn-1.5.0.tar.gz
 
+NAME=libburn
+VERSION=1.5.0
 URL=http://files.libburnia-project.org/releases/libburn-1.5.0.tar.gz
 
 if [ ! -z $URL ]

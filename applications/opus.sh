@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc https://archive.mozilla.org/pub/opus/opus-1.3.tar.gz
 
+NAME=opus
+VERSION=1.3
 URL=https://archive.mozilla.org/pub/opus/opus-1.3.tar.gz
 
 if [ ! -z $URL ]

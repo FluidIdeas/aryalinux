@@ -17,6 +17,8 @@ cd $SOURCE_DIR
 wget -nc https://github.com/uclouvain/openjpeg/archive/v2.3.0/openjpeg-2.3.0.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/openjpeg-2.3.0-only_shared-1.patch
 
+NAME=openjpeg2
+VERSION=2.3.0
 URL=https://github.com/uclouvain/openjpeg/archive/v2.3.0/openjpeg-2.3.0.tar.gz
 
 if [ ! -z $URL ]

@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc http://download.tuxfamily.org/librep/rep-gtk/rep-gtk_0.90.8.3.tar.xz
 
+NAME=rep-gtk
+VERSION=gtk_0.90.8.3
 URL=http://download.tuxfamily.org/librep/rep-gtk/rep-gtk_0.90.8.3.tar.xz
 
 if [ ! -z $URL ]

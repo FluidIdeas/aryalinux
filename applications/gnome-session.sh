@@ -23,6 +23,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-session/3.28/gnome-session-3.28.1.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-session/3.28/gnome-session-3.28.1.tar.xz
 
+NAME=gnome-session
+VERSION=3.28.1
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-session/3.28/gnome-session-3.28.1.tar.xz
 
 if [ ! -z $URL ]

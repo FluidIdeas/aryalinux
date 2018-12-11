@@ -20,6 +20,8 @@ cd $SOURCE_DIR
 wget -nc ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.46.tgz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/openldap-2.4.46-consolidated-1.patch
 
+NAME=openldap
+VERSION=2.4.46
 URL=ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.46.tgz
 
 if [ ! -z $URL ]

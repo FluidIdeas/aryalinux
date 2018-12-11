@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc http://sg.danny.cz/sg/p/sg3_utils-1.44.tar.xz
 
+NAME=sg3_utils
+VERSION=1.44
 URL=http://sg.danny.cz/sg/p/sg3_utils-1.44.tar.xz
 
 if [ ! -z $URL ]

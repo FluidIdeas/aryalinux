@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:python-modules#six
+#REQ:six
 #OPT:gtk-doc
 #OPT:valgrind
 
@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 wget -nc https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.13.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/libtasn1/libtasn1-4.13.tar.gz
 
+NAME=libtasn1
+VERSION=""
 URL=https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.13.tar.gz
 
 if [ ! -z $URL ]

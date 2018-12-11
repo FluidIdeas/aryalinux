@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 
 wget -nc http://www.xsane.org/download/xsane-0.999.tar.gz
 
+NAME=xsane
+VERSION=0.999
 URL=http://www.xsane.org/download/xsane-0.999.tar.gz
 
 if [ ! -z $URL ]

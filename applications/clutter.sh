@@ -12,7 +12,7 @@ set +h
 #REC:gobject-introspection
 #REC:gtk3
 #REC:libgudev
-#REC:x7driver#libinput
+#REC:libinput
 #REC:libxkbcommon
 #REC:wayland
 #OPT:gtk-doc
@@ -22,6 +22,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/clutter/1.26/clutter-1.26.2.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/clutter/1.26/clutter-1.26.2.tar.xz
 
+NAME=clutter
+VERSION=1.26.2
 URL=http://ftp.gnome.org/pub/gnome/sources/clutter/1.26/clutter-1.26.2.tar.xz
 
 if [ ! -z $URL ]

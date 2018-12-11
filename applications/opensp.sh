@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/openjade/OpenSP-1.5.2.tar.gz
 
+NAME=opensp
+VERSION=1.5.2
 URL=https://downloads.sourceforge.net/openjade/OpenSP-1.5.2.tar.gz
 
 if [ ! -z $URL ]

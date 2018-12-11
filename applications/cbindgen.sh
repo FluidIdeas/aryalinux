@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/eqrion/cbindgen/archive/v0.6.6/cbindgen-0.6.6.tar.gz
 
+NAME=cbindgen
+VERSION=0.6.6
 URL=https://github.com/eqrion/cbindgen/archive/v0.6.6/cbindgen-0.6.6.tar.gz
 
 if [ ! -z $URL ]

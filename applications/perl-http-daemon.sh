@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/G/GA/GAAS/HTTP-Daemon-6.01.tar.gz
 
+NAME=http::daemon-6.01
+VERSION=6.01
 URL=https://www.cpan.org/authors/id/G/GA/GAAS/HTTP-Daemon-6.01.tar.gz
 
 if [ ! -z $URL ]

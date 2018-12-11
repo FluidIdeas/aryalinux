@@ -15,7 +15,7 @@ set +h
 #REQ:libmypaint
 #REQ:librsvg
 #REQ:libtiff
-#REQ:python-modules#libxml2py2
+#REQ:libxml2py2
 #REQ:lcms2
 #REQ:mypaint-brushes
 #REQ:poppler
@@ -25,7 +25,7 @@ set +h
 #REC:gvfs
 #REC:iso-codes
 #REC:libgudev
-#REC:python-modules#pygtk
+#REC:pygtk
 #REC:xdg-utils
 #OPT:aalib
 #OPT:alsa-lib
@@ -41,6 +41,8 @@ cd $SOURCE_DIR
 wget -nc https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.6.tar.bz2
 wget -nc http://anduin.linuxfromscratch.org/BLFS/gimp/gimp-help-2018-08-21.tar.xz
 
+NAME=gimp
+VERSION=2.10.6.
 URL=https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.6.tar.bz2
 
 if [ ! -z $URL ]

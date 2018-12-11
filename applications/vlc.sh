@@ -32,7 +32,7 @@ set +h
 #OPT:libmpeg2
 #OPT:libpng
 #OPT:libtheora
-#OPT:x7driver#libva
+#OPT:libva
 #OPT:libvorbis
 #OPT:opus
 #OPT:speex
@@ -43,7 +43,7 @@ set +h
 #OPT:freetype2
 #OPT:fribidi
 #OPT:librsvg
-#OPT:x7driver#libvdpau
+#OPT:libvdpau
 #OPT:sdl
 #OPT:pulseaudio
 #OPT:libsamplerate
@@ -60,6 +60,8 @@ cd $SOURCE_DIR
 
 wget -nc https://download.videolan.org/vlc/3.0.4/vlc-3.0.4.tar.xz
 
+NAME=vlc
+VERSION=3.0.4
 URL=https://download.videolan.org/vlc/3.0.4/vlc-3.0.4.tar.xz
 
 if [ ! -z $URL ]

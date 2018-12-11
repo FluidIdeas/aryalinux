@@ -30,6 +30,8 @@ wget -nc ftp://tug.org/texlive/historic/2018/texlive-20180414-texmf.tar.xz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/texlive-20180414-source-upstream_fixes-2.patch
 wget -nc https://cpan.metacpan.org/authors/id/S/SR/SREZIC/Tk-804.034.tar.gz
 
+NAME=texlive
+VERSION=20180414-source
 URL=ftp://tug.org/texlive/historic/2018/texlive-20180414-source.tar.xz
 
 if [ ! -z $URL ]

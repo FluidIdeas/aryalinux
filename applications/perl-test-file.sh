@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Test-File-1.443.tar.gz
 
+NAME=test::file-1.443
+VERSION=1.443
 URL=https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Test-File-1.443.tar.gz
 
 if [ ! -z $URL ]

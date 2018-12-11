@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 wget -nc https://ftp.pcre.org/pub/pcre/pcre-8.42.tar.bz2
 wget -nc ftp://ftp.pcre.org/pub/pcre/pcre-8.42.tar.bz2
 
+NAME=pcre
+VERSION=8.42.
 URL=https://ftp.pcre.org/pub/pcre/pcre-8.42.tar.bz2
 
 if [ ! -z $URL ]

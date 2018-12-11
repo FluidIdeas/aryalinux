@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 wget -nc https://downloads.sourceforge.net/lcms/lcms-1.19.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/lcms-1.19-cve_2013_4276-1.patch
 
+NAME=lcms
+VERSION=1.19
 URL=https://downloads.sourceforge.net/lcms/lcms-1.19.tar.gz
 
 if [ ! -z $URL ]

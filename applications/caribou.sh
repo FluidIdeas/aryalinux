@@ -10,19 +10,21 @@ set +h
 #REQ:gtk3
 #REQ:libgee
 #REQ:libxklavier
-#REQ:python-modules#pygobject2
-#REQ:python-modules#pygobject3
+#REQ:pygobject2
+#REQ:pygobject3
 #REC:vala
 #OPT:gtk2
-#OPT:python-modules#dbus-python
+#OPT:dbus-python
 #OPT:dconf
-#OPT:python-modules#pyatspi2
+#OPT:pyatspi2
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/caribou/0.4/caribou-0.4.21.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/caribou/0.4/caribou-0.4.21.tar.xz
 
+NAME=caribou
+VERSION=0.4.21
 URL=http://ftp.gnome.org/pub/gnome/sources/caribou/0.4/caribou-0.4.21.tar.xz
 
 if [ ! -z $URL ]

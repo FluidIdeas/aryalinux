@@ -23,6 +23,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.dovecot.org/releases/2.3/dovecot-2.3.3.tar.gz
 
+NAME=dovecot
+VERSION=2.3.3
 URL=https://www.dovecot.org/releases/2.3/dovecot-2.3.3.tar.gz
 
 if [ ! -z $URL ]

@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/rfc1036/whois/archive/v5.4.0/whois-5.4.0.tar.gz
 
+NAME=whois
+VERSION=5.4.0
 URL=https://github.com/rfc1036/whois/archive/v5.4.0/whois-5.4.0.tar.gz
 
 if [ ! -z $URL ]

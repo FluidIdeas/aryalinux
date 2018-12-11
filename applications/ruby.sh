@@ -17,6 +17,8 @@ cd $SOURCE_DIR
 
 wget -nc http://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.3.tar.xz
 
+NAME=ruby
+VERSION=2.5.3
 URL=http://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.3.tar.xz
 
 if [ ! -z $URL ]

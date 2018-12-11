@@ -7,7 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:python2
-#OPT:python-modules#docutils
+#OPT:docutils
 #OPT:git
 #OPT:gnupg
 #OPT:openssh
@@ -17,6 +17,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.mercurial-scm.org/release/mercurial-4.7.2.tar.gz
 
+NAME=mercurial
+VERSION=4.7.2
 URL=https://www.mercurial-scm.org/release/mercurial-4.7.2.tar.gz
 
 if [ ! -z $URL ]

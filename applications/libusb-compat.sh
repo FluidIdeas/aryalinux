@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/libusb/libusb-compat-0.1.5.tar.bz2
 
+NAME=libusb-compat
+VERSION=0.1.5.
 URL=https://downloads.sourceforge.net/libusb/libusb-compat-0.1.5.tar.bz2
 
 if [ ! -z $URL ]

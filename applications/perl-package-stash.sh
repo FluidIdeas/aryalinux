@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DO/DOY/Package-Stash-0.37.tar.gz
 
+NAME=package::stash-0.37
+VERSION=0.37
 URL=https://cpan.metacpan.org/authors/id/D/DO/DOY/Package-Stash-0.37.tar.gz
 
 if [ ! -z $URL ]

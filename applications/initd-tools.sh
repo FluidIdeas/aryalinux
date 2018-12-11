@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://people.freedesktop.org/~dbn/initd-tools/releases/initd-tools-0.1.3.tar.gz
 
+NAME=initd-tools
+VERSION=0.1.3
 URL=https://people.freedesktop.org/~dbn/initd-tools/releases/initd-tools-0.1.3.tar.gz
 
 if [ ! -z $URL ]

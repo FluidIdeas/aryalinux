@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.freedesktop.org/software/cups-pk-helper/releases/cups-pk-helper-0.2.6.tar.xz
 
+NAME=cups-pk-helper
+VERSION=0.2.6
 URL=https://www.freedesktop.org/software/cups-pk-helper/releases/cups-pk-helper-0.2.6.tar.xz
 
 if [ ! -z $URL ]

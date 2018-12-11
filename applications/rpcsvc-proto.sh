@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/thkukuk/rpcsvc-proto/releases/download/v1.4/rpcsvc-proto-1.4.tar.gz
 
+NAME=rpcsvc-proto
+VERSION=1.4
 URL=https://github.com/thkukuk/rpcsvc-proto/releases/download/v1.4/rpcsvc-proto-1.4.tar.gz
 
 if [ ! -z $URL ]

@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/N/NL/NLNETLABS/Net-DNS-1.18.tar.gz
 
+NAME=net::dns-1.18
+VERSION=1.18
 URL=https://www.cpan.org/authors/id/N/NL/NLNETLABS/Net-DNS-1.18.tar.gz
 
 if [ ! -z $URL ]

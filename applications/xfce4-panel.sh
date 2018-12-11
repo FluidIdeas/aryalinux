@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 
 wget -nc http://archive.xfce.org/src/xfce/xfce4-panel/4.12/xfce4-panel-4.12.2.tar.bz2
 
+NAME=xfce4-panel
+VERSION=4.12.2.
 URL=http://archive.xfce.org/src/xfce/xfce4-panel/4.12/xfce4-panel-4.12.2.tar.bz2
 
 if [ ! -z $URL ]

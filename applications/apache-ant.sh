@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc https://archive.apache.org/dist/ant/source/apache-ant-1.10.4-src.tar.xz
 
+NAME=apache-ant
+VERSION=1.10.4-src
 URL=https://archive.apache.org/dist/ant/source/apache-ant-1.10.4-src.tar.xz
 
 if [ ! -z $URL ]

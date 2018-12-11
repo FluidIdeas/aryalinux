@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc http://www.mega-nerd.com/SRC/libsamplerate-0.1.9.tar.gz
 
+NAME=libsamplerate
+VERSION=0.1.9
 URL=http://www.mega-nerd.com/SRC/libsamplerate-0.1.9.tar.gz
 
 if [ ! -z $URL ]

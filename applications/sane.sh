@@ -23,6 +23,8 @@ cd $SOURCE_DIR
 wget -nc http://fossies.org/linux/misc/sane-backends-1.0.27.tar.gz
 wget -nc http://anduin.linuxfromscratch.org/BLFS/sane-frontends/sane-frontends-1.0.14.tar.gz
 
+NAME=sane
+VERSION=1.0.27
 URL=http://fossies.org/linux/misc/sane-backends-1.0.27.tar.gz
 
 if [ ! -z $URL ]

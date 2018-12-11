@@ -9,8 +9,8 @@ set +h
 #REQ:systemd
 #REC:x7lib
 #OPT:dbus-glib
-#OPT:python-modules#dbus-python
-#OPT:python-modules#pygobject3
+#OPT:dbus-python
+#OPT:pygobject3
 #OPT:valgrind
 #OPT:doxygen
 #OPT:xmlto
@@ -19,6 +19,8 @@ cd $SOURCE_DIR
 
 wget -nc https://dbus.freedesktop.org/releases/dbus/dbus-1.12.10.tar.gz
 
+NAME=dbus
+VERSION=1.12.10
 URL=https://dbus.freedesktop.org/releases/dbus/dbus-1.12.10.tar.gz
 
 if [ ! -z $URL ]

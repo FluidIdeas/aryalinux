@@ -10,13 +10,15 @@ set +h
 #REC:docbook
 #REC:docbook-xsl
 #OPT:libgcrypt
-#OPT:python-modules#libxml2py2
+#OPT:libxml2py2
 
 cd $SOURCE_DIR
 
 wget -nc http://xmlsoft.org/sources/libxslt-1.1.32.tar.gz
 wget -nc ftp://xmlsoft.org/libxslt/libxslt-1.1.32.tar.gz
 
+NAME=libxslt
+VERSION=1.1.32
 URL=http://xmlsoft.org/sources/libxslt-1.1.32.tar.gz
 
 if [ ! -z $URL ]

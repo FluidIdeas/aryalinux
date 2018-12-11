@@ -10,7 +10,7 @@ set +h
 #REQ:pango
 #OPT:dbus
 #OPT:imlib2
-#OPT:python-modules#pyxdg
+#OPT:pyxdg
 #OPT:startup-notification
 #OPT:librsvg
 
@@ -19,6 +19,8 @@ cd $SOURCE_DIR
 wget -nc http://openbox.org/dist/openbox/openbox-3.6.1.tar.gz
 wget -nc http://ftp.de.debian.org/debian/pool/main/n/numlockx/numlockx_1.2.orig.tar.gz
 
+NAME=openbox
+VERSION=3.6.1
 URL=http://openbox.org/dist/openbox/openbox-3.6.1.tar.gz
 
 if [ ! -z $URL ]

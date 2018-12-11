@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-4.19.0.tar.xz
 
+NAME=xfsprogs
+VERSION=4.19.0
 URL=https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-4.19.0.tar.xz
 
 if [ ! -z $URL ]

@@ -35,6 +35,8 @@ cd $SOURCE_DIR
 
 wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.14.4.tar.xz
 
+NAME=gst10-plugins-good
+VERSION=1.14.4
 URL=https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.14.4.tar.xz
 
 if [ ! -z $URL ]

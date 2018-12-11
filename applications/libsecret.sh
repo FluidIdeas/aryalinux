@@ -15,15 +15,17 @@ set +h
 #OPT:docbook
 #OPT:docbook-xsl
 #OPT:libxslt
-#OPT:python-modules#dbus-python
+#OPT:dbus-python
 #OPT:gjs
-#OPT:python-modules#pygobject2
+#OPT:pygobject2
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/libsecret/0.18/libsecret-0.18.6.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libsecret/0.18/libsecret-0.18.6.tar.xz
 
+NAME=libsecret
+VERSION=0.18.6
 URL=http://ftp.gnome.org/pub/gnome/sources/libsecret/0.18/libsecret-0.18.6.tar.xz
 
 if [ ! -z $URL ]

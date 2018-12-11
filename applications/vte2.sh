@@ -9,13 +9,15 @@ set +h
 #REQ:gtk2
 #OPT:gobject-introspection
 #OPT:gtk-doc
-#OPT:python-modules#pygtk
+#OPT:pygtk
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/vte/0.28/vte-0.28.2.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/vte/0.28/vte-0.28.2.tar.xz
 
+NAME=vte2
+VERSION=0.28.2
 URL=http://ftp.gnome.org/pub/gnome/sources/vte/0.28/vte-0.28.2.tar.xz
 
 if [ ! -z $URL ]

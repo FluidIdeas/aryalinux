@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 
 wget -nc ftp://ftp.alsa-project.org/pub/plugins/alsa-plugins-1.1.7.tar.bz2
 
+NAME=alsa-plugins
+VERSION=1.1.7.
 URL=ftp://ftp.alsa-project.org/pub/plugins/alsa-plugins-1.1.7.tar.bz2
 
 if [ ! -z $URL ]

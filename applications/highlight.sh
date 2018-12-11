@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc http://www.andre-simon.de/zip/highlight-3.47.tar.bz2
 
+NAME=highlight
+VERSION=3.47.
 URL=http://www.andre-simon.de/zip/highlight-3.47.tar.bz2
 
 if [ ! -z $URL ]

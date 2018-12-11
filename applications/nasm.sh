@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 wget -nc http://www.nasm.us/pub/nasm/releasebuilds/2.14/nasm-2.14.tar.xz
 wget -nc http://www.nasm.us/pub/nasm/releasebuilds/2.14/nasm-2.14-xdoc.tar.xz
 
+NAME=nasm
+VERSION=2.14
 URL=http://www.nasm.us/pub/nasm/releasebuilds/2.14/nasm-2.14.tar.xz
 
 if [ ! -z $URL ]

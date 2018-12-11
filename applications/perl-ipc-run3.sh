@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/R/RJ/RJBS/IPC-Run3-0.048.tar.gz
 
+NAME=ipc::run3-0.048
+VERSION=0.048
 URL=https://www.cpan.org/authors/id/R/RJ/RJBS/IPC-Run3-0.048.tar.gz
 
 if [ ! -z $URL ]

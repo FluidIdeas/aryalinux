@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/D/DR/DROLSKY/List-AllUtils-0.14.tar.gz
 
+NAME=list::allutils-0.14
+VERSION=0.14
 URL=https://www.cpan.org/authors/id/D/DR/DROLSKY/List-AllUtils-0.14.tar.gz
 
 if [ ! -z $URL ]

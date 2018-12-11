@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc ftp://ftp.isc.org/isc/bind9/9.12.3/bind-9.12.3.tar.gz
 
+NAME=bind-utils
+VERSION=9.12.3
 URL=ftp://ftp.isc.org/isc/bind9/9.12.3/bind-9.12.3.tar.gz
 
 if [ ! -z $URL ]

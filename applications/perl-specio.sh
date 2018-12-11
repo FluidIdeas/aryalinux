@@ -21,6 +21,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Specio-0.43.tar.gz
 
+NAME=specio-0.43
+VERSION=0.43
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Specio-0.43.tar.gz
 
 if [ ! -z $URL ]

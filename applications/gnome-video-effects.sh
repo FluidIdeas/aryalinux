@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-video-effects/0.4/gnome-video-effects-0.4.3.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-video-effects/0.4/gnome-video-effects-0.4.3.tar.xz
 
+NAME=gnome-video-effects
+VERSION=0.4.3
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-video-effects/0.4/gnome-video-effects-0.4.3.tar.xz
 
 if [ ! -z $URL ]

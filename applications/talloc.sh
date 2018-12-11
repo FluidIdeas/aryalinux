@@ -20,6 +20,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.samba.org/ftp/talloc/talloc-2.1.14.tar.gz
 
+NAME=talloc
+VERSION=2.1.14
 URL=https://www.samba.org/ftp/talloc/talloc-2.1.14.tar.gz
 
 if [ ! -z $URL ]

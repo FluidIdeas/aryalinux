@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/M/MW/MWX/Data-Uniqid-0.12.tar.gz
 
+NAME=data::uniqid-0.12
+VERSION=0.12
 URL=https://www.cpan.org/authors/id/M/MW/MWX/Data-Uniqid-0.12.tar.gz
 
 if [ ! -z $URL ]

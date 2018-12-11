@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 wget -nc https://www.python.org/ftp/python/2.7.15/Python-2.7.15.tar.xz
 wget -nc https://docs.python.org/ftp/python/doc/2.7.15/python-2.7.15-docs-html.tar.bz2
 
+NAME=python2
+VERSION=2.7.15
 URL=https://www.python.org/ftp/python/2.7.15/Python-2.7.15.tar.xz
 
 if [ ! -z $URL ]

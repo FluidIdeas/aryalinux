@@ -25,6 +25,8 @@ cd $SOURCE_DIR
 wget -nc http://download.kde.org/stable/qca/2.1.3/src/qca-2.1.3.tar.xz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/qca-2.1.3-openssl-1.patch
 
+NAME=qca
+VERSION=2.1.3
 URL=http://download.kde.org/stable/qca/2.1.3/src/qca-2.1.3.tar.xz
 
 if [ ! -z $URL ]

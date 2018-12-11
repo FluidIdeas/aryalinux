@@ -10,6 +10,8 @@ set +h
 cd $SOURCE_DIR
 
 
+NAME=tuning-fontconfig
+VERSION=""
 URL=""
 
 if [ ! -z $URL ]

@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.10.2.tar.gz
 
+NAME=dash
+VERSION=0.5.10.2
 URL=http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.10.2.tar.gz
 
 if [ ! -z $URL ]

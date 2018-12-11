@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/silnrsi/graphite/releases/download/1.3.12/graphite2-1.3.12.tgz
 
+NAME=graphite2
+VERSION=""
 URL=https://github.com/silnrsi/graphite/releases/download/1.3.12/graphite2-1.3.12.tgz
 
 if [ ! -z $URL ]

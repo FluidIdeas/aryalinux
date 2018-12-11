@@ -17,6 +17,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/yelp/3.28/yelp-3.28.1.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/yelp/3.28/yelp-3.28.1.tar.xz
 
+NAME=yelp
+VERSION=3.28.1
 URL=http://ftp.gnome.org/pub/gnome/sources/yelp/3.28/yelp-3.28.1.tar.xz
 
 if [ ! -z $URL ]

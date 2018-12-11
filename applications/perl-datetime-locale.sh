@@ -19,6 +19,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Locale-1.23.tar.gz
 
+NAME=datetime::locale-1.23
+VERSION=1.23
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Locale-1.23.tar.gz
 
 if [ ! -z $URL ]

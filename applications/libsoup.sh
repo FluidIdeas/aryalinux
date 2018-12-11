@@ -24,6 +24,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/libsoup/2.64/libsoup-2.64.2.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libsoup/2.64/libsoup-2.64.2.tar.xz
 
+NAME=libsoup
+VERSION=2.64.2
 URL=http://ftp.gnome.org/pub/gnome/sources/libsoup/2.64/libsoup-2.64.2.tar.xz
 
 if [ ! -z $URL ]

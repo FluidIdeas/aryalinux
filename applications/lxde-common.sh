@@ -24,6 +24,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/lxde/lxde-common-0.99.2.tar.xz
 
+NAME=lxde-common
+VERSION=0.99.2
 URL=https://downloads.sourceforge.net/lxde/lxde-common-0.99.2.tar.xz
 
 if [ ! -z $URL ]

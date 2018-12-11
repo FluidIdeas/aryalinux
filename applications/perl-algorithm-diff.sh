@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/T/TY/TYEMQ//Algorithm-Diff-1.1903.tar.gz
 
+NAME=algorithm::diff-1.1903
+VERSION=1.1903
 URL=https://cpan.metacpan.org/authors/id/T/TY/TYEMQ//Algorithm-Diff-1.1903.tar.gz
 
 if [ ! -z $URL ]

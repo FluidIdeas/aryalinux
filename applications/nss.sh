@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 wget -nc https://archive.mozilla.org/pub/security/nss/releases/NSS_3_40_1_RTM/src/nss-3.40.1.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/nss-3.40.1-standalone-1.patch
 
+NAME=nss
+VERSION=3.40.1
 URL=https://archive.mozilla.org/pub/security/nss/releases/NSS_3_40_1_RTM/src/nss-3.40.1.tar.gz
 
 if [ ! -z $URL ]

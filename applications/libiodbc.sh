@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/iodbc/libiodbc-3.52.12.tar.gz
 
+NAME=libiodbc
+VERSION=3.52.12
 URL=https://downloads.sourceforge.net/iodbc/libiodbc-3.52.12.tar.gz
 
 if [ ! -z $URL ]

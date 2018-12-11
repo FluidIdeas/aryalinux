@@ -7,10 +7,10 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:python2
-#REQ:python-modules#dbus-python
+#REQ:dbus-python
 #REQ:wireless_tools
 #REQ:net-tools
-#REC:python-modules#pygtk
+#REC:pygtk
 #REC:wpa_supplicant
 #REC:dhcpcd
 #REC:dhcp
@@ -20,6 +20,8 @@ cd $SOURCE_DIR
 
 wget -nc https://launchpad.net/wicd/1.7/1.7.4/+download/wicd-1.7.4.tar.gz
 
+NAME=wicd
+VERSION=1.7.4
 URL=https://launchpad.net/wicd/1.7/1.7.4/+download/wicd-1.7.4.tar.gz
 
 if [ ! -z $URL ]

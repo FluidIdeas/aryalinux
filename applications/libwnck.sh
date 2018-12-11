@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/libwnck/3.24/libwnck-3.24.1.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libwnck/3.24/libwnck-3.24.1.tar.xz
 
+NAME=libwnck
+VERSION=3.24.1
 URL=http://ftp.gnome.org/pub/gnome/sources/libwnck/3.24/libwnck-3.24.1.tar.xz
 
 if [ ! -z $URL ]

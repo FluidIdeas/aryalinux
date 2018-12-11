@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/rest/0.8/rest-0.8.1.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/rest/0.8/rest-0.8.1.tar.xz
 
+NAME=rest
+VERSION=0.8.1
 URL=http://ftp.gnome.org/pub/gnome/sources/rest/0.8/rest-0.8.1.tar.xz
 
 if [ ! -z $URL ]

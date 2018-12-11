@@ -22,18 +22,20 @@ set +h
 #REQ:xcb-util-cursor
 #REC:libdbusmenu-qt
 #REC:libcanberra
-#REC:x7driver#libinput
+#REC:libinput
 #REC:linux-pam
 #REC:lm_sensors
 #REC:oxygen-icons5
 #REC:pciutils
 #OPT:glu
 #OPT:ibus
-#OPT:x7driver#xorg-synaptics-driver
+#OPT:xorg-synaptics-driver
 
 cd $SOURCE_DIR
 
 
+NAME=plasma-all
+VERSION=""
 URL=""
 
 if [ ! -z $URL ]

@@ -11,6 +11,8 @@ set +h
 cd $SOURCE_DIR
 
 
+NAME=x7font
+VERSION=""
 URL=""
 
 if [ ! -z $URL ]

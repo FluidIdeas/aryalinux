@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/potrace/potrace-1.15.tar.gz
 
+NAME=potrace
+VERSION=1.15
 URL=https://downloads.sourceforge.net/potrace/potrace-1.15.tar.gz
 
 if [ ! -z $URL ]

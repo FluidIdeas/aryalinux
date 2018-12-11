@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc http://download.kde.org/stable/frameworks/5.49/oxygen-icons5-5.49.0.tar.xz
 
+NAME=oxygen-icons5
+VERSION=icons5-5.49.0
 URL=http://download.kde.org/stable/frameworks/5.49/oxygen-icons5-5.49.0.tar.xz
 
 if [ ! -z $URL ]

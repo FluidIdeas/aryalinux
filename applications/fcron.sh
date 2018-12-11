@@ -16,6 +16,8 @@ cd $SOURCE_DIR
 
 wget -nc http://fcron.free.fr/archives/fcron-3.2.1.src.tar.gz
 
+NAME=fcron
+VERSION=3.2.1.src
 URL=http://fcron.free.fr/archives/fcron-3.2.1.src.tar.gz
 
 if [ ! -z $URL ]

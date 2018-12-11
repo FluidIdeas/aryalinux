@@ -17,6 +17,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.jwz.org/xscreensaver/xscreensaver-5.40.tar.gz
 
+NAME=xscreensaver
+VERSION=5.40
 URL=https://www.jwz.org/xscreensaver/xscreensaver-5.40.tar.gz
 
 if [ ! -z $URL ]

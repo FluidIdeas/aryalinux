@@ -17,6 +17,8 @@ set +h
 cd $SOURCE_DIR
 
 
+NAME=x7lib
+VERSION=""
 URL=""
 
 if [ ! -z $URL ]

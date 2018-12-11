@@ -17,6 +17,8 @@ cd $SOURCE_DIR
 
 wget -nc https://portland.freedesktop.org/download/xdg-utils-1.1.3.tar.gz
 
+NAME=xdg-utils
+VERSION=1.1.3
 URL=https://portland.freedesktop.org/download/xdg-utils-1.1.3.tar.gz
 
 if [ ! -z $URL ]

@@ -17,6 +17,8 @@ cd $SOURCE_DIR
 
 wget -nc https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v4.19.1.tar.xz
 
+NAME=btrfs-progs
+VERSION=v4.19.1
 URL=https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v4.19.1.tar.xz
 
 if [ ! -z $URL ]

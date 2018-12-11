@@ -17,6 +17,8 @@ cd $SOURCE_DIR
 
 wget -nc http://www.bennewitz.com/bluefish/stable/source/bluefish-2.2.10.tar.bz2
 
+NAME=bluefish
+VERSION=2.2.10.
 URL=http://www.bennewitz.com/bluefish/stable/source/bluefish-2.2.10.tar.bz2
 
 if [ ! -z $URL ]

@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc http://perso.wanadoo.fr/sebastien.godard/sysstat-12.0.2.tar.xz
 
+NAME=sysstat
+VERSION=12.0.2
 URL=http://perso.wanadoo.fr/sebastien.godard/sysstat-12.0.2.tar.xz
 
 if [ ! -z $URL ]

@@ -17,7 +17,7 @@ set +h
 #REC:iptables
 #REC:newt
 #REC:polkit
-#REC:python-modules#pygobject3
+#REC:pygobject3
 #REC:systemd
 #REC:upower
 #REC:vala
@@ -36,6 +36,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.12/NetworkManager-1.12.2.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.12/NetworkManager-1.12.2.tar.xz
 
+NAME=networkmanager
+VERSION=1.12.2
 URL=http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.12/NetworkManager-1.12.2.tar.xz
 
 if [ ! -z $URL ]

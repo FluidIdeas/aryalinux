@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 wget -nc http://www.netfilter.org/projects/iptables/files/iptables-1.8.2.tar.bz2
 wget -nc ftp://ftp.netfilter.org/pub/iptables/iptables-1.8.2.tar.bz2
 
+NAME=iptables
+VERSION=1.8.2.
 URL=http://www.netfilter.org/projects/iptables/files/iptables-1.8.2.tar.bz2
 
 if [ ! -z $URL ]

@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 wget -nc http://fossies.org/linux/misc/tcsh-6.20.00.tar.gz
 wget -nc ftp://ftp.astron.com/pub/tcsh/tcsh-6.20.00.tar.gz
 
+NAME=tcsh
+VERSION=6.20.00
 URL=http://fossies.org/linux/misc/tcsh-6.20.00.tar.gz
 
 if [ ! -z $URL ]

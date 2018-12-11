@@ -12,6 +12,8 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz
 
+NAME=libevent
+VERSION=2.1.8-stable
 URL=https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz
 
 if [ ! -z $URL ]

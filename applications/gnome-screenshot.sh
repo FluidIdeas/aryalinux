@@ -14,6 +14,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.26/gnome-screenshot-3.26.0.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.26/gnome-screenshot-3.26.0.tar.xz
 
+NAME=gnome-screenshot
+VERSION=3.26.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.26/gnome-screenshot-3.26.0.tar.xz
 
 if [ ! -z $URL ]

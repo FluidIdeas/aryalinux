@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 
 wget -nc http://download.icu-project.org/files/icu4c/63.1/icu4c-63_1-src.tgz
 
+NAME=icu
+VERSION=63_1-src
 URL=http://download.icu-project.org/files/icu4c/63.1/icu4c-63_1-src.tgz
 
 if [ ! -z $URL ]

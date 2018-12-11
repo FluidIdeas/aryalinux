@@ -15,6 +15,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/3.26/gnome-power-manager-3.26.0.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/3.26/gnome-power-manager-3.26.0.tar.xz
 
+NAME=gnome-power-manager
+VERSION=3.26.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/3.26/gnome-power-manager-3.26.0.tar.xz
 
 if [ ! -z $URL ]

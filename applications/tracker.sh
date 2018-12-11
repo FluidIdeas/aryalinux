@@ -23,6 +23,8 @@ cd $SOURCE_DIR
 wget -nc http://ftp.gnome.org/pub/gnome/sources/tracker/2.0/tracker-2.0.4.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/tracker/2.0/tracker-2.0.4.tar.xz
 
+NAME=tracker
+VERSION=2.0.4
 URL=http://ftp.gnome.org/pub/gnome/sources/tracker/2.0/tracker-2.0.4.tar.xz
 
 if [ ! -z $URL ]

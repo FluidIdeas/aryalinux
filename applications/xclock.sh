@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 wget -nc https://www.x.org/pub/individual/app/xclock-1.0.7.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/app/xclock-1.0.7.tar.bz2
 
+NAME=xclock
+VERSION=1.0.7.
 URL=https://www.x.org/pub/individual/app/xclock-1.0.7.tar.bz2
 
 if [ ! -z $URL ]

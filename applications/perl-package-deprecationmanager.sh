@@ -17,6 +17,8 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Package-DeprecationManager-0.17.tar.gz
 
+NAME=package::deprecationmanager-0.17
+VERSION=0.17
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Package-DeprecationManager-0.17.tar.gz
 
 if [ ! -z $URL ]

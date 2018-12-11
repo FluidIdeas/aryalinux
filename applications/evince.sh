@@ -30,6 +30,8 @@ wget -nc http://ftp.gnome.org/pub/gnome/sources/evince/3.28/evince-3.28.2.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evince/3.28/evince-3.28.2.tar.xz
 wget -nc http://www.ibiblio.org/pub/Linux/libs/graphics/t1lib-5.1.2.tar.gz
 
+NAME=evince
+VERSION=3.28.2
 URL=http://ftp.gnome.org/pub/gnome/sources/evince/3.28/evince-3.28.2.tar.xz
 
 if [ ! -z $URL ]

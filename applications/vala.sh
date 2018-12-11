@@ -17,6 +17,8 @@ wget -nc http://ftp.gnome.org/pub/gnome/sources/vala/0.42/vala-0.42.2.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/vala/0.42/vala-0.42.2.tar.xz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/vala-0.42.2-avoid_graphviz-1.patch
 
+NAME=vala
+VERSION=0.42.2
 URL=http://ftp.gnome.org/pub/gnome/sources/vala/0.42/vala-0.42.2.tar.xz
 
 if [ ! -z $URL ]

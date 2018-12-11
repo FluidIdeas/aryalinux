@@ -13,6 +13,8 @@ cd $SOURCE_DIR
 wget -nc https://www.x.org/pub/individual/data/xbitmaps-1.1.2.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/data/xbitmaps-1.1.2.tar.bz2
 
+NAME=xbitmaps
+VERSION=1.1.2.
 URL=https://www.x.org/pub/individual/data/xbitmaps-1.1.2.tar.bz2
 
 if [ ! -z $URL ]

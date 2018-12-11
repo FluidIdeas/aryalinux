@@ -21,6 +21,8 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf/0.28/dconf-0.28.0.tar.xz
 wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.28/dconf-editor-3.28.0.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.28/dconf-editor-3.28.0.tar.xz
 
+NAME=dconf
+VERSION=0.28.0
 URL=http://ftp.gnome.org/pub/gnome/sources/dconf/0.28/dconf-0.28.0.tar.xz
 
 if [ ! -z $URL ]

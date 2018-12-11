@@ -11,6 +11,8 @@ cd $SOURCE_DIR
 
 wget -nc http://0pointer.de/public/libatasmart-0.19.tar.xz
 
+NAME=libatasmart
+VERSION=0.19
 URL=http://0pointer.de/public/libatasmart-0.19.tar.xz
 
 if [ ! -z $URL ]

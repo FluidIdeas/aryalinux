@@ -25,6 +25,8 @@ cd $SOURCE_DIR
 wget -nc https://downloads.sourceforge.net/libquicktime/libquicktime-1.2.4.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/libquicktime-1.2.4-ffmpeg4-1.patch
 
+NAME=libquicktime
+VERSION=1.2.4
 URL=https://downloads.sourceforge.net/libquicktime/libquicktime-1.2.4.tar.gz
 
 if [ ! -z $URL ]

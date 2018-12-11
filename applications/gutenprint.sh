@@ -18,6 +18,8 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/gimp-print/gutenprint-5.2.14.tar.bz2
 
+NAME=gutenprint
+VERSION=5.2.14.
 URL=https://downloads.sourceforge.net/gimp-print/gutenprint-5.2.14.tar.bz2
 
 if [ ! -z $URL ]
