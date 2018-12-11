@@ -14,7 +14,7 @@ wget -nc http://mirrors.ocf.berkeley.edu/tanglu/pool/main/o/os-prober/os-prober_
 wget -nc https://github.com/rhboot/efivar/releases/download/36/efivar-36.tar.bz2
 wget -nc https://github.com/rhboot/efibootmgr/releases/download/16/efibootmgr-16.tar.bz2
 wget -nc https://downloads.sourceforge.net/freetype/freetype-2.9.tar.bz2
-wget -nc http://unifoundry.com/pub/unifont-7.0.05/font-builds/unifont-7.0.05.pcf.gz
+wget -nc https://ftp.gnu.org/gnu/unifont/unifont-7.0.05/unifont-7.0.05.pcf.gz
 wget -nc https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.5.5.tar.xz
 wget -nc https://ftp.osuosl.org/pub/blfs/conglomeration/popt/popt-1.16.tar.gz
 wget -nc https://sourceforge.net/projects/aryalinux-bin/files/artifacts/linux-firmware.tar.xz
