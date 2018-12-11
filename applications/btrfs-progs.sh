@@ -6,6 +6,12 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+SOURCE_ONLY=n
+DESCRIPTION="br3ak The btrfs-progs package containsbr3ak administration and debugging tools for the B-tree file systembr3ak (btrfs).br3ak"
+SECTION="postlfs"
+VERSION=4.17.1
+NAME="btrfs-progs"
+
 #REQ:lzo
 #REC:asciidoc
 #REC:xmlto
@@ -13,68 +19,50 @@ set +h
 #OPT:python2
 #OPT:reiserfs
 
+
 cd $SOURCE_DIR
 
-wget -nc https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v4.19.tar.xz
-
-URL=https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v4.19.tar.xz
+URL=https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v4.17.1.tar.xz
 
 if [ ! -z $URL ]
 then
+wget -nc https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v4.17.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/btrfs-progs/btrfs-progs-v4.17.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/btrfs-progs/btrfs-progs-v4.17.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/btrfs-progs/btrfs-progs-v4.17.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/btrfs-progs/btrfs-progs-v4.17.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/btrfs-progs/btrfs-progs-v4.17.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/btrfs-progs/btrfs-progs-v4.17.1.tar.xz
 
-TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
+TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
-	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+	DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$"`
 	tar --no-overwrite-dir -xf $TARBALL
 else
 	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
 	unzip_file $TARBALL $NAME
 fi
-
 cd $DIRECTORY
 fi
 
+whoami > /tmp/currentuser
+
+sed -i '40,107 s/\.gz//g' Documentation/Makefile.in &&
 ./configure --prefix=/usr  \
             --bindir=/bin  \
             --libdir=/lib  \
             --disable-zstd &&
-make
-make fssum &&
+make "-j`nproc`" || make
 
-sed -i '/found/s/^/: #/' tests/convert-tests.sh &&
 
-mv tests/mkfs-tests/013-reserved-1M-for-single/test.sh{,.broken}          &&
-mv tests/convert-tests/010-reiserfs-basic/test.sh{,.broken}               &&
-mv tests/convert-tests/011-reiserfs-delete-all-rollback/test.sh{,.broken} &&
-mv tests/convert-tests/012-reiserfs-large-hole-extent/test.sh{,.broken}   &&
-mv tests/convert-tests/013-reiserfs-common-inode-flags/test.sh{,.broken}  &&
-mv tests/convert-tests/014-reiserfs-tail-handling/test.sh{,.broken}       &&
-mv tests/misc-tests/004-shrink-fs/test.sh{,.broken}                       &&
-mv tests/misc-tests/013-subvolume-sync-crash/test.sh{,.broken}            &&
-mv tests/misc-tests/025-zstd-compression/test.sh{,.broken}                &&
-mv tests/fuzz-tests/003-multi-check-unmounted/test.sh{,.broken}           &&
-mv tests/fuzz-tests/009-simple-zero-log/test.sh{,.broken}
-pushd tests
-   ./fsck-tests.sh
-   ./mkfs-tests.sh
-   ./cli-tests.sh
-   ./convert-tests.sh
-   ./misc-tests.sh
-   ./fuzz-tests.sh
-popd
 
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install &&
-
 ln -sfv ../../lib/$(readlink /lib/libbtrfs.so) /usr/lib/libbtrfs.so &&
 ln -sfv ../../lib/$(readlink /lib/libbtrfsutil.so) /usr/lib/libbtrfsutil.so &&
 rm -fv /lib/libbtrfs.{a,so} /lib/libbtrfsutil.{a,so} &&
 mv -v /bin/{mkfs,fsck}.btrfs /sbin
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

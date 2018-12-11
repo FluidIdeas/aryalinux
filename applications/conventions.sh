@@ -6,31 +6,44 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+SOURCE_ONLY=n
+DESCRIPTION="%DESCRIPTION%"
+SECTION="introduction"
+NAME="conventions"
+
+
 
 cd $SOURCE_DIR
 
-
-URL=""
+URL=
 
 if [ ! -z $URL ]
 then
 
-TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
+TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
-	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+	DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$"`
 	tar --no-overwrite-dir -xf $TARBALL
 else
 	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
 	unzip_file $TARBALL $NAME
 fi
-
 cd $DIRECTORY
 fi
 
+whoami > /tmp/currentuser
+
 ./configure --prefix=/usr
+
+
 cat > $LFS/etc/group << "EOF"
-<code class="literal">root:x:0: bin:x:1: ......</code>
+root:x:0:
+bin:x:1:
+......
 EOF
+
+
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

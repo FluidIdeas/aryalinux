@@ -6,6 +6,12 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+SOURCE_ONLY=n
+DESCRIPTION="br3ak Tigervnc is an advanced VNCbr3ak (Virtual Network Computing) implementation. It allows creation ofbr3ak an Xorg server not tied to a physical console and also provides abr3ak client for viewing of the remote graphical desktop.br3ak"
+SECTION="xsoft"
+VERSION=1.9.0
+NAME="tigervnc"
+
 #REQ:cmake
 #REQ:fltk
 #REQ:gnutls
@@ -17,47 +23,48 @@ set +h
 #REC:imagemagick
 #REC:linux-pam
 
-cd $SOURCE_DIR
 
-wget -nc https://github.com/TigerVNC/tigervnc/archive/v1.9.0/tigervnc-1.9.0.tar.gz
-wget -nc https://www.x.org/pub/individual/xserver/xorg-server-1.20.0.tar.bz2
+cd $SOURCE_DIR
 
 URL=https://github.com/TigerVNC/tigervnc/archive/v1.9.0/tigervnc-1.9.0.tar.gz
 
 if [ ! -z $URL ]
 then
+wget -nc https://github.com/TigerVNC/tigervnc/archive/v1.9.0/tigervnc-1.9.0.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/tigervnc/tigervnc-1.9.0.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/tigervnc/tigervnc-1.9.0.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/tigervnc/tigervnc-1.9.0.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/tigervnc/tigervnc-1.9.0.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/tigervnc/tigervnc-1.9.0.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/tigervnc/tigervnc-1.9.0.tar.gz
+wget -nc https://www.x.org/pub/individual/xserver/xorg-server-1.20.0.tar.bz2 || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/Xorg/xorg-server-1.20.0.tar.bz2 || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/Xorg/xorg-server-1.20.0.tar.bz2 || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/Xorg/xorg-server-1.20.0.tar.bz2 || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/Xorg/xorg-server-1.20.0.tar.bz2 || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/Xorg/xorg-server-1.20.0.tar.bz2 || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/Xorg/xorg-server-1.20.0.tar.bz2
 
-TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
+TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
-	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+	DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$"`
 	tar --no-overwrite-dir -xf $TARBALL
 else
 	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
 	unzip_file $TARBALL $NAME
 fi
-
 cd $DIRECTORY
 fi
+
+whoami > /tmp/currentuser
+
+export XORG_PREFIX=/usr
+export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
 # Put code in place
 pushd unix/xserver &&
   tar -xf $DIR/xorg-server-$XORG_VER.tar.bz2 --strip-components=1 &&
   patch -Np1 -i ../xserver120.patch &&
 popd &&
-
 # Build viewer
 cmake -G "Unix Makefiles"         \
       -DCMAKE_INSTALL_PREFIX=/usr \
       -DCMAKE_BUILD_TYPE=Release  \
       -Wno-dev &&
 make &&
-
 # Build server
 pushd unix/xserver &&
   autoreconf -fiv  &&
-
   CFLAGS="$CFLAGS -I/usr/include/drm" \
-  ./configure $XORG_CONFIG            \
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static            \
       --disable-xwayland    --disable-dri        --disable-dmx         \
       --disable-xorg        --disable-xnest      --disable-xvfb        \
       --disable-xwin        --disable-xephyr     --disable-kdrive      \
@@ -69,35 +76,45 @@ pushd unix/xserver &&
   make  &&
 popd
 
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 #Install viewer
 make install &&
-
 #Install server
 pushd unix/xserver/hw/vnc &&
   make install &&
 popd &&
+[ -e /usr/bin/Xvnc ] || ln -svf /usr/bin/Xvnc /usr/bin/Xvnc
 
-[ -e /usr/bin/Xvnc ] || ln -svf $XORG_PREFIX/bin/Xvnc /usr/bin/Xvnc
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 cat > /usr/share/applications/vncviewer.desktop << "EOF"
-<code class="literal">[Desktop Entry] Type=Application Name=TigerVNC Viewer Comment=VNC client Exec=/usr/bin/vncviewer Icon=tigervnc Terminal=false StartupNotify=false Categories=Network;RemoteAccess;</code>
+[Desktop Entry]
+Type=Application
+Name=TigerVNC Viewer
+Comment=VNC client
+Exec=/usr/bin/vncviewer
+Icon=tigervnc
+Terminal=false
+StartupNotify=false
+Categories=Network;RemoteAccess;
 EOF
-
 install -vm644 ../media/icons/tigervnc_24.png /usr/share/pixmaps &&
 ln -sfv tigervnc_24.png /usr/share/pixmaps/tigervnc.png
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

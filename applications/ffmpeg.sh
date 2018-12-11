@@ -6,6 +6,12 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+SOURCE_ONLY=n
+DESCRIPTION="br3ak FFmpeg is a solution to record,br3ak convert and stream audio and video. It is a very fast video andbr3ak audio converter and it can also acquire from a live audio/videobr3ak source. Designed to be intuitive, the command-line interfacebr3ak (<span class=\"command\"><strong>ffmpeg</strong>) tries tobr3ak figure out all the parameters, when possible. FFmpeg can also convert from any sample ratebr3ak to any other, and resize video on the fly with a high qualitybr3ak polyphase filter. FFmpeg can use abr3ak Video4Linux compatible video source and any Open Sound System audiobr3ak source.br3ak"
+SECTION="multimedia"
+VERSION=4.0.2
+NAME="ffmpeg"
+
 #REC:libass
 #REC:fdk-aac
 #REC:freetype2
@@ -18,8 +24,7 @@ set +h
 #REC:x265
 #REC:yasm
 #REC:alsa-lib
-#REC:x7driver#libva
-#REC:x7driver#libvdpau
+#REC:x7driver
 #REC:sdl2
 #OPT:fontconfig
 #OPT:frei0r
@@ -34,33 +39,31 @@ set +h
 #OPT:tl-installer
 #OPT:v4l-utils
 #OPT:xvid
-#OPT:installing
-#OPT:libbluray
-#OPT:libdca
+#OPT:xorg-server
+
 
 cd $SOURCE_DIR
-
-wget -nc http://ffmpeg.org/releases/ffmpeg-4.0.2.tar.xz
 
 URL=http://ffmpeg.org/releases/ffmpeg-4.0.2.tar.xz
 
 if [ ! -z $URL ]
 then
+wget -nc http://ffmpeg.org/releases/ffmpeg-4.0.2.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/ffmpeg/ffmpeg-4.0.2.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/ffmpeg/ffmpeg-4.0.2.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/ffmpeg/ffmpeg-4.0.2.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/ffmpeg/ffmpeg-4.0.2.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/ffmpeg/ffmpeg-4.0.2.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/ffmpeg/ffmpeg-4.0.2.tar.xz
 
-TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
+TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
-	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+	DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$"`
 	tar --no-overwrite-dir -xf $TARBALL
 else
 	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
 	unzip_file $TARBALL $NAME
 fi
-
 cd $DIRECTORY
 fi
 
-sed -i 's/-lflite"/-lflite -lasound"/' configure &&
+whoami > /tmp/currentuser
 
+sed -i 's/-lflite"/-lflite -lasound"/' configure &&
 ./configure --prefix=/usr        \
             --enable-gpl         \
             --enable-version3    \
@@ -80,60 +83,24 @@ sed -i 's/-lflite"/-lflite -lasound"/' configure &&
             --enable-libx264     \
             --enable-libx265     \
             --docdir=/usr/share/doc/ffmpeg-4.0.2 &&
-
 make &&
-
 gcc tools/qt-faststart.c -o tools/qt-faststart
-pushd doc &&
-for DOCNAME in `basename -s .html *.html`
-do
-    texi2pdf -b $DOCNAME.texi &&
-    texi2dvi -b $DOCNAME.texi &&
 
-    dvips    -o $DOCNAME.ps   \
-                $DOCNAME.dvi
-done &&
-popd &&
-unset DOCNAME
 
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install &&
-
 install -v -m755    tools/qt-faststart /usr/bin &&
 install -v -m755 -d           /usr/share/doc/ffmpeg-4.0.2 &&
 install -v -m644    doc/*.txt /usr/share/doc/ffmpeg-4.0.2
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
-install -v -m644 doc/*.pdf /usr/share/doc/ffmpeg-4.0.2 &&
-install -v -m644 doc/*.ps  /usr/share/doc/ffmpeg-4.0.2
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
 
-
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
-install -v -m755 -d /usr/share/doc/ffmpeg-4.0.2/api                     &&
-cp -vr doc/doxy/html/* /usr/share/doc/ffmpeg-4.0.2/api                  &&
-find /usr/share/doc/ffmpeg-4.0.2/api -type f -exec chmod -c 0644 \{} \; &&
-find /usr/share/doc/ffmpeg-4.0.2/api -type d -exec chmod -c 0755 \{} \;
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
-
-make fate-rsync SAMPLES=fate-suite/
-<span class="command"><strong>rsync -vrltLW --delete --timeout=60 --contimeout=60 \ rsync://fate-suite.ffmpeg.org/fate-suite/ fate-suite/</strong></span>
-make fate THREADS=<em class="replaceable"><code>N</code></em> SAMPLES=fate-suite/ | tee ../fate.log &&
-grep ^TEST ../fate.log | wc -l
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

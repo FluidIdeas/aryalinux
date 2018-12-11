@@ -6,46 +6,48 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+SOURCE_ONLY=n
+DESCRIPTION="%DESCRIPTION%"
+SECTION="postlfs"
+NAME="initramfs"
+
 #REQ:cpio
+
 
 cd $SOURCE_DIR
 
-
-URL=""
+URL=
 
 if [ ! -z $URL ]
 then
 
-TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
+TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
-	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+	DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$"`
 	tar --no-overwrite-dir -xf $TARBALL
 else
 	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
 	unzip_file $TARBALL $NAME
 fi
-
 cd $DIRECTORY
 fi
 
+whoami > /tmp/currentuser
 
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 cat > /sbin/mkinitramfs << "EOF"
 #!/bin/bash
 # This file based in part on the mkinitramfs script for the LFS LiveCD
 # written by Alexander E. Patrakov and Jeremy Huntwork.
-
 copy()
 {
   local file
-
   if [ "$2" == "lib" ]; then
     file=$(PATH=/lib:/usr/lib type -p $1)
   else
     file=$(type -p $1)
   fi
-
   if [ -n $file ] ; then
     cp $file $WDIR/$2
   else
@@ -54,74 +56,56 @@ copy()
     exit 1
   fi
 }
-
 if [ -z $1 ] ; then
   INITRAMFS_FILE=initrd.img-no-kmods
 else
   KERNEL_VERSION=$1
   INITRAMFS_FILE=initrd.img-$KERNEL_VERSION
 fi
-
 if [ -n "$KERNEL_VERSION" ] && [ ! -d "/lib/modules/$1" ] ; then
   echo "No modules directory named $1"
   exit 1
 fi
-
 printf "Creating $INITRAMFS_FILE... "
-
 binfiles="sh cat cp dd killall ls mkdir mknod mount "
 binfiles="$binfiles umount sed sleep ln rm uname"
 binfiles="$binfiles readlink basename"
-
 # Systemd installs udevadm in /bin. Other udev implementations have it in /sbin
 if [ -x /bin/udevadm ] ; then binfiles="$binfiles udevadm"; fi
-
 sbinfiles="modprobe blkid switch_root"
-
 #Optional files and locations
 for f in mdadm mdmon udevd udevadm; do
   if [ -x /sbin/$f ] ; then sbinfiles="$sbinfiles $f"; fi
 done
-
 unsorted=$(mktemp /tmp/unsorted.XXXXXXXXXX)
-
 DATADIR=/usr/share/mkinitramfs
 INITIN=init.in
-
 # Create a temporary working directory
 WDIR=$(mktemp -d /tmp/initrd-work.XXXXXXXXXX)
-
 # Create base directory structure
 mkdir -p $WDIR/{bin,dev,lib/firmware,run,sbin,sys,proc,usr}
 mkdir -p $WDIR/etc/{modprobe.d,udev/rules.d}
 touch $WDIR/etc/modprobe.d/modprobe.conf
 ln -s lib $WDIR/lib64
 ln -s ../bin $WDIR/usr/bin
-
 # Create necessary device nodes
 mknod -m 640 $WDIR/dev/console c 5 1
 mknod -m 664 $WDIR/dev/null    c 1 3
-
 # Install the udev configuration files
 if [ -f /etc/udev/udev.conf ]; then
   cp /etc/udev/udev.conf $WDIR/etc/udev/udev.conf
 fi
-
 for file in $(find /etc/udev/rules.d/ -type f) ; do
   cp $file $WDIR/etc/udev/rules.d
 done
-
 # Install any firmware present
 cp -a /lib/firmware $WDIR/lib
-
 # Copy the RAID configuration file if present
 if [ -f /etc/mdadm.conf ] ; then
   cp /etc/mdadm.conf $WDIR/etc
 fi
-
 # Install the init file
 install -m0755 $DATADIR/$INITIN $WDIR/init
-
 if [  -n "$KERNEL_VERSION" ] ; then
   if [ -x /bin/kmod ] ; then
     binfiles="$binfiles kmod"
@@ -130,35 +114,29 @@ if [  -n "$KERNEL_VERSION" ] ; then
     sbinfiles="$sbinfiles insmod"
   fi
 fi
-
 # Install basic binaries
 for f in $binfiles ; do
   if [ -e /bin/$f ]; then d="/bin"; else d="/usr/bin"; fi
   ldd $d/$f | sed "s/\t//" | cut -d " " -f1 >> $unsorted
   copy $d/$f bin
 done
-
 # Add lvm if present
 if [ -x /sbin/lvm ] ; then sbinfiles="$sbinfiles lvm dmsetup"; fi
-
 for f in $sbinfiles ; do
   ldd /sbin/$f | sed "s/\t//" | cut -d " " -f1 >> $unsorted
   copy $f sbin
 done
-
 # Add udevd libraries if not in /sbin
 if [ -x /lib/udev/udevd ] ; then
   ldd /lib/udev/udevd | sed "s/\t//" | cut -d " " -f1 >> $unsorted
 elif [ -x /lib/systemd/systemd-udevd ] ; then
   ldd /lib/systemd/systemd-udevd | sed "s/\t//" | cut -d " " -f1 >> $unsorted
 fi
-
 # Add module symlinks if appropriate
 if [ -n "$KERNEL_VERSION" ] && [ -x /bin/kmod ] ; then
   ln -s kmod $WDIR/bin/lsmod
   ln -s kmod $WDIR/bin/insmod
 fi
-
 # Add lvm symlinks if appropriate
 # Also copy the lvm.conf file
 if  [ -x /sbin/lvm ] ; then
@@ -168,13 +146,11 @@ if  [ -x /sbin/lvm ] ; then
   ln -s lvm $WDIR/sbin/lvcreate
   ln -s lvm $WDIR/sbin/lvdisplay
   ln -s lvm $WDIR/sbin/lvscan
-
   ln -s lvm $WDIR/sbin/pvchange
   ln -s lvm $WDIR/sbin/pvck
   ln -s lvm $WDIR/sbin/pvcreate
   ln -s lvm $WDIR/sbin/pvdisplay
   ln -s lvm $WDIR/sbin/pvscan
-
   ln -s lvm $WDIR/sbin/vgchange
   ln -s lvm $WDIR/sbin/vgcreate
   ln -s lvm $WDIR/sbin/vgscan
@@ -183,24 +159,20 @@ if  [ -x /sbin/lvm ] ; then
   # Conf file(s)
   cp -a /etc/lvm $WDIR/etc
 fi
-
 # Install libraries
 sort $unsorted | uniq | while read library ; do
   if [ "$library" == "linux-vdso.so.1" ] ||
      [ "$library" == "linux-gate.so.1" ]; then
     continue
   fi
-
   copy $library lib
 done
-
 if [ -d /lib/udev ]; then
   cp -a /lib/udev $WDIR/lib
 fi
 if [ -d /lib/systemd ]; then
   cp -a /lib/systemd $WDIR/lib
 fi
-
 # Install the kernel modules if requested
 if [ -n "$KERNEL_VERSION" ]; then
   find                                                                        \
@@ -209,50 +181,41 @@ if [ -n "$KERNEL_VERSION" ]; then
      /lib/modules/$KERNEL_VERSION/kernel/drivers/{scsi,message,pcmcia,virtio} \
      /lib/modules/$KERNEL_VERSION/kernel/drivers/usb/{host,storage}           \
      -type f 2> /dev/null | cpio --make-directories -p --quiet $WDIR
-
   cp /lib/modules/$KERNEL_VERSION/modules.{builtin,order}                     \
             $WDIR/lib/modules/$KERNEL_VERSION
-
   depmod -b $WDIR $KERNEL_VERSION
 fi
-
 ( cd $WDIR ; find . | cpio -o -H newc --quiet | gzip -9 ) > $INITRAMFS_FILE
-
 # Remove the temporary directory and file
 rm -rf $WDIR $unsorted
 printf "done.\n"
-
 EOF
+chmod 0755 /sbin/mkinitramfs
 
-<span class="command"><strong>chmod 0755 /sbin/mkinitramfs</strong></span>
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 mkdir -p /usr/share/mkinitramfs &&
 cat > /usr/share/mkinitramfs/init.in << "EOF"
 #!/bin/sh
-
 PATH=/bin:/usr/bin:/sbin:/usr/sbin
 export PATH
-
 problem()
 {
    printf "Encountered a problem!\n\nDropping you to a shell.\n\n"
    sh
 }
-
 no_device()
 {
    printf "The device %s, which is supposed to contain the\n" $1
    printf "root file system, does not exist.\n"
    printf "Please fix this problem and exit this shell.\n\n"
 }
-
 no_mount()
 {
    printf "Could not mount device %s\n" $1
@@ -262,25 +225,21 @@ no_mount()
    printf "you should add the rootfstype=... parameter to the kernel command line.\n\n"
    printf "Available partitions:\n"
 }
-
 do_mount_root()
 {
    mkdir /.root
    [ -n "$rootflags" ] && rootflags="$rootflags,"
    rootflags="$rootflags$ro"
-
    case "$root" in
       /dev/* ) device=$root ;;
       UUID=* ) eval $root; device="/dev/disk/by-uuid/$UUID"  ;;
       LABEL=*) eval $root; device="/dev/disk/by-label/$LABEL" ;;
       ""     ) echo "No root device specified." ; problem    ;;
    esac
-
    while [ ! -b "$device" ] ; do
        no_device $device
        problem
    done
-
    if ! mount -n -t "$rootfstype" -o "$rootflags" "$device" /.root ; then
        no_mount $device
        cat /proc/partitions
@@ -289,7 +248,6 @@ do_mount_root()
        echo "Successfully mounted device $root"
    fi
 }
-
 init=/sbin/init
 root=
 rootdelay=
@@ -297,14 +255,11 @@ rootfstype=auto
 ro="ro"
 rootflags=
 device=
-
 mount -n -t devtmpfs devtmpfs /dev
 mount -n -t proc     proc     /proc
 mount -n -t sysfs    sysfs    /sys
 mount -n -t tmpfs    tmpfs    /run
-
 read -r cmdline < /proc/cmdline
-
 for param in $cmdline ; do
   case $param in
     init=*      ) init=${param#init=}             ;;
@@ -316,7 +271,6 @@ for param in $cmdline ; do
     rw          ) ro="rw"                         ;;
   esac
 done
-
 # udevd location depends on version
 if [ -x /sbin/udevd ]; then
   UDEVD=/sbin/udevd
@@ -328,46 +282,27 @@ else
   echo "Cannot find udevd nor systemd-udevd"
   problem
 fi
-
 ${UDEVD} --daemon --resolve-names=never
 udevadm trigger
 udevadm settle
-
 if [ -f /etc/mdadm.conf ] ; then mdadm -As                       ; fi
 if [ -x /sbin/vgchange  ] ; then /sbin/vgchange -a y > /dev/null ; fi
 if [ -n "$rootdelay"    ] ; then sleep "$rootdelay"              ; fi
-
 do_mount_root
-
 killall -w ${UDEVD##*/}
-
 exec switch_root /.root "$init" "$@"
-
 EOF
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
 
-mkinitramfs [KERNEL VERSION]
-# Generic initramfs and root fs identified by UUID
-menuentry "LFS Dev (LFS-7.0-Feb14) initrd, Linux 3.0.4"
-{
-  linux  /vmlinuz-3.0.4-lfs-20120214 root=UUID=54b934a9-302d-415e-ac11-4988408eb0a8 ro
-  initrd /initrd.img-no-kmods
-}
-# Generic initramfs and root fs on LVM partition
-menuentry "LFS Dev (LFS-7.0-Feb18) initrd lvm, Linux 3.0.4"
-{
-  linux  /vmlinuz-3.0.4-lfs-20120218 root=/dev/mapper/myroot ro
-  initrd /initrd.img-no-kmods
-}
-# Specific initramfs and root fs identified by LABEL
-menuentry "LFS Dev (LFS-7.1-Feb20) initrd label, Linux 3.2.6"
-{
-  linux  /vmlinuz-3.2.6-lfs71-120220 root=LABEL=lfs71 ro
-  initrd /initrd.img-3.2.6-lfs71-120220
-}
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
+mkinitramfs `read -p "Enter the kernel version : " KERN_VERSION; echo $KERN_VERSION`
+
+
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

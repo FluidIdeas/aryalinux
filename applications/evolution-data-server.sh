@@ -6,6 +6,12 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+SOURCE_ONLY=n
+DESCRIPTION="br3ak Evolution Data Server packagebr3ak provides a unified backend for programs that work with contacts,br3ak tasks, and calendar information. It was originally developed forbr3ak Evolution (hence the name), but isbr3ak now used by other packages as well.br3ak"
+SECTION="gnome"
+VERSION=3.28.5
+NAME="evolution-data-server"
+
 #REQ:db
 #REQ:gcr
 #REQ:libical
@@ -22,34 +28,32 @@ set +h
 #REC:vala
 #OPT:gtk-doc
 #OPT:mitkrb
-#OPT:mail
 #OPT:openldap
 
-cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.28/evolution-data-server-3.28.5.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.28/evolution-data-server-3.28.5.tar.xz
+cd $SOURCE_DIR
 
 URL=http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.28/evolution-data-server-3.28.5.tar.xz
 
 if [ ! -z $URL ]
 then
+wget -nc http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.28/evolution-data-server-3.28.5.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/evolution-data-server/evolution-data-server-3.28.5.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/evolution-data-server/evolution-data-server-3.28.5.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/evolution-data-server/evolution-data-server-3.28.5.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/evolution-data-server/evolution-data-server-3.28.5.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/evolution-data-server/evolution-data-server-3.28.5.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/evolution-data-server/evolution-data-server-3.28.5.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.28/evolution-data-server-3.28.5.tar.xz
 
-TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
+TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
-	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+	DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$"`
 	tar --no-overwrite-dir -xf $TARBALL
 else
 	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
 	unzip_file $TARBALL $NAME
 fi
-
 cd $DIRECTORY
 fi
 
+whoami > /tmp/currentuser
+
 mkdir build &&
 cd    build &&
-
 cmake -DCMAKE_INSTALL_PREFIX=/usr   \
       -DENABLE_UOA=OFF              \
       -DENABLE_VALA_BINDINGS=ON     \
@@ -61,15 +65,19 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr   \
       -DENABLE_INTROSPECTION=ON     \
       -DENABLE_GTK_DOC=OFF          \
       .. &&
-make
+make "-j`nproc`" || make
 
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

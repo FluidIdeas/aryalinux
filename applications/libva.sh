@@ -6,55 +6,42 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:libdrm
-#REC:mesa
+NAME="libva"
+VERSION="2.1.0"
+
+#REQ:mesa
 #OPT:doxygen
 #OPT:wayland
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/intel/libva/releases/download/2.3.0/libva-2.3.0.tar.bz2
+URL=http://ftp.osuosl.org/pub/blfs/conglomeration/libva/libva-2.1.0.tar.bz2
 
-URL=https://github.com/intel/libva/releases/download/2.3.0/libva-2.3.0.tar.bz2
+wget -nc $URL
 
-if [ ! -z $URL ]
-then
+TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
+DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
 
-TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
-if [ -z $(echo $TARBALL | grep ".zip$") ]; then
-	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
-	tar --no-overwrite-dir -xf $TARBALL
-else
-	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
-	unzip_file $TARBALL $NAME
-fi
-
+tar xf $TARBALL
 cd $DIRECTORY
-fi
 
+export XORG_PREFIX=/usr
+export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
+
+sed -i "/seems to be moved/s/^/#/" ltmain.sh &&
 ./configure $XORG_CONFIG &&
 make
 
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
-
-./configure $XORG_CONFIG &&
-make
-
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
-make install
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo ./rootscript.sh
+sudo rm rootscript.sh
 
 
-if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
+cd $SOURCE_DIR
+cleanup "$NAME" "$DIRECTORY"
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"

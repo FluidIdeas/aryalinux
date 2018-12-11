@@ -6,33 +6,44 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+SOURCE_ONLY=n
+DESCRIPTION="%DESCRIPTION%"
+SECTION="x"
+NAME="xorg-config"
+
+
 
 cd $SOURCE_DIR
 
-
-URL=""
+URL=
 
 if [ ! -z $URL ]
 then
 
-TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
+TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
-	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+	DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$"`
 	tar --no-overwrite-dir -xf $TARBALL
 else
 	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
 	unzip_file $TARBALL $NAME
 fi
-
 cd $DIRECTORY
 fi
 
+whoami > /tmp/currentuser
+
 xrandr --listproviders
-xrandr --setprovideroffloadsink <em class="replaceable"><code><provider> <sink></code></em>
+
+
+xrandr --setprovideroffloadsink <em class="replaceable"><code><provider> <sink></em>
+
+
 DRI_PRIME=1 glxinfo | egrep "(OpenGL vendor|OpenGL renderer|OpenGL version)"
 
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 cat > /etc/X11/xorg.conf.d/xkb-defaults.conf << "EOF"
 Section "InputClass"
     Identifier "XKB Defaults"
@@ -41,14 +52,15 @@ Section "InputClass"
     Option "XkbOptions" "terminate:ctrl_alt_bksp"
 EndSection
 EOF
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 cat > /etc/X11/xorg.conf.d/videocard-0.conf << "EOF"
 Section "Device"
     Identifier  "Videocard0"
@@ -58,14 +70,15 @@ Section "Device"
     Option      "NoAccel" "true"
 EndSection
 EOF
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 cat > /etc/X11/xorg.conf.d/server-layout.conf << "EOF"
 Section "ServerLayout"
     Identifier     "DefaultLayout"
@@ -74,10 +87,13 @@ Section "ServerLayout"
     Option         "Xinerama"
 EndSection
 EOF
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

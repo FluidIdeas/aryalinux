@@ -6,6 +6,12 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+SOURCE_ONLY=n
+DESCRIPTION="br3ak MIT Kerberos V5 is a freebr3ak implementation of Kerberos 5. Kerberos is a network authenticationbr3ak protocol. It centralizes the authentication database and usesbr3ak kerberized applications to work with servers or services thatbr3ak support Kerberos allowing single logins and encrypted communicationbr3ak over internal networks or the Internet.br3ak"
+SECTION="postlfs"
+VERSION=1.16.1
+NAME="mitkrb"
+
 #OPT:dejagnu
 #OPT:gnupg
 #OPT:keyutils
@@ -14,32 +20,32 @@ set +h
 #OPT:rpcbind
 #OPT:valgrind
 
+
 cd $SOURCE_DIR
 
-wget -nc https://kerberos.org/dist/krb5/1.16/krb5-1.16.2.tar.gz
-
-URL=https://kerberos.org/dist/krb5/1.16/krb5-1.16.2.tar.gz
+URL=https://kerberos.org/dist/krb5/1.16/krb5-1.16.1.tar.gz
 
 if [ ! -z $URL ]
 then
+wget -nc https://kerberos.org/dist/krb5/1.16/krb5-1.16.1.tar.gz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/krb5/krb5-1.16.1.tar.gz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/krb5/krb5-1.16.1.tar.gz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/krb5/krb5-1.16.1.tar.gz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/krb5/krb5-1.16.1.tar.gz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/krb5/krb5-1.16.1.tar.gz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/krb5/krb5-1.16.1.tar.gz
 
-TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
+TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
-	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+	DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$"`
 	tar --no-overwrite-dir -xf $TARBALL
 else
 	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
 	unzip_file $TARBALL $NAME
 fi
-
 cd $DIRECTORY
 fi
+
+whoami > /tmp/currentuser
 
 cd src &&
  
 sed -i -e 's@\^u}@^u cols 300}@' tests/dejagnu/config/default.exp     &&
 sed -i -e '/eq 0/{N;s/12 //}'    plugins/kdb/db2/libdb2/test/run.test &&
-
 ./configure --prefix=/usr            \
             --sysconfdir=/etc        \
             --localstatedir=/var/lib \
@@ -47,107 +53,52 @@ sed -i -e '/eq 0/{N;s/12 //}'    plugins/kdb/db2/libdb2/test/run.test &&
             --with-system-ss         \
             --with-system-verto=no   \
             --enable-dns-for-realm &&
-make
+make "-j`nproc`" || make
 
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install &&
-
 for f in gssapi_krb5 gssrpc k5crypto kadm5clnt kadm5srv \
          kdb5 kdb_ldap krad krb5 krb5support verto ; do
-
     find /usr/lib -type f -name "lib$f*.so*" -exec chmod -v 755 {} \;    
 done          &&
-
 mv -v /usr/lib/libkrb5.so.3*        /lib &&
 mv -v /usr/lib/libk5crypto.so.3*    /lib &&
 mv -v /usr/lib/libkrb5support.so.0* /lib &&
-
 ln -v -sf ../../lib/libkrb5.so.3.3        /usr/lib/libkrb5.so        &&
 ln -v -sf ../../lib/libk5crypto.so.3.1    /usr/lib/libk5crypto.so    &&
 ln -v -sf ../../lib/libkrb5support.so.0.1 /usr/lib/libkrb5support.so &&
-
 mv -v /usr/bin/ksu /bin &&
 chmod -v 755 /bin/ksu   &&
+install -v -dm755 /usr/share/doc/krb5-1.16.1 &&
+cp -vfr ../doc/*  /usr/share/doc/krb5-1.16.1
 
-install -v -dm755 /usr/share/doc/krb5-1.16.2 &&
-cp -vfr ../doc/*  /usr/share/doc/krb5-1.16.2
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
-
-
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
-cat > /etc/krb5.conf << "EOF"
-<code class="literal"># Begin /etc/krb5.conf [libdefaults] default_realm = <em class="replaceable"><code><EXAMPLE.ORG></code></em> encrypt = true [realms] <em class="replaceable"><code><EXAMPLE.ORG></code></em> = { kdc = <em class="replaceable"><code><belgarath.example.org></code></em> admin_server = <em class="replaceable"><code><belgarath.example.org></code></em> dict_file = /usr/share/dict/words } [domain_realm] .<em class="replaceable"><code><example.org></code></em> = <em class="replaceable"><code><EXAMPLE.ORG></code></em> [logging] kdc = SYSLOG:INFO:AUTH admin_server = SYSLOG:INFO:AUTH default = SYSLOG:DEBUG:DAEMON # End /etc/krb5.conf</code>
-EOF
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
-kdb5_util create -r <em class="replaceable"><code><EXAMPLE.ORG></code></em> -s
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
 
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+. /etc/alps/alps.conf
 
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
-kadmin.local
-<code class="prompt">kadmin.local:</code> add_policy dict-only
-<code class="prompt">kadmin.local:</code> addprinc -policy dict-only <em class="replaceable"><code><loginname></code></em>
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
-
-
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
-<code class="prompt">kadmin.local:</code> addprinc -randkey host/<em class="replaceable"><code><belgarath.example.org></code></em>
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
-
-
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
-<code class="prompt">kadmin.local:</code> ktadd host/<em class="replaceable"><code><belgarath.example.org></code></em>
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
-
-
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
-/usr/sbin/krb5kdc
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
-
-kinit <em class="replaceable"><code><loginname></code></em>
-klist
-ktutil
-<code class="prompt">ktutil:</code> rkt /etc/krb5.keytab
-<code class="prompt">ktutil:</code> l
-
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+pushd $SOURCE_DIR
+wget -nc http://www.linuxfromscratch.org/blfs/downloads/svn/blfs-systemd-units-20180105.tar.bz2
+tar xf blfs-systemd-units-20180105.tar.bz2
+cd blfs-systemd-units-20180105
 make install-krb5
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+
+cd ..
+rm -rf blfs-systemd-units-20180105
+popd
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

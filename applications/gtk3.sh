@@ -6,11 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+SOURCE_ONLY=n
+DESCRIPTION="br3ak The GTK+ 3 package containsbr3ak libraries used for creating graphical user interfaces forbr3ak applications.br3ak"
+SECTION="x"
+VERSION=3.24.1
+NAME="gtk3"
+
 #REQ:at-spi2-atk
 #REQ:gdk-pixbuf
 #REQ:libepoxy
 #REQ:pango
 #REQ:python-modules#six
+#REQ:wayland-protocols
+#REQ:wayland
+#REQ:libxkbcommon
 #REC:adwaita-icon-theme
 #REC:hicolor-icon-theme
 #REC:iso-codes
@@ -26,65 +35,83 @@ set +h
 #OPT:python-modules#pyatspi2
 #OPT:rest
 
-cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.1.tar.xz
+cd $SOURCE_DIR
 
 URL=http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.1.tar.xz
 
 if [ ! -z $URL ]
 then
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.1.tar.xz || wget -nc http://mirrors-usa.go-parts.com/blfs/conglomeration/gtk+/gtk+-3.24.1.tar.xz || wget -nc http://mirrors-ru.go-parts.com/blfs/conglomeration/gtk+/gtk+-3.24.1.tar.xz || wget -nc ftp://ftp.lfs-matrix.net/pub/blfs/conglomeration/gtk+/gtk+-3.24.1.tar.xz || wget -nc http://ftp.lfs-matrix.net/pub/blfs/conglomeration/gtk+/gtk+-3.24.1.tar.xz || wget -nc ftp://ftp.osuosl.org/pub/blfs/conglomeration/gtk+/gtk+-3.24.1.tar.xz || wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/gtk+/gtk+-3.24.1.tar.xz || wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.1.tar.xz
 
-TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
+TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
-	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+	DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$"`
 	tar --no-overwrite-dir -xf $TARBALL
 else
 	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
 	unzip_file $TARBALL $NAME
 fi
-
 cd $DIRECTORY
 fi
+
+whoami > /tmp/currentuser
 
 ./configure --prefix=/usr             \
             --sysconfdir=/etc         \
             --enable-broadway-backend \
             --enable-x11-backend      \
             --enable-wayland-backend &&
-make
+make "-j`nproc`" || make
 
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 make install
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 gtk-query-immodules-3.0 --update-cache
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
 glib-compile-schemas /usr/share/glib-2.0/schemas
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo bash -e ./rootscript.sh
+sudo rm rootscript.sh
+
 
 mkdir -vp ~/.config/gtk-3.0
 cat > ~/.config/gtk-3.0/settings.ini << "EOF"
-<code class="literal">[Settings] gtk-theme-name = <em class="replaceable"><code>Adwaita</code></em> gtk-icon-theme-name = <em class="replaceable"><code>oxygen</code></em> gtk-font-name = <em class="replaceable"><code>DejaVu Sans 12</code></em> gtk-cursor-theme-size = <em class="replaceable"><code>18</code></em> gtk-toolbar-style = <em class="replaceable"><code>GTK_TOOLBAR_BOTH_HORIZ</code></em> gtk-xft-antialias = <em class="replaceable"><code>1</code></em> gtk-xft-hinting = <em class="replaceable"><code>1</code></em> gtk-xft-hintstyle = <em class="replaceable"><code>hintslight</code></em> gtk-xft-rgba = <em class="replaceable"><code>rgb</code></em> gtk-cursor-theme-name = <em class="replaceable"><code>Adwaita</code></em></code>
+[Settings]
+gtk-theme-name = <em class="replaceable"><code>Adwaita</em>
+gtk-icon-theme-name = <em class="replaceable"><code>oxygen</em>
+gtk-font-name = <em class="replaceable"><code>DejaVu Sans 12</em>
+gtk-cursor-theme-size = <em class="replaceable"><code>18</em>
+gtk-toolbar-style = <em class="replaceable"><code>GTK_TOOLBAR_BOTH_HORIZ</em>
+gtk-xft-antialias = <em class="replaceable"><code>1</em>
+gtk-xft-hinting = <em class="replaceable"><code>1</em>
+gtk-xft-hintstyle = <em class="replaceable"><code>hintslight</em>
+gtk-xft-rgba = <em class="replaceable"><code>rgb</em>
+gtk-cursor-theme-name = <em class="replaceable"><code>Adwaita</em>
 EOF
+
+
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

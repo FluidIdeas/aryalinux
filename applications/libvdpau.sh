@@ -6,6 +6,9 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+NAME="libvdpau"
+VERSION="1.1.1"
+
 #REQ:x7lib
 #OPT:doxygen
 #OPT:graphviz
@@ -13,40 +16,52 @@ set +h
 #OPT:tl-installer
 #OPT:mesa
 
+
 cd $SOURCE_DIR
 
-wget -nc https://people.freedesktop.org/~aplattner/vdpau/libvdpau-1.1.1.tar.bz2
+URL=http://people.freedesktop.org/~aplattner/vdpau/libvdpau-1.1.1.tar.bz2
 
-URL=https://people.freedesktop.org/~aplattner/vdpau/libvdpau-1.1.1.tar.bz2
+wget -nc http://people.freedesktop.org/~aplattner/vdpau/libvdpau-1.1.1.tar.bz2
 
-if [ ! -z $URL ]
-then
+TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
+DIRECTORY=`tar tf $TARBALL | cut -d/ -f1 | uniq`
 
-TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
-if [ -z $(echo $TARBALL | grep ".zip$") ]; then
-	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
-	tar --no-overwrite-dir -xf $TARBALL
-else
-	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
-	unzip_file $TARBALL $NAME
-fi
-
+tar xf $TARBALL
 cd $DIRECTORY
-fi
+
+export XORG_PREFIX=/usr
+export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc \
+    --localstatedir=/var --disable-static"
 
 ./configure $XORG_CONFIG \
             --docdir=/usr/share/doc/libvdpau-1.1.1 &&
 make
 
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
-make install
+sudo tee /usr/lib/pkgconfig/vdpau.pc <<"EOF"
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+moduledir=@moduledir@
+
+Name: VDPAU
+Description: The Video Decode and Presentation API for UNIX
+Version: @PACKAGE_VERSION@
+Requires.private: x11
+Cflags: -I${includedir}
+Libs: -L${libdir} -lvdpau
 EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+
+sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+make install
+ENDOFROOTSCRIPT
+sudo chmod 755 rootscript.sh
+sudo ./rootscript.sh
+sudo rm rootscript.sh
 
 
-if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
+cd $SOURCE_DIR
+
+cleanup "$NAME" "$DIRECTORY"
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
