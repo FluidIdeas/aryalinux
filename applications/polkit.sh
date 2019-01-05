@@ -18,11 +18,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/polkit/releases/polkit-0.114.tar.gz
+wget -nc https://www.freedesktop.org/software/polkit/releases/polkit-0.115.tar.gz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/polkit-0.115-security_patch-2.patch
 
 NAME=polkit
-VERSION=0.114
-URL=https://www.freedesktop.org/software/polkit/releases/polkit-0.114.tar.gz
+VERSION=0.115
+URL=https://www.freedesktop.org/software/polkit/releases/polkit-0.115.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -51,8 +52,7 @@ sudo /tmp/rootscript.sh
 sudo rm /tmp/rootscript.sh
 
 sed -i "s:/sys/fs/cgroup/systemd/:/sys:g" configure
-sed -e '/JS_ReportWarningUTF8/s/,/, "%s",/'  \
-        -i  src/polkitbackend/polkitbackendjsauthority.cpp
+patch -Np1 -i ../polkit-0.115-security_patch-2.patch
 ./configure --prefix=/usr                    \
             --sysconfdir=/etc                \
             --localstatedir=/var             \

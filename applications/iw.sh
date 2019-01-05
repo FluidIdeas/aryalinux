@@ -6,14 +6,15 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#REQ:libnl
 
 cd $SOURCE_DIR
 
-wget -nc https://files.pythonhosted.org/packages/source/B/Beaker/Beaker-1.10.0.tar.gz
+wget -nc https://www.kernel.org/pub/software/network/iw/iw-4.14.tar.xz
 
-NAME=beaker-1.10.0
-VERSION=1.10.0
-URL=https://files.pythonhosted.org/packages/source/B/Beaker/Beaker-1.10.0.tar.gz
+NAME=iw
+VERSION=4.14
+URL=https://www.kernel.org/pub/software/network/iw/iw-4.14.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -30,19 +31,12 @@ fi
 cd $DIRECTORY
 fi
 
+sed -i "/INSTALL.*gz/s/.gz//" Makefile &&
+make
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-python setup.py install --optimize=1
-EOF
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
-
-
-sudo rm /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
-python3 setup.py install --optimize=1
+make SBINDIR=/sbin install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

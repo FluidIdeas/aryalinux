@@ -10,12 +10,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.ring.gr.jp/archives/net/mail/procmail/procmail-3.22.tar.gz
+wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/procmail/procmail-3.22.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/procmail-3.22-consolidated_fixes-1.patch
 
 NAME=procmail
 VERSION=3.22
-URL=http://www.ring.gr.jp/archives/net/mail/procmail/procmail-3.22.tar.gz
+URL=http://ftp.osuosl.org/pub/blfs/conglomeration/procmail/procmail-3.22.tar.gz
 
 if [ ! -z $URL ]
 then

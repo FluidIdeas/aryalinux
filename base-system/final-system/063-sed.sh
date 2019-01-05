@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="063-sed.sh"
-TARBALL="sed-4.5.tar.xz"
+TARBALL="sed-4.7.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -39,8 +39,8 @@ sed -i 's/testsuite.panic-tests.sh//' Makefile.in
 make
 make html
 make install
-install -d -m755           /usr/share/doc/sed-4.5
-install -m644 doc/sed.html /usr/share/doc/sed-4.5
+install -d -m755           /usr/share/doc/sed-4.7
+install -m644 doc/sed.html /usr/share/doc/sed-4.7
 
 
 cd $SOURCE_DIR

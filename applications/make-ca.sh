@@ -13,11 +13,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/djlucas/make-ca/releases/download/v1.0/make-ca-1.0.tar.xz
+wget -nc https://github.com/djlucas/make-ca/releases/download/v1.2/make-ca-1.2.tar.xz
 
 NAME=make-ca
-VERSION=1.0
-URL=https://github.com/djlucas/make-ca/releases/download/v1.0/make-ca-1.0.tar.xz
+VERSION=1.2
+URL=https://github.com/djlucas/make-ca/releases/download/v1.2/make-ca-1.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -63,6 +63,15 @@ sudo rm /tmp/rootscript.sh
 
 ln -sfv /etc/pki/tls/certs/ca-bundle.crt \
         /etc/ssl/ca-bundle.crt
+
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
+systemctl enable update-pki.timer
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

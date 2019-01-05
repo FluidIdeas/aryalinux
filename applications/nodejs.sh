@@ -7,17 +7,18 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:python2
+#REQ:which
 #REC:c-ares
 #REC:icu
 #REC:libuv
 
 cd $SOURCE_DIR
 
-wget -nc https://nodejs.org/dist/v10.14.1/node-v10.14.1.tar.xz
+wget -nc https://nodejs.org/dist/v10.14.2/node-v10.14.2.tar.xz
 
 NAME=nodejs
-VERSION=v10.14.1
-URL=https://nodejs.org/dist/v10.14.1/node-v10.14.1.tar.xz
+VERSION=v10.14.2
+URL=https://nodejs.org/dist/v10.14.2/node-v10.14.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -45,7 +46,7 @@ make
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
-ln -sf node /usr/share/doc/node-10.14.1
+ln -sf node /usr/share/doc/node-10.14.2
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

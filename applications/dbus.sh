@@ -17,11 +17,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://dbus.freedesktop.org/releases/dbus/dbus-1.12.10.tar.gz
+wget -nc https://dbus.freedesktop.org/releases/dbus/dbus-1.12.12.tar.gz
 
 NAME=dbus
-VERSION=1.12.10
-URL=https://dbus.freedesktop.org/releases/dbus/dbus-1.12.10.tar.gz
+VERSION=1.12.12
+URL=https://dbus.freedesktop.org/releases/dbus/dbus-1.12.12.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -45,7 +45,7 @@ fi
             --disable-doxygen-docs               \
             --disable-xml-docs                   \
             --disable-static                     \
-            --docdir=/usr/share/doc/dbus-1.12.10 \
+            --docdir=/usr/share/doc/dbus-1.12.12 \
             --with-console-auth-dir=/run/console \
             --with-system-pid-file=/run/dbus/pid \
             --with-system-socket=/run/dbus/system_bus_socket &&

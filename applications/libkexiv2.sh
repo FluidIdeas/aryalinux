@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/applications/18.08.0/src/libkexiv2-18.08.0.tar.xz
+wget -nc http://download.kde.org/stable/applications/18.12.0/src/libkexiv2-18.12.0.tar.xz
 
 NAME=libkexiv2
 VERSION=""
-URL=http://download.kde.org/stable/applications/18.08.0/src/libkexiv2-18.08.0.tar.xz
+URL=http://download.kde.org/stable/applications/18.12.0/src/libkexiv2-18.12.0.tar.xz
 
 if [ ! -z $URL ]
 then

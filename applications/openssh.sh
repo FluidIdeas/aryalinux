@@ -6,6 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#OPT:gdb
 #OPT:linux-pam
 #OPT:installing
 #OPT:mitkrb

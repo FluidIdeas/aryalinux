@@ -23,11 +23,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.isc.org/isc/bind9/9.12.3/bind-9.12.3.tar.gz
+wget -nc ftp://ftp.isc.org/isc/bind9/9.12.3-P1/bind-9.12.3-P1.tar.gz
 
 NAME=bind
-VERSION=9.12.3
-URL=ftp://ftp.isc.org/isc/bind9/9.12.3/bind-9.12.3.tar.gz
+VERSION=9.12.3-P1
+URL=ftp://ftp.isc.org/isc/bind9/9.12.3-P1/bind-9.12.3-P1.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -76,11 +76,11 @@ sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 
-install -v -m755 -d /usr/share/doc/bind-9.12.3/{arm,misc} &&
+install -v -m755 -d /usr/share/doc/bind-9.12.3-P1/{arm,misc} &&
 install -v -m644    doc/arm/*.html \
-                    /usr/share/doc/bind-9.12.3/arm &&
+                    /usr/share/doc/bind-9.12.3-P1/arm &&
 install -v -m644    doc/misc/{dnssec,ipv6,migrat*,options,rfc-compliance,roadmap,sdb} \
-                    /usr/share/doc/bind-9.12.3/misc
+                    /usr/share/doc/bind-9.12.3-P1/misc
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

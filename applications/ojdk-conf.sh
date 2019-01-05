@@ -69,7 +69,7 @@ sudo rm /tmp/rootscript.sh
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 /usr/sbin/make-ca -g --force &&
-ln -sfv /etc/ssl/java/cacerts /opt/jdk/lib/security/cacerts
+ln -sfv /etc/pki/tls/java/cacerts /opt/jdk/lib/security/cacerts
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

@@ -19,12 +19,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.stack.nl/pub/doxygen/doxygen-1.8.14.src.tar.gz
-wget -nc ftp://ftp.stack.nl/pub/doxygen/doxygen-1.8.14.src.tar.gz
+wget -nc http://doxygen.nl/files/doxygen-1.8.15.src.tar.gz
 
 NAME=doxygen
-VERSION=1.8.14.src
-URL=http://ftp.stack.nl/pub/doxygen/doxygen-1.8.14.src.tar.gz
+VERSION=1.8.15.src
+URL=http://doxygen.nl/files/doxygen-1.8.15.src.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -50,7 +49,7 @@ cmake -G "Unix Makefiles"         \
       -Wno-dev .. &&
 
 make
-cmake -DDOC_INSTALL_DIR=share/doc/doxygen-1.8.14 -Dbuild_doc=ON .. &&
+cmake -DDOC_INSTALL_DIR=share/doc/doxygen-1.8.15 -Dbuild_doc=ON .. &&
 
 make docs
 

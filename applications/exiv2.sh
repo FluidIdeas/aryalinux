@@ -13,11 +13,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.exiv2.org/builds/exiv2-0.26-trunk.tar.gz
+wget -nc http://www.exiv2.org/builds/exiv2-0.27.0-Source.tar.gz
 
 NAME=exiv2
 VERSION=""
-URL=http://www.exiv2.org/builds/exiv2-0.26-trunk.tar.gz
+URL=http://www.exiv2.org/builds/exiv2-0.27.0-Source.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -34,18 +34,22 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr     \
-            --enable-video    \
-            --enable-webready \
-            --without-ssh     \
-            --disable-static  &&
+sed -i '/conntest/s/^/#/' samples/CMakeLists.txt
+mkdir build &&
+cd    build &&
 
+cmake -DCMAKE_INSTALL_PREFIX=/usr  \
+      -DCMAKE_BUILD_TYPE=Release   \
+      -DEXIV2_ENABLE_VIDEO=yes     \
+      -DEXIV2_ENABLE_WEBREADY=yes  \
+      -DEXIV2_ENABLE_CURL=yes      \
+      -DEXIV2_BUILD_SAMPLES=no     \
+      -G "Unix Makefiles" .. &&
 make
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make install &&
-chmod -v 755 /usr/lib/libexiv2.so
+make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

@@ -20,12 +20,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.postgresql.org/pub/source/v10.5/postgresql-10.5.tar.bz2
-wget -nc ftp://ftp.postgresql.org/pub/source/v10.5/postgresql-10.5.tar.bz2
+wget -nc http://ftp.postgresql.org/pub/source/v11.1/postgresql-11.1.tar.bz2
+wget -nc ftp://ftp.postgresql.org/pub/source/v11.1/postgresql-11.1.tar.bz2
 
 NAME=postgresql
-VERSION=10.5.
-URL=http://ftp.postgresql.org/pub/source/v10.5/postgresql-10.5.tar.bz2
+VERSION=11.1.
+URL=http://ftp.postgresql.org/pub/source/v11.1/postgresql-11.1.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -57,7 +57,7 @@ sed -i '/DEFAULT_PGSOCKET_DIR/s@/tmp@/run/postgresql@' src/include/pg_config_man
 
 ./configure --prefix=/usr          \
             --enable-thread-safety \
-            --docdir=/usr/share/doc/postgresql-10.5 &&
+            --docdir=/usr/share/doc/postgresql-11.1 &&
 make
 
 sudo rm /tmp/rootscript.sh

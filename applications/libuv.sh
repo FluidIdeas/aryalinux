@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://dist.libuv.org/dist/v1.24.0/libuv-v1.24.0.tar.gz
+wget -nc https://dist.libuv.org/dist/v1.24.1/libuv-v1.24.1.tar.gz
 
 NAME=libuv
-VERSION=v1.24.0
-URL=https://dist.libuv.org/dist/v1.24.0/libuv-v1.24.0.tar.gz
+VERSION=v1.24.1
+URL=https://dist.libuv.org/dist/v1.24.1/libuv-v1.24.1.tar.gz
 
 if [ ! -z $URL ]
 then

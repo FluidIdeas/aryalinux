@@ -40,12 +40,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.qt.io/archive/qt/5.11/5.11.2/single/qt-everywhere-src-5.11.2.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/qt-5.11.2-glibc228-1.patch
+wget -nc https://download.qt.io/archive/qt/5.12/5.12.0/single/qt-everywhere-src-5.12.0.tar.xz
 
 NAME=qt5
-VERSION=5.11.2
-URL=https://download.qt.io/archive/qt/5.11/5.11.2/single/qt-everywhere-src-5.11.2.tar.xz
+VERSION=5.12.0
+URL=https://download.qt.io/archive/qt/5.12/5.12.0/single/qt-everywhere-src-5.12.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -66,14 +65,13 @@ export QT5PREFIX=/opt/qt5
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-mkdir /opt/qt-5.11.2
-ln -sfnv qt-5.11.2 /opt/qt5
+mkdir /opt/qt-5.12.0
+ln -sfnv qt-5.12.0 /opt/qt5
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm /tmp/rootscript.sh
 
-patch -Np1 -i ../qt-5.11.2-glibc228-1.patch
 -archdatadir    /usr/lib/qt5                \
             -bindir         /usr/bin                    \
             -plugindir      /usr/lib/qt5/plugins        \

@@ -28,8 +28,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://media.inkscape.org/dl/resources/file/inkscape-0.92.3.tar.bz2
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/inkscape-0.92.3-use_versioned_ImageMagick6-1.patch
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/inkscape-0.92.3-upstream_poppler_fixes-1.patch
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/inkscape-0.92.3-consolidated_fixes-1.patch
 
 NAME=inkscape
 VERSION=0.92.3.
@@ -50,8 +49,7 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../inkscape-0.92.3-use_versioned_ImageMagick6-1.patch &&
-patch -Np1 -i ../inkscape-0.92.3-upstream_poppler_fixes-1.patch
+patch -Np1 -i ../inkscape-0.92.3-consolidated_fixes-1.patch
 sed -i 's| abs(| std::fabs(|g' src/ui/tools/flood-tool.cpp &&
 sed -e 's|gTrue|true|g' -e 's|gFalse|false|g' -e 's|GBool|bool|g' \
  -i src/extension/internal/pdfinput/pdf-parser.*

@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/ivmai/libatomic_ops/releases/download/v7.6.6/libatomic_ops-7.6.6.tar.gz
+wget -nc https://github.com/ivmai/libatomic_ops/releases/download/v7.6.8/libatomic_ops-7.6.8.tar.gz
 
 NAME=libatomic_ops
-VERSION=7.6.6
-URL=https://github.com/ivmai/libatomic_ops/releases/download/v7.6.6/libatomic_ops-7.6.6.tar.gz
+VERSION=7.6.8
+URL=https://github.com/ivmai/libatomic_ops/releases/download/v7.6.8/libatomic_ops-7.6.8.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -33,7 +33,7 @@ fi
 ./configure --prefix=/usr    \
             --enable-shared  \
             --disable-static \
-            --docdir=/usr/share/doc/libatomic_ops-7.6.6 &&
+            --docdir=/usr/share/doc/libatomic_ops-7.6.8 &&
 make
 
 sudo rm /tmp/rootscript.sh

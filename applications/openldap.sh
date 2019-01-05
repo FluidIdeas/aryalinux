@@ -17,12 +17,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.46.tgz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/openldap-2.4.46-consolidated-1.patch
+wget -nc ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.47.tgz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/openldap-2.4.47-consolidated-1.patch
 
 NAME=openldap
-VERSION=2.4.46
-URL=ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.46.tgz
+VERSION=2.4.47
+URL=ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.47.tgz
 
 if [ ! -z $URL ]
 then
@@ -39,7 +39,7 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../openldap-2.4.46-consolidated-1.patch &&
+patch -Np1 -i ../openldap-2.4.47-consolidated-1.patch &&
 autoconf &&
 
 ./configure --prefix=/usr     \
@@ -55,6 +55,8 @@ make
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
+
+ln -sf ../lib/slapd /usr/sbin/slapd
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
@@ -72,7 +74,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm /tmp/rootscript.sh
 
-patch -Np1 -i ../openldap-2.4.46-consolidated-1.patch &&
+patch -Np1 -i ../openldap-2.4.47-consolidated-1.patch &&
 autoconf &&
 
 ./configure --prefix=/usr         \
@@ -112,9 +114,9 @@ install -v -dm700 -o ldap -g ldap /etc/openldap/slapd.d &&
 chmod   -v    640     /etc/openldap/slapd.{conf,ldif}   &&
 chown   -v  root:ldap /etc/openldap/slapd.{conf,ldif}   &&
 
-install -v -dm755 /usr/share/doc/openldap-2.4.46 &&
+install -v -dm755 /usr/share/doc/openldap-2.4.47 &&
 cp      -vfr      doc/{drafts,rfc,guide} \
-                  /usr/share/doc/openldap-2.4.46
+                  /usr/share/doc/openldap-2.4.47
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

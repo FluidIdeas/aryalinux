@@ -37,10 +37,7 @@ fi
 
 sed '20,$ d' -i trust/trust-extract-compat.in &&
 cat >> trust/trust-extract-compat.in << "EOF"
-echo "Please create an OpenSSL Trusted Certificate with appropriate"
-echo "trust arguments in /etc/ssl/local/ and run '/usr/sbin/make-ca -f'"
-echo "as the root user."
-exit 1
+<code class="literal"># Copy existing anchor modifications to /etc/ssl/local /usr/libexec/make-ca/copy-trust-modifications # Generate a new trust store /usr/sbin/make-ca -f -g</code>
 EOF
 ./configure --prefix=/usr     \
             --sysconfdir=/etc \
@@ -49,7 +46,9 @@ make
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make install
+make install &&
+ln -s /usr/libexec/p11-kit/trust-extract-compat \
+      /usr/bin/update-ca-certificates
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

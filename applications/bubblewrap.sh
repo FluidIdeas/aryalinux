@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://files.pythonhosted.org/packages/source/f/funcsigs/funcsigs-1.0.2.tar.gz
+wget -nc https://github.com/projectatomic/bubblewrap/releases/download/v0.3.1/bubblewrap-0.3.1.tar.xz
 
-NAME=funcsigs-1.0.2
-VERSION=1.0.2
-URL=https://files.pythonhosted.org/packages/source/f/funcsigs/funcsigs-1.0.2.tar.gz
+NAME=bubblewrap
+VERSION=0.3.1
+URL=https://github.com/projectatomic/bubblewrap/releases/download/v0.3.1/bubblewrap-0.3.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -30,10 +30,12 @@ fi
 cd $DIRECTORY
 fi
 
+./configure --prefix=/usr &&
+make
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-python setup.py install --optimize=1
+make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

@@ -13,11 +13,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/applications/18.08.0/src/kmix-18.08.0.tar.xz
+wget -nc http://download.kde.org/stable/applications/18.12.0/src/kmix-18.12.0.tar.xz
 
 NAME=kmix5
-VERSION=18.08.0
-URL=http://download.kde.org/stable/applications/18.08.0/src/kmix-18.08.0.tar.xz
+VERSION=18.12.0
+URL=http://download.kde.org/stable/applications/18.12.0/src/kmix-18.12.0.tar.xz
 
 if [ ! -z $URL ]
 then

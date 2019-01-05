@@ -31,11 +31,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/thunderbird/releases/60.3.2/source/thunderbird-60.3.2.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/thunderbird/releases/60.3.3/source/thunderbird-60.3.3.source.tar.xz
 
 NAME=thunderbird
-VERSION=60.3.2.source
-URL=https://archive.mozilla.org/pub/thunderbird/releases/60.3.2/source/thunderbird-60.3.2.source.tar.xz
+VERSION=60.3.3.source
+URL=https://archive.mozilla.org/pub/thunderbird/releases/60.3.3/source/thunderbird-60.3.3.source.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -74,7 +74,7 @@ cat > /usr/share/applications/thunderbird.desktop << "EOF" &&
 <code class="literal">[Desktop Entry] Name=Thunderbird Mail Comment=Send and receive mail with Thunderbird GenericName=Mail Client Exec=thunderbird %u Terminal=false Type=Application Icon=thunderbird Categories=Network;Email; MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/xml;application/rss+xml;x-scheme-handler/mailto; StartupNotify=true</code>
 EOF
 
-ln -sfv /usr/lib/thunderbird-60.3.2/chrome/icons/default/default256.png \
+ln -sfv /usr/lib/thunderbird-60.3.3/chrome/icons/default/default256.png \
         /usr/share/pixmaps/thunderbird.png
 EOF
 chmod a+x /tmp/rootscript.sh

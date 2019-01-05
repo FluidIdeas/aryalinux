@@ -18,13 +18,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.kernel.org/pub/software/scm/git/git-2.19.2.tar.xz
-wget -nc https://www.kernel.org/pub/software/scm/git/git-manpages-2.19.2.tar.xz
-wget -nc https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.19.2.tar.xz
+wget -nc https://www.kernel.org/pub/software/scm/git/git-2.20.1.tar.xz
+wget -nc https://www.kernel.org/pub/software/scm/git/git-manpages-2.20.1.tar.xz
+wget -nc https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.20.1.tar.xz
 
 NAME=git
-VERSION=2.19.2
-URL=https://www.kernel.org/pub/software/scm/git/git-2.19.2.tar.xz
+VERSION=2.20.1
+URL=https://www.kernel.org/pub/software/scm/git/git-2.20.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -66,7 +66,7 @@ sudo rm /tmp/rootscript.sh
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make htmldir=/usr/share/doc/git-2.19.2 install-html
+make htmldir=/usr/share/doc/git-2.20.1 install-html
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
@@ -75,7 +75,7 @@ sudo rm /tmp/rootscript.sh
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-tar -xf ../git-manpages-2.19.2.tar.xz \
+tar -xf ../git-manpages-2.20.1.tar.xz \
     -C /usr/share/man --no-same-owner --no-overwrite-dir
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -85,12 +85,12 @@ sudo rm /tmp/rootscript.sh
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-mkdir -vp   /usr/share/doc/git-2.19.2 &&
-tar   -xf   ../git-htmldocs-2.19.2.tar.xz \
-      -C    /usr/share/doc/git-2.19.2 --no-same-owner --no-overwrite-dir &&
+mkdir -vp   /usr/share/doc/git-2.20.1 &&
+tar   -xf   ../git-htmldocs-2.20.1.tar.xz \
+      -C    /usr/share/doc/git-2.20.1 --no-same-owner --no-overwrite-dir &&
 
-find        /usr/share/doc/git-2.19.2 -type d -exec chmod 755 {} \; &&
-find        /usr/share/doc/git-2.19.2 -type f -exec chmod 644 {} \;
+find        /usr/share/doc/git-2.20.1 -type d -exec chmod 755 {} \; &&
+find        /usr/share/doc/git-2.20.1 -type f -exec chmod 644 {} \;
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
@@ -99,20 +99,20 @@ sudo rm /tmp/rootscript.sh
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-mkdir -vp /usr/share/doc/git-2.19.2/man-pages/{html,text}         &&
-mv        /usr/share/doc/git-2.19.2/{git*.txt,man-pages/text}     &&
-mv        /usr/share/doc/git-2.19.2/{git*.,index.,man-pages/}html &&
+mkdir -vp /usr/share/doc/git-2.20.1/man-pages/{html,text}         &&
+mv        /usr/share/doc/git-2.20.1/{git*.txt,man-pages/text}     &&
+mv        /usr/share/doc/git-2.20.1/{git*.,index.,man-pages/}html &&
 
-mkdir -vp /usr/share/doc/git-2.19.2/technical/{html,text}         &&
-mv        /usr/share/doc/git-2.19.2/technical/{*.txt,text}        &&
-mv        /usr/share/doc/git-2.19.2/technical/{*.,}html           &&
+mkdir -vp /usr/share/doc/git-2.20.1/technical/{html,text}         &&
+mv        /usr/share/doc/git-2.20.1/technical/{*.txt,text}        &&
+mv        /usr/share/doc/git-2.20.1/technical/{*.,}html           &&
 
-mkdir -vp /usr/share/doc/git-2.19.2/howto/{html,text}             &&
-mv        /usr/share/doc/git-2.19.2/howto/{*.txt,text}            &&
-mv        /usr/share/doc/git-2.19.2/howto/{*.,}html               &&
+mkdir -vp /usr/share/doc/git-2.20.1/howto/{html,text}             &&
+mv        /usr/share/doc/git-2.20.1/howto/{*.txt,text}            &&
+mv        /usr/share/doc/git-2.20.1/howto/{*.,}html               &&
 
-sed -i '/^<a href=/s|howto/|&html/|' /usr/share/doc/git-2.19.2/howto-index.html &&
-sed -i '/^\* link:/s|howto/|&html/|' /usr/share/doc/git-2.19.2/howto-index.txt
+sed -i '/^<a href=/s|howto/|&html/|' /usr/share/doc/git-2.20.1/howto-index.html &&
+sed -i '/^\* link:/s|howto/|&html/|' /usr/share/doc/git-2.20.1/howto-index.txt
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

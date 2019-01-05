@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="086-Python.sh"
-TARBALL="Python-3.7.1.tar.xz"
+TARBALL="python-3.7.2-docs-html.tar.bz2"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -42,12 +42,12 @@ make
 make install
 chmod -v 755 /usr/lib/libpython3.7m.so
 chmod -v 755 /usr/lib/libpython3.so
-install -v -dm755 /usr/share/doc/python-3.7.1/html 
+install -v -dm755 /usr/share/doc/python-3.7.2/html 
 tar --strip-components=1  \
     --no-same-owner       \
     --no-same-permissions \
-    -C /usr/share/doc/python-3.7.1/html \
-    -xvf ../python-3.7.1-docs-html.tar.bz2
+    -C /usr/share/doc/python-3.7.2/html \
+    -xvf ../python-3.7.2-docs-html.tar.bz2
 
 
 cd $SOURCE_DIR

@@ -20,11 +20,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.3.1.tar.gz
+wget -nc ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.3.2.tar.gz
 
 NAME=postfix
-VERSION=3.3.1
-URL=ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.3.1.tar.gz
+VERSION=3.3.2
+URL=ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.3.2.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -55,8 +55,6 @@ sudo /tmp/rootscript.sh
 sudo rm /tmp/rootscript.sh
 
 sed -i 's/.\x08//g' README_FILES/*
-sed -i 's/DB_VERSION_MAJOR == 6 .*||/DB_VERSION_MAJOR > 4 ||/' \
-  src/util/dict_db.c
 make CCARGS="-DUSE_TLS -I/usr/include/openssl/                     \
              -DUSE_SASL_AUTH -DUSE_CYRUS_SASL -I/usr/include/sasl" \
      AUXLIBS="-lssl -lcrypto -lsasl2"                              \
@@ -68,8 +66,8 @@ cat > /tmp/rootscript.sh <<"EOF"
 sh postfix-install -non-interactive \
    daemon_directory=/usr/lib/postfix \
    manpage_directory=/usr/share/man \
-   html_directory=/usr/share/doc/postfix-3.3.1/html \
-   readme_directory=/usr/share/doc/postfix-3.3.1/readme
+   html_directory=/usr/share/doc/postfix-3.3.2/html \
+   readme_directory=/usr/share/doc/postfix-3.3.2/readme
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

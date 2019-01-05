@@ -8,14 +8,13 @@ set +h
 
 #REQ:dbus-glib
 #REQ:libndp
-#REQ:libnl
-#REQ:nss
 #REC:curl
 #REC:dhcpcd
 #REC:dhcp
 #REC:gobject-introspection
 #REC:iptables
 #REC:newt
+#REC:nss
 #REC:polkit
 #REC:pygobject3
 #REC:systemd
@@ -23,6 +22,9 @@ set +h
 #REC:vala
 #REC:wpa_supplicant
 #OPT:bluez
+#OPT:dbus-python
+#OPT:gnutls
+#OPT:nss
 #OPT:gtk-doc
 #OPT:jansson
 #OPT:libpsl
@@ -33,12 +35,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.12/NetworkManager-1.12.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.12/NetworkManager-1.12.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.14/NetworkManager-1.14.4.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.14/NetworkManager-1.14.4.tar.xz
 
 NAME=networkmanager
-VERSION=1.12.2
-URL=http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.12/NetworkManager-1.12.2.tar.xz
+VERSION=1.14.4
+URL=http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.14/NetworkManager-1.14.4.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -56,26 +58,37 @@ cd $DIRECTORY
 fi
 
 sed -e '/Qt[CDN]/s/Qt/Qt5/g'       \
+    -e 's/-qt4/-qt5/'              \
     -e 's/moc_location/host_bins/' \
-    -i configure
-sed -i 's/1,12,2/1,12.2/' libnm-core/nm-version.h &&
-CXXFLAGS="-O2 -fPIC"                                        \
-./configure --prefix=/usr                                   \
-            --sysconfdir=/etc                               \
-            --localstatedir=/var                            \
-            --with-nmtui                                    \
-            --with-libnm-glib                               \
-            --disable-ppp                                   \
+    -i examples/C/qt/meson.build
+sed '/initrd/d' -i src/meson.build
+mkdir build &&
+cd build    &&
 
-            --with-udev-dir=/lib/udev                       \
-            --with-session-tracking=systemd                 \
-            --with-systemdsystemunitdir=/lib/systemd/system \
-            --docdir=/usr/share/doc/network-manager-1.12.2 &&
-make
+CXXFLAGS+="-O2 -fPIC"            \
+meson --prefix /usr              \
+      --sysconfdir /etc          \
+      --localstatedir /var       \
+      -Djson_validation=false    \
+      -Dlibaudit=no              \
+      -Dlibnm_glib=true          \
+      -Dlibpsl=false             \
+      -Dnmtui=true               \
+      -Dovs=false                \
+      -Dppp=false                \
+      -Dselinux=false            \
+      -Dqt=false                 \
+      -Dudev_dir=/lib/udev       \
+      -Dsession_tracking=systemd \
+      -Dmodem_manager=false      \
+      -Dsystemdsystemunitdir=/lib/systemd/system \
+      .. &&
+ninja
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make install
+ninja install &&
+mv -v /usr/share/doc/NetworkManager{,-1.14.4}
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
@@ -92,6 +105,23 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm /tmp/rootscript.sh
 
+
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
+cat > /etc/NetworkManager/conf.d/polkit.conf << "EOF"
+<code class="literal">[main] auth-polkit=true</code>
+EOF
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
+
+cat > /etc/NetworkManager/conf.d/dhcp.conf << "EOF"
+<code class="literal">[main] dhcp=</code><em class="replaceable"><code>dhclient</code></em>
+EOF
+cat > /etc/NetworkManager/conf.d/no-dns-update.conf << "EOF"
+<code class="literal">[main] dns=none</code>
+EOF
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"

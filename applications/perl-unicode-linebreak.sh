@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cpan.org/authors/id/N/NE/NEZUMI/Unicode-LineBreak-2018.003.tar.gz
+wget -nc https://www.cpan.org/authors/id/N/NE/NEZUMI/Unicode-LineBreak-2019.001.tar.gz
 
-NAME=unicode::linebreak-2018.003
-VERSION=2018.003
-URL=https://www.cpan.org/authors/id/N/NE/NEZUMI/Unicode-LineBreak-2018.003.tar.gz
+NAME=unicode::linebreak-2019.001
+VERSION=2019.001
+URL=https://www.cpan.org/authors/id/N/NE/NEZUMI/Unicode-LineBreak-2019.001.tar.gz
 
 if [ ! -z $URL ]
 then

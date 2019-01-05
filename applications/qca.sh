@@ -49,14 +49,10 @@ sed -i 's@cert.pem@certs/ca-bundle.crt@' CMakeLists.txt
 mkdir build &&
 cd    build &&
 
-cmake -DCMAKE_INSTALL_PREFIX=$QT5DIR                             \
+cmake -DCMAKE_INSTALL_PREFIX=/usr                                \
       -DCMAKE_BUILD_TYPE=Release                                 \
       -DQCA_MAN_INSTALL_DIR:PATH=/usr/share/man                  \
-      -DOPENSSL_INCLUDE_DIR=/usr/include/openssl-1.0             \
-      -DOPENSSL_SSL_LIBRARY=/usr/lib/openssl-1.0/libssl.so       \
-      -DOPENSSL_CRYPTO_LIBRARY=/usr/lib/openssl-1.0/libcrypto.so \
       ..                                                         &&
-
 make
 
 sudo rm /tmp/rootscript.sh

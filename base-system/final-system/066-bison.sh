@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="066-bison.sh"
-TARBALL="bison-3.2.2.tar.xz"
+TARBALL="bison-3.2.4.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -33,7 +33,7 @@ export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 
-./configure --prefix=/usr --docdir=/usr/share/doc/bison-3.2.2
+./configure --prefix=/usr --docdir=/usr/share/doc/bison-3.2.4
 make
 make install
 

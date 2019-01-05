@@ -111,8 +111,8 @@ sudo rm /tmp/rootscript.sh
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-mv /opt/kf5{,-5.49.0}
-ln -sfv kf5-5.49.0 /opt/kf5
+mv /opt/kf5{,-5.53.0}
+ln -sfv kf5-5.53.0 /opt/kf5
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

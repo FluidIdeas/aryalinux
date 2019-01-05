@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/security/nss/releases/NSS_3_40_1_RTM/src/nss-3.40.1.tar.gz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/nss-3.40.1-standalone-1.patch
+wget -nc https://archive.mozilla.org/pub/security/nss/releases/NSS_3_41_RTM/src/nss-3.41.tar.gz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/nss-3.41-standalone-1.patch
 
 NAME=nss
-VERSION=3.40.1
-URL=https://archive.mozilla.org/pub/security/nss/releases/NSS_3_40_1_RTM/src/nss-3.40.1.tar.gz
+VERSION=3.41
+URL=https://archive.mozilla.org/pub/security/nss/releases/NSS_3_41_RTM/src/nss-3.41.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -34,7 +34,7 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../nss-3.40.1-standalone-1.patch &&
+patch -Np1 -i ../nss-3.41-standalone-1.patch &&
 
 cd nss &&
 

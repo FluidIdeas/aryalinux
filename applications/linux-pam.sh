@@ -112,7 +112,7 @@ sudo rm /tmp/rootscript.sh
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/pam.d/system-password << "EOF"
-<code class="literal"># Begin /etc/pam.d/system-password # check new passwords for strength (man pam_cracklib) password required pam_cracklib.so type=Linux retry=3 difok=5 \ difignore=23 minlen=9 dcredit=1 \ ucredit=1 lcredit=1 ocredit=1 \ dictpath=/lib/cracklib/pw_dict # use sha512 hash for encryption, use shadow, and use the # authentication token (chosen password) set by pam_cracklib # above (or any previous modules) password required pam_unix.so sha512 shadow use_authtok # End /etc/pam.d/system-password</code>
+<code class="literal"># Begin /etc/pam.d/system-password # check new passwords for strength (man pam_cracklib) password required pam_cracklib.so authtok_type=UNIX retry=1 difok=5 \ minlen=9 dcredit=1 ucredit=1 \ lcredit=1 ocredit=1 minclass=0 \ maxrepeat=0 maxsequence=0 \ maxclassrepeat=0 \ dictpath=/lib/cracklib/pw_dict # use sha512 hash for encryption, use shadow, and use the # authentication token (chosen password) set by pam_cracklib # above (or any previous modules) password required pam_unix.so sha512 shadow use_authtok # End /etc/pam.d/system-password</code>
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

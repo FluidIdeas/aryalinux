@@ -10,12 +10,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://sqlite.org/2018/sqlite-autoconf-3250200.tar.gz
-wget -nc https://sqlite.org/2018/sqlite-doc-3250200.zip
+wget -nc https://sqlite.org/2018/sqlite-autoconf-3260000.tar.gz
+wget -nc https://sqlite.org/2018/sqlite-doc-3260000.zip
 
 NAME=sqlite
-VERSION=3250200
-URL=https://sqlite.org/2018/sqlite-autoconf-3250200.tar.gz
+VERSION=3260000
+URL=https://sqlite.org/2018/sqlite-autoconf-3260000.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -32,7 +32,7 @@ fi
 cd $DIRECTORY
 fi
 
-unzip -q ../sqlite-doc-3250200.zip
+unzip -q ../sqlite-doc-3260000.zip
 ./configure --prefix=/usr     \
             --disable-static  \
             --enable-fts5     \
@@ -57,8 +57,8 @@ sudo rm /tmp/rootscript.sh
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-install -v -m755 -d /usr/share/doc/sqlite-3.25.2 &&
-cp -v -R sqlite-doc-3250200/* /usr/share/doc/sqlite-3.25.2
+install -v -m755 -d /usr/share/doc/sqlite-3.26.0 &&
+cp -v -R sqlite-doc-3260000/* /usr/share/doc/sqlite-3.26.0
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

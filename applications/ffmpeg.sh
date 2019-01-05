@@ -40,11 +40,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ffmpeg.org/releases/ffmpeg-4.0.2.tar.xz
+wget -nc http://ffmpeg.org/releases/ffmpeg-4.1.tar.xz
 
 NAME=ffmpeg
-VERSION=4.0.2
-URL=http://ffmpeg.org/releases/ffmpeg-4.0.2.tar.xz
+VERSION=4.1
+URL=http://ffmpeg.org/releases/ffmpeg-4.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -81,7 +81,7 @@ sed -i 's/-lflite"/-lflite -lasound"/' configure &&
             --enable-libvpx      \
             --enable-libx264     \
             --enable-libx265     \
-            --docdir=/usr/share/doc/ffmpeg-4.0.2 &&
+            --docdir=/usr/share/doc/ffmpeg-4.1 &&
 
 make &&
 
@@ -103,8 +103,8 @@ cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 
 install -v -m755    tools/qt-faststart /usr/bin &&
-install -v -m755 -d           /usr/share/doc/ffmpeg-4.0.2 &&
-install -v -m644    doc/*.txt /usr/share/doc/ffmpeg-4.0.2
+install -v -m755 -d           /usr/share/doc/ffmpeg-4.1 &&
+install -v -m644    doc/*.txt /usr/share/doc/ffmpeg-4.1
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
@@ -113,8 +113,8 @@ sudo rm /tmp/rootscript.sh
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-install -v -m644 doc/*.pdf /usr/share/doc/ffmpeg-4.0.2 &&
-install -v -m644 doc/*.ps  /usr/share/doc/ffmpeg-4.0.2
+install -v -m644 doc/*.pdf /usr/share/doc/ffmpeg-4.1 &&
+install -v -m644 doc/*.ps  /usr/share/doc/ffmpeg-4.1
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
@@ -123,10 +123,10 @@ sudo rm /tmp/rootscript.sh
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-install -v -m755 -d /usr/share/doc/ffmpeg-4.0.2/api                     &&
-cp -vr doc/doxy/html/* /usr/share/doc/ffmpeg-4.0.2/api                  &&
-find /usr/share/doc/ffmpeg-4.0.2/api -type f -exec chmod -c 0644 \{} \; &&
-find /usr/share/doc/ffmpeg-4.0.2/api -type d -exec chmod -c 0755 \{} \;
+install -v -m755 -d /usr/share/doc/ffmpeg-4.1/api                     &&
+cp -vr doc/doxy/html/* /usr/share/doc/ffmpeg-4.1/api                  &&
+find /usr/share/doc/ffmpeg-4.1/api -type f -exec chmod -c 0644 \{} \; &&
+find /usr/share/doc/ffmpeg-4.1/api -type d -exec chmod -c 0755 \{} \;
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

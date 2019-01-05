@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="094-groff.sh"
-TARBALL="groff-1.22.3.tar.gz"
+TARBALL="groff-1.22.4.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 

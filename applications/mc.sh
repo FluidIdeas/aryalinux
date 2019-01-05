@@ -18,12 +18,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.midnight-commander.org/mc-4.8.21.tar.xz
-wget -nc ftp://ftp.osuosl.org/pub/midnightcommander/mc-4.8.21.tar.xz
+wget -nc http://ftp.midnight-commander.org/mc-4.8.22.tar.xz
+wget -nc ftp://ftp.osuosl.org/pub/midnightcommander/mc-4.8.22.tar.xz
 
 NAME=mc
-VERSION=4.8.21
-URL=http://ftp.midnight-commander.org/mc-4.8.21.tar.xz
+VERSION=4.8.22
+URL=http://ftp.midnight-commander.org/mc-4.8.22.tar.xz
 
 if [ ! -z $URL ]
 then

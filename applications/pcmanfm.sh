@@ -14,11 +14,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/pcmanfm/pcmanfm-1.3.0.tar.xz
+wget -nc https://downloads.sourceforge.net/pcmanfm/pcmanfm-1.3.1.tar.xz
 
 NAME=pcmanfm
-VERSION=1.3.0
-URL=https://downloads.sourceforge.net/pcmanfm/pcmanfm-1.3.0.tar.xz
+VERSION=1.3.1
+URL=https://downloads.sourceforge.net/pcmanfm/pcmanfm-1.3.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -35,7 +35,8 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --sysconfdir=/etc &&
+./configure --prefix=/usr     \
+            --sysconfdir=/etc &&
 make
 
 sudo rm /tmp/rootscript.sh

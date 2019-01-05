@@ -18,13 +18,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/glib/2.58/glib-2.58.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glib/2.58/glib-2.58.1.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/glib-2.58.1-skip_warnings-1.patch
+wget -nc http://ftp.gnome.org/pub/gnome/sources/glib/2.58/glib-2.58.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glib/2.58/glib-2.58.2.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/glib-2.58.2-skip_warnings-1.patch
 
 NAME=glib2
-VERSION=2.58.1
-URL=http://ftp.gnome.org/pub/gnome/sources/glib/2.58/glib-2.58.1.tar.xz
+VERSION=2.58.2
+URL=http://ftp.gnome.org/pub/gnome/sources/glib/2.58/glib-2.58.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -41,7 +41,7 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../glib-2.58.1-skip_warnings-1.patch
+patch -Np1 -i ../glib-2.58.2-skip_warnings-1.patch
 mkdir build-glib &&
 cd    build-glib &&
 
@@ -55,8 +55,8 @@ sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 ninja install &&
 
-mkdir -p /usr/share/doc/glib-2.58.1 &&
-cp -r ../docs/reference/{NEWS,gio,glib,gobject} /usr/share/doc/glib-2.58.1
+mkdir -p /usr/share/doc/glib-2.58.2 &&
+cp -r ../docs/reference/{NEWS,gio,glib,gobject} /usr/share/doc/glib-2.58.2
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

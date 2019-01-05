@@ -6,6 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#REQ:gtk3
 #REQ:gtk2
 #REQ:menu-cache
 #REC:libexif
@@ -17,11 +18,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/pcmanfm/libfm-1.3.0.2.tar.xz
+wget -nc https://downloads.sourceforge.net/pcmanfm/libfm-1.3.1.tar.xz
 
 NAME=libfm
-VERSION=1.3.0.2
-URL=https://downloads.sourceforge.net/pcmanfm/libfm-1.3.0.2.tar.xz
+VERSION=1.3.1
+URL=https://downloads.sourceforge.net/pcmanfm/libfm-1.3.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -38,7 +39,7 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
+./configure --prefix=/usr     \
             --sysconfdir=/etc \
             --disable-static  &&
 make

@@ -21,12 +21,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libsecret/0.18/libsecret-0.18.6.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libsecret/0.18/libsecret-0.18.6.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/libsecret/0.18/libsecret-0.18.7.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libsecret/0.18/libsecret-0.18.7.tar.xz
 
 NAME=libsecret
-VERSION=0.18.6
-URL=http://ftp.gnome.org/pub/gnome/sources/libsecret/0.18/libsecret-0.18.6.tar.xz
+VERSION=0.18.7
+URL=http://ftp.gnome.org/pub/gnome/sources/libsecret/0.18/libsecret-0.18.7.tar.xz
 
 if [ ! -z $URL ]
 then

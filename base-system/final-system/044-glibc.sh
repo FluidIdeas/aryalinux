@@ -98,7 +98,7 @@ ethers: files
 rpc: files
 # End /etc/nsswitch.conf
 EOF
-tar -xf ../../tzdata2018g.tar.gz
+tar -xf ../../tzdata2018i.tar.gz
 ZONEINFO=/usr/share/zoneinfo
 mkdir -pv $ZONEINFO/{posix,right}
 for tz in etcetera southamerica northamerica europe africa antarctica  \

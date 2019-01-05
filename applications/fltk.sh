@@ -20,11 +20,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://fltk.org/pub/fltk/1.3.4/fltk-1.3.4-source.tar.gz
+wget -nc http://fltk.org/pub/fltk/1.3.4/fltk-1.3.4-2-source.tar.gz
 
 NAME=fltk
-VERSION=1.3.4-source
-URL=http://fltk.org/pub/fltk/1.3.4/fltk-1.3.4-source.tar.gz
+VERSION=1.3.4-2-source
+URL=http://fltk.org/pub/fltk/1.3.4/fltk-1.3.4-2-source.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -50,7 +50,7 @@ make -C documentation html
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make docdir=/usr/share/doc/fltk-1.3.4 install
+make docdir=/usr/share/doc/fltk-1.3.4-2 install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
@@ -59,8 +59,8 @@ sudo rm /tmp/rootscript.sh
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make -C test          docdir=/usr/share/doc/fltk-1.3.4 install-linux &&
-make -C documentation docdir=/usr/share/doc/fltk-1.3.4 install-linux
+make -C test          docdir=/usr/share/doc/fltk-1.3.4-2 install-linux &&
+make -C documentation docdir=/usr/share/doc/fltk-1.3.4-2 install-linux
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

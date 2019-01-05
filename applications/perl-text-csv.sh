@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cpan.org/authors/id/I/IS/ISHIGAKI/Text-CSV-1.97.tar.gz
+wget -nc https://www.cpan.org/authors/id/I/IS/ISHIGAKI/Text-CSV-1.99.tar.gz
 
-NAME=text::csv-1.97
-VERSION=1.97
-URL=https://www.cpan.org/authors/id/I/IS/ISHIGAKI/Text-CSV-1.97.tar.gz
+NAME=text::csv-1.99
+VERSION=1.99
+URL=https://www.cpan.org/authors/id/I/IS/ISHIGAKI/Text-CSV-1.99.tar.gz
 
 if [ ! -z $URL ]
 then

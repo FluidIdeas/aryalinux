@@ -11,12 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/applications/18.08.0/src/libkdcraw-18.08.0.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/libkdcraw-18.08.0-libraw19-1.patch
+wget -nc http://download.kde.org/stable/applications/18.12.0/src/libkdcraw-18.12.0.tar.xz
 
 NAME=libkdcraw
-VERSION=18.08.0
-URL=http://download.kde.org/stable/applications/18.08.0/src/libkdcraw-18.08.0.tar.xz
+VERSION=18.12.0
+URL=http://download.kde.org/stable/applications/18.12.0/src/libkdcraw-18.12.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -32,8 +31,6 @@ fi
 
 cd $DIRECTORY
 fi
-
-patch -Np1 -i ../libkdcraw-18.08.0-libraw19-1.patch &&
 
 mkdir build &&
 cd    build &&

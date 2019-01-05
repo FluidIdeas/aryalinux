@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cpan.org/authors/id/S/SA/SADAHIRO/Unicode-Collate-1.25.tar.gz
+wget -nc https://www.cpan.org/authors/id/S/SA/SADAHIRO/Unicode-Collate-1.27.tar.gz
 
-NAME=unicode::collate-1.25
-VERSION=1.25
-URL=https://www.cpan.org/authors/id/S/SA/SADAHIRO/Unicode-Collate-1.25.tar.gz
+NAME=unicode::collate-1.27
+VERSION=1.27
+URL=https://www.cpan.org/authors/id/S/SA/SADAHIRO/Unicode-Collate-1.27.tar.gz
 
 if [ ! -z $URL ]
 then

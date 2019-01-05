@@ -13,12 +13,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://w1.fi/releases/wpa_supplicant-2.6.tar.gz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/wpa_supplicant-2.6-upstream_fixes-2.patch
+wget -nc https://w1.fi/releases/wpa_supplicant-2.7.tar.gz
 
 NAME=wpa_supplicant
-VERSION=2.6
-URL=https://w1.fi/releases/wpa_supplicant-2.6.tar.gz
+VERSION=2.7
+URL=https://w1.fi/releases/wpa_supplicant-2.7.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -41,8 +40,7 @@ EOF
 cat >> wpa_supplicant/.config << "EOF"
 <code class="literal">CONFIG_CTRL_IFACE_DBUS=y CONFIG_CTRL_IFACE_DBUS_NEW=y CONFIG_CTRL_IFACE_DBUS_INTRO=y</code>
 EOF
-patch -p1 -i ../wpa_supplicant-2.6-upstream_fixes-2.patch &&
-cd wpa_supplicant                                         &&
+cd wpa_supplicant &&
 make BINDIR=/sbin LIBDIR=/lib
 pushd wpa_gui-qt4 &&
 qmake wpa_gui.pro &&

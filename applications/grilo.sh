@@ -20,12 +20,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.6.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.6.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.7.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.7.tar.xz
 
 NAME=grilo
-VERSION=0.3.6
-URL=http://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.6.tar.xz
+VERSION=0.3.7
+URL=http://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.7.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -42,14 +42,15 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr     \
-            --libdir=/usr/lib \
-            --disable-static &&
-make
+mkdir build &&
+cd build    &&
+meson --prefix=/usr \
+      --libexecdir=/usr/lib .. &&
+ninja
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make install
+ninja install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

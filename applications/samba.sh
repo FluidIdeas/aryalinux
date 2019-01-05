@@ -11,6 +11,7 @@ set +h
 #REQ:lmdb
 #REQ:python2
 #REQ:rpcsvc-proto
+#REC:fuse
 #REC:gpgme
 #REC:libxslt
 #REC:perl-parse-yapp
@@ -24,6 +25,7 @@ set +h
 #OPT:gnupg
 #OPT:gnutls
 #OPT:jansson
+#OPT:libaio
 #OPT:libarchive
 #OPT:libcap
 #OPT:libgcrypt
@@ -35,16 +37,17 @@ set +h
 #OPT:talloc
 #OPT:vala
 #OPT:valgrind
+#OPT:wireshark
 #OPT:xfsprogs
 #OPT:six
 
 cd $SOURCE_DIR
 
-wget -nc https://www.samba.org/ftp/samba/stable/samba-4.9.1.tar.gz
+wget -nc https://www.samba.org/ftp/samba/stable/samba-4.9.4.tar.gz
 
 NAME=samba
-VERSION=4.9.1
-URL=https://www.samba.org/ftp/samba/stable/samba-4.9.1.tar.gz
+VERSION=4.9.4
+URL=https://www.samba.org/ftp/samba/stable/samba-4.9.4.tar.gz
 
 if [ ! -z $URL ]
 then

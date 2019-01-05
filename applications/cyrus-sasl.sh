@@ -17,11 +17,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cyrusimap.org/releases/cyrus-sasl-2.1.27.tar.gz
+wget -nc https://github.com/cyrusimap/cyrus-sasl/releases/download/cyrus-sasl-2.1.27/cyrus-sasl-2.1.27.tar.gz
 
 NAME=cyrus-sasl
 VERSION=2.1.27
-URL=https://www.cyrusimap.org/releases/cyrus-sasl-2.1.27.tar.gz
+URL=https://github.com/cyrusimap/cyrus-sasl/releases/download/cyrus-sasl-2.1.27/cyrus-sasl-2.1.27.tar.gz
 
 if [ ! -z $URL ]
 then

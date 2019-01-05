@@ -34,7 +34,7 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../liboauth-1.0.3-openssl-1.1.0-2.patch
+patch -Np1 -i ../liboauth-1.0.3-openssl-1.1.0-3.patch
 ./configure --prefix=/usr --disable-static &&
 make
 

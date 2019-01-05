@@ -20,12 +20,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/wget/wget-1.20.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/wget/wget-1.20.tar.gz
+wget -nc https://ftp.gnu.org/gnu/wget/wget-1.20.1.tar.gz
+wget -nc ftp://ftp.gnu.org/gnu/wget/wget-1.20.1.tar.gz
 
 NAME=wget
-VERSION=1.20
-URL=https://ftp.gnu.org/gnu/wget/wget-1.20.tar.gz
+VERSION=1.20.1
+URL=https://ftp.gnu.org/gnu/wget/wget-1.20.1.tar.gz
 
 if [ ! -z $URL ]
 then

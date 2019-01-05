@@ -14,11 +14,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tar.xz
+wget -nc https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tar.xz
 
 NAME=python3
-VERSION=3.7.1
-URL=https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tar.xz
+VERSION=3.7.2
+URL=https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -56,7 +56,7 @@ sudo rm /tmp/rootscript.sh
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-ln -svfn python-3.7.1 /usr/share/doc/python-3
+ln -svfn python-3.7.2 /usr/share/doc/python-3
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

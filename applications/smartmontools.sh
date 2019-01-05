@@ -12,11 +12,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/smartmontools/smartmontools-6.6.tar.gz
+wget -nc https://downloads.sourceforge.net/smartmontools/smartmontools-7.0.tar.gz
 
 NAME=smartmontools
-VERSION=6.6
-URL=https://downloads.sourceforge.net/smartmontools/smartmontools-6.6.tar.gz
+VERSION=7.0
+URL=https://downloads.sourceforge.net/smartmontools/smartmontools-7.0.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -36,7 +36,7 @@ fi
 ./configure --prefix=/usr           \
             --sysconfdir=/etc       \
             --with-initscriptdir=no \
-            --docdir=/usr/share/doc/smartmontools-6.6 &&
+            --docdir=/usr/share/doc/smartmontools-7.0 &&
 make
 
 sudo rm /tmp/rootscript.sh

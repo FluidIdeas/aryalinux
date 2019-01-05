@@ -58,11 +58,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.videolan.org/vlc/3.0.4/vlc-3.0.4.tar.xz
+wget -nc https://download.videolan.org/vlc/3.0.5/vlc-3.0.5.tar.xz
 
 NAME=vlc
-VERSION=3.0.4
-URL=https://download.videolan.org/vlc/3.0.4/vlc-3.0.4.tar.xz
+VERSION=3.0.5
+URL=https://download.videolan.org/vlc/3.0.5/vlc-3.0.5.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -89,7 +89,7 @@ make
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make docdir=/usr/share/doc/vlc-3.0.4 install
+make docdir=/usr/share/doc/vlc-3.0.5 install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

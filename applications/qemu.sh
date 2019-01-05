@@ -31,11 +31,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.qemu-project.org/qemu-3.0.0.tar.xz
+wget -nc http://download.qemu-project.org/qemu-3.1.0.tar.xz
 
 NAME=qemu
-VERSION=3.0.0
-URL=http://download.qemu-project.org/qemu-3.0.0.tar.xz
+VERSION=3.1.0
+URL=http://download.qemu-project.org/qemu-3.1.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -77,7 +77,7 @@ cd        build &&
              --target-list=$QEMU_ARCH    \
              --audio-drv-list=alsa       \
              --with-sdlabi=2.0           \
-             --docdir=/usr/share/doc/qemu-3.0.0 &&
+             --docdir=/usr/share/doc/qemu-3.1.0 &&
 
 unset QEMU_ARCH &&
 

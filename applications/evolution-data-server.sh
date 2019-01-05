@@ -17,6 +17,7 @@ set +h
 #REC:gobject-introspection
 #REC:gtk3
 #REC:icu
+#REC:libcanberra
 #REC:libgdata
 #REC:libgweather
 #REC:vala
@@ -27,12 +28,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.28/evolution-data-server-3.28.5.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.28/evolution-data-server-3.28.5.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.30/evolution-data-server-3.30.3.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.30/evolution-data-server-3.30.3.tar.xz
 
 NAME=evolution-data-server
-VERSION=3.28.5
-URL=http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.28/evolution-data-server-3.28.5.tar.xz
+VERSION=3.30.3
+URL=http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.30/evolution-data-server-3.30.3.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -53,11 +54,11 @@ mkdir build &&
 cd    build &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr   \
+      -DSYSCONF_INSTALL_DIR=/etc    \
       -DENABLE_UOA=OFF              \
       -DENABLE_VALA_BINDINGS=ON     \
       -DENABLE_INSTALLED_TESTS=ON   \
       -DENABLE_GOOGLE=ON            \
-      -DENABLE_GOOGLE_AUTH=OFF      \
       -DWITH_OPENLDAP=OFF           \
       -DWITH_KRB5=OFF               \
       -DENABLE_INTROSPECTION=ON     \

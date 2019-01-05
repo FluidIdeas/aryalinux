@@ -13,11 +13,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/gparted/gparted-0.32.0.tar.gz
+wget -nc https://downloads.sourceforge.net/gparted/gparted-0.33.0.tar.gz
 
 NAME=gparted
-VERSION=0.32.0
-URL=https://downloads.sourceforge.net/gparted/gparted-0.32.0.tar.gz
+VERSION=0.33.0
+URL=https://downloads.sourceforge.net/gparted/gparted-0.33.0.tar.gz
 
 if [ ! -z $URL ]
 then

@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="088-meson.sh"
-TARBALL="meson-0.48.2.tar.gz"
+TARBALL="meson-0.49.0.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 

@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="108-dbus.sh"
-TARBALL="dbus-1.12.10.tar.gz"
+TARBALL="dbus-1.12.12.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -39,7 +39,7 @@ export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
               --disable-static                    \
               --disable-doxygen-docs              \
               --disable-xml-docs                  \
-              --docdir=/usr/share/doc/dbus-1.12.10 \
+              --docdir=/usr/share/doc/dbus-1.12.12 \
               --with-console-auth-dir=/run/console
 make
 make install

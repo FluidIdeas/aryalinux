@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://c-ares.haxx.se/download/c-ares-1.14.0.tar.gz
+wget -nc https://c-ares.haxx.se/download/c-ares-1.15.0.tar.gz
 
 NAME=c-ares
-VERSION=1.14.0
-URL=https://c-ares.haxx.se/download/c-ares-1.14.0.tar.gz
+VERSION=1.15.0
+URL=https://c-ares.haxx.se/download/c-ares-1.15.0.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -30,7 +30,10 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --disable-static &&
+mkdir build &&
+cd    build &&
+
+cmake  -DCMAKE_INSTALL_PREFIX=/usr .. &&
 make
 
 sudo rm /tmp/rootscript.sh

@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/libfuse/libfuse/releases/download/fuse-3.3.0/fuse-3.3.0.tar.xz
+wget -nc https://github.com/libfuse/libfuse/releases/download/fuse-3.4.1/fuse-3.4.1.tar.xz
 
 NAME=fuse
-VERSION=3.3.0
-URL=https://github.com/libfuse/libfuse/releases/download/fuse-3.3.0/fuse-3.3.0.tar.xz
+VERSION=3.4.1
+URL=https://github.com/libfuse/libfuse/releases/download/fuse-3.4.1/fuse-3.4.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -44,16 +44,16 @@ cat > /tmp/rootscript.sh <<"EOF"
 ninja install                                             &&
 
 mv -vf   /usr/lib/libfuse3.so.3*     /lib                 &&
-ln -sfvn ../../lib/libfuse3.so.3.3.0 /usr/lib/libfuse3.so &&
+ln -sfvn ../../lib/libfuse3.so.3.4.1 /usr/lib/libfuse3.so &&
 
 mv -vf /usr/bin/fusermount3  /bin         &&
 mv -vf /usr/sbin/mount.fuse3 /sbin        &&
 chmod u+s /bin/fusermount3                &&
 
-install -v -m755 -d /usr/share/doc/fuse-3.3.0      &&
+install -v -m755 -d /usr/share/doc/fuse-3.4.1      &&
 install -v -m644    ../doc/{README.NFS,kernel.txt} \
-                    /usr/share/doc/fuse-3.3.0      &&
-cp -Rv ../doc/html  /usr/share/doc/fuse-3.3.0
+                    /usr/share/doc/fuse-3.4.1      &&
+cp -Rv ../doc/html  /usr/share/doc/fuse-3.4.1
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

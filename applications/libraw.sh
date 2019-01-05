@@ -12,11 +12,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.libraw.org/data/LibRaw-0.19.1.tar.gz
+wget -nc http://www.libraw.org/data/LibRaw-0.19.2.tar.gz
 
 NAME=libraw
-VERSION=0.19.1
-URL=http://www.libraw.org/data/LibRaw-0.19.1.tar.gz
+VERSION=0.19.2
+URL=http://www.libraw.org/data/LibRaw-0.19.2.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -38,7 +38,7 @@ fi
             --enable-jasper  \
             --enable-lcms    \
             --disable-static \
-            --docdir=/usr/share/doc/libraw-0.19.1 &&
+            --docdir=/usr/share/doc/libraw-0.19.2 &&
 make
 
 sudo rm /tmp/rootscript.sh

@@ -9,12 +9,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.nasm.us/pub/nasm/releasebuilds/2.14/nasm-2.14.tar.xz
-wget -nc http://www.nasm.us/pub/nasm/releasebuilds/2.14/nasm-2.14-xdoc.tar.xz
+wget -nc http://www.nasm.us/pub/nasm/releasebuilds/2.14.02/nasm-2.14.02.tar.xz
+wget -nc http://www.nasm.us/pub/nasm/releasebuilds/2.14.02/nasm-2.14.02-xdoc.tar.xz
 
 NAME=nasm
-VERSION=2.14
-URL=http://www.nasm.us/pub/nasm/releasebuilds/2.14/nasm-2.14.tar.xz
+VERSION=2.14.02
+URL=http://www.nasm.us/pub/nasm/releasebuilds/2.14.02/nasm-2.14.02.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -31,7 +31,7 @@ fi
 cd $DIRECTORY
 fi
 
-tar -xf ../nasm-2.14-xdoc.tar.xz --strip-components=1
+tar -xf ../nasm-2.14.02-xdoc.tar.xz --strip-components=1
 ./configure --prefix=/usr &&
 make
 
@@ -46,9 +46,9 @@ sudo rm /tmp/rootscript.sh
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-install -m755 -d         /usr/share/doc/nasm-2.14/html  &&
-cp -v doc/html/*.html    /usr/share/doc/nasm-2.14/html  &&
-cp -v doc/*.{txt,ps,pdf} /usr/share/doc/nasm-2.14
+install -m755 -d         /usr/share/doc/nasm-2.14.02/html  &&
+cp -v doc/html/*.html    /usr/share/doc/nasm-2.14.02/html  &&
+cp -v doc/*.{txt,ps,pdf} /usr/share/doc/nasm-2.14.02
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

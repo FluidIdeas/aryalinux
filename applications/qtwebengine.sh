@@ -7,8 +7,12 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:nss
-#REQ:pulseaudio
+#REQ:python2
 #REQ:qt5
+#REC:alsa-lib
+#REC:pulseaudio
+#REC:ffmpeg
+#REC:icu
 #REC:libwebp
 #REC:libxslt
 #REC:opus
@@ -16,11 +20,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.qt.io/archive/qt/5.11/5.11.2/submodules/qtwebengine-everywhere-src-5.11.2.tar.xz
+wget -nc https://download.qt.io/archive/qt/5.12/5.12.0/submodules/qtwebengine-everywhere-src-5.12.0.tar.xz
 
 NAME=qtwebengine
-VERSION=5.11.2
-URL=https://download.qt.io/archive/qt/5.11/5.11.2/submodules/qtwebengine-everywhere-src-5.11.2.tar.xz
+VERSION=5.12.0
+URL=https://download.qt.io/archive/qt/5.12/5.12.0/submodules/qtwebengine-everywhere-src-5.12.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -37,10 +41,21 @@ fi
 cd $DIRECTORY
 fi
 
+find -type f -name "*.pr[io]" |
+  xargs sed -i -e 's|INCLUDEPATH += |&$$QTWEBENGINE_ROOT/include |'
+
+sudo rm /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"EOF"
+mv -v ${QT5DIR}/lib/libQtWebEngineCore.so{,.old}
+EOF
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm /tmp/rootscript.sh
+
 mkdir build &&
 cd    build &&
 
-qmake ..    &&
+qmake -- -system-ffmpeg -webengine-icu .. &&
 make
 
 sudo rm /tmp/rootscript.sh

@@ -13,11 +13,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/libinput/libinput-1.12.3.tar.xz
+wget -nc https://www.freedesktop.org/software/libinput/libinput-1.12.4.tar.xz
 
-NAME=libinput-1.12.3
-VERSION=1.12.3
-URL=https://www.freedesktop.org/software/libinput/libinput-1.12.3.tar.xz
+NAME=libinput-1.12.4
+VERSION=1.12.4
+URL=https://www.freedesktop.org/software/libinput/libinput-1.12.4.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -57,8 +57,9 @@ sudo rm /tmp/rootscript.sh
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-install -v -dm755 /usr/share/doc/libinput-1.12.3 &&
-cp -rv html/*     /usr/share/doc/libinput-1.12.3
+install -v -dm755      /usr/share/doc/libinput-1.12.4/{html,api} &&
+cp -rv Documentation/* /usr/share/doc/libinput-1.12.4/html &&
+cp -rv api/*           /usr/share/doc/libinput-1.12.4/api
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

@@ -35,14 +35,11 @@ cd $DIRECTORY
 fi
 
 rm -rf po/
-sed -i 's/"5.11.", 5) == 0 ? 1 : 2/"5.10.", 5) >= 0 ? 2 : 1/' \
-  autotests/webviewtest.cpp
 mkdir build &&
 cd    build &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr \
       -DCMAKE_BUILD_TYPE=Release  \
-      -DBUILD_TESTING=OFF         \
       .. &&
 
 make

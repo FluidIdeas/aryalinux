@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cpan.org/authors/id/P/PL/PLICEASE/File-Which-1.22.tar.gz
+wget -nc https://www.cpan.org/authors/id/P/PL/PLICEASE/File-Which-1.23.tar.gz
 
-NAME=file::which-1.22
-VERSION=1.22
-URL=https://www.cpan.org/authors/id/P/PL/PLICEASE/File-Which-1.22.tar.gz
+NAME=file::which-1.23
+VERSION=1.23
+URL=https://www.cpan.org/authors/id/P/PL/PLICEASE/File-Which-1.23.tar.gz
 
 if [ ! -z $URL ]
 then

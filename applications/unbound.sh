@@ -14,11 +14,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.unbound.net/downloads/unbound-1.8.1.tar.gz
+wget -nc http://www.unbound.net/downloads/unbound-1.8.3.tar.gz
 
 NAME=unbound
-VERSION=1.8.1
-URL=http://www.unbound.net/downloads/unbound-1.8.1.tar.gz
+VERSION=1.8.3
+URL=http://www.unbound.net/downloads/unbound-1.8.3.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -65,8 +65,8 @@ sudo rm /tmp/rootscript.sh
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-install -v -m755 -d /usr/share/doc/unbound-1.8.1 &&
-install -v -m644 doc/html/* /usr/share/doc/unbound-1.8.1
+install -v -m755 -d /usr/share/doc/unbound-1.8.3 &&
+install -v -m644 doc/html/* /usr/share/doc/unbound-1.8.3
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

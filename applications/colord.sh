@@ -9,11 +9,11 @@ set +h
 #REQ:dbus
 #REQ:glib2
 #REQ:lcms2
+#REQ:polkit
 #REQ:sqlite
 #REC:gobject-introspection
 #REC:libgudev
 #REC:libgusb
-#REC:polkit
 #REC:systemd
 #REC:vala
 #OPT:docbook-utils

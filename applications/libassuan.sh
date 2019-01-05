@@ -12,11 +12,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.1.tar.bz2
+wget -nc https://www.gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.2.tar.bz2
 
 NAME=libassuan
-VERSION=2.5.1.
-URL=https://www.gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.1.tar.bz2
+VERSION=2.5.2.
+URL=https://www.gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.2.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -48,9 +48,9 @@ sudo rm /tmp/rootscript.sh
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-install -v -dm755 /usr/share/doc/libassuan-2.5.1 &&
+install -v -dm755 /usr/share/doc/libassuan-2.5.2 &&
 install -v -m644  doc/assuan.{pdf,ps,dvi} \
-                  /usr/share/doc/libassuan-2.5.1
+                  /usr/share/doc/libassuan-2.5.2
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

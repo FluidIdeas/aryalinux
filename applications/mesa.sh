@@ -9,7 +9,6 @@ set +h
 #REQ:x7lib
 #REQ:libdrm
 #REQ:Mako
-#REQ:python2
 #REC:libva
 #REC:libvdpau
 #REC:llvm
@@ -19,16 +18,17 @@ set +h
 #REC:gtk3
 #OPT:libgcrypt
 #OPT:nettle
+#OPT:python2
 
 cd $SOURCE_DIR
 
-wget -nc https://mesa.freedesktop.org/archive/mesa-18.2.6.tar.xz
-wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-18.2.6.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/mesa-18.2.6-add_xdemos-1.patch
+wget -nc https://mesa.freedesktop.org/archive/mesa-18.3.1.tar.xz
+wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-18.3.1.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/mesa-18.3.1-add_xdemos-1.patch
 
 NAME=mesa
-VERSION=18.2.6
-URL=https://mesa.freedesktop.org/archive/mesa-18.2.6.tar.xz
+VERSION=18.3.1
+URL=https://mesa.freedesktop.org/archive/mesa-18.3.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -45,7 +45,7 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../mesa-18.2.6-add_xdemos-1.patch
+patch -Np1 -i ../mesa-18.3.1-add_xdemos-1.patch
 GLL_DRV="i915,nouveau,radeonsi,svga,swrast"
 ./configure CFLAGS='-O2' CXXFLAGS='-O2' LDFLAGS=-lLLVM \
             --prefix=$XORG_PREFIX              \
@@ -81,8 +81,8 @@ sudo rm /tmp/rootscript.sh
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-install -v -dm755 /usr/share/doc/mesa-18.2.6 &&
-cp -rfv docs/* /usr/share/doc/mesa-18.2.6
+install -v -dm755 /usr/share/doc/mesa-18.3.1 &&
+cp -rfv docs/* /usr/share/doc/mesa-18.3.1
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

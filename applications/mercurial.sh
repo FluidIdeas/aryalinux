@@ -15,11 +15,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.mercurial-scm.org/release/mercurial-4.7.2.tar.gz
+wget -nc https://www.mercurial-scm.org/release/mercurial-4.8.1.tar.gz
 
 NAME=mercurial
-VERSION=4.7.2
-URL=https://www.mercurial-scm.org/release/mercurial-4.7.2.tar.gz
+VERSION=4.8.1
+URL=https://www.mercurial-scm.org/release/mercurial-4.8.1.tar.gz
 
 if [ ! -z $URL ]
 then

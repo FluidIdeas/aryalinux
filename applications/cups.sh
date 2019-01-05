@@ -24,11 +24,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/apple/cups/releases/download/v2.2.9/cups-2.2.9-source.tar.gz
+wget -nc https://github.com/apple/cups/releases/download/v2.2.10/cups-2.2.10-source.tar.gz
 
 NAME=cups
-VERSION=2.2.9-source
-URL=https://github.com/apple/cups/releases/download/v2.2.9/cups-2.2.9-source.tar.gz
+VERSION=2.2.10-source
+URL=https://github.com/apple/cups/releases/download/v2.2.10/cups-2.2.10-source.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -83,14 +83,14 @@ CC=gcc \
 ./configure --libdir=/usr/lib            \
             --with-rcdir=/tmp/cupsinit   \
             --with-system-groups=lpadmin \
-            --with-docdir=/usr/share/cups/doc-2.2.9 &&
+            --with-docdir=/usr/share/cups/doc-2.2.10 &&
 make
 
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 rm -rf /tmp/cupsinit &&
-ln -svnf ../cups/doc-2.2.9 /usr/share/doc/cups-2.2.9
+ln -svnf ../cups/doc-2.2.10 /usr/share/doc/cups-2.2.10
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

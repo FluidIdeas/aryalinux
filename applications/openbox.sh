@@ -10,6 +10,7 @@ set +h
 #REQ:pango
 #OPT:dbus
 #OPT:imlib2
+#OPT:imagemagick
 #OPT:pyxdg
 #OPT:startup-notification
 #OPT:librsvg

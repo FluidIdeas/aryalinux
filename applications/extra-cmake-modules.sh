@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/frameworks/5.49/extra-cmake-modules-5.49.0.tar.xz
+wget -nc http://download.kde.org/stable/frameworks/5.53/extra-cmake-modules-5.53.0.tar.xz
 
 NAME=extra-cmake-modules
-VERSION=5.49.0
-URL=http://download.kde.org/stable/frameworks/5.49/extra-cmake-modules-5.49.0.tar.xz
+VERSION=5.53.0
+URL=http://download.kde.org/stable/frameworks/5.53/extra-cmake-modules-5.53.0.tar.xz
 
 if [ ! -z $URL ]
 then

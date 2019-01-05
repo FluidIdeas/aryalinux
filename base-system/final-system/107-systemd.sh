@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="107-systemd.sh"
-TARBALL="systemd-239-6b4878d.tar.xz"
+TARBALL="systemd-240.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -37,8 +37,8 @@ ln -sf /tools/bin/true /usr/bin/xsltproc
 for file in /tools/lib/lib{blkid,mount,uuid}*; do
     ln -sf $file /usr/lib/
 done
-tar -xf ../systemd-man-pages-239-6b4878d.tar.xz
-sed '166,$ d' -i src/resolve/meson.build
+tar -xf ../systemd-man-pages-240.tar.xz
+sed '177,$ d' -i src/resolve/meson.build
 sed -i 's/GROUP="render", //' rules/50-udev-default.rules.in
 mkdir -p build
 cd       build

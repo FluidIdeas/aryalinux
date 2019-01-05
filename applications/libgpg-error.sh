@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.32.tar.bz2
+wget -nc https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.33.tar.bz2
 
 NAME=libgpg-error
-VERSION=1.32.
-URL=https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.32.tar.bz2
+VERSION=1.33.
+URL=https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.33.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -36,7 +36,7 @@ make
 sudo rm /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
-install -v -m644 -D README /usr/share/doc/libgpg-error-1.32/README
+install -v -m644 -D README /usr/share/doc/libgpg-error-1.33/README
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
