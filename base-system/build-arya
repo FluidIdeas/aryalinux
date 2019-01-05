@@ -111,7 +111,7 @@ def inputBuildProperties():
 	readInput('Enter full name: ', 'FULLNAME', propsFile, 'AryaLinux')
 	readInput('Username: ', 'USERNAME', propsFile, 'aryalinux')
 	readInput('Computer Name: ', 'HOST_NAME', propsFile, 'aryalinux')
-	readInput('Use multiple cores for build?: (Y/n)', 'MULTICORE', propsFile, 'y')
+	readInput('Use multiple cores for build?: (Y/n) ', 'MULTICORE', propsFile, 'y')
 	readInput('Create backups? (y/N) ', 'CREATE_BACKUPS', propsFile, 'n')
 	readInput("Install X Server? (y/N) ", 'INSTALL_XSERVER', propsFile, 'n')
 	if getParamValue('INSTALL_XSERVER') == 'y' or getParamValue('INSTALL_XSERVER') == 'Y':
