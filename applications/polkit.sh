@@ -40,42 +40,49 @@ cd $DIRECTORY
 fi
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 groupadd -fg 27 polkitd &&
 useradd -c "PolicyKit Daemon Owner" -d /etc/polkit-1 -u 27 \
-        -g polkitd -s /bin/false polkitd
+-g polkitd -s /bin/false polkitd
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 sed -i "s:/sys/fs/cgroup/systemd/:/sys:g" configure
 patch -Np1 -i ../polkit-0.115-security_patch-2.patch
-./configure --prefix=/usr                    \
-            --sysconfdir=/etc                \
-            --localstatedir=/var             \
-            --disable-static                 &&
+./configure --prefix=/usr \
+--sysconfdir=/etc \
+--localstatedir=/var \
+--disable-static &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/pam.d/polkit-1 << "EOF"
-<code class="literal"># Begin /etc/pam.d/polkit-1 auth include system-auth account include system-account password include system-password session include system-session # End /etc/pam.d/polkit-1</code>
+<code class="literal"># Begin /etc/pam.d/polkit-1
+
+auth include system-auth
+account include system-account
+password include system-password
+session include system-session
+
+# End /etc/pam.d/polkit-1</code>
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

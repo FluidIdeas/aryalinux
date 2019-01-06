@@ -41,75 +41,81 @@ cd $DIRECTORY
 fi
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 groupadd -g 32 postfix &&
 groupadd -g 33 postdrop &&
 useradd -c "Postfix Daemon User" -d /var/spool/postfix -g postfix \
-        -s /bin/false -u 32 postfix &&
+-s /bin/false -u 32 postfix &&
 chown -v postfix:postfix /var/mail
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 sed -i 's/.\x08//g' README_FILES/*
-make CCARGS="-DUSE_TLS -I/usr/include/openssl/                     \
-             -DUSE_SASL_AUTH -DUSE_CYRUS_SASL -I/usr/include/sasl" \
-     AUXLIBS="-lssl -lcrypto -lsasl2"                              \
-     makefiles &&
+make CCARGS="-DUSE_TLS -I/usr/include/openssl/ \
+-DUSE_SASL_AUTH -DUSE_CYRUS_SASL -I/usr/include/sasl" \
+AUXLIBS="-lssl -lcrypto -lsasl2" \
+makefiles &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 sh postfix-install -non-interactive \
-   daemon_directory=/usr/lib/postfix \
-   manpage_directory=/usr/share/man \
-   html_directory=/usr/share/doc/postfix-3.3.2/html \
-   readme_directory=/usr/share/doc/postfix-3.3.2/readme
+daemon_directory=/usr/lib/postfix \
+manpage_directory=/usr/share/man \
+html_directory=/usr/share/doc/postfix-3.3.2/html \
+readme_directory=/usr/share/doc/postfix-3.3.2/readme
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/aliases << "EOF"
-<code class="literal"># Begin /etc/aliases MAILER-DAEMON: postmaster postmaster: root <em class="replaceable"><code><LOGIN></code></em> # End /etc/aliases</code>
+<code class="literal"># Begin /etc/aliases
+
+MAILER-DAEMON: postmaster
+postmaster: root
+
+<em class="replaceable"><code><LOGIN></code></em>
+# End /etc/aliases</code>
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 /usr/sbin/postfix upgrade-configuration
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 /usr/sbin/postfix check &&
 /usr/sbin/postfix start
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install-postfix
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

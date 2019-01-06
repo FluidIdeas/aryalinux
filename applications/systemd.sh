@@ -22,7 +22,6 @@ set +h
 #OPT:zsh
 #OPT:docbook
 #OPT:docbook-xsl
-#OPT:libxslt
 
 cd $SOURCE_DIR
 
@@ -49,76 +48,96 @@ fi
 
 sed -i 's/GROUP="render", //' rules/50-udev-default.rules.in
 mkdir build &&
-cd    build &&
+cd build &&
 
-meson --prefix=/usr         \
-      --sysconfdir=/etc     \
-      --localstatedir=/var  \
-      -Dblkid=true          \
-      -Dbuildtype=release   \
-      -Ddefault-dnssec=no   \
-      -Dfirstboot=false     \
-      -Dinstall-tests=false \
-      -Dldconfig=false      \
-      -Drootprefix=         \
-      -Drootlibdir=/lib     \
-      -Dsplit-usr=true      \
-      -Dsysusers=false      \
-      -Db_lto=false         \
-      ..                    &&
+meson --prefix=/usr \
+--sysconfdir=/etc \
+--localstatedir=/var \
+-Dblkid=true \
+-Dbuildtype=release \
+-Ddefault-dnssec=no \
+-Dfirstboot=false \
+-Dinstall-tests=false \
+-Dldconfig=false \
+-Drootprefix= \
+-Drootlibdir=/lib \
+-Dsplit-usr=true \
+-Dsysusers=false \
+-Db_lto=false \
+.. &&
 
 ninja
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 systemctl start rescue.target
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 ninja install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 rm -rfv /usr/lib/rpm
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/pam.d/system-session << "EOF"
-<code class="literal"># Begin Systemd addition session required pam_loginuid.so session optional pam_systemd.so # End Systemd addition</code>
+<code class="literal"># Begin Systemd addition
+
+session required pam_loginuid.so
+session optional pam_systemd.so
+
+# End Systemd addition</code>
 EOF
 
 cat > /etc/pam.d/systemd-user << "EOF"
-<code class="literal"># Begin /etc/pam.d/systemd-user account required pam_access.so account include system-account session required pam_env.so session required pam_limits.so session required pam_unix.so session required pam_loginuid.so session optional pam_keyinit.so force revoke session optional pam_systemd.so auth required pam_deny.so password required pam_deny.so # End /etc/pam.d/systemd-user</code>
+<code class="literal"># Begin /etc/pam.d/systemd-user
+
+account required pam_access.so
+account include system-account
+
+session required pam_env.so
+session required pam_limits.so
+session required pam_unix.so
+session required pam_loginuid.so
+session optional pam_keyinit.so force revoke
+session optional pam_systemd.so
+
+auth required pam_deny.so
+password required pam_deny.so
+
+# End /etc/pam.d/systemd-user</code>
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 systemctl daemon-reload
 systemctl start multi-user.target
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

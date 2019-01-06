@@ -35,23 +35,23 @@ fi
 make
 make html
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-mkdir                   /usr/share/doc/gsl-2.5 &&
+mkdir /usr/share/doc/gsl-2.5 &&
 cp -R doc/_build/html/* /usr/share/doc/gsl-2.5
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

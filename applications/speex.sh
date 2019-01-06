@@ -32,35 +32,35 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr    \
-            --disable-static \
-            --docdir=/usr/share/doc/speex-1.2.0 &&
+./configure --prefix=/usr \
+--disable-static \
+--docdir=/usr/share/doc/speex-1.2.0 &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
-cd ..                          &&
+cd .. &&
 tar -xf speexdsp-1.2rc3.tar.gz &&
-cd speexdsp-1.2rc3             &&
+cd speexdsp-1.2rc3 &&
 
-./configure --prefix=/usr    \
-            --disable-static \
-            --docdir=/usr/share/doc/speexdsp-1.2rc3 &&
+./configure --prefix=/usr \
+--disable-static \
+--docdir=/usr/share/doc/speexdsp-1.2rc3 &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

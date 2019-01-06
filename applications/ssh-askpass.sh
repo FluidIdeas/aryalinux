@@ -7,7 +7,6 @@ set +h
 
 #REQ:gtk2
 #REQ:sudo
-#REQ:x7lib
 #REQ:installing
 
 cd $SOURCE_DIR
@@ -37,29 +36,30 @@ fi
 cd contrib &&
 make gnome-ssh-askpass2
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-install -v -d -m755 /usr/libexec/openssh/contrib  &&
-install -v -m755    gnome-ssh-askpass2 \
-                    /usr/libexec/openssh/contrib  &&
+install -v -d -m755 /usr/libexec/openssh/contrib &&
+install -v -m755 gnome-ssh-askpass2 \
+/usr/libexec/openssh/contrib &&
 ln -sv -f contrib/gnome-ssh-askpass2 \
-                    /usr/libexec/openssh/ssh-askpass
+/usr/libexec/openssh/ssh-askpass
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/sudo.conf << "EOF" &&
-<code class="literal"># Path to askpass helper program Path askpass /usr/libexec/openssh/ssh-askpass</code>
+<code class="literal"># Path to askpass helper program
+Path askpass /usr/libexec/openssh/ssh-askpass</code>
 EOF
 chmod -v 0644 /etc/sudo.conf
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

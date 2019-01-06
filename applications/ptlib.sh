@@ -41,24 +41,24 @@ cd $DIRECTORY
 fi
 
 sed -i "s/sbin\.Right(1) == '\\\\0')/strlen(sbin\.Right(1)) == 0)/" \
-    src/ptclib/podbc.cxx &&
-    
+src/ptclib/podbc.cxx &&
+
 sed -i '/\/ioctl.h/a#include <sys/uio.h>' src/ptlib/unix/channel.cxx
 patch -Np1 -i ../ptlib-2.10.11-openssl-1.1.0-1.patch &&
 patch -Np1 -i ../ptlib-2.10.11-bison_fixes-2.patch &&
 
-./configure --prefix=/usr  \
-            --disable-odbc &&
+./configure --prefix=/usr \
+--disable-odbc &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 chmod -v 755 /usr/lib/libpt.so.2.10.11
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

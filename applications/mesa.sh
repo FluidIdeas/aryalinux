@@ -47,45 +47,45 @@ fi
 patch -Np1 -i ../mesa-18.3.1-add_xdemos-1.patch
 GLL_DRV="i915,nouveau,radeonsi,svga,swrast"
 ./configure CFLAGS='-O2' CXXFLAGS='-O2' LDFLAGS=-lLLVM \
-            --prefix=$XORG_PREFIX              \
-            --sysconfdir=/etc                  \
-            --enable-osmesa                    \
-            --enable-xa                        \
-            --enable-glx-tls                   \
-            --with-platforms="drm,x11,wayland" \
-            --with-gallium-drivers=$GLL_DRV    &&
+--prefix=$XORG_PREFIX \
+--sysconfdir=/etc \
+--enable-osmesa \
+--enable-xa \
+--enable-glx-tls \
+--with-platforms="drm,x11,wayland" \
+--with-gallium-drivers=$GLL_DRV &&
 
 unset GLL_DRV &&
 
 make
 make -C xdemos DEMOS_PREFIX=$XORG_PREFIX
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make -C xdemos DEMOS_PREFIX=$XORG_PREFIX install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -dm755 /usr/share/doc/mesa-18.3.1 &&
 cp -rfv docs/* /usr/share/doc/mesa-18.3.1
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

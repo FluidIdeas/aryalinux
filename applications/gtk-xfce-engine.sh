@@ -32,16 +32,16 @@ cd $DIRECTORY
 fi
 
 sed -i 's/\xd6/\xc3\x96/' gtk-3.0/xfce_style_types.h &&
-./configure --prefix=/usr --enable-gtk3              &&
+./configure --prefix=/usr --enable-gtk3 &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

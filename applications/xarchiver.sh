@@ -40,29 +40,29 @@ fi
 
 patch -Np1 -i ../xarchiver-0.5.4-fixes-1.patch &&
 
-./autogen.sh --prefix=/usr               \
-             --libexecdir=/usr/lib/xfce4 \
-             --disable-gtk3              \
-             --docdir=/usr/share/doc/xarchiver-0.5.4 &&
+./autogen.sh --prefix=/usr \
+--libexecdir=/usr/lib/xfce4 \
+--disable-gtk3 \
+--docdir=/usr/share/doc/xarchiver-0.5.4 &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make DOCDIR=/usr/share/doc/xarchiver-0.5.4 install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 update-desktop-database &&
 gtk-update-icon-cache -t -f --include-image-data /usr/share/icons/hicolor
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

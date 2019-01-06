@@ -12,7 +12,6 @@ set +h
 #REQ:poppler
 #REQ:qpdf
 #REC:libjpeg
-#REC:libpng
 #REC:libtiff
 #REC:mupdf
 #OPT:avahi
@@ -46,40 +45,40 @@ cd $DIRECTORY
 fi
 
 sed -i "s:cups.service:org.cups.cupsd.service:g" utils/cups-browsed.service
-./configure --prefix=/usr        \
-            --sysconfdir=/etc    \
-            --localstatedir=/var \
-            --without-rcdir      \
-            --disable-static     \
-            --disable-avahi      \
-            --docdir=/usr/share/doc/cups-filters-1.21.6 &&
+./configure --prefix=/usr \
+--sysconfdir=/etc \
+--localstatedir=/var \
+--without-rcdir \
+--disable-static \
+--disable-avahi \
+--docdir=/usr/share/doc/cups-filters-1.21.6 &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -m644 utils/cups-browsed.service /lib/systemd/system/cups-browsed.service
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 systemctl enable cups-browsed
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

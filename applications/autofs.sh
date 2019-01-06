@@ -36,42 +36,47 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/         \
-            --with-libtirpc    \
-            --with-systemd     \            
-            --without-openldap \
-            --mandir=/usr/share/man &&
+./configure --prefix=/ \
+--with-libtirpc \
+--with-systemd \ 
+--without-openldap \
+--mandir=/usr/share/man &&
 
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 mv /etc/auto.master /etc/auto.master.bak &&
 cat > /etc/auto.master << "EOF"
-<code class="literal"># Begin /etc/auto.master /media/auto /etc/auto.misc --ghost #/home /etc/auto.home # End /etc/auto.master</code>
+<code class="literal"># Begin /etc/auto.master
+
+/media/auto /etc/auto.misc --ghost
+#/home /etc/auto.home
+
+# End /etc/auto.master</code>
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 systemctl enable autofs
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

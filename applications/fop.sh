@@ -41,28 +41,29 @@ sed -i '\@</javad@i\
 <arg value="-Xdoclint:none"/>\
 <arg value="--allow-script-in-comments"/>\
 <arg value="--ignore-source-errors"/>' \
-    fop/build.xml
+fop/build.xml
 sed -e '/hyph\.stack/s/512k/1M/' \
-    -i fop/build.xml
+-i fop/build.xml
 cp ../{pdf,font}box-2.0.11.jar fop/lib
-cd fop                    &&
+cd fop &&
 export LC_ALL=en_US.UTF-8 &&
-ant all javadocs          &&
+ant all javadocs &&
 mv build/javadocs .
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-install -v -d -m755 -o root -g root          /opt/fop-2.3 &&
+install -v -d -m755 -o root -g root /opt/fop-2.3 &&
 cp -vR build conf examples fop* javadocs lib /opt/fop-2.3 &&
-chmod a+x /opt/fop-2.3/fop                                &&
+chmod a+x /opt/fop-2.3/fop &&
 ln -v -sfn fop-2.3 /opt/fop
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 cat > ~/.foprc << "EOF"
-<code class="literal">FOP_OPTS="-Xmx<em class="replaceable"><code><RAM_Installed></code></em>m" FOP_HOME="/opt/fop"</code>
+<code class="literal">FOP_OPTS="-Xmx<em class="replaceable"><code><RAM_Installed></code></em>m"
+FOP_HOME="/opt/fop"</code>
 EOF
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

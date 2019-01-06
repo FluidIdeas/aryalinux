@@ -37,28 +37,28 @@ fi
 
 ./configure --prefix=/usr &&
 make
-pushd docs  &&
-  doxygen   &&
+pushd docs &&
+doxygen &&
 popd
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make install              &&
+make install &&
 rm -v /usr/lib/libSDL2*.a
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-install -v -m755 -d        /usr/share/doc/SDL2-2.0.9/html &&
-cp -Rv  docs/output/html/* /usr/share/doc/SDL2-2.0.9/html
+install -v -m755 -d /usr/share/doc/SDL2-2.0.9/html &&
+cp -Rv docs/output/html/* /usr/share/doc/SDL2-2.0.9/html
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 cd test &&
 ./configure &&

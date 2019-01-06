@@ -8,8 +8,6 @@ set +h
 #REQ:gcr
 #REQ:json-glib
 #REQ:rest
-#REQ:telepathy-glib
-#REQ:vala
 #REQ:webkitgtk
 #REC:gobject-introspection
 #OPT:cheese
@@ -42,18 +40,18 @@ cd $DIRECTORY
 fi
 
 ./configure --prefix=/usr \
-            --disable-static \
-            --with-google-client-secret=5ntt6GbbkjnTVXx-MSxbmx5e \
-            --with-google-client-id=595013732528-llk8trb03f0ldpqq6nprjp1s79596646.apps.googleusercontent.com &&
+--disable-static \
+--with-google-client-secret=5ntt6GbbkjnTVXx-MSxbmx5e \
+--with-google-client-id=595013732528-llk8trb03f0ldpqq6nprjp1s79596646.apps.googleusercontent.com &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

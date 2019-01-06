@@ -6,7 +6,6 @@ set +h
 . /etc/alps/alps.conf
 
 #REQ:lxde-icon-theme
-#REQ:lxpanel
 #REQ:lxsession
 #REQ:openbox
 #REQ:pcmanfm
@@ -45,16 +44,16 @@ fi
 ./configure --prefix=/usr --sysconfdir=/etc &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 update-mime-database /usr/share/mime &&
 gtk-update-icon-cache -qf /usr/share/icons/hicolor &&
@@ -62,10 +61,11 @@ update-desktop-database -q
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 cat > ~/.xinitrc << "EOF"
-<code class="literal"># No need to run dbus-launch, since it is run by startlxde startlxde</code>
+<code class="literal"># No need to run dbus-launch, since it is run by startlxde
+startlxde</code>
 EOF
 
 startx

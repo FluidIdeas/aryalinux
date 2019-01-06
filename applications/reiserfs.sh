@@ -30,19 +30,19 @@ cd $DIRECTORY
 fi
 
 sed -i '/parse_time.h/i #define _GNU_SOURCE' lib/parse_time.c &&
-autoreconf -fiv             &&
-./configure --prefix=/usr   \
-            --sbindir=/sbin &&
+autoreconf -fiv &&
+./configure --prefix=/usr \
+--sbindir=/sbin &&
 
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

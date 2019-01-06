@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.060.tar.gz
 
-NAME=io::socket::ssl-2.060
+NAME=
 VERSION=2.060
 URL=https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.060.tar.gz
 
@@ -34,13 +34,13 @@ fi
 yes | perl Makefile.PL &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -7,7 +7,6 @@ set +h
 
 #REQ:dconf
 #REQ:gnome-shell
-#REQ:gsettings-desktop-schemas
 #REQ:itstool
 #REQ:pcre2
 #REQ:vte
@@ -38,18 +37,18 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr       \
-            --disable-migration \
-            --disable-static    &&
+./configure --prefix=/usr \
+--disable-migration \
+--disable-static &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

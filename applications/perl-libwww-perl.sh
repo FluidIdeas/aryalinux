@@ -9,7 +9,6 @@ set +h
 #REQ:perl-http-cookies
 #REQ:perl-http-daemon
 #REQ:perl-http-negotiate
-#REQ:perl-html-parser
 #REQ:perl-net-http
 #REQ:perl-try-tiny
 #REQ:perl-www-robotrules
@@ -41,16 +40,16 @@ cd $DIRECTORY
 fi
 
 perl Makefile.PL &&
-make             &&
+make &&
 make test
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -6,7 +6,6 @@ set +h
 . /etc/alps/alps.conf
 
 #REQ:perl-module-build
-#REQ:perl-module-implementation
 #REC:perl-test-fatal
 #REC:perl-test-requires
 
@@ -14,7 +13,7 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Params-Validate-1.29.tar.gz
 
-NAME=params::validate-1.29
+NAME=
 VERSION=1.29
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Params-Validate-1.29.tar.gz
 
@@ -34,16 +33,16 @@ cd $DIRECTORY
 fi
 
 perl Build.PL &&
-./Build       &&
+./Build &&
 ./Build test
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 ./Build install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

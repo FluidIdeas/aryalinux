@@ -33,12 +33,12 @@ fi
 
 sed -i 's/\$(PERL5_SCRIPT/-I. &/' Examples/Makefile.in &&
 sed -i 's/\$command 2/-I. &/' Examples/test-suite/perl5/run-perl-test.pl
-./configure --prefix=/usr                      \
-            --without-clisp                    \
-            --without-maximum-compile-warnings &&
+./configure --prefix=/usr \
+--without-clisp \
+--without-maximum-compile-warnings &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 install -v -m755 -d /usr/share/doc/swig-3.0.12 &&
@@ -46,7 +46,7 @@ cp -v -R Doc/* /usr/share/doc/swig-3.0.12
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

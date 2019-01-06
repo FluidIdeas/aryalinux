@@ -30,19 +30,19 @@ fi
 cd $DIRECTORY
 fi
 
-sed -i 's/IO_ftrylockfile/IO_EOF_SEEN/' lib/*.c        &&
+sed -i 's/IO_ftrylockfile/IO_EOF_SEEN/' lib/*.c &&
 echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h &&
 
 ./configure --prefix=/usr &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

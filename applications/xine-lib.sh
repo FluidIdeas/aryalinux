@@ -7,16 +7,11 @@ set +h
 
 #REQ:installing
 #REQ:ffmpeg
-#REQ:alsa
-#REQ:pulseaudio
 #REC:libdvdnav
 #OPT:aalib
 #OPT:faad2
 #OPT:flac
-#OPT:gdk-pixbuf
 #OPT:glu
-#OPT:imagemagick
-#OPT:liba52
 #OPT:libmad
 #OPT:libmng
 #OPT:libtheora
@@ -29,7 +24,6 @@ set +h
 #OPT:samba
 #OPT:sdl
 #OPT:speex
-#OPT:doxygen
 #OPT:v4l-utils
 #OPT:libbluray
 #OPT:libdca
@@ -59,36 +53,36 @@ cd $DIRECTORY
 fi
 
 sed -e 's|wand/magick_wand.h|MagickWand/MagickWand.h|' \
-    -i src/video_dec/image.c &&
+-i src/video_dec/image.c &&
 
 sed -e 's/\(xcb-shape >= 1.0\)/xcb \1/' \
-    -i m4/video_out.m4 &&
+-i m4/video_out.m4 &&
 
-./configure --prefix=/usr          \
-            --disable-vcd          \
-            --with-external-dvdnav \
-            --docdir=/usr/share/doc/xine-lib-1.2.9 &&
+./configure --prefix=/usr \
+--disable-vcd \
+--with-external-dvdnav \
+--docdir=/usr/share/doc/xine-lib-1.2.9 &&
 make
 doxygen doc/Doxyfile
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -m755 -d /usr/share/doc/xine-lib-1.2.9/api &&
-install -v -m644    doc/api/* \
-                    /usr/share/doc/xine-lib-1.2.9/api
+install -v -m644 doc/api/* \
+/usr/share/doc/xine-lib-1.2.9/api
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

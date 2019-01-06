@@ -31,19 +31,19 @@ cd $DIRECTORY
 fi
 
 convmv -f iso-8859-1 -t cp850 -r --nosmart --notest \
-    <em class="replaceable"><code></path/to/unzipped/files></code></em>
+<em class="replaceable"><code></path/to/unzipped/files></code></em>
 convmv -f cp866 -t koi8-r -r --nosmart --notest \
-    <em class="replaceable"><code></path/to/unzipped/files></code></em>
+<em class="replaceable"><code></path/to/unzipped/files></code></em>
 make -f unix/Makefile generic
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make prefix=/usr MANDIR=/usr/share/man/man1 \
- -f unix/Makefile install
+-f unix/Makefile install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

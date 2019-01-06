@@ -37,33 +37,33 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr        \
-            --sysconfdir=/etc    \
-            --enable-auth-sasldb \
-            --with-dbpath=/var/lib/sasl/sasldb2 \
-            --with-saslauthd=/var/run/saslauthd &&
+./configure --prefix=/usr \
+--sysconfdir=/etc \
+--enable-auth-sasldb \
+--with-dbpath=/var/lib/sasl/sasldb2 \
+--with-saslauthd=/var/run/saslauthd &&
 make -j1
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
-install -v -dm755                          /usr/share/doc/cyrus-sasl-2.1.27/html &&
-install -v -m644  saslauthd/LDAP_SASLAUTHD /usr/share/doc/cyrus-sasl-2.1.27      &&
-install -v -m644  doc/html/*.html          /usr/share/doc/cyrus-sasl-2.1.27/html &&
+install -v -dm755 /usr/share/doc/cyrus-sasl-2.1.27/html &&
+install -v -m644 saslauthd/LDAP_SASLAUTHD /usr/share/doc/cyrus-sasl-2.1.27 &&
+install -v -m644 doc/html/*.html /usr/share/doc/cyrus-sasl-2.1.27/html &&
 install -v -dm700 /var/lib/sasl
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install-saslauthd
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

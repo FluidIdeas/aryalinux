@@ -35,36 +35,36 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr  \
-            --bindir=/bin  \
-            --libdir=/lib  \
-            --disable-zstd &&
+./configure --prefix=/usr \
+--bindir=/bin \
+--libdir=/lib \
+--disable-zstd &&
 make
 make fssum &&
 
 sed -i '/found/s/^/: #/' tests/convert-tests.sh &&
 
-mv tests/mkfs-tests/013-reserved-1M-for-single/test.sh{,.broken}          &&
-mv tests/convert-tests/010-reiserfs-basic/test.sh{,.broken}               &&
+mv tests/mkfs-tests/013-reserved-1M-for-single/test.sh{,.broken} &&
+mv tests/convert-tests/010-reiserfs-basic/test.sh{,.broken} &&
 mv tests/convert-tests/011-reiserfs-delete-all-rollback/test.sh{,.broken} &&
-mv tests/convert-tests/012-reiserfs-large-hole-extent/test.sh{,.broken}   &&
-mv tests/convert-tests/013-reiserfs-common-inode-flags/test.sh{,.broken}  &&
-mv tests/convert-tests/014-reiserfs-tail-handling/test.sh{,.broken}       &&
-mv tests/misc-tests/004-shrink-fs/test.sh{,.broken}                       &&
-mv tests/misc-tests/013-subvolume-sync-crash/test.sh{,.broken}            &&
-mv tests/misc-tests/025-zstd-compression/test.sh{,.broken}                &&
-mv tests/fuzz-tests/003-multi-check-unmounted/test.sh{,.broken}           &&
+mv tests/convert-tests/012-reiserfs-large-hole-extent/test.sh{,.broken} &&
+mv tests/convert-tests/013-reiserfs-common-inode-flags/test.sh{,.broken} &&
+mv tests/convert-tests/014-reiserfs-tail-handling/test.sh{,.broken} &&
+mv tests/misc-tests/004-shrink-fs/test.sh{,.broken} &&
+mv tests/misc-tests/013-subvolume-sync-crash/test.sh{,.broken} &&
+mv tests/misc-tests/025-zstd-compression/test.sh{,.broken} &&
+mv tests/fuzz-tests/003-multi-check-unmounted/test.sh{,.broken} &&
 mv tests/fuzz-tests/009-simple-zero-log/test.sh{,.broken}
 pushd tests
-   ./fsck-tests.sh
-   ./mkfs-tests.sh
-   ./cli-tests.sh
-   ./convert-tests.sh
-   ./misc-tests.sh
-   ./fuzz-tests.sh
+./fsck-tests.sh
+./mkfs-tests.sh
+./cli-tests.sh
+./convert-tests.sh
+./misc-tests.sh
+./fuzz-tests.sh
 popd
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 
@@ -75,7 +75,7 @@ mv -v /bin/{mkfs,fsck}.btrfs /sbin
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

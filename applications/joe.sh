@@ -29,12 +29,12 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr     \
-            --sysconfdir=/etc \
-            --docdir=/usr/share/doc/joe-4.6 &&
+./configure --prefix=/usr \
+--sysconfdir=/etc \
+--docdir=/usr/share/doc/joe-4.6 &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 
@@ -42,7 +42,7 @@ install -vm 755 joe/util/{stringify,termidx,uniproc} /usr/bin
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

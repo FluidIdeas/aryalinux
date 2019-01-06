@@ -33,33 +33,34 @@ fi
 sed -i '/^udev/,$ s/^/#/' util/meson.build &&
 
 mkdir build &&
-cd    build &&
+cd build &&
 
 meson --prefix=/usr .. &&
 ninja
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-ninja install                                             &&
+ninja install &&
 
-mv -vf   /usr/lib/libfuse3.so.3*     /lib                 &&
+mv -vf /usr/lib/libfuse3.so.3* /lib &&
 ln -sfvn ../../lib/libfuse3.so.3.4.1 /usr/lib/libfuse3.so &&
 
-mv -vf /usr/bin/fusermount3  /bin         &&
-mv -vf /usr/sbin/mount.fuse3 /sbin        &&
-chmod u+s /bin/fusermount3                &&
+mv -vf /usr/bin/fusermount3 /bin &&
+mv -vf /usr/sbin/mount.fuse3 /sbin &&
+chmod u+s /bin/fusermount3 &&
 
-install -v -m755 -d /usr/share/doc/fuse-3.4.1      &&
-install -v -m644    ../doc/{README.NFS,kernel.txt} \
-                    /usr/share/doc/fuse-3.4.1      &&
-cp -Rv ../doc/html  /usr/share/doc/fuse-3.4.1
+install -v -m755 -d /usr/share/doc/fuse-3.4.1 &&
+install -v -m644 ../doc/{README.NFS,kernel.txt} \
+/usr/share/doc/fuse-3.4.1 &&
+cp -Rv ../doc/html /usr/share/doc/fuse-3.4.1 
+
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/fuse.conf << "EOF"
 # Set the maximum number of FUSE mounts allowed to non-root users.
@@ -75,7 +76,7 @@ EOF
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

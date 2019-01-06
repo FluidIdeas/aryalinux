@@ -10,7 +10,6 @@ set +h
 #REC:freeglut
 #REC:harfbuzz
 #REC:libjpeg
-#REC:openjpeg2
 #REC:curl
 #OPT:xdg-utils
 
@@ -42,20 +41,20 @@ patch -Np1 -i ../mupdf-1.14.0-shared_libs-1.patch &&
 
 USE_SYSTEM_LIBS=yes make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-USE_SYSTEM_LIBS=yes                   \
-make prefix=/usr                      \
-     build=release                    \
-     docdir=/usr/share/doc/mupdf-1.14.0 \
-     install                          &&
+USE_SYSTEM_LIBS=yes \
+make prefix=/usr \
+build=release \
+docdir=/usr/share/doc/mupdf-1.14.0 \
+install &&
 
-ln -sfv mupdf-x11 /usr/bin/mupdf      &&
+ln -sfv mupdf-x11 /usr/bin/mupdf &&
 ldconfig
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

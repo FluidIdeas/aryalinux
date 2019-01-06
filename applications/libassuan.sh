@@ -7,7 +7,6 @@ set +h
 
 #REQ:libgpg-error
 #OPT:texlive
-#OPT:tl-installer
 
 cd $SOURCE_DIR
 
@@ -36,24 +35,24 @@ fi
 make
 make -C doc pdf ps
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -dm755 /usr/share/doc/libassuan-2.5.2 &&
-install -v -m644  doc/assuan.{pdf,ps,dvi} \
-                  /usr/share/doc/libassuan-2.5.2
+install -v -m644 doc/assuan.{pdf,ps,dvi} \
+/usr/share/doc/libassuan-2.5.2
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

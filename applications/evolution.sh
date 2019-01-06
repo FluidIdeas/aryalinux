@@ -15,7 +15,6 @@ set +h
 #REC:bogofilter
 #REC:enchant
 #REC:gnome-desktop
-#REC:highlight
 #REC:libcanberra
 #REC:libgweather
 #REC:libnotify
@@ -24,7 +23,6 @@ set +h
 #OPT:clutter-gtk
 #OPT:geoclue2
 #OPT:geocode-glib
-#OPT:libchamplain
 #OPT:gtk-doc
 
 cd $SOURCE_DIR
@@ -52,26 +50,26 @@ cd $DIRECTORY
 fi
 
 mkdir build &&
-cd    build &&
+cd build &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DSYSCONF_INSTALL_DIR=/etc  \
-      -DENABLE_INSTALLED_TESTS=ON \
-      -DENABLE_LIBCRYPTUI=OFF     \
-      -DENABLE_PST_IMPORT=OFF     \
-      -DENABLE_GTKSPELL=OFF       \
-      -DENABLE_YTNEF=OFF          \
-      -DENABLE_CONTACT_MAPS=OFF   \
-      -G Ninja .. &&
+-DSYSCONF_INSTALL_DIR=/etc \
+-DENABLE_INSTALLED_TESTS=ON \
+-DENABLE_LIBCRYPTUI=OFF \
+-DENABLE_PST_IMPORT=OFF \
+-DENABLE_GTKSPELL=OFF \
+-DENABLE_YTNEF=OFF \
+-DENABLE_CONTACT_MAPS=OFF \
+-G Ninja .. &&
 ninja
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 ninja install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

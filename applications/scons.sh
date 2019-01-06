@@ -34,16 +34,16 @@ cd $DIRECTORY
 fi
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-python setup.py install --prefix=/usr  \
-                        --standard-lib \
-                        --optimize=1   \
-                        --install-data=/usr/share
+python setup.py install --prefix=/usr \
+--standard-lib \
+--optimize=1 \
+--install-data=/usr/share
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

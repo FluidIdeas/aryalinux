@@ -44,66 +44,66 @@ cd $DIRECTORY
 fi
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 groupadd -g 62 wireshark
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
-patch -Np1 -i ../wireshark-2.6.5-lua_5_3-1.patch  &&
+patch -Np1 -i ../wireshark-2.6.5-lua_5_3-1.patch &&
 
 ./configure --prefix=/usr --sysconfdir=/etc &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 
 install -v -m755 -d /usr/share/doc/wireshark-2.6.5 &&
-install -v -m644    README.linux doc/README.* doc/*.{pod,txt} \
-                    /usr/share/doc/wireshark-2.6.5 &&
+install -v -m644 README.linux doc/README.* doc/*.{pod,txt} \
+/usr/share/doc/wireshark-2.6.5 &&
 
 pushd /usr/share/doc/wireshark-2.6.5 &&
-   for FILENAME in ../../wireshark/*.html; do
-      ln -s -v -f $FILENAME .
-   done &&
+for FILENAME in ../../wireshark/*.html; do
+ln -s -v -f $FILENAME .
+done &&
 popd
 unset FILENAME
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -m644 <em class="replaceable"><code><Downloaded_Files></code></em> \
-                 /usr/share/doc/wireshark-2.6.5
+/usr/share/doc/wireshark-2.6.5
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 chown -v root:wireshark /usr/bin/{tshark,dumpcap} &&
 chmod -v 6550 /usr/bin/{tshark,dumpcap}
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 usermod -a -G wireshark <username>
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

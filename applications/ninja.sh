@@ -36,54 +36,54 @@ fi
 python3 configure.py --bootstrap
 emacs -Q --batch -f batch-byte-compile misc/ninja-mode.el
 python3 configure.py &&
-./ninja ninja_test   &&
+./ninja ninja_test &&
 ./ninja_test --gtest_filter=-SubprocessTest.SetWithLots
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -vm755 ninja /usr/bin/ &&
 install -vDm644 misc/ninja.vim \
-                /usr/share/vim/vim80/syntax/ninja.vim &&
+/usr/share/vim/vim80/syntax/ninja.vim &&
 install -vDm644 misc/bash-completion \
-                /usr/share/bash-completion/completions/ninja &&
+/usr/share/bash-completion/completions/ninja &&
 install -vDm644 misc/zsh-completion \
-                /usr/share/zsh/site-functions/_ninja
+/usr/share/zsh/site-functions/_ninja
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -vDm644 misc/ninja-mode.el \
-                /usr/share/emacs/site-lisp/ninja-mode.el
+/usr/share/emacs/site-lisp/ninja-mode.el
 install -vDm644 misc/ninja-mode.elc \
-                /usr/share/emacs/site-lisp/ninja-mode.elc
+/usr/share/emacs/site-lisp/ninja-mode.elc
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 ninja manual &&
 install -vDm644 doc/manual.html /usr/share/doc/ninja-1.8.2/manual.html
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 ninja doxygen &&
 install -vDm644 -t /usr/share/doc/ninja-1.8.2/ doc/doxygen/html/*
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

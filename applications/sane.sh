@@ -8,11 +8,9 @@ set +h
 #OPT:avahi
 #OPT:cups
 #OPT:libjpeg
-#OPT:libtiff
 #OPT:libusb
 #OPT:v4l-utils
 #OPT:texlive
-#OPT:tl-installer
 #OPT:installing
 #OPT:gtk2
 #OPT:gimp
@@ -42,58 +40,58 @@ cd $DIRECTORY
 fi
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 groupadd -g 70 scanner
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 su $(whoami)
-./configure --prefix=/usr        \
-            --sysconfdir=/etc    \
-            --localstatedir=/var \
-            --with-group=scanner \
-            --with-docdir=/usr/share/doc/sane-backends-1.0.27 &&
+./configure --prefix=/usr \
+--sysconfdir=/etc \
+--localstatedir=/var \
+--with-group=scanner \
+--with-docdir=/usr/share/doc/sane-backends-1.0.27 &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make install                                         &&
-install -m 644 -v tools/udev/libsane.rules           \
-                  /etc/udev/rules.d/65-scanner.rules &&
-chgrp -v scanner  /var/lock/sane
+make install &&
+install -m 644 -v tools/udev/libsane.rules \
+/etc/udev/rules.d/65-scanner.rules &&
+chgrp -v scanner /var/lock/sane
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 sed -i -e "/SANE_CAP_ALWAYS_SETTABLE/d" src/gtkglue.c &&
 ./configure --prefix=/usr --mandir=/usr/share/man &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 install -v -m644 doc/sane.png xscanimage-icon-48x48-2.png \
-    /usr/share/sane
+/usr/share/sane
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 ln -v -s ../../../../bin/xscanimage /usr/lib/gimp/2.0/plug-ins
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/sane.d/net.conf << "EOF"
 connect_timeout = 60
@@ -102,12 +100,12 @@ EOF
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-mkdir -pv /usr/share/{applications,pixmaps}               &&
+mkdir -pv /usr/share/{applications,pixmaps} &&
 
 cat > /usr/share/applications/xscanimage.desktop << "EOF" &&
 [Desktop Entry]
@@ -125,7 +123,7 @@ ln -svf ../sane/xscanimage-icon-48x48-2.png /usr/share/pixmaps/xscanimage.png
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

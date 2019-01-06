@@ -35,26 +35,26 @@ fi
 make
 make doc
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -d -m755 /usr/share/doc/alsa-lib-1.1.7/html/search &&
 install -v -m644 doc/doxygen/html/*.* \
-                /usr/share/doc/alsa-lib-1.1.7/html &&
+/usr/share/doc/alsa-lib-1.1.7/html &&
 install -v -m644 doc/doxygen/html/search/* \
-                /usr/share/doc/alsa-lib-1.1.7/html/search
+/usr/share/doc/alsa-lib-1.1.7/html/search
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

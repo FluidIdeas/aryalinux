@@ -33,48 +33,48 @@ fi
 
 sed -i -e 's:<gpm.h>:"headers/gpm.h":' src/prog/{display-buttons,display-coords,get-versions}.c &&
 patch -Np1 -i ../gpm-1.20.7-glibc_2.26-1.patch &&
-./autogen.sh                                &&
+./autogen.sh &&
 ./configure --prefix=/usr --sysconfdir=/etc &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make install                                          &&
+make install &&
 
-install-info --dir-file=/usr/share/info/dir           \
-             /usr/share/info/gpm.info                 &&
+install-info --dir-file=/usr/share/info/dir \
+/usr/share/info/gpm.info &&
 
-ln -sfv libgpm.so.2.1.0 /usr/lib/libgpm.so            &&
-install -v -m644 conf/gpm-root.conf /etc              &&
+ln -sfv libgpm.so.2.1.0 /usr/lib/libgpm.so &&
+install -v -m644 conf/gpm-root.conf /etc &&
 
 install -v -m755 -d /usr/share/doc/gpm-1.20.7/support &&
-install -v -m644    doc/support/*                     \
-                    /usr/share/doc/gpm-1.20.7/support &&
-install -v -m644    doc/{FAQ,HACK_GPM,README*}        \
-                    /usr/share/doc/gpm-1.20.7
+install -v -m644 doc/support/* \
+/usr/share/doc/gpm-1.20.7/support &&
+install -v -m644 doc/{FAQ,HACK_GPM,README*} \
+/usr/share/doc/gpm-1.20.7
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install-gpm
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -dm755 /etc/systemd/system/gpm.service.d
 echo "ExecStart=/usr/sbin/gpm <list of parameters>" > /etc/systemd/system/gpm.service.d/99-user.conf
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

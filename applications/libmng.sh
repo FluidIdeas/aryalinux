@@ -6,7 +6,6 @@ set +h
 . /etc/alps/alps.conf
 
 #REQ:libjpeg
-#REQ:lcms2
 
 cd $SOURCE_DIR
 
@@ -34,16 +33,16 @@ fi
 ./configure --prefix=/usr --disable-static &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 
-install -v -m755 -d        /usr/share/doc/libmng-2.0.3 &&
+install -v -m755 -d /usr/share/doc/libmng-2.0.3 &&
 install -v -m644 doc/*.txt /usr/share/doc/libmng-2.0.3
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -32,20 +32,20 @@ fi
 cd $DIRECTORY
 fi
 
-sed -i "/Append/s:RPATH=libdir,::"          SConstruct &&
-sed -i "/Default/s:lib_static,::"           SConstruct &&
-sed -i "/Alias/s:install_static,::"         SConstruct &&
-sed -i "/  print/{s/print/print(/; s/$/)/}" SConstruct &&
+sed -i "/Append/s:RPATH=libdir,::" SConstruct &&
+sed -i "/Default/s:lib_static,::" SConstruct &&
+sed -i "/Alias/s:install_static,::" SConstruct &&
+sed -i "/ print/{s/print/print(/; s/$/)/}" SConstruct &&
 
 scons PREFIX=/usr
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 scons PREFIX=/usr install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

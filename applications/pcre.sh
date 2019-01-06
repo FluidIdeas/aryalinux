@@ -31,26 +31,26 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr                     \
-            --docdir=/usr/share/doc/pcre-8.42 \
-            --enable-unicode-properties       \
-            --enable-pcre16                   \
-            --enable-pcre32                   \
-            --enable-pcregrep-libz            \
-            --enable-pcregrep-libbz2          \
-            --enable-pcretest-libreadline     \
-            --disable-static                 &&
+./configure --prefix=/usr \
+--docdir=/usr/share/doc/pcre-8.42 \
+--enable-unicode-properties \
+--enable-pcre16 \
+--enable-pcre32 \
+--enable-pcregrep-libz \
+--enable-pcregrep-libbz2 \
+--enable-pcretest-libreadline \
+--disable-static &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make install                     &&
+make install &&
 mv -v /usr/lib/libpcre.so.* /lib &&
 ln -sfv ../../lib/$(readlink /usr/lib/libpcre.so) /usr/lib/libpcre.so
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -34,33 +34,33 @@ fi
 
 mkdir python2 &&
 pushd python2 &&
-PYTHON=/usr/bin/python     \
+PYTHON=/usr/bin/python \
 ../configure --prefix=/usr --docdir=/usr/share/doc/dbus-python-1.2.8 &&
 make &&
 popd
 mkdir python3 &&
 pushd python3 &&
-PYTHON=/usr/bin/python3    \
+PYTHON=/usr/bin/python3 \
 ../configure --prefix=/usr --docdir=/usr/share/doc/dbus-python-1.2.8 &&
 make &&
 popd
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make -C python2 install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make -C python3 install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -8,8 +8,6 @@ set +h
 #REC:cups
 #REC:gimp
 #OPT:imagemagick
-#OPT:texlive
-#OPT:tl-installer
 #OPT:doxygen
 #OPT:docbook-utils
 
@@ -37,33 +35,33 @@ cd $DIRECTORY
 fi
 
 sed -i 's|$(PACKAGE)/doc|doc/$(PACKAGE)-$(VERSION)|' \
-       {,doc/,doc/developer/}Makefile.in &&
+{,doc/,doc/developer/}Makefile.in &&
 
 ./configure --prefix=/usr --disable-static &&
 
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 install -v -m755 -d /usr/share/doc/gutenprint-5.2.14/api/gutenprint{,ui2} &&
-install -v -m644    doc/gutenprint/html/* \
-                    /usr/share/doc/gutenprint-5.2.14/api/gutenprint &&
-install -v -m644    doc/gutenprintui2/html/* \
-                    /usr/share/doc/gutenprint-5.2.14/api/gutenprintui2
+install -v -m644 doc/gutenprint/html/* \
+/usr/share/doc/gutenprint-5.2.14/api/gutenprint &&
+install -v -m644 doc/gutenprintui2/html/* \
+/usr/share/doc/gutenprint-5.2.14/api/gutenprintui2
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 systemctl restart org.cups.cupsd
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

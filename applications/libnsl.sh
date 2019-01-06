@@ -31,19 +31,19 @@ fi
 cd $DIRECTORY
 fi
 
-autoreconf -fi                &&
+autoreconf -fi &&
 ./configure --sysconfdir=/etc &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make install                  &&
+make install &&
 mv /usr/lib/libnsl.so.2* /lib &&
 ln -sfv ../../lib/libnsl.so.2.0.0 /usr/lib/libnsl.so
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -33,15 +33,15 @@ sed -i '/stat.h/a #include <sys/sysmacros.h>/' growisofs.c &&
 sed -i '/stdlib/a #include <limits.h>' transport.hxx &&
 make all rpl8 btcflash
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make prefix=/usr install &&
 install -v -m644 -D index.html \
-    /usr/share/doc/dvd+rw-tools-7.1/index.html
+/usr/share/doc/dvd+rw-tools-7.1/index.html
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

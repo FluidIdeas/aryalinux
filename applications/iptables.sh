@@ -31,36 +31,36 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr      \
-            --sbindir=/sbin    \
-            --disable-nftables \
-            --enable-libipq    \
-            --with-xtlibdir=/lib/xtables &&
+./configure --prefix=/usr \
+--sbindir=/sbin \
+--disable-nftables \
+--enable-libipq \
+--with-xtlibdir=/lib/xtables &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 ln -sfv ../../sbin/xtables-legacy-multi /usr/bin/iptables-xml &&
 
 for file in ip4tc ip6tc ipq iptc xtables
 do
-  mv -v /usr/lib/lib${file}.so.* /lib &&
-  ln -sfv ../../lib/$(readlink /usr/lib/lib${file}.so) /usr/lib/lib${file}.so
+mv -v /usr/lib/lib${file}.so.* /lib &&
+ln -sfv ../../lib/$(readlink /usr/lib/lib${file}.so) /usr/lib/lib${file}.so
 done
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install-iptables
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

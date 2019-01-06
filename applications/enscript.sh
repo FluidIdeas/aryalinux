@@ -6,7 +6,6 @@ set +h
 . /etc/alps/alps.conf
 
 #OPT:texlive
-#OPT:tl-installer
 
 cd $SOURCE_DIR
 
@@ -32,37 +31,37 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr              \
-            --sysconfdir=/etc/enscript \
-            --localstatedir=/var       \
-            --with-media=Letter &&
+./configure --prefix=/usr \
+--sysconfdir=/etc/enscript \
+--localstatedir=/var \
+--with-media=Letter &&
 make &&
 
 pushd docs &&
-  makeinfo --plaintext -o enscript.txt enscript.texi &&
+makeinfo --plaintext -o enscript.txt enscript.texi &&
 popd
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 
 install -v -m755 -d /usr/share/doc/enscript-1.6.6 &&
-install -v -m644    README* *.txt docs/*.txt \
-                    /usr/share/doc/enscript-1.6.6
+install -v -m644 README* *.txt docs/*.txt \
+/usr/share/doc/enscript-1.6.6
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -m644 docs/*.{dvi,pdf,ps} \
-                 /usr/share/doc/enscript-1.6.6
+/usr/share/doc/enscript-1.6.6
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

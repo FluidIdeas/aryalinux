@@ -15,11 +15,9 @@ set +h
 #OPT:gnutls
 #OPT:imagemagick
 #OPT:libusb-compat
-#OPT:mail
 #OPT:openldap
 #OPT:sqlite
 #OPT:texlive
-#OPT:tl-installer
 
 cd $SOURCE_DIR
 
@@ -45,41 +43,41 @@ cd $DIRECTORY
 fi
 
 sed -e '/noinst_SCRIPTS = gpg-zip/c sbin_SCRIPTS += gpg-zip' \
-    -i tools/Makefile.in
-./configure --prefix=/usr            \
-            --enable-symcryptrun     \
-            --docdir=/usr/share/doc/gnupg-2.2.12 &&
+-i tools/Makefile.in
+./configure --prefix=/usr \
+--enable-symcryptrun \
+--docdir=/usr/share/doc/gnupg-2.2.12 &&
 make &&
 
 makeinfo --html --no-split -o doc/gnupg_nochunks.html doc/gnupg.texi &&
-makeinfo --plaintext       -o doc/gnupg.txt           doc/gnupg.texi
+makeinfo --plaintext -o doc/gnupg.txt doc/gnupg.texi
 make -C doc pdf ps html
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 
-install -v -m755 -d /usr/share/doc/gnupg-2.2.12/html            &&
-install -v -m644    doc/gnupg_nochunks.html \
-                    /usr/share/doc/gnupg-2.2.12/html/gnupg.html &&
-install -v -m644    doc/*.texi doc/gnupg.txt \
-                    /usr/share/doc/gnupg-2.2.12
+install -v -m755 -d /usr/share/doc/gnupg-2.2.12/html &&
+install -v -m644 doc/gnupg_nochunks.html \
+/usr/share/doc/gnupg-2.2.12/html/gnupg.html &&
+install -v -m644 doc/*.texi doc/gnupg.txt \
+/usr/share/doc/gnupg-2.2.12
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -m644 doc/gnupg.html/* \
-                 /usr/share/doc/gnupg-2.2.12/html &&
+/usr/share/doc/gnupg-2.2.12/html &&
 install -v -m644 doc/gnupg.{pdf,dvi,ps} \
-                 /usr/share/doc/gnupg-2.2.12
+/usr/share/doc/gnupg-2.2.12
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

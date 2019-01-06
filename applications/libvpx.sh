@@ -36,21 +36,21 @@ fi
 
 sed -i 's/cp -p/cp/' build/make/Makefile &&
 
-mkdir libvpx-build            &&
-cd    libvpx-build            &&
+mkdir libvpx-build &&
+cd libvpx-build &&
 
-../configure --prefix=/usr    \
-             --enable-shared  \
-             --disable-static &&
+../configure --prefix=/usr \
+--enable-shared \
+--disable-static &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -9,7 +9,6 @@ set +h
 #OPT:gdb
 #OPT:valgrind
 #OPT:db
-#OPT:sqlite
 
 cd $SOURCE_DIR
 
@@ -34,15 +33,15 @@ fi
 cd $DIRECTORY
 fi
 
-CXX="/usr/bin/g++"              \
-./configure --prefix=/usr       \
-            --enable-shared     \
-            --with-system-expat \
-            --with-system-ffi   \
-            --with-ensurepip=yes &&
+CXX="/usr/bin/g++" \
+./configure --prefix=/usr \
+--enable-shared \
+--with-system-expat \
+--with-system-ffi \
+--with-ensurepip=yes &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 chmod -v 755 /usr/lib/libpython3.7m.so &&
@@ -50,25 +49,25 @@ chmod -v 755 /usr/lib/libpython3.so
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 ln -svfn python-3.7.2 /usr/share/doc/python-3
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 export PYTHONDOCS=/usr/share/doc/python-3/html
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

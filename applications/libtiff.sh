@@ -34,19 +34,19 @@ cd $DIRECTORY
 fi
 
 mkdir -p libtiff-build &&
-cd       libtiff-build &&
+cd libtiff-build &&
 
 cmake -DCMAKE_INSTALL_DOCDIR=/usr/share/doc/libtiff-4.0.10 \
-      -DCMAKE_INSTALL_PREFIX=/usr -G Ninja .. &&
+-DCMAKE_INSTALL_PREFIX=/usr -G Ninja .. &&
 ninja
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 ninja install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

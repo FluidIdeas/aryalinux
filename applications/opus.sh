@@ -7,7 +7,6 @@ set +h
 
 #OPT:doxygen
 #OPT:texlive
-#OPT:tl-installer
 
 cd $SOURCE_DIR
 
@@ -32,18 +31,18 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr    \
-            --disable-static \
-            --docdir=/usr/share/doc/opus-1.3 &&
+./configure --prefix=/usr \
+--disable-static \
+--docdir=/usr/share/doc/opus-1.3 &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

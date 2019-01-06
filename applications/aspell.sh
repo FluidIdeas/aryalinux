@@ -32,11 +32,11 @@ cd $DIRECTORY
 fi
 
 sed -i '/ top.do_check ==/s/top.do_check/*&/' modules/filter/tex.cpp &&
-sed -i '/word ==/s/word/*&/'                  prog/check_funs.cpp
+sed -i '/word ==/s/word/*&/' prog/check_funs.cpp
 ./configure --prefix=/usr &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 ln -svfn aspell-0.60 /usr/lib/aspell &&
@@ -44,43 +44,43 @@ ln -svfn aspell-0.60 /usr/lib/aspell &&
 install -v -m755 -d /usr/share/doc/aspell-0.60.6.1/aspell{,-dev}.html &&
 
 install -v -m644 manual/aspell.html/* \
-    /usr/share/doc/aspell-0.60.6.1/aspell.html &&
+/usr/share/doc/aspell-0.60.6.1/aspell.html &&
 
 install -v -m644 manual/aspell-dev.html/* \
-    /usr/share/doc/aspell-0.60.6.1/aspell-dev.html
+/usr/share/doc/aspell-0.60.6.1/aspell-dev.html
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -m 755 scripts/ispell /usr/bin/
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -m 755 scripts/spell /usr/bin/
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 ./configure &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

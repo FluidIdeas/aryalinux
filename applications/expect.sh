@@ -31,21 +31,21 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr           \
-            --with-tcl=/usr/lib     \
-            --enable-shared         \
-            --mandir=/usr/share/man \
-            --with-tclinclude=/usr/include &&
+./configure --prefix=/usr \
+--with-tcl=/usr/lib \
+--enable-shared \
+--mandir=/usr/share/man \
+--with-tclinclude=/usr/include &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 ln -svf expect5.45.4/libexpect5.45.4.so /usr/lib
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

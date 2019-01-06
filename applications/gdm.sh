@@ -13,8 +13,6 @@ set +h
 #REQ:libdaemon
 #REQ:linux-pam
 #REQ:gnome-session
-#REQ:gnome-shell
-#REQ:systemd
 
 cd $SOURCE_DIR
 
@@ -41,43 +39,43 @@ cd $DIRECTORY
 fi
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 groupadd -g 21 gdm &&
 useradd -c "GDM Daemon Owner" -d /var/lib/gdm -u 21 \
-        -g gdm -s /bin/false gdm &&
+-g gdm -s /bin/false gdm &&
 passwd -ql gdm
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
-./configure --prefix=/usr         \
-            --sysconfdir=/etc     \
-            --localstatedir=/var  \
-            --without-plymouth    \
-            --disable-static      \
-            --enable-gdm-xsession \
-            --with-pam-mod-dir=/lib/security &&
+./configure --prefix=/usr \
+--sysconfdir=/etc \
+--localstatedir=/var \
+--without-plymouth \
+--disable-static \
+--enable-gdm-xsession \
+--with-pam-mod-dir=/lib/security &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 install -v -m644 data/gdm.service /lib/systemd/system/gdm.service
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 systemctl enable gdm
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

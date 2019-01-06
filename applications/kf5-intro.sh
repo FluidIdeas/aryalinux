@@ -30,25 +30,38 @@ fi
 
 export KF5_PREFIX=/usr
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/profile.d/qt5.sh << "EOF"
-<code class="literal"># Begin kf5 extension for /etc/profile.d/qt5.sh pathappend /usr/lib/qt5/plugins QT_PLUGIN_PATH pathappend $QT5DIR/lib/plugins QT_PLUGIN_PATH pathappend /usr/lib/qt5/qml QML2_IMPORT_PATH pathappend $QT5DIR/lib/qml QML2_IMPORT_PATH # End extension for /etc/profile.d/qt5.sh</code>
+<code class="literal"># Begin kf5 extension for /etc/profile.d/qt5.sh
+
+pathappend /usr/lib/qt5/plugins QT_PLUGIN_PATH
+pathappend $QT5DIR/lib/plugins QT_PLUGIN_PATH
+
+pathappend /usr/lib/qt5/qml QML2_IMPORT_PATH
+pathappend $QT5DIR/lib/qml QML2_IMPORT_PATH
+
+# End extension for /etc/profile.d/qt5.sh</code>
 EOF
 
 cat > /etc/profile.d/kf5.sh << "EOF"
-<code class="literal"># Begin /etc/profile.d/kf5.sh export KF5_PREFIX=/usr # End /etc/profile.d/kf5.sh</code>
+<code class="literal"># Begin /etc/profile.d/kf5.sh
+
+export KF5_PREFIX=/usr
+
+# End /etc/profile.d/kf5.sh</code>
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/sudoers.d/qt << "EOF
-<code class="literal">Defaults env_keep += QT_PLUGIN_PATH Defaults env_keep += QML2_IMPORT_PATH</code>
+<code class="literal">Defaults env_keep += QT_PLUGIN_PATH
+Defaults env_keep += QML2_IMPORT_PATH</code>
 EOF
 
 cat >> /etc/sudoers.d/kde << "EOF
@@ -57,65 +70,91 @@ EOF
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 export KF5_PREFIX=/opt/kf5
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/profile.d/kf5.sh << "EOF"
-<code class="literal"># Begin /etc/profile.d/kf5.sh export KF5_PREFIX=/opt/kf5 pathappend $KF5_PREFIX/bin PATH pathappend $KF5_PREFIX/lib/pkgconfig PKG_CONFIG_PATH pathappend $KF5_PREFIX/etc/xdg XDG_CONFIG_DIRS pathappend $KF5_PREFIX/share XDG_DATA_DIRS pathappend $KF5_PREFIX/lib/plugins QT_PLUGIN_PATH pathappend $KF5_PREFIX/lib/qml QML2_IMPORT_PATH pathappend $KF5_PREFIX/lib/python2.7/site-packages PYTHONPATH pathappend $KF5_PREFIX/share/man MANPATH # End /etc/profile.d/kf5.sh</code>
+<code class="literal"># Begin /etc/profile.d/kf5.sh
+
+export KF5_PREFIX=/opt/kf5
+
+pathappend $KF5_PREFIX/bin PATH
+pathappend $KF5_PREFIX/lib/pkgconfig PKG_CONFIG_PATH
+
+pathappend $KF5_PREFIX/etc/xdg XDG_CONFIG_DIRS
+pathappend $KF5_PREFIX/share XDG_DATA_DIRS
+
+pathappend $KF5_PREFIX/lib/plugins QT_PLUGIN_PATH
+
+pathappend $KF5_PREFIX/lib/qml QML2_IMPORT_PATH
+
+pathappend $KF5_PREFIX/lib/python2.7/site-packages PYTHONPATH
+
+pathappend $KF5_PREFIX/share/man MANPATH
+# End /etc/profile.d/kf5.sh</code>
 EOF
 
 cat >> /etc/profile.d/qt5.sh << "EOF"
-<code class="literal"># Begin Qt5 changes for KF5 pathappend $QT5DIR/plugins QT_PLUGIN_PATH pathappend $QT5DIR/qml QML2_IMPORT_PATH # End Qt5 changes for KF5</code>
+<code class="literal"># Begin Qt5 changes for KF5
+
+pathappend $QT5DIR/plugins QT_PLUGIN_PATH
+pathappend $QT5DIR/qml QML2_IMPORT_PATH
+
+# End Qt5 changes for KF5</code>
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/ld.so.conf << "EOF"
-<code class="literal"># Begin KF5 addition /opt/kf5/lib # End KF5 addition</code>
+<code class="literal"># Begin KF5 addition
+
+/opt/kf5/lib
+
+# End KF5 addition</code>
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-install -v -dm755           $KF5_PREFIX/{etc,share} &&
-ln -sfv /etc/dbus-1         $KF5_PREFIX/etc         &&
-ln -sfv /usr/share/dbus-1   $KF5_PREFIX/share
+install -v -dm755 $KF5_PREFIX/{etc,share} &&
+ln -sfv /etc/dbus-1 $KF5_PREFIX/etc &&
+ln -sfv /usr/share/dbus-1 $KF5_PREFIX/share
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-install -v -dm755                $KF5_PREFIX/share/icons &&
+install -v -dm755 $KF5_PREFIX/share/icons &&
 ln -sfv /usr/share/icons/hicolor $KF5_PREFIX/share/icons
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 mv /opt/kf5{,-5.53.0}
 ln -sfv kf5-5.53.0 /opt/kf5
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -19,7 +19,6 @@ set +h
 #OPT:libgcrypt
 #OPT:xcb-util-keysyms
 #OPT:xcb-util-image
-#OPT:xcb-util-renderutil
 #OPT:xcb-util-wm
 #OPT:xmlto
 
@@ -47,20 +46,20 @@ fi
 cd $DIRECTORY
 fi
 
-./configure $XORG_CONFIG          \
-            --enable-glamor       \
-            --enable-suid-wrapper \
-            --with-xkb-output=/var/lib/xkb &&
+./configure $XORG_CONFIG \
+--enable-glamor \
+--enable-suid-wrapper \
+--with-xkb-output=/var/lib/xkb &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 mkdir -pv /etc/X11/xorg.conf.d
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -9,7 +9,6 @@ set +h
 #REC:curl
 #REC:libarchive
 #OPT:qt5
-#OPT:subversion
 
 cd $SOURCE_DIR
 
@@ -36,21 +35,21 @@ fi
 
 sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake &&
 
-./bootstrap --prefix=/usr        \
-            --system-libs        \
-            --mandir=/share/man  \
-            --no-system-jsoncpp  \
-            --no-system-librhash \
-            --docdir=/share/doc/cmake-3.13.2 &&
+./bootstrap --prefix=/usr \
+--system-libs \
+--mandir=/share/man \
+--no-system-jsoncpp \
+--no-system-librhash \
+--docdir=/share/doc/cmake-3.13.2 &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

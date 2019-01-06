@@ -7,7 +7,6 @@ set +h
 
 #REQ:gtk3
 #REQ:libcanberra
-#REQ:gtk3
 
 cd $SOURCE_DIR
 
@@ -33,18 +32,18 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr     \
-            --sysconfdir=/etc \
-            --disable-static  &&
+./configure --prefix=/usr \
+--sysconfdir=/etc \
+--disable-static &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 pgrep -l notification-da &&
 notify-send -i info Information "Hi ${USER}, This is a Test"

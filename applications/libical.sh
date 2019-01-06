@@ -35,32 +35,32 @@ cd $DIRECTORY
 fi
 
 mkdir build &&
-cd    build &&
+cd build &&
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr      \
-      -DCMAKE_BUILD_TYPE=Release       \
-      -DSHARED_ONLY=yes                \
-      .. &&
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+-DCMAKE_BUILD_TYPE=Release \
+-DSHARED_ONLY=yes \
+.. &&
 make
 make docs
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -vdm755 /usr/share/doc/libical-3.0.4/html &&
 cp -vr apidocs/html/* /usr/share/doc/libical-3.0.4/html
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -13,7 +13,6 @@ set +h
 #OPT:python2
 #OPT:qt5
 #OPT:texlive
-#OPT:tl-installer
 #OPT:xapian
 
 cd $SOURCE_DIR
@@ -40,26 +39,26 @@ cd $DIRECTORY
 fi
 
 mkdir -v build &&
-cd       build &&
+cd build &&
 
-cmake -G "Unix Makefiles"         \
-      -DCMAKE_BUILD_TYPE=Release  \
-      -DCMAKE_INSTALL_PREFIX=/usr \
-      -Wno-dev .. &&
+cmake -G "Unix Makefiles" \
+-DCMAKE_BUILD_TYPE=Release \
+-DCMAKE_INSTALL_PREFIX=/usr \
+-Wno-dev .. &&
 
 make
 cmake -DDOC_INSTALL_DIR=share/doc/doxygen-1.8.15 -Dbuild_doc=ON .. &&
 
 make docs
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 install -vm644 ../doc/*.1 /usr/share/man/man1
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -6,10 +6,8 @@ set +h
 . /etc/alps/alps.conf
 
 #REQ:perl-datetime-locale
-#REQ:perl-datetime-timezone
 #REC:perl-cpan-meta-check
 #REC:perl-test-fatal
-#REC:perl-test-warnings
 
 cd $SOURCE_DIR
 
@@ -35,16 +33,16 @@ cd $DIRECTORY
 fi
 
 perl Makefile.PL &&
-make             &&
+make &&
 make test
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

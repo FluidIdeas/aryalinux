@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20180223.tar.xz
 
-NAME=xorg intel driver-20180223
+NAME=
 VERSION=20180223
 URL=http://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20180223.tar.xz
 
@@ -31,35 +31,41 @@ fi
 cd $DIRECTORY
 fi
 
-./autogen.sh $XORG_CONFIG     \
-            --enable-kms-only \
-            --enable-uxa      \
-            --mandir=/usr/share/man &&
+./autogen.sh $XORG_CONFIG \
+--enable-kms-only \
+--enable-uxa \
+--mandir=/usr/share/man &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
-      
+
 mv -v /usr/share/man/man4/intel-virtual-output.4 \
-      /usr/share/man/man1/intel-virtual-output.1 &&
-      
+/usr/share/man/man1/intel-virtual-output.1 &&
+
 sed -i '/\.TH/s/4/1/' /usr/share/man/man1/intel-virtual-output.1
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-cat &gt;&gt; /etc/X11/xorg.conf.d/20-intel.conf &lt;&lt; "EOF"
-<code class="literal">Section "Device" Identifier "Intel Graphics" Driver "intel" #Option "DRI" "2" # DRI3 is default #Option "AccelMethod" "sna" # default #Option "AccelMethod" "uxa" # fallback EndSection</code>
+cat >> /etc/X11/xorg.conf.d/20-intel.conf << "EOF"
+<code class="literal">Section "Device"
+Identifier "Intel Graphics"
+Driver "intel"
+#Option "DRI" "2" # DRI3 is default
+#Option "AccelMethod" "sna" # default
+#Option "AccelMethod" "uxa" # fallback
+EndSection</code>
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

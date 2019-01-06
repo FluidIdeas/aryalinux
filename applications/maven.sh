@@ -11,7 +11,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://archive.apache.org/dist/maven/maven-3/3.5.4/source/apache-maven-3.5.4-src.tar.gz
-wget -nc https://archive.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz
 
 NAME=maven
 VERSION=3.5.4-src
@@ -33,41 +32,45 @@ cd $DIRECTORY
 fi
 
 sed -e '/-surefire-/a<version>2.21.0</version>' \
-    -e '/<commonsLang/s/3\.5/3.7/'              \
-    -i pom.xml
-install -vdm 755 ../apache-maven-bin     &&
+-e '/<commonsLang/s/3\.5/3.7/' \
+-i pom.xml
+install -vdm 755 ../apache-maven-bin &&
 tar -xf ../apache-maven-3.5.4-bin.tar.gz \
-    --strip-components=1                 \
-    --directory ../apache-maven-bin      &&
+--strip-components=1 \
+--directory ../apache-maven-bin &&
 
-SAVEPATH=$PATH   &&
+SAVEPATH=$PATH &&
 PATH=../apache-maven-bin/bin:$PATH &&
 
 mvn -DdistributionTargetDir=build \
-    package
+package
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-install -vdm 755            /opt/maven-3.5.4 &&
+install -vdm 755 /opt/maven-3.5.4 &&
 cp -Rv apache-maven/build/* /opt/maven-3.5.4 &&
 ln -sfvn maven-3.5.4 /opt/maven
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 PATH=$SAVEPATH &&
 rm -rf ../apache-maven-bin
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/profile.d/maven.sh << "EOF"
-<code class="literal"># Begin /etc/profile.d/maven.sh pathappend /opt/maven/bin # End /etc/profile.d/maven.sh</code>
+<code class="literal"># Begin /etc/profile.d/maven.sh
+
+pathappend /opt/maven/bin
+
+# End /etc/profile.d/maven.sh</code>
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

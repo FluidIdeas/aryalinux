@@ -31,22 +31,22 @@ cd $DIRECTORY
 fi
 
 ./configure --prefix=/usr \
-            --mandir=/usr/share/man \
-            --enable-shared \
-            --disable-static \
-            CFLAGS="-g -O2 $([ $(uname -m) = x86_64 ] && echo -fPIC)" &&
+--mandir=/usr/share/man \
+--enable-shared \
+--disable-static \
+CFLAGS="-g -O2 $([ $(uname -m) = x86_64 ] && echo -fPIC)" &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 cp liba52/a52_internal.h /usr/include/a52dec &&
 install -v -m644 -D doc/liba52.txt \
-    /usr/share/doc/liba52-0.7.4/liba52.txt
+/usr/share/doc/liba52-0.7.4/liba52.txt
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -32,9 +32,9 @@ mkdir xc &&
 cd xc
 export XORG_PREFIX="<em class="replaceable"><code><PREFIX></code></em>"
 export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc \
-    --localstatedir=/var --disable-static"
+--localstatedir=/var --disable-static"
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/profile.d/xorg.sh << EOF
 XORG_PREFIX="$XORG_PREFIX"
@@ -45,20 +45,20 @@ chmod 644 /etc/profile.d/xorg.sh
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/profile.d/xorg.sh << "EOF"
 
-pathappend $XORG_PREFIX/bin             PATH
-pathappend $XORG_PREFIX/lib/pkgconfig   PKG_CONFIG_PATH
+pathappend $XORG_PREFIX/bin PATH
+pathappend $XORG_PREFIX/lib/pkgconfig PKG_CONFIG_PATH
 pathappend $XORG_PREFIX/share/pkgconfig PKG_CONFIG_PATH
 
-pathappend $XORG_PREFIX/lib             LIBRARY_PATH
-pathappend $XORG_PREFIX/include         C_INCLUDE_PATH
-pathappend $XORG_PREFIX/include         CPLUS_INCLUDE_PATH
+pathappend $XORG_PREFIX/lib LIBRARY_PATH
+pathappend $XORG_PREFIX/include C_INCLUDE_PATH
+pathappend $XORG_PREFIX/include CPLUS_INCLUDE_PATH
 
 ACLOCAL="aclocal -I $XORG_PREFIX/share/aclocal"
 
@@ -67,43 +67,43 @@ EOF
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 echo "$XORG_PREFIX/lib" >> /etc/ld.so.conf
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 sed "s@<em class="replaceable"><code>/usr/X11R6</code></em>@$XORG_PREFIX@g" -i /etc/man_db.conf
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 ln -sf $XORG_PREFIX/share/X11 /usr/share/X11
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 ln -sf $XORG_PREFIX /usr/X11R6
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

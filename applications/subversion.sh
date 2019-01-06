@@ -16,7 +16,6 @@ set +h
 #OPT:ruby
 #OPT:swig
 #OPT:openjdk
-#OPT:junit
 
 cd $SOURCE_DIR
 
@@ -41,24 +40,24 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr             \
-            --disable-static          \
-            --with-apache-libexecdir  \
-            --with-lz4=internal       \
-            --with-utf8proc=internal &&
+./configure --prefix=/usr \
+--disable-static \
+--with-apache-libexecdir \
+--with-lz4=internal \
+--with-utf8proc=internal &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 
 install -v -m755 -d /usr/share/doc/subversion-1.11.0 &&
-cp      -v -R       doc/* \
-                    /usr/share/doc/subversion-1.11.0
+cp -v -R doc/* \
+/usr/share/doc/subversion-1.11.0
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -7,7 +7,6 @@ set +h
 
 #REC:alsa-lib
 #REC:ffmpeg
-#REC:liba52
 #REC:libgcrypt
 #REC:libmad
 #REC:lua
@@ -15,11 +14,9 @@ set +h
 #OPT:dbus
 #OPT:libcddb
 #OPT:libdv
-#OPT:libdvdcss
 #OPT:libdvdread
 #OPT:libdvdnav
 #OPT:opencv
-#OPT:samba
 #OPT:v4l-utils
 #OPT:libbluray
 #OPT:libcdio
@@ -35,7 +32,6 @@ set +h
 #OPT:libvorbis
 #OPT:opus
 #OPT:speex
-#OPT:x264
 #OPT:libdca
 #OPT:aalib
 #OPT:fontconfig
@@ -78,31 +74,31 @@ fi
 cd $DIRECTORY
 fi
 
-sed -i '/vlc_demux.h/a #define LUA_COMPAT_APIINTCASTS' modules/lua/vlc.h   &&
-sed -i '/DEPRECATED/s:^://:'  modules/text_renderer/freetype/text_layout.c &&
-sed -i '/118/s/$/\&\& X264_BUILD < 153/' modules/codec/x264.c              &&
+sed -i '/vlc_demux.h/a #define LUA_COMPAT_APIINTCASTS' modules/lua/vlc.h &&
+sed -i '/DEPRECATED/s:^://:' modules/text_renderer/freetype/text_layout.c &&
+sed -i '/118/s/$/\&\& X264_BUILD < 153/' modules/codec/x264.c &&
 
 BUILDCC=gcc ./configure --prefix=/usr --disable-opencv &&
 
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make docdir=/usr/share/doc/vlc-3.0.5 install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 gtk-update-icon-cache &&
 update-desktop-database
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

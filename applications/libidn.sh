@@ -38,18 +38,18 @@ fi
 ./configure --prefix=/usr --disable-static &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 
-find doc -name "Makefile*" -delete            &&
+find doc -name "Makefile*" -delete &&
 rm -rf -v doc/{gdoc,idn.1,stamp-vti,man,texi} &&
-mkdir -v       /usr/share/doc/libidn-1.35     &&
+mkdir -v /usr/share/doc/libidn-1.35 &&
 cp -r -v doc/* /usr/share/doc/libidn-1.35
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

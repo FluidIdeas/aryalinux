@@ -10,7 +10,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.003.tar.gz
 
-NAME=business::issn-1.003
+NAME=
 VERSION=1.003
 URL=https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.003.tar.gz
 
@@ -30,16 +30,16 @@ cd $DIRECTORY
 fi
 
 perl Makefile.PL &&
-make             &&
+make &&
 make test
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

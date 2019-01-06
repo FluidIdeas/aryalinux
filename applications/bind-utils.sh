@@ -6,7 +6,6 @@ set +h
 . /etc/alps/alps.conf
 
 #OPT:libcap
-#OPT:libxml2
 
 cd $SOURCE_DIR
 
@@ -32,20 +31,20 @@ cd $DIRECTORY
 fi
 
 ./configure --prefix=/usr &&
-make -C lib/dns    &&
-make -C lib/isc    &&
-make -C lib/bind9  &&
+make -C lib/dns &&
+make -C lib/isc &&
+make -C lib/bind9 &&
 make -C lib/isccfg &&
-make -C lib/irs    &&
+make -C lib/irs &&
 make -C bin/dig
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make -C bin/dig install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

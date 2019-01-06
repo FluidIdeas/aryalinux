@@ -20,10 +20,8 @@ set +h
 #OPT:colord
 #OPT:cups
 #OPT:docbook-utils
-#OPT:gtk-doc
 #OPT:json-glib
 #OPT:pyatspi2
-#OPT:rest
 
 cd $SOURCE_DIR
 
@@ -51,42 +49,52 @@ fi
 
 sed -i 's/dfeault/default/' docs/tools/shooter.c &&
 
-./configure --prefix=/usr             \
-            --sysconfdir=/etc         \
-            --enable-broadway-backend \
-            --enable-x11-backend      \
-            --enable-wayland-backend &&
+./configure --prefix=/usr \
+--sysconfdir=/etc \
+--enable-broadway-backend \
+--enable-x11-backend \
+--enable-wayland-backend &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 gtk-query-immodules-3.0 --update-cache
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 glib-compile-schemas /usr/share/glib-2.0/schemas
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 mkdir -vp ~/.config/gtk-3.0
 cat > ~/.config/gtk-3.0/settings.ini << "EOF"
-<code class="literal">[Settings] gtk-theme-name = <em class="replaceable"><code>Adwaita</code></em> gtk-icon-theme-name = <em class="replaceable"><code>oxygen</code></em> gtk-font-name = <em class="replaceable"><code>DejaVu Sans 12</code></em> gtk-cursor-theme-size = <em class="replaceable"><code>18</code></em> gtk-toolbar-style = <em class="replaceable"><code>GTK_TOOLBAR_BOTH_HORIZ</code></em> gtk-xft-antialias = <em class="replaceable"><code>1</code></em> gtk-xft-hinting = <em class="replaceable"><code>1</code></em> gtk-xft-hintstyle = <em class="replaceable"><code>hintslight</code></em> gtk-xft-rgba = <em class="replaceable"><code>rgb</code></em> gtk-cursor-theme-name = <em class="replaceable"><code>Adwaita</code></em></code>
+<code class="literal">[Settings]
+gtk-theme-name = <em class="replaceable"><code>Adwaita</code></em>
+gtk-icon-theme-name = <em class="replaceable"><code>oxygen</code></em>
+gtk-font-name = <em class="replaceable"><code>DejaVu Sans 12</code></em>
+gtk-cursor-theme-size = <em class="replaceable"><code>18</code></em>
+gtk-toolbar-style = <em class="replaceable"><code>GTK_TOOLBAR_BOTH_HORIZ</code></em>
+gtk-xft-antialias = <em class="replaceable"><code>1</code></em>
+gtk-xft-hinting = <em class="replaceable"><code>1</code></em>
+gtk-xft-hintstyle = <em class="replaceable"><code>hintslight</code></em>
+gtk-xft-rgba = <em class="replaceable"><code>rgb</code></em>
+gtk-cursor-theme-name = <em class="replaceable"><code>Adwaita</code></em></code>
 EOF
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

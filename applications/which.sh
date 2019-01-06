@@ -33,26 +33,27 @@ fi
 ./configure --prefix=/usr &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /usr/bin/which << "EOF"
-<code class="literal">#!/bin/bash type -pa "$@" | head -n 1 ; exit ${PIPESTATUS[0]}</code>
+<code class="literal">#!/bin/bash
+type -pa "$@" | head -n 1 ; exit ${PIPESTATUS[0]}</code>
 EOF
 chmod -v 755 /usr/bin/which
 chown -v root:root /usr/bin/which
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

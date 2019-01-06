@@ -33,25 +33,25 @@ cd $DIRECTORY
 fi
 
 mkdir build &&
-cd    build &&
+cd build &&
 
-CMAKE_LIBRARY_PATH=$XORG_PREFIX/lib     \
+CMAKE_LIBRARY_PATH=$XORG_PREFIX/lib \
 CMAKE_INCLUDE_PATH=$XORG_PREFIX/include \
-cmake -DCMAKE_INSTALL_PREFIX=/usr       \
-      -DCMAKE_BUILD_TYPE=Release        \
-      -DFREEGLUT_BUILD_DEMOS=OFF        \
-      -DFREEGLUT_BUILD_STATIC_LIBS=OFF  \
-      .. &&
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+-DCMAKE_BUILD_TYPE=Release \
+-DFREEGLUT_BUILD_DEMOS=OFF \
+-DFREEGLUT_BUILD_STATIC_LIBS=OFF \
+.. &&
 
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

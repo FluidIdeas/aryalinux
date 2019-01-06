@@ -30,43 +30,46 @@ cd $DIRECTORY
 fi
 
 ./configure --prefix=/usr \
-            --docdir=/usr/share/doc/acpid-2.0.31 &&
+--docdir=/usr/share/doc/acpid-2.0.31 &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make install                         &&
+make install &&
 install -v -m755 -d /etc/acpi/events &&
 cp -r samples /usr/share/doc/acpid-2.0.31
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/acpi/events/lid << "EOF"
-<code class="literal">event=button/lid action=/etc/acpi/lid.sh</code>
+<code class="literal">event=button/lid
+action=/etc/acpi/lid.sh</code>
 EOF
 
 cat > /etc/acpi/lid.sh << "EOF"
-<code class="literal">#!/bin/sh /bin/grep -q open /proc/acpi/button/lid/LID/state && exit 0 /usr/sbin/pm-suspend</code>
+<code class="literal">#!/bin/sh
+/bin/grep -q open /proc/acpi/button/lid/LID/state && exit 0
+/usr/sbin/pm-suspend</code>
 EOF
 chmod +x /etc/acpi/lid.sh
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install-acpid
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

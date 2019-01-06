@@ -38,34 +38,34 @@ fi
 cd $DIRECTORY
 fi
 
-sed -e "/detection failed/ a\                self.init='init/default/wicd'" \
-    -i.orig setup.py &&
+sed -e "/detection failed/ a\ self.init='init/default/wicd'" \
+-i.orig setup.py &&
 
-rm po/*.po           &&
+rm po/*.po &&
 
-python setup.py configure --no-install-kde     \
-                          --no-install-acpi    \
-                          --no-install-pmutils \
-                          --no-install-init    \
-                          --no-install-gnome-shell-extensions \
-                          --docdir=/usr/share/doc/wicd-1.7.4
+python setup.py configure --no-install-kde \
+--no-install-acpi \
+--no-install-pmutils \
+--no-install-init \
+--no-install-gnome-shell-extensions \
+--docdir=/usr/share/doc/wicd-1.7.4
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 python setup.py install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 systemctl enable wicd
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

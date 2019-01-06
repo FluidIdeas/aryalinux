@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/linux-firmware/
 
-NAME=xorg amdgpu driver-18.1.0
+NAME=
 VERSION=firmware
 URL=http://anduin.linuxfromscratch.org/BLFS/linux-firmware/
 
@@ -33,13 +33,13 @@ fi
 ./configure $XORG_CONFIG &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

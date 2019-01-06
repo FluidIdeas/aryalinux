@@ -29,12 +29,12 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr        \
-            --disable-static     \
-            --with-fuse=internal &&
+./configure --prefix=/usr \
+--disable-static \
+--with-fuse=internal &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 ln -sv ../bin/ntfs-3g /sbin/mount.ntfs &&
@@ -42,25 +42,25 @@ ln -sv ntfs-3g.8 /usr/share/man/man8/mount.ntfs.8
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 chmod -v 4755 /bin/ntfs-3g
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 chmod -v 777 /mnt/usb
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

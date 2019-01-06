@@ -9,7 +9,6 @@ set +h
 #REC:gobject-introspection
 #OPT:gtk3
 #OPT:gsl
-#OPT:gtk-doc
 #OPT:valgrind
 
 cd $SOURCE_DIR
@@ -36,18 +35,18 @@ cd $DIRECTORY
 fi
 
 ./configure --prefix=/usr \
-            --with-package-name="GStreamer 1.14.4 BLFS" \
-            --with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/" &&
+--with-package-name="GStreamer 1.14.4 BLFS" \
+--with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/" &&
 make
 rm -rf /usr/bin/gst-* /usr/{lib,libexec}/gstreamer-1.0
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

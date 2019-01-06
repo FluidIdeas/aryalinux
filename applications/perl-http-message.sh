@@ -6,7 +6,6 @@ set +h
 . /etc/alps/alps.conf
 
 #REQ:perl-encode-locale
-#REQ:perl-http-date
 #REQ:perl-deps#perl-io-html
 #REQ:perl-lwp-mediatypes
 #REQ:perl-uri
@@ -16,7 +15,7 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.18.tar.gz
 
-NAME=http::message-6.18
+NAME=
 VERSION=6.18
 URL=https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.18.tar.gz
 
@@ -36,16 +35,16 @@ cd $DIRECTORY
 fi
 
 perl Makefile.PL &&
-make             &&
+make &&
 make test
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

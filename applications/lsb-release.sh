@@ -31,16 +31,16 @@ fi
 
 sed -i "s|n/a|unavailable|" lsb_release
 ./help2man -N --include ./lsb_release.examples \
-              --alt_version_key=program_version ./lsb_release > lsb_release.1
+--alt_version_key=program_version ./lsb_release > lsb_release.1
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -m 644 lsb_release.1 /usr/share/man/man1 &&
-install -v -m 755 lsb_release   /usr/bin
+install -v -m 755 lsb_release /usr/bin
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

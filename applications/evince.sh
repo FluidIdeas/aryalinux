@@ -11,17 +11,14 @@ set +h
 #REQ:itstool
 #REQ:libxml2
 #REC:gnome-keyring
-#REC:gobject-introspection
 #REC:libsecret
 #REC:nautilus
 #REC:poppler
 #OPT:cups
 #OPT:gnome-desktop
-#OPT:gst10-plugins-base
 #OPT:gtk-doc
 #OPT:libtiff
 #OPT:texlive
-#OPT:tl-installer
 
 cd $SOURCE_DIR
 
@@ -48,19 +45,19 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr                     \
-            --enable-compile-warnings=minimum \
-            --enable-introspection            \
-            --disable-static                  &&
+./configure --prefix=/usr \
+--enable-compile-warnings=minimum \
+--enable-introspection \
+--disable-static &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

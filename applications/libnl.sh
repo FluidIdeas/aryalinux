@@ -30,29 +30,29 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr     \
-            --sysconfdir=/etc \
-            --disable-static  &&
+./configure --prefix=/usr \
+--sysconfdir=/etc \
+--disable-static &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 mkdir -vp /usr/share/doc/libnl-3.4.0 &&
 tar -xf ../libnl-doc-3.4.0.tar.gz --strip-components=1 --no-same-owner \
-    -C  /usr/share/doc/libnl-3.4.0
+-C /usr/share/doc/libnl-3.4.0
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

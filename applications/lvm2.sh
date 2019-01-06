@@ -8,7 +8,6 @@ set +h
 #REQ:libaio
 #OPT:mdadm
 #OPT:reiserfs
-#OPT:valgrind
 #OPT:which
 #OPT:xfsprogs
 
@@ -36,44 +35,44 @@ fi
 cd $DIRECTORY
 fi
 
-SAVEPATH=$PATH                  &&
-PATH=$PATH:/sbin:/usr/sbin      &&
-./configure --prefix=/usr       \
-            --exec-prefix=      \
-            --with-confdir=/etc \
-            --enable-cmdlib     \
-            --enable-pkgconfig  \
-            --enable-udev_sync  &&
-make                            &&
-PATH=$SAVEPATH                  &&
+SAVEPATH=$PATH &&
+PATH=$PATH:/sbin:/usr/sbin &&
+./configure --prefix=/usr \
+--exec-prefix= \
+--with-confdir=/etc \
+--enable-cmdlib \
+--enable-pkgconfig \
+--enable-udev_sync &&
+make &&
+PATH=$SAVEPATH &&
 unset SAVEPATH
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make -C tools install_dmsetup_dynamic &&
-make -C udev  install                 &&
+make -C udev install &&
 make -C libdm install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
---with-thin-check=    \
-     --with-thin-dump=     \
-     --with-thin-repair=   \
-     --with-thin-restore=  \
-     --with-cache-check=   \
-     --with-cache-dump=    \
-     --with-cache-repair=  \
-     --with-cache-restore= \
+--with-thin-check= \
+--with-thin-dump= \
+--with-thin-repair= \
+--with-thin-restore= \
+--with-cache-check= \
+--with-cache-dump= \
+--with-cache-repair= \
+--with-cache-restore= \
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

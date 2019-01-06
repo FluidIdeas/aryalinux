@@ -34,21 +34,21 @@ cd $DIRECTORY
 fi
 
 if [ $(uname -m) = "i686" ]; then
-  export CFLAGS+="-D_FILE_OFFSET_BITS=64";
+export CFLAGS+="-D_FILE_OFFSET_BITS=64";
 fi
 mkdir build &&
-cd    build &&
-          
+cd build &&
+
 meson --prefix=/usr .. &&
 ninja
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 ninja install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 sshfs example.com:/home/userid ~/examplepath
 fusermount3 -u ~/example

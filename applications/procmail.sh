@@ -32,17 +32,17 @@ cd $DIRECTORY
 fi
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-sed -i 's/getline/get_line/' src/*.[ch]                   &&
+sed -i 's/getline/get_line/' src/*.[ch] &&
 patch -Np1 -i ../procmail-3.22-consolidated_fixes-1.patch &&
 
-make LOCKINGTEST=/tmp MANDIR=/usr/share/man install       &&
+make LOCKINGTEST=/tmp MANDIR=/usr/share/man install &&
 make install-suid
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

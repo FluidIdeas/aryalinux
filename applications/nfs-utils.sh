@@ -40,70 +40,70 @@ fi
 
 groupadd -g 99 nogroup &&
 useradd -c "Unprivileged Nobody" -d /dev/null -g nogroup \
-    -s /bin/false -u 99 nobody
-./configure --prefix=/usr          \
-            --sysconfdir=/etc      \
-            --sbindir=/sbin        \
-            --disable-nfsv4        \
-            --disable-gss &&
+-s /bin/false -u 99 nobody
+./configure --prefix=/usr \
+--sysconfdir=/etc \
+--sbindir=/sbin \
+--disable-nfsv4 \
+--disable-gss &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make install                      &&
+make install &&
 mv -v /sbin/start-statd /usr/sbin &&
-chmod u+w,go+r /sbin/mount.nfs    &&
+chmod u+w,go+r /sbin/mount.nfs &&
 chown nobody.nogroup /var/lib/nfs
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 /home <em class="replaceable"><code>192.168.0.0/24</code></em>(rw,subtree_check,anonuid=99,anongid=99)
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install-nfsv4-server
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install-nfs-server
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-<em class="replaceable"><code><server-name></code></em>:/home  /home nfs   rw,_netdev 0 0
-<em class="replaceable"><code><server-name></code></em>:/usr   /usr  nfs   ro,_netdev 0 0
+<em class="replaceable"><code><server-name></code></em>:/home /home nfs rw,_netdev 0 0
+<em class="replaceable"><code><server-name></code></em>:/usr /usr nfs ro,_netdev 0 0
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install-nfs-client
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

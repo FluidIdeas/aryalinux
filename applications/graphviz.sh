@@ -9,7 +9,6 @@ set +h
 #OPT:cairo
 #OPT:x7lib
 #OPT:fontconfig
-#OPT:libpng
 #OPT:gtk2
 #OPT:libjpeg
 #OPT:libwebp
@@ -18,11 +17,8 @@ set +h
 #OPT:poppler
 #OPT:freeglut
 #OPT:libglade
-#OPT:qt5
-#OPT:x7lib
 #OPT:swig
 #OPT:gcc
-#OPT:guile
 #OPT:openjdk
 #OPT:lua
 #OPT:php
@@ -56,32 +52,32 @@ cd $DIRECTORY
 fi
 
 wget -c http://graphviz.gitlab.io/pub/graphviz/stable/SOURCES/graphviz.tar.gz \
-     -O graphviz-2.40.1.tar.gz
+-O graphviz-2.40.1.tar.gz
 sed -e '/ruby/s/1\.9/2.4/' -i configure.ac
 patch -p1 -i ../graphviz-2.40.1-qt5-1.patch
 sed -i '/LIBPOSTFIX="64"/s/64//' configure.ac &&
 
-autoreconf                &&
+autoreconf &&
 ./configure --prefix=/usr &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 ln -v -s /usr/share/graphviz/doc \
-         /usr/share/doc/graphviz-2.40.1
+/usr/share/doc/graphviz-2.40.1
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

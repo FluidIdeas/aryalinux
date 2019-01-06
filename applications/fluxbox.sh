@@ -37,26 +37,31 @@ fi
 ./configure --prefix=/usr &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 echo startfluxbox > ~/.xinitrc
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 mkdir -pv /usr/share/xsessions &&
 cat > /usr/share/xsessions/fluxbox.desktop << "EOF"
-<code class="literal">[Desktop Entry] Encoding=UTF-8 Name=Fluxbox Comment=This session logs you into Fluxbox Exec=startfluxbox Type=Application</code>
+<code class="literal">[Desktop Entry]
+Encoding=UTF-8
+Name=Fluxbox
+Comment=This session logs you into Fluxbox
+Exec=startfluxbox
+Type=Application</code>
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 mkdir -v ~/.fluxbox &&
 cp -v /usr/share/fluxbox/init ~/.fluxbox/init &&

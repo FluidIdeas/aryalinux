@@ -7,10 +7,8 @@ set +h
 
 #REQ:boost
 #REQ:gc
-#REQ:gsl
 #REQ:gtkmm2
 #REQ:gtkmm3
-#REQ:libxslt
 #REQ:poppler
 #REQ:popt
 #REQ:wget
@@ -51,34 +49,34 @@ fi
 patch -Np1 -i ../inkscape-0.92.3-consolidated_fixes-1.patch
 sed -i 's| abs(| std::fabs(|g' src/ui/tools/flood-tool.cpp &&
 sed -e 's|gTrue|true|g' -e 's|gFalse|false|g' -e 's|GBool|bool|g' \
- -i src/extension/internal/pdfinput/pdf-parser.*
+-i src/extension/internal/pdfinput/pdf-parser.*
 bash download-gtest.sh
 mkdir build &&
-cd    build &&
+cd build &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DCMAKE_BUILD_TYPE=Release  \
-      ..                          &&
+-DCMAKE_BUILD_TYPE=Release \
+.. &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make install                      &&
+make install &&
 rm -v /usr/lib/inkscape/lib*_LIB.a
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 gtk-update-icon-cache &&
 update-desktop-database
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

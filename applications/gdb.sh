@@ -41,21 +41,21 @@ fi
 make
 make -C gdb/doc doxy
 pushd gdb/testsuite &&
-make  site.exp      &&
-echo  "set gdb_test_timeout 120" >> site.exp &&
+make site.exp &&
+echo "set gdb_test_timeout 120" >> site.exp &&
 runtest
 popd
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make -C gdb install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -d /usr/share/doc/gdb-8.2.1 &&
 rm -rf gdb/doc/doxy/xml &&
@@ -63,7 +63,7 @@ cp -Rv gdb/doc/doxy /usr/share/doc/gdb-8.2.1
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

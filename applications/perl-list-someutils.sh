@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/List-SomeUtils-0.56.tar.gz
 
-NAME=list::someutils-0.56
+NAME=
 VERSION=0.56
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/List-SomeUtils-0.56.tar.gz
 
@@ -32,16 +32,16 @@ cd $DIRECTORY
 fi
 
 perl Makefile.PL &&
-make             &&
+make &&
 make test
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

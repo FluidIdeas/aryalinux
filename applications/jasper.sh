@@ -35,23 +35,23 @@ cd $DIRECTORY
 fi
 
 mkdir BUILD &&
-cd    BUILD &&
+cd BUILD &&
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr    \
-      -DCMAKE_BUILD_TYPE=Release     \
-      -DCMAKE_SKIP_INSTALL_RPATH=YES \
-      -DJAS_ENABLE_DOC=NO            \
-      -DCMAKE_INSTALL_DOCDIR=/usr/share/doc/jasper-2.0.14 \
-      ..  &&
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+-DCMAKE_BUILD_TYPE=Release \
+-DCMAKE_SKIP_INSTALL_RPATH=YES \
+-DJAS_ENABLE_DOC=NO \
+-DCMAKE_INSTALL_DOCDIR=/usr/share/doc/jasper-2.0.14 \
+.. &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -36,53 +36,64 @@ fi
 cd $DIRECTORY
 fi
 
-echo '#define SYS_VIMRC_FILE  "/etc/vimrc"' >>  src/feature.h &&
+echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h &&
 echo '#define SYS_GVIMRC_FILE "/etc/gvimrc"' >> src/feature.h &&
 
 ./configure --prefix=/usr \
-            --with-features=huge \
-            --with-tlib=ncursesw &&
+--with-features=huge \
+--with-tlib=ncursesw &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 ln -snfv ../vim/vim80/doc /usr/share/doc/vim-8.1
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 rsync -avzcP --exclude="/dos/" --exclude="/spell/" \
-    ftp.nluug.nl::Vim/runtime/ ./runtime/
+ftp.nluug.nl::Vim/runtime/ ./runtime/
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make -C src installruntime &&
 vim -c ":helptags /usr/share/doc/vim-8.1" -c ":q"
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /usr/share/applications/gvim.desktop << "EOF"
-<code class="literal">[Desktop Entry] Name=GVim Text Editor Comment=Edit text files Comment[pt_BR]=Edite arquivos de texto TryExec=gvim Exec=gvim -f %F Terminal=false Type=Application Icon=gvim.png Categories=Utility;TextEditor; StartupNotify=true MimeType=text/plain;</code>
+<code class="literal">[Desktop Entry]
+Name=GVim Text Editor
+Comment=Edit text files
+Comment[pt_BR]=Edite arquivos de texto
+TryExec=gvim
+Exec=gvim -f %F
+Terminal=false
+Type=Application
+Icon=gvim.png
+Categories=Utility;TextEditor;
+StartupNotify=true
+MimeType=text/plain;</code>
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/linuxwacom/xf86-input-wacom-0.36.0.tar.bz2
 
-NAME=xorg wacom driver-0.36.0
+NAME=
 VERSION=0.36.0
 URL=https://downloads.sourceforge.net/linuxwacom/xf86-input-wacom-0.36.0.tar.bz2
 
@@ -33,17 +33,17 @@ cd $DIRECTORY
 fi
 
 ./configure $XORG_CONFIG \
-            --with-udev-rules-dir=/lib/udev/rules.d \
-            --with-systemd-unit-dir=/lib/systemd/system &&
+--with-udev-rules-dir=/lib/udev/rules.d \
+--with-systemd-unit-dir=/lib/systemd/system &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

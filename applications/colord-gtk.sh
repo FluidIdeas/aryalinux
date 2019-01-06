@@ -10,7 +10,6 @@ set +h
 #REC:gobject-introspection
 #REC:vala
 #OPT:docbook-utils
-#OPT:gtk2
 #OPT:gtk-doc
 
 cd $SOURCE_DIR
@@ -36,18 +35,18 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr    \
-            --enable-vala    \
-            --disable-static &&
+./configure --prefix=/usr \
+--enable-vala \
+--disable-static &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

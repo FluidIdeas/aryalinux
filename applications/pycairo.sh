@@ -33,27 +33,27 @@ fi
 
 python2 setup.py build
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-python2 setup.py install --optimize=1   &&
+python2 setup.py install --optimize=1 &&
 python2 setup.py install_pycairo_header &&
 python2 setup.py install_pkgconfig
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 python3 setup.py build
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-python3 setup.py install --optimize=1   &&
+python3 setup.py install --optimize=1 &&
 python3 setup.py install_pycairo_header &&
 python3 setup.py install_pkgconfig
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

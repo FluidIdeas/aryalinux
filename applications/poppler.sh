@@ -48,44 +48,44 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build                         &&
-cd    build                         &&
+mkdir build &&
+cd build &&
 
-cmake  -DCMAKE_BUILD_TYPE=Release   \
-       -DCMAKE_INSTALL_PREFIX=/usr  \
-       -DTESTDATADIR=$PWD/testfiles \
-       -DENABLE_XPDF_HEADERS=ON     \
-       ..                           &&
+cmake -DCMAKE_BUILD_TYPE=Release \
+-DCMAKE_INSTALL_PREFIX=/usr \
+-DTESTDATADIR=$PWD/testfiles \
+-DENABLE_XPDF_HEADERS=ON \
+.. &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-install -v -m755 -d           /usr/share/doc/poppler-0.72.0 &&
+install -v -m755 -d /usr/share/doc/poppler-0.72.0 &&
 cp -vr ../glib/reference/html /usr/share/doc/poppler-0.72.0
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 tar -xf ../../poppler-data-0.4.9.tar.gz &&
 cd poppler-data-0.4.9
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make prefix=/usr install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

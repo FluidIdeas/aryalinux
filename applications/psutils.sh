@@ -32,13 +32,13 @@ fi
 sed 's@/usr/local@/usr@g' Makefile.unix > Makefile &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 lp -o number-up=2 <em class="replaceable"><code><filename></code></em>
 

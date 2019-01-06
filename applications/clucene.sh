@@ -35,19 +35,19 @@ fi
 patch -Np1 -i ../clucene-2.3.3.4-contribs_lib-1.patch &&
 
 mkdir build &&
-cd    build &&
+cd build &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DBUILD_CONTRIBS_LIB=ON .. &&
+-DBUILD_CONTRIBS_LIB=ON .. &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

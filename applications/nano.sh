@@ -29,20 +29,20 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr     \
-            --sysconfdir=/etc \
-            --enable-utf8     \
-            --docdir=/usr/share/doc/nano-3.2 &&
+./configure --prefix=/usr \
+--sysconfdir=/etc \
+--enable-utf8 \
+--docdir=/usr/share/doc/nano-3.2 &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 install -v -m644 doc/{nano.html,sample.nanorc} /usr/share/doc/nano-3.2
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

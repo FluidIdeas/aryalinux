@@ -50,41 +50,41 @@ fi
 
 ipp_file=ippicv_2017u3_lnx_intel64_general_20180518.tgz &&
 ipp_hash=$(md5sum ../$ipp_file | cut -d" " -f1) &&
-ipp_dir=.cache/ippicv                           &&
+ipp_dir=.cache/ippicv &&
 
 mkdir -p $ipp_dir &&
 cp ../$ipp_file $ipp_dir/$ipp_hash-$ipp_file
 tar xf ../opencv_contrib-3.4.3.tar.gz
 mkdir build &&
-cd    build &&
+cd build &&
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr      \
-      -DCMAKE_BUILD_TYPE=Release       \
-      -DENABLE_CXX11=ON                \
-      -DBUILD_PERF_TESTS=OFF           \
-      -DWITH_XINE=ON                   \
-      -DBUILD_TESTS=OFF                \
-      -DENABLE_PRECOMPILED_HEADERS=OFF \
-      -DCMAKE_SKIP_RPATH=ON            \
-      -DBUILD_WITH_DEBUG_INFO=OFF      \
-      -Wno-dev  ..                     &&
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+-DCMAKE_BUILD_TYPE=Release \
+-DENABLE_CXX11=ON \
+-DBUILD_PERF_TESTS=OFF \
+-DWITH_XINE=ON \
+-DBUILD_TESTS=OFF \
+-DENABLE_PRECOMPILED_HEADERS=OFF \
+-DCMAKE_SKIP_RPATH=ON \
+-DBUILD_WITH_DEBUG_INFO=OFF \
+-Wno-dev .. &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make install             &&
+make install &&
 
 case $(uname -m) in
-  x86_64) ARCH=intel64 ;;
-       *) ARCH=ia32    ;;
-esac                     &&
+x86_64) ARCH=intel64 ;;
+*) ARCH=ia32 ;;
+esac &&
 
 cp -v 3rdparty/ippicv/ippicv_lnx/lib/$ARCH/libippicv.a /usr/lib &&
 unset ARCH
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

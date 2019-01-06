@@ -8,7 +8,6 @@ set +h
 #REQ:x7lib
 #OPT:libpng
 #OPT:libjpeg
-#OPT:libtiff
 #OPT:giflib
 
 cd $SOURCE_DIR
@@ -37,16 +36,16 @@ fi
 ./configure --prefix=/usr --disable-static &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 install -v -m755 -d /usr/share/doc/imlib2-1.5.1 &&
-install -v -m644    doc/{*.gif,index.html} \
-                    /usr/share/doc/imlib2-1.5.1
+install -v -m644 doc/{*.gif,index.html} \
+/usr/share/doc/imlib2-1.5.1
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -29,19 +29,27 @@ cd $DIRECTORY
 fi
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 export TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/') &&
 
 cat >> /etc/profile.d/extrapaths.sh << EOF
-<code class="literal"> # Begin texlive addition pathappend /opt/texlive/2018/texmf-dist/doc/man MANPATH pathappend /opt/texlive/2018/texmf-dist/doc/info INFOPATH pathappend /opt/texlive/2018/bin/$TEXARCH # End texlive addition </code>
+<code class="literal">
+# Begin texlive addition
+
+pathappend /opt/texlive/2018/texmf-dist/doc/man MANPATH
+pathappend /opt/texlive/2018/texmf-dist/doc/info INFOPATH
+pathappend /opt/texlive/2018/bin/$TEXARCH
+
+# End texlive addition
+</code>
 EOF
 
 unset TEXARCH
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

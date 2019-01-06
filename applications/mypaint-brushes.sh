@@ -32,17 +32,17 @@ cd $DIRECTORY
 fi
 
 patch -Np1 -i ../mypaint-brushes-1.3.0-automake_1.16-1.patch &&
-./autogen.sh                                                 &&
-./configure --prefix=/usr                                    &&
+./autogen.sh &&
+./configure --prefix=/usr &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

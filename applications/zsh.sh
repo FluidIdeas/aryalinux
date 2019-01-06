@@ -6,7 +6,6 @@ set +h
 . /etc/alps/alps.conf
 
 #OPT:libcap
-#OPT:pcre
 #OPT:valgrind
 
 cd $SOURCE_DIR
@@ -34,51 +33,51 @@ cd $DIRECTORY
 fi
 
 tar --strip-components=1 -xvf ../zsh-5.6.2-doc.tar.xz
-./configure --prefix=/usr         \
-            --bindir=/bin         \
-            --sysconfdir=/etc/zsh \
-            --enable-etcdir=/etc/zsh                  &&
-make                                                  &&
+./configure --prefix=/usr \
+--bindir=/bin \
+--sysconfdir=/etc/zsh \
+--enable-etcdir=/etc/zsh &&
+make &&
 
-makeinfo  Doc/zsh.texi --plaintext -o Doc/zsh.txt     &&
-makeinfo  Doc/zsh.texi --html      -o Doc/html        &&
-makeinfo  Doc/zsh.texi --html --no-split --no-headers -o Doc/zsh.html
-texi2pdf  Doc/zsh.texi -o Doc/zsh.pdf
+makeinfo Doc/zsh.texi --plaintext -o Doc/zsh.txt &&
+makeinfo Doc/zsh.texi --html -o Doc/html &&
+makeinfo Doc/zsh.texi --html --no-split --no-headers -o Doc/zsh.html
+texi2pdf Doc/zsh.texi -o Doc/zsh.pdf
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make install                              &&
+make install &&
 make infodir=/usr/share/info install.info &&
 
-install -v -m755 -d                 /usr/share/doc/zsh-5.6.2/html &&
-install -v -m644 Doc/html/*         /usr/share/doc/zsh-5.6.2/html &&
+install -v -m755 -d /usr/share/doc/zsh-5.6.2/html &&
+install -v -m644 Doc/html/* /usr/share/doc/zsh-5.6.2/html &&
 install -v -m644 Doc/zsh.{html,txt} /usr/share/doc/zsh-5.6.2
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make htmldir=/usr/share/doc/zsh-5.6.2/html install.html &&
 install -v -m644 Doc/zsh.dvi /usr/share/doc/zsh-5.6.2
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -m644 Doc/zsh.pdf /usr/share/doc/zsh-5.6.2
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 mv -v /usr/lib/libpcre.so.* /lib &&
 ln -v -sf ../../lib/libpcre.so.0 /usr/lib/libpcre.so
@@ -88,10 +87,10 @@ ln -v -sf ../../lib/libgdbm.so.3 /usr/lib/libgdbm.so
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/shells << "EOF"
 <code class="literal">/bin/zsh</code>
@@ -99,7 +98,7 @@ EOF
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

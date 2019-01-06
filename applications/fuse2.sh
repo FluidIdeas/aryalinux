@@ -30,38 +30,38 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr    \
-            --disable-static \
-            --exec-prefix=/  &&
+./configure --prefix=/usr \
+--disable-static \
+--exec-prefix=/ &&
 
 make &&
 make DESTDIR=$PWD/Dest install
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-install -vm755 Dest/lib/libfuse.so.2.9.7 /lib                  &&
-install -vm755 Dest/lib/libulockmgr.so.1.0.1 /lib                 &&
-ln -sfv ../../lib/libfuse.so.2.9.7 /usr/lib/libfuse.so         &&
+install -vm755 Dest/lib/libfuse.so.2.9.7 /lib &&
+install -vm755 Dest/lib/libulockmgr.so.1.0.1 /lib &&
+ln -sfv ../../lib/libfuse.so.2.9.7 /usr/lib/libfuse.so &&
 ln -sfv ../../lib/libulockmgr.so.1.0.1 /usr/lib/libulockmgr.so &&
 
-install -vm644  Dest/lib/pkgconfig/fuse.pc /usr/lib/pkgconfig  && 
-                                                         
-install -vm4755 Dest/bin/fusermount       /bin                 &&
-install -vm755  Dest/bin/ulockmgr_server  /bin                 &&
+install -vm644 Dest/lib/pkgconfig/fuse.pc /usr/lib/pkgconfig && 
 
-install -vm755  Dest/sbin/mount.fuse      /sbin                &&
+install -vm4755 Dest/bin/fusermount /bin &&
+install -vm755 Dest/bin/ulockmgr_server /bin &&
 
-install -vdm755 /usr/include/fuse                              &&
+install -vm755 Dest/sbin/mount.fuse /sbin &&
 
-install -vm644  Dest/usr/include/*.h      /usr/include         &&
-install -vm644  Dest/usr/include/fuse/*.h /usr/include/fuse/   &&
+install -vdm755 /usr/include/fuse &&
 
-install -vm644  Dest/usr/share/man/man1/* /usr/share/man/man1  &&
+install -vm644 Dest/usr/include/*.h /usr/include &&
+install -vm644 Dest/usr/include/fuse/*.h /usr/include/fuse/ &&
+
+install -vm644 Dest/usr/share/man/man1/* /usr/share/man/man1 &&
 /sbin/ldconfig -v
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

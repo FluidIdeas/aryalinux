@@ -40,22 +40,22 @@ sed -i 's%\(indexentry\)%\1\\%' make-rules/inputenc/make-inp-rules.pl &&
 
 patch -Np1 -i ../xindy-2.5.1-upstream_fixes-1.patch &&
 
-./configure --prefix=/opt/texlive/2018              \
-            --bindir=/opt/texlive/2018/bin/$TEXARCH \
-            --datarootdir=/opt/texlive/2018         \
-            --includedir=/usr/include               \
-            --libdir=/opt/texlive/2018/texmf-dist   \
-            --mandir=/opt/texlive/2018/texmf-dist/doc/man &&
+./configure --prefix=/opt/texlive/2018 \
+--bindir=/opt/texlive/2018/bin/$TEXARCH \
+--datarootdir=/opt/texlive/2018 \
+--includedir=/usr/include \
+--libdir=/opt/texlive/2018/texmf-dist \
+--mandir=/opt/texlive/2018/texmf-dist/doc/man &&
 
 make LC_ALL=POSIX
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

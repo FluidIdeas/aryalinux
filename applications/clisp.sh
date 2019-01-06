@@ -35,23 +35,23 @@ fi
 sed -i -e '/socket/d' -e '/"streams"/d' tests/tests.lisp
 patch -Np1 -i ../clisp-2.49-readline7_fixes-1.patch
 mkdir build &&
-cd    build &&
+cd build &&
 
-../configure --srcdir=../                       \
-             --prefix=/usr                      \
-             --docdir=/usr/share/doc/clisp-2.49 \
-             --with-libsigsegv-prefix=/usr &&
+../configure --srcdir=../ \
+--prefix=/usr \
+--docdir=/usr/share/doc/clisp-2.49 \
+--with-libsigsegv-prefix=/usr &&
 
 ulimit -s 16384 &&
 make -j1
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

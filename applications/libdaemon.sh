@@ -35,16 +35,16 @@ fi
 make
 make -C doc doxygen
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make docdir=/usr/share/doc/libdaemon-0.14 install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -m755 -d /usr/share/doc/libdaemon-0.14/api &&
 install -v -m644 doc/reference/html/* /usr/share/doc/libdaemon-0.14/api &&
@@ -52,7 +52,7 @@ install -v -m644 doc/reference/man/man3/* /usr/share/man/man3
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

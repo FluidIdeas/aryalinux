@@ -18,12 +18,8 @@ set +h
 #OPT:curl
 #OPT:faad2
 #OPT:ffmpeg
-#OPT:flac
-#OPT:lame
-#OPT:libcdio
 #OPT:libnotify
 #OPT:libsamplerate
-#OPT:libsndfile
 #OPT:libvorbis
 #OPT:neon
 #OPT:pulseaudio
@@ -55,50 +51,50 @@ cd $DIRECTORY
 fi
 
 TPUT=/bin/true ./configure --prefix=/usr \
-                           --with-buildstamp="BLFS" &&
+--with-buildstamp="BLFS" &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 TPUT=/bin/true ./configure --prefix=/usr --disable-wavpack &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 gtk-update-icon-cache &&
 update-desktop-database
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cp -v /usr/share/applications/audacious{,-qt}.desktop &&
 
 sed -e '/^Name/ s/$/ Qt/' \
-    -e '/Exec=/ s/audacious/& --qt/' \
-    -i /usr/share/applications/audacious-qt.desktop
+-e '/Exec=/ s/audacious/& --qt/' \
+-i /usr/share/applications/audacious-qt.desktop
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

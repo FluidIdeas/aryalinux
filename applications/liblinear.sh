@@ -31,7 +31,7 @@ fi
 
 make lib
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -vm644 linear.h /usr/include &&
 install -vm755 liblinear.so.3 /usr/lib &&
@@ -39,7 +39,7 @@ ln -sfv liblinear.so.3 /usr/lib/liblinear.so
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -7,7 +7,6 @@ set +h
 
 #REQ:alsa-lib
 #OPT:gtk2
-#OPT:gtk3
 #OPT:fltk
 
 cd $SOURCE_DIR
@@ -35,10 +34,10 @@ fi
 
 as_root()
 {
-  if   [ $EUID = 0 ];        then $*
-  elif [ -x /usr/bin/sudo ]; then sudo $*
-  else                            su -c \\"$*\\"
-  fi
+if [ $EUID = 0 ]; then $*
+elif [ -x /usr/bin/sudo ]; then sudo $*
+else su -c \\"$*\\"
+fi
 }
 
 export -f as_root
@@ -46,21 +45,21 @@ bash -e
 rm -rf qlo10k1 Makefile gitcompile
 for tool in *
 do
-  case $tool in
-    seq )
-      tool_dir=seq/sbiload
-    ;;
-    * )
-      tool_dir=$tool
-    ;;
-  esac
+case $tool in
+seq )
+tool_dir=seq/sbiload
+;;
+* )
+tool_dir=$tool
+;;
+esac
 
-  pushd $tool_dir
-    ./configure --prefix=/usr
-    make
-    as_root make install
-    as_root /sbin/ldconfig
-  popd
+pushd $tool_dir
+./configure --prefix=/usr
+make
+as_root make install
+as_root /sbin/ldconfig
+popd
 
 done
 unset tool tool_dir

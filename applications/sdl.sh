@@ -8,7 +8,6 @@ set +h
 #OPT:aalib
 #OPT:alsa
 #OPT:glu
-#OPT:nasm
 #OPT:pulseaudio
 #OPT:pth
 #OPT:installing
@@ -37,23 +36,23 @@ cd $DIRECTORY
 fi
 
 sed -e '/_XData32/s:register long:register _Xconst long:' \
-    -i src/video/x11/SDL_x11sym.h &&
+-i src/video/x11/SDL_x11sym.h &&
 
 ./configure --prefix=/usr --disable-static &&
 
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 
 install -v -m755 -d /usr/share/doc/SDL-1.2.15/html &&
-install -v -m644    docs/html/*.html \
-                    /usr/share/doc/SDL-1.2.15/html
+install -v -m644 docs/html/*.html \
+/usr/share/doc/SDL-1.2.15/html
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 cd test &&
 ./configure &&

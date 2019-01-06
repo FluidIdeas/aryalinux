@@ -32,69 +32,69 @@ cd $DIRECTORY
 fi
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make ins-all prefix=/opt/gnat
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 PATH_HOLD=$PATH &&
 export PATH=/opt/gnat/bin:$PATH_HOLD
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 find /opt/gnat -name ld -exec mv -v {} {}.old \;
 find /opt/gnat -name as -exec mv -v {} {}.old \;
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 case $(uname -m) in
-  x86_64)
-    sed -e '/m64=/s/lib64/lib/' \
-        -i.orig gcc/config/i386/t-linux64
-  ;;
+x86_64)
+sed -e '/m64=/s/lib64/lib/' \
+-i.orig gcc/config/i386/t-linux64
+;;
 esac
 
 mkdir build &&
-cd    build &&
+cd build &&
 
-../configure               \
-    --prefix=/usr          \
-    --disable-multilib     \
-    --disable-libmpx       \
-    --with-system-zlib     \
-    --enable-languages=ada &&
+../configure \
+--prefix=/usr \
+--disable-multilib \
+--disable-libmpx \
+--with-system-zlib \
+--enable-languages=ada &&
 make
 ulimit -s 32768 &&
 make -k check
 ../contrib/test_summary
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make install                                               &&
-mkdir -pv /usr/share/gdb/auto-load/usr/lib                 &&
-mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib    &&
+make install &&
+mkdir -pv /usr/share/gdb/auto-load/usr/lib &&
+mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib &&
 
 chown -v -R root:root \
-    /usr/lib/gcc/*linux-gnu/8.2.0/include{,-fixed} \
-    /usr/lib/gcc/*linux-gnu/8.2.0/ada{lib,include}
+/usr/lib/gcc/*linux-gnu/8.2.0/include{,-fixed} \
+/usr/lib/gcc/*linux-gnu/8.2.0/ada{lib,include}
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 rm -rf /opt/gnat
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 export PATH=$PATH_HOLD &&
 unset PATH_HOLD

@@ -8,7 +8,6 @@ set +h
 #REC:libtasn1
 #OPT:make-ca
 #OPT:nss
-#OPT:gtk-doc
 #OPT:libxslt
 
 cd $SOURCE_DIR
@@ -36,35 +35,39 @@ fi
 
 sed '20,$ d' -i trust/trust-extract-compat.in &&
 cat >> trust/trust-extract-compat.in << "EOF"
-<code class="literal"># Copy existing anchor modifications to /etc/ssl/local /usr/libexec/make-ca/copy-trust-modifications # Generate a new trust store /usr/sbin/make-ca -f -g</code>
+<code class="literal"># Copy existing anchor modifications to /etc/ssl/local
+/usr/libexec/make-ca/copy-trust-modifications
+
+# Generate a new trust store
+/usr/sbin/make-ca -f -g</code>
 EOF
-./configure --prefix=/usr     \
-            --sysconfdir=/etc \
-            --with-trust-paths=/etc/pki/anchors &&
+./configure --prefix=/usr \
+--sysconfdir=/etc \
+--with-trust-paths=/etc/pki/anchors &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 ln -s /usr/libexec/p11-kit/trust-extract-compat \
-      /usr/bin/update-ca-certificates
+/usr/bin/update-ca-certificates
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 if [ -e /usr/lib/libnssckbi.so ]; then
-  readlink /usr/lib/libnssckbi.so ||
-  rm -v /usr/lib/libnssckbi.so    &&
-  ln -sfv ./pkcs11/p11-kit-trust.so /usr/lib/libnssckbi.so
+readlink /usr/lib/libnssckbi.so ||
+rm -v /usr/lib/libnssckbi.so &&
+ln -sfv ./pkcs11/p11-kit-trust.so /usr/lib/libnssckbi.so
 fi
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

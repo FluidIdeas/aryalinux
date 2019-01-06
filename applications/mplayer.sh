@@ -9,13 +9,10 @@ set +h
 #REC:gtk2
 #REC:libvdpau-va-gl
 #OPT:cdparanoia
-#OPT:libcdio
 #OPT:libdvdread
-#OPT:libdvdnav
 #OPT:libdvdcss
 #OPT:samba
 #OPT:libbluray
-#OPT:mythtivo
 #OPT:alsa
 #OPT:pulseaudio
 #OPT:sdl
@@ -23,12 +20,9 @@ set +h
 #OPT:aalib
 #OPT:giflib
 #OPT:libjpeg
-#OPT:libmng
 #OPT:libpng
 #OPT:faac
 #OPT:faad2
-#OPT:lame
-#OPT:liba52
 #OPT:libdv
 #OPT:libmad
 #OPT:libmpeg2
@@ -37,9 +31,6 @@ set +h
 #OPT:lzo
 #OPT:mpg123
 #OPT:speex
-#OPT:xvid
-#OPT:x264
-#OPT:libdca
 #OPT:fontconfig
 #OPT:freetype2
 #OPT:fribidi
@@ -79,73 +70,73 @@ fi
 
 patch -Np0 -i ../MPlayer-1.3.0-x264_fix-1.patch &&
 
-./configure --prefix=/usr            \
-            --confdir=/etc/mplayer   \
-            --enable-dynamic-plugins \
-            --enable-menu            \
-            --enable-gui             &&
+./configure --prefix=/usr \
+--confdir=/etc/mplayer \
+--enable-dynamic-plugins \
+--enable-menu \
+--enable-gui &&
 make
 make doc
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make install  &&
+make install &&
 ln -svf ../icons/hicolor/48x48/apps/mplayer.png \
-        /usr/share/pixmaps/mplayer.png
+/usr/share/pixmaps/mplayer.png
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -m755 -d /usr/share/doc/mplayer-1.3.0 &&
-install -v -m644    DOCS/HTML/en/* \
-                    /usr/share/doc/mplayer-1.3.0
+install -v -m644 DOCS/HTML/en/* \
+/usr/share/doc/mplayer-1.3.0
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -m644 etc/codecs.conf /etc/mplayer
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -m644 etc/*.conf /etc/mplayer
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 gtk-update-icon-cache &&
 update-desktop-database
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-tar -xvf  ../Clearlooks-2.0.tar.bz2 \
-    -C    /usr/share/mplayer/skins &&
-ln  -sfvn Clearlooks /usr/share/mplayer/skins/default
+tar -xvf ../Clearlooks-2.0.tar.bz2 \
+-C /usr/share/mplayer/skins &&
+ln -sfvn Clearlooks /usr/share/mplayer/skins/default
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

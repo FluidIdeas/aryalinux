@@ -9,7 +9,6 @@ set +h
 #REQ:itstool
 #REQ:libsecret
 #REC:telepathy-glib
-#REC:vala
 #REC:vte
 #OPT:avahi
 
@@ -38,16 +37,16 @@ cd $DIRECTORY
 fi
 
 ./configure --prefix=/usr \
-            --enable-compile-warnings=minimum &&
+--enable-compile-warnings=minimum &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

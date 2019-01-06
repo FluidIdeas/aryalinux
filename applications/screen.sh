@@ -31,24 +31,24 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr                     \
-            --infodir=/usr/share/info         \
-            --mandir=/usr/share/man           \
-            --with-socket-dir=/run/screen     \
-            --with-pty-group=5                \
-            --with-sys-screenrc=/etc/screenrc &&
+./configure --prefix=/usr \
+--infodir=/usr/share/info \
+--mandir=/usr/share/man \
+--with-socket-dir=/run/screen \
+--with-pty-group=5 \
+--with-sys-screenrc=/etc/screenrc &&
 
 sed -i -e "s%/usr/local/etc/screenrc%/etc/screenrc%" {etc,doc}/* &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 install -m 644 etc/etcscreenrc /etc/screenrc
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -32,22 +32,22 @@ cd $DIRECTORY
 fi
 
 ./configure --prefix=/usr \
-            --sysconfdir=/etc \
-            --with-readline=gnu &&
+--sysconfdir=/etc \
+--with-readline=gnu &&
 make -j1
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make install_doc_dir=/usr/share/doc/slang-2.3.2   \
-     SLSH_DOC_DIR=/usr/share/doc/slang-2.3.2/slsh \
-     install-all &&
+make install_doc_dir=/usr/share/doc/slang-2.3.2 \
+SLSH_DOC_DIR=/usr/share/doc/slang-2.3.2/slsh \
+install-all &&
 
 chmod -v 755 /usr/lib/libslang.so.2.3.2 \
-             /usr/lib/slang/v2/modules/*.so
+/usr/lib/slang/v2/modules/*.so
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -33,16 +33,16 @@ fi
 
 cd unix &&
 ./configure --prefix=/usr \
-            --mandir=/usr/share/man \
-            $([ $(uname -m) = x86_64 ] && echo --enable-64bit) &&
+--mandir=/usr/share/man \
+$([ $(uname -m) = x86_64 ] && echo --enable-64bit) &&
 
 make &&
 
 sed -e "s@^\(TK_SRC_DIR='\).*@\1/usr/include'@" \
-    -e "/TK_B/s@='\(-L\)\?.*unix@='\1/usr/lib@" \
-    -i tkConfig.sh
+-e "/TK_B/s@='\(-L\)\?.*unix@='\1/usr/lib@" \
+-i tkConfig.sh
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 make install-private-headers &&
@@ -51,7 +51,7 @@ chmod -v 755 /usr/lib/libtk8.6.so
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

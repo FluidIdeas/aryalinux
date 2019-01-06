@@ -36,19 +36,19 @@ fi
 
 patch -Np1 -i ../lcms-1.19-cve_2013_4276-1.patch &&
 
-./configure --prefix=/usr --disable-static       &&
+./configure --prefix=/usr --disable-static &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 install -v -m755 -d /usr/share/doc/lcms-1.19 &&
-install -v -m644    README.1ST doc/* \
-                    /usr/share/doc/lcms-1.19
+install -v -m644 README.1ST doc/* \
+/usr/share/doc/lcms-1.19
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

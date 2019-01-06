@@ -8,8 +8,6 @@ set +h
 #REQ:llvm
 #REC:alsa-lib
 #REC:glu
-#REC:libjpeg
-#REC:qt5
 #OPT:doxygen
 #OPT:sdl2
 
@@ -36,18 +34,18 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr     \
-            --sysconfdir=/etc \
-            --disable-static  &&
+./configure --prefix=/usr \
+--sysconfdir=/etc \
+--disable-static &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

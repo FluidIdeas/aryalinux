@@ -32,19 +32,19 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr        &&
+./configure --prefix=/usr &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/logrotate.conf << EOF
 # Begin of /etc/logrotate.conf
@@ -72,14 +72,14 @@ compress
 
 # No packages own lastlog or wtmp -- rotate them here
 /var/log/wtmp {
-    monthly
-    create 0664 root utmp
-    rotate 1
+monthly
+create 0664 root utmp
+rotate 1
 }
 
 /var/log/lastlog {
-    monthly
-    rotate 1
+monthly
+rotate 1
 }
 
 # Some packages drop log rotation info in this directory
@@ -93,29 +93,29 @@ chmod -v 0644 /etc/logrotate.conf
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 mkdir -p /etc/logrotate.d
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/logrotate.d/sys.log << EOF
 /var/log/sys.log {
-   # If the log file is larger than 100kb, rotate it
-   size   100k
-   rotate 5
-   weekly
-   postrotate
-      /bin/killall -HUP syslogd
-   endscript
+# If the log file is larger than 100kb, rotate it
+size 100k
+rotate 5
+weekly
+postrotate
+/bin/killall -HUP syslogd
+endscript
 }
 EOF
 
@@ -123,19 +123,19 @@ chmod -v 0644 /etc/logrotate.d/sys.log
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/logrotate.d/example.log << EOF
 file1
 file2
 file3 {
-   ...
-   postrotate
-    ...
-   endscript
+...
+postrotate
+...
+endscript
 }
 EOF
 
@@ -143,7 +143,7 @@ chmod -v 0644 /etc/logrotate.d/example.log
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

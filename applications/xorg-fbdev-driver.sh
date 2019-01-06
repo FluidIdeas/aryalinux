@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.x.org/pub/individual/driver/xf86-video-fbdev-0.5.0.tar.bz2
 
-NAME=xorg fbdev driver-0.5.0
+NAME=
 VERSION=0.5.0
 URL=https://www.x.org/pub/individual/driver/xf86-video-fbdev-0.5.0.tar.bz2
 
@@ -33,13 +33,13 @@ fi
 ./configure $XORG_CONFIG &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/A/AM/AMBS/Text-BibTeX-0.85.tar.gz
 
-NAME=text::bibtex-0.85
+NAME=
 VERSION=0.85
 URL=https://www.cpan.org/authors/id/A/AM/AMBS/Text-BibTeX-0.85.tar.gz
 
@@ -32,16 +32,16 @@ cd $DIRECTORY
 fi
 
 perl Build.PL &&
-./Build       &&
+./Build &&
 ./Build test
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 ./Build install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

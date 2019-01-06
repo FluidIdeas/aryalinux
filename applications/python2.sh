@@ -34,48 +34,48 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr       \
-            --enable-shared     \
-            --with-system-expat \
-            --with-system-ffi   \
-            --with-ensurepip=yes \
-            --enable-unicode=ucs4 &&
+./configure --prefix=/usr \
+--enable-shared \
+--with-system-expat \
+--with-system-ffi \
+--with-ensurepip=yes \
+--enable-unicode=ucs4 &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 chmod -v 755 /usr/lib/libpython2.7.so.1.0
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -dm755 /usr/share/doc/python-2.7.15 &&
 
-tar --strip-components=1                     \
-    --no-same-owner                          \
-    --directory /usr/share/doc/python-2.7.15 \
-    -xvf ../python-2.7.15-docs-html.tar.bz2 &&
+tar --strip-components=1 \
+--no-same-owner \
+--directory /usr/share/doc/python-2.7.15 \
+-xvf ../python-2.7.15-docs-html.tar.bz2 &&
 
 find /usr/share/doc/python-2.7.15 -type d -exec chmod 0755 {} \; &&
 find /usr/share/doc/python-2.7.15 -type f -exec chmod 0644 {} \;
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 export PYTHONDOCS=/usr/share/doc/python-2.7.15
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

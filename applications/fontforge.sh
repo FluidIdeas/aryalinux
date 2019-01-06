@@ -17,7 +17,6 @@ set +h
 #REC:x7lib
 #OPT:giflib
 #OPT:libjpeg
-#OPT:libpng
 #OPT:libtiff
 #OPT:python2
 #OPT:wget
@@ -45,19 +44,19 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr     \
-            --enable-gtk2-use \
-            --disable-static  \
-            --docdir=/usr/share/doc/fontforge-20170731 &&
+./configure --prefix=/usr \
+--enable-gtk2-use \
+--disable-static \
+--docdir=/usr/share/doc/fontforge-20170731 &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

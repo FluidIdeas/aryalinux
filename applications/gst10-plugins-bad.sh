@@ -15,7 +15,6 @@ set +h
 #OPT:curl
 #OPT:faac
 #OPT:faad2
-#OPT:gnutls
 #OPT:gtk-doc
 #OPT:gtk2
 #OPT:gtk3
@@ -66,20 +65,20 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr                                           \
-            --disable-wayland                                       \
-            --disable-opencv                                        \
-            --with-package-name="GStreamer Bad Plugins 1.14.4 BLFS" \
-            --with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/" &&
+./configure --prefix=/usr \
+--disable-wayland \
+--disable-opencv \
+--with-package-name="GStreamer Bad Plugins 1.14.4 BLFS" \
+--with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/" &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -13,7 +13,6 @@ set +h
 #REC:libxklavier
 #REC:vala
 #OPT:at-spi2-core
-#OPT:exo
 #OPT:gtk-doc
 #OPT:itstool
 #OPT:qt5
@@ -43,80 +42,80 @@ cd $DIRECTORY
 fi
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-groupadd -g 65 lightdm       &&
-useradd  -c "Lightdm Daemon" \
-         -d /var/lib/lightdm \
-         -u 65 -g lightdm    \
-         -s /bin/false lightdm
+groupadd -g 65 lightdm &&
+useradd -c "Lightdm Daemon" \
+-d /var/lib/lightdm \
+-u 65 -g lightdm \
+-s /bin/false lightdm
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
-./configure                          \
-       --prefix=/usr                 \
-       --libexecdir=/usr/lib/lightdm \
-       --localstatedir=/var          \
-       --sbindir=/usr/bin            \
-       --sysconfdir=/etc             \
-       --disable-static              \
-       --disable-tests               \
-       --with-greeter-user=lightdm   \
-       --with-greeter-session=lightdm-gtk-greeter \
-       --docdir=/usr/share/doc/lightdm-1.28.0 &&
+./configure \
+--prefix=/usr \
+--libexecdir=/usr/lib/lightdm \
+--localstatedir=/var \
+--sbindir=/usr/bin \
+--sysconfdir=/etc \
+--disable-static \
+--disable-tests \
+--with-greeter-user=lightdm \
+--with-greeter-session=lightdm-gtk-greeter \
+--docdir=/usr/share/doc/lightdm-1.28.0 &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make install                                                  &&
-cp tests/src/lightdm-session /usr/bin                         &&
-sed -i '1 s/sh/bash --login/' /usr/bin/lightdm-session        &&
-rm -rf /etc/init                                              &&
-install -v -dm755 -o lightdm -g lightdm /var/lib/lightdm      &&
+make install &&
+cp tests/src/lightdm-session /usr/bin &&
+sed -i '1 s/sh/bash --login/' /usr/bin/lightdm-session &&
+rm -rf /etc/init &&
+install -v -dm755 -o lightdm -g lightdm /var/lib/lightdm &&
 install -v -dm755 -o lightdm -g lightdm /var/lib/lightdm-data &&
-install -v -dm755 -o lightdm -g lightdm /var/cache/lightdm    &&
+install -v -dm755 -o lightdm -g lightdm /var/cache/lightdm &&
 install -v -dm770 -o lightdm -g lightdm /var/log/lightdm
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 tar -xf ../lightdm-gtk-greeter-2.0.5.tar.gz &&
 cd lightdm-gtk-greeter-2.0.5 &&
 
-./configure                      \
-   --prefix=/usr                 \
-   --libexecdir=/usr/lib/lightdm \
-   --sbindir=/usr/bin            \
-   --sysconfdir=/etc             \
-   --with-libxklavier            \
-   --enable-kill-on-sigterm      \
-   --disable-libido              \
-   --disable-libindicator        \
-   --disable-static              \
-   --docdir=/usr/share/doc/lightdm-gtk-greeter-2.0.5 &&
+./configure \
+--prefix=/usr \
+--libexecdir=/usr/lib/lightdm \
+--sbindir=/usr/bin \
+--sysconfdir=/etc \
+--with-libxklavier \
+--enable-kill-on-sigterm \
+--disable-libido \
+--disable-libindicator \
+--disable-static \
+--docdir=/usr/share/doc/lightdm-gtk-greeter-2.0.5 &&
 
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install-lightdm &&
 systemctl enable lightdm
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

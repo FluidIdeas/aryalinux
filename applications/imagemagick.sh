@@ -19,7 +19,6 @@ set +h
 #OPT:gnupg
 #OPT:jasper
 #OPT:lcms
-#OPT:lcms2
 #OPT:libexif
 #OPT:libjpeg
 #OPT:libpng
@@ -34,11 +33,8 @@ set +h
 #OPT:gimp
 #OPT:graphviz
 #OPT:inkscape
-#OPT:gpcldnld
 #OPT:enscript
 #OPT:texlive
-#OPT:tl-installer
-#OPT:html2ps
 
 cd $SOURCE_DIR
 
@@ -66,21 +62,21 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr     \
-            --sysconfdir=/etc \
-            --enable-hdri     \
-            --with-modules    \
-            --with-perl       \
-            --disable-static  &&
+./configure --prefix=/usr \
+--sysconfdir=/etc \
+--enable-hdri \
+--with-modules \
+--with-perl \
+--disable-static &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make DOCUMENTATION_PATH=/usr/share/doc/imagemagick-7.0.8 install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

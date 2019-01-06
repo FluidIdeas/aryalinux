@@ -35,18 +35,18 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr        \
-            --sysconfdir=/etc    \
-            --localstatedir=/var \
-            --enable-udev-acl    \
-            --enable-pam-module  \
-            --enable-polkit      \
-            --with-xinitrc-dir=/etc/X11/app-defaults/xinitrc.d \
-            --docdir=/usr/share/doc/ConsoleKit-1.2.1           \
-            --with-systemdsystemunitdir=no                     &&
+./configure --prefix=/usr \
+--sysconfdir=/etc \
+--localstatedir=/var \
+--enable-udev-acl \
+--enable-pam-module \
+--enable-polkit \
+--with-xinitrc-dir=/etc/X11/app-defaults/xinitrc.d \
+--docdir=/usr/share/doc/ConsoleKit-1.2.1 \
+--with-systemdsystemunitdir=no &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 
@@ -54,21 +54,26 @@ mv -v /etc/X11/app-defaults/xinitrc.d/90-consolekit{,.sh}
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/pam.d/system-session << "EOF"
-<code class="literal"># Begin ConsoleKit addition session optional pam_loginuid.so session optional pam_ck_connector.so nox11 # End ConsoleKit addition</code>
+<code class="literal"># Begin ConsoleKit addition
+
+session optional pam_loginuid.so
+session optional pam_ck_connector.so nox11
+
+# End ConsoleKit addition</code>
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /usr/lib/ConsoleKit/run-session.d/pam-foreground-compat.ck << "EOF"
 #!/bin/sh
@@ -80,20 +85,20 @@ TAGDIR=/var/run/console
 TAGFILE="$TAGDIR/`getent passwd $CK_SESSION_USER_UID | cut -f 1 -d:`"
 
 if [ "$1" = "session_added" ]; then
-    mkdir -p "$TAGDIR"
-    echo "$CK_SESSION_ID" >> "$TAGFILE"
+mkdir -p "$TAGDIR"
+echo "$CK_SESSION_ID" >> "$TAGFILE"
 fi
 
 if [ "$1" = "session_removed" ] && [ -e "$TAGFILE" ]; then
-    sed -i "\%^$CK_SESSION_ID\$%d" "$TAGFILE"
-    [ -s "$TAGFILE" ] || rm -f "$TAGFILE"
+sed -i "\%^$CK_SESSION_ID\$%d" "$TAGFILE"
+[ -s "$TAGFILE" ] || rm -f "$TAGFILE"
 fi
 EOF
 chmod -v 755 /usr/lib/ConsoleKit/run-session.d/pam-foreground-compat.ck
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

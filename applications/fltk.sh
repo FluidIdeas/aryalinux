@@ -8,14 +8,12 @@ set +h
 #REQ:x7lib
 #REC:hicolor-icon-theme
 #REC:libjpeg
-#REC:libpng
 #OPT:alsa-lib
 #OPT:desktop-file-utils
 #OPT:doxygen
 #OPT:glu
 #OPT:mesa
 #OPT:texlive
-#OPT:tl-installer
 
 cd $SOURCE_DIR
 
@@ -40,30 +38,30 @@ fi
 cd $DIRECTORY
 fi
 
-sed -i -e '/cat./d' documentation/Makefile       &&
+sed -i -e '/cat./d' documentation/Makefile &&
 
-./configure --prefix=/usr    \
-            --enable-shared  &&
+./configure --prefix=/usr \
+--enable-shared &&
 make
 make -C documentation html
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make docdir=/usr/share/doc/fltk-1.3.4-2 install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make -C test          docdir=/usr/share/doc/fltk-1.3.4-2 install-linux &&
+make -C test docdir=/usr/share/doc/fltk-1.3.4-2 install-linux &&
 make -C documentation docdir=/usr/share/doc/fltk-1.3.4-2 install-linux
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

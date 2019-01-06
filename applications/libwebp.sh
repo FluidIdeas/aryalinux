@@ -6,7 +6,6 @@ set +h
 . /etc/alps/alps.conf
 
 #REC:libjpeg
-#REC:libpng
 #REC:libtiff
 #OPT:freeglut
 #OPT:giflib
@@ -34,22 +33,22 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr           \
-            --enable-libwebpmux     \
-            --enable-libwebpdemux   \
-            --enable-libwebpdecoder \
-            --enable-libwebpextras  \
-            --enable-swap-16bit-csp \
-            --disable-static        &&
+./configure --prefix=/usr \
+--enable-libwebpmux \
+--enable-libwebpdemux \
+--enable-libwebpdecoder \
+--enable-libwebpextras \
+--enable-swap-16bit-csp \
+--disable-static &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

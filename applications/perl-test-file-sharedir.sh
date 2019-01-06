@@ -8,7 +8,6 @@ set +h
 #REQ:perl-class-tiny
 #REQ:perl-file-copy-recursive
 #REQ:perl-file-sharedir
-#REQ:perl-path-tiny
 #REQ:perl-scope-guard
 #REC:perl-test-fatal
 
@@ -16,7 +15,7 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/K/KE/KENTNL/Test-File-ShareDir-1.001002.tar.gz
 
-NAME=test::file::sharedir-1.001002
+NAME=
 VERSION=1.001002
 URL=https://cpan.metacpan.org/authors/id/K/KE/KENTNL/Test-File-ShareDir-1.001002.tar.gz
 
@@ -36,16 +35,16 @@ cd $DIRECTORY
 fi
 
 perl Makefile.PL &&
-make             &&
+make &&
 make test
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -35,7 +35,7 @@ sed -i 's/^LN_S=@LN_S@/& -f -v/' platform.inc.in &&
 ./configure --prefix=/usr &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 sed -i '/libdir.*STATIC_LIB/ s/^/#/' Makefile &&
 make install &&
@@ -45,11 +45,11 @@ chmod -v 755 /usr/lib/libxvidcore.so.4.3 &&
 install -v -m755 -d /usr/share/doc/xvidcore-1.3.5/examples &&
 install -v -m644 ../../doc/* /usr/share/doc/xvidcore-1.3.5 &&
 install -v -m644 ../../examples/* \
-    /usr/share/doc/xvidcore-1.3.5/examples
+/usr/share/doc/xvidcore-1.3.5/examples
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

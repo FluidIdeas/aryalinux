@@ -14,7 +14,6 @@ set +h
 #REC:gdk-pixbuf
 #REC:libgudev
 #REC:libjpeg
-#REC:libpng
 #REC:libsoup
 #REC:libvpx
 #REC:x7lib
@@ -26,7 +25,6 @@ set +h
 #OPT:libgudev
 #OPT:pulseaudio
 #OPT:speex
-#OPT:taglib
 #OPT:valgrind
 #OPT:v4l-utils
 
@@ -54,17 +52,17 @@ cd $DIRECTORY
 fi
 
 ./configure --prefix=/usr \
-            --with-package-name="GStreamer Good Plugins 1.14.4 BLFS" \
-            --with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/"  &&
+--with-package-name="GStreamer Good Plugins 1.14.4 BLFS" \
+--with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/" &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

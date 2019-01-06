@@ -11,11 +11,9 @@ set +h
 #OPT:cairo
 #OPT:enscript
 #OPT:exiv2
-#OPT:ffmpeg
 #OPT:gdk-pixbuf
 #OPT:graphviz
 #OPT:libjpeg
-#OPT:libpng
 #OPT:librsvg
 #OPT:libwebp
 #OPT:lua
@@ -27,7 +25,6 @@ set +h
 #OPT:vala
 #OPT:w3m
 #OPT:gexiv2
-#OPT:suitesparse
 
 cd $SOURCE_DIR
 
@@ -55,7 +52,7 @@ fi
 ./configure --prefix=/usr &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 install -v -m644 docs/*.{css,html} /usr/share/gtk-doc/html/gegl &&
@@ -63,7 +60,7 @@ install -v -m644 docs/images/*.{png,ico,svg} /usr/share/gtk-doc/html/gegl/images
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

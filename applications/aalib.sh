@@ -33,19 +33,19 @@ cd $DIRECTORY
 fi
 
 sed -i -e '/AM_PATH_AALIB,/s/AM_PATH_AALIB/[&]/' aalib.m4
-./configure --prefix=/usr             \
-            --infodir=/usr/share/info \
-            --mandir=/usr/share/man   \
-            --disable-static          &&
+./configure --prefix=/usr \
+--infodir=/usr/share/info \
+--mandir=/usr/share/man \
+--disable-static &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

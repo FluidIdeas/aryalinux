@@ -32,18 +32,18 @@ cd $DIRECTORY
 fi
 
 patch -Np1 -i ../net-tools-CVS_20101030-remove_dups-1.patch &&
-sed -i '/#include <netinet\/ip.h>/d'  iptunnel.c &&
+sed -i '/#include <netinet\/ip.h>/d' iptunnel.c &&
 
 yes "" | make config &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make update
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

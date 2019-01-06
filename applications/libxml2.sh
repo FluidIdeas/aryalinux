@@ -37,21 +37,21 @@ fi
 
 patch -Np1 -i ../libxml2-2.9.8-python3_hack-1.patch
 sed -i '/_PyVerify_fd/,+1d' python/types.c
-./configure --prefix=/usr    \
-            --disable-static \
-            --with-history   \
-            --with-python=/usr/bin/python3 &&
+./configure --prefix=/usr \
+--disable-static \
+--with-history \
+--with-python=/usr/bin/python3 &&
 make
 tar xf ../xmlts20130923.tar.gz
 systemctl stop httpd.service
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

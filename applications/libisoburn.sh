@@ -31,29 +31,29 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr              \
-            --disable-static           \
-            --enable-pkg-check-modules &&
+./configure --prefix=/usr \
+--disable-static \
+--enable-pkg-check-modules &&
 make
 doxygen doc/doxygen.conf
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -dm755 /usr/share/doc/libisoburn-1.5.0 &&
 install -v -m644 doc/html/* /usr/share/doc/libisoburn-1.5.0
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

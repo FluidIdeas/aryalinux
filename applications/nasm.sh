@@ -34,24 +34,24 @@ tar -xf ../nasm-2.14.02-xdoc.tar.xz --strip-components=1
 ./configure --prefix=/usr &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-install -m755 -d         /usr/share/doc/nasm-2.14.02/html  &&
-cp -v doc/html/*.html    /usr/share/doc/nasm-2.14.02/html  &&
+install -m755 -d /usr/share/doc/nasm-2.14.02/html &&
+cp -v doc/html/*.html /usr/share/doc/nasm-2.14.02/html &&
 cp -v doc/*.{txt,ps,pdf} /usr/share/doc/nasm-2.14.02
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -31,21 +31,21 @@ cd $DIRECTORY
 fi
 
 sed -i 's#$(LOBJS): Makefile#$(LOBJS): pth_p.h Makefile#' Makefile.in &&
-./configure --prefix=/usr           \
-            --disable-static        \
-            --mandir=/usr/share/man &&
+./configure --prefix=/usr \
+--disable-static \
+--mandir=/usr/share/man &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 install -v -m755 -d /usr/share/doc/pth-2.0.7 &&
-install -v -m644    README PORTING SUPPORT TESTS \
-                    /usr/share/doc/pth-2.0.7
+install -v -m644 README PORTING SUPPORT TESTS \
+/usr/share/doc/pth-2.0.7
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

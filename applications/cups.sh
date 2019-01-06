@@ -14,12 +14,10 @@ set +h
 #REC:xdg-utils
 #OPT:avahi
 #OPT:libpaper
-#OPT:mitkrb
 #OPT:openjdk
 #OPT:php
 #OPT:python2
 #OPT:gutenprint
-#OPT:index
 
 cd $SOURCE_DIR
 
@@ -45,47 +43,47 @@ cd $DIRECTORY
 fi
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 useradd -c "Print Service User" -d /var/spool/cups -g lp -s /bin/false -u 9 lp
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 groupadd -g 19 lpadmin
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 usermod -a -G lpadmin <em class="replaceable"><code><username></code></em>
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 sed -i 's#@CUPS_HTMLVIEW@#firefox#' desktop/cups.desktop.in
-sed -i 's:555:755:g;s:444:644:g' Makedefs.in                         &&
+sed -i 's:555:755:g;s:444:644:g' Makedefs.in &&
 sed -i '/MAN.EXT/s:.gz::g' configure config-scripts/cups-manpages.m4 &&
 
-aclocal  -I config-scripts &&
+aclocal -I config-scripts &&
 autoconf -I config-scripts &&
 
 CC=gcc \
-./configure --libdir=/usr/lib            \
-            --with-rcdir=/tmp/cupsinit   \
-            --with-system-groups=lpadmin \
-            --with-docdir=/usr/share/cups/doc-2.2.10 &&
+./configure --libdir=/usr/lib \
+--with-rcdir=/tmp/cupsinit \
+--with-system-groups=lpadmin \
+--with-docdir=/usr/share/cups/doc-2.2.10 &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 rm -rf /tmp/cupsinit &&
@@ -93,45 +91,51 @@ ln -svnf ../cups/doc-2.2.10 /usr/share/doc/cups-2.2.10
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 echo "ServerName /var/run/cups/cups.sock" > /etc/cups/client.conf
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 gtk-update-icon-cache
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/pam.d/cups << "EOF"
-<code class="literal"># Begin /etc/pam.d/cups auth include system-auth account include system-account session include system-session # End /etc/pam.d/cups</code>
+<code class="literal"># Begin /etc/pam.d/cups
+
+auth include system-auth
+account include system-account
+session include system-session
+
+# End /etc/pam.d/cups</code>
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 systemctl enable org.cups.cupsd
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

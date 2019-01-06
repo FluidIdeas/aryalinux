@@ -32,25 +32,25 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr                       \
-            --docdir=/usr/share/doc/pcre2-10.32 \
-            --enable-unicode                    \
-            --enable-jit                        \
-            --enable-pcre2-16                   \
-            --enable-pcre2-32                   \
-            --enable-pcre2grep-libz             \
-            --enable-pcre2grep-libbz2           \
-            --enable-pcre2test-libreadline      \
-            --disable-static                    &&
+./configure --prefix=/usr \
+--docdir=/usr/share/doc/pcre2-10.32 \
+--enable-unicode \
+--enable-jit \
+--enable-pcre2-16 \
+--enable-pcre2-32 \
+--enable-pcre2grep-libz \
+--enable-pcre2grep-libbz2 \
+--enable-pcre2test-libreadline \
+--disable-static &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

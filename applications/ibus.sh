@@ -12,7 +12,6 @@ set +h
 #REC:gtk2
 #REC:libnotify
 #OPT:dbus-python
-#OPT:pygobject3
 #OPT:gtk-doc
 #OPT:pyxdg
 #OPT:libxkbcommon
@@ -42,25 +41,25 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir -p               /usr/share/unicode/ucd &&
+mkdir -p /usr/share/unicode/ucd &&
 unzip -u ../UCD.zip -d /usr/share/unicode/ucd
 sed -i 's@/desktop/ibus@/org/freedesktop/ibus@g' \
-    data/ibus.schemas.in \
-    data/dconf/org.freedesktop.ibus.gschema.xml.in
-./configure --prefix=/usr             \
-            --sysconfdir=/etc         \
-            --disable-unicode-dict    \
-            --disable-emoji-dict      &&
-rm -f tools/main.c                    &&
+data/ibus.schemas.in \
+data/dconf/org.freedesktop.ibus.gschema.xml.in
+./configure --prefix=/usr \
+--sysconfdir=/etc \
+--disable-unicode-dict \
+--disable-emoji-dict &&
+rm -f tools/main.c &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -9,9 +9,7 @@ set +h
 #REQ:fontconfig
 #REQ:geoclue2
 #REQ:gnome-desktop
-#REQ:lcms2
 #REQ:libcanberra
-#REQ:libgweather
 #REQ:libnotify
 #REQ:librsvg
 #REQ:libwacom
@@ -22,7 +20,6 @@ set +h
 #REC:alsa
 #REC:cups
 #REC:networkmanager
-#REC:nss
 #REC:wayland
 
 cd $SOURCE_DIR
@@ -50,18 +47,18 @@ cd $DIRECTORY
 fi
 
 mkdir build &&
-cd    build &&
+cd build &&
 
 meson --prefix=/usr --sysconfdir=/etc .. &&
 ninja
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 ninja install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

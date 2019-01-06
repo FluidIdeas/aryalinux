@@ -32,19 +32,19 @@ cd $DIRECTORY
 fi
 
 mkdir bld &&
-cd    bld &&
+cd bld &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr ../source &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 rm -vf /usr/lib/libx265.a
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

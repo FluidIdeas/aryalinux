@@ -47,43 +47,43 @@ cd $DIRECTORY
 fi
 
 patch -Np1 -i ../abiword-3.0.2-gtk3_22_render_fix-1.patch &&
-   
+
 sed -e "s/free_suggestions/free_string_list/" \
-    -e "s/_to_personal//"                     \
-    -e "s/in_session/added/"                  \
-    -i src/af/xap/xp/enchant_checker.cpp      &&
+-e "s/_to_personal//" \
+-e "s/in_session/added/" \
+-i src/af/xap/xp/enchant_checker.cpp &&
 
 sed -e "/icaltime_from_timet/{s/timet/&_with_zone/;s/0/0, 0/}" \
-    -i src/text/ptbl/xp/pd_DocumentRDF.cpp &&
+-i src/text/ptbl/xp/pd_DocumentRDF.cpp &&
 
 ./configure --prefix=/usr --without-evolution-data-server &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 tar -xf ../abiword-docs-3.0.2.tar.gz &&
-cd abiword-docs-3.0.1                &&
-./configure --prefix=/usr            &&
+cd abiword-docs-3.0.1 &&
+./configure --prefix=/usr &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 ls /usr/share/abiword-3.0/templates
 install -v -m750 -d ~/.AbiSuite/templates &&
-install -v -m640    /usr/share/abiword-3.0/templates/normal.awt-<em class="replaceable"><code><lang></code></em> \
-                    ~/.AbiSuite/templates/normal.awt
+install -v -m640 /usr/share/abiword-3.0/templates/normal.awt-<em class="replaceable"><code><lang></code></em> \
+~/.AbiSuite/templates/normal.awt
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -15,8 +15,6 @@ set +h
 #OPT:dbus
 #OPT:GConf
 #OPT:libidn
-#OPT:networkmanager
-#OPT:sqlite
 #OPT:startup-notification
 #OPT:tcl
 #OPT:tk
@@ -47,19 +45,19 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr        \
-            --sysconfdir=/etc    \
-            --with-gstreamer=1.0 \
-            --disable-avahi      \
-            --disable-gtkspell   \
-            --disable-meanwhile  \
-            --disable-idn        \
-            --disable-nm         \
-            --disable-vv         \
-            --disable-tcl        &&
+./configure --prefix=/usr \
+--sysconfdir=/etc \
+--with-gstreamer=1.0 \
+--disable-avahi \
+--disable-gtkspell \
+--disable-meanwhile \
+--disable-idn \
+--disable-nm \
+--disable-vv \
+--disable-tcl &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 mkdir -pv /usr/share/doc/pidgin-2.13.0 &&
@@ -67,27 +65,27 @@ cp -v README doc/gtkrc-2.0 /usr/share/doc/pidgin-2.13.0
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 mkdir -pv /usr/share/doc/pidgin-2.13.0/api &&
 cp -v doc/html/* /usr/share/doc/pidgin-2.13.0/api
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 gtk-update-icon-cache &&
 update-desktop-database
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

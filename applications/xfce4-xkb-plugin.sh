@@ -33,21 +33,21 @@ cd $DIRECTORY
 fi
 
 sed -e 's|xfce4/panel-plugins|xfce4/panel/plugins|' \
-    -i panel-plugin/{Makefile.in,xkb-plugin.desktop.in.in} &&
+-i panel-plugin/{Makefile.in,xkb-plugin.desktop.in.in} &&
 
-./configure --prefix=/usr         \
-            --libexecdir=/usr/lib \
-            --disable-debug       &&
+./configure --prefix=/usr \
+--libexecdir=/usr/lib \
+--disable-debug &&
 
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

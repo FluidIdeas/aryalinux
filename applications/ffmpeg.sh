@@ -9,32 +9,25 @@ set +h
 #REC:fdk-aac
 #REC:freetype2
 #REC:lame
-#REC:libtheora
 #REC:libvorbis
 #REC:libvpx
 #REC:opus
 #REC:x264
 #REC:x265
-#REC:yasm
 #REC:alsa-lib
 #REC:libva
 #REC:libvdpau
 #REC:sdl2
 #OPT:fontconfig
 #OPT:frei0r
-#OPT:libcdio
 #OPT:libwebp
 #OPT:opencv
 #OPT:openjpeg2
 #OPT:gnutls
 #OPT:pulseaudio
 #OPT:speex
-#OPT:texlive
-#OPT:tl-installer
 #OPT:v4l-utils
 #OPT:xvid
-#OPT:installing
-#OPT:libbluray
 #OPT:libdca
 
 cd $SOURCE_DIR
@@ -62,25 +55,25 @@ fi
 
 sed -i 's/-lflite"/-lflite -lasound"/' configure &&
 
-./configure --prefix=/usr        \
-            --enable-gpl         \
-            --enable-version3    \
-            --enable-nonfree     \
-            --disable-static     \
-            --enable-shared      \
-            --disable-debug      \
-            --enable-avresample  \
-            --enable-libass      \
-            --enable-libfdk-aac  \
-            --enable-libfreetype \
-            --enable-libmp3lame  \
-            --enable-libopus     \
-            --enable-libtheora   \
-            --enable-libvorbis   \
-            --enable-libvpx      \
-            --enable-libx264     \
-            --enable-libx265     \
-            --docdir=/usr/share/doc/ffmpeg-4.1 &&
+./configure --prefix=/usr \
+--enable-gpl \
+--enable-version3 \
+--enable-nonfree \
+--disable-static \
+--enable-shared \
+--disable-debug \
+--enable-avresample \
+--enable-libass \
+--enable-libfdk-aac \
+--enable-libfreetype \
+--enable-libmp3lame \
+--enable-libopus \
+--enable-libtheora \
+--enable-libvorbis \
+--enable-libvpx \
+--enable-libx264 \
+--enable-libx265 \
+--docdir=/usr/share/doc/ffmpeg-4.1 &&
 
 make &&
 
@@ -88,51 +81,52 @@ gcc tools/qt-faststart.c -o tools/qt-faststart
 pushd doc &&
 for DOCNAME in `basename -s .html *.html`
 do
-    texi2pdf -b $DOCNAME.texi &&
-    texi2dvi -b $DOCNAME.texi &&
+texi2pdf -b $DOCNAME.texi &&
+texi2dvi -b $DOCNAME.texi &&
 
-    dvips    -o $DOCNAME.ps   \
-                $DOCNAME.dvi
+dvips -o $DOCNAME.ps \
+$DOCNAME.dvi
 done &&
 popd &&
 unset DOCNAME
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 
-install -v -m755    tools/qt-faststart /usr/bin &&
-install -v -m755 -d           /usr/share/doc/ffmpeg-4.1 &&
-install -v -m644    doc/*.txt /usr/share/doc/ffmpeg-4.1
+install -v -m755 tools/qt-faststart /usr/bin &&
+install -v -m755 -d /usr/share/doc/ffmpeg-4.1 &&
+install -v -m644 doc/*.txt /usr/share/doc/ffmpeg-4.1
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -m644 doc/*.pdf /usr/share/doc/ffmpeg-4.1 &&
-install -v -m644 doc/*.ps  /usr/share/doc/ffmpeg-4.1
+install -v -m644 doc/*.ps /usr/share/doc/ffmpeg-4.1
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-install -v -m755 -d /usr/share/doc/ffmpeg-4.1/api                     &&
-cp -vr doc/doxy/html/* /usr/share/doc/ffmpeg-4.1/api                  &&
+install -v -m755 -d /usr/share/doc/ffmpeg-4.1/api &&
+cp -vr doc/doxy/html/* /usr/share/doc/ffmpeg-4.1/api &&
 find /usr/share/doc/ffmpeg-4.1/api -type f -exec chmod -c 0644 \{} \; &&
 find /usr/share/doc/ffmpeg-4.1/api -type d -exec chmod -c 0755 \{} \;
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 make fate-rsync SAMPLES=fate-suite/
-<span class="command"><strong>rsync -vrltLW --delete --timeout=60 --contimeout=60 \ rsync://fate-suite.ffmpeg.org/fate-suite/ fate-suite/</strong></span>
+<span class="command"><strong>rsync -vrltLW --delete --timeout=60 --contimeout=60 \
+rsync://fate-suite.ffmpeg.org/fate-suite/ fate-suite/</strong></span>
 make fate THREADS=<em class="replaceable"><code>N</code></em> SAMPLES=fate-suite/ | tee ../fate.log &&
 grep ^TEST ../fate.log | wc -l
 

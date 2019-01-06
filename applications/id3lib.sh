@@ -32,26 +32,26 @@ fi
 
 patch -Np1 -i ../id3lib-3.8.3-consolidated_patches-1.patch &&
 
-libtoolize -fc                &&
-aclocal                       &&
-autoconf                      &&
+libtoolize -fc &&
+aclocal &&
+autoconf &&
 automake --add-missing --copy &&
 
 ./configure --prefix=/usr --disable-static &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make install  &&
+make install &&
 cp doc/man/* /usr/share/man/man1 &&
 
 install -v -m755 -d /usr/share/doc/id3lib-3.8.3 &&
 install -v -m644 doc/*.{gif,jpg,png,ico,css,txt,php,html} \
-                    /usr/share/doc/id3lib-3.8.3
+/usr/share/doc/id3lib-3.8.3
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

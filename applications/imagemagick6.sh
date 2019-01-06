@@ -18,7 +18,6 @@ set +h
 #OPT:gnupg
 #OPT:jasper
 #OPT:lcms
-#OPT:lcms2
 #OPT:libexif
 #OPT:libjpeg
 #OPT:libpng
@@ -33,11 +32,8 @@ set +h
 #OPT:gimp
 #OPT:graphviz
 #OPT:inkscape
-#OPT:gpcldnld
 #OPT:enscript
 #OPT:texlive
-#OPT:tl-installer
-#OPT:html2ps
 
 cd $SOURCE_DIR
 
@@ -67,21 +63,21 @@ cd $DIRECTORY
 fi
 
 patch -Np1 -i ../ImageMagick-6.9.10-10-libs_only-1.patch &&
-autoreconf -fi                                          &&
-./configure --prefix=/usr     \
-            --sysconfdir=/etc \
-            --enable-hdri     \
-            --with-modules    \
-            --disable-static  &&
+autoreconf -fi &&
+./configure --prefix=/usr \
+--sysconfdir=/etc \
+--enable-hdri \
+--with-modules \
+--disable-static &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make DOCUMENTATION_PATH=/usr/share/doc/imagemagick-6.9.10 install-libs-only
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

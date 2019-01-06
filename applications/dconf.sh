@@ -8,7 +8,6 @@ set +h
 #REQ:dbus
 #REQ:glib2
 #REQ:gtk3
-#REQ:libxml2
 #REC:libxslt
 #REC:vala
 #OPT:gtk-doc
@@ -40,37 +39,37 @@ cd $DIRECTORY
 fi
 
 mkdir build &&
-cd    build &&
+cd build &&
 
 meson --prefix=/usr --sysconfdir=/etc .. &&
 ninja
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 ninja install &&
 cp gsettings/libdconfsettings.so /usr/lib/gio/modules/
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
-cd ..              &&
+cd .. &&
 tar -xf ../dconf-editor-3.30.2.tar.xz &&
-cd dconf-editor-3.30.2                &&
+cd dconf-editor-3.30.2 &&
 
 mkdir build &&
-cd    build &&
+cd build &&
 
 meson --prefix=/usr --sysconfdir=/etc -Dbash_completion=false .. &&
 ninja
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 ninja install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

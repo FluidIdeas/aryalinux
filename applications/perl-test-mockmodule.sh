@@ -6,14 +6,13 @@ set +h
 . /etc/alps/alps.conf
 
 #REQ:perl-module-build
-#REQ:perl-super
 #REC:perl-test-warnings
 
 cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/G/GF/GFRANKS/Test-MockModule-v0.170.0.tar.gz
 
-NAME=test::mockmodule-v0.170.0
+NAME=
 VERSION=v0.170.0
 URL=https://cpan.metacpan.org/authors/id/G/GF/GFRANKS/Test-MockModule-v0.170.0.tar.gz
 
@@ -33,16 +32,16 @@ cd $DIRECTORY
 fi
 
 perl Build.PL &&
-./Build       &&
+./Build &&
 ./Build test
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 ./Build install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

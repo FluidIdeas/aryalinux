@@ -41,13 +41,13 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr                           \
-            --disable-static                        \
-            --enable-threaded-resolver              \
-            --with-ca-path=/etc/ssl/certs &&
+./configure --prefix=/usr \
+--disable-static \
+--enable-threaded-resolver \
+--with-ca-path=/etc/ssl/certs &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 
@@ -56,11 +56,11 @@ rm -rf docs/examples/.deps &&
 find docs \( -name Makefile\* -o -name \*.1 -o -name \*.3 \) -exec rm {} \; &&
 
 install -v -d -m755 /usr/share/doc/curl-7.63.0 &&
-cp -v -R docs/*     /usr/share/doc/curl-7.63.0
+cp -v -R docs/* /usr/share/doc/curl-7.63.0
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

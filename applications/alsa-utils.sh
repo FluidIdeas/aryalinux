@@ -8,7 +8,6 @@ set +h
 #REQ:alsa-lib
 #OPT:fftw
 #OPT:libsamplerate
-#OPT:xmlto
 
 cd $SOURCE_DIR
 
@@ -34,36 +33,36 @@ cd $DIRECTORY
 fi
 
 ./configure --disable-alsaconf \
-            --disable-bat   \
-            --disable-xmlto \
-            --with-curses=ncursesw &&
+--disable-bat \
+--disable-xmlto \
+--with-curses=ncursesw &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 alsactl -L store
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 usermod -a -G audio <em class="replaceable"><code><username></code></em>
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

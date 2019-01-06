@@ -41,19 +41,19 @@ fi
 export LIBRARY_PATH=$XORG_PREFIX/lib
 2to3 -w data/autostart/openbox-xdg-autostart &&
 sed 's/python/python3/' -i data/autostart/openbox-xdg-autostart
-./configure --prefix=/usr     \
-            --sysconfdir=/etc \
-            --disable-static  \
-            --docdir=/usr/share/doc/openbox-3.6.1 &&
+./configure --prefix=/usr \
+--sysconfdir=/etc \
+--disable-static \
+--docdir=/usr/share/doc/openbox-3.6.1 &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

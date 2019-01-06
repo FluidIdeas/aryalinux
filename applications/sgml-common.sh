@@ -36,25 +36,25 @@ autoreconf -f -i
 ./configure --prefix=/usr --sysconfdir=/etc &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make docdir=/usr/share/doc install &&
 
 install-catalog --add /etc/sgml/sgml-ent.cat \
-    /usr/share/sgml/sgml-iso-entities-8879.1986/catalog &&
+/usr/share/sgml/sgml-iso-entities-8879.1986/catalog &&
 
 install-catalog --add /etc/sgml/sgml-docbook.cat \
-    /etc/sgml/sgml-ent.cat
+/etc/sgml/sgml-ent.cat
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 install-catalog --remove /etc/sgml/sgml-ent.cat \
-    /usr/share/sgml/sgml-iso-entities-8879.1986/catalog &&
+/usr/share/sgml/sgml-iso-entities-8879.1986/catalog &&
 
 install-catalog --remove /etc/sgml/sgml-docbook.cat \
-    /etc/sgml/sgml-ent.cat
+/etc/sgml/sgml-ent.cat
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

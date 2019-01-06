@@ -37,16 +37,22 @@ patch -Np1 -i ../fetchmail-6.3.26-disable_sslv3-1.patch &&
 ./configure --prefix=/usr --with-ssl --enable-fallback=procmail &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 cat > ~/.fetchmailrc << "EOF"
-<code class="literal">set logfile /var/log/fetchmail.log set no bouncemail set postmaster root poll SERVERNAME : user <em class="replaceable"><code><username></code></em> pass <em class="replaceable"><code><password></code></em>; mda "/usr/bin/procmail -f %F -d %T";</code>
+<code class="literal">set logfile /var/log/fetchmail.log
+set no bouncemail
+set postmaster root
+
+poll SERVERNAME :
+user <em class="replaceable"><code><username></code></em> pass <em class="replaceable"><code><password></code></em>;
+mda "/usr/bin/procmail -f %F -d %T";</code>
 EOF
 
 chmod -v 0600 ~/.fetchmailrc

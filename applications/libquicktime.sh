@@ -12,12 +12,9 @@ set +h
 #OPT:ffmpeg
 #OPT:gtk2
 #OPT:lame
-#OPT:libdv
 #OPT:libjpeg
-#OPT:libpng
 #OPT:libvorbis
 #OPT:x264
-#OPT:x7lib
 
 cd $SOURCE_DIR
 
@@ -45,23 +42,23 @@ fi
 
 patch -Np1 -i ../libquicktime-1.2.4-ffmpeg4-1.patch &&
 
-./configure --prefix=/usr     \
-            --enable-gpl      \
-            --without-doxygen \
-            --docdir=/usr/share/doc/libquicktime-1.2.4
+./configure --prefix=/usr \
+--enable-gpl \
+--without-doxygen \
+--docdir=/usr/share/doc/libquicktime-1.2.4
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 
 install -v -m755 -d /usr/share/doc/libquicktime-1.2.4 &&
-install -v -m644    README doc/{*.txt,*.html,mainpage.incl} \
-                    /usr/share/doc/libquicktime-1.2.4
+install -v -m644 README doc/{*.txt,*.html,mainpage.incl} \
+/usr/share/doc/libquicktime-1.2.4
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

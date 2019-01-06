@@ -34,54 +34,54 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr          \
-            --sysconfdir=/etc/lynx \
-            --datadir=/usr/share/doc/lynx-2.8.9rel.1 \
-            --with-zlib            \
-            --with-bzlib           \
-            --with-ssl             \
-            --with-screen=ncursesw \
-            --enable-locale-charset &&
+./configure --prefix=/usr \
+--sysconfdir=/etc/lynx \
+--datadir=/usr/share/doc/lynx-2.8.9rel.1 \
+--with-zlib \
+--with-bzlib \
+--with-ssl \
+--with-screen=ncursesw \
+--enable-locale-charset &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install-full &&
 chgrp -v -R root /usr/share/doc/lynx-2.8.9rel.1/lynx_doc
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-sed -e '/#LOCALE/     a LOCALE_CHARSET:TRUE'     \
-    -i /etc/lynx/lynx.cfg
+sed -e '/#LOCALE/ a LOCALE_CHARSET:TRUE' \
+-i /etc/lynx/lynx.cfg
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-sed -e '/#DEFAULT_ED/ a DEFAULT_EDITOR:vi'       \
-    -i /etc/lynx/lynx.cfg
+sed -e '/#DEFAULT_ED/ a DEFAULT_EDITOR:vi' \
+-i /etc/lynx/lynx.cfg
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-sed -e '/#PERSIST/    a PERSISTENT_COOKIES:TRUE' \
-    -i /etc/lynx/lynx.cfg
+sed -e '/#PERSIST/ a PERSISTENT_COOKIES:TRUE' \
+-i /etc/lynx/lynx.cfg
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

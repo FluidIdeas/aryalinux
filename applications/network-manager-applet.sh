@@ -42,22 +42,22 @@ cd $DIRECTORY
 fi
 
 mkdir build &&
-cd    build &&
+cd build &&
 
-meson --prefix=/usr     \
-      --sysconfdir=/etc \
-      -Dselinux=false   \
-      -Dteam=false      \
-      -Dmobile_broadband_provider_info=false .. &&
+meson --prefix=/usr \
+--sysconfdir=/etc \
+-Dselinux=false \
+-Dteam=false \
+-Dmobile_broadband_provider_info=false .. &&
 ninja
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 ninja install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -57,38 +57,38 @@ cd $DIRECTORY
 fi
 
 mkdir build &&
-cd    build &&
+cd build &&
 
-meson --prefix=/usr     \
-      --sysconfdir=/etc \
-      -Dfuse=false      \
-      -Dgphoto2=false   \
-      -Dafc=false       \
-      -Dbluray=false    \
-      -Dnfs=false       \
-      -Dmtp=false       \
-      -Dsmb=false       \
-      -Ddnssd=false     \
-      -Dgoa=false       \
-      -Dgoogle=false    .. &&
+meson --prefix=/usr \
+--sysconfdir=/etc \
+-Dfuse=false \
+-Dgphoto2=false \
+-Dafc=false \
+-Dbluray=false \
+-Dnfs=false \
+-Dmtp=false \
+-Dsmb=false \
+-Ddnssd=false \
+-Dgoa=false \
+-Dgoogle=false .. &&
 ninja
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 ninja install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 glib-compile-schemas /usr/share/glib-2.0/schemas
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

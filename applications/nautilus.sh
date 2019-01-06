@@ -8,7 +8,6 @@ set +h
 #REQ:gexiv2
 #REQ:gnome-autoar
 #REQ:gnome-desktop
-#REQ:tracker
 #REQ:libnotify
 #REC:desktop-file-utils
 #REC:exempi
@@ -44,24 +43,24 @@ fi
 
 sed s/\'libm\'/\'m\'/ -i meson.build &&
 mkdir build &&
-cd    build &&
+cd build &&
 
-meson --prefix=/usr      \
-      --sysconfdir=/etc  \
-      -Dselinux=false    \
-      -Dpackagekit=false \
-      .. &&
+meson --prefix=/usr \
+--sysconfdir=/etc \
+-Dselinux=false \
+-Dpackagekit=false \
+.. &&
 
 ninja
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 ninja install &&
 glib-compile-schemas /usr/share/glib-2.0/schemas
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

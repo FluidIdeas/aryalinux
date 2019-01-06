@@ -8,7 +8,6 @@ set +h
 #OPT:bind
 #OPT:bind-utils
 #OPT:boost
-#OPT:gdb
 #OPT:llvm
 #OPT:which
 
@@ -39,18 +38,18 @@ fi
 sed -i 's|/doc/valgrind||' docs/Makefile.in &&
 
 ./configure --prefix=/usr \
-            --datadir=/usr/share/doc/valgrind-3.14.0 &&
+--datadir=/usr/share/doc/valgrind-3.14.0 &&
 make
 sed -e 's@prereq:.*@prereq: false@' \
-    -i {helgrind,drd}/tests/pth_cond_destroy_busy.vgtest
+-i {helgrind,drd}/tests/pth_cond_destroy_busy.vgtest
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

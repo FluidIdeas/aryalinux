@@ -31,16 +31,16 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --with-pango  &&
+./configure --prefix=/usr --with-pango &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 cat >> ~/.xinitrc << "EOF"
 <code class="literal">exec sawfish</code>

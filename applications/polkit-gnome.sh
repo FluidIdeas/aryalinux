@@ -35,25 +35,33 @@ fi
 ./configure --prefix=/usr &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 mkdir -p /etc/xdg/autostart &&
 cat > /etc/xdg/autostart/polkit-gnome-authentication-agent-1.desktop << "EOF"
-<code class="literal">[Desktop Entry] Name=PolicyKit Authentication Agent Comment=PolicyKit Authentication Agent Exec=/usr/libexec/polkit-gnome-authentication-agent-1 Terminal=false Type=Application Categories= NoDisplay=true OnlyShowIn=GNOME;XFCE;Unity; AutostartCondition=GNOME3 unless-session gnome</code>
+<code class="literal">[Desktop Entry]
+Name=PolicyKit Authentication Agent
+Comment=PolicyKit Authentication Agent
+Exec=/usr/libexec/polkit-gnome-authentication-agent-1
+Terminal=false
+Type=Application
+Categories=NoDisplay=true
+OnlyShowIn=GNOME;XFCE;Unity;
+AutostartCondition=GNOME3 unless-session gnome</code>
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

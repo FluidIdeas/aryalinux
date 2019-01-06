@@ -39,20 +39,20 @@ patch -Np1 -i ../epdfview-0.1.8-fixes-2.patch &&
 ./configure --prefix=/usr &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 for size in 24 32 48; do
-  ln -svf ../../../../epdfview/pixmaps/icon_epdfview-$size.png \
-          /usr/share/icons/hicolor/${size}x${size}/apps
+ln -svf ../../../../epdfview/pixmaps/icon_epdfview-$size.png \
+/usr/share/icons/hicolor/${size}x${size}/apps
 done &&
 unset size &&
 
@@ -61,7 +61,7 @@ gtk-update-icon-cache -t -f --include-image-data /usr/share/icons/hicolor
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -10,7 +10,6 @@ set +h
 #OPT:jansson
 #OPT:libevent
 #OPT:python2
-#OPT:libev
 
 cd $SOURCE_DIR
 
@@ -35,19 +34,19 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr     \
-            --disable-static  \
-            --enable-lib-only \
-            --docdir=/usr/share/doc/nghttp2-1.35.1 &&
+./configure --prefix=/usr \
+--disable-static \
+--enable-lib-only \
+--docdir=/usr/share/doc/nghttp2-1.35.1 &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

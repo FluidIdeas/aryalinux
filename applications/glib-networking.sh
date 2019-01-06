@@ -36,31 +36,35 @@ cd $DIRECTORY
 fi
 
 mkdir build &&
-cd    build &&
+cd build &&
 
-meson --prefix=/usr            \
-      -Dlibproxy_support=false \
-      -Dpkcs11_support=true .. &&
+meson --prefix=/usr \
+-Dlibproxy_support=false \
+-Dpkcs11_support=true .. &&
 ninja
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 ninja install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/profile.d/gio.sh << "EOF"
-<code class="literal"># Begin gio.sh export GIO_USE_TLS=gnutls-pkcs11 # End gio.sh</code>
+<code class="literal"># Begin gio.sh
+
+export GIO_USE_TLS=gnutls-pkcs11
+
+# End gio.sh</code>
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

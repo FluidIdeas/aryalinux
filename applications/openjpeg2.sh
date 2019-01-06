@@ -38,26 +38,26 @@ fi
 patch -Np1 -i ../openjpeg-2.3.0-only_shared-1.patch &&
 
 mkdir -v build &&
-cd       build &&
+cd build &&
 
 cmake -DCMAKE_BUILD_TYPE=Release \
-      -DCMAKE_INSTALL_PREFIX=/usr \
-      -DBUILD_STATIC_LIBS=OFF .. &&
+-DCMAKE_INSTALL_PREFIX=/usr \
+-DBUILD_STATIC_LIBS=OFF .. &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 
 pushd ../doc &&
-  for man in man/man?/* ; do
-      install -v -D -m 644 $man /usr/share/$man
-  done 
+for man in man/man?/* ; do
+install -v -D -m 644 $man /usr/share/$man
+done 
 popd
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

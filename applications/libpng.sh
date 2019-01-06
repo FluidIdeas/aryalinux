@@ -33,7 +33,7 @@ gzip -cd ../libpng-1.6.36-apng.patch.gz | patch -p1
 LIBS=-lpthread ./configure --prefix=/usr --disable-static &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 mkdir -v /usr/share/doc/libpng-1.6.36 &&
@@ -41,7 +41,7 @@ cp -v README libpng-manual.txt /usr/share/doc/libpng-1.6.36
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

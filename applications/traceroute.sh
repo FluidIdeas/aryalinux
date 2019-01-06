@@ -31,17 +31,17 @@ fi
 
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make prefix=/usr install                                 &&
-mv /usr/bin/traceroute /bin                              &&
-ln -sv -f traceroute /bin/traceroute6                    &&
+make prefix=/usr install &&
+mv /usr/bin/traceroute /bin &&
+ln -sv -f traceroute /bin/traceroute6 &&
 ln -sv -f traceroute.8 /usr/share/man/man8/traceroute6.8 &&
 rm -fv /usr/share/man/man1/traceroute.1
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

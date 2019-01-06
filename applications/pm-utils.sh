@@ -32,21 +32,21 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr     \
-            --sysconfdir=/etc \
-            --docdir=/usr/share/doc/pm-utils-1.4.1 &&
+./configure --prefix=/usr \
+--sysconfdir=/etc \
+--docdir=/usr/share/doc/pm-utils-1.4.1 &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -m644 man/*.1 /usr/share/man/man1 &&
 install -v -m644 man/*.8 /usr/share/man/man8 &&
@@ -56,7 +56,7 @@ ln -sv pm-action.8 /usr/share/man/man8/pm-suspend-hybrid.8
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

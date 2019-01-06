@@ -8,7 +8,6 @@ set +h
 #REQ:extra-cmake-modules
 #REQ:qtwebengine
 #OPT:gnome-keyring
-#OPT:krameworks5
 
 cd $SOURCE_DIR
 
@@ -35,21 +34,21 @@ fi
 
 rm -rf po/
 mkdir build &&
-cd    build &&
+cd build &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DCMAKE_BUILD_TYPE=Release  \
-      .. &&
+-DCMAKE_BUILD_TYPE=Release \
+.. &&
 
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

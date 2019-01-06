@@ -32,18 +32,18 @@ cd $DIRECTORY
 fi
 
 case $(uname -m) in
-   i?86) sed -i -e 's/<xmmintrin.h/&.nouse/' configure ;;
+i?86) sed -i -e 's/<xmmintrin.h/&.nouse/' configure ;;
 esac
 ./configure --prefix=/usr --enable-mp3rtp --disable-static &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make pkghtmldir=/usr/share/doc/lame-3.100 install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

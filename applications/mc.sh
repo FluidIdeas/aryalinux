@@ -40,18 +40,18 @@ cd $DIRECTORY
 fi
 
 ./configure --prefix=/usr \
-            --sysconfdir=/etc \
-            --enable-charset &&
+--sysconfdir=/etc \
+--enable-charset &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 cp -v doc/keybind-migration.txt /usr/share/mc
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -34,22 +34,22 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr                  \
-            --shared-cares                 \
-            --shared-libuv                 \
-            --shared-openssl               \
-            --shared-zlib                  \
-            --with-intl=system-icu         &&
+./configure --prefix=/usr \
+--shared-cares \
+--shared-libuv \
+--shared-openssl \
+--shared-zlib \
+--with-intl=system-icu &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 ln -sf node /usr/share/doc/node-10.14.2
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

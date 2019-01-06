@@ -33,16 +33,16 @@ fi
 ./configure --prefix=/usr --disable-static &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
-chmod   -v   755 /usr/lib/lib{hogweed,nettle}.so &&
+chmod -v 755 /usr/lib/lib{hogweed,nettle}.so &&
 install -v -m755 -d /usr/share/doc/nettle-3.4.1 &&
 install -v -m644 nettle.html /usr/share/doc/nettle-3.4.1
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

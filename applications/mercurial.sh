@@ -39,42 +39,44 @@ make build
 make doc
 rm -rf tests/tmp &&
 TESTFLAGS="-j<em class="replaceable"><code><N></code></em> --tmpdir tmp --blacklist blacklists/failed-tests" make check
-pushd tests  &&
-  rm -rf tmp &&
-  ./run-tests.py --tmpdir tmp test-gpg.t
+pushd tests &&
+rm -rf tmp &&
+./run-tests.py --tmpdir tmp test-gpg.t
 popd
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make PREFIX=/usr install-bin
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make PREFIX=/usr install-doc
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 cat >> ~/.hgrc << "EOF"
-<code class="literal">[ui] username = <em class="replaceable"><code><user_name> <user@mail></code></em></code>
+<code class="literal">[ui]
+username = <em class="replaceable"><code><user_name> <user@mail></code></em></code>
 EOF
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -d -m755 /etc/mercurial &&
 cat > /etc/mercurial/hgrc << "EOF"
-<code class="literal">[web] cacerts = /etc/pki/tls/certs/ca-bundle.crt</code>
+<code class="literal">[web]
+cacerts = /etc/pki/tls/certs/ca-bundle.crt</code>
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

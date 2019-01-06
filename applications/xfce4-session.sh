@@ -8,7 +8,6 @@ set +h
 #REQ:libwnck2
 #REQ:libxfce4ui
 #REQ:which
-#REQ:x7app
 #REQ:xfdesktop
 #REC:desktop-file-utils
 #REC:shared-mime-info
@@ -38,27 +37,27 @@ cd $DIRECTORY
 fi
 
 ./configure --prefix=/usr \
-            --sysconfdir=/etc \
-            --disable-legacy-sm &&
+--sysconfdir=/etc \
+--disable-legacy-sm &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 update-desktop-database &&
 update-mime-database /usr/share/mime
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 cat > ~/.xinitrc << "EOF"
 <code class="literal">dbus-launch --exit-with-session startxfce4</code>

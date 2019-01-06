@@ -42,70 +42,71 @@ cd $DIRECTORY
 fi
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 groupadd -g 31 exim &&
 useradd -d /dev/null -c "Exim Daemon" -g exim -s /bin/false -u 31 exim
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
-sed -e 's,^BIN_DIR.*$,BIN_DIRECTORY=/usr/sbin,'    \
-    -e 's,^CONF.*$,CONFIGURE_FILE=/etc/exim.conf,' \
-    -e 's,^EXIM_USER.*$,EXIM_USER=exim,'           \
-    -e '/SUPPORT_TLS/s,^#,,'                       \
-    -e '/USE_OPENSSL/s,^#,,'                       \
-    -e 's,^EXIM_MONITOR,#EXIM_MONITOR,' src/EDITME > Local/Makefile &&
+sed -e 's,^BIN_DIR.*$,BIN_DIRECTORY=/usr/sbin,' \
+-e 's,^CONF.*$,CONFIGURE_FILE=/etc/exim.conf,' \
+-e 's,^EXIM_USER.*$,EXIM_USER=exim,' \
+-e '/SUPPORT_TLS/s,^#,,' \
+-e '/USE_OPENSSL/s,^#,,' \
+-e 's,^EXIM_MONITOR,#EXIM_MONITOR,' src/EDITME > Local/Makefile &&
 
 printf "USE_GDBM = yes\nDBMLIB = -lgdbm\n" >> Local/Makefile &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make install                                    &&
+make install &&
 install -v -m644 doc/exim.8 /usr/share/man/man8 &&
 
-install -v -d -m755    /usr/share/doc/exim-4.91 &&
+install -v -d -m755 /usr/share/doc/exim-4.91 &&
 install -v -m644 doc/* /usr/share/doc/exim-4.91 &&
 
-ln -sfv exim /usr/sbin/sendmail                 &&
+ln -sfv exim /usr/sbin/sendmail &&
 install -v -d -m750 -o exim -g exim /var/spool/exim
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 chmod -v a+wt /var/mail
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/aliases << "EOF"
-<code class="literal">postmaster: root MAILER-DAEMON: root</code>
+<code class="literal">postmaster: root
+MAILER-DAEMON: root</code>
 EOF
 exim -v -bi &&
 /usr/sbin/exim -bd -q15m
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install-exim
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

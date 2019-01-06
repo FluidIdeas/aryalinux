@@ -13,7 +13,6 @@ set +h
 #REC:gobject-introspection
 #REC:icu
 #REC:networkmanager
-#REC:sqlite
 #REC:upower
 #OPT:gtk-doc
 
@@ -41,18 +40,18 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr     \
-            --sysconfdir=/etc \
-            --with-session-bus-services-dir=/usr/share/dbus-1/services &&
+./configure --prefix=/usr \
+--sysconfdir=/etc \
+--with-session-bus-services-dir=/usr/share/dbus-1/services &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

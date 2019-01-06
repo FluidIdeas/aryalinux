@@ -8,7 +8,6 @@ set +h
 #REQ:nettle
 #REC:make-ca
 #REC:libunistring
-#REC:libtasn1
 #REC:p11-kit
 #OPT:doxygen
 #OPT:gtk-doc
@@ -17,7 +16,6 @@ set +h
 #OPT:libidn2
 #OPT:net-tools
 #OPT:texlive
-#OPT:tl-installer
 #OPT:unbound
 #OPT:valgrind
 
@@ -45,26 +43,26 @@ cd $DIRECTORY
 fi
 
 ./configure --prefix=/usr \
-            --disable-guile \
-            --with-default-trust-store-pkcs11="pkcs11:" &&
+--disable-guile \
+--with-default-trust-store-pkcs11="pkcs11:" &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make -C doc/reference install-data-local
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

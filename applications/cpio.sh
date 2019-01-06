@@ -6,7 +6,6 @@ set +h
 . /etc/alps/alps.conf
 
 #OPT:texlive
-#OPT:tl-installer
 
 cd $SOURCE_DIR
 
@@ -33,38 +32,38 @@ cd $DIRECTORY
 fi
 
 ./configure --prefix=/usr \
-            --bindir=/bin \
-            --enable-mt   \
-            --with-rmt=/usr/libexec/rmt &&
+--bindir=/bin \
+--enable-mt \
+--with-rmt=/usr/libexec/rmt &&
 make &&
-makeinfo --html            -o doc/html      doc/cpio.texi &&
+makeinfo --html -o doc/html doc/cpio.texi &&
 makeinfo --html --no-split -o doc/cpio.html doc/cpio.texi &&
-makeinfo --plaintext       -o doc/cpio.txt  doc/cpio.texi
+makeinfo --plaintext -o doc/cpio.txt doc/cpio.texi
 make -C doc pdf &&
 make -C doc ps
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 install -v -m755 -d /usr/share/doc/cpio-2.12/html &&
-install -v -m644    doc/html/* \
-                    /usr/share/doc/cpio-2.12/html &&
-install -v -m644    doc/cpio.{html,txt} \
-                    /usr/share/doc/cpio-2.12
+install -v -m644 doc/html/* \
+/usr/share/doc/cpio-2.12/html &&
+install -v -m644 doc/cpio.{html,txt} \
+/usr/share/doc/cpio-2.12
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -m644 doc/cpio.{pdf,ps,dvi} \
-                 /usr/share/doc/cpio-2.12
+/usr/share/doc/cpio-2.12
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

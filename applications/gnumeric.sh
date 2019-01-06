@@ -10,13 +10,11 @@ set +h
 #REQ:rarian
 #REC:adwaita-icon-theme
 #REC:oxygen-icons5
-#REC:gnome-icon-theme
 #REC:installing
 #REC:yelp
 #OPT:dconf
 #OPT:gobject-introspection
 #OPT:pygobject3
-#OPT:valgrind
 
 cd $SOURCE_DIR
 
@@ -43,16 +41,16 @@ cd $DIRECTORY
 fi
 
 sed -i 's/HELP_LINGUAS = cs de es/HELP_LINGUAS = de es/' doc/Makefile.in &&
-./configure --prefix=/usr  &&
+./configure --prefix=/usr &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

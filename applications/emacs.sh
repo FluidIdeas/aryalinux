@@ -18,7 +18,6 @@ set +h
 #OPT:gtk3
 #OPT:imagemagick6
 #OPT:libjpeg
-#OPT:libpng
 #OPT:librsvg
 #OPT:libtiff
 #OPT:libxml2
@@ -52,24 +51,24 @@ fi
 ./configure --prefix=/usr --localstatedir=/var &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install &&
 chown -v -R root:root /usr/share/emacs/26.1
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 gtk-update-icon-cache -t -f --include-image-data /usr/share/icons/hicolor &&
 update-desktop-database
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

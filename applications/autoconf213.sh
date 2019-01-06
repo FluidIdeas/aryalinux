@@ -33,20 +33,20 @@ cd $DIRECTORY
 fi
 
 patch -Np1 -i ../autoconf-2.13-consolidated_fixes-1.patch &&
-mv -v autoconf.texi autoconf213.texi                      &&
-rm -v autoconf.info                                       &&
-./configure --prefix=/usr --program-suffix=2.13           &&
+mv -v autoconf.texi autoconf213.texi &&
+rm -v autoconf.info &&
+./configure --prefix=/usr --program-suffix=2.13 &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-make install                                      &&
+make install &&
 install -v -m644 autoconf213.info /usr/share/info &&
 install-info --info-dir=/usr/share/info autoconf213.info
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

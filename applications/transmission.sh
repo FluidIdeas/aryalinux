@@ -37,30 +37,30 @@ fi
 
 ./configure --prefix=/usr &&
 make
-pushd qt        &&
-  qmake qtr.pro &&
-  make          &&
+pushd qt &&
+qmake qtr.pro &&
+make &&
 popd
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make INSTALL_ROOT=/usr -C qt install &&
 
 install -m644 qt/transmission-qt.desktop /usr/share/applications/transmission-qt.desktop &&
-install -m644 qt/icons/transmission.png  /usr/share/pixmaps/transmission-qt.png
+install -m644 qt/icons/transmission.png /usr/share/pixmaps/transmission-qt.png
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

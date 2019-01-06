@@ -34,17 +34,17 @@ cd $DIRECTORY
 fi
 
 sed -e '/^libdocdir =/ s/$(book_name)/cairomm-1.12.2/' \
-    -i docs/Makefile.in
+-i docs/Makefile.in
 ./configure --prefix=/usr &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

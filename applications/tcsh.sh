@@ -30,41 +30,72 @@ fi
 cd $DIRECTORY
 fi
 
-sed -i 's|SVID_SOURCE|DEFAULT_SOURCE|g' config/linux  &&
-sed -i 's|BSD_SOURCE|DEFAULT_SOURCE|g'  config/linux
+sed -i 's|SVID_SOURCE|DEFAULT_SOURCE|g' config/linux &&
+sed -i 's|BSD_SOURCE|DEFAULT_SOURCE|g' config/linux
 ./configure --prefix=/usr --bindir=/bin &&
 
 make &&
 sh ./tcsh.man2html
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install install.man &&
 
-ln -v -sf tcsh   /bin/csh &&
+ln -v -sf tcsh /bin/csh &&
 ln -v -sf tcsh.1 /usr/share/man/man1/csh.1 &&
 
-install -v -m755 -d          /usr/share/doc/tcsh-6.20.00/html &&
+install -v -m755 -d /usr/share/doc/tcsh-6.20.00/html &&
 install -v -m644 tcsh.html/* /usr/share/doc/tcsh-6.20.00/html &&
-install -v -m644 FAQ         /usr/share/doc/tcsh-6.20.00
+install -v -m644 FAQ /usr/share/doc/tcsh-6.20.00
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/shells << "EOF"
-<code class="literal">/bin/tcsh /bin/csh</code>
+<code class="literal">/bin/tcsh
+/bin/csh</code>
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 cat > ~/.cshrc << "EOF"
-<code class="literal"># Original at: # https://www.cs.umd.edu/~srhuang/teaching/code_snippets/prompt_color.tcsh.html # Modified by the BLFS Development Team. # Add these lines to your ~/.cshrc (or to /etc/csh.cshrc). # Colors! set red="%{\033[1;31m%}" set green="%{\033[0;32m%}" set yellow="%{\033[1;33m%}" set blue="%{\033[1;34m%}" set magenta="%{\033[1;35m%}" set cyan="%{\033[1;36m%}" set white="%{\033[0;37m%}" set end="%{\033[0m%}" # This is needed at the end... # Setting the actual prompt. Two separate versions for you to try, pick # whichever one you like better, and change the colors as you want. # Just don't mess with the ${end} guy in either line... Comment out or # delete the prompt you don't use. set prompt="${green}%n${blue}@%m ${white}%~ ${green}%%${end} " set prompt="[${green}%n${blue}@%m ${white}%~ ]${end} " # This was not in the original URL above # Provides coloured ls alias ls ls --color=always # Clean up after ourselves... unset red green yellow blue magenta cyan yellow white end</code>
+<code class="literal"># Original at:
+# https://www.cs.umd.edu/~srhuang/teaching/code_snippets/prompt_color.tcsh.html
+
+# Modified by the BLFS Development Team.
+
+# Add these lines to your ~/.cshrc (or to /etc/csh.cshrc).
+
+# Colors!
+set red="%{\033[1;31m%}"
+set green="%{\033[0;32m%}"
+set yellow="%{\033[1;33m%}"
+set blue="%{\033[1;34m%}"
+set magenta="%{\033[1;35m%}"
+set cyan="%{\033[1;36m%}"
+set white="%{\033[0;37m%}"
+set end="%{\033[0m%}" # This is needed at the end...
+
+# Setting the actual prompt. Two separate versions for you to try, pick
+# whichever one you like better, and change the colors as you want.
+# Just don't mess with the ${end} guy in either line... Comment out or
+# delete the prompt you don't use.
+
+set prompt="${green}%n${blue}@%m ${white}%~ ${green}%%${end} "
+set prompt="[${green}%n${blue}@%m ${white}%~ ]${end} "
+
+# This was not in the original URL above
+# Provides coloured ls
+alias ls ls --color=always
+
+# Clean up after ourselves...
+unset red green yellow blue magenta cyan yellow white end</code>
 EOF
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

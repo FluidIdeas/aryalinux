@@ -29,19 +29,19 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr                    \
-            --enable-shared                  \
-            --disable-static                 \
-            --docdir=/usr/share/doc/lzo-2.10 &&
+./configure --prefix=/usr \
+--enable-shared \
+--disable-static \
+--docdir=/usr/share/doc/lzo-2.10 &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -30,19 +30,19 @@ fi
 cd $DIRECTORY
 fi
 
-tar -xf lsof_4.91_src.tar  &&
-cd lsof_4.91_src           &&
-./Configure -n linux       &&
+tar -xf lsof_4.91_src.tar &&
+cd lsof_4.91_src &&
+./Configure -n linux &&
 make CFGL="-L./lib -ltirpc"
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -m0755 -o root -g root lsof /usr/bin &&
 install -v lsof.8 /usr/share/man/man8
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

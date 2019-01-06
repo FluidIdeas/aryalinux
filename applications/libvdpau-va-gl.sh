@@ -10,16 +10,15 @@ set +h
 #OPT:doxygen
 #OPT:graphviz
 #OPT:texlive
-#OPT:tl-installer
 #OPT:mesa
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/i-rinat/libvdpau-va-gl/archive/v0.4.0/libvdpau-va-gl-0.4.0.tar.gz
+wget -nc http://wiki.linuxfromscratch.org/blfs/wiki/libvdpau
 
 NAME=libvdpau-va-gl-0.4.0
-VERSION=0.4.0
-URL=https://github.com/i-rinat/libvdpau-va-gl/archive/v0.4.0/libvdpau-va-gl-0.4.0.tar.gz
+VERSION=libvdpau
+URL=http://wiki.linuxfromscratch.org/blfs/wiki/libvdpau
 
 if [ ! -z $URL ]
 then
@@ -37,27 +36,27 @@ cd $DIRECTORY
 fi
 
 mkdir build &&
-cd    build &&
+cd build &&
 
 cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$XORG_PREFIX .. &&
 make
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 make install
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
-echo "export VDPAU_DRIVER=va_gl" &gt;&gt; /etc/profile.d/xorg.sh
+echo "export VDPAU_DRIVER=va_gl" >> /etc/profile.d/xorg.sh
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
-sudo rm /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
