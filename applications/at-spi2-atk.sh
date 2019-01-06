@@ -4,7 +4,6 @@ set -e
 set +h
 
 . /etc/alps/alps.conf
-. /var/lib/alps/functions
 
 #REQ:at-spi2-core
 #REQ:atk
