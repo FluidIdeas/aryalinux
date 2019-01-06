@@ -32,7 +32,7 @@ cd $DIRECTORY
 fi
 
 cat > lua.pc << "EOF"
-<code class="literal">V=5.3
+V=5.3
 R=5.3.5
 
 prefix=/usr
@@ -51,7 +51,7 @@ Description: An Extensible Extension Language
 Version: ${R}
 Requires:
 Libs: -L${libdir} -llua -lm -ldl
-Cflags: -I${includedir}</code>
+Cflags: -I${includedir}
 EOF
 patch -Np1 -i ../lua-5.3.5-shared_library-1.patch &&
 sed -i '/#define LUA_ROOT/s:/usr/local/:/usr/:' src/luaconf.h &&

@@ -66,7 +66,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/rsyncd.conf << "EOF"
-<code class="literal"># This is a basic rsync configuration file
+# This is a basic rsync configuration file
 # It exports a single module without user authentication.
 
 motd file = /home/rsync/welcome.msg
@@ -79,7 +79,7 @@ read only = yes
 list = yes
 uid = rsyncd
 gid = rsyncd
-</code>
+
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

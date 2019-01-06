@@ -62,16 +62,16 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 cat >> ~/.hgrc << "EOF"
-<code class="literal">[ui]
-username = <em class="replaceable"><code><user_name> <user@mail></code></em></code>
+[ui]
+username = <em class="replaceable"><code><user_name> <user@mail></em>
 EOF
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -d -m755 /etc/mercurial &&
 cat > /etc/mercurial/hgrc << "EOF"
-<code class="literal">[web]
-cacerts = /etc/pki/tls/certs/ca-bundle.crt</code>
+[web]
+cacerts = /etc/pki/tls/certs/ca-bundle.crt
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

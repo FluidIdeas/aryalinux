@@ -77,7 +77,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /usr/share/applications/gvim.desktop << "EOF"
-<code class="literal">[Desktop Entry]
+[Desktop Entry]
 Name=GVim Text Editor
 Comment=Edit text files
 Comment[pt_BR]=Edite arquivos de texto
@@ -88,7 +88,7 @@ Type=Application
 Icon=gvim.png
 Categories=Utility;TextEditor;
 StartupNotify=true
-MimeType=text/plain;</code>
+MimeType=text/plain;
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

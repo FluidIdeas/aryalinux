@@ -62,8 +62,8 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 cat > ~/.foprc << "EOF"
-<code class="literal">FOP_OPTS="-Xmx<em class="replaceable"><code><RAM_Installed></code></em>m"
-FOP_HOME="/opt/fop"</code>
+FOP_OPTS="-Xmx<em class="replaceable"><code><RAM_Installed></em>m"
+FOP_HOME="/opt/fop"
 EOF
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

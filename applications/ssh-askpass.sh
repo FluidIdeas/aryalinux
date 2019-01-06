@@ -52,8 +52,8 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/sudo.conf << "EOF" &&
-<code class="literal"># Path to askpass helper program
-Path askpass /usr/libexec/openssh/ssh-askpass</code>
+# Path to askpass helper program
+Path askpass /usr/libexec/openssh/ssh-askpass
 EOF
 chmod -v 0644 /etc/sudo.conf
 EOF

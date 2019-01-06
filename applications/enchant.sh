@@ -49,8 +49,8 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 cat > /tmp/test-enchant.txt << "EOF"
-<code class="literal">Tel me more abot linux
-Ther ar so many commads</code>
+Tel me more abot linux
+Ther ar so many commads
 EOF
 
 enchant -d en_GB -l /tmp/test-enchant.txt &&

@@ -115,13 +115,13 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/pam.d/cups << "EOF"
-<code class="literal"># Begin /etc/pam.d/cups
+# Begin /etc/pam.d/cups
 
 auth include system-auth
 account include system-account
 session include system-session
 
-# End /etc/pam.d/cups</code>
+# End /etc/pam.d/cups
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

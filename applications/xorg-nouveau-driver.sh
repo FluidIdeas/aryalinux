@@ -45,11 +45,11 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/X11/xorg.conf.d/nvidia.conf << "EOF"
-<code class="literal">Section "Device"
+Section "Device"
 Identifier "nvidia"
 Driver "nouveau"
 Option "AccelMethod" "glamor"
-EndSection</code>
+EndSection
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

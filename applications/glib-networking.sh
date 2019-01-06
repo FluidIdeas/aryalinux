@@ -55,11 +55,11 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/profile.d/gio.sh << "EOF"
-<code class="literal"># Begin gio.sh
+# Begin gio.sh
 
 export GIO_USE_TLS=gnutls-pkcs11
 
-# End gio.sh</code>
+# End gio.sh
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

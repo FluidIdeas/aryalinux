@@ -98,7 +98,7 @@ cat > /tmp/rootscript.sh <<"EOF"
 mkdir -pv /usr/share/applications &&
 
 cat > /usr/share/applications/openjdk-java.desktop << "EOF" &&
-<code class="literal">[Desktop Entry]
+[Desktop Entry]
 Name=OpenJDK Java 10.0.2 Runtime
 Comment=OpenJDK Java 10.0.2 Runtime
 Exec=/opt/jdk/bin/java -jar
@@ -106,10 +106,10 @@ Terminal=false
 Type=Application
 Icon=java
 MimeType=application/x-java-archive;application/java-archive;application/x-jar;
-NoDisplay=true</code>
+NoDisplay=true
 EOF
 cat > /usr/share/applications/openjdk-jconsole.desktop << "EOF"
-<code class="literal">[Desktop Entry]
+[Desktop Entry]
 Name=OpenJDK Java 10.0.2 Console
 Comment=OpenJDK Java 10.0.2 Console
 Keywords=java;console;monotoring
@@ -117,7 +117,7 @@ Exec=/opt/jdk/bin/jconsole
 Terminal=false
 Type=Application
 Icon=java
-Categories=Application;System;</code>
+Categories=Application;System;
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

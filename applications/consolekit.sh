@@ -60,12 +60,12 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/pam.d/system-session << "EOF"
-<code class="literal"># Begin ConsoleKit addition
+# Begin ConsoleKit addition
 
 session optional pam_loginuid.so
 session optional pam_ck_connector.so nox11
 
-# End ConsoleKit addition</code>
+# End ConsoleKit addition
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

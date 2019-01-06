@@ -52,7 +52,7 @@ fi
 url=http://download.kde.org/stable/plasma/5.14.4/
 wget -r -nH -nd -A '*.xz' -np $url
 cat > plasma-5.14.4.md5 << "EOF"
-<code class="literal">014d15755600481d8bd2125d82776510 kdecoration-5.14.4.tar.xz
+014d15755600481d8bd2125d82776510 kdecoration-5.14.4.tar.xz
 6cafec0732d42a11618b0f7843b9cdb7 libkscreen-5.14.4.tar.xz
 8b43076fe3d8845d7f890721a90b8210 libksysguard-5.14.4.tar.xz
 4bea8ee0b3b165235ebfc2c02be6dc1c breeze-5.14.4.tar.xz
@@ -97,7 +97,7 @@ d2ef43f119c8afa91745092f649205ff kactivitymanagerd-5.14.4.tar.xz
 cd1c28ad7d047861634fa091cec5cd29 plasma-vault-5.14.4.tar.xz
 7a1b10a5dc4b28600a9f3f13de800bd5 plasma-browser-integration-5.14.4.tar.xz
 d008931a914d5748da62f6667915c7d6 kde-cli-tools-5.14.4.tar.xz
-1c119822295205f625c7fcc6ea7b01bb systemsettings-5.14.4.tar.xz</code>
+1c119822295205f625c7fcc6ea7b01bb systemsettings-5.14.4.tar.xz
 EOF
 as_root()
 {
@@ -192,7 +192,7 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 cat > ~/.xinitrc << "EOF"
-<code class="literal">dbus-launch --exit-with-session $KF5_PREFIX/bin/startkde</code>
+dbus-launch --exit-with-session $KF5_PREFIX/bin/startkde
 EOF
 
 startx

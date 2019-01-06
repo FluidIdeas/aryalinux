@@ -96,8 +96,8 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/NetworkManager/NetworkManager.conf << "EOF"
-<code class="literal">[main]
-plugins=keyfile</code>
+[main]
+plugins=keyfile
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -108,8 +108,8 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/NetworkManager/conf.d/polkit.conf << "EOF"
-<code class="literal">[main]
-auth-polkit=true</code>
+[main]
+auth-polkit=true
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -117,25 +117,25 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 cat > /etc/NetworkManager/conf.d/dhcp.conf << "EOF"
-<code class="literal">[main]
-dhcp=</code><em class="replaceable"><code>dhclient</code></em>
+[main]
+dhcp=<em class="replaceable"><code>dhclient</em>
 EOF
 cat > /etc/NetworkManager/conf.d/no-dns-update.conf << "EOF"
-<code class="literal">[main]
-dns=none</code>
+[main]
+dns=none
 EOF
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 groupadd -fg 86 netdev &&
-/usr/sbin/usermod -a -G netdev <em class="replaceable"><code><username></code></em>
+/usr/sbin/usermod -a -G netdev <em class="replaceable"><code><username></em>
 
 cat > /usr/share/polkit-1/rules.d/org.freedesktop.NetworkManager.rules << "EOF"
-<code class="literal">polkit.addRule(function(action, subject) {
+polkit.addRule(function(action, subject) {
 if (action.id.indexOf("org.freedesktop.NetworkManager.") == 0 && subject.isInGroup("netdev")) {
 return polkit.Result.YES;
 }
-});</code>
+});
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

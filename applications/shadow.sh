@@ -96,7 +96,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/pam.d/login << "EOF"
-<code class="literal"># Begin /etc/pam.d/login
+# Begin /etc/pam.d/login
 
 # Set failure delay before next prompt to 3 seconds
 auth optional pam_faildelay.so delay=3000000
@@ -140,7 +140,7 @@ session required pam_limits.so
 session include system-session
 password include system-password
 
-# End /etc/pam.d/login</code>
+# End /etc/pam.d/login
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -151,11 +151,11 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/pam.d/passwd << "EOF"
-<code class="literal"># Begin /etc/pam.d/passwd
+# Begin /etc/pam.d/passwd
 
 password include system-password
 
-# End /etc/pam.d/passwd</code>
+# End /etc/pam.d/passwd
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -166,7 +166,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/pam.d/su << "EOF"
-<code class="literal"># Begin /etc/pam.d/su
+# Begin /etc/pam.d/su
 
 # always allow root
 auth sufficient pam_rootok.so
@@ -190,7 +190,7 @@ session required pam_env.so
 # include system session settings
 session include system-session
 
-# End /etc/pam.d/su</code>
+# End /etc/pam.d/su
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -201,7 +201,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/pam.d/chage << "EOF"
-<code class="literal"># Begin /etc/pam.d/chage
+# Begin /etc/pam.d/chage
 
 # always allow root
 auth sufficient pam_rootok.so
@@ -214,7 +214,7 @@ session include system-session
 # Always permit for authentication updates
 password required pam_permit.so
 
-# End /etc/pam.d/chage</code>
+# End /etc/pam.d/chage
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

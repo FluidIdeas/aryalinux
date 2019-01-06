@@ -89,8 +89,8 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/aliases << "EOF"
-<code class="literal">postmaster: root
-MAILER-DAEMON: root</code>
+postmaster: root
+MAILER-DAEMON: root
 EOF
 exim -v -bi &&
 /usr/sbin/exim -bd -q15m

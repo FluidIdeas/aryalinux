@@ -43,7 +43,7 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 cat >> ~/.xinitrc << "EOF"
-<code class="literal">exec sawfish</code>
+exec sawfish
 EOF
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

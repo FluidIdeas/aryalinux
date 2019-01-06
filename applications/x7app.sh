@@ -34,7 +34,7 @@ cd $DIRECTORY
 fi
 
 cat > app-7.md5 << "EOF"
-<code class="literal">3b9b79fa0f9928161f4bad94273de7ae iceauth-1.0.8.tar.bz2
+3b9b79fa0f9928161f4bad94273de7ae iceauth-1.0.8.tar.bz2
 c4a3664e08e5a47c120ff9263ee2f20c luit-1.1.1.tar.bz2
 18c429148c96c2079edda922a2b67632 mkfontdir-1.0.7.tar.bz2
 987c438e79f5ddb84a9c5726a1610819 mkfontscale-1.1.3.tar.bz2
@@ -70,7 +70,7 @@ c56fa4adbeed1ee5173f464a4c4a61a6 xrefresh-1.0.6.tar.bz2
 558360176b718dee3c39bc0648c0d10c xvinfo-1.1.3.tar.bz2
 11794a8eba6d295a192a8975287fd947 xwd-1.0.7.tar.bz2
 9a505b91ae7160bbdec360968d060c83 xwininfo-1.1.4.tar.bz2
-79972093bb0766fcd0223b2bd6d11932 xwud-1.0.5.tar.bz2</code>
+79972093bb0766fcd0223b2bd6d11932 xwud-1.0.5.tar.bz2
 EOF
 mkdir app &&
 cd app &&

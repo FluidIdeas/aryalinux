@@ -53,7 +53,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /lib/systemd/system/update-pciids.service << "EOF" &&
-<code class="literal">[Unit]
+[Unit]
 Description=Update pci.ids file
 Documentation=man:update-pciids(8)
 DefaultDependencies=no
@@ -63,10 +63,10 @@ Before=shutdown.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/usr/sbin/update-pciids</code>
+ExecStart=/usr/sbin/update-pciids
 EOF
 cat > /lib/systemd/system/update-pciids.timer << "EOF" &&
-<code class="literal">[Unit]
+[Unit]
 Description=Update pci.ids file weekly
 
 [Timer]
@@ -74,7 +74,7 @@ OnCalendar=Sun 02:30:00
 Persistent=true
 
 [Install]
-WantedBy=timers.target</code>
+WantedBy=timers.target
 EOF
 systemctl enable update-pciids.timer
 EOF

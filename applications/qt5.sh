@@ -130,7 +130,7 @@ install -v -Dm644 qttools/src/qdbus/qdbusviewer/images/qdbusviewer-128.png \
 install -dm755 /usr/share/applications &&
 
 cat > /usr/share/applications/assistant-qt5.desktop << EOF
-<code class="literal">[Desktop Entry]
+[Desktop Entry]
 Name=Qt5 Assistant
 Comment=Shows Qt5 documentation and examples
 Exec=$QT5BINDIR/assistant
@@ -138,11 +138,11 @@ Icon=assistant-qt5.png
 Terminal=false
 Encoding=UTF-8
 Type=Application
-Categories=Qt;Development;Documentation;</code>
+Categories=Qt;Development;Documentation;
 EOF
 
 cat > /usr/share/applications/designer-qt5.desktop << EOF
-<code class="literal">[Desktop Entry]
+[Desktop Entry]
 Name=Qt5 Designer
 GenericName=Interface Designer
 Comment=Design GUIs for Qt5 applications
@@ -152,11 +152,11 @@ MimeType=application/x-designer;
 Terminal=false
 Encoding=UTF-8
 Type=Application
-Categories=Qt;Development;</code>
+Categories=Qt;Development;
 EOF
 
 cat > /usr/share/applications/linguist-qt5.desktop << EOF
-<code class="literal">[Desktop Entry]
+[Desktop Entry]
 Name=Qt5 Linguist
 Comment=Add translations to Qt5 applications
 Exec=$QT5BINDIR/linguist
@@ -165,11 +165,11 @@ MimeType=text/vnd.trolltech.linguist;application/x-linguist;
 Terminal=false
 Encoding=UTF-8
 Type=Application
-Categories=Qt;Development;</code>
+Categories=Qt;Development;
 EOF
 
 cat > /usr/share/applications/qdbusviewer-qt5.desktop << EOF
-<code class="literal">[Desktop Entry]
+[Desktop Entry]
 Name=Qt5 QDbusViewer
 GenericName=D-Bus Debugger
 Comment=Debug D-Bus applications
@@ -178,7 +178,7 @@ Icon=qdbusviewer-qt5.png
 Terminal=false
 Encoding=UTF-8
 Type=Application
-Categories=Qt;Development;Debugger;</code>
+Categories=Qt;Development;Debugger;
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -200,13 +200,13 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/profile.d/qt5.sh << "EOF"
-<code class="literal"># Begin /etc/profile.d/qt5.sh
+# Begin /etc/profile.d/qt5.sh
 
 QT5DIR=/usr
 export QT5DIR
 pathappend $QT5DIR/bin
 
-# End /etc/profile.d/qt5.sh</code>
+# End /etc/profile.d/qt5.sh
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -217,7 +217,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/sudoers.d/qt << "EOF"
-<code class="literal">Defaults env_keep += QT5DIR</code>
+Defaults env_keep += QT5DIR
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -228,11 +228,11 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/ld.so.conf << EOF
-<code class="literal"># Begin Qt addition
+# Begin Qt addition
 
 /opt/qt5/lib
 
-# End Qt addition</code>
+# End Qt addition
 EOF
 
 ldconfig
@@ -245,7 +245,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/profile.d/qt5.sh << "EOF"
-<code class="literal"># Begin /etc/profile.d/qt5.sh
+# Begin /etc/profile.d/qt5.sh
 
 QT5DIR=/opt/qt5
 
@@ -254,7 +254,7 @@ pathappend $QT5DIR/lib/pkgconfig PKG_CONFIG_PATH
 
 export QT5DIR
 
-# End /etc/profile.d/qt5.sh</code>
+# End /etc/profile.d/qt5.sh
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

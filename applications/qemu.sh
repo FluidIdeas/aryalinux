@@ -93,7 +93,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /lib/udev/rules.d/65-kvm.rules << "EOF"
-<code class="literal">KERNEL=="kvm", GROUP="kvm", MODE="0660"</code>
+KERNEL=="kvm", GROUP="kvm", MODE="0660"
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -144,7 +144,7 @@ qemu -enable-kvm \
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /usr/share/X11/xorg.conf.d/20-vmware.conf << "EOF"
-<code class="literal">Section "Monitor"
+Section "Monitor"
 Identifier "Monitor0"
 # cvt 1600 900
 # 1600x900 59.95 Hz (CVT 1.44M9) hsync: 55.99 kHz; pclk: 118.25 MHz
@@ -170,7 +170,7 @@ Depth 24
 Modes "1600x900" "1440x900" "1366x768" "1280x720" "800x480"
 EndSubSection
 
-EndSection</code>
+EndSection
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

@@ -65,7 +65,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/proftpd.conf << "EOF"
-<code class="literal"># This is a basic ProFTPD configuration file
+# This is a basic ProFTPD configuration file
 # It establishes a single server and a single anonymous login.
 
 ServerName "ProFTPD Default Installation"
@@ -119,7 +119,7 @@ DisplayChdir .message
 <Limit WRITE>
 DenyAll
 </Limit>
-</Anonymous></code>
+</Anonymous>
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

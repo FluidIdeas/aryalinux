@@ -88,7 +88,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /usr/share/applications/vncviewer.desktop << "EOF"
-<code class="literal">[Desktop Entry]
+[Desktop Entry]
 Type=Application
 Name=TigerVNC Viewer
 Comment=VNC client
@@ -96,7 +96,7 @@ Exec=/usr/bin/vncviewer
 Icon=tigervnc
 Terminal=false
 StartupNotify=false
-Categories=Network;RemoteAccess;</code>
+Categories=Network;RemoteAccess;
 EOF
 
 install -vm644 ../media/icons/tigervnc_24.png /usr/share/pixmaps &&

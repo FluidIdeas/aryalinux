@@ -33,7 +33,7 @@ export KF5_PREFIX=/usr
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/profile.d/qt5.sh << "EOF"
-<code class="literal"># Begin kf5 extension for /etc/profile.d/qt5.sh
+# Begin kf5 extension for /etc/profile.d/qt5.sh
 
 pathappend /usr/lib/qt5/plugins QT_PLUGIN_PATH
 pathappend $QT5DIR/lib/plugins QT_PLUGIN_PATH
@@ -41,15 +41,15 @@ pathappend $QT5DIR/lib/plugins QT_PLUGIN_PATH
 pathappend /usr/lib/qt5/qml QML2_IMPORT_PATH
 pathappend $QT5DIR/lib/qml QML2_IMPORT_PATH
 
-# End extension for /etc/profile.d/qt5.sh</code>
+# End extension for /etc/profile.d/qt5.sh
 EOF
 
 cat > /etc/profile.d/kf5.sh << "EOF"
-<code class="literal"># Begin /etc/profile.d/kf5.sh
+# Begin /etc/profile.d/kf5.sh
 
 export KF5_PREFIX=/usr
 
-# End /etc/profile.d/kf5.sh</code>
+# End /etc/profile.d/kf5.sh
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -60,12 +60,12 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/sudoers.d/qt << "EOF
-<code class="literal">Defaults env_keep += QT_PLUGIN_PATH
-Defaults env_keep += QML2_IMPORT_PATH</code>
+Defaults env_keep += QT_PLUGIN_PATH
+Defaults env_keep += QML2_IMPORT_PATH
 EOF
 
 cat >> /etc/sudoers.d/kde << "EOF
-<code class="literal">Defaults env_keep += KF5_PREFIX</code>
+Defaults env_keep += KF5_PREFIX
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -77,7 +77,7 @@ export KF5_PREFIX=/opt/kf5
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/profile.d/kf5.sh << "EOF"
-<code class="literal"># Begin /etc/profile.d/kf5.sh
+# Begin /etc/profile.d/kf5.sh
 
 export KF5_PREFIX=/opt/kf5
 
@@ -94,16 +94,16 @@ pathappend $KF5_PREFIX/lib/qml QML2_IMPORT_PATH
 pathappend $KF5_PREFIX/lib/python2.7/site-packages PYTHONPATH
 
 pathappend $KF5_PREFIX/share/man MANPATH
-# End /etc/profile.d/kf5.sh</code>
+# End /etc/profile.d/kf5.sh
 EOF
 
 cat >> /etc/profile.d/qt5.sh << "EOF"
-<code class="literal"># Begin Qt5 changes for KF5
+# Begin Qt5 changes for KF5
 
 pathappend $QT5DIR/plugins QT_PLUGIN_PATH
 pathappend $QT5DIR/qml QML2_IMPORT_PATH
 
-# End Qt5 changes for KF5</code>
+# End Qt5 changes for KF5
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -114,11 +114,11 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/ld.so.conf << "EOF"
-<code class="literal"># Begin KF5 addition
+# Begin KF5 addition
 
 /opt/kf5/lib
 
-# End KF5 addition</code>
+# End KF5 addition
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

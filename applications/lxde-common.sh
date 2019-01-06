@@ -64,8 +64,8 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 cat > ~/.xinitrc << "EOF"
-<code class="literal"># No need to run dbus-launch, since it is run by startlxde
-startlxde</code>
+# No need to run dbus-launch, since it is run by startlxde
+startlxde
 EOF
 
 startx

@@ -35,7 +35,7 @@ cd $DIRECTORY
 fi
 
 cat > pam/lxdm << "EOF"
-<code class="literal"># Begin /etc/pam.d/lxdm
+# Begin /etc/pam.d/lxdm
 
 auth requisite pam_nologin.so
 auth required pam_env.so
@@ -48,7 +48,7 @@ password include system-password
 session required pam_limits.so
 session include system-session
 
-# End /etc/pam.d/lxdm</code>
+# End /etc/pam.d/lxdm
 EOF
 
 sed -i 's:sysconfig/i18n:profile.d/i18n.sh:g' data/lxdm.in &&

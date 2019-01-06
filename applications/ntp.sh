@@ -66,7 +66,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/ntp.conf << "EOF"
-<code class="literal"># Asia
+# Asia
 server 0.asia.pool.ntp.org
 
 # Australia
@@ -84,7 +84,7 @@ server 2.south-america.pool.ntp.org
 driftfile /var/lib/ntp/ntp.drift
 pidfile /var/run/ntpd.pid
 
-leapfile /etc/ntp.leapseconds</code>
+leapfile /etc/ntp.leapseconds
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -95,12 +95,12 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/ntp.conf << "EOF"
-<code class="literal"># Security session
+# Security session
 restrict default limited kod nomodify notrap nopeer noquery
 restrict -6 default limited kod nomodify notrap nopeer noquery
 
 restrict 127.0.0.1
-restrict ::1</code>
+restrict ::1
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

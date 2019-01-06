@@ -60,7 +60,7 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 cat > ~/.xinitrc << "EOF"
-<code class="literal">dbus-launch --exit-with-session startxfce4</code>
+dbus-launch --exit-with-session startxfce4
 EOF
 
 startx

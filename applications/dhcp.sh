@@ -79,7 +79,7 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -vdm755 /etc/dhcp &&
 cat > /etc/dhcp/dhclient.conf << "EOF"
-<code class="literal"># Begin /etc/dhcp/dhclient.conf
+# Begin /etc/dhcp/dhclient.conf
 #
 # Basic dhclient.conf(5)
 
@@ -95,7 +95,7 @@ require subnet-mask, domain-name-servers;
 #select-timeout 5;
 #initial-interval 2;
 
-# End /etc/dhcp/dhclient.conf</code>
+# End /etc/dhcp/dhclient.conf
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -142,7 +142,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/dhcp/dhcpd.conf << "EOF"
-<code class="literal"># Begin /etc/dhcp/dhcpd.conf
+# Begin /etc/dhcp/dhcpd.conf
 #
 # Example dhcpd.conf(5)
 
@@ -162,7 +162,7 @@ range 10.254.239.10 10.254.239.20;
 option routers rtr-239-0-1.example.org, rtr-239-0-2.example.org;
 }
 
-# End /etc/dhcp/dhcpd.conf</code>
+# End /etc/dhcp/dhcpd.conf
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

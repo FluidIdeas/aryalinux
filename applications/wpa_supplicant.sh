@@ -34,7 +34,7 @@ cd $DIRECTORY
 fi
 
 cat > wpa_supplicant/.config << "EOF"
-<code class="literal">CONFIG_BACKEND=file
+CONFIG_BACKEND=file
 CONFIG_CTRL_IFACE=y
 CONFIG_DEBUG_FILE=y
 CONFIG_DEBUG_SYSLOG=y
@@ -58,12 +58,12 @@ CONFIG_PKCS12=y
 CONFIG_READLINE=y
 CONFIG_SMARTCARD=y
 CONFIG_WPS=y
-CFLAGS += -I/usr/include/libnl3</code>
+CFLAGS += -I/usr/include/libnl3
 EOF
 cat >> wpa_supplicant/.config << "EOF"
-<code class="literal">CONFIG_CTRL_IFACE_DBUS=y
+CONFIG_CTRL_IFACE_DBUS=y
 CONFIG_CTRL_IFACE_DBUS_NEW=y
-CONFIG_CTRL_IFACE_DBUS_INTRO=y</code>
+CONFIG_CTRL_IFACE_DBUS_INTRO=y
 EOF
 cd wpa_supplicant &&
 make BINDIR=/sbin LIBDIR=/lib

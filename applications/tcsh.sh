@@ -56,8 +56,8 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/shells << "EOF"
-<code class="literal">/bin/tcsh
-/bin/csh</code>
+/bin/tcsh
+/bin/csh
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -65,7 +65,7 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 cat > ~/.cshrc << "EOF"
-<code class="literal"># Original at:
+# Original at:
 # https://www.cs.umd.edu/~srhuang/teaching/code_snippets/prompt_color.tcsh.html
 
 # Modified by the BLFS Development Team.
@@ -95,7 +95,7 @@ set prompt="[${green}%n${blue}@%m ${white}%~ ]${end} "
 alias ls ls --color=always
 
 # Clean up after ourselves...
-unset red green yellow blue magenta cyan yellow white end</code>
+unset red green yellow blue magenta cyan yellow white end
 EOF
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

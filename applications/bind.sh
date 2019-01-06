@@ -125,7 +125,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /srv/named/etc/named.conf << "EOF"
-<code class="literal">options {
+options {
 directory "/etc/namedb";
 pid-file "/var/run/named.pid";
 statistics-file "/var/run/named.stats";
@@ -175,7 +175,7 @@ channel null {
 null; // toss anything sent to
 // this channel
 };
-};</code>
+};
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -186,7 +186,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /srv/named/etc/namedb/pz/127.0.0 << "EOF"
-<code class="literal">$TTL 3D
+$TTL 3D
 @ IN SOA ns.local.domain. hostmaster.local.domain. (
 1 ; Serial
 8H ; Refresh
@@ -194,7 +194,7 @@ cat > /srv/named/etc/namedb/pz/127.0.0 << "EOF"
 4W ; Expire
 1D) ; Minimum TTL
 NS ns.local.domain.
-1 PTR localhost.</code>
+1 PTR localhost.
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -205,7 +205,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /srv/named/etc/namedb/root.hints << "EOF"
-<code class="literal">. 6D IN NS A.ROOT-SERVERS.NET.
+. 6D IN NS A.ROOT-SERVERS.NET.
 . 6D IN NS B.ROOT-SERVERS.NET.
 . 6D IN NS C.ROOT-SERVERS.NET.
 . 6D IN NS D.ROOT-SERVERS.NET.
@@ -243,7 +243,7 @@ K.ROOT-SERVERS.NET. 6D IN AAAA 2001:7fd::1
 L.ROOT-SERVERS.NET. 6D IN A 199.7.83.42
 L.ROOT-SERVERS.NET. 6D IN AAAA 2001:500:9f::42
 M.ROOT-SERVERS.NET. 6D IN A 202.12.27.33
-M.ROOT-SERVERS.NET. 6D IN AAAA 2001:dc3::35</code>
+M.ROOT-SERVERS.NET. 6D IN AAAA 2001:dc3::35
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -255,8 +255,8 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cp /etc/resolv.conf /etc/resolv.conf.bak &&
 cat > /etc/resolv.conf << "EOF"
-<code class="literal">search <em class="replaceable"><code><yourdomain.com></code></em>
-nameserver 127.0.0.1</code>
+search <em class="replaceable"><code><yourdomain.com></em>
+nameserver 127.0.0.1
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

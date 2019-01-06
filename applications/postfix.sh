@@ -76,13 +76,13 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/aliases << "EOF"
-<code class="literal"># Begin /etc/aliases
+# Begin /etc/aliases
 
 MAILER-DAEMON: postmaster
 postmaster: root
 
-<em class="replaceable"><code><LOGIN></code></em>
-# End /etc/aliases</code>
+<em class="replaceable"><code><LOGIN></em>
+# End /etc/aliases
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

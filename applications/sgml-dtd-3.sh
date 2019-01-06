@@ -56,11 +56,11 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /usr/share/sgml/docbook/sgml-dtd-3.1/catalog << "EOF"
-<code class="literal"> -- Begin Single Major Version catalog changes --
+ -- Begin Single Major Version catalog changes --
 
 PUBLIC "-//Davenport//DTD DocBook V3.0//EN" "docbook.dtd"
 
--- End Single Major Version catalog changes --</code>
+-- End Single Major Version catalog changes --
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

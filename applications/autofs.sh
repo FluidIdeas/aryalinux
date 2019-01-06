@@ -57,12 +57,12 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 mv /etc/auto.master /etc/auto.master.bak &&
 cat > /etc/auto.master << "EOF"
-<code class="literal"># Begin /etc/auto.master
+# Begin /etc/auto.master
 
 /media/auto /etc/auto.misc --ghost
 #/home /etc/auto.home
 
-# End /etc/auto.master</code>
+# End /etc/auto.master
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

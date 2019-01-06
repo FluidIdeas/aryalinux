@@ -98,16 +98,16 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/pam.d/system-session << "EOF"
-<code class="literal"># Begin Systemd addition
+# Begin Systemd addition
 
 session required pam_loginuid.so
 session optional pam_systemd.so
 
-# End Systemd addition</code>
+# End Systemd addition
 EOF
 
 cat > /etc/pam.d/systemd-user << "EOF"
-<code class="literal"># Begin /etc/pam.d/systemd-user
+# Begin /etc/pam.d/systemd-user
 
 account required pam_access.so
 account include system-account
@@ -122,7 +122,7 @@ session optional pam_systemd.so
 auth required pam_deny.so
 password required pam_deny.so
 
-# End /etc/pam.d/systemd-user</code>
+# End /etc/pam.d/systemd-user
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

@@ -54,7 +54,7 @@ cd $DIRECTORY
 fi
 
 cat > mozconfig << "EOF"
-<code class="literal"># If you have a multicore machine, all cores will be used by default.
+# If you have a multicore machine, all cores will be used by default.
 # If desired, you can reduce the number of cores used, e.g. to 1, by
 # uncommenting the next line and setting a valid number of CPU cores.
 #mk_add_options MOZ_MAKE_FLAGS="-j1"
@@ -120,7 +120,7 @@ ac_add_options --with-pthreads
 ac_add_options --with-system-bz2
 ac_add_options --with-system-jpeg
 ac_add_options --with-system-png
-ac_add_options --with-system-zlib</code>
+ac_add_options --with-system-zlib
 EOF
 CFLAGS_HOLD=$CFLAGS &&
 CXXFLAGS_HOLD=$CXXFLAGS &&

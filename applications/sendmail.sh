@@ -48,18 +48,18 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 cat >> devtools/Site/site.config.m4 << "EOF"
-<code class="literal">APPENDDEF(`confENVDEF',`-DSTARTTLS -DSASL -DLDAPMAP')
+APPENDDEF(`confENVDEF',`-DSTARTTLS -DSASL -DLDAPMAP')
 APPENDDEF(`confLIBS', `-lssl -lcrypto -lsasl2 -lldap -llber -ldb')
-APPENDDEF(`confINCDIRS', `-I/usr/include/sasl')</code>
+APPENDDEF(`confINCDIRS', `-I/usr/include/sasl')
 EOF
 patch -Np1 -i $DIR/sendmail.8.15.2-openssl-1.patch &&
 
 cat >> devtools/Site/site.config.m4 << "EOF"
-<code class="literal">define(`confMANGRP',`root')
+define(`confMANGRP',`root')
 define(`confMANOWN',`root')
 define(`confSBINGRP',`root')
 define(`confUBINGRP',`root')
-define(`confUBINOWN',`root')</code>
+define(`confUBINOWN',`root')
 EOF
 
 sed -i 's|/usr/man/man|/usr/share/man/man|' \
@@ -125,8 +125,8 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 echo $(hostname) > /etc/mail/local-host-names
 cat > /etc/mail/aliases << "EOF"
-<code class="literal">postmaster: root
-MAILER-DAEMON: root</code>
+postmaster: root
+MAILER-DAEMON: root
 
 EOF
 newaliases

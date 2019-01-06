@@ -54,13 +54,13 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/X11/xorg.conf.d/20-intel.conf << "EOF"
-<code class="literal">Section "Device"
+Section "Device"
 Identifier "Intel Graphics"
 Driver "intel"
 #Option "DRI" "2" # DRI3 is default
 #Option "AccelMethod" "sna" # default
 #Option "AccelMethod" "uxa" # fallback
-EndSection</code>
+EndSection
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

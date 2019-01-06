@@ -90,27 +90,27 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -vdm755 /etc/pam.d &&
 cat > /etc/pam.d/system-account << "EOF" &&
-<code class="literal"># Begin /etc/pam.d/system-account
+# Begin /etc/pam.d/system-account
 
 account required pam_unix.so
 
-# End /etc/pam.d/system-account</code>
+# End /etc/pam.d/system-account
 EOF
 
 cat > /etc/pam.d/system-auth << "EOF" &&
-<code class="literal"># Begin /etc/pam.d/system-auth
+# Begin /etc/pam.d/system-auth
 
 auth required pam_unix.so
 
-# End /etc/pam.d/system-auth</code>
+# End /etc/pam.d/system-auth
 EOF
 
 cat > /etc/pam.d/system-session << "EOF"
-<code class="literal"># Begin /etc/pam.d/system-session
+# Begin /etc/pam.d/system-session
 
 session required pam_unix.so
 
-# End /etc/pam.d/system-session</code>
+# End /etc/pam.d/system-session
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -121,7 +121,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/pam.d/system-password << "EOF"
-<code class="literal"># Begin /etc/pam.d/system-password
+# Begin /etc/pam.d/system-password
 
 # check new passwords for strength (man pam_cracklib)
 password required pam_cracklib.so authtok_type=UNIX retry=1 difok=5 \
@@ -135,7 +135,7 @@ dictpath=/lib/cracklib/pw_dict
 # above (or any previous modules)
 password required pam_unix.so sha512 shadow use_authtok
 
-# End /etc/pam.d/system-password</code>
+# End /etc/pam.d/system-password
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -146,13 +146,13 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/pam.d/system-password << "EOF"
-<code class="literal"># Begin /etc/pam.d/system-password
+# Begin /etc/pam.d/system-password
 
 # use sha512 hash for encryption, use shadow, and try to use any previously
 # defined authentication token (chosen password) set by any prior module
 password required pam_unix.so sha512 shadow try_first_pass
 
-# End /etc/pam.d/system-password</code>
+# End /etc/pam.d/system-password
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -163,7 +163,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/pam.d/other << "EOF"
-<code class="literal"># Begin /etc/pam.d/other
+# Begin /etc/pam.d/other
 
 auth required pam_warn.so
 auth required pam_deny.so
@@ -174,7 +174,7 @@ password required pam_deny.so
 session required pam_warn.so
 session required pam_deny.so
 
-# End /etc/pam.d/other</code>
+# End /etc/pam.d/other
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

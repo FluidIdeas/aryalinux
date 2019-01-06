@@ -32,7 +32,7 @@ fi
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/profile << "EOF"
-<code class="literal"># Begin /etc/profile
+# Begin /etc/profile
 # Written for Beyond Linux From Scratch
 # by James Robertson <jameswrobertson@earthlink.net>
 # modifications by Dagmar d'Surreal <rivyqntzne@pbzpnfg.arg>
@@ -108,7 +108,7 @@ done
 
 unset script RED GREEN NORMAL
 
-# End /etc/profile</code>
+# End /etc/profile
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -128,7 +128,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/profile.d/bash_completion.sh << "EOF"
-<code class="literal"># Begin /etc/profile.d/bash_completion.sh
+# Begin /etc/profile.d/bash_completion.sh
 # Import bash completion scripts
 
 # If the bash-completion package is installed, use its configuration instead
@@ -161,7 +161,7 @@ done
 fi
 fi
 
-# End /etc/profile.d/bash_completion.sh</code>
+# End /etc/profile.d/bash_completion.sh
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -181,7 +181,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/profile.d/dircolors.sh << "EOF"
-<code class="literal"># Setup for /bin/ls and /bin/grep to support color, the alias is in /etc/bashrc.
+# Setup for /bin/ls and /bin/grep to support color, the alias is in /etc/bashrc.
 if [ -f "/etc/dircolors" ] ; then
 eval $(dircolors -b /etc/dircolors)
 fi
@@ -191,7 +191,7 @@ eval $(dircolors -b $HOME/.dircolors)
 fi
 
 alias ls='ls --color=auto'
-alias grep='grep --color=auto'</code>
+alias grep='grep --color=auto'
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -202,7 +202,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/profile.d/extrapaths.sh << "EOF"
-<code class="literal">if [ -d /usr/local/lib/pkgconfig ] ; then
+if [ -d /usr/local/lib/pkgconfig ] ; then
 pathappend /usr/local/lib/pkgconfig PKG_CONFIG_PATH
 fi
 if [ -d /usr/local/bin ]; then
@@ -214,7 +214,7 @@ fi
 
 # Set some defaults before other applications add to these paths.
 pathappend /usr/share/man MANPATH
-pathappend /usr/share/info INFOPATH</code>
+pathappend /usr/share/info INFOPATH
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -225,11 +225,11 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/profile.d/readline.sh << "EOF"
-<code class="literal"># Setup the INPUTRC environment variable.
+# Setup the INPUTRC environment variable.
 if [ -z "$INPUTRC" -a ! -f "$HOME/.inputrc" ] ; then
 INPUTRC=/etc/inputrc
 fi
-export INPUTRC</code>
+export INPUTRC
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -240,12 +240,12 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/profile.d/umask.sh << "EOF"
-<code class="literal"># By default, the umask should be set.
+# By default, the umask should be set.
 if [ "$(id -gn)" = "$(id -un)" -a $EUID -gt 99 ] ; then
 umask 002
 else
 umask 022
-fi</code>
+fi
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -256,9 +256,9 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/profile.d/i18n.sh << "EOF"
-<code class="literal"># Set up i18n variables
+# Set up i18n variables
 . /etc/locale.conf
-export LANG</code>
+export LANG
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -269,7 +269,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/bashrc << "EOF"
-<code class="literal"># Begin /etc/bashrc
+# Begin /etc/bashrc
 # Written for Beyond Linux From Scratch
 # by James Robertson <jameswrobertson@earthlink.net>
 # updated by Bruce Dubbs <bdubbs@linuxfromscratch.org>
@@ -303,7 +303,7 @@ fi
 
 unset RED GREEN NORMAL
 
-# End /etc/bashrc</code>
+# End /etc/bashrc
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -311,7 +311,7 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 cat > ~/.bash_profile << "EOF"
-<code class="literal"># Begin ~/.bash_profile
+# Begin ~/.bash_profile
 # Written for Beyond Linux From Scratch
 # by James Robertson <jameswrobertson@earthlink.net>
 # updated by Bruce Dubbs <bdubbs@linuxfromscratch.org>
@@ -335,10 +335,10 @@ fi
 # pathappend .
 #fi
 
-# End ~/.bash_profile</code>
+# End ~/.bash_profile
 EOF
 cat > ~/.profile << "EOF"
-<code class="literal"># Begin ~/.profile
+# Begin ~/.profile
 # Personal environment variables and startup programs.
 
 if [ -d "$HOME/bin" ] ; then
@@ -346,12 +346,12 @@ pathprepend $HOME/bin
 fi
 
 # Set up user specific i18n variables
-#export LANG=<em class="replaceable"><code><ll></code></em>_<em class="replaceable"><code><CC></code></em>.<em class="replaceable"><code><charmap></code></em><em class="replaceable"><code><@modifiers></code></em>
+#export LANG=<em class="replaceable"><code><ll></em>_<em class="replaceable"><code><CC></em>.<em class="replaceable"><code><charmap></em><em class="replaceable"><code><@modifiers></em>
 
-# End ~/.profile</code>
+# End ~/.profile
 EOF
 cat > ~/.bashrc << "EOF"
-<code class="literal"># Begin ~/.bashrc
+# Begin ~/.bashrc
 # Written for Beyond Linux From Scratch
 # by James Robertson <jameswrobertson@earthlink.net>
 
@@ -367,18 +367,18 @@ source /etc/bashrc
 fi
 
 # Set up user specific i18n variables
-#export LANG=<em class="replaceable"><code><ll></code></em>_<em class="replaceable"><code><CC></code></em>.<em class="replaceable"><code><charmap></code></em><em class="replaceable"><code><@modifiers></code></em>
+#export LANG=<em class="replaceable"><code><ll></em>_<em class="replaceable"><code><CC></em>.<em class="replaceable"><code><charmap></em><em class="replaceable"><code><@modifiers></em>
 
-# End ~/.bashrc</code>
+# End ~/.bashrc
 EOF
 cat > ~/.bash_logout << "EOF"
-<code class="literal"># Begin ~/.bash_logout
+# Begin ~/.bash_logout
 # Written for Beyond Linux From Scratch
 # by James Robertson <jameswrobertson@earthlink.net>
 
 # Personal items to perform on logout.
 
-# End ~/.bash_logout</code>
+# End ~/.bash_logout
 EOF
 
 sudo rm -rf /tmp/rootscript.sh

@@ -84,17 +84,17 @@ sudo rm -rf /tmp/rootscript.sh
 
 mkdir -vp ~/.config/gtk-3.0
 cat > ~/.config/gtk-3.0/settings.ini << "EOF"
-<code class="literal">[Settings]
-gtk-theme-name = <em class="replaceable"><code>Adwaita</code></em>
-gtk-icon-theme-name = <em class="replaceable"><code>oxygen</code></em>
-gtk-font-name = <em class="replaceable"><code>DejaVu Sans 12</code></em>
-gtk-cursor-theme-size = <em class="replaceable"><code>18</code></em>
-gtk-toolbar-style = <em class="replaceable"><code>GTK_TOOLBAR_BOTH_HORIZ</code></em>
-gtk-xft-antialias = <em class="replaceable"><code>1</code></em>
-gtk-xft-hinting = <em class="replaceable"><code>1</code></em>
-gtk-xft-hintstyle = <em class="replaceable"><code>hintslight</code></em>
-gtk-xft-rgba = <em class="replaceable"><code>rgb</code></em>
-gtk-cursor-theme-name = <em class="replaceable"><code>Adwaita</code></em></code>
+[Settings]
+gtk-theme-name = <em class="replaceable"><code>Adwaita</em>
+gtk-icon-theme-name = <em class="replaceable"><code>oxygen</em>
+gtk-font-name = <em class="replaceable"><code>DejaVu Sans 12</em>
+gtk-cursor-theme-size = <em class="replaceable"><code>18</em>
+gtk-toolbar-style = <em class="replaceable"><code>GTK_TOOLBAR_BOTH_HORIZ</em>
+gtk-xft-antialias = <em class="replaceable"><code>1</em>
+gtk-xft-hinting = <em class="replaceable"><code>1</em>
+gtk-xft-hintstyle = <em class="replaceable"><code>hintslight</em>
+gtk-xft-rgba = <em class="replaceable"><code>rgb</em>
+gtk-cursor-theme-name = <em class="replaceable"><code>Adwaita</em>
 EOF
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -56,8 +56,8 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/sudoers.d/sudo << "EOF"
-<code class="literal">Defaults secure_path="/usr/bin:/bin:/usr/sbin:/sbin"
-%wheel ALL=(ALL) ALL</code>
+Defaults secure_path="/usr/bin:/bin:/usr/sbin:/sbin"
+%wheel ALL=(ALL) ALL
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -68,7 +68,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/pam.d/sudo << "EOF"
-<code class="literal"># Begin /etc/pam.d/sudo
+# Begin /etc/pam.d/sudo
 
 # include the default auth settings
 auth include system-auth
@@ -82,7 +82,7 @@ session required pam_env.so
 # include system session defaults
 session include system-session
 
-# End /etc/pam.d/sudo</code>
+# End /etc/pam.d/sudo
 EOF
 chmod 644 /etc/pam.d/sudo
 EOF

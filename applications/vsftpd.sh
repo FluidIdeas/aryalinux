@@ -64,10 +64,10 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/vsftpd.conf << "EOF"
-<code class="literal">background=YES
+background=YES
 listen=YES
 nopriv_user=vsftpd
-secure_chroot_dir=/usr/share/vsftpd/empty</code>
+secure_chroot_dir=/usr/share/vsftpd/empty
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -78,7 +78,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/vsftpd.conf << "EOF"
-<code class="literal">local_enable=YES</code>
+local_enable=YES
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -89,19 +89,19 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/pam.d/vsftpd << "EOF" &&
-<code class="literal"># Begin /etc/pam.d/vsftpd
+# Begin /etc/pam.d/vsftpd
 auth required /lib/security/pam_listfile.so item=user sense=deny \
 file=/etc/ftpusers \
 onerr=succeed
 auth required pam_shells.so
 auth include system-auth
 account include system-account
-session include system-session</code>
+session include system-session
 EOF
 
 cat >> /etc/vsftpd.conf << "EOF"
-<code class="literal">session_support=YES
-pam_service_name=vsftpd</code>
+session_support=YES
+pam_service_name=vsftpd
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

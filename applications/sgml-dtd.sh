@@ -56,7 +56,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /usr/share/sgml/docbook/sgml-dtd-4.5/catalog << "EOF"
-<code class="literal"> -- Begin Single Major Version catalog changes --
+ -- Begin Single Major Version catalog changes --
 
 PUBLIC "-//OASIS//DTD DocBook V4.4//EN" "docbook.dtd"
 PUBLIC "-//OASIS//DTD DocBook V4.3//EN" "docbook.dtd"
@@ -64,7 +64,7 @@ PUBLIC "-//OASIS//DTD DocBook V4.2//EN" "docbook.dtd"
 PUBLIC "-//OASIS//DTD DocBook V4.1//EN" "docbook.dtd"
 PUBLIC "-//OASIS//DTD DocBook V4.0//EN" "docbook.dtd"
 
--- End Single Major Version catalog changes --</code>
+-- End Single Major Version catalog changes --
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

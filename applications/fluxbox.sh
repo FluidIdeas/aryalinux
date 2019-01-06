@@ -51,12 +51,12 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 mkdir -pv /usr/share/xsessions &&
 cat > /usr/share/xsessions/fluxbox.desktop << "EOF"
-<code class="literal">[Desktop Entry]
+[Desktop Entry]
 Encoding=UTF-8
 Name=Fluxbox
 Comment=This session logs you into Fluxbox
 Exec=startfluxbox
-Type=Application</code>
+Type=Application
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

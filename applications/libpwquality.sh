@@ -48,7 +48,7 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 mv /etc/pam.d/system-password{,.orig} &&
 cat > /etc/pam.d/system-password << "EOF"
-<code class="literal"># Begin /etc/pam.d/system-password
+# Begin /etc/pam.d/system-password
 
 # check new passwords for strength (man pam_pwquality)
 password required pam_pwquality.so authtok_type=UNIX retry=1 difok=1 \
@@ -64,7 +64,7 @@ dictpath=/lib/cracklib/pw_dict
 # above (or any previous modules)
 password required pam_unix.so sha512 shadow use_authtok
 
-# End /etc/pam.d/system-password</code>
+# End /etc/pam.d/system-password
 EOF
 
 EOF

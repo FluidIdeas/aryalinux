@@ -45,8 +45,8 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /usr/bin/which << "EOF"
-<code class="literal">#!/bin/bash
-type -pa "$@" | head -n 1 ; exit ${PIPESTATUS[0]}</code>
+#!/bin/bash
+type -pa "$@" | head -n 1 ; exit ${PIPESTATUS[0]}
 EOF
 chmod -v 755 /usr/bin/which
 chown -v root:root /usr/bin/which

@@ -51,7 +51,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /usr/lib/pkgconfig/mad.pc << "EOF"
-<code class="literal">prefix=/usr
+prefix=/usr
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
@@ -61,7 +61,7 @@ Description: MPEG audio decoder
 Requires:
 Version: 0.15.1b
 Libs: -L${libdir} -lmad
-Cflags: -I${includedir}</code>
+Cflags: -I${includedir}
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

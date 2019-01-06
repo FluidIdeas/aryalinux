@@ -47,7 +47,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/X11/app-defaults/URxvt << "EOF"
-<code class="literal">! Use the specified colour as the windows background colour [default white]
+! Use the specified colour as the windows background colour [default white]
 URxvt*background: black
 
 ! Use the specified colour as the windows foreground colour [default black]
@@ -67,7 +67,7 @@ URxvt*url-launcher: firefox
 ! resource (default, the "url-launcher" resource, "sensible-browser") will be
 ! started with the matched text as first argument.
 ! Below, default modified to mouse left button.
-URxvt*matcher.button: 1</code>
+URxvt*matcher.button: 1
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -76,13 +76,13 @@ sudo rm -rf /tmp/rootscript.sh
 
 xrdb -query
 xrdb -merge ~/.Xresources
-<code class="literal"># Start the urxvtd daemon
-urxvtd -q -f -o &</code>
+# Start the urxvtd daemon
+urxvtd -q -f -o &
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /usr/share/applications/urxvt.desktop << "EOF" &&
-<code class="literal">[Desktop Entry]
+[Desktop Entry]
 Encoding=UTF-8
 Name=Rxvt-Unicode Terminal
 Comment=Use the command line
@@ -93,7 +93,7 @@ Type=Application
 Icon=utilities-terminal
 Categories=GTK;Utility;TerminalEmulator;
 #StartupNotify=true
-Keywords=console;command line;execute;</code>
+Keywords=console;command line;execute;
 EOF
 
 update-desktop-database -q

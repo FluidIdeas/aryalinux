@@ -47,14 +47,14 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/acpi/events/lid << "EOF"
-<code class="literal">event=button/lid
-action=/etc/acpi/lid.sh</code>
+event=button/lid
+action=/etc/acpi/lid.sh
 EOF
 
 cat > /etc/acpi/lid.sh << "EOF"
-<code class="literal">#!/bin/sh
+#!/bin/sh
 /bin/grep -q open /proc/acpi/button/lid/LID/state && exit 0
-/usr/sbin/pm-suspend</code>
+/usr/sbin/pm-suspend
 EOF
 chmod +x /etc/acpi/lid.sh
 EOF

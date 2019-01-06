@@ -63,7 +63,7 @@ cd $DIRECTORY
 fi
 
 cat > mozconfig << "EOF"
-<code class="literal"># If you have a multicore machine, all cores will be used by default.
+# If you have a multicore machine, all cores will be used by default.
 
 # If you have installed dbus-glib, comment out this line:
 ac_add_options --disable-dbus
@@ -144,7 +144,7 @@ ac_add_options --with-system-jpeg
 ac_add_options --with-system-png
 ac_add_options --with-system-zlib
 
-mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/firefox-build-dir</code>
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/firefox-build-dir
 EOF
 patch -Np1 -i ../firefox-64.0-system_graphite2_harfbuzz-1.patch
 echo "AIzaSyDxKL42zsPjbke5O8_rPVpVrLrJ8aeE9rQ" > google-key
@@ -173,7 +173,7 @@ mkdir -pv /usr/share/applications &&
 mkdir -pv /usr/share/pixmaps &&
 
 cat > /usr/share/applications/firefox.desktop << "EOF" &&
-<code class="literal">[Desktop Entry]
+[Desktop Entry]
 Encoding=UTF-8
 Name=Firefox Web Browser
 Comment=Browse the World Wide Web
@@ -184,7 +184,7 @@ Type=Application
 Icon=firefox
 Categories=GNOME;GTK;Network;WebBrowser;
 MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
-StartupNotify=true</code>
+StartupNotify=true
 EOF
 
 ln -sfv /usr/lib/firefox/browser/chrome/icons/default/default128.png \

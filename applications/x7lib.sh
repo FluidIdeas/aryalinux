@@ -36,7 +36,7 @@ cd $DIRECTORY
 fi
 
 cat > lib-7.md5 << "EOF"
-<code class="literal">c5ba432dd1514d858053ffe9f4737dd8 xtrans-1.3.5.tar.bz2
+c5ba432dd1514d858053ffe9f4737dd8 xtrans-1.3.5.tar.bz2
 034fdd6cc5393974d88aec6f5bc96162 libX11-1.6.7.tar.bz2
 52df7c4c1f0badd9f82ab124fb32eb97 libXext-1.3.3.tar.bz2
 d79d9fe2aa55eb0f69b1a4351e1368f7 libFS-1.0.7.tar.bz2
@@ -67,7 +67,7 @@ d7dd9b9df336b7dd4028b6b56542ff2c libXxf86dga-1.1.4.tar.bz2
 d2f1f0ec68ac3932dd7f1d9aa0a7a11c libdmx-1.1.4.tar.bz2
 8f436e151d5106a9cfaa71857a066d33 libpciaccess-0.14.tar.bz2
 4a4cfeaf24dab1b991903455d6d7d404 libxkbfile-1.0.9.tar.bz2
-42dda8016943dc12aff2c03a036e0937 libxshmfence-1.3.tar.bz2</code>
+42dda8016943dc12aff2c03a036e0937 libxshmfence-1.3.tar.bz2
 EOF
 mkdir lib &&
 cd lib &&

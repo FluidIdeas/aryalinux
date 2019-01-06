@@ -57,9 +57,9 @@ cp -v /usr/share/icewm/toolbar ~/.icewm/toolbar &&
 cp -v /usr/share/icewm/winoptions ~/.icewm/winoptions
 icewm-menu-fdo >~/.icewm/menu
 cat > ~/.icewm/startup << "EOF"
-<code class="literal">rox -p Default &
+rox -p Default &
 EOF &&
-chmod +x ~/.icewm/startup</code>
+chmod +x ~/.icewm/startup
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

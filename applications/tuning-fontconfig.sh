@@ -30,7 +30,7 @@ fi
 
 mkdir -pv ~/.config/fontconfig &&
 cat > ~/.config/fontconfig/fonts.conf << "EOF"
-<code class="literal"><?xml version='1.0'?>
+<?xml version='1.0'?>
 <!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>
 <fontconfig>
 
@@ -68,13 +68,13 @@ http://www.lagom.nl/lcd-test/subpixel.php -->
 <!-- thanks to the Arch wiki for the lcd and subpixel links -->
 </match>
 
-</fontconfig></code>
+</fontconfig>
 EOF
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/fonts/conf.d/70-no-bitmaps.conf << "EOF"
-<code class="literal"><?xml version='1.0'?>
+<?xml version='1.0'?>
 <!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>
 <fontconfig>
 <!-- Reject bitmap fonts -->
@@ -85,7 +85,7 @@ cat > /etc/fonts/conf.d/70-no-bitmaps.conf << "EOF"
 </pattern>
 </rejectfont>
 </selectfont>
-</fontconfig></code>
+</fontconfig>
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -96,12 +96,12 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/fonts/conf.d/09-texlive.conf << "EOF"
-<code class="literal"><?xml version='1.0'?>
+<?xml version='1.0'?>
 <!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>
 <fontconfig>
 <dir>/opt/texlive/2018/texmf-dist/fonts/opentype/arkandis/berenisadf</dir>
 <dir>/opt/texlive/2018/texmf-dist/fonts/truetype/paratype</dir>
-</fontconfig></code>
+</fontconfig>
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -110,7 +110,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 mkdir -pv ~/.config/fontconfig/conf.d &&
 cat > ~/.config/fontconfig/conf.d/35-prefer-nimbus-for-timesnew.conf << "EOF"
-<code class="literal"><?xml version='1.0'?>
+<?xml version='1.0'?>
 <!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>
 <fontconfig>
 <!-- prefer Nimbus Roman No9 L for Times New Roman as well as for Times,
@@ -122,13 +122,13 @@ before fontconfig falls back to whatever matches Times -->
 <family>Nimbus Roman No9 L</family>
 </accept>
 </alias>
-</fontconfig></code>
+</fontconfig>
 EOF
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/fonts/local.conf << "EOF"
-<code class="literal"><?xml version='1.0'?>
+<?xml version='1.0'?>
 <!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>
 <fontconfig>
 <alias>
@@ -157,7 +157,7 @@ override that so a real Korean font can be used for Serif -->
 <family>WenQuanYi Zen Hei</family>
 </prefer>
 </alias>
-</fontconfig></code>
+</fontconfig>
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

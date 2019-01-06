@@ -54,14 +54,14 @@ cat > /tmp/rootscript.sh <<"EOF"
 mv /usr/bin/svn /usr/bin/svn.orig &&
 mv /usr/bin/svnserve /usr/bin/svnserve.orig &&
 cat >> /usr/bin/svn << "EOF"
-<code class="literal">#!/bin/sh
+#!/bin/sh
 umask 002
-/usr/bin/svn.orig "$@"</code>
+/usr/bin/svn.orig "$@"
 EOF
 cat >> /usr/bin/svnserve << "EOF"
-<code class="literal">#!/bin/sh
+#!/bin/sh
 umask 002
-/usr/bin/svnserve.orig "$@"</code>
+/usr/bin/svnserve.orig "$@"
 EOF
 chmod 0755 /usr/bin/svn{,serve}
 EOF
@@ -111,9 +111,9 @@ cp /srv/svn/repositories/svntest/conf/svnserve.conf \
 /srv/svn/repositories/svntest/conf/svnserve.conf.default &&
 
 cat > /srv/svn/repositories/svntest/conf/svnserve.conf << "EOF"
-<code class="literal">[general]
+[general]
 anon-access = read
-auth-access = write</code>
+auth-access = write
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

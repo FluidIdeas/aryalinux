@@ -61,7 +61,7 @@ fi
 url=http://download.kde.org/stable/frameworks/5.53/
 wget -r -nH -nd -A '*.xz' -np $url
 cat > frameworks-5.53.0.md5 << "EOF"
-<code class="literal">56fbdc261e2821bb20775f1346d07321 attica-5.53.0.tar.xz
+56fbdc261e2821bb20775f1346d07321 attica-5.53.0.tar.xz
 #a57cf2aa488fdcce7323a2a4b9aecb65 extra-cmake-modules-5.53.0.tar.xz
 4ecdd6e9ab36b9bbdbe183f042eecb62 kapidox-5.53.0.tar.xz
 81b62cf06f46166c16c194c88a2cc0fe karchive-5.53.0.tar.xz
@@ -140,7 +140,7 @@ b873771ad44ec37625a79d7a41e8679f qqc2-desktop-style-5.53.0.tar.xz
 690b0c422b7b22b7adf030be6a178e59 kross-5.53.0.tar.xz
 680e4656504ef2fc0e25c6a60e53a39e kholidays-5.53.0.tar.xz
 13631f878f957b8a5c3103336f856b92 purpose-5.53.0.tar.xz
-0fe62a714eadf8e52a0f99e49ad647ae syndication-5.53.0.tar.xz</code>
+0fe62a714eadf8e52a0f99e49ad647ae syndication-5.53.0.tar.xz
 EOF
 as_root()
 {

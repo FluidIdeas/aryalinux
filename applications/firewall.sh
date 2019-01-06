@@ -34,7 +34,7 @@ cat > /tmp/rootscript.sh <<"EOF"
 install -v -dm755 /etc/systemd/scripts
 
 cat > /etc/systemd/scripts/iptables << "EOF"
-<code class="literal">#!/bin/sh
+#!/bin/sh
 
 # Begin /etc/systemd/scripts/iptables
 
@@ -105,7 +105,7 @@ iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
 # Log everything else. What's Windows' latest exploitable vulnerability?
 iptables -A INPUT -j LOG --log-prefix "FIREWALL:INPUT "
 
-# End /etc/systemd/scripts/iptables</code>
+# End /etc/systemd/scripts/iptables
 EOF
 chmod 700 /etc/systemd/scripts/iptables
 EOF
@@ -119,7 +119,7 @@ cat > /tmp/rootscript.sh <<"EOF"
 install -v -dm755 /etc/systemd/scripts
 
 cat > /etc/systemd/scripts/iptables << "EOF"
-<code class="literal">#!/bin/sh
+#!/bin/sh
 
 # Begin /etc/systemd/scripts/iptables
 
@@ -208,7 +208,7 @@ iptables -A OUTPUT -j LOG --log-prefix "FIREWALL:OUTPUT "
 # Enable IP Forwarding
 echo 1 > /proc/sys/net/ipv4/ip_forward
 
-# End /etc/systemd/scripts/iptables</code>
+# End /etc/systemd/scripts/iptables
 EOF
 chmod 700 /etc/systemd/scripts/iptables
 EOF

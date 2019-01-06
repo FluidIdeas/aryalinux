@@ -92,7 +92,7 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 install -v -dm 755 /etc/mysql &&
 cat > /etc/mysql/my.cnf << "EOF"
-<code class="literal"># Begin /etc/mysql/my.cnf
+# Begin /etc/mysql/my.cnf
 
 # The following options will be passed to all MySQL clients
 [client]
@@ -159,7 +159,7 @@ write_buffer = 2M
 [mysqlhotcopy]
 interactive-timeout
 
-# End /etc/mysql/my.cnf</code>
+# End /etc/mysql/my.cnf
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

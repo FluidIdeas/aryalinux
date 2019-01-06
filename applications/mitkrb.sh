@@ -82,28 +82,28 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/krb5.conf << "EOF"
-<code class="literal"># Begin /etc/krb5.conf
+# Begin /etc/krb5.conf
 
 [libdefaults]
-default_realm = <em class="replaceable"><code><EXAMPLE.ORG></code></em>
+default_realm = <em class="replaceable"><code><EXAMPLE.ORG></em>
 encrypt = true
 
 [realms]
-<em class="replaceable"><code><EXAMPLE.ORG></code></em> = {
-kdc = <em class="replaceable"><code><belgarath.example.org></code></em>
-admin_server = <em class="replaceable"><code><belgarath.example.org></code></em>
+<em class="replaceable"><code><EXAMPLE.ORG></em> = {
+kdc = <em class="replaceable"><code><belgarath.example.org></em>
+admin_server = <em class="replaceable"><code><belgarath.example.org></em>
 dict_file = /usr/share/dict/words
 }
 
 [domain_realm]
-.<em class="replaceable"><code><example.org></code></em> = <em class="replaceable"><code><EXAMPLE.ORG></code></em>
+.<em class="replaceable"><code><example.org></em> = <em class="replaceable"><code><EXAMPLE.ORG></em>
 
 [logging]
 kdc = SYSLOG:INFO:AUTH
 admin_server = SYSLOG:INFO:AUTH
 default = SYSLOG:DEBUG:DAEMON
 
-# End /etc/krb5.conf</code>
+# End /etc/krb5.conf
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

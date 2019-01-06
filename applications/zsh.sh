@@ -93,7 +93,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/shells << "EOF"
-<code class="literal">/bin/zsh</code>
+/bin/zsh
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

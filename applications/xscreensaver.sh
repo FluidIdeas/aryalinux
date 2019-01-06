@@ -50,12 +50,12 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/pam.d/xscreensaver << "EOF"
-<code class="literal"># Begin /etc/pam.d/xscreensaver
+# Begin /etc/pam.d/xscreensaver
 
 auth include system-auth
 account include system-account
 
-# End /etc/pam.d/xscreensaver</code>
+# End /etc/pam.d/xscreensaver
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

@@ -57,7 +57,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /lib/systemd/system/update-usbids.service << "EOF" &&
-<code class="literal">[Unit]
+[Unit]
 Description=Update usb.ids file
 Documentation=man:lsusb(8)
 DefaultDependencies=no
@@ -67,10 +67,10 @@ Before=shutdown.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/usr/bin/wget http://www.linux-usb.org/usb.ids -O /usr/share/hwdata/usb.ids</code>
+ExecStart=/usr/bin/wget http://www.linux-usb.org/usb.ids -O /usr/share/hwdata/usb.ids
 EOF
 cat > /lib/systemd/system/update-usbids.timer << "EOF" &&
-<code class="literal">[Unit]
+[Unit]
 Description=Update usb.ids file weekly
 
 [Timer]
@@ -78,7 +78,7 @@ OnCalendar=Sun 03:00:00
 Persistent=true
 
 [Install]
-WantedBy=timers.target</code>
+WantedBy=timers.target
 EOF
 systemctl enable update-usbids.timer
 EOF

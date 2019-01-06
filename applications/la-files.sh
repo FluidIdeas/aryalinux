@@ -32,7 +32,7 @@ fi
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /usr/sbin/remove-la-files.sh << "EOF"
-<code class="literal">#!/bin/bash
+#!/bin/bash
 
 # /usr/sbin/remove-la-files.sh
 # Written for Beyond Linux From Scratch
@@ -91,7 +91,7 @@ done
 
 EOF
 
-chmod +x /usr/sbin/remove-la-files.sh</code>
+chmod +x /usr/sbin/remove-la-files.sh
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

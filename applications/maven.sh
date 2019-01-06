@@ -61,11 +61,11 @@ rm -rf ../apache-maven-bin
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/profile.d/maven.sh << "EOF"
-<code class="literal"># Begin /etc/profile.d/maven.sh
+# Begin /etc/profile.d/maven.sh
 
 pathappend /opt/maven/bin
 
-# End /etc/profile.d/maven.sh</code>
+# End /etc/profile.d/maven.sh
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

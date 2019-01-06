@@ -30,9 +30,9 @@ fi
 
 ./configure --prefix=/usr
 cat > $LFS/etc/group << "EOF"
-<code class="literal">root:x:0:
+root:x:0:
 bin:x:1:
-......</code>
+......
 EOF
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

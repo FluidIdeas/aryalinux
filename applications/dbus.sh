@@ -108,7 +108,7 @@ make check
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/dbus-1/session-local.conf << "EOF"
-<code class="literal"><!DOCTYPE busconfig PUBLIC
+<!DOCTYPE busconfig PUBLIC
 "-//freedesktop//DTD D-BUS Bus Configuration 1.0//EN"
 "http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd">
 <busconfig>
@@ -116,18 +116,18 @@ cat > /etc/dbus-1/session-local.conf << "EOF"
 <!-- Search for .service files in /usr/local -->
 <servicedir>/usr/local/share/dbus-1/services</servicedir>
 
-</busconfig></code>
+</busconfig>
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-<code class="literal"># Start the D-Bus session daemon
+# Start the D-Bus session daemon
 eval `dbus-launch`
-export DBUS_SESSION_BUS_ADDRESS</code>
-<code class="literal"># Kill the D-Bus session daemon
-kill $DBUS_SESSION_BUS_PID</code>
+export DBUS_SESSION_BUS_ADDRESS
+# Kill the D-Bus session daemon
+kill $DBUS_SESSION_BUS_PID
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

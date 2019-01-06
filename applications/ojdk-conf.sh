@@ -32,7 +32,7 @@ fi
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/profile.d/openjdk.sh << "EOF"
-<code class="literal"># Begin /etc/profile.d/openjdk.sh
+# Begin /etc/profile.d/openjdk.sh
 
 # Set JAVA_HOME directory
 JAVA_HOME=/opt/jdk
@@ -62,7 +62,7 @@ done
 export JAVA_HOME
 unset AUTO_CLASSPATH_DIR dir jar
 
-# End /etc/profile.d/openjdk.sh</code>
+# End /etc/profile.d/openjdk.sh
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -73,8 +73,8 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/sudoers.d/java << "EOF"
-<code class="literal">Defaults env_keep += JAVA_HOME
-Defaults env_keep += CLASSPATH</code>
+Defaults env_keep += JAVA_HOME
+Defaults env_keep += CLASSPATH
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -85,11 +85,11 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/man_db.conf << "EOF" &&
-<code class="literal"># Begin Java addition
+# Begin Java addition
 MANDATORY_MANPATH /opt/jdk/man
 MANPATH_MAP /opt/jdk/bin /opt/jdk/man
 MANDB_MAP /opt/jdk/man /var/cache/man/jdk
-# End Java addition</code>
+# End Java addition
 EOF
 
 mkdir -p /var/cache/man &&

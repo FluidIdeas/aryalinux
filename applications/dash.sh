@@ -45,7 +45,7 @@ ln -svf dash /bin/sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/shells << "EOF"
-<code class="literal">/bin/dash</code>
+/bin/dash
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

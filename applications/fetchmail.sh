@@ -46,13 +46,13 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 cat > ~/.fetchmailrc << "EOF"
-<code class="literal">set logfile /var/log/fetchmail.log
+set logfile /var/log/fetchmail.log
 set no bouncemail
 set postmaster root
 
 poll SERVERNAME :
-user <em class="replaceable"><code><username></code></em> pass <em class="replaceable"><code><password></code></em>;
-mda "/usr/bin/procmail -f %F -d %T";</code>
+user <em class="replaceable"><code><username></em> pass <em class="replaceable"><code><password></em>;
+mda "/usr/bin/procmail -f %F -d %T";
 EOF
 
 chmod -v 0600 ~/.fetchmailrc

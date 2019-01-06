@@ -89,7 +89,7 @@ cat > /tmp/rootscript.sh <<"EOF"
 sed -i '/^\!include / s/^/#/' /etc/dovecot/dovecot.conf &&
 chmod -v 1777 /var/mail &&
 cat > /etc/dovecot/local.conf << "EOF"
-<code class="literal">protocols = imap
+protocols = imap
 ssl = no
 # The next line is only needed if you have no IPv6 network interfaces
 listen = *
@@ -99,7 +99,7 @@ driver = passwd
 }
 passdb {
 driver = shadow
-}</code>
+}
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

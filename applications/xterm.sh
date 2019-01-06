@@ -57,11 +57,11 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/X11/app-defaults/XTerm << "EOF"
-<code class="literal">*VT100*locale: true
+*VT100*locale: true
 *VT100*faceName: Monospace
 *VT100*faceSize: 10
 *backarrowKeyIsErase: true
-*ptyInitialErase: true</code>
+*ptyInitialErase: true
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

@@ -51,12 +51,12 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/profile.d/ant.sh << EOF
-<code class="literal"># Begin /etc/profile.d/ant.sh
+# Begin /etc/profile.d/ant.sh
 
 pathappend /opt/ant/bin
 export ANT_HOME=/opt/ant
 
-# End /etc/profile.d/ant.sh</code>
+# End /etc/profile.d/ant.sh
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

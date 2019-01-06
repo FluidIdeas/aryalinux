@@ -32,9 +32,9 @@ fi
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/systemd/network/50-br0.netdev << EOF
-<code class="literal">[NetDev]
-Name=<em class="replaceable"><code>br0</code></em>
-Kind=bridge</code>
+[NetDev]
+Name=<em class="replaceable"><code>br0</em>
+Kind=bridge
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -45,11 +45,11 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/systemd/network/51-eth0.network << EOF
-<code class="literal">[Match]
-Name=<em class="replaceable"><code>eth0</code></em>
+[Match]
+Name=<em class="replaceable"><code>eth0</em>
 
 [Network]
-Bridge=<em class="replaceable"><code>br0</code></em></code>
+Bridge=<em class="replaceable"><code>br0</em>
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -60,11 +60,11 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/systemd/network/60-br0.network << EOF
-<code class="literal">[Match]
-Name=<em class="replaceable"><code>br0</code></em>
+[Match]
+Name=<em class="replaceable"><code>br0</em>
 
 [Network]
-DHCP=yes</code>
+DHCP=yes
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh
@@ -75,13 +75,13 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat > /etc/systemd/network/60-br0.network << EOF
-<code class="literal">[Match]
-Name=<em class="replaceable"><code>br0</code></em>
+[Match]
+Name=<em class="replaceable"><code>br0</em>
 
 [Network]
 Address=192.168.0.2/24
 Gateway=192.168.0.1
-DNS=192.168.0.1</code>
+DNS=192.168.0.1
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

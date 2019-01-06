@@ -51,11 +51,11 @@ fi
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >> /etc/ld.so.conf << EOF
-<code class="literal"># Begin texlive 2018 addition
+# Begin texlive 2018 addition
 
 /opt/texlive/2018/lib
 
-# End texlive 2018 addition</code>
+# End texlive 2018 addition
 EOF
 EOF
 chmod a+x /tmp/rootscript.sh

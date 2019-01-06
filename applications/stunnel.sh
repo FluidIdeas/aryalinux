@@ -86,7 +86,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"EOF"
 cat >/etc/stunnel/stunnel.conf << "EOF" 
-<code class="literal">; File: /etc/stunnel/stunnel.conf
+; File: /etc/stunnel/stunnel.conf
 
 ; Note: The pid and output locations are relative to the chroot location.
 
@@ -106,7 +106,7 @@ cert = /etc/stunnel/stunnel.pem
 ;; "TIMEOUTclose = 0" is a workaround for a design flaw in Microsoft SSL
 ;; Microsoft implementations do not use SSL close-notify alert and thus
 ;; they are vulnerable to truncation attacks
-;TIMEOUTclose = 0</code>
+;TIMEOUTclose = 0
 
 EOF
 EOF
