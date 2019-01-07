@@ -4,6 +4,7 @@ set -e
 set +h
 
 . /etc/alps/alps.conf
+. /var/lib/alps/functions
 
 #REQ:perl-test2-suite
 #REC:perl-ipc-run3

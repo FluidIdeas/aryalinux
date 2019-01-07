@@ -4,6 +4,7 @@ set -e
 set +h
 
 . /etc/alps/alps.conf
+. /var/lib/alps/functions
 
 #REQ:perl-class-factory-util
 #REQ:perl-datetime-format-strptime

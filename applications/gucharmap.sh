@@ -4,6 +4,7 @@ set -e
 set +h
 
 . /etc/alps/alps.conf
+. /var/lib/alps/functions
 
 #REQ:desktop-file-utils
 #REQ:gtk3
