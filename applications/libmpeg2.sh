@@ -40,13 +40,13 @@ sed -i 's/static const/static/' libmpeg2/idct_mmx.c &&
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
 install -v -m755 -d /usr/share/doc/mpeg2dec-0.5.1 &&
 install -v -m644 README doc/libmpeg2.txt \
 /usr/share/doc/mpeg2dec-0.5.1
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

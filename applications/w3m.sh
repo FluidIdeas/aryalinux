@@ -46,14 +46,14 @@ sed -i '/USE_EGD/s/define/undef/' config.h.in &&
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 install -v -m644 -D doc/keymap.default /etc/w3m/keymap &&
 install -v -m644 doc/menu.default /etc/w3m/menu &&
 install -v -m755 -d /usr/share/doc/w3m-0.5.3 &&
 install -v -m644 doc/{HISTORY,READ*,keymap.*,menu.*,*.html} \
 /usr/share/doc/w3m-0.5.3
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

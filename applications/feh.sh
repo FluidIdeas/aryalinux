@@ -41,9 +41,9 @@ sed -i "s:doc/feh:&-3.1.1:" config.mk &&
 make PREFIX=/usr
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make PREFIX=/usr install
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

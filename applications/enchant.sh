@@ -36,14 +36,14 @@ fi
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 rm -rf /usr/include/enchant &&
 ln -sfv enchant-2 /usr/include/enchant &&
 ln -sfv enchant-2 /usr/bin/enchant &&
 ln -sfv libenchant-2.so /usr/lib/libenchant.so &&
 ln -sfv enchant-2.pc /usr/lib/pkgconfig/enchant.pc
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

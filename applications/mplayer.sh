@@ -79,61 +79,61 @@ make
 make doc
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 ln -svf ../icons/hicolor/48x48/apps/mplayer.png \
 /usr/share/pixmaps/mplayer.png
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m755 -d /usr/share/doc/mplayer-1.3.0 &&
 install -v -m644 DOCS/HTML/en/* \
 /usr/share/doc/mplayer-1.3.0
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m644 etc/codecs.conf /etc/mplayer
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m644 etc/*.conf /etc/mplayer
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 gtk-update-icon-cache &&
 update-desktop-database
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 tar -xvf ../Clearlooks-2.0.tar.bz2 \
 -C /usr/share/mplayer/skins &&
 ln -sfvn Clearlooks /usr/share/mplayer/skins/default
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

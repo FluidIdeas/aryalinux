@@ -33,13 +33,13 @@ fi
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
 install -v -m755 -d /usr/share/gtk-doc/html/babl/graphics &&
 install -v -m644 docs/*.{css,html} /usr/share/gtk-doc/html/babl &&
 install -v -m644 docs/graphics/*.{html,png,svg} /usr/share/gtk-doc/html/babl/graphics
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

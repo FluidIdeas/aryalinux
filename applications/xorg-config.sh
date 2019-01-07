@@ -33,7 +33,7 @@ xrandr --setprovideroffloadsink <em class="replaceable"><code><provider> <sink><
 DRI_PRIME=1 glxinfo | egrep "(OpenGL vendor|OpenGL renderer|OpenGL version)"
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/X11/xorg.conf.d/xkb-defaults.conf << "EOF"
 Section "InputClass"
 Identifier "XKB Defaults"
@@ -42,14 +42,14 @@ Option "XkbLayout" "fr"
 Option "XkbOptions" "terminate:ctrl_alt_bksp"
 EndSection
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/X11/xorg.conf.d/videocard-0.conf << "EOF"
 Section "Device"
 Identifier "Videocard0"
@@ -59,14 +59,14 @@ BoardName "ATI Radeon 7500"
 Option "NoAccel" "true"
 EndSection
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/X11/xorg.conf.d/server-layout.conf << "EOF"
 Section "ServerLayout"
 Identifier "DefaultLayout"
@@ -75,7 +75,7 @@ Screen 1 "Screen1" LeftOf "Screen0"
 Option "Xinerama"
 EndSection
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

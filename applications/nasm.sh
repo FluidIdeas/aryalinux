@@ -35,20 +35,20 @@ tar -xf ../nasm-2.14.02-xdoc.tar.xz --strip-components=1
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -m755 -d /usr/share/doc/nasm-2.14.02/html &&
 cp -v doc/html/*.html /usr/share/doc/nasm-2.14.02/html &&
 cp -v doc/*.{txt,ps,pdf} /usr/share/doc/nasm-2.14.02
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

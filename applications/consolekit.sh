@@ -47,18 +47,18 @@ fi
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
 mv -v /etc/X11/app-defaults/xinitrc.d/90-consolekit{,.sh}
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat >> /etc/pam.d/system-session << "EOF"
 # Begin ConsoleKit addition
 
@@ -67,14 +67,14 @@ session optional pam_ck_connector.so nox11
 
 # End ConsoleKit addition
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /usr/lib/ConsoleKit/run-session.d/pam-foreground-compat.ck << "EOF"
 #!/bin/sh
 TAGDIR=/var/run/console
@@ -95,7 +95,7 @@ sed -i "\%^$CK_SESSION_ID\$%d" "$TAGFILE"
 fi
 EOF
 chmod -v 755 /usr/lib/ConsoleKit/run-session.d/pam-foreground-compat.ck
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

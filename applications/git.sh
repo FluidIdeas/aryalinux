@@ -46,58 +46,58 @@ make html
 make man
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install-man
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make htmldir=/usr/share/doc/git-2.20.1 install-html
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 tar -xf ../git-manpages-2.20.1.tar.xz \
 -C /usr/share/man --no-same-owner --no-overwrite-dir
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mkdir -vp /usr/share/doc/git-2.20.1 &&
 tar -xf ../git-htmldocs-2.20.1.tar.xz \
 -C /usr/share/doc/git-2.20.1 --no-same-owner --no-overwrite-dir &&
 
 find /usr/share/doc/git-2.20.1 -type d -exec chmod 755 {} \; &&
 find /usr/share/doc/git-2.20.1 -type f -exec chmod 644 {} \;
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mkdir -vp /usr/share/doc/git-2.20.1/man-pages/{html,text} &&
 mv /usr/share/doc/git-2.20.1/{git*.txt,man-pages/text} &&
 mv /usr/share/doc/git-2.20.1/{git*.,index.,man-pages/}html &&
@@ -112,7 +112,7 @@ mv /usr/share/doc/git-2.20.1/howto/{*.,}html &&
 
 sed -i '/^<a href=/s|howto/|&html/|' /usr/share/doc/git-2.20.1/howto-index.html &&
 sed -i '/^\* link:/s|howto/|&html/|' /usr/share/doc/git-2.20.1/howto-index.txt
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

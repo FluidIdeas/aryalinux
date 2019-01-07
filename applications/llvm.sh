@@ -59,9 +59,9 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr \
 ninja
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -73,22 +73,22 @@ ninja docs-llvm-html docs-llvm-man
 ninja docs-clang-html docs-clang-man
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m644 docs/man/* /usr/share/man/man1 &&
 install -v -d -m755 /usr/share/doc/llvm-7.0.1/llvm-html &&
 cp -Rv docs/html/* /usr/share/doc/llvm-7.0.1/llvm-html
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m644 tools/clang/docs/man/* /usr/share/man/man1 &&
 install -v -d -m755 /usr/share/doc/llvm-7.0.1/clang-html &&
 cp -Rv tools/clang/docs/html/* /usr/share/doc/llvm-7.0.1/clang-html
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

@@ -68,7 +68,7 @@ jtreg/bin/jtreg -jdk:$JT_JAVA -automatic -ignore:quiet -v1 \
 test/jdk:tier1 test/langtools:tier1
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -vdm755 /opt/jdk-10.0.2+13 &&
 cp -Rv build/*/images/jdk/* /opt/jdk-10.0.2+13 &&
 chown -R root:root /opt/jdk-10.0.2+13 &&
@@ -78,23 +78,23 @@ install -vDm644 src/java.desktop/unix/classes/sun/awt/X11/java-icon${s}.png \
 done &&
 unset JT_JAVA
 
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ln -v -nsf jdk-10.0.2+13 /opt/jdk
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mkdir -pv /usr/share/applications &&
 
 cat > /usr/share/applications/openjdk-java.desktop << "EOF" &&
@@ -119,26 +119,26 @@ Type=Application
 Icon=java
 Categories=Application;System;
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ln -sfv /etc/pki/tls/java/cacerts /opt/jdk/lib/security/cacerts
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cd /opt/jdk
 bin/keytool -list -cacerts
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

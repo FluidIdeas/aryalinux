@@ -38,22 +38,22 @@ fi
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m644 man/*.1 /usr/share/man/man1 &&
 install -v -m644 man/*.8 /usr/share/man/man8 &&
 ln -sv pm-action.8 /usr/share/man/man8/pm-suspend.8 &&
 ln -sv pm-action.8 /usr/share/man/man8/pm-hibernate.8 &&
 ln -sv pm-action.8 /usr/share/man/man8/pm-suspend-hybrid.8
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

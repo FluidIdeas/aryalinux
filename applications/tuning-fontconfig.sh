@@ -72,7 +72,7 @@ http://www.lagom.nl/lcd-test/subpixel.php -->
 EOF
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/fonts/conf.d/70-no-bitmaps.conf << "EOF"
 <?xml version='1.0'?>
 <!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>
@@ -87,14 +87,14 @@ cat > /etc/fonts/conf.d/70-no-bitmaps.conf << "EOF"
 </selectfont>
 </fontconfig>
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/fonts/conf.d/09-texlive.conf << "EOF"
 <?xml version='1.0'?>
 <!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>
@@ -103,7 +103,7 @@ cat > /etc/fonts/conf.d/09-texlive.conf << "EOF"
 <dir>/opt/texlive/2018/texmf-dist/fonts/truetype/paratype</dir>
 </fontconfig>
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -126,7 +126,7 @@ before fontconfig falls back to whatever matches Times -->
 EOF
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/fonts/local.conf << "EOF"
 <?xml version='1.0'?>
 <!DOCTYPE fontconfig SYSTEM 'fonts.dtd'>
@@ -159,7 +159,7 @@ override that so a real Korean font can be used for Serif -->
 </alias>
 </fontconfig>
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

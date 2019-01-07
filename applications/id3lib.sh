@@ -41,14 +41,14 @@ automake --add-missing --copy &&
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 cp doc/man/* /usr/share/man/man1 &&
 
 install -v -m755 -d /usr/share/doc/id3lib-3.8.3 &&
 install -v -m644 doc/*.{gif,jpg,png,ico,css,txt,php,html} \
 /usr/share/doc/id3lib-3.8.3
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

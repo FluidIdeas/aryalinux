@@ -33,13 +33,13 @@ fi
 python setup.py build
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 python setup.py install --optimize=1 &&
 
 for f in /usr/bin/rst*.py; do
 ln -svf $(basename $f) /usr/bin/$(basename $f .py)
 done
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

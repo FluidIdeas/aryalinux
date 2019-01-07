@@ -38,7 +38,7 @@ make &&
 make DESTDIR=$PWD/Dest install
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -vm755 Dest/lib/libfuse.so.2.9.7 /lib &&
 install -vm755 Dest/lib/libulockmgr.so.1.0.1 /lib &&
 ln -sfv ../../lib/libfuse.so.2.9.7 /usr/lib/libfuse.so &&
@@ -58,7 +58,7 @@ install -vm644 Dest/usr/include/fuse/*.h /usr/include/fuse/ &&
 
 install -vm644 Dest/usr/share/man/man1/* /usr/share/man/man1 &&
 /sbin/ldconfig -v
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

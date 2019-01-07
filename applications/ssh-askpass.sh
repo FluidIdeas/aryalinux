@@ -37,26 +37,26 @@ cd contrib &&
 make gnome-ssh-askpass2
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -d -m755 /usr/libexec/openssh/contrib &&
 install -v -m755 gnome-ssh-askpass2 \
 /usr/libexec/openssh/contrib &&
 ln -sv -f contrib/gnome-ssh-askpass2 \
 /usr/libexec/openssh/ssh-askpass
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat >> /etc/sudo.conf << "EOF" &&
 # Path to askpass helper program
 Path askpass /usr/libexec/openssh/ssh-askpass
 EOF
 chmod -v 0644 /etc/sudo.conf
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

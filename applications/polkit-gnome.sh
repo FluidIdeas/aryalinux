@@ -36,16 +36,16 @@ fi
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mkdir -p /etc/xdg/autostart &&
 cat > /etc/xdg/autostart/polkit-gnome-authentication-agent-1.desktop << "EOF"
 [Desktop Entry]
@@ -58,7 +58,7 @@ Categories=NoDisplay=true
 OnlyShowIn=GNOME;XFCE;Unity;
 AutostartCondition=GNOME3 unless-session gnome
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

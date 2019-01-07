@@ -38,18 +38,18 @@ cp -v lib/*.jar lib/optional/
 ./build.sh -Ddist.dir=$PWD/ant-1.10.4 dist
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cp -rv ant-1.10.4 /opt/ &&
 chown -R root:root /opt/ant-1.10.4 &&
 ln -sfv ant-1.10.4 /opt/ant
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/profile.d/ant.sh << EOF
 # Begin /etc/profile.d/ant.sh
 
@@ -58,7 +58,7 @@ export ANT_HOME=/opt/ant
 
 # End /etc/profile.d/ant.sh
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

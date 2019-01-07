@@ -132,12 +132,12 @@ unset EXTRA_FLAGS &&
 make -f client.mk
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make -f client.mk install INSTALL_SDK= &&
 chown -R 0:0 /usr/lib/seamonkey-2.49.4 &&
 
 cp -v $(find -name seamonkey.1 | head -n1) /usr/share/man/man1
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -147,16 +147,16 @@ export CXXFLAGS=$CXXFLAGS_HOLD &&
 unset CFLAGS_HOLD CXXFLAGS_HOLD
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make -C obj* install
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mkdir -pv /usr/share/{applications,pixmaps} &&
 
 cat > /usr/share/applications/seamonkey.desktop << "EOF"
@@ -174,7 +174,7 @@ EOF
 
 ln -sfv /usr/lib/seamonkey-2.49.4/chrome/icons/default/seamonkey.png \
 /usr/share/pixmaps
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

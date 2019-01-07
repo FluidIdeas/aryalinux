@@ -44,7 +44,7 @@ makeinfo --plaintext -o doc/r5rs/r5rs.txt doc/r5rs/r5rs.texi &&
 makeinfo --plaintext -o doc/ref/guile.txt doc/ref/guile.texi
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 make install-html &&
 
@@ -60,7 +60,7 @@ install -v -m644 doc/${DIRNAME}/*.txt \
 /usr/share/doc/guile-2.2.4/${DIRNAME}
 done &&
 unset DIRNAME
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

@@ -46,7 +46,7 @@ cmake -DCMAKE_BUILD_TYPE=Release \
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
 pushd ../doc &&
@@ -54,7 +54,7 @@ for man in man/man?/* ; do
 install -v -D -m 644 $man /usr/share/$man
 done 
 popd
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

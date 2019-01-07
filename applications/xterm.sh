@@ -42,20 +42,20 @@ TERMINFO=/usr/share/terminfo \
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 make install-ti &&
 
 mkdir -pv /usr/share/applications &&
 cp -v *.desktop /usr/share/applications/
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat >> /etc/X11/app-defaults/XTerm << "EOF"
 *VT100*locale: true
 *VT100*faceName: Monospace
@@ -63,7 +63,7 @@ cat >> /etc/X11/app-defaults/XTerm << "EOF"
 *backarrowKeyIsErase: true
 *ptyInitialErase: true
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

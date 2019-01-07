@@ -42,7 +42,7 @@ patch -Np1 -i ../mupdf-1.14.0-shared_libs-1.patch &&
 USE_SYSTEM_LIBS=yes make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 USE_SYSTEM_LIBS=yes \
 make prefix=/usr \
 build=release \
@@ -51,7 +51,7 @@ install &&
 
 ln -sfv mupdf-x11 /usr/bin/mupdf &&
 ldconfig
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

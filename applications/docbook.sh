@@ -34,20 +34,20 @@ fi
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -d -m755 /usr/share/xml/docbook/xml-dtd-4.5 &&
 install -v -d -m755 /etc/xml &&
 chown -R root:root . &&
 cp -v -af docbook.cat *.dtd ent/ *.mod \
 /usr/share/xml/docbook/xml-dtd-4.5
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 if [ ! -e /etc/xml/docbook ]; then
 xmlcatalog --noout --create /etc/xml/docbook
 fi &&
@@ -95,14 +95,14 @@ xmlcatalog --noout --add "rewriteURI" \
 "http://www.oasis-open.org/docbook/xml/4.5" \
 "file:///usr/share/xml/docbook/xml-dtd-4.5" \
 /etc/xml/docbook
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 if [ ! -e /etc/xml/catalog ]; then
 xmlcatalog --noout --create /etc/xml/catalog
 fi &&
@@ -122,14 +122,14 @@ xmlcatalog --noout --add "delegateURI" \
 "http://www.oasis-open.org/docbook/" \
 "file:///etc/xml/docbook" \
 /etc/xml/catalog
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 for DTDVERSION in 4.1.2 4.2 4.3 4.4
 do
 xmlcatalog --noout --add "public" \
@@ -153,7 +153,7 @@ xmlcatalog --noout --add "delegateURI" \
 "file:///etc/xml/docbook" \
 /etc/xml/catalog
 done
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

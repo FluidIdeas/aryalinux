@@ -49,13 +49,13 @@ patch -Np1 -i ../libquicktime-1.2.4-ffmpeg4-1.patch &&
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
 install -v -m755 -d /usr/share/doc/libquicktime-1.2.4 &&
 install -v -m644 README doc/{*.txt,*.html,mainpage.incl} \
 /usr/share/doc/libquicktime-1.2.4
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

@@ -41,7 +41,7 @@ make &&
 popd
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mkdir -p /usr/share/rox &&
 cp -av Help Messages Options.xml ROX images style.css .DirIcon /usr/share/rox &&
 
@@ -63,7 +63,7 @@ ln -sv application-x-{bzip-compressed-tar,lzo}.png &&
 ln -sv application-x-{bzip,xz}.png &&
 ln -sv application-x-{gzip,lzma}.png &&
 ln -sv application-{msword,rtf}.png
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -81,7 +81,7 @@ HERE_DOC
 chmod 755 /path/to/hostname/AppRun
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /usr/bin/myumount << "HERE_DOC" &&
 #!/bin/bash
 sync
@@ -92,14 +92,14 @@ fi
 HERE_DOC
 
 chmod 755 /usr/bin/myumount
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ln -s ../rox/.DirIcon /usr/share/pixmaps/rox.png &&
 mkdir -p /usr/share/applications &&
 
@@ -115,7 +115,7 @@ Categories=GTK;Utility;Application;System;Core;
 StartupNotify=true
 Terminal=false
 HERE_DOC
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

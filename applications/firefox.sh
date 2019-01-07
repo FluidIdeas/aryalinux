@@ -155,12 +155,12 @@ export MOZBUILD_STATE_PATH=${PWD}/mozbuild &&
 ./mach build
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ./mach install &&
 
 mkdir -pv /usr/lib/mozilla/plugins &&
 ln -sfv ../../mozilla/plugins /usr/lib/firefox/browser/
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -168,7 +168,7 @@ sudo rm -rf /tmp/rootscript.sh
 unset CC CXX AR NM RANLIB MOZBUILD_STATE_PATH
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mkdir -pv /usr/share/applications &&
 mkdir -pv /usr/share/pixmaps &&
 
@@ -189,7 +189,7 @@ EOF
 
 ln -sfv /usr/lib/firefox/browser/chrome/icons/default/default128.png \
 /usr/share/pixmaps/firefox.png
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

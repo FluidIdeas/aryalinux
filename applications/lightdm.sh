@@ -43,13 +43,13 @@ fi
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 groupadd -g 65 lightdm &&
 useradd -c "Lightdm Daemon" \
 -d /var/lib/lightdm \
 -u 65 -g lightdm \
 -s /bin/false lightdm
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -68,7 +68,7 @@ sudo rm -rf /tmp/rootscript.sh
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 cp tests/src/lightdm-session /usr/bin &&
 sed -i '1 s/sh/bash --login/' /usr/bin/lightdm-session &&
@@ -77,7 +77,7 @@ install -v -dm755 -o lightdm -g lightdm /var/lib/lightdm &&
 install -v -dm755 -o lightdm -g lightdm /var/lib/lightdm-data &&
 install -v -dm755 -o lightdm -g lightdm /var/cache/lightdm &&
 install -v -dm770 -o lightdm -g lightdm /var/log/lightdm
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -100,19 +100,19 @@ cd lightdm-gtk-greeter-2.0.5 &&
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install-lightdm &&
 systemctl enable lightdm
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

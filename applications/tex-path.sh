@@ -30,7 +30,7 @@ fi
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 export TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/') &&
 
 cat >> /etc/profile.d/extrapaths.sh << EOF
@@ -46,7 +46,7 @@ pathappend /opt/texlive/2018/bin/$TEXARCH
 EOF
 
 unset TEXARCH
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

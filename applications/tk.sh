@@ -43,12 +43,12 @@ sed -e "s@^\(TK_SRC_DIR='\).*@\1/usr/include'@" \
 -i tkConfig.sh
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 make install-private-headers &&
 ln -v -sf wish8.6 /usr/bin/wish &&
 chmod -v 755 /usr/lib/libtk8.6.so
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

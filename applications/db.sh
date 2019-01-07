@@ -41,7 +41,7 @@ cd build_unix &&
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make docdir=/usr/share/doc/db-5.3.28 install &&
 
 chown -v -R root:root \
@@ -49,7 +49,7 @@ chown -v -R root:root \
 /usr/include/db{,_185,_cxx}.h \
 /usr/lib/libdb*.{so,la} \
 /usr/share/doc/db-5.3.28
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

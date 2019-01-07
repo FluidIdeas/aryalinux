@@ -34,9 +34,9 @@ patch -Np1 -i ../wireless_tools-29-fix_iwlist_scanning-1.patch
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make PREFIX=/usr INSTALL_MAN=/usr/share/man install
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

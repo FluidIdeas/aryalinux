@@ -59,7 +59,7 @@ sed -i '/#define LUA_ROOT/s:/usr/local/:/usr/:' src/luaconf.h &&
 make MYCFLAGS="-DLUA_COMPAT_5_2 -DLUA_COMPAT_5_1" linux
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make INSTALL_TOP=/usr \
 INSTALL_DATA="cp -d" \
 INSTALL_MAN=/usr/share/man/man1 \
@@ -71,7 +71,7 @@ mkdir -pv /usr/share/doc/lua-5.3.5 &&
 cp -v doc/*.{html,css,gif,png} /usr/share/doc/lua-5.3.5 &&
 
 install -v -m644 -D lua.pc /usr/lib/pkgconfig/lua.pc
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

@@ -91,35 +91,35 @@ popd &&
 unset DOCNAME
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
 install -v -m755 tools/qt-faststart /usr/bin &&
 install -v -m755 -d /usr/share/doc/ffmpeg-4.1 &&
 install -v -m644 doc/*.txt /usr/share/doc/ffmpeg-4.1
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m644 doc/*.pdf /usr/share/doc/ffmpeg-4.1 &&
 install -v -m644 doc/*.ps /usr/share/doc/ffmpeg-4.1
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m755 -d /usr/share/doc/ffmpeg-4.1/api &&
 cp -vr doc/doxy/html/* /usr/share/doc/ffmpeg-4.1/api &&
 find /usr/share/doc/ffmpeg-4.1/api -type f -exec chmod -c 0644 \{} \; &&
 find /usr/share/doc/ffmpeg-4.1/api -type d -exec chmod -c 0755 \{} \;
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

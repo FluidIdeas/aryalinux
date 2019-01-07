@@ -37,21 +37,21 @@ SHAREDIR=/usr/share/hwdata \
 SHARED=yes
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make PREFIX=/usr \
 SHAREDIR=/usr/share/hwdata \
 SHARED=yes \
 install install-lib &&
 
 chmod -v 755 /usr/lib/libpci.so
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /lib/systemd/system/update-pciids.service << "EOF" &&
 [Unit]
 Description=Update pci.ids file
@@ -77,7 +77,7 @@ Persistent=true
 WantedBy=timers.target
 EOF
 systemctl enable update-pciids.timer
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

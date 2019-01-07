@@ -52,10 +52,10 @@ patch -Np1 -i ../ptlib-2.10.11-bison_fixes-2.patch &&
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 chmod -v 755 /usr/lib/libpt.so.2.10.11
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

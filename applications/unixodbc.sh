@@ -35,7 +35,7 @@ fi
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
 find doc -name "Makefile*" -delete &&
@@ -43,7 +43,7 @@ chmod 644 doc/{lst,ProgrammerManual/Tutorial}/* &&
 
 install -v -m755 -d /usr/share/doc/unixODBC-2.3.7 &&
 cp -v -R doc/* /usr/share/doc/unixODBC-2.3.7
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

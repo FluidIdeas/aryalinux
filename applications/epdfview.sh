@@ -40,16 +40,16 @@ patch -Np1 -i ../epdfview-0.1.8-fixes-2.patch &&
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 for size in 24 32 48; do
 ln -svf ../../../../epdfview/pixmaps/icon_epdfview-$size.png \
 /usr/share/icons/hicolor/${size}x${size}/apps
@@ -58,7 +58,7 @@ unset size &&
 
 update-desktop-database &&
 gtk-update-icon-cache -t -f --include-image-data /usr/share/icons/hicolor
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

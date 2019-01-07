@@ -35,7 +35,7 @@ INSTALL_GROUP=root \
 LOCAL_CONFIGURE_OPTIONS="--enable-readline"
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make PKG_DOC_DIR=/usr/share/doc/xfsprogs-4.19.0 install &&
 make PKG_DOC_DIR=/usr/share/doc/xfsprogs-4.19.0 install-dev &&
 
@@ -43,7 +43,7 @@ rm -rfv /usr/lib/libhandle.a &&
 rm -rfv /lib/libhandle.{a,la,so} &&
 ln -sfv ../../lib/libhandle.so.1 /usr/lib/libhandle.so &&
 sed -i "s@libdir='/lib@libdir='/usr/lib@" /usr/lib/libhandle.la
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

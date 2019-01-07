@@ -37,12 +37,12 @@ fi
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 install -v -m755 -d /usr/share/doc/imlib2-1.5.1 &&
 install -v -m644 doc/{*.gif,index.html} \
 /usr/share/doc/imlib2-1.5.1
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

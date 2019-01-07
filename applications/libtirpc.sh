@@ -37,11 +37,11 @@ fi
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 mv -v /usr/lib/libtirpc.so.* /lib &&
 ln -sfv ../../lib/libtirpc.so.3.0.0 /usr/lib/libtirpc.so
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

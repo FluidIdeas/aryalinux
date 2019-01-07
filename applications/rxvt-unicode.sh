@@ -36,16 +36,16 @@ fi
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat >> /etc/X11/app-defaults/URxvt << "EOF"
 ! Use the specified colour as the windows background colour [default white]
 URxvt*background: black
@@ -69,7 +69,7 @@ URxvt*url-launcher: firefox
 ! Below, default modified to mouse left button.
 URxvt*matcher.button: 1
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -80,7 +80,7 @@ xrdb -merge ~/.Xresources
 urxvtd -q -f -o &
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /usr/share/applications/urxvt.desktop << "EOF" &&
 [Desktop Entry]
 Encoding=UTF-8
@@ -97,7 +97,7 @@ Keywords=console;command line;execute;
 EOF
 
 update-desktop-database -q
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

@@ -113,16 +113,16 @@ EOF
 ./mach build
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ./mach install
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mkdir -pv /usr/share/{applications,pixmaps} &&
 
 cat > /usr/share/applications/thunderbird.desktop << "EOF" &&
@@ -141,7 +141,7 @@ EOF
 
 ln -sfv /usr/lib/thunderbird-60.3.3/chrome/icons/default/default256.png \
 /usr/share/pixmaps/thunderbird.png
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

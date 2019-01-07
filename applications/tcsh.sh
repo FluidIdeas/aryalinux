@@ -38,7 +38,7 @@ make &&
 sh ./tcsh.man2html
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install install.man &&
 
 ln -v -sf tcsh /bin/csh &&
@@ -47,19 +47,19 @@ ln -v -sf tcsh.1 /usr/share/man/man1/csh.1 &&
 install -v -m755 -d /usr/share/doc/tcsh-6.20.00/html &&
 install -v -m644 tcsh.html/* /usr/share/doc/tcsh-6.20.00/html &&
 install -v -m644 FAQ /usr/share/doc/tcsh-6.20.00
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat >> /etc/shells << "EOF"
 /bin/tcsh
 /bin/csh
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

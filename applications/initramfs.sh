@@ -31,7 +31,7 @@ fi
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /sbin/mkinitramfs << "EOF"
 #!/bin/bash
 # This file based in part on the mkinitramfs script for the LFS LiveCD
@@ -226,14 +226,14 @@ printf "done.\n"
 EOF
 
 <span class="command"><strong>chmod 0755 /sbin/mkinitramfs</strong></span>
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mkdir -p /usr/share/mkinitramfs &&
 cat > /usr/share/mkinitramfs/init.in << "EOF"
 #!/bin/sh
@@ -341,7 +341,7 @@ killall -w ${UDEVD##*/}
 exec switch_root /.root "$init" "$@"
 
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

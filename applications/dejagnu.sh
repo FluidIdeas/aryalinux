@@ -37,12 +37,12 @@ makeinfo --html --no-split -o doc/dejagnu.html doc/dejagnu.texi &&
 makeinfo --plaintext -o doc/dejagnu.txt doc/dejagnu.texi
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 install -v -dm755 /usr/share/doc/dejagnu-1.6.2 &&
 install -v -m644 doc/dejagnu.{html,txt} \
 /usr/share/doc/dejagnu-1.6.2
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

@@ -45,7 +45,7 @@ unicode/{gensyntax.pl,unicode.syn} &&
 make pkgdatadir=/usr/share/sgml/OpenSP-1.5.2
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make pkgdatadir=/usr/share/sgml/OpenSP-1.5.2 \
 docdir=/usr/share/doc/OpenSP-1.5.2 \
 install &&
@@ -58,7 +58,7 @@ ln -v -sf ospent /usr/bin/spent &&
 ln -v -sf osx /usr/bin/sx &&
 ln -v -sf osx /usr/bin/sgml2xml &&
 ln -v -sf libosp.so /usr/lib/libsp.so
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

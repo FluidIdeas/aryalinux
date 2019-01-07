@@ -53,11 +53,11 @@ fi
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 install -v -m644 docs/*.{css,html} /usr/share/gtk-doc/html/gegl &&
 install -v -m644 docs/images/*.{png,ico,svg} /usr/share/gtk-doc/html/gegl/images
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

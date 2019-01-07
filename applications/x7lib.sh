@@ -118,10 +118,10 @@ done
 exit
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ln -sv $XORG_PREFIX/lib/X11 /usr/lib/X11 &&
 ln -sv $XORG_PREFIX/include/X11 /usr/include/X11
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

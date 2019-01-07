@@ -46,7 +46,7 @@ tar -xf ../Linux-PAM-1.2.0-docs.tar.bz2 --strip-components=1
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m755 -d /etc/pam.d &&
 
 cat > /etc/pam.d/other << "EOF"
@@ -55,23 +55,23 @@ account required pam_deny.so
 password required pam_deny.so
 session required pam_deny.so
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 rm -fv /etc/pam.d/*
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 chmod -v 4755 /sbin/unix_chkpwd &&
 
@@ -80,14 +80,14 @@ do
 mv -v /usr/lib/lib${file}.so.* /lib &&
 ln -sfv ../../lib/$(readlink /usr/lib/lib${file}.so) /usr/lib/lib${file}.so
 done
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -vdm755 /etc/pam.d &&
 cat > /etc/pam.d/system-account << "EOF" &&
 # Begin /etc/pam.d/system-account
@@ -112,14 +112,14 @@ session required pam_unix.so
 
 # End /etc/pam.d/system-session
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/pam.d/system-password << "EOF"
 # Begin /etc/pam.d/system-password
 
@@ -137,14 +137,14 @@ password required pam_unix.so sha512 shadow use_authtok
 
 # End /etc/pam.d/system-password
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/pam.d/system-password << "EOF"
 # Begin /etc/pam.d/system-password
 
@@ -154,14 +154,14 @@ password required pam_unix.so sha512 shadow try_first_pass
 
 # End /etc/pam.d/system-password
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/pam.d/other << "EOF"
 # Begin /etc/pam.d/other
 
@@ -176,7 +176,7 @@ session required pam_deny.so
 
 # End /etc/pam.d/other
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

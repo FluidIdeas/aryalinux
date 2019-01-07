@@ -70,7 +70,7 @@ cmake -DCMAKE_BUILD_TYPE=Release \
 ninja
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
 
 install -vdm755 /usr/share/gtk-doc/html/webkit{2,dom}gtk-4.0 &&
@@ -78,7 +78,7 @@ install -vm644 ../Documentation/webkit2gtk-4.0/html/* \
 /usr/share/gtk-doc/html/webkit2gtk-4.0 &&
 install -vm644 ../Documentation/webkitdomgtk-4.0/html/* \
 /usr/share/gtk-doc/html/webkitdomgtk-4.0
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

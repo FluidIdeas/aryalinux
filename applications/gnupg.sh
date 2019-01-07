@@ -54,7 +54,7 @@ makeinfo --plaintext -o doc/gnupg.txt doc/gnupg.texi
 make -C doc pdf ps html
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
 install -v -m755 -d /usr/share/doc/gnupg-2.2.12/html &&
@@ -62,19 +62,19 @@ install -v -m644 doc/gnupg_nochunks.html \
 /usr/share/doc/gnupg-2.2.12/html/gnupg.html &&
 install -v -m644 doc/*.texi doc/gnupg.txt \
 /usr/share/doc/gnupg-2.2.12
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m644 doc/gnupg.html/* \
 /usr/share/doc/gnupg-2.2.12/html &&
 install -v -m644 doc/gnupg.{pdf,dvi,ps} \
 /usr/share/doc/gnupg-2.2.12
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

@@ -30,7 +30,7 @@ fi
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /usr/sbin/remove-la-files.sh << "EOF"
 #!/bin/bash
 
@@ -92,7 +92,7 @@ done
 EOF
 
 chmod +x /usr/sbin/remove-la-files.sh
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

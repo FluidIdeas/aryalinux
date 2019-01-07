@@ -62,11 +62,11 @@ perl ./Build.PL &&
 ./Build
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 tar -xf ../biblatex-3.12.tds.tgz -C /opt/texlive/2018/texmf-dist &&
 texhash &&
 ./Build install
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

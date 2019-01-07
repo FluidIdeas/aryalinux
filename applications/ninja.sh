@@ -40,7 +40,7 @@ python3 configure.py &&
 ./ninja_test --gtest_filter=-SubprocessTest.SetWithLots
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -vm755 ninja /usr/bin/ &&
 install -vDm644 misc/ninja.vim \
 /usr/share/vim/vim80/syntax/ninja.vim &&
@@ -48,39 +48,39 @@ install -vDm644 misc/bash-completion \
 /usr/share/bash-completion/completions/ninja &&
 install -vDm644 misc/zsh-completion \
 /usr/share/zsh/site-functions/_ninja
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -vDm644 misc/ninja-mode.el \
 /usr/share/emacs/site-lisp/ninja-mode.el
 install -vDm644 misc/ninja-mode.elc \
 /usr/share/emacs/site-lisp/ninja-mode.elc
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja manual &&
 install -vDm644 doc/manual.html /usr/share/doc/ninja-1.8.2/manual.html
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja doxygen &&
 install -vDm644 -t /usr/share/doc/ninja-1.8.2/ doc/doxygen/html/*
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

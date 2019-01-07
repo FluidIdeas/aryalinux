@@ -39,14 +39,14 @@ fi
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
 find doc -name "Makefile*" -delete &&
 rm -rf -v doc/{gdoc,idn.1,stamp-vti,man,texi} &&
 mkdir -v /usr/share/doc/libidn-1.35 &&
 cp -r -v doc/* /usr/share/doc/libidn-1.35
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

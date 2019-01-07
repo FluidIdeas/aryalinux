@@ -30,7 +30,7 @@ fi
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/profile << "EOF"
 # Begin /etc/profile
 # Written for Beyond Linux From Scratch
@@ -110,23 +110,23 @@ unset script RED GREEN NORMAL
 
 # End /etc/profile
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install --directory --mode=0755 --owner=root --group=root /etc/profile.d
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/profile.d/bash_completion.sh << "EOF"
 # Begin /etc/profile.d/bash_completion.sh
 # Import bash completion scripts
@@ -163,23 +163,23 @@ fi
 
 # End /etc/profile.d/bash_completion.sh
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install --directory --mode=0755 --owner=root --group=root /etc/bash_completion.d
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/profile.d/dircolors.sh << "EOF"
 # Setup for /bin/ls and /bin/grep to support color, the alias is in /etc/bashrc.
 if [ -f "/etc/dircolors" ] ; then
@@ -193,14 +193,14 @@ fi
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/profile.d/extrapaths.sh << "EOF"
 if [ -d /usr/local/lib/pkgconfig ] ; then
 pathappend /usr/local/lib/pkgconfig PKG_CONFIG_PATH
@@ -216,14 +216,14 @@ fi
 pathappend /usr/share/man MANPATH
 pathappend /usr/share/info INFOPATH
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/profile.d/readline.sh << "EOF"
 # Setup the INPUTRC environment variable.
 if [ -z "$INPUTRC" -a ! -f "$HOME/.inputrc" ] ; then
@@ -231,14 +231,14 @@ INPUTRC=/etc/inputrc
 fi
 export INPUTRC
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/profile.d/umask.sh << "EOF"
 # By default, the umask should be set.
 if [ "$(id -gn)" = "$(id -un)" -a $EUID -gt 99 ] ; then
@@ -247,27 +247,27 @@ else
 umask 022
 fi
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/profile.d/i18n.sh << "EOF"
 # Set up i18n variables
 . /etc/locale.conf
 export LANG
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/bashrc << "EOF"
 # Begin /etc/bashrc
 # Written for Beyond Linux From Scratch
@@ -305,7 +305,7 @@ unset RED GREEN NORMAL
 
 # End /etc/bashrc
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -382,9 +382,9 @@ cat > ~/.bash_logout << "EOF"
 EOF
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 dircolors -p > /etc/dircolors
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

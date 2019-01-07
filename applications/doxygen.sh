@@ -52,10 +52,10 @@ cmake -DDOC_INSTALL_DIR=share/doc/doxygen-1.8.15 -Dbuild_doc=ON .. &&
 make docs
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 install -vm644 ../doc/*.1 /usr/share/man/man1
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

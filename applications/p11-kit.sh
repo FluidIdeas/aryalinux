@@ -47,24 +47,24 @@ EOF
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 ln -s /usr/libexec/p11-kit/trust-extract-compat \
 /usr/bin/update-ca-certificates
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 if [ -e /usr/lib/libnssckbi.so ]; then
 readlink /usr/lib/libnssckbi.so ||
 rm -v /usr/lib/libnssckbi.so &&
 ln -sfv ./pkcs11/p11-kit-trust.so /usr/lib/libnssckbi.so
 fi
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

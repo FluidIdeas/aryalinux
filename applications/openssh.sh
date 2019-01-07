@@ -39,7 +39,7 @@ fi
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m700 -d /var/lib/sshd &&
 chown -v root:sys /var/lib/sshd &&
 
@@ -49,7 +49,7 @@ useradd -c 'sshd PrivSep' \
 -g sshd \
 -s /bin/false \
 -u 50 sshd
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -61,7 +61,7 @@ sudo rm -rf /tmp/rootscript.sh
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 install -v -m755 contrib/ssh-copy-id /usr/bin &&
 
@@ -70,16 +70,16 @@ install -v -m644 contrib/ssh-copy-id.1 \
 install -v -m755 -d /usr/share/doc/openssh-7.9p1 &&
 install -v -m644 INSTALL LICENCE OVERVIEW README* \
 /usr/share/doc/openssh-7.9p1
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 echo "PermitRootLogin no" >> /etc/ssh/sshd_config
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -88,30 +88,30 @@ ssh-keygen &&
 ssh-copy-id -i ~/.ssh/id_rsa.pub <em class="replaceable"><code>REMOTE_USERNAME</code></em>@<em class="replaceable"><code>REMOTE_HOSTNAME</code></em>
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 echo "PasswordAuthentication no" >> /etc/ssh/sshd_config &&
 echo "ChallengeResponseAuthentication no" >> /etc/ssh/sshd_config
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 sed 's@d/login@d/sshd@g' /etc/pam.d/login > /etc/pam.d/sshd &&
 chmod 644 /etc/pam.d/sshd &&
 echo "UsePAM yes" >> /etc/ssh/sshd_config
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install-sshd
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

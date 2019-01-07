@@ -30,7 +30,7 @@ fi
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -dm755 /etc/systemd/scripts
 
 cat > /etc/systemd/scripts/iptables << "EOF"
@@ -108,14 +108,14 @@ iptables -A INPUT -j LOG --log-prefix "FIREWALL:INPUT "
 # End /etc/systemd/scripts/iptables
 EOF
 chmod 700 /etc/systemd/scripts/iptables
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -dm755 /etc/systemd/scripts
 
 cat > /etc/systemd/scripts/iptables << "EOF"
@@ -211,7 +211,7 @@ echo 1 > /proc/sys/net/ipv4/ip_forward
 # End /etc/systemd/scripts/iptables
 EOF
 chmod 700 /etc/systemd/scripts/iptables
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

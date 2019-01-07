@@ -33,13 +33,13 @@ fi
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 sed -i 's/getline/get_line/' src/*.[ch] &&
 patch -Np1 -i ../procmail-3.22-consolidated_fixes-1.patch &&
 
 make LOCKINGTEST=/tmp MANDIR=/usr/share/man install &&
 make install-suid
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

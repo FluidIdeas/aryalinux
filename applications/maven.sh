@@ -46,11 +46,11 @@ mvn -DdistributionTargetDir=build \
 package
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -vdm 755 /opt/maven-3.5.4 &&
 cp -Rv apache-maven/build/* /opt/maven-3.5.4 &&
 ln -sfvn maven-3.5.4 /opt/maven
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -59,7 +59,7 @@ PATH=$SAVEPATH &&
 rm -rf ../apache-maven-bin
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/profile.d/maven.sh << "EOF"
 # Begin /etc/profile.d/maven.sh
 
@@ -67,7 +67,7 @@ pathappend /opt/maven/bin
 
 # End /etc/profile.d/maven.sh
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

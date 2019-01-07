@@ -38,18 +38,18 @@ sed -i '/skipping/d' util/packer.c &&
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 mv -v /usr/lib/libcrack.so.* /lib &&
 ln -sfv ../../lib/$(readlink /usr/lib/libcrack.so) /usr/lib/libcrack.so
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m644 -D ../cracklib-words-2.9.6.gz \
 /usr/share/dict/cracklib-words.gz &&
 
@@ -60,7 +60,7 @@ install -v -m755 -d /lib/cracklib &&
 
 create-cracklib-dict /usr/share/dict/cracklib-words \
 /usr/share/dict/cracklib-extra-words
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

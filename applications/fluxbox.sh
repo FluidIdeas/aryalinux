@@ -38,9 +38,9 @@ fi
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -48,7 +48,7 @@ sudo rm -rf /tmp/rootscript.sh
 echo startfluxbox > ~/.xinitrc
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mkdir -pv /usr/share/xsessions &&
 cat > /usr/share/xsessions/fluxbox.desktop << "EOF"
 [Desktop Entry]
@@ -58,7 +58,7 @@ Comment=This session logs you into Fluxbox
 Exec=startfluxbox
 Type=Application
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

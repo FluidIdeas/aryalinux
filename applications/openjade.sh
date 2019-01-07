@@ -45,7 +45,7 @@ export CXXFLAGS="$CXXFLAGS -fno-lifetime-dse" &&
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 make install-man &&
 ln -v -sf openjade /usr/bin/jade &&
@@ -63,18 +63,18 @@ install-catalog --add /etc/sgml/openjade-1.3.2.cat \
 
 install-catalog --add /etc/sgml/sgml-docbook.cat \
 /etc/sgml/openjade-1.3.2.cat
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 echo "SYSTEM \"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd\" \
 \"/usr/share/xml/docbook/xml-dtd-4.5/docbookx.dtd\"" >> \
 /usr/share/sgml/openjade-1.3.2/catalog
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

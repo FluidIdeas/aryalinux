@@ -50,12 +50,12 @@ meson --prefix=/usr \
 ninja
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
 
 mkdir -p /usr/share/doc/glib-2.58.2 &&
 cp -r ../docs/reference/{NEWS,gio,glib,gobject} /usr/share/doc/glib-2.58.2
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

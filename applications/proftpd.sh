@@ -35,7 +35,7 @@ fi
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 groupadd -g 46 proftpd &&
 useradd -c proftpd -d /srv/ftp -g proftpd \
 -s /usr/bin/proftpdshell -u 46 proftpd &&
@@ -43,7 +43,7 @@ useradd -c proftpd -d /srv/ftp -g proftpd \
 install -v -d -m775 -o proftpd -g proftpd /srv/ftp &&
 ln -v -s /bin/false /usr/bin/proftpdshell &&
 echo /usr/bin/proftpdshell >> /etc/shells
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -52,18 +52,18 @@ sudo rm -rf /tmp/rootscript.sh
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 install -d -m755 /usr/share/doc/proftpd-1.3.6 &&
 cp -Rv doc/* /usr/share/doc/proftpd-1.3.6
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/proftpd.conf << "EOF"
 # This is a basic ProFTPD configuration file
 # It establishes a single server and a single anonymous login.
@@ -121,16 +121,16 @@ DenyAll
 </Limit>
 </Anonymous>
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install-proftpd
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

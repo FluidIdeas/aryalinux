@@ -72,10 +72,10 @@ DESTDIR=${PWD}/install python3 ./x.py install &&
 unset LIBSSH2_SYS_USE_PKG_CONFIG
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 chown -R root:root install &&
 cp -a install/* /
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

@@ -33,9 +33,9 @@ fi
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make ins-all prefix=/opt/gnat
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -44,10 +44,10 @@ PATH_HOLD=$PATH &&
 export PATH=/opt/gnat/bin:$PATH_HOLD
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 find /opt/gnat -name ld -exec mv -v {} {}.old \;
 find /opt/gnat -name as -exec mv -v {} {}.old \;
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -74,7 +74,7 @@ make -k check
 ../contrib/test_summary
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 mkdir -pv /usr/share/gdb/auto-load/usr/lib &&
 mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib &&
@@ -82,16 +82,16 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib &&
 chown -v -R root:root \
 /usr/lib/gcc/*linux-gnu/8.2.0/include{,-fixed} \
 /usr/lib/gcc/*linux-gnu/8.2.0/ada{lib,include}
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 rm -rf /opt/gnat
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

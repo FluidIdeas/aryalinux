@@ -39,11 +39,11 @@ sed -i 's/\$command 2/-I. &/' Examples/test-suite/perl5/run-perl-test.pl
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 install -v -m755 -d /usr/share/doc/swig-3.0.12 &&
 cp -v -R Doc/* /usr/share/doc/swig-3.0.12
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

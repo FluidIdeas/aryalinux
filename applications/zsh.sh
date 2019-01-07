@@ -45,57 +45,57 @@ makeinfo Doc/zsh.texi --html --no-split --no-headers -o Doc/zsh.html
 texi2pdf Doc/zsh.texi -o Doc/zsh.pdf
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 make infodir=/usr/share/info install.info &&
 
 install -v -m755 -d /usr/share/doc/zsh-5.6.2/html &&
 install -v -m644 Doc/html/* /usr/share/doc/zsh-5.6.2/html &&
 install -v -m644 Doc/zsh.{html,txt} /usr/share/doc/zsh-5.6.2
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make htmldir=/usr/share/doc/zsh-5.6.2/html install.html &&
 install -v -m644 Doc/zsh.dvi /usr/share/doc/zsh-5.6.2
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m644 Doc/zsh.pdf /usr/share/doc/zsh-5.6.2
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mv -v /usr/lib/libpcre.so.* /lib &&
 ln -v -sf ../../lib/libpcre.so.0 /usr/lib/libpcre.so
 
 mv -v /usr/lib/libgdbm.so.* /lib &&
 ln -v -sf ../../lib/libgdbm.so.3 /usr/lib/libgdbm.so
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat >> /etc/shells << "EOF"
 /bin/zsh
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

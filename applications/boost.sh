@@ -36,10 +36,10 @@ fi
 ./b2 stage threading=multi link=shared
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ./b2 install threading=multi link=shared &&
 ln -svf detail/sha1.hpp /usr/include/boost/uuid/sha1.hpp
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

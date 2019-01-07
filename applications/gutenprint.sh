@@ -42,23 +42,23 @@ sed -i 's|$(PACKAGE)/doc|doc/$(PACKAGE)-$(VERSION)|' \
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 install -v -m755 -d /usr/share/doc/gutenprint-5.2.14/api/gutenprint{,ui2} &&
 install -v -m644 doc/gutenprint/html/* \
 /usr/share/doc/gutenprint-5.2.14/api/gutenprint &&
 install -v -m644 doc/gutenprintui2/html/* \
 /usr/share/doc/gutenprint-5.2.14/api/gutenprintui2
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 systemctl restart org.cups.cupsd
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

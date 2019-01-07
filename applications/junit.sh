@@ -38,21 +38,21 @@ mvn -DjdkVersion=1.6 install
 mvn site
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m755 -d /usr/share/java/junit-4.12 &&
 cp -v target/junit-4.12.jar /usr/share/java/junit-4.12 &&
 cp -v lib/hamcrest-core-1.3.jar /usr/share/java/junit-4.12
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m755 -d /usr/share/doc/junit-4.12 &&
 cp -v -R target/site/* /usr/share/doc/junit-4.12
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

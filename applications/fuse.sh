@@ -39,7 +39,7 @@ meson --prefix=/usr .. &&
 ninja
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
 
 mv -vf /usr/lib/libfuse3.so.3* /lib &&
@@ -54,14 +54,14 @@ install -v -m644 ../doc/{README.NFS,kernel.txt} \
 /usr/share/doc/fuse-3.4.1 &&
 cp -Rv ../doc/html /usr/share/doc/fuse-3.4.1 
 
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/fuse.conf << "EOF"
 # Set the maximum number of FUSE mounts allowed to non-root users.
 # The default is 1000.
@@ -73,7 +73,7 @@ cat > /etc/fuse.conf << "EOF"
 #
 #user_allow_other
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

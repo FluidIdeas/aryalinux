@@ -36,7 +36,7 @@ sed -i -e '/ISO 8879/d' \
 docbook.cat
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -d -m755 /usr/share/sgml/docbook/sgml-dtd-3.1 &&
 chown -R root:root . &&
 install -v docbook.cat /usr/share/sgml/docbook/sgml-dtd-3.1/catalog &&
@@ -47,14 +47,14 @@ install-catalog --add /etc/sgml/sgml-docbook-dtd-3.1.cat \
 
 install-catalog --add /etc/sgml/sgml-docbook-dtd-3.1.cat \
 /etc/sgml/sgml-docbook.cat
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat >> /usr/share/sgml/docbook/sgml-dtd-3.1/catalog << "EOF"
  -- Begin Single Major Version catalog changes --
 
@@ -62,7 +62,7 @@ PUBLIC "-//Davenport//DTD DocBook V3.0//EN" "docbook.dtd"
 
 -- End Single Major Version catalog changes --
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

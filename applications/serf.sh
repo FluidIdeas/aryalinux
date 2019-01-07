@@ -40,9 +40,9 @@ sed -i "/ print/{s/print/print(/; s/$/)/}" SConstruct &&
 scons PREFIX=/usr
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 scons PREFIX=/usr install
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

@@ -145,7 +145,7 @@ cd /usr/share/xsessions/
 [ -e plasma.desktop ] || as_root ln -sfv $KF5_PREFIX/share/xsessions/plasma.desktop
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat >> /etc/pam.d/kde << "EOF" 
 # Begin /etc/pam.d/kde
 
@@ -186,7 +186,7 @@ account include system-account
 
 # End /etc/pam.d/kscreensaver
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

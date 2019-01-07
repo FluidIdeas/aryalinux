@@ -41,7 +41,7 @@ patch -Np1 -i ../docbook-xsl-1.79.2-stack_fix-1.patch
 tar -xf ../docbook-xsl-doc-1.79.2.tar.bz2 --strip-components=1
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m755 -d /usr/share/xml/docbook/xsl-stylesheets-1.79.2 &&
 
 cp -v -R VERSION assembly common eclipse epub epub3 extensions fo \
@@ -56,23 +56,23 @@ install -v -m644 -D README \
 /usr/share/doc/docbook-xsl-1.79.2/README.txt &&
 install -v -m644 RELEASE-NOTES* NEWS* \
 /usr/share/doc/docbook-xsl-1.79.2
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cp -v -R doc/* /usr/share/doc/docbook-xsl-1.79.2
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 if [ ! -d /etc/xml ]; then install -v -m755 -d /etc/xml; fi &&
 if [ ! -f /etc/xml/catalog ]; then
 xmlcatalog --noout --create /etc/xml/catalog
@@ -97,7 +97,7 @@ xmlcatalog --noout --add "rewriteURI" \
 "http://docbook.sourceforge.net/release/xsl/current" \
 "/usr/share/xml/docbook/xsl-stylesheets-1.79.2" \
 /etc/xml/catalog
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

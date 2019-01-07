@@ -153,12 +153,12 @@ fi
 export -f as_root
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mv -v /opt/kf5 /opt/kf5.old &&
 install -v -dm755 $KF5_PREFIX/{etc,share} &&
 ln -sfv /etc/dbus-1 $KF5_PREFIX/etc &&
 ln -sfv /usr/share/dbus-1 $KF5_PREFIX/share
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -197,10 +197,10 @@ done < frameworks-5.53.0.md5
 exit
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mv -v /opt/kf5 /opt/kf5-5.53.0
 ln -sfvn kf5-5.53.0 /opt/kf5
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

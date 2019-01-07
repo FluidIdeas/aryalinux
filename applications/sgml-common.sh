@@ -37,7 +37,7 @@ autoreconf -f -i
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make docdir=/usr/share/doc install &&
 
 install-catalog --add /etc/sgml/sgml-ent.cat \
@@ -45,7 +45,7 @@ install-catalog --add /etc/sgml/sgml-ent.cat \
 
 install-catalog --add /etc/sgml/sgml-docbook.cat \
 /etc/sgml/sgml-ent.cat
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

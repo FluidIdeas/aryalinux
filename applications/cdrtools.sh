@@ -33,13 +33,13 @@ export GMAKE_NOWARN=true &&
 make -j1 INS_BASE=/usr DEFINSUSR=root DEFINSGRP=root
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 export GMAKE_NOWARN=true &&
 make INS_BASE=/usr DEFINSUSR=root DEFINSGRP=root install &&
 install -v -m755 -d /usr/share/doc/cdrtools-3.02a09 &&
 install -v -m644 README* ABOUT doc/*.ps \
 /usr/share/doc/cdrtools-3.02a09
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

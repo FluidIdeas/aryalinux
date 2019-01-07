@@ -34,10 +34,10 @@ sed -i "s|n/a|unavailable|" lsb_release
 --alt_version_key=program_version ./lsb_release > lsb_release.1
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m 644 lsb_release.1 /usr/share/man/man1 &&
 install -v -m 755 lsb_release /usr/bin
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

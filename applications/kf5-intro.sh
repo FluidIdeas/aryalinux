@@ -31,7 +31,7 @@ fi
 export KF5_PREFIX=/usr
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat >> /etc/profile.d/qt5.sh << "EOF"
 # Begin kf5 extension for /etc/profile.d/qt5.sh
 
@@ -51,14 +51,14 @@ export KF5_PREFIX=/usr
 
 # End /etc/profile.d/kf5.sh
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat >> /etc/sudoers.d/qt << "EOF
 Defaults env_keep += QT_PLUGIN_PATH
 Defaults env_keep += QML2_IMPORT_PATH
@@ -67,7 +67,7 @@ EOF
 cat >> /etc/sudoers.d/kde << "EOF
 Defaults env_keep += KF5_PREFIX
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -75,7 +75,7 @@ sudo rm -rf /tmp/rootscript.sh
 export KF5_PREFIX=/opt/kf5
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/profile.d/kf5.sh << "EOF"
 # Begin /etc/profile.d/kf5.sh
 
@@ -105,14 +105,14 @@ pathappend $QT5DIR/qml QML2_IMPORT_PATH
 
 # End Qt5 changes for KF5
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat >> /etc/ld.so.conf << "EOF"
 # Begin KF5 addition
 
@@ -120,38 +120,38 @@ cat >> /etc/ld.so.conf << "EOF"
 
 # End KF5 addition
 EOF
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -dm755 $KF5_PREFIX/{etc,share} &&
 ln -sfv /etc/dbus-1 $KF5_PREFIX/etc &&
 ln -sfv /usr/share/dbus-1 $KF5_PREFIX/share
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -dm755 $KF5_PREFIX/share/icons &&
 ln -sfv /usr/share/icons/hicolor $KF5_PREFIX/share/icons
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mv /opt/kf5{,-5.53.0}
 ln -sfv kf5-5.53.0 /opt/kf5
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

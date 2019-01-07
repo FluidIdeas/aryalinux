@@ -36,7 +36,7 @@ BUILD_STATIC_LIB=0 \
 MANDIR=/usr/share/man
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make PREFIX=/usr \
 BUILD_STATIC_LIB=0 \
 MANDIR=/usr/share/man install &&
@@ -44,16 +44,16 @@ MANDIR=/usr/share/man install &&
 install -v -m755 -d /usr/share/doc/lm_sensors-3.4.0 &&
 cp -rv README INSTALL doc/* \
 /usr/share/doc/lm_sensors-3.4.0
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 sensors-detect
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

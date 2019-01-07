@@ -34,11 +34,11 @@ sed -i '/stdlib/a #include <limits.h>' transport.hxx &&
 make all rpl8 btcflash
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make prefix=/usr install &&
 install -v -m644 -D index.html \
 /usr/share/doc/dvd+rw-tools-7.1/index.html
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

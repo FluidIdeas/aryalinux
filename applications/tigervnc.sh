@@ -69,7 +69,7 @@ make &&
 popd
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 #Install viewer
 make install &&
 
@@ -79,14 +79,14 @@ make install &&
 popd &&
 
 [ -e /usr/bin/Xvnc ] || ln -svf $XORG_PREFIX/bin/Xvnc /usr/bin/Xvnc
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /usr/share/applications/vncviewer.desktop << "EOF"
 [Desktop Entry]
 Type=Application
@@ -101,7 +101,7 @@ EOF
 
 install -vm644 ../media/icons/tigervnc_24.png /usr/share/pixmaps &&
 ln -sfv tigervnc_24.png /usr/share/pixmaps/tigervnc.png
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

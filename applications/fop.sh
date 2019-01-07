@@ -51,12 +51,12 @@ ant all javadocs &&
 mv build/javadocs .
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -d -m755 -o root -g root /opt/fop-2.3 &&
 cp -vR build conf examples fop* javadocs lib /opt/fop-2.3 &&
 chmod a+x /opt/fop-2.3/fop &&
 ln -v -sfn fop-2.3 /opt/fop
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

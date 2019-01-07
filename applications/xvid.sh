@@ -36,7 +36,7 @@ sed -i 's/^LN_S=@LN_S@/& -f -v/' platform.inc.in &&
 make
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 sed -i '/libdir.*STATIC_LIB/ s/^/#/' Makefile &&
 make install &&
 
@@ -46,7 +46,7 @@ install -v -m755 -d /usr/share/doc/xvidcore-1.3.5/examples &&
 install -v -m644 ../../doc/* /usr/share/doc/xvidcore-1.3.5 &&
 install -v -m644 ../../examples/* \
 /usr/share/doc/xvidcore-1.3.5/examples
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

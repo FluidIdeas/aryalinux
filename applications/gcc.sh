@@ -53,7 +53,7 @@ make -k check
 ../contrib/test_summary
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
 mkdir -pv /usr/share/gdb/auto-load/usr/lib &&
@@ -61,19 +61,19 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib &&
 
 chown -v -R root:root \
 /usr/lib/gcc/*linux-gnu/8.2.0/include{,-fixed}
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ln -v -sf ../usr/bin/cpp /lib &&
 ln -v -sf gcc /usr/bin/cc &&
 install -v -dm755 /usr/lib/bfd-plugins &&
 ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/8.2.0/liblto_plugin.so /usr/lib/bfd-plugins/
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh

@@ -36,13 +36,13 @@ fi
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 groupadd -g 26 smmsp &&
 useradd -c "Sendmail Daemon" -g smmsp -d /dev/null \
 -s /bin/false -u 26 smmsp &&
 chmod -v 1777 /var/mail &&
 install -v -m700 -d /var/spool/mqueue
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -72,7 +72,7 @@ cp generic-linux.mc sendmail.mc &&
 sh Build sendmail.cf
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -d -m755 /etc/mail &&
 sh Build install-cf &&
 
@@ -101,7 +101,7 @@ install -v -m644 sendmail/aliases.5 /usr/share/man/man5 &&
 install -v -m644 sendmail/mailq.1 /usr/share/man/man1 &&
 install -v -m644 sendmail/newaliases.1 /usr/share/man/man1 &&
 install -v -m644 vacation/vacation.1 /usr/share/man/man1
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -111,18 +111,18 @@ sed -i 's/groff/GROFF_NO_SGR=1 groff/' Makefile &&
 make op.txt op.pdf
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -d -m755 /usr/share/doc/sendmail-8.15.2 &&
 install -v -m644 op.ps op.txt op.pdf /usr/share/doc/sendmail-8.15.2 &&
 cd ../..
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 echo $(hostname) > /etc/mail/local-host-names
 cat > /etc/mail/aliases << "EOF"
 postmaster: root
@@ -130,26 +130,26 @@ MAILER-DAEMON: root
 
 EOF
 newaliases
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cd /etc/mail &&
 m4 m4/cf.m4 sendmail.mc > sendmail.cf
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
 sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"EOF"
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install-sendmail
-EOF
+ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
