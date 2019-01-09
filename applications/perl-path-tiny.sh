@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.108.tar.gz
 
-NAME=path::tiny-0.108
+NAME=perl-path-tiny
 VERSION=0.108
 URL=https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.108.tar.gz
 

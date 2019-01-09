@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/D/DC/DCANTRELL/Test-Differences-0.64.tar.gz
 
-NAME=test::differences-0.64
+NAME=perl-test-differences
 VERSION=0.64
 URL=https://www.cpan.org/authors/id/D/DC/DCANTRELL/Test-Differences-0.64.tar.gz
 

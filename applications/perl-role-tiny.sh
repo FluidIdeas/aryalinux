@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/H/HA/HAARG/Role-Tiny-2.000006.tar.gz
 
-NAME=role::tiny-2.000006
+NAME=perl-role-tiny
 VERSION=2.000006
 URL=https://cpan.metacpan.org/authors/id/H/HA/HAARG/Role-Tiny-2.000006.tar.gz
 

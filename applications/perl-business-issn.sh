@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.003.tar.gz
 
-NAME=
+NAME=perl-business-issn
 VERSION=1.003
 URL=https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.003.tar.gz
 

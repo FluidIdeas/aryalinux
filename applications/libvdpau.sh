@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 
 wget -nc https://people.freedesktop.org/~aplattner/vdpau/libvdpau-1.1.1.tar.bz2
 
-NAME=libvdpau-1.1.1
+NAME=libvdpau
 VERSION=1.1.1
 URL=https://people.freedesktop.org/~aplattner/vdpau/libvdpau-1.1.1.tar.bz2
 

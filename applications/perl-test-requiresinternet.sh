@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/M/MA/MALLEN/Test-RequiresInternet-0.05.tar.gz
 
-NAME=test::requiresinternet-0.05
+NAME=perl-test-requiresinternet
 VERSION=0.05
 URL=https://cpan.metacpan.org/authors/id/M/MA/MALLEN/Test-RequiresInternet-0.05.tar.gz
 

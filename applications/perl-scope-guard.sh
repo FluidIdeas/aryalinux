@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/C/CH/CHOCOLATE/Scope-Guard-0.21.tar.gz
 
-NAME=scope::guard-0.21
+NAME=perl-scope-guard
 VERSION=0.21
 URL=https://cpan.metacpan.org/authors/id/C/CH/CHOCOLATE/Scope-Guard-0.21.tar.gz
 

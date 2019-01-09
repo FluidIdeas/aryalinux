@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/A/AU/AUDREYT/Encode-HanExtra-0.23.tar.gz
 
-NAME=
+NAME=perl-encode-hanextra
 VERSION=0.23
 URL=https://www.cpan.org/authors/id/A/AU/AUDREYT/Encode-HanExtra-0.23.tar.gz
 

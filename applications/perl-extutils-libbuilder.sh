@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/A/AM/AMBS/ExtUtils-LibBuilder-0.08.tar.gz
 
-NAME=extutils::libbuilder-0.08
+NAME=perl-extutils-libbuilder
 VERSION=0.08
 URL=https://cpan.metacpan.org/authors/id/A/AM/AMBS/ExtUtils-LibBuilder-0.08.tar.gz
 

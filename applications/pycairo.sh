@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/pygobject/pycairo/releases/download/v1.17.1/pycairo-1.17.1.tar.gz
 
-NAME=pycairo-1.17.1
+NAME=pycairo
 VERSION=1.17.1
 URL=https://github.com/pygobject/pycairo/releases/download/v1.17.1/pycairo-1.17.1.tar.gz
 

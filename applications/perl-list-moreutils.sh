@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-0.428.tar.gz
 
-NAME=
+NAME=perl-list-moreutils
 VERSION=0.428
 URL=https://www.cpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-0.428.tar.gz
 

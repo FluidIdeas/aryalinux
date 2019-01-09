@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Fatal-0.014.tar.gz
 
-NAME=test::fatal-0.014
+NAME=perl-test-fatal
 VERSION=0.014
 URL=https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Fatal-0.014.tar.gz
 

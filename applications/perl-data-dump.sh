@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/G/GA/GAAS/Data-Dump-1.23.tar.gz
 
-NAME=
+NAME=perl-data-dump
 VERSION=1.23
 URL=https://www.cpan.org/authors/id/G/GA/GAAS/Data-Dump-1.23.tar.gz
 

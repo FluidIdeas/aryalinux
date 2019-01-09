@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.060.tar.gz
 
-NAME=
+NAME=perl-io-socket-ssl
 VERSION=2.060
 URL=https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.060.tar.gz
 

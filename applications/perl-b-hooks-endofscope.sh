@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.24.tar.gz
 
-NAME=
+NAME=perl-b-hooks-endofscope
 VERSION=0.24
 URL=https://cpan.metacpan.org/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.24.tar.gz
 

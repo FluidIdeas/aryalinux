@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISMN-1.201.tar.gz
 
-NAME=
+NAME=perl-business-ismn
 VERSION=1.201
 URL=https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISMN-1.201.tar.gz
 

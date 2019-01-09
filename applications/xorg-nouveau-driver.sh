@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.x.org/pub/individual/driver/xf86-video-nouveau-1.0.15.tar.bz2
 
-NAME=
+NAME=xorg-nouveau-driver
 VERSION=1.0.15
 URL=https://www.x.org/pub/individual/driver/xf86-video-nouveau-1.0.15.tar.bz2
 

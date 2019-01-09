@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/pygobject/2.28/pygobject-2.28.7.tar.xz
 
-NAME=pygobject-2.28.7
+NAME=pygobject2
 VERSION=2.28.7
 URL=http://ftp.gnome.org/pub/gnome/sources/pygobject/2.28/pygobject-2.28.7.tar.xz
 

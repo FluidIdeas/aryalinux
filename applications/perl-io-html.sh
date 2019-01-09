@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/C/CJ/CJM/IO-HTML-1.001.tar.gz
 
-NAME=io::html-1.001
+NAME=perl-io-html
 VERSION=1.001
 URL=https://cpan.metacpan.org/authors/id/C/CJ/CJM/IO-HTML-1.001.tar.gz
 

@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc https://files.pythonhosted.org/packages/source/J/Jinja2/Jinja2-2.10.tar.gz
 
-NAME=jinja2-2.10
+NAME=jinja2
 VERSION=2.10
 URL=https://files.pythonhosted.org/packages/source/J/Jinja2/Jinja2-2.10.tar.gz
 

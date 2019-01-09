@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/linux-firmware/
 
-NAME=
+NAME=xorg-amdgpu-driver
 VERSION=firmware
 URL=http://anduin.linuxfromscratch.org/BLFS/linux-firmware/
 

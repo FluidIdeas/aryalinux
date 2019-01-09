@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/M/MA/MARKOV/XML-LibXML-Simple-0.99.tar.gz
 
-NAME=xml::libxml::simple-0.99
+NAME=perl-xml-libxml-simple
 VERSION=0.99
 URL=https://www.cpan.org/authors/id/M/MA/MARKOV/XML-LibXML-Simple-0.99.tar.gz
 

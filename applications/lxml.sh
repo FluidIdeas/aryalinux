@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 
 wget -nc https://files.pythonhosted.org/packages/source/l/lxml/lxml-4.2.5.tar.gz
 
-NAME=lxml-4.2.5
+NAME=lxml
 VERSION=4.2.5
 URL=https://files.pythonhosted.org/packages/source/l/lxml/lxml-4.2.5.tar.gz
 

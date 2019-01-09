@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DM/DMUEY/File-Copy-Recursive-0.44.tar.gz
 
-NAME=file::copy::recursive-0.44
+NAME=perl-file-copy-recursive
 VERSION=0.44
 URL=https://cpan.metacpan.org/authors/id/D/DM/DMUEY/File-Copy-Recursive-0.44.tar.gz
 

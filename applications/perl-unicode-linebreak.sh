@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/N/NE/NEZUMI/Unicode-LineBreak-2019.001.tar.gz
 
-NAME=unicode::linebreak-2019.001
+NAME=perl-unicode-linebreak
 VERSION=2019.001
 URL=https://www.cpan.org/authors/id/N/NE/NEZUMI/Unicode-LineBreak-2019.001.tar.gz
 

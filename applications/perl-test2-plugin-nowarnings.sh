@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Test2-Plugin-NoWarnings-0.06.tar.gz
 
-NAME=test2::plugin::nowarnings-0.06
+NAME=perl-test2-plugin-nowarnings
 VERSION=0.06
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Test2-Plugin-NoWarnings-0.06.tar.gz
 

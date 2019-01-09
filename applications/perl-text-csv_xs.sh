@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/Text-CSV_XS-1.37.tgz
 
-NAME=text::csv_xs-1.37
+NAME=perl-text-csv_xs
 VERSION=1.37
 URL=https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/Text-CSV_XS-1.37.tgz
 

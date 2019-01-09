@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 wget -nc http://xmlsoft.org/sources/libxml2-2.9.8.tar.gz
 
-NAME=libxml2-2.9.8 (for its python2 module)
+NAME=libxml2py2
 VERSION=2.9.8
 URL=http://xmlsoft.org/sources/libxml2-2.9.8.tar.gz
 

@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/linux-firmware/
 
-NAME=xorg ati driver-18.1.0
+NAME=xorg-ati-driver
 VERSION=firmware
 URL=http://anduin.linuxfromscratch.org/BLFS/linux-firmware/
 

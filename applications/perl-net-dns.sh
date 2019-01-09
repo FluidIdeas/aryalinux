@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/N/NL/NLNETLABS/Net-DNS-1.19.tar.gz
 
-NAME=net::dns-1.19
+NAME=perl-net-dns
 VERSION=1.19
 URL=https://www.cpan.org/authors/id/N/NL/NLNETLABS/Net-DNS-1.19.tar.gz
 

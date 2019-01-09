@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/M/MS/MSCHILLI/Log-Log4perl-1.49.tar.gz
 
-NAME=
+NAME=perl-log-log4perl
 VERSION=1.49
 URL=https://www.cpan.org/authors/id/M/MS/MSCHILLI/Log-Log4perl-1.49.tar.gz
 

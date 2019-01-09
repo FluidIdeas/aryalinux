@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Strptime-1.75.tar.gz
 
-NAME=datetime::format::strptime-1.75
+NAME=perl-datetime-format-strptime
 VERSION=1.75
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Strptime-1.75.tar.gz
 

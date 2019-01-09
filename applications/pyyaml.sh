@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 wget -nc http://pyyaml.org/download/pyyaml/PyYAML-3.13.tar.gz
 
-NAME=pyyaml-3.13
+NAME=pyyaml
 VERSION=3.13
 URL=http://pyyaml.org/download/pyyaml/PyYAML-3.13.tar.gz
 

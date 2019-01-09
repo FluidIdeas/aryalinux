@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/M/MA/MARKF/Test-utf8-1.01.tar.gz
 
-NAME=test::utf8-1.01
+NAME=perl-test-utf8
 VERSION=1.01
 URL=https://cpan.metacpan.org/authors/id/M/MA/MARKF/Test-utf8-1.01.tar.gz
 

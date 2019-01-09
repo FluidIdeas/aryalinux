@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/S/SH/SHLOMIF/XML-LibXSLT-1.96.tar.gz
 
-NAME=
+NAME=perl-xml-libxslt
 VERSION=1.96
 URL=https://www.cpan.org/authors/id/S/SH/SHLOMIF/XML-LibXSLT-1.96.tar.gz
 

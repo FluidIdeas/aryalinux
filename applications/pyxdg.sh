@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc https://people.freedesktop.org/~takluyver/pyxdg-0.25.tar.gz
 
-NAME=pyxdg-0.25
+NAME=pyxdg
 VERSION=0.25
 URL=https://people.freedesktop.org/~takluyver/pyxdg-0.25.tar.gz
 

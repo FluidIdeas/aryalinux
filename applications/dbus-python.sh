@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 
 wget -nc https://dbus.freedesktop.org/releases/dbus-python/dbus-python-1.2.8.tar.gz
 
-NAME=d-bus python-1.2.8
+NAME=dbus-python
 VERSION=1.2.8
 URL=https://dbus.freedesktop.org/releases/dbus-python/dbus-python-1.2.8.tar.gz
 

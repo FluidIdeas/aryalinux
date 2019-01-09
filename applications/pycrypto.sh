@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc https://files.pythonhosted.org/packages/source/p/pycrypto/pycrypto-2.6.1.tar.gz
 
-NAME=pycrypto-2.6.1
+NAME=pycrypto
 VERSION=2.6.1
 URL=https://files.pythonhosted.org/packages/source/p/pycrypto/pycrypto-2.6.1.tar.gz
 

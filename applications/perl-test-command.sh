@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/D/DA/DANBOO/Test-Command-0.11.tar.gz
 
-NAME=
+NAME=perl-test-command
 VERSION=0.11
 URL=https://www.cpan.org/authors/id/D/DA/DANBOO/Test-Command-0.11.tar.gz
 

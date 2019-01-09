@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/L/LE/LEONT/File-Slurper-0.012.tar.gz
 
-NAME=
+NAME=perl-file-slurper
 VERSION=0.012
 URL=https://www.cpan.org/authors/id/L/LE/LEONT/File-Slurper-0.012.tar.gz
 

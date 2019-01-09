@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/pyatspi/2.30/pyatspi-2.30.0.tar.xz
 
-NAME=pyatspi2-2.30.0
+NAME=pyatspi2
 VERSION=2.30.0
 URL=http://ftp.gnome.org/pub/gnome/sources/pyatspi/2.30/pyatspi-2.30.0.tar.xz
 

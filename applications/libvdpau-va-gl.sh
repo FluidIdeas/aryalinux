@@ -17,7 +17,7 @@ cd $SOURCE_DIR
 
 wget -nc http://wiki.linuxfromscratch.org/blfs/wiki/libvdpau
 
-NAME=libvdpau-va-gl-0.4.0
+NAME=libvdpau-va-gl
 VERSION=libvdpau
 URL=http://wiki.linuxfromscratch.org/blfs/wiki/libvdpau
 

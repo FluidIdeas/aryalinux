@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/scour-project/scour/archive/v0.37/scour-0.37.tar.gz
 
-NAME=scour-0.37
+NAME=scour
 VERSION=0.37
 URL=https://github.com/scour-project/scour/archive/v0.37/scour-0.37.tar.gz
 

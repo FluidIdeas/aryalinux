@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test2-Suite-0.000115.tar.gz
 
-NAME=test2::suite-0.000115
+NAME=perl-test2-suite
 VERSION=0.000115
 URL=https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test2-Suite-0.000115.tar.gz
 

@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc http://downloads.sourceforge.net/docutils/docutils-0.14.tar.gz
 
-NAME=docutils-0.14
+NAME=docutils
 VERSION=0.14
 URL=http://downloads.sourceforge.net/docutils/docutils-0.14.tar.gz
 

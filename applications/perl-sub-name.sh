@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/E/ET/ETHER/Sub-Name-0.21.tar.gz
 
-NAME=sub::name-0.21
+NAME=perl-sub-name
 VERSION=0.21
 URL=https://cpan.metacpan.org/authors/id/E/ET/ETHER/Sub-Name-0.21.tar.gz
 

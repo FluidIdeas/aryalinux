@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/G/GR/GRANTM/XML-SAX-1.00.tar.gz
 
-NAME=xml::sax-1.00
+NAME=perl-xml-sax
 VERSION=1.00
 URL=https://cpan.metacpan.org/authors/id/G/GR/GRANTM/XML-SAX-1.00.tar.gz
 

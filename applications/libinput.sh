@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.freedesktop.org/software/libinput/libinput-1.12.4.tar.xz
 
-NAME=libinput-1.12.4
+NAME=libinput
 VERSION=1.12.4
 URL=https://www.freedesktop.org/software/libinput/libinput-1.12.4.tar.xz
 

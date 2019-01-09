@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.x.org/pub/individual/driver/xf86-input-vmmouse-13.1.0.tar.bz2
 
-NAME=
+NAME=xorg-vmmouse-driver
 VERSION=13.1.0
 URL=https://www.x.org/pub/individual/driver/xf86-input-vmmouse-13.1.0.tar.bz2
 

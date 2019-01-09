@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/V/VP/VPIT/autovivification-0.18.tar.gz
 
-NAME=autovivification-0.18
+NAME=perl-autovivification
 VERSION=0.18
 URL=https://www.cpan.org/authors/id/V/VP/VPIT/autovivification-0.18.tar.gz
 

@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.x.org/pub/individual/driver/xf86-video-fbdev-0.5.0.tar.bz2
 
-NAME=
+NAME=xorg-fbdev-driver
 VERSION=0.5.0
 URL=https://www.x.org/pub/individual/driver/xf86-video-fbdev-0.5.0.tar.bz2
 

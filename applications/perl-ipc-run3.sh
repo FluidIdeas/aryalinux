@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/R/RJ/RJBS/IPC-Run3-0.048.tar.gz
 
-NAME=ipc::run3-0.048
+NAME=perl-ipc-run3
 VERSION=0.048
 URL=https://www.cpan.org/authors/id/R/RJ/RJBS/IPC-Run3-0.048.tar.gz
 

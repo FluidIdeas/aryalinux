@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/linuxwacom/xf86-input-wacom-0.36.0.tar.bz2
 
-NAME=
+NAME=xorg-wacom-driver
 VERSION=0.36.0
 URL=https://downloads.sourceforge.net/linuxwacom/xf86-input-wacom-0.36.0.tar.bz2
 

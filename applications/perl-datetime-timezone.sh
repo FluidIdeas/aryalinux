@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.21.tar.gz
 
-NAME=
+NAME=perl-datetime-timezone
 VERSION=2.21
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.21.tar.gz
 

@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302140.tar.gz
 
-NAME=test::simple-1.302140
+NAME=perl-test-simple
 VERSION=1.302140
 URL=https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302140.tar.gz
 

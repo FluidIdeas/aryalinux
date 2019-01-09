@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/Net-SSLeay-1.85-openssl_1.1.1-1.patch
 
-NAME=net::ssleay-1.85
+NAME=perl-net-ssleay
 VERSION=1.patch
 URL=http://www.linuxfromscratch.org/patches/blfs/svn/Net-SSLeay-1.85-openssl_1.1.1-1.patch
 

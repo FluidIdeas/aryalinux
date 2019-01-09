@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/J/JO/JOSEPHW/XML-Writer-0.625.tar.gz
 
-NAME=
+NAME=perl-xml-writer
 VERSION=0.625
 URL=https://www.cpan.org/authors/id/J/JO/JOSEPHW/XML-Writer-0.625.tar.gz
 

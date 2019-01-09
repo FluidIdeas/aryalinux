@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/E/ET/ETHER/URI-1.74.tar.gz
 
-NAME=uri-1.74
+NAME=perl-uri
 VERSION=1.74
 URL=https://www.cpan.org/authors/id/E/ET/ETHER/URI-1.74.tar.gz
 

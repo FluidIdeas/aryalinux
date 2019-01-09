@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc https://pypi.io/packages/source/s/six/six-1.11.0.tar.gz
 
-NAME=six-1.11.0
+NAME=six
 VERSION=1.11.0
 URL=https://pypi.io/packages/source/s/six/six-1.11.0.tar.gz
 

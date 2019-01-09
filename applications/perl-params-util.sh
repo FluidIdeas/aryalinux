@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/A/AD/ADAMK/Params-Util-1.07.tar.gz
 
-NAME=params::util-1.07
+NAME=perl-params-util
 VERSION=1.07
 URL=https://cpan.metacpan.org/authors/id/A/AD/ADAMK/Params-Util-1.07.tar.gz
 

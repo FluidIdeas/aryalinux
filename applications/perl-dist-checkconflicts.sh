@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DO/DOY/Dist-CheckConflicts-0.11.tar.gz
 
-NAME=dist::checkconflicts-0.11
+NAME=perl-dist-checkconflicts
 VERSION=0.11
 URL=https://cpan.metacpan.org/authors/id/D/DO/DOY/Dist-CheckConflicts-0.11.tar.gz
 
