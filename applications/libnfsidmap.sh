@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 wget -nc https://fedorapeople.org/~steved/libnfsidmap/0.26/libnfsidmap-0.26.tar.bz2
 
 NAME=libnfsidmap
-VERSION=0.26.
+VERSION=0.26
 URL=https://fedorapeople.org/~steved/libnfsidmap/0.26/libnfsidmap-0.26.tar.bz2
 
 if [ ! -z $URL ]

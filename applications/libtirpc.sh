@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 wget -nc https://downloads.sourceforge.net/libtirpc/libtirpc-1.1.4.tar.bz2
 
 NAME=libtirpc
-VERSION=1.1.4.
+VERSION=1.1.4
 URL=https://downloads.sourceforge.net/libtirpc/libtirpc-1.1.4.tar.bz2
 
 if [ ! -z $URL ]

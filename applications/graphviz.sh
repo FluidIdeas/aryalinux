@@ -34,7 +34,7 @@ wget -nc http://graphviz.gitlab.io/pub/graphviz/stable/SOURCES/graphviz.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/graphviz-2.40.1-qt5-1.patch
 
 NAME=graphviz
-VERSION=""
+VERSION=graphviz
 URL=http://graphviz.gitlab.io/pub/graphviz/stable/SOURCES/graphviz.tar.gz
 
 if [ ! -z $URL ]

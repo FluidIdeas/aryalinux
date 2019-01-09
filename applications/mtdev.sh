@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 wget -nc http://bitmath.org/code/mtdev/mtdev-1.1.5.tar.bz2
 
 NAME=mtdev
-VERSION=1.1.5.
+VERSION=1.1.5
 URL=http://bitmath.org/code/mtdev/mtdev-1.1.5.tar.bz2
 
 if [ ! -z $URL ]

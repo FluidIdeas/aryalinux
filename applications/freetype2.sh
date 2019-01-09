@@ -17,7 +17,7 @@ wget -nc https://downloads.sourceforge.net/freetype/freetype-2.9.1.tar.bz2
 wget -nc https://downloads.sourceforge.net/freetype/freetype-doc-2.9.1.tar.bz2
 
 NAME=freetype2
-VERSION=2.9.1.
+VERSION=2.9.1
 URL=https://downloads.sourceforge.net/freetype/freetype-2.9.1.tar.bz2
 
 if [ ! -z $URL ]

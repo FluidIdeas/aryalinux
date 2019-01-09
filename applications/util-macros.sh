@@ -14,7 +14,7 @@ wget -nc https://www.x.org/pub/individual/util/util-macros-1.19.2.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/util/util-macros-1.19.2.tar.bz2
 
 NAME=util-macros
-VERSION=1.19.2.
+VERSION=1.19.2
 URL=https://www.x.org/pub/individual/util/util-macros-1.19.2.tar.bz2
 
 if [ ! -z $URL ]

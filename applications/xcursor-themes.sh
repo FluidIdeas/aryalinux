@@ -14,7 +14,7 @@ wget -nc https://www.x.org/pub/individual/data/xcursor-themes-1.0.5.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/data/xcursor-themes-1.0.5.tar.bz2
 
 NAME=xcursor-themes
-VERSION=1.0.5.
+VERSION=1.0.5
 URL=https://www.x.org/pub/individual/data/xcursor-themes-1.0.5.tar.bz2
 
 if [ ! -z $URL ]

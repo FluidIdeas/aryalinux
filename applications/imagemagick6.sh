@@ -45,7 +45,7 @@ wget -nc http://www.mcmurchy.com/ralcgm/ralcgm-3.51.tar.gz
 wget -nc http://www.mcmurchy.com/urt/urt-3.1b.tar.gz
 
 NAME=imagemagick6
-VERSION=6.9.10-10
+VERSION=10
 URL=https://www.imagemagick.org/download/releases/ImageMagick-6.9.10-10.tar.xz
 
 if [ ! -z $URL ]

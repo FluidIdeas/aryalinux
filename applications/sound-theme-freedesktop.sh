@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 wget -nc https://people.freedesktop.org/~mccann/dist/sound-theme-freedesktop-0.8.tar.bz2
 
 NAME=sound-theme-freedesktop
-VERSION=0.8.
+VERSION=0.8
 URL=https://people.freedesktop.org/~mccann/dist/sound-theme-freedesktop-0.8.tar.bz2
 
 if [ ! -z $URL ]

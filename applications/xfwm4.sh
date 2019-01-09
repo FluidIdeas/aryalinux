@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 wget -nc http://archive.xfce.org/src/xfce/xfwm4/4.12/xfwm4-4.12.5.tar.bz2
 
 NAME=xfwm4
-VERSION=""
+VERSION=4.12.5
 URL=http://archive.xfce.org/src/xfce/xfwm4/4.12/xfwm4-4.12.5.tar.bz2
 
 if [ ! -z $URL ]

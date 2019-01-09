@@ -40,7 +40,7 @@ wget -nc https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.8.tar.bz2
 wget -nc http://anduin.linuxfromscratch.org/BLFS/gimp/gimp-help-2018-08-21.tar.xz
 
 NAME=gimp
-VERSION=2.10.8.
+VERSION=2.10.8
 URL=https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.8.tar.bz2
 
 if [ ! -z $URL ]

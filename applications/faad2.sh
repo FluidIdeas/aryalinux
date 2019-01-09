@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 wget -nc https://downloads.sourceforge.net/faac/faad2-2.8.8.tar.gz
 
 NAME=faad2
-VERSION=""
+VERSION=2.8.8
 URL=https://downloads.sourceforge.net/faac/faad2-2.8.8.tar.gz
 
 if [ ! -z $URL ]

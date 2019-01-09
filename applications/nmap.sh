@@ -19,7 +19,7 @@ cd $SOURCE_DIR
 wget -nc http://nmap.org/dist/nmap-7.70.tar.bz2
 
 NAME=nmap
-VERSION=7.70.
+VERSION=7.70
 URL=http://nmap.org/dist/nmap-7.70.tar.bz2
 
 if [ ! -z $URL ]

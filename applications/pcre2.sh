@@ -15,7 +15,7 @@ wget -nc https://downloads.sourceforge.net/pcre/pcre2-10.32.tar.bz2
 wget -nc ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre2-10.32.tar.bz2
 
 NAME=pcre2
-VERSION=""
+VERSION=10.32
 URL=https://downloads.sourceforge.net/pcre/pcre2-10.32.tar.bz2
 
 if [ ! -z $URL ]

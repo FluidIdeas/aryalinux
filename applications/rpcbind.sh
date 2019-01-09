@@ -14,7 +14,7 @@ wget -nc https://downloads.sourceforge.net/rpcbind/rpcbind-1.2.5.tar.bz2
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/rpcbind-1.2.5-vulnerability_fixes-1.patch
 
 NAME=rpcbind
-VERSION=1.2.5.
+VERSION=1.2.5
 URL=https://downloads.sourceforge.net/rpcbind/rpcbind-1.2.5.tar.bz2
 
 if [ ! -z $URL ]

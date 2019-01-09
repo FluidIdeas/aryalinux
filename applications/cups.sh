@@ -25,7 +25,7 @@ cd $SOURCE_DIR
 wget -nc https://github.com/apple/cups/releases/download/v2.2.10/cups-2.2.10-source.tar.gz
 
 NAME=cups
-VERSION=2.2.10-source
+VERSION=source
 URL=https://github.com/apple/cups/releases/download/v2.2.10/cups-2.2.10-source.tar.gz
 
 if [ ! -z $URL ]

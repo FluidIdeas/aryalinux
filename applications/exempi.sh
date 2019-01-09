@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 wget -nc https://libopenraw.freedesktop.org/download/exempi-2.4.5.tar.bz2
 
 NAME=exempi
-VERSION=2.4.5.
+VERSION=2.4.5
 URL=https://libopenraw.freedesktop.org/download/exempi-2.4.5.tar.bz2
 
 if [ ! -z $URL ]

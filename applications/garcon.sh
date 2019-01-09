@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 wget -nc http://archive.xfce.org/src/xfce/garcon/0.6/garcon-0.6.2.tar.bz2
 
 NAME=garcon
-VERSION=0.6.2.
+VERSION=0.6.2
 URL=http://archive.xfce.org/src/xfce/garcon/0.6/garcon-0.6.2.tar.bz2
 
 if [ ! -z $URL ]

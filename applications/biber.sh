@@ -39,7 +39,7 @@ wget -nc https://github.com/plk/biber/archive/v2.12.tar.gz
 wget -nc http://sourceforge.net/projects/biblatex/files/biblatex-3.12/biblatex-3.12.tds.tgz
 
 NAME=biber
-VERSION=""
+VERSION=2.12
 URL=https://github.com/plk/biber/archive/v2.12.tar.gz
 
 if [ ! -z $URL ]
@@ -57,8 +57,7 @@ fi
 cd $DIRECTORY
 fi
 
-wget -c https://github.com/plk/biber/archive/v2.12.tar.gz \
--O biber-2.12.tar.gz
+
 perl ./Build.PL &&
 ./Build
 

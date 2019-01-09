@@ -17,7 +17,7 @@ cd $SOURCE_DIR
 wget -nc https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2018.4.tar.bz2
 
 NAME=xorgproto
-VERSION=2018.4.
+VERSION=2018.4
 URL=https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2018.4.tar.bz2
 
 if [ ! -z $URL ]

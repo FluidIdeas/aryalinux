@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 wget -nc https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.8.4.tar.bz2
 
 NAME=libgcrypt
-VERSION=1.8.4.
+VERSION=1.8.4
 URL=https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.8.4.tar.bz2
 
 if [ ! -z $URL ]

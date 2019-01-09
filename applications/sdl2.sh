@@ -18,7 +18,7 @@ cd $SOURCE_DIR
 wget -nc http://www.libsdl.org/release/SDL2-2.0.9.tar.gz
 
 NAME=sdl2
-VERSION=""
+VERSION=2.0.9
 URL=http://www.libsdl.org/release/SDL2-2.0.9.tar.gz
 
 if [ ! -z $URL ]

@@ -14,7 +14,7 @@ wget -nc https://www.x.org/pub/individual/lib/libXau-1.0.8.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/lib/libXau-1.0.8.tar.bz2
 
 NAME=libxau
-VERSION=1.0.8.
+VERSION=1.0.8
 URL=https://www.x.org/pub/individual/lib/libXau-1.0.8.tar.bz2
 
 if [ ! -z $URL ]

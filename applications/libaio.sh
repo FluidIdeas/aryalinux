@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 wget -nc http://ftp.de.debian.org/debian/pool/main/liba/libaio/libaio_0.3.111.orig.tar.gz
 
 NAME=libaio
-VERSION=""
+VERSION=libaio_0.3.111.orig
 URL=http://ftp.de.debian.org/debian/pool/main/liba/libaio/libaio_0.3.111.orig.tar.gz
 
 if [ ! -z $URL ]

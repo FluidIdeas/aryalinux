@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 wget -nc http://download.librdf.org/source/raptor2-2.0.15.tar.gz
 
 NAME=raptor
-VERSION=""
+VERSION=2.0.15
 URL=http://download.librdf.org/source/raptor2-2.0.15.tar.gz
 
 if [ ! -z $URL ]

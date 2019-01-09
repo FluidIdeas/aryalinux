@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 wget -nc https://xcb.freedesktop.org/dist/xcb-util-image-0.4.0.tar.bz2
 
 NAME=xcb-util-image
-VERSION=0.4.0.
+VERSION=0.4.0
 URL=https://xcb.freedesktop.org/dist/xcb-util-image-0.4.0.tar.bz2
 
 if [ ! -z $URL ]

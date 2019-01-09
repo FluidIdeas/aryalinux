@@ -20,7 +20,7 @@ cd $SOURCE_DIR
 wget -nc http://feh.finalrewind.org/feh-3.1.1.tar.bz2
 
 NAME=feh
-VERSION=3.1.1.
+VERSION=3.1.1
 URL=http://feh.finalrewind.org/feh-3.1.1.tar.bz2
 
 if [ ! -z $URL ]

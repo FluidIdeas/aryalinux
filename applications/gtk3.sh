@@ -30,7 +30,7 @@ wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.2.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.2.tar.xz
 
 NAME=gtk3
-VERSION=""
+VERSION=3.24.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.2.tar.xz
 
 if [ ! -z $URL ]

@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 wget -nc https://gitlab.com/soundtouch/soundtouch/-/archive/2.1.0/soundtouch-2.1.0.tar.bz2
 
 NAME=soundtouch
-VERSION=2.1.0.
+VERSION=2.1.0
 URL=https://gitlab.com/soundtouch/soundtouch/-/archive/2.1.0/soundtouch-2.1.0.tar.bz2
 
 if [ ! -z $URL ]

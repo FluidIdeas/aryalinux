@@ -13,7 +13,7 @@ wget -nc https://hewlettpackard.github.io/wireless-tools/wireless_tools.29.tar.g
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/wireless_tools-29-fix_iwlist_scanning-1.patch
 
 NAME=wireless_tools
-VERSION=""
+VERSION=wireless_tools.29
 URL=https://hewlettpackard.github.io/wireless-tools/wireless_tools.29.tar.gz
 
 if [ ! -z $URL ]

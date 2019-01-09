@@ -17,7 +17,7 @@ wget -nc http://ftp.gnome.org/pub/gnome/sources/libglade/2.6/libglade-2.6.4.tar.
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libglade/2.6/libglade-2.6.4.tar.bz2
 
 NAME=libglade
-VERSION=2.6.4.
+VERSION=2.6.4
 URL=http://ftp.gnome.org/pub/gnome/sources/libglade/2.6/libglade-2.6.4.tar.bz2
 
 if [ ! -z $URL ]

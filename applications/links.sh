@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 wget -nc http://links.twibright.com/download/links-2.17.tar.bz2
 
 NAME=links
-VERSION=2.17.
+VERSION=2.17
 URL=http://links.twibright.com/download/links-2.17.tar.bz2
 
 if [ ! -z $URL ]

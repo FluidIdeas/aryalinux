@@ -17,7 +17,7 @@ cd $SOURCE_DIR
 wget -nc https://downloads.sourceforge.net/linuxwacom/libwacom-0.29.tar.bz2
 
 NAME=libwacom
-VERSION=0.29.
+VERSION=0.29
 URL=https://downloads.sourceforge.net/linuxwacom/libwacom-0.29.tar.bz2
 
 if [ ! -z $URL ]

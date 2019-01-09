@@ -33,7 +33,7 @@ wget -nc ftp://ftp.mirrorservice.org/sites/distfiles.gentoo.org/distfiles/transc
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/transcode-1.1.7-ffmpeg4-1.patch
 
 NAME=transcode
-VERSION=1.1.7.
+VERSION=1.1.7
 URL=https://sources.archlinux.org/other/community/transcode/transcode-1.1.7.tar.bz2
 
 if [ ! -z $URL ]

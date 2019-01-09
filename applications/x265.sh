@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 wget -nc https://bitbucket.org/multicoreware/x265/downloads/x265_2.9.tar.gz
 
 NAME=x265
-VERSION=""
+VERSION=x265_2.9
 URL=https://bitbucket.org/multicoreware/x265/downloads/x265_2.9.tar.gz
 
 if [ ! -z $URL ]

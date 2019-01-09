@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 wget -nc https://archive.apache.org/dist/serf/serf-1.3.9.tar.bz2
 
 NAME=serf
-VERSION=1.3.9.
+VERSION=1.3.9
 URL=https://archive.apache.org/dist/serf/serf-1.3.9.tar.bz2
 
 if [ ! -z $URL ]

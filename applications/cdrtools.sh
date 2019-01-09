@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 wget -nc https://downloads.sourceforge.net/cdrtools/cdrtools-3.02a09.tar.bz2
 
 NAME=cdrtools
-VERSION=3.02a09.
+VERSION=3.02a09
 URL=https://downloads.sourceforge.net/cdrtools/cdrtools-3.02a09.tar.bz2
 
 if [ ! -z $URL ]

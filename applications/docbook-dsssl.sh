@@ -19,7 +19,7 @@ wget -nc ftp://ftp.mirrorservice.org/sites/distfiles.gentoo.org/distfiles/docboo
 wget -nc https://downloads.sourceforge.net/docbook/docbook-dsssl-doc-1.79.tar.bz2
 
 NAME=docbook-dsssl
-VERSION=1.79.
+VERSION=1.79
 URL=https://downloads.sourceforge.net/docbook/docbook-dsssl-1.79.tar.bz2
 
 if [ ! -z $URL ]

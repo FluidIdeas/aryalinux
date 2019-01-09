@@ -19,7 +19,7 @@ cd $SOURCE_DIR
 wget -nc http://ftp.vim.org/vim/unix/vim-8.1.tar.bz2
 
 NAME=vim
-VERSION=8.1.
+VERSION=8.1
 URL=http://ftp.vim.org/vim/unix/vim-8.1.tar.bz2
 
 if [ ! -z $URL ]

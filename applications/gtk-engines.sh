@@ -16,7 +16,7 @@ wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk-engines/2.20/gtk-engines-2.2
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk-engines/2.20/gtk-engines-2.20.2.tar.bz2
 
 NAME=gtk-engines
-VERSION=2.20.2.
+VERSION=2.20.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gtk-engines/2.20/gtk-engines-2.20.2.tar.bz2
 
 if [ ! -z $URL ]

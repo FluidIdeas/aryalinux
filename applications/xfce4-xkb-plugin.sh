@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 wget -nc http://archive.xfce.org/src/panel-plugins/xfce4-xkb-plugin/0.7/xfce4-xkb-plugin-0.7.1.tar.bz2
 
 NAME=xfce4-xkb-plugin
-VERSION=0.7.1.
+VERSION=0.7.1
 URL=http://archive.xfce.org/src/panel-plugins/xfce4-xkb-plugin/0.7/xfce4-xkb-plugin-0.7.1.tar.bz2
 
 if [ ! -z $URL ]

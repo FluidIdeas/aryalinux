@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 wget -nc http://download.kde.org/stable/apps/KDE4.x/admin/polkit-qt-1-0.112.0.tar.bz2
 
 NAME=polkit-qt
-VERSION=1-0.112.0.
+VERSION=0.112.0
 URL=http://download.kde.org/stable/apps/KDE4.x/admin/polkit-qt-1-0.112.0.tar.bz2
 
 if [ ! -z $URL ]

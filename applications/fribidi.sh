@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 wget -nc https://github.com/fribidi/fribidi/releases/download/v1.0.5/fribidi-1.0.5.tar.bz2
 
 NAME=fribidi
-VERSION=1.0.5.
+VERSION=1.0.5
 URL=https://github.com/fribidi/fribidi/releases/download/v1.0.5/fribidi-1.0.5.tar.bz2
 
 if [ ! -z $URL ]

@@ -17,7 +17,7 @@ cd $SOURCE_DIR
 wget -nc https://github.com/nghttp2/nghttp2/releases/download/v1.35.1/nghttp2-1.35.1.tar.xz
 
 NAME=nghttp2
-VERSION=""
+VERSION=1.35.1
 URL=https://github.com/nghttp2/nghttp2/releases/download/v1.35.1/nghttp2-1.35.1.tar.xz
 
 if [ ! -z $URL ]

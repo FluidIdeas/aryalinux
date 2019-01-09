@@ -29,7 +29,7 @@ wget -nc https://www.x.org/pub/individual/xserver/xorg-server-1.20.3.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/xserver/xorg-server-1.20.3.tar.bz2
 
 NAME=xorg-server
-VERSION=1.20.3.
+VERSION=1.20.3
 URL=https://www.x.org/pub/individual/xserver/xorg-server-1.20.3.tar.bz2
 
 if [ ! -z $URL ]

@@ -18,7 +18,7 @@ wget -nc http://www.w3.org/XML/Test/xmlts20130923.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/libxml2-2.9.8-python3_hack-1.patch
 
 NAME=libxml2
-VERSION=""
+VERSION=2.9.8
 URL=http://xmlsoft.org/sources/libxml2-2.9.8.tar.gz
 
 if [ ! -z $URL ]

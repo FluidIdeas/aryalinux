@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 wget -nc https://github.com/libpwquality/libpwquality/releases/download/libpwquality-1.4.0/libpwquality-1.4.0.tar.bz2
 
 NAME=libpwquality
-VERSION=1.4.0.
+VERSION=1.4.0
 URL=https://github.com/libpwquality/libpwquality/releases/download/libpwquality-1.4.0/libpwquality-1.4.0.tar.bz2
 
 if [ ! -z $URL ]

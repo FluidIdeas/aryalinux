@@ -23,7 +23,7 @@ cd $SOURCE_DIR
 wget -nc https://archive.apache.org/dist/subversion/subversion-1.11.0.tar.bz2
 
 NAME=subversion
-VERSION=1.11.0.
+VERSION=1.11.0
 URL=https://archive.apache.org/dist/subversion/subversion-1.11.0.tar.bz2
 
 if [ ! -z $URL ]

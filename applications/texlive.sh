@@ -30,7 +30,7 @@ wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/texlive-20180414-sourc
 wget -nc https://cpan.metacpan.org/authors/id/S/SR/SREZIC/Tk-804.034.tar.gz
 
 NAME=texlive
-VERSION=20180414-source
+VERSION=source
 URL=ftp://tug.org/texlive/historic/2018/texlive-20180414-source.tar.xz
 
 if [ ! -z $URL ]

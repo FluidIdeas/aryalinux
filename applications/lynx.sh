@@ -17,7 +17,7 @@ cd $SOURCE_DIR
 wget -nc https://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.9rel.1.tar.bz2
 
 NAME=lynx
-VERSION=""
+VERSION=lynx2.8.9rel.1
 URL=https://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.9rel.1.tar.bz2
 
 if [ ! -z $URL ]

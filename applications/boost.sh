@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 wget -nc https://dl.bintray.com/boostorg/release/1.69.0/source/boost_1_69_0.tar.bz2
 
 NAME=boost
-VERSION=""
+VERSION=boost_1_69_0
 URL=https://dl.bintray.com/boostorg/release/1.69.0/source/boost_1_69_0.tar.bz2
 
 if [ ! -z $URL ]

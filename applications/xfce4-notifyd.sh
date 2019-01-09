@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 wget -nc http://archive.xfce.org/src/apps/xfce4-notifyd/0.4/xfce4-notifyd-0.4.3.tar.bz2
 
 NAME=xfce4-notifyd
-VERSION=0.4.3.
+VERSION=0.4.3
 URL=http://archive.xfce.org/src/apps/xfce4-notifyd/0.4/xfce4-notifyd-0.4.3.tar.bz2
 
 if [ ! -z $URL ]

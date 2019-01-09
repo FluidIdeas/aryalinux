@@ -22,7 +22,7 @@ cd $SOURCE_DIR
 wget -nc http://archive.xfce.org/src/xfce/thunar/1.7/Thunar-1.7.0.tar.bz2
 
 NAME=thunar
-VERSION=1.7.0.
+VERSION=1.7.0
 URL=http://archive.xfce.org/src/xfce/thunar/1.7/Thunar-1.7.0.tar.bz2
 
 if [ ! -z $URL ]

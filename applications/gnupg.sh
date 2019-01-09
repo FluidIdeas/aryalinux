@@ -25,7 +25,7 @@ cd $SOURCE_DIR
 wget -nc https://www.gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.12.tar.bz2
 
 NAME=gnupg
-VERSION=2.2.12.
+VERSION=2.2.12
 URL=https://www.gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.12.tar.bz2
 
 if [ ! -z $URL ]

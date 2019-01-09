@@ -19,7 +19,7 @@ cd $SOURCE_DIR
 wget -nc https://kerberos.org/dist/krb5/1.16/krb5-1.16.2.tar.gz
 
 NAME=mitkrb
-VERSION=""
+VERSION=1.16.2
 URL=https://kerberos.org/dist/krb5/1.16/krb5-1.16.2.tar.gz
 
 if [ ! -z $URL ]

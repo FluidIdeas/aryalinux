@@ -19,7 +19,7 @@ cd $SOURCE_DIR
 wget -nc http://archive.xfce.org/src/xfce/thunar-volman/0.8/thunar-volman-0.8.1.tar.bz2
 
 NAME=thunar-volman
-VERSION=0.8.1.
+VERSION=0.8.1
 URL=http://archive.xfce.org/src/xfce/thunar-volman/0.8/thunar-volman-0.8.1.tar.bz2
 
 if [ ! -z $URL ]

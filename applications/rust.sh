@@ -17,7 +17,7 @@ cd $SOURCE_DIR
 wget -nc https://static.rust-lang.org/dist/rustc-1.29.2-src.tar.gz
 
 NAME=rust
-VERSION=1.29.2-src
+VERSION=src
 URL=https://static.rust-lang.org/dist/rustc-1.29.2-src.tar.gz
 
 if [ ! -z $URL ]

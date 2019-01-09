@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 wget -nc https://github.com/htacg/tidy-html5/archive/5.6.0/tidy-html5-5.6.0.tar.gz
 
 NAME=tidy-html5
-VERSION=html5-5.6.0
+VERSION=5.6.0
 URL=https://github.com/htacg/tidy-html5/archive/5.6.0/tidy-html5-5.6.0.tar.gz
 
 if [ ! -z $URL ]

@@ -15,7 +15,7 @@ wget -nc ftp://ftp.gnu.org/gnu/clisp/latest/clisp-2.49.tar.bz2
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/clisp-2.49-readline7_fixes-1.patch
 
 NAME=clisp
-VERSION=2.49.
+VERSION=2.49
 URL=https://ftp.gnu.org/gnu/clisp/latest/clisp-2.49.tar.bz2
 
 if [ ! -z $URL ]

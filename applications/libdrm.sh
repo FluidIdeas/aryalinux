@@ -17,7 +17,7 @@ cd $SOURCE_DIR
 wget -nc https://dri.freedesktop.org/libdrm/libdrm-2.4.96.tar.bz2
 
 NAME=libdrm
-VERSION=2.4.96.
+VERSION=2.4.96
 URL=https://dri.freedesktop.org/libdrm/libdrm-2.4.96.tar.bz2
 
 if [ ! -z $URL ]

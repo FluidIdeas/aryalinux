@@ -15,7 +15,7 @@ wget -nc http://ftp.gnome.org/pub/gnome/sources/rarian/0.8/rarian-0.8.1.tar.bz2
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/rarian/0.8/rarian-0.8.1.tar.bz2
 
 NAME=rarian
-VERSION=0.8.1.
+VERSION=0.8.1
 URL=http://ftp.gnome.org/pub/gnome/sources/rarian/0.8/rarian-0.8.1.tar.bz2
 
 if [ ! -z $URL ]

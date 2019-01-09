@@ -18,7 +18,7 @@ cd $SOURCE_DIR
 wget -nc https://github.com/Consolekit2/ConsoleKit2/releases/download/1.2.1/ConsoleKit2-1.2.1.tar.bz2
 
 NAME=consolekit
-VERSION=""
+VERSION=1.2.1
 URL=https://github.com/Consolekit2/ConsoleKit2/releases/download/1.2.1/ConsoleKit2-1.2.1.tar.bz2
 
 if [ ! -z $URL ]

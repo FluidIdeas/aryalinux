@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 wget -nc https://downloads.sourceforge.net/p7zip/p7zip_16.02_src_all.tar.bz2
 
 NAME=p7zip
-VERSION=""
+VERSION=p7zip_16.02_src_all
 URL=https://downloads.sourceforge.net/p7zip/p7zip_16.02_src_all.tar.bz2
 
 if [ ! -z $URL ]

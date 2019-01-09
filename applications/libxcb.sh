@@ -17,7 +17,7 @@ cd $SOURCE_DIR
 wget -nc https://xcb.freedesktop.org/dist/libxcb-1.13.1.tar.bz2
 
 NAME=libxcb
-VERSION=1.13.1.
+VERSION=1.13.1
 URL=https://xcb.freedesktop.org/dist/libxcb-1.13.1.tar.bz2
 
 if [ ! -z $URL ]

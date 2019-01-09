@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 wget -nc https://xcb.freedesktop.org/dist/xcb-util-wm-0.4.1.tar.bz2
 
 NAME=xcb-util-wm
-VERSION=0.4.1.
+VERSION=0.4.1
 URL=https://xcb.freedesktop.org/dist/xcb-util-wm-0.4.1.tar.bz2
 
 if [ ! -z $URL ]

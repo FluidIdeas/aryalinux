@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 wget -nc https://xcb.freedesktop.org/dist/xcb-proto-1.13.tar.bz2
 
 NAME=xcb-proto
-VERSION=1.13.
+VERSION=1.13
 URL=https://xcb.freedesktop.org/dist/xcb-proto-1.13.tar.bz2
 
 if [ ! -z $URL ]

@@ -20,7 +20,7 @@ wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/docbook-xsl-1.79.2-sta
 wget -nc https://github.com/docbook/xslt10-stylesheets/releases/download/release/1.79.2/docbook-xsl-doc-1.79.2.tar.bz2
 
 NAME=docbook-xsl
-VERSION=1.79.2.
+VERSION=1.79.2
 URL=https://github.com/docbook/xslt10-stylesheets/releases/download/release/1.79.2/docbook-xsl-1.79.2.tar.bz2
 
 if [ ! -z $URL ]

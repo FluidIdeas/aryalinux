@@ -19,7 +19,7 @@ wget -nc http://linux-pam.org/library/Linux-PAM-1.3.0.tar.bz2
 wget -nc http://linux-pam.org/documentation/Linux-PAM-1.2.0-docs.tar.bz2
 
 NAME=linux-pam
-VERSION=1.3.0.
+VERSION=1.3.0
 URL=http://linux-pam.org/library/Linux-PAM-1.3.0.tar.bz2
 
 if [ ! -z $URL ]

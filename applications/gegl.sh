@@ -32,7 +32,7 @@ cd $SOURCE_DIR
 wget -nc https://download.gimp.org/pub/gegl/0.4/gegl-0.4.12.tar.bz2
 
 NAME=gegl
-VERSION=0.4.12.
+VERSION=0.4.12
 URL=https://download.gimp.org/pub/gegl/0.4/gegl-0.4.12.tar.bz2
 
 if [ ! -z $URL ]

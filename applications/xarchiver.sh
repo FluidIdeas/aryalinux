@@ -21,7 +21,7 @@ wget -nc https://downloads.sourceforge.net/xarchiver/xarchiver-0.5.4.tar.bz2
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/xarchiver-0.5.4-fixes-1.patch
 
 NAME=xarchiver
-VERSION=0.5.4.
+VERSION=0.5.4
 URL=https://downloads.sourceforge.net/xarchiver/xarchiver-0.5.4.tar.bz2
 
 if [ ! -z $URL ]

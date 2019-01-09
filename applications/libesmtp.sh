@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 wget -nc http://brianstafford.info/libesmtp/libesmtp-1.0.6.tar.bz2
 
 NAME=libesmtp
-VERSION=1.0.6.
+VERSION=1.0.6
 URL=http://brianstafford.info/libesmtp/libesmtp-1.0.6.tar.bz2
 
 if [ ! -z $URL ]

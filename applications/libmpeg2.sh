@@ -15,7 +15,7 @@ wget -nc http://libmpeg2.sourceforge.net/files/libmpeg2-0.5.1.tar.gz
 wget -nc ftp://ftp.mirrorservice.org/sites/distfiles.gentoo.org/distfiles/libmpeg2-0.5.1.tar.gz
 
 NAME=libmpeg2
-VERSION=""
+VERSION=0.5.1
 URL=http://libmpeg2.sourceforge.net/files/libmpeg2-0.5.1.tar.gz
 
 if [ ! -z $URL ]

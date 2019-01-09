@@ -24,7 +24,7 @@ wget -nc http://ftp.postgresql.org/pub/source/v11.1/postgresql-11.1.tar.bz2
 wget -nc ftp://ftp.postgresql.org/pub/source/v11.1/postgresql-11.1.tar.bz2
 
 NAME=postgresql
-VERSION=11.1.
+VERSION=11.1
 URL=http://ftp.postgresql.org/pub/source/v11.1/postgresql-11.1.tar.bz2
 
 if [ ! -z $URL ]

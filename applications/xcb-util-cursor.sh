@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 wget -nc https://xcb.freedesktop.org/dist/xcb-util-cursor-0.1.3.tar.bz2
 
 NAME=xcb-util-cursor
-VERSION=0.1.3.
+VERSION=0.1.3
 URL=https://xcb.freedesktop.org/dist/xcb-util-cursor-0.1.3.tar.bz2
 
 if [ ! -z $URL ]

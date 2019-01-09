@@ -13,7 +13,7 @@ wget -nc https://downloads.sourceforge.net/infozip/zip30.tar.gz
 wget -nc ftp://ftp.info-zip.org/pub/infozip/src/zip30.tgz
 
 NAME=zip
-VERSION=""
+VERSION=zip30
 URL=https://downloads.sourceforge.net/infozip/zip30.tar.gz
 
 if [ ! -z $URL ]

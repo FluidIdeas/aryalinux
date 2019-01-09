@@ -26,7 +26,7 @@ cd $SOURCE_DIR
 wget -nc http://pawsa.fedorapeople.org/balsa/balsa-2.5.6.tar.bz2
 
 NAME=balsa
-VERSION=2.5.6.
+VERSION=2.5.6
 URL=http://pawsa.fedorapeople.org/balsa/balsa-2.5.6.tar.bz2
 
 if [ ! -z $URL ]

@@ -16,7 +16,7 @@ wget -nc https://download.gnome.org/sources/gexiv2/0.10/gexiv2-0.10.8.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/GNOME/sources/gexiv2/0.10/gexiv2-0.10.8.tar.xz
 
 NAME=gexiv2
-VERSION=""
+VERSION=0.10.8
 URL=https://download.gnome.org/sources/gexiv2/0.10/gexiv2-0.10.8.tar.xz
 
 if [ ! -z $URL ]

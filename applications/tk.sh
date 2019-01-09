@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 wget -nc https://downloads.sourceforge.net/tcl/tk8.6.9-src.tar.gz
 
 NAME=tk
-VERSION=""
+VERSION=src
 URL=https://downloads.sourceforge.net/tcl/tk8.6.9-src.tar.gz
 
 if [ ! -z $URL ]

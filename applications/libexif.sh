@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 wget -nc https://downloads.sourceforge.net/libexif/libexif-0.6.21.tar.bz2
 
 NAME=libexif
-VERSION=0.6.21.
+VERSION=0.6.21
 URL=https://downloads.sourceforge.net/libexif/libexif-0.6.21.tar.bz2
 
 if [ ! -z $URL ]

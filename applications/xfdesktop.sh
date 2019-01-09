@@ -18,7 +18,7 @@ cd $SOURCE_DIR
 wget -nc http://archive.xfce.org/src/xfce/xfdesktop/4.12/xfdesktop-4.12.4.tar.bz2
 
 NAME=xfdesktop
-VERSION=4.12.4.
+VERSION=4.12.4
 URL=http://archive.xfce.org/src/xfce/xfdesktop/4.12/xfdesktop-4.12.4.tar.bz2
 
 if [ ! -z $URL ]

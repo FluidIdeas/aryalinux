@@ -17,7 +17,7 @@ cd $SOURCE_DIR
 wget -nc https://www.linuxtv.org/downloads/v4l-utils/v4l-utils-1.16.3.tar.bz2
 
 NAME=v4l-utils
-VERSION=1.16.3.
+VERSION=1.16.3
 URL=https://www.linuxtv.org/downloads/v4l-utils/v4l-utils-1.16.3.tar.bz2
 
 if [ ! -z $URL ]

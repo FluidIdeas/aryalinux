@@ -25,7 +25,7 @@ cd $SOURCE_DIR
 wget -nc ftp://ftp.isc.org/isc/bind9/9.12.3-P1/bind-9.12.3-P1.tar.gz
 
 NAME=bind
-VERSION=9.12.3-P1
+VERSION=P1
 URL=ftp://ftp.isc.org/isc/bind9/9.12.3-P1/bind-9.12.3-P1.tar.gz
 
 if [ ! -z $URL ]
