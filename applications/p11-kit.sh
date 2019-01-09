@@ -50,7 +50,7 @@ make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-ln -s /usr/libexec/p11-kit/trust-extract-compat \
+ln -sf /usr/libexec/p11-kit/trust-extract-compat \
 /usr/bin/update-ca-certificates
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
