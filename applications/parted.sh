@@ -44,10 +44,6 @@ make &&
 make -C doc html &&
 makeinfo --html -o doc/html doc/parted.texi &&
 makeinfo --plaintext -o doc/parted.txt doc/parted.texi
-texi2pdf -o doc/parted.pdf doc/parted.texi &&
-texi2dvi -o doc/parted.dvi doc/parted.texi &&
-dvips -o doc/parted.ps doc/parted.dvi
-sed -i '/t0251-gpt-unicode.sh/d' tests/Makefile
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -56,16 +52,6 @@ install -v -m755 -d /usr/share/doc/parted-3.2/html &&
 install -v -m644 doc/html/* \
 /usr/share/doc/parted-3.2/html &&
 install -v -m644 doc/{FAT,API,parted.{txt,html}} \
-/usr/share/doc/parted-3.2
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m644 doc/FAT doc/API doc/parted.{pdf,ps,dvi} \
 /usr/share/doc/parted-3.2
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
