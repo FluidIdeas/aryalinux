@@ -50,25 +50,6 @@ unset SAVEPATH
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make -C tools install_dmsetup_dynamic &&
-make -C udev install &&
-make -C libdm install
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
---with-thin-check= \
---with-thin-dump= \
---with-thin-repair= \
---with-thin-restore= \
---with-cache-check= \
---with-cache-dump= \
---with-cache-repair= \
---with-cache-restore= \
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
