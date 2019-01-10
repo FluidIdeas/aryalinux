@@ -11,6 +11,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://github.com/cracklib/cracklib/releases/download/cracklib-2.9.6/cracklib-2.9.6.tar.gz
+wget -nc https://github.com/cracklib/cracklib/releases/download/cracklib-2.9.6/cracklib-words-2.9.6.gz
 
 NAME=cracklib
 VERSION=2.9.6

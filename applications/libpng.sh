@@ -10,6 +10,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/libpng/libpng-1.6.36.tar.xz
+wget -nc https://downloads.sourceforge.net/sourceforge/libpng-apng/libpng-1.6.36-apng.patch.gz
 
 NAME=libpng
 VERSION=1.6.36

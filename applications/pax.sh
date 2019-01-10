@@ -10,10 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
+wget -nc http://pub.allbsd.org/MirOS/dist/mir/cpio/paxmirabilis-20161104.cpio.gz
 
 NAME=pax
-VERSION=""
-URL=""
+VERSION=20161104
+URL=http://pub.allbsd.org/MirOS/dist/mir/cpio/paxmirabilis-20161104.cpio.gz
 
 if [ ! -z $URL ]
 then
