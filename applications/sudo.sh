@@ -46,11 +46,6 @@ make
 make install &&
 ln -sfv libsudo_util.so.0.0.0 /usr/lib/sudo/libsudo_util.so.0
 
-cat > /etc/sudoers.d/sudo << "EOF"
-Defaults secure_path="/usr/bin:/bin:/usr/sbin:/sbin"
-%wheel ALL=(ALL) ALL
-EOF
-
 cat > /etc/pam.d/sudo << "EOF"
 # Begin /etc/pam.d/sudo
 
