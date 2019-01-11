@@ -44,7 +44,6 @@ sed -i '/_PyVerify_fd/,+1d' python/types.c
 --with-python=/usr/bin/python3 &&
 make
 tar xf ../xmlts20130923.tar.gz
-systemctl stop httpd.service
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
