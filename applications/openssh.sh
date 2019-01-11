@@ -85,8 +85,6 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-ssh-keygen &&
-ssh-copy-id -i ~/.ssh/id_rsa.pub <em class="replaceable"><code>REMOTE_USERNAME</code></em>@<em class="replaceable"><code>REMOTE_HOSTNAME</code></em>
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -108,14 +106,13 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install-sshd
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
+pushd $SOURCE_DIR
+wget -nc http://www.linuxfromscratch.org/blfs/downloads/svn/blfs-systemd-units-20180105.tar.bz2
+tar -xf blfs-systemd-units-20180105.tar.bz2
+pushd blfs-systemd-units-20180105
+sudo make install-sshd
+popd
+popd
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
