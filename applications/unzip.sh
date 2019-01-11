@@ -31,10 +31,6 @@ fi
 cd $DIRECTORY
 fi
 
-convmv -f iso-8859-1 -t cp850 -r --nosmart --notest \
-<em class="replaceable"><code></path/to/unzipped/files></code></em>
-convmv -f cp866 -t koi8-r -r --nosmart --notest \
-<em class="replaceable"><code></path/to/unzipped/files></code></em>
 make -f unix/Makefile generic
 
 sudo rm -rf /tmp/rootscript.sh
