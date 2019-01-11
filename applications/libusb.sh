@@ -35,22 +35,10 @@ sed -i "s/^PROJECT_LOGO/#&/" doc/doxygen.cfg.in &&
 
 ./configure --prefix=/usr --disable-static &&
 make -j1
-make -C doc docs
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -d -m755 /usr/share/doc/libusb-1.0.22/apidocs &&
-install -v -m644 doc/html/* \
-/usr/share/doc/libusb-1.0.22/apidocs
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
