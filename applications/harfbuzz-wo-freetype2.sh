@@ -32,7 +32,7 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --with-gobject --with-graphite2 &&
+./configure --prefix=/usr --with-gobject --with-graphite2 --with-freetype=no &&
 make -j$(nproc)
 
 sudo make install
