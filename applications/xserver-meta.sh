@@ -9,8 +9,8 @@ set +h
 #REQ:libxml2
 #REQ:util-macros
 #REQ:xorgproto
-#REQ:libXau
-#REQ:libXdmcp
+#REQ:libxau
+#REQ:libxdmcp
 #REQ:xcb-proto
 #REQ:libxcb
 #REQ:x7lib
