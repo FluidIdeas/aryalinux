@@ -16,7 +16,7 @@ set +h
 #OPT:avahi
 #OPT:bluez
 #OPT:fftw
-#OPT:GConf
+#OPT:gconf
 #OPT:gtk3
 #OPT:libsamplerate
 #OPT:valgrind

@@ -21,7 +21,7 @@ set +h
 #OPT:cyrus-sasl
 #OPT:dbus-glib
 #OPT:doxygen
-#OPT:GConf
+#OPT:gconf
 #OPT:llvm
 #OPT:pulseaudio
 #OPT:startup-notification

@@ -11,7 +11,7 @@ set +h
 #REQ:mesa
 #REQ:upower
 #REQ:systemd
-#OPT:GConf
+#OPT:gconf
 #OPT:xmlto
 #OPT:libxslt
 #OPT:docbook

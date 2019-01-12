@@ -9,7 +9,7 @@ set +h
 #REQ:docbook
 #REQ:docbook-xsl
 #OPT:fop
-#OPT:PassiveTeX
+#OPT:passivetex
 #OPT:links
 #OPT:lynx
 #OPT:w3m

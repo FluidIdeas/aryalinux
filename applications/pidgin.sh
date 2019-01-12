@@ -14,7 +14,7 @@ set +h
 #OPT:avahi
 #OPT:cyrus-sasl
 #OPT:dbus
-#OPT:GConf
+#OPT:gconf
 #OPT:libidn
 #OPT:startup-notification
 #OPT:tcl

@@ -8,7 +8,7 @@ set +h
 
 #REQ:x7lib
 #REQ:libdrm
-#REQ:Mako
+#REQ:mako
 #REC:libva
 #REC:libvdpau
 #REC:llvm

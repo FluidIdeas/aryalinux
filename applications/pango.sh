@@ -14,7 +14,7 @@ set +h
 #REC:cairo
 #REC:x7lib
 #OPT:gobject-introspection
-#OPT:TTF-and-OTF-fonts#cantarell-fonts
+#OPT:ttf-and-otf-fonts#cantarell-fonts
 #OPT:gtk-doc
 
 cd $SOURCE_DIR

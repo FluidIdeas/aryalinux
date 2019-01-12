@@ -10,7 +10,7 @@ set +h
 #REC:which
 #OPT:cairo
 #OPT:gtk-doc
-#OPT:Mako
+#OPT:mako
 #OPT:python2
 
 cd $SOURCE_DIR

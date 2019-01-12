@@ -22,7 +22,7 @@ set +h
 #OPT:doxygen
 #OPT:java
 #OPT:python2
-#OPT:AVT-gige-camera-software-downloads
+#OPT:avt-gige-camera-software-downloads
 
 cd $SOURCE_DIR
 

@@ -9,7 +9,7 @@ set +h
 #REC:giflib
 #OPT:alsa-lib
 #OPT:dbus
-#OPT:GConf
+#OPT:gconf
 #OPT:gnutls
 #OPT:gobject-introspection
 #OPT:gsettings-desktop-schemas

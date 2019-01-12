@@ -6,9 +6,9 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:libXau
+#REQ:libxau
 #REQ:xcb-proto
-#REC:libXdmcp
+#REC:libxdmcp
 #OPT:doxygen
 #OPT:libxslt
 

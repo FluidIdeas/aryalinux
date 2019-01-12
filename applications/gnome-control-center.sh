@@ -21,7 +21,7 @@ set +h
 #REC:samba
 #REC:gnome-bluetooth
 #REC:ibus
-#REC:ModemManager
+#REC:modemmanager
 #OPT:cups-pk-helper
 #OPT:gnome-color-manager
 #OPT:sound-theme-freedesktop

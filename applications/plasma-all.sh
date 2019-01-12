@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:GConf
+#REQ:gconf
 #REQ:gtk2
 #REQ:gtk3
 #REQ:libpwquality

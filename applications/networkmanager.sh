@@ -28,7 +28,7 @@ set +h
 #OPT:jansson
 #OPT:libpsl
 #OPT:qt5
-#OPT:ModemManager
+#OPT:modemmanager
 #OPT:valgrind
 #OPT:doc
 

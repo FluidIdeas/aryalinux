@@ -26,12 +26,12 @@ set +h
 #REC:networkmanager
 #REC:polkit-qt
 #OPT:bluez
-#OPT:ModemManager
-#OPT:TTF-and-OTF-fonts#oxygen-fonts
-#OPT:TTF-and-OTF-fonts#noto-fonts
+#OPT:modemmanager
+#OPT:ttf-and-otf-fonts#oxygen-fonts
+#OPT:ttf-and-otf-fonts#noto-fonts
 #OPT:doxygen
-#OPT:Jinja2
-#OPT:PyYAML
+#OPT:jinja2
+#OPT:pyyaml
 #OPT:jasper
 #OPT:mitkrb
 #OPT:udisks2

@@ -23,7 +23,7 @@ set +h
 #OPT:curl
 #OPT:dbus-glib
 #OPT:doxygen
-#OPT:GConf
+#OPT:gconf
 #OPT:gst10-plugins-base
 #OPT:openjdk
 #OPT:startup-notification

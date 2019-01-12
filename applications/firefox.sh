@@ -27,7 +27,7 @@ set +h
 #OPT:curl
 #OPT:dbus-glib
 #OPT:doxygen
-#OPT:GConf
+#OPT:gconf
 #OPT:ffmpeg
 #OPT:libwebp
 #OPT:openjdk

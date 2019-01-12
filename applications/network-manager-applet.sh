@@ -13,7 +13,7 @@ set +h
 #REQ:networkmanager
 #REQ:polkit-gnome
 #REC:gobject-introspection
-#REC:ModemManager
+#REC:modemmanager
 #OPT:gc
 #OPT:gnome-bluetooth
 #OPT:jansson
