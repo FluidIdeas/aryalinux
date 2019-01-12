@@ -11,7 +11,6 @@ set +h
 #REC:libgcrypt
 #REC:libmad
 #REC:lua
-#REC:installing
 #OPT:dbus
 #OPT:libcddb
 #OPT:libdv

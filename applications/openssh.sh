@@ -8,7 +8,6 @@ set +h
 
 #OPT:gdb
 #OPT:linux-pam
-#OPT:installing
 #OPT:mitkrb
 #OPT:sectok
 #OPT:openjdk

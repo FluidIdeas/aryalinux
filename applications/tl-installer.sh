@@ -10,7 +10,6 @@ set +h
 #REC:gs
 #REC:x7lib
 #REC:libxcb
-#REC:installing
 #REC:epdfview
 #REC:glu
 #REC:freeglut

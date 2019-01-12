@@ -8,7 +8,6 @@ set +h
 
 #REC:gs
 #REC:asymptote
-#REC:installing
 #REC:fontconfig
 #REC:freetype2
 #REC:gc

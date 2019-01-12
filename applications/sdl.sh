@@ -11,7 +11,6 @@ set +h
 #OPT:glu
 #OPT:pulseaudio
 #OPT:pth
-#OPT:installing
 
 cd $SOURCE_DIR
 

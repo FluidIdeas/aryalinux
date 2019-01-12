@@ -11,7 +11,6 @@ set +h
 #OPT:ibus
 #OPT:nasm
 #OPT:pulseaudio
-#OPT:installing
 
 cd $SOURCE_DIR
 

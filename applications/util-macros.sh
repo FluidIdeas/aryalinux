@@ -6,7 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:xorg7#xorg-env
 
 cd $SOURCE_DIR
 

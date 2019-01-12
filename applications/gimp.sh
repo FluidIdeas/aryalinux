@@ -17,7 +17,6 @@ set +h
 #REQ:libxml2py2
 #REQ:mypaint-brushes
 #REQ:poppler
-#REQ:installing
 #REC:dbus-glib
 #REC:gs
 #REC:gvfs

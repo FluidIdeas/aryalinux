@@ -8,7 +8,6 @@ set +h
 
 #REQ:glib2
 #REQ:python2
-#REQ:installing
 #REC:alsa-lib
 #REC:sdl2
 #OPT:pulseaudio

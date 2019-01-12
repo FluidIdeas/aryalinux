@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:x7lib
-#REQ:installing
 #REC:freeglut
 #REC:harfbuzz
 #REC:libjpeg

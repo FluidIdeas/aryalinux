@@ -16,7 +16,6 @@ set +h
 #OPT:gtk3
 #OPT:libidn
 #OPT:libpaper
-#OPT:installing
 
 cd $SOURCE_DIR
 

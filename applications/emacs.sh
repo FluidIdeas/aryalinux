@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REC:giflib
-#OPT:installing
 #OPT:alsa-lib
 #OPT:dbus
 #OPT:GConf

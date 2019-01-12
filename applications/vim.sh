@@ -6,7 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REC:installing
 #REC:gtk2
 #OPT:gpm
 #OPT:lua

@@ -6,7 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:xorg7#xorg-env
 #OPT:python2
 #OPT:libxml2
 

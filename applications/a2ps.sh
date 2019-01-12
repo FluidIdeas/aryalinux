@@ -10,7 +10,6 @@ set +h
 #REC:cups
 #OPT:gs
 #OPT:libpaper
-#OPT:installing
 #OPT:readstep2
 #OPT:ghostview
 

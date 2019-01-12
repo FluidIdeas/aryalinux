@@ -13,7 +13,6 @@ set +h
 #OPT:gpm
 #OPT:samba
 #OPT:unzip
-#OPT:installing
 #OPT:zip
 
 cd $SOURCE_DIR

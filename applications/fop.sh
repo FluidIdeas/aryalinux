@@ -8,7 +8,6 @@ set +h
 
 #REQ:apache-ant
 #OPT:junit
-#OPT:installing
 #OPT:maven
 
 cd $SOURCE_DIR

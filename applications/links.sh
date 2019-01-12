@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #OPT:gpm
-#OPT:installing
 
 cd $SOURCE_DIR
 

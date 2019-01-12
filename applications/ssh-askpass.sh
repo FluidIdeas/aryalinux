@@ -8,7 +8,6 @@ set +h
 
 #REQ:gtk2
 #REQ:sudo
-#REQ:installing
 
 cd $SOURCE_DIR
 

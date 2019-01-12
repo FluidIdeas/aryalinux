@@ -8,7 +8,6 @@ set +h
 
 #OPT:popt
 #OPT:sdl
-#OPT:installing
 
 cd $SOURCE_DIR
 

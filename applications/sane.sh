@@ -12,7 +12,6 @@ set +h
 #OPT:libusb
 #OPT:v4l-utils
 #OPT:texlive
-#OPT:installing
 #OPT:gtk2
 #OPT:gimp
 

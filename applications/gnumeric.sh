@@ -11,7 +11,6 @@ set +h
 #REQ:rarian
 #REC:adwaita-icon-theme
 #REC:oxygen-icons5
-#REC:installing
 #REC:yelp
 #OPT:dconf
 #OPT:gobject-introspection

@@ -16,7 +16,6 @@ set +h
 #OPT:gnutls
 #OPT:postgresql
 #OPT:sqlite
-#OPT:installing
 
 cd $SOURCE_DIR
 

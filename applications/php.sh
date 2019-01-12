@@ -18,7 +18,6 @@ set +h
 #OPT:libexif
 #OPT:libjpeg
 #OPT:libtiff
-#OPT:installing
 #OPT:fdftoolkit
 #OPT:curl
 #OPT:tidy-html5
