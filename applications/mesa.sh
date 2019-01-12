@@ -12,7 +12,6 @@ set +h
 #REC:libva
 #REC:libvdpau
 #REC:llvm
-#REC:systems
 #REC:wayland-protocols
 #REC:plasma-all
 #REC:gtk3
