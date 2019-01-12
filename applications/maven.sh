@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:java#java-bin
+#REQ:java
 #REQ:openjdk
 
 cd $SOURCE_DIR
