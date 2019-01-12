@@ -32,6 +32,7 @@ fi
 
 export XORG_PREFIX=/usr
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
+
 cat > legacy.dat << "EOF"
 2a455d3c02390597feb9cefb3fe97a45 app/ bdftopcf-1.1.tar.bz2
 1347c3031b74c9e91dc4dfa53b12f143 font/ font-adobe-100dpi-1.0.3.tar.bz2

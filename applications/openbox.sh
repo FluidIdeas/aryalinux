@@ -38,6 +38,8 @@ fi
 cd $DIRECTORY
 fi
 
+export XORG_PREFIX=/usr
+
 export LIBRARY_PATH=$XORG_PREFIX/lib
 2to3 -w data/autostart/openbox-xdg-autostart &&
 sed 's/python/python3/' -i data/autostart/openbox-xdg-autostart

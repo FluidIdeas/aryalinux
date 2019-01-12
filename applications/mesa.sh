@@ -42,6 +42,8 @@ fi
 cd $DIRECTORY
 fi
 
+export XORG_PREFIX=/usr
+
 patch -Np1 -i ../mesa-18.3.1-add_xdemos-1.patch
 GLL_DRV="i915,nouveau,radeonsi,svga,swrast"
 ./configure CFLAGS='-O2' CXXFLAGS='-O2' LDFLAGS=-lLLVM \

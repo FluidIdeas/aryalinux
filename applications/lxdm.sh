@@ -35,6 +35,8 @@ fi
 cd $DIRECTORY
 fi
 
+export XORG_PREFIX=/usr
+
 cat > pam/lxdm << "EOF"
 # Begin /etc/pam.d/lxdm
 

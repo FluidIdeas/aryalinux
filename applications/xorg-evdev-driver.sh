@@ -34,6 +34,7 @@ fi
 
 export XORG_PREFIX=/usr
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
+
 ./configure $XORG_CONFIG &&
 make
 

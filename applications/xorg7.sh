@@ -31,6 +31,7 @@ fi
 
 export XORG_PREFIX=/usr
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
+
 mkdir xc &&
 cd xc
 export XORG_PREFIX="<em class="replaceable"><code><PREFIX></code></em>"

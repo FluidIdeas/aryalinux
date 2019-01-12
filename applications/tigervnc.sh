@@ -41,6 +41,7 @@ fi
 
 export XORG_PREFIX=/usr
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
+
 # Put code in place
 pushd unix/xserver &&
 tar -xf $DIR/xorg-server-$XORG_VER.tar.bz2 --strip-components=1 &&

@@ -31,6 +31,8 @@ fi
 cd $DIRECTORY
 fi
 
+export XORG_PREFIX=/usr
+
 ./configure --prefix=$XORG_PREFIX --disable-static &&
 make
 

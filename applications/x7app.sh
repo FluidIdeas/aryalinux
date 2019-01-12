@@ -36,6 +36,7 @@ fi
 
 export XORG_PREFIX=/usr
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
+
 cat > app-7.md5 << "EOF"
 3b9b79fa0f9928161f4bad94273de7ae iceauth-1.0.8.tar.bz2
 c4a3664e08e5a47c120ff9263ee2f20c luit-1.1.1.tar.bz2
