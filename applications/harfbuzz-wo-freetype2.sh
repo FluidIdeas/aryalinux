@@ -32,11 +32,10 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --with-gobject --with-graphite2 --without-freetype &&
+./configure --prefix=/usr --with-gobject &&
 make -j$(nproc)
 
 sudo make install
-sudo cp builds/unix/freetype-config /usr/bin
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
