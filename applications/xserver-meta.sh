@@ -29,14 +29,9 @@ set +h
 #REQ:xkeyboard-config
 #REQ:xorg-server
 #REQ:x7driver
-#REQ:#OPT:xf86-video-mga
-#REQ:#OPT:xf86-video-sis
 #REQ:xf86-video-cirrus
 #REQ:xf86-video-mach64
 #REQ:xf86-video-openchrome
-#REQ:#OPT:xf86-video-r128
-#REQ:#OPT:xf86-video-savage
-#REQ:#OPT:xf86-video-tdfx
 #REQ:xf86-video-vesa
 #REQ:libva-intel-driver
 #REQ:libvdpau
@@ -46,6 +41,11 @@ set +h
 #REQ:xclock
 #REQ:xinit
 #REQ:wayland-protocols
+#OPT:xf86-video-mga
+#OPT:xf86-video-sis
+#OPT:xf86-video-r128
+#OPT:xf86-video-savage
+#OPT:xf86-video-tdfx
 
 cd $SOURCE_DIR
 
