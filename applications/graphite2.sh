@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:cmake
+#REQ:harfbuzz
 #OPT:freetype2
 #OPT:python2
 #OPT:harfbuzz

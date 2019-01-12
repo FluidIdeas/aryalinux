@@ -6,16 +6,15 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REC:harfbuzz
-#REC:libpng
-#REC:which
+#REQ:harfbuzz-wo-freetype2
+#REQ:libpng
+#REQ:which
 
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/freetype/freetype-2.9.1.tar.bz2
-wget -nc https://downloads.sourceforge.net/freetype/freetype-doc-2.9.1.tar.bz2
 
-NAME=freetype2
+NAME=freetype2-wo-harfbuzz
 VERSION=2.9.1
 URL=https://downloads.sourceforge.net/freetype/freetype-2.9.1.tar.bz2
 
@@ -34,34 +33,16 @@ fi
 cd $DIRECTORY
 fi
 
-tar -xf ../freetype-doc-2.9.1.tar.bz2 --strip-components=2 -C docs
 sed -ri "s:.*(AUX_MODULES.*valid):\1:" modules.cfg &&
 
 sed -r "s:.*(#.*SUBPIXEL_RENDERING) .*:\1:" \
--i include/freetype/config/ftoption.h &&
+-i include/freetype/config/ftoption.h  &&
 
 ./configure --prefix=/usr --enable-freetype-config --disable-static &&
-make
+make -j$(nproc)
 
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-cp builds/unix/freetype-config /usr/bin
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m755 -d /usr/share/doc/freetype-2.9.1 &&
-cp -v -R docs/* /usr/share/doc/freetype-2.9.1
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
+sudo make install
+sudo cp builds/unix/freetype-config /usr/bin
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

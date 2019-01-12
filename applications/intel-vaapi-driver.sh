@@ -34,7 +34,7 @@ export XORG_PREFIX=/usr
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
 ./configure $XORG_CONFIG &&
-make
+make -j$(nproc)
 sudo make install
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

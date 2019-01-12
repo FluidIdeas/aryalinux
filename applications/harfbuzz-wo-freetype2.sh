@@ -6,14 +6,16 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#REQ:glib2
+#REQ:icu
 
 cd $SOURCE_DIR
 
-wget -nc https://www.x.org/archive/individual/driver/xf86-video-cirrus-1.5.3.tar.gz
+wget -nc https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.3.0.tar.bz2
 
-NAME=xf86-video-cirrus
-VERSION=1.5.3
-URL=https://www.x.org/archive/individual/driver/xf86-video-cirrus-1.5.3.tar.gz
+NAME=harfbuzz-wo-freetype2
+VERSION=2.3.0
+URL=https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.3.0.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -30,12 +32,11 @@ fi
 cd $DIRECTORY
 fi
 
-export XORG_PREFIX=/usr
-export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
-
-./configure $XORG_CONFIG &&
+./configure --prefix=/usr --with-gobject --with-graphite2 &&
 make -j$(nproc)
+
 sudo make install
+sudo cp builds/unix/freetype-config /usr/bin
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

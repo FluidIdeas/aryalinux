@@ -31,7 +31,7 @@ cd $DIRECTORY
 fi
 
 perl Makefile.PL &&
-make
+make -j$(nproc)
 sudo make install
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
