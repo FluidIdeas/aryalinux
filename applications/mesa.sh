@@ -13,8 +13,6 @@ set +h
 #REC:libvdpau
 #REC:llvm
 #REC:wayland-protocols
-#REC:plasma-all
-#REC:gtk3
 #OPT:libgcrypt
 #OPT:nettle
 #OPT:python2
