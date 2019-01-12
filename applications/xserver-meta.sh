@@ -33,7 +33,7 @@ set +h
 #REQ:xf86-video-mach64
 #REQ:xf86-video-openchrome
 #REQ:xf86-video-vesa
-#REQ:libva-intel-driver
+#REQ:intel-vaapi-driver
 #REQ:libvdpau
 #REQ:libvdpau-va-gl
 #REQ:twm
