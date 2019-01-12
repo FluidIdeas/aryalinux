@@ -16,7 +16,7 @@ set +h
 #REC:libtiff
 #REC:mupdf
 #OPT:avahi
-#OPT:ttf-and-otf-fonts#dejavu-fonts
+#OPT:dejavu-fonts
 #OPT:ijs
 #OPT:openldap
 #OPT:php

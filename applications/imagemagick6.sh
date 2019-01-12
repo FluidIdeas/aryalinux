@@ -28,7 +28,7 @@ set +h
 #OPT:libwebp
 #OPT:openjpeg2
 #OPT:pango
-#OPT:ttf-and-otf-fonts#dejavu-fonts
+#OPT:dejavu-fonts
 #OPT:gs
 #OPT:gimp
 #OPT:graphviz
