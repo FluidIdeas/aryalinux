@@ -36,7 +36,7 @@ fi
 patch -Np1 -i ../LWP-Protocol-https-6.07-system_certs-1.patch
 perl Makefile.PL &&
 make &&
-make test
+
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -33,6 +33,8 @@ fi
 cd $DIRECTORY
 fi
 
+export XORG_PREFIX=/usr
+export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 sed -i '/v0/{n;s/new:/new:kb=^?:/}' termcap &&
 printf '\tkbs=\\177,\n' >> terminfo &&
 

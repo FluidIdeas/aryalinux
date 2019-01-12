@@ -36,6 +36,8 @@ fi
 cd $DIRECTORY
 fi
 
+export XORG_PREFIX=/usr
+export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 cat > lib-7.md5 << "EOF"
 c5ba432dd1514d858053ffe9f4737dd8 xtrans-1.3.5.tar.bz2
 034fdd6cc5393974d88aec6f5bc96162 libX11-1.6.7.tar.bz2

@@ -32,7 +32,7 @@ fi
 
 PERL_USE_UNSAFE_INC=1 perl Makefile.PL &&
 make &&
-make test
+
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

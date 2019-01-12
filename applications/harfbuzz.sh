@@ -7,8 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REC:glib2
-#REC:texlive
-#REC:libreoffice
 #REC:icu
 #REC:freetype2
 #REC:harfbuzz

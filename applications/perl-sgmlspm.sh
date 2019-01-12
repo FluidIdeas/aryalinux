@@ -33,7 +33,7 @@ fi
 chmod -v 644 MYMETA.yml
 perl Makefile.PL &&
 make &&
-make test
+
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

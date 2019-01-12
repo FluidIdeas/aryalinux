@@ -36,7 +36,7 @@ fi
 
 perl Makefile.PL &&
 make &&
-make test
+
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
