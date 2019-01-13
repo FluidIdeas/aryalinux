@@ -12,7 +12,6 @@ set +h
 #REQ:pango
 #REQ:rust
 #REC:gobject-introspection
-#REC:gtk3
 #REC:vala
 #OPT:gtk-doc
 

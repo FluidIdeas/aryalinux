@@ -10,6 +10,7 @@ set +h
 #REQ:libjpeg
 #REQ:libpng
 #REQ:shared-mime-info
+#REC:librsvg
 #REC:libtiff
 #REC:x7lib
 #OPT:gobject-introspection
