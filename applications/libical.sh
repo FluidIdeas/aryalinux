@@ -43,21 +43,10 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr \
 -DSHARED_ONLY=yes \
 .. &&
 make
-make docs
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -vdm755 /usr/share/doc/libical-3.0.4/html &&
-cp -vr apidocs/html/* /usr/share/doc/libical-3.0.4/html
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
