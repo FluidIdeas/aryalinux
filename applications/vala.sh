@@ -36,8 +36,6 @@ fi
 cd $DIRECTORY
 fi
 
-patch -p1 -i ../vala-0.42.4-avoid_graphviz-1.patch &&
-ACLOCAL= autoreconf -fiv
 ./configure --prefix=/usr &&
 make
 

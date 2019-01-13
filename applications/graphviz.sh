@@ -38,7 +38,7 @@ wget -nc http://graphviz.gitlab.io/pub/graphviz/stable/SOURCES/graphviz.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/graphviz-2.40.1-qt5-1.patch
 
 NAME=graphviz
-VERSION=graphviz
+VERSION=2.40.1
 URL=http://graphviz.gitlab.io/pub/graphviz/stable/SOURCES/graphviz.tar.gz
 
 if [ ! -z $URL ]
@@ -56,8 +56,6 @@ fi
 cd $DIRECTORY
 fi
 
-wget -c http://graphviz.gitlab.io/pub/graphviz/stable/SOURCES/graphviz.tar.gz \
--O graphviz-2.40.1.tar.gz
 sed -e '/ruby/s/1\.9/2.4/' -i configure.ac
 patch -p1 -i ../graphviz-2.40.1-qt5-1.patch
 sed -i '/LIBPOSTFIX="64"/s/64//' configure.ac &&

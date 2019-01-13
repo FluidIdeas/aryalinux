@@ -68,38 +68,6 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-gtk-query-immodules-3.0 --update-cache
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-glib-compile-schemas /usr/share/glib-2.0/schemas
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-mkdir -vp ~/.config/gtk-3.0
-cat > ~/.config/gtk-3.0/settings.ini << "EOF"
-[Settings]
-gtk-theme-name = <em class="replaceable"><code>Adwaita</em>
-gtk-icon-theme-name = <em class="replaceable"><code>oxygen</em>
-gtk-font-name = <em class="replaceable"><code>DejaVu Sans 12</em>
-gtk-cursor-theme-size = <em class="replaceable"><code>18</em>
-gtk-toolbar-style = <em class="replaceable"><code>GTK_TOOLBAR_BOTH_HORIZ</em>
-gtk-xft-antialias = <em class="replaceable"><code>1</em>
-gtk-xft-hinting = <em class="replaceable"><code>1</em>
-gtk-xft-hintstyle = <em class="replaceable"><code>hintslight</em>
-gtk-xft-rgba = <em class="replaceable"><code>rgb</em>
-gtk-cursor-theme-name = <em class="replaceable"><code>Adwaita</em>
-EOF
-
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"

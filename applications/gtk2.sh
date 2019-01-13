@@ -55,31 +55,6 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-gtk-query-immodules-2.0 --update-cache
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-cat > ~/.gtkrc-2.0 << "EOF"
-include "/usr/share/themes/<em class="replaceable"><code>Glider</code></em>/gtk-2.0/gtkrc"
-gtk-icon-theme-name = "<em class="replaceable"><code>hicolor</code></em>"
-EOF
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cat > /etc/gtk-2.0/gtkrc << "EOF"
-include "/usr/share/themes/<em class="replaceable"><code>Clearlooks</code></em>/gtk-2.0/gtkrc"
-gtk-icon-theme-name = "<em class="replaceable"><code>elementary</code></em>"
-EOF
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
