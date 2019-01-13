@@ -72,16 +72,6 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-chown -v root:messagebus /usr/libexec/dbus-daemon-launch-helper &&
-chmod -v 4750 /usr/libexec/dbus-daemon-launch-helper
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/dbus-1/session-local.conf << "EOF"
 <!DOCTYPE busconfig PUBLIC
 "-//freedesktop//DTD D-BUS Bus Configuration 1.0//EN"
@@ -98,11 +88,6 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-# Start the D-Bus session daemon
-eval `dbus-launch`
-export DBUS_SESSION_BUS_ADDRESS
-# Kill the D-Bus session daemon
-kill $DBUS_SESSION_BUS_PID
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
