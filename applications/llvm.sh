@@ -67,33 +67,6 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-cmake -DLLVM_ENABLE_SPHINX=ON \
--DSPHINX_WARNINGS_AS_ERRORS=OFF \
--Wno-dev -G Ninja .. &&
-ninja docs-llvm-html docs-llvm-man
-ninja docs-clang-html docs-clang-man
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m644 docs/man/* /usr/share/man/man1 &&
-install -v -d -m755 /usr/share/doc/llvm-7.0.1/llvm-html &&
-cp -Rv docs/html/* /usr/share/doc/llvm-7.0.1/llvm-html
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m644 tools/clang/docs/man/* /usr/share/man/man1 &&
-install -v -d -m755 /usr/share/doc/llvm-7.0.1/clang-html &&
-cp -Rv tools/clang/docs/html/* /usr/share/doc/llvm-7.0.1/clang-html
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
