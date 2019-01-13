@@ -90,7 +90,6 @@ fi
 }
 
 export -f as_root
-bash -e
 for package in $(grep -v '^#' ../app-7.md5 | awk '{print $2}')
 do
 packagedir=${package%.tar.bz2}
@@ -108,7 +107,6 @@ as_root make install
 popd
 rm -rf $packagedir
 done
-exit
 as_root rm -f $XORG_PREFIX/bin/xkeystone
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -58,7 +58,6 @@ fi
 }
 
 export -f as_root
-bash -e
 for package in $(grep -v '^#' ../font-7.md5 | awk '{print $2}')
 do
 packagedir=${package%.tar.bz2}
@@ -70,18 +69,6 @@ as_root make install
 popd
 as_root rm -rf $packagedir
 done
-exit
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -d -m755 /usr/share/fonts &&
-ln -svfn $XORG_PREFIX/share/fonts/X11/OTF /usr/share/fonts/X11-OTF &&
-ln -svfn $XORG_PREFIX/share/fonts/X11/TTF /usr/share/fonts/X11-TTF
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
