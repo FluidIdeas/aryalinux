@@ -34,24 +34,10 @@ fi
 
 ./configure &&
 make
-make doc
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -d -m755 /usr/share/doc/alsa-lib-1.1.8/html/search &&
-install -v -m644 doc/doxygen/html/*.* \
-/usr/share/doc/alsa-lib-1.1.8/html &&
-install -v -m644 doc/doxygen/html/search/* \
-/usr/share/doc/alsa-lib-1.1.8/html/search
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
