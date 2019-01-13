@@ -9,6 +9,7 @@ set +h
 #REQ:libaio
 #OPT:mdadm
 #OPT:reiserfs
+#OPT:valgrind
 #OPT:which
 #OPT:xfsprogs
 

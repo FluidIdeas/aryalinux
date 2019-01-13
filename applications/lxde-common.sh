@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:lxde-icon-theme
+#REQ:lxpanel
 #REQ:lxsession
 #REQ:openbox
 #REQ:pcmanfm

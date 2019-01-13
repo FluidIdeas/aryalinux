@@ -10,6 +10,7 @@ set +h
 #OPT:clucene
 #OPT:icu
 #OPT:libcap
+#OPT:linux-pam
 #OPT:lua
 #OPT:mariadb
 #OPT:mitkrb

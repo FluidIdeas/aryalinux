@@ -12,6 +12,7 @@ set +h
 #REQ:krameworks5
 #REC:alsa-lib
 #REC:flac
+#REC:libogg
 #REC:pulseaudio
 #OPT:doxygen
 

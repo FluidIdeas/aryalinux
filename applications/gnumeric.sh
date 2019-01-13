@@ -11,10 +11,12 @@ set +h
 #REQ:rarian
 #REC:adwaita-icon-theme
 #REC:oxygen-icons5
+#REC:gnome-icon-theme
 #REC:yelp
 #OPT:dconf
 #OPT:gobject-introspection
 #OPT:pygobject3
+#OPT:valgrind
 
 cd $SOURCE_DIR
 

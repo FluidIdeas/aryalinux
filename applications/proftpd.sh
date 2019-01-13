@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #OPT:libcap
+#OPT:linux-pam
 #OPT:mariadb
 #OPT:pcre
 #OPT:postgresql

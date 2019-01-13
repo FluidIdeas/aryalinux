@@ -8,6 +8,7 @@ set +h
 
 #REQ:dbus-glib
 #REQ:gnome-desktop
+#REQ:json-glib
 #REQ:mesa
 #REQ:upower
 #REQ:systemd

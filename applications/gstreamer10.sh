@@ -10,6 +10,7 @@ set +h
 #REC:gobject-introspection
 #OPT:gtk3
 #OPT:gsl
+#OPT:gtk-doc
 #OPT:valgrind
 
 cd $SOURCE_DIR

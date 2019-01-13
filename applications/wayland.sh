@@ -12,6 +12,7 @@ set +h
 #OPT:xmlto
 #OPT:docbook
 #OPT:docbook-xsl
+#OPT:libxslt
 
 cd $SOURCE_DIR
 

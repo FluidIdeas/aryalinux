@@ -17,8 +17,12 @@ set +h
 #OPT:curl
 #OPT:faad2
 #OPT:ffmpeg
+#OPT:flac
+#OPT:lame
+#OPT:libcdio
 #OPT:libnotify
 #OPT:libsamplerate
+#OPT:libsndfile
 #OPT:libvorbis
 #OPT:neon
 #OPT:pulseaudio

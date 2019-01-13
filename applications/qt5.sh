@@ -16,14 +16,17 @@ set +h
 #REC:icu
 #REC:jasper
 #REC:libjpeg
+#REC:libmng
 #REC:libpng
 #REC:libtiff
 #REC:libxkbcommon
 #REC:mesa
+#REC:mtdev
 #REC:pcre2
 #REC:sqlite
 #REC:wayland
 #REC:xcb-util-image
+#REC:xcb-util-keysyms
 #REC:xcb-util-renderutil
 #REC:xcb-util-wm
 #OPT:bluez

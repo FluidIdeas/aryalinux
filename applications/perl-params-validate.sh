@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:perl-module-build
+#REQ:perl-module-implementation
 #REC:perl-test-fatal
 #REC:perl-test-requires
 

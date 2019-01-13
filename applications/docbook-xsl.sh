@@ -10,6 +10,7 @@ set +h
 #OPT:apache-ant
 #OPT:libxslt
 #OPT:python2
+#OPT:ruby
 #OPT:zip
 #OPT:apache-ant
 

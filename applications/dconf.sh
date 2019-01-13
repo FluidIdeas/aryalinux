@@ -9,6 +9,7 @@ set +h
 #REQ:dbus
 #REQ:glib2
 #REQ:gtk3
+#REQ:libxml2
 #REC:libxslt
 #REC:vala
 #OPT:gtk-doc

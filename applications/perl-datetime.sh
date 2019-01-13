@@ -7,8 +7,10 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:perl-datetime-locale
+#REQ:perl-datetime-timezone
 #REC:perl-cpan-meta-check
 #REC:perl-test-fatal
+#REC:perl-test-warnings
 
 cd $SOURCE_DIR
 

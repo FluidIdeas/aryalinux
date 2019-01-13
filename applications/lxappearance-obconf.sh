@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:lxappearance
+#REQ:openbox
 
 cd $SOURCE_DIR
 

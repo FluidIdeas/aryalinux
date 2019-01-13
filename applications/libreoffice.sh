@@ -10,6 +10,7 @@ set +h
 #REQ:unzip
 #REQ:wget
 #REQ:which
+#REQ:zip
 #REC:apache-ant
 #REC:apr
 #REC:boost
@@ -18,6 +19,7 @@ set +h
 #REC:curl
 #REC:dbus-glib
 #REC:libjpeg
+#REC:glu
 #REC:graphite2
 #REC:gst10-plugins-base
 #REC:gtk3
@@ -25,6 +27,7 @@ set +h
 #REC:harfbuzz
 #REC:icu
 #REC:libatomic_ops
+#REC:lcms2
 #REC:librsvg
 #REC:libxml2
 #REC:libxslt

@@ -11,6 +11,7 @@ set +h
 #REQ:qt5
 #REC:alsa-lib
 #REC:pulseaudio
+#REC:ffmpeg
 #REC:icu
 #REC:libwebp
 #REC:libxslt

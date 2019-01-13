@@ -9,6 +9,7 @@ set +h
 #REQ:perl-class-tiny
 #REQ:perl-file-copy-recursive
 #REQ:perl-file-sharedir
+#REQ:perl-path-tiny
 #REQ:perl-scope-guard
 #REC:perl-test-fatal
 

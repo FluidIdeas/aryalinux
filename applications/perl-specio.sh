@@ -9,8 +9,12 @@ set +h
 #REQ:perl-devel-stacktrace
 #REQ:perl-eval-closure
 #REQ:perl-module-runtime
+#REQ:perl-role-tiny
+#REQ:perl-sub-quote
+#REQ:perl-try-tiny
 #REC:perl-mro-compat
 #REC:perl-test-fatal
+#REC:perl-test-needs
 #OPT:perl-namespace-autoclean
 
 cd $SOURCE_DIR

@@ -13,6 +13,7 @@ set +h
 #OPT:gst10-plugins-base
 #OPT:gtk-doc
 #OPT:libjpeg
+#OPT:libgsf
 #OPT:libpng
 #OPT:poppler
 

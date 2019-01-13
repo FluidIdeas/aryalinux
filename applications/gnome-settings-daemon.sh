@@ -10,7 +10,9 @@ set +h
 #REQ:fontconfig
 #REQ:geoclue2
 #REQ:gnome-desktop
+#REQ:lcms2
 #REQ:libcanberra
+#REQ:libgweather
 #REQ:libnotify
 #REQ:librsvg
 #REQ:libwacom
@@ -21,6 +23,7 @@ set +h
 #REC:alsa
 #REC:cups
 #REC:networkmanager
+#REC:nss
 #REC:wayland
 
 cd $SOURCE_DIR

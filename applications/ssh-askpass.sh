@@ -8,6 +8,7 @@ set +h
 
 #REQ:gtk2
 #REQ:sudo
+#REQ:x7lib
 
 cd $SOURCE_DIR
 

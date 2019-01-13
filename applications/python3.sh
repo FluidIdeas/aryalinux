@@ -10,6 +10,7 @@ set +h
 #OPT:gdb
 #OPT:valgrind
 #OPT:db
+#OPT:sqlite
 
 cd $SOURCE_DIR
 

@@ -8,6 +8,7 @@ set +h
 
 #REQ:docbook
 #REQ:docbook-xsl
+#REQ:libxslt
 #OPT:fop
 #OPT:passivetex
 #OPT:links

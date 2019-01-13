@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:perl-number-compare
+#REQ:perl-text-glob
 
 cd $SOURCE_DIR
 

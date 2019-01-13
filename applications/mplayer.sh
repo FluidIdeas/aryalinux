@@ -10,10 +10,13 @@ set +h
 #REC:gtk2
 #REC:libvdpau-va-gl
 #OPT:cdparanoia
+#OPT:libcdio
 #OPT:libdvdread
+#OPT:libdvdnav
 #OPT:libdvdcss
 #OPT:samba
 #OPT:libbluray
+#OPT:mythtivo
 #OPT:alsa
 #OPT:pulseaudio
 #OPT:sdl
@@ -21,9 +24,12 @@ set +h
 #OPT:aalib
 #OPT:giflib
 #OPT:libjpeg
+#OPT:libmng
 #OPT:libpng
 #OPT:faac
 #OPT:faad2
+#OPT:lame
+#OPT:liba52
 #OPT:libdv
 #OPT:libmad
 #OPT:libmpeg2
@@ -32,6 +38,9 @@ set +h
 #OPT:lzo
 #OPT:mpg123
 #OPT:speex
+#OPT:xvid
+#OPT:x264
+#OPT:libdca
 #OPT:fontconfig
 #OPT:freetype2
 #OPT:fribidi

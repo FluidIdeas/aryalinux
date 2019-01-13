@@ -10,6 +10,7 @@ set +h
 #REC:freeglut
 #REC:harfbuzz
 #REC:libjpeg
+#REC:openjpeg2
 #REC:curl
 #OPT:xdg-utils
 

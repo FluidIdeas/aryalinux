@@ -7,7 +7,9 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:perl-package-stash
+#REQ:perl-params-util
 #REQ:perl-sub-install
+#REQ:perl-sub-name
 #REC:perl-test-fatal
 #REC:perl-test-warnings
 

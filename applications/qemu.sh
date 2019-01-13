@@ -10,6 +10,7 @@ set +h
 #REQ:python2
 #REC:alsa-lib
 #REC:sdl2
+#OPT:alsa
 #OPT:pulseaudio
 #OPT:bluez
 #OPT:curl

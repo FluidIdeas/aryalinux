@@ -12,6 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/pygobject/3.30/pygobject-3.30.4.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pygobject/3.30/pygobject-3.30.4.tar.xz
 
 NAME=pygobject3
 VERSION=3.30.4

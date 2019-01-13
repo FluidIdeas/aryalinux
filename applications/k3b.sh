@@ -9,10 +9,12 @@ set +h
 #REQ:krameworks5
 #REQ:libkcddb
 #REQ:libsamplerate
+#REQ:shared-mime-info
 #REC:ffmpeg
 #REC:libburn
 #REC:libdvdread
 #REC:taglib
+#REC:cdrtools
 #REC:dvd-rw-tools
 #REC:cdrdao
 #OPT:flac

@@ -7,11 +7,16 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:ffmpeg
+#REQ:alsa
+#REQ:pulseaudio
 #REC:libdvdnav
 #OPT:aalib
 #OPT:faad2
 #OPT:flac
+#OPT:gdk-pixbuf
 #OPT:glu
+#OPT:imagemagick
+#OPT:liba52
 #OPT:libmad
 #OPT:libmng
 #OPT:libtheora
@@ -24,6 +29,7 @@ set +h
 #OPT:samba
 #OPT:sdl
 #OPT:speex
+#OPT:doxygen
 #OPT:v4l-utils
 #OPT:libbluray
 #OPT:libdca

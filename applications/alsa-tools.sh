@@ -8,6 +8,7 @@ set +h
 
 #REQ:alsa-lib
 #OPT:gtk2
+#OPT:gtk3
 #OPT:fltk
 
 cd $SOURCE_DIR

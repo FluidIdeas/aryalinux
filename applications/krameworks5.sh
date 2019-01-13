@@ -19,6 +19,7 @@ set +h
 #REQ:lmdb
 #REQ:phonon
 #REQ:shared-mime-info
+#REQ:perl-uri
 #REQ:wget
 #REC:aspell
 #REC:avahi

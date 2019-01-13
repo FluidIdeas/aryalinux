@@ -12,6 +12,7 @@ set +h
 #OPT:libxml2
 #OPT:python2
 #OPT:texlive
+#OPT:tl-installer
 #OPT:valgrind
 #OPT:zip
 

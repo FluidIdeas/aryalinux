@@ -10,6 +10,7 @@ set +h
 #OPT:cairo
 #OPT:x7lib
 #OPT:fontconfig
+#OPT:libpng
 #OPT:gtk2
 #OPT:libjpeg
 #OPT:libwebp
@@ -18,8 +19,11 @@ set +h
 #OPT:poppler
 #OPT:freeglut
 #OPT:libglade
+#OPT:qt5
+#OPT:x7lib
 #OPT:swig
 #OPT:gcc
+#OPT:guile
 #OPT:openjdk
 #OPT:lua
 #OPT:php

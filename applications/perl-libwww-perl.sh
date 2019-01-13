@@ -10,6 +10,7 @@ set +h
 #REQ:perl-http-cookies
 #REQ:perl-http-daemon
 #REQ:perl-http-negotiate
+#REQ:perl-html-parser
 #REQ:perl-net-http
 #REQ:perl-try-tiny
 #REQ:perl-www-robotrules

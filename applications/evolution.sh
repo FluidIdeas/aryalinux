@@ -16,6 +16,7 @@ set +h
 #REC:bogofilter
 #REC:enchant
 #REC:gnome-desktop
+#REC:highlight
 #REC:libcanberra
 #REC:libgweather
 #REC:libnotify
@@ -24,6 +25,7 @@ set +h
 #OPT:clutter-gtk
 #OPT:geoclue2
 #OPT:geocode-glib
+#OPT:libchamplain
 #OPT:gtk-doc
 
 cd $SOURCE_DIR

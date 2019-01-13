@@ -10,25 +10,31 @@ set +h
 #REC:fdk-aac
 #REC:freetype2
 #REC:lame
+#REC:libtheora
 #REC:libvorbis
 #REC:libvpx
 #REC:opus
 #REC:x264
 #REC:x265
+#REC:yasm
 #REC:alsa-lib
 #REC:libva
 #REC:libvdpau
 #REC:sdl2
 #OPT:fontconfig
 #OPT:frei0r
+#OPT:libcdio
 #OPT:libwebp
 #OPT:opencv
 #OPT:openjpeg2
 #OPT:gnutls
 #OPT:pulseaudio
 #OPT:speex
+#OPT:texlive
+#OPT:tl-installer
 #OPT:v4l-utils
 #OPT:xvid
+#OPT:libbluray
 #OPT:libdca
 
 cd $SOURCE_DIR

@@ -9,6 +9,7 @@ set +h
 #REQ:gtk3
 #REQ:libxfce4ui
 #REQ:libxfce4util
+#REQ:perl-uri
 #OPT:gtk-doc
 
 cd $SOURCE_DIR

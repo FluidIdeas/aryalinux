@@ -9,6 +9,7 @@ set +h
 #REQ:x7lib
 #OPT:libpng
 #OPT:libjpeg
+#OPT:libtiff
 #OPT:giflib
 
 cd $SOURCE_DIR

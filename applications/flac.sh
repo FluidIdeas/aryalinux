@@ -9,6 +9,7 @@ set +h
 #OPT:libogg
 #OPT:nasm
 #OPT:docbook-utils
+#OPT:doxygen
 #OPT:valgrind
 
 cd $SOURCE_DIR

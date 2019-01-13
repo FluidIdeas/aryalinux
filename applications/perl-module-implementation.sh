@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:perl-module-runtime
+#REQ:perl-try-tiny
 #REC:perl-test-fatal
 #REC:perl-test-requires
 

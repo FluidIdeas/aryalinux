@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:maven
+#REQ:unzip
 
 cd $SOURCE_DIR
 

@@ -9,6 +9,7 @@ set +h
 #REQ:xorgproto
 #OPT:xmlto
 #OPT:fop
+#OPT:libxslt
 
 cd $SOURCE_DIR
 

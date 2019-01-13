@@ -9,6 +9,8 @@ set +h
 #REQ:gcr
 #REQ:json-glib
 #REQ:rest
+#REQ:telepathy-glib
+#REQ:vala
 #REQ:webkitgtk
 #REC:gobject-introspection
 #OPT:cheese

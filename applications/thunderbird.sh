@@ -11,6 +11,7 @@ set +h
 #REQ:gtk2
 #REQ:rust
 #REQ:zip
+#REQ:unzip
 #REQ:yasm
 #REC:icu
 #REC:libevent

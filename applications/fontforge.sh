@@ -18,6 +18,7 @@ set +h
 #REC:x7lib
 #OPT:giflib
 #OPT:libjpeg
+#OPT:libpng
 #OPT:libtiff
 #OPT:python2
 #OPT:wget

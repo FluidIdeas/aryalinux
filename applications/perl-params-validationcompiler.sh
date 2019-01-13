@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:perl-exception-class
+#REQ:perl-specio
 #REC:perl-test-without-module
 #REC:perl-test2-plugin-nowarnings
 

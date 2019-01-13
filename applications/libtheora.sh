@@ -12,6 +12,7 @@ set +h
 #OPT:libpng
 #OPT:doxygen
 #OPT:texlive
+#OPT:tl-installer
 #OPT:valgrind
 
 cd $SOURCE_DIR

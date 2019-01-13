@@ -20,6 +20,7 @@ set +h
 #OPT:gnupg
 #OPT:jasper
 #OPT:lcms
+#OPT:lcms2
 #OPT:libexif
 #OPT:libjpeg
 #OPT:libpng
@@ -34,8 +35,11 @@ set +h
 #OPT:gimp
 #OPT:graphviz
 #OPT:inkscape
+#OPT:gpcldnld
 #OPT:enscript
 #OPT:texlive
+#OPT:tl-installer
+#OPT:html2ps
 
 cd $SOURCE_DIR
 

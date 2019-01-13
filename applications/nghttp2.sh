@@ -11,6 +11,7 @@ set +h
 #OPT:jansson
 #OPT:libevent
 #OPT:python2
+#OPT:libev
 
 cd $SOURCE_DIR
 

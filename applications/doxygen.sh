@@ -14,6 +14,7 @@ set +h
 #OPT:python2
 #OPT:qt5
 #OPT:texlive
+#OPT:tl-installer
 #OPT:xapian
 
 cd $SOURCE_DIR

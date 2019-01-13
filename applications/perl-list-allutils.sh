@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:perl-list-someutils
+#REQ:perl-list-utilsby
 
 cd $SOURCE_DIR
 

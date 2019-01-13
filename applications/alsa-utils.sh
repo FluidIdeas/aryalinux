@@ -9,6 +9,7 @@ set +h
 #REQ:alsa-lib
 #OPT:fftw
 #OPT:libsamplerate
+#OPT:xmlto
 
 cd $SOURCE_DIR
 

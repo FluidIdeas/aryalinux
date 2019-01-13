@@ -9,6 +9,7 @@ set +h
 #REQ:nettle
 #REC:make-ca
 #REC:libunistring
+#REC:libtasn1
 #REC:p11-kit
 #OPT:doxygen
 #OPT:gtk-doc
@@ -17,6 +18,7 @@ set +h
 #OPT:libidn2
 #OPT:net-tools
 #OPT:texlive
+#OPT:tl-installer
 #OPT:unbound
 #OPT:valgrind
 

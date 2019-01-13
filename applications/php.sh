@@ -17,6 +17,7 @@ set +h
 #OPT:freetype2
 #OPT:libexif
 #OPT:libjpeg
+#OPT:libpng
 #OPT:libtiff
 #OPT:fdftoolkit
 #OPT:curl

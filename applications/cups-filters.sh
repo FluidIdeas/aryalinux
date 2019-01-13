@@ -13,6 +13,7 @@ set +h
 #REQ:poppler
 #REQ:qpdf
 #REC:libjpeg
+#REC:libpng
 #REC:libtiff
 #REC:mupdf
 #OPT:avahi

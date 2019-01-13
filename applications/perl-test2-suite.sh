@@ -10,6 +10,7 @@ set +h
 #REQ:perl-scope-guard
 #REQ:perl-sub-info
 #REQ:perl-term-table
+#REQ:perl-test-simple
 
 cd $SOURCE_DIR
 

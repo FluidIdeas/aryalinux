@@ -10,6 +10,7 @@ set +h
 #OPT:doxygen
 #OPT:graphviz
 #OPT:texlive
+#OPT:tl-installer
 #OPT:mesa
 
 cd $SOURCE_DIR

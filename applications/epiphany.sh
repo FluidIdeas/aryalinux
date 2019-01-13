@@ -8,6 +8,7 @@ set +h
 
 #REQ:gcr
 #REQ:gnome-desktop
+#REQ:iso-codes
 #REQ:json-glib
 #REQ:libnotify
 #REQ:libwnck

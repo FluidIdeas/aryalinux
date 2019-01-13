@@ -12,9 +12,11 @@ set +h
 #REQ:gtk2
 #REQ:harfbuzz
 #REQ:libjpeg
+#REQ:libmypaint
 #REQ:librsvg
 #REQ:libtiff
 #REQ:libxml2py2
+#REQ:lcms2
 #REQ:mypaint-brushes
 #REQ:poppler
 #REC:dbus-glib

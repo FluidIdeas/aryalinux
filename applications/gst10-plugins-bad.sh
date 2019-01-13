@@ -16,6 +16,7 @@ set +h
 #OPT:curl
 #OPT:faac
 #OPT:faad2
+#OPT:gnutls
 #OPT:gtk-doc
 #OPT:gtk2
 #OPT:gtk3

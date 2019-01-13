@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:perl-class-inspector
+#REQ:perl-file-sharedir-install
 
 cd $SOURCE_DIR
 

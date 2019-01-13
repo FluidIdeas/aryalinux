@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:geocode-glib
+#REQ:gtk3
 #REQ:libsoup
 #REC:gobject-introspection
 #REC:vala

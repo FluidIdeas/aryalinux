@@ -10,6 +10,7 @@ set +h
 #REQ:itstool
 #REQ:libsecret
 #REC:telepathy-glib
+#REC:vala
 #REC:vte
 #OPT:avahi
 

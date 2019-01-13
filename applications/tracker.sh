@@ -14,6 +14,7 @@ set +h
 #REC:gobject-introspection
 #REC:icu
 #REC:networkmanager
+#REC:sqlite
 #REC:upower
 #OPT:gtk-doc
 

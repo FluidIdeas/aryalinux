@@ -6,6 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#OPT:unzip
 
 cd $SOURCE_DIR
 

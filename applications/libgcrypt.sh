@@ -9,6 +9,7 @@ set +h
 #REQ:libgpg-error
 #OPT:pth
 #OPT:texlive
+#OPT:tl-installer
 
 cd $SOURCE_DIR
 

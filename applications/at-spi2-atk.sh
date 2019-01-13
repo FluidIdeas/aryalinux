@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:at-spi2-core
+#REQ:atk
 
 cd $SOURCE_DIR
 

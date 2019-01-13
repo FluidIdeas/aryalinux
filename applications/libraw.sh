@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REC:libjpeg
+#REC:jasper
 #REC:lcms2
 
 cd $SOURCE_DIR

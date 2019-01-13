@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:perl-namespace-clean
+#REQ:perl-sub-identify
 
 cd $SOURCE_DIR
 

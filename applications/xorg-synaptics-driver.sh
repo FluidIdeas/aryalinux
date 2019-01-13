@@ -11,6 +11,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://www.x.org/pub/individual/driver/xf86-input-synaptics-1.9.1.tar.bz2
+wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-input-synaptics-1.9.1.tar.bz2
 
 NAME=xorg-synaptics-driver
 VERSION=1.9.1

@@ -17,6 +17,7 @@ set +h
 #OPT:ruby
 #OPT:swig
 #OPT:openjdk
+#OPT:junit
 
 cd $SOURCE_DIR
 

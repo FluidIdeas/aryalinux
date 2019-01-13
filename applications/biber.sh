@@ -7,6 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:perl-autovivification
+#REQ:perl-business-isbn
+#REQ:perl-business-ismn
+#REQ:perl-business-issn
+#REQ:perl-class-accessor
+#REQ:perl-data-compare
 #REQ:perl-data-dump
 #REQ:perl-data-uniqid
 #REQ:perl-datetime-calendar-julian
@@ -18,20 +23,25 @@ set +h
 #REQ:perl-perlio-utf8_strict
 #REQ:perl-ipc-run3
 #REQ:perl-lingua-translit
+#REQ:perl-list-allutils
 #REQ:perl-list-moreutils
+#REQ:perl-log-log4perl
 #REQ:perl-lwp-protocol-https
 #REQ:perl-module-build
+#REQ:perl-regexp-common
 #REQ:perl-sort-key
 #REQ:perl-text-bibtex
 #REQ:perl-text-csv
 #REQ:perl-text-roman
 #REQ:perl-unicode-collate
+#REQ:perl-unicode-linebreak
 #REQ:perl-xml-libxml-simple
 #REQ:perl-xml-libxslt
 #REQ:perl-xml-writer
 #REQ:texlive
 #REQ:tl-installer
 #REC:perl-file-which
+#REC:perl-test-differences
 
 cd $SOURCE_DIR
 

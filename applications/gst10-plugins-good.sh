@@ -15,6 +15,7 @@ set +h
 #REC:gdk-pixbuf
 #REC:libgudev
 #REC:libjpeg
+#REC:libpng
 #REC:libsoup
 #REC:libvpx
 #REC:x7lib
@@ -26,6 +27,7 @@ set +h
 #OPT:libgudev
 #OPT:pulseaudio
 #OPT:speex
+#OPT:taglib
 #OPT:valgrind
 #OPT:v4l-utils
 

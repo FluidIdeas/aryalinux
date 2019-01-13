@@ -8,6 +8,7 @@ set +h
 
 #REQ:gtk3
 #REQ:libcanberra
+#REQ:gtk3
 
 cd $SOURCE_DIR
 

@@ -8,6 +8,7 @@ set +h
 
 #REQ:gtk3
 #REQ:gtksourceview
+#REQ:itstool
 #REQ:libsoup
 #REC:vala
 

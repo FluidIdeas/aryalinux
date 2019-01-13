@@ -9,6 +9,8 @@ set +h
 #REQ:llvm
 #REC:alsa-lib
 #REC:glu
+#REC:libjpeg
+#REC:qt5
 #OPT:doxygen
 #OPT:sdl2
 

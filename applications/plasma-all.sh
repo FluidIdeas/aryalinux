@@ -9,11 +9,13 @@ set +h
 #REQ:gconf
 #REQ:gtk2
 #REQ:gtk3
+#REQ:krameworks5
 #REQ:libpwquality
 #REQ:libxkbcommon
 #REQ:mesa
 #REQ:wayland
 #REQ:networkmanager
+#REQ:pulseaudio
 #REQ:python2
 #REQ:qca
 #REQ:taglib
@@ -24,6 +26,7 @@ set +h
 #REC:linux-pam
 #REC:lm_sensors
 #REC:oxygen-icons5
+#REC:pciutils
 #OPT:glu
 #OPT:ibus
 #OPT:xorg-synaptics-driver

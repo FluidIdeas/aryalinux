@@ -14,6 +14,8 @@ set +h
 #REQ:libdaemon
 #REQ:linux-pam
 #REQ:gnome-session
+#REQ:gnome-shell
+#REQ:systemd
 
 cd $SOURCE_DIR
 

@@ -14,7 +14,9 @@ set +h
 #OPT:gtk-doc
 #OPT:docbook
 #OPT:docbook-xsl
+#OPT:libxslt
 #OPT:dbus-python
+#OPT:gjs
 #OPT:pygobject2
 
 cd $SOURCE_DIR

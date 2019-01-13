@@ -9,6 +9,7 @@ set +h
 #REQ:adwaita-icon-theme
 #REQ:exempi
 #REQ:gnome-desktop
+#REQ:itstool
 #REQ:libpeas
 #REQ:shared-mime-info
 #REC:gobject-introspection

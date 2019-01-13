@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:perl-encode-locale
+#REQ:perl-http-date
 #REQ:perl-deps#perl-io-html
 #REQ:perl-lwp-mediatypes
 #REQ:perl-uri

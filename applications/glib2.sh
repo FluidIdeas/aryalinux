@@ -12,6 +12,7 @@ set +h
 #OPT:dbus
 #OPT:docbook
 #OPT:docbook-xsl
+#OPT:gtk-doc
 #OPT:shared-mime-info
 #OPT:desktop-file-utils
 

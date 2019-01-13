@@ -12,6 +12,8 @@ set +h
 #OPT:docbook
 #OPT:docbook-xsl
 #OPT:fop
+#OPT:libxslt
+#OPT:w3m
 
 cd $SOURCE_DIR
 

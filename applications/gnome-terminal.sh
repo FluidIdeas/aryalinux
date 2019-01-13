@@ -8,6 +8,7 @@ set +h
 
 #REQ:dconf
 #REQ:gnome-shell
+#REQ:gsettings-desktop-schemas
 #REQ:itstool
 #REQ:pcre2
 #REQ:vte

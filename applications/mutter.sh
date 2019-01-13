@@ -8,6 +8,7 @@ set +h
 
 #REQ:clutter
 #REQ:gnome-desktop
+#REQ:libwacom
 #REQ:libxkbcommon
 #REQ:upower
 #REQ:zenity

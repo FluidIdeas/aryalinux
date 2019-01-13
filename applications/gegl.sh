@@ -12,9 +12,11 @@ set +h
 #OPT:cairo
 #OPT:enscript
 #OPT:exiv2
+#OPT:ffmpeg
 #OPT:gdk-pixbuf
 #OPT:graphviz
 #OPT:libjpeg
+#OPT:libpng
 #OPT:librsvg
 #OPT:libwebp
 #OPT:lua
@@ -26,6 +28,7 @@ set +h
 #OPT:vala
 #OPT:w3m
 #OPT:gexiv2
+#OPT:suitesparse
 
 cd $SOURCE_DIR
 

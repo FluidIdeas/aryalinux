@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REC:perl-test-leaktrace
+#REC:perl-test-warnings
 
 cd $SOURCE_DIR
 

@@ -9,6 +9,7 @@ set +h
 #REQ:ffmpeg
 #REC:alsa-lib
 #REC:lame
+#REC:libdvdread
 #REC:libmpeg2
 #REC:x7lib
 #OPT:faac
@@ -17,6 +18,7 @@ set +h
 #OPT:liba52
 #OPT:libdv
 #OPT:libjpeg
+#OPT:libogg
 #OPT:libquicktime
 #OPT:libtheora
 #OPT:libvorbis
@@ -24,6 +26,7 @@ set +h
 #OPT:lzo
 #OPT:sdl
 #OPT:v4l-utils
+#OPT:x264
 #OPT:xvid
 
 cd $SOURCE_DIR

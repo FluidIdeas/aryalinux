@@ -12,6 +12,7 @@ set +h
 #REC:hicolor-icon-theme
 #OPT:cups
 #OPT:docbook-utils
+#OPT:gobject-introspection
 #OPT:gtk-doc
 
 cd $SOURCE_DIR

@@ -17,6 +17,7 @@ set +h
 #REC:nss
 #REC:polkit
 #REC:pygobject3
+#REC:systemd
 #REC:upower
 #REC:vala
 #REC:wpa_supplicant

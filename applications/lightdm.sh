@@ -14,6 +14,7 @@ set +h
 #REC:libxklavier
 #REC:vala
 #OPT:at-spi2-core
+#OPT:exo
 #OPT:gtk-doc
 #OPT:itstool
 #OPT:qt5

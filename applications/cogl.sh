@@ -11,6 +11,7 @@ set +h
 #REQ:glu
 #REQ:mesa
 #REQ:pango
+#REQ:wayland
 #REC:gobject-introspection
 #OPT:gst10-plugins-base
 #OPT:gtk-doc

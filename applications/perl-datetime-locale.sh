@@ -8,6 +8,7 @@ set +h
 
 #REQ:perl-dist-checkconflicts
 #REQ:perl-file-sharedir
+#REQ:perl-namespace-autoclean
 #REQ:perl-params-validationcompiler
 #REC:perl-cpan-meta-check
 #REC:perl-ipc-system-simple

@@ -18,10 +18,12 @@ set +h
 #OPT:gnutls
 #OPT:db
 #OPT:libxslt
+#OPT:lynx
 #OPT:w3m
 #OPT:docbook-dsssl
 #OPT:openjade
 #OPT:texlive
+#OPT:tl-installer
 
 cd $SOURCE_DIR
 

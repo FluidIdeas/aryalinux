@@ -8,6 +8,7 @@ set +h
 
 #REQ:openjade
 #REQ:docbook-dsssl
+#REQ:sgml-dtd-3
 #OPT:perl-sgmlspm
 #OPT:lynx
 #OPT:links

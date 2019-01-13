@@ -10,6 +10,7 @@ set +h
 #REQ:gexiv2
 #REQ:gnome-autoar
 #REQ:gnome-desktop
+#REQ:libnotify
 #REQ:libseccomp
 #REQ:tracker
 #REC:desktop-file-utils

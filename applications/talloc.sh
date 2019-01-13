@@ -8,6 +8,7 @@ set +h
 
 #OPT:docbook
 #OPT:docbook-xsl
+#OPT:libxslt
 #OPT:python2
 #OPT:gdb
 #OPT:git

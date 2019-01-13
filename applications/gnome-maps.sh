@@ -8,7 +8,9 @@ set +h
 
 #REQ:clutter-gtk
 #REQ:folks
+#REQ:geoclue2
 #REQ:geocode-glib
+#REQ:gfbgraph
 #REQ:gjs
 #REQ:libchamplain
 

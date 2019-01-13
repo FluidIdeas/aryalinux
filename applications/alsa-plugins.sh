@@ -9,6 +9,7 @@ set +h
 #REQ:alsa-lib
 #OPT:ffmpeg
 #OPT:libsamplerate
+#OPT:pulseaudio
 #OPT:speex
 
 cd $SOURCE_DIR

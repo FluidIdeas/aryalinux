@@ -8,8 +8,10 @@ set +h
 
 #REQ:boost
 #REQ:gc
+#REQ:gsl
 #REQ:gtkmm2
 #REQ:gtkmm3
+#REQ:libxslt
 #REQ:poppler
 #REQ:popt
 #REQ:wget

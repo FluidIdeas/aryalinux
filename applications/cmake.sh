@@ -10,6 +10,7 @@ set +h
 #REC:curl
 #REC:libarchive
 #OPT:qt5
+#OPT:subversion
 
 cd $SOURCE_DIR
 

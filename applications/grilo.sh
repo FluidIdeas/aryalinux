@@ -15,6 +15,7 @@ set +h
 #REC:vala
 #OPT:avahi
 #OPT:docbook-utils
+#OPT:liboauth
 #OPT:gtk-doc
 
 cd $SOURCE_DIR

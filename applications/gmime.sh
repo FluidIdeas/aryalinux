@@ -11,6 +11,7 @@ set +h
 #REC:gobject-introspection
 #REC:vala
 #OPT:docbook-utils
+#OPT:gpgme
 #OPT:gtk-doc
 
 cd $SOURCE_DIR

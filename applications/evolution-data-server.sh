@@ -20,6 +20,7 @@ set +h
 #REC:libcanberra
 #REC:libgdata
 #REC:libgweather
+#REC:vala
 #OPT:gtk-doc
 #OPT:mitkrb
 #OPT:mail

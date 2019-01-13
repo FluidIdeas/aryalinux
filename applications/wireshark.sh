@@ -17,6 +17,7 @@ set +h
 #OPT:libnl
 #OPT:lua
 #OPT:mitkrb
+#OPT:nghttp2
 #OPT:sbc
 
 cd $SOURCE_DIR

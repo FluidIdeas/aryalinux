@@ -9,6 +9,7 @@ set +h
 #REQ:libwnck2
 #REQ:libxfce4ui
 #REQ:which
+#REQ:x7app
 #REQ:xfdesktop
 #REC:desktop-file-utils
 #REC:shared-mime-info

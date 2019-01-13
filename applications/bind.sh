@@ -19,6 +19,7 @@ set +h
 #OPT:doxygen
 #OPT:libxslt
 #OPT:texlive
+#OPT:tl-installer
 
 cd $SOURCE_DIR
 

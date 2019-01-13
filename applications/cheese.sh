@@ -9,6 +9,7 @@ set +h
 #REQ:clutter-gst
 #REQ:clutter-gtk
 #REQ:gnome-desktop
+#REQ:gnome-video-effects
 #REQ:gst10-plugins-bad
 #REQ:gst10-plugins-good
 #REQ:v4l-utils

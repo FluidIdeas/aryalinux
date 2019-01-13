@@ -19,6 +19,7 @@ set +h
 #OPT:gconf
 #OPT:gtk3
 #OPT:libsamplerate
+#OPT:sbc
 #OPT:valgrind
 
 cd $SOURCE_DIR

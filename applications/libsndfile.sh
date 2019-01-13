@@ -8,6 +8,7 @@ set +h
 
 #OPT:alsa-lib
 #OPT:flac
+#OPT:libogg
 #OPT:libvorbis
 #OPT:sqlite
 

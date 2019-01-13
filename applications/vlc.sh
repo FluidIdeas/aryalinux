@@ -8,15 +8,18 @@ set +h
 
 #REC:alsa-lib
 #REC:ffmpeg
+#REC:liba52
 #REC:libgcrypt
 #REC:libmad
 #REC:lua
 #OPT:dbus
 #OPT:libcddb
 #OPT:libdv
+#OPT:libdvdcss
 #OPT:libdvdread
 #OPT:libdvdnav
 #OPT:opencv
+#OPT:samba
 #OPT:v4l-utils
 #OPT:libbluray
 #OPT:libcdio
@@ -32,6 +35,7 @@ set +h
 #OPT:libvorbis
 #OPT:opus
 #OPT:speex
+#OPT:x264
 #OPT:libdca
 #OPT:aalib
 #OPT:fontconfig

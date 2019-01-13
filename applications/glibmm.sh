@@ -11,6 +11,7 @@ set +h
 #OPT:doxygen
 #OPT:glib-networking
 #OPT:gnutls
+#OPT:libxslt
 
 cd $SOURCE_DIR
 

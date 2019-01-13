@@ -23,6 +23,7 @@ set +h
 #OPT:zsh
 #OPT:docbook
 #OPT:docbook-xsl
+#OPT:libxslt
 
 cd $SOURCE_DIR
 

@@ -11,6 +11,7 @@ set +h
 #OPT:nfs-utils
 #OPT:libxml2
 #OPT:mitkrb
+#OPT:openldap
 #OPT:cyrus-sasl
 
 cd $SOURCE_DIR

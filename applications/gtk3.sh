@@ -21,8 +21,10 @@ set +h
 #OPT:colord
 #OPT:cups
 #OPT:docbook-utils
+#OPT:gtk-doc
 #OPT:json-glib
 #OPT:pyatspi2
+#OPT:rest
 
 cd $SOURCE_DIR
 

@@ -8,6 +8,7 @@ set +h
 
 #REQ:glib2
 #REQ:libjpeg
+#REQ:libpng
 #REQ:shared-mime-info
 #REC:librsvg
 #REC:libtiff

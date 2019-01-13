@@ -9,6 +9,7 @@ set +h
 #REQ:graphite-wo-harfbuzz
 #REQ:freetype2-wo-harfbuzz
 #REC:glib2
+#REC:graphite2
 #REC:icu
 #REC:freetype2
 #OPT:cairo

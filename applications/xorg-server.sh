@@ -20,6 +20,7 @@ set +h
 #OPT:libgcrypt
 #OPT:xcb-util-keysyms
 #OPT:xcb-util-image
+#OPT:xcb-util-renderutil
 #OPT:xcb-util-wm
 #OPT:xmlto
 

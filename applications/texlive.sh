@@ -11,6 +11,7 @@ set +h
 #REC:fontconfig
 #REC:freetype2
 #REC:gc
+#REC:graphite2
 #REC:harfbuzz
 #REC:icu
 #REC:libpaper

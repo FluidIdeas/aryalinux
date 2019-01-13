@@ -16,6 +16,8 @@ set +h
 #OPT:dbus
 #OPT:gconf
 #OPT:libidn
+#OPT:networkmanager
+#OPT:sqlite
 #OPT:startup-notification
 #OPT:tcl
 #OPT:tk

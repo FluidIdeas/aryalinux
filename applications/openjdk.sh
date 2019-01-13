@@ -19,6 +19,7 @@ set +h
 #REC:giflib
 #REC:lcms2
 #REC:libjpeg
+#REC:libpng
 #REC:wget
 #OPT:graphviz
 #OPT:mercurial

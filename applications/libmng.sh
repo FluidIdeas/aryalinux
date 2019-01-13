@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libjpeg
+#REQ:lcms2
 
 cd $SOURCE_DIR
 

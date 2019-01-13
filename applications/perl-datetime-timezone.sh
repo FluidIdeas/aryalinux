@@ -7,8 +7,10 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:perl-class-singleton
+#REQ:perl-module-runtime
 #REQ:perl-params-validationcompiler
 #REC:perl-test-fatal
+#REC:perl-test-requires
 #REC:perl-datetime
 
 cd $SOURCE_DIR

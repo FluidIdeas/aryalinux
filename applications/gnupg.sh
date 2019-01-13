@@ -20,6 +20,7 @@ set +h
 #OPT:openldap
 #OPT:sqlite
 #OPT:texlive
+#OPT:tl-installer
 
 cd $SOURCE_DIR
 

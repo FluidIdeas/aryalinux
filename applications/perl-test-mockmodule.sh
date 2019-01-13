@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:perl-module-build
+#REQ:perl-super
 #REC:perl-test-warnings
 
 cd $SOURCE_DIR

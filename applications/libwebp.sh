@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REC:libjpeg
+#REC:libpng
 #REC:libtiff
 #OPT:freeglut
 #OPT:giflib

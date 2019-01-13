@@ -9,6 +9,7 @@ set +h
 #OPT:bind
 #OPT:bind-utils
 #OPT:boost
+#OPT:gdb
 #OPT:llvm
 #OPT:which
 

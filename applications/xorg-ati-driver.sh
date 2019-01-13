@@ -10,11 +10,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://anduin.linuxfromscratch.org/BLFS/linux-firmware/
+wget -nc https://www.x.org/pub/individual/driver/xf86-video-ati-18.1.0.tar.bz2
+wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-ati-18.1.0.tar.bz2
 
 NAME=xorg-ati-driver
-VERSION=firmware
-URL=http://anduin.linuxfromscratch.org/BLFS/linux-firmware/
+VERSION=18.1.0
+URL=https://www.x.org/pub/individual/driver/xf86-video-ati-18.1.0.tar.bz2
 
 if [ ! -z $URL ]
 then

@@ -10,6 +10,8 @@ set +h
 #REC:cups
 #OPT:gs
 #OPT:libpaper
+#OPT:texlive
+#OPT:tl-installer
 #OPT:readstep2
 #OPT:ghostview
 

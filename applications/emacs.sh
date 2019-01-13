@@ -18,6 +18,7 @@ set +h
 #OPT:gtk3
 #OPT:imagemagick6
 #OPT:libjpeg
+#OPT:libpng
 #OPT:librsvg
 #OPT:libtiff
 #OPT:libxml2

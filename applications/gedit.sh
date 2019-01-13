@@ -8,10 +8,12 @@ set +h
 
 #REQ:gsettings-desktop-schemas
 #REQ:gtksourceview
+#REQ:itstool
 #REQ:libpeas
 #REC:gvfs
 #REC:iso-codes
 #REC:libsoup
+#REC:pygobject3
 #OPT:gtk-doc
 #OPT:vala
 
