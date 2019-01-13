@@ -87,8 +87,7 @@ fi
 }
 
 export -f as_root
-grep -A9 summary *make_check.log
-bash -e
+
 for package in $(grep -v '^#' ../lib-7.md5 | awk '{print $2}')
 do
 packagedir=${package%.tar.bz2}
@@ -113,23 +112,12 @@ libXt-[0-9]* )
 ;;
 esac
 make
-#make check 2>&1 | tee ../$packagedir-make_check.log
+
 as_root make install
 popd
 rm -rf $packagedir
 as_root /sbin/ldconfig
 done
-exit
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ln -sv $XORG_PREFIX/lib/X11 /usr/lib/X11 &&
-ln -sv $XORG_PREFIX/include/X11 /usr/include/X11
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
