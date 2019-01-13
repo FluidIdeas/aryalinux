@@ -9,6 +9,7 @@ set +h
 #REQ:glib2
 #REC:which
 #OPT:cairo
+#OPT:gjs
 #OPT:gtk-doc
 #OPT:mako
 #OPT:python2

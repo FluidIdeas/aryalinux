@@ -28,12 +28,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.28/gnome-control-center-3.28.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.28/gnome-control-center-3.28.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.30/gnome-control-center-3.30.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.30/gnome-control-center-3.30.2.tar.xz
 
 NAME=gnome-control-center
-VERSION=3.28.2
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.28/gnome-control-center-3.28.2.tar.xz
+VERSION=3.30.2
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.30/gnome-control-center-3.30.2.tar.xz
 
 if [ ! -z $URL ]
 then

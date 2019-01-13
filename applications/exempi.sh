@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://libopenraw.freedesktop.org/download/exempi-2.4.5.tar.bz2
+wget -nc https://libopenraw.freedesktop.org/download/exempi-2.5.0.tar.bz2
 
 NAME=exempi
-VERSION=2.4.5
-URL=https://libopenraw.freedesktop.org/download/exempi-2.4.5.tar.bz2
+VERSION=2.5.0
+URL=https://libopenraw.freedesktop.org/download/exempi-2.5.0.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -32,6 +32,8 @@ fi
 cd $DIRECTORY
 fi
 
+sed -i -r '/^\s?testadobesdk/d' exempi/tests/Makefile.am &&
+autoreconf -fiv
 ./configure --prefix=/usr --disable-static &&
 make
 

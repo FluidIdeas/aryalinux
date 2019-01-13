@@ -19,11 +19,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/thunar/1.7/Thunar-1.7.0.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/thunar/1.8/Thunar-1.8.2.tar.bz2
 
 NAME=thunar
-VERSION=1.7.0
-URL=http://archive.xfce.org/src/xfce/thunar/1.7/Thunar-1.7.0.tar.bz2
+VERSION=1.8.2
+URL=http://archive.xfce.org/src/xfce/thunar/1.8/Thunar-1.8.2.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -42,7 +42,7 @@ fi
 
 ./configure --prefix=/usr \
 --sysconfdir=/etc \
---docdir=/usr/share/doc/Thunar-1.7.0 &&
+--docdir=/usr/share/doc/Thunar-1.8.2 &&
 make
 
 sudo rm -rf /tmp/rootscript.sh

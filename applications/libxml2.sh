@@ -12,14 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://xmlsoft.org/sources/libxml2-2.9.8.tar.gz
-wget -nc ftp://xmlsoft.org/libxml2/libxml2-2.9.8.tar.gz
+wget -nc http://xmlsoft.org/sources/libxml2-2.9.9.tar.gz
+wget -nc ftp://xmlsoft.org/libxml2/libxml2-2.9.9.tar.gz
 wget -nc http://www.w3.org/XML/Test/xmlts20130923.tar.gz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/libxml2-2.9.8-python3_hack-1.patch
 
 NAME=libxml2
-VERSION=2.9.8
-URL=http://xmlsoft.org/sources/libxml2-2.9.8.tar.gz
+VERSION=2.9.9
+URL=http://xmlsoft.org/sources/libxml2-2.9.9.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -36,8 +35,6 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../libxml2-2.9.8-python3_hack-1.patch
-sed -i '/_PyVerify_fd/,+1d' python/types.c
 ./configure --prefix=/usr \
 --disable-static \
 --with-history \

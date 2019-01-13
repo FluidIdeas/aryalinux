@@ -9,6 +9,7 @@ set +h
 #REQ:curl
 #REQ:cmake
 #REQ:libssh2
+#REQ:python2
 #REC:llvm
 #OPT:gdb
 
@@ -67,9 +68,9 @@ llvm-config = "/usr/bin/llvm-config"
 
 EOF
 export RUSTFLAGS="$RUSTFLAGS -C link-args=-lffi" &&
-python3 ./x.py build
+./x.py build
 export LIBSSH2_SYS_USE_PKG_CONFIG=1 &&
-DESTDIR=${PWD}/install python3 ./x.py install &&
+DESTDIR=${PWD}/install ./x.py install &&
 unset LIBSSH2_SYS_USE_PKG_CONFIG
 
 sudo rm -rf /tmp/rootscript.sh

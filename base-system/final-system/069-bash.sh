@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="069-bash.sh"
-TARBALL="bash-4.4.18.tar.gz"
+TARBALL="bash-5.0.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -34,7 +34,7 @@ export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 
 ./configure --prefix=/usr                       \
-            --docdir=/usr/share/doc/bash-4.4.18 \
+            --docdir=/usr/share/doc/bash-5.0 \
             --without-bash-malloc               \
             --with-installed-readline
 make

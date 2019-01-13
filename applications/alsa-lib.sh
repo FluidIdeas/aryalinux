@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.1.7.tar.bz2
+wget -nc ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.1.8.tar.bz2
 
 NAME=alsa-lib
-VERSION=1.1.7
-URL=ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.1.7.tar.bz2
+VERSION=1.1.8
+URL=ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.1.8.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -47,11 +47,11 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -d -m755 /usr/share/doc/alsa-lib-1.1.7/html/search &&
+install -v -d -m755 /usr/share/doc/alsa-lib-1.1.8/html/search &&
 install -v -m644 doc/doxygen/html/*.* \
-/usr/share/doc/alsa-lib-1.1.7/html &&
+/usr/share/doc/alsa-lib-1.1.8/html &&
 install -v -m644 doc/doxygen/html/search/* \
-/usr/share/doc/alsa-lib-1.1.7/html/search
+/usr/share/doc/alsa-lib-1.1.8/html/search
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

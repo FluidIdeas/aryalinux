@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/eqrion/cbindgen/archive/v0.6.6/cbindgen-0.6.6.tar.gz
+wget -nc https://github.com/eqrion/cbindgen/archive/v0.6.8/cbindgen-0.6.8.tar.gz
 
 NAME=cbindgen
-VERSION=0.6.6
-URL=https://github.com/eqrion/cbindgen/archive/v0.6.6/cbindgen-0.6.6.tar.gz
+VERSION=0.6.8
+URL=https://github.com/eqrion/cbindgen/archive/v0.6.8/cbindgen-0.6.8.tar.gz
 
 if [ ! -z $URL ]
 then

@@ -14,11 +14,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://nodejs.org/dist/v10.14.2/node-v10.14.2.tar.xz
+wget -nc https://nodejs.org/dist/v10.15.0/node-v10.15.0.tar.xz
 
 NAME=nodejs
-VERSION=v10.14.2
-URL=https://nodejs.org/dist/v10.14.2/node-v10.14.2.tar.xz
+VERSION=v10.15.0
+URL=https://nodejs.org/dist/v10.15.0/node-v10.15.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -46,7 +46,7 @@ make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-ln -sf node /usr/share/doc/node-10.14.2
+ln -sf node /usr/share/doc/node-10.15.0
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

@@ -49,7 +49,7 @@ f0b24e4d8beb622a419e8431e1c03cd7 x11perf-1.6.0.tar.bz2
 f3f76cb10f69b571c43893ea6a634aa4 xauth-1.0.10.tar.bz2
 d50cf135af04436b9456a5ab7dcf7971 xbacklight-1.2.2.tar.bz2
 9956d751ea3ae4538c3ebd07f70736a0 xcmsdb-1.0.5.tar.bz2
-b58a87e6cd7145c70346adad551dba48 xcursorgen-1.0.6.tar.bz2
+25cc7ca1ce5dcbb61c2b471c55e686b5 xcursorgen-1.0.7.tar.bz2
 8809037bd48599af55dad81c508b6b39 xdpyinfo-1.3.2.tar.bz2
 480e63cd365f03eb2515a6527d5f4ca6 xdriinfo-1.0.6.tar.bz2
 249bdde90f01c0d861af52dc8fec379e xev-1.2.2.tar.bz2

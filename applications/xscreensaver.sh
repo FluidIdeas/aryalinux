@@ -15,11 +15,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.jwz.org/xscreensaver/xscreensaver-5.40.tar.gz
+wget -nc https://www.jwz.org/xscreensaver/xscreensaver-5.42.tar.gz
 
 NAME=xscreensaver
-VERSION=5.40
-URL=https://www.jwz.org/xscreensaver/xscreensaver-5.40.tar.gz
+VERSION=5.42
+URL=https://www.jwz.org/xscreensaver/xscreensaver-5.42.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -36,6 +36,7 @@ fi
 cd $DIRECTORY
 fi
 
+sed -i '/^\/\//d' hacks/fontglide.c
 ./configure --prefix=/usr &&
 make
 

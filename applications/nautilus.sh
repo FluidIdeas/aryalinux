@@ -6,10 +6,12 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#REQ:bubblewrap
 #REQ:gexiv2
 #REQ:gnome-autoar
 #REQ:gnome-desktop
-#REQ:libnotify
+#REQ:libseccomp
+#REQ:tracker
 #REC:desktop-file-utils
 #REC:exempi
 #REC:gobject-introspection
@@ -20,12 +22,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/nautilus/3.28/nautilus-3.28.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/nautilus/3.28/nautilus-3.28.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/nautilus/3.30/nautilus-3.30.5.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/nautilus/3.30/nautilus-3.30.5.tar.xz
 
 NAME=nautilus
-VERSION=3.28.1
-URL=http://ftp.gnome.org/pub/gnome/sources/nautilus/3.28/nautilus-3.28.1.tar.xz
+VERSION=3.30.5
+URL=http://ftp.gnome.org/pub/gnome/sources/nautilus/3.30/nautilus-3.30.5.tar.xz
 
 if [ ! -z $URL ]
 then

@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="098-iproute2.sh"
-TARBALL="iproute2-4.19.0.tar.xz"
+TARBALL="iproute2-4.20.0.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -37,7 +37,7 @@ sed -i /ARPD/d Makefile
 rm -fv man/man8/arpd.8
 sed -i 's/.m_ipt.o//' tc/Makefile
 make
-make DOCDIR=/usr/share/doc/iproute2-4.19.0 install
+make DOCDIR=/usr/share/doc/iproute2-4.20.0 install
 
 
 cd $SOURCE_DIR

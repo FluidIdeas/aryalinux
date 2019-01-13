@@ -27,12 +27,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://distfiles.audacious-media-player.org/audacious-3.10.tar.bz2
-wget -nc https://distfiles.audacious-media-player.org/audacious-plugins-3.10.tar.bz2
+wget -nc https://distfiles.audacious-media-player.org/audacious-3.10.1.tar.bz2
+wget -nc https://distfiles.audacious-media-player.org/audacious-plugins-3.10.1.tar.bz2
 
 NAME=audacious
-VERSION=3.10
-URL=https://distfiles.audacious-media-player.org/audacious-3.10.tar.bz2
+VERSION=3.10.1
+URL=https://distfiles.audacious-media-player.org/audacious-3.10.1.tar.bz2
 
 if [ ! -z $URL ]
 then

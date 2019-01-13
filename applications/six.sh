@@ -6,15 +6,15 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:python2
+#REC:python2
 
 cd $SOURCE_DIR
 
-wget -nc https://pypi.io/packages/source/s/six/six-1.11.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/six/six-1.12.0.tar.gz
 
 NAME=six
-VERSION=1.11.0
-URL=https://pypi.io/packages/source/s/six/six-1.11.0.tar.gz
+VERSION=1.12.0
+URL=https://files.pythonhosted.org/packages/source/s/six/six-1.12.0.tar.gz
 
 if [ ! -z $URL ]
 then

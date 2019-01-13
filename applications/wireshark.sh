@@ -17,17 +17,16 @@ set +h
 #OPT:libnl
 #OPT:lua
 #OPT:mitkrb
-#OPT:nghttp2
 #OPT:sbc
 
 cd $SOURCE_DIR
 
-wget -nc https://www.wireshark.org/download/src/all-versions/wireshark-2.6.5.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/wireshark-2.6.5-lua_5_3-1.patch
+wget -nc https://www.wireshark.org/download/src/all-versions/wireshark-2.6.6.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/wireshark-2.6.6-lua_5_3-1.patch
 
 NAME=wireshark
-VERSION=2.6.5
-URL=https://www.wireshark.org/download/src/all-versions/wireshark-2.6.5.tar.xz
+VERSION=2.6.6
+URL=https://www.wireshark.org/download/src/all-versions/wireshark-2.6.6.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -53,7 +52,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-patch -Np1 -i ../wireshark-2.6.5-lua_5_3-1.patch &&
+patch -Np1 -i ../wireshark-2.6.6-lua_5_3-1.patch &&
 
 ./configure --prefix=/usr --sysconfdir=/etc &&
 make
@@ -62,11 +61,11 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
-install -v -m755 -d /usr/share/doc/wireshark-2.6.5 &&
+install -v -m755 -d /usr/share/doc/wireshark-2.6.6 &&
 install -v -m644 README.linux doc/README.* doc/*.{pod,txt} \
-/usr/share/doc/wireshark-2.6.5 &&
+/usr/share/doc/wireshark-2.6.6 &&
 
-pushd /usr/share/doc/wireshark-2.6.5 &&
+pushd /usr/share/doc/wireshark-2.6.6 &&
 for FILENAME in ../../wireshark/*.html; do
 ln -s -v -f $FILENAME .
 done &&
@@ -81,7 +80,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m644 <em class="replaceable"><code><Downloaded_Files></code></em> \
-/usr/share/doc/wireshark-2.6.5
+/usr/share/doc/wireshark-2.6.6
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

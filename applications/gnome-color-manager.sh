@@ -19,12 +19,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-color-manager/3.28/gnome-color-manager-3.28.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-color-manager/3.28/gnome-color-manager-3.28.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-color-manager/3.30/gnome-color-manager-3.30.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-color-manager/3.30/gnome-color-manager-3.30.0.tar.xz
 
 NAME=gnome-color-manager
-VERSION=3.28.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-color-manager/3.28/gnome-color-manager-3.28.0.tar.xz
+VERSION=3.30.0
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-color-manager/3.30/gnome-color-manager-3.30.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -44,7 +44,7 @@ fi
 mkdir build &&
 cd build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr -Dexiv=false .. &&
 ninja
 
 sudo rm -rf /tmp/rootscript.sh

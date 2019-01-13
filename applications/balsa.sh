@@ -16,7 +16,6 @@ set +h
 #OPT:gtksourceview
 #OPT:mitkrb
 #OPT:mail
-#OPT:openldap
 #OPT:sqlite
 #OPT:webkitgtk
 #OPT:gpgme

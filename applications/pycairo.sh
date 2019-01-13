@@ -7,15 +7,15 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:cairo
-#OPT:python2
+#REC:python2
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/pygobject/pycairo/releases/download/v1.17.1/pycairo-1.17.1.tar.gz
+wget -nc https://github.com/pygobject/pycairo/releases/download/v1.18.0/pycairo-1.18.0.tar.gz
 
 NAME=pycairo
-VERSION=1.17.1
-URL=https://github.com/pygobject/pycairo/releases/download/v1.17.1/pycairo-1.17.1.tar.gz
+VERSION=1.18.0
+URL=https://github.com/pygobject/pycairo/releases/download/v1.18.0/pycairo-1.18.0.tar.gz
 
 if [ ! -z $URL ]
 then

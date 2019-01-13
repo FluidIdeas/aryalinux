@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://xmlsoft.org/sources/libxslt-1.1.32.tar.gz
-wget -nc ftp://xmlsoft.org/libxslt/libxslt-1.1.32.tar.gz
+wget -nc http://xmlsoft.org/sources/libxslt-1.1.33.tar.gz
+wget -nc ftp://xmlsoft.org/libxslt/libxslt-1.1.33.tar.gz
 
 NAME=libxslt
-VERSION=1.1.32
-URL=http://xmlsoft.org/sources/libxslt-1.1.32.tar.gz
+VERSION=1.1.33
+URL=http://xmlsoft.org/sources/libxslt-1.1.33.tar.gz
 
 if [ ! -z $URL ]
 then

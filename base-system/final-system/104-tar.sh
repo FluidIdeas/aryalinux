@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="104-tar.sh"
-TARBALL="tar-1.30.tar.xz"
+TARBALL="tar-1.31.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -38,7 +38,7 @@ FORCE_UNSAFE_CONFIGURE=1  \
             --bindir=/bin
 make
 make install
-make -C doc install-html docdir=/usr/share/doc/tar-1.30
+make -C doc install-html docdir=/usr/share/doc/tar-1.31
 
 
 cd $SOURCE_DIR

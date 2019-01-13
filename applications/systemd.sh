@@ -27,6 +27,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://github.com/systemd/systemd/archive/v240/systemd-240.tar.gz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/systemd-240-security_fixes-1.patch
 
 NAME=systemd
 VERSION=240
@@ -47,6 +48,7 @@ fi
 cd $DIRECTORY
 fi
 
+patch -Np1 -i ../systemd-240-security_fixes-1.patch
 sed -i 's/GROUP="render", //' rules/50-udev-default.rules.in
 mkdir build &&
 cd build &&

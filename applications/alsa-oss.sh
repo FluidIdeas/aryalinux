@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.alsa-project.org/pub/oss-lib/alsa-oss-1.1.6.tar.bz2
+wget -nc ftp://ftp.alsa-project.org/pub/oss-lib/alsa-oss-1.1.8.tar.bz2
 
 NAME=alsa-oss
-VERSION=1.1.6
-URL=ftp://ftp.alsa-project.org/pub/oss-lib/alsa-oss-1.1.6.tar.bz2
+VERSION=1.1.8
+URL=ftp://ftp.alsa-project.org/pub/oss-lib/alsa-oss-1.1.8.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -31,7 +31,6 @@ fi
 cd $DIRECTORY
 fi
 
-sed -i '/#include <libio.h>/d' alsa/stdioemu.c &&
 ./configure --disable-static &&
 make
 

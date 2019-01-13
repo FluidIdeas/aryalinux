@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="019-diffutils.sh"
-TARBALL="diffutils-3.6.tar.xz"
+TARBALL="diffutils-3.7.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 

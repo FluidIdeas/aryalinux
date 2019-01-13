@@ -42,6 +42,7 @@ sed -i s/mawk// configure
             --enable-overwrite
 make
 make install
+ln -s libncursesw.so /tools/lib/libncurses.so
 
 
 cd $SOURCE_DIR

@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://files.pythonhosted.org/packages/source/M/MarkupSafe/MarkupSafe-1.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/M/MarkupSafe/MarkupSafe-1.1.0.tar.gz
 
 NAME=markupsafe
-VERSION=1.0
-URL=https://files.pythonhosted.org/packages/source/M/MarkupSafe/MarkupSafe-1.0.tar.gz
+VERSION=1.1.0
+URL=https://files.pythonhosted.org/packages/source/M/MarkupSafe/MarkupSafe-1.1.0.tar.gz
 
 if [ ! -z $URL ]
 then

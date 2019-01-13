@@ -12,11 +12,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://files.pythonhosted.org/packages/source/l/lxml/lxml-4.2.5.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/l/lxml/lxml-4.3.0.tar.gz
 
 NAME=lxml
-VERSION=4.2.5
-URL=https://files.pythonhosted.org/packages/source/l/lxml/lxml-4.2.5.tar.gz
+VERSION=4.3.0
+URL=https://files.pythonhosted.org/packages/source/l/lxml/lxml-4.3.0.tar.gz
 
 if [ ! -z $URL ]
 then

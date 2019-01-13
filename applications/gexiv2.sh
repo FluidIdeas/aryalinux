@@ -9,15 +9,16 @@ set +h
 #REQ:exiv2
 #REC:vala
 #OPT:gtk-doc
+#OPT:python2
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/gexiv2/0.10/gexiv2-0.10.8.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/GNOME/sources/gexiv2/0.10/gexiv2-0.10.8.tar.xz
+wget -nc https://download.gnome.org/sources/gexiv2/0.11/gexiv2-0.11.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/GNOME/sources/gexiv2/0.11/gexiv2-0.11.0.tar.xz
 
 NAME=gexiv2
-VERSION=0.10.8
-URL=https://download.gnome.org/sources/gexiv2/0.10/gexiv2-0.10.8.tar.xz
+VERSION=0.11.0
+URL=https://download.gnome.org/sources/gexiv2/0.11/gexiv2-0.11.0.tar.xz
 
 if [ ! -z $URL ]
 then

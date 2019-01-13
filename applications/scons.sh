@@ -6,18 +6,16 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:python2
 #OPT:docbook-xsl
-#OPT:libxml2py2
 #OPT:libxslt
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/scons/scons-3.0.0.tar.gz
+wget -nc https://downloads.sourceforge.net/scons/scons-3.0.3.tar.gz
 
 NAME=scons
-VERSION=3.0.0
-URL=https://downloads.sourceforge.net/scons/scons-3.0.0.tar.gz
+VERSION=3.0.3
+URL=https://downloads.sourceforge.net/scons/scons-3.0.3.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -37,10 +35,12 @@ fi
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-python setup.py install --prefix=/usr \
+sed -i 's/env python/&3/' script/* &&
+python3 setup.py install --prefix=/usr \
 --standard-lib \
 --optimize=1 \
---install-data=/usr/share
+--install-data=/usr/share &&
+rm /usr/bin/scons*.bat
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

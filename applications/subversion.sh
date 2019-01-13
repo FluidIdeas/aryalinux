@@ -20,11 +20,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.apache.org/dist/subversion/subversion-1.11.0.tar.bz2
+wget -nc https://archive.apache.org/dist/subversion/subversion-1.11.1.tar.bz2
 
 NAME=subversion
-VERSION=1.11.0
-URL=https://archive.apache.org/dist/subversion/subversion-1.11.0.tar.bz2
+VERSION=1.11.1
+URL=https://archive.apache.org/dist/subversion/subversion-1.11.1.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -52,9 +52,9 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
-install -v -m755 -d /usr/share/doc/subversion-1.11.0 &&
+install -v -m755 -d /usr/share/doc/subversion-1.11.1 &&
 cp -v -R doc/* \
-/usr/share/doc/subversion-1.11.0
+/usr/share/doc/subversion-1.11.1
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

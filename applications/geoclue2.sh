@@ -11,15 +11,16 @@ set +h
 #REC:modemmanager
 #REC:vala
 #REC:avahi
+#OPT:gtk-doc
 #OPT:libnotify
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/geoclue/releases/2.4/geoclue-2.4.12.tar.xz
+wget -nc https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.5.2/geoclue-2.5.2.tar.bz2
 
 NAME=geoclue2
-VERSION=2.4.12
-URL=https://www.freedesktop.org/software/geoclue/releases/2.4/geoclue-2.4.12.tar.xz
+VERSION=2.5.2
+URL=https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.5.2/geoclue-2.5.2.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -36,12 +37,15 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --sysconfdir=/etc &&
-make
+mkdir build &&
+cd build &&
+
+meson --prefix=/usr --sysconfdir=/etc .. &&
+ninja
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

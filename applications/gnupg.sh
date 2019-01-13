@@ -15,7 +15,8 @@ set +h
 #OPT:curl
 #OPT:gnutls
 #OPT:imagemagick
-#OPT:libusb-compat
+#OPT:libusb
+#OPT:mail
 #OPT:openldap
 #OPT:sqlite
 #OPT:texlive

@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libidn2
-#REQ:python2
 #OPT:gtk-doc
 #OPT:valgrind
 
@@ -34,6 +33,7 @@ fi
 cd $DIRECTORY
 fi
 
+sed -i 's/env python/&3/' src/psl-make-dafsa &&
 ./configure --prefix=/usr --disable-static &&
 make
 

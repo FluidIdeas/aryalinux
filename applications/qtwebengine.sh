@@ -54,7 +54,7 @@ sudo rm -rf /tmp/rootscript.sh
 mkdir build &&
 cd build &&
 
-qmake -- -system-ffmpeg -webengine-icu .. &&
+qmake .. -- -system-ffmpeg -webengine-icu &&
 make
 
 sudo rm -rf /tmp/rootscript.sh
