@@ -38,6 +38,11 @@ fi
 
 mkdir build
 cd build
+meson --prefix=/usr \
+-Dadmin_group=adm \
+-Dsystemd=true \
+.. &&
+ninja
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
