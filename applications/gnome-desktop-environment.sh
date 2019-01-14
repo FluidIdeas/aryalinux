@@ -83,7 +83,6 @@ set +h
 #REQ:polkit-gnome
 #REQ:cups-filters
 #REQ:xdg-user-dirs
-#REQ:plank
 
 cd $SOURCE_DIR
 
