@@ -39,7 +39,7 @@ fi
 meson --prefix=/usr \
 -Dadmin_group=adm \
 -Dsystemd=true \
-.. &&
+ &&
 ninja
 
 sudo rm -rf /tmp/rootscript.sh
