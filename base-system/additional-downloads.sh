@@ -36,11 +36,7 @@ wget -nc https://hg.mozilla.org/projects/nss/raw-file/tip/lib/ckfw/builtins/cert
 wget -nc http://www.kernel.org/pub/linux/utils/boot/syslinux/syslinux-4.06.tar.xz
 wget -nc http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.9.1.tar.gz
 
-wget -nc https://github.com/dracutdevs/dracut/archive/master.zip
-unzip master.zip
-tar -cJvf dracut-master.tar.xz dracut-master
-rm -r dracut-master
-rm -r master.zip
+wget -c https://github.com/dracutdevs/dracut/archive/049.tar.gz -O dracut-049.tar.gz
 
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/399ee7eb552ec30015e1a7e07e357f5815d25951/grub-2.02-gcc.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/f17f18defa4d88c427e54457e02c6ca94d76b673/efibootmgr-16-efidir.patch

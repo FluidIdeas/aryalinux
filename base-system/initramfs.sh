@@ -38,15 +38,15 @@ make install
 cd /sources
 rm -rf dash-0.5.9.1
 
-tar xf dracut-master.tar.xz
-cd dracut-master
+tar xf dracut-049.tar.gz
+cd dracut-049
 sed -i "s/enable_documentation=yes/enable_documentation=no/g" configure
 ./configure
 make
 make install
 
 cd /sources
-rm -rf dracut-master
+rm -rf dracut-049
 
 echo "initramfs" | tee -a /sources/build-log
 
