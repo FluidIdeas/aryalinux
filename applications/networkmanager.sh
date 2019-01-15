@@ -10,7 +10,6 @@ set +h
 #REQ:libndp
 #REC:curl
 #REC:dhcpcd
-#REC:dhcp
 #REC:gobject-introspection
 #REC:iptables
 #REC:newt
