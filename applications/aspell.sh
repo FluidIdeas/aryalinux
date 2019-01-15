@@ -12,6 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc https://ftp.gnu.org/gnu/aspell/aspell-0.60.6.1.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/aspell/aspell-0.60.6.1.tar.gz
+wget -nc https://ftp.gnu.org/gnu/aspell/dict/en/aspell6-en-2018.04.16-0.tar.bz2
 
 NAME=aspell
 VERSION=0.60.6.1
@@ -72,6 +73,9 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+cd $SOURCE_DIR
+tar -xf aspell6-en-2018.04.16-0.tar.bz2
+cd aspell6-en-2018.04.16-0
 ./configure &&
 make
 
@@ -83,6 +87,8 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+cd ..
+rm -r aspell6-en-2018.04.16-0
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
