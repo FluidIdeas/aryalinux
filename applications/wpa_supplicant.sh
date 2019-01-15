@@ -68,10 +68,6 @@ CONFIG_CTRL_IFACE_DBUS_INTRO=y
 EOF
 cd wpa_supplicant &&
 make BINDIR=/sbin LIBDIR=/lib
-pushd wpa_gui-qt4 &&
-qmake wpa_gui.pro &&
-make &&
-popd
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -117,47 +113,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m755 wpa_gui-qt4/wpa_gui /usr/bin/ &&
-install -v -m644 doc/docbook/wpa_gui.8 /usr/share/man/man8/ &&
-install -v -m644 wpa_gui-qt4/wpa_gui.desktop /usr/share/applications/ &&
-install -v -m644 wpa_gui-qt4/icons/wpa_gui.svg /usr/share/pixmaps/
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 update-desktop-database
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -dm755 /etc/wpa_supplicant &&
-wpa_passphrase <em class="replaceable"><code>SSID</code></em> <em class="replaceable"><code>SECRET_PASSWORD</code></em> > /etc/wpa_supplicant/wpa_supplicant-<em class="replaceable"><code>wifi0</code></em>.conf
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-systemctl start wpa_supplicant@<em class="replaceable"><code>wlan0</code></em>
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-systemctl enable wpa_supplicant@<em class="replaceable"><code>wlan0</code></em>
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
