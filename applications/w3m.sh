@@ -37,7 +37,7 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../w3m-0.5.3-bdwgc72-1.patch &&
+patch -Np1 -i ../w3m-0.5.3-bdwgc72-2.patch &&
 sed -i 's/file_handle/file_foo/' istream.{c,h} &&
 sed -i 's#gdk-pixbuf-xlib-2.0#& x11#' configure &&
 sed -i '/USE_EGD/s/define/undef/' config.h.in &&
