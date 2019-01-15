@@ -16,7 +16,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/w3m/w3m-0.5.3.tar.gz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/w3m-0.5.3-bdwgc72-1.patch
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/w3m-0.5.3-bdwgc72-2.patch
 
 NAME=w3m
 VERSION=0.5.3
