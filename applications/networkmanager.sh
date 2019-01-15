@@ -118,19 +118,10 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-cat > /etc/NetworkManager/conf.d/dhcp.conf << "EOF"
-[main]
-dhcp=<em class="replaceable"><code>dhclient</em>
-EOF
-cat > /etc/NetworkManager/conf.d/no-dns-update.conf << "EOF"
-[main]
-dns=none
-EOF
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-groupadd -fg 86 netdev &&
-/usr/sbin/usermod -a -G netdev <em class="replaceable"><code><username></em>
+groupadd -fg 86 netdev
 
 cat > /usr/share/polkit-1/rules.d/org.freedesktop.NetworkManager.rules << "EOF"
 polkit.addRule(function(action, subject) {
@@ -162,6 +153,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+sudo /usr/sbin/usermod -a -G netdev $USER
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
