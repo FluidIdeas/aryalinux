@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:gobject-introspection
+#REQ:pycairo
 #OPT:python2
 
 cd $SOURCE_DIR

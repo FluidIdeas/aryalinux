@@ -8,8 +8,11 @@ set +h
 
 #REQ:atk
 #REQ:pango
+#REQ:pycairo
 #REQ:pango
+#REQ:pycairo
 #REQ:gtk2
+#REQ:pycairo
 #REQ:libglade
 #OPT:libxslt
 
