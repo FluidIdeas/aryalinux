@@ -8,6 +8,7 @@ set +h
 
 #REQ:dbus-glib
 #REQ:libndp
+#REQ:pygobject2
 #REC:curl
 #REC:dhcpcd
 #REC:gobject-introspection
