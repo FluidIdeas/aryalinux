@@ -81,8 +81,8 @@ set +h
 #REQ:seahorse
 #REQ:notification-daemon
 #REQ:polkit-gnome
-#REQ:cups-filters
 #REQ:xdg-user-dirs
+#REQ:gnome-tweaks
 
 cd $SOURCE_DIR
 

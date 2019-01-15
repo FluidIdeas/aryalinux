@@ -6,18 +6,14 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:gtk3
-#REQ:gsettings-desktop-schemas
-#REQ:pygobject3
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-tweaks/3.28/gnome-tweaks-3.28.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-tweaks/3.28/gnome-tweaks-3.28.1.tar.xz
+wget -nc https://gitlab.gnome.org/GNOME/gnome-tweaks/-/archive/3.31.3/gnome-tweaks-3.31.3.tar.bz2
 
 NAME=gnome-tweaks
-VERSION=3.28.1
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-tweaks/3.28/gnome-tweaks-3.28.1.tar.xz
+VERSION=3.31.3
+URL=https://gitlab.gnome.org/GNOME/gnome-tweaks/-/archive/3.31.3/gnome-tweaks-3.31.3.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -37,17 +33,9 @@ fi
 mkdir build &&
 cd build &&
 
-meson --prefix=/usr &&
+meson --prefix=/usr .. &&
 ninja
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
+sudo ninja install
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
