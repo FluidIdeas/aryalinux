@@ -20,7 +20,8 @@ esac
 
 mkdir -v /var/{log,mail,spool}
 ln -sv /run /var/run
-ln -sv /run/lock /var/lock
+# ln -sv /run/lock /var/lock
+mkdir -pv /var/lock
 mkdir -pv /var/{opt,cache,lib/{color,misc,locate},local}
 
 ln -sv /tools/bin/{bash,cat,echo,pwd,stty} /bin
