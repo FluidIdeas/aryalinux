@@ -53,52 +53,6 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-tar -xf ../git-manpages-2.20.1.tar.xz \
--C /usr/share/man --no-same-owner --no-overwrite-dir
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir -vp /usr/share/doc/git-2.20.1 &&
-tar -xf ../git-htmldocs-2.20.1.tar.xz \
--C /usr/share/doc/git-2.20.1 --no-same-owner --no-overwrite-dir &&
-
-find /usr/share/doc/git-2.20.1 -type d -exec chmod 755 {} \; &&
-find /usr/share/doc/git-2.20.1 -type f -exec chmod 644 {} \;
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir -vp /usr/share/doc/git-2.20.1/man-pages/{html,text} &&
-mv /usr/share/doc/git-2.20.1/{git*.txt,man-pages/text} &&
-mv /usr/share/doc/git-2.20.1/{git*.,index.,man-pages/}html &&
-
-mkdir -vp /usr/share/doc/git-2.20.1/technical/{html,text} &&
-mv /usr/share/doc/git-2.20.1/technical/{*.txt,text} &&
-mv /usr/share/doc/git-2.20.1/technical/{*.,}html &&
-
-mkdir -vp /usr/share/doc/git-2.20.1/howto/{html,text} &&
-mv /usr/share/doc/git-2.20.1/howto/{*.txt,text} &&
-mv /usr/share/doc/git-2.20.1/howto/{*.,}html &&
-
-sed -i '/^<a href=/s|howto/|&html/|' /usr/share/doc/git-2.20.1/howto-index.html &&
-sed -i '/^\* link:/s|howto/|&html/|' /usr/share/doc/git-2.20.1/howto-index.txt
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
