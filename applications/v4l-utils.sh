@@ -10,7 +10,6 @@ set +h
 #REC:alsa-lib
 #REC:glu
 #REC:libjpeg
-#REC:qt5
 #OPT:doxygen
 #OPT:sdl2
 

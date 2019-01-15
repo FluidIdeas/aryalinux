@@ -32,8 +32,6 @@ fi
 
 sed 's@-Werror@@' -i Makefile
 make
-sed -i 's# if.* == "1"#& -a -e $targetdir/log#' test &&
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
