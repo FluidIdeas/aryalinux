@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:gnutls
-#REQ:cups-filters
 #REC:colord
 #REC:dbus
 #REC:libusb
