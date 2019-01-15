@@ -62,15 +62,6 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-usermod -a -G lpadmin <em class="replaceable"><code><username></code></em>
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 sed -i 's#@CUPS_HTMLVIEW@#firefox#' desktop/cups.desktop.in
 sed -i 's:555:755:g;s:444:644:g' Makedefs.in &&
 sed -i '/MAN.EXT/s:.gz::g' configure config-scripts/cups-manpages.m4 &&
@@ -139,6 +130,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+sudo usermod -a -G lpadmin $USER
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
