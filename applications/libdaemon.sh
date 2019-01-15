@@ -34,22 +34,10 @@ fi
 
 ./configure --prefix=/usr --disable-static &&
 make
-make -C doc doxygen
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make docdir=/usr/share/doc/libdaemon-0.14 install
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m755 -d /usr/share/doc/libdaemon-0.14/api &&
-install -v -m644 doc/reference/html/* /usr/share/doc/libdaemon-0.14/api &&
-install -v -m644 doc/reference/man/man3/* /usr/share/man/man3
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
