@@ -14,7 +14,7 @@ wget -nc https://github.com/sass/libsass/archive/3.5.5/libsass-3.5.5.tar.gz
 
 NAME=sassc
 VERSION=3.5.0
-URL=https://github.com/sass/sassc/archive/3.5.0/sassc-3.5.0.tar.gz
+URL=https://github.com/sass/libsass/archive/3.5.5/libsass-3.5.5.tar.gz
 
 if [ ! -z $URL ]
 then
