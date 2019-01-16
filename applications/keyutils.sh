@@ -35,16 +35,6 @@ make
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-sed -i '/find/s:/usr/bin/::' tests/Makefile &&
-make -k test
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make NO_ARLIB=1 install
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
