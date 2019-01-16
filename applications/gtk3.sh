@@ -28,12 +28,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.3.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.3.tar.xz
 
 NAME=gtk3
-VERSION=3.24.2
-URL=http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.2.tar.xz
+VERSION=3.24.3
+URL=http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.3.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -49,8 +49,6 @@ fi
 
 cd $DIRECTORY
 fi
-
-sed -i 's/dfeault/default/' docs/tools/shooter.c &&
 
 ./configure --prefix=/usr \
 --sysconfdir=/etc \

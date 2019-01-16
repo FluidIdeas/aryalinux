@@ -30,12 +30,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/evolution/3.28/evolution-3.28.5.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evolution/3.28/evolution-3.28.5.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/evolution/3.30/evolution-3.30.4.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evolution/3.30/evolution-3.30.4.tar.xz
 
 NAME=evolution
-VERSION=3.28.5
-URL=http://ftp.gnome.org/pub/gnome/sources/evolution/3.28/evolution-3.28.5.tar.xz
+VERSION=3.30.4
+URL=http://ftp.gnome.org/pub/gnome/sources/evolution/3.30/evolution-3.30.4.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -58,7 +58,6 @@ cd build &&
 cmake -DCMAKE_INSTALL_PREFIX=/usr \
 -DSYSCONF_INSTALL_DIR=/etc \
 -DENABLE_INSTALLED_TESTS=ON \
--DENABLE_LIBCRYPTUI=OFF \
 -DENABLE_PST_IMPORT=OFF \
 -DENABLE_GTKSPELL=OFF \
 -DENABLE_YTNEF=OFF \

@@ -16,12 +16,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.24/gtksourceview-3.24.8.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.24/gtksourceview-3.24.8.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.24/gtksourceview-3.24.9.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.24/gtksourceview-3.24.9.tar.xz
 
 NAME=gtksourceview
-VERSION=3.24.8
-URL=http://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.24/gtksourceview-3.24.8.tar.xz
+VERSION=3.24.9
+URL=http://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.24/gtksourceview-3.24.9.tar.xz
 
 if [ ! -z $URL ]
 then

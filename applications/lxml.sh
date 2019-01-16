@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libxslt
+#REC:python2
 #OPT:gdb
 #OPT:valgrind
 

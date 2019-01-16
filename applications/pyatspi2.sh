@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REC:at-spi2-core
+#OPT:python2
 
 cd $SOURCE_DIR
 
@@ -32,27 +33,11 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir python2 &&
-pushd python2 &&
-../configure --prefix=/usr --with-python=/usr/bin/python &&
-popd
-mkdir python3 &&
-pushd python3 &&
-../configure --prefix=/usr --with-python=/usr/bin/python3 &&
-popd
+./configure --prefix=/usr --with-python=/usr/bin/python3
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make -C python2 install
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make -C python3 install
+make install
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

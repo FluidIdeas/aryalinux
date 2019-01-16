@@ -13,6 +13,7 @@ set +h
 #REQ:libsecret
 #REQ:gnome-keyring
 #REC:libsoup
+#REC:p11-kit
 #REC:openssh
 #REC:vala
 #OPT:avahi
@@ -20,12 +21,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/seahorse/3.20/seahorse-3.20.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/seahorse/3.20/seahorse-3.20.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/seahorse/3.30/seahorse-3.30.1.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/seahorse/3.30/seahorse-3.30.1.1.tar.xz
 
 NAME=seahorse
-VERSION=3.20.0
-URL=http://ftp.gnome.org/pub/gnome/sources/seahorse/3.20/seahorse-3.20.0.tar.xz
+VERSION=3.30.1.1
+URL=http://ftp.gnome.org/pub/gnome/sources/seahorse/3.30/seahorse-3.30.1.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -44,12 +45,15 @@ fi
 
 sed -i -r 's:"(/apps):"/org/gnome\1:' data/*.xml &&
 
-./configure --prefix=/usr &&
-make
+mkdir build &&
+cd build &&
+
+meson --prefix=/usr .. &&
+ninja
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

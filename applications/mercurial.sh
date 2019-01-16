@@ -37,6 +37,8 @@ cd $DIRECTORY
 fi
 
 make build
+sed -i '/runrst/s/N)/N)3/' doc/Makefile &&
+2to3-3.7 -w doc/hgmanpage.py &&
 make doc
 rm -rf tests/tmp &&
 TESTFLAGS="-j<em class="replaceable"><code><N></code></em> --tmpdir tmp --blacklist blacklists/failed-tests" make check

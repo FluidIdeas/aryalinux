@@ -36,6 +36,7 @@ fi
 export XORG_PREFIX=/usr
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
+sed -i "s/#define force_inline inline __attribute__((always_inline))/#define force_inline inline/" src/sna/compiler.h
 ./autogen.sh $XORG_CONFIG \
 --enable-kms-only \
 --enable-uxa \

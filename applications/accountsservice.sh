@@ -38,6 +38,9 @@ fi
 
 mkdir build
 cd build
+mkdir build &&
+cd build &&
+
 meson --prefix=/usr \
 -Dadmin_group=adm \
 -Dsystemd=true \

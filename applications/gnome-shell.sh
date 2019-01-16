@@ -29,12 +29,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.28/gnome-shell-3.28.3.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.28/gnome-shell-3.28.3.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.30/gnome-shell-3.30.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.30/gnome-shell-3.30.2.tar.xz
 
 NAME=gnome-shell
-VERSION=3.28.3
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.28/gnome-shell-3.28.3.tar.xz
+VERSION=3.30.2
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.30/gnome-shell-3.30.2.tar.xz
 
 if [ ! -z $URL ]
 then

@@ -16,12 +16,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-maps/3.28/gnome-maps-3.28.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-maps/3.28/gnome-maps-3.28.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-maps/3.30/gnome-maps-3.30.3.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-maps/3.30/gnome-maps-3.30.3.tar.xz
 
 NAME=gnome-maps
-VERSION=3.28.2
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-maps/3.28/gnome-maps-3.28.2.tar.xz
+VERSION=3.30.3
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-maps/3.30/gnome-maps-3.30.3.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -38,12 +38,15 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr &&
-make
+mkdir build &&
+cd build &&
+
+meson --prefix=/usr .. &&
+ninja
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

@@ -34,9 +34,6 @@ fi
 cd $DIRECTORY
 fi
 
-if [ $(uname -m) = "i686" ]; then
-export CFLAGS+="-D_FILE_OFFSET_BITS=64";
-fi
 mkdir build &&
 cd build &&
 

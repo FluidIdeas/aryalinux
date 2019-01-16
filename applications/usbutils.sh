@@ -13,6 +13,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-010.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/usbutils-010-lsusb_bugfixes-1.patch
 
 NAME=usbutils
 VERSION=010
@@ -33,6 +34,7 @@ fi
 cd $DIRECTORY
 fi
 
+patch -Np1 -i ../usbutils-010-lsusb_bugfixes-1.patch &&
 ./configure --prefix=/usr --datadir=/usr/share/hwdata &&
 make
 

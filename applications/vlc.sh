@@ -57,11 +57,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.videolan.org/vlc/3.0.5/vlc-3.0.5.tar.xz
+wget -nc https://download.videolan.org/vlc/3.0.6/vlc-3.0.6.tar.xz
 
 NAME=vlc
-VERSION=3.0.5
-URL=https://download.videolan.org/vlc/3.0.5/vlc-3.0.5.tar.xz
+VERSION=3.0.6
+URL=https://download.videolan.org/vlc/3.0.6/vlc-3.0.6.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -79,8 +79,6 @@ cd $DIRECTORY
 fi
 
 sed -i '/vlc_demux.h/a #define LUA_COMPAT_APIINTCASTS' modules/lua/vlc.h &&
-sed -i '/DEPRECATED/s:^://:' modules/text_renderer/freetype/text_layout.c &&
-sed -i '/118/s/$/\&\& X264_BUILD < 153/' modules/codec/x264.c &&
 
 BUILDCC=gcc ./configure --prefix=/usr --disable-opencv &&
 
@@ -88,7 +86,7 @@ make
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make docdir=/usr/share/doc/vlc-3.0.5 install
+make docdir=/usr/share/doc/vlc-3.0.6 install
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

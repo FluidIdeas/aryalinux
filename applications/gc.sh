@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.hboehm.info/gc/gc_source/gc-8.0.0.tar.gz
+wget -nc http://www.hboehm.info/gc/gc_source/gc-8.0.2.tar.gz
 
 NAME=gc
-VERSION=8.0.0
-URL=http://www.hboehm.info/gc/gc_source/gc-8.0.0.tar.gz
+VERSION=8.0.2
+URL=http://www.hboehm.info/gc/gc_source/gc-8.0.2.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -34,7 +34,7 @@ fi
 ./configure --prefix=/usr \
 --enable-cplusplus \
 --disable-static \
---docdir=/usr/share/doc/gc-8.0.0 &&
+--docdir=/usr/share/doc/gc-8.0.2 &&
 make
 
 sudo rm -rf /tmp/rootscript.sh

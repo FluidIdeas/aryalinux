@@ -15,12 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-system-monitor/3.28/gnome-system-monitor-3.28.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-system-monitor/3.28/gnome-system-monitor-3.28.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-system-monitor/3.30/gnome-system-monitor-3.30.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-system-monitor/3.30/gnome-system-monitor-3.30.0.tar.xz
 
 NAME=gnome-system-monitor
-VERSION=3.28.2
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-system-monitor/3.28/gnome-system-monitor-3.28.2.tar.xz
+VERSION=3.30.0
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-system-monitor/3.30/gnome-system-monitor-3.30.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -37,12 +37,15 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --enable-systemd &&
-make
+mkdir build &&
+cd build &&
+
+meson --prefix=/usr .. &&
+ninja
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

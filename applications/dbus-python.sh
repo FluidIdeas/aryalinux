@@ -8,7 +8,7 @@ set +h
 
 #REQ:dbus
 #REQ:glib2
-#OPT:python2
+#REC:python2
 
 cd $SOURCE_DIR
 

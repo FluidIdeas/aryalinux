@@ -17,12 +17,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-terminal/3.28/gnome-terminal-3.28.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-terminal/3.28/gnome-terminal-3.28.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-terminal/3.30/gnome-terminal-3.30.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-terminal/3.30/gnome-terminal-3.30.2.tar.xz
 
 NAME=gnome-terminal
-VERSION=3.28.2
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-terminal/3.28/gnome-terminal-3.28.2.tar.xz
+VERSION=3.30.2
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-terminal/3.30/gnome-terminal-3.30.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -40,7 +40,6 @@ cd $DIRECTORY
 fi
 
 ./configure --prefix=/usr \
---disable-migration \
 --disable-static &&
 make
 

@@ -59,16 +59,15 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.documentfoundation.org/libreoffice/src/6.1.2/libreoffice-6.1.2.1.tar.xz
-wget -nc http://download.documentfoundation.org/libreoffice/src/6.1.2/libreoffice-dictionaries-6.1.2.1.tar.xz
-wget -nc http://download.documentfoundation.org/libreoffice/src/6.1.2/libreoffice-help-6.1.2.1.tar.xz
-wget -nc http://download.documentfoundation.org/libreoffice/src/6.1.2/libreoffice-translations-6.1.2.1.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-6.1.2.1-poppler70-1.patch
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-6.1.2.1-poppler71-1.patch
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.1.4/libreoffice-6.1.4.2.tar.xz
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.1.4/libreoffice-dictionaries-6.1.4.2.tar.xz
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.1.4/libreoffice-help-6.1.4.2.tar.xz
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.1.4/libreoffice-translations-6.1.4.2.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-6.1.4.2-consolidated_fixes-1.patch
 
 NAME=libreoffice
-VERSION=6.1.2.1
-URL=http://download.documentfoundation.org/libreoffice/src/6.1.2/libreoffice-6.1.2.1.tar.xz
+VERSION=6.1.4.2
+URL=http://download.documentfoundation.org/libreoffice/src/6.1.4/libreoffice-6.1.4.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -85,15 +84,14 @@ fi
 cd $DIRECTORY
 fi
 
-tar -xf libreoffice-6.1.2.1.tar.xz --no-overwrite-dir &&
-cd libreoffice-6.1.2.1
+tar -xf libreoffice-6.1.4.2.tar.xz --no-overwrite-dir &&
+cd libreoffice-6.1.4.2
+patch -Np1 -i ../libreoffice-6.1.4.2-consolidated_fixes-1.patch
 install -dm755 external/tarballs &&
-ln -sv ../../../libreoffice-dictionaries-6.1.2.1.tar.xz external/tarballs/ &&
-ln -sv ../../../libreoffice-help-6.1.2.1.tar.xz external/tarballs/
-ln -sv ../../../libreoffice-translations-6.1.2.1.tar.xz external/tarballs/
+ln -sv ../../../libreoffice-dictionaries-6.1.4.2.tar.xz external/tarballs/ &&
+ln -sv ../../../libreoffice-help-6.1.4.2.tar.xz external/tarballs/
+ln -sv ../../../libreoffice-translations-6.1.4.2.tar.xz external/tarballs/
 export LO_PREFIX=<em class="replaceable"><code><PREFIX></code></em>
-patch -Np1 -i ../libreoffice-6.1.2.1-poppler70-1.patch
-patch -Np1 -i ../libreoffice-6.1.2.1-poppler71-1.patch
 sed -e "/gzip -f/d" \
 -e "s|.1.gz|.1|g" \
 -i bin/distro-install-desktop-integration &&

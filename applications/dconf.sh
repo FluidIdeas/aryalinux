@@ -43,7 +43,7 @@ fi
 mkdir build &&
 cd build &&
 
-meson --prefix=/usr --sysconfdir=/etc .. &&
+meson --prefix=/usr --sysconfdir=/etc -Dbash_completion=false .. &&
 ninja
 
 sudo rm -rf /tmp/rootscript.sh
@@ -62,7 +62,7 @@ cd dconf-editor-3.30.2 &&
 mkdir build &&
 cd build &&
 
-meson --prefix=/usr --sysconfdir=/etc -Dbash_completion=false .. &&
+meson --prefix=/usr --sysconfdir=/etc .. &&
 ninja
 
 sudo rm -rf /tmp/rootscript.sh

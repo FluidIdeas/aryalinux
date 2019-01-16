@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/3.26/gnome-power-manager-3.26.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/3.26/gnome-power-manager-3.26.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/3.30/gnome-power-manager-3.30.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/3.30/gnome-power-manager-3.30.0.tar.xz
 
 NAME=gnome-power-manager
-VERSION=3.26.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/3.26/gnome-power-manager-3.26.0.tar.xz
+VERSION=3.30.0
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/3.30/gnome-power-manager-3.30.0.tar.xz
 
 if [ ! -z $URL ]
 then

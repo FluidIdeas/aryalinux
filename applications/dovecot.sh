@@ -18,14 +18,15 @@ set +h
 #OPT:postgresql
 #OPT:sqlite
 #OPT:valgrind
+#OPT:xfsprogs
 
 cd $SOURCE_DIR
 
-wget -nc https://www.dovecot.org/releases/2.3/dovecot-2.3.3.tar.gz
+wget -nc https://www.dovecot.org/releases/2.3/dovecot-2.3.4.tar.gz
 
 NAME=dovecot
-VERSION=2.3.3
-URL=https://www.dovecot.org/releases/2.3/dovecot-2.3.3.tar.gz
+VERSION=2.3.4
+URL=https://www.dovecot.org/releases/2.3/dovecot-2.3.4.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -63,7 +64,7 @@ LDFLAGS+=" -ltirpc" \
 ./configure --prefix=/usr \
 --sysconfdir=/etc \
 --localstatedir=/var \
---docdir=/usr/share/doc/dovecot-2.3.3 \
+--docdir=/usr/share/doc/dovecot-2.3.4 \
 --disable-static \
 --with-systemdsystemunitdir=/lib/systemd/system &&
 make
@@ -79,7 +80,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cp -rv /usr/share/doc/dovecot-2.3.3/example-config/* /etc/dovecot
+cp -rv /usr/share/doc/dovecot-2.3.4/example-config/* /etc/dovecot
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

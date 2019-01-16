@@ -11,6 +11,7 @@ set +h
 #REQ:gtk3
 #REQ:itstool
 #REQ:libxml2
+#REQ:openjpeg2
 #REC:gnome-keyring
 #REC:gobject-introspection
 #REC:libsecret
@@ -26,13 +27,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/evince/3.28/evince-3.28.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evince/3.28/evince-3.28.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/evince/3.30/evince-3.30.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evince/3.30/evince-3.30.2.tar.xz
 wget -nc http://www.ibiblio.org/pub/Linux/libs/graphics/t1lib-5.1.2.tar.gz
 
 NAME=evince
-VERSION=3.28.2
-URL=http://ftp.gnome.org/pub/gnome/sources/evince/3.28/evince-3.28.2.tar.xz
+VERSION=3.30.2
+URL=http://ftp.gnome.org/pub/gnome/sources/evince/3.30/evince-3.30.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -52,6 +53,7 @@ fi
 ./configure --prefix=/usr \
 --enable-compile-warnings=minimum \
 --enable-introspection \
+--without-gspell \
 --disable-static &&
 make
 

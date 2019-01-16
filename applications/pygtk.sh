@@ -6,6 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#REQ:python2
 #REQ:atk
 #REQ:pango
 #REQ:pycairo

@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.sudo.ws/dist/sudo-1.8.26.tar.gz
-wget -nc ftp://ftp.sudo.ws/pub/sudo/sudo-1.8.26.tar.gz
+wget -nc http://www.sudo.ws/dist/sudo-1.8.27.tar.gz
+wget -nc ftp://ftp.sudo.ws/pub/sudo/sudo-1.8.27.tar.gz
 
 NAME=sudo
-VERSION=1.8.26
-URL=http://www.sudo.ws/dist/sudo-1.8.26.tar.gz
+VERSION=1.8.27
+URL=http://www.sudo.ws/dist/sudo-1.8.27.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -40,7 +40,7 @@ fi
 --with-secure-path \
 --with-all-insults \
 --with-env-editor \
---docdir=/usr/share/doc/sudo-1.8.26 \
+--docdir=/usr/share/doc/sudo-1.8.27 \
 --with-passprompt="[sudo] password for %p: " &&
 make
 make install &&

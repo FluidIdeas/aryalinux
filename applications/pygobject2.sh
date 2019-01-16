@@ -8,6 +8,7 @@ set +h
 
 #REQ:glib2
 #REQ:pycairo
+#REQ:python2
 #OPT:gobject-introspection
 #OPT:libxslt
 

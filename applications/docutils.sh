@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REC:python2
+#OPT:python2
 
 cd $SOURCE_DIR
 
@@ -31,11 +31,11 @@ fi
 cd $DIRECTORY
 fi
 
-python setup.py build
+python3 setup.py build
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-python setup.py install --optimize=1 &&
+python3 setup.py install --optimize=1 &&
 
 for f in /usr/bin/rst*.py; do
 ln -svf $(basename $f) /usr/bin/$(basename $f .py)
