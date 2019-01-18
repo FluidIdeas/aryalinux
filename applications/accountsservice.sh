@@ -36,8 +36,6 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build
-cd build
 mkdir build &&
 cd build &&
 
