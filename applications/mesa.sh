@@ -10,7 +10,6 @@ set +h
 #REQ:libdrm
 #REQ:mako
 #REQ:libva-wo-mesa
-#REC:libva
 #REC:libvdpau
 #REC:llvm
 #REC:wayland-protocols
@@ -42,8 +41,6 @@ fi
 
 cd $DIRECTORY
 fi
-
-export XORG_PREFIX=/usr
 
 patch -Np1 -i ../mesa-18.3.1-add_xdemos-1.patch
 DRI_DRIVERS="i915,i965,nouveau,r200,radeon,swrast"
