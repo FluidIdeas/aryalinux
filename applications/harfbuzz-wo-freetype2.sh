@@ -8,8 +8,6 @@ set +h
 
 #REQ:graphite-wo-harfbuzz
 #REQ:freetype2-wo-harfbuzz
-#REQ:graphite-wo-harfbuzz
-#REQ:freetype2-wo-harfbuzz
 #REC:glib2
 #REC:icu
 #OPT:cairo
