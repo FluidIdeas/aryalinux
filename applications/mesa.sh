@@ -10,6 +10,7 @@ set +h
 #REQ:libdrm
 #REQ:mako
 #REQ:libva-wo-mesa
+#REQ:mako
 #REC:libvdpau
 #REC:llvm
 #REC:wayland-protocols
