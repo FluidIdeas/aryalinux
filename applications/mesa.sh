@@ -10,6 +10,7 @@ set +h
 #REQ:libdrm
 #REQ:mako
 #REQ:libva-wo-mesa
+#REQ:mako
 #REC:libvdpau
 #REC:llvm
 #REC:wayland-protocols
@@ -41,6 +42,8 @@ fi
 
 cd $DIRECTORY
 fi
+
+export XORG_PREFIX=/usr
 
 patch -Np1 -i ../mesa-18.3.1-add_xdemos-1.patch
 DRI_DRIVERS="i915,i965,nouveau,r200,radeon,swrast"
@@ -77,7 +80,6 @@ make "-j`nproc`" || make
 make -C xdemos DEMOS_PREFIX=$XORG_PREFIX
 sudo make install
 sudo install -v -dm755 /usr/share/doc/mesa-18.3.1
-sudo cp -rfv docs/* /usr/share/doc/mesa-18.3.1
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

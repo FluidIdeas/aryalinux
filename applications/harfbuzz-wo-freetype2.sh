@@ -9,10 +9,7 @@ set +h
 #REQ:graphite-wo-harfbuzz
 #REQ:freetype2-wo-harfbuzz
 #REC:glib2
-#REC:texlive
-#REC:libreoffice
 #REC:icu
-#REC:freetype2
 #OPT:cairo
 #OPT:gobject-introspection
 #OPT:gtk-doc
