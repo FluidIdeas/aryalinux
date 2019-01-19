@@ -9,6 +9,7 @@ set +h
 #REQ:x7lib
 #REQ:libdrm
 #REQ:mako
+#REQ:libva-wo-mesa
 #REC:libva
 #REC:libvdpau
 #REC:llvm
@@ -45,38 +46,40 @@ fi
 export XORG_PREFIX=/usr
 
 patch -Np1 -i ../mesa-18.3.1-add_xdemos-1.patch
-GLL_DRV="i915,nouveau,radeonsi,svga,swrast"
+DRI_DRIVERS="i915,i965,nouveau,r200,radeon,swrast"
+GALLIUM_DRIVERS="nouveau,r300,r600,svga,radeonsi,swrast,virgl"
+VULKAN=" --with-vulkan-drivers=intel,radeon "
+EGL_PLATFORMS="drm,x11"
+
 ./configure CFLAGS='-O2' CXXFLAGS='-O2' LDFLAGS=-lLLVM \
---prefix=$XORG_PREFIX \
---sysconfdir=/etc \
---enable-osmesa \
---enable-xa \
---enable-glx-tls \
---with-platforms="drm,x11,wayland" \
---with-gallium-drivers=$GLL_DRV &&
-
-unset GLL_DRV &&
-
-make
+  --prefix=$XORG_PREFIX \
+  --sysconfdir=/etc \
+  --with-dri-driverdir=/usr/lib${LIBDIRSUFFIX}/xorg/modules/dri \
+  --with-dri-drivers="$DRI_DRIVERS" \
+  --with-gallium-drivers="$GALLIUM_DRIVERS" \
+  --with-egl-platforms="$EGL_PLATFORMS" \
+  $VULKAN \
+  --enable-llvm \
+  --enable-llvm-shared-libs \
+  --enable-egl \
+  --enable-texture-float \
+  --enable-shared-glapi \
+  --enable-xa \
+  --enable-nine \
+  --enable-osmesa \
+  --enable-dri \
+  --enable-dri3 \
+  --enable-gbm \
+  --enable-glx \
+  --enable-glx-tls \
+  --enable-gles1 \
+  --enable-gles2 \
+  --enable-vdpau \
+  --enable-va
+make "-j`nproc`" || make
 make -C xdemos DEMOS_PREFIX=$XORG_PREFIX
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make -C xdemos DEMOS_PREFIX=$XORG_PREFIX install
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
+sudo make install
+sudo install -v -dm755 /usr/share/doc/mesa-18.3.1
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
