@@ -6,7 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:harfbuzz-wo-freetype2
 #REC:libpng
 #REC:which
 

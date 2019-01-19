@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libdrm
-#REC:mesa
 #OPT:doxygen
 #OPT:wayland
 

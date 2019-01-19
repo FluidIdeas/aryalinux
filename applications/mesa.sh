@@ -10,7 +10,6 @@ set +h
 #REQ:libdrm
 #REQ:mako
 #REQ:libva-wo-mesa
-#REQ:mako
 #REC:libvdpau
 #REC:llvm
 #REC:wayland-protocols
@@ -80,6 +79,7 @@ make "-j`nproc`" || make
 make -C xdemos DEMOS_PREFIX=$XORG_PREFIX
 sudo make install
 sudo install -v -dm755 /usr/share/doc/mesa-18.3.1
+sudo cp -rfv docs/* /usr/share/doc/mesa-18.3.1
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
