@@ -6,18 +6,18 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:harfbuzz-wo-freetype2
-#REC:libpng
-#REC:which
+#REQ:libdrm
+#REC:mesa
+#OPT:doxygen
+#OPT:wayland
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/freetype/freetype-2.9.1.tar.bz2
-wget -nc https://downloads.sourceforge.net/freetype/freetype-doc-2.9.1.tar.bz2
+wget -nc https://github.com/intel/libva/releases/download/2.3.0/libva-2.3.0.tar.bz2
 
-NAME=freetype2-wo-harfbuzz
-VERSION=2.9.1
-URL=https://downloads.sourceforge.net/freetype/freetype-2.9.1.tar.bz2
+NAME=libva-wo-mesa
+VERSION=2.3.0
+URL=https://github.com/intel/libva/releases/download/2.3.0/libva-2.3.0.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -34,29 +34,23 @@ fi
 cd $DIRECTORY
 fi
 
-tar -xf ../freetype-doc-2.9.1.tar.bz2 --strip-components=2 -C docs
-sed -ri "s:.*(AUX_MODULES.*valid):\1:" modules.cfg &&
-
-sed -r "s:.*(#.*SUBPIXEL_RENDERING) .*:\1:" \
--i include/freetype/config/ftoption.h &&
-
-./configure --prefix=/usr --enable-freetype-config --disable-static &&
+./configure $XORG_CONFIG &&
 make
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-cp builds/unix/freetype-config /usr/bin
+make install
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+./configure $XORG_CONFIG &&
+make
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m755 -d /usr/share/doc/freetype-2.9.1 &&
-cp -v -R docs/* /usr/share/doc/freetype-2.9.1
+make install
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

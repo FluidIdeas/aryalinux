@@ -6,8 +6,16 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:glib2
-#REQ:icu
+#REQ:graphite-wo-harfbuzz
+#REQ:freetype2-wo-harfbuzz
+#REQ:graphite-wo-harfbuzz
+#REQ:freetype2-wo-harfbuzz
+#REC:glib2
+#REC:icu
+#OPT:cairo
+#OPT:gobject-introspection
+#OPT:gtk-doc
+#OPT:python2
 
 cd $SOURCE_DIR
 
@@ -32,10 +40,17 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --with-gobject &&
-make -j$(nproc)
+./configure --prefix=/usr --with-gobject --with-graphite2 &&
+make
 
-sudo make install
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+ENDOFROOTSCRIPT
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

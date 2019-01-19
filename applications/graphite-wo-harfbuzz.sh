@@ -7,6 +7,9 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:cmake
+#OPT:freetype2
+#OPT:python2
+#OPT:harfbuzz
 
 cd $SOURCE_DIR
 
@@ -33,12 +36,34 @@ fi
 
 sed -i '/cmptest/d' tests/CMakeLists.txt
 mkdir build &&
-cd    build &&
+cd build &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr .. &&
-make -j$(nproc)
+make
+make docs
 
-sudo make install
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+ENDOFROOTSCRIPT
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+install -v -d -m755 /usr/share/doc/graphite2-1.3.13 &&
+
+cp -v -f doc/{GTF,manual}.html \
+/usr/share/doc/graphite2-1.3.13 &&
+cp -v -f doc/{GTF,manual}.pdf \
+/usr/share/doc/graphite2-1.3.13
+ENDOFROOTSCRIPT
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
