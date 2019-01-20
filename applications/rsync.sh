@@ -94,6 +94,7 @@ pushd blfs-systemd-units-20180105
 sudo make install-rsyncd
 popd
 popd
+sudo rm -rf $SOURCE_DIR/blfs-systemd-units-20180105
 
 
 sudo rm -rf /tmp/rootscript.sh

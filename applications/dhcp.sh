@@ -168,6 +168,7 @@ pushd blfs-systemd-units-20180105
 sudo make install-dhcpd
 popd
 popd
+sudo rm -rf $SOURCE_DIR/blfs-systemd-units-20180105
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
