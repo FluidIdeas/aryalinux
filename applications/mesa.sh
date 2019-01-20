@@ -19,13 +19,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://mesa.freedesktop.org/archive/mesa-18.3.1.tar.xz
-wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-18.3.1.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/mesa-18.3.1-add_xdemos-1.patch
+wget -nc https://mesa.freedesktop.org/archive/mesa-18.3.2.tar.xz
+wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-18.3.2.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/mesa-18.3.2-add_xdemos-1.patch
 
 NAME=mesa
-VERSION=18.3.1
-URL=https://mesa.freedesktop.org/archive/mesa-18.3.1.tar.xz
+VERSION=18.3.2
+URL=https://mesa.freedesktop.org/archive/mesa-18.3.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -44,7 +44,7 @@ fi
 
 export XORG_PREFIX=/usr
 
-patch -Np1 -i ../mesa-18.3.1-add_xdemos-1.patch
+patch -Np1 -i ../mesa-18.3.2-add_xdemos-1.patch
 DRI_DRIVERS="i915,i965,nouveau,r200,radeon,swrast"
 GALLIUM_DRIVERS="nouveau,r300,r600,svga,radeonsi,swrast,virgl"
 VULKAN=" --with-vulkan-drivers=intel,radeon "
@@ -78,8 +78,8 @@ EGL_PLATFORMS="drm,x11"
 make "-j`nproc`" || make
 make -C xdemos DEMOS_PREFIX=$XORG_PREFIX
 sudo make install
-sudo install -v -dm755 /usr/share/doc/mesa-18.3.1
-sudo cp -rfv docs/* /usr/share/doc/mesa-18.3.1
+sudo install -v -dm755 /usr/share/doc/mesa-18.3.2
+sudo cp -rfv docs/* /usr/share/doc/mesa-18.3.2
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

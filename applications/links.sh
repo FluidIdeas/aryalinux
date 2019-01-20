@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://links.twibright.com/download/links-2.17.tar.bz2
+wget -nc http://links.twibright.com/download/links-2.18.tar.bz2
 
 NAME=links
-VERSION=2.17
-URL=http://links.twibright.com/download/links-2.17.tar.bz2
+VERSION=2.18
+URL=http://links.twibright.com/download/links-2.18.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -37,9 +37,9 @@ make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-install -v -d -m755 /usr/share/doc/links-2.17 &&
+install -v -d -m755 /usr/share/doc/links-2.18 &&
 install -v -m644 doc/links_cal/* KEYS BRAILLE_HOWTO \
-/usr/share/doc/links-2.17
+/usr/share/doc/links-2.18
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

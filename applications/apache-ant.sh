@@ -12,11 +12,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.apache.org/dist/ant/source/apache-ant-1.10.4-src.tar.xz
+wget -nc https://archive.apache.org/dist/ant/source/apache-ant-1.10.5-src.tar.xz
 
 NAME=apache-ant
 VERSION=src
-URL=https://archive.apache.org/dist/ant/source/apache-ant-1.10.4-src.tar.xz
+URL=https://archive.apache.org/dist/ant/source/apache-ant-1.10.5-src.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -33,16 +33,16 @@ fi
 cd $DIRECTORY
 fi
 
+sed -i 's/--add-modules java.activation/-html4/' build.xml
 ./bootstrap.sh
-bootstrap/bin/ant -f fetch.xml -Ddest=system &&
-cp -v lib/*.jar lib/optional/
-./build.sh -Ddist.dir=$PWD/ant-1.10.4 dist
+bootstrap/bin/ant -f fetch.xml -Ddest=optional
+./build.sh -Ddist.dir=$PWD/ant-1.10.5 dist
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cp -rv ant-1.10.4 /opt/ &&
-chown -R root:root /opt/ant-1.10.4 &&
-ln -sfv ant-1.10.4 /opt/ant
+cp -rv ant-1.10.5 /opt/ &&
+chown -R root:root /opt/ant-1.10.5 &&
+ln -sfv ant-1.10.5 /opt/ant
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

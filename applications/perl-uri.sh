@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cpan.org/authors/id/E/ET/ETHER/URI-1.74.tar.gz
+wget -nc https://www.cpan.org/authors/id/O/OA/OALDERS/URI-1.76.tar.gz
 
 NAME=perl-uri
-VERSION=1.74
-URL=https://www.cpan.org/authors/id/E/ET/ETHER/URI-1.74.tar.gz
+VERSION=1.76
+URL=https://www.cpan.org/authors/id/O/OA/OALDERS/URI-1.76.tar.gz
 
 if [ ! -z $URL ]
 then

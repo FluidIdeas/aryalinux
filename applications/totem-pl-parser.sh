@@ -6,22 +6,21 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:gmime3
-#REQ:gmime
 #REQ:libsoup
 #REC:gobject-introspection
 #REC:libarchive
 #REC:libgcrypt
+#OPT:cmake
 #OPT:gtk-doc
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.2.tar.xz
 
 NAME=totem-pl-parser
-VERSION=3.26.1
-URL=http://ftp.gnome.org/pub/gnome/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.1.tar.xz
+VERSION=3.26.2
+URL=http://ftp.gnome.org/pub/gnome/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.2.tar.xz
 
 if [ ! -z $URL ]
 then

@@ -40,7 +40,7 @@ fi
 mkdir build &&
 cd build &&
 
-meson --prefix=/usr --sysconfdir=/etc .. &&
+meson --prefix=/usr --sysconfdir=/etc -Dgtk-doc=false .. &&
 ninja
 
 sudo rm -rf /tmp/rootscript.sh

@@ -47,7 +47,6 @@ set +h
 #OPT:doxygen
 #OPT:gdb
 #OPT:gnutls
-#OPT:junit
 #OPT:mariadb
 #OPT:mitkrb
 #OPT:nasm

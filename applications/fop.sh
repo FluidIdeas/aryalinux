@@ -7,8 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:apache-ant
-#OPT:junit
-#OPT:maven
 
 cd $SOURCE_DIR
 

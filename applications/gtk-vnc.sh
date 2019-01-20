@@ -10,18 +10,19 @@ set +h
 #REQ:gtk3
 #REQ:libgcrypt
 #REC:gobject-introspection
+#REC:python2
 #REC:vala
 #OPT:cyrus-sasl
 #OPT:pulseaudio
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk-vnc/0.7/gtk-vnc-0.7.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk-vnc/0.7/gtk-vnc-0.7.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk-vnc/0.9/gtk-vnc-0.9.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk-vnc/0.9/gtk-vnc-0.9.0.tar.xz
 
 NAME=gtk-vnc
-VERSION=0.7.2
-URL=http://ftp.gnome.org/pub/gnome/sources/gtk-vnc/0.7/gtk-vnc-0.7.2.tar.xz
+VERSION=0.9.0
+URL=http://ftp.gnome.org/pub/gnome/sources/gtk-vnc/0.9/gtk-vnc-0.9.0.tar.xz
 
 if [ ! -z $URL ]
 then

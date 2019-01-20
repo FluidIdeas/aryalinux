@@ -27,12 +27,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://media.inkscape.org/dl/resources/file/inkscape-0.92.3.tar.bz2
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/inkscape-0.92.3-consolidated_fixes-2.patch
+wget -nc https://media.inkscape.org/dl/resources/file/inkscape-0.92.4.tar.bz2
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/inkscape-0.92.4-use_versioned_ImageMagick6-1.patch
 
 NAME=inkscape
-VERSION=0.92.3
-URL=https://media.inkscape.org/dl/resources/file/inkscape-0.92.3.tar.bz2
+VERSION=0.92.4
+URL=https://media.inkscape.org/dl/resources/file/inkscape-0.92.4.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -49,10 +49,7 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../inkscape-0.92.3-consolidated_fixes-2.patch
-sed -i 's| abs(| std::fabs(|g' src/ui/tools/flood-tool.cpp &&
-sed -e 's|gTrue|true|g' -e 's|gFalse|false|g' -e 's|GBool|bool|g' \
--i src/extension/internal/pdfinput/pdf-parser.*
+patch -Np1 -i ../inkscape-0.92.4-use_versioned_ImageMagick6-1.patch
 bash download-gtest.sh
 mkdir build &&
 cd build &&

@@ -32,9 +32,6 @@ fi
 cd $DIRECTORY
 fi
 
-case $(uname -m) in
-i?86) sed -i -e 's/<xmmintrin.h/&.nouse/' configure ;;
-esac
 ./configure --prefix=/usr --enable-mp3rtp --disable-static &&
 make
 

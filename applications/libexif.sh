@@ -33,8 +33,8 @@ cd $DIRECTORY
 fi
 
 ./configure --prefix=/usr \
---with-doc-dir=/usr/share/doc/libexif-0.6.21 \
---disable-static &&
+--disable-static \
+--with-doc-dir=/usr/share/doc/libexif-0.6.21 &&
 make
 
 sudo rm -rf /tmp/rootscript.sh
