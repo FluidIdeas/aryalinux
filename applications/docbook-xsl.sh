@@ -30,6 +30,7 @@ then
 TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
 	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+	sudo rm -rf $DIRECTORY
 	tar --no-overwrite-dir -xf $TARBALL
 else
 	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
@@ -72,7 +73,6 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sed -i '/rewrite/d' /etc/xml/catalog
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -115,15 +115,6 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-xmlcatalog --noout --add "rewriteSystem" \
-"http://docbook.sourceforge.net/release/xsl/<em class="replaceable"><code><version></code></em>" \
-"/usr/share/xml/docbook/xsl-stylesheets-<em class="replaceable"><code><version></code></em>" \
-/etc/xml/catalog &&
-
-xmlcatalog --noout --add "rewriteURI" \
-"http://docbook.sourceforge.net/release/xsl/<em class="replaceable"><code><version></code></em>" \
-"/usr/share/xml/docbook/xsl-stylesheets-<em class="replaceable"><code><version></code></em>" \
-/etc/xml/catalog
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
