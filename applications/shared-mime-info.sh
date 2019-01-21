@@ -34,7 +34,7 @@ cd $DIRECTORY
 fi
 
 ./configure --prefix=/usr &&
-make
+make -j1
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
