@@ -7,7 +7,7 @@ set +h
 
 if [ "x$MULTICORE" == "xy" ] || [ "x$MULTICORE" == "xY" ]
 then
-	export MAKEFLAGS="-j `nproc`"
+	export MAKEFLAGS="-j 1"
 fi
 
 SOURCE_DIR="/sources"
