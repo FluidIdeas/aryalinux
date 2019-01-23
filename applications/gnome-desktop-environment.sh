@@ -83,6 +83,10 @@ set +h
 #REQ:polkit-gnome
 #REQ:xdg-user-dirs
 #REQ:gnome-tweaks
+#REQ:aryalinux-wallpapers
+#REQ:aryalinux-google-fonts
+#REQ:aryalinux-icons
+#REQ:aryalinux-gtk-themes
 
 cd $SOURCE_DIR
 
@@ -110,6 +114,9 @@ fi
 sudo sed -i 's@MimeType=inode/directory@# MimeType=inode/directory@g' /usr/share/applications/org.gnome.baobab.desktop
 sudo update-desktop-database
 sudo update-mime-database /usr/share/mime
+wget -nc https://raw.githubusercontent.com/FluidIdeas/utils/master/wall.sh
+chmod a+x wall.sh
+./wall.sh
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
