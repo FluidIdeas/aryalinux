@@ -70,6 +70,7 @@ fi
 cd $DIRECTORY
 fi
 
+sudo rm /etc/X11/xorg.conf.d/*.conf
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
