@@ -1,13 +1,13 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86 4.20.3 Kernel Configuration
+# Linux/x86 4.20.4 Kernel Configuration
 #
 
 #
-# Compiler: gcc (GCC) 8.2.0
+# Compiler: gcc (GCC) 8.1.0
 #
 CONFIG_CC_IS_GCC=y
-CONFIG_GCC_VERSION=80200
+CONFIG_GCC_VERSION=80100
 CONFIG_CLANG_VERSION=0
 CONFIG_IRQ_WORK=y
 CONFIG_BUILDTIME_EXTABLE_SORT=y
@@ -7888,7 +7888,6 @@ CONFIG_UFS_FS=m
 # CONFIG_UFS_DEBUG is not set
 CONFIG_EXOFS_FS=m
 # CONFIG_EXOFS_DEBUG is not set
-# CONFIG_AUFS_FS is not set
 CONFIG_ORE=m
 CONFIG_NETWORK_FILESYSTEMS=y
 CONFIG_NFS_FS=y
