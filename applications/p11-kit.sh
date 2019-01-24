@@ -14,11 +14,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/p11-glue/p11-kit/releases/download/0.23.14/p11-kit-0.23.14.tar.gz
+wget -nc https://github.com/p11-glue/p11-kit/releases/download/0.23.15/p11-kit-0.23.15.tar.gz
 
 NAME=p11-kit
-VERSION=0.23.14
-URL=https://github.com/p11-glue/p11-kit/releases/download/0.23.14/p11-kit-0.23.14.tar.gz
+VERSION=0.23.15
+URL=https://github.com/p11-glue/p11-kit/releases/download/0.23.15/p11-kit-0.23.15.tar.gz
 
 if [ ! -z $URL ]
 then

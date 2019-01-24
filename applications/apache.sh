@@ -21,12 +21,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.apache.org/dist/httpd/httpd-2.4.37.tar.bz2
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/httpd-2.4.37-blfs_layout-1.patch
+wget -nc https://archive.apache.org/dist/httpd/httpd-2.4.38.tar.bz2
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/httpd-2.4.38-blfs_layout-1.patch
 
 NAME=apache
-VERSION=2.4.37
-URL=https://archive.apache.org/dist/httpd/httpd-2.4.37.tar.bz2
+VERSION=2.4.38
+URL=https://archive.apache.org/dist/httpd/httpd-2.4.38.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -55,7 +55,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-patch -Np1 -i ../httpd-2.4.37-blfs_layout-1.patch &&
+patch -Np1 -i ../httpd-2.4.38-blfs_layout-1.patch &&
 
 sed '/dir.*CFG_PREFIX/s@^@#@' -i support/apxs.in &&
 

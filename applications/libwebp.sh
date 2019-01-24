@@ -14,11 +14,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://downloads.webmproject.org/releases/webp/libwebp-1.0.1.tar.gz
+wget -nc http://downloads.webmproject.org/releases/webp/libwebp-1.0.2.tar.gz
 
 NAME=libwebp
-VERSION=1.0.1
-URL=http://downloads.webmproject.org/releases/webp/libwebp-1.0.1.tar.gz
+VERSION=1.0.2
+URL=http://downloads.webmproject.org/releases/webp/libwebp-1.0.2.tar.gz
 
 if [ ! -z $URL ]
 then

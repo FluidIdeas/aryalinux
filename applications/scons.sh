@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/scons/scons-3.0.3.tar.gz
+wget -nc https://downloads.sourceforge.net/scons/scons-3.0.4.tar.gz
 
 NAME=scons
-VERSION=3.0.3
-URL=https://downloads.sourceforge.net/scons/scons-3.0.3.tar.gz
+VERSION=3.0.4
+URL=https://downloads.sourceforge.net/scons/scons-3.0.4.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -36,12 +36,12 @@ fi
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-sed -i 's/env python/&3/' script/* &&
+sed -i 's/env python/&3/' script/scons* &&
 python3 setup.py install --prefix=/usr \
 --standard-lib \
 --optimize=1 \
 --install-data=/usr/share &&
-rm /usr/bin/scons*.bat
+rm -v /usr/bin/scons*.bat
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

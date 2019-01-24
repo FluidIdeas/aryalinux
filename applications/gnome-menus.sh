@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.31/gnome-menus-3.31.3.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.31/gnome-menus-3.31.3.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.31/gnome-menus-3.31.4.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.31/gnome-menus-3.31.4.tar.xz
 
 NAME=gnome-menus
-VERSION=3.31.3
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.31/gnome-menus-3.31.3.tar.xz
+VERSION=3.31.4
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.31/gnome-menus-3.31.4.tar.xz
 
 if [ ! -z $URL ]
 then

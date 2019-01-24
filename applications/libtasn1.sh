@@ -6,7 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:six
 #OPT:gtk-doc
 #OPT:valgrind
 

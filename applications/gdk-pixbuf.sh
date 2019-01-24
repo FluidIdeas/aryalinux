@@ -15,7 +15,6 @@ set +h
 #OPT:gobject-introspection
 #OPT:jasper
 #OPT:gtk-doc
-#OPT:six
 
 cd $SOURCE_DIR
 

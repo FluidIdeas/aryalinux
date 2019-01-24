@@ -14,11 +14,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/exo/0.12/exo-0.12.3.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/exo/0.12/exo-0.12.4.tar.bz2
 
 NAME=exo
-VERSION=0.12.3
-URL=http://archive.xfce.org/src/xfce/exo/0.12/exo-0.12.3.tar.bz2
+VERSION=0.12.4
+URL=http://archive.xfce.org/src/xfce/exo/0.12/exo-0.12.4.tar.bz2
 
 if [ ! -z $URL ]
 then

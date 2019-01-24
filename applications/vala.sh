@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/vala/0.42/vala-0.42.4.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/vala/0.42/vala-0.42.4.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/vala-0.42.4-avoid_graphviz-1.patch
+wget -nc http://ftp.gnome.org/pub/gnome/sources/vala/0.42/vala-0.42.5.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/vala/0.42/vala-0.42.5.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/vala-0.42.5-avoid_graphviz-1.patch
 
 NAME=vala
-VERSION=0.42.4
-URL=http://ftp.gnome.org/pub/gnome/sources/vala/0.42/vala-0.42.4.tar.xz
+VERSION=0.42.5
+URL=http://ftp.gnome.org/pub/gnome/sources/vala/0.42/vala-0.42.5.tar.xz
 
 if [ ! -z $URL ]
 then

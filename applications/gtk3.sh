@@ -10,7 +10,6 @@ set +h
 #REQ:gdk-pixbuf
 #REQ:libepoxy
 #REQ:pango
-#REQ:six
 #REC:adwaita-icon-theme
 #REC:hicolor-icon-theme
 #REC:iso-codes
@@ -28,12 +27,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.3.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.3.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.4.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.4.tar.xz
 
 NAME=gtk3
-VERSION=3.24.3
-URL=http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.3.tar.xz
+VERSION=3.24.4
+URL=http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.4.tar.xz
 
 if [ ! -z $URL ]
 then

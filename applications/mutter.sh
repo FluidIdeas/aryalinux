@@ -46,7 +46,9 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --disable-static &&
+./configure --prefix=/usr \
+--disable-static \
+--enable-compile-warnings=minimum &&
 make
 
 sudo rm -rf /tmp/rootscript.sh

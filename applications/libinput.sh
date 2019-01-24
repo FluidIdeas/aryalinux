@@ -13,11 +13,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/libinput/libinput-1.12.5.tar.xz
+wget -nc https://www.freedesktop.org/software/libinput/libinput-1.12.6.tar.xz
 
 NAME=libinput
-VERSION=1.12.5
-URL=https://www.freedesktop.org/software/libinput/libinput-1.12.5.tar.xz
+VERSION=1.12.6
+URL=https://www.freedesktop.org/software/libinput/libinput-1.12.6.tar.xz
 
 if [ ! -z $URL ]
 then

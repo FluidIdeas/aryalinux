@@ -16,11 +16,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://upower.freedesktop.org/releases/upower-0.99.7.tar.xz
+wget -nc https://gitlab.freedesktop.org/upower/upower/uploads/2282c7c0e53fb31816b824c9d1f547e8/upower-0.99.9.tar.xz
 
 NAME=upower
-VERSION=0.99.7
-URL=https://upower.freedesktop.org/releases/upower-0.99.7.tar.xz
+VERSION=0.99.9
+URL=https://gitlab.freedesktop.org/upower/upower/uploads/2282c7c0e53fb31816b824c9d1f547e8/upower-0.99.9.tar.xz
 
 if [ ! -z $URL ]
 then

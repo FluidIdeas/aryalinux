@@ -13,11 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.xsane.org/download/xsane-0.999.tar.gz
+wget -nc http://anduin.linuxfromscratch.org/BLFS/xsane/xsane-0.999.tar.gz
+wget -nc ftp://anduin.linuxfromscratch.org/BLFS/xsane/xsane-0.999.tar.gz
 
 NAME=xsane
 VERSION=0.999
-URL=http://www.xsane.org/download/xsane-0.999.tar.gz
+URL=http://anduin.linuxfromscratch.org/BLFS/xsane/xsane-0.999.tar.gz
 
 if [ ! -z $URL ]
 then

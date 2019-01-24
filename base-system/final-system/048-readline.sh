@@ -39,7 +39,7 @@ sed -i '/{OLDSUFF}/c:' support/shlib-install
             --disable-static \
             --docdir=/usr/share/doc/readline-8.0
 make SHLIB_LIBS="-L/tools/lib -lncursesw"
-make SHLIB_LIBS="-L/tools/lib -lncurses" install
+make SHLIB_LIBS="-L/tools/lib -lncursesw" install
 mv -v /usr/lib/lib{readline,history}.so.* /lib
 chmod -v u+w /lib/lib{readline,history}.so.*
 ln -sfv ../../lib/$(readlink /usr/lib/libreadline.so) /usr/lib/libreadline.so

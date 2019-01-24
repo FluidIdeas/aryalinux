@@ -24,6 +24,7 @@ set +h
 #OPT:docbook
 #OPT:docbook-xsl
 #OPT:libxslt
+#OPT:lxml
 
 cd $SOURCE_DIR
 

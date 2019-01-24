@@ -10,8 +10,6 @@ set +h
 #REQ:docbook-xsl
 #REQ:itstool
 #REQ:libxslt
-#REQ:python2
-#REQ:six
 #REC:highlight
 #OPT:fop
 #OPT:glib2

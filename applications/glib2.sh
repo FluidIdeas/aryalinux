@@ -10,6 +10,7 @@ set +h
 #REC:pcre
 #REC:gobject-introspection
 #OPT:dbus
+#OPT:gdb
 #OPT:docbook
 #OPT:docbook-xsl
 #OPT:gtk-doc
@@ -18,13 +19,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/glib/2.58/glib-2.58.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glib/2.58/glib-2.58.2.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/glib-2.58.2-skip_warnings-1.patch
+wget -nc http://ftp.gnome.org/pub/gnome/sources/glib/2.58/glib-2.58.3.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glib/2.58/glib-2.58.3.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/glib-2.58.3-skip_warnings-1.patch
 
 NAME=glib2
-VERSION=2.58.2
-URL=http://ftp.gnome.org/pub/gnome/sources/glib/2.58/glib-2.58.2.tar.xz
+VERSION=2.58.3
+URL=http://ftp.gnome.org/pub/gnome/sources/glib/2.58/glib-2.58.3.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -42,7 +43,7 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../glib-2.58.2-skip_warnings-1.patch
+patch -Np1 -i ../glib-2.58.3-skip_warnings-1.patch
 mkdir build-glib &&
 cd build-glib &&
 
@@ -56,8 +57,8 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
 
-mkdir -p /usr/share/doc/glib-2.58.2 &&
-cp -r ../docs/reference/{NEWS,gio,glib,gobject} /usr/share/doc/glib-2.58.2
+mkdir -p /usr/share/doc/glib-2.58.3 &&
+cp -r ../docs/reference/{NEWS,gio,glib,gobject} /usr/share/doc/glib-2.58.3
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

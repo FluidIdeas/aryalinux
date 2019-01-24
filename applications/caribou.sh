@@ -14,6 +14,7 @@ set +h
 #REQ:pygobject3
 #REC:vala
 #OPT:gtk2
+#OPT:vala
 #OPT:dbus-python
 #OPT:dconf
 #OPT:pyatspi2

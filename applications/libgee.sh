@@ -9,6 +9,7 @@ set +h
 #REQ:glib2
 #REC:gobject-introspection
 #REC:vala
+#OPT:vala
 
 cd $SOURCE_DIR
 

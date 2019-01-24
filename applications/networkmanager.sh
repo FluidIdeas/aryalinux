@@ -63,6 +63,7 @@ sed -e '/Qt[CDN]/s/Qt/Qt5/g' \
 -e 's/moc_location/host_bins/' \
 -i examples/C/qt/meson.build
 sed '/initrd/d' -i src/meson.build
+grep -rl '^#!.*python$' | xargs sed -i '1s/python/&3/'
 mkdir build &&
 cd build &&
 
