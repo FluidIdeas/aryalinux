@@ -83,10 +83,12 @@ set +h
 #REQ:polkit-gnome
 #REQ:xdg-user-dirs
 #REQ:gnome-tweaks
+#REQ:plank
 #REQ:aryalinux-wallpapers
 #REQ:aryalinux-google-fonts
 #REQ:aryalinux-icons
 #REQ:aryalinux-gtk-themes
+#REQ:aryalinux-gnome-settings
 
 cd $SOURCE_DIR
 
@@ -117,6 +119,11 @@ sudo update-mime-database /usr/share/mime
 wget -nc https://raw.githubusercontent.com/FluidIdeas/utils/master/wall.sh
 chmod a+x wall.sh
 ./wall.sh
+sudo tee /etc/profile.d/aryalinux-desktop.sh << EOF
+cd ~
+xdg-user-dirs-update
+default-gnome-user-instructions
+EOF
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
