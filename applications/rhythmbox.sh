@@ -28,11 +28,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/rhythmbox/3.4/rhythmbox-3.4.tar.xz
+wget -nc https://download.gnome.org/sources/rhythmbox/3.4/rhythmbox-3.4.3.tar.xz
 
 NAME=rhythmbox
-VERSION=3.4
-URL=https://download.gnome.org/sources/rhythmbox/3.4/rhythmbox-3.4.tar.xz
+VERSION=3.4.3
+URL=https://download.gnome.org/sources/rhythmbox/3.4/rhythmbox-3.4.3.tar.xz
 
 if [ ! -z $URL ]
 then
