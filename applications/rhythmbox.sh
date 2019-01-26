@@ -49,7 +49,7 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr &&
+./autogen.sh --prefix=/usr || ./configure --prefix=/usr
 make
 sudo make install
 
