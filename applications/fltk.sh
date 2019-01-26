@@ -23,7 +23,7 @@ cd $SOURCE_DIR
 wget -nc http://fltk.org/pub/fltk/1.3.4/fltk-1.3.4-2-source.tar.gz
 
 NAME=fltk
-VERSION=source
+VERSION=1.3.4-2
 URL=http://fltk.org/pub/fltk/1.3.4/fltk-1.3.4-2-source.tar.gz
 
 if [ ! -z $URL ]

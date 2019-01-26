@@ -33,9 +33,6 @@ fi
 
 ./configure --prefix=/usr --disable-static &&
 make
-./frontend/faac -o Front_Left.mp4 /usr/share/sounds/alsa/Front_Left.wav
-faad Front_Left.mp4
-aplay Front_Left.wav
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
