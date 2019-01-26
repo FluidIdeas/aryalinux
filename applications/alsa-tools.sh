@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:alsa-lib
+#REQ:fltk
 #OPT:gtk2
 #OPT:gtk3
 #OPT:fltk
