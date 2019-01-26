@@ -24,6 +24,7 @@ set +h
 #REQ:libmusicbrainz5
 #REQ:pygobject2
 #REQ:libgpod
+#REQ:yelp
 
 cd $SOURCE_DIR
 
