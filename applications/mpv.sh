@@ -8,7 +8,7 @@ set +h
 
 #REQ:xserver-meta
 #REQ:mesa
-#REQ:libasound
+#REQ:alsa-lib
 #REQ:pulseaudio
 #REQ:libass
 #REQ:libjpeg
