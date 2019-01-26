@@ -28,11 +28,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/GNOME/rhythmbox/archive/v3.4.3.tar.gz
+wget -nc https://download.gnome.org/sources/rhythmbox/3.4/rhythmbox-3.4.tar.xz
 
 NAME=rhythmbox
-VERSION=3.4.3
-URL=https://github.com/GNOME/rhythmbox/archive/v3.4.3.tar.gz
+VERSION=3.4
+URL=https://download.gnome.org/sources/rhythmbox/3.4/rhythmbox-3.4.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -50,7 +50,7 @@ fi
 cd $DIRECTORY
 fi
 
-autoreconf -fi || ./configure --prefix=/usr
+./configure --prefix=/usr
 make
 sudo make install
 
