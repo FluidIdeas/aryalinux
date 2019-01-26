@@ -33,8 +33,6 @@ fi
 
 ./configure --prefix=/usr --disable-static &&
 make
-./frontend/faad -o sample.wav ../sample.aac
-aplay sample.wav
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
