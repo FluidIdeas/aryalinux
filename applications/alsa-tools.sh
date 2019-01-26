@@ -44,7 +44,6 @@ fi
 }
 
 export -f as_root
-bash -e
 rm -rf qlo10k1 Makefile gitcompile
 for tool in *
 do
@@ -66,7 +65,6 @@ popd
 
 done
 unset tool tool_dir
-exit
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
