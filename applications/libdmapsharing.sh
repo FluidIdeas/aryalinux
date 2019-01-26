@@ -31,7 +31,7 @@ fi
 cd $DIRECTORY
 fi
 
-./autogen.sh --prefix=/usr &&
+./autogen.sh --disable-tests --prefix=/usr &&
 make
 sudo make install
 
