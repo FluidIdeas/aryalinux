@@ -50,7 +50,7 @@ fi
 cd $DIRECTORY
 fi
 
-autoreconf -fi && ./configure --prefix=/usr
+autoreconf -fi || ./configure --prefix=/usr
 make
 sudo make install
 
