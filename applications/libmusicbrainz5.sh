@@ -40,21 +40,10 @@ cd build &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr .. &&
 make
-doxygen ../Doxyfile
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-rm -rf /usr/share/doc/libmusicbrainz-5.1.0 &&
-cp -vr docs/ /usr/share/doc/libmusicbrainz-5.1.0
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
