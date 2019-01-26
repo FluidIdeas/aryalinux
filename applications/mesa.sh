@@ -43,13 +43,13 @@ fi
 cd $DIRECTORY
 fi
 
-export XORG_PREFIX=/usr
-
 patch -Np1 -i ../mesa-18.3.2-add_xdemos-1.patch
 DRI_DRIVERS="i915,i965,nouveau,r200,radeon,swrast"
 GALLIUM_DRIVERS="nouveau,r300,r600,svga,radeonsi,swrast,virgl"
 VULKAN=" --with-vulkan-drivers=intel,radeon "
 EGL_PLATFORMS="drm,x11"
+
+export XORG_PREFIX=/usr
 
 ./configure CFLAGS='-O2' CXXFLAGS='-O2' LDFLAGS=-lLLVM \
   --prefix=$XORG_PREFIX \
