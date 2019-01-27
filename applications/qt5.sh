@@ -62,38 +62,29 @@ fi
 cd $DIRECTORY
 fi
 
-export QT5PREFIX=/opt/qt5
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir /opt/qt-5.12.0
-ln -sfnv qt-5.12.0 /opt/qt5
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
--archdatadir /usr/lib/qt5 \
--bindir /usr/bin \
--plugindir /usr/lib/qt5/plugins \
--importdir /usr/lib/qt5/imports \
--headerdir /usr/include/qt5 \
--datadir /usr/share/qt5 \
--docdir /usr/share/doc/qt5 \
--translationdir /usr/share/qt5/translations \
--examplesdir /usr/share/doc/qt5/examples
-./configure -prefix $QT5PREFIX \
--sysconfdir /etc/xdg \
--confirm-license \
--opensource \
--dbus-linked \
--openssl-linked \
--system-harfbuzz \
--system-sqlite \
--nomake examples \
--no-rpath \
--skip qtwebengine &&
+export QT5PREFIX=/usr
+./configure -prefix $QT5PREFIX                          \
+            -sysconfdir /etc/xdg                        \
+            -confirm-license                            \
+            -opensource                                 \
+            -dbus-linked                                \
+            -openssl-linked                             \
+            -system-harfbuzz                            \
+            -system-sqlite                              \
+            -nomake examples                            \
+            -no-rpath                                   \
+            -archdatadir    /usr/lib/qt5                \
+            -bindir         /usr/bin                    \
+            -plugindir      /usr/lib/qt5/plugins        \
+            -importdir      /usr/lib/qt5/imports        \
+            -headerdir      /usr/include/qt5            \
+            -datadir        /usr/share/qt5              \
+            -docdir         /usr/share/doc/qt5          \
+            -translationdir /usr/share/qt5/translations \
+            -examplesdir    /usr/share/doc/qt5/examples \
+            -skip qtwebengine                           &&
 make
+
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -223,43 +214,6 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/sudoers.d/qt << "EOF"
 Defaults env_keep += QT5DIR
-EOF
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cat >> /etc/ld.so.conf << EOF
-# Begin Qt addition
-
-/opt/qt5/lib
-
-# End Qt addition
-EOF
-
-ldconfig
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cat > /etc/profile.d/qt5.sh << "EOF"
-# Begin /etc/profile.d/qt5.sh
-
-QT5DIR=/opt/qt5
-
-pathappend $QT5DIR/bin PATH
-pathappend $QT5DIR/lib/pkgconfig PKG_CONFIG_PATH
-
-export QT5DIR
-
-# End /etc/profile.d/qt5.sh
 EOF
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
