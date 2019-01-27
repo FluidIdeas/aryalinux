@@ -129,7 +129,8 @@ sed -e "/distro-install-file-lists/d" -i Makefile.in &&
  --with-system-poppler       \
  --with-system-redland       \
  --with-system-serf          \
- --with-system-zlib
+ --with-system-zlib          \
+ --without-java
 CPPFLAGS='-DU_USING_ICU_NAMESPACE=1' make build-nocheck
 
 sudo rm -rf /tmp/rootscript.sh
