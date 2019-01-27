@@ -17,7 +17,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://www.mupdf.com/downloads/archive/mupdf-1.14.0-source.tar.gz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/mupdf-1.14.0-shared_libs-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/mupdf-1.14.0-shared_libs-1.patch
 
 NAME=mupdf
 VERSION=source

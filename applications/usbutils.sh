@@ -13,7 +13,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-010.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/usbutils-010-lsusb_bugfixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/usbutils-010-lsusb_bugfixes-1.patch
 
 NAME=usbutils
 VERSION=010

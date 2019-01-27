@@ -21,7 +21,7 @@ cd $SOURCE_DIR
 
 wget -nc https://mesa.freedesktop.org/archive/mesa-18.3.2.tar.xz
 wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-18.3.2.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/mesa-18.3.2-add_xdemos-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/mesa-18.3.2-add_xdemos-1.patch
 
 NAME=mesa
 VERSION=18.3.2

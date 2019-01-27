@@ -60,7 +60,7 @@ wget -nc http://download.documentfoundation.org/libreoffice/src/6.1.4/libreoffic
 wget -nc http://download.documentfoundation.org/libreoffice/src/6.1.4/libreoffice-dictionaries-6.1.4.2.tar.xz
 wget -nc http://download.documentfoundation.org/libreoffice/src/6.1.4/libreoffice-help-6.1.4.2.tar.xz
 wget -nc http://download.documentfoundation.org/libreoffice/src/6.1.4/libreoffice-translations-6.1.4.2.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/libreoffice-6.1.4.2-consolidated_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/libreoffice-6.1.4.2-consolidated_fixes-1.patch
 
 NAME=libreoffice
 VERSION=6.1.4.2
@@ -130,7 +130,8 @@ sed -e "/distro-install-file-lists/d" -i Makefile.in &&
  --with-system-redland       \
  --with-system-serf          \
  --with-system-zlib          \
- --without-java
+ --without-java              \
+ --without-postgresql
 CPPFLAGS='-DU_USING_ICU_NAMESPACE=1' make build-nocheck
 
 sudo rm -rf /tmp/rootscript.sh

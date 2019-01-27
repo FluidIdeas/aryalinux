@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/libunique/1.1/libunique-1.1.6.tar.bz2
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libunique/1.1/libunique-1.1.6.tar.bz2
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/libunique-1.1.6-upstream_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/libunique-1.1.6-upstream_fixes-1.patch
 
 NAME=libunique
 VERSION=1.1.6

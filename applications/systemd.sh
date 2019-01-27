@@ -29,7 +29,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://github.com/systemd/systemd/archive/v240/systemd-240.tar.gz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/systemd-240-security_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/systemd-240-security_fixes-1.patch
 
 NAME=systemd
 VERSION=240

@@ -13,7 +13,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://archive.mozilla.org/pub/security/nss/releases/NSS_3_41_RTM/src/nss-3.41.tar.gz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/nss-3.41-standalone-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/nss-3.41-standalone-1.patch
 
 NAME=nss
 VERSION=3.41

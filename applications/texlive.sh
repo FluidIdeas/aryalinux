@@ -26,7 +26,7 @@ cd $SOURCE_DIR
 
 wget -nc ftp://tug.org/texlive/historic/2018/texlive-20180414-source.tar.xz
 wget -nc ftp://tug.org/texlive/historic/2018/texlive-20180414-texmf.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/texlive-20180414-source-upstream_fixes-3.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/texlive-20180414-source-upstream_fixes-3.patch
 wget -nc https://cpan.metacpan.org/authors/id/S/SR/SREZIC/Tk-804.034.tar.gz
 
 NAME=texlive

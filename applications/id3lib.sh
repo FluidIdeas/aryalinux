@@ -10,7 +10,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/id3lib/id3lib-3.8.3.tar.gz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/id3lib-3.8.3-consolidated_patches-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/id3lib-3.8.3-consolidated_patches-1.patch
 
 NAME=id3lib
 VERSION=3.8.3

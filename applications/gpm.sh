@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/gpm/gpm-1.20.7.tar.bz2
 wget -nc ftp://anduin.linuxfromscratch.org/BLFS/gpm/gpm-1.20.7.tar.bz2
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/gpm-1.20.7-glibc_2.26-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/gpm-1.20.7-glibc_2.26-1.patch
 
 NAME=gpm
 VERSION=1.20.7

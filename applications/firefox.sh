@@ -42,7 +42,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://archive.mozilla.org/pub/firefox/releases/64.0.2/source/firefox-64.0.2.source.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/firefox-64.0.2-system_graphite2_harfbuzz-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/firefox-64.0.2-system_graphite2_harfbuzz-1.patch
 
 NAME=firefox
 VERSION=64.0.2.source

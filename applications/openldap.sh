@@ -18,7 +18,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.47.tgz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/openldap-2.4.47-consolidated-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/openldap-2.4.47-consolidated-1.patch
 
 NAME=openldap
 VERSION=2.4.47

@@ -28,7 +28,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://media.inkscape.org/dl/resources/file/inkscape-0.92.4.tar.bz2
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/inkscape-0.92.4-use_versioned_ImageMagick6-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/inkscape-0.92.4-use_versioned_ImageMagick6-1.patch
 
 NAME=inkscape
 VERSION=0.92.4

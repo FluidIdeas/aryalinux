@@ -21,7 +21,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://download.qt.io/archive/qt/5.12/5.12.0/submodules/qtwebengine-everywhere-src-5.12.0.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/qtwebengine-5.12.0-i686_alignof_fix-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/qtwebengine-5.12.0-i686_alignof_fix-1.patch
 
 NAME=qtwebengine
 VERSION=5.12.0

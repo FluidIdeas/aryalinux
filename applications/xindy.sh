@@ -12,7 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://tug.ctan.org/support/xindy/base/xindy-2.5.1.tar.gz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/xindy-2.5.1-upstream_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/xindy-2.5.1-upstream_fixes-1.patch
 
 NAME=xindy
 VERSION=2.5.1

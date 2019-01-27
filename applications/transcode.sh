@@ -33,7 +33,7 @@ cd $SOURCE_DIR
 
 wget -nc https://sources.archlinux.org/other/community/transcode/transcode-1.1.7.tar.bz2
 wget -nc ftp://ftp.mirrorservice.org/sites/distfiles.gentoo.org/distfiles/transcode-1.1.7.tar.bz2
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/transcode-1.1.7-ffmpeg4-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/transcode-1.1.7-ffmpeg4-1.patch
 
 NAME=transcode
 VERSION=1.1.7

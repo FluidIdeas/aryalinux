@@ -10,7 +10,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://downloads.xiph.org/releases/cdparanoia/cdparanoia-III-10.2.src.tgz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/cdparanoia-III-10.2-gcc_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/cdparanoia-III-10.2-gcc_fixes-1.patch
 
 NAME=cdparanoia
 VERSION=10.2.src

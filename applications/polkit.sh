@@ -19,7 +19,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://www.freedesktop.org/software/polkit/releases/polkit-0.115.tar.gz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/polkit-0.115-security_patch-2.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/polkit-0.115-security_patch-2.patch
 
 NAME=polkit
 VERSION=0.115

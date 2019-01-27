@@ -26,7 +26,7 @@ cd $SOURCE_DIR
 
 wget -nc http://www.abisource.com/downloads/abiword/3.0.2/source/abiword-3.0.2.tar.gz
 wget -nc http://www.abisource.com/downloads/abiword/3.0.2/source/abiword-docs-3.0.2.tar.gz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/abiword-3.0.2-gtk3_22_render_fix-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/abiword-3.0.2-gtk3_22_render_fix-1.patch
 
 NAME=abiword
 VERSION=3.0.2

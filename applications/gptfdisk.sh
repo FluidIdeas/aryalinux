@@ -12,7 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.4.tar.gz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/gptfdisk-1.0.4-convenience-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/gptfdisk-1.0.4-convenience-1.patch
 
 NAME=gptfdisk
 VERSION=1.0.4

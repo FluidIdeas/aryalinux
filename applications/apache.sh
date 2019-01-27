@@ -22,7 +22,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://archive.apache.org/dist/httpd/httpd-2.4.38.tar.bz2
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/httpd-2.4.38-blfs_layout-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/httpd-2.4.38-blfs_layout-1.patch
 
 NAME=apache
 VERSION=2.4.38
