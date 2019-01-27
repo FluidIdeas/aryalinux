@@ -35,7 +35,7 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i gnome-menus-3.31.4-applications-menu.patch
+patch -Np1 -i ../gnome-menus-3.31.4-applications-menu.patch
 ./configure --prefix=/usr \
 --sysconfdir=/etc \
 --disable-static &&
