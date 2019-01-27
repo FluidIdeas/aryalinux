@@ -132,7 +132,7 @@ sed -e "/distro-install-file-lists/d" -i Makefile.in &&
  --with-system-serf          \
  --with-system-zlib          \
  --without-java              \
- --without-postgresql
+ --disable-postgresql-sdbc
 CPPFLAGS='-DU_USING_ICU_NAMESPACE=1' make build-nocheck
 
 sudo rm -rf /tmp/rootscript.sh
