@@ -11,7 +11,6 @@ set +h
 #REQ:wget
 #REQ:which
 #REQ:zip
-#REC:apache-ant
 #REC:apr
 #REC:boost
 #REC:clucene
@@ -36,7 +35,6 @@ set +h
 #REC:nss
 #REC:openldap
 #REC:poppler
-#REC:postgresql
 #REC:redland
 #REC:serf
 #REC:unixodbc
@@ -84,96 +82,59 @@ fi
 cd $DIRECTORY
 fi
 
-tar -xf libreoffice-6.1.4.2.tar.xz --no-overwrite-dir &&
-cd libreoffice-6.1.4.2
 patch -Np1 -i ../libreoffice-6.1.4.2-consolidated_fixes-1.patch
 install -dm755 external/tarballs &&
 ln -sv ../../../libreoffice-dictionaries-6.1.4.2.tar.xz external/tarballs/ &&
 ln -sv ../../../libreoffice-help-6.1.4.2.tar.xz external/tarballs/
 ln -sv ../../../libreoffice-translations-6.1.4.2.tar.xz external/tarballs/
-export LO_PREFIX=<em class="replaceable"><code><PREFIX></code></em>
-sed -e "/gzip -f/d" \
+export LO_PREFIX=/usr
+sed -e "/gzip -f/d"   \
 -e "s|.1.gz|.1|g" \
 -i bin/distro-install-desktop-integration &&
 
 sed -e "/distro-install-file-lists/d" -i Makefile.in &&
 
-./autogen.sh --prefix=$LO_PREFIX \
---sysconfdir=/etc \
---with-vendor=BLFS \
---with-lang='fr en-GB' \
---with-help \
---with-myspell-dicts \
---with-alloc=system \
---without-junit \
---without-system-dicts \
---disable-dconf \
---disable-odk \
---enable-release-build=yes \
---enable-python=system \
---with-system-apr \
---with-system-boost \
---with-system-cairo \
---with-system-clucene \
---with-system-curl \
---with-system-expat \
---with-system-graphite \
---with-system-harfbuzz \
---with-system-icu \
---with-system-jpeg \
---with-system-lcms2 \
---with-system-libatomic_ops \
---with-system-libpng \
---with-system-libxml \
---with-system-neon \
---with-system-nss \
---with-system-odbc \
---with-system-openldap \
---with-system-openssl \
---with-system-poppler \
---with-system-postgresql \
---with-system-redland \
---with-system-serf \
---with-system-zlib
+./autogen.sh --prefix=$LO_PREFIX   \
+ --sysconfdir=/etc           \
+ --with-vendor=BLFS          \
+ --with-lang='en-US'         \
+ --with-help                 \
+ --with-myspell-dicts        \
+ --with-alloc=system         \
+ --without-junit             \
+ --without-system-dicts      \
+ --disable-dconf             \
+ --disable-odk               \
+ --enable-release-build=yes  \
+ --enable-python=system      \
+ --with-system-apr           \
+ --with-system-boost         \
+ --with-system-cairo         \
+ --with-system-clucene       \
+ --with-system-curl          \
+ --with-system-expat         \
+ --with-system-graphite      \
+ --with-system-harfbuzz      \
+ --with-system-icu           \
+ --with-system-jpeg          \
+ --with-system-lcms2         \
+ --with-system-libatomic_ops \
+ --with-system-libpng        \
+ --with-system-libxml        \
+ --with-system-neon          \
+ --with-system-nss           \
+ --with-system-odbc          \
+ --with-system-openldap      \
+ --with-system-openssl       \
+ --with-system-poppler       \
+ --with-system-redland       \
+ --with-system-serf          \
+ --with-system-zlib
 CPPFLAGS='-DU_USING_ICU_NAMESPACE=1' make build-nocheck
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make distro-pack-install
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-if [ "$LO_PREFIX" != "/usr" ]; then
-
-# This symlink is necessary for the desktop menu entries
-ln -svf $LO_PREFIX/lib/libreoffice/program/soffice /usr/bin/libreoffice &&
-
-# Set up a generic location independent of version number
-ln -sfv $LO_PREFIX /opt/libreoffice 
-
-# Icons
-mkdir -vp /usr/share/pixmaps
-for i in $LO_PREFIX/share/icons/hicolor/32x32/apps/*; do
-ln -svf $i /usr/share/pixmaps
-done &&
-
-# Desktop menu entries
-for i in $LO_PREFIX/lib/libreoffice/share/xdg/*; do
-ln -svf $i /usr/share/applications/libreoffice-$(basename $i)
-done &&
-
-# Man pages
-for i in $LO_PREFIX/share/man/man1/*; do
-ln -svf $i /usr/share/man/man1/
-done
-
-unset i
-fi
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
