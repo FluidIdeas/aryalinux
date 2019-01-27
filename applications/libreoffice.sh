@@ -11,6 +11,7 @@ set +h
 #REQ:wget
 #REQ:which
 #REQ:zip
+#REQ:openssl
 #REC:apr
 #REC:boost
 #REC:clucene
