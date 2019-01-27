@@ -6,6 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#REQ:kf5-intro
 #REQ:boost
 #REQ:extra-cmake-modules
 #REQ:docbook
@@ -21,28 +22,26 @@ set +h
 #REQ:shared-mime-info
 #REQ:perl-uri
 #REQ:wget
+#REQ:noto-fonts
+#REQ:oxygen-fonts
+#REQ:bluez
+#REQ:modemmanager
+#REQ:jasper
+#REQ:mitkrb
+#REQ:udisks2
+#REQ:upower
+#REQ:media-player-info
 #REC:aspell
 #REC:avahi
 #REC:libdbusmenu-qt
 #REC:networkmanager
 #REC:polkit-qt
-#OPT:bluez
-#OPT:modemmanager
-#OPT:ttf-and-otf-fonts#oxygen-fonts
-#OPT:ttf-and-otf-fonts#noto-fonts
-#OPT:doxygen
-#OPT:jinja2
-#OPT:pyyaml
-#OPT:jasper
-#OPT:mitkrb
-#OPT:udisks2
-#OPT:upower
 
 cd $SOURCE_DIR
 
 
 NAME=krameworks5
-VERSION=""
+VERSION=5.53
 URL=""
 
 if [ ! -z $URL ]
@@ -60,6 +59,9 @@ fi
 
 cd $DIRECTORY
 fi
+
+. /etc/profile.d/qt5.sh
+. /etc/profile.d/kf5.sh
 
 url=http://download.kde.org/stable/frameworks/5.53/
 wget -r -nH -nd -A '*.xz' -np $url
@@ -154,19 +156,6 @@ fi
 }
 
 export -f as_root
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mv -v /opt/kf5 /opt/kf5.old &&
-install -v -dm755 $KF5_PREFIX/{etc,share} &&
-ln -sfv /etc/dbus-1 $KF5_PREFIX/etc &&
-ln -sfv /usr/share/dbus-1 $KF5_PREFIX/share
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-bash -e
 export CXXFLAGS='-isystem /usr/include/openssl-1.0'
 
 while read -r line; do
@@ -197,16 +186,6 @@ as_root /sbin/ldconfig
 
 done < frameworks-5.53.0.md5
 
-exit
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mv -v /opt/kf5 /opt/kf5-5.53.0
-ln -sfvn kf5-5.53.0 /opt/kf5
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
