@@ -34,7 +34,7 @@ sudo mkdir -pv /usr/share/fonts/truetype/noto-fonts
 mkdir -pv noto-fonts && cd noto-fonts
 wget -nc https://noto-website-2.storage.googleapis.com/pkgs/Noto{Sans,Serif,SansDisplay,SerifDisplay,Mono}-hinted.zip
 wget -nc https://noto-website-2.storage.googleapis.com/pkgs/Noto{ColorEmoji,Emoji}-unhinted.zip
-find . -name *zip -exec unzip {} -d /usr/share/fonts/truetype/noto-fonts \;
+find . -name "*zip" -exec sudo unzip {} -d /usr/share/fonts/truetype/noto-fonts \;
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
