@@ -33,6 +33,7 @@ fi
 cd $DIRECTORY
 fi
 
+sed -i 's/find_package_handle_standard_args(Exiv2/find_package_handle_standard_args(Exiv2/g' cmake/modules/FindExiv2.cmake
 mkdir build &&
 cd build &&
 
