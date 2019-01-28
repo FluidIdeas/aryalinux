@@ -14,6 +14,7 @@ set +h
 #REQ:krameworks5
 #REQ:fftw
 #REQ:plasma-all
+#REQ:lightdm
 
 cd $SOURCE_DIR
 
