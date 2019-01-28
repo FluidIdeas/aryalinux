@@ -144,7 +144,7 @@ popd
 as_root rm -rf $packagedir
 as_root /sbin/ldconfig
 
-echo $line > plasma-all.log
+echo $line >> plasma-all.log
 done < plasma-5.14.4.md5
 
 

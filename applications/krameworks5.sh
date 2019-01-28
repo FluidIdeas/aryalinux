@@ -187,7 +187,7 @@ popd
 as_root rm -rf $packagedir
 as_root /sbin/ldconfig
 
-echo $line > krameworks5.log
+echo $line >> krameworks5.log
 done < frameworks-5.53.0.md5
 
 
