@@ -37,7 +37,7 @@ fi
 mkdir build &&
 cd build &&
 
-meson --prefix=/usr --libdir=/usr/lib .. &&
+meson --prefix=/usr .. &&
 ninja
 
 sudo rm -rf /tmp/rootscript.sh
