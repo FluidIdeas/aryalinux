@@ -19,12 +19,6 @@ set +h
 #REQ:kmix5
 #REQ:khelpcenter
 #REQ:konsole5
-#REQ:libkexiv2
-#REQ:okular5
-#REQ:libkdcraw
-#REQ:gwenview5
-#REQ:libkcddb
-#REQ:k3b
 #REQ:lightdm
 
 cd $SOURCE_DIR
