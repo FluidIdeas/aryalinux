@@ -54,8 +54,9 @@ fi
 cd $DIRECTORY
 fi
 
+touch plasma-all.log
 url=http://download.kde.org/stable/plasma/5.14.4/
-wget -r -nH -nd -A '*.xz' -np $url
+wget -nc -r -nH -nd -A '*.xz' -np $url
 cat > plasma-5.14.4.md5 << "EOF"
 014d15755600481d8bd2125d82776510 kdecoration-5.14.4.tar.xz
 6cafec0732d42a11618b0f7843b9cdb7 libkscreen-5.14.4.tar.xz
@@ -113,8 +114,9 @@ fi
 }
 
 export -f as_root
-bash -e
 while read -r line; do
+
+if grep $line plasma-all.log &> /dev/null; then continue; fi
 
 # Get the file name, ignoring comments and blank lines
 if $(echo $line | grep -E -q '^ *$|^#' ); then continue; fi
@@ -126,10 +128,10 @@ packagedir=$(echo $pkg|sed 's|\.tar.*||') # Package directory
 tar -xf $file
 pushd $packagedir
 
-mkdir build
+mkdir -pv build
 cd build
 
-cmake -DCMAKE_INSTALL_PREFIX=$KF5_PREFIX \
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
 -DCMAKE_BUILD_TYPE=Release \
 -DBUILD_TESTING=OFF \
 -Wno-dev .. &&
@@ -142,12 +144,13 @@ popd
 as_root rm -rf $packagedir
 as_root /sbin/ldconfig
 
+echo $line > plasma-all.log
 done < plasma-5.14.4.md5
 
-exit
+
 
 cd /usr/share/xsessions/
-[ -e plasma.desktop ] || as_root ln -sfv $KF5_PREFIX/share/xsessions/plasma.desktop
+[ -e plasma.desktop ] || as_root ln -sfv /usr/share/xsessions/plasma.desktop
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -196,13 +199,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-cat > ~/.xinitrc << "EOF"
-dbus-launch --exit-with-session $KF5_PREFIX/bin/startkde
-EOF
-
-startx
-startx &> ~/x-session-errors
-sed '/^Name=/s/Plasma/Plasma on Xorg/' -i /usr/share/xsessions/plasma.desktop
+sudo sed '/^Name=/s/Plasma/Plasma on Xorg/' -i /usr/share/xsessions/plasma.desktop
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

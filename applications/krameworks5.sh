@@ -60,11 +60,12 @@ fi
 cd $DIRECTORY
 fi
 
+touch krameworks5.log
 . /etc/profile.d/qt5.sh
 . /etc/profile.d/kf5.sh
 
 url=http://download.kde.org/stable/frameworks/5.53/
-wget -r -nH -nd -A '*.xz' -np $url
+wget -nc -r -nH -nd -A '*.xz' -np $url
 cat > frameworks-5.53.0.md5 << "EOF"
 56fbdc261e2821bb20775f1346d07321 attica-5.53.0.tar.xz
 #a57cf2aa488fdcce7323a2a4b9aecb65 extra-cmake-modules-5.53.0.tar.xz
@@ -160,6 +161,8 @@ export CXXFLAGS='-isystem /usr/include/openssl-1.0'
 
 while read -r line; do
 
+if grep $line krameworks5.log &> /dev/null; then continue; fi
+
 # Get the file name, ignoring comments and blank lines
 if $(echo $line | grep -E -q '^ *$|^#' ); then continue; fi
 file=$(echo $line | cut -d" " -f2)
@@ -169,7 +172,7 @@ packagedir=$(echo $pkg|sed 's|\.tar.*||') # Package directory
 
 tar -xf $file
 pushd $packagedir
-mkdir build
+mkdir -pv build
 cd build
 
 cmake -DCMAKE_INSTALL_PREFIX=$KF5_PREFIX \
@@ -184,6 +187,7 @@ popd
 as_root rm -rf $packagedir
 as_root /sbin/ldconfig
 
+echo $line > krameworks5.log
 done < frameworks-5.53.0.md5
 
 
