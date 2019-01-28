@@ -191,7 +191,7 @@ echo $line >> krameworks5.log
 done < frameworks-5.53.0.md5
 
 
-rm krameworks5.log
+rm $SOURCE_DIR/krameworks5.log
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
