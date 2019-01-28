@@ -37,7 +37,7 @@ sed -i 's/find_package_handle_standard_args(Exiv2/find_package_handle_standard_a
 mkdir build &&
 cd build &&
 
-cmake -DCMAKE_INSTALL_PREFIX=$KF5_PREFIX \
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
 -DCMAKE_BUILD_TYPE=Release \
 -DBUILD_TESTING=OFF \
 -Wno-dev .. &&
