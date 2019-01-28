@@ -12,6 +12,7 @@ set +h
 #REQ:polkit-qt
 #REQ:libdbusmenu-qt
 #REQ:krameworks5
+#REQ:plasma-all
 
 cd $SOURCE_DIR
 
