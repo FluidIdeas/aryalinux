@@ -62,11 +62,6 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-cat > ~/.xinitrc << "EOF"
-dbus-launch --exit-with-session startxfce4
-EOF
-
-startx
 startx &> ~/.x-session-errors
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
