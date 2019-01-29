@@ -10,6 +10,7 @@ set +h
 #REQ:libgcrypt
 #REQ:linux-pam
 #REQ:pcre
+#REQ:itstool
 #REC:gobject-introspection
 #REC:libxklavier
 #REC:vala
