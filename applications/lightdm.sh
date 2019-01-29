@@ -110,15 +110,26 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+pushd $SOURCE_DIR
+wget -nc http://www.linuxfromscratch.org/blfs/downloads/svn/blfs-systemd-units-20180105.tar.bz2
+tar -xf blfs-systemd-units-20180105.tar.bz2
+pushd blfs-systemd-units-20180105
+sudo make install-lightdm
+sudo systemctl enable lightdm
+popd
+popd
+sudo rm -rf $SOURCE_DIR/blfs-systemd-units-20180105
 
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install-lightdm &&
-systemctl enable lightdm
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
+sudo tee -a /etc/lightdm/lightdm-gtk-greeter.conf << EOF
+[greeter]
+xft-hintstyle = hintmedium
+xft-antialias = true
+xft-rgba = rgb
+icon-theme-name = 'Flat Remix'
+theme-name = Greybird
+background = /usr/share/backgrounds/aryalinux/default-lock-screen-wallpaper.jpeg
+font-name = Droid Sans 10
+EOF
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
