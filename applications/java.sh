@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-11.0.2/OpenJDK-11.0.2+7-i686-bin.tar.xz
-wget -nc https://download.java.net/java/GA/jdk11/7/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz
+wget -nc http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-11.0.2/OpenJDK-11.0.2+9-i686-bin.tar.xz
+wget -nc https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz
 
 NAME=java
 VERSION=bin
-URL=http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-11.0.2/OpenJDK-11.0.2+7-i686-bin.tar.xz
+URL=http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-11.0.2/OpenJDK-11.0.2+9-i686-bin.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -39,9 +39,9 @@ fi
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -vdm755 /opt/OpenJDK-11.0.2+7-bin &&
-mv -v * /opt/OpenJDK-11.0.2+7-bin &&
-chown -R root:root /opt/OpenJDK-11.0.2+7-bin
+install -vdm755 /opt/OpenJDK-11.0.2+9-bin &&
+mv -v * /opt/OpenJDK-11.0.2+9-bin &&
+chown -R root:root /opt/OpenJDK-11.0.2+9-bin
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
@@ -50,7 +50,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ln -sfn OpenJDK-11.0.2+7-bin /opt/jdk
+ln -sfn OpenJDK-11.0.2+9-bin /opt/jdk
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

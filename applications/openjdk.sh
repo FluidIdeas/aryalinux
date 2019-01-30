@@ -27,12 +27,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.2+7.tar.bz2
+wget -nc http://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.2+9.tar.bz2
 wget -nc http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-11.0.2/jtreg-4.2-b13-517.tar.gz
 
 NAME=openjdk
-VERSION=11.0.2+7
-URL=http://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.2+7.tar.bz2
+VERSION=11.0.2+9
+URL=http://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.2+9.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -61,7 +61,7 @@ bash configure --enable-unlimited-crypto \
 --with-libjpeg=system \
 --with-libpng=system \
 --with-zlib=system \
---with-version-build="7" \
+--with-version-build="9" \
 --with-version-pre="" \
 --with-version-opt="" \
 --with-cacerts-file=/etc/pki/tls/java/cacerts &&
@@ -72,9 +72,9 @@ test/jdk:tier1 test/langtools:tier1
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -vdm755 /opt/jdk-11.0.2+7 &&
-cp -Rv build/*/images/jdk/* /opt/jdk-11.0.2+7 &&
-chown -R root:root /opt/jdk-11.0.2+7 &&
+install -vdm755 /opt/jdk-11.0.2+9 &&
+cp -Rv build/*/images/jdk/* /opt/jdk-11.0.2+9 &&
+chown -R root:root /opt/jdk-11.0.2+9 &&
 for s in 16 24 32 48; do
 install -vDm644 src/java.desktop/unix/classes/sun/awt/X11/java-icon${s}.png \
 /usr/share/icons/hicolor/${s}x${s}/apps/java.png
@@ -89,7 +89,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ln -v -nsf jdk-11.0.2+7 /opt/jdk
+ln -v -nsf jdk-11.0.2+9 /opt/jdk
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

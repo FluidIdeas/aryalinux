@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.zsh.org/pub/zsh-5.6.2.tar.xz
-wget -nc http://www.zsh.org/pub/zsh-5.6.2-doc.tar.xz
+wget -nc http://www.zsh.org/pub/zsh-5.7.tar.xz
+wget -nc http://www.zsh.org/pub/zsh-5.7-doc.tar.xz
 
 NAME=zsh
-VERSION=5.6.2
-URL=http://www.zsh.org/pub/zsh-5.6.2.tar.xz
+VERSION=5.7
+URL=http://www.zsh.org/pub/zsh-5.7.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -35,7 +35,7 @@ fi
 cd $DIRECTORY
 fi
 
-tar --strip-components=1 -xvf ../zsh-5.6.2-doc.tar.xz
+tar --strip-components=1 -xvf ../zsh-5.7-doc.tar.xz
 ./configure --prefix=/usr \
 --bindir=/bin \
 --sysconfdir=/etc/zsh \
@@ -52,9 +52,9 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 make infodir=/usr/share/info install.info &&
 
-install -v -m755 -d /usr/share/doc/zsh-5.6.2/html &&
-install -v -m644 Doc/html/* /usr/share/doc/zsh-5.6.2/html &&
-install -v -m644 Doc/zsh.{html,txt} /usr/share/doc/zsh-5.6.2
+install -v -m755 -d /usr/share/doc/zsh-5.7/html &&
+install -v -m644 Doc/html/* /usr/share/doc/zsh-5.7/html &&
+install -v -m644 Doc/zsh.{html,txt} /usr/share/doc/zsh-5.7
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
@@ -63,8 +63,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make htmldir=/usr/share/doc/zsh-5.6.2/html install.html &&
-install -v -m644 Doc/zsh.dvi /usr/share/doc/zsh-5.6.2
+make htmldir=/usr/share/doc/zsh-5.7/html install.html &&
+install -v -m644 Doc/zsh.dvi /usr/share/doc/zsh-5.7
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
@@ -73,7 +73,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m644 Doc/zsh.pdf /usr/share/doc/zsh-5.6.2
+install -v -m644 Doc/zsh.pdf /usr/share/doc/zsh-5.7
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

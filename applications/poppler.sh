@@ -14,7 +14,6 @@ set +h
 #REC:libpng
 #REC:nss
 #REC:openjpeg2
-#REC:python2
 #OPT:curl
 #OPT:gdk-pixbuf
 #OPT:git
@@ -22,6 +21,7 @@ set +h
 #OPT:gtk-doc
 #OPT:gtk3
 #OPT:libtiff
+#OPT:python2
 #OPT:qt5
 #OPT:okular5
 

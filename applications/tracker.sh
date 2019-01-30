@@ -9,7 +9,6 @@ set +h
 #REQ:json-glib
 #REQ:libseccomp
 #REQ:libsoup
-#REQ:python2
 #REQ:vala
 #REC:gobject-introspection
 #REC:icu
@@ -17,6 +16,7 @@ set +h
 #REC:sqlite
 #REC:upower
 #OPT:gtk-doc
+#OPT:python2
 
 cd $SOURCE_DIR
 

@@ -16,10 +16,11 @@ set +h
 #REQ:wayland
 #REQ:networkmanager
 #REQ:pulseaudio
-#REQ:python2
 #REQ:qca
 #REQ:taglib
 #REQ:xcb-util-cursor
+#REC:fftw
+#REC:gsettings-desktop-schemas
 #REC:libdbusmenu-qt
 #REC:libcanberra
 #REC:libinput
@@ -149,8 +150,10 @@ done < plasma-5.14.4.md5
 
 
 
-cd /usr/share/xsessions/
-[ -e plasma.desktop ] || as_root ln -sfv /usr/share/xsessions/plasma.desktop
+install -dvm 755 /usr/share/xsessions &&
+cd /usr/share/xsessions/ &&
+[ -e plasma.desktop ] ||
+as_root ln -sfv /usr/share/xsessions/plasma.desktop
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -199,7 +202,15 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 sudo sed '/^Name=/s/Plasma/Plasma on Xorg/' -i /usr/share/xsessions/plasma.desktop
+ENDOFROOTSCRIPT
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 rm $SOURCE_DIR/plasma-all.log
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

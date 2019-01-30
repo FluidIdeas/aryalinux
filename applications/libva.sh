@@ -12,11 +12,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/intel/libva/releases/download/2.3.0/libva-2.3.0.tar.bz2
+wget -nc https://github.com/intel/libva/releases/download/2.4.0/libva-2.4.0.tar.bz2
 
 NAME=libva
-VERSION=2.3.0
-URL=https://github.com/intel/libva/releases/download/2.3.0/libva-2.3.0.tar.bz2
+VERSION=2.4.0
+URL=https://github.com/intel/libva/releases/download/2.4.0/libva-2.4.0.tar.bz2
 
 if [ ! -z $URL ]
 then

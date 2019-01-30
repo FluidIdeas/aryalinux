@@ -8,6 +8,7 @@ set +h
 
 #REQ:cracklib
 #REC:linux-pam
+#OPT:python2
 
 cd $SOURCE_DIR
 
@@ -34,7 +35,8 @@ cd $DIRECTORY
 fi
 
 ./configure --prefix=/usr --disable-static \
---with-securedir=/lib/security &&
+--with-securedir=/lib/security \
+--with-python-binary=python3 &&
 make
 
 sudo rm -rf /tmp/rootscript.sh

@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:python2
+#REQ:python2
 
 cd $SOURCE_DIR
 

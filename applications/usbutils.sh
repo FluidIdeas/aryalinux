@@ -8,7 +8,6 @@ set +h
 
 #REQ:libusb
 #REQ:wget
-#REQ:python2
 
 cd $SOURCE_DIR
 

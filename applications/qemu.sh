@@ -7,10 +7,10 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:glib2
-#REQ:python2
 #REC:alsa-lib
 #REC:sdl2
 #OPT:alsa
+#OPT:python2
 #OPT:pulseaudio
 #OPT:bluez
 #OPT:curl
@@ -75,6 +75,7 @@ cd build &&
 ../configure --prefix=/usr \
 --sysconfdir=/etc \
 --target-list=$QEMU_ARCH \
+--python=python3 \
 --audio-drv-list=alsa \
 --with-sdlabi=2.0 \
 --docdir=/usr/share/doc/qemu-3.1.0 &&

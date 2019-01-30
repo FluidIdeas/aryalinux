@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/Text-CSV_XS-1.37.tgz
+wget -nc https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/Text-CSV_XS-1.38.tgz
 
 NAME=perl-text-csv_xs
-VERSION=1.37
-URL=https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/Text-CSV_XS-1.37.tgz
+VERSION=1.38
+URL=https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/Text-CSV_XS-1.38.tgz
 
 if [ ! -z $URL ]
 then

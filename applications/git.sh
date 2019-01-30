@@ -7,9 +7,9 @@ set +h
 . /var/lib/alps/functions
 
 #REC:curl
-#REC:python2
 #OPT:pcre2
 #OPT:pcre
+#OPT:python2
 #OPT:subversion
 #OPT:tk
 #OPT:valgrind

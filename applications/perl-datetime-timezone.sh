@@ -15,11 +15,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.21.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.23.tar.gz
 
 NAME=perl-datetime-timezone
-VERSION=2.21
-URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.21.tar.gz
+VERSION=2.23
+URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.23.tar.gz
 
 if [ ! -z $URL ]
 then

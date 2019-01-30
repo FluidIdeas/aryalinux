@@ -18,9 +18,11 @@ set +h
 #REQ:xfsprogs
 #REC:systemd
 #OPT:gobject-introspection
+#OPT:dbus-python
 #OPT:gtk-doc
 #OPT:lvm2
 #OPT:ntfs-3g
+#OPT:pygobject3
 
 cd $SOURCE_DIR
 
@@ -50,8 +52,7 @@ fi
 --sysconfdir=/etc \
 --localstatedir=/var \
 --disable-static &&
-make &&
-sed -i -r 's/^ +\././' doc/man/*.[158]
+make
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

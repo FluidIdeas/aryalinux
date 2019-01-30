@@ -13,17 +13,18 @@ set +h
 #REC:libgudev
 #REC:libnotify
 #REC:xfce4-panel
+#OPT:gtk-doc
 #OPT:gvfs
 #OPT:libexif
 #OPT:tumbler
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/thunar/1.8/Thunar-1.8.2.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/thunar/1.8/Thunar-1.8.4.tar.bz2
 
 NAME=thunar
-VERSION=1.8.2
-URL=http://archive.xfce.org/src/xfce/thunar/1.8/Thunar-1.8.2.tar.bz2
+VERSION=1.8.4
+URL=http://archive.xfce.org/src/xfce/thunar/1.8/Thunar-1.8.4.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -43,7 +44,7 @@ fi
 
 ./configure --prefix=/usr \
 --sysconfdir=/etc \
---docdir=/usr/share/doc/Thunar-1.8.2 &&
+--docdir=/usr/share/doc/Thunar-1.8.4 &&
 make
 
 sudo rm -rf /tmp/rootscript.sh

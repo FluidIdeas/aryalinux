@@ -13,11 +13,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/D/DO/DOY/Package-Stash-0.37.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/E/ET/ETHER/Package-Stash-0.38.tar.gz
 
 NAME=perl-package-stash
-VERSION=0.37
-URL=https://cpan.metacpan.org/authors/id/D/DO/DOY/Package-Stash-0.37.tar.gz
+VERSION=0.38
+URL=https://cpan.metacpan.org/authors/id/E/ET/ETHER/Package-Stash-0.38.tar.gz
 
 if [ ! -z $URL ]
 then

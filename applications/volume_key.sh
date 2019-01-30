@@ -10,8 +10,8 @@ set +h
 #REQ:glib2
 #REQ:gpgme
 #REQ:nss
-#REQ:python2
-#REQ:swig
+#REC:swig
+#OPT:python2
 
 cd $SOURCE_DIR
 
@@ -38,7 +38,8 @@ cd $DIRECTORY
 fi
 
 autoreconf -fiv &&
-./configure --prefix=/usr &&
+./configure --prefix=/usr \
+--without-python &&
 make
 
 sudo rm -rf /tmp/rootscript.sh

@@ -23,30 +23,30 @@ set +h
 #REC:icu
 #REC:libevent
 #REC:libvpx
+#REC:libwebp
 #REC:sqlite
 #OPT:curl
 #OPT:dbus-glib
 #OPT:doxygen
 #OPT:gconf
 #OPT:ffmpeg
-#OPT:libwebp
+#OPT:liboauth
 #OPT:openjdk
 #OPT:startup-notification
 #OPT:valgrind
 #OPT:wget
 #OPT:wireless_tools
-#OPT:liboauth
 #OPT:graphite2
 #OPT:harfbuzz
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/firefox/releases/64.0.2/source/firefox-64.0.2.source.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/firefox-64.0.2-system_graphite2_harfbuzz-1.patch
+wget -nc https://archive.mozilla.org/pub/firefox/releases/65.0/source/firefox-65.0.source.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/firefox-65.0-system_graphite2_harfbuzz-1.patch
 
 NAME=firefox
-VERSION=64.0.2.source
-URL=https://archive.mozilla.org/pub/firefox/releases/64.0.2/source/firefox-64.0.2.source.tar.xz
+VERSION=65.0.source
+URL=https://archive.mozilla.org/pub/firefox/releases/65.0/source/firefox-65.0.source.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -148,7 +148,7 @@ ac_add_options --with-system-zlib
 
 mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/firefox-build-dir
 EOF
-patch -Np1 -i ../firefox-64.0.2-system_graphite2_harfbuzz-1.patch
+patch -Np1 -i ../firefox-65.0-system_graphite2_harfbuzz-1.patch
 echo "AIzaSyDxKL42zsPjbke5O8_rPVpVrLrJ8aeE9rQ" > google-key
 echo "d2284a20-0505-4927-a809-7ffaf4d91e55" > mozilla-key
 sed -e 's/checkImpl/checkFFImpl/g' -i js/src/vm/JSContext*.h &&

@@ -41,7 +41,6 @@ cd build &&
 cmake -DCMAKE_INSTALL_PREFIX=/usr \
 -DCMAKE_BUILD_TYPE=Release \
 -DBUILD_TESTING=OFF \
--DKMIX_KF5_BUILD=1 \
 -Wno-dev .. &&
 make
 
