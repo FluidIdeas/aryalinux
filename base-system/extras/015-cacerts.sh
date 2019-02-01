@@ -33,9 +33,22 @@ openssl x509 -in ../class3.crt -text -fingerprint -setalias "CAcert Class 3 root
         -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning \
         > /etc/ssl/local/CAcert_Class_3_root.pem
 
-export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
-export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
-export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
+if [ "$BUILD_ARCH" != "none" ]; then
+	export CFLAGS="$CFLAGS -march=$BUILD_ARCH"
+	export CXXFLAGS="$CXXFLAGS -march=$BUILD_ARCH"
+	export CPPFLAGS="$CPPFLAGS -march=$BUILD_ARCH"
+fi
+if [ "$BUILD_TUNE" != "none" ]; then
+	export CFLAGS="$CFLAGS -mtune=$BUILD_TUNE"
+	export CXXFLAGS="$CXXFLAGS -mtune=$BUILD_TUNE"
+	export CPPFLAGS="$CPPFLAGS -mtune=$BUILD_TUNE"
+fi
+if [ "$BUILD_OPT_LEVEL" != "none" ]; then
+	export CFLAGS="$CFLAGS -O$BUILD_OPT_LEVEL"
+	export CXXFLAGS="$CXXFLAGS -O$BUILD_OPT_LEVEL"
+	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
+fi
+
 
 make install
 sed -e 's%= /etc/ssl;%= "/etc/ssl";%' \
