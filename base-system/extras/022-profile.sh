@@ -188,11 +188,13 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
+if echo $CFLAGS | grep mtune &> /dev/null || echo $CFLAGS | grep march &> /dev/null || echo $CFLAGS | grep O &> /dev/null; then
 cat > /etc/profile.d/compilerflags.sh << EOF
 export CFLAGS="$CFLAGS"
 export CXXFLAGS="$CXXFLAGS"
 export CPPFLAGS="$CPPFLAGS"
 EOF
+fi
 
 cat > /etc/profile.d/buildflags.sh << EOF
 export MAKEFLAGS="j $(nproc)"

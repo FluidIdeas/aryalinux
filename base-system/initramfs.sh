@@ -3,6 +3,8 @@
 set -e
 set +h
 
+. /sources/build-properties
+
 if ! grep "initramfs" /sources/build-log &> /dev/null
 then
 
