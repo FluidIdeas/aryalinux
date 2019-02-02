@@ -6,8 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:alps
-#REQ:install
 #REQ:alsa
 #REQ:alsa-lib
 #REQ:alsa-plugins
