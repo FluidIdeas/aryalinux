@@ -11,9 +11,6 @@ set +h
 #REQ:itstool
 #REQ:libxslt
 #REC:highlight
-#OPT:fop
-#OPT:glib2
-#OPT:which
 
 cd $SOURCE_DIR
 

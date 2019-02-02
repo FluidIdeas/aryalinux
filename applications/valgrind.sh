@@ -6,12 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:bind
-#OPT:bind-utils
-#OPT:boost
-#OPT:gdb
-#OPT:llvm
-#OPT:which
 
 cd $SOURCE_DIR
 

@@ -8,9 +8,6 @@ set +h
 
 #REQ:libgudev
 #REC:libxml2
-#OPT:git
-#OPT:gtk2
-#OPT:librsvg
 
 cd $SOURCE_DIR
 

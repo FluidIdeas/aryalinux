@@ -8,9 +8,6 @@ set +h
 
 #REQ:gtk2
 #REQ:x7app
-#OPT:libxslt
-#OPT:docbook
-#OPT:docbook-xsl
 
 cd $SOURCE_DIR
 

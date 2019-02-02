@@ -7,8 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:raptor
-#OPT:pcre
-#OPT:libgcrypt
 
 cd $SOURCE_DIR
 

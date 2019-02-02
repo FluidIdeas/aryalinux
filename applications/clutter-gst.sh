@@ -11,7 +11,6 @@ set +h
 #REQ:libgudev
 #REC:gobject-introspection
 #REC:gst10-plugins-bad
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

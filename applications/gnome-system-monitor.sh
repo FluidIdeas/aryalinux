@@ -11,7 +11,6 @@ set +h
 #REQ:itstool
 #REQ:libgtop
 #REQ:librsvg
-#OPT:desktop-file-utils
 
 cd $SOURCE_DIR
 

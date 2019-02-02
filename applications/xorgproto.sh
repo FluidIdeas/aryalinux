@@ -7,10 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:util-macros
-#OPT:fop
-#OPT:libxslt
-#OPT:xmlto
-#OPT:asciidoc
 
 cd $SOURCE_DIR
 

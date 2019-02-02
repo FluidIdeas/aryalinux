@@ -7,23 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REC:giflib
-#OPT:alsa-lib
-#OPT:dbus
-#OPT:gconf
-#OPT:gnutls
-#OPT:gobject-introspection
-#OPT:gsettings-desktop-schemas
-#OPT:gpm
-#OPT:gtk2
-#OPT:gtk3
-#OPT:imagemagick6
-#OPT:libjpeg
-#OPT:libpng
-#OPT:librsvg
-#OPT:libtiff
-#OPT:libxml2
-#OPT:mitkrb
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

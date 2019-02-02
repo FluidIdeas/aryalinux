@@ -11,13 +11,6 @@ set +h
 #REC:gobject-introspection
 #REC:libgcrypt
 #REC:vala
-#OPT:gtk-doc
-#OPT:docbook
-#OPT:docbook-xsl
-#OPT:libxslt
-#OPT:dbus-python
-#OPT:gjs
-#OPT:pygobject2
 
 cd $SOURCE_DIR
 

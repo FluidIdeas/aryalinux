@@ -8,7 +8,6 @@ set +h
 
 #REQ:dbus
 #REQ:glib2
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

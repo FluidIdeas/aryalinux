@@ -17,12 +17,6 @@ set +h
 #REC:cdrtools
 #REC:dvd-rw-tools
 #REC:cdrdao
-#OPT:flac
-#OPT:lame
-#OPT:libmad
-#OPT:libsndfile
-#OPT:libvorbis
-#OPT:libmusicbrainz
 
 cd $SOURCE_DIR
 

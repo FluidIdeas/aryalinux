@@ -8,7 +8,6 @@ set +h
 
 #REQ:glib2
 #REC:aspell
-#OPT:dbus-glib
 
 cd $SOURCE_DIR
 

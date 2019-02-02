@@ -7,8 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:gtksourceview
-#OPT:dconf
-#OPT:dbus-glib
 
 cd $SOURCE_DIR
 

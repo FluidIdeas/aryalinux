@@ -6,8 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:gtk2
-#OPT:libpng
 
 cd $SOURCE_DIR
 

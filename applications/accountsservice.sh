@@ -10,8 +10,6 @@ set +h
 #REQ:polkit
 #REC:gobject-introspection
 #REC:systemd
-#OPT:gtk-doc
-#OPT:xmlto
 
 cd $SOURCE_DIR
 

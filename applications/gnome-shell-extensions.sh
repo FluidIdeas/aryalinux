@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libgtop
-#OPT:sassc
 
 cd $SOURCE_DIR
 

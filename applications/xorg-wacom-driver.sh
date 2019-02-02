@@ -7,8 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:xorg-server
-#OPT:doxygen
-#OPT:graphviz
 
 cd $SOURCE_DIR
 

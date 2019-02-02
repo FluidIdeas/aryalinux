@@ -7,12 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libxml2
-#OPT:doxygen
-#OPT:graphviz
-#OPT:xmlto
-#OPT:docbook
-#OPT:docbook-xsl
-#OPT:libxslt
 
 cd $SOURCE_DIR
 

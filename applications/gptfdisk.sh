@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:popt
-#OPT:icu
 
 cd $SOURCE_DIR
 

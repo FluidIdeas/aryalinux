@@ -14,7 +14,6 @@ set +h
 #REC:flac
 #REC:libogg
 #REC:pulseaudio
-#OPT:doxygen
 
 cd $SOURCE_DIR
 

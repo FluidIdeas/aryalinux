@@ -25,19 +25,6 @@ set +h
 #REC:libvpx
 #REC:libwebp
 #REC:sqlite
-#OPT:curl
-#OPT:dbus-glib
-#OPT:doxygen
-#OPT:gconf
-#OPT:ffmpeg
-#OPT:liboauth
-#OPT:openjdk
-#OPT:startup-notification
-#OPT:valgrind
-#OPT:wget
-#OPT:wireless_tools
-#OPT:graphite2
-#OPT:harfbuzz
 
 cd $SOURCE_DIR
 

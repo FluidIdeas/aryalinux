@@ -10,11 +10,6 @@ set +h
 #REQ:libunique
 #REQ:polkit
 #REQ:vala
-#OPT:lsb-release
-#OPT:gtk3
-#OPT:libxslt
-#OPT:docbook
-#OPT:docbook-xsl
 
 cd $SOURCE_DIR
 

@@ -6,11 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:mail
-#OPT:editors
-#OPT:vim
-#OPT:linux-pam
-#OPT:docbook-utils
 
 cd $SOURCE_DIR
 

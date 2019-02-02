@@ -7,8 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libgpg-error
-#OPT:texlive
-#OPT:tl-installer
 
 cd $SOURCE_DIR
 

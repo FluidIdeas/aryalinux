@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:mail
-#OPT:linux-pam
 
 cd $SOURCE_DIR
 

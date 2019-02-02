@@ -7,13 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REC:alsa-lib
-#OPT:cyrus-sasl
-#OPT:lua
-#OPT:openldap
-#OPT:pulseaudio
-#OPT:sdl
-#OPT:unixodbc
-#OPT:v4l-utils
 
 cd $SOURCE_DIR
 

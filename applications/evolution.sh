@@ -22,11 +22,6 @@ set +h
 #REC:libnotify
 #REC:openldap
 #REC:seahorse
-#OPT:clutter-gtk
-#OPT:geoclue2
-#OPT:geocode-glib
-#OPT:libchamplain
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

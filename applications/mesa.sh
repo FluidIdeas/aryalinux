@@ -13,9 +13,6 @@ set +h
 #REC:libvdpau
 #REC:llvm
 #REC:wayland-protocols
-#OPT:libgcrypt
-#OPT:nettle
-#OPT:python2
 
 cd $SOURCE_DIR
 

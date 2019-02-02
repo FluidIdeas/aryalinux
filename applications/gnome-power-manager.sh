@@ -8,7 +8,6 @@ set +h
 
 #REQ:gtk3
 #REQ:upower
-#OPT:docbook-utils
 
 cd $SOURCE_DIR
 

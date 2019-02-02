@@ -7,8 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REC:which
-#OPT:icu
-#OPT:python2
 
 cd $SOURCE_DIR
 

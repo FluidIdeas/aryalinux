@@ -10,24 +10,6 @@ set +h
 #REQ:qt5
 #REQ:libxml2
 #REC:mpg123
-#OPT:alsa
-#OPT:dbus
-#OPT:gnome-icon-theme
-#OPT:valgrind
-#OPT:curl
-#OPT:faad2
-#OPT:ffmpeg
-#OPT:flac
-#OPT:lame
-#OPT:libcdio
-#OPT:libnotify
-#OPT:libsamplerate
-#OPT:libsndfile
-#OPT:libvorbis
-#OPT:neon
-#OPT:pulseaudio
-#OPT:sdl
-#OPT:libsamplerate
 
 cd $SOURCE_DIR
 

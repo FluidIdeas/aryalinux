@@ -10,7 +10,6 @@ set +h
 #REQ:extra-cmake-modules
 #REQ:glib2
 #REQ:qt5
-#OPT:pulseaudio
 
 cd $SOURCE_DIR
 

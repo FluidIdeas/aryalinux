@@ -8,8 +8,6 @@ set +h
 
 #REQ:alsa-lib
 #REC:flac
-#OPT:asciidoc
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

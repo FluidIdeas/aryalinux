@@ -11,16 +11,6 @@ set +h
 #REQ:goffice010
 #REQ:wv
 #REC:enchant
-#OPT:dbus-glib
-#OPT:gobject-introspection
-#OPT:libgcrypt
-#OPT:libical
-#OPT:libsoup
-#OPT:redland
-#OPT:valgrind
-#OPT:evolution-data-server
-#OPT:libchamplain
-#OPT:telepathy-glib
 
 cd $SOURCE_DIR
 

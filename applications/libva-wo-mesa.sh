@@ -8,8 +8,6 @@ set +h
 
 #REQ:libdrm
 #REC:mesa
-#OPT:doxygen
-#OPT:wayland
 
 cd $SOURCE_DIR
 

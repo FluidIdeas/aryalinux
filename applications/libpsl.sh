@@ -7,8 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libidn2
-#OPT:gtk-doc
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

@@ -6,11 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:gnutls
-#OPT:zip
-#OPT:unzip
-#OPT:mail
-#OPT:sharutils
 
 cd $SOURCE_DIR
 

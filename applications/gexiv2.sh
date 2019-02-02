@@ -8,8 +8,6 @@ set +h
 
 #REQ:exiv2
 #REC:vala
-#OPT:gtk-doc
-#OPT:python2
 
 cd $SOURCE_DIR
 

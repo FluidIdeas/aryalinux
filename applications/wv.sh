@@ -8,7 +8,6 @@ set +h
 
 #REQ:libgsf
 #REQ:libpng
-#OPT:libwmf
 
 cd $SOURCE_DIR
 

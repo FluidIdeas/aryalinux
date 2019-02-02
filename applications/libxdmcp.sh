@@ -7,9 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:xorgproto
-#OPT:xmlto
-#OPT:fop
-#OPT:libxslt
 
 cd $SOURCE_DIR
 

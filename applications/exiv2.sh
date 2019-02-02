@@ -7,9 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REC:curl
-#OPT:doxygen
-#OPT:graphviz
-#OPT:libxslt
 
 cd $SOURCE_DIR
 

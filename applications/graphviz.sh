@@ -6,31 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:pango
-#OPT:cairo
-#OPT:x7lib
-#OPT:fontconfig
-#OPT:libpng
-#OPT:gtk2
-#OPT:libjpeg
-#OPT:libwebp
-#OPT:gs
-#OPT:librsvg
-#OPT:poppler
-#OPT:freeglut
-#OPT:libglade
-#OPT:qt5
-#OPT:x7lib
-#OPT:swig
-#OPT:gcc
-#OPT:guile
-#OPT:openjdk
-#OPT:lua
-#OPT:php
-#OPT:python2
-#OPT:ruby
-#OPT:tcl
-#OPT:tk
 
 cd $SOURCE_DIR
 

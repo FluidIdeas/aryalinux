@@ -13,11 +13,6 @@ set +h
 #REC:libpng
 #REC:libtiff
 #REC:lcms2
-#OPT:cairo
-#OPT:gtk3
-#OPT:libidn
-#OPT:libpaper
-#OPT:lcms
 
 cd $SOURCE_DIR
 

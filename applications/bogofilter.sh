@@ -8,7 +8,6 @@ set +h
 
 #REQ:db
 #REC:gsl
-#OPT:sqlite
 
 cd $SOURCE_DIR
 

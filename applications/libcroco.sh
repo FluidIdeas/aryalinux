@@ -8,7 +8,6 @@ set +h
 
 #REQ:glib2
 #REQ:libxml2
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

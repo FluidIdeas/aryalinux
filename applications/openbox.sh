@@ -7,12 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:pango
-#OPT:dbus
-#OPT:imlib2
-#OPT:imagemagick
-#OPT:pyxdg
-#OPT:startup-notification
-#OPT:librsvg
 
 cd $SOURCE_DIR
 

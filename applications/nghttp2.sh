@@ -7,11 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libxml2
-#OPT:boost
-#OPT:jansson
-#OPT:libevent
-#OPT:python2
-#OPT:libev
 
 cd $SOURCE_DIR
 

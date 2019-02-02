@@ -6,8 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:doxygen
-#OPT:graphviz
 
 cd $SOURCE_DIR
 

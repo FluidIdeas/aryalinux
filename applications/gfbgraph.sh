@@ -9,7 +9,6 @@ set +h
 #REQ:gnome-online-accounts
 #REQ:rest
 #REC:gobject-introspection
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

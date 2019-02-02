@@ -10,7 +10,6 @@ set +h
 #REQ:itstool
 #REC:libnotify
 #REC:libxslt
-#OPT:webkitgtk
 
 cd $SOURCE_DIR
 

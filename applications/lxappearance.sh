@@ -8,9 +8,6 @@ set +h
 
 #REQ:gtk2
 #REC:dbus-glib
-#OPT:libxslt
-#OPT:docbook
-#OPT:docbook-xsl
 
 cd $SOURCE_DIR
 

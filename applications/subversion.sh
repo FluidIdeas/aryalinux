@@ -9,14 +9,6 @@ set +h
 #REQ:apr-util
 #REQ:sqlite
 #REC:serf
-#OPT:apache
-#OPT:cyrus-sasl
-#OPT:dbus
-#OPT:libsecret
-#OPT:python2
-#OPT:ruby
-#OPT:swig
-#OPT:openjdk
 
 cd $SOURCE_DIR
 

@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libogg
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

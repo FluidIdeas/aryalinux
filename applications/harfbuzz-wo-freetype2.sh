@@ -8,10 +8,6 @@ set +h
 
 #REC:glib2
 #REC:icu
-#OPT:cairo
-#OPT:gobject-introspection
-#OPT:gtk-doc
-#OPT:python2
 
 cd $SOURCE_DIR
 

@@ -6,11 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:alsa-lib
-#OPT:flac
-#OPT:libogg
-#OPT:libvorbis
-#OPT:sqlite
 
 cd $SOURCE_DIR
 

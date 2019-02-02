@@ -17,11 +17,6 @@ set +h
 #REC:totem-pl-parser
 #REC:dvd-rw-tools
 #REC:gvfs
-#OPT:gtk-doc
-#OPT:tracker
-#OPT:cdrdao
-#OPT:libdvdcss
-#OPT:cdrtools
 
 cd $SOURCE_DIR
 

@@ -6,9 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:libcap
-#OPT:pcre
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

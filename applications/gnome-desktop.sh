@@ -15,7 +15,6 @@ set +h
 #REQ:xkeyboard-config
 #REC:bubblewrap
 #REC:gobject-introspection
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

@@ -13,9 +13,6 @@ set +h
 #REQ:glib2
 #REC:cairo
 #REC:x7lib
-#OPT:gobject-introspection
-#OPT:ttf-and-otf-fonts#cantarell-fonts
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

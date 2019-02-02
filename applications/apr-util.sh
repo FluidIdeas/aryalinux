@@ -7,12 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:apr
-#OPT:db
-#OPT:mariadb
-#OPT:openldap
-#OPT:postgresql
-#OPT:sqlite
-#OPT:unixodbc
 
 cd $SOURCE_DIR
 

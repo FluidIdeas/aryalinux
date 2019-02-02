@@ -6,9 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:nss
-#OPT:mitkrb
-#OPT:mail
 
 cd $SOURCE_DIR
 

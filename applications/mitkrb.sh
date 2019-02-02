@@ -6,13 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:dejagnu
-#OPT:gnupg
-#OPT:keyutils
-#OPT:openldap
-#OPT:python2
-#OPT:rpcbind
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

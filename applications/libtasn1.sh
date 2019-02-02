@@ -6,8 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:gtk-doc
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

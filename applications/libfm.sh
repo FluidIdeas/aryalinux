@@ -12,9 +12,6 @@ set +h
 #REC:libexif
 #REC:vala
 #REC:lxmenu-data
-#OPT:gtk-doc
-#OPT:dbus-glib
-#OPT:gvfs
 
 cd $SOURCE_DIR
 

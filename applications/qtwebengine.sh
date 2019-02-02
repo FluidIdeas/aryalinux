@@ -16,7 +16,6 @@ set +h
 #REC:libwebp
 #REC:libxslt
 #REC:opus
-#OPT:libevent
 
 cd $SOURCE_DIR
 

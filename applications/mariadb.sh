@@ -8,14 +8,6 @@ set +h
 
 #REQ:cmake
 #REC:libevent
-#OPT:boost
-#OPT:libxml2
-#OPT:linux-pam
-#OPT:mitkrb
-#OPT:pcre
-#OPT:ruby
-#OPT:unixodbc
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

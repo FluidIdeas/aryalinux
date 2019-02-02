@@ -9,9 +9,6 @@ set +h
 #REQ:gtk2
 #REQ:gtk3
 #REC:desktop-file-utils
-#OPT:enchant
-#OPT:gucharmap
-#OPT:pcre
 
 cd $SOURCE_DIR
 

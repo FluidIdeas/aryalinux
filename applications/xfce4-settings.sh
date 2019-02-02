@@ -14,7 +14,6 @@ set +h
 #REC:libcanberra
 #REC:libnotify
 #REC:libxklavier
-#OPT:libinput
 
 cd $SOURCE_DIR
 

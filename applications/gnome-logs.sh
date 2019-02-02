@@ -8,10 +8,6 @@ set +h
 
 #REQ:gtk3
 #REQ:gsettings-desktop-schemas
-#OPT:desktop-file-utils
-#OPT:docbook
-#OPT:docbook-xsl
-#OPT:libxslt
 
 cd $SOURCE_DIR
 

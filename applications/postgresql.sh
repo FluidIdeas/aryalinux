@@ -6,17 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:python2
-#OPT:tcl
-#OPT:libxml2
-#OPT:libxslt
-#OPT:openldap
-#OPT:linux-pam
-#OPT:mitkrb
-#OPT:sgml-dtd
-#OPT:docbook-dsssl
-#OPT:openjade
-#OPT:perl-sgmlspm
 
 cd $SOURCE_DIR
 

@@ -7,9 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:mtdev
-#OPT:valgrind
-#OPT:gtk3
-#OPT:libwacom
 
 cd $SOURCE_DIR
 

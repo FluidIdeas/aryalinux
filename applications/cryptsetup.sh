@@ -10,8 +10,6 @@ set +h
 #REQ:libgcrypt
 #REQ:lvm2
 #REQ:popt
-#OPT:libpwquality
-#OPT:python2
 
 cd $SOURCE_DIR
 

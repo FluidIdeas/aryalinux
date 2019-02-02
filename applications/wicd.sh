@@ -14,7 +14,6 @@ set +h
 #REC:wpa_supplicant
 #REC:dhcpcd
 #REC:dhcp
-#OPT:pm-utils
 
 cd $SOURCE_DIR
 

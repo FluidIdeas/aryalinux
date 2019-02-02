@@ -12,7 +12,6 @@ set +h
 #REC:libjpeg
 #REC:openjpeg2
 #REC:curl
-#OPT:xdg-utils
 
 cd $SOURCE_DIR
 

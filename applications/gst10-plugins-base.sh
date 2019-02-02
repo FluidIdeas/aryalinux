@@ -15,12 +15,6 @@ set +h
 #REC:libtheora
 #REC:libvorbis
 #REC:x7lib
-#OPT:gtk3
-#OPT:gtk-doc
-#OPT:opus
-#OPT:qt5
-#OPT:sdl
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

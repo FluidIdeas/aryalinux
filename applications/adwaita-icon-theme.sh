@@ -6,11 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:git
-#OPT:gtk2
-#OPT:gtk3
-#OPT:librsvg
-#OPT:inkscape
 
 cd $SOURCE_DIR
 

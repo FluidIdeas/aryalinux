@@ -8,8 +8,6 @@ set +h
 
 #REQ:telepathy-glib
 #REC:networkmanager
-#OPT:gtk-doc
-#OPT:upower
 
 cd $SOURCE_DIR
 

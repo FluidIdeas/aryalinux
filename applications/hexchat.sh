@@ -9,11 +9,6 @@ set +h
 #REQ:glib2
 #REC:gtk2
 #REC:lua
-#OPT:dbus-glib
-#OPT:iso-codes
-#OPT:libcanberra
-#OPT:libnotify
-#OPT:pciutils
 
 cd $SOURCE_DIR
 

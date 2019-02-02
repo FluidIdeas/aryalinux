@@ -14,11 +14,6 @@ set +h
 #REC:gobject-introspection
 #REC:libxklavier
 #REC:vala
-#OPT:at-spi2-core
-#OPT:exo
-#OPT:gtk-doc
-#OPT:itstool
-#OPT:qt5
 
 cd $SOURCE_DIR
 

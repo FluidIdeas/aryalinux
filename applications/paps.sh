@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:pango
-#OPT:doxygen
 
 cd $SOURCE_DIR
 

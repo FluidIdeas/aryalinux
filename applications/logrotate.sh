@@ -8,7 +8,6 @@ set +h
 
 #REQ:popt
 #REC:fcron
-#OPT:mail
 
 cd $SOURCE_DIR
 

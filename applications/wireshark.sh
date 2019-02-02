@@ -10,15 +10,6 @@ set +h
 #REQ:libgcrypt
 #REC:libpcap
 #REC:qt5
-#OPT:c-ares
-#OPT:gnutls
-#OPT:gtk3
-#OPT:gtk2
-#OPT:libnl
-#OPT:lua
-#OPT:mitkrb
-#OPT:nghttp2
-#OPT:sbc
 
 cd $SOURCE_DIR
 

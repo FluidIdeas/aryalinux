@@ -15,8 +15,6 @@ set +h
 #REC:gtk3
 #REC:libxslt
 #REC:vala
-#OPT:gtk-doc
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

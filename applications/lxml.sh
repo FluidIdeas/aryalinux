@@ -8,8 +8,6 @@ set +h
 
 #REQ:libxslt
 #REC:python2
-#OPT:gdb
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

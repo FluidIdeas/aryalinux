@@ -7,8 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:curl
-#OPT:nss
-#OPT:doxygen
 
 cd $SOURCE_DIR
 

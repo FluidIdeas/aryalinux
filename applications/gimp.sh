@@ -26,14 +26,6 @@ set +h
 #REC:libgudev
 #REC:pygtk
 #REC:xdg-utils
-#OPT:aalib
-#OPT:alsa-lib
-#OPT:libmng
-#OPT:libwebp
-#OPT:openjpeg2
-#OPT:mail
-#OPT:gtk-doc
-#OPT:libwmf
 
 cd $SOURCE_DIR
 

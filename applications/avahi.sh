@@ -12,8 +12,6 @@ set +h
 #REC:gtk3
 #REC:libdaemon
 #REC:libglade
-#OPT:dbus-python
-#OPT:pygtk
 
 cd $SOURCE_DIR
 

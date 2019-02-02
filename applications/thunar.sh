@@ -13,10 +13,6 @@ set +h
 #REC:libgudev
 #REC:libnotify
 #REC:xfce4-panel
-#OPT:gtk-doc
-#OPT:gvfs
-#OPT:libexif
-#OPT:tumbler
 
 cd $SOURCE_DIR
 

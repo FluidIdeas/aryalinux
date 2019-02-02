@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:sgml-common
-#OPT:xmlto
 
 cd $SOURCE_DIR
 

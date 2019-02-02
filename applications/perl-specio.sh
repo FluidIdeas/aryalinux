@@ -15,7 +15,6 @@ set +h
 #REC:perl-mro-compat
 #REC:perl-test-fatal
 #REC:perl-test-needs
-#OPT:perl-namespace-autoclean
 
 cd $SOURCE_DIR
 

@@ -10,7 +10,6 @@ set +h
 #REQ:poppler
 #REC:desktop-file-utils
 #REC:hicolor-icon-theme
-#OPT:cups
 
 cd $SOURCE_DIR
 

@@ -19,7 +19,6 @@ set +h
 #REC:libexif
 #REC:adwaita-icon-theme
 #REC:gvfs
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

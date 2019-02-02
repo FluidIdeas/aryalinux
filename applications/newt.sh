@@ -10,7 +10,6 @@ set +h
 #REQ:slang
 #REC:tcl
 #REC:gpm
-#OPT:python2
 
 cd $SOURCE_DIR
 

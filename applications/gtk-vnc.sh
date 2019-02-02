@@ -12,8 +12,6 @@ set +h
 #REC:gobject-introspection
 #REC:python2
 #REC:vala
-#OPT:cyrus-sasl
-#OPT:pulseaudio
 
 cd $SOURCE_DIR
 

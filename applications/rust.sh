@@ -9,8 +9,6 @@ set +h
 #REQ:curl
 #REQ:cmake
 #REQ:libssh2
-#OPT:gdb
-#OPT:python2
 
 cd $SOURCE_DIR
 

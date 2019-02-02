@@ -7,10 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:freetype2
-#OPT:docbook-utils
-#OPT:libxml2
-#OPT:texlive
-#OPT:tl-installer
 
 cd $SOURCE_DIR
 

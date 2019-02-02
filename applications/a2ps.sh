@@ -8,12 +8,6 @@ set +h
 
 #REC:psutils
 #REC:cups
-#OPT:gs
-#OPT:libpaper
-#OPT:texlive
-#OPT:tl-installer
-#OPT:readstep2
-#OPT:ghostview
 
 cd $SOURCE_DIR
 

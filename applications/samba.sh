@@ -17,29 +17,6 @@ set +h
 #REC:perl-parse-yapp
 #REC:pycrypto
 #REC:openldap
-#OPT:avahi
-#OPT:cups
-#OPT:cyrus-sasl
-#OPT:gdb
-#OPT:git
-#OPT:gnupg
-#OPT:gnutls
-#OPT:jansson
-#OPT:libaio
-#OPT:libarchive
-#OPT:libcap
-#OPT:libgcrypt
-#OPT:libnsl
-#OPT:linux-pam
-#OPT:mitkrb
-#OPT:nss
-#OPT:popt
-#OPT:talloc
-#OPT:vala
-#OPT:valgrind
-#OPT:wireshark
-#OPT:xfsprogs
-#OPT:six
 
 cd $SOURCE_DIR
 

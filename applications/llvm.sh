@@ -7,14 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:cmake
-#OPT:doxygen
-#OPT:graphviz
-#OPT:libxml2
-#OPT:python2
-#OPT:texlive
-#OPT:tl-installer
-#OPT:valgrind
-#OPT:zip
 
 cd $SOURCE_DIR
 

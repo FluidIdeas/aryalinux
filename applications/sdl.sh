@@ -6,12 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:aalib
-#OPT:alsa
-#OPT:glu
-#OPT:nasm
-#OPT:pulseaudio
-#OPT:pth
 
 cd $SOURCE_DIR
 

@@ -8,7 +8,6 @@ set +h
 
 #REQ:libarchive
 #REQ:gtk3
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

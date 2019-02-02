@@ -6,13 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:dejagnu
-#OPT:doxygen
-#OPT:gcc
-#OPT:guile
-#OPT:python2
-#OPT:rust
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

@@ -7,11 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:talloc
-#OPT:keyutils
-#OPT:linux-pam
-#OPT:mitkrb
-#OPT:samba
-#OPT:libcap
 
 cd $SOURCE_DIR
 

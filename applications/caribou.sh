@@ -13,11 +13,6 @@ set +h
 #REQ:pygobject2
 #REQ:pygobject3
 #REC:vala
-#OPT:gtk2
-#OPT:vala
-#OPT:dbus-python
-#OPT:dconf
-#OPT:pyatspi2
 
 cd $SOURCE_DIR
 

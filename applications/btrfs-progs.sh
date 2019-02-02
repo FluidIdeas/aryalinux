@@ -9,9 +9,6 @@ set +h
 #REQ:lzo
 #REC:asciidoc
 #REC:xmlto
-#OPT:lvm2
-#OPT:python2
-#OPT:reiserfs
 
 cd $SOURCE_DIR
 

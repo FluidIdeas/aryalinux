@@ -10,10 +10,6 @@ set +h
 #REC:liba52
 #REC:libdvdread
 #REC:x264
-#OPT:gtk-doc
-#OPT:libmpeg2
-#OPT:libcdio
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

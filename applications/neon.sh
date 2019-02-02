@@ -6,9 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:gnutls
-#OPT:libxml2
-#OPT:mitkrb
 
 cd $SOURCE_DIR
 

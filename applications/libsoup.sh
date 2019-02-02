@@ -12,12 +12,6 @@ set +h
 #REQ:sqlite
 #REC:gobject-introspection
 #REC:vala
-#OPT:apache
-#OPT:curl
-#OPT:mitkrb
-#OPT:gtk-doc
-#OPT:php
-#OPT:samba
 
 cd $SOURCE_DIR
 

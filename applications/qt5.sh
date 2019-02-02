@@ -29,14 +29,6 @@ set +h
 #REC:xcb-util-keysyms
 #REC:xcb-util-renderutil
 #REC:xcb-util-wm
-#OPT:bluez
-#OPT:ibus
-#OPT:libinput
-#OPT:mariadb
-#OPT:pciutils
-#OPT:postgresql
-#OPT:pulseaudio
-#OPT:unixodbc
 
 cd $SOURCE_DIR
 

@@ -9,8 +9,6 @@ set +h
 #REC:libjpeg
 #REC:libpng
 #REC:libtiff
-#OPT:freeglut
-#OPT:giflib
 
 cd $SOURCE_DIR
 

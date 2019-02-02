@@ -7,10 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REC:libtasn1
-#OPT:make-ca
-#OPT:nss
-#OPT:gtk-doc
-#OPT:libxslt
 
 cd $SOURCE_DIR
 

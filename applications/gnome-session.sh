@@ -12,11 +12,6 @@ set +h
 #REQ:mesa
 #REQ:upower
 #REQ:systemd
-#OPT:gconf
-#OPT:xmlto
-#OPT:libxslt
-#OPT:docbook
-#OPT:docbook-xsl
 
 cd $SOURCE_DIR
 

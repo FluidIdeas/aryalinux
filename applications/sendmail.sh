@@ -8,8 +8,6 @@ set +h
 
 #REQ:openldap
 #REC:cyrus-sasl
-#OPT:gs
-#OPT:procmail
 
 cd $SOURCE_DIR
 

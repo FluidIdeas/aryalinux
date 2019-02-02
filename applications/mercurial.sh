@@ -7,11 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:python2
-#OPT:docutils
-#OPT:git
-#OPT:gnupg
-#OPT:openssh
-#OPT:subversion
 
 cd $SOURCE_DIR
 

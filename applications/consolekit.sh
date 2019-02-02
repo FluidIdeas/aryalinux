@@ -11,7 +11,6 @@ set +h
 #REC:linux-pam
 #REC:polkit
 #REC:pm-utils
-#OPT:xmlto
 
 cd $SOURCE_DIR
 

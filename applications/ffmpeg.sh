@@ -21,21 +21,6 @@ set +h
 #REC:libva
 #REC:libvdpau
 #REC:sdl2
-#OPT:fontconfig
-#OPT:frei0r
-#OPT:libcdio
-#OPT:libwebp
-#OPT:opencv
-#OPT:openjpeg2
-#OPT:gnutls
-#OPT:pulseaudio
-#OPT:speex
-#OPT:texlive
-#OPT:tl-installer
-#OPT:v4l-utils
-#OPT:xvid
-#OPT:libbluray
-#OPT:libdca
 
 cd $SOURCE_DIR
 

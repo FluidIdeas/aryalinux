@@ -8,11 +8,6 @@ set +h
 
 #REQ:fontconfig
 #REQ:libxcb
-#OPT:xmlto
-#OPT:fop
-#OPT:links
-#OPT:lynx
-#OPT:w3m
 
 cd $SOURCE_DIR
 

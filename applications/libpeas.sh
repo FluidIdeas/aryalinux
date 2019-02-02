@@ -9,9 +9,6 @@ set +h
 #REQ:gobject-introspection
 #REQ:gtk3
 #REC:pygobject3
-#OPT:gdb
-#OPT:gtk-doc
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

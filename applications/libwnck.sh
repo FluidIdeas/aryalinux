@@ -9,7 +9,6 @@ set +h
 #REQ:gtk3
 #REC:gobject-introspection
 #REC:startup-notification
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

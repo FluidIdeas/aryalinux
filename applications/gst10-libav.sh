@@ -8,7 +8,6 @@ set +h
 
 #REQ:gst10-plugins-base
 #REC:yasm
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

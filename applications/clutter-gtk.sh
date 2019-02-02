@@ -9,7 +9,6 @@ set +h
 #REQ:clutter
 #REQ:gtk3
 #REC:gobject-introspection
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

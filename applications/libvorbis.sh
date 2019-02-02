@@ -7,9 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libogg
-#OPT:doxygen
-#OPT:texlive
-#OPT:tl-installer
 
 cd $SOURCE_DIR
 

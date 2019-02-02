@@ -8,7 +8,6 @@ set +h
 
 #REQ:extra-cmake-modules
 #REQ:qt5
-#OPT:krameworks5
 
 cd $SOURCE_DIR
 

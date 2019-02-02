@@ -14,8 +14,6 @@ set +h
 #REC:iso-codes
 #REC:libsoup
 #REC:pygobject3
-#OPT:gtk-doc
-#OPT:vala
 
 cd $SOURCE_DIR
 

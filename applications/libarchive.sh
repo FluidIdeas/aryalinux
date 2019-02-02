@@ -6,9 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:libxml2
-#OPT:lzo
-#OPT:nettle
 
 cd $SOURCE_DIR
 

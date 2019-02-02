@@ -9,14 +9,6 @@ set +h
 #REC:db
 #REC:cyrus-sasl
 #REC:libnsl
-#OPT:icu
-#OPT:mariadb
-#OPT:openldap
-#OPT:pcre
-#OPT:postgresql
-#OPT:sqlite
-#OPT:cdb
-#OPT:tinycdb
 
 cd $SOURCE_DIR
 

@@ -8,29 +8,6 @@ set +h
 
 #REC:apache
 #REC:libxml2
-#OPT:aspell
-#OPT:enchant
-#OPT:libxslt
-#OPT:mail
-#OPT:pcre
-#OPT:pth
-#OPT:freetype2
-#OPT:libexif
-#OPT:libjpeg
-#OPT:libpng
-#OPT:libtiff
-#OPT:fdftoolkit
-#OPT:curl
-#OPT:tidy-html5
-#OPT:db
-#OPT:mariadb
-#OPT:openldap
-#OPT:postgresql
-#OPT:sqlite
-#OPT:unixodbc
-#OPT:cdb
-#OPT:cyrus-sasl
-#OPT:mitkrb
 
 cd $SOURCE_DIR
 

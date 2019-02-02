@@ -12,15 +12,6 @@ set +h
 #REQ:libesmtp
 #REQ:rarian
 #REC:pcre
-#OPT:compface
-#OPT:gtksourceview
-#OPT:libnotify
-#OPT:mitkrb
-#OPT:mail
-#OPT:openldap
-#OPT:sqlite
-#OPT:webkitgtk
-#OPT:gpgme
 
 cd $SOURCE_DIR
 

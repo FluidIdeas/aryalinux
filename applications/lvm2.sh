@@ -7,11 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libaio
-#OPT:mdadm
-#OPT:reiserfs
-#OPT:valgrind
-#OPT:which
-#OPT:xfsprogs
 
 cd $SOURCE_DIR
 

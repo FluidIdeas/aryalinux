@@ -7,11 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:gc
-#OPT:gpm
-#OPT:imlib2
-#OPT:gtk2
-#OPT:gdk-pixbuf
-#OPT:compface
 
 cd $SOURCE_DIR
 

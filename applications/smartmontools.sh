@@ -6,9 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:curl
-#OPT:lynx
-#OPT:wget
 
 cd $SOURCE_DIR
 

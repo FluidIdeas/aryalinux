@@ -10,8 +10,6 @@ set +h
 #REQ:libburn
 #REQ:libisofs
 #REQ:libxfce4ui
-#OPT:gst10-plugins-base
-#OPT:cdrdao
 
 cd $SOURCE_DIR
 

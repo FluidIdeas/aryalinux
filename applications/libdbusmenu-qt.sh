@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:qt5
-#OPT:doxygen
 
 cd $SOURCE_DIR
 

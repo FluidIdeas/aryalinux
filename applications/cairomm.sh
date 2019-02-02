@@ -8,8 +8,6 @@ set +h
 
 #REQ:cairo
 #REQ:libsigc
-#OPT:boost
-#OPT:doxygen
 
 cd $SOURCE_DIR
 

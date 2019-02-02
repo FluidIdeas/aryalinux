@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:pcre
-#OPT:boost
 
 cd $SOURCE_DIR
 

@@ -7,17 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REC:make-ca
-#OPT:c-ares
-#OPT:gnutls
-#OPT:libidn2
-#OPT:libpsl
-#OPT:libssh2
-#OPT:mitkrb
-#OPT:nghttp2
-#OPT:openldap
-#OPT:samba
-#OPT:stunnel
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

@@ -8,8 +8,6 @@ set +h
 
 #REQ:gtk2
 #REC:startup-notification
-#OPT:gobject-introspection
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

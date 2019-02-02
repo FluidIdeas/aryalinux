@@ -7,8 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libunistring
-#OPT:git
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

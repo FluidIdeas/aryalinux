@@ -18,8 +18,6 @@ set +h
 #REQ:libgudev
 #REC:gobject-introspection
 #REC:vala
-#OPT:gtk-doc
-#OPT:libxslt
 
 cd $SOURCE_DIR
 

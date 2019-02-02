@@ -19,17 +19,6 @@ set +h
 #REC:nss
 #REC:pulseaudio
 #REC:sqlite
-#OPT:alsa-lib
-#OPT:curl
-#OPT:dbus-glib
-#OPT:doxygen
-#OPT:gconf
-#OPT:gst10-plugins-base
-#OPT:openjdk
-#OPT:startup-notification
-#OPT:valgrind
-#OPT:wget
-#OPT:wireless_tools
 
 cd $SOURCE_DIR
 

@@ -26,10 +26,6 @@ set +h
 #REC:gobject-introspection
 #REC:hicolor-icon-theme
 #REC:libnotify
-#OPT:gtk-doc
-#OPT:harfbuzz
-#OPT:llvm
-#OPT:wayland
 
 cd $SOURCE_DIR
 

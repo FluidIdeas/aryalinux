@@ -8,7 +8,6 @@ set +h
 
 #REQ:gobject-introspection
 #REQ:pycairo
-#OPT:python2
 
 cd $SOURCE_DIR
 

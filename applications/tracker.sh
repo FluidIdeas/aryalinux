@@ -15,8 +15,6 @@ set +h
 #REC:networkmanager
 #REC:sqlite
 #REC:upower
-#OPT:gtk-doc
-#OPT:python2
 
 cd $SOURCE_DIR
 

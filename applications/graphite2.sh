@@ -8,9 +8,6 @@ set +h
 
 #REQ:cmake
 #REQ:harfbuzz
-#OPT:freetype2
-#OPT:python2
-#OPT:harfbuzz
 
 cd $SOURCE_DIR
 

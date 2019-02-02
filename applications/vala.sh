@@ -8,8 +8,6 @@ set +h
 
 #REQ:glib2
 #REC:graphviz
-#OPT:dbus
-#OPT:libxslt
 
 cd $SOURCE_DIR
 

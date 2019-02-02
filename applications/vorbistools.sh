@@ -7,10 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libvorbis
-#OPT:libao
-#OPT:curl
-#OPT:flac
-#OPT:speex
 
 cd $SOURCE_DIR
 

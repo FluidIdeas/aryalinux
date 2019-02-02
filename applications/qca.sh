@@ -10,15 +10,6 @@ set +h
 #REQ:cmake
 #REQ:qt5
 #REQ:which
-#OPT:cyrus-sasl
-#OPT:gnupg
-#OPT:libgcrypt
-#OPT:libgpg-error
-#OPT:nss
-#OPT:nspr
-#OPT:p11-kit
-#OPT:doxygen
-#OPT:which
 
 cd $SOURCE_DIR
 

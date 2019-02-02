@@ -7,9 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:p11-kit
-#OPT:java
-#OPT:openjdk
-#OPT:nss
 
 cd $SOURCE_DIR
 

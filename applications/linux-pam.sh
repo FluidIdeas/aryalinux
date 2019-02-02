@@ -6,14 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:db
-#OPT:cracklib
-#OPT:libtirpc
-#OPT:docbook
-#OPT:docbook-xsl
-#OPT:fop
-#OPT:libxslt
-#OPT:w3m
 
 cd $SOURCE_DIR
 

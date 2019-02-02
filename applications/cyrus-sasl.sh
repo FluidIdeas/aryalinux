@@ -7,13 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REC:db
-#OPT:linux-pam
-#OPT:mitkrb
-#OPT:mariadb
-#OPT:openjdk
-#OPT:openldap
-#OPT:postgresql
-#OPT:sqlite
 
 cd $SOURCE_DIR
 

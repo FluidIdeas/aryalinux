@@ -6,11 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:make-ca
-#OPT:libpcap
-#OPT:python2
-#OPT:swig
-#OPT:doxygen
 
 cd $SOURCE_DIR
 

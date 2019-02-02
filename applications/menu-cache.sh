@@ -7,8 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libfm-extra
-#OPT:gtk-doc
-#OPT:xdg-utils
 
 cd $SOURCE_DIR
 

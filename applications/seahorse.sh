@@ -16,8 +16,6 @@ set +h
 #REC:p11-kit
 #REC:openssh
 #REC:vala
-#OPT:avahi
-#OPT:openldap
 
 cd $SOURCE_DIR
 

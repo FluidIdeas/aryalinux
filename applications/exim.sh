@@ -8,14 +8,6 @@ set +h
 
 #REQ:libnsl
 #REQ:pcre
-#OPT:cyrus-sasl
-#OPT:libidn
-#OPT:linux-pam
-#OPT:mariadb
-#OPT:openldap
-#OPT:gnutls
-#OPT:postgresql
-#OPT:sqlite
 
 cd $SOURCE_DIR
 

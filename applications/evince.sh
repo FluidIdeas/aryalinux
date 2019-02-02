@@ -17,13 +17,6 @@ set +h
 #REC:libsecret
 #REC:nautilus
 #REC:poppler
-#OPT:cups
-#OPT:gnome-desktop
-#OPT:gst10-plugins-base
-#OPT:gtk-doc
-#OPT:libtiff
-#OPT:texlive
-#OPT:tl-installer
 
 cd $SOURCE_DIR
 

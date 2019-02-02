@@ -17,7 +17,6 @@ set +h
 #REC:lcms2
 #REC:libexif
 #REC:librsvg
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

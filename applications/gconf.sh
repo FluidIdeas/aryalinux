@@ -11,8 +11,6 @@ set +h
 #REC:gobject-introspection
 #REC:gtk3
 #REC:polkit
-#OPT:gtk-doc
-#OPT:openldap
 
 cd $SOURCE_DIR
 

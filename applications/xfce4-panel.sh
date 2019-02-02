@@ -10,7 +10,6 @@ set +h
 #REQ:garcon
 #REQ:libwnck2
 #REQ:libxfce4ui
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

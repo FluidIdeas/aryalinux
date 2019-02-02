@@ -8,7 +8,6 @@ set +h
 
 #REQ:apr-util
 #REQ:scons
-#OPT:mitkrb
 
 cd $SOURCE_DIR
 

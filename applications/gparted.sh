@@ -8,8 +8,6 @@ set +h
 
 #REQ:gtkmm2
 #REQ:parted
-#OPT:btrfs-progs
-#OPT:rarian
 
 cd $SOURCE_DIR
 

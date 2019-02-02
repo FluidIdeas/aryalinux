@@ -11,7 +11,6 @@ set +h
 #REQ:gobject-introspection
 #REQ:js60
 #REC:gtk3
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

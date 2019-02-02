@@ -8,8 +8,6 @@ set +h
 
 #REQ:krameworks5
 #REC:alsa-lib
-#OPT:libcanberra
-#OPT:pulseaudio
 
 cd $SOURCE_DIR
 

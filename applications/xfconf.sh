@@ -8,7 +8,6 @@ set +h
 
 #REQ:dbus-glib
 #REQ:libxfce4util
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

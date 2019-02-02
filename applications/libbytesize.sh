@@ -7,9 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:pcre
-#OPT:gtk-doc
-#OPT:python2
-#OPT:six
 
 cd $SOURCE_DIR
 

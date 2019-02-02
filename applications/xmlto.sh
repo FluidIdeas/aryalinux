@@ -9,11 +9,6 @@ set +h
 #REQ:docbook
 #REQ:docbook-xsl
 #REQ:libxslt
-#OPT:fop
-#OPT:passivetex
-#OPT:links
-#OPT:lynx
-#OPT:w3m
 
 cd $SOURCE_DIR
 

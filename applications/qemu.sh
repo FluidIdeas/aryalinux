@@ -9,24 +9,6 @@ set +h
 #REQ:glib2
 #REC:alsa-lib
 #REC:sdl2
-#OPT:alsa
-#OPT:python2
-#OPT:pulseaudio
-#OPT:bluez
-#OPT:curl
-#OPT:cyrus-sasl
-#OPT:gnutls
-#OPT:gtk2
-#OPT:gtk3
-#OPT:libusb
-#OPT:libgcrypt
-#OPT:libssh2
-#OPT:lzo
-#OPT:nettle
-#OPT:mesa
-#OPT:sdl
-#OPT:vte
-#OPT:vte2
 
 cd $SOURCE_DIR
 

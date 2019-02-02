@@ -10,8 +10,6 @@ set +h
 #REC:gobject-introspection
 #REC:libarchive
 #REC:libgcrypt
-#OPT:cmake
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

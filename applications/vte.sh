@@ -11,8 +11,6 @@ set +h
 #REQ:pcre2
 #REC:gobject-introspection
 #REC:gnutls
-#OPT:gtk-doc
-#OPT:vala
 
 cd $SOURCE_DIR
 

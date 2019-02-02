@@ -13,10 +13,6 @@ set +h
 #REC:libsoup
 #REC:totem-pl-parser
 #REC:vala
-#OPT:avahi
-#OPT:docbook-utils
-#OPT:liboauth
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

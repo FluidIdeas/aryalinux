@@ -6,8 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:libpng
-#OPT:pcre
 
 cd $SOURCE_DIR
 

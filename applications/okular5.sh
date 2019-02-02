@@ -10,7 +10,6 @@ set +h
 #REC:libkexiv2
 #REC:libtiff
 #REC:poppler
-#OPT:qca
 
 cd $SOURCE_DIR
 

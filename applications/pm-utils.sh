@@ -6,9 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:xmlto
-#OPT:hdparm
-#OPT:wireless_tools
 
 cd $SOURCE_DIR
 

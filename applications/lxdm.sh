@@ -10,7 +10,6 @@ set +h
 #REQ:iso-codes
 #REQ:librsvg
 #REC:linux-pam
-#OPT:gtk3
 
 cd $SOURCE_DIR
 

@@ -6,11 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:bluez
-#OPT:gdb
-#OPT:valgrind
-#OPT:db
-#OPT:sqlite
 
 cd $SOURCE_DIR
 

@@ -12,7 +12,6 @@ set +h
 #REQ:telepathy-glib
 #REC:bluez
 #REC:vala
-#OPT:tracker
 
 cd $SOURCE_DIR
 

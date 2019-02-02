@@ -6,8 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:libidn
-#OPT:libidn2
 
 cd $SOURCE_DIR
 

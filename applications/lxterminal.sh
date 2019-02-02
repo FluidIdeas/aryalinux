@@ -7,9 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:vte2
-#OPT:libxslt
-#OPT:docbook
-#OPT:docbook-xsl
 
 cd $SOURCE_DIR
 

@@ -6,11 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:libcap
-#OPT:linux-pam
-#OPT:mariadb
-#OPT:pcre
-#OPT:postgresql
 
 cd $SOURCE_DIR
 

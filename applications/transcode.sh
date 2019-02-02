@@ -12,22 +12,6 @@ set +h
 #REC:libdvdread
 #REC:libmpeg2
 #REC:x7lib
-#OPT:faac
-#OPT:freetype2
-#OPT:imagemagick6
-#OPT:liba52
-#OPT:libdv
-#OPT:libjpeg
-#OPT:libogg
-#OPT:libquicktime
-#OPT:libtheora
-#OPT:libvorbis
-#OPT:libxml2
-#OPT:lzo
-#OPT:sdl
-#OPT:v4l-utils
-#OPT:x264
-#OPT:xvid
 
 cd $SOURCE_DIR
 

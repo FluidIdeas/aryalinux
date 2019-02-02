@@ -8,8 +8,6 @@ set +h
 
 #REQ:curl
 #REQ:libxslt
-#OPT:gtk-doc
-#OPT:icu
 
 cd $SOURCE_DIR
 

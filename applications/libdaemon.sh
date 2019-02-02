@@ -6,8 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:doxygen
-#OPT:lynx
 
 cd $SOURCE_DIR
 

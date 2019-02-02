@@ -8,12 +8,6 @@ set +h
 
 #REQ:gtk2
 #REQ:gtk3
-#OPT:cpio
-#OPT:lzo
-#OPT:p7zip
-#OPT:unrar
-#OPT:unzip
-#OPT:zip
 
 cd $SOURCE_DIR
 

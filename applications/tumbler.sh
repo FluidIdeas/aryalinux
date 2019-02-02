@@ -7,15 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:glib2
-#OPT:curl
-#OPT:freetype2
-#OPT:gdk-pixbuf
-#OPT:gst10-plugins-base
-#OPT:gtk-doc
-#OPT:libjpeg
-#OPT:libgsf
-#OPT:libpng
-#OPT:poppler
 
 cd $SOURCE_DIR
 

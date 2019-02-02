@@ -10,9 +10,6 @@ set +h
 #REC:alsa-lib
 #REC:gstreamer10
 #REC:gtk3
-#OPT:gtk2
-#OPT:gtk-doc
-#OPT:pulseaudio
 
 cd $SOURCE_DIR
 

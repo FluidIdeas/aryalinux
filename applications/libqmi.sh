@@ -8,7 +8,6 @@ set +h
 
 #REQ:glib2
 #REC:libmbim
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

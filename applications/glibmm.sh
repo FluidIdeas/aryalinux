@@ -8,10 +8,6 @@ set +h
 
 #REQ:glib2
 #REQ:libsigc
-#OPT:doxygen
-#OPT:glib-networking
-#OPT:gnutls
-#OPT:libxslt
 
 cd $SOURCE_DIR
 

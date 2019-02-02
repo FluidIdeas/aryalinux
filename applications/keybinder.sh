@@ -9,8 +9,6 @@ set +h
 #REQ:gtk2
 #REC:gobject-introspection
 #REC:pygtk
-#OPT:gtk-doc
-#OPT:lua
 
 cd $SOURCE_DIR
 

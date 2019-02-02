@@ -9,7 +9,6 @@ set +h
 #REQ:fuse
 #REQ:glib2
 #REQ:openssh
-#OPT:docutils
 
 cd $SOURCE_DIR
 

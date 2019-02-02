@@ -21,17 +21,6 @@ set +h
 #REC:upower
 #REC:vala
 #REC:wpa_supplicant
-#OPT:bluez
-#OPT:dbus-python
-#OPT:gnutls
-#OPT:nss
-#OPT:gtk-doc
-#OPT:jansson
-#OPT:libpsl
-#OPT:qt5
-#OPT:modemmanager
-#OPT:valgrind
-#OPT:doc
 
 cd $SOURCE_DIR
 

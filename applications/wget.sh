@@ -7,16 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REC:make-ca
-#OPT:gnutls
-#OPT:gpgme
-#OPT:perl-http-daemon
-#OPT:perl-io-socket-ssl
-#OPT:libidn2
-#OPT:libpsl
-#OPT:pcre
-#OPT:pcre2
-#OPT:python2
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

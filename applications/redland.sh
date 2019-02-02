@@ -7,11 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:rasqal
-#OPT:db
-#OPT:libiodbc
-#OPT:sqlite
-#OPT:mariadb
-#OPT:postgresql
 
 cd $SOURCE_DIR
 

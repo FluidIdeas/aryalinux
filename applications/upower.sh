@@ -10,9 +10,6 @@ set +h
 #REQ:libgudev
 #REQ:libusb
 #REQ:polkit
-#OPT:gobject-introspection
-#OPT:gtk-doc
-#OPT:pygobject3
 
 cd $SOURCE_DIR
 

@@ -9,7 +9,6 @@ set +h
 #REQ:make-ca
 #REQ:libsoup
 #REC:gobject-introspection
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

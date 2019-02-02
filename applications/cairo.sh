@@ -11,17 +11,6 @@ set +h
 #REC:fontconfig
 #REC:glib2
 #REC:x7lib
-#OPT:cogl
-#OPT:gs
-#OPT:gtk3
-#OPT:gtk2
-#OPT:gtk-doc
-#OPT:libdrm
-#OPT:librsvg
-#OPT:lzo
-#OPT:mesa
-#OPT:poppler
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

@@ -10,8 +10,6 @@ set +h
 #REC:alsa-lib
 #REC:glu
 #REC:libjpeg
-#OPT:doxygen
-#OPT:sdl2
 
 cd $SOURCE_DIR
 

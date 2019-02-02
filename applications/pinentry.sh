@@ -8,12 +8,6 @@ set +h
 
 #REQ:libassuan
 #REQ:libgpg-error
-#OPT:emacs
-#OPT:gcr
-#OPT:gtk2
-#OPT:gtk3
-#OPT:libsecret
-#OPT:qt5
 
 cd $SOURCE_DIR
 

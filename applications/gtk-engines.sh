@@ -7,8 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:gtk2
-#OPT:lua
-#OPT:which
 
 cd $SOURCE_DIR
 

@@ -9,11 +9,6 @@ set +h
 #REQ:glib2
 #REQ:pcre
 #REC:slang
-#OPT:doxygen
-#OPT:gpm
-#OPT:samba
-#OPT:unzip
-#OPT:zip
 
 cd $SOURCE_DIR
 

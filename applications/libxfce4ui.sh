@@ -10,8 +10,6 @@ set +h
 #REQ:xfconf
 #REC:gtk3
 #REC:startup-notification
-#OPT:gtk-doc
-#OPT:perl-html-parser
 
 cd $SOURCE_DIR
 

@@ -16,12 +16,6 @@ set +h
 #REC:libgusb
 #REC:systemd
 #REC:vala
-#OPT:docbook-utils
-#OPT:gnome-desktop
-#OPT:colord-gtk
-#OPT:gtk-doc
-#OPT:libxslt
-#OPT:sane
 
 cd $SOURCE_DIR
 

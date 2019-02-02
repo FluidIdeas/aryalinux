@@ -6,24 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:aspell
-#OPT:cyrus-sasl
-#OPT:gdb
-#OPT:gnupg
-#OPT:gpgme
-#OPT:libidn
-#OPT:mitkrb
-#OPT:mail
-#OPT:slang
-#OPT:gnutls
-#OPT:db
-#OPT:libxslt
-#OPT:lynx
-#OPT:w3m
-#OPT:docbook-dsssl
-#OPT:openjade
-#OPT:texlive
-#OPT:tl-installer
 
 cd $SOURCE_DIR
 

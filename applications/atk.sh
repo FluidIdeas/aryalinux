@@ -8,7 +8,6 @@ set +h
 
 #REQ:glib2
 #REC:gobject-introspection
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

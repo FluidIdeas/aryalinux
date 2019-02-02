@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libgpg-error
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

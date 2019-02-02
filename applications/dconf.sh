@@ -12,7 +12,6 @@ set +h
 #REQ:libxml2
 #REC:libxslt
 #REC:vala
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

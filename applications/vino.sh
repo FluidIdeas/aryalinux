@@ -12,7 +12,6 @@ set +h
 #REC:libsecret
 #REC:networkmanager
 #REC:telepathy-glib
-#OPT:avahi
 
 cd $SOURCE_DIR
 

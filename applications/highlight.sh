@@ -8,7 +8,6 @@ set +h
 
 #REQ:boost
 #REQ:lua
-#OPT:qt5
 
 cd $SOURCE_DIR
 

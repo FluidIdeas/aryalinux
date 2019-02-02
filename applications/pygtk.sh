@@ -15,7 +15,6 @@ set +h
 #REQ:gtk2
 #REQ:pycairo
 #REQ:libglade
-#OPT:libxslt
 
 cd $SOURCE_DIR
 

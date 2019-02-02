@@ -18,11 +18,6 @@ set +h
 #REC:libwebp
 #REC:v4l-utils
 #REC:xine-lib
-#OPT:apache-ant
-#OPT:doxygen
-#OPT:java
-#OPT:python2
-#OPT:avt-gige-camera-software-downloads
 
 cd $SOURCE_DIR
 

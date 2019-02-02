@@ -10,7 +10,6 @@ set +h
 #REQ:fribidi
 #REQ:nasm
 #REC:fontconfig
-#OPT:harfbuzz
 
 cd $SOURCE_DIR
 

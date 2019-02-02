@@ -9,8 +9,6 @@ set +h
 #REQ:libxau
 #REQ:xcb-proto
 #REC:libxdmcp
-#OPT:doxygen
-#OPT:libxslt
 
 cd $SOURCE_DIR
 

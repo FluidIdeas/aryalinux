@@ -6,12 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:db
-#OPT:doxygen
-#OPT:graphviz
-#OPT:tk
-#OPT:valgrind
-#OPT:yaml
 
 cd $SOURCE_DIR
 

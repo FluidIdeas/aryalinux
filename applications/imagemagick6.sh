@@ -7,38 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REC:x7lib
-#OPT:cups
-#OPT:curl
-#OPT:ffmpeg
-#OPT:fftw
-#OPT:p7zip
-#OPT:sane
-#OPT:wget
-#OPT:xdg-utils
-#OPT:xterm
-#OPT:gnupg
-#OPT:jasper
-#OPT:lcms
-#OPT:lcms2
-#OPT:libexif
-#OPT:libjpeg
-#OPT:libpng
-#OPT:libraw
-#OPT:librsvg
-#OPT:libtiff
-#OPT:libwebp
-#OPT:openjpeg2
-#OPT:pango
-#OPT:dejavu-fonts
-#OPT:gs
-#OPT:gimp
-#OPT:graphviz
-#OPT:inkscape
-#OPT:gpcldnld
-#OPT:enscript
-#OPT:texlive
-#OPT:tl-installer
-#OPT:html2ps
 
 cd $SOURCE_DIR
 

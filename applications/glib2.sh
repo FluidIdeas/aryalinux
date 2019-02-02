@@ -9,13 +9,6 @@ set +h
 #REC:libxslt
 #REC:pcre
 #REC:gobject-introspection
-#OPT:dbus
-#OPT:gdb
-#OPT:docbook
-#OPT:docbook-xsl
-#OPT:gtk-doc
-#OPT:shared-mime-info
-#OPT:desktop-file-utils
 
 cd $SOURCE_DIR
 

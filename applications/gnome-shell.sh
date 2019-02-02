@@ -25,7 +25,6 @@ set +h
 #REC:gnome-bluetooth
 #REC:gst10-plugins-base
 #REC:network-manager-applet
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

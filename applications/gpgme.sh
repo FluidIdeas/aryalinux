@@ -7,12 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libassuan
-#OPT:doxygen
-#OPT:gnupg
-#OPT:clisp
-#OPT:python2
-#OPT:qt5
-#OPT:swig
 
 cd $SOURCE_DIR
 

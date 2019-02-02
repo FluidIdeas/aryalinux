@@ -21,9 +21,6 @@ set +h
 #REC:potrace
 #REC:lxml
 #REC:scour
-#OPT:aspell
-#OPT:dbus
-#OPT:doxygen
 
 cd $SOURCE_DIR
 

@@ -9,12 +9,6 @@ set +h
 #REQ:libtirpc
 #REQ:rpcsvc-proto
 #REQ:rpcbind
-#OPT:lvm2
-#OPT:libnfsidmap
-#OPT:libnsl
-#OPT:sqlite
-#OPT:mitkrb
-#OPT:libcap
 
 cd $SOURCE_DIR
 

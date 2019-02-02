@@ -10,10 +10,6 @@ set +h
 #REQ:imlib2
 #REQ:giflib
 #REC:curl
-#OPT:libexif
-#OPT:libjpeg
-#OPT:imagemagick
-#OPT:perl-test-command
 
 cd $SOURCE_DIR
 

@@ -8,7 +8,6 @@ set +h
 
 #REQ:x7app
 #REQ:dejavu-fonts
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

@@ -11,10 +11,6 @@ set +h
 #REC:freeglut
 #REC:gc
 #REC:libtirpc
-#OPT:fftw
-#OPT:gsl
-#OPT:libsigsegv
-#OPT:qt5
 
 cd $SOURCE_DIR
 

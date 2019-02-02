@@ -9,7 +9,6 @@ set +h
 #REQ:json-c
 #REC:glib2
 #REC:gobject-introspection
-#OPT:doxygen
 
 cd $SOURCE_DIR
 

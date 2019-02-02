@@ -6,19 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:alsa-lib
-#OPT:doxygen
-#OPT:faac
-#OPT:faad2
-#OPT:ffmpeg
-#OPT:gtk2
-#OPT:lame
-#OPT:libdv
-#OPT:libjpeg
-#OPT:libpng
-#OPT:libvorbis
-#OPT:x264
-#OPT:x7lib
 
 cd $SOURCE_DIR
 

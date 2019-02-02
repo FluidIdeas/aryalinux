@@ -10,10 +10,6 @@ set +h
 #REQ:libgpg-error
 #REC:gobject-introspection
 #REC:libidn2
-#OPT:docbook-utils
-#OPT:gpgme
-#OPT:gtk-doc
-#OPT:vala
 
 cd $SOURCE_DIR
 

@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:glib2
-#OPT:emacs
 
 cd $SOURCE_DIR
 

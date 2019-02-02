@@ -11,7 +11,6 @@ set +h
 #REQ:gpgme
 #REQ:nss
 #REC:swig
-#OPT:python2
 
 cd $SOURCE_DIR
 

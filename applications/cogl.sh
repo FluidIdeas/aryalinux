@@ -13,10 +13,6 @@ set +h
 #REQ:pango
 #REQ:wayland
 #REC:gobject-introspection
-#OPT:gst10-plugins-base
-#OPT:gtk-doc
-#OPT:sdl
-#OPT:sdl2
 
 cd $SOURCE_DIR
 

@@ -6,15 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:docbook
-#OPT:docbook-xsl
-#OPT:libxslt
-#OPT:python2
-#OPT:gdb
-#OPT:git
-#OPT:xfsprogs
-#OPT:libtirpc
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

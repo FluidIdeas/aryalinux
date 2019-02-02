@@ -8,23 +8,6 @@ set +h
 
 #REQ:linux-pam
 #REC:polkit
-#OPT:curl
-#OPT:cryptsetup
-#OPT:git
-#OPT:gnutls
-#OPT:iptables
-#OPT:libgcrypt
-#OPT:libidn2
-#OPT:libseccomp
-#OPT:libxkbcommon
-#OPT:make-ca
-#OPT:qemu
-#OPT:valgrind
-#OPT:zsh
-#OPT:docbook
-#OPT:docbook-xsl
-#OPT:libxslt
-#OPT:lxml
 
 cd $SOURCE_DIR
 

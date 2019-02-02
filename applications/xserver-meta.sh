@@ -41,11 +41,6 @@ set +h
 #REQ:xclock
 #REQ:xinit
 #REQ:wayland-protocols
-#OPT:xf86-video-mga
-#OPT:xf86-video-sis
-#OPT:xf86-video-r128
-#OPT:xf86-video-savage
-#OPT:xf86-video-tdfx
 
 cd $SOURCE_DIR
 

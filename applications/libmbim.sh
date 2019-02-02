@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libgudev
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

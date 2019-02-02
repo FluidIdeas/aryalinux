@@ -9,10 +9,6 @@ set +h
 #REC:libpcap
 #REC:pcre
 #REC:liblinear
-#OPT:pygtk
-#OPT:python2
-#OPT:subversion
-#OPT:libssh2
 
 cd $SOURCE_DIR
 

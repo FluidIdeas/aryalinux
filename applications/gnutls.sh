@@ -11,16 +11,6 @@ set +h
 #REC:libunistring
 #REC:libtasn1
 #REC:p11-kit
-#OPT:doxygen
-#OPT:gtk-doc
-#OPT:guile
-#OPT:libidn
-#OPT:libidn2
-#OPT:net-tools
-#OPT:texlive
-#OPT:tl-installer
-#OPT:unbound
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

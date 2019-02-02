@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:yaml
-#OPT:python2
 
 cd $SOURCE_DIR
 

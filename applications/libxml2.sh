@@ -6,9 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:python2
-#OPT:icu
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

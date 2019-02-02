@@ -7,10 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:cmake
-#OPT:lcms2
-#OPT:libpng
-#OPT:libtiff
-#OPT:doxygen
 
 cd $SOURCE_DIR
 

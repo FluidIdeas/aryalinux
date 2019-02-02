@@ -6,16 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:avahi
-#OPT:cups
-#OPT:libjpeg
-#OPT:libtiff
-#OPT:libusb
-#OPT:v4l-utils
-#OPT:texlive
-#OPT:tl-installer
-#OPT:gtk2
-#OPT:gimp
 
 cd $SOURCE_DIR
 

@@ -9,8 +9,6 @@ set +h
 #REQ:glib2
 #REQ:libxml2
 #REC:gdk-pixbuf
-#OPT:gobject-introspection
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

@@ -12,10 +12,6 @@ set +h
 #REC:graphite2
 #REC:icu
 #REC:freetype2
-#OPT:cairo
-#OPT:gobject-introspection
-#OPT:gtk-doc
-#OPT:python2
 
 cd $SOURCE_DIR
 

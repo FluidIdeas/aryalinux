@@ -9,8 +9,6 @@ set +h
 #REQ:dbus
 #REQ:glib2
 #REQ:x7lib
-#OPT:gobject-introspection
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

@@ -8,8 +8,6 @@ set +h
 
 #REQ:libxml2
 #REQ:gtk2
-#OPT:python2
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

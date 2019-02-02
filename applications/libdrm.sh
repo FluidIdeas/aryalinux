@@ -7,11 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REC:x7lib
-#OPT:cairo
-#OPT:docbook
-#OPT:docbook-xsl
-#OPT:libxslt
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

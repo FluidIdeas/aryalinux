@@ -39,21 +39,6 @@ set +h
 #REC:redland
 #REC:serf
 #REC:unixodbc
-#OPT:avahi
-#OPT:bluez
-#OPT:dconf
-#OPT:desktop-file-utils
-#OPT:doxygen
-#OPT:gdb
-#OPT:gnutls
-#OPT:mariadb
-#OPT:mitkrb
-#OPT:nasm
-#OPT:sane
-#OPT:valgrind
-#OPT:vlc
-#OPT:telepathy-glib
-#OPT:zenity
 
 cd $SOURCE_DIR
 

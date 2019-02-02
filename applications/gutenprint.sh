@@ -8,11 +8,6 @@ set +h
 
 #REC:cups
 #REC:gimp
-#OPT:imagemagick
-#OPT:texlive
-#OPT:tl-installer
-#OPT:doxygen
-#OPT:docbook-utils
 
 cd $SOURCE_DIR
 

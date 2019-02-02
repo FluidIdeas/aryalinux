@@ -6,13 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:gdb
-#OPT:linux-pam
-#OPT:mitkrb
-#OPT:sectok
-#OPT:openjdk
-#OPT:net-tools
-#OPT:sysstat
 
 cd $SOURCE_DIR
 

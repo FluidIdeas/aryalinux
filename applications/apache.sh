@@ -8,16 +8,6 @@ set +h
 
 #REQ:apr-util
 #REQ:pcre
-#OPT:db
-#OPT:doxygen
-#OPT:libxml2
-#OPT:lua
-#OPT:lynx
-#OPT:links
-#OPT:nghttp2
-#OPT:openldap
-#OPT:apr-util
-#OPT:rsync
 
 cd $SOURCE_DIR
 

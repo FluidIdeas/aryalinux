@@ -17,12 +17,6 @@ set +h
 #REQ:mdadm
 #REQ:xfsprogs
 #REC:systemd
-#OPT:gobject-introspection
-#OPT:dbus-python
-#OPT:gtk-doc
-#OPT:lvm2
-#OPT:ntfs-3g
-#OPT:pygobject3
 
 cd $SOURCE_DIR
 

@@ -13,7 +13,6 @@ set +h
 #REQ:wget
 #REC:gobject-introspection
 #REC:vala
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

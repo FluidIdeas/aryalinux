@@ -7,15 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:cmake
-#OPT:graphviz
-#OPT:gs
-#OPT:libxml2
-#OPT:llvm
-#OPT:python2
-#OPT:qt5
-#OPT:texlive
-#OPT:tl-installer
-#OPT:xapian
 
 cd $SOURCE_DIR
 

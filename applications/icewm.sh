@@ -7,9 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:gdk-pixbuf
-#OPT:fribidi
-#OPT:libsndfile
-#OPT:alsa-lib
 
 cd $SOURCE_DIR
 

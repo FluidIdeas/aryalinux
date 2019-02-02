@@ -11,8 +11,6 @@ set +h
 #REC:modemmanager
 #REC:vala
 #REC:avahi
-#OPT:gtk-doc
-#OPT:libnotify
 
 cd $SOURCE_DIR
 

@@ -16,12 +16,6 @@ set +h
 #REC:libpng
 #REC:libtiff
 #REC:mupdf
-#OPT:avahi
-#OPT:dejavu-fonts
-#OPT:ijs
-#OPT:openldap
-#OPT:php
-#OPT:gutenprint
 
 cd $SOURCE_DIR
 

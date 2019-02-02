@@ -14,9 +14,6 @@ set +h
 #REC:libarchive
 #REC:libnotify
 #REC:nautilus
-#OPT:unrar
-#OPT:unzip
-#OPT:zip
 
 cd $SOURCE_DIR
 

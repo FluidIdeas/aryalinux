@@ -7,8 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:perl-io-socket-ssl
-#OPT:libcap
-#OPT:libevent
 
 cd $SOURCE_DIR
 

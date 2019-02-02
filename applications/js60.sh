@@ -13,7 +13,6 @@ set +h
 #REQ:x7lib
 #REQ:yasm
 #REQ:zip
-#OPT:doxygen
 
 cd $SOURCE_DIR
 

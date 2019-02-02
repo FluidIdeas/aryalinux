@@ -6,8 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:libcap
-#OPT:libxml2
 
 cd $SOURCE_DIR
 

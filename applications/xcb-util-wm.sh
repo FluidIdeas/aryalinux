@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libxcb
-#OPT:doxygen
 
 cd $SOURCE_DIR
 

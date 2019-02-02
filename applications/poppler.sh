@@ -14,16 +14,6 @@ set +h
 #REC:libpng
 #REC:nss
 #REC:openjpeg2
-#OPT:curl
-#OPT:gdk-pixbuf
-#OPT:git
-#OPT:gobject-introspection
-#OPT:gtk-doc
-#OPT:gtk3
-#OPT:libtiff
-#OPT:python2
-#OPT:qt5
-#OPT:okular5
 
 cd $SOURCE_DIR
 

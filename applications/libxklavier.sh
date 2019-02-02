@@ -11,8 +11,6 @@ set +h
 #REQ:libxml2
 #REQ:x7lib
 #REC:gobject-introspection
-#OPT:gtk-doc
-#OPT:vala
 
 cd $SOURCE_DIR
 

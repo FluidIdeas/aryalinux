@@ -6,20 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:libcap
-#OPT:libidn2
-#OPT:libxml2
-#OPT:mitkrb
-#OPT:db
-#OPT:mariadb
-#OPT:openldap
-#OPT:postgresql
-#OPT:unixodbc
-#OPT:perl-net-dns
-#OPT:doxygen
-#OPT:libxslt
-#OPT:texlive
-#OPT:tl-installer
 
 cd $SOURCE_DIR
 

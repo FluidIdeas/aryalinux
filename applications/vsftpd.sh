@@ -7,8 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libnsl
-#OPT:libcap
-#OPT:linux-pam
 
 cd $SOURCE_DIR
 

@@ -13,16 +13,6 @@ set +h
 #REC:wayland
 #REC:wayland-protocols
 #REC:systemd
-#OPT:acpid
-#OPT:doxygen
-#OPT:fop
-#OPT:nettle
-#OPT:libgcrypt
-#OPT:xcb-util-keysyms
-#OPT:xcb-util-image
-#OPT:xcb-util-renderutil
-#OPT:xcb-util-wm
-#OPT:xmlto
 
 cd $SOURCE_DIR
 

@@ -12,12 +12,6 @@ set +h
 #REC:gobject-introspection
 #REC:gtk2
 #REC:libnotify
-#OPT:dbus-python
-#OPT:pygobject3
-#OPT:gtk-doc
-#OPT:pyxdg
-#OPT:libxkbcommon
-#OPT:wayland
 
 cd $SOURCE_DIR
 

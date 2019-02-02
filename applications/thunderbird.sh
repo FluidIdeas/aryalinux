@@ -19,15 +19,6 @@ set +h
 #REC:nspr
 #REC:nss
 #REC:sqlite
-#OPT:cyrus-sasl
-#OPT:dbus-glib
-#OPT:doxygen
-#OPT:gconf
-#OPT:llvm
-#OPT:pulseaudio
-#OPT:startup-notification
-#OPT:wget
-#OPT:wireless_tools
 
 cd $SOURCE_DIR
 

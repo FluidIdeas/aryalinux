@@ -15,7 +15,6 @@ set +h
 #REC:libinput
 #REC:libxkbcommon
 #REC:wayland
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

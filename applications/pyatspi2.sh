@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REC:at-spi2-core
-#OPT:python2
 
 cd $SOURCE_DIR
 

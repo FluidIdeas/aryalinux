@@ -28,9 +28,6 @@ set +h
 #REC:lm_sensors
 #REC:oxygen-icons5
 #REC:pciutils
-#OPT:glu
-#OPT:ibus
-#OPT:xorg-synaptics-driver
 
 cd $SOURCE_DIR
 

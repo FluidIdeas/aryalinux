@@ -11,8 +11,6 @@ set +h
 #REC:linux-pam
 #REC:libxslt
 #REC:openssh
-#OPT:gnupg
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

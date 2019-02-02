@@ -7,11 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REC:gtk2
-#OPT:gpm
-#OPT:lua
-#OPT:python2
-#OPT:ruby
-#OPT:tcl
 
 cd $SOURCE_DIR
 

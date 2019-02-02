@@ -10,7 +10,6 @@ set +h
 #REQ:webkitgtk
 #REQ:yelp-xsl
 #REC:desktop-file-utils
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

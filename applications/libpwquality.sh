@@ -8,7 +8,6 @@ set +h
 
 #REQ:cracklib
 #REC:linux-pam
-#OPT:python2
 
 cd $SOURCE_DIR
 

@@ -6,8 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:libsndfile
-#OPT:fftw
 
 cd $SOURCE_DIR
 

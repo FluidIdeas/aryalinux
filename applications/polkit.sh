@@ -10,11 +10,6 @@ set +h
 #REQ:js52
 #REQ:systemd
 #REC:linux-pam
-#OPT:gobject-introspection
-#OPT:docbook
-#OPT:docbook-xsl
-#OPT:gtk-doc
-#OPT:libxslt
 
 cd $SOURCE_DIR
 

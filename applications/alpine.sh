@@ -6,11 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:openldap
-#OPT:mitkrb
-#OPT:aspell
-#OPT:tcl
-#OPT:linux-pam
 
 cd $SOURCE_DIR
 

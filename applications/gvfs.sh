@@ -18,20 +18,6 @@ set +h
 #REC:libgudev
 #REC:systemd
 #REC:udisks2
-#OPT:apache
-#OPT:avahi
-#OPT:bluez
-#OPT:dbus-glib
-#OPT:fuse2
-#OPT:gnome-online-accounts
-#OPT:gtk-doc
-#OPT:libarchive
-#OPT:libgcrypt
-#OPT:libxml2
-#OPT:libxslt
-#OPT:openssh
-#OPT:samba
-#OPT:libbluray
 
 cd $SOURCE_DIR
 

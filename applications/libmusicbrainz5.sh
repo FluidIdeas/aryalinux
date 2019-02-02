@@ -9,7 +9,6 @@ set +h
 #REQ:cmake
 #REQ:libxml2
 #REQ:neon
-#OPT:doxygen
 
 cd $SOURCE_DIR
 

@@ -12,15 +12,6 @@ set +h
 #REQ:libksba
 #REQ:npth
 #REC:pinentry
-#OPT:curl
-#OPT:gnutls
-#OPT:imagemagick
-#OPT:libusb
-#OPT:mail
-#OPT:openldap
-#OPT:sqlite
-#OPT:texlive
-#OPT:tl-installer
 
 cd $SOURCE_DIR
 

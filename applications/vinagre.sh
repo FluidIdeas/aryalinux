@@ -12,7 +12,6 @@ set +h
 #REC:telepathy-glib
 #REC:vala
 #REC:vte
-#OPT:avahi
 
 cd $SOURCE_DIR
 

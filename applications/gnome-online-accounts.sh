@@ -13,10 +13,6 @@ set +h
 #REQ:vala
 #REQ:webkitgtk
 #REC:gobject-introspection
-#OPT:cheese
-#OPT:gtk-doc
-#OPT:mitkrb
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

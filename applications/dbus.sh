@@ -8,12 +8,6 @@ set +h
 
 #REQ:systemd
 #REC:x7lib
-#OPT:dbus-glib
-#OPT:dbus-python
-#OPT:pygobject3
-#OPT:valgrind
-#OPT:doxygen
-#OPT:xmlto
 
 cd $SOURCE_DIR
 

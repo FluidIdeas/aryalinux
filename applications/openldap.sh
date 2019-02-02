@@ -7,13 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REC:cyrus-sasl
-#OPT:icu
-#OPT:gnutls
-#OPT:pth
-#OPT:unixodbc
-#OPT:mariadb
-#OPT:postgresql
-#OPT:db
 
 cd $SOURCE_DIR
 

@@ -15,10 +15,6 @@ set +h
 #REC:hicolor-icon-theme
 #REC:shared-mime-info
 #REC:dbus
-#OPT:notification-daemon
-#OPT:xfce4-notifyd
-#OPT:lxdm
-#OPT:lightdm
 
 cd $SOURCE_DIR
 

@@ -11,9 +11,6 @@ set +h
 #REQ:parted
 #REQ:volume_key
 #REQ:yaml
-#OPT:btrfs-progs
-#OPT:gtk-doc
-#OPT:mdadm
 
 cd $SOURCE_DIR
 

@@ -8,8 +8,6 @@ set +h
 
 #REQ:gtk2
 #REQ:sane
-#OPT:lcms
-#OPT:gimp
 
 cd $SOURCE_DIR
 

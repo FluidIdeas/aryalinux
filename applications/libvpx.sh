@@ -9,8 +9,6 @@ set +h
 #REQ:yasm
 #REQ:nasm
 #REQ:which
-#OPT:doxygen
-#OPT:php
 
 cd $SOURCE_DIR
 

@@ -7,10 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:cmake
-#OPT:db
-#OPT:doxygen
-#OPT:gobject-introspection
-#OPT:icu
 
 cd $SOURCE_DIR
 

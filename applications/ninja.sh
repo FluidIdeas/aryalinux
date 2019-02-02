@@ -7,9 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:python3
-#OPT:asciidoc
-#OPT:emacs
-#OPT:doxygen
 
 cd $SOURCE_DIR
 

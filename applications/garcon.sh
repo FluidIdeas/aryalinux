@@ -9,7 +9,6 @@ set +h
 #REQ:libxfce4ui
 #REQ:gtk2
 #REQ:gtk3
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

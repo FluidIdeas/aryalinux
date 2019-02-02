@@ -12,7 +12,6 @@ set +h
 #REC:libqmi
 #REC:polkit
 #REC:vala
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

@@ -8,8 +8,6 @@ set +h
 
 #REQ:gc
 #REQ:libunistring
-#OPT:emacs
-#OPT:gdb
 
 cd $SOURCE_DIR
 

@@ -8,8 +8,6 @@ set +h
 
 #REQ:xine-lib
 #REQ:shared-mime-info
-#OPT:curl
-#OPT:aalib
 
 cd $SOURCE_DIR
 

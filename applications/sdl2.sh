@@ -6,11 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:alsa
-#OPT:doxygen
-#OPT:ibus
-#OPT:nasm
-#OPT:pulseaudio
 
 cd $SOURCE_DIR
 

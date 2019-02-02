@@ -6,9 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:dbus
-#OPT:fribidi
-#OPT:imlib2
 
 cd $SOURCE_DIR
 

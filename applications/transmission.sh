@@ -9,8 +9,6 @@ set +h
 #REQ:curl
 #REQ:libevent
 #REC:gtk3
-#OPT:doxygen
-#OPT:gdb
 
 cd $SOURCE_DIR
 

@@ -11,19 +11,6 @@ set +h
 #REC:gstreamer10
 #REC:gnutls
 #REC:nss
-#OPT:avahi
-#OPT:cyrus-sasl
-#OPT:dbus
-#OPT:gconf
-#OPT:libidn
-#OPT:networkmanager
-#OPT:sqlite
-#OPT:startup-notification
-#OPT:tcl
-#OPT:tk
-#OPT:evolution-data-server
-#OPT:mitkrb
-#OPT:xdg-utils
 
 cd $SOURCE_DIR
 

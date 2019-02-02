@@ -6,8 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:texlive
-#OPT:tl-installer
 
 cd $SOURCE_DIR
 

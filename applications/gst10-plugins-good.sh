@@ -19,17 +19,6 @@ set +h
 #REC:libsoup
 #REC:libvpx
 #REC:x7lib
-#OPT:aalib
-#OPT:alsa-oss
-#OPT:gtk3
-#OPT:gtk-doc
-#OPT:libdv
-#OPT:libgudev
-#OPT:pulseaudio
-#OPT:speex
-#OPT:taglib
-#OPT:valgrind
-#OPT:v4l-utils
 
 cd $SOURCE_DIR
 

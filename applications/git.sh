@@ -7,14 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REC:curl
-#OPT:pcre2
-#OPT:pcre
-#OPT:python2
-#OPT:subversion
-#OPT:tk
-#OPT:valgrind
-#OPT:xmlto
-#OPT:asciidoc
 
 cd $SOURCE_DIR
 

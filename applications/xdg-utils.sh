@@ -11,7 +11,6 @@ set +h
 #REQ:w3m
 #REQ:links
 #REQ:x7app
-#OPT:dbus
 
 cd $SOURCE_DIR
 

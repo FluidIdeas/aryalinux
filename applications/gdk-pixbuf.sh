@@ -12,9 +12,6 @@ set +h
 #REQ:shared-mime-info
 #REC:libtiff
 #REC:x7lib
-#OPT:gobject-introspection
-#OPT:jasper
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

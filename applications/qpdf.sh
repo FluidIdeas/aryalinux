@@ -7,8 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libjpeg
-#OPT:fop
-#OPT:libxslt
 
 cd $SOURCE_DIR
 

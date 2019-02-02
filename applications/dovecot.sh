@@ -7,18 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libtirpc
-#OPT:clucene
-#OPT:icu
-#OPT:libcap
-#OPT:linux-pam
-#OPT:lua
-#OPT:mariadb
-#OPT:mitkrb
-#OPT:openldap
-#OPT:postgresql
-#OPT:sqlite
-#OPT:valgrind
-#OPT:xfsprogs
 
 cd $SOURCE_DIR
 

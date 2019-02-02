@@ -7,9 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REC:lvm2
-#OPT:pth
-#OPT:texlive
-#OPT:tl-installer
 
 cd $SOURCE_DIR
 

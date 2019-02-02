@@ -9,7 +9,6 @@ set +h
 #REQ:sqlite
 #REQ:telepathy-glib
 #REC:gobject-introspection
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

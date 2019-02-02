@@ -10,7 +10,6 @@ set +h
 #REQ:libxslt
 #REC:gobject-introspection
 #REC:vala
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

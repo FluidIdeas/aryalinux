@@ -7,8 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REC:procmail
-#OPT:python2
-#OPT:tk
 
 cd $SOURCE_DIR
 

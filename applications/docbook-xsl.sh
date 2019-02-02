@@ -7,12 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REC:libxml2
-#OPT:apache-ant
-#OPT:libxslt
-#OPT:python2
-#OPT:ruby
-#OPT:zip
-#OPT:apache-ant
 
 cd $SOURCE_DIR
 

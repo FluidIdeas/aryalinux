@@ -9,11 +9,6 @@ set +h
 #REQ:gtk3
 #REQ:itstool
 #REQ:libgtop
-#OPT:bind-utils
-#OPT:nmap
-#OPT:net-tools
-#OPT:traceroute
-#OPT:whois
 
 cd $SOURCE_DIR
 

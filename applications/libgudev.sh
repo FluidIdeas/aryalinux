@@ -7,8 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:glib2
-#OPT:gobject-introspection
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

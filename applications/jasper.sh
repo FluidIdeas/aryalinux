@@ -8,9 +8,6 @@ set +h
 
 #REQ:cmake
 #REC:libjpeg
-#OPT:freeglut
-#OPT:doxygen
-#OPT:texlive
 
 cd $SOURCE_DIR
 

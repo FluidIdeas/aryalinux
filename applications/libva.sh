@@ -7,8 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libdrm
-#OPT:doxygen
-#OPT:wayland
 
 cd $SOURCE_DIR
 

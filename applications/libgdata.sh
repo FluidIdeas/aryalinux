@@ -16,7 +16,6 @@ set +h
 #REC:git
 #REC:gnome-online-accounts
 #REC:gobject-introspection
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

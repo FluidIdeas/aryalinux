@@ -7,10 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:x7lib
-#OPT:libpng
-#OPT:libjpeg
-#OPT:libtiff
-#OPT:giflib
 
 cd $SOURCE_DIR
 

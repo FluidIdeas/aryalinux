@@ -13,7 +13,6 @@ set +h
 #REQ:pcre2
 #REQ:vte
 #REC:nautilus
-#OPT:desktop-file-utils
 
 cd $SOURCE_DIR
 

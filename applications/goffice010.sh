@@ -11,10 +11,6 @@ set +h
 #REQ:librsvg
 #REQ:libxslt
 #REQ:which
-#OPT:gobject-introspection
-#OPT:gs
-#OPT:gsettings-desktop-schemas
-#OPT:gtk-doc
 
 cd $SOURCE_DIR
 

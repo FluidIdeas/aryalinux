@@ -11,38 +11,6 @@ set +h
 #REC:libdvdnav
 #REC:llvm
 #REC:soundtouch
-#OPT:bluez
-#OPT:clutter
-#OPT:curl
-#OPT:faac
-#OPT:faad2
-#OPT:gnutls
-#OPT:gtk-doc
-#OPT:gtk2
-#OPT:gtk3
-#OPT:lcms2
-#OPT:libass
-#OPT:libexif
-#OPT:libgcrypt
-#OPT:libgudev
-#OPT:libmpeg2
-#OPT:libssh2
-#OPT:libusb
-#OPT:libvdpau
-#OPT:libwebp
-#OPT:neon
-#OPT:nettle
-#OPT:opencv
-#OPT:openjpeg2
-#OPT:opus
-#OPT:qt5
-#OPT:sdl
-#OPT:valgrind
-#OPT:wayland
-#OPT:gtk3
-#OPT:x265
-#OPT:x7lib
-#OPT:openal
 
 cd $SOURCE_DIR
 

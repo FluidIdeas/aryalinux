@@ -10,9 +10,6 @@ set +h
 #REQ:itstool
 #REQ:libcanberra
 #REC:gobject-introspection
-#OPT:gtk-doc
-#OPT:bluez
-#OPT:systemd
 
 cd $SOURCE_DIR
 

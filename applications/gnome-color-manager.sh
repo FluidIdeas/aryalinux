@@ -15,7 +15,6 @@ set +h
 #REQ:libexif
 #REC:exiv2
 #REC:vte
-#OPT:docbook-utils
 
 cd $SOURCE_DIR
 

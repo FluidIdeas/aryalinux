@@ -7,9 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REC:libnl
-#OPT:dbus
-#OPT:libxml2
-#OPT:qt5
 
 cd $SOURCE_DIR
 

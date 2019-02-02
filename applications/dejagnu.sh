@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:expect
-#OPT:docbook-utils
 
 cd $SOURCE_DIR
 

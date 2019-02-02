@@ -8,27 +8,6 @@ set +h
 
 #REQ:babl
 #REQ:json-glib
-#OPT:asciidoc
-#OPT:cairo
-#OPT:enscript
-#OPT:exiv2
-#OPT:ffmpeg
-#OPT:gdk-pixbuf
-#OPT:graphviz
-#OPT:libjpeg
-#OPT:libpng
-#OPT:librsvg
-#OPT:libwebp
-#OPT:lua
-#OPT:pango
-#OPT:python2
-#OPT:ruby
-#OPT:sdl
-#OPT:gobject-introspection
-#OPT:vala
-#OPT:w3m
-#OPT:gexiv2
-#OPT:suitesparse
 
 cd $SOURCE_DIR
 

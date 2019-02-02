@@ -6,11 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#OPT:pth
-#OPT:emacs
-#OPT:gtk-doc
-#OPT:openjdk
-#OPT:valgrind
 
 cd $SOURCE_DIR
 

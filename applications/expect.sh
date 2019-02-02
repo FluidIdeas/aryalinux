@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:tcl
-#OPT:tk
 
 cd $SOURCE_DIR
 

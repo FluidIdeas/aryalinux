@@ -10,7 +10,6 @@ set +h
 #REQ:mesa
 #REQ:xbitmaps
 #REQ:xcb-util
-#OPT:linux-pam
 
 cd $SOURCE_DIR
 

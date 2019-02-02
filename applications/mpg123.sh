@@ -7,8 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REC:alsa-lib
-#OPT:pulseaudio
-#OPT:sdl
 
 cd $SOURCE_DIR
 

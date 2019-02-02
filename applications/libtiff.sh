@@ -7,9 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REC:cmake
-#OPT:freeglut
-#OPT:libjpeg
-#OPT:libwebp
 
 cd $SOURCE_DIR
 

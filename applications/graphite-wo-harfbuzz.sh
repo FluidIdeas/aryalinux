@@ -7,8 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:cmake
-#OPT:freetype2
-#OPT:python2
 
 cd $SOURCE_DIR
 

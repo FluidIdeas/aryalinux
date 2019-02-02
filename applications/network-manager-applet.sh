@@ -14,9 +14,6 @@ set +h
 #REQ:polkit-gnome
 #REC:gobject-introspection
 #REC:modemmanager
-#OPT:gc
-#OPT:gnome-bluetooth
-#OPT:jansson
 
 cd $SOURCE_DIR
 

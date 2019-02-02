@@ -8,11 +8,6 @@ set +h
 
 #REQ:gtk3
 #REC:gobject-introspection
-#OPT:vala
-#OPT:valgrind
-#OPT:gtk-doc
-#OPT:itstool
-#OPT:fop
 
 cd $SOURCE_DIR
 

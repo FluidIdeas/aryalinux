@@ -21,10 +21,6 @@ set +h
 #REC:libgdata
 #REC:libgweather
 #REC:vala
-#OPT:gtk-doc
-#OPT:mitkrb
-#OPT:mail
-#OPT:openldap
 
 cd $SOURCE_DIR
 

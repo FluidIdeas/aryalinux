@@ -16,12 +16,6 @@ set +h
 #REC:desktop-file-utils
 #REC:shared-mime-info
 #REC:x7lib
-#OPT:giflib
-#OPT:libjpeg
-#OPT:libpng
-#OPT:libtiff
-#OPT:python2
-#OPT:wget
 
 cd $SOURCE_DIR
 

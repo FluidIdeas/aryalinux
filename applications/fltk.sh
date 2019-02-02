@@ -10,13 +10,6 @@ set +h
 #REC:hicolor-icon-theme
 #REC:libjpeg
 #REC:libpng
-#OPT:alsa-lib
-#OPT:desktop-file-utils
-#OPT:doxygen
-#OPT:glu
-#OPT:mesa
-#OPT:texlive
-#OPT:tl-installer
 
 cd $SOURCE_DIR
 

@@ -7,11 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:x7lib
-#OPT:doxygen
-#OPT:graphviz
-#OPT:texlive
-#OPT:tl-installer
-#OPT:mesa
 
 cd $SOURCE_DIR
 

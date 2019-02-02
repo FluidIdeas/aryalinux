@@ -21,9 +21,6 @@ set +h
 #REC:libjpeg
 #REC:libpng
 #REC:wget
-#OPT:graphviz
-#OPT:mercurial
-#OPT:twm
 
 cd $SOURCE_DIR
 

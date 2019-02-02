@@ -9,8 +9,6 @@ set +h
 #REQ:libxml2
 #REC:docbook
 #REC:docbook-xsl
-#OPT:libgcrypt
-#OPT:libxml2py2
 
 cd $SOURCE_DIR
 

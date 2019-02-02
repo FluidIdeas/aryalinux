@@ -8,7 +8,6 @@ set +h
 
 #REQ:libexif
 #REQ:libxfce4ui
-#OPT:tumbler
 
 cd $SOURCE_DIR
 

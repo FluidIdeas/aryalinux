@@ -12,14 +12,6 @@ set +h
 #REC:libusb
 #REC:linux-pam
 #REC:xdg-utils
-#OPT:avahi
-#OPT:libpaper
-#OPT:mitkrb
-#OPT:openjdk
-#OPT:php
-#OPT:python2
-#OPT:gutenprint
-#OPT:index
 
 cd $SOURCE_DIR
 

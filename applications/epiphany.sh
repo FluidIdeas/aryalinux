@@ -15,9 +15,6 @@ set +h
 #REQ:libwnck
 #REQ:webkitgtk
 #REC:nss
-#OPT:lsb-release
-#OPT:gnome-keyring
-#OPT:seahorse
 
 cd $SOURCE_DIR
 

@@ -12,7 +12,6 @@ set +h
 #REQ:python2
 #REQ:x7lib
 #REQ:zip
-#OPT:doxygen
 
 cd $SOURCE_DIR
 

@@ -23,10 +23,6 @@ set +h
 #REC:ibus
 #REC:modemmanager
 #REC:network-manager-applet
-#OPT:cups-pk-helper
-#OPT:gnome-color-manager
-#OPT:sound-theme-freedesktop
-#OPT:vino
 
 cd $SOURCE_DIR
 
