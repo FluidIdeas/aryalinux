@@ -41,12 +41,10 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/firefox/releases/65.0/source/firefox-65.0.source.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/firefox-65.0-system_graphite2_harfbuzz-1.patch
 
 NAME=firefox
 VERSION=65.0.source
-URL=https://archive.mozilla.org/pub/firefox/releases/65.0/source/firefox-65.0.source.tar.xz
+URL=""
 
 if [ ! -z $URL ]
 then
@@ -64,123 +62,30 @@ fi
 cd $DIRECTORY
 fi
 
-cat > mozconfig << "EOF"
-# If you have a multicore machine, all cores will be used by default.
+export LANG=en-US
 
-# If you have installed dbus-glib, comment out this line:
-ac_add_options --disable-dbus
+if [ $(uname -m) == "x86_64" ]
+then
+	wget -O $SOURCE_DIR/firefox.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=$LANG"
+else
+	wget -O $SOURCE_DIR/firefox.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux&lang=$LANG"
+fi
 
-# If you have installed dbus-glib, and you have installed (or will install)
-# wireless-tools, and you wish to use geolocation web services, comment out
-# this line
-ac_add_options --disable-necko-wifi
+TARBALL="firefox.tar.bz2"
+DIRECTORY=`tar -tf $TARBALL | sed -e 's@/.*@@' | uniq`
 
-# API Keys for geolocation APIs - necko-wifi (above) is required for MLS
-# Uncomment the following line if you wish to use Mozilla Location Service
-#ac_add_options --with-mozilla-api-keyfile=$PWD/mozilla-key
+tar -xf $TARBALL
+cd $DIRECTORY
+sudo mkdir -pv /opt/firefox
+sudo cp -rf * /opt/firefox
 
-# Uncomment the following line if you wish to use Google's geolocaton API
-# (needed for use with saved maps with Google Maps)
-#ac_add_options --with-google-api-keyfile=$PWD/google-key
-
-# Uncomment this line if you have installed startup-notification:
-#ac_add_options --enable-startup-notification
-
-# Uncomment the following option if you have not installed PulseAudio
-#ac_add_options --disable-pulseaudio
-# and uncomment this if you installed alsa-lib instead of PulseAudio
-#ac_add_options --enable-alsa
-
-# If you have installed GConf, comment out this line
-ac_add_options --disable-gconf
-
-# From firefox-61, the stylo CSS code can no-longer be disabled
-
-# Comment out following options if you have not installed
-# recommended dependencies:
-ac_add_options --enable-system-sqlite
-ac_add_options --with-system-libevent
-ac_add_options --with-system-libvpx
-ac_add_options --with-system-nspr
-ac_add_options --with-system-nss
-ac_add_options --with-system-icu
-
-# The gold linker is no-longer the default
-ac_add_options --enable-linker=gold
-
-# You cannot distribute the binary if you do this
-ac_add_options --enable-official-branding
-
-# If you are going to apply the patch for system graphite
-# and system harfbuzz, uncomment these lines:
-#ac_add_options --with-system-graphite2
-#ac_add_options --with-system-harfbuzz
-
-# Stripping is now enabled by default.
-# Uncomment these lines if you need to run a debugger:
-#ac_add_options --disable-strip
-#ac_add_options --disable-install-strip
-
-# The BLFS editors recommend not changing anything below this line:
-ac_add_options --prefix=/usr
-ac_add_options --enable-application=browser
-
-ac_add_options --disable-crashreporter
-ac_add_options --disable-updater
-# enabling the tests will use a lot more space and significantly
-# increase the build time, for no obvious benefit.
-ac_add_options --disable-tests
-
-# Optimization for size is broken with gcc7 and later
-ac_add_options --enable-optimize="-O2"
-
-# From firefox-61 system cairo is not supported
-
-ac_add_options --enable-system-ffi
-ac_add_options --enable-system-pixman
-
-# From firefox-62 --with-pthreads is not recognized
-
-ac_add_options --with-system-bz2
-ac_add_options --with-system-jpeg
-ac_add_options --with-system-png
-ac_add_options --with-system-zlib
-
-mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/firefox-build-dir
-EOF
-patch -Np1 -i ../firefox-65.0-system_graphite2_harfbuzz-1.patch
-echo "AIzaSyDxKL42zsPjbke5O8_rPVpVrLrJ8aeE9rQ" > google-key
-echo "d2284a20-0505-4927-a809-7ffaf4d91e55" > mozilla-key
-sed -e 's/checkImpl/checkFFImpl/g' -i js/src/vm/JSContext*.h &&
-export CC=clang CXX=clang++ AR=llvm-ar NM=llvm-nm RANLIB=llvm-ranlib &&
-export MOZBUILD_STATE_PATH=${PWD}/mozbuild &&
-./mach build
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-./mach install &&
-
-mkdir -pv /usr/lib/mozilla/plugins &&
-ln -sfv ../../mozilla/plugins /usr/lib/firefox/browser/
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-unset CC CXX AR NM RANLIB MOZBUILD_STATE_PATH
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir -pv /usr/share/applications &&
-mkdir -pv /usr/share/pixmaps &&
-
-cat > /usr/share/applications/firefox.desktop << "EOF" &&
+sudo tee /usr/share/applications/firefox.desktop << "EOF" &&
 [Desktop Entry]
 Encoding=UTF-8
 Name=Firefox Web Browser
 Comment=Browse the World Wide Web
 GenericName=Web Browser
-Exec=firefox %u
+Exec=/opt/firefox/firefox %u
 Terminal=false
 Type=Application
 Icon=firefox
@@ -189,13 +94,17 @@ MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/vnd.mo
 StartupNotify=true
 EOF
 
-ln -sfv /usr/lib/firefox/browser/chrome/icons/default/default128.png \
-/usr/share/pixmaps/firefox.png
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
+for s in 16 32 48 128
+do
+sudo install -v -Dm644 /opt/firefox/browser/chrome/icons/default/default${s}.png \
+                  /usr/share/icons/hicolor/${s}x${s}/apps/firefox.png
+done
 
+cd $SOURCE_DIR
+rm -rf $DIRECTORY
+
+sudo update-desktop-database
+sudo update-mime-database /usr/share/mime
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
