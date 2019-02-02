@@ -116,9 +116,12 @@ fi
 sudo sed -i 's@MimeType=inode/directory@# MimeType=inode/directory@g' /usr/share/applications/org.gnome.baobab.desktop
 sudo update-desktop-database
 sudo update-mime-database /usr/share/mime
-wget -nc https://raw.githubusercontent.com/FluidIdeas/utils/master/wall.sh
-chmod a+x wall.sh
-./wall.sh
+pushd $SOURCE_DIR
+wget https://raw.githubusercontent.com/FluidIdeas/utils/master/wallpaper-list-update.sh
+sudo chmod a+x wallpaper-list-update.sh
+sudo ./wallpaper-list-update.sh
+sudo rm wallpaper-list-update.sh
+popd
 sudo tee /etc/profile.d/aryalinux-desktop.sh << EOF
 cd ~
 xdg-user-dirs-update
