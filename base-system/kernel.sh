@@ -39,11 +39,6 @@ then
 
 cd /sources
 
-tar xf ../aufs-4.19.tar.gz
-for patch in ../aufs*patch; do
-	patch -Np1 -i $patch
-done
-
 if [ "$BUILD_ARCH" != "none" ]; then
 	export CFLAGS="$CFLAGS -march=$BUILD_ARCH"
 	export CXXFLAGS="$CXXFLAGS -march=$BUILD_ARCH"
@@ -64,6 +59,11 @@ LINUX_TARBALL=$(grep "kernel.org/pub/linux/kernel" wget-list | rev | cut -d/ -f1
 LINUX_SRC_DIR=`tar -tf $LINUX_TARBALL | cut "-d/" -f1 | uniq`
 tar xf $LINUX_TARBALL
 cd $LINUX_SRC_DIR
+
+tar xf ../aufs-4.19.tar.gz
+for patch in ../aufs*patch; do
+	patch -Np1 -i $patch
+done
 
 make mrproper
 
