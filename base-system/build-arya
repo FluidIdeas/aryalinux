@@ -124,7 +124,7 @@ def inputBuildProperties():
 		readInput("To which architecture should the code be tuned to/gcc -mtune value(Press enter if unsure): ", 'BUILD_TUNE', propsFile, 'none')
 		readInput("Enter gcc optimization level. 1 ... 3 (Press enter if unsure): ", 'BUILD_OPT_LEVEL', propsFile, 'none')
 	else:
-		with open(fileName, 'a') as f:
+		with open(propsFile, 'a') as f:
 			f.write('BUILD_ARCH="none"\n')
 			f.write('BUILD_TUNE="none"\n')
 			f.write('BUILD_OPT_LEVEL="none"\n')
