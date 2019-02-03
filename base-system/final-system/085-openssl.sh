@@ -46,7 +46,6 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 fi
 
 ln -svf /tools/bin/env /usr/bin/env
-
 ./config --prefix=/usr         \
          --openssldir=/etc/ssl \
          --libdir=lib          \

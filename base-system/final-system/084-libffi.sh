@@ -50,7 +50,7 @@ sed -e '/^includesdir/ s/$(libdir).*$/$(includedir)/' \
 sed -e '/^includedir/ s/=.*$/=@includedir@/' \
     -e 's/^Cflags: -I${includedir}/Cflags:/' \
     -i libffi.pc.in
-./configure --prefix=/usr --disable-static --with-gcc-arch=native
+./configure --prefix=/usr --disable-static 
 make
 make install
 
