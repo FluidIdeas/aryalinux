@@ -32,7 +32,8 @@ cd $DIRECTORY
 fi
 
 sudo tar xf aryalinux-gnome-defaults.tar.xz -C /
-cp -r /etc/skel/{.config,.local,.bash,.Xresources}* ~
+sudo cp -r /etc/skel/{.config,.local,.bash,.Xresources}* ~
+sudo chown -R $USER:$USER ~
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
