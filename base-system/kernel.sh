@@ -39,6 +39,11 @@ then
 
 cd /sources
 
+tar xf ../aufs-4.19.tar.gz
+for patch in ../aufs*patch; do
+	patch -Np1 -i $patch
+done
+
 if [ "$BUILD_ARCH" != "none" ]; then
 	export CFLAGS="$CFLAGS -march=$BUILD_ARCH"
 	export CXXFLAGS="$CXXFLAGS -march=$BUILD_ARCH"
