@@ -39,6 +39,7 @@ fi
 cd $DIRECTORY
 fi
 
+export PATH=$PATH:/opt/rustc/bin
 ./configure --prefix=/usr \
 --enable-vala \
 --disable-static &&
