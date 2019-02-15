@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="016-bison.sh"
-TARBALL="bison-3.2.4.tar.xz"
+TARBALL="bison-3.3.2.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 

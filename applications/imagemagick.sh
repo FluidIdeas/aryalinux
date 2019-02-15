@@ -10,14 +10,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.imagemagick.org/download/releases/ImageMagick-7.0.8-10.tar.xz
-wget -nc ftp://ftp.imagemagick.org/pub/ImageMagick/releases/ImageMagick-7.0.8-10.tar.xz
+wget -nc https://www.imagemagick.org/download/releases/ImageMagick-7.0.8-27.tar.xz
+wget -nc ftp://ftp.imagemagick.org/pub/ImageMagick/releases/ImageMagick-7.0.8-27.tar.xz
 wget -nc http://www.mcmurchy.com/ralcgm/ralcgm-3.51.tar.gz
 wget -nc http://www.mcmurchy.com/urt/urt-3.1b.tar.gz
 
 NAME=imagemagick
-VERSION=10
-URL=https://www.imagemagick.org/download/releases/ImageMagick-7.0.8-10.tar.xz
+VERSION=27
+URL=https://www.imagemagick.org/download/releases/ImageMagick-7.0.8-27.tar.xz
 
 if [ ! -z $URL ]
 then

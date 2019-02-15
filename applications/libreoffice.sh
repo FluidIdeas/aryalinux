@@ -46,7 +46,8 @@ wget -nc http://download.documentfoundation.org/libreoffice/src/6.1.4/libreoffic
 wget -nc http://download.documentfoundation.org/libreoffice/src/6.1.4/libreoffice-dictionaries-6.1.4.2.tar.xz
 wget -nc http://download.documentfoundation.org/libreoffice/src/6.1.4/libreoffice-help-6.1.4.2.tar.xz
 wget -nc http://download.documentfoundation.org/libreoffice/src/6.1.4/libreoffice-translations-6.1.4.2.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/libreoffice-6.1.4.2-consolidated_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/libreoffice-6.1.4.2-consolidated_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/libreoffice-6.1.4.2-jdk11_fixes-1.patch
 
 NAME=libreoffice
 VERSION=6.1.4.2
@@ -69,6 +70,7 @@ cd $DIRECTORY
 fi
 
 patch -Np1 -i ../libreoffice-6.1.4.2-consolidated_fixes-1.patch
+patch -Np1 -i ../libreoffice-6.1.4.2-jdk11_fixes-1.patch
 install -dm755 external/tarballs &&
 ln -sv ../../../libreoffice-dictionaries-6.1.4.2.tar.xz external/tarballs/ &&
 ln -sv ../../../libreoffice-help-6.1.4.2.tar.xz external/tarballs/

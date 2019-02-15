@@ -12,7 +12,7 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="109-procps-ng.sh"
+STEPNAME="107-procps-ng.sh"
 TARBALL="procps-ng-3.3.15.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
@@ -50,8 +50,7 @@ fi
             --libdir=/usr/lib                        \
             --docdir=/usr/share/doc/procps-ng-3.3.15 \
             --disable-static                         \
-            --disable-kill                           \
-            --with-systemd
+            --disable-kill
 make
 make install
 mv -v /usr/lib/libprocps.so.* /lib

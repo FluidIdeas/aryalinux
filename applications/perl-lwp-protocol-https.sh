@@ -12,7 +12,7 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/LWP-Protocol-https-6.07-system_certs-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/LWP-Protocol-https-6.07-system_certs-1.patch
 
 NAME=perl-lwp-protocol-https
 VERSION=1.patch

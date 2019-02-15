@@ -51,7 +51,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ln -snfv ../vim/vim80/doc /usr/share/doc/vim-8.1
+ln -snfv ../vim/vim81/doc /usr/share/doc/vim-8.1
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 
 wget -nc http://www.mplayerhq.hu/MPlayer/releases/MPlayer-1.3.0.tar.xz
 wget -nc ftp://ftp.mplayerhq.hu/MPlayer/releases/MPlayer-1.3.0.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/MPlayer-1.3.0-x264_fix-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/MPlayer-1.3.0-x264_fix-1.patch
 wget -nc https://www.mplayerhq.hu/MPlayer/skins/Clearlooks-2.0.tar.bz2
 wget -nc ftp://ftp.mplayerhq.hu/MPlayer/skins/Clearlooks-2.0.tar.bz2
 

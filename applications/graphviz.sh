@@ -10,7 +10,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://graphviz.gitlab.io/pub/graphviz/stable/SOURCES/graphviz.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/graphviz-2.40.1-qt5-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/graphviz-2.40.1-qt5-1.patch
 
 NAME=graphviz
 VERSION=2.40.1

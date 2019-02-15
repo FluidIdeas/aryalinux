@@ -36,6 +36,7 @@ cd $DIRECTORY
 fi
 
 patch -Np1 -i ../gnome-menus-3.31.4-applications-menu.patch
+sed -i '129i </Exclude>' layout/gnome-applications.menu
 ./configure --prefix=/usr \
 --sysconfdir=/etc \
 --disable-static &&

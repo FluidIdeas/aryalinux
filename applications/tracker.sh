@@ -18,12 +18,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/tracker/2.1/tracker-2.1.6.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/tracker/2.1/tracker-2.1.6.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/tracker/2.1/tracker-2.1.7.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/tracker/2.1/tracker-2.1.7.tar.xz
 
 NAME=tracker
-VERSION=2.1.6
-URL=http://ftp.gnome.org/pub/gnome/sources/tracker/2.1/tracker-2.1.6.tar.xz
+VERSION=2.1.7
+URL=http://ftp.gnome.org/pub/gnome/sources/tracker/2.1/tracker-2.1.7.tar.xz
 
 if [ ! -z $URL ]
 then

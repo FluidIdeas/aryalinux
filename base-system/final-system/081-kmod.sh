@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="081-kmod.sh"
-TARBALL="kmod-25.tar.xz"
+TARBALL="kmod-26.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 

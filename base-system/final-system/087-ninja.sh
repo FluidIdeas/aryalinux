@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="087-ninja.sh"
-TARBALL="ninja-1.8.2.tar.gz"
+TARBALL="ninja-1.9.0.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,7 +45,6 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-patch -Np1 -i ../ninja-1.8.2-add_NINJAJOBS_var-1.patch
 python3 configure.py --bootstrap
 python3 configure.py
 ./ninja ninja_test

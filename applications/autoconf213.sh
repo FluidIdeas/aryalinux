@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc https://ftp.gnu.org/gnu/autoconf/autoconf-2.13.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/autoconf/autoconf-2.13.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/autoconf-2.13-consolidated_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/autoconf-2.13-consolidated_fixes-1.patch
 
 NAME=autoconf213
 VERSION=2.13

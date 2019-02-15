@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.dovecot.org/releases/2.3/dovecot-2.3.4.tar.gz
+wget -nc https://www.dovecot.org/releases/2.3/dovecot-2.3.4.1.tar.gz
 
 NAME=dovecot
-VERSION=2.3.4
-URL=https://www.dovecot.org/releases/2.3/dovecot-2.3.4.tar.gz
+VERSION=2.3.4.1
+URL=https://www.dovecot.org/releases/2.3/dovecot-2.3.4.1.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -53,7 +53,7 @@ LDFLAGS+=" -ltirpc" \
 ./configure --prefix=/usr \
 --sysconfdir=/etc \
 --localstatedir=/var \
---docdir=/usr/share/doc/dovecot-2.3.4 \
+--docdir=/usr/share/doc/dovecot-2.3.4.1 \
 --disable-static \
 --with-systemdsystemunitdir=/lib/systemd/system &&
 make
@@ -69,7 +69,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cp -rv /usr/share/doc/dovecot-2.3.4/example-config/* /etc/dovecot
+cp -rv /usr/share/doc/dovecot-2.3.4.1/example-config/* /etc/dovecot
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

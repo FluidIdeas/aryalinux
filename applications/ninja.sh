@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/ninja-build/ninja/archive/v1.8.2/ninja-1.8.2.tar.gz
+wget -nc https://github.com/ninja-build/ninja/archive/v1.9.0/ninja-1.9.0.tar.gz
 
 NAME=ninja
-VERSION=1.8.2
-URL=https://github.com/ninja-build/ninja/archive/v1.8.2/ninja-1.8.2.tar.gz
+VERSION=1.9.0
+URL=https://github.com/ninja-build/ninja/archive/v1.9.0/ninja-1.9.0.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -42,7 +42,7 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -vm755 ninja /usr/bin/ &&
 install -vDm644 misc/ninja.vim \
-/usr/share/vim/vim80/syntax/ninja.vim &&
+/usr/share/vim/vim81/syntax/ninja.vim &&
 install -vDm644 misc/bash-completion \
 /usr/share/bash-completion/completions/ninja &&
 install -vDm644 misc/zsh-completion \
@@ -68,7 +68,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja manual &&
-install -vDm644 doc/manual.html /usr/share/doc/ninja-1.8.2/manual.html
+install -vDm644 doc/manual.html /usr/share/doc/ninja-1.9.0/manual.html
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
@@ -78,7 +78,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja doxygen &&
-install -vDm644 -t /usr/share/doc/ninja-1.8.2/ doc/doxygen/html/*
+install -vDm644 -t /usr/share/doc/ninja-1.9.0/ doc/doxygen/html/*
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

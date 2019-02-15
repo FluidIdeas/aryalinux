@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://get.videolan.org/libdvdread/6.0.0/libdvdread-6.0.0.tar.bz2
+wget -nc https://get.videolan.org/libdvdread/6.0.1/libdvdread-6.0.1.tar.bz2
 
 NAME=libdvdread
-VERSION=6.0.0
-URL=https://get.videolan.org/libdvdread/6.0.0/libdvdread-6.0.0.tar.bz2
+VERSION=6.0.1
+URL=https://get.videolan.org/libdvdread/6.0.1/libdvdread-6.0.1.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -33,7 +33,7 @@ fi
 
 ./configure --prefix=/usr \
 --disable-static \
---docdir=/usr/share/doc/libdvdread-6.0.0 &&
+--docdir=/usr/share/doc/libdvdread-6.0.1 &&
 make
 
 sudo rm -rf /tmp/rootscript.sh

@@ -12,7 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/xarchiver/xarchiver-0.5.4.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/xarchiver-0.5.4-fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/xarchiver-0.5.4-fixes-1.patch
 
 NAME=xarchiver
 VERSION=0.5.4

@@ -11,11 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/applications/18.12.0/src/libkexiv2-18.12.0.tar.xz
+wget -nc http://download.kde.org/stable/applications/18.12.2/src/libkexiv2-18.12.2.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/libkexiv2-18.12.2-exiv2_0.27-1.patch
 
 NAME=libkexiv2
-VERSION=18.12.0
-URL=http://download.kde.org/stable/applications/18.12.0/src/libkexiv2-18.12.0.tar.xz
+VERSION=18.12.2
+URL=http://download.kde.org/stable/applications/18.12.2/src/libkexiv2-18.12.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -34,6 +35,7 @@ cd $DIRECTORY
 fi
 
 sed -i 's/find_package_handle_standard_args(Exiv2/find_package_handle_standard_args(exiv2/g' cmake/modules/FindExiv2.cmake
+patch -Np1 -i ../libkexiv2-18.12.2-exiv2_0.27-1.patch
 mkdir build &&
 cd build &&
 

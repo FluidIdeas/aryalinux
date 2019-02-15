@@ -17,6 +17,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs926/ghostscript-9.26.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/ghostscript-9.26-upstream_fixes-1.patch
 wget -nc https://downloads.sourceforge.net/gs-fonts/ghostscript-fonts-std-8.11.tar.gz
 wget -nc https://downloads.sourceforge.net/gs-fonts/gnu-gs-fonts-other-6.0.tar.gz
 
@@ -42,6 +43,8 @@ fi
 
 rm -rf freetype lcms2mt jpeg libpng
 rm -rf zlib &&
+
+patch -Np1 -i ../ghostscript-9.26-upstream_fixes-1.patch &&
 
 ./configure --prefix=/usr \
 --disable-compile-inits \

@@ -14,7 +14,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://www.wireshark.org/download/src/all-versions/wireshark-2.6.6.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/wireshark-2.6.6-lua_5_3-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/wireshark-2.6.6-lua_5_3-1.patch
 
 NAME=wireshark
 VERSION=2.6.6

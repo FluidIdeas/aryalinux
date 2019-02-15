@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:at-spi2-atk
+#REQ:fribidi
 #REQ:gdk-pixbuf
 #REQ:libepoxy
 #REQ:pango
@@ -20,12 +21,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.4.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.4.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.5.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.5.tar.xz
 
 NAME=gtk3
-VERSION=3.24.4
-URL=http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.4.tar.xz
+VERSION=3.24.5
+URL=http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.5.tar.xz
 
 if [ ! -z $URL ]
 then

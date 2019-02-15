@@ -45,7 +45,7 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-./configure --prefix=/usr \
+./configure --prefix=/usr    \
             --disable-static \
             --enable-libgdbm-compat
 make

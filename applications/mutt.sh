@@ -9,12 +9,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.mutt.org/pub/mutt/mutt-1.11.2.tar.gz
-wget -nc ftp://ftp.mutt.org/pub/mutt/mutt-1.11.2.tar.gz
+wget -nc http://ftp.mutt.org/pub/mutt/mutt-1.11.3.tar.gz
+wget -nc ftp://ftp.mutt.org/pub/mutt/mutt-1.11.3.tar.gz
 
 NAME=mutt
-VERSION=1.11.2
-URL=http://ftp.mutt.org/pub/mutt/mutt-1.11.2.tar.gz
+VERSION=1.11.3
+URL=http://ftp.mutt.org/pub/mutt/mutt-1.11.3.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -53,7 +53,7 @@ sudo rm -rf /tmp/rootscript.sh
 cp -v doc/manual.txt{,.shipped} &&
 ./configure --prefix=/usr \
 --sysconfdir=/etc \
---with-docdir=/usr/share/doc/mutt-1.11.2 \
+--with-docdir=/usr/share/doc/mutt-1.11.3 \
 --with-ssl \
 --enable-external-dotlock \
 --enable-pop \
@@ -68,7 +68,7 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 test -s doc/manual.txt ||
 install -v -m644 doc/manual.txt.shipped \
-/usr/share/doc/mutt-1.11.2/manual.txt
+/usr/share/doc/mutt-1.11.3/manual.txt
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
@@ -78,7 +78,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m644 doc/manual.pdf \
-/usr/share/doc/mutt-1.11.2
+/usr/share/doc/mutt-1.11.3
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
@@ -86,7 +86,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 chown root:mail /usr/bin/mutt_dotlock &&
 chmod -v 2755 /usr/bin/mutt_dotlock
-cat /usr/share/doc/mutt-1.11.2/samples/gpg.rc >> ~/.muttrc
+cat /usr/share/doc/mutt-1.11.3/samples/gpg.rc >> ~/.muttrc
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

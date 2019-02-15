@@ -9,7 +9,7 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/Net-SSLeay-1.85-openssl_1.1.1-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/Net-SSLeay-1.85-openssl_1.1.1-1.patch
 
 NAME=perl-net-ssleay
 VERSION=1.patch

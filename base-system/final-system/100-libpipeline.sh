@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="100-libpipeline.sh"
-TARBALL="libpipeline-1.5.0.tar.gz"
+TARBALL="libpipeline-1.5.1.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 

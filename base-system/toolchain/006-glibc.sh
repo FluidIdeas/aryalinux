@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="006-glibc.sh"
-TARBALL="glibc-2.28.tar.xz"
+TARBALL="glibc-2.29.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -51,10 +51,8 @@ cd       build
       --prefix=/tools                    \
       --host=$LFS_TGT                    \
       --build=$(../scripts/config.guess) \
-      --enable-kernel=3.2             \
-      --with-headers=/tools/include      \
-      libc_cv_forced_unwind=yes          \
-      libc_cv_c_cleanup=yes
+      --enable-kernel=3.2                \
+      --with-headers=/tools/include
 make
 make install
 echo 'int main(){}' > dummy.c

@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/vala/0.42/vala-0.42.5.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/vala/0.42/vala-0.42.5.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/vala-0.42.5-avoid_graphviz-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/vala-0.42.5-avoid_graphviz-1.patch
 
 NAME=vala
 VERSION=0.42.5

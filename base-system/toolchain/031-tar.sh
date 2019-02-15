@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="108-dbus.sh"
-TARBALL="dbus-1.12.12.tar.gz"
+STEPNAME="031-tar.sh"
+TARBALL="tar-1.31.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,19 +45,9 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-./configure --prefix=/usr                       \
-              --sysconfdir=/etc                   \
-              --localstatedir=/var                \
-              --disable-static                    \
-              --disable-doxygen-docs              \
-              --disable-xml-docs                  \
-              --docdir=/usr/share/doc/dbus-1.12.12 \
-              --with-console-auth-dir=/run/console
+./configure --prefix=/tools
 make
 make install
-mv -v /usr/lib/libdbus-1.so.* /lib
-ln -sfv ../../lib/$(readlink /usr/lib/libdbus-1.so) /usr/lib/libdbus-1.so
-ln -sfv /etc/machine-id /var/lib/dbus
 
 
 cd $SOURCE_DIR

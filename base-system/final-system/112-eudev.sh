@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="032-util-linux.sh"
-TARBALL="util-linux-2.33.1.tar.xz"
+STEPNAME="112-eudev.sh"
+TARBALL="eudev-3.2.7.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,14 +45,29 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-./configure --prefix=/tools                \
-            --without-python               \
-            --disable-makeinstall-chown    \
-            --without-systemdsystemunitdir \
-            --without-ncurses              \
-            PKG_CONFIG=""
-make
-make install
+cat > config.cache << "EOF"
+HAVE_BLKID=1
+BLKID_LIBS="-lblkid"
+BLKID_CFLAGS="-I/tools/include"
+EOF
+./configure --prefix=/usr           \
+            --bindir=/sbin          \
+            --sbindir=/sbin         \
+            --libdir=/usr/lib       \
+            --sysconfdir=/etc       \
+            --libexecdir=/lib       \
+            --with-rootprefix=      \
+            --with-rootlibdir=/lib  \
+            --enable-manpages       \
+            --disable-static        \
+            --config-cache
+LIBRARY_PATH=/tools/lib make
+mkdir -pv /lib/udev/rules.d
+mkdir -pv /etc/udev/rules.d
+make LD_LIBRARY_PATH=/tools/lib install
+tar -xvf ../udev-lfs-20171102.tar.bz2
+make -f udev-lfs-20171102/Makefile.lfs install
+LD_LIBRARY_PATH=/tools/lib udevadm hwdb --update
 
 
 cd $SOURCE_DIR

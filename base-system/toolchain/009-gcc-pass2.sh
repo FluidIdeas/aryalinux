@@ -65,8 +65,8 @@ case $(uname -m) in
         -i.orig gcc/config/i386/t-linux64
   ;;
 esac
-tar -xf ../mpfr-4.0.1.tar.xz
-mv -v mpfr-4.0.1 mpfr
+tar -xf ../mpfr-4.0.2.tar.xz
+mv -v mpfr-4.0.2 mpfr
 tar -xf ../gmp-6.1.2.tar.xz
 mv -v gmp-6.1.2 gmp
 tar -xf ../mpc-1.1.0.tar.gz

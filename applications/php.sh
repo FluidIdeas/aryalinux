@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.php.net/distributions/php-7.3.1.tar.xz
+wget -nc http://www.php.net/distributions/php-7.3.2.tar.xz
 
 NAME=php
-VERSION=7.3.1
-URL=http://www.php.net/distributions/php-7.3.1.tar.xz
+VERSION=7.3.2
+URL=http://www.php.net/distributions/php-7.3.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -62,13 +62,13 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 install -v -m644 php.ini-production /etc/php.ini &&
 
-install -v -m755 -d /usr/share/doc/php-7.3.1 &&
+install -v -m755 -d /usr/share/doc/php-7.3.2 &&
 install -v -m644 CODING_STANDARDS EXTENSIONS INSTALL NEWS README* UPGRADING* php.gif \
-/usr/share/doc/php-7.3.1 &&
+/usr/share/doc/php-7.3.2 &&
 ln -v -sfn /usr/lib/php/doc/Archive_Tar/docs/Archive_Tar.txt \
-/usr/share/doc/php-7.3.1 &&
+/usr/share/doc/php-7.3.2 &&
 ln -v -sfn /usr/lib/php/doc/Structures_Graph/docs \
-/usr/share/doc/php-7.3.1
+/usr/share/doc/php-7.3.2
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
@@ -90,8 +90,8 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m644 ../php_manual_en.html.gz \
-/usr/share/doc/php-7.3.1 &&
-gunzip -v /usr/share/doc/php-7.3.1/php_manual_en.html.gz
+/usr/share/doc/php-7.3.2 &&
+gunzip -v /usr/share/doc/php-7.3.2/php_manual_en.html.gz
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
@@ -101,7 +101,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 tar -xvf ../php_manual_en.tar.gz \
--C /usr/share/doc/php-7.3.1 --no-same-owner
+-C /usr/share/doc/php-7.3.2 --no-same-owner
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

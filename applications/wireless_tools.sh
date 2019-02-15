@@ -10,7 +10,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://hewlettpackard.github.io/wireless-tools/wireless_tools.29.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/wireless_tools-29-fix_iwlist_scanning-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/wireless_tools-29-fix_iwlist_scanning-1.patch
 
 NAME=wireless_tools
 VERSION=wireless_tools.29

@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="088-meson.sh"
-TARBALL="meson-0.49.2.tar.gz"
+STEPNAME="029-Python.sh"
+TARBALL="python-3.7.2-docs-html.tar.bz2"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,9 +45,10 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-python3 setup.py build
-python3 setup.py install --root=dest
-cp -rv dest/* /
+sed -i '/def add_multiarch_paths/a \        return' setup.py
+./configure --prefix=/tools --without-ensurepip
+make
+make install
 
 
 cd $SOURCE_DIR

@@ -104,7 +104,6 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-/usr/sbin/make-ca -g --force &&
 ln -sfv /etc/pki/tls/java/cacerts /opt/jdk/lib/security/cacerts
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
@@ -114,8 +113,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cd /opt/jdk
-bin/keytool -list -cacerts
+/opt/jdk/bin/keytool -list -cacerts
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

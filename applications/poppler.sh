@@ -17,12 +17,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://poppler.freedesktop.org/poppler-0.73.0.tar.xz
+wget -nc https://poppler.freedesktop.org/poppler-0.74.0.tar.xz
 wget -nc https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz
 
 NAME=poppler
-VERSION=0.73.0
-URL=https://poppler.freedesktop.org/poppler-0.73.0.tar.xz
+VERSION=0.74.0
+URL=https://poppler.freedesktop.org/poppler-0.74.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -61,8 +61,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m755 -d /usr/share/doc/poppler-0.73.0 &&
-cp -vr ../glib/reference/html /usr/share/doc/poppler-0.73.0
+install -v -m755 -d /usr/share/doc/poppler-0.74.0 &&
+cp -vr ../glib/reference/html /usr/share/doc/poppler-0.74.0
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

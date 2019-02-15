@@ -52,7 +52,8 @@ fi
             --enable-cache-owner=bin             \
             --with-browser=/usr/bin/lynx         \
             --with-vgrind=/usr/bin/vgrind        \
-            --with-grap=/usr/bin/grap
+            --with-grap=/usr/bin/grap            \
+            --with-systemdtmpfilesdir=
 make
 make install
 

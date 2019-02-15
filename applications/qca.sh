@@ -14,7 +14,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://download.kde.org/stable/qca/2.1.3/src/qca-2.1.3.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/qca-2.1.3-openssl-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/qca-2.1.3-openssl-1.patch
 
 NAME=qca
 VERSION=2.1.3

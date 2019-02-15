@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="066-bison.sh"
-TARBALL="bison-3.2.4.tar.xz"
+TARBALL="bison-3.3.2.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,7 +45,7 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-./configure --prefix=/usr --docdir=/usr/share/doc/bison-3.2.4
+./configure --prefix=/usr --docdir=/usr/share/doc/bison-3.3.2
 make
 make install
 

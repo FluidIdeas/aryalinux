@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://mirrors-usa.go-parts.com/eximftp/exim/exim4/exim-4.91.tar.xz
-wget -nc ftp://ftp.exim.org/pub/exim/exim4/exim-4.91.tar.xz
+wget -nc http://mirrors-usa.go-parts.com/eximftp/exim/exim4/exim-4.92.tar.xz
+wget -nc ftp://ftp.exim.org/pub/exim/exim4/exim-4.92.tar.xz
 
 NAME=exim
-VERSION=4.91
-URL=http://mirrors-usa.go-parts.com/eximftp/exim/exim4/exim-4.91.tar.xz
+VERSION=4.92
+URL=http://mirrors-usa.go-parts.com/eximftp/exim/exim4/exim-4.92.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -49,6 +49,7 @@ sed -e 's,^BIN_DIR.*$,BIN_DIRECTORY=/usr/sbin,' \
 -e 's,^EXIM_USER.*$,EXIM_USER=exim,' \
 -e '/SUPPORT_TLS/s,^#,,' \
 -e '/USE_OPENSSL/s,^#,,' \
+-e '515 d' \
 -e 's,^EXIM_MONITOR,#EXIM_MONITOR,' src/EDITME > Local/Makefile &&
 
 printf "USE_GDBM = yes\nDBMLIB = -lgdbm\n" >> Local/Makefile &&
@@ -59,8 +60,8 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 install -v -m644 doc/exim.8 /usr/share/man/man8 &&
 
-install -v -d -m755 /usr/share/doc/exim-4.91 &&
-install -v -m644 doc/* /usr/share/doc/exim-4.91 &&
+install -v -d -m755 /usr/share/doc/exim-4.92 &&
+install -v -m644 doc/* /usr/share/doc/exim-4.92 &&
 
 ln -sfv exim /usr/sbin/sendmail &&
 install -v -d -m750 -o exim -g exim /var/spool/exim

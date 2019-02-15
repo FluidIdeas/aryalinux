@@ -11,7 +11,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/liboauth/liboauth-1.0.3.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/liboauth-1.0.3-openssl-1.1.0-3.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/liboauth-1.0.3-openssl-1.1.0-3.patch
 
 NAME=liboauth
 VERSION=1.0.3

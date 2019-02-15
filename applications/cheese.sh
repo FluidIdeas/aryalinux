@@ -44,6 +44,7 @@ fi
 cd $DIRECTORY
 fi
 
+sed -i '7d' data/cheese.css
 ./configure --prefix=/usr &&
 make
 

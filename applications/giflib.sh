@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/giflib/giflib-5.1.4.tar.bz2
+wget -nc https://sourceforge.net/projects/giflib/files/giflib-5.1.6.tar.gz
 
 NAME=giflib
-VERSION=5.1.4
-URL=https://downloads.sourceforge.net/giflib/giflib-5.1.4.tar.bz2
+VERSION=5.1.6
+URL=https://sourceforge.net/projects/giflib/files/giflib-5.1.6.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -31,12 +31,12 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --disable-static &&
 make
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+make PREFIX=/usr install&&
+rm -v /usr/lib/libgif.a
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
@@ -48,8 +48,8 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 find doc \( -name Makefile\* -o -name \*.1 \
 -o -name \*.xml \) -exec rm -v {} \; &&
 
-install -v -dm755 /usr/share/doc/giflib-5.1.4 &&
-cp -v -R doc/* /usr/share/doc/giflib-5.1.4
+install -v -dm755 /usr/share/doc/giflib-5.1.6 &&
+cp -v -R doc/* /usr/share/doc/giflib-5.1.6
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

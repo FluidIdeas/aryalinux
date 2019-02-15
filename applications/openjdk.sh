@@ -112,7 +112,7 @@ cat > /usr/share/applications/openjdk-jconsole.desktop << "EOF"
 [Desktop Entry]
 Name=OpenJDK Java 11.0.2 Console
 Comment=OpenJDK Java 11.0.2 Console
-Keywords=java;console;monotoring
+Keywords=java;console;monitoring
 Exec=/opt/jdk/bin/jconsole
 Terminal=false
 Type=Application

@@ -21,13 +21,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://sourceforge.net/projects/opencvlibrary/files/opencv-unix/3.4.3/opencv-3.4.3.zip
-wget -nc https://raw.githubusercontent.com/opencv/opencv_3rdparty/bdb7bb85f34a8cb0d35e40a81f58da431aa1557a/ippicv/ippicv_2017u3_lnx_intel64_general_20180518.tgz
-wget -nc https://github.com/opencv/opencv_contrib/archive/3.4.3/opencv_contrib-3.4.5.tar.gz
+wget -nc https://github.com/opencv/opencv/archive/4.0.1/opencv-4.0.1.tar.gz
+wget -nc https://github.com/opencv/opencv_contrib/archive/4.0.1/opencv_contrib-4.0.1.tar.gz
 
 NAME=opencv
-VERSION=3.4.3
-URL=https://sourceforge.net/projects/opencvlibrary/files/opencv-unix/3.4.3/opencv-3.4.3.zip
+VERSION=4.0.1
+URL=https://github.com/opencv/opencv/archive/4.0.1/opencv-4.0.1.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -45,13 +44,7 @@ fi
 cd $DIRECTORY
 fi
 
-ipp_file=ippicv_2017u3_lnx_intel64_general_20180518.tgz &&
-ipp_hash=$(md5sum ../$ipp_file | cut -d" " -f1) &&
-ipp_dir=.cache/ippicv &&
-
-mkdir -p $ipp_dir &&
-cp ../$ipp_file $ipp_dir/$ipp_hash-$ipp_file
-tar xf ../opencv_contrib-3.4.3.tar.gz
+tar xf ../opencv_contrib-4.0.1.tar.gz
 mkdir build &&
 cd build &&
 
@@ -69,15 +62,7 @@ make
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-
-case $(uname -m) in
-x86_64) ARCH=intel64 ;;
-*) ARCH=ia32 ;;
-esac &&
-
-cp -v 3rdparty/ippicv/ippicv_lnx/lib/$ARCH/libippicv.a /usr/lib &&
-unset ARCH
+make install
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

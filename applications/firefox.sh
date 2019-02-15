@@ -22,7 +22,6 @@ set +h
 #REQ:zip
 #REC:icu
 #REC:libevent
-#REC:libvpx
 #REC:libwebp
 #REC:sqlite
 
@@ -30,7 +29,7 @@ cd $SOURCE_DIR
 
 
 NAME=firefox
-VERSION=65.0.source
+VERSION=65.0.1.source
 URL=""
 
 if [ ! -z $URL ]

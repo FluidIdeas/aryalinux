@@ -9,6 +9,7 @@ set +h
 #REQ:autoconf213
 #REQ:gtk3
 #REQ:gtk2
+#REQ:llvm
 #REQ:rust
 #REQ:zip
 #REQ:unzip
@@ -22,11 +23,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/thunderbird/releases/60.4.0/source/thunderbird-60.4.0.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/thunderbird/releases/60.5.0/source/thunderbird-60.5.0.source.tar.xz
 
 NAME=thunderbird
-VERSION=60.4.0.source
-URL=https://archive.mozilla.org/pub/thunderbird/releases/60.4.0/source/thunderbird-60.4.0.source.tar.xz
+VERSION=60.5.0.source
+URL=https://archive.mozilla.org/pub/thunderbird/releases/60.5.0/source/thunderbird-60.5.0.source.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -133,7 +134,7 @@ MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/xml;ap
 StartupNotify=true
 EOF
 
-ln -sfv /usr/lib/thunderbird-60.4.0/chrome/icons/default/default256.png \
+ln -sfv /usr/lib/thunderbird-60.5.0/chrome/icons/default/default256.png \
 /usr/share/pixmaps/thunderbird.png
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh

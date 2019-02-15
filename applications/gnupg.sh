@@ -15,11 +15,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.12.tar.bz2
+wget -nc https://www.gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.13.tar.bz2
 
 NAME=gnupg
-VERSION=2.2.12
-URL=https://www.gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.12.tar.bz2
+VERSION=2.2.13
+URL=https://www.gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.13.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -41,7 +41,7 @@ sed -e '/noinst_SCRIPTS = gpg-zip/c sbin_SCRIPTS += gpg-zip' \
 -i tools/Makefile.in
 ./configure --prefix=/usr \
 --enable-symcryptrun \
---docdir=/usr/share/doc/gnupg-2.2.12 &&
+--docdir=/usr/share/doc/gnupg-2.2.13 &&
 make &&
 
 makeinfo --html --no-split -o doc/gnupg_nochunks.html doc/gnupg.texi &&
@@ -51,11 +51,11 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
-install -v -m755 -d /usr/share/doc/gnupg-2.2.12/html &&
+install -v -m755 -d /usr/share/doc/gnupg-2.2.13/html &&
 install -v -m644 doc/gnupg_nochunks.html \
-/usr/share/doc/gnupg-2.2.12/html/gnupg.html &&
+/usr/share/doc/gnupg-2.2.13/html/gnupg.html &&
 install -v -m644 doc/*.texi doc/gnupg.txt \
-/usr/share/doc/gnupg-2.2.12
+/usr/share/doc/gnupg-2.2.13
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

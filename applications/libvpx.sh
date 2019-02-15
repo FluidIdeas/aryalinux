@@ -12,11 +12,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/webmproject/libvpx/archive/v1.7.0/libvpx-1.7.0.tar.gz
+wget -nc https://github.com/webmproject/libvpx/archive/v1.8.0/libvpx-1.8.0.tar.gz
 
 NAME=libvpx
-VERSION=1.7.0
-URL=https://github.com/webmproject/libvpx/archive/v1.7.0/libvpx-1.7.0.tar.gz
+VERSION=1.8.0
+URL=https://github.com/webmproject/libvpx/archive/v1.8.0/libvpx-1.8.0.tar.gz
 
 if [ ! -z $URL ]
 then

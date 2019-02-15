@@ -45,9 +45,9 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-./configure --prefix=/usr                       \
+./configure --prefix=/usr                    \
             --docdir=/usr/share/doc/bash-5.0 \
-            --without-bash-malloc               \
+            --without-bash-malloc            \
             --with-installed-readline
 make
 chown -Rv nobody .

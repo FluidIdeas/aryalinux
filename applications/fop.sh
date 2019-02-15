@@ -43,7 +43,7 @@ sed -i '\@</javad@i\
 fop/build.xml
 sed -e '/hyph\.stack/s/512k/1M/' \
 -i fop/build.xml
-cp ../{pdf,font}box-2.0.11.jar fop/lib
+cp ../{pdf,font}box-2.0.13.jar fop/lib
 cd fop &&
 export LC_ALL=en_US.UTF-8 &&
 ant all javadocs &&

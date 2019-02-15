@@ -12,7 +12,7 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="110-util-linux.sh"
+STEPNAME="108-util-linux.sh"
 TARBALL="util-linux-2.33.1.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
@@ -57,7 +57,9 @@ rm -vf /usr/include/{blkid,libmount,uuid}
             --disable-runuser    \
             --disable-pylibmount \
             --disable-static     \
-            --without-python
+            --without-python     \
+            --without-systemd    \
+            --without-systemdsystemunitdir
 make
 make install
 

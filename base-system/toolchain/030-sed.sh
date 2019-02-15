@@ -12,7 +12,7 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="029-sed.sh"
+STEPNAME="030-sed.sh"
 TARBALL="sed-4.7.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
