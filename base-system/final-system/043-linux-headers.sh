@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="029-Python.sh"
-TARBALL="python-3.7.2-docs-html.tar.bz2"
+STEPNAME="043-linux-headers.sh"
+TARBALL="linux-4.20.8.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,10 +45,10 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-sed -i '/def add_multiarch_paths/a \        return' setup.py
-./configure --prefix=/tools --without-ensurepip
-make
-make install
+make mrproper
+make INSTALL_HDR_PATH=dest headers_install
+find dest/include \( -name .install -o -name ..install.cmd \) -delete
+cp -rv dest/include/* /usr/include
 
 
 cd $SOURCE_DIR

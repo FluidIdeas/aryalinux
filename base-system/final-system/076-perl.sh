@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="029-Python.sh"
-TARBALL="python-3.7.2-docs-html.tar.bz2"
+STEPNAME="076-perl.sh"
+TARBALL="perl-5.28.1.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,10 +45,19 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-sed -i '/def add_multiarch_paths/a \        return' setup.py
-./configure --prefix=/tools --without-ensurepip
+echo "127.0.0.1 localhost $(hostname)" > /etc/hosts
+export BUILD_ZLIB=False
+export BUILD_BZIP2=0
+sh Configure -des -Dprefix=/usr                 \
+                  -Dvendorprefix=/usr           \
+                  -Dman1dir=/usr/share/man/man1 \
+                  -Dman3dir=/usr/share/man/man3 \
+                  -Dpager="/usr/bin/less -isR"  \
+                  -Duseshrplib                  \
+                  -Dusethreads
 make
 make install
+unset BUILD_ZLIB BUILD_BZIP2
 
 
 cd $SOURCE_DIR

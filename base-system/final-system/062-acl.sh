@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="029-Python.sh"
-TARBALL="python-3.7.2-docs-html.tar.bz2"
+STEPNAME="062-acl.sh"
+TARBALL="acl-2.2.53.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,10 +45,14 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-sed -i '/def add_multiarch_paths/a \        return' setup.py
-./configure --prefix=/tools --without-ensurepip
+./configure --prefix=/usr         \
+            --disable-static      \
+            --libexecdir=/usr/lib \
+            --docdir=/usr/share/doc/acl-2.2.53
 make
 make install
+mv -v /usr/lib/libacl.so.* /lib
+ln -sfv ../../lib/$(readlink /usr/lib/libacl.so) /usr/lib/libacl.so
 
 
 cd $SOURCE_DIR

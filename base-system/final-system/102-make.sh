@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="029-Python.sh"
-TARBALL="python-3.7.2-docs-html.tar.bz2"
+STEPNAME="102-make.sh"
+TARBALL="make-4.2.1.tar.bz2"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,8 +45,8 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-sed -i '/def add_multiarch_paths/a \        return' setup.py
-./configure --prefix=/tools --without-ensurepip
+sed -i '211,217 d; 219,229 d; 232 d' glob/glob.c
+./configure --prefix=/usr
 make
 make install
 

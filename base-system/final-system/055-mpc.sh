@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="029-Python.sh"
-TARBALL="python-3.7.2-docs-html.tar.bz2"
+STEPNAME="055-mpc.sh"
+TARBALL="mpc-1.1.0.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,10 +45,13 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-sed -i '/def add_multiarch_paths/a \        return' setup.py
-./configure --prefix=/tools --without-ensurepip
+./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/mpc-1.1.0
 make
+make html
 make install
+make install-html
 
 
 cd $SOURCE_DIR

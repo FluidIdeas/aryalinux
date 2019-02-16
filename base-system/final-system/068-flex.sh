@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="029-Python.sh"
-TARBALL="python-3.7.2-docs-html.tar.bz2"
+STEPNAME="068-flex.sh"
+TARBALL="flex-2.6.4.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,10 +45,12 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-sed -i '/def add_multiarch_paths/a \        return' setup.py
-./configure --prefix=/tools --without-ensurepip
+sed -i "/math.h/a #include <malloc.h>" src/flexdef.h
+HELP2MAN=/tools/bin/true \
+./configure --prefix=/usr --docdir=/usr/share/doc/flex-2.6.4
 make
 make install
+ln -sv flex /usr/bin/lex
 
 
 cd $SOURCE_DIR

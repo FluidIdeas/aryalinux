@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="029-Python.sh"
-TARBALL="python-3.7.2-docs-html.tar.bz2"
+STEPNAME="051-bc.sh"
+TARBALL="bc-1.07.1.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,8 +45,23 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-sed -i '/def add_multiarch_paths/a \        return' setup.py
-./configure --prefix=/tools --without-ensurepip
+cat > bc/fix-libmath_h << "EOF"
+#! /bin/bash
+sed -e '1   s/^/{"/' \
+    -e     's/$/",/' \
+    -e '2,$ s/^/"/'  \
+    -e   '$ d'       \
+    -i libmath.h
+sed -e '$ s/$/0}/' \
+    -i libmath.h
+EOF
+ln -sv /tools/lib/libncursesw.so.6 /usr/lib/libncursesw.so.6
+ln -sfv libncursesw.so.6 /usr/lib/libncurses.so
+sed -i -e '/flex/s/as_fn_error/: ;; # &/' configure
+./configure --prefix=/usr           \
+            --with-readline         \
+            --mandir=/usr/share/man \
+            --infodir=/usr/share/info
 make
 make install
 

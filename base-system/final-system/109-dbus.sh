@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="029-Python.sh"
-TARBALL="python-3.7.2-docs-html.tar.bz2"
+STEPNAME="109-dbus.sh"
+TARBALL="dbus-1.12.12.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,10 +45,19 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-sed -i '/def add_multiarch_paths/a \        return' setup.py
-./configure --prefix=/tools --without-ensurepip
+./configure --prefix=/usr                       \
+            --sysconfdir=/etc                   \
+            --localstatedir=/var                \
+            --disable-static                    \
+            --disable-doxygen-docs              \
+            --disable-xml-docs                  \
+            --docdir=/usr/share/doc/dbus-1.12.12 \
+            --with-console-auth-dir=/run/console
 make
 make install
+mv -v /usr/lib/libdbus-1.so.* /lib
+ln -sfv ../../lib/$(readlink /usr/lib/libdbus-1.so) /usr/lib/libdbus-1.so
+ln -sfv /etc/machine-id /var/lib/dbus
 
 
 cd $SOURCE_DIR

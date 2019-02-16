@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="029-Python.sh"
-TARBALL="python-3.7.2-docs-html.tar.bz2"
+STEPNAME="049-readline.sh"
+TARBALL="readline-8.0.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,10 +45,18 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-sed -i '/def add_multiarch_paths/a \        return' setup.py
-./configure --prefix=/tools --without-ensurepip
-make
-make install
+sed -i '/MV.*old/d' Makefile.in
+sed -i '/{OLDSUFF}/c:' support/shlib-install
+./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/readline-8.0
+make SHLIB_LIBS="-L/tools/lib -lncursesw"
+make SHLIB_LIBS="-L/tools/lib -lncursesw" install
+mv -v /usr/lib/lib{readline,history}.so.* /lib
+chmod -v u+w /lib/lib{readline,history}.so.*
+ln -sfv ../../lib/$(readlink /usr/lib/libreadline.so) /usr/lib/libreadline.so
+ln -sfv ../../lib/$(readlink /usr/lib/libhistory.so ) /usr/lib/libhistory.so
+install -v -m644 doc/*.{ps,pdf,html,dvi} /usr/share/doc/readline-8.0
 
 
 cd $SOURCE_DIR

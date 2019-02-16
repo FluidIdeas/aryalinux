@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="029-Python.sh"
-TARBALL="python-3.7.2-docs-html.tar.bz2"
+STEPNAME="074-expat.sh"
+TARBALL="expat-2.2.6.tar.bz2"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,10 +45,13 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-sed -i '/def add_multiarch_paths/a \        return' setup.py
-./configure --prefix=/tools --without-ensurepip
+sed -i 's|usr/bin/env |bin/|' run.sh.in
+./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/expat-2.2.6
 make
 make install
+install -v -m644 doc/*.{html,png,css} /usr/share/doc/expat-2.2.6
 
 
 cd $SOURCE_DIR

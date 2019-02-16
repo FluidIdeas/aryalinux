@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="029-Python.sh"
-TARBALL="python-3.7.2-docs-html.tar.bz2"
+STEPNAME="052-binutils.sh"
+TARBALL="binutils-2.32.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,10 +45,19 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-sed -i '/def add_multiarch_paths/a \        return' setup.py
-./configure --prefix=/tools --without-ensurepip
-make
-make install
+expect -c "spawn ls"
+mkdir -v build
+cd       build
+../configure --prefix=/usr       \
+             --enable-gold       \
+             --enable-ld=default \
+             --enable-plugins    \
+             --enable-shared     \
+             --disable-werror    \
+             --enable-64-bit-bfd \
+             --with-system-zlib
+make tooldir=/usr
+make tooldir=/usr install
 
 
 cd $SOURCE_DIR

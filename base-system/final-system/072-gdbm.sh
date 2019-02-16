@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="029-Python.sh"
-TARBALL="python-3.7.2-docs-html.tar.bz2"
+STEPNAME="072-gdbm.sh"
+TARBALL="gdbm-1.18.1.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,8 +45,9 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-sed -i '/def add_multiarch_paths/a \        return' setup.py
-./configure --prefix=/tools --without-ensurepip
+./configure --prefix=/usr    \
+            --disable-static \
+            --enable-libgdbm-compat
 make
 make install
 

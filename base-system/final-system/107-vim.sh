@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="029-Python.sh"
-TARBALL="python-3.7.2-docs-html.tar.bz2"
+STEPNAME="107-vim.sh"
+TARBALL="vim-8.1.tar.bz2"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,10 +45,28 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-sed -i '/def add_multiarch_paths/a \        return' setup.py
-./configure --prefix=/tools --without-ensurepip
+echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h
+./configure --prefix=/usr
 make
 make install
+ln -sv vim /usr/bin/vi
+for L in  /usr/share/man/{,*/}man1/vim.1; do
+    ln -sv vim.1 $(dirname $L)/vi.1
+done
+ln -sv ../vim/vim81/doc /usr/share/doc/vim-8.1
+cat > /etc/vimrc << "EOF"
+" Begin /etc/vimrc
+" Ensure defaults are set before customizing settings, not after
+source $VIMRUNTIME/defaults.vim
+let skip_defaults_vim=1 
+set nocompatible
+set backspace=2
+set mouse=syntax on
+if (&term == "xterm") || (&term == "putty")
+ set background=dark
+endif
+" End /etc/vimrc
+EOF
 
 
 cd $SOURCE_DIR

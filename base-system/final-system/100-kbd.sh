@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="029-Python.sh"
-TARBALL="python-3.7.2-docs-html.tar.bz2"
+STEPNAME="100-kbd.sh"
+TARBALL="kbd-2.0.4.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,10 +45,14 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-sed -i '/def add_multiarch_paths/a \        return' setup.py
-./configure --prefix=/tools --without-ensurepip
+patch -Np1 -i ../kbd-2.0.4-backspace-1.patch
+sed -i 's/\(RESIZECONS_PROGS=\)yes/\1no/g' configure
+sed -i 's/resizecons.8 //' docs/man/man8/Makefile.in
+PKG_CONFIG_PATH=/tools/lib/pkgconfig ./configure --prefix=/usr --disable-vlock
 make
 make install
+mkdir -v       /usr/share/doc/kbd-2.0.4
+cp -R -v docs/doc/* /usr/share/doc/kbd-2.0.4
 
 
 cd $SOURCE_DIR

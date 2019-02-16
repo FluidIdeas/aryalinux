@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="029-Python.sh"
-TARBALL="python-3.7.2-docs-html.tar.bz2"
+STEPNAME="063-libcap.sh"
+TARBALL="libcap-2.26.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,10 +45,12 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-sed -i '/def add_multiarch_paths/a \        return' setup.py
-./configure --prefix=/tools --without-ensurepip
+sed -i '/install.*STALIBNAME/d' libcap/Makefile
 make
-make install
+make RAISE_SETFCAP=no lib=lib prefix=/usr install
+chmod -v 755 /usr/lib/libcap.so.2.26
+mv -v /usr/lib/libcap.so.* /lib
+ln -sfv ../../lib/$(readlink /usr/lib/libcap.so) /usr/lib/libcap.so
 
 
 cd $SOURCE_DIR
