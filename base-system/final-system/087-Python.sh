@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="087-Python.sh"
-TARBALL="python-3.7.2-docs-html.tar.bz2"
+TARBALL="Python-3.7.2.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
