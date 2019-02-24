@@ -6,6 +6,9 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#REC:flac
+#REC:libogg
+#REC:libvorbis
 
 cd $SOURCE_DIR
 

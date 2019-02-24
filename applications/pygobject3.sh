@@ -8,6 +8,8 @@ set +h
 
 #REQ:gobject-introspection
 #REQ:pycairo
+#REC:python2
+#REC:pycairo
 
 cd $SOURCE_DIR
 
@@ -34,14 +36,29 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build &&
-cd build &&
+mkdir python2 &&
+pushd python2 &&
+meson --prefix=/usr -Dpython=python2 &&
+ninja &&
+popd
+mkdir python3 &&
+pushd python3 &&
 meson --prefix=/usr -Dpython=python3 &&
-ninja
+ninja &&
+popd
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install
+ninja -C python2 install
+ENDOFROOTSCRIPT
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ninja -C python3 install
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

@@ -12,6 +12,7 @@ set +h
 #REQ:libnotify
 #REC:gobject-introspection
 #REC:libburn
+#REC:libisoburn
 #REC:libisofs
 #REC:nautilus
 #REC:totem-pl-parser

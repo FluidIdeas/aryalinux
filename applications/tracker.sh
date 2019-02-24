@@ -18,12 +18,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/tracker/2.1/tracker-2.1.7.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/tracker/2.1/tracker-2.1.7.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/tracker/2.2/tracker-2.2.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/tracker/2.2/tracker-2.2.0.tar.xz
 
 NAME=tracker
-VERSION=2.1.7
-URL=http://ftp.gnome.org/pub/gnome/sources/tracker/2.1/tracker-2.1.7.tar.xz
+VERSION=2.2.0
+URL=http://ftp.gnome.org/pub/gnome/sources/tracker/2.2/tracker-2.2.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -41,14 +41,15 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---sysconfdir=/etc \
---with-session-bus-services-dir=/usr/share/dbus-1/services &&
-make
+mkdir build &&
+cd build &&
+
+meson --prefix=/usr --sysconfdir=/etc .. &&
+ninja
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

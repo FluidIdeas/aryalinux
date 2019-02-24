@@ -39,7 +39,9 @@ fi
 
 sed -i '/vlc_demux.h/a #define LUA_COMPAT_APIINTCASTS' modules/lua/vlc.h &&
 
-BUILDCC=gcc ./configure --prefix=/usr --disable-opencv &&
+BUILDCC=gcc ./configure --prefix=/usr \
+--disable-opencv \
+--disable-vpx &&
 
 make
 

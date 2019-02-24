@@ -36,6 +36,14 @@ fi
 cd $DIRECTORY
 fi
 
+cat >> main.cc << EOF
+
+#ifdef USEGC
+GC_API void GC_CALL GC_throw_bad_alloc() {
+std::bad_alloc();
+}
+#endif
+EOF
 export TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/') &&
 
 ./configure --prefix=/opt/texlive/2018 \

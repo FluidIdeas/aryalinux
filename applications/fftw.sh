@@ -32,7 +32,45 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --enable-shared --enable-threads &&
+./configure --prefix=/usr \
+--enable-shared \
+--enable-threads \
+--enable-sse2 \
+--enable-avx &&
+make
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+ENDOFROOTSCRIPT
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+make clean &&
+
+./configure --prefix=/usr \
+--enable-shared \
+--enable-threads \
+--enable-sse2 \
+--enable-avx \
+--enable-float &&
+make
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+ENDOFROOTSCRIPT
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+make clean &&
+
+./configure --prefix=/usr \
+--enable-shared \
+--enable-threads \
+--enable-long-double &&
 make
 
 sudo rm -rf /tmp/rootscript.sh

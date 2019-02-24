@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 
 wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.14.4.tar.xz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/gst-plugins-bad-1.14.4-fdkaac_2-1.patch
-# wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/gst-plugins-bad-1.14.4-fdkaac.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/gst-plugins-bad-1.14.4-fdkaac.patch
 
 NAME=gst10-plugins-bad
 VERSION=1.14.4
@@ -38,7 +38,7 @@ fi
 cd $DIRECTORY
 fi
 
-# patch -Np1 -i ../gst-plugins-bad-1.14.4-fdkaac.patch
+patch -Np1 -i ../gst-plugins-bad-1.14.4-fdkaac.patch
 patch -Np1 -i ../gst-plugins-bad-1.14.4-fdkaac_2-1.patch
 ./configure --prefix=/usr \
 --disable-wayland \

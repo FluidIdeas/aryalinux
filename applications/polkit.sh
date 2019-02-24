@@ -14,7 +14,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://www.freedesktop.org/software/polkit/releases/polkit-0.115.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/polkit-0.115-security_patch-2.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/polkit-0.115-security_patch-3.patch
 
 NAME=polkit
 VERSION=0.115
@@ -48,7 +48,7 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 sed -i "s:/sys/fs/cgroup/systemd/:/sys:g" configure
-patch -Np1 -i ../polkit-0.115-security_patch-2.patch
+patch -Np1 -i ../polkit-0.115-security_patch-3.patch
 ./configure --prefix=/usr \
 --sysconfdir=/etc \
 --localstatedir=/var \

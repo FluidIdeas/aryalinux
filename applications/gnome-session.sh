@@ -10,8 +10,8 @@ set +h
 #REQ:gnome-desktop
 #REQ:json-glib
 #REQ:mesa
-#REQ:upower
 #REQ:systemd
+#REQ:upower
 
 cd $SOURCE_DIR
 

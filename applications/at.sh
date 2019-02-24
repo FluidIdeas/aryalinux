@@ -49,13 +49,11 @@ autoreconf
 --with-daemon_groupname=atd \
 SENDMAIL=/usr/sbin/sendmail \
 --with-systemdsystemunitdir=/lib/systemd/system &&
-
 make -j1
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install \
-docdir=/usr/share/doc/at-3.1.23 \
+make install docdir=/usr/share/doc/at-3.1.23 \
 atdocdir=/usr/share/doc/at-3.1.23
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh

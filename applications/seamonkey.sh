@@ -120,7 +120,7 @@ export CFLAGS+=$EXTRA_FLAGS &&
 export CXXFLAGS+=$EXTRA_FLAGS &&
 unset EXTRA_FLAGS &&
 
-make -f client.mk
+CC=gcc CXX=g++ make -f client.mk
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

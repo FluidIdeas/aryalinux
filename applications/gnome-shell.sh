@@ -30,6 +30,7 @@ cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.30/gnome-shell-3.30.2.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.30/gnome-shell-3.30.2.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/gnome-shell-3.30.2-security_fix-1.patch
 
 NAME=gnome-shell
 VERSION=3.30.2
@@ -50,6 +51,8 @@ fi
 
 cd $DIRECTORY
 fi
+
+patch -Np1 -i ../gnome-shell-3.30.2-security_fix-1.patch &&
 
 mkdir build &&
 cd build &&

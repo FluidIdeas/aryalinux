@@ -10,6 +10,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.9p1.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/openssh-7.9p1-security_fix-1.patch
 
 NAME=openssh
 VERSION=7.9p1
@@ -48,6 +49,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+patch -Np1 -i ../openssh-7.9p1-security_fix-1.patch &&
 ./configure --prefix=/usr \
 --sysconfdir=/etc/ssh \
 --with-md5-passwords \

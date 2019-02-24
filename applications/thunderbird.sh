@@ -16,18 +16,17 @@ set +h
 #REQ:yasm
 #REC:icu
 #REC:libevent
-#REC:libvpx
 #REC:nspr
 #REC:nss
 #REC:sqlite
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/thunderbird/releases/60.5.0/source/thunderbird-60.5.0.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/thunderbird/releases/60.5.1/source/thunderbird-60.5.1.source.tar.xz
 
 NAME=thunderbird
-VERSION=60.5.0.source
-URL=https://archive.mozilla.org/pub/thunderbird/releases/60.5.0/source/thunderbird-60.5.0.source.tar.xz
+VERSION=60.5.1.source
+URL=https://archive.mozilla.org/pub/thunderbird/releases/60.5.1/source/thunderbird-60.5.1.source.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -75,7 +74,6 @@ ac_add_options --disable-gconf
 # recommended dependencies:
 ac_add_options --enable-system-sqlite
 ac_add_options --with-system-libevent
-ac_add_options --with-system-libvpx
 ac_add_options --with-system-nspr
 ac_add_options --with-system-nss
 ac_add_options --with-system-icu
@@ -134,7 +132,7 @@ MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/xml;ap
 StartupNotify=true
 EOF
 
-ln -sfv /usr/lib/thunderbird-60.5.0/chrome/icons/default/default256.png \
+ln -sfv /usr/lib/thunderbird-60.5.1/chrome/icons/default/default256.png \
 /usr/share/pixmaps/thunderbird.png
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh

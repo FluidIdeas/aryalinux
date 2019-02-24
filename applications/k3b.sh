@@ -10,6 +10,7 @@ set +h
 #REQ:libkcddb
 #REQ:libsamplerate
 #REQ:shared-mime-info
+#REQ:udisks2
 #REC:ffmpeg
 #REC:libburn
 #REC:libdvdread

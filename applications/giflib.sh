@@ -35,8 +35,8 @@ make
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make PREFIX=/usr install&&
-rm -v /usr/lib/libgif.a
+make PREFIX=/usr install &&
+rm -vf /usr/lib/libgif.a
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

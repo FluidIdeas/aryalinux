@@ -95,7 +95,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ln -sf $XORG_PREFIX/share/X11 /usr/share/X11
+ln -svf $XORG_PREFIX/share/X11 /usr/share/X11
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
@@ -104,7 +104,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ln -sf $XORG_PREFIX /usr/X11R6
+ln -svf $XORG_PREFIX /usr/X11R6
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

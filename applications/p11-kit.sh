@@ -60,7 +60,7 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 if [ -e /usr/lib/libnssckbi.so ]; then
 readlink /usr/lib/libnssckbi.so ||
-rm -v /usr/lib/libnssckbi.so &&
+rm -fv /usr/lib/libnssckbi.so &&
 ln -sfv ./pkcs11/p11-kit-trust.so /usr/lib/libnssckbi.so
 fi
 ENDOFROOTSCRIPT
