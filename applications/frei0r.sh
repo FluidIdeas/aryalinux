@@ -38,7 +38,6 @@ cd build &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr \
 -DCMAKE_BUILD_TYPE=Release \
--DOpenCV_DIR=/usr/share/OpenCV \
 -Wno-dev .. &&
 
 make

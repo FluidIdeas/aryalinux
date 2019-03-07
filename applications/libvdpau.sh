@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://people.freedesktop.org/~aplattner/vdpau/libvdpau-1.1.1.tar.bz2
+wget -nc https://gitlab.freedesktop.org/vdpau/libvdpau/uploads/14b620084c027d546fa0b3f083b800c6/libvdpau-1.2.tar.bz2
 
 NAME=libvdpau
-VERSION=1.1.1
-URL=https://people.freedesktop.org/~aplattner/vdpau/libvdpau-1.1.1.tar.bz2
+VERSION=1.2
+URL=https://gitlab.freedesktop.org/vdpau/libvdpau/uploads/14b620084c027d546fa0b3f083b800c6/libvdpau-1.2.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -36,7 +36,7 @@ export XORG_PREFIX=/usr
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
 ./configure $XORG_CONFIG \
---docdir=/usr/share/doc/libvdpau-1.1.1 &&
+--docdir=/usr/share/doc/libvdpau-1.2 &&
 make
 
 sudo rm -rf /tmp/rootscript.sh

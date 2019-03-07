@@ -42,16 +42,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.documentfoundation.org/libreoffice/src/6.1.4/libreoffice-6.1.4.2.tar.xz
-wget -nc http://download.documentfoundation.org/libreoffice/src/6.1.4/libreoffice-dictionaries-6.1.4.2.tar.xz
-wget -nc http://download.documentfoundation.org/libreoffice/src/6.1.4/libreoffice-help-6.1.4.2.tar.xz
-wget -nc http://download.documentfoundation.org/libreoffice/src/6.1.4/libreoffice-translations-6.1.4.2.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/libreoffice-6.1.4.2-consolidated_fixes-1.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/libreoffice-6.1.4.2-jdk11_fixes-1.patch
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.2.0/libreoffice-6.2.0.3.tar.xz
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.2.0/libreoffice-dictionaries-6.2.0.3.tar.xz
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.2.0/libreoffice-help-6.2.0.3.tar.xz
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.2.0/libreoffice-translations-6.2.0.3.tar.xz
 
 NAME=libreoffice
-VERSION=6.1.4.2
-URL=http://download.documentfoundation.org/libreoffice/src/6.1.4/libreoffice-6.1.4.2.tar.xz
+VERSION=6.2.0.3
+URL=http://download.documentfoundation.org/libreoffice/src/6.2.0/libreoffice-6.2.0.3.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -69,12 +67,11 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../libreoffice-6.1.4.2-consolidated_fixes-1.patch
-patch -Np1 -i ../libreoffice-6.1.4.2-jdk11_fixes-1.patch
+sed -i 's/loaded;/bool{loaded};/' sfx2/source/appl/shutdownicon.cxx
 install -dm755 external/tarballs &&
-ln -sv ../../../libreoffice-dictionaries-6.1.4.2.tar.xz external/tarballs/ &&
-ln -sv ../../../libreoffice-help-6.1.4.2.tar.xz external/tarballs/
-ln -sv ../../../libreoffice-translations-6.1.4.2.tar.xz external/tarballs/
+ln -sv ../../../libreoffice-dictionaries-6.2.0.3.tar.xz external/tarballs/ &&
+ln -sv ../../../libreoffice-help-6.2.0.3.tar.xz external/tarballs/
+ln -sv ../../../libreoffice-translations-6.2.0.3.tar.xz external/tarballs/
 export LO_PREFIX=/usr
 sed -e "/gzip -f/d"   \
 -e "s|.1.gz|.1|g" \
@@ -120,7 +117,7 @@ sed -e "/distro-install-file-lists/d" -i Makefile.in &&
  --with-system-zlib          \
  --without-java              \
  --disable-postgresql-sdbc
-CPPFLAGS='-DU_USING_ICU_NAMESPACE=1' make build-nocheck
+make build-nocheck
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

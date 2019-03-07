@@ -9,12 +9,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.pcre.org/pub/pcre/pcre-8.42.tar.bz2
-wget -nc ftp://ftp.pcre.org/pub/pcre/pcre-8.42.tar.bz2
+wget -nc https://ftp.pcre.org/pub/pcre/pcre-8.43.tar.bz2
+wget -nc ftp://ftp.pcre.org/pub/pcre/pcre-8.43.tar.bz2
 
 NAME=pcre
-VERSION=8.42
-URL=https://ftp.pcre.org/pub/pcre/pcre-8.42.tar.bz2
+VERSION=8.43
+URL=https://ftp.pcre.org/pub/pcre/pcre-8.43.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -33,7 +33,7 @@ cd $DIRECTORY
 fi
 
 ./configure --prefix=/usr \
---docdir=/usr/share/doc/pcre-8.42 \
+--docdir=/usr/share/doc/pcre-8.43 \
 --enable-unicode-properties \
 --enable-pcre16 \
 --enable-pcre32 \

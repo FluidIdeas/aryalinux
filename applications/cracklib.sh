@@ -9,12 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/cracklib/cracklib/releases/download/cracklib-2.9.6/cracklib-2.9.6.tar.gz
-wget -nc https://github.com/cracklib/cracklib/releases/download/cracklib-2.9.6/cracklib-words-2.9.6.gz
+wget -nc https://github.com/cracklib/cracklib/releases/download/v2.9.7/cracklib-2.9.7.tar.bz2
 
 NAME=cracklib
-VERSION=2.9.6
-URL=https://github.com/cracklib/cracklib/releases/download/cracklib-2.9.6/cracklib-2.9.6.tar.gz
+VERSION=2.9.7
+URL=https://github.com/cracklib/cracklib/releases/download/v2.9.7/cracklib-2.9.7.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -52,10 +51,10 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m644 -D ../cracklib-words-2.9.6.gz \
-/usr/share/dict/cracklib-words.gz &&
+install -v -m644 -D ../cracklib-words-2.9.7.bz2 \
+/usr/share/dict/cracklib-words.bz2 &&
 
-gunzip -v /usr/share/dict/cracklib-words.gz &&
+bunzip2 -v /usr/share/dict/cracklib-words.bz2 &&
 ln -v -sf cracklib-words /usr/share/dict/words &&
 echo $(hostname) >> /usr/share/dict/cracklib-extra-words &&
 install -v -m755 -d /lib/cracklib &&

@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.isc.org/isc/bind9/9.12.3-P1/bind-9.12.3-P1.tar.gz
+wget -nc ftp://ftp.isc.org/isc/bind9/9.12.4/bind-9.12.4.tar.gz
 
 NAME=bind
-VERSION=P1
-URL=ftp://ftp.isc.org/isc/bind9/9.12.3-P1/bind-9.12.3-P1.tar.gz
+VERSION=9.12.4
+URL=ftp://ftp.isc.org/isc/bind9/9.12.4/bind-9.12.4.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -31,6 +31,7 @@ fi
 cd $DIRECTORY
 fi
 
+pip3 install install ply
 ./configure --prefix=/usr \
 --sysconfdir=/etc \
 --localstatedir=/var \
@@ -63,11 +64,11 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
-install -v -m755 -d /usr/share/doc/bind-9.12.3-P1/{arm,misc} &&
+install -v -m755 -d /usr/share/doc/bind-9.12.4/{arm,misc} &&
 install -v -m644 doc/arm/*.html \
-/usr/share/doc/bind-9.12.3-P1/arm &&
+/usr/share/doc/bind-9.12.4/arm &&
 install -v -m644 doc/misc/{dnssec,ipv6,migrat*,options,rfc-compliance,roadmap,sdb} \
-/usr/share/doc/bind-9.12.3-P1/misc
+/usr/share/doc/bind-9.12.4/misc
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

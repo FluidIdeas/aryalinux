@@ -10,13 +10,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.kernel.org/pub/software/scm/git/git-2.20.1.tar.xz
-wget -nc https://www.kernel.org/pub/software/scm/git/git-manpages-2.20.1.tar.xz
-wget -nc https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.20.1.tar.xz
+wget -nc https://www.kernel.org/pub/software/scm/git/git-2.21.0.tar.xz
+wget -nc https://www.kernel.org/pub/software/scm/git/git-manpages-2.21.0.tar.xz
+wget -nc https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.21.0.tar.xz
 
 NAME=git
-VERSION=2.20.1
-URL=https://www.kernel.org/pub/software/scm/git/git-2.20.1.tar.xz
+VERSION=2.21.0
+URL=https://www.kernel.org/pub/software/scm/git/git-2.21.0.tar.xz
 
 if [ ! -z $URL ]
 then

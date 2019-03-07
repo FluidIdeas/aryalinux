@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof/lsof_4.91.tar.gz
+wget -nc https://www.mirrorservice.org/sites/lsof.itap.purdue.edu/pub/tools/unix/lsof/lsof_4.91.tar.gz
 
 NAME=lsof
 VERSION=lsof_4.91
-URL=ftp://lsof.itap.purdue.edu/pub/tools/unix/lsof/lsof_4.91.tar.gz
+URL=https://www.mirrorservice.org/sites/lsof.itap.purdue.edu/pub/tools/unix/lsof/lsof_4.91.tar.gz
 
 if [ ! -z $URL ]
 then

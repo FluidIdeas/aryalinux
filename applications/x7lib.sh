@@ -52,7 +52,7 @@ f7a218dcbf6f0848599c6c36fc65c51a libXcomposite-0.4.4.tar.bz2
 802179a76bded0b658f4e9ec5e1830a4 libXrender-0.9.10.tar.bz2
 58fe3514e1e7135cf364101e714d1a14 libXcursor-1.1.15.tar.bz2
 0cf292de2a9fa2e9a939aefde68fd34f libXdamage-1.1.4.tar.bz2
-0920924c3a9ebc1265517bdd2f9fde50 libfontenc-1.1.3.tar.bz2
+6447db6a689fb530c218f0f8328c3abc libfontenc-1.1.4.tar.bz2
 b7ca87dfafeb5205b28a1e91ac3efe85 libXfont2-2.0.3.tar.bz2
 331b3a2a3a1a78b5b44cfbd43f86fcfe libXft-2.3.2.tar.bz2
 1f0f2719c020655a60aee334ddd26d67 libXi-1.7.9.tar.bz2

@@ -17,11 +17,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/lxde/lxpanel-0.9.3.tar.xz
+wget -nc https://downloads.sourceforge.net/lxde/lxpanel-0.10.0.tar.xz
 
 NAME=lxpanel
-VERSION=0.9.3
-URL=https://downloads.sourceforge.net/lxde/lxpanel-0.9.3.tar.xz
+VERSION=0.10.0
+URL=https://downloads.sourceforge.net/lxde/lxpanel-0.10.0.tar.xz
 
 if [ ! -z $URL ]
 then

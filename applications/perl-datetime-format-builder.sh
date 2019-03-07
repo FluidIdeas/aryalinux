@@ -12,11 +12,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Builder-0.81.tar.gz
+wget -nc https://www.cpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Builder-0.82.tar.gz
 
 NAME=perl-datetime-format-builder
-VERSION=0.81
-URL=https://www.cpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Builder-0.81.tar.gz
+VERSION=0.82
+URL=https://www.cpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Builder-0.82.tar.gz
 
 if [ ! -z $URL ]
 then

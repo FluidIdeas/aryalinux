@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.isc.org/isc/bind9/9.12.3-P1/bind-9.12.3-P1.tar.gz
+wget -nc ftp://ftp.isc.org/isc/bind9/9.12.4/bind-9.12.4.tar.gz
 
 NAME=bind-utils
-VERSION=P1
-URL=ftp://ftp.isc.org/isc/bind9/9.12.3-P1/bind-9.12.3-P1.tar.gz
+VERSION=9.12.4
+URL=ftp://ftp.isc.org/isc/bind9/9.12.4/bind-9.12.4.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -31,7 +31,7 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr &&
+./configure --prefix=/usr --without-python &&
 make -C lib/dns &&
 make -C lib/isc &&
 make -C lib/bind9 &&

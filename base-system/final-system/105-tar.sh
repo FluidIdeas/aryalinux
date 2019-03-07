@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="105-tar.sh"
-TARBALL="tar-1.31.tar.xz"
+TARBALL="tar-1.32.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,13 +45,12 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-sed -i 's/abort.*/FALLTHROUGH;/' src/extract.c
 FORCE_UNSAFE_CONFIGURE=1  \
 ./configure --prefix=/usr \
             --bindir=/bin
 make
 make install
-make -C doc install-html docdir=/usr/share/doc/tar-1.31
+make -C doc install-html docdir=/usr/share/doc/tar-1.32
 
 
 cd $SOURCE_DIR

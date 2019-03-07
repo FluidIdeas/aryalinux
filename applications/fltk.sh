@@ -13,11 +13,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://fltk.org/pub/fltk/1.3.4/fltk-1.3.4-2-source.tar.gz
+wget -nc http://fltk.org/pub/fltk/1.3.5/fltk-1.3.5-source.tar.gz
 
 NAME=fltk
 VERSION=1.3.4-2
-URL=http://fltk.org/pub/fltk/1.3.4/fltk-1.3.4-2-source.tar.gz
+URL=http://fltk.org/pub/fltk/1.3.5/fltk-1.3.5-source.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -44,7 +44,7 @@ make -C documentation html
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make docdir=/usr/share/doc/fltk-1.3.4-2 install
+make docdir=/usr/share/doc/fltk-1.3.5 install
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
@@ -53,8 +53,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make -C test docdir=/usr/share/doc/fltk-1.3.4-2 install-linux &&
-make -C documentation docdir=/usr/share/doc/fltk-1.3.4-2 install-linux
+make -C test docdir=/usr/share/doc/fltk-1.3.5 install-linux &&
+make -C documentation docdir=/usr/share/doc/fltk-1.3.5 install-linux
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

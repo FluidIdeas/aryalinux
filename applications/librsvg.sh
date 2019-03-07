@@ -16,12 +16,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.12.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.12.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.13.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.13.tar.xz
 
 NAME=librsvg
-VERSION=2.44.12
-URL=http://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.12.tar.xz
+VERSION=2.44.13
+URL=http://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.13.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -48,6 +48,15 @@ make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
+ENDOFROOTSCRIPT
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+gdk-pixbuf-query-loaders --update-cache
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

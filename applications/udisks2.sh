@@ -20,11 +20,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/storaged-project/udisks/releases/download/udisks-2.8.1/udisks-2.8.1.tar.bz2
+wget -nc https://github.com/storaged-project/udisks/releases/download/udisks-2.8.2/udisks-2.8.2.tar.bz2
 
 NAME=udisks2
-VERSION=2.8.1
-URL=https://github.com/storaged-project/udisks/releases/download/udisks-2.8.1/udisks-2.8.1.tar.bz2
+VERSION=2.8.2
+URL=https://github.com/storaged-project/udisks/releases/download/udisks-2.8.2/udisks-2.8.2.tar.bz2
 
 if [ ! -z $URL ]
 then

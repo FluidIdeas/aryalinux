@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="106-texinfo.sh"
-TARBALL="texinfo-6.5.tar.xz"
+TARBALL="texinfo-6.6.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,7 +45,6 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-sed -i '5481,5485 s/({/(\\{/' tp/Texinfo/Parser.pm
 ./configure --prefix=/usr --disable-static
 make
 make install

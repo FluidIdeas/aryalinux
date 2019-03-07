@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/lxde/lxrandr-0.3.1.tar.xz
+wget -nc https://downloads.sourceforge.net/lxde/lxrandr-0.3.2.tar.xz
 
 NAME=lxrandr
-VERSION=0.3.1
-URL=https://downloads.sourceforge.net/lxde/lxrandr-0.3.1.tar.xz
+VERSION=0.3.2
+URL=https://downloads.sourceforge.net/lxde/lxrandr-0.3.2.tar.xz
 
 if [ ! -z $URL ]
 then

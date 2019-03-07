@@ -13,11 +13,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/lxde/lxsession-0.5.3.tar.xz
+wget -nc https://downloads.sourceforge.net/lxde/lxsession-0.5.4.tar.xz
 
 NAME=lxsession
-VERSION=0.5.3
-URL=https://downloads.sourceforge.net/lxde/lxsession-0.5.3.tar.xz
+VERSION=0.5.4
+URL=https://downloads.sourceforge.net/lxde/lxsession-0.5.4.tar.xz
 
 if [ ! -z $URL ]
 then

@@ -10,7 +10,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.postgresql.org/pub/source/v11.2/postgresql-11.2.tar.bz2
-wget -nc ftp://ftp.postgresql.org/pub/source/v11.2/postgresql-11.2.tar.bz2
 
 NAME=postgresql
 VERSION=11.2

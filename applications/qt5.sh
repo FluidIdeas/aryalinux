@@ -55,6 +55,8 @@ cd $DIRECTORY
 fi
 
 export QT5PREFIX=/usr
+sed -i "s/volatile//" \
+qtscript/src/3rdparty/javascriptcore/JavaScriptCore/jit/JITStubs.cpp
 ./configure -prefix $QT5PREFIX                          \
             -sysconfdir /etc/xdg                        \
             -confirm-license                            \

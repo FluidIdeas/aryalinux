@@ -48,6 +48,8 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 sed -i 's/.\x08//g' README_FILES/*
+sed -i -e 's/\$RELEASE_MAJOR/3/' \
+-e '/Linux..3/s/34/345/' makedefs
 make CCARGS="-DUSE_TLS -I/usr/include/openssl/ \
 -DUSE_SASL_AUTH -DUSE_CYRUS_SASL -I/usr/include/sasl" \
 AUXLIBS="-lssl -lcrypto -lsasl2" \

@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.rarlab.com/rar/unrarsrc-5.7.1.tar.gz
+wget -nc http://www.rarlab.com/rar/unrarsrc-5.7.3.tar.gz
 
 NAME=unrar
-VERSION=5.7.1
-URL=http://www.rarlab.com/rar/unrarsrc-5.7.1.tar.gz
+VERSION=5.7.3
+URL=http://www.rarlab.com/rar/unrarsrc-5.7.3.tar.gz
 
 if [ ! -z $URL ]
 then

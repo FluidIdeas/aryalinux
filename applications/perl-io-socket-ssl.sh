@@ -8,14 +8,15 @@ set +h
 
 #REQ:make-ca
 #REQ:perl-net-ssleay
+#REC:perl-uri
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.060.tar.gz
+wget -nc https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.065.tar.gz
 
 NAME=perl-io-socket-ssl
-VERSION=2.060
-URL=https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.060.tar.gz
+VERSION=2.065
+URL=https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.065.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -34,7 +35,8 @@ cd $DIRECTORY
 fi
 
 yes | perl Makefile.PL &&
-make
+make &&
+
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

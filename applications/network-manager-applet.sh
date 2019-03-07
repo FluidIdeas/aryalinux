@@ -6,6 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#REQ:gcr
 #REQ:gtk3
 #REQ:iso-codes
 #REQ:libsecret

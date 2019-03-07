@@ -15,12 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/ibus/ibus/releases/download/1.5.19/ibus-1.5.19.tar.gz
+wget -nc https://github.com/ibus/ibus/releases/download/1.5.20/ibus-1.5.20.tar.gz
 wget -nc https://www.unicode.org/Public/zipped/10.0.0/UCD.zip
 
 NAME=ibus
-VERSION=1.5.19
-URL=https://github.com/ibus/ibus/releases/download/1.5.19/ibus-1.5.19.tar.gz
+VERSION=1.5.20
+URL=https://github.com/ibus/ibus/releases/download/1.5.20/ibus-1.5.20.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -40,9 +40,6 @@ fi
 
 mkdir -p /usr/share/unicode/ucd &&
 unzip -u ../UCD.zip -d /usr/share/unicode/ucd
-sed -i 's@/desktop/ibus@/org/freedesktop/ibus@g' \
-data/ibus.schemas.in \
-data/dconf/org.freedesktop.ibus.gschema.xml.in
 ./configure --prefix=/usr \
 --sysconfdir=/etc \
 --disable-unicode-dict \

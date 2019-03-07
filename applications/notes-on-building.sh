@@ -79,7 +79,9 @@ echo -e "\n\n$A_STRING\n\n"
 EOF
 chmod 755 blfs-yes-test2
 yes | ./blfs-yes-test2 > blfs-yes-test2.log 2>&1
-find /{,usr/}{bin,lib,sbin} -type f -exec strip --strip-unneeded {} \;
+find /{,usr/}{bin,lib,sbin} \
+-type f \( -name \*.so* -a ! -name \*dbg \) \
+-exec strip --strip-unneeded {} \;
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

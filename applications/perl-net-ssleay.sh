@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/Net-SSLeay-1.85-openssl_1.1.1-1.patch
+wget -nc https://github.com/rurban/Net-SSLeay/archive/1.86_06/Net-SSLeay-1.86_06.tar.gz
 
 NAME=perl-net-ssleay
-VERSION=1.patch
-URL=http://www.linuxfromscratch.org/patches/blfs/svn/Net-SSLeay-1.85-openssl_1.1.1-1.patch
+VERSION=1.86_06
+URL=https://github.com/rurban/Net-SSLeay/archive/1.86_06/Net-SSLeay-1.86_06.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -31,7 +31,6 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../Net-SSLeay-1.85-openssl_1.1.1-1.patch
 yes '' | perl Makefile.PL &&
 make &&
 

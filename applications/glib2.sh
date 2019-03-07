@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/glib/2.58/glib-2.58.3.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glib/2.58/glib-2.58.3.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/glib-2.58.3-skip_warnings-1.patch
+wget -nc http://ftp.gnome.org/pub/gnome/sources/glib/2.60/glib-2.60.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glib/2.60/glib-2.60.0.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/glib-2.60.0-skip_warnings-1.patch
 
 NAME=glib2
-VERSION=2.58.3
-URL=http://ftp.gnome.org/pub/gnome/sources/glib/2.58/glib-2.58.3.tar.xz
+VERSION=2.60.0
+URL=http://ftp.gnome.org/pub/gnome/sources/glib/2.60/glib-2.60.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -36,13 +36,13 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../glib-2.58.3-skip_warnings-1.patch
-mkdir build-glib &&
-cd build-glib &&
+patch -Np1 -i ../glib-2.60.0-skip_warnings-1.patch
+mkdir build &&
+cd build &&
 
 meson --prefix=/usr \
 -Dman=true \
--Dselinux=false \
+-Dselinux=disabled \
 .. &&
 ninja
 
@@ -50,8 +50,8 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
 
-mkdir -p /usr/share/doc/glib-2.58.3 &&
-cp -r ../docs/reference/{NEWS,gio,glib,gobject} /usr/share/doc/glib-2.58.3
+mkdir -p /usr/share/doc/glib-2.60.0 &&
+cp -r ../docs/reference/{NEWS,gio,glib,gobject} /usr/share/doc/glib-2.60.0
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
