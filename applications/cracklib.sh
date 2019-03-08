@@ -10,6 +10,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://github.com/cracklib/cracklib/releases/download/v2.9.7/cracklib-2.9.7.tar.bz2
+wget -nc https://github.com/cracklib/cracklib/releases/download/v2.9.7/cracklib-words-2.9.7.bz2
 
 NAME=cracklib
 VERSION=2.9.7
