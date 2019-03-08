@@ -70,16 +70,6 @@ openssl x509 -in root.crt -text -fingerprint -setalias "CAcert Class 1 root" \
 openssl x509 -in class3.crt -text -fingerprint -setalias "CAcert Class 3 root" \
 -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning \
 | sudo tee /etc/ssl/local/CAcert_Class_3_root.pem
-sudo install -vdm755 /etc/ssl/local &&
-openssl x509 -in /etc/ssl/certs/Makebelieve_CA_Root.pem \
--text \
--fingerprint 
--setalias "Disabled Makebelieve CA Root" \
--addreject serverAuth \
--addreject emailProtection \
--addreject codeSigning \
-> /etc/ssl/local/Disabled_Makebelieve_CA_Root.pem &&
-/usr/sbin/make-ca -r -f
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
