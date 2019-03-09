@@ -46,6 +46,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs4-base.
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs4-kbuild.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs4-mmap.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs4-standalone.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs4-z.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/grub-2.02-relocation.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/squashfs-tools-4.3-sysmacros.patch
 wget -nc https://sourceware.org/ftp/elfutils/0.170/elfutils-0.170.tar.bz2

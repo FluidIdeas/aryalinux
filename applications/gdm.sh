@@ -85,6 +85,8 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+sudo sed -i "s@#WaylandEnable=false@WaylandEnable=false@g" /etc/gdm/custom.conf
+echo "DefaultSession=gnome-xorg.desktop" sudo tee -a /etc/gdm/custom.conf
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
