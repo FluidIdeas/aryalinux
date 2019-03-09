@@ -85,8 +85,24 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sudo sed -i "s@#WaylandEnable=false@WaylandEnable=false@g" /etc/gdm/custom.conf
-echo "DefaultSession=gnome-xorg.desktop" sudo tee -a /etc/gdm/custom.conf
+sudo tee /etc/gdm/custom.conf <<"EOF"
+# GDM configuration storage
+
+[daemon]
+# Uncomment the line below to force the login screen to use Xorg
+#WaylandEnable=false
+DefaultSession=gnome-xorg.desktop
+
+[security]
+
+[xdmcp]
+
+[chooser]
+
+[debug]
+# Uncomment the line below to turn on debugging
+#Enable=true
+EOF
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
