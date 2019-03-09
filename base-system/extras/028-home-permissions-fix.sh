@@ -19,5 +19,3 @@ done
 EOF
 
 echo "$STEPNAME" | tee -a $LOGFILE
-
-fi
