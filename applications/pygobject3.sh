@@ -64,14 +64,6 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-cd ..
-sudo rm -rf build
-mkdir -pv build
-cd build
-
-meson --prefix=/usr -Dpython=python2 &&
-ninja
-sudo ninja install
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
