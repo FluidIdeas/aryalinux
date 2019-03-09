@@ -57,6 +57,7 @@ set +h
 #REQ:mutter
 #REQ:gnome-shell
 #REQ:gnome-shell-extensions
+#REQ:gnome-shell-coverflow-alt-tab
 #REQ:gnome-session
 #REQ:gdm
 #REQ:gnome-user-docs
