@@ -11,10 +11,10 @@ STEPNAME="028-home-permissions-fix"
 
 cd $SOURCE_DIR
 
-cat > /etc/profile.d/home-permissions-fix.sh <<EOF
+cat > /etc/profile.d/home-permissions-fix.sh <<"EOF"
 pushd /home
 for d in *; do
-chown -R $d:$d d
+chown -R $d:$d $d
 done
 popd
 EOF
