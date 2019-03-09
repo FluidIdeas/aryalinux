@@ -13,7 +13,6 @@ cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.31/gnome-menus-3.31.4.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.31/gnome-menus-3.31.4.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.4/gnome-menus-3.31.4-applications-menu.patch
 
 NAME=gnome-menus
 VERSION=3.31.4
@@ -35,7 +34,6 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../gnome-menus-3.31.4-applications-menu.patch
 sed -i '129i </Exclude>' layout/gnome-applications.menu
 ./configure --prefix=/usr \
 --sysconfdir=/etc \
