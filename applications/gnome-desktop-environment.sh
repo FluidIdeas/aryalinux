@@ -128,6 +128,7 @@ sudo tee /etc/profile.d/aryalinux-desktop.sh << EOF
 cd ~
 xdg-user-dirs-update
 default-gnome-user-instructions
+sudo rm /usr/share/xsessions/gnome.desktop
 EOF
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
