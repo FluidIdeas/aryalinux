@@ -79,44 +79,44 @@ sed -e "/gzip -f/d"   \
 
 sed -e "/distro-install-file-lists/d" -i Makefile.in &&
 
-./autogen.sh --prefix=$LO_PREFIX   \
- --sysconfdir=/etc           \
- --with-vendor=BLFS          \
- --with-lang='en-US'         \
- --with-help                 \
- --with-myspell-dicts        \
- --with-alloc=system         \
- --without-junit             \
- --without-system-dicts      \
- --disable-dconf             \
- --disable-odk               \
- --enable-release-build=yes  \
- --enable-python=system      \
- --with-system-apr           \
- --with-system-boost         \
- --with-system-cairo         \
- --with-system-clucene       \
- --with-system-curl          \
- --with-system-expat         \
- --with-system-graphite      \
- --with-system-harfbuzz      \
- --with-system-icu           \
- --with-system-jpeg          \
- --with-system-lcms2         \
- --with-system-libatomic_ops \
- --with-system-libpng        \
- --with-system-libxml        \
- --with-system-neon          \
- --with-system-nss           \
- --with-system-odbc          \
- --with-system-openldap      \
- --with-system-openssl       \
- --with-system-poppler       \
- --with-system-redland       \
- --with-system-serf          \
- --with-system-zlib          \
- --without-java              \
- --disable-postgresql-sdbc
+./autogen.sh --prefix=/usr               \
+             --sysconfdir=/etc           \
+             --with-vendor=BLFS          \
+             --with-lang=ALL             \
+             --with-help                 \
+             --with-myspell-dicts        \
+             --without-junit             \
+             --without-system-dicts      \
+             --disable-dconf             \
+             --disable-odk               \
+             --enable-release-build=yes  \
+             --enable-python=system      \
+             --with-system-apr           \
+             --with-system-boost         \
+             --with-system-cairo         \
+             --with-system-clucene       \
+             --with-system-curl          \
+             --with-system-expat         \
+             --with-system-graphite      \
+             --with-system-harfbuzz      \
+             --with-system-icu           \
+             --with-system-jpeg          \
+             --with-system-lcms2         \
+             --with-system-libatomic_ops \
+             --with-system-libpng        \
+             --with-system-libxml        \
+             --with-system-neon          \
+             --with-system-nss           \
+             --with-system-odbc          \
+             --with-system-openldap      \
+             --with-system-openssl       \
+             --with-system-poppler       \
+             --with-system-redland       \
+             --with-system-serf          \
+             --with-system-zlib          \
+             --without-java              \
+             --disable-postgresql-sdbc
+
 make build-nocheck
 
 sudo rm -rf /tmp/rootscript.sh
