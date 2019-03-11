@@ -60,10 +60,8 @@ fi
 TARBALL="firefox.tar.bz2"
 DIRECTORY=`tar -tf $TARBALL | sed -e 's@/.*@@' | uniq`
 
-tar -xf $TARBALL
-cd $DIRECTORY
-sudo mkdir -pv /opt/firefox
-sudo cp -rf * /opt/firefox
+sudo tar -xf $TARBALL -C /opt
+sudo chmod -R a+rw /opt/firefox
 
 sudo tee /usr/share/applications/firefox.desktop << "EOF" &&
 [Desktop Entry]
