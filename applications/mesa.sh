@@ -41,41 +41,42 @@ cd $DIRECTORY
 fi
 
 patch -Np1 -i ../mesa-19.0.0-add_xdemos-2.patch
-DRI_DRIVERS="i915,i965,nouveau,r200,radeon,swrast"
-GALLIUM_DRIVERS="nouveau,r300,r600,svga,radeonsi,swrast,virgl"
-VULKAN=" --with-vulkan-drivers=intel,radeon "
-EGL_PLATFORMS="drm,x11"
-
 export XORG_PREFIX=/usr
 
-./configure CFLAGS='-O2' CXXFLAGS='-O2' LDFLAGS=-lLLVM \
-  --prefix=$XORG_PREFIX \
-  --sysconfdir=/etc \
-  --with-dri-driverdir=/usr/lib${LIBDIRSUFFIX}/xorg/modules/dri \
-  --with-dri-drivers="$DRI_DRIVERS" \
-  --with-gallium-drivers="$GALLIUM_DRIVERS" \
-  --with-egl-platforms="$EGL_PLATFORMS" \
-  $VULKAN \
-  --enable-llvm \
-  --enable-llvm-shared-libs \
-  --enable-egl \
-  --enable-texture-float \
-  --enable-shared-glapi \
-  --enable-xa \
-  --enable-nine \
-  --enable-osmesa \
-  --enable-dri \
-  --enable-dri3 \
-  --enable-gbm \
-  --enable-glx \
-  --enable-glx-tls \
-  --enable-gles1 \
-  --enable-gles2 \
-  --enable-vdpau \
-  --enable-va
-make "-j`nproc`" || make
-make -C xdemos DEMOS_PREFIX=$XORG_PREFIX
-sudo make install
+mkdir build &&
+cd    build &&
+
+meson --prefix=$XORG_PREFIX          \
+      --sysconfdir=/etc              \
+      -Dllvm=true                    \
+      -Dshared-llvm=true             \
+      -Degl=true                     \
+      -Dshared-glapi=true            \
+      -Dgallium-xa=true              \
+      -Dgallium-nine=true            \
+      -Dgallium-vdpau=true           \
+      -Dgallium-va=true              \
+      -Ddri3=true                    \
+      -Dglx=dri                      \
+      -Dgbm=true                     \
+      -Dglx-direct=true              \
+      -Dgles1=true                   \
+      -Dgles2=true                   \
+      -Dvalgrind=false               \
+      -Dosmesa=gallium               \
+      -Ddri-drivers=auto             \
+      -Dgallium-drivers=auto         \
+      -Dplatforms=auto               \
+      -Dvulkan-drivers=auto          \
+      ..                             &&
+
+unset GALLIUM_DRIVERS DRI_DRIVERS EGL_PLATFORMS &&
+
+ninja
+
+make -C ../xdemos DEMOS_PREFIX=$XORG_PREFIX LIBRARY_PATH=$PWD/src/glx
+sudo ninja install
+make -C ../xdemos DEMOS_PREFIX=$XORG_PREFIX install
 sudo install -v -dm755 /usr/share/doc/mesa-19.0.0
 sudo cp -rfv docs/* /usr/share/doc/mesa-19.0.0
 
