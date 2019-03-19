@@ -78,7 +78,7 @@ make -C ../xdemos DEMOS_PREFIX=$XORG_PREFIX LIBRARY_PATH=$PWD/src/glx
 sudo ninja install
 sudo make -C ../xdemos DEMOS_PREFIX=$XORG_PREFIX install
 sudo install -v -dm755 /usr/share/doc/mesa-19.0.0
-sudo cp -rfv docs/* /usr/share/doc/mesa-19.0.0
+sudo cp -rfv ../docs/* /usr/share/doc/mesa-19.0.0
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
