@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/freetype/freetype-2.9.1.tar.bz2
-wget -nc https://downloads.sourceforge.net/freetype/freetype-doc-2.9.1.tar.bz2
+wget -nc https://downloads.sourceforge.net/freetype/freetype-2.10.0.tar.bz2
+wget -nc https://downloads.sourceforge.net/freetype/freetype-doc-2.10.0.tar.bz2
 
 NAME=freetype2
-VERSION=2.9.1
-URL=https://downloads.sourceforge.net/freetype/freetype-2.9.1.tar.bz2
+VERSION=2.10.0
+URL=https://downloads.sourceforge.net/freetype/freetype-2.10.0.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -35,7 +35,7 @@ fi
 cd $DIRECTORY
 fi
 
-tar -xf ../freetype-doc-2.9.1.tar.bz2 --strip-components=2 -C docs
+tar -xf ../freetype-doc-2.10.0.tar.bz2 --strip-components=2 -C docs
 sed -ri "s:.*(AUX_MODULES.*valid):\1:" modules.cfg &&
 
 sed -r "s:.*(#.*SUBPIXEL_RENDERING) .*:\1:" \
@@ -55,9 +55,9 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m755 -d /usr/share/doc/freetype-2.9.1 &&
-cp -v -R docs/* /usr/share/doc/freetype-2.9.1 &&
-rm -v /usr/share/doc/freetype-2.9.1/freetype-config.1
+install -v -m755 -d /usr/share/doc/freetype-2.10.0 &&
+cp -v -R docs/* /usr/share/doc/freetype-2.10.0 &&
+rm -v /usr/share/doc/freetype-2.10.0/freetype-config.1
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

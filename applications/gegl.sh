@@ -8,6 +8,7 @@ set +h
 
 #REQ:babl
 #REQ:json-glib
+#REQ:libjpeg
 
 cd $SOURCE_DIR
 

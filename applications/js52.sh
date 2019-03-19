@@ -45,7 +45,6 @@ cd js/src &&
 --with-system-zlib \
 --with-system-nspr \
 --with-system-icu \
---enable-threadsafe \
 --enable-readline &&
 make
 

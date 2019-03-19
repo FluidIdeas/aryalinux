@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="112-e2fsprogs.sh"
-TARBALL="e2fsprogs-1.44.5.tar.gz"
+TARBALL="e2fsprogs-1.45.0.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -46,7 +46,7 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 fi
 
 mkdir -v build
-cd build
+cd       build
 ../configure --prefix=/usr           \
              --bindir=/bin           \
              --with-root-prefix=""   \

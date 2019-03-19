@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/atk/2.30/atk-2.30.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/atk/2.30/atk-2.30.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/atk/2.32/atk-2.32.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/atk/2.32/atk-2.32.0.tar.xz
 
 NAME=atk
-VERSION=2.30.0
-URL=http://ftp.gnome.org/pub/gnome/sources/atk/2.30/atk-2.30.0.tar.xz
+VERSION=2.32.0
+URL=http://ftp.gnome.org/pub/gnome/sources/atk/2.32/atk-2.32.0.tar.xz
 
 if [ ! -z $URL ]
 then

@@ -167,6 +167,13 @@ file=$(echo $line | cut -d" " -f2)
 pkg=$(echo $file|sed 's|^.*/||') # Remove directory
 packagedir=$(echo $pkg|sed 's|\.tar.*||') # Package directory
 
+# Fix a security issue in kcodecs
+name=$(echo $pkg|sed 's|-5.*$||') # Isolate package name
+
+if [ "$name" == "kcodecs" ]; then
+sed -i '/int ISO2022JPChar/s/}/, 0, 0}/' src/probers/nsEscSM.cpp
+fi
+
 tar -xf $file
 pushd $packagedir
 mkdir -pv build

@@ -10,12 +10,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.x.org/pub/individual/lib/libXdmcp-1.1.2.tar.bz2
-wget -nc ftp://ftp.x.org/pub/individual/lib/libXdmcp-1.1.2.tar.bz2
+wget -nc https://www.x.org/pub/individual/lib/libXdmcp-1.1.3.tar.bz2
+wget -nc ftp://ftp.x.org/pub/individual/lib/libXdmcp-1.1.3.tar.bz2
 
 NAME=libxdmcp
-VERSION=1.1.2
-URL=https://www.x.org/pub/individual/lib/libXdmcp-1.1.2.tar.bz2
+VERSION=1.1.3
+URL=https://www.x.org/pub/individual/lib/libXdmcp-1.1.3.tar.bz2
 
 if [ ! -z $URL ]
 then

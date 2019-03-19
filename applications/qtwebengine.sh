@@ -19,11 +19,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.qt.io/archive/qt/5.12/5.12.1/submodules/qtwebengine-everywhere-src-5.12.1.tar.xz
+wget -nc https://download.qt.io/archive/qt/5.12/5.12.2/submodules/qtwebengine-everywhere-src-5.12.2.tar.xz
 
 NAME=qtwebengine
-VERSION=5.12.1
-URL=https://download.qt.io/archive/qt/5.12/5.12.1/submodules/qtwebengine-everywhere-src-5.12.1.tar.xz
+VERSION=5.12.2
+URL=https://download.qt.io/archive/qt/5.12/5.12.2/submodules/qtwebengine-everywhere-src-5.12.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -46,7 +46,10 @@ xargs sed -i -e 's|INCLUDEPATH += |&$$QTWEBENGINE_ROOT/include |'
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+
+if [ -e ${QT5DIR}/lib/libQtWebEngineCore.so ]; then
 mv -v ${QT5DIR}/lib/libQtWebEngineCore.so{,.old}
+fi
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

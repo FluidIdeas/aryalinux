@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.unbound.net/downloads/unbound-1.9.0.tar.gz
+wget -nc http://www.unbound.net/downloads/unbound-1.9.1.tar.gz
 
 NAME=unbound
-VERSION=1.9.0
-URL=http://www.unbound.net/downloads/unbound-1.9.0.tar.gz
+VERSION=1.9.1
+URL=http://www.unbound.net/downloads/unbound-1.9.1.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -61,8 +61,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m755 -d /usr/share/doc/unbound-1.9.0 &&
-install -v -m644 doc/html/* /usr/share/doc/unbound-1.9.0
+install -v -m755 -d /usr/share/doc/unbound-1.9.1 &&
+install -v -m644 doc/html/* /usr/share/doc/unbound-1.9.1
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

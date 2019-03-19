@@ -7,16 +7,15 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:glib2
-#REC:which
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.58/gobject-introspection-1.58.3.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.58/gobject-introspection-1.58.3.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.60/gobject-introspection-1.60.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.60/gobject-introspection-1.60.0.tar.xz
 
 NAME=gobject-introspection
-VERSION=1.58.3
-URL=http://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.58/gobject-introspection-1.58.3.tar.xz
+VERSION=1.60.0
+URL=http://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.60/gobject-introspection-1.60.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -34,14 +33,15 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---disable-static \
---with-python=/usr/bin/python3 &&
-make
+mkdir build &&
+cd build &&
+
+meson --prefix=/usr .. &&
+ninja
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

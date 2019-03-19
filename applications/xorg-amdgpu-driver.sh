@@ -10,12 +10,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.x.org/pub/individual/driver/xf86-video-amdgpu-18.1.0.tar.bz2
-wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-amdgpu-18.1.0.tar.bz2
+wget -nc https://www.x.org/pub/individual/driver/xf86-video-amdgpu-19.0.0.tar.bz2
+wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-amdgpu-19.0.0.tar.bz2
 
 NAME=xorg-amdgpu-driver
-VERSION=18.1.0
-URL=https://www.x.org/pub/individual/driver/xf86-video-amdgpu-18.1.0.tar.bz2
+VERSION=19.0.0
+URL=https://www.x.org/pub/individual/driver/xf86-video-amdgpu-19.0.0.tar.bz2
 
 if [ ! -z $URL ]
 then

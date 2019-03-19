@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="090-coreutils.sh"
-TARBALL="coreutils-8.30.tar.xz"
+TARBALL="coreutils-8.31.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,7 +45,7 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-patch -Np1 -i ../coreutils-8.30-i18n-1.patch
+patch -Np1 -i ../coreutils-8.31-i18n-1.patch
 sed -i '/test.lock/s/^/#/' gnulib-tests/gnulib.mk
 autoreconf -fiv
 FORCE_UNSAFE_CONFIGURE=1 ./configure \

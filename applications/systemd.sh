@@ -11,12 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/systemd/systemd/archive/v240/systemd-240.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/systemd-240-security_fixes-2.patch
+wget -nc https://github.com/systemd/systemd/archive/v241/systemd-241.tar.gz
 
 NAME=systemd
-VERSION=240
-URL=https://github.com/systemd/systemd/archive/v240/systemd-240.tar.gz
+VERSION=241
+URL=https://github.com/systemd/systemd/archive/v241/systemd-241.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -34,7 +33,6 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../systemd-240-security_fixes-2.patch
 sed -i 's/GROUP="render", //' rules/50-udev-default.rules.in
 mkdir build &&
 cd build &&

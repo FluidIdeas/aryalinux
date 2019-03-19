@@ -29,7 +29,7 @@ cd $SOURCE_DIR
 
 
 NAME=firefox
-VERSION=65.0.1.source
+VERSION=66.0.source
 URL=""
 
 if [ ! -z $URL ]

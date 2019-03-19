@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/glibmm/2.58/glibmm-2.58.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glibmm/2.58/glibmm-2.58.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/glibmm/2.58/glibmm-2.58.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glibmm/2.58/glibmm-2.58.1.tar.xz
 
 NAME=glibmm
-VERSION=2.58.0
-URL=http://ftp.gnome.org/pub/gnome/sources/glibmm/2.58/glibmm-2.58.0.tar.xz
+VERSION=2.58.1
+URL=http://ftp.gnome.org/pub/gnome/sources/glibmm/2.58/glibmm-2.58.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -34,7 +34,7 @@ fi
 cd $DIRECTORY
 fi
 
-sed -e '/^libdocdir =/ s/$(book_name)/glibmm-2.58.0/' \
+sed -e '/^libdocdir =/ s/$(book_name)/glibmm-2.58.1/' \
 -i docs/Makefile.in
 ./configure --prefix=/usr &&
 make

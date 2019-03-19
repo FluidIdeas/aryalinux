@@ -6,14 +6,15 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#REQ:xmlto
 
 cd $SOURCE_DIR
 
-wget -nc https://sourceforge.net/projects/giflib/files/giflib-5.1.6.tar.gz
+wget -nc https://sourceforge.net/projects/giflib/files/giflib-5.1.8.tar.gz
 
 NAME=giflib
-VERSION=5.1.6
-URL=https://sourceforge.net/projects/giflib/files/giflib-5.1.6.tar.gz
+VERSION=5.1.8
+URL=https://sourceforge.net/projects/giflib/files/giflib-5.1.8.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -36,20 +37,13 @@ make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make PREFIX=/usr install &&
-rm -vf /usr/lib/libgif.a
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
+rm -vf /usr/lib/libgif.a &&
 
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 find doc \( -name Makefile\* -o -name \*.1 \
 -o -name \*.xml \) -exec rm -v {} \; &&
 
-install -v -dm755 /usr/share/doc/giflib-5.1.6 &&
-cp -v -R doc/* /usr/share/doc/giflib-5.1.6
+install -v -dm755 /usr/share/doc/giflib-5.1.8 &&
+cp -v -R doc/* /usr/share/doc/giflib-5.1.8
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

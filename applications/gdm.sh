@@ -20,13 +20,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gdm/3.30/gdm-3.30.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gdm/3.30/gdm-3.30.2.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/gdm-3.30.2-security_fix-1.patch
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gdm/3.30/gdm-3.30.3.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gdm/3.30/gdm-3.30.3.tar.xz
 
 NAME=gdm
-VERSION=3.30.2
-URL=http://ftp.gnome.org/pub/gnome/sources/gdm/3.30/gdm-3.30.2.tar.xz
+VERSION=3.30.3
+URL=http://ftp.gnome.org/pub/gnome/sources/gdm/3.30/gdm-3.30.3.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -55,8 +54,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-patch -Np1 -i ../gdm-3.30.2-security_fix-1.patch &&
 
 ./configure --prefix=/usr \
 --sysconfdir=/etc \

@@ -45,7 +45,7 @@ efd40fd15dc5fc97c7b50cffbc1e7663 mkfontscale-1.2.0.tar.bz2
 e475167a892b589da23edf8edf8c942d sessreg-1.1.1.tar.bz2
 2c47a1b8e268df73963c4eb2316b1a89 setxkbmap-1.3.1.tar.bz2
 3a93d9f0859de5d8b65a68a125d48f6a smproxy-1.0.6.tar.bz2
-f0b24e4d8beb622a419e8431e1c03cd7 x11perf-1.6.0.tar.bz2
+e96b56756990c56c24d2d02c2964456b x11perf-1.6.1.tar.bz2
 f3f76cb10f69b571c43893ea6a634aa4 xauth-1.0.10.tar.bz2
 d50cf135af04436b9456a5ab7dcf7971 xbacklight-1.2.2.tar.bz2
 9956d751ea3ae4538c3ebd07f70736a0 xcmsdb-1.0.5.tar.bz2
@@ -65,7 +65,7 @@ c747faf1f78f5a5962419f8bdd066501 xkbevd-1.1.4.tar.bz2
 e50ffae17eeb3943079620cb78f5ce0b xmessage-1.0.5.tar.bz2
 51f1d30a525e9903280ffeea2744b1f6 xmodmap-1.0.10.tar.bz2
 eaac255076ea351fd08d76025788d9f9 xpr-1.0.5.tar.bz2
-4becb3ddc4674d741487189e4ce3d0b6 xprop-1.2.3.tar.bz2
+cc369c28383a5d7144e7197ee7d30bfa xprop-1.2.4.tar.bz2
 ebffac98021b8f1dc71da0c1918e9b57 xrandr-1.5.0.tar.bz2
 34ae801ef994d192c70fcce2bdb2a1b2 xrdb-1.2.0.tar.bz2
 c56fa4adbeed1ee5173f464a4c4a61a6 xrefresh-1.0.6.tar.bz2

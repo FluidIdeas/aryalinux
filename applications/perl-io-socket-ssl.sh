@@ -12,11 +12,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.065.tar.gz
+wget -nc https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.066.tar.gz
 
 NAME=perl-io-socket-ssl
-VERSION=2.065
-URL=https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.065.tar.gz
+VERSION=2.066
+URL=https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.066.tar.gz
 
 if [ ! -z $URL ]
 then

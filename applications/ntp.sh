@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p12.tar.gz
+wget -nc https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p13.tar.gz
 
 NAME=ntp
-VERSION=4.2.8p12
-URL=https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p12.tar.gz
+VERSION=4.2.8p13
+URL=https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p13.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -51,7 +51,7 @@ sed -e 's/"(\\S+)"/"?([^\\s"]+)"?/' \
 --sysconfdir=/etc \
 --enable-linuxcaps \
 --with-lineeditlibs=readline \
---docdir=/usr/share/doc/ntp-4.2.8p12 &&
+--docdir=/usr/share/doc/ntp-4.2.8p13 &&
 make
 
 sudo rm -rf /tmp/rootscript.sh

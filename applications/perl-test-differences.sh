@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cpan.org/authors/id/D/DC/DCANTRELL/Test-Differences-0.66.tar.gz
+wget -nc https://www.cpan.org/authors/id/D/DC/DCANTRELL/Test-Differences-0.67.tar.gz
 
 NAME=perl-test-differences
-VERSION=0.66
-URL=https://www.cpan.org/authors/id/D/DC/DCANTRELL/Test-Differences-0.66.tar.gz
+VERSION=0.67
+URL=https://www.cpan.org/authors/id/D/DC/DCANTRELL/Test-Differences-0.67.tar.gz
 
 if [ ! -z $URL ]
 then

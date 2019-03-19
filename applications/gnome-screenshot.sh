@@ -34,8 +34,6 @@ fi
 cd $DIRECTORY
 fi
 
-sed -e '/AppData/N;N;p;s/\.appdata\./.metainfo./' \
--i /usr/share/gettext-0.19.8/its/appdata.loc
 mkdir build &&
 cd build &&
 

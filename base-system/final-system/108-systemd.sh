@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="108-systemd.sh"
-TARBALL="systemd-240.tar.gz"
+TARBALL="systemd-241.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -45,12 +45,11 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-patch -Np1 -i ../systemd-240-security_fixes-2.patch
 ln -sf /tools/bin/true /usr/bin/xsltproc
 for file in /tools/lib/lib{blkid,mount,uuid}*; do
     ln -sf $file /usr/lib/
 done
-tar -xf ../systemd-man-pages-240.tar.xz
+tar -xf ../systemd-man-pages-241.tar.xz
 sed '177,$ d' -i src/resolve/meson.build
 sed -i 's/GROUP="render", //' rules/50-udev-default.rules.in
 mkdir -p build

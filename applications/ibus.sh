@@ -40,6 +40,8 @@ fi
 
 mkdir -p /usr/share/unicode/ucd &&
 unzip -u ../UCD.zip -d /usr/share/unicode/ucd
+sed -i 's@/desktop/ibus@/org/freedesktop/ibus@g' \
+data/dconf/org.freedesktop.ibus.gschema.xml
 ./configure --prefix=/usr \
 --sysconfdir=/etc \
 --disable-unicode-dict \

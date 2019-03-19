@@ -8,17 +8,16 @@ set +h
 
 #REQ:glib2
 #REQ:libgcrypt
+#REQ:qt5
 #REC:libpcap
-#REC:qt5
 
 cd $SOURCE_DIR
 
-wget -nc https://www.wireshark.org/download/src/all-versions/wireshark-2.6.6.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/wireshark-2.6.6-lua_5_3-1.patch
+wget -nc https://www.wireshark.org/download/src/all-versions/wireshark-3.0.0.tar.xz
 
 NAME=wireshark
-VERSION=2.6.6
-URL=https://www.wireshark.org/download/src/all-versions/wireshark-2.6.6.tar.xz
+VERSION=3.0.0
+URL=https://www.wireshark.org/download/src/all-versions/wireshark-3.0.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -45,20 +44,25 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-patch -Np1 -i ../wireshark-2.6.6-lua_5_3-1.patch &&
+mkdir build &&
+cd build &&
 
-./configure --prefix=/usr --sysconfdir=/etc &&
-make
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+-DCMAKE_BUILD_TYPE=Release \
+-DCMAKE_INSTALL_DOCDIR=/usr/share/doc/PROGRAM=wireshark-3.0.0 \
+-G Ninja \
+.. &&
+ninja
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
+ninja install &&
 
-install -v -m755 -d /usr/share/doc/wireshark-2.6.6 &&
-install -v -m644 README.linux doc/README.* doc/*.{pod,txt} \
-/usr/share/doc/wireshark-2.6.6 &&
+install -v -m755 -d /usr/share/doc/wireshark-3.0.0 &&
+install -v -m644 README.linux doc/README.* doc/{*.pod,randpkt.txt} \
+/usr/share/doc/wireshark-3.0.0 &&
 
-pushd /usr/share/doc/wireshark-2.6.6 &&
+pushd /usr/share/doc/wireshark-3.0.0 &&
 for FILENAME in ../../wireshark/*.html; do
 ln -s -v -f $FILENAME .
 done &&
@@ -73,7 +77,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m644 <em class="replaceable"><code><Downloaded_Files></code></em> \
-/usr/share/doc/wireshark-2.6.6
+/usr/share/doc/wireshark-3.0.0
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
