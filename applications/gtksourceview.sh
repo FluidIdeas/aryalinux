@@ -15,7 +15,7 @@ wget -nc http://ftp.gnome.org/pub/gnome/sources/gtksourceview/4.2/gtksourceview-
 
 NAME=gtksourceview
 VERSION=4.2.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.24/gtksourceview-3.24.10.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/gtksourceview/4.2/gtksourceview-4.2.0.tar.xz
 
 if [ ! -z $URL ]
 then
