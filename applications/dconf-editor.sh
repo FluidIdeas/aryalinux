@@ -32,9 +32,12 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --sysconfdir=/etc &&
-make
-sudo make install
+mkdir build &&
+cd build &&
+
+meson --prefix=/usr --sysconfdir=/etc .. &&
+ninja
+sudo ninja install
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
