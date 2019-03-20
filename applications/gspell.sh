@@ -6,23 +6,14 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:gsettings-desktop-schemas
-#REQ:gtksourceview
-#REQ:itstool
-#REQ:libpeas
-#REQ:gspell
-#REC:gvfs
-#REC:iso-codes
-#REC:libsoup
-#REC:pygobject3
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gedit/3.32/gedit-3.32.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gspell/1.8/gspell-1.8.1.tar.xz
 
-NAME=gedit
-VERSION=3.32.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gedit/3.32/gedit-3.32.0.tar.xz
+NAME=gspell
+VERSION=1.8.1
+URL=http://ftp.gnome.org/pub/gnome/sources/gspell/1.8/gspell-1.8.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -40,11 +31,9 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build &&
-cd build &&
-meson --prefix=/usr --sysconfdir=/etc .. &&
-ninja
-sudo ninja install
+./configure --prefix=/usr --sysconfdir=/etc .. &&
+make
+sudo make install
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
