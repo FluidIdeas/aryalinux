@@ -40,6 +40,7 @@ set +h
 #REQ:telepathy-mission-control
 #REQ:caribou
 #REQ:dconf
+#REQ:dconf-editor
 #REQ:gnome-backgrounds
 #REQ:librsvg
 #REQ:gnome-themes-extra
