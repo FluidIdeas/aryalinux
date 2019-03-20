@@ -31,7 +31,7 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --sysconfdir=/etc .. &&
+./configure --prefix=/usr --sysconfdir=/etc &&
 make
 sudo make install
 
