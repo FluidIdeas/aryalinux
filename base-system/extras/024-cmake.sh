@@ -5,11 +5,17 @@ set +h
 
 . /sources/build-properties
 
-export MAKEFLAGS="-j `nproc`"
+if [ "x$MULTICORE" == "xy" ] || [ "x$MULTICORE" == "xY" ]
+then
+	export MAKEFLAGS="-j `nproc`"
+fi
+
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="024-cmake.sh"
 TARBALL="cmake-3.9.1.tar.gz"
+
+echo "$LOGLENGTH" > /sources/lines2track
 
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null
 then
@@ -22,9 +28,6 @@ then
 	tar xf $TARBALL
 	cd $DIRECTORY
 fi
-
-sed -i '/CMAKE_USE_LIBUV 1/s/1/0/' CMakeLists.txt     &&
-sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake &&
 
 if [ "$BUILD_ARCH" != "none" ]; then
 	export CFLAGS="$CFLAGS -march=$BUILD_ARCH"
@@ -42,6 +45,8 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
+sed -i '/CMAKE_USE_LIBUV 1/s/1/0/' CMakeLists.txt     &&
+sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake &&
 ./bootstrap --prefix=/usr        \
             --system-libs        \
             --mandir=/share/man  \
@@ -53,8 +58,13 @@ fi
 make
 make install
 
+
 cd $SOURCE_DIR
-rm -rf $DIRECTORY
+if [ "$TARBALL" != "" ]
+then
+	rm -rf $DIRECTORY
+	rm -rf {gcc,glibc,binutils}-build
+fi
 
 echo "$STEPNAME" | tee -a $LOGFILE
 

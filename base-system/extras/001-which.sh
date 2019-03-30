@@ -5,11 +5,17 @@ set +h
 
 . /sources/build-properties
 
-export MAKEFLAGS="-j `nproc`"
+if [ "x$MULTICORE" == "xy" ] || [ "x$MULTICORE" == "xY" ]
+then
+	export MAKEFLAGS="-j `nproc`"
+fi
+
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="001-which.sh"
 TARBALL="which-2.21.tar.gz"
+
+echo "$LOGLENGTH" > /sources/lines2track
 
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null
 then
@@ -22,7 +28,6 @@ then
 	tar xf $TARBALL
 	cd $DIRECTORY
 fi
-
 
 if [ "$BUILD_ARCH" != "none" ]; then
 	export CFLAGS="$CFLAGS -march=$BUILD_ARCH"
@@ -44,8 +49,13 @@ fi
 make
 make install
 
+
 cd $SOURCE_DIR
-rm -rf $DIRECTORY
+if [ "$TARBALL" != "" ]
+then
+	rm -rf $DIRECTORY
+	rm -rf {gcc,glibc,binutils}-build
+fi
 
 echo "$STEPNAME" | tee -a $LOGFILE
 

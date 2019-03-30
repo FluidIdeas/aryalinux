@@ -5,11 +5,17 @@ set +h
 
 . /sources/build-properties
 
-export MAKEFLAGS="-j `nproc`"
+if [ "x$MULTICORE" == "xy" ] || [ "x$MULTICORE" == "xY" ]
+then
+	export MAKEFLAGS="-j `nproc`"
+fi
+
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="018-wget.sh"
 TARBALL="wget-1.19.1.tar.xz"
+
+echo "$LOGLENGTH" > /sources/lines2track
 
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null
 then
@@ -45,8 +51,13 @@ fi
 make
 make install
 
+
 cd $SOURCE_DIR
-rm -rf $DIRECTORY
+if [ "$TARBALL" != "" ]
+then
+	rm -rf $DIRECTORY
+	rm -rf {gcc,glibc,binutils}-build
+fi
 
 echo "$STEPNAME" | tee -a $LOGFILE
 

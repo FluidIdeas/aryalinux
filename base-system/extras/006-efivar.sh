@@ -5,11 +5,17 @@ set +h
 
 . /sources/build-properties
 
-export MAKEFLAGS="-j `nproc`"
+if [ "x$MULTICORE" == "xy" ] || [ "x$MULTICORE" == "xY" ]
+then
+	export MAKEFLAGS="-j `nproc`"
+fi
+
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="006-efivar.sh"
 TARBALL="efivar-36.tar.bz2"
+
+echo "$LOGLENGTH" > /sources/lines2track
 
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null
 then
@@ -39,7 +45,6 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-
 make libdir="/usr/lib/" bindir="/usr/bin/" \
 	mandir="/usr/share/man/"     \
 	includedir="/usr/include/" V=1 -j1
@@ -51,8 +56,13 @@ make -j1 V=1 DESTDIR="${pkgdir}/" libdir="/usr/lib/" \
 	includedir="/usr/include/" install
 install -v -D -m0755 src/test/tester /usr/bin/efivar-tester
 
+
 cd $SOURCE_DIR
-rm -rf $DIRECTORY
+if [ "$TARBALL" != "" ]
+then
+	rm -rf $DIRECTORY
+	rm -rf {gcc,glibc,binutils}-build
+fi
 
 echo "$STEPNAME" | tee -a $LOGFILE
 

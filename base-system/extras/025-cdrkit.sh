@@ -5,11 +5,17 @@ set +h
 
 . /sources/build-properties
 
-export MAKEFLAGS="-j `nproc`"
+if [ "x$MULTICORE" == "xy" ] || [ "x$MULTICORE" == "xY" ]
+then
+	export MAKEFLAGS="-j `nproc`"
+fi
+
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="025-cdrkit.sh"
 TARBALL="cdrkit_1.1.11.orig.tar.gz"
+
+echo "$LOGLENGTH" > /sources/lines2track
 
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null
 then
@@ -22,9 +28,6 @@ then
 	tar xf $TARBALL
 	cd $DIRECTORY
 fi
-
-mkdir build
-cd build
 
 if [ "$BUILD_ARCH" != "none" ]; then
 	export CFLAGS="$CFLAGS -march=$BUILD_ARCH"
@@ -42,12 +45,20 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
+mkdir build
+cd build
+
 cmake -DCMAKE_INSTALL_PREFIX=/usr .. &&
 make "-j`nproc`"
 make install
 
+
 cd $SOURCE_DIR
-rm -rf $DIRECTORY
+if [ "$TARBALL" != "" ]
+then
+	rm -rf $DIRECTORY
+	rm -rf {gcc,glibc,binutils}-build
+fi
 
 echo "$STEPNAME" | tee -a $LOGFILE
 

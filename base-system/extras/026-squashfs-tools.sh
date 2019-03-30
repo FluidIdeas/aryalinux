@@ -5,11 +5,17 @@ set +h
 
 . /sources/build-properties
 
-export MAKEFLAGS="-j `nproc`"
+if [ "x$MULTICORE" == "xy" ] || [ "x$MULTICORE" == "xY" ]
+then
+	export MAKEFLAGS="-j `nproc`"
+fi
+
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="026-squashfs-tools.sh"
 TARBALL="squashfs4.3.tar.gz"
+
+echo "$LOGLENGTH" > /sources/lines2track
 
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null
 then
@@ -22,11 +28,6 @@ then
 	tar xf $TARBALL
 	cd $DIRECTORY
 fi
-
-patch -Np1 -i ../squashfs-tools-4.3-sysmacros.patch
-cd squashfs-tools
-sed 's@#XZ_SUPPORT@XZ_SUPPORT@g' -i Makefile
-sed 's@COMP_DEFAULT = gzip@COMP_DEFAULT = xz@g' -i Makefile
 
 if [ "$BUILD_ARCH" != "none" ]; then
 	export CFLAGS="$CFLAGS -march=$BUILD_ARCH"
@@ -44,11 +45,21 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
+patch -Np1 -i ../squashfs-tools-4.3-sysmacros.patch
+cd squashfs-tools
+sed 's@#XZ_SUPPORT@XZ_SUPPORT@g' -i Makefile
+sed 's@COMP_DEFAULT = gzip@COMP_DEFAULT = xz@g' -i Makefile
+
 make
 sudo make INSTALL_DIR=/bin install
 
+
 cd $SOURCE_DIR
-rm -rf $DIRECTORY
+if [ "$TARBALL" != "" ]
+then
+	rm -rf $DIRECTORY
+	rm -rf {gcc,glibc,binutils}-build
+fi
 
 echo "$STEPNAME" | tee -a $LOGFILE
 
