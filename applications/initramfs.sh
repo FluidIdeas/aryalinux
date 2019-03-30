@@ -11,9 +11,10 @@ set +h
 cd $SOURCE_DIR
 
 
+
 NAME=initramfs
-VERSION=""
-URL=""
+VERSION=1.0
+URL=
 
 if [ ! -z $URL ]
 then

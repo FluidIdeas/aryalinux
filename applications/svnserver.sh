@@ -10,9 +10,10 @@ set +h
 cd $SOURCE_DIR
 
 
+
 NAME=svnserver
-VERSION=""
-URL=""
+VERSION=
+URL=
 
 if [ ! -z $URL ]
 then

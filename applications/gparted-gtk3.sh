@@ -14,9 +14,10 @@ set +h
 cd $SOURCE_DIR
 
 
+
 NAME=gparted-gtk3
 VERSION=0.31.0
-URL=""
+URL=
 
 if [ ! -z $URL ]
 then

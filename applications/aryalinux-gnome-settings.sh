@@ -13,7 +13,7 @@ wget -nc https://sourceforge.net/projects/aryalinux-bin/files/artifacts/aryalinu
 
 NAME=aryalinux-gnome-settings
 VERSION=1.4
-URL=""
+URL=
 
 if [ ! -z $URL ]
 then
