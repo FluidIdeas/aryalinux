@@ -28,9 +28,10 @@ set +h
 cd $SOURCE_DIR
 
 
+
 NAME=firefox
 VERSION=66.0.source
-URL=""
+URL=
 
 if [ ! -z $URL ]
 then

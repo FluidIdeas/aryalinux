@@ -11,12 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-user-docs/3.30/gnome-user-docs-3.30.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-user-docs/3.30/gnome-user-docs-3.30.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-user-docs/3.32/gnome-user-docs-3.32.0.tar.xz
 
 NAME=gnome-user-docs
-VERSION=3.30.2
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-user-docs/3.30/gnome-user-docs-3.30.2.tar.xz
+VERSION=3.32.0
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-user-docs/3.32/gnome-user-docs-3.32.0.tar.xz
 
 if [ ! -z $URL ]
 then

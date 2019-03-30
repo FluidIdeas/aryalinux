@@ -40,9 +40,10 @@ set +h
 cd $SOURCE_DIR
 
 
+
 NAME=krameworks5
 VERSION=5.53
-URL=""
+URL=
 
 if [ ! -z $URL ]
 then

@@ -9,12 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/adwaita-icon-theme/3.30/adwaita-icon-theme-3.30.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/adwaita-icon-theme/3.30/adwaita-icon-theme-3.30.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/adwaita-icon-theme/3.32/adwaita-icon-theme-3.32.0.tar.xz
 
 NAME=adwaita-icon-theme
-VERSION=3.30.1
-URL=http://ftp.gnome.org/pub/gnome/sources/adwaita-icon-theme/3.30/adwaita-icon-theme-3.30.1.tar.xz
+VERSION=3.32.0
+URL=http://ftp.gnome.org/pub/gnome/sources/adwaita-icon-theme/3.32/adwaita-icon-theme-3.32.0.tar.xz
 
 if [ ! -z $URL ]
 then

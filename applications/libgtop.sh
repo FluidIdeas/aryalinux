@@ -12,12 +12,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libgtop/2.38/libgtop-2.38.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgtop/2.38/libgtop-2.38.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
 
 NAME=libgtop
-VERSION=2.38.0
-URL=http://ftp.gnome.org/pub/gnome/sources/libgtop/2.38/libgtop-2.38.0.tar.xz
+VERSION=2.40.0
+URL=http://ftp.gnome.org/pub/gnome/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
 
 if [ ! -z $URL ]
 then

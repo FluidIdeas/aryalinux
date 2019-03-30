@@ -16,12 +16,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/pango/1.42/pango-1.42.4.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pango/1.42/pango-1.42.4.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/pango/1.43/pango-1.43.0.tar.xz
 
 NAME=pango
-VERSION=1.42.4
-URL=http://ftp.gnome.org/pub/gnome/sources/pango/1.42/pango-1.42.4.tar.xz
+VERSION=1.43.0
+URL=http://ftp.gnome.org/pub/gnome/sources/pango/1.43/pango-1.43.0.tar.xz
 
 if [ ! -z $URL ]
 then

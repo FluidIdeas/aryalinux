@@ -11,12 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/glibmm/2.58/glibmm-2.58.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glibmm/2.58/glibmm-2.58.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/glibmm/2.61/glibmm-2.61.1.tar.xz
 
 NAME=glibmm
-VERSION=2.58.1
-URL=http://ftp.gnome.org/pub/gnome/sources/glibmm/2.58/glibmm-2.58.1.tar.xz
+VERSION=2.61.1
+URL=http://ftp.gnome.org/pub/gnome/sources/glibmm/2.61/glibmm-2.61.1.tar.xz
 
 if [ ! -z $URL ]
 then

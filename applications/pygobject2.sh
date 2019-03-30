@@ -12,12 +12,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/pygobject/2.28/pygobject-2.28.7.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pygobject/2.28/pygobject-2.28.7.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/pygobject/2.90/pygobject-2.90.4.tar.bz2
 
 NAME=pygobject2
-VERSION=2.28.7
-URL=http://ftp.gnome.org/pub/gnome/sources/pygobject/2.28/pygobject-2.28.7.tar.xz
+VERSION=2.90.4
+URL=http://ftp.gnome.org/pub/gnome/sources/pygobject/2.90/pygobject-2.90.4.tar.bz2
 
 if [ ! -z $URL ]
 then

@@ -33,9 +33,10 @@ set +h
 cd $SOURCE_DIR
 
 
+
 NAME=plasma-all
 VERSION=5.14.4
-URL=""
+URL=
 
 if [ ! -z $URL ]
 then

@@ -15,14 +15,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf/0.30/dconf-0.30.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf/0.30/dconf-0.30.1.tar.xz
-wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.30/dconf-editor-3.30.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.30/dconf-editor-3.30.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf/0.32/dconf-0.32.0.tar.xz
 
 NAME=dconf
-VERSION=0.30.1
-URL=http://ftp.gnome.org/pub/gnome/sources/dconf/0.30/dconf-0.30.1.tar.xz
+VERSION=0.32.0
+URL=http://ftp.gnome.org/pub/gnome/sources/dconf/0.32/dconf-0.32.0.tar.xz
 
 if [ ! -z $URL ]
 then

@@ -10,13 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libunique/1.1/libunique-1.1.6.tar.bz2
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libunique/1.1/libunique-1.1.6.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/libunique-1.1.6-upstream_fixes-1.patch
+wget -nc http://ftp.gnome.org/pub/gnome/sources/libunique/3.0/libunique-3.0.2.tar.bz2
 
 NAME=libunique
-VERSION=1.1.6
-URL=http://ftp.gnome.org/pub/gnome/sources/libunique/1.1/libunique-1.1.6.tar.bz2
+VERSION=3.0.2
+URL=http://ftp.gnome.org/pub/gnome/sources/libunique/3.0/libunique-3.0.2.tar.bz2
 
 if [ ! -z $URL ]
 then

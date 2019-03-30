@@ -13,12 +13,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/geocode-glib/3.26/geocode-glib-3.26.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/geocode-glib/3.26/geocode-glib-3.26.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/geocode-glib/3.26/geocode-glib-3.26.1.tar.xz
 
 NAME=geocode-glib
-VERSION=3.26.0
-URL=http://ftp.gnome.org/pub/gnome/sources/geocode-glib/3.26/geocode-glib-3.26.0.tar.xz
+VERSION=3.26.1
+URL=http://ftp.gnome.org/pub/gnome/sources/geocode-glib/3.26/geocode-glib-3.26.1.tar.xz
 
 if [ ! -z $URL ]
 then

@@ -14,12 +14,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/glib-networking/2.58/glib-networking-2.58.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glib-networking/2.58/glib-networking-2.58.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/glib-networking/2.60/glib-networking-2.60.0.1.tar.xz
 
 NAME=glib-networking
-VERSION=2.58.0
-URL=http://ftp.gnome.org/pub/gnome/sources/glib-networking/2.58/glib-networking-2.58.0.tar.xz
+VERSION=2.60.0.1
+URL=http://ftp.gnome.org/pub/gnome/sources/glib-networking/2.60/glib-networking-2.60.0.1.tar.xz
 
 if [ ! -z $URL ]
 then

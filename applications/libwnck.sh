@@ -12,12 +12,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libwnck/3.30/libwnck-3.30.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libwnck/3.30/libwnck-3.30.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/libwnck/3.31/libwnck-3.31.4.tar.xz
 
 NAME=libwnck
-VERSION=3.30.0
-URL=http://ftp.gnome.org/pub/gnome/sources/libwnck/3.30/libwnck-3.30.0.tar.xz
+VERSION=3.31.4
+URL=http://ftp.gnome.org/pub/gnome/sources/libwnck/3.31/libwnck-3.31.4.tar.xz
 
 if [ ! -z $URL ]
 then

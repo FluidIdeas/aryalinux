@@ -15,7 +15,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/goffice/0.10/goffice-0.10.44.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/goffice/0.10/goffice-0.10.44.tar.xz
 
 NAME=goffice010
 VERSION=0.10.44

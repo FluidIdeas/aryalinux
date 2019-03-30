@@ -13,7 +13,7 @@ wget -nc https://sourceforge.net/projects/aryalinux-bin/files/files/1.4/aryalinu
 
 NAME=aryalinux-icons
 VERSION=1.4
-URL=""
+URL=
 
 if [ ! -z $URL ]
 then

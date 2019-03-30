@@ -18,12 +18,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/epiphany/3.30/epiphany-3.30.3.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/epiphany/3.30/epiphany-3.30.3.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/epiphany/3.32/epiphany-3.32.1.2.tar.xz
 
 NAME=epiphany
-VERSION=3.30.3
-URL=http://ftp.gnome.org/pub/gnome/sources/epiphany/3.30/epiphany-3.30.3.tar.xz
+VERSION=3.32.1.2
+URL=http://ftp.gnome.org/pub/gnome/sources/epiphany/3.32/epiphany-3.32.1.2.tar.xz
 
 if [ ! -z $URL ]
 then

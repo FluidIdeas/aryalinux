@@ -16,12 +16,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.13.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.13.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/librsvg/2.45/librsvg-2.45.5.tar.xz
 
 NAME=librsvg
-VERSION=2.44.13
-URL=http://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.13.tar.xz
+VERSION=2.45.5
+URL=http://ftp.gnome.org/pub/gnome/sources/librsvg/2.45/librsvg-2.45.5.tar.xz
 
 if [ ! -z $URL ]
 then

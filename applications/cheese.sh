@@ -21,12 +21,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/cheese/3.30/cheese-3.30.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/cheese/3.30/cheese-3.30.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/cheese/3.32/cheese-3.32.0.tar.xz
 
 NAME=cheese
-VERSION=3.30.0
-URL=http://ftp.gnome.org/pub/gnome/sources/cheese/3.30/cheese-3.30.0.tar.xz
+VERSION=3.32.0
+URL=http://ftp.gnome.org/pub/gnome/sources/cheese/3.32/cheese-3.32.0.tar.xz
 
 if [ ! -z $URL ]
 then

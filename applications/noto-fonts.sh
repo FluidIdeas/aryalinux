@@ -10,9 +10,10 @@ set +h
 cd $SOURCE_DIR
 
 
+
 NAME=noto-fonts
 VERSION=1.4
-URL=""
+URL=
 
 if [ ! -z $URL ]
 then

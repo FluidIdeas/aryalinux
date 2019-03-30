@@ -24,12 +24,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.30/evolution-data-server-3.30.5.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.30/evolution-data-server-3.30.5.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.32/evolution-data-server-3.32.0.tar.xz
 
 NAME=evolution-data-server
-VERSION=3.30.5
-URL=http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.30/evolution-data-server-3.30.5.tar.xz
+VERSION=3.32.0
+URL=http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.32/evolution-data-server-3.32.0.tar.xz
 
 if [ ! -z $URL ]
 then

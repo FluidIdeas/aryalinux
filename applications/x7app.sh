@@ -14,9 +14,10 @@ set +h
 cd $SOURCE_DIR
 
 
+
 NAME=x7app
-VERSION=""
-URL=""
+VERSION=
+URL=
 
 if [ ! -z $URL ]
 then
