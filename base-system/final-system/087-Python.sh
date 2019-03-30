@@ -56,6 +56,7 @@ chmod -v 755 /usr/lib/libpython3.7m.so
 chmod -v 755 /usr/lib/libpython3.so
 ln -sfv pip3.7 /usr/bin/pip3
 install -v -dm755 /usr/share/doc/python-3.7.2/html 
+
 tar --strip-components=1  \
     --no-same-owner       \
     --no-same-permissions \

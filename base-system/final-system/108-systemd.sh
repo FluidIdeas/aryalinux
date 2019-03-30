@@ -54,6 +54,7 @@ sed '177,$ d' -i src/resolve/meson.build
 sed -i 's/GROUP="render", //' rules/50-udev-default.rules.in
 mkdir -p build
 cd       build
+
 PKG_CONFIG_PATH="/usr/lib/pkgconfig:/tools/lib/pkgconfig" \
 LANG=en_US.UTF-8                   \
 meson --prefix=/usr                \

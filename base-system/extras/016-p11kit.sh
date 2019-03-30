@@ -5,11 +5,17 @@ set +h
 
 . /sources/build-properties
 
-export MAKEFLAGS="-j `nproc`"
+if [ "x$MULTICORE" == "xy" ] || [ "x$MULTICORE" == "xY" ]
+then
+	export MAKEFLAGS="-j `nproc`"
+fi
+
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="016-p11kit.sh"
 TARBALL="p11-kit-0.23.8.tar.gz"
+
+echo "$LOGLENGTH" > /sources/lines2track
 
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null
 then
@@ -50,8 +56,13 @@ if [ -e /usr/lib/libnssckbi.so ]; then
   ln -sfv ./pkcs11/p11-kit-trust.so /usr/lib/libnssckbi.so
 fi
 
+
 cd $SOURCE_DIR
-rm -rf $DIRECTORY
+if [ "$TARBALL" != "" ]
+then
+	rm -rf $DIRECTORY
+	rm -rf {gcc,glibc,binutils}-build
+fi
 
 echo "$STEPNAME" | tee -a $LOGFILE
 

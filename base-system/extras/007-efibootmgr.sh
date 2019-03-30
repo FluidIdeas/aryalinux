@@ -5,11 +5,17 @@ set +h
 
 . /sources/build-properties
 
-export MAKEFLAGS="-j `nproc`"
+if [ "x$MULTICORE" == "xy" ] || [ "x$MULTICORE" == "xY" ]
+then
+	export MAKEFLAGS="-j `nproc`"
+fi
+
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="007-efibootmgr.sh"
 TARBALL="efibootmgr-16.tar.bz2"
+
+echo "$LOGLENGTH" > /sources/lines2track
 
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null
 then
@@ -39,15 +45,19 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-
 patch -Np1 -i ../efibootmgr-16-efidir.patch
 make
 install -v -D -m0755 src/efibootmgr /usr/sbin/efibootmgr
 install -v -D -m0644 src/efibootmgr.8 \
 	/usr/share/man/man8/efibootmgr.8
 
+
 cd $SOURCE_DIR
-rm -rf $DIRECTORY
+if [ "$TARBALL" != "" ]
+then
+	rm -rf $DIRECTORY
+	rm -rf {gcc,glibc,binutils}-build
+fi
 
 echo "$STEPNAME" | tee -a $LOGFILE
 

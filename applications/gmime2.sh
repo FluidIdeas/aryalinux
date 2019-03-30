@@ -6,15 +6,18 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:libarchive
+#REQ:glib2
+#REQ:libgpg-error
+#REC:gobject-introspection
+#REC:vala
 
 cd $SOURCE_DIR
 
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gmime/2.99/gmime-2.99.0.tar.xz
 
-
-NAME=ed
-VERSION=
-URL=
+NAME=gmime2
+VERSION=2.99.0
+URL=http://ftp.gnome.org/pub/gnome/sources/gmime/2.99/gmime-2.99.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -32,7 +35,7 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --bindir=/bin &&
+./configure --prefix=/usr --disable-static &&
 make
 
 sudo rm -rf /tmp/rootscript.sh
