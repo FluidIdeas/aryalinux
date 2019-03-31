@@ -34,7 +34,6 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../glib-2.60.0-skip_warnings-1.patch
 mkdir build &&
 cd build &&
 
