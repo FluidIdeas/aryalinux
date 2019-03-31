@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:autoconf213
+#REQ:autoconf
 #REQ:cbindgen
 #REQ:llvm
 #REQ:gtk3
