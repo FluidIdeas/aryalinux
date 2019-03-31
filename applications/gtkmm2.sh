@@ -12,11 +12,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gtkmm/2.99/gtkmm-2.99.8.tar.bz2
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gtkmm/3.24/gtkmm-3.24.1.tar.xz
 
 NAME=gtkmm2
-VERSION=2.99.8
-URL=http://ftp.gnome.org/pub/gnome/sources/gtkmm/2.99/gtkmm-2.99.8.tar.bz2
+VERSION=3.24.1
+URL=http://ftp.gnome.org/pub/gnome/sources/gtkmm/3.24/gtkmm-3.24.1.tar.xz
 
 if [ ! -z $URL ]
 then

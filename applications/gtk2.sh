@@ -13,11 +13,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk+/2.99/gtk+-2.99.3.tar.bz2
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk+/2.24/gtk+-2.24.32.tar.xz
 
 NAME=gtk2
-VERSION=2.99.3
-URL=http://ftp.gnome.org/pub/gnome/sources/gtk+/2.99/gtk+-2.99.3.tar.bz2
+VERSION=2.24.32
+URL=http://ftp.gnome.org/pub/gnome/sources/gtk+/2.24/gtk+-2.24.32.tar.xz
 
 if [ ! -z $URL ]
 then

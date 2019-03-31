@@ -12,11 +12,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/pangomm/2.43/pangomm-2.43.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/pangomm/2.42/pangomm-2.42.0.tar.xz
 
 NAME=pangomm
-VERSION=2.43.1
-URL=http://ftp.gnome.org/pub/gnome/sources/pangomm/2.43/pangomm-2.43.1.tar.xz
+VERSION=2.42.0
+URL=http://ftp.gnome.org/pub/gnome/sources/pangomm/2.42/pangomm-2.42.0.tar.xz
 
 if [ ! -z $URL ]
 then

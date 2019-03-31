@@ -21,11 +21,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gvfs/1.40/gvfs-1.40.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gvfs/1.38/gvfs-1.38.2.tar.xz
 
 NAME=gvfs
-VERSION=1.40.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gvfs/1.40/gvfs-1.40.0.tar.xz
+VERSION=1.38.2
+URL=http://ftp.gnome.org/pub/gnome/sources/gvfs/1.38/gvfs-1.38.2.tar.xz
 
 if [ ! -z $URL ]
 then

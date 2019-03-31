@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libunique/3.0/libunique-3.0.2.tar.bz2
+wget -nc http://ftp.gnome.org/pub/gnome/sources/libunique/3.0/libunique-3.0.2.tar.xz
 
 NAME=libunique
 VERSION=3.0.2
-URL=http://ftp.gnome.org/pub/gnome/sources/libunique/3.0/libunique-3.0.2.tar.bz2
+URL=http://ftp.gnome.org/pub/gnome/sources/libunique/3.0/libunique-3.0.2.tar.xz
 
 if [ ! -z $URL ]
 then

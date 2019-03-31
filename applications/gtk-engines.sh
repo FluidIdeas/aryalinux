@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk-engines/2.91/gtk-engines-2.91.1.tar.bz2
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk-engines/2.91/gtk-engines-2.91.1.tar.gz
 
 NAME=gtk-engines
 VERSION=2.91.1
-URL=http://ftp.gnome.org/pub/gnome/sources/gtk-engines/2.91/gtk-engines-2.91.1.tar.bz2
+URL=http://ftp.gnome.org/pub/gnome/sources/gtk-engines/2.91/gtk-engines-2.91.1.tar.gz
 
 if [ ! -z $URL ]
 then
