@@ -40,7 +40,7 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build
+mkdir -pv build
 cd build
 meson --prefix=/usr -Dgnome_distributor=AryaLinux
 ninja

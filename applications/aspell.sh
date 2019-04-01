@@ -11,8 +11,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://ftp.gnu.org/gnu/aspell/aspell-0.60.6.1.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/aspell/aspell-0.60.6.1.tar.gz
-wget -nc https://ftp.gnu.org/gnu/aspell/dict/en/aspell6-en-2018.04.16-0.tar.bz2
 
 NAME=aspell
 VERSION=0.60.6.1

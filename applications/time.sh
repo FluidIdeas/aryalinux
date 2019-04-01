@@ -10,7 +10,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://ftp.gnu.org/gnu/time/time-1.9.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/time/time-1.9.tar.gz
 
 NAME=time
 VERSION=1.9

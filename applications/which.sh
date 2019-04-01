@@ -10,7 +10,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://ftp.gnu.org/gnu/which/which-2.21.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/which/which-2.21.tar.gz
 
 NAME=which
 VERSION=2.21

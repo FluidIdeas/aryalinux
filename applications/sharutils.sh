@@ -10,7 +10,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://ftp.gnu.org/gnu/sharutils/sharutils-4.15.2.tar.xz
-wget -nc ftp://ftp.gnu.org/gnu/sharutils/sharutils-4.15.2.tar.xz
 
 NAME=sharutils
 VERSION=4.15.2

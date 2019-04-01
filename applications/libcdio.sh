@@ -9,13 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/libcdio/libcdio-2.0.0.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/libcdio/libcdio-2.0.0.tar.gz
 wget -nc https://ftp.gnu.org/gnu/libcdio/libcdio-paranoia-10.2+2.0.0.tar.bz2
 
 NAME=libcdio
-VERSION=2.0.0
-URL=https://ftp.gnu.org/gnu/libcdio/libcdio-2.0.0.tar.gz
+VERSION=10.2+2.0.0
+URL=https://ftp.gnu.org/gnu/libcdio/libcdio-paranoia-10.2+2.0.0.tar.bz2
 
 if [ ! -z $URL ]
 then

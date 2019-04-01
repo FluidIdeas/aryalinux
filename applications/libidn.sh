@@ -10,7 +10,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://ftp.gnu.org/gnu/libidn/libidn-1.35.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/libidn/libidn-1.35.tar.gz
 
 NAME=libidn
 VERSION=1.35

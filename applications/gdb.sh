@@ -10,7 +10,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://ftp.gnu.org/gnu/gdb/gdb-8.2.1.tar.xz
-wget -nc ftp://ftp.gnu.org/gnu/gdb/gdb-8.2.1.tar.xz
 
 NAME=gdb
 VERSION=8.2.1
