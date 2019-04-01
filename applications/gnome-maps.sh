@@ -16,11 +16,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-maps/3.32/gnome-maps-3.32.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-maps/3.32/gnome-maps-3.32.1.tar.xz
 
 NAME=gnome-maps
-VERSION=3.32.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-maps/3.32/gnome-maps-3.32.0.tar.xz
+VERSION=3.32.1
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-maps/3.32/gnome-maps-3.32.1.tar.xz
 
 if [ ! -z $URL ]
 then
