@@ -36,6 +36,8 @@ fi
 cd $DIRECTORY
 fi
 
+sed -e '/bool audible/i\ public int dummy;' \
+-i bindings/vala/app.vala
 ./configure --prefix=/usr \
 --sysconfdir=/etc \
 --disable-static \
