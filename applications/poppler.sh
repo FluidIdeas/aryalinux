@@ -17,12 +17,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://poppler.freedesktop.org/poppler-0.74.0.tar.xz
-wget -nc https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz
+wget -nc https://poppler.freedesktop.org/poppler-0.75.0.tar.xz
 
 NAME=poppler
-VERSION=0.74.0
-URL=https://poppler.freedesktop.org/poppler-0.74.0.tar.xz
+VERSION=0.75.0
+URL=https://poppler.freedesktop.org/poppler-0.75.0.tar.xz
 
 if [ ! -z $URL ]
 then

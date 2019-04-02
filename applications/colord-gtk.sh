@@ -13,11 +13,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/colord/releases/colord-gtk-0.1.26.tar.xz
+wget -nc https://www.freedesktop.org/software/colord/releases/colord-1.4.4.tar.xz
 
 NAME=colord-gtk
-VERSION=0.1.26
-URL=https://www.freedesktop.org/software/colord/releases/colord-gtk-0.1.26.tar.xz
+VERSION=1.4.4
+URL=https://www.freedesktop.org/software/colord/releases/colord-1.4.4.tar.xz
 
 if [ ! -z $URL ]
 then

@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://libopenraw.freedesktop.org/download/exempi-2.5.0.tar.bz2
+wget -nc https://libopenraw.pages.freedesktop.org/download/exempi-2.5.0.tar.bz2
 
 NAME=exempi
 VERSION=2.5.0
-URL=https://libopenraw.freedesktop.org/download/exempi-2.5.0.tar.bz2
+URL=https://libopenraw.pages.freedesktop.org/download/exempi-2.5.0.tar.bz2
 
 if [ ! -z $URL ]
 then
