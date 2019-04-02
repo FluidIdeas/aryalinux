@@ -50,7 +50,7 @@ patch -Np1 -i ../httpd-2.4.38-blfs_layout-1.patch &&
 sed '/dir.*CFG_PREFIX/s@^@#@' -i support/apxs.in &&
 
 ./configure --enable-authnz-fcgi \
---enable-layout=BLFS \
+--enable-layout=AryaLinux \
 --enable-mods-shared="all cgi" \
 --enable-mpms-shared=all \
 --enable-suexec=shared \

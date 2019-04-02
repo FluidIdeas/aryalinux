@@ -81,7 +81,7 @@ sed -e "/distro-install-file-lists/d" -i Makefile.in &&
 
 ./autogen.sh --prefix=/usr               \
              --sysconfdir=/etc           \
-             --with-vendor=BLFS          \
+             --with-vendor=AryaLinux          \
              --with-lang=ALL             \
              --with-help                 \
              --with-myspell-dicts        \

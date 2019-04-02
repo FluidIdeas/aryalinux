@@ -95,7 +95,7 @@ cd texlive-build &&
 --with-system-pixman \
 --with-system-potrace \
 --with-system-zlib \
---with-banner-add=" - BLFS" &&
+--with-banner-add=" - AryaLinux" &&
 
 make
 

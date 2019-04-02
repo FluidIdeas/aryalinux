@@ -47,7 +47,7 @@ fi
 patch -Np1 -i ../gst-plugins-good-1.14.4-vpx_1.8-1.patch &&
 autoreconf -fi
 ./configure --prefix=/usr \
---with-package-name="GStreamer Good Plugins 1.14.4 BLFS" \
+--with-package-name="GStreamer Good Plugins 1.14.4 AryaLinux" \
 --with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/" &&
 make
 

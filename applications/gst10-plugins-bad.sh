@@ -40,7 +40,7 @@ patch -Np1 -i ../gst-plugins-bad-1.14.4-fdkaac_2-1.patch
 ./configure --prefix=/usr \
 --disable-wayland \
 --disable-opencv \
---with-package-name="GStreamer Bad Plugins 1.14.4 BLFS" \
+--with-package-name="GStreamer Bad Plugins 1.14.4 AryaLinux" \
 --with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/" &&
 make
 

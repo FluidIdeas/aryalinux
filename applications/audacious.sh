@@ -37,7 +37,7 @@ cd $DIRECTORY
 fi
 
 TPUT=/bin/true ./configure --prefix=/usr \
---with-buildstamp="BLFS" &&
+--with-buildstamp="AryaLinux" &&
 make
 
 sudo rm -rf /tmp/rootscript.sh

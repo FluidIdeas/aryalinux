@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20190208.tar.xz
-wget -nc ftp://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20190208.tar.xz
+wget -nc http://anduin.linuxfromscratch.org/blfs/xf86-video-intel/xf86-video-intel-20190208.tar.xz
+wget -nc ftp://anduin.linuxfromscratch.org/blfs/xf86-video-intel/xf86-video-intel-20190208.tar.xz
 
 NAME=xorg-intel-driver
 VERSION=20190208
-URL=http://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20190208.tar.xz
+URL=http://anduin.linuxfromscratch.org/blfs/xf86-video-intel/xf86-video-intel-20190208.tar.xz
 
 if [ ! -z $URL ]
 then

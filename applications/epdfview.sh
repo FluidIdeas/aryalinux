@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://anduin.linuxfromscratch.org/BLFS/epdfview/epdfview-0.1.8.tar.bz2
+wget -nc http://anduin.linuxfromscratch.org/blfs/epdfview/epdfview-0.1.8.tar.bz2
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/epdfview-0.1.8-fixes-2.patch
 
 NAME=epdfview
 VERSION=0.1.8
-URL=http://anduin.linuxfromscratch.org/BLFS/epdfview/epdfview-0.1.8.tar.bz2
+URL=http://anduin.linuxfromscratch.org/blfs/epdfview/epdfview-0.1.8.tar.bz2
 
 if [ ! -z $URL ]
 then

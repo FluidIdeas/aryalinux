@@ -9,12 +9,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://anduin.linuxfromscratch.org/BLFS/compface/compface-1.5.2.tar.gz
-wget -nc ftp://anduin.linuxfromscratch.org/BLFS/compface/compface-1.5.2.tar.gz
+wget -nc http://anduin.linuxfromscratch.org/blfs/compface/compface-1.5.2.tar.gz
+wget -nc ftp://anduin.linuxfromscratch.org/blfs/compface/compface-1.5.2.tar.gz
 
 NAME=compface
 VERSION=1.5.2
-URL=http://anduin.linuxfromscratch.org/BLFS/compface/compface-1.5.2.tar.gz
+URL=http://anduin.linuxfromscratch.org/blfs/compface/compface-1.5.2.tar.gz
 
 if [ ! -z $URL ]
 then

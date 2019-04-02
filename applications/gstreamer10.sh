@@ -34,7 +34,7 @@ cd $DIRECTORY
 fi
 
 ./configure --prefix=/usr \
---with-package-name="GStreamer 1.14.4 BLFS" \
+--with-package-name="GStreamer 1.14.4 AryaLinux" \
 --with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/" &&
 make
 rm -rf /usr/bin/gst-* /usr/{lib,libexec}/gstreamer-1.0

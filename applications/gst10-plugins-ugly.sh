@@ -36,7 +36,7 @@ cd $DIRECTORY
 fi
 
 ./configure --prefix=/usr \
---with-package-name="GStreamer Ugly Plugins 1.14.4 BLFS" \
+--with-package-name="GStreamer Ugly Plugins 1.14.4 AryaLinux" \
 --with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/" &&
 make
 
