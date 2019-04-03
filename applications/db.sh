@@ -10,6 +10,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/bdb/db-18.1.25.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/db-18.1.25-build.patch
 
 NAME=db
 VERSION=18.1.25
@@ -31,6 +32,7 @@ fi
 cd $DIRECTORY
 fi
 
+patch -Np1 -i ../db-18.1.25-build.patch
 sed -i 's/\(__atomic_compare_exchange\)/\1_db/' src/dbinc/atomic.h
 cd build_unix &&
 ../dist/configure --prefix=/usr \
