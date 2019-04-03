@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://anduin.linuxfromscratch.org/blfs/bdb/db-5.3.28.tar.gz
+wget -nc http://anduin.linuxfromscratch.org/BLFS/bdb/db-18.1.25.tar.gz
 
 NAME=db
-VERSION=5.3.28
-URL=http://anduin.linuxfromscratch.org/blfs/bdb/db-5.3.28.tar.gz
+VERSION=18.1.25
+URL=http://anduin.linuxfromscratch.org/BLFS/bdb/db-18.1.25.tar.gz
 
 if [ ! -z $URL ]
 then
