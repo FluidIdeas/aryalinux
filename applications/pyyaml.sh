@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://pyyaml.org/download/pyyaml/PyYAML-3.13.tar.gz
+wget -nc http://pyyaml.org/download/pyyaml/PyYAML-5.1.tar.gz
 
 NAME=pyyaml
-VERSION=3.13
-URL=http://pyyaml.org/download/pyyaml/PyYAML-3.13.tar.gz
+VERSION=5.1
+URL=http://pyyaml.org/download/pyyaml/PyYAML-5.1.tar.gz
 
 if [ ! -z $URL ]
 then

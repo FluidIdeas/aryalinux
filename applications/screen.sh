@@ -10,6 +10,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://ftp.gnu.org/gnu/screen/screen-4.6.2.tar.gz
+wget -nc ftp://ftp.gnu.org/gnu/screen/screen-4.6.2.tar.gz
 
 NAME=screen
 VERSION=4.6.2

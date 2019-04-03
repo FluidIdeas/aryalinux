@@ -82,6 +82,7 @@ yes | ./blfs-yes-test2 > blfs-yes-test2.log 2>&1
 find /{,usr/}{bin,lib,sbin} \
 -type f \( -name \*.so* -a ! -name \*dbg \) \
 -exec strip --strip-unneeded {} \;
+meson configure -D<some_option>=true
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

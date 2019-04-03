@@ -10,6 +10,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://ftp.gnu.org/gnu/pth/pth-2.0.7.tar.gz
+wget -nc ftp://ftp.gnu.org/gnu/pth/pth-2.0.7.tar.gz
 
 NAME=pth
 VERSION=2.0.7

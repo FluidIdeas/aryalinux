@@ -22,11 +22,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.15.2.tar.xz
+wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.14.4.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/gst-plugins-good-1.14.4-vpx_1.8-1.patch
 
 NAME=gst10-plugins-good
-VERSION=1.15.2
-URL=https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.15.2.tar.xz
+VERSION=1.14.4
+URL=https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.14.4.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -47,7 +48,7 @@ fi
 patch -Np1 -i ../gst-plugins-good-1.14.4-vpx_1.8-1.patch &&
 autoreconf -fi
 ./configure --prefix=/usr \
---with-package-name="GStreamer Good Plugins 1.14.4 AryaLinux" \
+--with-package-name="GStreamer Good Plugins 1.14.4 BLFS" \
 --with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/" &&
 make
 

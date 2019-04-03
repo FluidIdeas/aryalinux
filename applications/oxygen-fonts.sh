@@ -13,7 +13,7 @@ wget -nc https://sourceforge.net/projects/aryalinux-bin/files/files/1.4/oxygen-f
 
 NAME=oxygen-fonts
 VERSION=5.4.3
-URL=
+URL=""
 
 if [ ! -z $URL ]
 then

@@ -45,10 +45,9 @@ set +h
 cd $SOURCE_DIR
 
 
-
 NAME=xserver-meta
 VERSION=1.20.3
-URL=
+URL=""
 
 if [ ! -z $URL ]
 then

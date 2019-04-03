@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://pyyaml.org/download/libyaml/yaml-0.2.1.tar.gz
+wget -nc https://github.com/yaml/libyaml/archive/0.2.2/yaml-0.2.2.tar.gz
 
 NAME=yaml
-VERSION=0.2.1
-URL=http://pyyaml.org/download/libyaml/yaml-0.2.1.tar.gz
+VERSION=0.2.2
+URL=https://github.com/yaml/libyaml/archive/0.2.2/yaml-0.2.2.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -31,7 +31,12 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --disable-static &&
+mkdir build &&
+cd build &&
+
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+-DBUILD_SHARED_LIBS=true \
+-DCMAKE_BUILD_TYPE=RELEASE .. &&
 make
 
 sudo rm -rf /tmp/rootscript.sh

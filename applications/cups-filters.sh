@@ -19,11 +19,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.openprinting.org/download/cups-filters/cups-filters-1.22.2.tar.xz
+wget -nc https://www.openprinting.org/download/cups-filters/cups-filters-1.22.3.tar.xz
 
 NAME=cups-filters
-VERSION=1.22.2
-URL=https://www.openprinting.org/download/cups-filters/cups-filters-1.22.2.tar.xz
+VERSION=1.22.3
+URL=https://www.openprinting.org/download/cups-filters/cups-filters-1.22.3.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -48,7 +48,7 @@ sed -i "s:cups.service:org.cups.cupsd.service:g" utils/cups-browsed.service
 --without-rcdir \
 --disable-static \
 --disable-avahi \
---docdir=/usr/share/doc/cups-filters-1.22.2 &&
+--docdir=/usr/share/doc/cups-filters-1.22.3 &&
 make
 
 sudo rm -rf /tmp/rootscript.sh

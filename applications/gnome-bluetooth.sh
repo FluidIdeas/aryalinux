@@ -13,11 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-bluetooth/3.32/gnome-bluetooth-3.32.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-bluetooth/3.28/gnome-bluetooth-3.28.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-bluetooth/3.28/gnome-bluetooth-3.28.2.tar.xz
 
 NAME=gnome-bluetooth
-VERSION=3.32.1
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-bluetooth/3.32/gnome-bluetooth-3.32.1.tar.xz
+VERSION=3.28.2
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-bluetooth/3.28/gnome-bluetooth-3.28.2.tar.xz
 
 if [ ! -z $URL ]
 then

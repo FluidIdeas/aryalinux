@@ -15,11 +15,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/apple/cups/releases/download/v2.2.10/cups-2.2.10-source.tar.gz
+wget -nc https://github.com/apple/cups/releases/download/v2.2.11/cups-2.2.11-source.tar.gz
 
 NAME=cups
 VERSION=source
-URL=https://github.com/apple/cups/releases/download/v2.2.10/cups-2.2.10-source.tar.gz
+URL=https://github.com/apple/cups/releases/download/v2.2.11/cups-2.2.11-source.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -66,14 +66,14 @@ CC=gcc \
 ./configure --libdir=/usr/lib \
 --with-rcdir=/tmp/cupsinit \
 --with-system-groups=lpadmin \
---with-docdir=/usr/share/cups/doc-2.2.10 &&
+--with-docdir=/usr/share/cups/doc-2.2.11 &&
 make
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 rm -rf /tmp/cupsinit &&
-ln -svnf ../cups/doc-2.2.10 /usr/share/doc/cups-2.2.10
+ln -svnf ../cups/doc-2.2.11 /usr/share/doc/cups-2.2.11
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

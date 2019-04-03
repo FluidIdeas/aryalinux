@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://mesa.freedesktop.org/archive/glu/glu-9.0.0.tar.bz2
+wget -nc ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.0.tar.bz2
 
 NAME=glu
 VERSION=9.0.0
-URL=https://mesa.freedesktop.org/archive/glu/glu-9.0.0.tar.bz2
+URL=ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.0.tar.bz2
 
 if [ ! -z $URL ]
 then

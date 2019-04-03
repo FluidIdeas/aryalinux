@@ -10,11 +10,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/libidn/libidn2-2.1.1a.tar.lz
+wget -nc https://ftp.gnu.org/gnu/libidn/libidn2-2.1.1.tar.gz
+wget -nc ftp://ftp.gnu.org/gnu/libidn/libidn2-2.1.1.tar.gz
 
 NAME=libidn2
-VERSION=2.1.1a
-URL=https://ftp.gnu.org/gnu/libidn/libidn2-2.1.1a.tar.lz
+VERSION=2.1.1
+URL=https://ftp.gnu.org/gnu/libidn/libidn2-2.1.1.tar.gz
 
 if [ ! -z $URL ]
 then

@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/cjlin1/liblinear/archive/v221/liblinear-221.tar.gz
+wget -nc https://github.com/cjlin1/liblinear/archive/v230/liblinear-230.tar.gz
 
 NAME=liblinear
-VERSION=221
-URL=https://github.com/cjlin1/liblinear/archive/v221/liblinear-221.tar.gz
+VERSION=230
+URL=https://github.com/cjlin1/liblinear/archive/v230/liblinear-230.tar.gz
 
 if [ ! -z $URL ]
 then

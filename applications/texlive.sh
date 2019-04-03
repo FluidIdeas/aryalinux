@@ -16,7 +16,6 @@ set +h
 #REC:icu
 #REC:libpaper
 #REC:libpng
-#REC:poppler
 #REC:potrace
 #REC:python2
 #REC:ruby
@@ -95,7 +94,7 @@ cd texlive-build &&
 --with-system-pixman \
 --with-system-potrace \
 --with-system-zlib \
---with-banner-add=" - AryaLinux" &&
+--with-banner-add=" - BLFS" &&
 
 make
 

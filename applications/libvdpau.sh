@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://people.freedesktop.org/~aplattner/vdpau/libvdpau-1.2.tar.bz2
+wget -nc https://gitlab.freedesktop.org/vdpau/libvdpau/uploads/14b620084c027d546fa0b3f083b800c6/libvdpau-1.2.tar.bz2
 
 NAME=libvdpau
 VERSION=1.2
-URL=https://people.freedesktop.org/~aplattner/vdpau/libvdpau-1.2.tar.bz2
+URL=https://gitlab.freedesktop.org/vdpau/libvdpau/uploads/14b620084c027d546fa0b3f083b800c6/libvdpau-1.2.tar.bz2
 
 if [ ! -z $URL ]
 then

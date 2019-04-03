@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.nano-editor.org/dist/v3/nano-3.2.tar.xz
+wget -nc https://www.nano-editor.org/dist/v4/nano-4.0.tar.xz
 
 NAME=nano
-VERSION=3.2
-URL=https://www.nano-editor.org/dist/v3/nano-3.2.tar.xz
+VERSION=4.0
+URL=https://www.nano-editor.org/dist/v4/nano-4.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -34,13 +34,13 @@ fi
 ./configure --prefix=/usr \
 --sysconfdir=/etc \
 --enable-utf8 \
---docdir=/usr/share/doc/nano-3.2 &&
+--docdir=/usr/share/doc/nano-4.0 &&
 make
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-install -v -m644 doc/{nano.html,sample.nanorc} /usr/share/doc/nano-3.2
+install -v -m644 doc/{nano.html,sample.nanorc} /usr/share/doc/nano-4.0
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

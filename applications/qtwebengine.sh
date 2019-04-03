@@ -46,7 +46,6 @@ xargs sed -i -e 's|INCLUDEPATH += |&$$QTWEBENGINE_ROOT/include |'
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-
 if [ -e ${QT5DIR}/lib/libQtWebEngineCore.so ]; then
 mv -v ${QT5DIR}/lib/libQtWebEngineCore.so{,.old}
 fi

@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:autoconf
+#REQ:autoconf213
 #REQ:cbindgen
 #REQ:llvm
 #REQ:gtk3
@@ -28,10 +28,9 @@ set +h
 cd $SOURCE_DIR
 
 
-
 NAME=firefox
-VERSION=66.0.source
-URL=
+VERSION=66.0.2.source
+URL=""
 
 if [ ! -z $URL ]
 then

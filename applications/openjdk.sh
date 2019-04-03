@@ -25,7 +25,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.2+9.tar.bz2
-wget -nc http://anduin.linuxfromscratch.org/blfs/OpenJDK/OpenJDK-11.0.2/jtreg-4.2-b13-517.tar.gz
+wget -nc http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-11.0.2/jtreg-4.2-b13-517.tar.gz
 
 NAME=openjdk
 VERSION=11.0.2+9

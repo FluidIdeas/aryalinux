@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://sourceforge.net/projects/giflib/files/giflib-5.1.8.tar.gz
+wget -nc https://sourceforge.net/projects/giflib/files/giflib-5.1.9.tar.gz
 
 NAME=giflib
-VERSION=5.1.8
-URL=https://sourceforge.net/projects/giflib/files/giflib-5.1.8.tar.gz
+VERSION=5.1.9
+URL=https://sourceforge.net/projects/giflib/files/giflib-5.1.9.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -42,8 +42,8 @@ rm -vf /usr/lib/libgif.a &&
 find doc \( -name Makefile\* -o -name \*.1 \
 -o -name \*.xml \) -exec rm -v {} \; &&
 
-install -v -dm755 /usr/share/doc/giflib-5.1.8 &&
-cp -v -R doc/* /usr/share/doc/giflib-5.1.8
+install -v -dm755 /usr/share/doc/giflib-5.1.9 &&
+cp -v -R doc/* /usr/share/doc/giflib-5.1.9
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

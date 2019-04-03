@@ -15,6 +15,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gjs/1.56/gjs-1.56.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gjs/1.56/gjs-1.56.0.tar.xz
 
 NAME=gjs
 VERSION=1.56.0

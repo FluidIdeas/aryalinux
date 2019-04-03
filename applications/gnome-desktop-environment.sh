@@ -96,10 +96,9 @@ set +h
 cd $SOURCE_DIR
 
 
-
 NAME=gnome-desktop-environment
 VERSION=3.30.2
-URL=
+URL=""
 
 if [ ! -z $URL ]
 then

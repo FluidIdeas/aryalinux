@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.isc.org/isc/bind9/9.12.4/bind-9.12.4.tar.gz
+wget -nc ftp://ftp.isc.org/isc/bind9/9.14.0/bind-9.14.0.tar.gz
 
 NAME=bind-utils
-VERSION=9.12.4
-URL=ftp://ftp.isc.org/isc/bind9/9.12.4/bind-9.12.4.tar.gz
+VERSION=9.14.0
+URL=ftp://ftp.isc.org/isc/bind9/9.14.0/bind-9.14.0.tar.gz
 
 if [ ! -z $URL ]
 then

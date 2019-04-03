@@ -16,11 +16,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://mesa.freedesktop.org/archive/mesa-19.0.1.tar.gz
+wget -nc https://mesa.freedesktop.org/archive/mesa-19.0.0.tar.xz
+wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-19.0.0.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/mesa-19.0.0-add_xdemos-2.patch
 
 NAME=mesa
-VERSION=19.0.1
-URL=https://mesa.freedesktop.org/archive/mesa-19.0.1.tar.gz
+VERSION=19.0.0
+URL=https://mesa.freedesktop.org/archive/mesa-19.0.0.tar.xz
 
 if [ ! -z $URL ]
 then

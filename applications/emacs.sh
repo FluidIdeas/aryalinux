@@ -10,11 +10,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/emacs/emacs-26.1.tar.gz
+wget -nc https://ftp.gnu.org/gnu/emacs/emacs-26.1.tar.xz
+wget -nc ftp://ftp.gnu.org/gnu/emacs/emacs-26.1.tar.xz
 
 NAME=emacs
 VERSION=26.1
-URL=https://ftp.gnu.org/gnu/emacs/emacs-26.1.tar.gz
+URL=https://ftp.gnu.org/gnu/emacs/emacs-26.1.tar.xz
 
 if [ ! -z $URL ]
 then

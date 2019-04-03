@@ -12,6 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.24/gtksourceview-3.24.10.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtksourceview/3.24/gtksourceview-3.24.10.tar.xz
 
 NAME=gtksourceview
 VERSION=3.24.10

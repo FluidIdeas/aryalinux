@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-4.0.tar.gz
+wget -nc http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-3.0.tar.gz
 
 NAME=pavucontrol
-VERSION=4.0
-URL=http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-4.0.tar.gz
+VERSION=3.0
+URL=http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-3.0.tar.gz
 
 if [ ! -z $URL ]
 then

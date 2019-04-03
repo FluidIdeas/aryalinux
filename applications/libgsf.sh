@@ -13,6 +13,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/libgsf/1.14/libgsf-1.14.45.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgsf/1.14/libgsf-1.14.45.tar.xz
 
 NAME=libgsf
 VERSION=1.14.45

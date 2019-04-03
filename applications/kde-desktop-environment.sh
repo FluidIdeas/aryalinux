@@ -24,10 +24,9 @@ set +h
 cd $SOURCE_DIR
 
 
-
 NAME=kde-desktop-environment
 VERSION=5.53
-URL=
+URL=""
 
 if [ ! -z $URL ]
 then

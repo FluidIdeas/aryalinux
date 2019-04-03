@@ -11,10 +11,9 @@ set +h
 cd $SOURCE_DIR
 
 
-
 NAME=initramfs
-VERSION=1.0
-URL=
+VERSION=""
+URL=""
 
 if [ ! -z $URL ]
 then
@@ -228,7 +227,7 @@ printf "done.\n"
 
 EOF
 
-<span class="command"><strong>chmod 0755 /sbin/mkinitramfs</strong></span>
+chmod 0755 /sbin/mkinitramfs
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

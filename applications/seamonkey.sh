@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:autoconf
+#REQ:autoconf213
 #REQ:gtk2
 #REQ:gtk3
 #REQ:unzip

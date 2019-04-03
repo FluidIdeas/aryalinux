@@ -10,7 +10,6 @@ set +h
 #REQ:gtksourceview
 #REQ:itstool
 #REQ:libpeas
-#REQ:gspell
 #REC:gvfs
 #REC:iso-codes
 #REC:libsoup
@@ -18,11 +17,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gedit/3.32/gedit-3.32.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gedit/3.22/gedit-3.22.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gedit/3.22/gedit-3.22.1.tar.xz
 
 NAME=gedit
-VERSION=3.32.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gedit/3.32/gedit-3.32.0.tar.xz
+VERSION=3.22.1
+URL=http://ftp.gnome.org/pub/gnome/sources/gedit/3.22/gedit-3.22.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -40,11 +40,17 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build &&
-cd build &&
-meson --prefix=/usr --sysconfdir=/etc .. &&
-ninja
-sudo ninja install
+./configure --prefix=/usr --disable-spell &&
+make
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+ENDOFROOTSCRIPT
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

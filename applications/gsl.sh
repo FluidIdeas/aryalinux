@@ -10,6 +10,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://ftp.gnu.org/gnu/gsl/gsl-2.5.tar.gz
+wget -nc ftp://ftp.gnu.org/gnu/gsl/gsl-2.5.tar.gz
 
 NAME=gsl
 VERSION=2.5

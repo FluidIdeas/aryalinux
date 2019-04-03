@@ -68,10 +68,9 @@ set +h
 cd $SOURCE_DIR
 
 
-
 NAME=multimedia-pack
 VERSION=1.4
-URL=
+URL=""
 
 if [ ! -z $URL ]
 then
@@ -88,7 +87,6 @@ fi
 
 cd $DIRECTORY
 fi
-
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

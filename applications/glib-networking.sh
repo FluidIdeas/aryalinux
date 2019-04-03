@@ -10,11 +10,11 @@ set +h
 #REQ:gnutls
 #REQ:gsettings-desktop-schemas
 #REC:make-ca
-#REC:p11-kit
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/glib-networking/2.60/glib-networking-2.60.0.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glib-networking/2.60/glib-networking-2.60.0.1.tar.xz
 
 NAME=glib-networking
 VERSION=2.60.0.1
@@ -40,8 +40,7 @@ mkdir build &&
 cd build &&
 
 meson --prefix=/usr \
--Dlibproxy_support=false \
--Dpkcs11_support=true .. &&
+-Dlibproxy=disabled .. &&
 ninja
 
 sudo rm -rf /tmp/rootscript.sh

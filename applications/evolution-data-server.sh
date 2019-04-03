@@ -11,7 +11,6 @@ set +h
 #REQ:libical
 #REQ:libsecret
 #REQ:nss
-#REQ:python2
 #REQ:sqlite
 #REC:gnome-online-accounts
 #REC:gobject-introspection
@@ -25,6 +24,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.32/evolution-data-server-3.32.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.32/evolution-data-server-3.32.0.tar.xz
 
 NAME=evolution-data-server
 VERSION=3.32.0

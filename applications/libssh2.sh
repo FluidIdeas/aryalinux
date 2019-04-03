@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.libssh2.org/download/libssh2-1.8.0.tar.gz
+wget -nc https://www.libssh2.org/download/libssh2-1.8.2.tar.gz
 
 NAME=libssh2
-VERSION=1.8.0
-URL=https://www.libssh2.org/download/libssh2-1.8.0.tar.gz
+VERSION=1.8.2
+URL=https://www.libssh2.org/download/libssh2-1.8.2.tar.gz
 
 if [ ! -z $URL ]
 then

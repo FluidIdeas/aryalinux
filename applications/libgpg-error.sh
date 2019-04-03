@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.35.tar.bz2
+wget -nc https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.36.tar.bz2
 
 NAME=libgpg-error
-VERSION=1.35
-URL=https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.35.tar.bz2
+VERSION=1.36
+URL=https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.36.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -37,7 +37,7 @@ make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-install -v -m644 -D README /usr/share/doc/libgpg-error-1.35/README
+install -v -m644 -D README /usr/share/doc/libgpg-error-1.36/README
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

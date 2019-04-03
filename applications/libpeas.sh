@@ -13,6 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/libpeas/1.22/libpeas-1.22.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libpeas/1.22/libpeas-1.22.0.tar.xz
+wget -nc http://www.lua.org/ftp/lua-5.1.5.tar.gz
 
 NAME=libpeas
 VERSION=1.22.0

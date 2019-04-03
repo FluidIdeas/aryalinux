@@ -16,6 +16,9 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf/0.32/dconf-0.32.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf/0.32/dconf-0.32.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.32/dconf-editor-3.32.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.32/dconf-editor-3.32.0.tar.xz
 
 NAME=dconf
 VERSION=0.32.0
@@ -45,8 +48,25 @@ ninja
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install &&
-cp gsettings/libdconfsettings.so /usr/lib/gio/modules/
+ninja install
+ENDOFROOTSCRIPT
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+cd .. &&
+tar -xf ../dconf-editor-3.32.0.tar.xz &&
+cd dconf-editor-3.32.0 &&
+
+mkdir build &&
+cd build &&
+
+meson --prefix=/usr --sysconfdir=/etc .. &&
+ninja
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ninja install
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

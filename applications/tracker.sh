@@ -19,6 +19,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/tracker/2.2/tracker-2.2.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/tracker/2.2/tracker-2.2.1.tar.xz
 
 NAME=tracker
 VERSION=2.2.1

@@ -11,10 +11,9 @@ set +h
 cd $SOURCE_DIR
 
 
-
 NAME=x7legacy
-VERSION=
-URL=
+VERSION=""
+URL=""
 
 if [ ! -z $URL ]
 then

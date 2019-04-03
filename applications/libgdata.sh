@@ -8,18 +8,19 @@ set +h
 
 #REQ:liboauth
 #REQ:libsoup
+#REQ:gnome-online-accounts
 #REQ:gtk3
 #REQ:json-glib
 #REQ:uhttpmock
 #REQ:vala
 #REC:gcr
 #REC:git
-#REC:gnome-online-accounts
 #REC:gobject-introspection
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.9.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.9.tar.xz
 
 NAME=libgdata
 VERSION=0.17.9

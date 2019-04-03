@@ -17,6 +17,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnumeric/1.12/gnumeric-1.12.44.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnumeric/1.12/gnumeric-1.12.44.tar.xz
 
 NAME=gnumeric
 VERSION=1.12.44

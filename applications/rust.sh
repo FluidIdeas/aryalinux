@@ -75,7 +75,7 @@ docdir = "share/doc/rustc-1.32.0"
 channel = "stable"
 rpath = false
 
-# AryaLinux does not install the FileCheck executable from llvm,
+# BLFS does not install the FileCheck executable from llvm,
 # so disable codegen tests
 codegen-tests = false
 

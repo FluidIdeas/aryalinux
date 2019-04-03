@@ -10,10 +10,9 @@ set +h
 cd $SOURCE_DIR
 
 
-
 NAME=kf5-intro
 VERSION=5.53
-URL=
+URL=""
 
 if [ ! -z $URL ]
 then

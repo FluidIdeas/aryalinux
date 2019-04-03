@@ -40,10 +40,9 @@ set +h
 cd $SOURCE_DIR
 
 
-
 NAME=krameworks5
 VERSION=5.53
-URL=
+URL=""
 
 if [ ! -z $URL ]
 then
@@ -168,15 +167,14 @@ file=$(echo $line | cut -d" " -f2)
 pkg=$(echo $file|sed 's|^.*/||') # Remove directory
 packagedir=$(echo $pkg|sed 's|\.tar.*||') # Package directory
 
-# Fix a security issue in kcodecs
 name=$(echo $pkg|sed 's|-5.*$||') # Isolate package name
-
-if [ "$name" == "kcodecs" ]; then
-sed -i '/int ISO2022JPChar/s/}/, 0, 0}/' src/probers/nsEscSM.cpp
-fi
 
 tar -xf $file
 pushd $packagedir
+# Fix a security issue in kcodecs
+if [ "$name" == "kcodecs" ]; then
+sed -i '/int ISO2022JPChar/s/}/, 0, 0}/' src/probers/nsEscSM.cpp
+fi
 mkdir -pv build
 cd build
 

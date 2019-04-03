@@ -15,6 +15,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/libgweather/3.32/libgweather-3.32.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgweather/3.32/libgweather-3.32.1.tar.xz
 
 NAME=libgweather
 VERSION=3.32.1

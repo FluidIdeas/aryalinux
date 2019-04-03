@@ -10,6 +10,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/libsigc++/2.10/libsigc++-2.10.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libsigc++/2.10/libsigc++-2.10.1.tar.xz
 
 NAME=libsigc
 VERSION=2.10.1

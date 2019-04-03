@@ -18,6 +18,7 @@ set +h
 #REQ:libsoup
 #REQ:libwebp
 #REQ:mesa
+#REQ:openjpeg2
 #REQ:ruby
 #REQ:sqlite
 #REQ:which
@@ -29,11 +30,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://webkitgtk.org/releases/webkitgtk-2.22.6.tar.xz
+wget -nc https://webkitgtk.org/releases/webkitgtk-2.24.0.tar.xz
 
 NAME=webkitgtk
-VERSION=2.22.6
-URL=https://webkitgtk.org/releases/webkitgtk-2.22.6.tar.xz
+VERSION=2.24.0
+URL=https://webkitgtk.org/releases/webkitgtk-2.24.0.tar.xz
 
 if [ ! -z $URL ]
 then

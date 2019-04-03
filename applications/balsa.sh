@@ -8,7 +8,7 @@ set +h
 
 #REQ:aspell
 #REQ:enchant
-#REQ:gmime2
+#REQ:gmime
 #REQ:libesmtp
 #REQ:rarian
 #REC:pcre

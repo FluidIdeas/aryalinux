@@ -12,6 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.32/gnome-menus-3.32.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.32/gnome-menus-3.32.0.tar.xz
 
 NAME=gnome-menus
 VERSION=3.32.0
@@ -33,7 +34,15 @@ fi
 cd $DIRECTORY
 fi
 
-sed -i '129i </Exclude>' layout/gnome-applications.menu
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+gsettings reset-recursively org.gnome.desktop.app-folders
+ENDOFROOTSCRIPT
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 ./configure --prefix=/usr \
 --sysconfdir=/etc \
 --disable-static &&

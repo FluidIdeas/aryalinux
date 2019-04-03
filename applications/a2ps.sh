@@ -12,6 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://ftp.gnu.org/gnu/a2ps/a2ps-4.14.tar.gz
+wget -nc ftp://ftp.gnu.org/gnu/a2ps/a2ps-4.14.tar.gz
+wget -nc http://anduin.linuxfromscratch.org/BLFS/i18n-fonts/i18n-fonts-0.1.tar.bz2
 
 NAME=a2ps
 VERSION=4.14

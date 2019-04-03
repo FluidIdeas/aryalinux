@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:autoconf
+#REQ:autoconf213
 #REQ:icu
 #REQ:nspr
 #REQ:python2

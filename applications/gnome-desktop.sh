@@ -9,7 +9,6 @@ set +h
 #REQ:gsettings-desktop-schemas
 #REQ:gtk3
 #REQ:iso-codes
-#REQ:itstool
 #REQ:libseccomp
 #REQ:libxml2
 #REQ:xkeyboard-config
@@ -19,6 +18,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-desktop/3.32/gnome-desktop-3.32.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-desktop/3.32/gnome-desktop-3.32.0.tar.xz
 
 NAME=gnome-desktop
 VERSION=3.32.0
@@ -40,11 +40,21 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir -pv build
-cd build
-meson --prefix=/usr -Dgnome_distributor=AryaLinux
+mkdir build &&
+cd build &&
+
+meson --prefix=/usr \
+-Dgnome_distributor="BLFS" .. &&
 ninja
-sudo ninja install
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ninja install
+ENDOFROOTSCRIPT
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

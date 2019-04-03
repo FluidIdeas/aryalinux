@@ -14,11 +14,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.osuosl.org/pub/blfs/conglomeration/geoclue/geoclue-2.5.2.tar.bz2
+wget -nc https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.5.2/geoclue-2.5.2.tar.bz2
 
 NAME=geoclue2
 VERSION=2.5.2
-URL=https://ftp.osuosl.org/pub/blfs/conglomeration/geoclue/geoclue-2.5.2.tar.bz2
+URL=https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.5.2/geoclue-2.5.2.tar.bz2
 
 if [ ! -z $URL ]
 then

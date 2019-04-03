@@ -12,6 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/yelp-xsl/3.32/yelp-xsl-3.32.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/yelp-xsl/3.32/yelp-xsl-3.32.1.tar.xz
 
 NAME=yelp-xsl
 VERSION=3.32.1
@@ -33,8 +34,7 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr &&
-make
+./configure --prefix=/usr
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

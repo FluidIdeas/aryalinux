@@ -19,11 +19,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/seahorse/3.32/seahorse-3.32.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/seahorse/3.30/seahorse-3.30.1.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/seahorse/3.30/seahorse-3.30.1.1.tar.xz
 
 NAME=seahorse
-VERSION=3.32
-URL=http://ftp.gnome.org/pub/gnome/sources/seahorse/3.32/seahorse-3.32.tar.xz
+VERSION=3.30.1.1
+URL=http://ftp.gnome.org/pub/gnome/sources/seahorse/3.30/seahorse-3.30.1.1.tar.xz
 
 if [ ! -z $URL ]
 then

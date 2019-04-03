@@ -10,10 +10,9 @@ set +h
 cd $SOURCE_DIR
 
 
-
 NAME=ojdk-conf
-VERSION=
-URL=
+VERSION=""
+URL=""
 
 if [ ! -z $URL ]
 then

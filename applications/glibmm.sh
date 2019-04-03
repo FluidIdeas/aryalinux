@@ -12,6 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/glibmm/2.60/glibmm-2.60.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glibmm/2.60/glibmm-2.60.0.tar.xz
 
 NAME=glibmm
 VERSION=2.60.0
@@ -33,7 +34,7 @@ fi
 cd $DIRECTORY
 fi
 
-sed -e '/^libdocdir =/ s/$(book_name)/glibmm-2.58.1/' \
+sed -e '/^libdocdir =/ s/$(book_name)/glibmm-2.60.0/' \
 -i docs/Makefile.in
 ./configure --prefix=/usr &&
 make

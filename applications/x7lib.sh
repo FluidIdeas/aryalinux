@@ -12,10 +12,9 @@ set +h
 cd $SOURCE_DIR
 
 
-
 NAME=x7lib
-VERSION=
-URL=
+VERSION=""
+URL=""
 
 if [ ! -z $URL ]
 then

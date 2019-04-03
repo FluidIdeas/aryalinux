@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.andre-simon.de/zip/highlight-3.49.tar.bz2
+wget -nc http://www.andre-simon.de/zip/highlight-3.50.tar.bz2
 
 NAME=highlight
-VERSION=3.49
-URL=http://www.andre-simon.de/zip/highlight-3.49.tar.bz2
+VERSION=3.50
+URL=http://www.andre-simon.de/zip/highlight-3.50.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -33,6 +33,7 @@ fi
 cd $DIRECTORY
 fi
 
+sed -i '/GZIP/s/^/#/' makefile
 make
 
 sudo rm -rf /tmp/rootscript.sh

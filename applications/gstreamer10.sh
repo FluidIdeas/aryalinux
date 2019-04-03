@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.15.2.tar.xz
+wget -nc https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.14.4.tar.xz
 
 NAME=gstreamer10
-VERSION=1.15.2
-URL=https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.15.2.tar.xz
+VERSION=1.14.4
+URL=https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.14.4.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -34,7 +34,7 @@ cd $DIRECTORY
 fi
 
 ./configure --prefix=/usr \
---with-package-name="GStreamer 1.14.4 AryaLinux" \
+--with-package-name="GStreamer 1.14.4 BLFS" \
 --with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/" &&
 make
 rm -rf /usr/bin/gst-* /usr/{lib,libexec}/gstreamer-1.0

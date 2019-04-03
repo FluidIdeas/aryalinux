@@ -26,10 +26,9 @@ set +h
 cd $SOURCE_DIR
 
 
-
 NAME=x7driver
 VERSION=1.0
-URL=
+URL=""
 
 if [ ! -z $URL ]
 then
@@ -46,7 +45,6 @@ fi
 
 cd $DIRECTORY
 fi
-
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

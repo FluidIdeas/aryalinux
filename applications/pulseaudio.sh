@@ -16,11 +16,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-12.2.tar.gz
+wget -nc https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-12.2.tar.xz
 
 NAME=pulseaudio
 VERSION=12.2
-URL=https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-12.2.tar.gz
+URL=https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-12.2.tar.xz
 
 if [ ! -z $URL ]
 then

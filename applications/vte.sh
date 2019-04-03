@@ -15,6 +15,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/vte/0.56/vte-0.56.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/vte/0.56/vte-0.56.0.tar.xz
 
 NAME=vte
 VERSION=0.56.0
@@ -36,8 +37,6 @@ fi
 cd $DIRECTORY
 fi
 
-sed -e '/bool audible/i\ public int dummy;' \
--i bindings/vala/app.vala
 ./configure --prefix=/usr \
 --sysconfdir=/etc \
 --disable-static \

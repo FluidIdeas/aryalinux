@@ -15,11 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libsoup/2.66/libsoup-2.66.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/libsoup/2.64/libsoup-2.64.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libsoup/2.64/libsoup-2.64.2.tar.xz
 
 NAME=libsoup
-VERSION=2.66.0
-URL=http://ftp.gnome.org/pub/gnome/sources/libsoup/2.66/libsoup-2.66.0.tar.xz
+VERSION=2.64.2
+URL=http://ftp.gnome.org/pub/gnome/sources/libsoup/2.64/libsoup-2.64.2.tar.xz
 
 if [ ! -z $URL ]
 then

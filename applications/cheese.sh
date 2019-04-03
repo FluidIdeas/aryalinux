@@ -22,6 +22,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/cheese/3.32/cheese-3.32.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/cheese/3.32/cheese-3.32.0.tar.xz
 
 NAME=cheese
 VERSION=3.32.0
@@ -43,7 +44,6 @@ fi
 cd $DIRECTORY
 fi
 
-sed -i '7d' data/cheese.css
 ./configure --prefix=/usr &&
 make
 

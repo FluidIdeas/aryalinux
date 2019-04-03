@@ -10,6 +10,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.12.tar.gz
+wget -nc ftp://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.12.tar.gz
 
 NAME=libsigsegv
 VERSION=2.12

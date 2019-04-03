@@ -10,6 +10,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.13.tar.gz
+wget -nc ftp://ftp.gnu.org/gnu/libtasn1/libtasn1-4.13.tar.gz
 
 NAME=libtasn1
 VERSION=4.13
