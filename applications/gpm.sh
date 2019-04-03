@@ -9,13 +9,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://anduin.linuxfromscratch.org/blfs/gpm/gpm-1.20.7.tar.bz2
-wget -nc ftp://anduin.linuxfromscratch.org/blfs/gpm/gpm-1.20.7.tar.bz2
+wget -nc https://ftp.osuosl.org/pub/blfs/conglomeration/gpm/gpm-1.20.7.tar.bz2
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/gpm-1.20.7-glibc_2.26-1.patch
 
 NAME=gpm
 VERSION=1.20.7
-URL=http://anduin.linuxfromscratch.org/blfs/gpm/gpm-1.20.7.tar.bz2
+URL=https://ftp.osuosl.org/pub/blfs/conglomeration/gpm/gpm-1.20.7.tar.bz2
 
 if [ ! -z $URL ]
 then
