@@ -14,12 +14,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-calculator/3.30/gnome-calculator-3.30.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-calculator/3.30/gnome-calculator-3.30.1.tar.xz
+wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-calculator/3.32/gnome-calculator-3.32.0.tar.xz
 
 NAME=gnome-calculator
-VERSION=3.30.1
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-calculator/3.30/gnome-calculator-3.30.1.tar.xz
+VERSION=3.32.0
+URL=http://ftp.acc.umu.se/pub/gnome/sources/gnome-calculator/3.32/gnome-calculator-3.32.0.tar.xz
 
 if [ ! -z $URL ]
 then

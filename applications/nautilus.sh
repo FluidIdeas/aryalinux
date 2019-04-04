@@ -22,12 +22,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/nautilus/3.30/nautilus-3.30.5.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/nautilus/3.30/nautilus-3.30.5.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/nautilus/3.32/nautilus-3.32.0.tar.xz
 
 NAME=nautilus
-VERSION=3.30.5
-URL=http://ftp.gnome.org/pub/gnome/sources/nautilus/3.30/nautilus-3.30.5.tar.xz
+VERSION=3.32.0
+URL=http://ftp.gnome.org/pub/gnome/sources/nautilus/3.32/nautilus-3.32.0.tar.xz
 
 if [ ! -z $URL ]
 then

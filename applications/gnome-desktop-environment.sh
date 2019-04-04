@@ -79,6 +79,8 @@ set +h
 #REQ:gnome-terminal
 #REQ:gnome-weather
 #REQ:gucharmap
+#REQ:vino
+#REQ:vinagre
 #REQ:network-manager-applet
 #REQ:seahorse
 #REQ:notification-daemon
@@ -97,8 +99,8 @@ cd $SOURCE_DIR
 
 
 NAME=gnome-desktop-environment
-VERSION=3.30.2
-URL=""
+VERSION=3.32.0
+URL=
 
 if [ ! -z $URL ]
 then

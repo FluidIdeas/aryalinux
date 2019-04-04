@@ -20,12 +20,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gdm/3.30/gdm-3.30.3.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gdm/3.30/gdm-3.30.3.tar.xz
+wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gdm/3.32/gdm-3.32.0.tar.xz
 
 NAME=gdm
-VERSION=3.30.3
-URL=http://ftp.gnome.org/pub/gnome/sources/gdm/3.30/gdm-3.30.3.tar.xz
+VERSION=3.32.0
+URL=http://ftp.acc.umu.se/pub/gnome/sources/gdm/3.32/gdm-3.32.0.tar.xz
 
 if [ ! -z $URL ]
 then

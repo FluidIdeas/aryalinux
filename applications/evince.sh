@@ -20,13 +20,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/evince/3.30/evince-3.30.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evince/3.30/evince-3.30.2.tar.xz
-wget -nc http://www.ibiblio.org/pub/Linux/libs/graphics/t1lib-5.1.2.tar.gz
+wget -nc http://ftp.acc.umu.se/pub/gnome/sources/evince/3.32/evince-3.32.0.tar.xz
 
 NAME=evince
-VERSION=3.30.2
-URL=http://ftp.gnome.org/pub/gnome/sources/evince/3.30/evince-3.30.2.tar.xz
+VERSION=3.32.0
+URL=http://ftp.acc.umu.se/pub/gnome/sources/evince/3.32/evince-3.32.0.tar.xz
 
 if [ ! -z $URL ]
 then
