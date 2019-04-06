@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 wget -nc https://download.gnome.org/sources/gtksourceview/4.2/gtksourceview-4.2.0.tar.xz
 
-NAME=gtksourceview
+NAME=gtksourceview4
 VERSION=4.2.0
 URL=https://download.gnome.org/sources/gtksourceview/4.2/gtksourceview-4.2.0.tar.xz
 
