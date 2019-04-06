@@ -49,7 +49,7 @@ fi
 mkdir -pv build &&
 cd build
 
-meson --prefix=/usr &&
+CFLAGS="-Wno-pointer-to-int-cast" meson --prefix=/usr &&
 ninja
 sudo ninja install
 
