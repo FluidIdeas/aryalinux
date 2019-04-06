@@ -6,15 +6,14 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:libgrss
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/tracker-miners/2.2/tracker-miners-2.2.1.tar.xz
+wget -nc http://ftp.acc.umu.se/pub/gnome/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
 
-NAME=tracker-miners
-VERSION=2.2.1
-URL=http://ftp.acc.umu.se/pub/gnome/sources/tracker-miners/2.2/tracker-miners-2.2.1.tar.xz
+NAME=libgrss
+VERSION=0.7.0
+URL=http://ftp.acc.umu.se/pub/gnome/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -32,11 +31,9 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build
-cd build
-meson --prefix=/usr &&
-ninja
-sudo ninja install
+./configure --prefix=/usr &&
+make
+sudo make install
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
