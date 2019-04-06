@@ -34,9 +34,7 @@ fi
 mkdir build &&
 cd build &&
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
--DBUILD_SHARED_LIBS=true \
--DCMAKE_BUILD_TYPE=RELEASE .. &&
+./configure --prefix=/usr --enable-shared &&
 make
 
 sudo rm -rf /tmp/rootscript.sh
