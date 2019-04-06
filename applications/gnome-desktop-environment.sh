@@ -69,6 +69,7 @@ set +h
 #REQ:evince
 #REQ:file-roller
 #REQ:gedit
+#REQ:gtksourceview4
 #REQ:gnome-calculator
 #REQ:gnome-disk-utility
 #REQ:gnome-logs
@@ -100,7 +101,7 @@ cd $SOURCE_DIR
 
 NAME=gnome-desktop-environment
 VERSION=3.32.0
-URL=
+URL=""
 
 if [ ! -z $URL ]
 then
