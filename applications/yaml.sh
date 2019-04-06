@@ -31,9 +31,6 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build &&
-cd build &&
-
 ./configure --prefix=/usr --enable-shared &&
 make
 
