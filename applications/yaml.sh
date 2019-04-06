@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/yaml/libyaml/archive/0.2.2/yaml-0.2.2.tar.gz
+wget -nc https://pyyaml.org/download/libyaml/yaml-0.2.1.tar.gz
 
 NAME=yaml
-VERSION=0.2.2
-URL=https://github.com/yaml/libyaml/archive/0.2.2/yaml-0.2.2.tar.gz
+VERSION=0.2.1
+URL=https://pyyaml.org/download/libyaml/yaml-0.2.1.tar.gz
 
 if [ ! -z $URL ]
 then
