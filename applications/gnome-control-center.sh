@@ -16,6 +16,7 @@ set +h
 #REQ:libpwquality
 #REQ:mitkrb
 #REQ:shared-mime-info
+#REQ:gsound
 #REC:cheese
 #REC:cups
 #REC:samba
