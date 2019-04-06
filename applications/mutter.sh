@@ -12,6 +12,7 @@ set +h
 #REQ:libxkbcommon
 #REQ:upower
 #REQ:zenity
+#REQ:libpipewire
 #REC:gobject-introspection
 #REC:libcanberra
 #REC:startup-notification
