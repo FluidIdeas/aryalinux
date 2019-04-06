@@ -37,7 +37,7 @@ fi
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir /opt/rustc-1.32.0 &&
+mkdir -pv /opt/rustc-1.32.0 &&
 ln -svfin rustc-1.32.0 /opt/rustc
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
