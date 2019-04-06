@@ -33,17 +33,12 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr &&
-make
+mkdir -pv build &&
+cd build
 
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
+meson --prefix=/usr &&
+ninja
+sudo ninja install
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
