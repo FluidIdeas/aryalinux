@@ -33,7 +33,7 @@ cd $DIRECTORY
 fi
 
 if grep "gnome-desktop-environment" /etc/alps/installed-list &> /dev/null; then export WITH_GNOME="--with-gnome"; fi
-./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-iproute2 $WITH_GNOME &&
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var $WITH_GNOME &&
 make
 sudo make install
 
