@@ -6,30 +6,14 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:libevdev
-#REQ:xorg-evdev-driver
-#REQ:libinput
-#REQ:xorg-libinput-driver
-#REQ:xorg-synaptics-driver
-#REQ:xorg-vmmouse-driver
-#REQ:xorg-wacom-driver
-#REQ:xorg-amdgpu-driver
-#REQ:xorg-ati-driver
-#REQ:xorg-fbdev-driver
-#REQ:xorg-intel-driver
-#REQ:intel-hybrid-driver
-#REQ:xorg-nouveau-driver
-#REQ:xorg-vmware-driver
-#REQ:libva
-#REQ:libvdpau
-#REQ:libvdpau-va-gl
 
 cd $SOURCE_DIR
 
+wget -nc https://mirrors.edge.kernel.org/pub/linux/utils/net/iproute2/iproute2-4.20.0.tar.xz
 
-NAME=x7driver
-VERSION=1.0
-URL=""
+NAME=iproute2
+VERSION=4.20.0
+URL=https://mirrors.edge.kernel.org/pub/linux/utils/net/iproute2/iproute2-4.20.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -47,6 +31,9 @@ fi
 cd $DIRECTORY
 fi
 
+./configure --prefix=/usr --sysconfdir=/etc &&
+make
+sudo make install
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

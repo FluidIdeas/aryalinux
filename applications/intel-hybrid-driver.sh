@@ -6,30 +6,14 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:libevdev
-#REQ:xorg-evdev-driver
-#REQ:libinput
-#REQ:xorg-libinput-driver
-#REQ:xorg-synaptics-driver
-#REQ:xorg-vmmouse-driver
-#REQ:xorg-wacom-driver
-#REQ:xorg-amdgpu-driver
-#REQ:xorg-ati-driver
-#REQ:xorg-fbdev-driver
-#REQ:xorg-intel-driver
-#REQ:intel-hybrid-driver
-#REQ:xorg-nouveau-driver
-#REQ:xorg-vmware-driver
-#REQ:libva
-#REQ:libvdpau
-#REQ:libvdpau-va-gl
 
 cd $SOURCE_DIR
 
+wget -nc https://github.com/01org/intel-hybrid-driver/archive/1.0.2.tar.gz
 
-NAME=x7driver
-VERSION=1.0
-URL=""
+NAME=intel-hybrid-driver
+VERSION=1.0.2
+URL=https://github.com/01org/intel-hybrid-driver/archive/1.0.2.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -47,6 +31,9 @@ fi
 cd $DIRECTORY
 fi
 
+./configure --prefix=/usr --sysconfdir=/etc &&
+make
+sudo make install
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
