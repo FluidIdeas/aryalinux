@@ -32,8 +32,8 @@ fi
 cd $DIRECTORY
 fi
 
-if grep "gnome-desktop-environment" /etc/alps/installed-list &> /dev/null; then WITH_GNOME="--with-gnome"; fi
-./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var &WITH_GNOME &&
+if grep "gnome-desktop-environment" /etc/alps/installed-list &> /dev/null; then export WITH_GNOME="--with-gnome"; fi
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var $WITH_GNOME &&
 make
 sudo make install
 
