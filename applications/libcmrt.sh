@@ -6,15 +6,14 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:libcmrt
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/01org/intel-hybrid-driver/archive/1.0.2.tar.gz
+wget -nc https://github.com/intel/cmrt/archive/1.0.6.tar.gz
 
-NAME=intel-hybrid-driver
-VERSION=1.0.2
-URL=https://github.com/01org/intel-hybrid-driver/archive/1.0.2.tar.gz
+NAME=libcmrt
+VERSION=1.0.6
+URL=https://github.com/intel/cmrt/archive/1.0.6.tar.gz
 
 if [ ! -z $URL ]
 then
