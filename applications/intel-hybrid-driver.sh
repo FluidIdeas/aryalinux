@@ -31,7 +31,7 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --sysconfdir=/etc &&
+./autogen.sh --prefix=/usr --sysconfdir=/etc &&
 make
 sudo make install
 

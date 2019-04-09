@@ -6,31 +6,14 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:autoconf213
-#REQ:cbindgen
-#REQ:llvm
-#REQ:gtk3
-#REQ:gtk2
-#REQ:libnotify
-#REQ:nodejs
-#REQ:nss
-#REQ:pulseaudio
-#REQ:alsa-lib
-#REQ:rust
-#REQ:unzip
-#REQ:yasm
-#REQ:zip
-#REC:icu
-#REC:libevent
-#REC:libwebp
-#REC:sqlite
 
 cd $SOURCE_DIR
 
+wget -nc https://archive.mozilla.org/pub/firefox/releases/66.0.2/source/firefox-66.0.2.source.tar.xz
 
 NAME=firefox
-VERSION=66.0.2.source
-URL=""
+VERSION=66.0.2
+URL=https://archive.mozilla.org/pub/firefox/releases/66.0.2/source/firefox-66.0.2.source.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -48,28 +31,122 @@ fi
 cd $DIRECTORY
 fi
 
-export LANG=en-US
+cat > mozconfig << "EOF"
+# If you have a multicore machine, all cores will be used by default.
 
-if [ $(uname -m) == "x86_64" ]
-then
-	wget -O $SOURCE_DIR/firefox.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=$LANG"
-else
-	wget -O $SOURCE_DIR/firefox.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux&lang=$LANG"
-fi
+# If you have installed dbus-glib, comment out this line:
+ac_add_options --disable-dbus
 
-TARBALL="firefox.tar.bz2"
-DIRECTORY=`tar -tf $TARBALL | sed -e 's@/.*@@' | uniq`
+# If you have installed dbus-glib, and you have installed (or will install)
+# wireless-tools, and you wish to use geolocation web services, comment out
+# this line
+ac_add_options --disable-necko-wifi
 
-sudo tar -xf $TARBALL -C /opt
-sudo chmod -R a+rw /opt/firefox
+# API Keys for geolocation APIs - necko-wifi (above) is required for MLS
+# Uncomment the following line if you wish to use Mozilla Location Service
+#ac_add_options --with-mozilla-api-keyfile=$PWD/mozilla-key
 
-sudo tee /usr/share/applications/firefox.desktop << "EOF" &&
+# Uncomment the following line if you wish to use Google's geolocaton API
+# (needed for use with saved maps with Google Maps)
+#ac_add_options --with-google-location-service-api-keyfile=$PWD/google-key
+
+# Uncomment this line if you have installed startup-notification:
+#ac_add_options --enable-startup-notification
+
+# Uncomment the following option if you have not installed PulseAudio
+#ac_add_options --disable-pulseaudio
+# and uncomment this if you installed alsa-lib instead of PulseAudio
+#ac_add_options --enable-alsa
+
+# If you have installed GConf, comment out this line
+ac_add_options --disable-gconf
+
+# From firefox-61, the stylo CSS code can no-longer be disabled
+
+# Comment out following options if you have not installed
+# recommended dependencies:
+ac_add_options --enable-system-sqlite
+ac_add_options --with-system-libevent
+# current firefox fails to build against libvpx-1.8.0
+#ac_add_options --with-system-libvpx
+# firefox-65 understands webp and ships with an included copy
+ac_add_options --with-system-webp
+ac_add_options --with-system-nspr
+ac_add_options --with-system-nss
+ac_add_options --with-system-icu
+
+# The gold linker is no-longer the default
+ac_add_options --enable-linker=gold
+
+# The shipped libdavid (av1 decoder) is not built by default,
+# at least on linux, but if nasm is not present libxul tries to
+# link to one of libdavid's objects and fails.  It is thought
+# libdavid will be enabled in firefox-67, at which point nasm
+# might be required.
+ac_add_options --disable-av1
+
+# You cannot distribute the binary if you do this
+#ac_add_options --enable-official-branding
+
+# If you are going to apply the patch for system graphite
+# and system harfbuzz, uncomment these lines:
+#ac_add_options --with-system-graphite2
+#ac_add_options --with-system-harfbuzz
+
+# Stripping is now enabled by default.
+# Uncomment these lines if you need to run a debugger:
+#ac_add_options --disable-strip
+#ac_add_options --disable-install-strip
+
+# The BLFS editors recommend not changing anything below this line:
+ac_add_options --prefix=/usr
+ac_add_options --enable-application=browser
+
+ac_add_options --disable-crashreporter
+ac_add_options --disable-updater
+# enabling the tests will use a lot more space and significantly
+# increase the build time, for no obvious benefit.
+ac_add_options --disable-tests
+
+# With clang, unlike gcc-7 and later, the default level
+# of optimization produces a working build.
+ac_add_options --enable-optimize
+
+# From firefox-61 system cairo is not supported
+
+ac_add_options --enable-system-ffi
+ac_add_options --enable-system-pixman
+
+# From firefox-62 --with-pthreads is not recognized
+
+ac_add_options --with-system-bz2
+ac_add_options --with-system-jpeg
+ac_add_options --with-system-png
+ac_add_options --with-system-zlib
+
+mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/firefox-build-dir
+EOF
+export SHELL=/bin/sh
+sed -e 's/checkImpl/checkFFImpl/g' -i js/src/vm/JSContext*.h &&
+export CC=clang CXX=clang++ AR=llvm-ar NM=llvm-nm RANLIB=llvm-ranlib &&
+export MOZBUILD_STATE_PATH=${PWD}/mozbuild &&
+./mach build
+sudo ./mach install                                                  &&
+
+sudo mkdir -pv  /usr/lib/mozilla/plugins                             &&
+sudo ln    -sfv ../../mozilla/plugins /usr/lib/firefox/browser/
+unset CC CXX AR NM RANLIB MOZBUILD_STATE_PATH
+
+mkdir -pv /usr/share/applications &&
+mkdir -pv /usr/share/pixmaps &&
+
+cat > /usr/share/applications/firefox.desktop << "EOF" &&
 [Desktop Entry]
 Encoding=UTF-8
 Name=Firefox Web Browser
 Comment=Browse the World Wide Web
 GenericName=Web Browser
-Exec=/opt/firefox/firefox %u
+Exec=firefox %u
 Terminal=false
 Type=Application
 Icon=firefox
@@ -78,17 +155,8 @@ MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/vnd.mo
 StartupNotify=true
 EOF
 
-for s in 16 32 48 128
-do
-sudo install -v -Dm644 /opt/firefox/browser/chrome/icons/default/default${s}.png \
-                  /usr/share/icons/hicolor/${s}x${s}/apps/firefox.png
-done
-
-cd $SOURCE_DIR
-rm -rf $DIRECTORY
-
-sudo update-desktop-database
-sudo update-mime-database /usr/share/mime
+ln -sfv /usr/lib/firefox/browser/chrome/icons/default/default128.png \
+        /usr/share/pixmaps/firefox.png
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
