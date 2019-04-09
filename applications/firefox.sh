@@ -6,6 +6,24 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#REQ:autoconf213
+#REQ:cbindgen
+#REQ:llvm
+#REQ:gtk3
+#REQ:gtk2
+#REQ:libnotify
+#REQ:nodejs
+#REQ:nss
+#REQ:pulseaudio
+#REQ:alsa-lib
+#REQ:rust
+#REQ:unzip
+#REQ:yasm
+#REQ:zip
+#REC:icu
+#REC:libevent
+#REC:libwebp
+#REC:sqlite
 
 cd $SOURCE_DIR
 
