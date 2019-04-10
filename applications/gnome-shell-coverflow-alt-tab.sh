@@ -32,9 +32,9 @@ fi
 cd $DIRECTORY
 fi
 
-sudo mkdir -pv /usr/share/gnome-shell/extensions/"basename $(pwd)"
-sudo mv * /usr/share/gnome-shell/extensions/"basename $(pwd)"
-sudo chmod -R a+r /usr/share/gnome-shell/extensions/"basename $(pwd)"
+sudo mkdir -pv /usr/share/gnome-shell/extensions/$(basename $(pwd))
+sudo mv * /usr/share/gnome-shell/extensions/$(basename $(pwd))
+sudo chmod -R a+r /usr/share/gnome-shell/extensions/$(basename $(pwd))
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
