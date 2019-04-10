@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/dmo60/CoverflowAltTab/archive/v1.5.tar.gz
+wget -nc https://sourceforge.net/projects/aryalinux-bin/files/releases/1.5/gnome-shell-extensions/CoverflowAltTab-gnome-extension-36.tar.gz
 
 NAME=gnome-shell-coverflow-alt-tab
-VERSION=1.5
-URL=https://github.com/dmo60/CoverflowAltTab/archive/v1.5.tar.gz
+VERSION=36
+URL=https://sourceforge.net/projects/aryalinux-bin/files/releases/1.5/gnome-shell-extensions/CoverflowAltTab-gnome-extension-36.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -32,7 +32,9 @@ fi
 cd $DIRECTORY
 fi
 
-sudo make all LOCALINSTALL=true
+sudo mkdir -pv /usr/share/gnome-shell/extensions/"basename $(pwd)"
+sudo mv * /usr/share/gnome-shell/extensions/"basename $(pwd)"
+sudo chmod -R a+r /usr/share/gnome-shell/extensions/"basename $(pwd)"
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

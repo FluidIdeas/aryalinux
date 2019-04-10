@@ -104,7 +104,7 @@ ac_add_options --enable-linker=gold
 ac_add_options --disable-av1
 
 # You cannot distribute the binary if you do this
-#ac_add_options --enable-official-branding
+ac_add_options --enable-official-branding
 
 # If you are going to apply the patch for system graphite
 # and system harfbuzz, uncomment these lines:
@@ -155,10 +155,10 @@ sudo mkdir -pv  /usr/lib/mozilla/plugins                             &&
 sudo ln    -sfv ../../mozilla/plugins /usr/lib/firefox/browser/
 unset CC CXX AR NM RANLIB MOZBUILD_STATE_PATH
 
-mkdir -pv /usr/share/applications &&
-mkdir -pv /usr/share/pixmaps &&
+sudo mkdir -pv /usr/share/applications &&
+sudo mkdir -pv /usr/share/pixmaps &&
 
-cat > /usr/share/applications/firefox.desktop << "EOF" &&
+sudo tee /usr/share/applications/firefox.desktop << "EOF" &&
 [Desktop Entry]
 Encoding=UTF-8
 Name=Firefox Web Browser
@@ -173,7 +173,7 @@ MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/vnd.mo
 StartupNotify=true
 EOF
 
-ln -sfv /usr/lib/firefox/browser/chrome/icons/default/default128.png \
+sudo ln -sfv /usr/lib/firefox/browser/chrome/icons/default/default128.png \
         /usr/share/pixmaps/firefox.png
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
