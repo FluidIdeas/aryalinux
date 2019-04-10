@@ -11,7 +11,7 @@ cd $SOURCE_DIR
 
 wget -nc https://mirrors.tuna.tsinghua.edu.cn/eclipse/technology/epp/downloads/release/2019-03/R/eclipse-java-2019-03-R-linux-gtk-x86_64.tar.gz
 
-NAME=eclispe-ide
+NAME=eclipse-ide
 VERSION=2019-03
 URL=https://mirrors.tuna.tsinghua.edu.cn/eclipse/technology/epp/downloads/release/2019-03/R/eclipse-java-2019-03-R-linux-gtk-x86_64.tar.gz
 
