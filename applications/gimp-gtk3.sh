@@ -30,6 +30,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://gitlab.gnome.org/GNOME/gimp/-/archive/gtk3-port/gimp-gtk3-port.tar.bz2
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/gimp-gtk3-gimpcolortransform.patch
 
 NAME=gimp-gtk3
 VERSION=2.99.1
@@ -51,6 +52,7 @@ fi
 cd $DIRECTORY
 fi
 
+patch -Np1 -i ../gimp-gtk3-gimpcolortransform.patch
 ./autogen.sh --prefix=/usr --sysconfdir=/etc &&
 make
 sudo make install
