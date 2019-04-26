@@ -12,15 +12,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.mplayerhq.hu/MPlayer/releases/MPlayer-1.3.0.tar.xz
-wget -nc ftp://ftp.mplayerhq.hu/MPlayer/releases/MPlayer-1.3.0.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/MPlayer-1.3.0-x264_fix-1.patch
+wget -nc http://www.mplayerhq.hu/MPlayer/releases/MPlayer-1.4.tar.xz
+wget -nc ftp://ftp.mplayerhq.hu/MPlayer/releases/MPlayer-1.4.tar.xz
 wget -nc https://www.mplayerhq.hu/MPlayer/skins/Clearlooks-2.0.tar.bz2
 wget -nc ftp://ftp.mplayerhq.hu/MPlayer/skins/Clearlooks-2.0.tar.bz2
 
 NAME=mplayer
-VERSION=1.3.0
-URL=http://www.mplayerhq.hu/MPlayer/releases/MPlayer-1.3.0.tar.xz
+VERSION=1.4
+URL=http://www.mplayerhq.hu/MPlayer/releases/MPlayer-1.4.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -37,8 +36,6 @@ fi
 
 cd $DIRECTORY
 fi
-
-patch -Np0 -i ../MPlayer-1.3.0-x264_fix-1.patch &&
 
 ./configure --prefix=/usr \
 --confdir=/etc/mplayer \
@@ -61,9 +58,9 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m755 -d /usr/share/doc/mplayer-1.3.0 &&
+install -v -m755 -d /usr/share/doc/mplayer-1.4 &&
 install -v -m644 DOCS/HTML/en/* \
-/usr/share/doc/mplayer-1.3.0
+/usr/share/doc/mplayer-1.4
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

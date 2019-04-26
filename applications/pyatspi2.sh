@@ -10,12 +10,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/pyatspi/2.32/pyatspi-2.32.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pyatspi/2.32/pyatspi-2.32.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/pyatspi/2.32/pyatspi-2.32.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pyatspi/2.32/pyatspi-2.32.1.tar.xz
 
 NAME=pyatspi2
-VERSION=2.32.0
-URL=http://ftp.gnome.org/pub/gnome/sources/pyatspi/2.32/pyatspi-2.32.0.tar.xz
+VERSION=2.32.1
+URL=http://ftp.gnome.org/pub/gnome/sources/pyatspi/2.32/pyatspi-2.32.1.tar.xz
 
 if [ ! -z $URL ]
 then

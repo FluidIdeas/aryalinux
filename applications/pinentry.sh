@@ -12,6 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://www.gnupg.org/ftp/gcrypt/pinentry/pinentry-1.1.0.tar.bz2
+wget -nc ftp://ftp.gnupg.org/gcrypt/pinentry/pinentry-1.1.0.tar.bz2
 
 NAME=pinentry
 VERSION=1.1.0

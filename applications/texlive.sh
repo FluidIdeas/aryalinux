@@ -17,6 +17,7 @@ set +h
 #REC:libpaper
 #REC:libpng
 #REC:potrace
+#REC:tex-path
 #REC:python2
 #REC:ruby
 #REC:tk

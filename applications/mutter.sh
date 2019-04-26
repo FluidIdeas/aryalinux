@@ -8,13 +8,14 @@ set +h
 
 #REQ:clutter
 #REQ:gnome-desktop
+#REQ:libcanberra
 #REQ:libwacom
 #REQ:libxkbcommon
+#REQ:pipewire
 #REQ:upower
 #REQ:zenity
 #REQ:libpipewire
 #REC:gobject-introspection
-#REC:libcanberra
 #REC:startup-notification
 #REC:libinput
 #REC:wayland
@@ -24,11 +25,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/mutter/3.32/mutter-3.32.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/mutter/3.32/mutter-3.32.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/mutter/3.32/mutter-3.32.1.tar.xz
 
 NAME=mutter
-VERSION=3.32.0
-URL=http://ftp.acc.umu.se/pub/gnome/sources/mutter/3.32/mutter-3.32.0.tar.xz
+VERSION=3.32.1
+URL=http://ftp.gnome.org/pub/gnome/sources/mutter/3.32/mutter-3.32.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -46,12 +48,20 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir -pv build &&
-cd build
+mkdir build &&
+cd build &&
 
-CFLAGS="-Wno-pointer-to-int-cast" meson --prefix=/usr &&
+meson --prefix=/usr .. &&
 ninja
-sudo ninja install
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ninja install
+ENDOFROOTSCRIPT
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

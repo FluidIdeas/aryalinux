@@ -6,17 +6,15 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:gtk3
-#REQ:libcanberra
+#REQ:mesa
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.30/gnome-screenshot-3.30.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.30/gnome-screenshot-3.30.0.tar.xz
+wget -nc https://downloads.sourceforge.net/glew/glew-2.1.0.tgz
 
-NAME=gnome-screenshot
-VERSION=3.30.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.30/gnome-screenshot-3.30.0.tar.xz
+NAME=glew
+VERSION=2.1.0
+URL=https://downloads.sourceforge.net/glew/glew-2.1.0.tgz
 
 if [ ! -z $URL ]
 then
@@ -34,15 +32,15 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build &&
-cd build &&
-
-meson --prefix=/usr .. &&
-ninja
+sed -i 's%lib64%lib%g' config/Makefile.linux &&
+sed -i -e '/glew.lib.static:/d' \
+-e '/0644 .*STATIC/d' \
+-e 's/glew.lib.static//' Makefile &&
+make
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install
+make install.all
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

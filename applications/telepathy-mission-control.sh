@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:telepathy-glib
+#REQ:python2
 #REC:networkmanager
 
 cd $SOURCE_DIR

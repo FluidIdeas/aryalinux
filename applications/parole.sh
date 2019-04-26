@@ -14,11 +14,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/apps/parole/1.0/parole-1.0.1.tar.bz2
+wget -nc http://archive.xfce.org/src/apps/parole/1.0/parole-1.0.2.tar.bz2
 
 NAME=parole
-VERSION=1.0.1
-URL=http://archive.xfce.org/src/apps/parole/1.0/parole-1.0.1.tar.bz2
+VERSION=1.0.2
+URL=http://archive.xfce.org/src/apps/parole/1.0/parole-1.0.2.tar.bz2
 
 if [ ! -z $URL ]
 then

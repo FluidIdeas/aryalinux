@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="076-perl.sh"
-TARBALL="perl-5.28.1.tar.xz"
+TARBALL="perl-5.28.2.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -48,6 +48,7 @@ fi
 echo "127.0.0.1 localhost $(hostname)" > /etc/hosts
 export BUILD_ZLIB=False
 export BUILD_BZIP2=0
+sed -i 's/67]/6789]/' Configure
 sh Configure -des -Dprefix=/usr                 \
                   -Dvendorprefix=/usr           \
                   -Dman1dir=/usr/share/man/man1 \

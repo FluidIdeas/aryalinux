@@ -21,12 +21,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/opencv/opencv/archive/4.0.1/opencv-4.0.1.tar.gz
-wget -nc https://github.com/opencv/opencv_contrib/archive/4.0.1/opencv_contrib-4.0.1.tar.gz
+wget -nc https://github.com/opencv/opencv/archive/4.1.0/opencv-4.1.0.tar.gz
+wget -nc https://github.com/opencv/opencv_contrib/archive/4.1.0/opencv_contrib-4.1.0.tar.gz
 
 NAME=opencv
-VERSION=4.0.1
-URL=https://github.com/opencv/opencv/archive/4.0.1/opencv-4.0.1.tar.gz
+VERSION=4.1.0
+URL=https://github.com/opencv/opencv/archive/4.1.0/opencv-4.1.0.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -44,7 +44,7 @@ fi
 cd $DIRECTORY
 fi
 
-tar xf ../opencv_contrib-4.0.1.tar.gz
+tar xf ../opencv_contrib-4.1.0.tar.gz
 mkdir build &&
 cd build &&
 

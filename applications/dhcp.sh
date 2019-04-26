@@ -130,7 +130,7 @@ cat > /etc/dhcp/dhcpd.conf << "EOF"
 #
 # Example dhcpd.conf(5)
 
-# Use this to enble / disable dynamic dns updates globally.
+# Use this to enable / disable dynamic dns updates globally.
 ddns-update-style none;
 
 # option definitions common to all supported networks...

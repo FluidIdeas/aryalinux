@@ -28,11 +28,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-settings-daemon/3.32/gnome-settings-daemon-3.32.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-settings-daemon/3.32/gnome-settings-daemon-3.32.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-settings-daemon/3.32/gnome-settings-daemon-3.32.0.tar.xz
 
 NAME=gnome-settings-daemon
 VERSION=3.32.0
-URL=http://ftp.acc.umu.se/pub/gnome/sources/gnome-settings-daemon/3.32/gnome-settings-daemon-3.32.0.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-settings-daemon/3.32/gnome-settings-daemon-3.32.0.tar.xz
 
 if [ ! -z $URL ]
 then

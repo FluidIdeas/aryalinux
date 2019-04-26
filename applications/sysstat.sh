@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://perso.wanadoo.fr/sebastien.godard/sysstat-12.1.3.tar.xz
+wget -nc http://perso.wanadoo.fr/sebastien.godard/sysstat-12.1.4.tar.xz
 
 NAME=sysstat
-VERSION=12.1.3
-URL=http://perso.wanadoo.fr/sebastien.godard/sysstat-12.1.3.tar.xz
+VERSION=12.1.4
+URL=http://perso.wanadoo.fr/sebastien.godard/sysstat-12.1.4.tar.xz
 
 if [ ! -z $URL ]
 then

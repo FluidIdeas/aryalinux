@@ -10,12 +10,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.60/gobject-introspection-1.60.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.60/gobject-introspection-1.60.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.60/gobject-introspection-1.60.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.60/gobject-introspection-1.60.1.tar.xz
 
 NAME=gobject-introspection
-VERSION=1.60.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.60/gobject-introspection-1.60.0.tar.xz
+VERSION=1.60.1
+URL=http://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.60/gobject-introspection-1.60.1.tar.xz
 
 if [ ! -z $URL ]
 then

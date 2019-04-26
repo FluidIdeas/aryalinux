@@ -38,8 +38,16 @@ fi
 cd $DIRECTORY
 fi
 
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mkdir -p /usr/share/unicode/ucd &&
 unzip -u ../UCD.zip -d /usr/share/unicode/ucd
+ENDOFROOTSCRIPT
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 sed -i 's@/desktop/ibus@/org/freedesktop/ibus@g' \
 data/dconf/org.freedesktop.ibus.gschema.xml
 ./configure --prefix=/usr \

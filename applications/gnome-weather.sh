@@ -11,11 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-weather/3.32/gnome-weather-3.32.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-weather/3.26/gnome-weather-3.26.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-weather/3.26/gnome-weather-3.26.0.tar.xz
 
 NAME=gnome-weather
-VERSION=3.32.0
-URL=http://ftp.acc.umu.se/pub/gnome/sources/gnome-weather/3.32/gnome-weather-3.32.0.tar.xz
+VERSION=3.26.0
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-weather/3.26/gnome-weather-3.26.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -33,12 +34,17 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir -pv build &&
-cd build
+./configure --prefix=/usr &&
+make
 
-meson --prefix=/usr &&
-ninja
-sudo ninja install
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+ENDOFROOTSCRIPT
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

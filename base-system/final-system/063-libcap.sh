@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="063-libcap.sh"
-TARBALL="libcap-2.26.tar.xz"
+TARBALL="libcap-2.27.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -48,7 +48,7 @@ fi
 sed -i '/install.*STALIBNAME/d' libcap/Makefile
 make
 make RAISE_SETFCAP=no lib=lib prefix=/usr install
-chmod -v 755 /usr/lib/libcap.so.2.26
+chmod -v 755 /usr/lib/libcap.so.2.27
 mv -v /usr/lib/libcap.so.* /lib
 ln -sfv ../../lib/$(readlink /usr/lib/libcap.so) /usr/lib/libcap.so
 

@@ -23,12 +23,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.32/evolution-data-server-3.32.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.32/evolution-data-server-3.32.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.32/evolution-data-server-3.32.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.32/evolution-data-server-3.32.1.tar.xz
 
 NAME=evolution-data-server
-VERSION=3.32.0
-URL=http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.32/evolution-data-server-3.32.0.tar.xz
+VERSION=3.32.1
+URL=http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.32/evolution-data-server-3.32.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -51,7 +51,6 @@ cd build &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr \
 -DSYSCONF_INSTALL_DIR=/etc \
--DENABLE_UOA=OFF \
 -DENABLE_VALA_BINDINGS=ON \
 -DENABLE_INSTALLED_TESTS=ON \
 -DENABLE_GOOGLE=ON \

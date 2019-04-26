@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/nghttp2/nghttp2/releases/download/v1.37.0/nghttp2-1.37.0.tar.xz
+wget -nc https://github.com/nghttp2/nghttp2/releases/download/v1.38.0/nghttp2-1.38.0.tar.xz
 
 NAME=nghttp2
-VERSION=1.37.0
-URL=https://github.com/nghttp2/nghttp2/releases/download/v1.37.0/nghttp2-1.37.0.tar.xz
+VERSION=1.38.0
+URL=https://github.com/nghttp2/nghttp2/releases/download/v1.38.0/nghttp2-1.38.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -35,7 +35,7 @@ fi
 ./configure --prefix=/usr \
 --disable-static \
 --enable-lib-only \
---docdir=/usr/share/doc/nghttp2-1.37.0 &&
+--docdir=/usr/share/doc/nghttp2-1.38.0 &&
 make
 
 sudo rm -rf /tmp/rootscript.sh

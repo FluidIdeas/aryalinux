@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/libmbim/libmbim-1.18.0.tar.xz
+wget -nc https://www.freedesktop.org/software/libmbim/libmbim-1.18.2.tar.xz
 
 NAME=libmbim
-VERSION=1.18.0
-URL=https://www.freedesktop.org/software/libmbim/libmbim-1.18.0.tar.xz
+VERSION=1.18.2
+URL=https://www.freedesktop.org/software/libmbim/libmbim-1.18.2.tar.xz
 
 if [ ! -z $URL ]
 then

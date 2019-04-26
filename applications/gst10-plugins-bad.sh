@@ -14,12 +14,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.14.4.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/gst-plugins-bad-1.14.4-fdkaac_2-1.patch
+wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.16.0.tar.xz
 
 NAME=gst10-plugins-bad
-VERSION=1.14.4
-URL=https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.14.4.tar.xz
+VERSION=1.16.0
+URL=https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.16.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -37,13 +36,14 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../gst-plugins-bad-1.14.4-fdkaac_2-1.patch
-./configure --prefix=/usr \
---disable-wayland \
---disable-opencv \
---with-package-name="GStreamer Bad Plugins 1.14.4 BLFS" \
---with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/" &&
-make
+mkdir build &&
+cd build &&
+
+meson --prefix=/usr \
+-Dbuildtype=release \
+-Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
+-Dpackage-name="GStreamer 1.16.0 BLFS" &&
+ninja
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

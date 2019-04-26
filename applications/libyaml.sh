@@ -6,17 +6,14 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:gtk3
-#REQ:libcanberra
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.30/gnome-screenshot-3.30.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.30/gnome-screenshot-3.30.0.tar.xz
+wget -nc https://github.com/yaml/libyaml/archive/0.2.2/libyaml-dist-0.2.2.tar.gz
 
-NAME=gnome-screenshot
-VERSION=3.30.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.30/gnome-screenshot-3.30.0.tar.xz
+NAME=libyaml
+VERSION=0.2.2
+URL=https://github.com/yaml/libyaml/archive/0.2.2/libyaml-dist-0.2.2.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -34,15 +31,13 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build &&
-cd build &&
-
-meson --prefix=/usr .. &&
-ninja
+./bootstrap &&
+./configure --prefix=/usr --disable-static &&
+make
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install
+make install
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

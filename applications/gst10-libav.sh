@@ -7,15 +7,16 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:gst10-plugins-base
+#REC:ffmpeg
 #REC:yasm
 
 cd $SOURCE_DIR
 
-wget -nc https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.14.4.tar.xz
+wget -nc https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.16.0.tar.xz
 
 NAME=gst10-libav
-VERSION=1.14.4
-URL=https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.14.4.tar.xz
+VERSION=1.16.0
+URL=https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.16.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -33,14 +34,18 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---with-package-name="GStreamer Libav Plugins 1.14.4 BLFS" \
---with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/" &&
-make
+mkdir build &&
+cd build &&
+
+meson --prefix=/usr \
+-Dbuildtype=release \
+-Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
+-Dpackage-name="GStreamer 1.16.0 BLFS" &&
+ninja
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

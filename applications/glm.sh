@@ -6,17 +6,15 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:gtk3
-#REQ:libcanberra
+#REQ:cmake
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.30/gnome-screenshot-3.30.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.30/gnome-screenshot-3.30.0.tar.xz
+wget -nc https://github.com/g-truc/glm/archive/0.9.9.5/glm-0.9.9.5.tar.gz
 
-NAME=gnome-screenshot
-VERSION=3.30.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.30/gnome-screenshot-3.30.0.tar.xz
+NAME=glm
+VERSION=0.9.9.5
+URL=https://github.com/g-truc/glm/archive/0.9.9.5/glm-0.9.9.5.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -37,12 +35,13 @@ fi
 mkdir build &&
 cd build &&
 
-meson --prefix=/usr .. &&
-ninja
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+-DCMAKE_INSTALL_LIBDIR=lib .. &&
+make
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install
+make install
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

@@ -65,7 +65,8 @@ bash configure --enable-unlimited-crypto \
 make images
 export JT_JAVA=$(echo $PWD/build/*/jdk) &&
 jtreg/bin/jtreg -jdk:$JT_JAVA -automatic -ignore:quiet -v1 \
-test/jdk:tier1 test/langtools:tier1
+test/jdk:tier1 test/langtools:tier1 &&
+unset JT_JAVA
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -75,9 +76,7 @@ chown -R root:root /opt/jdk-11.0.2+9 &&
 for s in 16 24 32 48; do
 install -vDm644 src/java.desktop/unix/classes/sun/awt/X11/java-icon${s}.png \
 /usr/share/icons/hicolor/${s}x${s}/apps/java.png
-done &&
-unset JT_JAVA
-
+done
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

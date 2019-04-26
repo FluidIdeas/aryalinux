@@ -12,6 +12,7 @@ set +h
 #REQ:gnome-online-accounts
 #REQ:gnome-settings-daemon
 #REQ:grilo
+#REQ:gsound
 #REQ:libgtop
 #REQ:libpwquality
 #REQ:mitkrb
@@ -27,11 +28,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-control-center/3.32/gnome-control-center-3.32.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.32/gnome-control-center-3.32.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.32/gnome-control-center-3.32.1.tar.xz
 
 NAME=gnome-control-center
 VERSION=3.32.1
-URL=http://ftp.acc.umu.se/pub/gnome/sources/gnome-control-center/3.32/gnome-control-center-3.32.1.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.32/gnome-control-center-3.32.1.tar.xz
 
 if [ ! -z $URL ]
 then

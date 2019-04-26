@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.mariadb.org/interstitial/mariadb-10.3.13/source/mariadb-10.3.13.tar.gz
-wget -nc ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.3.13/source/mariadb-10.3.13.tar.gz
+wget -nc https://downloads.mariadb.org/interstitial/mariadb-10.3.14/source/mariadb-10.3.14.tar.gz
+wget -nc ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.3.14/source/mariadb-10.3.14.tar.gz
 
 NAME=mariadb
-VERSION=10.3.13
-URL=https://downloads.mariadb.org/interstitial/mariadb-10.3.13/source/mariadb-10.3.13.tar.gz
+VERSION=10.3.14
+URL=https://downloads.mariadb.org/interstitial/mariadb-10.3.14/source/mariadb-10.3.14.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -51,8 +51,8 @@ cd build &&
 
 cmake -DCMAKE_BUILD_TYPE=Release \
 -DCMAKE_INSTALL_PREFIX=/usr \
--DINSTALL_DOCDIR=share/doc/mariadb-10.3.13 \
--DINSTALL_DOCREADMEDIR=share/doc/mariadb-10.3.13 \
+-DINSTALL_DOCDIR=share/doc/mariadb-10.3.14 \
+-DINSTALL_DOCREADMEDIR=share/doc/mariadb-10.3.14 \
 -DINSTALL_MANDIR=share/man \
 -DINSTALL_MYSQLSHAREDIR=share/mysql \
 -DINSTALL_MYSQLTESTDIR=share/mysql/test \

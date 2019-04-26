@@ -24,11 +24,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ffmpeg.org/releases/ffmpeg-4.1.2.tar.xz
+wget -nc http://ffmpeg.org/releases/ffmpeg-4.1.3.tar.xz
 
 NAME=ffmpeg
-VERSION=4.1.2
-URL=http://ffmpeg.org/releases/ffmpeg-4.1.2.tar.xz
+VERSION=4.1.3
+URL=http://ffmpeg.org/releases/ffmpeg-4.1.3.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -66,7 +66,7 @@ sed -i 's/-lflite"/-lflite -lasound"/' configure &&
 --enable-libvpx \
 --enable-libx264 \
 --enable-libx265 \
---docdir=/usr/share/doc/ffmpeg-4.1.2 &&
+--docdir=/usr/share/doc/ffmpeg-4.1.3 &&
 
 make &&
 
@@ -77,8 +77,8 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
 install -v -m755 tools/qt-faststart /usr/bin &&
-install -v -m755 -d /usr/share/doc/ffmpeg-4.1.2 &&
-install -v -m644 doc/*.txt /usr/share/doc/ffmpeg-4.1.2
+install -v -m755 -d /usr/share/doc/ffmpeg-4.1.3 &&
+install -v -m644 doc/*.txt /usr/share/doc/ffmpeg-4.1.3
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

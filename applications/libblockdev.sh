@@ -8,9 +8,9 @@ set +h
 
 #REQ:gobject-introspection
 #REQ:libbytesize
+#REQ:libyaml
 #REQ:parted
 #REQ:volume_key
-#REQ:yaml
 
 cd $SOURCE_DIR
 

@@ -10,15 +10,17 @@ set +h
 #REQ:texlive
 #REC:freeglut
 #REC:gc
+#REC:glew
+#REC:glm
 #REC:libtirpc
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/asymptote/asymptote-2.47.src.tgz
+wget -nc https://downloads.sourceforge.net/asymptote/asymptote-2.49.src.tgz
 
 NAME=asymptote
-VERSION=2.47.src
-URL=https://downloads.sourceforge.net/asymptote/asymptote-2.47.src.tgz
+VERSION=2.49.src
+URL=https://downloads.sourceforge.net/asymptote/asymptote-2.49.src.tgz
 
 if [ ! -z $URL ]
 then
@@ -36,14 +38,6 @@ fi
 cd $DIRECTORY
 fi
 
-cat >> main.cc << EOF
-
-#ifdef USEGC
-GC_API void GC_CALL GC_throw_bad_alloc() {
-std::bad_alloc();
-}
-#endif
-EOF
 export TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/') &&
 
 ./configure --prefix=/opt/texlive/2018 \

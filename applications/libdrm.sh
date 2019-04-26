@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://dri.freedesktop.org/libdrm/libdrm-2.4.97.tar.bz2
+wget -nc https://dri.freedesktop.org/libdrm/libdrm-2.4.98.tar.bz2
 
 NAME=libdrm
-VERSION=2.4.97
-URL=https://dri.freedesktop.org/libdrm/libdrm-2.4.97.tar.bz2
+VERSION=2.4.98
+URL=https://dri.freedesktop.org/libdrm/libdrm-2.4.98.tar.bz2
 
 if [ ! -z $URL ]
 then

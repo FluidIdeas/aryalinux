@@ -7,16 +7,20 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:gtk3
-#REQ:libcanberra
+#REQ:lcms2
+#REQ:libarchive
+#REQ:libjpeg
+#REQ:libtiff
+#REQ:libxslt
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.30/gnome-screenshot-3.30.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.30/gnome-screenshot-3.30.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/libgxps/0.3/libgxps-0.3.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgxps/0.3/libgxps-0.3.1.tar.xz
 
-NAME=gnome-screenshot
-VERSION=3.30.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.30/gnome-screenshot-3.30.0.tar.xz
+NAME=libgxps
+VERSION=0.3.1
+URL=http://ftp.gnome.org/pub/gnome/sources/libgxps/0.3/libgxps-0.3.1.tar.xz
 
 if [ ! -z $URL ]
 then

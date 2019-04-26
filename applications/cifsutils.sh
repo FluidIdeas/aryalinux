@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.samba.org/ftp/linux-cifs/cifs-utils/cifs-utils-6.8.tar.bz2
+wget -nc https://www.samba.org/ftp/linux-cifs/cifs-utils/cifs-utils-6.9.tar.bz2
 
 NAME=cifsutils
-VERSION=6.8
-URL=https://www.samba.org/ftp/linux-cifs/cifs-utils/cifs-utils-6.8.tar.bz2
+VERSION=6.9
+URL=https://www.samba.org/ftp/linux-cifs/cifs-utils/cifs-utils-6.9.tar.bz2
 
 if [ ! -z $URL ]
 then

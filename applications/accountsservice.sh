@@ -13,11 +13,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/accountsservice/accountsservice-0.6.54.tar.xz
+wget -nc https://www.freedesktop.org/software/accountsservice/accountsservice-0.6.55.tar.xz
 
 NAME=accountsservice
-VERSION=0.6.54
-URL=https://www.freedesktop.org/software/accountsservice/accountsservice-0.6.54.tar.xz
+VERSION=0.6.55
+URL=https://www.freedesktop.org/software/accountsservice/accountsservice-0.6.55.tar.xz
 
 if [ ! -z $URL ]
 then

@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-tweaks/3.32/gnome-tweaks-3.32.0.tar.xz
+wget -nc https://gitlab.gnome.org/GNOME/gnome-tweaks/-/archive/3.31.3/gnome-tweaks-3.31.3.tar.bz2
 
 NAME=gnome-tweaks
 VERSION=3.31.3
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-tweaks/3.32/gnome-tweaks-3.32.0.tar.xz
+URL=https://gitlab.gnome.org/GNOME/gnome-tweaks/-/archive/3.31.3/gnome-tweaks-3.31.3.tar.bz2
 
 if [ ! -z $URL ]
 then

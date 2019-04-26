@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.14.4.tar.xz
+wget -nc https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.16.0.tar.xz
 
 NAME=gstreamer10
-VERSION=1.14.4
-URL=https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.14.4.tar.xz
+VERSION=1.16.0
+URL=https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.16.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -33,15 +33,21 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---with-package-name="GStreamer 1.14.4 BLFS" \
---with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/" &&
-make
+mkdir build &&
+cd build &&
+
+meson --prefix=/usr \
+-Dbuildtype=release \
+-Dgst_debug=false \
+-Dgtk_doc=disabled \
+-Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
+-Dpackage-name="GStreamer 1.14.4 BLFS" &&
+ninja
 rm -rf /usr/bin/gst-* /usr/{lib,libexec}/gstreamer-1.0
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

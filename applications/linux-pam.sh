@@ -9,12 +9,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://linux-pam.org/library/Linux-PAM-1.3.0.tar.bz2
-wget -nc http://linux-pam.org/documentation/Linux-PAM-1.2.0-docs.tar.bz2
+wget -nc https://github.com/linux-pam/linux-pam/releases/download/v1.3.1/Linux-PAM-1.3.1.tar.xz
+wget -nc https://github.com/linux-pam/linux-pam/releases/download/v1.3.1/Linux-PAM-1.3.1-docs.tar.xz
 
 NAME=linux-pam
-VERSION=1.3.0
-URL=http://linux-pam.org/library/Linux-PAM-1.3.0.tar.bz2
+VERSION=1.3.1
+URL=https://github.com/linux-pam/linux-pam/releases/download/v1.3.1/Linux-PAM-1.3.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -32,13 +32,15 @@ fi
 cd $DIRECTORY
 fi
 
-tar -xf ../Linux-PAM-1.2.0-docs.tar.bz2 --strip-components=1
+tar -xf ../Linux-PAM-1.3.1-docs.tar.xz --strip-components=1
+sed -e 's/dummy links/dummy lynx/' \
+-e 's/-no-numbering -no-references/-force-html -nonumbers -stdin/' \
+-i configure
 ./configure --prefix=/usr \
 --sysconfdir=/etc \
 --libdir=/usr/lib \
---disable-regenerate-docu \
 --enable-securedir=/lib/security \
---docdir=/usr/share/doc/Linux-PAM-1.3.0 &&
+--docdir=/usr/share/doc/Linux-PAM-1.3.1 &&
 make
 
 sudo rm -rf /tmp/rootscript.sh

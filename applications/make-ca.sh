@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/djlucas/make-ca/releases/download/v1.2/make-ca-1.2.tar.xz
+wget -nc https://github.com/djlucas/make-ca/releases/download/v1.4/make-ca-1.4.tar.xz
 
 NAME=make-ca
-VERSION=1.2
-URL=https://github.com/djlucas/make-ca/releases/download/v1.2/make-ca-1.2.tar.xz
+VERSION=1.4
+URL=https://github.com/djlucas/make-ca/releases/download/v1.4/make-ca-1.4.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -35,7 +35,8 @@ fi
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+make install &&
+sudo install -vdm755 /etc/ssl/local
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
@@ -61,7 +62,6 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sudo install -vdm755 /etc/ssl/local &&
 wget http://www.cacert.org/certs/root.crt &&
 wget http://www.cacert.org/certs/class3.crt &&
 openssl x509 -in root.crt -text -fingerprint -setalias "CAcert Class 1 root" \
@@ -69,7 +69,8 @@ openssl x509 -in root.crt -text -fingerprint -setalias "CAcert Class 1 root" \
 | sudo tee /etc/ssl/local/CAcert_Class_1_root.pem &&
 openssl x509 -in class3.crt -text -fingerprint -setalias "CAcert Class 3 root" \
 -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning \
-| sudo tee /etc/ssl/local/CAcert_Class_3_root.pem
+| sudo tee /etc/ssl/local/CAcert_Class_3_root.pem &&
+/usr/sbin/make-ca -r -f
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

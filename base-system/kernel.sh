@@ -60,8 +60,8 @@ LINUX_SRC_DIR=`tar -tf $LINUX_TARBALL | cut "-d/" -f1 | uniq`
 tar xf $LINUX_TARBALL
 cd $LINUX_SRC_DIR
 
-tar xf ../aufs-5.0.tar.gz
-for patch in ../aufs5*patch; do
+tar xf ../aufs-4.20.tar.gz
+for patch in ../aufs*patch; do
 	patch -Np1 -i $patch
 done
 

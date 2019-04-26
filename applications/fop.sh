@@ -43,7 +43,7 @@ sed -i '\@</javad@i\
 fop/build.xml
 sed -e '/hyph\.stack/s/512k/1M/' \
 -i fop/build.xml
-cp ../{pdf,font}box-2.0.13.jar fop/lib
+cp ../{pdf,font}box-2.0.15.jar fop/lib
 cd fop &&
 export LC_ALL=en_US.UTF-8 &&
 ant all javadocs &&
@@ -64,6 +64,21 @@ cat > ~/.foprc << "EOF"
 FOP_OPTS="-Xmx<em class="replaceable"><code><RAM_Installed></em>m"
 FOP_HOME="/opt/fop"
 EOF
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+cat > /etc/profile.d/fop.sh << "EOF"
+# Begin /etc/profile.d/fop.sh
+
+pathappend /opt/fop
+
+# End /etc/profile.d/fop.sh
+EOF
+ENDOFROOTSCRIPT
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

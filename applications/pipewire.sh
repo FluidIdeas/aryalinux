@@ -6,17 +6,21 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:gtk3
-#REQ:libcanberra
+#REQ:ffmpeg
+#REQ:gstreamer10
+#REQ:gst10-plugins-base
+#REQ:libva
+#REQ:sbc
+#REQ:sdl2
+#REQ:v4l-utils
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.30/gnome-screenshot-3.30.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.30/gnome-screenshot-3.30.0.tar.xz
+wget -nc https://github.com/PipeWire/pipewire/archive/0.2.5/pipewire-0.2.5.tar.gz
 
-NAME=gnome-screenshot
-VERSION=3.30.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.30/gnome-screenshot-3.30.0.tar.xz
+NAME=pipewire
+VERSION=0.2.5
+URL=https://github.com/PipeWire/pipewire/archive/0.2.5/pipewire-0.2.5.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -37,7 +41,7 @@ fi
 mkdir build &&
 cd build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr --sysconfdir=/etc .. &&
 ninja
 
 sudo rm -rf /tmp/rootscript.sh

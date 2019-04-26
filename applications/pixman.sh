@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cairographics.org/releases/pixman-0.38.0.tar.gz
+wget -nc https://www.cairographics.org/releases/pixman-0.38.4.tar.gz
 
 NAME=pixman
-VERSION=0.38.0
-URL=https://www.cairographics.org/releases/pixman-0.38.0.tar.gz
+VERSION=0.38.4
+URL=https://www.cairographics.org/releases/pixman-0.38.4.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -31,12 +31,15 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --disable-static &&
-make
+mkdir build &&
+cd build &&
+
+meson --prefix=/usr &&
+ninja
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

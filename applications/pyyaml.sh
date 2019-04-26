@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:yaml
+#REQ:libyaml
 
 cd $SOURCE_DIR
 

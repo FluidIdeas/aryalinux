@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/celluloid-player/celluloid/releases/download/v0.16/gnome-mpv-0.16.tar.xz
+wget -nc https://github.com/gnome-mpv/gnome-mpv/releases/download/v0.16/gnome-mpv-0.16.tar.xz
 
 NAME=gnome-mpv
 VERSION=0.16
-URL=https://github.com/celluloid-player/celluloid/releases/download/v0.16/gnome-mpv-0.16.tar.xz
+URL=https://github.com/gnome-mpv/gnome-mpv/releases/download/v0.16/gnome-mpv-0.16.tar.xz
 
 if [ ! -z $URL ]
 then

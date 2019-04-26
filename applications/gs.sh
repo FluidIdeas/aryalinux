@@ -13,17 +13,17 @@ set +h
 #REC:libpng
 #REC:libtiff
 #REC:lcms2
+#REC:openjpeg2
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs926/ghostscript-9.26.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/ghostscript-9.26-upstream_fixes-1.patch
+wget -nc https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs927/ghostscript-9.27.tar.xz
 wget -nc https://downloads.sourceforge.net/gs-fonts/ghostscript-fonts-std-8.11.tar.gz
 wget -nc https://downloads.sourceforge.net/gs-fonts/gnu-gs-fonts-other-6.0.tar.gz
 
 NAME=gs
-VERSION=9.26
-URL=https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs926/ghostscript-9.26.tar.gz
+VERSION=9.27
+URL=https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs927/ghostscript-9.27.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -41,10 +41,8 @@ fi
 cd $DIRECTORY
 fi
 
-rm -rf freetype lcms2mt jpeg libpng
+rm -rf freetype lcms2mt jpeg libpng openjpeg
 rm -rf zlib &&
-
-patch -Np1 -i ../ghostscript-9.26-upstream_fixes-1.patch &&
 
 ./configure --prefix=/usr \
 --disable-compile-inits \
@@ -75,8 +73,9 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ln -sfvn ../ghostscript/9.26/doc /usr/share/doc/ghostscript-9.26 &&
-cp -a examples/ /usr/share/ghostscript/9.26/
+mv -v /usr/share/doc/ghostscript/9.27 /usr/share/doc/ghostscript-9.27 &&
+rm -rfv /usr/share/doc/ghostscript &&
+cp -a examples/ /usr/share/ghostscript/9.27/
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

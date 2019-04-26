@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/libqmi/libqmi-1.22.2.tar.xz
+wget -nc https://www.freedesktop.org/software/libqmi/libqmi-1.22.4.tar.xz
 
 NAME=libqmi
-VERSION=1.22.2
-URL=https://www.freedesktop.org/software/libqmi/libqmi-1.22.2.tar.xz
+VERSION=1.22.4
+URL=https://www.freedesktop.org/software/libqmi/libqmi-1.22.4.tar.xz
 
 if [ ! -z $URL ]
 then

@@ -13,12 +13,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/qca/2.1.3/src/qca-2.1.3.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/qca-2.1.3-openssl-1.patch
+wget -nc http://download.kde.org/stable/qca/2.2.0/qca-2.2.0.tar.xz
 
 NAME=qca
-VERSION=2.1.3
-URL=http://download.kde.org/stable/qca/2.1.3/src/qca-2.1.3.tar.xz
+VERSION=2.2.0
+URL=http://download.kde.org/stable/qca/2.2.0/qca-2.2.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -36,12 +35,11 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../qca-2.1.3-openssl-1.patch
 sed -i 's@cert.pem@certs/ca-bundle.crt@' CMakeLists.txt
 mkdir build &&
 cd build &&
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
+cmake -DCMAKE_INSTALL_PREFIX=$QT5DIR \
 -DCMAKE_BUILD_TYPE=Release \
 -DQCA_MAN_INSTALL_DIR:PATH=/usr/share/man \
 .. &&

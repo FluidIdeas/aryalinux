@@ -60,6 +60,7 @@ CC="gcc -ffile-prefix-map=/tools=/usr" \
              --disable-werror                       \
              --enable-kernel=3.2                    \
              --enable-stack-protector=strong        \
+             --with-headers=/usr/include            \
              libc_cv_slibdir=/lib
 make
 case $(uname -m) in

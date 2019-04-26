@@ -13,12 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/glib-networking/2.60/glib-networking-2.60.0.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glib-networking/2.60/glib-networking-2.60.0.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/glib-networking/2.60/glib-networking-2.60.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glib-networking/2.60/glib-networking-2.60.1.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/glib-networking-2.60.1-upstream_fixes-1.patch
 
 NAME=glib-networking
-VERSION=2.60.0.1
-URL=http://ftp.gnome.org/pub/gnome/sources/glib-networking/2.60/glib-networking-2.60.0.1.tar.xz
+VERSION=2.60.1
+URL=http://ftp.gnome.org/pub/gnome/sources/glib-networking/2.60/glib-networking-2.60.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -36,6 +37,7 @@ fi
 cd $DIRECTORY
 fi
 
+patch -Np1 -i ../glib-networking-2.60.1-upstream_fixes-1.patch
 mkdir build &&
 cd build &&
 

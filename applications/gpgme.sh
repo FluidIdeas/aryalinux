@@ -11,6 +11,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.13.0.tar.bz2
+wget -nc ftp://ftp.gnupg.org/gcrypt/gpgme/gpgme-1.13.0.tar.bz2
 
 NAME=gpgme
 VERSION=1.13.0

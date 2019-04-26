@@ -10,6 +10,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://www.gnupg.org/ftp/gcrypt/npth/npth-1.6.tar.bz2
+wget -nc ftp://ftp.gnupg.org/gcrypt/npth/npth-1.6.tar.bz2
 
 NAME=npth
 VERSION=1.6

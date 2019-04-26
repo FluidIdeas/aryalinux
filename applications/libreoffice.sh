@@ -19,6 +19,7 @@ set +h
 #REC:curl
 #REC:dbus-glib
 #REC:libjpeg
+#REC:glm
 #REC:glu
 #REC:graphite2
 #REC:gst10-plugins-base
@@ -42,14 +43,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.documentfoundation.org/libreoffice/src/6.2.2/libreoffice-6.2.2.2.tar.xz
-wget -nc http://download.documentfoundation.org/libreoffice/src/6.2.2/libreoffice-dictionaries-6.2.2.2.tar.xz
-wget -nc http://download.documentfoundation.org/libreoffice/src/6.2.2/libreoffice-help-6.2.2.2.tar.xz
-wget -nc http://download.documentfoundation.org/libreoffice/src/6.2.2/libreoffice-translations-6.2.2.2.tar.xz
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.2.3/libreoffice-6.2.3.2.tar.xz
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.2.3/libreoffice-dictionaries-6.2.3.2.tar.xz
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.2.3/libreoffice-help-6.2.3.2.tar.xz
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.2.3/libreoffice-translations-6.2.3.2.tar.xz
 
 NAME=libreoffice
-VERSION=6.2.2.2
-URL=http://download.documentfoundation.org/libreoffice/src/6.2.2/libreoffice-6.2.2.2.tar.xz
+VERSION=6.2.3.2
+URL=http://download.documentfoundation.org/libreoffice/src/6.2.3/libreoffice-6.2.3.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -67,11 +68,10 @@ fi
 cd $DIRECTORY
 fi
 
-sed -i 's/loaded;/bool{loaded};/' sfx2/source/appl/shutdownicon.cxx
 install -dm755 external/tarballs &&
-ln -sv ../../../libreoffice-dictionaries-6.2.2.2.tar.xz external/tarballs/ &&
-ln -sv ../../../libreoffice-help-6.2.2.2.tar.xz external/tarballs/
-ln -sv ../../../libreoffice-translations-6.2.2.2.tar.xz external/tarballs/
+ln -sv ../../../libreoffice-dictionaries-6.2.3.2.tar.xz external/tarballs/ &&
+ln -sv ../../../libreoffice-help-6.2.3.2.tar.xz external/tarballs/
+ln -sv ../../../libreoffice-translations-6.2.3.2.tar.xz external/tarballs/
 export LO_PREFIX=/usr
 sed -e "/gzip -f/d"   \
 -e "s|.1.gz|.1|g" \

@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/opus/opus-1.3.tar.gz
+wget -nc https://archive.mozilla.org/pub/opus/opus-1.3.1.tar.gz
 
 NAME=opus
-VERSION=1.3
-URL=https://archive.mozilla.org/pub/opus/opus-1.3.tar.gz
+VERSION=1.3.1
+URL=https://archive.mozilla.org/pub/opus/opus-1.3.1.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -33,7 +33,7 @@ fi
 
 ./configure --prefix=/usr \
 --disable-static \
---docdir=/usr/share/doc/opus-1.3 &&
+--docdir=/usr/share/doc/opus-1.3.1 &&
 make
 
 sudo rm -rf /tmp/rootscript.sh

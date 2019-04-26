@@ -11,6 +11,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://www.gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.3.tar.bz2
+wget -nc ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.5.3.tar.bz2
 
 NAME=libassuan
 VERSION=2.5.3

@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://files.itstool.org/itstool/itstool-2.0.5.tar.bz2
+wget -nc http://files.itstool.org/itstool/itstool-2.0.6.tar.bz2
 
 NAME=itstool
-VERSION=2.0.5
-URL=http://files.itstool.org/itstool/itstool-2.0.5.tar.bz2
+VERSION=2.0.6
+URL=http://files.itstool.org/itstool/itstool-2.0.6.tar.bz2
 
 if [ ! -z $URL ]
 then

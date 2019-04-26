@@ -13,6 +13,7 @@ set +h
 #REC:dhcpcd
 #REC:gobject-introspection
 #REC:iptables
+#REC:jansson
 #REC:newt
 #REC:nss
 #REC:polkit
@@ -24,12 +25,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.16/NetworkManager-1.16.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.16/NetworkManager-1.16.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.18/NetworkManager-1.18.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.18/NetworkManager-1.18.1.tar.xz
 
 NAME=networkmanager
-VERSION=1.16.0
-URL=http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.16/NetworkManager-1.16.0.tar.xz
+VERSION=1.18.1
+URL=http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.18/NetworkManager-1.18.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -79,7 +80,7 @@ ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
-mv -v /usr/share/doc/NetworkManager{,-1.16.0}
+mv -v /usr/share/doc/NetworkManager{,-1.18.1}
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

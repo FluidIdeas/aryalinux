@@ -10,6 +10,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.36.tar.bz2
+wget -nc ftp://ftp.gnupg.org/gcrypt/libgpg-error/libgpg-error-1.36.tar.bz2
 
 NAME=libgpg-error
 VERSION=1.36
@@ -31,6 +32,7 @@ fi
 cd $DIRECTORY
 fi
 
+sed -i 's/namespace/pkg_&/' src/Makefile.{am,in} src/mkstrtable.awk
 ./configure --prefix=/usr &&
 make
 

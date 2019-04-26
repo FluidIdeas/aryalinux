@@ -18,11 +18,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.14.4.tar.xz
+wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.16.0.tar.xz
 
 NAME=gst10-plugins-base
-VERSION=1.14.4
-URL=https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.14.4.tar.xz
+VERSION=1.16.0
+URL=https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.16.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -40,10 +40,15 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---with-package-name="GStreamer Base Plugins 1.14.4 BLFS" \
---with-package-origin="http://www.linuxfromscratch.org/blfs/view/svn/" &&
-make
+mkdir build &&
+cd build &&
+
+meson --prefix=/usr \
+-Dbuildtype=release \
+-Dgtk_doc=disabled \
+-Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
+-Dpackage-name="GStreamer 1.16.0 BLFS" &&
+ninja
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

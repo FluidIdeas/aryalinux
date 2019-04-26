@@ -9,12 +9,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/libpng/libpng-1.6.36.tar.xz
-wget -nc https://downloads.sourceforge.net/sourceforge/libpng-apng/libpng-1.6.36-apng.patch.gz
+wget -nc https://downloads.sourceforge.net/libpng/libpng-1.6.37.tar.xz
+wget -nc https://downloads.sourceforge.net/sourceforge/libpng-apng/libpng-1.6.37-apng.patch.gz
 
 NAME=libpng
-VERSION=1.6.36
-URL=https://downloads.sourceforge.net/libpng/libpng-1.6.36.tar.xz
+VERSION=1.6.37
+URL=https://downloads.sourceforge.net/libpng/libpng-1.6.37.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -32,15 +32,15 @@ fi
 cd $DIRECTORY
 fi
 
-gzip -cd ../libpng-1.6.36-apng.patch.gz | patch -p1
-LIBS=-lpthread ./configure --prefix=/usr --disable-static &&
+gzip -cd ../libpng-1.6.37-apng.patch.gz | patch -p1
+./configure --prefix=/usr --disable-static &&
 make
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-mkdir -v /usr/share/doc/libpng-1.6.36 &&
-cp -v README libpng-manual.txt /usr/share/doc/libpng-1.6.36
+mkdir -v /usr/share/doc/libpng-1.6.37 &&
+cp -v README libpng-manual.txt /usr/share/doc/libpng-1.6.37
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

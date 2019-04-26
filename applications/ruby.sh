@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.2.tar.xz
+wget -nc http://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.3.tar.xz
 
 NAME=ruby
-VERSION=2.6.2
-URL=http://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.2.tar.xz
+VERSION=2.6.3
+URL=http://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.3.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -33,7 +33,7 @@ fi
 
 ./configure --prefix=/usr \
 --enable-shared \
---docdir=/usr/share/doc/ruby-2.6.2 &&
+--docdir=/usr/share/doc/ruby-2.6.3 &&
 make
 make capi
 

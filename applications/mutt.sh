@@ -60,7 +60,7 @@ cp -v doc/manual.txt{,.shipped} &&
 --enable-imap \
 --enable-hcache \
 --enable-sidebar &&
-make &&
+make
 make -C doc manual.pdf
 
 sudo rm -rf /tmp/rootscript.sh

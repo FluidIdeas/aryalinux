@@ -11,6 +11,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.8.4.tar.bz2
+wget -nc ftp://ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.8.4.tar.bz2
 
 NAME=libgcrypt
 VERSION=1.8.4

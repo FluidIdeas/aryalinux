@@ -9,11 +9,13 @@ set +h
 #REQ:gtk3
 #REQ:itstool
 #REQ:libcanberra
+#REQ:libnotify
 #REC:gobject-introspection
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-bluetooth/3.32/gnome-bluetooth-3.32.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-bluetooth/3.32/gnome-bluetooth-3.32.1.tar.xz
 
 NAME=gnome-bluetooth
 VERSION=3.32.1
