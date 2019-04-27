@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/glib/2.60/glib-2.60.1.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glib/2.60/glib-2.60.1.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/glib-2.60.1-skip_warnings-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/glib-2.60.1-skip_warnings-1.patch
 
 NAME=glib2
 VERSION=2.60.1

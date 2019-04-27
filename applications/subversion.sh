@@ -13,7 +13,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://archive.apache.org/dist/subversion/subversion-1.11.1.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/subversion-1.11.1-apr_1.7.0_fix-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/subversion-1.11.1-apr_1.7.0_fix-1.patch
 
 NAME=subversion
 VERSION=1.11.1

@@ -10,7 +10,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://www.tcpdump.org/release/libpcap-1.9.0.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/libpcap-1.9.0-enable_bluetooth-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/libpcap-1.9.0-enable_bluetooth-1.patch
 
 NAME=libpcap
 VERSION=1.9.0

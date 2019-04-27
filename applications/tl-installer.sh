@@ -21,7 +21,7 @@ cd $SOURCE_DIR
 
 wget -nc http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/readline/readline-6.3.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/readline-6.3-upstream_fixes-3.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/readline-6.3-upstream_fixes-3.patch
 wget -nc https://cpan.metacpan.org/authors/id/S/SR/SREZIC/Tk-804.034.tar.gz
 
 NAME=tl-installer

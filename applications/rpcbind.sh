@@ -11,7 +11,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/rpcbind/rpcbind-1.2.5.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/rpcbind-1.2.5-vulnerability_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/rpcbind-1.2.5-vulnerability_fixes-1.patch
 
 NAME=rpcbind
 VERSION=1.2.5

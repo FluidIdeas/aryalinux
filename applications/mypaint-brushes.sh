@@ -11,7 +11,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://github.com/Jehan/mypaint-brushes/archive/v1.3.0/mypaint-brushes-v1.3.0.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/mypaint-brushes-1.3.0-automake_1.16-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/mypaint-brushes-1.3.0-automake_1.16-1.patch
 
 NAME=mypaint-brushes
 VERSION=v1.3.0

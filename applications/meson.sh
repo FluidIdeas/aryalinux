@@ -10,7 +10,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://github.com/mesonbuild/meson/releases/download/0.50.0/meson-0.50.0.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/meson-0.50.0-gnome.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/meson-0.50.0-gnome.patch
 
 NAME=meson
 VERSION=0.50.0

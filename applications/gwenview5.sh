@@ -14,7 +14,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://download.kde.org/stable/applications/18.12.2/src/gwenview-18.12.2.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/gwenview-18.12.2-exiv2_0.27-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/gwenview-18.12.2-exiv2_0.27-1.patch
 
 NAME=gwenview5
 VERSION=18.12.2

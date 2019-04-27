@@ -10,7 +10,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://www.lua.org/ftp/lua-5.2.4.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/lua-5.2.4-shared_library-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/lua-5.2.4-shared_library-1.patch
 
 NAME=lua52
 VERSION=5.2.4

@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.imagemagick.org/download/releases/ImageMagick-6.9.10-27.tar.xz
 wget -nc ftp://ftp.imagemagick.org/pub/ImageMagick/releases/ImageMagick-6.9.10-27.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/ImageMagick-6.9.10-27-libs_only-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/ImageMagick-6.9.10-27-libs_only-1.patch
 wget -nc http://www.mcmurchy.com/ralcgm/ralcgm-3.51.tar.gz
 wget -nc http://www.mcmurchy.com/urt/urt-3.1b.tar.gz
 

@@ -12,7 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://download.kde.org/stable/applications/18.12.2/src/libkexiv2-18.12.2.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/libkexiv2-18.12.2-exiv2_0.27-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/libkexiv2-18.12.2-exiv2_0.27-1.patch
 
 NAME=libkexiv2
 VERSION=18.12.2

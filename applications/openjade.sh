@@ -11,7 +11,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/openjade/openjade-1.3.2.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/openjade-1.3.2-upstream-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/openjade-1.3.2-upstream-1.patch
 
 NAME=openjade
 VERSION=1.3.2

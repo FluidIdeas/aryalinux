@@ -27,7 +27,7 @@ cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/evolution/3.30/evolution-3.30.5.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evolution/3.30/evolution-3.30.5.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/evolution-3.30.5-security_fix-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/evolution-3.30.5-security_fix-1.patch
 
 NAME=evolution
 VERSION=3.30.5
