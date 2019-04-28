@@ -50,13 +50,7 @@ meson --prefix=/usr \
 -Dpackage-name="GStreamer 1.16.0 BLFS" &&
 PKG_CONFIG_PATH=$PKG_CONFIG_PATH:./pkgconfig/ ninja
 
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
+sudo ninja install
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
