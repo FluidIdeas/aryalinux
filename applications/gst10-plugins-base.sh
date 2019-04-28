@@ -48,7 +48,7 @@ meson --prefix=/usr \
 -Dgtk_doc=disabled \
 -Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
 -Dpackage-name="GStreamer 1.16.0 BLFS" &&
-ninja
+PKG_CONFIG_PATH=$PKG_CONFIG_PATH:./pkgconfig/ ninja
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
