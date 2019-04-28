@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.exiv2.org/builds/exiv2-0.27.0-Source.tar.gz
+wget -nc https://www.exiv2.org/releases/exiv2-0.27.0-Source.tar.gz
 
 NAME=exiv2
 VERSION=0.27.0a
-URL=http://www.exiv2.org/builds/exiv2-0.27.0-Source.tar.gz
+URL=https://www.exiv2.org/releases/exiv2-0.27.0-Source.tar.gz
 
 if [ ! -z $URL ]
 then
