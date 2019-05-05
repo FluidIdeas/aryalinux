@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="057-gcc.sh"
-TARBALL="gcc-8.3.0.tar.xz"
+TARBALL="gcc-9.1.0.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -51,7 +51,6 @@ case $(uname -m) in
         -i.orig gcc/config/i386/t-linux64
   ;;
 esac
-rm -f /usr/lib/gcc
 mkdir -v build
 cd       build
 SED=sed                               \
@@ -68,7 +67,7 @@ make install
 ln -sv ../usr/bin/cpp /lib
 ln -sv gcc /usr/bin/cc
 install -v -dm755 /usr/lib/bfd-plugins
-ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/8.3.0/liblto_plugin.so \
+ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/9.1.0/liblto_plugin.so \
         /usr/lib/bfd-plugins/
 echo 'int main(){}' > dummy.c
 cc dummy.c -v -Wl,--verbose &> dummy.log
