@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://libndp.org/files/libndp-1.7.tar.gz
+wget -nc https://ftp.osuosl.org/pub/blfs/conglomeration/libndp/libndp-1.7.tar.gz
 
 NAME=libndp
 VERSION=1.7
-URL=http://libndp.org/files/libndp-1.7.tar.gz
+URL=https://ftp.osuosl.org/pub/blfs/conglomeration/libndp/libndp-1.7.tar.gz
 
 if [ ! -z $URL ]
 then
