@@ -32,7 +32,6 @@ fi
 cd $DIRECTORY
 fi
 
-python3 -m pip install --force pip
 ./configure --prefix=/usr \
 --enable-shared \
 --with-system-expat \
