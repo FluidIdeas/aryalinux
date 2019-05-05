@@ -8,6 +8,8 @@ echo "Even small changes in kernel configuration have unforseen consequences and
 echo "Please be careful."
 echo "In case you have doubts, please exit by pressing Ctrl + C"
 echo "Or else press Enter to continue..."
+echo ""
+read xx
 
 LINUX_TARBALL=$(grep kernel.org | grep linux | rev | cut -d/ -f1 | rev)
 pushd ~/sources
