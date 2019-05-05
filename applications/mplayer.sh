@@ -87,8 +87,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-gtk-update-icon-cache &&
-update-desktop-database
+gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
+update-desktop-database -q
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

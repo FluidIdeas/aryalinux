@@ -41,7 +41,7 @@ meson --prefix=/usr \
 -Dgst_debug=false \
 -Dgtk_doc=disabled \
 -Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
--Dpackage-name="GStreamer 1.14.4 BLFS" &&
+-Dpackage-name="GStreamer 1.16.0 BLFS" &&
 ninja
 rm -rf /usr/bin/gst-* /usr/{lib,libexec}/gstreamer-1.0
 

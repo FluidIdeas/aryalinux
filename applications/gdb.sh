@@ -6,6 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#REC:six
 
 cd $SOURCE_DIR
 
@@ -32,7 +33,9 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --with-system-readline &&
+./configure --prefix=/usr \
+--with-system-readline \
+--with-python=/usr/bin/python3 &&
 make
 make -C gdb/doc doxy
 pushd gdb/testsuite &&

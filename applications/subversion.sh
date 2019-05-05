@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.apache.org/dist/subversion/subversion-1.11.1.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/subversion-1.11.1-apr_1.7.0_fix-1.patch
+wget -nc https://archive.apache.org/dist/subversion/subversion-1.12.0.tar.bz2
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/subversion-1.12.0-apr_1.7.0_fix-1.patch
 
 NAME=subversion
-VERSION=1.11.1
-URL=https://archive.apache.org/dist/subversion/subversion-1.11.1.tar.bz2
+VERSION=1.12.0
+URL=https://archive.apache.org/dist/subversion/subversion-1.12.0.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -35,7 +35,7 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../subversion-1.11.1-apr_1.7.0_fix-1.patch
+patch -Np1 -i ../subversion-1.12.0-apr_1.7.0_fix-1.patch
 ./autogen.sh &&
 
 ./configure --prefix=/usr \
@@ -49,9 +49,9 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
-install -v -m755 -d /usr/share/doc/subversion-1.11.1 &&
+install -v -m755 -d /usr/share/doc/subversion-1.12.0 &&
 cp -v -R doc/* \
-/usr/share/doc/subversion-1.11.1
+/usr/share/doc/subversion-1.12.0
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

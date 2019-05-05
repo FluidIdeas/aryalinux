@@ -10,7 +10,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/fluxbox/fluxbox-1.3.7.tar.xz
-wget -nc ftp://ftp.jaist.ac.jp/pub//sourceforge/f/fl/fluxbox/fluxbox/1.3.7/fluxbox-1.3.7.tar.xz
 
 NAME=fluxbox
 VERSION=1.3.7

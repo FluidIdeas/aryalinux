@@ -51,7 +51,6 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 
 ln -sf ../lib/slapd /usr/sbin/slapd
-
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

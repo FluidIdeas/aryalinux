@@ -89,7 +89,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m644 dbus/fi.w1.wpa_supplicant1.service \
+install -v -m644 dbus/fi.{epitest.hostap.WPASupplicant,w1.wpa_supplicant1}.service \
 /usr/share/dbus-1/system-services/ &&
 install -v -d -m755 /etc/dbus-1/system.d &&
 install -v -m644 dbus/dbus-wpa_supplicant.conf \
@@ -111,7 +111,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-update-desktop-database
+update-desktop-database -q
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

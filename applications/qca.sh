@@ -13,11 +13,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/qca/2.2.0/qca-2.2.0.tar.xz
+wget -nc http://download.kde.org/stable/qca/2.2.1/qca-2.2.1.tar.xz
 
 NAME=qca
-VERSION=2.2.0
-URL=http://download.kde.org/stable/qca/2.2.0/qca-2.2.0.tar.xz
+VERSION=2.2.1
+URL=http://download.kde.org/stable/qca/2.2.1/qca-2.2.1.tar.xz
 
 if [ ! -z $URL ]
 then

@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/qpdf/qpdf/releases/download/release-qpdf-8.4.0/qpdf-8.4.0.tar.gz
+wget -nc https://github.com/qpdf/qpdf/releases/download/release-qpdf-8.4.1/qpdf-8.4.1.tar.gz
 
 NAME=qpdf
-VERSION=8.4.0
-URL=https://github.com/qpdf/qpdf/releases/download/release-qpdf-8.4.0/qpdf-8.4.0.tar.gz
+VERSION=8.4.1
+URL=https://github.com/qpdf/qpdf/releases/download/release-qpdf-8.4.1/qpdf-8.4.1.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -34,7 +34,7 @@ fi
 
 ./configure --prefix=/usr \
 --disable-static \
---docdir=/usr/share/doc/qpdf-8.4.0 &&
+--docdir=/usr/share/doc/qpdf-8.4.1 &&
 make
 
 sudo rm -rf /tmp/rootscript.sh

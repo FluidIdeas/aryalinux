@@ -16,13 +16,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://mesa.freedesktop.org/archive/mesa-19.0.2.tar.xz
-wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-19.0.2.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/mesa-19.0.2-add_xdemos-1.patch
+wget -nc https://mesa.freedesktop.org/archive/mesa-19.0.3.tar.xz
+wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-19.0.3.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/mesa-19.0.3-add_xdemos-1.patch
 
 NAME=mesa
-VERSION=19.0.2
-URL=https://mesa.freedesktop.org/archive/mesa-19.0.2.tar.xz
+VERSION=19.0.3
+URL=https://mesa.freedesktop.org/archive/mesa-19.0.3.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -40,7 +40,7 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../mesa-19.0.2-add_xdemos-1.patch
+patch -Np1 -i ../mesa-19.0.3-add_xdemos-1.patch
 export XORG_PREFIX=/usr
 
 mkdir build &&
@@ -77,8 +77,8 @@ ninja
 make -C ../xdemos DEMOS_PREFIX=$XORG_PREFIX LIBRARY_PATH=$PWD/src/glx
 sudo ninja install
 sudo make -C ../xdemos DEMOS_PREFIX=$XORG_PREFIX install
-sudo install -v -dm755 /usr/share/doc/mesa-19.0.2
-sudo cp -rfv ../docs/* /usr/share/doc/mesa-19.0.2
+sudo install -v -dm755 /usr/share/doc/mesa-19.0.3
+sudo cp -rfv ../docs/* /usr/share/doc/mesa-19.0.3
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

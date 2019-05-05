@@ -20,12 +20,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/eog/3.28/eog-3.28.4.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/eog/3.28/eog-3.28.4.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/eog/3.32/eog-3.32.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/eog/3.32/eog-3.32.1.tar.xz
 
 NAME=eog
-VERSION=3.28.4
-URL=http://ftp.gnome.org/pub/gnome/sources/eog/3.28/eog-3.28.4.tar.xz
+VERSION=3.32.1
+URL=http://ftp.gnome.org/pub/gnome/sources/eog/3.32/eog-3.32.1.tar.xz
 
 if [ ! -z $URL ]
 then

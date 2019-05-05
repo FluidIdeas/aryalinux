@@ -25,13 +25,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/evolution/3.30/evolution-3.30.5.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evolution/3.30/evolution-3.30.5.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/evolution-3.30.5-security_fix-1.patch
+wget -nc http://ftp.gnome.org/pub/gnome/sources/evolution/3.32/evolution-3.32.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evolution/3.32/evolution-3.32.1.tar.xz
 
 NAME=evolution
-VERSION=3.30.5
-URL=http://ftp.gnome.org/pub/gnome/sources/evolution/3.30/evolution-3.30.5.tar.xz
+VERSION=3.32.1
+URL=http://ftp.gnome.org/pub/gnome/sources/evolution/3.32/evolution-3.32.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -48,8 +47,6 @@ fi
 
 cd $DIRECTORY
 fi
-
-patch -Np1 -i ../evolution-3.30.5-security_fix-1.patch &&
 
 mkdir build &&
 cd build &&

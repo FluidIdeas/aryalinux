@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libwnck/3.30/libwnck-3.30.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libwnck/3.30/libwnck-3.30.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/libwnck/3.32/libwnck-3.32.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libwnck/3.32/libwnck-3.32.0.tar.xz
 
 NAME=libwnck
-VERSION=3.30.0
-URL=http://ftp.gnome.org/pub/gnome/sources/libwnck/3.30/libwnck-3.30.0.tar.xz
+VERSION=3.32.0
+URL=http://ftp.gnome.org/pub/gnome/sources/libwnck/3.32/libwnck-3.32.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -35,12 +35,15 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr &&
-make
+mkdir build &&
+cd build &&
+
+meson --prefix=/usr -Dbuildtype=release .. &&
+ninja
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

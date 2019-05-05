@@ -20,7 +20,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://github.com/TigerVNC/tigervnc/archive/v1.9.0/tigervnc-1.9.0.tar.gz
-wget -nc https://www.x.org/pub/individual/xserver/xorg-server-1.20.0.tar.bz2
+wget -nc https://www.x.org/pub/individual/xserver/xorg-server-1.20.4.tar.bz2
 
 NAME=tigervnc
 VERSION=1.9.0
@@ -46,10 +46,11 @@ export XORG_PREFIX=/usr
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
 # Put code in place
-pushd unix/xserver &&
-tar -xf $DIR/xorg-server-$XORG_VER.tar.bz2 --strip-components=1 &&
-patch -Np1 -i ../xserver120.patch &&
-popd &&
+tar -xf ../xorg-server-1.20.4.tar.bz2 \
+--strip-components=1 \
+-C unix/xserver &&
+( cd unix/xserver &&
+patch -Np1 -i ../xserver120.patch ) &&
 
 # Build viewer
 cmake -G "Unix Makefiles" \
@@ -81,9 +82,7 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
 #Install server
-pushd unix/xserver/hw/vnc &&
-make install &&
-popd &&
+( cd unix/xserver/hw/vnc && make install ) &&
 
 [ -e /usr/bin/Xvnc ] || ln -svf $XORG_PREFIX/bin/Xvnc /usr/bin/Xvnc
 ENDOFROOTSCRIPT

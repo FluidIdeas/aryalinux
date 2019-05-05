@@ -36,6 +36,8 @@ fi
 cd $DIRECTORY
 fi
 
+sed -e 's/token_list\.copy()/token_list.copy_deep((CopyFunc) Object.ref)/' \
+-i lib/equation-parser.vala
 mkdir build &&
 cd build &&
 

@@ -10,11 +10,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/bbidulock/icewm/releases/download/1.4.2/icewm-1.4.2.tar.bz2
+wget -nc https://github.com/ice-wm/icewm/releases/download/1.5.4/icewm-1.5.4.tar.xz
 
 NAME=icewm
-VERSION=1.4.2
-URL=https://github.com/bbidulock/icewm/releases/download/1.4.2/icewm-1.4.2.tar.bz2
+VERSION=1.5.4
+URL=https://github.com/ice-wm/icewm/releases/download/1.5.4/icewm-1.5.4.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -32,9 +32,16 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---sysconfdir=/etc \
---docdir=/usr/share/doc/icewm-1.4.2 &&
+sed -i "s/nullptr/NULL/" src/{wmconfig.cc,icewmhint.cc} &&
+
+mkdir build &&
+cd build &&
+
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+-DCMAKE_BUILD_TYPE=Release \
+-DCFGDIR=/etc \
+-DDOCDIR=/usr/share/doc/icewm-1.5.4 \
+..
 make
 
 sudo rm -rf /tmp/rootscript.sh

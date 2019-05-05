@@ -48,9 +48,15 @@ meson --prefix=/usr \
 -Dgtk_doc=disabled \
 -Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
 -Dpackage-name="GStreamer 1.16.0 BLFS" &&
-PKG_CONFIG_PATH=$PKG_CONFIG_PATH:./pkgconfig/ ninja
+ninja
 
-sudo ninja install
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ninja install
+ENDOFROOTSCRIPT
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

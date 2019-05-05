@@ -12,11 +12,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cmake.org/files/v3.14/cmake-3.14.2.tar.gz
+wget -nc https://cmake.org/files/v3.14/cmake-3.14.3.tar.gz
 
 NAME=cmake
-VERSION=3.14.2
-URL=https://cmake.org/files/v3.14/cmake-3.14.2.tar.gz
+VERSION=3.14.3
+URL=https://cmake.org/files/v3.14/cmake-3.14.3.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -41,7 +41,7 @@ sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake &&
 --mandir=/share/man \
 --no-system-jsoncpp \
 --no-system-librhash \
---docdir=/share/doc/cmake-3.14.2 &&
+--docdir=/share/doc/cmake-3.14.3 &&
 make
 
 sudo rm -rf /tmp/rootscript.sh

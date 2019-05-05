@@ -21,6 +21,7 @@ set +h
 #REC:libjpeg
 #REC:glm
 #REC:glu
+#REC:gpgme
 #REC:graphite2
 #REC:gst10-plugins-base
 #REC:gtk3

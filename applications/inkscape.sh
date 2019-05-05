@@ -47,6 +47,7 @@ fi
 cd $DIRECTORY
 fi
 
+sed -e 's|new Lexer(xref, obj)|obj|g' -i src/extension/internal/pdfinput/pdf-parser.cpp>
 patch -Np1 -i ../inkscape-0.92.4-use_versioned_ImageMagick6-1.patch
 bash download-gtest.sh
 mkdir build &&
@@ -69,8 +70,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-gtk-update-icon-cache &&
-update-desktop-database
+gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
+update-desktop-database -q
 ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh

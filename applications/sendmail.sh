@@ -52,7 +52,7 @@ APPENDDEF(`confENVDEF',`-DSTARTTLS -DSASL -DLDAPMAP')
 APPENDDEF(`confLIBS', `-lssl -lcrypto -lsasl2 -lldap -llber -ldb')
 APPENDDEF(`confINCDIRS', `-I/usr/include/sasl')
 EOF
-patch -Np1 -i $DIR/sendmail.8.15.2-openssl-1.patch &&
+patch -Np1 -i ../sendmail.8.15.2-openssl-1.patch &&
 
 cat >> devtools/Site/site.config.m4 << "EOF"
 define(`confMANGRP',`root')

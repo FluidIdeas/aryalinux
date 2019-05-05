@@ -6,15 +6,15 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:pcre
+#REQ:pcre2
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/storaged-project/libbytesize/releases/download/1.4/libbytesize-1.4.tar.gz
+wget -nc https://github.com/storaged-project/libbytesize/releases/download/2.0/libbytesize-2.0.tar.gz
 
 NAME=libbytesize
-VERSION=1.4
-URL=https://github.com/storaged-project/libbytesize/releases/download/1.4/libbytesize-1.4.tar.gz
+VERSION=2.0
+URL=https://github.com/storaged-project/libbytesize/releases/download/2.0/libbytesize-2.0.tar.gz
 
 if [ ! -z $URL ]
 then

@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cpan.org/authors/id/A/AM/AMBS/Text-BibTeX-0.87.tar.gz
+wget -nc https://www.cpan.org/authors/id/A/AM/AMBS/Text-BibTeX-0.88.tar.gz
 
 NAME=perl-text-bibtex
-VERSION=0.87
-URL=https://www.cpan.org/authors/id/A/AM/AMBS/Text-BibTeX-0.87.tar.gz
+VERSION=0.88
+URL=https://www.cpan.org/authors/id/A/AM/AMBS/Text-BibTeX-0.88.tar.gz
 
 if [ ! -z $URL ]
 then
