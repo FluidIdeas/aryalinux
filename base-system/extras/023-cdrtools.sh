@@ -45,7 +45,7 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
-make
+make -j1
 cp -v ./mkisofs/OBJ/`uname -m`-linux-cc/mkisofs /usr/bin
 
 
