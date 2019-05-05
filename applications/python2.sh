@@ -51,32 +51,6 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -dm755 /usr/share/doc/python-2.7.16 &&
-
-tar --strip-components=1 \
---no-same-owner \
---directory /usr/share/doc/python-2.7.16 \
--xvf ../python-2.7.16-docs-html.tar.bz2 &&
-
-find /usr/share/doc/python-2.7.16 -type d -exec chmod 0755 {} \; &&
-find /usr/share/doc/python-2.7.16 -type f -exec chmod 0644 {} \;
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-export PYTHONDOCS=/usr/share/doc/python-2.7.16
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
