@@ -40,7 +40,7 @@ fi
 
 cd js/src &&
 
-./configure --prefix=/usr \
+CPPFLAGS="-Werror=format-overflow=0" ./configure --prefix=/usr \
 --with-intl-api \
 --with-system-zlib \
 --with-system-nspr \
