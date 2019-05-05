@@ -7,7 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:glib2
-#REQ:js52
+#REQ:js60
 #REQ:systemd
 #REC:linux-pam
 
