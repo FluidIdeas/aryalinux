@@ -11,7 +11,13 @@ pushd ~/sources
 wget -nc https://github.com/dosfstools/dosfstools/releases/download/v4.1/dosfstools-4.1.tar.xz
 wget -nc http://ftp.gnu.org/gnu/which/which-2.21.tar.gz
 wget -nc http://mirrors.ocf.berkeley.edu/tanglu/pool/main/o/os-prober/os-prober_1.71.tar.xz
-wget -nc https://github.com/rhboot/efivar/releases/download/37/efivar-37.tar.bz2
+wget -nc https://github.com/rhboot/efivar/archive/master.zip
+
+# Creating the tarball for efivar
+unzip master.zip
+tar -cJvf efivar-master.tar.xz efivar-master
+rm -rf efivar-master master.zip
+
 wget -nc https://github.com/rhboot/efibootmgr/releases/download/16/efibootmgr-16.tar.bz2
 wget -nc https://downloads.sourceforge.net/freetype/freetype-2.9.tar.bz2
 wget -nc https://ftp.gnu.org/gnu/unifont/unifont-7.0.05/unifont-7.0.05.pcf.gz

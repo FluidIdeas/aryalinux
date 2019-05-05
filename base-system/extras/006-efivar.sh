@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="006-efivar.sh"
-TARBALL="efivar-37.tar.bz2"
+TARBALL="efivar-master.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
