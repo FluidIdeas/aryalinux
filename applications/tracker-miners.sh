@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libgrss
+#REQ:tracker
 
 cd $SOURCE_DIR
 
