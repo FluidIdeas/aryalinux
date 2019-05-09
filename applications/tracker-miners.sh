@@ -6,16 +6,26 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:libgrss
+#REQ:gst10-plugins-base
 #REQ:tracker
+#REQ:exempi
+#REQ:gexiv2
+#REC:ffmpeg
+#REC:flac
+#REC:icu
+#REC:libexif
+#REC:libgrss
+#REC:libgxps
+#REC:poppler
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/tracker-miners/2.2/tracker-miners-2.2.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.2/tracker-miners-2.2.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.2/tracker-miners-2.2.2.tar.xz
 
 NAME=tracker-miners
-VERSION=2.2.1
-URL=http://ftp.acc.umu.se/pub/gnome/sources/tracker-miners/2.2/tracker-miners-2.2.1.tar.xz
+VERSION=2.2.2
+URL=http://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.2/tracker-miners-2.2.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -33,11 +43,20 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build
-cd build
-meson --prefix=/usr &&
+mkdir build &&
+cd build &&
+
+meson --prefix=/usr .. &&
 ninja
-sudo ninja install
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ninja install
+ENDOFROOTSCRIPT
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

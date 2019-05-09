@@ -9,11 +9,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://libndp.org/files/libndp-1.7.tar.gz
+wget -nc https://github.com/dirkvdb/ffmpegthumbnailer/releases/download/2.2.0/ffmpegthumbnailer-2.2.0.tar.bz2
 
-NAME=libndp
-VERSION=1.7
-URL=http://libndp.org/files/libndp-1.7.tar.gz
+NAME=ffmpegthumbnailer
+VERSION=2.2.0
+URL=https://github.com/dirkvdb/ffmpegthumbnailer/releases/download/2.2.0/ffmpegthumbnailer-2.2.0.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -31,20 +31,11 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---sysconfdir=/etc \
---localstatedir=/var \
---disable-static &&
+mkdir -pv build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=/usr -DENABLE_THUMBNAILER=ON -DENABLE_GIO=ON .. &&
 make
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
+sudo make install
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

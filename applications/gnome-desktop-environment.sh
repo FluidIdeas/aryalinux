@@ -90,6 +90,7 @@ set +h
 #REQ:gnome-tweaks
 #REQ:plank
 #REQ:pavucontrol
+#REQ:ffmpegthumbnailer
 #REQ:aryalinux-wallpapers
 #REQ:aryalinux-google-fonts
 #REQ:aryalinux-icons
