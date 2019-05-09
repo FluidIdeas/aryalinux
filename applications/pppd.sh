@@ -6,15 +6,14 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:pppd
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnome.org/pub/gnome/sources/NetworkManager-pptp/1.2/NetworkManager-pptp-1.2.8.tar.xz
+wget -nc https://github.com/paulusmack/ppp/archive/master.zip
 
-NAME=network-manager-pptp
-VERSION=1.2.8
-URL=https://ftp.gnome.org/pub/gnome/sources/NetworkManager-pptp/1.2/NetworkManager-pptp-1.2.8.tar.xz
+NAME=pppd
+VERSION=6.0.6
+URL=https://github.com/paulusmack/ppp/archive/master.zip
 
 if [ ! -z $URL ]
 then
@@ -32,8 +31,9 @@ fi
 cd $DIRECTORY
 fi
 
-if grep "gnome-desktop-environment" /etc/alps/installed-list &> /dev/null; then WITH_GNOME="--with-gnome"; fi
-./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var $WITH_GNOME &&
+sed -i 's@u_char@unsigned char@g' pppd/pppd.h
+sed -i 's@u_short@unsigned short@g' pppd/pppd.h
+./configure --prefix=/usr &&
 make
 sudo make install
 
