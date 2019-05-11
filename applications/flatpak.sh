@@ -34,7 +34,7 @@ fi
 cd $DIRECTORY
 fi
 
-./autogen.sh --prefix=/usr &&
+./configure --prefix=/usr &&
 make
 sudo make install
 
