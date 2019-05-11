@@ -34,9 +34,11 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --disable-static &&
-make
-sudo make install
+mkdir build
+cd build
+meson --prefix=/usr --libdir=/usr/lib --sysconfdir=/etc --mandir=/usr/man ..
+ninja
+sudo ninja install
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
