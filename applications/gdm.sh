@@ -17,6 +17,7 @@ set +h
 #REQ:gnome-session
 #REQ:gnome-shell
 #REQ:systemd
+#REQ:plymouth
 
 cd $SOURCE_DIR
 
@@ -58,7 +59,7 @@ sudo rm -rf /tmp/rootscript.sh
 ./configure --prefix=/usr \
 --sysconfdir=/etc \
 --localstatedir=/var \
---without-plymouth \
+--enable-plymouth \
 --disable-static \
 --enable-gdm-xsession \
 --with-pam-mod-dir=/lib/security &&
