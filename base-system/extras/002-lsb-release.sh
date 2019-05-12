@@ -74,11 +74,11 @@ EOF
 if [ "x$SWAP_PART" != "x" ]
 then
 cat >> /etc/default/grub <<EOF
-GRUB_CMDLINE_LINUX_DEFAULT="quiet splash resume=/dev/disk/by-uuid/$SWAP_PART_BY_UUID"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash resume=/dev/disk/by-uuid/$SWAP_PART_BY_UUID console=null"
 EOF
 else
 cat >> /etc/default/grub <<EOF
-GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash console=null"
 EOF
 fi
 
