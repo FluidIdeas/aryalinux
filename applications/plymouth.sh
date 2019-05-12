@@ -31,7 +31,7 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr &&
+./configure --prefix=/usr --enable-gdm-transition &&
 make
 sudo make install
 
