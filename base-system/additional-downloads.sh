@@ -47,11 +47,15 @@ wget -c https://github.com/dracutdevs/dracut/archive/049.tar.gz -O dracut-049.ta
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/399ee7eb552ec30015e1a7e07e357f5815d25951/grub-2.02-gcc.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/f17f18defa4d88c427e54457e02c6ca94d76b673/efibootmgr-16-efidir.patch
 wget -nc https://sourceware.org/ftp/lvm2/releases/LVM2.2.02.171.tgz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs-5.0.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs-5.1.tar.gz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs5-base.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs5-kbuild.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs5-mmap.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs5-standalone.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs5-lockdep-debug.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs5-proc_mounts.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs5-tmpfs-idr.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs5-vfs-ino.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/grub-2.02-relocation.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/squashfs-tools-4.3-sysmacros.patch
 wget -nc https://sourceware.org/ftp/elfutils/0.170/elfutils-0.170.tar.bz2
