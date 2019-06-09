@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=ncurses
+NAME=050-ncurses
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

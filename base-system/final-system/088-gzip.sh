@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=gzip
+NAME=088-gzip
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

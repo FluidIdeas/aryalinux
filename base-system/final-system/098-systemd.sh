@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=systemd
+NAME=098-systemd
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
@@ -34,7 +34,7 @@ mkdir -p build
 cd       build
 
 PKG_CONFIG_PATH="/usr/lib/pkgconfig:/tools/lib/pkgconfig" \
-LANG=en_US.UTF-8                   \
+LANG=$LOCALE                   \
 meson --prefix=/usr                \
       --sysconfdir=/etc            \
       --localstatedir=/var         \
@@ -55,8 +55,8 @@ meson --prefix=/usr                \
       -Dumount-path=/bin/umount    \
       -Db_lto=false                \
       ..
-LANG=en_US.UTF-8 ninja
-LANG=en_US.UTF-8 ninja install
+LANG=$LOCALE ninja
+LANG=$LOCALE ninja install
 rm -rfv /usr/lib/rpm
 rm -f /usr/bin/xsltproc
 systemd-machine-id-setup

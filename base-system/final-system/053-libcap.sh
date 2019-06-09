@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=libcap
+NAME=053-libcap
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

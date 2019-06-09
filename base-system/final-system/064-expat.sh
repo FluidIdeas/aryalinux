@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=expat
+NAME=064-expat
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

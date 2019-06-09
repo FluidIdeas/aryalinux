@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=ninja
+NAME=078-ninja
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

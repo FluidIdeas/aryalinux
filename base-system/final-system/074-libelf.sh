@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=libelf
+NAME=074-libelf
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

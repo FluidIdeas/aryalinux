@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=autoconf
+NAME=069-autoconf
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

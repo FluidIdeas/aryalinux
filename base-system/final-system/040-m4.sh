@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=m4
+NAME=040-m4
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=gdbm
+NAME=062-gdbm
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

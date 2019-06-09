@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=iana-etc
+NAME=056-iana-etc
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

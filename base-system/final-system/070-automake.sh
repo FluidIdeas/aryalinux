@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=automake
+NAME=070-automake
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

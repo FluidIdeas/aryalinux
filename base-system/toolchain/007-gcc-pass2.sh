@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=gcc-pass2
+NAME=007-gcc-pass2
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

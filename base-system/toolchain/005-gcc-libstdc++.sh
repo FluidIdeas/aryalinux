@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=gcc-libstdc++
+NAME=005-gcc-libstdc++
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

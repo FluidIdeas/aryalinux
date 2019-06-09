@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=binutils
+NAME=042-binutils
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

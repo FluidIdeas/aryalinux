@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=gawk
+NAME=083-gawk
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

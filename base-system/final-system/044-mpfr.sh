@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=mpfr
+NAME=044-mpfr
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

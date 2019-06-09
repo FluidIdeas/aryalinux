@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=findutils
+NAME=019-findutils
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

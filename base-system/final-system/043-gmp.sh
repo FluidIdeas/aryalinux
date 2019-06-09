@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=gmp
+NAME=043-gmp
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

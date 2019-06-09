@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=dbus
+NAME=099-dbus
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

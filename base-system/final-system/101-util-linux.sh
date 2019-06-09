@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=util-linux
+NAME=101-util-linux
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

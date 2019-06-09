@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=perl
+NAME=066-perl
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

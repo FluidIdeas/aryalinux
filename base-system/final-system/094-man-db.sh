@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=man-db
+NAME=094-man-db
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

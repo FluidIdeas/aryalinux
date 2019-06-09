@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=dejagnu
+NAME=010-dejagnu
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

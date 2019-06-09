@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=tcl
+NAME=008-tcl
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=openssl
+NAME=076-openssl
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

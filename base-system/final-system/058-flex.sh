@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=flex
+NAME=058-flex
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

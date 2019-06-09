@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=intltool
+NAME=068-intltool
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

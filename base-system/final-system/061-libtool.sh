@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=libtool
+NAME=061-libtool
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

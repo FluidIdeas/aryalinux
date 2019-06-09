@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=groff
+NAME=085-groff
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
@@ -23,7 +23,7 @@ export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 
-PAGE=<paper_size> ./configure --prefix=/usr
+PAGE=$PAPER_SIZE ./configure --prefix=/usr
 make -j1
 make install
 

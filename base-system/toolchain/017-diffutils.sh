@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=diffutils
+NAME=017-diffutils
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

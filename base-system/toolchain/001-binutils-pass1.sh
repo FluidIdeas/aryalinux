@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=binutils-pass1
+NAME=001-binutils-pass1
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

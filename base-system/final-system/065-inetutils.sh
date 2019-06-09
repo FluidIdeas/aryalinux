@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=inetutils
+NAME=065-inetutils
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

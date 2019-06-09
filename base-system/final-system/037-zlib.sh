@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=zlib
+NAME=037-zlib
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

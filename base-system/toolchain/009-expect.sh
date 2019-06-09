@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=expect
+NAME=009-expect
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=sed
+NAME=054-sed
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

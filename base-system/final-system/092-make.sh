@@ -6,14 +6,14 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=make
+NAME=092-make
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=automake-1.16.1.tar.xz
+TARBALL=make-4.2.1.tar.bz2
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL

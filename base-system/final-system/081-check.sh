@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=check
+NAME=081-check
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

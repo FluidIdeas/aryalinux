@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=gperf
+NAME=063-gperf
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

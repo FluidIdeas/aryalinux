@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=glibc
+NAME=035-glibc
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

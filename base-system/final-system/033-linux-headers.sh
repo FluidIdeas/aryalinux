@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=linux-headers
+NAME=033-linux-headers
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

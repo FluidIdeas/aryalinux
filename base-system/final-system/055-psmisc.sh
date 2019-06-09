@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=psmisc
+NAME=055-psmisc
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

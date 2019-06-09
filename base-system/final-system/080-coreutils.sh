@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=coreutils
+NAME=080-coreutils
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

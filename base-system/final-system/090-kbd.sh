@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=kbd
+NAME=090-kbd
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

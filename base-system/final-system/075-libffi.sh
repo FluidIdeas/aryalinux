@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=libffi
+NAME=075-libffi
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

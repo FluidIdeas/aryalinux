@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=libpipeline
+NAME=091-libpipeline
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

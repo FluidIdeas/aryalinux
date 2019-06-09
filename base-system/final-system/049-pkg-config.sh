@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=pkg-config
+NAME=049-pkg-config
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

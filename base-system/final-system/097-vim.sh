@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=vim
+NAME=097-vim
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
@@ -26,7 +26,7 @@ export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h
 ./configure --prefix=/usr
 make
-LANG=en_US.UTF-8 make -j1 test &> vim-test.log
+LANG=$LOCALE make -j1 test &> vim-test.log
 make install
 ln -sv vim /usr/bin/vi
 for L in  /usr/share/man/{,*/}man1/vim.1; do

@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=procps-ng
+NAME=100-procps-ng
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

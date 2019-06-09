@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=xml-parser
+NAME=067-xml-parser
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

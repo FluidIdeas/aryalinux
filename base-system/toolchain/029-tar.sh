@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=tar
+NAME=029-tar
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
