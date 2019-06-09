@@ -12,7 +12,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd $SOURCE_DIR
 
-TARBALL=util-linux-2.33.1.tar.xz
+TARBALL=util-linux-2.33.2.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL

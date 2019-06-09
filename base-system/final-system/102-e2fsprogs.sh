@@ -12,7 +12,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd $SOURCE_DIR
 
-TARBALL=e2fsprogs-1.45.0.tar.gz
+TARBALL=e2fsprogs-1.45.2.tar.gz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL

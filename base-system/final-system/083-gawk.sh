@@ -12,7 +12,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd $SOURCE_DIR
 
-TARBALL=gawk-4.2.1.tar.xz
+TARBALL=gawk-5.0.0.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -26,8 +26,8 @@ sed -i 's/extras//' Makefile.in
 ./configure --prefix=/usr
 make
 make install
-mkdir -v /usr/share/doc/gawk-4.2.1
-cp    -v doc/{awkforai.txt,*.{eps,pdf,jpg}} /usr/share/doc/gawk-4.2.1
+mkdir -v /usr/share/doc/gawk-5.0.0
+cp    -v doc/{awkforai.txt,*.{eps,pdf,jpg}} /usr/share/doc/gawk-5.0.0
 
 fi
 

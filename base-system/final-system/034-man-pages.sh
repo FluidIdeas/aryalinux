@@ -12,7 +12,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd $SOURCE_DIR
 
-TARBALL=man-pages-5.00.tar.xz
+TARBALL=man-pages-5.01.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL

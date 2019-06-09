@@ -12,7 +12,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd $SOURCE_DIR
 
-TARBALL=gawk-4.2.1.tar.xz
+TARBALL=gawk-5.0.0.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL

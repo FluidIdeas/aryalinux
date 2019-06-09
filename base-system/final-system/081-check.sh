@@ -22,7 +22,8 @@ export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 
-./configure --prefix=/usr
+./configure --prefix=/usr \
+            --docdir=/usr/share/doc/check-0.12.0
 make
 make install
 sed -i '1 s/tools/usr/' /usr/bin/checkmk

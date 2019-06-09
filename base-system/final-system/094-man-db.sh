@@ -22,6 +22,8 @@ export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 
+sed -i '/find/s@/usr@@' init/systemd/man-db.service.in
+
 ./configure --prefix=/usr                        \
             --docdir=/usr/share/doc/man-db-2.8.5 \
             --sysconfdir=/etc                    \

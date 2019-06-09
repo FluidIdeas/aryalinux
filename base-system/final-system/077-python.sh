@@ -12,7 +12,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd $SOURCE_DIR
 
-TARBALL=Python-3.7.2.tar.xz
+TARBALL=Python-3.7.3.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -32,13 +32,13 @@ make install
 chmod -v 755 /usr/lib/libpython3.7m.so
 chmod -v 755 /usr/lib/libpython3.so
 ln -sfv pip3.7 /usr/bin/pip3
-install -v -dm755 /usr/share/doc/python-3.7.2/html 
+install -v -dm755 /usr/share/doc/python-3.7.3/html 
 
 tar --strip-components=1  \
     --no-same-owner       \
     --no-same-permissions \
-    -C /usr/share/doc/python-3.7.2/html \
-    -xvf ../python-3.7.2-docs-html.tar.bz2
+    -C /usr/share/doc/python-3.7.3/html \
+    -xvf ../python-3.7.3-docs-html.tar.bz2
 
 fi
 

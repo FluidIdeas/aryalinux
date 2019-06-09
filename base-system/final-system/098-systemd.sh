@@ -23,7 +23,7 @@ export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 
 ln -sf /tools/bin/true /usr/bin/xsltproc
-for file in /tools/lib/lib{blkid,mount,uuid}*; do
+for file in /tools/lib/lib{blkid,mount,uuid}.so*; do
     ln -sf $file /usr/lib/
 done
 tar -xf ../systemd-man-pages-241.tar.xz
@@ -59,11 +59,7 @@ LANG=en_US.UTF-8 ninja install
 rm -rfv /usr/lib/rpm
 rm -f /usr/bin/xsltproc
 systemd-machine-id-setup
-cat > /lib/systemd/systemd-user-sessions << "EOF"
-#!/bin/bash
-rm -f /run/nologin
-EOF
-chmod 755 /lib/systemd/systemd-user-sessions
+rm -f /usr/lib/tmpfiles.d/systemd-nologin.conf
 
 fi
 
