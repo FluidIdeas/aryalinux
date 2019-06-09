@@ -8,9 +8,10 @@ set +h
 
 NAME=adjusting
 
+touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
 
-cd $SOURCE_DIR
+cd /sources
 
 export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"

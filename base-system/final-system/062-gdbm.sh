@@ -8,9 +8,10 @@ set +h
 
 NAME=gdbm
 
+touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
 
-cd $SOURCE_DIR
+cd /sources
 
 TARBALL=gdbm-1.18.1.tar.gz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)

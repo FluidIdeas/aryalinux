@@ -8,9 +8,10 @@ set +h
 
 NAME=systemd
 
+touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
 
-cd $SOURCE_DIR
+cd /sources
 
 TARBALL=systemd-241.tar.gz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)

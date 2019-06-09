@@ -8,9 +8,10 @@ set +h
 
 NAME=coreutils
 
+touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
 
-cd $SOURCE_DIR
+cd /sources
 
 TARBALL=coreutils-8.31.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)

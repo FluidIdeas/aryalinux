@@ -8,9 +8,10 @@ set +h
 
 NAME=gcc-pass1
 
+touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
 
-cd $SOURCE_DIR
+cd /sources
 
 TARBALL=gcc-9.1.0.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)

@@ -8,9 +8,10 @@ set +h
 
 NAME=mpc
 
+touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
 
-cd $SOURCE_DIR
+cd /sources
 
 TARBALL=mpc-1.1.0.tar.gz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)

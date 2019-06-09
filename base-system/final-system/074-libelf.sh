@@ -8,9 +8,10 @@ set +h
 
 NAME=libelf
 
+touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
 
-cd $SOURCE_DIR
+cd /sources
 
 TARBALL=elfutils-0.176.tar.bz2
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)

@@ -8,9 +8,10 @@ set +h
 
 NAME=iana-etc
 
+touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
 
-cd $SOURCE_DIR
+cd /sources
 
 TARBALL=iana-etc-2.30.tar.bz2
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
