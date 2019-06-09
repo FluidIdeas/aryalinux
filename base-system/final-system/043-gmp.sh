@@ -23,7 +23,6 @@ export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 
-ABI=32 ./configure ...
 cp -v configfsf.guess config.guess
 cp -v configfsf.sub   config.sub
 ./configure --prefix=/usr    \
