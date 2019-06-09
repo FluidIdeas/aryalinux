@@ -34,5 +34,5 @@ ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

@@ -34,5 +34,5 @@ make install-html
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

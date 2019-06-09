@@ -906,5 +906,5 @@ cat > /etc/nsswit   c   h   .   c   o   n   f       &l   t   ;   &l   t   ;     
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

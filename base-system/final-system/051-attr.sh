@@ -34,5 +34,5 @@ ln -sfv ../../lib/$(readlink /usr/lib/libattr.so) /usr/lib/libattr.so
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

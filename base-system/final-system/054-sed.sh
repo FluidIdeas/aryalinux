@@ -34,5 +34,5 @@ install -m644 doc/sed.html /usr/share/doc/sed-4.7
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

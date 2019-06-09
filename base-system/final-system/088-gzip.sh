@@ -30,5 +30,5 @@ mv -v /usr/bin/gzip /bin
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

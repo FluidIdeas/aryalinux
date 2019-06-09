@@ -37,5 +37,5 @@ ln -sfv ../../lib/$(readlink /usr/lib/libprocps.so) /usr/lib/libprocps.so
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

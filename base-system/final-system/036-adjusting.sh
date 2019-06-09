@@ -37,5 +37,5 @@ rm -v dummy.c a.out dummy.log
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

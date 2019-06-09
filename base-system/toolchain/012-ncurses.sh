@@ -36,5 +36,5 @@ ln -s libncursesw.so /tools/lib/libncurses.so
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

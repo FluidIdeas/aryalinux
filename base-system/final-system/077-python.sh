@@ -43,5 +43,5 @@ tar --strip-components=1  \
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

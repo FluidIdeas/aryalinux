@@ -45,5 +45,5 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

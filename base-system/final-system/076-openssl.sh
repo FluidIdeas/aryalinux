@@ -36,5 +36,5 @@ cp -vfr doc/* /usr/share/doc/openssl-1.1.1c
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

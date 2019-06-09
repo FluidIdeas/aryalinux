@@ -32,5 +32,5 @@ ln -sv flex /usr/bin/lex
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

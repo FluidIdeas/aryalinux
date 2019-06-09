@@ -74,5 +74,5 @@ rm -v dummy.c a.out
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

@@ -36,5 +36,5 @@ install -vDm644 misc/zsh-completion  /usr/share/zsh/site-functions/_ninja
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

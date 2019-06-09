@@ -39,5 +39,5 @@ make install
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

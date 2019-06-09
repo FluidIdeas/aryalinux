@@ -64,5 +64,5 @@ rm -f /usr/lib/tmpfiles.d/systemd-nologin.conf
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

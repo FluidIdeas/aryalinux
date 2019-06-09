@@ -42,5 +42,5 @@ cp -v ld/ld-new /tools/bin
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

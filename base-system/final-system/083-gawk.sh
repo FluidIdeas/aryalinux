@@ -32,5 +32,5 @@ cp    -v doc/{awkforai.txt,*.{eps,pdf,jpg}} /usr/share/doc/gawk-5.0.0
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

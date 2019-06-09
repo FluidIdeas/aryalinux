@@ -30,5 +30,5 @@ cp -rv dest/include/* /usr/include
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

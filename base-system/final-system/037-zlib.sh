@@ -31,5 +31,5 @@ ln -sfv ../../lib/$(readlink /usr/lib/libz.so) /usr/lib/libz.so
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

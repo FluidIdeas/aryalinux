@@ -39,5 +39,5 @@ mv -v /usr/bin/ifconfig /sbin
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

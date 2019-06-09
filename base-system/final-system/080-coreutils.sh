@@ -41,5 +41,5 @@ mv -v /usr/bin/{head,nice,sleep,touch} /bin
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

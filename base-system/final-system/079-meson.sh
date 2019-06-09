@@ -29,5 +29,5 @@ cp -rv dest/* /
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

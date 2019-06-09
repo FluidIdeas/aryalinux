@@ -32,5 +32,5 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

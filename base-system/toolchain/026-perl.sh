@@ -31,5 +31,5 @@ cp -Rv lib/* /tools/lib/perl5/5.30.0
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

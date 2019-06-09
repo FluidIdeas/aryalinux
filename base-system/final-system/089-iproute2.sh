@@ -31,5 +31,5 @@ make DOCDIR=/usr/share/doc/iproute2-5.1.0 install
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

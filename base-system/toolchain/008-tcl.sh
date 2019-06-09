@@ -33,5 +33,5 @@ ln -sv tclsh8.6 /tools/bin/tclsh
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

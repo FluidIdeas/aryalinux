@@ -32,5 +32,5 @@ make -C doc install-html docdir=/usr/share/doc/tar-1.32
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

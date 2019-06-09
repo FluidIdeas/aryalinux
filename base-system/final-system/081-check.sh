@@ -31,5 +31,5 @@ sed -i '1 s/tools/usr/' /usr/bin/checkmk
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

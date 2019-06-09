@@ -40,5 +40,5 @@ ln -sfv kmod /bin/lsmod
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

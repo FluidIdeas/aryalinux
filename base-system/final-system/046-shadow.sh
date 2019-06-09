@@ -42,5 +42,5 @@ passwd root
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

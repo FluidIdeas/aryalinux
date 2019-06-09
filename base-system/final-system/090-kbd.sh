@@ -34,5 +34,5 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-2.0.4
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

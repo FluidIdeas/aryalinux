@@ -29,5 +29,5 @@ cp -rv dest/include/* /tools/include
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

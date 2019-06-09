@@ -33,5 +33,5 @@ mv -vf /usr/bin/bash /bin
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

@@ -36,5 +36,5 @@ popd
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

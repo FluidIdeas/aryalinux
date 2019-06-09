@@ -38,5 +38,5 @@ install -v -m644 doc/*.{ps,pdf,html,dvi} /usr/share/doc/readline-8.0
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

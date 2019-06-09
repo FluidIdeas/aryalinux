@@ -33,5 +33,5 @@ make SCRIPTS="" install
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

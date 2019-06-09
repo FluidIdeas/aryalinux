@@ -30,5 +30,5 @@ install -vm644 config/libelf.pc /usr/lib/pkgconfig
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

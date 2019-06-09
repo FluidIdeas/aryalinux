@@ -35,5 +35,5 @@ sed -i 's|find:=${BINDIR}|find:=/bin|' /usr/bin/updatedb
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

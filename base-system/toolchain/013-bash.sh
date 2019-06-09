@@ -30,5 +30,5 @@ ln -sv bash /tools/bin/sh
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

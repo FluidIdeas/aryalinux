@@ -39,5 +39,5 @@ ln -sv bzip2 /bin/bzcat
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

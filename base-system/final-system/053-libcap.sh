@@ -32,5 +32,5 @@ ln -sfv ../../lib/$(readlink /usr/lib/libcap.so) /usr/lib/libcap.so
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

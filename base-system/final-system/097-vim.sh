@@ -53,5 +53,5 @@ EOF
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

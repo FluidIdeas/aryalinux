@@ -57,5 +57,5 @@ cp -av lib/lib*.so.5* /usr/lib
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

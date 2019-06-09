@@ -58,5 +58,5 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

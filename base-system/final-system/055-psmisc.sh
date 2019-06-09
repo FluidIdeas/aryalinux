@@ -31,5 +31,5 @@ mv -v /usr/bin/killall /bin
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

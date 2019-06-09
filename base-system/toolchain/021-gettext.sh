@@ -29,5 +29,5 @@ cp -v gettext-tools/src/{msgfmt,msgmerge,xgettext} /tools/bin
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

@@ -39,5 +39,5 @@ unset BUILD_ZLIB BUILD_BZIP2
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

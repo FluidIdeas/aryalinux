@@ -34,5 +34,5 @@ ln -sfv ../../lib/$(readlink /usr/lib/libacl.so) /usr/lib/libacl.so
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME

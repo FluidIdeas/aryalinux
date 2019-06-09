@@ -28,5 +28,5 @@ make PREFIX=/tools install
 
 fi
 
-cleanup
+cleanup $DIRECTORY
 log $NAME
