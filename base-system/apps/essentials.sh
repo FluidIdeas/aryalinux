@@ -7,7 +7,7 @@ USERNAME="$1"
 
 alps selfupdate
 alps updatescripts
-su - $USERNAME -c "PKG_BUILDER=$1 alps install -ni profile bash-completion python2 python3 nano which wget make-ca ntfs-3g fuse lvm2 parted gptfdisk shadow"
+su - $USERNAME -c "PKG_BUILDER=$1 alps install -ni bash-completion python2 python3 nano which wget make-ca ntfs-3g fuse lvm2 parted gptfdisk shadow"
 if ! grep "shadow=" /etc/alps/installed-list &> /dev/null
 then
 	echo "Essentials incomplete (shadow). Aborting..."
