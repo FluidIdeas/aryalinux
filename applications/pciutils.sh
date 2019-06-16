@@ -6,13 +6,15 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REC:curl
-#REC:wget
-#REC:lynx
+#REQ:curl
+#REQ:wget
+#REQ:lynx
+
 
 cd $SOURCE_DIR
 
 wget -nc https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.6.2.tar.xz
+
 
 NAME=pciutils
 VERSION=3.6.2
@@ -34,23 +36,23 @@ fi
 cd $DIRECTORY
 fi
 
-make PREFIX=/usr \
-SHAREDIR=/usr/share/hwdata \
-SHARED=yes
 
+make PREFIX=/usr                \
+     SHAREDIR=/usr/share/hwdata \
+     SHARED=yes
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make PREFIX=/usr \
-SHAREDIR=/usr/share/hwdata \
-SHARED=yes \
-install install-lib &&
+make PREFIX=/usr                \
+     SHAREDIR=/usr/share/hwdata \
+     SHARED=yes                 \
+     install install-lib        &&
 
 chmod -v 755 /usr/lib/libpci.so
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -80,11 +82,14 @@ WantedBy=timers.target
 EOF
 systemctl enable update-pciids.timer
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

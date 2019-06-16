@@ -7,11 +7,13 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:glib2
-#REC:aspell
+#REQ:aspell
+
 
 cd $SOURCE_DIR
 
 wget -nc https://github.com/AbiWord/enchant/releases/download/v2.2.3/enchant-2.2.3.tar.gz
+
 
 NAME=enchant
 VERSION=2.2.3
@@ -33,18 +35,19 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr --disable-static &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-rm -rf /usr/include/enchant &&
-ln -sfv enchant-2 /usr/include/enchant &&
-ln -sfv enchant-2 /usr/bin/enchant &&
+make install                                   &&
+rm -rf /usr/include/enchant                    &&
+ln -sfv enchant-2       /usr/include/enchant   &&
+ln -sfv enchant-2       /usr/bin/enchant       &&
 ln -sfv libenchant-2.so /usr/lib/libenchant.so &&
-ln -sfv enchant-2.pc /usr/lib/pkgconfig/enchant.pc
+ln -sfv enchant-2.pc    /usr/lib/pkgconfig/enchant.pc
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -57,6 +60,8 @@ EOF
 enchant -d en_GB -l /tmp/test-enchant.txt &&
 enchant -d en_GB -a /tmp/test-enchant.txt
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

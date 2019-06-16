@@ -15,22 +15,25 @@ set +h
 #REQ:libmypaint
 #REQ:librsvg
 #REQ:libtiff
-#REQ:libxml2py2
+#REQ:python-modules#libxml2py2
 #REQ:lcms2
 #REQ:mypaint-brushes
 #REQ:poppler
-#REC:dbus-glib
-#REC:gs
-#REC:gvfs
-#REC:iso-codes
-#REC:libgudev
-#REC:pygtk
-#REC:xdg-utils
+#REQ:installing
+#REQ:dbus-glib
+#REQ:gs
+#REQ:gvfs
+#REQ:iso-codes
+#REQ:libgudev
+#REQ:python-modules#pygtk
+#REQ:xdg-utils
+
 
 cd $SOURCE_DIR
 
 wget -nc https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.10.tar.bz2
 wget -nc http://anduin.linuxfromscratch.org/BLFS/gimp/gimp-help-2019-04-08.tar.xz
+
 
 NAME=gimp
 VERSION=2.10.10
@@ -52,10 +55,44 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr --sysconfdir=/etc &&
 make
-sudo make install
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
+update-desktop-database -q
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+ALL_LINGUAS="ca da de el en en_GB es fi fr it ja ko nl nn pt_BR ro ru zh_CN" \
+./autogen.sh --prefix=/usr
+make
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install &&
+chown -R root:root /usr/share/gimp/2.0/help
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

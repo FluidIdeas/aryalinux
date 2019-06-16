@@ -6,14 +6,16 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REC:which
+#REQ:which
+
 
 cd $SOURCE_DIR
 
 wget -nc https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.bz2
 
+
 NAME=boost
-VERSION=boost_1_70_0
+VERSION=
 URL=https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.bz2
 
 if [ ! -z $URL ]
@@ -32,19 +34,22 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./bootstrap.sh --prefix=/usr &&
 ./b2 stage threading=multi link=shared
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-./b2 install threading=multi link=shared &&
+./b2 install threading=multi link=shared                 &&
 ln -svf detail/sha1.hpp /usr/include/boost/uuid/sha1.hpp
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

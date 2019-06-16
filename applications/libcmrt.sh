@@ -7,9 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://github.com/intel/cmrt/archive/1.0.6.tar.gz
+
 
 NAME=libcmrt
 VERSION=1.0.6
@@ -35,6 +37,8 @@ fi
 make
 sudo make install
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

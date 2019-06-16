@@ -7,11 +7,15 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:gtk3
+#REQ:notification-daemon
+#REQ:xfce4-notifyd
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/libnotify/0.7/libnotify-0.7.8.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libnotify/0.7/libnotify-0.7.8.tar.xz
+
 
 NAME=libnotify
 VERSION=0.7.8
@@ -33,21 +37,24 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
 cd build &&
 
 meson --prefix=/usr -Dgtk_doc=false .. &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

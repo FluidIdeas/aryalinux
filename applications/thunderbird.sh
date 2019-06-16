@@ -14,19 +14,21 @@ set +h
 #REQ:zip
 #REQ:unzip
 #REQ:yasm
-#REC:icu
-#REC:libevent
-#REC:nspr
-#REC:nss
-#REC:sqlite
+#REQ:icu
+#REQ:libevent
+#REQ:nspr
+#REQ:nss
+#REQ:sqlite
+
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/thunderbird/releases/60.6.1/source/thunderbird-60.6.1.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/thunderbird/releases/60.7.0/source/thunderbird-60.7.0.source.tar.xz
+
 
 NAME=thunderbird
-VERSION=60.6.1.source
-URL=https://archive.mozilla.org/pub/thunderbird/releases/60.6.1/source/thunderbird-60.6.1.source.tar.xz
+VERSION=60.7.0
+URL=https://archive.mozilla.org/pub/thunderbird/releases/60.7.0/source/thunderbird-60.7.0.source.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -43,6 +45,7 @@ fi
 
 cd $DIRECTORY
 fi
+
 
 cat > mozconfig << "EOF"
 # If you have a multicore machine, the build may be faster if using parallel
@@ -104,15 +107,14 @@ ac_add_options --with-system-png
 ac_add_options --with-system-zlib
 EOF
 ./mach build
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ./mach install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -132,14 +134,17 @@ MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/xml;ap
 StartupNotify=true
 EOF
 
-ln -sfv /usr/lib/thunderbird-60.6.1/chrome/icons/default/default256.png \
-/usr/share/pixmaps/thunderbird.png
+ln -sfv /usr/lib/thunderbird-60.7.0/chrome/icons/default/default256.png \
+        /usr/share/pixmaps/thunderbird.png
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

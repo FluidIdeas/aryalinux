@@ -7,9 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://github.com/jackaudio/jack2/releases/download/v1.9.12/jack2-1.9.12.tar.gz
+
 
 NAME=jack2
 VERSION=1.9.12
@@ -35,6 +37,8 @@ fi
 ./waf build
 sudo ./waf install
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

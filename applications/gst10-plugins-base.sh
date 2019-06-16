@@ -7,18 +7,20 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:gstreamer10
-#REC:alsa-lib
-#REC:cdparanoia
-#REC:gobject-introspection
-#REC:iso-codes
-#REC:libogg
-#REC:libtheora
-#REC:libvorbis
-#REC:x7lib
+#REQ:alsa-lib
+#REQ:cdparanoia
+#REQ:gobject-introspection
+#REQ:iso-codes
+#REQ:libogg
+#REQ:libtheora
+#REQ:libvorbis
+#REQ:x7lib
+
 
 cd $SOURCE_DIR
 
 wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.16.0.tar.xz
+
 
 NAME=gst10-plugins-base
 VERSION=1.16.0
@@ -40,25 +42,28 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
-cd build &&
+cd    build &&
 
-meson --prefix=/usr \
--Dbuildtype=release \
--Dgtk_doc=disabled \
--Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
--Dpackage-name="GStreamer 1.16.0 BLFS" &&
+meson  --prefix=/usr       \
+       -Dbuildtype=release \
+       -Dgtk_doc=disabled  \
+       -Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
+       -Dpackage-name="GStreamer 1.16.0 BLFS" &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

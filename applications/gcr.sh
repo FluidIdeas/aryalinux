@@ -10,16 +10,18 @@ set +h
 #REQ:libgcrypt
 #REQ:libtasn1
 #REQ:p11-kit
-#REC:gnupg
-#REC:gobject-introspection
-#REC:gtk3
-#REC:libxslt
-#REC:vala
+#REQ:gnupg
+#REQ:gobject-introspection
+#REQ:gtk3
+#REQ:libxslt
+#REQ:vala
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gcr/3.28/gcr-3.28.1.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gcr/3.28/gcr-3.28.1.tar.xz
+
 
 NAME=gcr
 VERSION=3.28.1
@@ -41,22 +43,25 @@ fi
 cd $DIRECTORY
 fi
 
+
 sed -i -r 's:"(/desktop):"/org/gnome\1:' schema/*.xml &&
 
-./configure --prefix=/usr \
---sysconfdir=/etc \
---without-gtk-doc &&
+./configure --prefix=/usr     \
+            --sysconfdir=/etc \
+            --without-gtk-doc &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

@@ -6,11 +6,13 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REC:gtk2
+#REQ:gtk2
+
 
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/iodbc/libiodbc-3.52.12.tar.gz
+
 
 NAME=libiodbc
 VERSION=3.52.12
@@ -32,22 +34,25 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---with-iodbc-inidir=/etc/iodbc \
---includedir=/usr/include/iodbc \
---disable-libodbc \
---disable-static &&
-make
 
+./configure --prefix=/usr                   \
+            --with-iodbc-inidir=/etc/iodbc  \
+            --includedir=/usr/include/iodbc \
+            --disable-libodbc               \
+            --disable-static                &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

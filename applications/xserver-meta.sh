@@ -42,12 +42,14 @@ set +h
 #REQ:xinit
 #REQ:wayland-protocols
 
+
 cd $SOURCE_DIR
+
 
 
 NAME=xserver-meta
 VERSION=1.20.3
-URL=""
+
 
 if [ ! -z $URL ]
 then
@@ -67,6 +69,8 @@ fi
 
 sudo rm /etc/X11/xorg.conf.d/*.conf
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

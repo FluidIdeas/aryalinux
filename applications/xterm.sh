@@ -7,15 +7,17 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:x7app
-#REQ:dejavu-fonts
+#REQ:TTF-and-OTF-fonts#dejavu-fonts
+
 
 cd $SOURCE_DIR
 
-wget -nc http://invisible-mirror.net/archives/xterm/xterm-344.tgz
+wget -nc http://invisible-mirror.net/archives/xterm/xterm-346.tgz
+
 
 NAME=xterm
-VERSION=344
-URL=http://invisible-mirror.net/archives/xterm/xterm-344.tgz
+VERSION=346
+URL=http://invisible-mirror.net/archives/xterm/xterm-346.tgz
 
 if [ ! -z $URL ]
 then
@@ -33,30 +35,28 @@ fi
 cd $DIRECTORY
 fi
 
-export XORG_PREFIX=/usr
-export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
+XORG_CONFIG=--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static
 
 sed -i '/v0/{n;s/new:/new:kb=^?:/}' termcap &&
 printf '\tkbs=\\177,\n' >> terminfo &&
 
 TERMINFO=/usr/share/terminfo \
-./configure $XORG_CONFIG \
---with-app-defaults=/etc/X11/app-defaults &&
+./configure $XORG_CONFIG     \
+    --with-app-defaults=/etc/X11/app-defaults &&
 
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
+make install    &&
 make install-ti &&
 
 mkdir -pv /usr/share/applications &&
 cp -v *.desktop /usr/share/applications/
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -68,11 +68,14 @@ cat >> /etc/X11/app-defaults/XTerm << "EOF"
 *ptyInitialErase: true
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

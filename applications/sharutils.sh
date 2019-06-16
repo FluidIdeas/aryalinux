@@ -7,10 +7,12 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://ftp.gnu.org/gnu/sharutils/sharutils-4.15.2.tar.xz
 wget -nc ftp://ftp.gnu.org/gnu/sharutils/sharutils-4.15.2.tar.xz
+
 
 NAME=sharutils
 VERSION=4.15.2
@@ -32,21 +34,24 @@ fi
 cd $DIRECTORY
 fi
 
-sed -i 's/IO_ftrylockfile/IO_EOF_SEEN/' lib/*.c &&
+
+sed -i 's/IO_ftrylockfile/IO_EOF_SEEN/' lib/*.c        &&
 echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h &&
 
 ./configure --prefix=/usr &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

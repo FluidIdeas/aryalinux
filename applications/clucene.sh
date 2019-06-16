@@ -7,12 +7,14 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:cmake
-#REC:boost
+#REQ:boost
+
 
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/clucene/clucene-core-2.3.3.4.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/clucene-2.3.3.4-contribs_lib-1.patch
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/clucene-2.3.3.4-contribs_lib-1.patch
+
 
 NAME=clucene
 VERSION=2.3.3.4
@@ -34,24 +36,27 @@ fi
 cd $DIRECTORY
 fi
 
+
 patch -Np1 -i ../clucene-2.3.3.4-contribs_lib-1.patch &&
 
 mkdir build &&
-cd build &&
+cd    build &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr \
--DBUILD_CONTRIBS_LIB=ON .. &&
+      -DBUILD_CONTRIBS_LIB=ON .. &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

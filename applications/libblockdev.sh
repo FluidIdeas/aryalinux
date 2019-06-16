@@ -12,9 +12,11 @@ set +h
 #REQ:parted
 #REQ:volume_key
 
+
 cd $SOURCE_DIR
 
 wget -nc https://github.com/storaged-project/libblockdev/releases/download/2.21-1/libblockdev-2.21.tar.gz
+
 
 NAME=libblockdev
 VERSION=2.21
@@ -36,23 +38,26 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---sysconfdir=/etc \
---with-python3 \
---without-gtk-doc \
---without-nvdimm \
---without-dm &&
-make
 
+./configure --prefix=/usr     \
+            --sysconfdir=/etc \
+            --with-python3    \
+            --without-gtk-doc \
+            --without-nvdimm  \
+            --without-dm      &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

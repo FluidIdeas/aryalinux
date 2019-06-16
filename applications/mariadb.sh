@@ -7,16 +7,18 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:cmake
-#REC:libevent
+#REQ:libevent
+
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.mariadb.org/interstitial/mariadb-10.3.14/source/mariadb-10.3.14.tar.gz
-wget -nc ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.3.14/source/mariadb-10.3.14.tar.gz
+wget -nc https://downloads.mariadb.org/interstitial/mariadb-10.3.15/source/mariadb-10.3.15.tar.gz
+wget -nc ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.3.15/source/mariadb-10.3.15.tar.gz
+
 
 NAME=mariadb
-VERSION=10.3.14
-URL=https://downloads.mariadb.org/interstitial/mariadb-10.3.14/source/mariadb-10.3.14.tar.gz
+VERSION=10.3.15
+URL=https://downloads.mariadb.org/interstitial/mariadb-10.3.15/source/mariadb-10.3.15.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -40,6 +42,7 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 groupadd -g 40 mysql &&
 useradd -c "MySQL Server" -d /srv/mysql -g mysql -s /bin/false -u 40 mysql
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -47,40 +50,39 @@ sudo rm -rf /tmp/rootscript.sh
 sed -i "s@data/test@\${INSTALL_MYSQLTESTDIR}@g" sql/CMakeLists.txt &&
 
 mkdir build &&
-cd build &&
+cd build    &&
 
-cmake -DCMAKE_BUILD_TYPE=Release \
--DCMAKE_INSTALL_PREFIX=/usr \
--DINSTALL_DOCDIR=share/doc/mariadb-10.3.14 \
--DINSTALL_DOCREADMEDIR=share/doc/mariadb-10.3.14 \
--DINSTALL_MANDIR=share/man \
--DINSTALL_MYSQLSHAREDIR=share/mysql \
--DINSTALL_MYSQLTESTDIR=share/mysql/test \
--DINSTALL_PLUGINDIR=lib/mysql/plugin \
--DINSTALL_SBINDIR=sbin \
--DINSTALL_SCRIPTDIR=bin \
--DINSTALL_SQLBENCHDIR=share/mysql/bench \
--DINSTALL_SUPPORTFILESDIR=share/mysql \
--DMYSQL_DATADIR=/srv/mysql \
--DMYSQL_UNIX_ADDR=/run/mysqld/mysqld.sock \
--DWITH_EXTRA_CHARSETS=complex \
--DWITH_EMBEDDED_SERVER=ON \
--DSKIP_TESTS=ON \
--DTOKUDB_OK=0 \
-.. &&
+cmake -DCMAKE_BUILD_TYPE=Release                      \
+      -DCMAKE_INSTALL_PREFIX=/usr                     \
+      -DINSTALL_DOCDIR=share/doc/mariadb-10.3.15       \
+      -DINSTALL_DOCREADMEDIR=share/doc/mariadb-10.3.15 \
+      -DINSTALL_MANDIR=share/man                      \
+      -DINSTALL_MYSQLSHAREDIR=share/mysql             \
+      -DINSTALL_MYSQLTESTDIR=share/mysql/test         \
+      -DINSTALL_PLUGINDIR=lib/mysql/plugin            \
+      -DINSTALL_SBINDIR=sbin                          \
+      -DINSTALL_SCRIPTDIR=bin                         \
+      -DINSTALL_SQLBENCHDIR=share/mysql/bench         \
+      -DINSTALL_SUPPORTFILESDIR=share/mysql           \
+      -DMYSQL_DATADIR=/srv/mysql                      \
+      -DMYSQL_UNIX_ADDR=/run/mysqld/mysqld.sock       \
+      -DWITH_EXTRA_CHARSETS=complex                   \
+      -DWITH_EMBEDDED_SERVER=ON                       \
+      -DSKIP_TESTS=ON                                 \
+      -DTOKUDB_OK=0                                   \
+      .. &&
 make
 pushd mysql-test
 ./mtr --parallel <N> --mem --force
 popd
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -90,15 +92,15 @@ cat > /etc/mysql/my.cnf << "EOF"
 
 # The following options will be passed to all MySQL clients
 [client]
-#password = your_password
-port = 3306
-socket = /run/mysqld/mysqld.sock
+#password       = your_password
+port            = 3306
+socket          = /run/mysqld/mysqld.sock
 
 # The MySQL server
 [mysqld]
-port = 3306
-socket = /run/mysqld/mysqld.sock
-datadir = /srv/mysql
+port            = 3306
+socket          = /run/mysqld/mysqld.sock
+datadir         = /srv/mysql
 skip-external-locking
 key_buffer_size = 16M
 max_allowed_packet = 1M
@@ -110,7 +112,7 @@ myisam_sort_buffer_size = 8M
 skip-networking
 
 # required unique id between 1 and 2^32 - 1
-server-id = 1
+server-id       = 1
 
 # Uncomment the following if you are using BDB tables
 #bdb_cache_size = 4M
@@ -156,58 +158,61 @@ interactive-timeout
 # End /etc/mysql/my.cnf
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mysql_install_db --basedir=/usr --datadir=/srv/mysql --user=mysql &&
 chown -R mysql:mysql /srv/mysql
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m755 -o mysql -g mysql -d /run/mysqld &&
 mysqld_safe --user=mysql 2>&1 >/dev/null &
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mysqladmin -u root password
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mysqladmin -p shutdown
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/svn/blfs-systemd-units-20180105.tar.bz2
-tar -xf blfs-systemd-units-20180105.tar.bz2
-pushd blfs-systemd-units-20180105
-sudo make install-mysqld
-popd
-popd
-sudo rm -rf $SOURCE_DIR/blfs-systemd-units-20180105
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install-mysqld
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

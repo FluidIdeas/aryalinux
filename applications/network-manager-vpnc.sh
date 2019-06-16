@@ -7,9 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://ftp.gnome.org/pub/gnome/sources/NetworkManager-vpnc/1.2/NetworkManager-vpnc-1.2.6.tar.xz
+
 
 NAME=network-manager-vpnc
 VERSION=1.2.6
@@ -32,10 +34,12 @@ cd $DIRECTORY
 fi
 
 if grep "gnome-desktop-environment" /etc/alps/installed-list &> /dev/null; then WITH_GNOME="--with-gnome"; fi
-./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var $WITH_GNOME --without-libnm-glib &&
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var $WITH_GNOME &&
 make
 sudo make install
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

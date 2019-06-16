@@ -8,10 +8,12 @@ set +h
 
 #REQ:which
 
+
 cd $SOURCE_DIR
 
 wget -nc https://ftp.gwdg.de/pub/linux/misc/lm-sensors/lm_sensors-3.4.0.tar.bz2
 wget -nc ftp://ftp.gwdg.de/pub/linux/misc/lm-sensors/lm_sensors-3.4.0.tar.bz2
+
 
 NAME=lm_sensors
 VERSION=3.4.0
@@ -33,25 +35,28 @@ fi
 cd $DIRECTORY
 fi
 
-make PREFIX=/usr \
-BUILD_STATIC_LIB=0 \
-MANDIR=/usr/share/man
 
+make PREFIX=/usr        \
+     BUILD_STATIC_LIB=0 \
+     MANDIR=/usr/share/man
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make PREFIX=/usr \
-BUILD_STATIC_LIB=0 \
-MANDIR=/usr/share/man install &&
+make PREFIX=/usr        \
+     BUILD_STATIC_LIB=0 \
+     MANDIR=/usr/share/man install &&
 
 install -v -m755 -d /usr/share/doc/lm_sensors-3.4.0 &&
-cp -rv README INSTALL doc/* \
-/usr/share/doc/lm_sensors-3.4.0
+cp -rv              README INSTALL doc/* \
+                    /usr/share/doc/lm_sensors-3.4.0
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

@@ -8,9 +8,11 @@ set +h
 
 #REQ:libnl
 
+
 cd $SOURCE_DIR
 
 wget -nc https://www.kernel.org/pub/software/network/iw/iw-5.0.1.tar.xz
+
 
 NAME=iw
 VERSION=5.0.1
@@ -32,18 +34,21 @@ fi
 cd $DIRECTORY
 fi
 
+
 sed -i "/INSTALL.*gz/s/.gz//" Makefile &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make SBINDIR=/sbin install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

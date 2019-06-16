@@ -8,9 +8,11 @@ set +h
 
 #REQ:vpnc
 
+
 cd $SOURCE_DIR
 
 wget -nc ftp://ftp.infradead.org/pub/openconnect/openconnect-8.02.tar.gz
+
 
 NAME=openconnect
 VERSION=8.02
@@ -36,6 +38,8 @@ fi
 make
 sudo make install
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

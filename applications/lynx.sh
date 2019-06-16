@@ -7,12 +7,14 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.9rel.1.tar.bz2
 
+
 NAME=lynx
-VERSION=lynx2.8.9rel.1
+VERSION=2.8.
 URL=https://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.9rel.1.tar.bz2
 
 if [ ! -z $URL ]
@@ -31,56 +33,59 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---sysconfdir=/etc/lynx \
---datadir=/usr/share/doc/lynx-2.8.9rel.1 \
---with-zlib \
---with-bzlib \
---with-ssl \
---with-screen=ncursesw \
---enable-locale-charset &&
-make
 
+./configure --prefix=/usr          \
+            --sysconfdir=/etc/lynx \
+            --datadir=/usr/share/doc/lynx-2.8.9rel.1 \
+            --with-zlib            \
+            --with-bzlib           \
+            --with-ssl             \
+            --with-screen=ncursesw \
+            --enable-locale-charset &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install-full &&
 chgrp -v -R root /usr/share/doc/lynx-2.8.9rel.1/lynx_doc
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-sed -e '/#LOCALE/ a LOCALE_CHARSET:TRUE' \
--i /etc/lynx/lynx.cfg
+sed -e '/#LOCALE/     a LOCALE_CHARSET:TRUE'     \
+    -i /etc/lynx/lynx.cfg
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-sed -e '/#DEFAULT_ED/ a DEFAULT_EDITOR:vi' \
--i /etc/lynx/lynx.cfg
+sed -e '/#DEFAULT_ED/ a DEFAULT_EDITOR:vi'       \
+    -i /etc/lynx/lynx.cfg
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-sed -e '/#PERSIST/ a PERSISTENT_COOKIES:TRUE' \
--i /etc/lynx/lynx.cfg
+sed -e '/#PERSIST/    a PERSISTENT_COOKIES:TRUE' \
+    -i /etc/lynx/lynx.cfg
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

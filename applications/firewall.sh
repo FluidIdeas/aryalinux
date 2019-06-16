@@ -7,12 +7,14 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 
+
 NAME=firewall
-VERSION=""
-URL=""
+
+
 
 if [ ! -z $URL ]
 then
@@ -71,7 +73,7 @@ echo 1 > /proc/sys/net/ipv4/conf/default/rp_filter
 echo 1 > /proc/sys/net/ipv4/conf/all/log_martians
 echo 1 > /proc/sys/net/ipv4/conf/default/log_martians
 
-# be verbose on dynamic ip-addresses (not needed in case of static IP)
+# be verbose on dynamic ip-addresses  (not needed in case of static IP)
 echo 2 > /proc/sys/net/ipv4/ip_dynaddr
 
 # disable Explicit Congestion Notification
@@ -79,9 +81,9 @@ echo 2 > /proc/sys/net/ipv4/ip_dynaddr
 echo 0 > /proc/sys/net/ipv4/tcp_ecn
 
 # Set a known state
-iptables -P INPUT DROP
+iptables -P INPUT   DROP
 iptables -P FORWARD DROP
-iptables -P OUTPUT DROP
+iptables -P OUTPUT  DROP
 
 # These lines are here in case rules are already in place and the
 # script is ever rerun on the fly. We want to remove all rules and
@@ -93,7 +95,7 @@ iptables -Z
 iptables -t nat -F
 
 # Allow local-only connections
-iptables -A INPUT -i lo -j ACCEPT
+iptables -A INPUT  -i lo -j ACCEPT
 
 # Free output on any interface to any ip for any service
 # (equal to -P ACCEPT)
@@ -111,10 +113,10 @@ iptables -A INPUT -j LOG --log-prefix "FIREWALL:INPUT "
 EOF
 chmod 700 /etc/systemd/scripts/iptables
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -168,7 +170,7 @@ echo 1 > /proc/sys/net/ipv4/conf/default/rp_filter
 # Log packets with impossible addresses.
 echo 1 > /proc/sys/net/ipv4/conf/all/log_martians
 
-# Be verbose on dynamic ip-addresses (not needed in case of static IP)
+# Be verbose on dynamic ip-addresses  (not needed in case of static IP)
 echo 2 > /proc/sys/net/ipv4/ip_dynaddr
 
 # Disable Explicit Congestion Notification
@@ -176,9 +178,9 @@ echo 2 > /proc/sys/net/ipv4/ip_dynaddr
 echo 0 > /proc/sys/net/ipv4/tcp_ecn
 
 # Set a known state
-iptables -P INPUT DROP
+iptables -P INPUT   DROP
 iptables -P FORWARD DROP
-iptables -P OUTPUT DROP
+iptables -P OUTPUT  DROP
 
 # These lines are here in case rules are already in place and the
 # script is ever rerun on the fly. We want to remove all rules and
@@ -190,12 +192,12 @@ iptables -Z
 iptables -t nat -F
 
 # Allow local connections
-iptables -A INPUT -i lo -j ACCEPT
+iptables -A INPUT  -i lo -j ACCEPT
 iptables -A OUTPUT -o lo -j ACCEPT
 
 # Allow forwarding if the initiated on the intranet
 iptables -A FORWARD -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
-iptables -A FORWARD ! -i ppp+ -m conntrack --ctstate NEW -j ACCEPT
+iptables -A FORWARD ! -i ppp+ -m conntrack --ctstate NEW       -j ACCEPT
 
 # Do masquerading
 # (not needed if intranet is not using private ip-addresses)
@@ -203,9 +205,9 @@ iptables -t nat -A POSTROUTING -o ppp+ -j MASQUERADE
 
 # Log everything for debugging
 # (last of all rules, but before policy rules)
-iptables -A INPUT -j LOG --log-prefix "FIREWALL:INPUT "
+iptables -A INPUT   -j LOG --log-prefix "FIREWALL:INPUT "
 iptables -A FORWARD -j LOG --log-prefix "FIREWALL:FORWARD "
-iptables -A OUTPUT -j LOG --log-prefix "FIREWALL:OUTPUT "
+iptables -A OUTPUT  -j LOG --log-prefix "FIREWALL:OUTPUT "
 
 # Enable IP Forwarding
 echo 1 > /proc/sys/net/ipv4/ip_forward
@@ -214,11 +216,14 @@ echo 1 > /proc/sys/net/ipv4/ip_forward
 EOF
 chmod 700 /etc/systemd/scripts/iptables
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

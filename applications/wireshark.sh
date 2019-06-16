@@ -9,11 +9,14 @@ set +h
 #REQ:glib2
 #REQ:libgcrypt
 #REQ:qt5
-#REC:libpcap
+#REQ:libpcap
+
 
 cd $SOURCE_DIR
 
 wget -nc https://www.wireshark.org/download/src/all-versions/wireshark-3.0.1.tar.xz
+wget -nc https://www.wireshark.org/download/docs/
+
 
 NAME=wireshark
 VERSION=3.0.1
@@ -40,69 +43,72 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 groupadd -g 62 wireshark
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 mkdir build &&
-cd build &&
+cd    build &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr \
--DCMAKE_BUILD_TYPE=Release \
--DCMAKE_INSTALL_DOCDIR=/usr/share/doc/PROGRAM=wireshark-3.0.1 \
--G Ninja \
-.. &&
+      -DCMAKE_BUILD_TYPE=Release  \
+      -DCMAKE_INSTALL_DOCDIR=/usr/share/doc/wireshark-3.0.1 \
+      -G Ninja \
+      .. &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
 
 install -v -m755 -d /usr/share/doc/wireshark-3.0.1 &&
-install -v -m644 README.linux doc/README.* doc/{*.pod,randpkt.txt} \
-/usr/share/doc/wireshark-3.0.1 &&
+install -v -m644    ../README.linux ../doc/README.* ../doc/{*.pod,randpkt.txt} \
+                    /usr/share/doc/wireshark-3.0.1 &&
 
 pushd /usr/share/doc/wireshark-3.0.1 &&
-for FILENAME in ../../wireshark/*.html; do
-ln -s -v -f $FILENAME .
-done &&
+   for FILENAME in ../../wireshark/*.html; do
+      ln -s -v -f $FILENAME .
+   done &&
 popd
 unset FILENAME
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m644 <em class="replaceable"><code><Downloaded_Files></code></em> \
-/usr/share/doc/wireshark-3.0.1
+install -v -m644 <Downloaded_Files> \
+                 /usr/share/doc/wireshark-3.0.1
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 chown -v root:wireshark /usr/bin/{tshark,dumpcap} &&
 chmod -v 6550 /usr/bin/{tshark,dumpcap}
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-usermod -a -G wireshark <em class="replaceable"><code><username></code></em>
+usermod -a -G wireshark <username>
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

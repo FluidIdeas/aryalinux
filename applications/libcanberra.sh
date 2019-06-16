@@ -7,13 +7,15 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libvorbis
-#REC:alsa-lib
-#REC:gstreamer10
-#REC:gtk3
+#REQ:alsa-lib
+#REQ:gstreamer10
+#REQ:gtk3
+
 
 cd $SOURCE_DIR
 
 wget -nc http://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz
+
 
 NAME=libcanberra
 VERSION=0.30
@@ -35,18 +37,21 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr --disable-oss &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make docdir=/usr/share/doc/libcanberra-0.30 install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

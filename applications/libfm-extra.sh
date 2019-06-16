@@ -8,9 +8,11 @@ set +h
 
 #REQ:glib2
 
+
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/pcmanfm/libfm-1.3.1.tar.xz
+
 
 NAME=libfm-extra
 VERSION=1.3.1
@@ -32,22 +34,25 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---sysconfdir=/etc \
---with-extra-only \
---with-gtk=no \
---disable-static &&
-make
 
+./configure --prefix=/usr     \
+            --sysconfdir=/etc \
+            --with-extra-only \
+            --with-gtk=no     \
+            --disable-static  &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

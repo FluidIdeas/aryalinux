@@ -7,9 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc http://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.3.tar.xz
+
 
 NAME=ruby
 VERSION=2.6.3
@@ -31,21 +33,24 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---enable-shared \
---docdir=/usr/share/doc/ruby-2.6.3 &&
+
+./configure --prefix=/usr   \
+            --enable-shared \
+            --docdir=/usr/share/doc/ruby-2.6.3 &&
 make
 make capi
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

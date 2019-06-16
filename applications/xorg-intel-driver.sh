@@ -9,10 +9,12 @@ set +h
 #REQ:xcb-util
 #REQ:xorg-server
 
+
 cd $SOURCE_DIR
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20190208.tar.xz
 wget -nc ftp://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20190208.tar.xz
+
 
 NAME=xorg-intel-driver
 VERSION=20190208
@@ -34,47 +36,29 @@ fi
 cd $DIRECTORY
 fi
 
-export XORG_PREFIX=/usr
-export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
-
 sed -i "s/#define force_inline inline __attribute__((always_inline))/#define force_inline inline/" src/sna/compiler.h
-./autogen.sh $XORG_CONFIG \
---enable-kms-only \
---enable-uxa \
---mandir=/usr/share/man &&
+./autogen.sh $XORG_CONFIG     \
+            --enable-kms-only \
+            --enable-uxa      \
+            --mandir=/usr/share/man &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-
+      
 mv -v /usr/share/man/man4/intel-virtual-output.4 \
-/usr/share/man/man1/intel-virtual-output.1 &&
-
+      /usr/share/man/man1/intel-virtual-output.1 &&
+      
 sed -i '/\.TH/s/4/1/' /usr/share/man/man1/intel-virtual-output.1
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cat >> /etc/X11/xorg.conf.d/20-intel.conf << "EOF"
-Section "Device"
-Identifier "Intel Graphics"
-Driver "intel"
-#Option "DRI" "2" # DRI3 is default
-#Option "AccelMethod" "sna" # default
-#Option "AccelMethod" "uxa" # fallback
-EndSection
-EOF
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

@@ -8,10 +8,12 @@ set +h
 
 #REQ:xorg-server
 
+
 cd $SOURCE_DIR
 
 wget -nc https://www.x.org/pub/individual/driver/xf86-video-amdgpu-19.0.1.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-amdgpu-19.0.1.tar.bz2
+
 
 NAME=xorg-amdgpu-driver
 VERSION=19.0.1
@@ -33,21 +35,20 @@ fi
 cd $DIRECTORY
 fi
 
-export XORG_PREFIX=/usr
-export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
-
 ./configure $XORG_CONFIG &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

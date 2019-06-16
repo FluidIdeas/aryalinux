@@ -7,10 +7,12 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc http://fossies.org/linux/misc/sane-backends-1.0.27.tar.gz
 wget -nc http://anduin.linuxfromscratch.org/BLFS/sane-frontends/sane-frontends-1.0.14.tar.gz
+
 
 NAME=sane
 VERSION=1.0.27
@@ -37,25 +39,26 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 groupadd -g 70 scanner
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 su $(whoami)
-./configure --prefix=/usr \
---sysconfdir=/etc \
---localstatedir=/var \
---with-group=scanner \
---with-docdir=/usr/share/doc/sane-backends-1.0.27 &&
+./configure --prefix=/usr        \
+            --sysconfdir=/etc    \
+            --localstatedir=/var \
+            --with-group=scanner \
+            --with-docdir=/usr/share/doc/sane-backends-1.0.27 &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-install -m 644 -v tools/udev/libsane.rules \
-/etc/udev/rules.d/65-scanner.rules &&
-chgrp -v scanner /var/lock/sane
+make install                                         &&
+install -m 644 -v tools/udev/libsane.rules           \
+                  /etc/udev/rules.d/65-scanner.rules &&
+chgrp -v scanner  /var/lock/sane
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -63,26 +66,25 @@ sudo rm -rf /tmp/rootscript.sh
 sed -i -e "/SANE_CAP_ALWAYS_SETTABLE/d" src/gtkglue.c &&
 ./configure --prefix=/usr --mandir=/usr/share/man &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 install -v -m644 doc/sane.png xscanimage-icon-48x48-2.png \
-/usr/share/sane
+    /usr/share/sane
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ln -v -s ../../../../bin/xscanimage /usr/lib/gimp/2.0/plug-ins
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -91,14 +93,14 @@ connect_timeout = 60
 <server_ip>
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir -pv /usr/share/{applications,pixmaps} &&
+mkdir -pv /usr/share/{applications,pixmaps}               &&
 
 cat > /usr/share/applications/xscanimage.desktop << "EOF" &&
 [Desktop Entry]
@@ -114,11 +116,14 @@ EOF
 
 ln -svf ../sane/xscanimage-icon-48x48-2.png /usr/share/pixmaps/xscanimage.png
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

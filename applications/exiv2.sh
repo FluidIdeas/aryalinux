@@ -7,14 +7,16 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:cmake
-#REC:curl
+#REQ:curl
+
 
 cd $SOURCE_DIR
 
 wget -nc http://www.exiv2.org/builds/exiv2-0.27.1-Source.tar.gz
 
+
 NAME=exiv2
-VERSION=0.27.0a
+VERSION=0.27.
 URL=http://www.exiv2.org/builds/exiv2-0.27.1-Source.tar.gz
 
 if [ ! -z $URL ]
@@ -33,27 +35,30 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
-cd build &&
+cd    build &&
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
--DCMAKE_BUILD_TYPE=Release \
--DEXIV2_ENABLE_VIDEO=yes \
--DEXIV2_ENABLE_WEBREADY=yes \
--DEXIV2_ENABLE_CURL=yes \
--DEXIV2_BUILD_SAMPLES=no \
--G "Unix Makefiles" .. &&
+cmake -DCMAKE_INSTALL_PREFIX=/usr  \
+      -DCMAKE_BUILD_TYPE=Release   \
+      -DEXIV2_ENABLE_VIDEO=yes     \
+      -DEXIV2_ENABLE_WEBREADY=yes  \
+      -DEXIV2_ENABLE_CURL=yes      \
+      -DEXIV2_BUILD_SAMPLES=no     \
+      -G "Unix Makefiles" .. &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

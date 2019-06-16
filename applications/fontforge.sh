@@ -9,17 +9,19 @@ set +h
 #REQ:freetype2
 #REQ:glib2
 #REQ:libxml2
-#REC:cairo
-#REC:gtk2
-#REC:harfbuzz
-#REC:pango
-#REC:desktop-file-utils
-#REC:shared-mime-info
-#REC:x7lib
+#REQ:cairo
+#REQ:gtk2
+#REQ:harfbuzz
+#REQ:pango
+#REQ:desktop-file-utils
+#REQ:shared-mime-info
+#REQ:x7lib
+
 
 cd $SOURCE_DIR
 
 wget -nc https://github.com/fontforge/fontforge/releases/download/20170731/fontforge-dist-20170731.tar.xz
+
 
 NAME=fontforge
 VERSION=20170731
@@ -41,21 +43,24 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---enable-gtk2-use \
---disable-static \
---docdir=/usr/share/doc/fontforge-20170731 &&
-make
 
+./configure --prefix=/usr     \
+            --enable-gtk2-use \
+            --disable-static  \
+            --docdir=/usr/share/doc/fontforge-20170731 &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

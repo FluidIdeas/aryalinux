@@ -7,10 +7,12 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://sourceware.org/ftp/valgrind/valgrind-3.15.0.tar.bz2
 wget -nc ftp://sourceware.org/pub/valgrind/valgrind-3.15.0.tar.bz2
+
 
 NAME=valgrind
 VERSION=3.15.0
@@ -32,23 +34,26 @@ fi
 cd $DIRECTORY
 fi
 
+
 sed -i 's|/doc/valgrind||' docs/Makefile.in &&
 
 ./configure --prefix=/usr \
---datadir=/usr/share/doc/valgrind-3.15.0 &&
+            --datadir=/usr/share/doc/valgrind-3.15.0 &&
 make
 sed -e 's@prereq:.*@prereq: false@' \
--i {helgrind,drd}/tests/pth_cond_destroy_busy.vgtest
-
+    -i {helgrind,drd}/tests/pth_cond_destroy_busy.vgtest
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

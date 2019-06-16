@@ -10,10 +10,12 @@ set +h
 #REQ:libcanberra
 #REQ:gtk3
 
+
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/notification-daemon/3.20/notification-daemon-3.20.0.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/notification-daemon/3.20/notification-daemon-3.20.0.tar.xz
+
 
 NAME=notification-daemon
 VERSION=3.20.0
@@ -35,15 +37,16 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---sysconfdir=/etc \
---disable-static &&
-make
 
+./configure --prefix=/usr     \
+            --sysconfdir=/etc \
+            --disable-static  &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -51,6 +54,8 @@ sudo rm -rf /tmp/rootscript.sh
 pgrep -l notification-da &&
 notify-send -i info Information "Hi ${USER}, This is a Test"
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

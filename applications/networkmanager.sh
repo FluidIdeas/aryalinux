@@ -8,25 +8,27 @@ set +h
 
 #REQ:dbus-glib
 #REQ:libndp
-#REQ:pygobject2
-#REC:curl
-#REC:dhcpcd
-#REC:gobject-introspection
-#REC:iptables
-#REC:jansson
-#REC:newt
-#REC:nss
-#REC:polkit
-#REC:pygobject3
-#REC:systemd
-#REC:upower
-#REC:vala
-#REC:wpa_supplicant
+#REQ:curl
+#REQ:dhcpcd
+#REQ:dhcp
+#REQ:gobject-introspection
+#REQ:iptables
+#REQ:jansson
+#REQ:newt
+#REQ:nss
+#REQ:polkit
+#REQ:python-modules#pygobject3
+#REQ:systemd
+#REQ:upower
+#REQ:vala
+#REQ:wpa_supplicant
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.18/NetworkManager-1.18.1.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.18/NetworkManager-1.18.1.tar.xz
+
 
 NAME=networkmanager
 VERSION=1.18.1
@@ -48,44 +50,44 @@ fi
 cd $DIRECTORY
 fi
 
-sed -e '/Qt[CDN]/s/Qt/Qt5/g' \
--e 's/-qt4/-qt5/' \
--e 's/moc_location/host_bins/' \
--i examples/C/qt/meson.build
+
+sed -e '/Qt[CDN]/s/Qt/Qt5/g'       \
+    -e 's/-qt4/-qt5/'              \
+    -e 's/moc_location/host_bins/' \
+    -i examples/C/qt/meson.build
 sed '/initrd/d' -i src/meson.build
 grep -rl '^#!.*python$' | xargs sed -i '1s/python/&3/'
 mkdir build &&
-cd build &&
+cd    build    &&
 
-CXXFLAGS+="-O2 -fPIC" \
-meson --prefix /usr \
---sysconfdir /etc \
---localstatedir /var \
--Djson_validation=false \
--Dlibaudit=no \
--Dlibnm_glib=true \
--Dlibpsl=false \
--Dnmtui=true \
--Dovs=false \
--Dppp=false \
--Dselinux=false \
--Dqt=false \
--Dudev_dir=/lib/udev \
--Dsession_tracking=systemd \
--Dmodem_manager=false \
--Dsystemdsystemunitdir=/lib/systemd/system \
-.. &&
+CXXFLAGS+="-O2 -fPIC"            \
+meson --prefix /usr              \
+      --sysconfdir /etc          \
+      --localstatedir /var       \
+      -Djson_validation=false    \
+      -Dlibaudit=no              \
+      -Dlibnm_glib=true          \
+      -Dlibpsl=false             \
+      -Dnmtui=true               \
+      -Dovs=false                \
+      -Dppp=false                \
+      -Dselinux=false            \
+      -Dqt=false                 \
+      -Dudev_dir=/lib/udev       \
+      -Dsession_tracking=systemd \
+      -Dmodem_manager=false      \
+      -Dsystemdsystemunitdir=/lib/systemd/system \
+      .. &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
 mv -v /usr/share/doc/NetworkManager{,-1.18.1}
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -94,10 +96,10 @@ cat >> /etc/NetworkManager/NetworkManager.conf << "EOF"
 plugins=keyfile
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -106,47 +108,50 @@ cat > /etc/NetworkManager/conf.d/polkit.conf << "EOF"
 auth-polkit=true
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-groupadd -fg 86 netdev
+groupadd -fg 86 netdev &&
+/usr/sbin/usermod -a -G netdev <username>
 
 cat > /usr/share/polkit-1/rules.d/org.freedesktop.NetworkManager.rules << "EOF"
 polkit.addRule(function(action, subject) {
-if (action.id.indexOf("org.freedesktop.NetworkManager.") == 0 && subject.isInGroup("netdev")) {
-return polkit.Result.YES;
-}
+    if (action.id.indexOf("org.freedesktop.NetworkManager.") == 0 && subject.isInGroup("netdev")) {
+        return polkit.Result.YES;
+    }
 });
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 systemctl enable NetworkManager
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 systemctl enable NetworkManager-wait-online
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sudo /usr/sbin/usermod -a -G netdev $USER
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

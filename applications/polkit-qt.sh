@@ -10,9 +10,11 @@ set +h
 #REQ:polkit
 #REQ:qt5
 
+
 cd $SOURCE_DIR
 
 wget -nc http://download.kde.org/stable/apps/KDE4.x/admin/polkit-qt-1-0.112.0.tar.bz2
+
 
 NAME=polkit-qt
 VERSION=0.112.0
@@ -34,23 +36,26 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
-cd build &&
+cd    build &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr \
--DCMAKE_BUILD_TYPE=Release \
--Wno-dev .. &&
+      -DCMAKE_BUILD_TYPE=Release  \
+      -Wno-dev .. &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

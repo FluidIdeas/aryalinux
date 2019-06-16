@@ -8,9 +8,11 @@ set +h
 
 #REQ:pulseaudio
 
+
 cd $SOURCE_DIR
 
 wget -nc http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-3.0.tar.gz
+
 
 NAME=pavucontrol
 VERSION=3.0
@@ -36,6 +38,8 @@ fi
 make
 sudo make install
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

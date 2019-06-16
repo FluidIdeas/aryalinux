@@ -10,13 +10,15 @@ set +h
 #REQ:rpcsvc-proto
 #REQ:rpcbind
 
+
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/nfs/nfs-utils-2.3.3.tar.xz
+wget -nc https://downloads.sourceforge.net/nfs/nfs-utils-2.3.4.tar.xz
+
 
 NAME=nfs-utils
-VERSION=2.3.3
-URL=https://downloads.sourceforge.net/nfs/nfs-utils-2.3.3.tar.xz
+VERSION=2.3.4
+URL=https://downloads.sourceforge.net/nfs/nfs-utils-2.3.4.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -34,74 +36,71 @@ fi
 cd $DIRECTORY
 fi
 
+
 groupadd -g 99 nogroup &&
 useradd -c "Unprivileged Nobody" -d /dev/null -g nogroup \
--s /bin/false -u 99 nobody
-./configure --prefix=/usr \
---sysconfdir=/etc \
---sbindir=/sbin \
---disable-nfsv4 \
---disable-gss &&
+    -s /bin/false -u 99 nobody
+./configure --prefix=/usr          \
+            --sysconfdir=/etc      \
+            --sbindir=/sbin        \
+            --disable-nfsv4        \
+            --disable-gss &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
+make install                      &&
 mv -v /sbin/start-statd /usr/sbin &&
-chmod u+w,go+r /sbin/mount.nfs &&
+chmod u+w,go+r /sbin/mount.nfs    &&
 chown nobody.nogroup /var/lib/nfs
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-/home <em class="replaceable"><code>192.168.0.0/24</code></em>(rw,subtree_check,anonuid=99,anongid=99)
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
+cat >> /etc/exports << EOF
+/home 192.168.0.0/24(rw,subtree_check,anonuid=99,anongid=99)
+EOF
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install-nfsv4-server
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install-nfs-server
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-<em class="replaceable"><code><server-name></code></em>:/home /home nfs rw,_netdev 0 0
-<em class="replaceable"><code><server-name></code></em>:/usr /usr nfs ro,_netdev 0 0
+<server-name>:/home  /home nfs   rw,_netdev 0 0
+<server-name>:/usr   /usr  nfs   ro,_netdev 0 0
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/svn/blfs-systemd-units-20180105.tar.bz2
-tar -xf blfs-systemd-units-20180105.tar.bz2
-pushd blfs-systemd-units-20180105
-sudo make install-nfs-client
-popd
-popd
-sudo rm -rf $SOURCE_DIR/blfs-systemd-units-20180105
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install-nfs-client
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

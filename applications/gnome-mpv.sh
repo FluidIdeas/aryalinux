@@ -9,9 +9,11 @@ set +h
 #REQ:mpv
 #REQ:gnome-desktop-environment
 
+
 cd $SOURCE_DIR
 
 wget -nc https://github.com/gnome-mpv/gnome-mpv/releases/download/v0.16/gnome-mpv-0.16.tar.xz
+
 
 NAME=gnome-mpv
 VERSION=0.16
@@ -37,6 +39,8 @@ fi
 make
 sudo make install
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

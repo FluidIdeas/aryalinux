@@ -6,11 +6,13 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REC:libnl
+#REQ:libnl
+
 
 cd $SOURCE_DIR
 
 wget -nc https://w1.fi/releases/wpa_supplicant-2.8.tar.gz
+
 
 NAME=wpa_supplicant
 VERSION=2.8
@@ -31,6 +33,7 @@ fi
 
 cd $DIRECTORY
 fi
+
 
 cat > wpa_supplicant/.config << "EOF"
 CONFIG_BACKEND=file
@@ -66,58 +69,78 @@ CONFIG_CTRL_IFACE_DBUS_INTRO=y
 EOF
 cd wpa_supplicant &&
 make BINDIR=/sbin LIBDIR=/lib
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m755 wpa_{cli,passphrase,supplicant} /sbin/ &&
 install -v -m644 doc/docbook/wpa_supplicant.conf.5 /usr/share/man/man5/ &&
 install -v -m644 doc/docbook/wpa_{cli,passphrase,supplicant}.8 /usr/share/man/man8/
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m644 systemd/*.service /lib/systemd/system/
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m644 dbus/fi.w1.wpa_supplicant1.service \
-/usr/share/dbus-1/system-services/ &&
+                 /usr/share/dbus-1/system-services/ &&
 install -v -d -m755 /etc/dbus-1/system.d &&
 install -v -m644 dbus/dbus-wpa_supplicant.conf \
-/etc/dbus-1/system.d/wpa_supplicant.conf
+                 /etc/dbus-1/system.d/wpa_supplicant.conf
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 systemctl enable wpa_supplicant
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 update-desktop-database -q
 ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+systemctl start wpa_supplicant@wlan0
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+systemctl enable wpa_supplicant@wlan0
+ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

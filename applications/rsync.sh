@@ -6,11 +6,13 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REC:popt
+#REQ:popt
+
 
 cd $SOURCE_DIR
 
 wget -nc https://www.samba.org/ftp/rsync/src/rsync-3.1.3.tar.gz
+
 
 NAME=rsync
 VERSION=3.1.3
@@ -37,33 +39,34 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 groupadd -g 48 rsyncd &&
 useradd -c "rsyncd Daemon" -d /home/rsync -g rsyncd \
--s /bin/false -u 48 rsyncd
+    -s /bin/false -u 48 rsyncd
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 ./configure --prefix=/usr --without-included-zlib &&
 make
-
+doxygen
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m755 -d /usr/share/doc/rsync-3.1.3/api &&
-install -v -m644 dox/html/* /usr/share/doc/rsync-3.1.3/api
+install -v -m755 -d          /usr/share/doc/rsync-3.1.3/api &&
+install -v -m644 dox/html/*  /usr/share/doc/rsync-3.1.3/api
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -75,41 +78,36 @@ motd file = /home/rsync/welcome.msg
 use chroot = yes
 
 [localhost]
-path = /home/rsync
-comment = Default rsync module
-read only = yes
-list = yes
-uid = rsyncd
-gid = rsyncd
+    path = /home/rsync
+    comment = Default rsync module
+    read only = yes
+    list = yes
+    uid = rsyncd
+    gid = rsyncd
 
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/svn/blfs-systemd-units-20180105.tar.bz2
-tar -xf blfs-systemd-units-20180105.tar.bz2
-pushd blfs-systemd-units-20180105
-sudo make install-rsyncd
-popd
-popd
-sudo rm -rf $SOURCE_DIR/blfs-systemd-units-20180105
-
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install-rsyncd
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 systemctl stop rsyncd &&
 systemctl disable rsyncd &&
 systemctl enable rsyncd.socket &&
 systemctl start rsyncd.socket
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

@@ -7,14 +7,16 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
-wget -nc http://fossies.org/linux/misc/tcsh-6.20.00.tar.gz
-wget -nc ftp://ftp.astron.com/pub/tcsh/tcsh-6.20.00.tar.gz
+wget -nc http://fossies.org/linux/misc/tcsh-6.21.00.tar.gz
+wget -nc ftp://ftp.astron.com/pub/tcsh/tcsh-6.21.00.tar.gz
+
 
 NAME=tcsh
-VERSION=6.20.00
-URL=http://fossies.org/linux/misc/tcsh-6.20.00.tar.gz
+VERSION=6.21.00
+URL=http://fossies.org/linux/misc/tcsh-6.21.00.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -32,28 +34,28 @@ fi
 cd $DIRECTORY
 fi
 
-sed -i 's|SVID_SOURCE|DEFAULT_SOURCE|g' config/linux &&
-sed -i 's|BSD_SOURCE|DEFAULT_SOURCE|g' config/linux
+
+sed -i 's|SVID_SOURCE|DEFAULT_SOURCE|g' config/linux  &&
+sed -i 's|BSD_SOURCE|DEFAULT_SOURCE|g'  config/linux
 ./configure --prefix=/usr --bindir=/bin &&
 
 make &&
 sh ./tcsh.man2html
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install install.man &&
 
-ln -v -sf tcsh /bin/csh &&
+ln -v -sf tcsh   /bin/csh &&
 ln -v -sf tcsh.1 /usr/share/man/man1/csh.1 &&
 
-install -v -m755 -d /usr/share/doc/tcsh-6.20.00/html &&
-install -v -m644 tcsh.html/* /usr/share/doc/tcsh-6.20.00/html &&
-install -v -m644 FAQ /usr/share/doc/tcsh-6.20.00
+install -v -m755 -d          /usr/share/doc/tcsh-6.21.00/html &&
+install -v -m644 tcsh.html/* /usr/share/doc/tcsh-6.21.00/html &&
+install -v -m644 FAQ         /usr/share/doc/tcsh-6.21.00
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -62,6 +64,7 @@ cat >> /etc/shells << "EOF"
 /bin/csh
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -75,18 +78,18 @@ cat > ~/.cshrc << "EOF"
 # Add these lines to your ~/.cshrc (or to /etc/csh.cshrc).
 
 # Colors!
-set red="%{\033[1;31m%}"
-set green="%{\033[0;32m%}"
-set yellow="%{\033[1;33m%}"
-set blue="%{\033[1;34m%}"
+set     red="%{\033[1;31m%}"
+set   green="%{\033[0;32m%}"
+set  yellow="%{\033[1;33m%}"
+set    blue="%{\033[1;34m%}"
 set magenta="%{\033[1;35m%}"
-set cyan="%{\033[1;36m%}"
-set white="%{\033[0;37m%}"
-set end="%{\033[0m%}" # This is needed at the end...
+set    cyan="%{\033[1;36m%}"
+set   white="%{\033[0;37m%}"
+set     end="%{\033[0m%}" # This is needed at the end...
 
-# Setting the actual prompt. Two separate versions for you to try, pick
+# Setting the actual prompt.  Two separate versions for you to try, pick
 # whichever one you like better, and change the colors as you want.
-# Just don't mess with the ${end} guy in either line... Comment out or
+# Just don't mess with the ${end} guy in either line...  Comment out or
 # delete the prompt you don't use.
 
 set prompt="${green}%n${blue}@%m ${white}%~ ${green}%%${end} "
@@ -100,6 +103,8 @@ alias ls ls --color=always
 unset red green yellow blue magenta cyan yellow white end
 EOF
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

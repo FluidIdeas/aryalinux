@@ -7,12 +7,14 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:glib2
-#REC:gtk2
-#REC:lua
+#REQ:gtk2
+#REQ:lua
+
 
 cd $SOURCE_DIR
 
 wget -nc https://dl.hexchat.net/hexchat/hexchat-2.14.2.tar.xz
+
 
 NAME=hexchat
 VERSION=2.14.2
@@ -34,21 +36,24 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
-cd build &&
+cd    build &&
 
 meson --prefix=/usr -Dwith-libproxy=false -Dwith-lua=lua .. &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

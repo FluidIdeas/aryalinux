@@ -65,12 +65,14 @@ set +h
 #REQ:xine-lib
 #REQ:xvid
 
+
 cd $SOURCE_DIR
+
 
 
 NAME=multimedia-pack
 VERSION=1.4
-URL=""
+
 
 if [ ! -z $URL ]
 then
@@ -89,6 +91,9 @@ cd $DIRECTORY
 fi
 
 
+
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

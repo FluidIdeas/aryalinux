@@ -6,11 +6,13 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REC:x7lib
+#REQ:x7lib
+
 
 cd $SOURCE_DIR
 
 wget -nc https://dri.freedesktop.org/libdrm/libdrm-2.4.98.tar.bz2
+
 
 NAME=libdrm
 VERSION=2.4.98
@@ -32,23 +34,24 @@ fi
 cd $DIRECTORY
 fi
 
-export XORG_PREFIX=/usr
 
 mkdir build &&
-cd build &&
+cd    build &&
 
 meson --prefix=$XORG_PREFIX -Dudev=true &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

@@ -7,13 +7,15 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:gst10-plugins-base
-#REC:liba52
-#REC:libdvdread
-#REC:x264
+#REQ:liba52
+#REQ:libdvdread
+#REQ:x264
+
 
 cd $SOURCE_DIR
 
 wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.16.0.tar.xz
+
 
 NAME=gst10-plugins-ugly
 VERSION=1.16.0
@@ -35,24 +37,27 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
-cd build &&
+cd    build &&
 
-meson --prefix=/usr \
--Dbuildtype=release \
--Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
--Dpackage-name="GStreamer 1.16.0 BLFS" &&
+meson  --prefix=/usr       \
+       -Dbuildtype=release \
+       -Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
+       -Dpackage-name="GStreamer 1.16.0 BLFS" &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

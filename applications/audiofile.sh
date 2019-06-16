@@ -7,12 +7,14 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:alsa-lib
-#REC:flac
+#REQ:flac
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/audiofile/0.3/audiofile-0.3.6.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/audiofile/0.3/audiofile-0.3.6.tar.xz
+
 
 NAME=audiofile
 VERSION=0.3.6
@@ -34,20 +36,23 @@ fi
 cd $DIRECTORY
 fi
 
+
 CXXFLAGS=-std=c++98 \
 ./configure --prefix=/usr --disable-static &&
 
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

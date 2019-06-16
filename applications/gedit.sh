@@ -11,14 +11,16 @@ set +h
 #REQ:itstool
 #REQ:libpeas
 #REQ:gspell
-#REC:gvfs
-#REC:iso-codes
-#REC:libsoup
-#REC:pygobject3
+#REQ:gvfs
+#REQ:iso-codes
+#REQ:libsoup
+#REQ:pygobject3
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gedit/3.32/gedit-3.32.0.tar.xz
+
 
 NAME=gedit
 VERSION=3.32.0
@@ -46,6 +48,8 @@ meson --prefix=/usr --sysconfdir=/etc .. &&
 ninja
 sudo ninja install
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

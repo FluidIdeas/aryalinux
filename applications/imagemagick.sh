@@ -6,17 +6,17 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REC:x7lib
+#REQ:x7lib
+
 
 cd $SOURCE_DIR
 
 wget -nc https://www.imagemagick.org/download/releases/ImageMagick-7.0.8-27.tar.xz
 wget -nc ftp://ftp.imagemagick.org/pub/ImageMagick/releases/ImageMagick-7.0.8-27.tar.xz
-wget -nc http://www.mcmurchy.com/ralcgm/ralcgm-3.51.tar.gz
-wget -nc http://www.mcmurchy.com/urt/urt-3.1b.tar.gz
+
 
 NAME=imagemagick
-VERSION=27
+VERSION=7.0.
 URL=https://www.imagemagick.org/download/releases/ImageMagick-7.0.8-27.tar.xz
 
 if [ ! -z $URL ]
@@ -35,23 +35,26 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---sysconfdir=/etc \
---enable-hdri \
---with-modules \
---with-perl \
---disable-static &&
-make
 
+./configure --prefix=/usr     \
+            --sysconfdir=/etc \
+            --enable-hdri     \
+            --with-modules    \
+            --with-perl       \
+            --disable-static  &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make DOCUMENTATION_PATH=/usr/share/doc/imagemagick-7.0.8 install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

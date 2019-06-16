@@ -9,9 +9,11 @@ set +h
 #REQ:gtkmm2
 #REQ:parted
 
+
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/gparted/gparted-0.33.0.tar.gz
+
 
 NAME=gparted
 VERSION=0.33.0
@@ -33,30 +35,33 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---disable-doc \
---disable-static &&
-make
 
+./configure --prefix=/usr    \
+            --disable-doc    \
+            --disable-static &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cp -v /usr/share/applications/gparted.desktop /usr/share/applications/gparted.desktop.back &&
-sed -i 's/Exec=/Exec=sudo -A /' /usr/share/applications/gparted.desktop
+sed -i 's/Exec=/Exec=sudo -A /'               /usr/share/applications/gparted.desktop
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

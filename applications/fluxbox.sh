@@ -6,10 +6,13 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#REQ:installing
+
 
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/fluxbox/fluxbox-1.3.7.tar.xz
+
 
 NAME=fluxbox
 VERSION=1.3.7
@@ -31,19 +34,19 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 echo startfluxbox > ~/.xinitrc
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mkdir -pv /usr/share/xsessions &&
@@ -56,6 +59,7 @@ Exec=startfluxbox
 Type=Application
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -64,7 +68,7 @@ mkdir -v ~/.fluxbox &&
 cp -v /usr/share/fluxbox/init ~/.fluxbox/init &&
 cp -v /usr/share/fluxbox/keys ~/.fluxbox/keys
 cd ~/.fluxbox &&
-fluxbox-generate_menu <em class="replaceable"><code><user_options></code></em>
+fluxbox-generate_menu <user_options>
 cp -v /usr/share/fluxbox/menu ~/.fluxbox/menu
 cp /usr/share/fluxbox/styles/<theme> ~/.fluxbox/theme &&
 
@@ -75,6 +79,8 @@ echo "background.pixmap: </path/to/nice/image.ext>" >> ~/.fluxbox/theme ||
 [ -d ~/.fluxbox/theme ] &&
 echo "background.pixmap: </path/to/nice/image.ext>" >> ~/.fluxbox/theme/theme.cfg
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

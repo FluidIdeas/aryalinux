@@ -7,11 +7,13 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:cmake
-#REC:libjpeg
+#REQ:libjpeg
+
 
 cd $SOURCE_DIR
 
 wget -nc http://www.ece.uvic.ca/~frodo/jasper/software/jasper-2.0.14.tar.gz
+
 
 NAME=jasper
 VERSION=2.0.14
@@ -33,26 +35,29 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir BUILD &&
-cd BUILD &&
+cd    BUILD &&
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
--DCMAKE_BUILD_TYPE=Release \
--DCMAKE_SKIP_INSTALL_RPATH=YES \
--DJAS_ENABLE_DOC=NO \
--DCMAKE_INSTALL_DOCDIR=/usr/share/doc/jasper-2.0.14 \
-.. &&
+cmake -DCMAKE_INSTALL_PREFIX=/usr    \
+      -DCMAKE_BUILD_TYPE=Release     \
+      -DCMAKE_SKIP_INSTALL_RPATH=YES \
+      -DJAS_ENABLE_DOC=NO            \
+      -DCMAKE_INSTALL_DOCDIR=/usr/share/doc/jasper-2.0.14 \
+      ..  &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

@@ -8,9 +8,11 @@ set +h
 
 #REQ:libnsl
 
+
 cd $SOURCE_DIR
 
 wget -nc https://security.appspot.com/downloads/vsftpd-3.0.3.tar.gz
+
 
 NAME=vsftpd
 VERSION=3.0.3
@@ -36,30 +38,30 @@ fi
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -d -m 0755 /usr/share/vsftpd/empty &&
-install -v -d -m 0755 /home/ftp &&
-groupadd -g 47 vsftpd &&
-groupadd -g 45 ftp &&
+install -v -d -m 0755 /home/ftp               &&
+groupadd -g 47 vsftpd                         &&
+groupadd -g 45 ftp                            &&
 
-useradd -c "vsftpd User" -d /dev/null -g vsftpd -s /bin/false -u 47 vsftpd &&
-useradd -c anonymous_user -d /home/ftp -g ftp -s /bin/false -u 45 ftp
+useradd -c "vsftpd User"  -d /dev/null -g vsftpd -s /bin/false -u 47 vsftpd &&
+useradd -c anonymous_user -d /home/ftp -g ftp    -s /bin/false -u 45 ftp
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m 755 vsftpd /usr/sbin/vsftpd &&
-install -v -m 644 vsftpd.8 /usr/share/man/man8 &&
+install -v -m 755 vsftpd        /usr/sbin/vsftpd    &&
+install -v -m 644 vsftpd.8      /usr/share/man/man8 &&
 install -v -m 644 vsftpd.conf.5 /usr/share/man/man5 &&
-install -v -m 644 vsftpd.conf /etc
+install -v -m 644 vsftpd.conf   /etc
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -70,10 +72,10 @@ nopriv_user=vsftpd
 secure_chroot_dir=/usr/share/vsftpd/empty
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -81,10 +83,10 @@ cat >> /etc/vsftpd.conf << "EOF"
 seccomp_sandbox=NO
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -92,22 +94,22 @@ cat >> /etc/vsftpd.conf << "EOF"
 local_enable=YES
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/pam.d/vsftpd << "EOF" &&
 # Begin /etc/pam.d/vsftpd
-auth required /lib/security/pam_listfile.so item=user sense=deny \
-file=/etc/ftpusers \
-onerr=succeed
-auth required pam_shells.so
-auth include system-auth
-account include system-account
-session include system-session
+auth       required     /lib/security/pam_listfile.so item=user sense=deny \
+                                                      file=/etc/ftpusers \
+                                                      onerr=succeed
+auth       required     pam_shells.so
+auth       include      system-auth
+account    include      system-account
+session    include      system-session
 EOF
 
 cat >> /etc/vsftpd.conf << "EOF"
@@ -115,20 +117,23 @@ session_support=YES
 pam_service_name=vsftpd
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/svn/blfs-systemd-units-20180105.tar.bz2
-tar -xf blfs-systemd-units-20180105.tar.bz2
-pushd blfs-systemd-units-20180105
-sudo make install-vsftpd
-popd
-popd
-sudo rm -rf $SOURCE_DIR/blfs-systemd-units-20180105
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install-vsftpd
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

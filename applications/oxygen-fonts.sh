@@ -7,13 +7,15 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://sourceforge.net/projects/aryalinux-bin/files/files/1.4/oxygen-fonts-5.4.3-x86_64.tar.xz
 
+
 NAME=oxygen-fonts
 VERSION=5.4.3
-URL=""
+URL=https://sourceforge.net/projects/aryalinux-bin/files/files/1.4/oxygen-fonts-5.4.3-x86_64.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -33,6 +35,8 @@ fi
 
 sudo tar xf oxygen-fonts-5.4.3-x86_64.tar.xz -C /
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

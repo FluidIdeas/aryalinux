@@ -8,17 +8,19 @@ set +h
 
 #REQ:cmake
 #REQ:fontconfig
-#REC:cairo
-#REC:lcms2
-#REC:libjpeg
-#REC:libpng
-#REC:nss
-#REC:openjpeg2
+#REQ:cairo
+#REQ:lcms2
+#REQ:libjpeg
+#REQ:libpng
+#REQ:nss
+#REQ:openjpeg2
+
 
 cd $SOURCE_DIR
 
 wget -nc https://poppler.freedesktop.org/poppler-0.76.1.tar.xz
 wget -nc https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz
+
 
 NAME=poppler
 VERSION=0.76.1
@@ -40,46 +42,49 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build &&
-cd build &&
 
-cmake -DCMAKE_BUILD_TYPE=Release \
--DCMAKE_INSTALL_PREFIX=/usr \
--DTESTDATADIR=$PWD/testfiles \
--DENABLE_UNSTABLE_API_ABI_HEADERS=ON \
-.. &&
+mkdir build                         &&
+cd    build                         &&
+
+cmake  -DCMAKE_BUILD_TYPE=Release   \
+       -DCMAKE_INSTALL_PREFIX=/usr  \
+       -DTESTDATADIR=$PWD/testfiles \
+       -DENABLE_UNSTABLE_API_ABI_HEADERS=ON     \
+       ..                           &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m755 -d /usr/share/doc/poppler-0.76.1 &&
+install -v -m755 -d           /usr/share/doc/poppler-0.76.1 &&
 cp -vr ../glib/reference/html /usr/share/doc/poppler-0.76.1
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 tar -xf ../../poppler-data-0.4.9.tar.gz &&
 cd poppler-data-0.4.9
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make prefix=/usr install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

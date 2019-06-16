@@ -8,21 +8,26 @@ set +h
 
 #REQ:x7lib
 #REQ:libdrm
-#REQ:mako
-#REQ:libva-wo-mesa
-#REC:libvdpau
-#REC:llvm
-#REC:wayland-protocols
+#REQ:python-modules#Mako
+#REQ:x7driver#libva
+#REQ:x7driver#libvdpau
+#REQ:llvm
+#REQ:wayland-protocols
+#REQ:plasma-all
+#REQ:gtk3
+
 
 cd $SOURCE_DIR
 
-wget -nc https://mesa.freedesktop.org/archive/mesa-19.0.3.tar.xz
-wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-19.0.3.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/mesa-19.0.3-add_xdemos-1.patch
+wget -nc https://mesa.freedesktop.org/archive/mesa-19.0.4.tar.xz
+wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-19.0.4.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/mesa-19.0.4-add_xdemos-2.patch
+wget -nc ftp://ftp.freedesktop.org/pub/mesa/demos/
+
 
 NAME=mesa
-VERSION=19.0.3
-URL=https://mesa.freedesktop.org/archive/mesa-19.0.3.tar.xz
+VERSION=19.0.4
+URL=https://mesa.freedesktop.org/archive/mesa-19.0.4.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -40,46 +45,48 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../mesa-19.0.3-add_xdemos-1.patch
-export XORG_PREFIX=/usr
 
+patch -Np1 -i ../mesa-19.0.4-add_xdemos-2.patch
+GALLIUM_DRV="i915,nouveau,r600,radeonsi,svga,swrast,virgl"
+DRI_DRIVERS="i965,nouveau"
 mkdir build &&
 cd    build &&
 
 meson --prefix=$XORG_PREFIX          \
-      --sysconfdir=/etc              \
-      -Dllvm=true                    \
-      -Dshared-llvm=true             \
-      -Degl=true                     \
-      -Dshared-glapi=true            \
-      -Dgallium-xa=true              \
+      -Dbuildtype=release            \
+      -Ddri-drivers=$DRI_DRIVERS     \
+      -Dgallium-drivers=$GALLIUM_DRV \
       -Dgallium-nine=true            \
-      -Dgallium-vdpau=true           \
-      -Dgallium-va=true              \
-      -Ddri3=true                    \
       -Dglx=dri                      \
-      -Dgbm=true                     \
-      -Dglx-direct=true              \
-      -Dgles1=true                   \
-      -Dgles2=true                   \
-      -Dvalgrind=false               \
       -Dosmesa=gallium               \
-      -Ddri-drivers=auto             \
-      -Dgallium-drivers=auto         \
-      -Dplatforms=auto               \
-      -Dvulkan-drivers=auto          \
+      -Dvalgrind=false               \
       ..                             &&
 
-unset GALLIUM_DRIVERS DRI_DRIVERS EGL_PLATFORMS &&
+unset GALLIUM_DRV DRI_DRIVERS &&
 
 ninja
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ninja install
+ENDOFROOTSCRIPT
 
-make -C ../xdemos DEMOS_PREFIX=$XORG_PREFIX LIBRARY_PATH=$PWD/src/glx
-sudo ninja install
-sudo make -C ../xdemos DEMOS_PREFIX=$XORG_PREFIX install
-sudo install -v -dm755 /usr/share/doc/mesa-19.0.3
-sudo cp -rfv ../docs/* /usr/share/doc/mesa-19.0.3
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+install -v -dm755 /usr/share/doc/mesa-19.0.4 &&
+cp -rfv ../docs/* /usr/share/doc/mesa-19.0.4
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

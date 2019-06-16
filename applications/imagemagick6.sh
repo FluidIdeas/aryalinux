@@ -6,18 +6,18 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REC:x7lib
+#REQ:x7lib
+
 
 cd $SOURCE_DIR
 
 wget -nc https://www.imagemagick.org/download/releases/ImageMagick-6.9.10-27.tar.xz
 wget -nc ftp://ftp.imagemagick.org/pub/ImageMagick/releases/ImageMagick-6.9.10-27.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/ImageMagick-6.9.10-27-libs_only-1.patch
-wget -nc http://www.mcmurchy.com/ralcgm/ralcgm-3.51.tar.gz
-wget -nc http://www.mcmurchy.com/urt/urt-3.1b.tar.gz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/ImageMagick-6.9.10-27-libs_only-1.patch
+
 
 NAME=imagemagick6
-VERSION=27
+VERSION=6.9.1
 URL=https://www.imagemagick.org/download/releases/ImageMagick-6.9.10-27.tar.xz
 
 if [ ! -z $URL ]
@@ -36,24 +36,27 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../ImageMagick-6.9.10-27-libs_only-1.patch &&
-autoreconf -fi &&
-./configure --prefix=/usr \
---sysconfdir=/etc \
---enable-hdri \
---with-modules \
---disable-static &&
-make
 
+patch -Np1 -i ../ImageMagick-6.9.10-27-libs_only-1.patch &&
+autoreconf -fi                                          &&
+./configure --prefix=/usr     \
+            --sysconfdir=/etc \
+            --enable-hdri     \
+            --with-modules    \
+            --disable-static  &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make DOCUMENTATION_PATH=/usr/share/doc/imagemagick-6.9.10 install-libs-only
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

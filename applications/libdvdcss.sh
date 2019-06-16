@@ -7,9 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://get.videolan.org/libdvdcss/1.4.2/libdvdcss-1.4.2.tar.bz2
+
 
 NAME=libdvdcss
 VERSION=1.4.2
@@ -31,20 +33,23 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---disable-static \
---docdir=/usr/share/doc/libdvdcss-1.4.2 &&
-make
 
+./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/libdvdcss-1.4.2 &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

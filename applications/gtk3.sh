@@ -11,18 +11,20 @@ set +h
 #REQ:gdk-pixbuf
 #REQ:libepoxy
 #REQ:pango
-#REC:adwaita-icon-theme
-#REC:hicolor-icon-theme
-#REC:iso-codes
-#REC:libxkbcommon
-#REC:wayland
-#REC:wayland-protocols
-#REC:gobject-introspection
+#REQ:adwaita-icon-theme
+#REQ:hicolor-icon-theme
+#REQ:iso-codes
+#REQ:libxkbcommon
+#REQ:wayland
+#REQ:wayland-protocols
+#REQ:gobject-introspection
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.8.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.8.tar.xz
+
 
 NAME=gtk3
 VERSION=3.24.8
@@ -44,22 +46,25 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---sysconfdir=/etc \
---enable-broadway-backend \
---enable-x11-backend \
---enable-wayland-backend &&
-make
 
+./configure --prefix=/usr             \
+            --sysconfdir=/etc         \
+            --enable-broadway-backend \
+            --enable-x11-backend      \
+            --enable-wayland-backend &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

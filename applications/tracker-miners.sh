@@ -10,18 +10,20 @@ set +h
 #REQ:tracker
 #REQ:exempi
 #REQ:gexiv2
-#REC:ffmpeg
-#REC:flac
-#REC:icu
-#REC:libexif
-#REC:libgrss
-#REC:libgxps
-#REC:poppler
+#REQ:ffmpeg
+#REQ:flac
+#REQ:icu
+#REQ:libexif
+#REQ:libgrss
+#REQ:libgxps
+#REQ:poppler
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.2/tracker-miners-2.2.2.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.2/tracker-miners-2.2.2.tar.xz
+
 
 NAME=tracker-miners
 VERSION=2.2.2
@@ -43,21 +45,24 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
-cd build &&
+cd    build &&
 
 meson --prefix=/usr .. &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

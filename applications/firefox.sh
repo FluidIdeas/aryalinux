@@ -20,14 +20,16 @@ set +h
 #REQ:unzip
 #REQ:yasm
 #REQ:zip
-#REC:icu
-#REC:libevent
-#REC:libwebp
-#REC:sqlite
+#REQ:icu
+#REQ:libevent
+#REQ:libwebp
+#REQ:sqlite
+
 
 cd $SOURCE_DIR
 
 wget -nc https://archive.mozilla.org/pub/firefox/releases/66.0.2/source/firefox-66.0.2.source.tar.xz
+
 
 NAME=firefox
 VERSION=66.0.2
@@ -176,6 +178,8 @@ EOF
 sudo ln -sfv /usr/lib/firefox/browser/chrome/icons/default/default128.png \
         /usr/share/pixmaps/firefox.png
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

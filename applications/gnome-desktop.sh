@@ -9,20 +9,23 @@ set +h
 #REQ:gsettings-desktop-schemas
 #REQ:gtk3
 #REQ:iso-codes
+#REQ:itstool
 #REQ:libseccomp
 #REQ:libxml2
 #REQ:xkeyboard-config
-#REC:bubblewrap
-#REC:gobject-introspection
+#REQ:bubblewrap
+#REQ:gobject-introspection
+
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-desktop/3.32/gnome-desktop-3.32.1.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-desktop/3.32/gnome-desktop-3.32.1.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-desktop/3.32/gnome-desktop-3.32.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-desktop/3.32/gnome-desktop-3.32.2.tar.xz
+
 
 NAME=gnome-desktop
-VERSION=3.32.1.2
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-desktop/3.32/gnome-desktop-3.32.1.2.tar.xz
+VERSION=3.32.2
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-desktop/3.32/gnome-desktop-3.32.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -40,22 +43,25 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
 cd build &&
 
-meson --prefix=/usr \
--Dgnome_distributor="BLFS" .. &&
+meson --prefix=/usr                 \
+      -Dgnome_distributor="BLFS" .. &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

@@ -7,15 +7,17 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:openldap
-#REC:cyrus-sasl
+#REQ:cyrus-sasl
+
 
 cd $SOURCE_DIR
 
 wget -nc ftp://ftp.sendmail.org/pub/sendmail/sendmail.8.15.2.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/sendmail.8.15.2-openssl-1.patch
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/sendmail.8.15.2-openssl-1.patch
+
 
 NAME=sendmail
-VERSION=sendmail.8.15.2
+VERSION=.8.15.2
 URL=ftp://ftp.sendmail.org/pub/sendmail/sendmail.8.15.2.tar.gz
 
 if [ ! -z $URL ]
@@ -37,12 +39,13 @@ fi
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-groupadd -g 26 smmsp &&
+groupadd -g 26 smmsp                               &&
 useradd -c "Sendmail Daemon" -g smmsp -d /dev/null \
--s /bin/false -u 26 smmsp &&
-chmod -v 1777 /var/mail &&
+        -s /bin/false -u 26 smmsp                  &&
+chmod -v 1777 /var/mail                            &&
 install -v -m700 -d /var/spool/mqueue
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -63,63 +66,62 @@ define(`confUBINOWN',`root')
 EOF
 
 sed -i 's|/usr/man/man|/usr/share/man/man|' \
-devtools/OS/Linux &&
+    devtools/OS/Linux           &&
 
-cd sendmail &&
-sh Build &&
-cd ../cf/cf &&
+cd sendmail                     &&
+sh Build                        &&
+cd ../cf/cf                     &&
 cp generic-linux.mc sendmail.mc &&
 sh Build sendmail.cf
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -d -m755 /etc/mail &&
 sh Build install-cf &&
 
-cd ../.. &&
-sh Build install &&
+cd ../..            &&
+sh Build install    &&
 
 install -v -m644 cf/cf/{submit,sendmail}.mc /etc/mail &&
-cp -v -R cf/* /etc/mail &&
+cp -v -R cf/* /etc/mail                               &&
 
 install -v -m755 -d /usr/share/doc/sendmail-8.15.2/{cf,sendmail} &&
 
 install -v -m644 CACerts FAQ KNOWNBUGS LICENSE PGPKEYS README RELEASE_NOTES \
-/usr/share/doc/sendmail-8.15.2 &&
+        /usr/share/doc/sendmail-8.15.2 &&
 
 install -v -m644 sendmail/{README,SECURITY,TRACEFLAGS,TUNING} \
-/usr/share/doc/sendmail-8.15.2/sendmail &&
+        /usr/share/doc/sendmail-8.15.2/sendmail &&
 
 install -v -m644 cf/README /usr/share/doc/sendmail-8.15.2/cf &&
 
 for manpage in sendmail editmap mailstats makemap praliases smrsh
 do
-install -v -m644 $manpage/$manpage.8 /usr/share/man/man8
+    install -v -m644 $manpage/$manpage.8 /usr/share/man/man8
 done &&
 
-install -v -m644 sendmail/aliases.5 /usr/share/man/man5 &&
-install -v -m644 sendmail/mailq.1 /usr/share/man/man1 &&
+install -v -m644 sendmail/aliases.5    /usr/share/man/man5 &&
+install -v -m644 sendmail/mailq.1      /usr/share/man/man1 &&
 install -v -m644 sendmail/newaliases.1 /usr/share/man/man1 &&
-install -v -m644 vacation/vacation.1 /usr/share/man/man1
+install -v -m644 vacation/vacation.1   /usr/share/man/man1
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-cd doc/op &&
+cd doc/op                                       &&
 sed -i 's/groff/GROFF_NO_SGR=1 groff/' Makefile &&
 make op.txt op.pdf
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -d -m755 /usr/share/doc/sendmail-8.15.2 &&
 install -v -m644 op.ps op.txt op.pdf /usr/share/doc/sendmail-8.15.2 &&
 cd ../..
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -131,30 +133,33 @@ MAILER-DAEMON: root
 EOF
 newaliases
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cd /etc/mail &&
 m4 m4/cf.m4 sendmail.mc > sendmail.cf
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/svn/blfs-systemd-units-20180105.tar.bz2
-tar -xf blfs-systemd-units-20180105.tar.bz2
-pushd blfs-systemd-units-20180105
-sudo make install-sendmail
-popd
-popd
-sudo rm -rf $SOURCE_DIR/blfs-systemd-units-20180105
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install-sendmail
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

@@ -7,10 +7,14 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libdrm
+#REQ:mesa
+
 
 cd $SOURCE_DIR
 
 wget -nc https://github.com/intel/libva/releases/download/2.4.0/libva-2.4.0.tar.bz2
+wget -nc https://github.com/intel/intel-vaapi-driver/releases/download/2.3.0/intel-vaapi-driver-2.3.0.tar.bz2
+
 
 NAME=libva
 VERSION=2.4.0
@@ -32,32 +36,20 @@ fi
 cd $DIRECTORY
 fi
 
-export XORG_PREFIX=/usr
-export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
-
 ./configure $XORG_CONFIG &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-./configure $XORG_CONFIG &&
-make
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

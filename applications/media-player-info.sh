@@ -7,9 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://www.freedesktop.org/software/media-player-info/media-player-info-24.tar.gz
+
 
 NAME=media-player-info
 VERSION=24
@@ -35,6 +37,8 @@ fi
 make
 sudo make install
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

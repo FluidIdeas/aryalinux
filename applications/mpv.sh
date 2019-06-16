@@ -17,9 +17,11 @@ set +h
 #REQ:lame
 #REQ:fdk-aac
 
+
 cd $SOURCE_DIR
 
 wget -nc https://github.com/mpv-player/mpv/archive/v0.29.1.tar.gz
+
 
 NAME=mpv
 VERSION=0.29.1
@@ -46,6 +48,8 @@ fi
 ./waf build &&
 sudo ./waf install --prefix=/usr
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

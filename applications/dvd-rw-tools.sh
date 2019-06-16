@@ -7,9 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc http://fy.chalmers.se/~appro/linux/DVD+RW/tools/dvd+rw-tools-7.1.tar.gz
+
 
 NAME=dvd-rw-tools
 VERSION=7.1
@@ -31,21 +33,24 @@ fi
 cd $DIRECTORY
 fi
 
+
 sed -i '/stat.h/a #include <sys/sysmacros.h>/' growisofs.c &&
 sed -i '/stdlib/a #include <limits.h>' transport.hxx &&
 make all rpl8 btcflash
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make prefix=/usr install &&
 install -v -m644 -D index.html \
-/usr/share/doc/dvd+rw-tools-7.1/index.html
+    /usr/share/doc/dvd+rw-tools-7.1/index.html
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

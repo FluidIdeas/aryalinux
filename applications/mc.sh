@@ -8,12 +8,14 @@ set +h
 
 #REQ:glib2
 #REQ:pcre
-#REC:slang
+#REQ:slang
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.midnight-commander.org/mc-4.8.22.tar.xz
 wget -nc ftp://ftp.osuosl.org/pub/midnightcommander/mc-4.8.22.tar.xz
+
 
 NAME=mc
 VERSION=4.8.22
@@ -35,21 +37,24 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---sysconfdir=/etc \
---enable-charset &&
-make
 
+./configure --prefix=/usr \
+            --sysconfdir=/etc \
+            --enable-charset &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 cp -v doc/keybind-migration.txt /usr/share/mc
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

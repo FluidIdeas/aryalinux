@@ -7,11 +7,14 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:xorg-server
+#REQ:x7legacy
+
 
 cd $SOURCE_DIR
 
 wget -nc https://www.x.org/pub/individual/app/twm-1.0.10.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/app/twm-1.0.10.tar.bz2
+
 
 NAME=twm
 VERSION=1.0.10
@@ -33,22 +36,23 @@ fi
 cd $DIRECTORY
 fi
 
-export XORG_PREFIX=/usr
-export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
+XORG_CONFIG=--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static
 
 sed -i -e '/^rcdir =/s,^\(rcdir = \).*,\1/etc/X11/app-defaults,' src/Makefile.in &&
 ./configure $XORG_CONFIG &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

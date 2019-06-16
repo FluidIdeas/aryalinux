@@ -9,17 +9,19 @@ set +h
 #REQ:gtk3
 #REQ:libxml2
 #REQ:pcre2
-#REC:gobject-introspection
-#REC:gnutls
+#REQ:gobject-introspection
+#REQ:gnutls
+
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/vte/0.56/vte-0.56.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/vte/0.56/vte-0.56.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/vte/0.56/vte-0.56.3.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/vte/0.56/vte-0.56.3.tar.xz
+
 
 NAME=vte
-VERSION=0.56.2
-URL=http://ftp.gnome.org/pub/gnome/sources/vte/0.56/vte-0.56.2.tar.xz
+VERSION=0.56.3
+URL=http://ftp.gnome.org/pub/gnome/sources/vte/0.56/vte-0.56.3.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -37,21 +39,24 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---sysconfdir=/etc \
---disable-static \
---enable-introspection &&
-make
 
+./configure --prefix=/usr          \
+            --sysconfdir=/etc      \
+            --disable-static       \
+            --enable-introspection &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

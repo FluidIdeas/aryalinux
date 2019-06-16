@@ -7,10 +7,12 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://sqlite.org/2019/sqlite-autoconf-3280000.tar.gz
 wget -nc https://sqlite.org/2019/sqlite-doc-3280000.zip
+
 
 NAME=sqlite
 VERSION=3280000
@@ -32,39 +34,42 @@ fi
 cd $DIRECTORY
 fi
 
-unzip -q ../sqlite-doc-3280000.zip
-./configure --prefix=/usr \
---disable-static \
---enable-fts5 \
-CFLAGS="-g -O2 \
--DSQLITE_ENABLE_FTS3=1 \
--DSQLITE_ENABLE_FTS4=1 \
--DSQLITE_ENABLE_COLUMN_METADATA=1 \
--DSQLITE_ENABLE_UNLOCK_NOTIFY=1 \
--DSQLITE_ENABLE_DBSTAT_VTAB=1 \
--DSQLITE_SECURE_DELETE=1 \
--DSQLITE_ENABLE_FTS3_TOKENIZER=1" &&
-make
 
+unzip -q ../sqlite-doc-3280000.zip
+./configure --prefix=/usr     \
+            --disable-static  \
+            --enable-fts5     \
+            CFLAGS="-g -O2                    \
+            -DSQLITE_ENABLE_FTS3=1            \
+            -DSQLITE_ENABLE_FTS4=1            \
+            -DSQLITE_ENABLE_COLUMN_METADATA=1 \
+            -DSQLITE_ENABLE_UNLOCK_NOTIFY=1   \
+            -DSQLITE_ENABLE_DBSTAT_VTAB=1     \
+            -DSQLITE_SECURE_DELETE=1          \
+            -DSQLITE_ENABLE_FTS3_TOKENIZER=1" &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m755 -d /usr/share/doc/sqlite-3.28.0 &&
 cp -v -R sqlite-doc-3280000/* /usr/share/doc/sqlite-3.28.0
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

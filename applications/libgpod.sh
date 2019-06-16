@@ -8,9 +8,11 @@ set +h
 
 #REQ:libplist
 
+
 cd $SOURCE_DIR
 
 wget -nc https://sourceforge.net/projects/gtkpod/files/libgpod/libgpod-0.8/libgpod-0.8.2.tar.bz2
+
 
 NAME=libgpod
 VERSION=0.8.2
@@ -36,6 +38,8 @@ fi
 make
 sudo make install
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

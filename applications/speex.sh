@@ -8,10 +8,12 @@ set +h
 
 #REQ:libogg
 
+
 cd $SOURCE_DIR
 
 wget -nc https://downloads.xiph.org/releases/speex/speex-1.2.0.tar.gz
 wget -nc https://downloads.xiph.org/releases/speex/speexdsp-1.2rc3.tar.gz
+
 
 NAME=speex
 VERSION=1.2.0
@@ -33,39 +35,40 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---disable-static \
---docdir=/usr/share/doc/speex-1.2.0 &&
-make
 
+./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/speex-1.2.0 &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-cd .. &&
+cd ..                          &&
 tar -xf speexdsp-1.2rc3.tar.gz &&
-cd speexdsp-1.2rc3 &&
+cd speexdsp-1.2rc3             &&
 
-./configure --prefix=/usr \
---disable-static \
---docdir=/usr/share/doc/speexdsp-1.2rc3 &&
+./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/speexdsp-1.2rc3 &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-cd ..
-sudo rm -rf speexdsp-1.2rc3.tar.gz
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

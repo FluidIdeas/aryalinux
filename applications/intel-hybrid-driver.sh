@@ -8,9 +8,11 @@ set +h
 
 #REQ:libcmrt
 
+
 cd $SOURCE_DIR
 
 wget -nc https://github.com/01org/intel-hybrid-driver/archive/1.0.2.tar.gz
+
 
 NAME=intel-hybrid-driver
 VERSION=1.0.2
@@ -36,6 +38,8 @@ fi
 make
 sudo make install
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

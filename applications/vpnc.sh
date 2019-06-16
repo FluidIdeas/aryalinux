@@ -7,9 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://github.com/ndpgroup/vpnc/archive/0.5.3r550-2jnpr1.tar.gz
+
 
 NAME=vpnc
 VERSION=0.5.3
@@ -35,6 +37,8 @@ sed -i "s@PREFIX=/usr/local@PREFIX=/usr@g" Makefile
 make
 sudo make install
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

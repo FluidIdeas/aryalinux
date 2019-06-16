@@ -6,13 +6,15 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REC:db
-#REC:cyrus-sasl
-#REC:libnsl
+#REQ:db
+#REQ:cyrus-sasl
+#REQ:libnsl
+
 
 cd $SOURCE_DIR
 
 wget -nc ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.4.5.tar.gz
+
 
 NAME=postfix
 VERSION=3.4.5
@@ -40,80 +42,83 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 groupadd -g 32 postfix &&
 groupadd -g 33 postdrop &&
 useradd -c "Postfix Daemon User" -d /var/spool/postfix -g postfix \
--s /bin/false -u 32 postfix &&
+        -s /bin/false -u 32 postfix &&
 chown -v postfix:postfix /var/mail
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 sed -i 's/.\x08//g' README_FILES/*
 sed -i -e 's/\$RELEASE_MAJOR/3/' \
--e '/Linux..3/s/34/345/' makedefs
-make CCARGS="-DUSE_TLS -I/usr/include/openssl/ \
--DUSE_SASL_AUTH -DUSE_CYRUS_SASL -I/usr/include/sasl" \
-AUXLIBS="-lssl -lcrypto -lsasl2" \
-makefiles &&
+       -e '/Linux..3/s/34/345/' makedefs
+make CCARGS="-DUSE_TLS -I/usr/include/openssl/                     \
+             -DUSE_SASL_AUTH -DUSE_CYRUS_SASL -I/usr/include/sasl" \
+     AUXLIBS="-lssl -lcrypto -lsasl2"                              \
+     makefiles &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 sh postfix-install -non-interactive \
-daemon_directory=/usr/lib/postfix \
-manpage_directory=/usr/share/man \
-html_directory=/usr/share/doc/postfix-3.4.5/html \
-readme_directory=/usr/share/doc/postfix-3.4.5/readme
+   daemon_directory=/usr/lib/postfix \
+   manpage_directory=/usr/share/man \
+   html_directory=/usr/share/doc/postfix-3.4.5/html \
+   readme_directory=/usr/share/doc/postfix-3.4.5/readme
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat >> /etc/aliases << "EOF"
 # Begin /etc/aliases
 
-MAILER-DAEMON: postmaster
-postmaster: root
+MAILER-DAEMON:    postmaster
+postmaster:       root
 
-<em class="replaceable"><code><LOGIN></em>
+root:             <LOGIN>
 # End /etc/aliases
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 /usr/sbin/postfix upgrade-configuration
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 /usr/sbin/postfix check &&
 /usr/sbin/postfix start
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/svn/blfs-systemd-units-20180105.tar.bz2
-tar -xf blfs-systemd-units-20180105.tar.bz2
-pushd blfs-systemd-units-20180105
-sudo make install-postfix
-popd
-popd
-sudo rm -rf $SOURCE_DIR/blfs-systemd-units-20180105
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install-postfix
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

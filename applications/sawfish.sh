@@ -9,12 +9,14 @@ set +h
 #REQ:rep-gtk
 #REQ:which
 
+
 cd $SOURCE_DIR
 
 wget -nc http://download.tuxfamily.org/sawfish/sawfish_1.12.0.tar.xz
 
+
 NAME=sawfish
-VERSION=sawfish_1.12.0
+VERSION=1.12.0
 URL=http://download.tuxfamily.org/sawfish/sawfish_1.12.0.tar.xz
 
 if [ ! -z $URL ]
@@ -33,13 +35,14 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --with-pango &&
-make
 
+./configure --prefix=/usr --with-pango  &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -48,6 +51,8 @@ cat >> ~/.xinitrc << "EOF"
 exec sawfish
 EOF
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

@@ -7,13 +7,15 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/infozip/unzip60.tar.gz
 wget -nc ftp://ftp.info-zip.org/pub/infozip/src/unzip60.tgz
 
+
 NAME=unzip
-VERSION=unzip60
+VERSION=60
 URL=https://downloads.sourceforge.net/infozip/unzip60.tar.gz
 
 if [ ! -z $URL ]
@@ -32,18 +34,21 @@ fi
 cd $DIRECTORY
 fi
 
-make -f unix/Makefile generic
 
+make -f unix/Makefile generic
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make prefix=/usr MANDIR=/usr/share/man/man1 \
--f unix/Makefile install
+ -f unix/Makefile install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

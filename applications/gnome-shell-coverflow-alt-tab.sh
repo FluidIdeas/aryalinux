@@ -8,9 +8,11 @@ set +h
 
 #REQ:gnome-shell-extensions
 
+
 cd $SOURCE_DIR
 
 wget -nc https://sourceforge.net/projects/aryalinux-bin/files/releases/1.5/gnome-shell-extensions/CoverflowAltTab-gnome-extension-36.tar.gz
+
 
 NAME=gnome-shell-coverflow-alt-tab
 VERSION=36
@@ -36,6 +38,8 @@ sudo mkdir -pv /usr/share/gnome-shell/extensions/$(basename $(pwd))
 sudo mv * /usr/share/gnome-shell/extensions/$(basename $(pwd))
 sudo chmod -R a+r /usr/share/gnome-shell/extensions/$(basename $(pwd))
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

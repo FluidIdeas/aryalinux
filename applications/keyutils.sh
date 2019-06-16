@@ -8,9 +8,11 @@ set +h
 
 #REQ:mitkrb
 
+
 cd $SOURCE_DIR
 
 wget -nc http://people.redhat.com/~dhowells/keyutils/keyutils-1.6.tar.bz2
+
 
 NAME=keyutils
 VERSION=1.6
@@ -32,17 +34,20 @@ fi
 cd $DIRECTORY
 fi
 
-make
 
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make NO_ARLIB=1 install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

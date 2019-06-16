@@ -10,16 +10,18 @@ set +h
 #REQ:libseccomp
 #REQ:libsoup
 #REQ:vala
-#REC:gobject-introspection
-#REC:icu
-#REC:networkmanager
-#REC:sqlite
-#REC:upower
+#REQ:gobject-introspection
+#REQ:icu
+#REQ:networkmanager
+#REQ:sqlite
+#REQ:upower
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/tracker/2.2/tracker-2.2.2.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/tracker/2.2/tracker-2.2.2.tar.xz
+
 
 NAME=tracker
 VERSION=2.2.2
@@ -41,21 +43,24 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
-cd build &&
+cd    build &&
 
 meson --prefix=/usr --sysconfdir=/etc .. &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

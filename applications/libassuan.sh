@@ -8,10 +8,12 @@ set +h
 
 #REQ:libgpg-error
 
+
 cd $SOURCE_DIR
 
 wget -nc https://www.gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.3.tar.bz2
 wget -nc ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.5.3.tar.bz2
+
 
 NAME=libassuan
 VERSION=2.5.3
@@ -33,18 +35,33 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr &&
-make
 
+./configure --prefix=/usr &&
+make                      &&
+
+make -C doc html                                                       &&
+makeinfo --html --no-split -o doc/assuan_nochunks.html doc/assuan.texi &&
+makeinfo --plaintext       -o doc/assuan.txt           doc/assuan.texi
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+make install &&
+
+install -v -dm755   /usr/share/doc/libassuan-1.8.4/html &&
+install -v -m644 doc/assuan.html/* \
+                    /usr/share/doc/libassuan-1.8.4/html &&
+install -v -m644 doc/assuan_nochunks.html \
+                    /usr/share/doc/libassuan-1.8.4      &&
+install -v -m644 doc/assuan.{txt,texi} \
+                    /usr/share/doc/libassuan-1.8.4
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

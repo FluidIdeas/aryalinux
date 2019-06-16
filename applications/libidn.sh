@@ -7,10 +7,12 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://ftp.gnu.org/gnu/libidn/libidn-1.35.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/libidn/libidn-1.35.tar.gz
+
 
 NAME=libidn
 VERSION=1.35
@@ -32,23 +34,26 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr --disable-static &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
-find doc -name "Makefile*" -delete &&
+find doc -name "Makefile*" -delete            &&
 rm -rf -v doc/{gdoc,idn.1,stamp-vti,man,texi} &&
-mkdir -v /usr/share/doc/libidn-1.35 &&
+mkdir -v       /usr/share/doc/libidn-1.35     &&
 cp -r -v doc/* /usr/share/doc/libidn-1.35
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

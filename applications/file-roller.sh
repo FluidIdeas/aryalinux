@@ -8,17 +8,19 @@ set +h
 
 #REQ:gtk3
 #REQ:itstool
-#REC:cpio
-#REC:desktop-file-utils
-#REC:json-glib
-#REC:libarchive
-#REC:libnotify
-#REC:nautilus
+#REQ:cpio
+#REQ:desktop-file-utils
+#REQ:json-glib
+#REQ:libarchive
+#REQ:libnotify
+#REQ:nautilus
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/file-roller/3.32/file-roller-3.32.1.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/file-roller/3.32/file-roller-3.32.1.tar.xz
+
 
 NAME=file-roller
 VERSION=3.32.1
@@ -40,41 +42,44 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
-cd build &&
+cd    build &&
 
 meson --prefix=/usr -Dpackagekit=false .. &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
 chmod -v 0755 /usr/libexec/file-roller/isoinfo.sh
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 glib-compile-schemas /usr/share/glib-2.0/schemas
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
 update-desktop-database -q
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

@@ -8,13 +8,15 @@ set +h
 
 #REQ:glib2
 #REQ:libgpg-error
-#REC:gobject-introspection
-#REC:vala
+#REQ:gobject-introspection
+#REQ:vala
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gmime/2.6/gmime-2.6.23.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gmime/2.6/gmime-2.6.23.tar.xz
+
 
 NAME=gmime
 VERSION=2.6.23
@@ -36,18 +38,21 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr --disable-static &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

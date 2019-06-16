@@ -8,12 +8,14 @@ set +h
 
 #REQ:dbus-glib
 #REQ:libxslt
-#REC:gobject-introspection
-#REC:vala
+#REQ:gobject-introspection
+#REQ:vala
+
 
 cd $SOURCE_DIR
 
 wget -nc https://telepathy.freedesktop.org/releases/telepathy-glib/telepathy-glib-0.24.1.tar.gz
+
 
 NAME=telepathy-glib
 VERSION=0.24.1
@@ -35,20 +37,23 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---enable-vala-bindings \
---disable-static &&
-make
 
+./configure --prefix=/usr \
+            --enable-vala-bindings \
+            --disable-static &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

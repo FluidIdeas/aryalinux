@@ -8,13 +8,15 @@ set +h
 
 #REQ:rust
 
+
 cd $SOURCE_DIR
 
-wget -nc https://github.com/eqrion/cbindgen/archive/v0.8.5/cbindgen-0.8.5.tar.gz
+wget -nc https://github.com/eqrion/cbindgen/archive/v0.8.7/cbindgen-0.8.7.tar.gz
+
 
 NAME=cbindgen
-VERSION=0.8.5
-URL=https://github.com/eqrion/cbindgen/archive/v0.8.5/cbindgen-0.8.5.tar.gz
+VERSION=0.8.7
+URL=https://github.com/eqrion/cbindgen/archive/v0.8.7/cbindgen-0.8.7.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -32,17 +34,20 @@ fi
 cd $DIRECTORY
 fi
 
-cargo build --release
 
+cargo build --release
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -Dm755 target/release/cbindgen /usr/bin/
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

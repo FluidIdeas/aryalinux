@@ -11,14 +11,16 @@ set +h
 #REQ:harfbuzz
 #REQ:fribidi
 #REQ:glib2
-#REC:cairo
-#REC:gobject-introspection
-#REC:x7lib
+#REQ:cairo
+#REQ:gobject-introspection
+#REQ:x7lib
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/pango/1.42/pango-1.42.4.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pango/1.42/pango-1.42.4.tar.xz
+
 
 NAME=pango
 VERSION=1.42.4
@@ -40,21 +42,24 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
-cd build &&
+cd    build &&
 
 meson --prefix=/usr --sysconfdir=/etc .. &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

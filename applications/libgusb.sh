@@ -7,14 +7,16 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libusb
-#REC:gtk-doc
-#REC:gobject-introspection
-#REC:usbutils
-#REC:vala
+#REQ:gtk-doc
+#REQ:gobject-introspection
+#REQ:usbutils
+#REQ:vala
+
 
 cd $SOURCE_DIR
 
 wget -nc https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.0.tar.xz
+
 
 NAME=libgusb
 VERSION=0.3.0
@@ -36,21 +38,24 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
-cd build &&
+cd    build &&
 
 meson --prefix=/usr -Ddocs=false .. &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

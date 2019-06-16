@@ -10,9 +10,11 @@ set +h
 #REQ:libxfce4ui
 #REQ:xfce4-panel
 
+
 cd $SOURCE_DIR
 
 wget -nc http://archive.xfce.org/src/apps/xfce4-notifyd/0.4/xfce4-notifyd-0.4.4.tar.bz2
+
 
 NAME=xfce4-notifyd
 VERSION=0.4.4
@@ -34,19 +36,22 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 notify-send -i info Information "Hi ${USER}, This is a Test"
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

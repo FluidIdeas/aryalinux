@@ -7,9 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://gitlab.gnome.org/GNOME/gnome-tweaks/-/archive/3.31.3/gnome-tweaks-3.31.3.tar.bz2
+
 
 NAME=gnome-tweaks
 VERSION=3.31.3
@@ -38,6 +40,8 @@ meson --prefix=/usr .. &&
 ninja
 sudo ninja install
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

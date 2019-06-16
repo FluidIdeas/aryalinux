@@ -11,12 +11,14 @@ set +h
 #REQ:gnome-common
 #REQ:gnome-doc-utils
 
+
 cd $SOURCE_DIR
+
 
 
 NAME=gparted-gtk3
 VERSION=0.31.0
-URL=""
+
 
 if [ ! -z $URL ]
 then
@@ -46,6 +48,8 @@ sudo sed -i 's/Exec=/Exec=sudo -A /' /usr/share/applications/gparted.desktop
 cd $SOURCE_DIR
 rm -rf gparted-gtk3
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

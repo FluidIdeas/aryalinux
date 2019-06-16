@@ -7,10 +7,12 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/libpng/libpng-1.6.37.tar.xz
 wget -nc https://downloads.sourceforge.net/sourceforge/libpng-apng/libpng-1.6.37-apng.patch.gz
+
 
 NAME=libpng
 VERSION=1.6.37
@@ -32,21 +34,24 @@ fi
 cd $DIRECTORY
 fi
 
+
 gzip -cd ../libpng-1.6.37-apng.patch.gz | patch -p1
 ./configure --prefix=/usr --disable-static &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 mkdir -v /usr/share/doc/libpng-1.6.37 &&
 cp -v README libpng-manual.txt /usr/share/doc/libpng-1.6.37
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

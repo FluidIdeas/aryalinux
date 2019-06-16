@@ -8,11 +8,13 @@ set +h
 
 #REQ:libglade
 #REQ:x7app
-#REC:glu
+#REQ:glu
+
 
 cd $SOURCE_DIR
 
 wget -nc https://www.jwz.org/xscreensaver/xscreensaver-5.42.tar.gz
+
 
 NAME=xscreensaver
 VERSION=5.42
@@ -34,35 +36,38 @@ fi
 cd $DIRECTORY
 fi
 
+
 sed -i '/^\/\//d' hacks/fontglide.c
 ./configure --prefix=/usr &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/pam.d/xscreensaver << "EOF"
 # Begin /etc/pam.d/xscreensaver
 
-auth include system-auth
+auth    include system-auth
 account include system-account
 
 # End /etc/pam.d/xscreensaver
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

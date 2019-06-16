@@ -7,14 +7,16 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:cmake
-#REC:nasm
+#REQ:nasm
+
 
 cd $SOURCE_DIR
 
 wget -nc https://bitbucket.org/multicoreware/x265/downloads/x265_3.0.tar.gz
 
+
 NAME=x265
-VERSION=x265_3.0
+VERSION=26
 URL=https://bitbucket.org/multicoreware/x265/downloads/x265_3.0.tar.gz
 
 if [ ! -z $URL ]
@@ -33,22 +35,25 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir bld &&
-cd bld &&
+cd    bld &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr ../source &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 rm -vf /usr/lib/libx265.a
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

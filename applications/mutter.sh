@@ -14,19 +14,20 @@ set +h
 #REQ:pipewire
 #REQ:upower
 #REQ:zenity
-#REQ:libpipewire
-#REC:gobject-introspection
-#REC:startup-notification
-#REC:libinput
-#REC:wayland
-#REC:wayland-protocols
-#REC:xorg-server
-#REC:gtk3
+#REQ:gobject-introspection
+#REQ:startup-notification
+#REQ:x7driver#libinput
+#REQ:wayland
+#REQ:wayland-protocols
+#REQ:xorg-server
+#REQ:gtk3
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/mutter/3.32/mutter-3.32.1.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/mutter/3.32/mutter-3.32.1.tar.xz
+
 
 NAME=mutter
 VERSION=3.32.1
@@ -48,21 +49,24 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
 cd build &&
 
 meson --prefix=/usr .. &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

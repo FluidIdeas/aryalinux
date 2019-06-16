@@ -9,9 +9,11 @@ set +h
 #REQ:boost
 #REQ:lua
 
+
 cd $SOURCE_DIR
 
 wget -nc http://www.andre-simon.de/zip/highlight-3.50.tar.bz2
+
 
 NAME=highlight
 VERSION=3.50
@@ -33,18 +35,21 @@ fi
 cd $DIRECTORY
 fi
 
+
 sed -i '/GZIP/s/^/#/' makefile
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

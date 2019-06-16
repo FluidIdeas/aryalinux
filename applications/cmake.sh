@@ -7,16 +7,18 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libuv
-#REC:curl
-#REC:libarchive
+#REQ:curl
+#REQ:libarchive
+
 
 cd $SOURCE_DIR
 
-wget -nc https://cmake.org/files/v3.14/cmake-3.14.3.tar.gz
+wget -nc https://cmake.org/files/v3.14/cmake-3.14.5.tar.gz
+
 
 NAME=cmake
-VERSION=3.14.3
-URL=https://cmake.org/files/v3.14/cmake-3.14.3.tar.gz
+VERSION=3.14.5
+URL=https://cmake.org/files/v3.14/cmake-3.14.5.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -34,25 +36,28 @@ fi
 cd $DIRECTORY
 fi
 
+
 sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake &&
 
-./bootstrap --prefix=/usr \
---system-libs \
---mandir=/share/man \
---no-system-jsoncpp \
---no-system-librhash \
---docdir=/share/doc/cmake-3.14.3 &&
+./bootstrap --prefix=/usr        \
+            --system-libs        \
+            --mandir=/share/man  \
+            --no-system-jsoncpp  \
+            --no-system-librhash \
+            --docdir=/share/doc/cmake-3.14.5 &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

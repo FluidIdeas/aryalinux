@@ -7,10 +7,12 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://github.com/mesonbuild/meson/releases/download/0.50.0/meson-0.50.0.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/meson-0.50.0-gnome.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/meson-0.50.0-gnome.patch
+
 
 NAME=meson
 VERSION=0.50.0
@@ -37,6 +39,8 @@ python3 setup.py build
 python3 setup.py install --root=dest
 sudo cp -rv dest/* /
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

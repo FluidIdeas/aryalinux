@@ -9,10 +9,12 @@ set +h
 #REQ:gtk2
 #REQ:sane
 
+
 cd $SOURCE_DIR
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/xsane/xsane-0.999.tar.gz
 wget -nc ftp://anduin.linuxfromscratch.org/BLFS/xsane/xsane-0.999.tar.gz
+
 
 NAME=xsane
 VERSION=0.999
@@ -34,38 +36,41 @@ fi
 cd $DIRECTORY
 fi
 
-sed -i -e 's/png_ptr->jmpbuf/png_jmpbuf(png_ptr)/' src/xsane-save.c &&
-./configure --prefix=/usr &&
-make
 
+sed -i -e 's/png_ptr->jmpbuf/png_jmpbuf(png_ptr)/' src/xsane-save.c &&
+./configure --prefix=/usr                                           &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make xsanedocdir=/usr/share/doc/xsane-0.999 install &&
 ln -v -s ../../doc/xsane-0.999 /usr/share/sane/xsane/doc
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ln -v -s <browser> /usr/bin/netscape
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ln -v -s /usr/bin/xsane /usr/lib/gimp/2.0/plug-ins/
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

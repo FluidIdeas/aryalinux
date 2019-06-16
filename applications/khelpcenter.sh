@@ -11,13 +11,15 @@ set +h
 #REQ:libxml2
 #REQ:xapian
 
+
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/applications/18.12.2/src/khelpcenter-18.12.2.tar.xz
+wget -nc http://download.kde.org/stable/applications/19.04.1/src/khelpcenter-19.04.1.tar.xz
+
 
 NAME=khelpcenter
-VERSION=18.12.2
-URL=http://download.kde.org/stable/applications/18.12.2/src/khelpcenter-18.12.2.tar.xz
+VERSION=19.04.1
+URL=http://download.kde.org/stable/applications/19.04.1/src/khelpcenter-19.04.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -35,27 +37,30 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
-cd build &&
+cd    build &&
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
--DCMAKE_BUILD_TYPE=Release \
--DBUILD_TESTING=OFF \
--Wno-dev .. &&
+cmake -DCMAKE_INSTALL_PREFIX=$KF5_PREFIX \
+      -DCMAKE_BUILD_TYPE=Release         \
+      -DBUILD_TESTING=OFF                \
+      -Wno-dev .. &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
+make install  &&
 
-mv -v /usr/share/kde4/services/khelpcenter.desktop /usr/share/applications/ &&
-rm -rv /usr/share/kde4
+mv -v $KF5_PREFIX/share/kde4/services/khelpcenter.desktop /usr/share/applications/ &&
+rm -rv $KF5_PREFIX/share/kde4
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

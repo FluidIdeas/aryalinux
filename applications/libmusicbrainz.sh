@@ -7,11 +7,13 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc http://ftp.musicbrainz.org/pub/musicbrainz/historical/libmusicbrainz-2.1.5.tar.gz
 wget -nc ftp://ftp.musicbrainz.org/pub/musicbrainz/historical/libmusicbrainz-2.1.5.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/libmusicbrainz-2.1.5-missing-includes-1.patch
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/libmusicbrainz-2.1.5-missing-includes-1.patch
+
 
 NAME=libmusicbrainz
 VERSION=2.1.5
@@ -33,33 +35,36 @@ fi
 cd $DIRECTORY
 fi
 
+
 patch -Np1 -i ../libmusicbrainz-2.1.5-missing-includes-1.patch &&
 
 CXXFLAGS=-std=c++98 \
 ./configure --prefix=/usr --disable-static &&
 make
 (cd python && python setup.py build)
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 install -v -m644 -D docs/mb_howto.txt \
-/usr/share/doc/libmusicbrainz-2.1.5/mb_howto.txt
+    /usr/share/doc/libmusicbrainz-2.1.5/mb_howto.txt
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 (cd python && python setup.py install)
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

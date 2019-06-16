@@ -8,12 +8,14 @@ set +h
 
 #REQ:qt5
 
+
 cd $SOURCE_DIR
 
 wget -nc http://launchpad.net/ubuntu/+archive/primary/+files/libdbusmenu-qt_0.9.3+16.04.20160218.orig.tar.gz
 
+
 NAME=libdbusmenu-qt
-VERSION=qt_0.9.3+16.04.20160218.orig
+VERSION=0.9.
 URL=http://launchpad.net/ubuntu/+archive/primary/+files/libdbusmenu-qt_0.9.3+16.04.20160218.orig.tar.gz
 
 if [ ! -z $URL ]
@@ -32,24 +34,27 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
-cd build &&
+cd    build &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr \
--DCMAKE_BUILD_TYPE=Release \
--DWITH_DOC=OFF \
--Wno-dev .. &&
+      -DCMAKE_BUILD_TYPE=Release  \
+      -DWITH_DOC=OFF              \
+      -Wno-dev .. &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

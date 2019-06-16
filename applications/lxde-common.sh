@@ -11,14 +11,16 @@ set +h
 #REQ:lxsession
 #REQ:openbox
 #REQ:pcmanfm
-#REC:desktop-file-utils
-#REC:hicolor-icon-theme
-#REC:shared-mime-info
-#REC:dbus
+#REQ:desktop-file-utils
+#REQ:hicolor-icon-theme
+#REQ:shared-mime-info
+#REQ:dbus
+
 
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/lxde/lxde-common-0.99.2.tar.xz
+
 
 NAME=lxde-common
 VERSION=0.99.2
@@ -40,17 +42,17 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr --sysconfdir=/etc &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -58,6 +60,7 @@ update-mime-database /usr/share/mime &&
 gtk-update-icon-cache -qf /usr/share/icons/hicolor &&
 update-desktop-database -q
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -70,6 +73,8 @@ EOF
 startx
 startx &> ~/.x-session-errors
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

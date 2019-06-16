@@ -9,9 +9,11 @@ set +h
 #REQ:libjpeg
 #REQ:lcms2
 
+
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/libmng/libmng-2.0.3.tar.xz
+
 
 NAME=libmng
 VERSION=2.0.3
@@ -33,21 +35,24 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr --disable-static &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
-install -v -m755 -d /usr/share/doc/libmng-2.0.3 &&
+install -v -m755 -d        /usr/share/doc/libmng-2.0.3 &&
 install -v -m644 doc/*.txt /usr/share/doc/libmng-2.0.3
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

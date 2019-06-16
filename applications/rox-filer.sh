@@ -9,9 +9,11 @@ set +h
 #REQ:libglade
 #REQ:shared-mime-info
 
+
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/rox/rox-filer-2.11.tar.bz2
+
 
 NAME=rox-filer
 VERSION=2.11
@@ -33,39 +35,40 @@ fi
 cd $DIRECTORY
 fi
 
-cd ROX-Filer &&
+
+cd ROX-Filer                                                        &&
 sed -i 's:g_strdup(getenv("APP_DIR")):"/usr/share/rox":' src/main.c &&
 
-mkdir build &&
-pushd build &&
-../src/configure LIBS="-lm -ldl" &&
-make &&
+mkdir build                        &&
+pushd build                        &&
+  ../src/configure LIBS="-lm -ldl" &&
+  make                             &&
 popd
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir -p /usr/share/rox &&
+mkdir -p /usr/share/rox                              &&
 cp -av Help Messages Options.xml ROX images style.css .DirIcon /usr/share/rox &&
 
-cp -av ../rox.1 /usr/share/man/man1 &&
-cp -v ROX-Filer /usr/bin/rox &&
-chown -Rv root:root /usr/bin/rox /usr/share/rox &&
+cp -av ../rox.1 /usr/share/man/man1                  &&
+cp -v  ROX-Filer /usr/bin/rox                        &&
+chown -Rv root:root /usr/bin/rox /usr/share/rox      &&
 
-cd /usr/share/rox/ROX/MIME &&
-ln -sv text-x-{diff,patch}.png &&
-ln -sv application-x-font-{afm,type1}.png &&
-ln -sv application-xml{,-dtd}.png &&
+cd /usr/share/rox/ROX/MIME                           &&
+ln -sv text-x-{diff,patch}.png                       &&
+ln -sv application-x-font-{afm,type1}.png            &&
+ln -sv application-xml{,-dtd}.png                    &&
 ln -sv application-xml{,-external-parsed-entity}.png &&
-ln -sv application-{,rdf+}xml.png &&
-ln -sv application-x{ml,-xbel}.png &&
-ln -sv application-{x-shell,java}script.png &&
-ln -sv application-x-{bzip,xz}-compressed-tar.png &&
-ln -sv application-x-{bzip,lzma}-compressed-tar.png &&
-ln -sv application-x-{bzip-compressed-tar,lzo}.png &&
-ln -sv application-x-{bzip,xz}.png &&
-ln -sv application-x-{gzip,lzma}.png &&
+ln -sv application-{,rdf+}xml.png                    &&
+ln -sv application-x{ml,-xbel}.png                   &&
+ln -sv application-{x-shell,java}script.png          &&
+ln -sv application-x-{bzip,xz}-compressed-tar.png    &&
+ln -sv application-x-{bzip,lzma}-compressed-tar.png  &&
+ln -sv application-x-{bzip-compressed-tar,lzo}.png   &&
+ln -sv application-x-{bzip,xz}.png                   &&
+ln -sv application-x-{gzip,lzma}.png                 &&
 ln -sv application-{msword,rtf}.png
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -81,7 +84,6 @@ rox -x ${MOUNT_PATH}
 HERE_DOC
 
 chmod 755 /path/to/hostname/AppRun
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /usr/bin/myumount << "HERE_DOC" &&
@@ -95,10 +97,10 @@ HERE_DOC
 
 chmod 755 /usr/bin/myumount
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -118,11 +120,14 @@ StartupNotify=true
 Terminal=false
 HERE_DOC
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

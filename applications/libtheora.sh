@@ -7,11 +7,13 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libogg
-#REC:libvorbis
+#REQ:libvorbis
+
 
 cd $SOURCE_DIR
 
 wget -nc https://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.xz
+
 
 NAME=libtheora
 VERSION=1.1.1
@@ -33,31 +35,34 @@ fi
 cd $DIRECTORY
 fi
 
+
 sed -i 's/png_\(sizeof\)/\1/g' examples/png2theora.c &&
 ./configure --prefix=/usr --disable-static &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cd examples/.libs &&
 for E in *; do
-install -v -m755 $E /usr/bin/theora_${E}
+  install -v -m755 $E /usr/bin/theora_${E}
 done
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

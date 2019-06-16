@@ -15,20 +15,22 @@ set +h
 #REQ:which
 #REQ:x7lib
 #REQ:zip
-#REC:make-ca
-#REC:giflib
-#REC:lcms2
-#REC:libjpeg
-#REC:libpng
-#REC:wget
+#REQ:make-ca
+#REQ:giflib
+#REQ:lcms2
+#REQ:libjpeg
+#REQ:libpng
+#REQ:wget
+
 
 cd $SOURCE_DIR
 
 wget -nc http://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.2+9.tar.bz2
 wget -nc http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-11.0.2/jtreg-4.2-b13-517.tar.gz
 
+
 NAME=openjdk
-VERSION=11.0.2+9
+VERSION=11.0.
 URL=http://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.2+9.tar.bz2
 
 if [ ! -z $URL ]
@@ -47,50 +49,50 @@ fi
 cd $DIRECTORY
 fi
 
+
 tar -xf ../jtreg-4.2-b13-517.tar.gz
-unset JAVA_HOME &&
-bash configure --enable-unlimited-crypto \
---disable-warnings-as-errors \
---with-stdc++lib=dynamic \
---with-giflib=system \
---with-jtreg=$PWD/jtreg \
---with-lcms=system \
---with-libjpeg=system \
---with-libpng=system \
---with-zlib=system \
---with-version-build="9" \
---with-version-pre="" \
---with-version-opt="" \
---with-cacerts-file=/etc/pki/tls/java/cacerts &&
+unset JAVA_HOME                             &&
+bash configure --enable-unlimited-crypto    \
+               --disable-warnings-as-errors \
+               --with-stdc++lib=dynamic     \
+               --with-giflib=system         \
+               --with-jtreg=$PWD/jtreg      \
+               --with-lcms=system           \
+               --with-libjpeg=system        \
+               --with-libpng=system         \
+               --with-zlib=system           \
+               --with-version-build="9"    \
+               --with-version-pre=""        \
+               --with-version-opt=""        \
+               --with-cacerts-file=/etc/pki/tls/java/cacerts &&
 make images
 export JT_JAVA=$(echo $PWD/build/*/jdk) &&
 jtreg/bin/jtreg -jdk:$JT_JAVA -automatic -ignore:quiet -v1 \
-test/jdk:tier1 test/langtools:tier1 &&
+    test/jdk:tier1 test/langtools:tier1 &&
 unset JT_JAVA
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -vdm755 /opt/jdk-11.0.2+9 &&
+install -vdm755 /opt/jdk-11.0.2+9             &&
 cp -Rv build/*/images/jdk/* /opt/jdk-11.0.2+9 &&
-chown -R root:root /opt/jdk-11.0.2+9 &&
+chown -R root:root /opt/jdk-11.0.2+9          &&
 for s in 16 24 32 48; do
-install -vDm644 src/java.desktop/unix/classes/sun/awt/X11/java-icon${s}.png \
-/usr/share/icons/hicolor/${s}x${s}/apps/java.png
+  install -vDm644 src/java.desktop/unix/classes/sun/awt/X11/java-icon${s}.png \
+                  /usr/share/icons/hicolor/${s}x${s}/apps/java.png
 done
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ln -v -nsf jdk-11.0.2+9 /opt/jdk
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -119,30 +121,33 @@ Icon=java
 Categories=Application;System;
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ln -sfv /etc/pki/tls/java/cacerts /opt/jdk/lib/security/cacerts
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cd /opt/jdk
 bin/keytool -list -cacerts
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

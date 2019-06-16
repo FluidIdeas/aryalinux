@@ -7,12 +7,14 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:exiv2
-#REC:vala
+#REQ:vala
+
 
 cd $SOURCE_DIR
 
 wget -nc https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.0.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/GNOME/sources/gexiv2/0.12/gexiv2-0.12.0.tar.xz
+
 
 NAME=gexiv2
 VERSION=0.12.0
@@ -34,21 +36,24 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
-cd build &&
+cd    build &&
 
 meson --prefix=/usr .. &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

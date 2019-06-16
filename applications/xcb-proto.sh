@@ -6,10 +6,13 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#REQ:xorg7#xorg-env
+
 
 cd $SOURCE_DIR
 
 wget -nc https://xcb.freedesktop.org/dist/xcb-proto-1.13.tar.bz2
+
 
 NAME=xcb-proto
 VERSION=1.13
@@ -31,20 +34,21 @@ fi
 cd $DIRECTORY
 fi
 
-export XORG_PREFIX=/usr
-export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
+XORG_CONFIG=--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static
 
 ./configure $XORG_CONFIG
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

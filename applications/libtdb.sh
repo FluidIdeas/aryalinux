@@ -7,9 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://www.samba.org/ftp/tdb/tdb-1.3.17.tar.gz
+
 
 NAME=libtdb
 VERSION=1.3.17
@@ -36,6 +38,8 @@ sed -i "s@../../buildtools@buildtools@g" Makefile
 make
 sudo make install
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

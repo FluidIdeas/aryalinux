@@ -17,12 +17,13 @@ set +h
 #REQ:gnome-session
 #REQ:gnome-shell
 #REQ:systemd
-#REQ:plymouth
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gdm/3.32/gdm-3.32.0.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gdm/3.32/gdm-3.32.0.tar.xz
+
 
 NAME=gdm
 VERSION=3.32.0
@@ -49,59 +50,44 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 groupadd -g 21 gdm &&
 useradd -c "GDM Daemon Owner" -d /var/lib/gdm -u 21 \
--g gdm -s /bin/false gdm &&
+        -g gdm -s /bin/false gdm &&
 passwd -ql gdm
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-./configure --prefix=/usr \
---sysconfdir=/etc \
---localstatedir=/var \
---enable-plymouth \
---disable-static \
---enable-gdm-xsession \
---with-pam-mod-dir=/lib/security &&
+./configure --prefix=/usr         \
+            --sysconfdir=/etc     \
+            --localstatedir=/var  \
+            --without-plymouth    \
+            --disable-static      \
+            --enable-gdm-xsession \
+            --with-pam-mod-dir=/lib/security &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 install -v -m644 data/gdm.service /lib/systemd/system/gdm.service
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 systemctl enable gdm
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sudo tee /etc/gdm/custom.conf <<"EOF"
-# GDM configuration storage
 
-[daemon]
-# Uncomment the line below to force the login screen to use Xorg
-#WaylandEnable=false
-DefaultSession=gnome-xorg.desktop
-
-[security]
-
-[xdmcp]
-
-[chooser]
-
-[debug]
-# Uncomment the line below to turn on debugging
-#Enable=true
-EOF
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

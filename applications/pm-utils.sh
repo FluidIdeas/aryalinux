@@ -7,9 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://pm-utils.freedesktop.org/releases/pm-utils-1.4.1.tar.gz
+
 
 NAME=pm-utils
 VERSION=1.4.1
@@ -31,19 +33,19 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---sysconfdir=/etc \
---docdir=/usr/share/doc/pm-utils-1.4.1 &&
-make
 
+./configure --prefix=/usr     \
+            --sysconfdir=/etc \
+            --docdir=/usr/share/doc/pm-utils-1.4.1 &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -53,11 +55,14 @@ ln -sv pm-action.8 /usr/share/man/man8/pm-suspend.8 &&
 ln -sv pm-action.8 /usr/share/man/man8/pm-hibernate.8 &&
 ln -sv pm-action.8 /usr/share/man/man8/pm-suspend-hybrid.8
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

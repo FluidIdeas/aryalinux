@@ -9,11 +9,13 @@ set +h
 #REQ:freetype2
 #REQ:fribidi
 #REQ:nasm
-#REC:fontconfig
+#REQ:fontconfig
+
 
 cd $SOURCE_DIR
 
 wget -nc https://github.com/libass/libass/releases/download/0.14.0/libass-0.14.0.tar.xz
+
 
 NAME=libass
 VERSION=0.14.0
@@ -35,18 +37,21 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr --disable-static &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

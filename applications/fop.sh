@@ -8,13 +8,17 @@ set +h
 
 #REQ:apache-ant
 
+
 cd $SOURCE_DIR
 
 wget -nc https://archive.apache.org/dist/xmlgraphics/fop/source/fop-2.3-src.tar.gz
+wget -nc http://mirror.reverse.net/pub/apache/pdfbox/2.0.15/pdfbox-2.0.15.jar
+wget -nc http://mirror.reverse.net/pub/apache/pdfbox/2.0.15/fontbox-2.0.15.jar
 wget -nc https://downloads.sourceforge.net/offo/2.2/offo-hyphenation.zip
 
+
 NAME=fop
-VERSION=src
+VERSION=2.
 URL=https://archive.apache.org/dist/xmlgraphics/fop/source/fop-2.3-src.tar.gz
 
 if [ ! -z $URL ]
@@ -33,6 +37,7 @@ fi
 cd $DIRECTORY
 fi
 
+
 unzip ../offo-hyphenation.zip &&
 cp offo-hyphenation/hyph/* fop/hyph &&
 rm -rf offo-hyphenation
@@ -40,31 +45,30 @@ sed -i '\@</javad@i\
 <arg value="-Xdoclint:none"/>\
 <arg value="--allow-script-in-comments"/>\
 <arg value="--ignore-source-errors"/>' \
-fop/build.xml
+    fop/build.xml
 sed -e '/hyph\.stack/s/512k/1M/' \
--i fop/build.xml
+    -i fop/build.xml
 cp ../{pdf,font}box-2.0.15.jar fop/lib
-cd fop &&
+cd fop                    &&
 export LC_ALL=en_US.UTF-8 &&
-ant all javadocs &&
+ant all javadocs          &&
 mv build/javadocs .
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -d -m755 -o root -g root /opt/fop-2.3 &&
+install -v -d -m755 -o root -g root          /opt/fop-2.3 &&
 cp -vR build conf examples fop* javadocs lib /opt/fop-2.3 &&
-chmod a+x /opt/fop-2.3/fop &&
+chmod a+x /opt/fop-2.3/fop                                &&
 ln -v -sfn fop-2.3 /opt/fop
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 cat > ~/.foprc << "EOF"
-FOP_OPTS="-Xmx<em class="replaceable"><code><RAM_Installed></em>m"
+FOP_OPTS="-Xmx<RAM_Installed>m"
 FOP_HOME="/opt/fop"
 EOF
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/profile.d/fop.sh << "EOF"
@@ -75,11 +79,14 @@ pathappend /opt/fop
 # End /etc/profile.d/fop.sh
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

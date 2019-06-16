@@ -8,9 +8,11 @@ set +h
 
 #REQ:python2
 
+
 cd $SOURCE_DIR
 
 wget -nc https://www.mercurial-scm.org/release/mercurial-5.0.tar.gz
+
 
 NAME=mercurial
 VERSION=5.0
@@ -32,39 +34,39 @@ fi
 cd $DIRECTORY
 fi
 
+
 make build
 sed -i '/runrst/s/N)/N)3/' doc/Makefile &&
-2to3-3.7 -w doc/hgmanpage.py &&
+2to3-3.7 -w doc/hgmanpage.py            &&
 make doc
 rm -rf tests/tmp &&
-TESTFLAGS="-j<em class="replaceable"><code><N></code></em> --tmpdir tmp --blacklist blacklists/failed-tests" make check
-pushd tests &&
-rm -rf tmp &&
-./run-tests.py --tmpdir tmp test-gpg.t
+TESTFLAGS="-j<N> --tmpdir tmp --blacklist blacklists/failed-tests" make check
+pushd tests  &&
+  rm -rf tmp &&
+  ./run-tests.py --tmpdir tmp test-gpg.t
 popd
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make PREFIX=/usr install-bin
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make PREFIX=/usr install-doc
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 cat >> ~/.hgrc << "EOF"
 [ui]
-username = <em class="replaceable"><code><user_name> <user@mail></em>
+username = <user_name> <user@mail>
 EOF
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -d -m755 /etc/mercurial &&
@@ -73,11 +75,14 @@ cat > /etc/mercurial/hgrc << "EOF"
 cacerts = /etc/pki/tls/certs/ca-bundle.crt
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

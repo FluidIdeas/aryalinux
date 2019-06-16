@@ -11,13 +11,14 @@ set +h
 #REQ:nspr
 #REQ:python2
 #REQ:x7lib
-#REQ:yasm
 #REQ:zip
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/teams/releng/tarballs-needing-help/mozjs/mozjs-60.1.0.tar.bz2
 wget -nc ftp://ftp.gnome.org/pub/gnome/teams/releng/tarballs-needing-help/mozjs/mozjs-60.1.0.tar.bz2
+
 
 NAME=js60
 VERSION=60.1.0
@@ -39,27 +40,30 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir mozjs-build &&
-cd mozjs-build &&
+cd    mozjs-build &&
 
-../js/src/configure --prefix=/usr \
---with-intl-api \
---with-system-zlib \
---with-system-nspr \
---with-system-icu \
---disable-jemalloc \
---enable-readline &&
+../js/src/configure --prefix=/usr       \
+                    --with-intl-api     \
+                    --with-system-zlib  \
+                    --with-system-nspr  \
+                    --with-system-icu   \
+                    --disable-jemalloc  \
+                    --enable-readline   &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

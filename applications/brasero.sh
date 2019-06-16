@@ -10,19 +10,21 @@ set +h
 #REQ:itstool
 #REQ:libcanberra
 #REQ:libnotify
-#REC:gobject-introspection
-#REC:libburn
-#REC:libisoburn
-#REC:libisofs
-#REC:nautilus
-#REC:totem-pl-parser
-#REC:dvd-rw-tools
-#REC:gvfs
+#REQ:gobject-introspection
+#REQ:libburn
+#REQ:libisoburn
+#REQ:libisofs
+#REQ:nautilus
+#REQ:totem-pl-parser
+#REQ:dvd-rw-tools
+#REQ:gvfs
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/brasero/3.12/brasero-3.12.2.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/brasero/3.12/brasero-3.12.2.tar.xz
+
 
 NAME=brasero
 VERSION=3.12.2
@@ -44,20 +46,23 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---enable-compile-warnings=no \
---enable-cxx-warnings=no &&
-make
 
+./configure --prefix=/usr                \
+            --enable-compile-warnings=no \
+            --enable-cxx-warnings=no     &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

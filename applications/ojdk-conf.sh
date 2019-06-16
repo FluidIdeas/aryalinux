@@ -7,12 +7,14 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 
+
 NAME=ojdk-conf
-VERSION=""
-URL=""
+
+
 
 if [ ! -z $URL ]
 then
@@ -54,11 +56,11 @@ AUTO_CLASSPATH_DIR=/usr/share/java
 pathprepend . CLASSPATH
 
 for dir in `find ${AUTO_CLASSPATH_DIR} -type d 2>/dev/null`; do
-pathappend $dir CLASSPATH
+    pathappend $dir CLASSPATH
 done
 
 for jar in `find ${AUTO_CLASSPATH_DIR} -name "*.jar" 2>/dev/null`; do
-pathappend $jar CLASSPATH
+    pathappend $jar CLASSPATH
 done
 
 export JAVA_HOME
@@ -67,10 +69,10 @@ unset AUTO_CLASSPATH_DIR dir jar
 # End /etc/profile.d/openjdk.sh
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -79,47 +81,50 @@ Defaults env_keep += JAVA_HOME
 Defaults env_keep += CLASSPATH
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat >> /etc/man_db.conf << "EOF" &&
 # Begin Java addition
-MANDATORY_MANPATH /opt/jdk/man
-MANPATH_MAP /opt/jdk/bin /opt/jdk/man
-MANDB_MAP /opt/jdk/man /var/cache/man/jdk
+MANDATORY_MANPATH     /opt/jdk/man
+MANPATH_MAP           /opt/jdk/bin     /opt/jdk/man
+MANDB_MAP             /opt/jdk/man     /var/cache/man/jdk
 # End Java addition
 EOF
 
 mkdir -p /var/cache/man &&
 mandb -c /opt/jdk/man
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ln -sfv /etc/pki/tls/java/cacerts /opt/jdk/lib/security/cacerts
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 /opt/jdk/bin/keytool -list -cacerts
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

@@ -7,14 +7,16 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/mad/libmad-0.15.1b.tar.gz
 wget -nc ftp://ftp.mars.org/pub/mpeg/libmad-0.15.1b.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/libmad-0.15.1b-fixes-1.patch
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/libmad-0.15.1b-fixes-1.patch
+
 
 NAME=libmad
-VERSION=0.15.1b
+VERSION=0.15.
 URL=https://downloads.sourceforge.net/mad/libmad-0.15.1b.tar.gz
 
 if [ ! -z $URL ]
@@ -33,22 +35,22 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../libmad-0.15.1b-fixes-1.patch &&
+
+patch -Np1 -i ../libmad-0.15.1b-fixes-1.patch                &&
 sed "s@AM_CONFIG_HEADER@AC_CONFIG_HEADERS@g" -i configure.ac &&
-touch NEWS AUTHORS ChangeLog &&
-autoreconf -fi &&
+touch NEWS AUTHORS ChangeLog                                 &&
+autoreconf -fi                                               &&
 
 ./configure --prefix=/usr --disable-static &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -66,11 +68,14 @@ Libs: -L${libdir} -lmad
 Cflags: -I${includedir}
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

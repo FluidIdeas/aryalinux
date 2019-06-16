@@ -7,12 +7,14 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc ftp://ftp.ncftp.com/ncftp/ncftp-3.2.6-src.tar.xz
 
+
 NAME=ncftp
-VERSION=src
+VERSION=3.2.
 URL=ftp://ftp.ncftp.com/ncftp/ncftp-3.2.6-src.tar.xz
 
 if [ ! -z $URL ]
@@ -31,31 +33,34 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr --sysconfdir=/etc &&
 make -C libncftp shared &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make -C libncftp soinstall &&
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 ./configure --prefix=/usr --sysconfdir=/etc &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

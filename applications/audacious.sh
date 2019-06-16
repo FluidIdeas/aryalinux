@@ -9,12 +9,16 @@ set +h
 #REQ:gtk2
 #REQ:qt5
 #REQ:libxml2
-#REC:mpg123
+#REQ:xorg7#xorg-env
+#REQ:installing
+#REQ:mpg123
+
 
 cd $SOURCE_DIR
 
 wget -nc https://distfiles.audacious-media-player.org/audacious-3.10.1.tar.bz2
 wget -nc https://distfiles.audacious-media-player.org/audacious-plugins-3.10.1.tar.bz2
+
 
 NAME=audacious
 VERSION=3.10.1
@@ -36,53 +40,56 @@ fi
 cd $DIRECTORY
 fi
 
-TPUT=/bin/true ./configure --prefix=/usr \
---with-buildstamp="BLFS" &&
-make
 
+TPUT=/bin/true ./configure --prefix=/usr \
+                           --with-buildstamp="BLFS" &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 TPUT=/bin/true ./configure --prefix=/usr --disable-wavpack &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
 update-desktop-database -q
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cp -v /usr/share/applications/audacious{,-qt}.desktop &&
 
 sed -e '/^Name/ s/$/ Qt/' \
--e '/Exec=/ s/audacious/& --qt/' \
--i /usr/share/applications/audacious-qt.desktop
+    -e '/Exec=/ s/audacious/& --qt/' \
+    -i /usr/share/applications/audacious-qt.desktop
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

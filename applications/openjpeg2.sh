@@ -8,9 +8,11 @@ set +h
 
 #REQ:cmake
 
+
 cd $SOURCE_DIR
 
 wget -nc https://github.com/uclouvain/openjpeg/archive/v2.3.1/openjpeg-2.3.1.tar.gz
+
 
 NAME=openjpeg2
 VERSION=2.3.1
@@ -32,29 +34,32 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir -v build &&
-cd build &&
+cd       build &&
 
 cmake -DCMAKE_BUILD_TYPE=Release \
--DCMAKE_INSTALL_PREFIX=/usr \
--DBUILD_STATIC_LIBS=OFF .. &&
+      -DCMAKE_INSTALL_PREFIX=/usr \
+      -DBUILD_STATIC_LIBS=OFF .. &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
 pushd ../doc &&
-for man in man/man?/* ; do
-install -v -D -m 644 $man /usr/share/$man
-done 
+  for man in man/man?/* ; do
+      install -v -D -m 644 $man /usr/share/$man
+  done 
 popd
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

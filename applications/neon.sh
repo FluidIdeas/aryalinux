@@ -7,9 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://fossies.org/linux/www/neon-0.30.2.tar.gz
+
 
 NAME=neon
 VERSION=0.30.2
@@ -31,25 +33,28 @@ fi
 cd $DIRECTORY
 fi
 
-sed -e 's/client_set/set/' \
--e 's/gnutls_retr/&2/' \
--e 's/type = t/cert_&/' \
--i src/ne_gnutls.c
-./configure --prefix=/usr \
---with-ssl \
---enable-shared \
---disable-static &&
-make
 
+sed -e 's/client_set/set/'  \
+    -e 's/gnutls_retr/&2/'  \
+    -e 's/type = t/cert_&/' \
+    -i src/ne_gnutls.c
+./configure --prefix=/usr    \
+            --with-ssl       \
+            --enable-shared  \
+            --disable-static &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

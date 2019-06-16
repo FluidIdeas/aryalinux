@@ -7,12 +7,14 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc http://fcron.free.fr/archives/fcron-3.2.1.src.tar.gz
 
+
 NAME=fcron
-VERSION=3.2.1.src
+VERSION=3.2.1
 URL=http://fcron.free.fr/archives/fcron-3.2.1.src.tar.gz
 
 if [ ! -z $URL ]
@@ -37,31 +39,31 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 groupadd -g 22 fcron &&
 useradd -d /dev/null -c "Fcron User" -g fcron -s /bin/false -u 22 fcron
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-./configure --prefix=/usr \
---sysconfdir=/etc \
---localstatedir=/var \
---without-sendmail \
---with-boot-install=no &&
+./configure --prefix=/usr          \
+            --sysconfdir=/etc      \
+            --localstatedir=/var   \
+            --without-sendmail     \
+            --with-boot-install=no &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /usr/bin/run-parts << "EOF" &&
 #!/bin/sh
-# run-parts: Runs all the scripts found in a directory.
+# run-parts:  Runs all the scripts found in a directory.
 # from Slackware, by Patrick J. Volkerding with ideas borrowed
 # from the Red Hat and Debian versions of this utility.
 
@@ -69,14 +71,14 @@ cat > /usr/bin/run-parts << "EOF" &&
 set +e
 
 if [ $# -lt 1 ]; then
-echo "Usage: run-parts <directory>"
-exit 1
+  echo "Usage: run-parts <directory>"
+  exit 1
 fi
 
 if [ ! -d $1 ]; then
-echo "Not a directory: $1"
-echo "Usage: run-parts <directory>"
-exit 1
+  echo "Not a directory: $1"
+  echo "Usage: run-parts <directory>"
+  exit 1
 fi
 
 # There are several types of files that we would like to
@@ -86,44 +88,44 @@ IGNORE_SUFFIXES="~ ^ , .bak .new .rpmsave .rpmorig .rpmnew .swp"
 
 # Main loop:
 for SCRIPT in $1/* ; do
-# If this is not a regular file, skip it:
-if [ ! -f $SCRIPT ]; then
-continue
-fi
-# Determine if this file should be skipped by suffix:
-SKIP=false
-for SUFFIX in $IGNORE_SUFFIXES ; do
-if [ ! "$(basename $SCRIPT $SUFFIX)" = "$(basename $SCRIPT)" ]; then
-SKIP=true
-break
-fi
-done
-if [ "$SKIP" = "true" ]; then
-continue
-fi
-# If we've made it this far, then run the script if it's executable:
-if [ -x $SCRIPT ]; then
-$SCRIPT || echo "$SCRIPT failed."
-fi
+  # If this is not a regular file, skip it:
+  if [ ! -f $SCRIPT ]; then
+    continue
+  fi
+  # Determine if this file should be skipped by suffix:
+  SKIP=false
+  for SUFFIX in $IGNORE_SUFFIXES ; do
+    if [ ! "$(basename $SCRIPT $SUFFIX)" = "$(basename $SCRIPT)" ]; then
+      SKIP=true
+      break
+    fi
+  done
+  if [ "$SKIP" = "true" ]; then
+    continue
+  fi
+  # If we've made it this far, then run the script if it's executable:
+  if [ -x $SCRIPT ]; then
+    $SCRIPT || echo "$SCRIPT failed."
+  fi
 done
 
 exit 0
 EOF
 chmod -v 755 /usr/bin/run-parts
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -vdm754 /etc/cron.{hourly,daily,weekly,monthly}
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -134,30 +136,33 @@ cat > /var/spool/fcron/systab.orig << "EOF"
 &bootrun 42 4 1 * * root run-parts /etc/cron.monthly
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 systemctl enable fcron
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 systemctl start fcron &&
 fcrontab -z -u systab
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

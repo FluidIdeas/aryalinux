@@ -24,12 +24,14 @@ set +h
 #REQ:libvdpau
 #REQ:libvdpau-va-gl
 
+
 cd $SOURCE_DIR
+
 
 
 NAME=x7driver
 VERSION=1.0
-URL=""
+
 
 if [ ! -z $URL ]
 then
@@ -48,6 +50,9 @@ cd $DIRECTORY
 fi
 
 
+
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

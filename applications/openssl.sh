@@ -7,9 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://openssl.org/source/openssl-1.1.1a.tar.gz
+
 
 NAME=openssl
 VERSION=1.1.1a
@@ -36,6 +38,8 @@ make
 sed -i '/INSTALL_LIBS/s/libcrypto.a libssl.a//' Makefile
 sudo make MANSUFFIX=ssl install
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

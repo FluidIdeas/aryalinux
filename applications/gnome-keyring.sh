@@ -8,14 +8,16 @@ set +h
 
 #REQ:dbus
 #REQ:gcr
-#REC:linux-pam
-#REC:libxslt
-#REC:openssh
+#REQ:linux-pam
+#REQ:libxslt
+#REQ:openssh
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-keyring/3.28/gnome-keyring-3.28.2.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-keyring/3.28/gnome-keyring-3.28.2.tar.xz
+
 
 NAME=gnome-keyring
 VERSION=3.28.2
@@ -37,22 +39,25 @@ fi
 cd $DIRECTORY
 fi
 
+
 sed -i -r 's:"(/desktop):"/org/gnome\1:' schema/*.xml &&
 
-./configure --prefix=/usr \
---sysconfdir=/etc \
---with-pam-dir=/lib/security &&
+./configure --prefix=/usr     \
+            --sysconfdir=/etc \
+            --with-pam-dir=/lib/security &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

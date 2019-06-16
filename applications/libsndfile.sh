@@ -6,13 +6,15 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REC:flac
-#REC:libogg
-#REC:libvorbis
+#REQ:flac
+#REQ:libogg
+#REQ:libvorbis
+
 
 cd $SOURCE_DIR
 
 wget -nc http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.28.tar.gz
+
 
 NAME=libsndfile
 VERSION=1.0.28
@@ -34,20 +36,23 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---disable-static \
---docdir=/usr/share/doc/libsndfile-1.0.28 &&
-make
 
+./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/libsndfile-1.0.28 &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

@@ -7,9 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc http://www.libsdl.org/release/SDL-1.2.15.tar.gz
+
 
 NAME=sdl
 VERSION=1.2.15
@@ -31,21 +33,22 @@ fi
 cd $DIRECTORY
 fi
 
+
 sed -e '/_XData32/s:register long:register _Xconst long:' \
--i src/video/x11/SDL_x11sym.h &&
+    -i src/video/x11/SDL_x11sym.h &&
 
 ./configure --prefix=/usr --disable-static &&
 
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
 install -v -m755 -d /usr/share/doc/SDL-1.2.15/html &&
-install -v -m644 docs/html/*.html \
-/usr/share/doc/SDL-1.2.15/html
+install -v -m644    docs/html/*.html \
+                    /usr/share/doc/SDL-1.2.15/html
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -54,6 +57,8 @@ cd test &&
 ./configure &&
 make
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

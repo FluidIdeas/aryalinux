@@ -8,13 +8,15 @@ set +h
 
 #REQ:dbus-glib
 #REQ:x7lib
-#REC:linux-pam
-#REC:polkit
-#REC:pm-utils
+#REQ:linux-pam
+#REQ:polkit
+#REQ:pm-utils
+
 
 cd $SOURCE_DIR
 
 wget -nc https://github.com/Consolekit2/ConsoleKit2/releases/download/1.2.1/ConsoleKit2-1.2.1.tar.bz2
+
 
 NAME=consolekit
 VERSION=1.2.1
@@ -36,43 +38,43 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---sysconfdir=/etc \
---localstatedir=/var \
---enable-udev-acl \
---enable-pam-module \
---enable-polkit \
---with-xinitrc-dir=/etc/X11/app-defaults/xinitrc.d \
---docdir=/usr/share/doc/ConsoleKit-1.2.1 \
---with-systemdsystemunitdir=no &&
-make
 
+./configure --prefix=/usr        \
+            --sysconfdir=/etc    \
+            --localstatedir=/var \
+            --enable-udev-acl    \
+            --enable-pam-module  \
+            --enable-polkit      \
+            --with-xinitrc-dir=/etc/X11/app-defaults/xinitrc.d \
+            --docdir=/usr/share/doc/ConsoleKit-1.2.1           \
+            --with-systemdsystemunitdir=no                     &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
 mv -v /etc/X11/app-defaults/xinitrc.d/90-consolekit{,.sh}
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat >> /etc/pam.d/system-session << "EOF"
 # Begin ConsoleKit addition
 
-session optional pam_loginuid.so
-session optional pam_ck_connector.so nox11
+session   optional    pam_loginuid.so
+session   optional    pam_ck_connector.so nox11
 
 # End ConsoleKit addition
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -86,22 +88,25 @@ TAGDIR=/var/run/console
 TAGFILE="$TAGDIR/`getent passwd $CK_SESSION_USER_UID | cut -f 1 -d:`"
 
 if [ "$1" = "session_added" ]; then
-mkdir -p "$TAGDIR"
-echo "$CK_SESSION_ID" >> "$TAGFILE"
+    mkdir -p "$TAGDIR"
+    echo "$CK_SESSION_ID" >> "$TAGFILE"
 fi
 
 if [ "$1" = "session_removed" ] && [ -e "$TAGFILE" ]; then
-sed -i "\%^$CK_SESSION_ID\$%d" "$TAGFILE"
-[ -s "$TAGFILE" ] || rm -f "$TAGFILE"
+    sed -i "\%^$CK_SESSION_ID\$%d" "$TAGFILE"
+    [ -s "$TAGFILE" ] || rm -f "$TAGFILE"
 fi
 EOF
 chmod -v 755 /usr/lib/ConsoleKit/run-session.d/pam-foreground-compat.ck
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

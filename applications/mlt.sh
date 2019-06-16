@@ -7,13 +7,15 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
-wget -nc https://github.com/mltframework/mlt/releases/download/v6.14.0/mlt-6.14.0.tar.gz
+wget -nc https://github.com/mltframework/mlt/releases/download/v6.16.0/mlt-6.16.0.tar.gz
+
 
 NAME=mlt
-VERSION=6.14.0
-URL=https://github.com/mltframework/mlt/releases/download/v6.14.0/mlt-6.14.0.tar.gz
+VERSION=6.16.0
+URL=https://github.com/mltframework/mlt/releases/download/v6.16.0/mlt-6.16.0.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -31,24 +33,27 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---enable-gpl \
---enable-gpl3 \
---enable-opengl \
---disable-gtk2 \
---qt-libdir=$QT5DIR/lib \
---qt-includedir=$QT5DIR/include &&
-make
 
+./configure --prefix=/usr            \
+            --enable-gpl             \
+            --enable-gpl3            \
+            --enable-opengl          \
+            --disable-gtk2           \
+            --qt-libdir=$QT5DIR/lib  \
+            --qt-includedir=$QT5DIR/include &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

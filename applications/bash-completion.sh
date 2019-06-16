@@ -7,9 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://github.com/scop/bash-completion/releases/download/2.8/bash-completion-2.8.tar.xz
+
 
 NAME=bash-completion
 VERSION=2.8
@@ -35,6 +37,8 @@ fi
 make -j$(nproc)
 sudo make install
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

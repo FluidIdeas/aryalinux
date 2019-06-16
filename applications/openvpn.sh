@@ -8,9 +8,11 @@ set +h
 
 #REQ:net-tools
 
+
 cd $SOURCE_DIR
 
 wget -nc https://swupdate.openvpn.org/community/releases/openvpn-2.4.7.tar.xz
+
 
 NAME=openvpn
 VERSION=2.4.7
@@ -37,6 +39,8 @@ if grep "gnome-desktop-environment" /etc/alps/installed-list &> /dev/null; then 
 make
 sudo make install
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

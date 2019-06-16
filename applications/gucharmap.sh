@@ -11,13 +11,15 @@ set +h
 #REQ:itstool
 #REQ:unzip
 #REQ:wget
-#REC:gobject-introspection
-#REC:vala
+#REQ:gobject-introspection
+#REQ:vala
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gucharmap/11.0/gucharmap-11.0.3.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gucharmap/11.0/gucharmap-11.0.3.tar.xz
+
 
 NAME=gucharmap
 VERSION=11.0.3
@@ -39,21 +41,24 @@ fi
 cd $DIRECTORY
 fi
 
-LIBS="-ldl" \
-./configure --prefix=/usr \
---enable-vala \
---with-unicode-data=download &&
-make
 
+LIBS="-ldl"               \
+./configure --prefix=/usr \
+            --enable-vala \
+            --with-unicode-data=download &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

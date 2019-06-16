@@ -11,13 +11,15 @@ set +h
 #REQ:giflib
 #REQ:x7lib
 
+
 cd $SOURCE_DIR
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-11.0.2/OpenJDK-11.0.2+9-i686-bin.tar.xz
 wget -nc https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz
 
+
 NAME=java
-VERSION=bin
+VERSION=11.0.
 URL=http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-11.0.2/OpenJDK-11.0.2+9-i686-bin.tar.xz
 
 if [ ! -z $URL ]
@@ -40,23 +42,26 @@ fi
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -vdm755 /opt/OpenJDK-11.0.2+9-bin &&
-mv -v * /opt/OpenJDK-11.0.2+9-bin &&
+mv -v * /opt/OpenJDK-11.0.2+9-bin         &&
 chown -R root:root /opt/OpenJDK-11.0.2+9-bin
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ln -sfn OpenJDK-11.0.2+9-bin /opt/jdk
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

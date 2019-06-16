@@ -7,13 +7,15 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
-wget -nc http://ftp.postgresql.org/pub/source/v11.2/postgresql-11.2.tar.bz2
+wget -nc http://ftp.postgresql.org/pub/source/v11.3/postgresql-11.3.tar.bz2
+
 
 NAME=postgresql
-VERSION=11.2
-URL=http://ftp.postgresql.org/pub/source/v11.2/postgresql-11.2.tar.bz2
+VERSION=11.3
+URL=http://ftp.postgresql.org/pub/source/v11.3/postgresql-11.3.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -36,95 +38,99 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 groupadd -g 41 postgres &&
 useradd -c "PostgreSQL Server" -g postgres -d /srv/pgsql/data \
--u 41 postgres
+        -u 41 postgres
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 sed -i '/DEFAULT_PGSOCKET_DIR/s@/tmp@/run/postgresql@' src/include/pg_config_manual.h &&
 
-./configure --prefix=/usr \
---enable-thread-safety \
---docdir=/usr/share/doc/postgresql-11.2 &&
+./configure --prefix=/usr          \
+            --enable-thread-safety \
+            --docdir=/usr/share/doc/postgresql-11.3 &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
+make install      &&
 make install-docs
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-
+make -C contrib/<SUBDIR-NAME> install
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -dm700 /srv/pgsql/data &&
 install -v -dm755 /run/postgresql &&
 chown -Rv postgres:postgres /srv/pgsql /run/postgresql
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 su - postgres -c '/usr/bin/initdb -D /srv/pgsql/data'
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/svn/blfs-systemd-units-20180105.tar.bz2
-tar -xf blfs-systemd-units-20180105.tar.bz2
-pushd blfs-systemd-units-20180105
-sudo make install-postgresql
-popd
-popd
-sudo rm -rf $SOURCE_DIR/blfs-systemd-units-20180105
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install-postgresql
+ENDOFROOTSCRIPT
 
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 su - postgres -c '/usr/bin/postgres -D /srv/pgsql/data > \
-/srv/pgsql/data/logfile 2>&1 &'
+                  /srv/pgsql/data/logfile 2>&1 &'
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 su - postgres -c '/usr/bin/createdb test' &&
 echo "create table t1 ( name varchar(20), state_province varchar(20) );" \
-| (su - postgres -c '/usr/bin/psql test ') &&
+    | (su - postgres -c '/usr/bin/psql test ') &&
 echo "insert into t1 values ('Billy', 'NewYork');" \
-| (su - postgres -c '/usr/bin/psql test ') &&
+    | (su - postgres -c '/usr/bin/psql test ') &&
 echo "insert into t1 values ('Evanidus', 'Quebec');" \
-| (su - postgres -c '/usr/bin/psql test ') &&
+    | (su - postgres -c '/usr/bin/psql test ') &&
 echo "insert into t1 values ('Jesse', 'Ontario');" \
-| (su - postgres -c '/usr/bin/psql test ') &&
+    | (su - postgres -c '/usr/bin/psql test ') &&
 echo "select * from t1;" | (su - postgres -c '/usr/bin/psql test')
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 su - postgres -c "/usr/bin/pg_ctl stop -D /srv/pgsql/data"
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

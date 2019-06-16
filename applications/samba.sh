@@ -11,20 +11,25 @@ set +h
 #REQ:lmdb
 #REQ:python2
 #REQ:rpcsvc-proto
-#REC:fuse
-#REC:gpgme
-#REC:libxslt
-#REC:perl-parse-yapp
-#REC:pycrypto
-#REC:openldap
+#REQ:fuse
+#REQ:gpgme
+#REQ:libxslt
+#REQ:perl-modules#perl-parse-yapp
+#REQ:python-modules#pycrypto
+#REQ:openldap
+
 
 cd $SOURCE_DIR
 
-wget -nc https://www.samba.org/ftp/samba/stable/samba-4.10.1.tar.gz
+wget -nc https://www.samba.org/ftp/samba/stable/samba-4.10.4.tar.gz
+wget -nc http://www.samba.org/samba/docs/using_samba/toc.html
+wget -nc http://www.samba.org/samba/docs/man/Samba-HOWTO-Collection/
+wget -nc http://www.samba.org/samba/docs/man/Samba-Guide/
+
 
 NAME=samba
-VERSION=4.10.1
-URL=https://www.samba.org/ftp/samba/stable/samba-4.10.1.tar.gz
+VERSION=4.10.4
+URL=https://www.samba.org/ftp/samba/stable/samba-4.10.4.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -42,46 +47,88 @@ fi
 cd $DIRECTORY
 fi
 
-echo "^samba4.rpc.echo.*on.*ncacn_np.*with.*object.*nt4_dc" >> selftest/knownfail
-CFLAGS="-I/usr/include/tirpc" \
-LDFLAGS="-ltirpc" \
-./configure \
---prefix=/usr \
---sysconfdir=/etc \
---localstatedir=/var \
---with-piddir=/run/samba \
---with-pammodulesdir=/lib/security \
---enable-fhs \
---without-ad-dc \
---enable-selftest &&
-make
 
+echo "^samba4.rpc.echo.*on.*ncacn_np.*with.*object.*nt4_dc" >> selftest/knownfail
+CFLAGS="-I/usr/include/tirpc"          \
+LDFLAGS="-ltirpc"                      \
+./configure                            \
+    --prefix=/usr                      \
+    --sysconfdir=/etc                  \
+    --localstatedir=/var               \
+    --with-piddir=/run/samba           \
+    --with-pammodulesdir=/lib/security \
+    --enable-fhs                       \
+    --without-ad-dc                    \
+    --enable-selftest                  &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
-mv -v /usr/lib/libnss_win{s,bind}.so* /lib &&
+mv -v /usr/lib/libnss_win{s,bind}.so*   /lib                       &&
 ln -v -sf ../../lib/libnss_winbind.so.2 /usr/lib/libnss_winbind.so &&
-ln -v -sf ../../lib/libnss_wins.so.2 /usr/lib/libnss_wins.so &&
+ln -v -sf ../../lib/libnss_wins.so.2    /usr/lib/libnss_wins.so    &&
 
-install -v -m644 examples/smb.conf.default /etc/samba &&
+install -v -m644    examples/smb.conf.default /etc/samba &&
 
-mkdir -pv /etc/openldap/schema &&
+mkdir -pv /etc/openldap/schema                        &&
 
-install -v -m644 examples/LDAP/README \
-/etc/openldap/schema/README.LDAP &&
+install -v -m644    examples/LDAP/README              \
+                    /etc/openldap/schema/README.LDAP  &&
 
-install -v -m644 examples/LDAP/samba* \
-/etc/openldap/schema &&
+install -v -m644    examples/LDAP/samba*              \
+                    /etc/openldap/schema              &&
 
-install -v -m755 examples/LDAP/{get*,ol*} \
-/etc/openldap/schema
+install -v -m755    examples/LDAP/{get*,ol*} \
+                    /etc/openldap/schema
 ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ln -v -sf /usr/bin/smbspool /usr/lib/cups/backend/smb
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install-samba
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install-winbindd
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+systemctl stop smbd &&
+systemctl disable smbd &&
+systemctl enable smbd.socket &&
+systemctl start smbd.socket
+ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

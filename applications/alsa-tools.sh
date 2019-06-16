@@ -9,9 +9,11 @@ set +h
 #REQ:alsa-lib
 #REQ:fltk
 
+
 cd $SOURCE_DIR
 
 wget -nc ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.1.7.tar.bz2
+
 
 NAME=alsa-tools
 VERSION=1.1.7
@@ -33,37 +35,40 @@ fi
 cd $DIRECTORY
 fi
 
+
 as_root()
 {
-if [ $EUID = 0 ]; then $*
-elif [ -x /usr/bin/sudo ]; then sudo $*
-else su -c \\"$*\\"
-fi
+  if   [ $EUID = 0 ];        then $*
+  elif [ -x /usr/bin/sudo ]; then sudo $*
+  else                            su -c \\"$*\\"
+  fi
 }
 
 export -f as_root
 rm -rf qlo10k1 Makefile gitcompile
 for tool in *
 do
-case $tool in
-seq )
-tool_dir=seq/sbiload
-;;
-* )
-tool_dir=$tool
-;;
-esac
+  case $tool in
+    seq )
+      tool_dir=seq/sbiload
+    ;;
+    * )
+      tool_dir=$tool
+    ;;
+  esac
 
-pushd $tool_dir
-./configure --prefix=/usr
-make
-as_root make install
-as_root /sbin/ldconfig
-popd
+  pushd $tool_dir
+    ./configure --prefix=/usr
+    make
+    as_root make install
+    as_root /sbin/ldconfig
+  popd
 
 done
 unset tool tool_dir
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

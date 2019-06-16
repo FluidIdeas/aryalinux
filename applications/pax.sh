@@ -8,9 +8,11 @@ set +h
 
 #REQ:cpio
 
+
 cd $SOURCE_DIR
 
 wget -nc http://pub.allbsd.org/MirOS/dist/mir/cpio/paxmirabilis-20161104.cpio.gz
+
 
 NAME=pax
 VERSION=20161104
@@ -32,23 +34,26 @@ fi
 cd $DIRECTORY
 fi
 
+
 gzip -dck paxmirabilis-20161104.cpio.gz | cpio -mid &&
 cd pax &&
 
 sed -i '/stat.h/a #include <sys/sysmacros.h>' cpio.c gen_subs.c tar.c &&
 
 cc -O2 -DLONG_OFF_T -o pax -DPAX_SAFE_PATH=\"/bin\" *.c
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v pax /bin &&
 install -v pax.1 /usr/share/man/man1
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

@@ -12,20 +12,22 @@ set +h
 #REQ:unzip
 #REQ:yasm
 #REQ:zip
-#REC:icu
-#REC:libevent
-#REC:libvpx
-#REC:nspr
-#REC:nss
-#REC:pulseaudio
-#REC:sqlite
+#REQ:icu
+#REQ:libevent
+#REQ:libvpx
+#REQ:nspr
+#REQ:nss
+#REQ:pulseaudio
+#REQ:sqlite
+
 
 cd $SOURCE_DIR
 
 wget -nc https://archive.mozilla.org/pub/seamonkey/releases/2.49.4/source/seamonkey-2.49.4.source.tar.xz
 
+
 NAME=seamonkey
-VERSION=2.49.4.source
+VERSION=2.49.4
 URL=https://archive.mozilla.org/pub/seamonkey/releases/2.49.4/source/seamonkey-2.49.4.source.tar.xz
 
 if [ ! -z $URL ]
@@ -43,6 +45,7 @@ fi
 
 cd $DIRECTORY
 fi
+
 
 cat > mozconfig << "EOF"
 # If you have a multicore machine, all cores will be used by default.
@@ -113,42 +116,25 @@ ac_add_options --with-system-jpeg
 ac_add_options --with-system-png
 ac_add_options --with-system-zlib
 EOF
-CFLAGS_HOLD=$CFLAGS &&
-CXXFLAGS_HOLD=$CXXFLAGS &&
-EXTRA_FLAGS=" -fno-delete-null-pointer-checks -fno-lifetime-dse -fno-schedule-insns2" &&
-export CFLAGS+=$EXTRA_FLAGS &&
-export CXXFLAGS+=$EXTRA_FLAGS &&
-unset EXTRA_FLAGS &&
-
+grep -rl -- '-Werror=format' |
+    xargs sed -i 's/error=format/no-&/'
 CC=gcc CXX=g++ make -f client.mk
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make -f client.mk install INSTALL_SDK= &&
-chown -R 0:0 /usr/lib/seamonkey-2.49.4 &&
+make  -f client.mk install INSTALL_SDK= &&
+chown -R 0:0 /usr/lib/seamonkey-2.49.4    &&
 
 cp -v $(find -name seamonkey.1 | head -n1) /usr/share/man/man1
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-export CFLAGS=$CFLAGS_HOLD &&
-export CXXFLAGS=$CXXFLAGS_HOLD &&
-unset CFLAGS_HOLD CXXFLAGS_HOLD
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make -C obj* install
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir -pv /usr/share/{applications,pixmaps} &&
+mkdir -pv /usr/share/{applications,pixmaps}              &&
 
 cat > /usr/share/applications/seamonkey.desktop << "EOF"
 [Desktop Entry]
@@ -164,13 +150,16 @@ Terminal=false
 EOF
 
 ln -sfv /usr/lib/seamonkey-2.49.4/chrome/icons/default/seamonkey.png \
-/usr/share/pixmaps
+        /usr/share/pixmaps
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

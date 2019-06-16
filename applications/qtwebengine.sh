@@ -9,17 +9,19 @@ set +h
 #REQ:nss
 #REQ:python2
 #REQ:qt5
-#REC:alsa-lib
-#REC:pulseaudio
-#REC:ffmpeg
-#REC:icu
-#REC:libwebp
-#REC:libxslt
-#REC:opus
+#REQ:alsa-lib
+#REQ:pulseaudio
+#REQ:ffmpeg
+#REQ:icu
+#REQ:libwebp
+#REQ:libxslt
+#REQ:opus
+
 
 cd $SOURCE_DIR
 
 wget -nc https://download.qt.io/archive/qt/5.12/5.12.3/submodules/qtwebengine-everywhere-src-5.12.3.tar.xz
+
 
 NAME=qtwebengine
 VERSION=5.12.3
@@ -41,44 +43,47 @@ fi
 cd $DIRECTORY
 fi
 
-find -type f -name "*.pr[io]" |
-xargs sed -i -e 's|INCLUDEPATH += |&$$QTWEBENGINE_ROOT/include |'
 
+find -type f -name "*.pr[io]" |
+  xargs sed -i -e 's|INCLUDEPATH += |&$$QTWEBENGINE_ROOT/include |'
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 if [ -e ${QT5DIR}/lib/libQtWebEngineCore.so ]; then
-mv -v ${QT5DIR}/lib/libQtWebEngineCore.so{,.old}
+  mv -v ${QT5DIR}/lib/libQtWebEngineCore.so{,.old}
 fi
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 mkdir build &&
-cd build &&
+cd    build &&
 
 qmake .. -- -system-ffmpeg -webengine-icu &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 find $QT5DIR/ -name \*.prl \
--exec sed -i -e '/^QMAKE_PRL_BUILD_DIR/d' {} \;
+   -exec sed -i -e '/^QMAKE_PRL_BUILD_DIR/d' {} \;
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

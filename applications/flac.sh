@@ -7,9 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://downloads.xiph.org/releases/flac/flac-1.3.2.tar.xz
+
 
 NAME=flac
 VERSION=1.3.2
@@ -31,19 +33,22 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---disable-thorough-tests &&
-make
 
+./configure --prefix=/usr \
+            --disable-thorough-tests &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

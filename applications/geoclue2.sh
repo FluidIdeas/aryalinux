@@ -8,17 +8,19 @@ set +h
 
 #REQ:json-glib
 #REQ:libsoup
-#REC:modemmanager
-#REC:vala
-#REC:avahi
+#REQ:ModemManager
+#REQ:vala
+#REQ:avahi
+
 
 cd $SOURCE_DIR
 
-wget -nc https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.5.2/geoclue-2.5.2.tar.bz2
+wget -nc https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.5.3/geoclue-2.5.3.tar.bz2
+
 
 NAME=geoclue2
-VERSION=2.5.2
-URL=https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.5.2/geoclue-2.5.2.tar.bz2
+VERSION=2.5.3
+URL=https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.5.3/geoclue-2.5.3.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -36,21 +38,24 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
-cd build &&
+cd    build &&
 
 meson --prefix=/usr --sysconfdir=/etc -Dgtk-doc=false .. &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

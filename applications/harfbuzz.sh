@@ -6,20 +6,26 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#REQ:glib2
+#REQ:graphite2
+#REQ:texlive
+#REQ:libreoffice
+#REQ:icu
+#REQ:freetype2
+#REQ:harfbuzz
+#REQ:freetype2
 #REQ:graphite-wo-harfbuzz
 #REQ:freetype2-wo-harfbuzz
-#REC:glib2
-#REC:graphite2
-#REC:icu
-#REC:freetype2
+
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.4.0.tar.bz2
+wget -nc https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.5.0.tar.xz
+
 
 NAME=harfbuzz
-VERSION=2.4.0
-URL=https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.4.0.tar.bz2
+VERSION=2.5.0
+URL=https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.5.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -37,18 +43,21 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr --with-gobject --with-graphite2 &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

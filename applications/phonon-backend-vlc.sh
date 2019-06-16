@@ -9,9 +9,11 @@ set +h
 #REQ:phonon
 #REQ:vlc
 
+
 cd $SOURCE_DIR
 
 wget -nc http://download.kde.org/stable/phonon/phonon-backend-vlc/0.10.2/phonon-backend-vlc-0.10.2.tar.xz
+
 
 NAME=phonon-backend-vlc
 VERSION=0.10.2
@@ -33,24 +35,27 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
-cd build &&
+cd    build &&
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
--DCMAKE_BUILD_TYPE=Release \
--DPHONON_BUILD_PHONON4QT5=ON \
--Wno-dev .. &&
+cmake -DCMAKE_INSTALL_PREFIX=/usr    \
+      -DCMAKE_BUILD_TYPE=Release     \
+      -DPHONON_BUILD_PHONON4QT5=ON   \
+      -Wno-dev .. &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

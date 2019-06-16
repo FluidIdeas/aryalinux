@@ -7,12 +7,14 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
+
 
 
 NAME=noto-fonts
 VERSION=1.4
-URL=""
+
 
 if [ ! -z $URL ]
 then
@@ -36,6 +38,8 @@ wget -nc https://noto-website-2.storage.googleapis.com/pkgs/Noto{Sans,Serif,Sans
 wget -nc https://noto-website-2.storage.googleapis.com/pkgs/Noto{ColorEmoji,Emoji}-unhinted.zip
 find . -name "*zip" -exec sudo unzip -o {} -d /usr/share/fonts/truetype/noto-fonts \;
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

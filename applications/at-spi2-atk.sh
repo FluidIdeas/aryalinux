@@ -9,10 +9,12 @@ set +h
 #REQ:at-spi2-core
 #REQ:atk
 
+
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/at-spi2-atk/2.32/at-spi2-atk-2.32.0.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/at-spi2-atk/2.32/at-spi2-atk-2.32.0.tar.xz
+
 
 NAME=at-spi2-atk
 VERSION=2.32.0
@@ -34,21 +36,24 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
 cd build &&
 
 meson --prefix=/usr .. &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

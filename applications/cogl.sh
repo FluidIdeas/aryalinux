@@ -12,12 +12,14 @@ set +h
 #REQ:mesa
 #REQ:pango
 #REQ:wayland
-#REC:gobject-introspection
+#REQ:gobject-introspection
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/cogl/1.22/cogl-1.22.4.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/cogl/1.22/cogl-1.22.4.tar.xz
+
 
 NAME=cogl
 VERSION=1.22.4
@@ -39,22 +41,25 @@ fi
 cd $DIRECTORY
 fi
 
+
 sed -i 's/^#if COGL/#ifdef COGL/' cogl/winsys/cogl-winsys-egl.c &&
 
-./configure --prefix=/usr --enable-gles1 --enable-gles2 \
---enable-{kms,wayland,xlib}-egl-platform \
---enable-wayland-egl-server &&
+./configure --prefix=/usr --enable-gles1 --enable-gles2         \
+    --enable-{kms,wayland,xlib}-egl-platform                    \
+    --enable-wayland-egl-server                                 &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

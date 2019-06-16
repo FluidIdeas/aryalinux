@@ -9,17 +9,19 @@ set +h
 #REQ:exo
 #REQ:libwnck2
 #REQ:libxfce4ui
-#REC:libnotify
-#REC:startup-notification
-#REC:thunar
+#REQ:libnotify
+#REQ:startup-notification
+#REQ:thunar
+
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/xfdesktop/4.12/xfdesktop-4.12.4.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/xfdesktop/4.12/xfdesktop-4.12.5.tar.bz2
+
 
 NAME=xfdesktop
-VERSION=4.12.4
-URL=http://archive.xfce.org/src/xfce/xfdesktop/4.12/xfdesktop-4.12.4.tar.bz2
+VERSION=4.12.5
+URL=http://archive.xfce.org/src/xfce/xfdesktop/4.12/xfdesktop-4.12.5.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -37,18 +39,21 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

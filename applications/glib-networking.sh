@@ -9,12 +9,14 @@ set +h
 #REQ:glib2
 #REQ:gnutls
 #REQ:gsettings-desktop-schemas
-#REC:make-ca
+#REQ:make-ca
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/glib-networking/2.60/glib-networking-2.60.2.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glib-networking/2.60/glib-networking-2.60.2.tar.xz
+
 
 NAME=glib-networking
 VERSION=2.60.2
@@ -36,22 +38,25 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
-cd build &&
+cd    build &&
 
-meson --prefix=/usr \
--Dlibproxy=disabled .. &&
+meson --prefix=/usr          \
+      -Dlibproxy=disabled .. &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

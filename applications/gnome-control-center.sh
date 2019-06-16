@@ -17,19 +17,20 @@ set +h
 #REQ:libpwquality
 #REQ:mitkrb
 #REQ:shared-mime-info
-#REQ:gsound
-#REC:cheese
-#REC:cups
-#REC:samba
-#REC:gnome-bluetooth
-#REC:ibus
-#REC:modemmanager
-#REC:network-manager-applet
+#REQ:cheese
+#REQ:cups
+#REQ:samba
+#REQ:gnome-bluetooth
+#REQ:ibus
+#REQ:ModemManager
+#REQ:network-manager-applet
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.32/gnome-control-center-3.32.1.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.32/gnome-control-center-3.32.1.tar.xz
+
 
 NAME=gnome-control-center
 VERSION=3.32.1
@@ -51,23 +52,26 @@ fi
 cd $DIRECTORY
 fi
 
+
 sed -i '/ln -s/s/s /sf /' panels/user-accounts/meson.build &&
 
 mkdir build &&
-cd build &&
+cd    build &&
 
 meson --prefix=/usr .. &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

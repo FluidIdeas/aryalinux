@@ -7,9 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://files.dyne.org/frei0r/releases/frei0r-plugins-1.6.1.tar.gz
+
 
 NAME=frei0r
 VERSION=1.6.1
@@ -31,26 +33,29 @@ fi
 cd $DIRECTORY
 fi
 
+
 sed -i 's/CV_RGB/cv::Scalar/' src/filter/facebl0r/facebl0r.cpp &&
 
 mkdir -vp build &&
-cd build &&
+cd        build &&
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
--DCMAKE_BUILD_TYPE=Release \
--Wno-dev .. &&
+cmake -DCMAKE_INSTALL_PREFIX=/usr    \
+      -DCMAKE_BUILD_TYPE=Release     \
+      -Wno-dev ..                    &&
 
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

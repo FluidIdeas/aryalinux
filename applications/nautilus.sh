@@ -13,22 +13,23 @@ set +h
 #REQ:libnotify
 #REQ:libseccomp
 #REQ:tracker-miners
-#REQ:tracker-miners
-#REC:desktop-file-utils
-#REC:exempi
-#REC:gobject-introspection
-#REC:libexif
-#REC:adwaita-icon-theme
-#REC:gvfs
+#REQ:desktop-file-utils
+#REQ:exempi
+#REQ:gobject-introspection
+#REQ:libexif
+#REQ:adwaita-icon-theme
+#REQ:gvfs
+
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/nautilus/3.32/nautilus-3.32.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/nautilus/3.32/nautilus-3.32.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/nautilus/3.32/nautilus-3.32.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/nautilus/3.32/nautilus-3.32.1.tar.xz
+
 
 NAME=nautilus
-VERSION=3.32.0
-URL=http://ftp.gnome.org/pub/gnome/sources/nautilus/3.32/nautilus-3.32.0.tar.xz
+VERSION=3.32.1
+URL=http://ftp.gnome.org/pub/gnome/sources/nautilus/3.32/nautilus-3.32.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -46,28 +47,30 @@ fi
 cd $DIRECTORY
 fi
 
-sed s/\'libm\'/\'m\'/ -i meson.build &&
-mkdir build &&
-cd build &&
 
-meson --prefix=/usr \
---sysconfdir=/etc \
--Dselinux=false \
--Dpackagekit=false \
-.. &&
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr      \
+      --sysconfdir=/etc  \
+      -Dselinux=false    \
+      -Dpackagekit=false \
+      .. &&
 
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
 glib-compile-schemas /usr/share/glib-2.0/schemas
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

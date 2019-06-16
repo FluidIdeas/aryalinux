@@ -6,10 +6,13 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#REQ:installing
+
 
 cd $SOURCE_DIR
 
 wget -nc http://dist.schmorp.de/rxvt-unicode/Attic/rxvt-unicode-9.22.tar.bz2
+
 
 NAME=rxvt-unicode
 VERSION=9.22
@@ -31,17 +34,17 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr --enable-everything &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -66,9 +69,10 @@ URxvt*url-launcher: firefox
 ! resource (default, the "url-launcher" resource, "sensible-browser") will be
 ! started with the matched text as first argument.
 ! Below, default modified to mouse left button.
-URxvt*matcher.button: 1
+URxvt*matcher.button:     1
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -77,7 +81,6 @@ xrdb -query
 xrdb -merge ~/.Xresources
 # Start the urxvtd daemon
 urxvtd -q -f -o &
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /usr/share/applications/urxvt.desktop << "EOF" &&
@@ -97,11 +100,14 @@ EOF
 
 update-desktop-database -q
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

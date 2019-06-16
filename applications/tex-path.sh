@@ -7,12 +7,14 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 
+
 NAME=tex-path
-VERSION=""
-URL=""
+
+
 
 if [ ! -z $URL ]
 then
@@ -39,9 +41,9 @@ cat >> /etc/profile.d/extrapaths.sh << EOF
 
 # Begin texlive addition
 
-pathappend /opt/texlive/2018/texmf-dist/doc/man MANPATH
-pathappend /opt/texlive/2018/texmf-dist/doc/info INFOPATH
-pathappend /opt/texlive/2018/bin/$TEXARCH
+pathappend /opt/texlive/2019/texmf-dist/doc/man  MANPATH
+pathappend /opt/texlive/2019/texmf-dist/doc/info INFOPATH
+pathappend /opt/texlive/2019/bin/$TEXARCH
 
 # End texlive addition
 
@@ -49,11 +51,14 @@ EOF
 
 unset TEXARCH
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

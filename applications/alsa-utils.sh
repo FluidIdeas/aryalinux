@@ -8,13 +8,15 @@ set +h
 
 #REQ:alsa-lib
 
+
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.alsa-project.org/pub/utils/alsa-utils-1.1.8.tar.bz2
+wget -nc ftp://ftp.alsa-project.org/pub/utils/alsa-utils-1.1.9.tar.bz2
+
 
 NAME=alsa-utils
-VERSION=1.1.8
-URL=ftp://ftp.alsa-project.org/pub/utils/alsa-utils-1.1.8.tar.bz2
+VERSION=1.1.9
+URL=ftp://ftp.alsa-project.org/pub/utils/alsa-utils-1.1.9.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -32,21 +34,24 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --disable-alsaconf \
---disable-bat \
---disable-xmlto \
---with-curses=ncursesw &&
-make
 
+./configure --disable-alsaconf \
+            --disable-bat   \
+            --disable-xmlto \
+            --with-curses=ncursesw &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

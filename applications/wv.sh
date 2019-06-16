@@ -9,9 +9,12 @@ set +h
 #REQ:libgsf
 #REQ:libpng
 
+
 cd $SOURCE_DIR
 
 wget -nc http://www.abisource.com/downloads/wv/1.2.9/wv-1.2.9.tar.gz
+wget -nc 
+
 
 NAME=wv
 VERSION=1.2.9
@@ -33,18 +36,21 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr --disable-static &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

@@ -10,8 +10,9 @@ set +h
 #REQ:glib2
 #REQ:gtk3
 #REQ:libxml2
-#REC:libxslt
-#REC:vala
+#REQ:libxslt
+#REQ:vala
+
 
 cd $SOURCE_DIR
 
@@ -19,6 +20,7 @@ wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf/0.32/dconf-0.32.0.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf/0.32/dconf-0.32.0.tar.xz
 wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.32/dconf-editor-3.32.0.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.32/dconf-editor-3.32.0.tar.xz
+
 
 NAME=dconf
 VERSION=0.32.0
@@ -40,39 +42,42 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
-cd build &&
+cd    build &&
 
 meson --prefix=/usr --sysconfdir=/etc -Dbash_completion=false .. &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-cd .. &&
+cd ..              &&
 tar -xf ../dconf-editor-3.32.0.tar.xz &&
-cd dconf-editor-3.32.0 &&
+cd dconf-editor-3.32.0                &&
 
 mkdir build &&
-cd build &&
+cd    build &&
 
 meson --prefix=/usr --sysconfdir=/etc .. &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

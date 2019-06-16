@@ -7,9 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://downloads.xiph.org/releases/ogg/libogg-1.3.3.tar.xz
+
 
 NAME=libogg
 VERSION=1.3.3
@@ -31,20 +33,23 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---disable-static \
---docdir=/usr/share/doc/libogg-1.3.3 &&
-make
 
+./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/libogg-1.3.3 &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

@@ -6,13 +6,15 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REC:curl
+#REQ:curl
+
 
 cd $SOURCE_DIR
 
 wget -nc https://www.kernel.org/pub/software/scm/git/git-2.21.0.tar.xz
 wget -nc https://www.kernel.org/pub/software/scm/git/git-manpages-2.21.0.tar.xz
 wget -nc https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.21.0.tar.xz
+
 
 NAME=git
 VERSION=2.21.0
@@ -34,18 +36,35 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr --with-gitconfig=/etc/gitconfig &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+mkdir -vp   /usr/share/doc/git-2.21.0 &&
+tar   -xf   ../git-htmldocs-2.21.0.tar.xz \
+      -C    /usr/share/doc/git-2.21.0 --no-same-owner --no-overwrite-dir &&
+
+find        /usr/share/doc/git-2.21.0 -type d -exec chmod 755 {} \; &&
+find        /usr/share/doc/git-2.21.0 -type f -exec chmod 644 {} \;
+ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

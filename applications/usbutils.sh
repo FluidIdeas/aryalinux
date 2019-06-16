@@ -9,14 +9,15 @@ set +h
 #REQ:libusb
 #REQ:wget
 
+
 cd $SOURCE_DIR
 
-wget -nc https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-010.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/usbutils-010-lsusb_bugfixes-1.patch
+wget -nc https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-012.tar.xz
+
 
 NAME=usbutils
-VERSION=010
-URL=https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-010.tar.xz
+VERSION=012
+URL=https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-012.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -34,28 +35,27 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../usbutils-010-lsusb_bugfixes-1.patch &&
-./configure --prefix=/usr --datadir=/usr/share/hwdata &&
-make
 
+./autogen.sh --prefix=/usr --datadir=/usr/share/hwdata &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -dm755 /usr/share/hwdata/ &&
 wget http://www.linux-usb.org/usb.ids -O /usr/share/hwdata/usb.ids
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -85,11 +85,14 @@ WantedBy=timers.target
 EOF
 systemctl enable update-usbids.timer
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

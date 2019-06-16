@@ -7,12 +7,14 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://github.com/LMDB/lmdb/archive/LMDB_0.9.23.tar.gz
 
+
 NAME=lmdb
-VERSION=LMDB_0.9.23
+VERSION=0.9.23
 URL=https://github.com/LMDB/lmdb/archive/LMDB_0.9.23.tar.gz
 
 if [ ! -z $URL ]
@@ -31,19 +33,22 @@ fi
 cd $DIRECTORY
 fi
 
-cd libraries/liblmdb &&
-make &&
-sed -i 's| liblmdb.a||' Makefile
 
+cd libraries/liblmdb &&
+make                 &&
+sed -i 's| liblmdb.a||' Makefile
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make prefix=/usr install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

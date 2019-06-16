@@ -7,13 +7,15 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.53.tar.gz
+wget -nc ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.54.tar.gz
+
 
 NAME=stunnel
-VERSION=5.53
-URL=ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.53.tar.gz
+VERSION=5.54
+URL=ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.54.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -36,54 +38,54 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 groupadd -g 51 stunnel &&
 useradd -c "stunnel Daemon" -d /var/lib/stunnel \
--g stunnel -s /bin/false -u 51 stunnel
+        -g stunnel -s /bin/false -u 51 stunnel
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 sed -i '/LDFLAGS.*static_flag/ s/^/#/' configure
-./configure --prefix=/usr \
---sysconfdir=/etc \
---localstatedir=/var &&
+./configure --prefix=/usr        \
+            --sysconfdir=/etc    \
+            --localstatedir=/var &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make docdir=/usr/share/doc/stunnel-5.53 install
+make docdir=/usr/share/doc/stunnel-5.54 install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m644 tools/stunnel.service /lib/systemd/system
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make cert
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m750 -o stunnel -g stunnel -d /var/lib/stunnel/run &&
 chown stunnel:stunnel /var/lib/stunnel
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -92,18 +94,18 @@ cat >/etc/stunnel/stunnel.conf << "EOF"
 
 ; Note: The pid and output locations are relative to the chroot location.
 
-pid = /run/stunnel.pid
+pid    = /run/stunnel.pid
 chroot = /var/lib/stunnel
 client = no
 setuid = stunnel
 setgid = stunnel
-cert = /etc/stunnel/stunnel.pem
+cert   = /etc/stunnel/stunnel.pem
 
 ;debug = 7
 ;output = stunnel.log
 
 ;[https]
-;accept = 443
+;accept  = 443
 ;connect = 80
 ;; "TIMEOUTclose = 0" is a workaround for a design flaw in Microsoft SSL
 ;; Microsoft implementations do not use SSL close-notify alert and thus
@@ -112,20 +114,23 @@ cert = /etc/stunnel/stunnel.pem
 
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 systemctl enable stunnel
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

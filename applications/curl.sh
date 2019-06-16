@@ -6,15 +6,17 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REC:make-ca
+#REQ:make-ca
+
 
 cd $SOURCE_DIR
 
-wget -nc https://curl.haxx.se/download/curl-7.64.1.tar.xz
+wget -nc https://curl.haxx.se/download/curl-7.65.1.tar.xz
+
 
 NAME=curl
-VERSION=7.64.1
-URL=https://curl.haxx.se/download/curl-7.64.1.tar.xz
+VERSION=7.65.1
+URL=https://curl.haxx.se/download/curl-7.65.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -32,12 +34,12 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---disable-static \
---enable-threaded-resolver \
---with-ca-path=/etc/ssl/certs &&
-make
 
+./configure --prefix=/usr                           \
+            --disable-static                        \
+            --enable-threaded-resolver              \
+            --with-ca-path=/etc/ssl/certs &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
@@ -46,14 +48,17 @@ rm -rf docs/examples/.deps &&
 
 find docs \( -name Makefile\* -o -name \*.1 -o -name \*.3 \) -exec rm {} \; &&
 
-install -v -d -m755 /usr/share/doc/curl-7.64.1 &&
-cp -v -R docs/* /usr/share/doc/curl-7.64.1
+install -v -d -m755 /usr/share/doc/curl-7.65.1 &&
+cp -v -R docs/*     /usr/share/doc/curl-7.65.1
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

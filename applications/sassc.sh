@@ -7,14 +7,16 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://github.com/sass/sassc/archive/3.5.0/sassc-3.5.0.tar.gz
 wget -nc https://github.com/sass/libsass/archive/3.5.5/libsass-3.5.5.tar.gz
 
+
 NAME=sassc
 VERSION=3.5.0
-URL=https://github.com/sass/libsass/archive/3.5.5/libsass-3.5.5.tar.gz
+URL=https://github.com/sass/sassc/archive/3.5.0/sassc-3.5.0.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -32,15 +34,16 @@ fi
 cd $DIRECTORY
 fi
 
+
 autoreconf -fi &&
 
 ./configure --prefix=/usr --disable-static &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -51,16 +54,18 @@ autoreconf -fi &&
 
 ./configure --prefix=/usr &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

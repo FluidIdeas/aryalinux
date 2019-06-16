@@ -10,10 +10,12 @@ set +h
 #REQ:glibmm
 #REQ:pango
 
+
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/pangomm/2.42/pangomm-2.42.0.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pangomm/2.42/pangomm-2.42.0.tar.xz
+
 
 NAME=pangomm
 VERSION=2.42.0
@@ -35,20 +37,23 @@ fi
 cd $DIRECTORY
 fi
 
+
 sed -e '/^libdocdir =/ s/$(book_name)/pangomm-2.42.0/' \
--i docs/Makefile.in
+    -i docs/Makefile.in
 ./configure --prefix=/usr &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

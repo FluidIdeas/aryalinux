@@ -7,16 +7,18 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libsndfile
-#REC:alsa-lib
-#REC:dbus
-#REC:glib2
-#REC:libcap
-#REC:speex
-#REC:x7lib
+#REQ:alsa-lib
+#REQ:dbus
+#REQ:glib2
+#REQ:libcap
+#REQ:speex
+#REQ:x7lib
+
 
 cd $SOURCE_DIR
 
 wget -nc https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-12.2.tar.xz
+
 
 NAME=pulseaudio
 VERSION=12.2
@@ -38,41 +40,48 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---sysconfdir=/etc \
---localstatedir=/var \
---disable-bluez4 \
---disable-bluez5 \
---disable-rpath &&
-make
 
+sed -i "s:asoundlib.h:alsa/asoundlib.h:" src/modules/alsa/*.{c,h} &&
+sed -i "s:use-case.h:alsa/use-case.h:" configure.ac &&
+sed -i "s:use-case.h:alsa/use-case.h:" src/modules/alsa/alsa-ucm.h
+NOCONFIGURE=1 ./bootstrap.sh     &&
+./configure --prefix=/usr        \
+            --sysconfdir=/etc    \
+            --localstatedir=/var \
+            --disable-bluez4     \
+            --disable-bluez5     \
+            --disable-rpath      &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 rm -fv /etc/dbus-1/system.d/pulseaudio-system.conf
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 sed -i '/load-module module-console-kit/s/^/#/' /etc/pulse/default.pa
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

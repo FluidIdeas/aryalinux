@@ -6,41 +6,43 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:perl-archive-zip
+#REQ:perl-modules#perl-archive-zip
 #REQ:unzip
 #REQ:wget
 #REQ:which
 #REQ:zip
-#REQ:openssl
-#REC:apr
-#REC:boost
-#REC:clucene
-#REC:cups
-#REC:curl
-#REC:dbus-glib
-#REC:libjpeg
-#REC:glm
-#REC:glu
-#REC:gpgme
-#REC:graphite2
-#REC:gst10-plugins-base
-#REC:gtk3
-#REC:gtk2
-#REC:harfbuzz
-#REC:icu
-#REC:libatomic_ops
-#REC:lcms2
-#REC:librsvg
-#REC:libxml2
-#REC:libxslt
-#REC:mesa
-#REC:neon
-#REC:nss
-#REC:openldap
-#REC:poppler
-#REC:redland
-#REC:serf
-#REC:unixodbc
+#REQ:apache-ant
+#REQ:apr
+#REQ:boost
+#REQ:clucene
+#REQ:cups
+#REQ:curl
+#REQ:dbus-glib
+#REQ:libjpeg
+#REQ:glm
+#REQ:glu
+#REQ:gpgme
+#REQ:graphite2
+#REQ:gst10-plugins-base
+#REQ:gtk3
+#REQ:gtk2
+#REQ:harfbuzz
+#REQ:icu
+#REQ:libatomic_ops
+#REQ:lcms2
+#REQ:librsvg
+#REQ:libxml2
+#REQ:libxslt
+#REQ:mesa
+#REQ:neon
+#REQ:nss
+#REQ:openldap
+#REQ:poppler
+#REQ:postgresql
+#REQ:redland
+#REQ:serf
+#REQ:unixodbc
+
 
 cd $SOURCE_DIR
 
@@ -48,6 +50,7 @@ wget -nc http://download.documentfoundation.org/libreoffice/src/6.2.3/libreoffic
 wget -nc http://download.documentfoundation.org/libreoffice/src/6.2.3/libreoffice-dictionaries-6.2.3.2.tar.xz
 wget -nc http://download.documentfoundation.org/libreoffice/src/6.2.3/libreoffice-help-6.2.3.2.tar.xz
 wget -nc http://download.documentfoundation.org/libreoffice/src/6.2.3/libreoffice-translations-6.2.3.2.tar.xz
+
 
 NAME=libreoffice
 VERSION=6.2.3.2
@@ -69,21 +72,23 @@ fi
 cd $DIRECTORY
 fi
 
+
 install -dm755 external/tarballs &&
 ln -sv ../../../libreoffice-dictionaries-6.2.3.2.tar.xz external/tarballs/ &&
-ln -sv ../../../libreoffice-help-6.2.3.2.tar.xz external/tarballs/
+ln -sv ../../../libreoffice-help-6.2.3.2.tar.xz         external/tarballs/
 ln -sv ../../../libreoffice-translations-6.2.3.2.tar.xz external/tarballs/
-export LO_PREFIX=/usr
+export LO_PREFIX=<PREFIX>
 sed -e "/gzip -f/d"   \
--e "s|.1.gz|.1|g" \
--i bin/distro-install-desktop-integration &&
+    -e "s|.1.gz|.1|g" \
+    -i bin/distro-install-desktop-integration &&
 
 sed -e "/distro-install-file-lists/d" -i Makefile.in &&
 
-./autogen.sh --prefix=/usr               \
+
+./autogen.sh --prefix=$LO_PREFIX         \
              --sysconfdir=/etc           \
              --with-vendor=BLFS          \
-             --with-lang=ALL             \
+             --with-lang='fr en-GB'      \
              --with-help                 \
              --with-myspell-dicts        \
              --without-junit             \
@@ -98,6 +103,8 @@ sed -e "/distro-install-file-lists/d" -i Makefile.in &&
              --with-system-clucene       \
              --with-system-curl          \
              --with-system-expat         \
+             --with-system-glm           \
+             --with-system-gpgmepp       \
              --with-system-graphite      \
              --with-system-harfbuzz      \
              --with-system-icu           \
@@ -112,32 +119,32 @@ sed -e "/distro-install-file-lists/d" -i Makefile.in &&
              --with-system-openldap      \
              --with-system-openssl       \
              --with-system-poppler       \
+             --with-system-postgresql    \
              --with-system-redland       \
              --with-system-serf          \
-             --with-system-zlib          \
-             --without-java              \
-             --disable-postgresql-sdbc
-
+             --with-system-zlib
 make build-nocheck
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make distro-pack-install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 update-desktop-database
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

@@ -15,17 +15,19 @@ set +h
 #REQ:poppler
 #REQ:popt
 #REQ:wget
-#REC:imagemagick6
-#REC:lcms2
-#REC:lcms
-#REC:potrace
-#REC:lxml
-#REC:scour
+#REQ:imagemagick6
+#REQ:lcms2
+#REQ:lcms
+#REQ:potrace
+#REQ:python-modules#lxml
+#REQ:python-modules#scour
+
 
 cd $SOURCE_DIR
 
 wget -nc https://media.inkscape.org/dl/resources/file/inkscape-0.92.4.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/inkscape-0.92.4-use_versioned_ImageMagick6-1.patch
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/inkscape-0.92.4-use_versioned_ImageMagick6-1.patch
+
 
 NAME=inkscape
 VERSION=0.92.4
@@ -47,37 +49,40 @@ fi
 cd $DIRECTORY
 fi
 
-sed -e 's|new Lexer(xref, obj)|obj|g' -i src/extension/internal/pdfinput/pdf-parser.cpp>
+
+sed -e 's|new Lexer(xref, obj)|obj|g' -i src/extension/internal/pdfinput/pdf-parser.cpp
 patch -Np1 -i ../inkscape-0.92.4-use_versioned_ImageMagick6-1.patch
 bash download-gtest.sh
 mkdir build &&
-cd build &&
+cd    build &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr \
--DCMAKE_BUILD_TYPE=Release \
-.. &&
+      -DCMAKE_BUILD_TYPE=Release  \
+      ..                          &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
+make install                      &&
 rm -v /usr/lib/inkscape/lib*_LIB.a
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
 update-desktop-database -q
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

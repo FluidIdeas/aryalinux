@@ -26,9 +26,11 @@ set +h
 #REQ:libgpod
 #REQ:yelp
 
+
 cd $SOURCE_DIR
 
 wget -nc https://download.gnome.org/sources/rhythmbox/3.4/rhythmbox-3.4.3.tar.xz
+
 
 NAME=rhythmbox
 VERSION=3.4.3
@@ -54,6 +56,8 @@ fi
 make
 sudo make install
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

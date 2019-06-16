@@ -7,11 +7,13 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:popt
-#REC:fcron
+#REQ:fcron
+
 
 cd $SOURCE_DIR
 
 wget -nc https://github.com/logrotate/logrotate/releases/download/3.15.0/logrotate-3.15.0.tar.xz
+
 
 NAME=logrotate
 VERSION=3.15.0
@@ -33,17 +35,17 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr &&
-make
 
+./configure --prefix=/usr        &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -73,14 +75,14 @@ compress
 
 # No packages own lastlog or wtmp -- rotate them here
 /var/log/wtmp {
-monthly
-create 0664 root utmp
-rotate 1
+    monthly
+    create 0664 root utmp
+    rotate 1
 }
 
 /var/log/lastlog {
-monthly
-rotate 1
+    monthly
+    rotate 1
 }
 
 # Some packages drop log rotation info in this directory
@@ -92,40 +94,40 @@ EOF
 
 chmod -v 0644 /etc/logrotate.conf
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mkdir -p /etc/logrotate.d
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/logrotate.d/sys.log << EOF
 /var/log/sys.log {
-# If the log file is larger than 100kb, rotate it
-size 100k
-rotate 5
-weekly
-postrotate
-/bin/killall -HUP syslogd
-endscript
+   # If the log file is larger than 100kb, rotate it
+   size   100k
+   rotate 5
+   weekly
+   postrotate
+      /bin/killall -HUP syslogd
+   endscript
 }
 EOF
 
 chmod -v 0644 /etc/logrotate.d/sys.log
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -133,20 +135,23 @@ cat > /etc/logrotate.d/example.log << EOF
 file1
 file2
 file3 {
-...
-postrotate
-...
-endscript
+   ...
+   postrotate
+    ...
+   endscript
 }
 EOF
 
 chmod -v 0644 /etc/logrotate.d/example.log
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

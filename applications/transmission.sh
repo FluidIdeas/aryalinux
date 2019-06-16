@@ -8,11 +8,14 @@ set +h
 
 #REQ:curl
 #REQ:libevent
-#REC:gtk3
+#REQ:gtk3
+#REQ:qt5
+
 
 cd $SOURCE_DIR
 
 wget -nc https://raw.githubusercontent.com/transmission/transmission-releases/master/transmission-2.94.tar.xz
+
 
 NAME=transmission
 VERSION=2.94
@@ -34,10 +37,37 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --sysconfdir=/etc &&
+
+./configure --prefix=/usr &&
 make
-sudo make install
+pushd qt        &&
+  qmake qtr.pro &&
+  make          &&
+popd
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make INSTALL_ROOT=/usr -C qt install &&
+
+install -m644 qt/transmission-qt.desktop /usr/share/applications/transmission-qt.desktop &&
+install -m644 qt/icons/transmission.png  /usr/share/pixmaps/transmission-qt.png
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

@@ -8,9 +8,11 @@ set +h
 
 #REQ:libtirpc
 
+
 cd $SOURCE_DIR
 
 wget -nc https://www.dovecot.org/releases/2.3/dovecot-2.3.6.tar.gz
+
 
 NAME=dovecot
 VERSION=2.3.6
@@ -37,44 +39,44 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 groupadd -g 42 dovecot &&
 useradd -c "Dovecot unprivileged user" -d /dev/null -u 42 \
--g dovecot -s /bin/false dovecot &&
+        -g dovecot -s /bin/false dovecot &&
 groupadd -g 43 dovenull &&
 useradd -c "Dovecot login user" -d /dev/null -u 43 \
--g dovenull -s /bin/false dovenull
+        -g dovenull -s /bin/false dovenull
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 sed -e "s;#include <unistd.h>;&\n#include <crypt.h>;" \
--i src/auth/mycrypt.c
+    -i src/auth/mycrypt.c
 CFLAGS+=" -I/usr/include/tirpc" \
 LDFLAGS+=" -ltirpc" \
-./configure --prefix=/usr \
---sysconfdir=/etc \
---localstatedir=/var \
---docdir=/usr/share/doc/dovecot-2.3.6 \
---disable-static \
---with-systemdsystemunitdir=/lib/systemd/system &&
+./configure --prefix=/usr                          \
+            --sysconfdir=/etc                      \
+            --localstatedir=/var                   \
+            --docdir=/usr/share/doc/dovecot-2.3.6 \
+            --disable-static                       \
+            --with-systemdsystemunitdir=/lib/systemd/system &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cp -rv /usr/share/doc/dovecot-2.3.6/example-config/* /etc/dovecot
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -87,27 +89,30 @@ ssl = no
 listen = *
 mail_location = mbox:~/Mail:INBOX=/var/mail/%u
 userdb {
-driver = passwd
+  driver = passwd
 }
 passdb {
-driver = shadow
+  driver = shadow
 }
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 systemctl enable dovecot
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

@@ -7,10 +7,12 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc http://www.fftw.org/fftw-3.3.8.tar.gz
 wget -nc ftp://ftp.fftw.org/pub/fftw/fftw-3.3.8.tar.gz
+
 
 NAME=fftw
 VERSION=3.3.8
@@ -32,56 +34,59 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---enable-shared \
---enable-threads \
---enable-sse2 \
---enable-avx &&
-make
 
+./configure --prefix=/usr    \
+            --enable-shared  \
+            --enable-threads \
+            --enable-sse2    \
+            --enable-avx     &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 make clean &&
 
-./configure --prefix=/usr \
---enable-shared \
---enable-threads \
---enable-sse2 \
---enable-avx \
---enable-float &&
+./configure --prefix=/usr    \
+            --enable-shared  \
+            --enable-threads \
+            --enable-sse2    \
+            --enable-avx     \
+            --enable-float   &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 make clean &&
 
-./configure --prefix=/usr \
---enable-shared \
---enable-threads \
---enable-long-double &&
+./configure --prefix=/usr    \
+            --enable-shared  \
+            --enable-threads \
+            --enable-long-double &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

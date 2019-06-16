@@ -6,11 +6,12 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:pppd
+
 
 cd $SOURCE_DIR
 
 wget -nc https://ftp.gnome.org/pub/gnome/sources/NetworkManager-pptp/1.2/NetworkManager-pptp-1.2.8.tar.xz
+
 
 NAME=network-manager-pptp
 VERSION=1.2.8
@@ -33,10 +34,12 @@ cd $DIRECTORY
 fi
 
 if grep "gnome-desktop-environment" /etc/alps/installed-list &> /dev/null; then WITH_GNOME="--with-gnome"; fi
-./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var $WITH_GNOME --without-libnm-glib &&
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var $WITH_GNOME &&
 make
 sudo make install
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

@@ -9,9 +9,11 @@ set +h
 #REQ:x7lib
 #REQ:xcb-util
 
+
 cd $SOURCE_DIR
 
 wget -nc https://www.freedesktop.org/software/startup-notification/releases/startup-notification-0.12.tar.gz
+
 
 NAME=startup-notification
 VERSION=0.12
@@ -33,20 +35,23 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr --disable-static &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 install -v -m644 -D doc/startup-notification.txt \
-/usr/share/doc/startup-notification-0.12/startup-notification.txt
+    /usr/share/doc/startup-notification-0.12/startup-notification.txt
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

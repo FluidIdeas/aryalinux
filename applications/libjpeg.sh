@@ -10,9 +10,11 @@ set +h
 #REQ:nasm
 #REQ:yasm
 
+
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-2.0.2.tar.gz
+
 
 NAME=libjpeg
 VERSION=2.0.2
@@ -34,35 +36,38 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
-cd build &&
+cd    build &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr \
--DCMAKE_BUILD_TYPE=RELEASE \
--DENABLE_STATIC=FALSE \
--DCMAKE_INSTALL_DOCDIR=/usr/share/doc/libjpeg-turbo-2.0.2 \
--DCMAKE_INSTALL_DEFAULT_LIBDIR=lib \
-.. &&
+      -DCMAKE_BUILD_TYPE=RELEASE  \
+      -DENABLE_STATIC=FALSE       \
+      -DCMAKE_INSTALL_DOCDIR=/usr/share/doc/libjpeg-turbo-2.0.2 \
+      -DCMAKE_INSTALL_DEFAULT_LIBDIR=lib  \
+      .. &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 rm -f /usr/lib/libjpeg.so*
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

@@ -10,12 +10,14 @@ set +h
 #REQ:itstool
 #REQ:libcanberra
 #REQ:libnotify
-#REC:gobject-introspection
+#REQ:gobject-introspection
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-bluetooth/3.32/gnome-bluetooth-3.32.1.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-bluetooth/3.32/gnome-bluetooth-3.32.1.tar.xz
+
 
 NAME=gnome-bluetooth
 VERSION=3.32.1
@@ -37,21 +39,24 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
-cd build &&
+cd    build &&
 
 meson --prefix=/usr .. &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

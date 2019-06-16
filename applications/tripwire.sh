@@ -7,9 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://github.com/Tripwire/tripwire-open-source/releases/download/2.4.3.7/tripwire-open-source-2.4.3.7.tar.gz
+
 
 NAME=tripwire
 VERSION=2.4.3.7
@@ -31,81 +33,84 @@ fi
 cd $DIRECTORY
 fi
 
-sed -e '/^CLOBBER/s/false/true/' \
--e 's|TWDB="${prefix}|TWDB="/var|' \
--e '/TWMAN/ s|${prefix}|/usr/share|' \
--e '/TWDOCS/s|${prefix}/doc/tripwire|/usr/share/doc/tripwire-2.4.3.7|' \
--i installer/install.cfg &&
 
-find . -name Makefile.am | xargs \
-sed -i 's/^[[:alpha:]_]*_HEADERS.*=/noinst_HEADERS =/' &&
+sed -e '/^CLOBBER/s/false/true/'         \
+    -e 's|TWDB="${prefix}|TWDB="/var|'   \
+    -e '/TWMAN/ s|${prefix}|/usr/share|' \
+    -e '/TWDOCS/s|${prefix}/doc/tripwire|/usr/share/doc/tripwire-2.4.3.7|' \
+    -i installer/install.cfg                               &&
 
-sed '/dist/d' -i man/man?/Makefile.am &&
-autoreconf -fi &&
+find . -name Makefile.am | xargs                           \
+    sed -i 's/^[[:alpha:]_]*_HEADERS.*=/noinst_HEADERS =/' &&
 
-./configure --prefix=/usr --sysconfdir=/etc/tripwire &&
+sed '/dist/d' -i man/man?/Makefile.am                      &&
+autoreconf -fi                                             &&
+
+./configure --prefix=/usr --sysconfdir=/etc/tripwire       &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 cp -v policy/*.txt /usr/share/doc/tripwire-2.4.3.7
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sed -i -e 's@installer/install.sh@& -n -s <em class="replaceable"><code><site-password></code></em> -l <em class="replaceable"><code><local-password></code></em>@' Makefile
+sed -i -e 's@installer/install.sh@& -n -s <site-password> -l <local-password>@' Makefile
 sed '/-t 0/,+3d' -i installer/install.sh
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 twadmin --create-polfile --site-keyfile /etc/tripwire/site.key \
-/etc/tripwire/twpol.txt &&
+    /etc/tripwire/twpol.txt &&
 tripwire --init
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 tripwire --check > /etc/tripwire/report.txt
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-twprint --print-report -r /var/lib/tripwire/report/<em class="replaceable"><code><report-name.twr></code></em>
+twprint --print-report -r /var/lib/tripwire/report/<report-name.twr>
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-tripwire --update --twrfile /var/lib/tripwire/report/<em class="replaceable"><code><report-name.twr></code></em>
+tripwire --update --twrfile /var/lib/tripwire/report/<report-name.twr>
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 twadmin --create-polfile /etc/tripwire/twpol.txt &&
 tripwire --init
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

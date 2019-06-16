@@ -7,12 +7,14 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:json-c
-#REC:glib2
-#REC:gobject-introspection
+#REQ:glib2
+#REQ:gobject-introspection
+
 
 cd $SOURCE_DIR
 
 wget -nc https://github.com/mypaint/libmypaint/releases/download/v1.3.0/libmypaint-1.3.0.tar.xz
+
 
 NAME=libmypaint
 VERSION=1.3.0
@@ -34,18 +36,21 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

@@ -9,13 +9,15 @@ set +h
 #REQ:extra-cmake-modules
 #REQ:qt5
 
+
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/frameworks/5.55/oxygen-icons5-5.55.0.tar.xz
+wget -nc http://download.kde.org/stable/frameworks/5.58/oxygen-icons5-5.58.0.tar.xz
+
 
 NAME=oxygen-icons5
-VERSION=5.55.0
-URL=http://download.kde.org/stable/frameworks/5.55/oxygen-icons5-5.55.0.tar.xz
+VERSION=5.58.0
+URL=http://download.kde.org/stable/frameworks/5.58/oxygen-icons5-5.58.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -33,21 +35,24 @@ fi
 cd $DIRECTORY
 fi
 
+
 sed -i '/( oxygen/ s/)/scalable )/' CMakeLists.txt
 mkdir build &&
-cd build &&
+cd    build &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr -Wno-dev ..
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

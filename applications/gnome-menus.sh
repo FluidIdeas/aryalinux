@@ -7,12 +7,14 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:glib2
-#REC:gobject-introspection
+#REQ:gobject-introspection
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.32/gnome-menus-3.32.0.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.32/gnome-menus-3.32.0.tar.xz
+
 
 NAME=gnome-menus
 VERSION=3.32.0
@@ -39,24 +41,27 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 gsettings reset-recursively org.gnome.desktop.app-folders
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 ./configure --prefix=/usr \
---sysconfdir=/etc \
---disable-static &&
+            --sysconfdir=/etc \
+            --disable-static &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

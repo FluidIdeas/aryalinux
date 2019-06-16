@@ -10,9 +10,11 @@ set +h
 #REQ:docbook-xsl
 #REQ:libxslt
 
+
 cd $SOURCE_DIR
 
 wget -nc https://releases.pagure.org/xmlto/xmlto-0.0.28.tar.bz2
+
 
 NAME=xmlto
 VERSION=0.0.28
@@ -34,20 +36,23 @@ fi
 cd $DIRECTORY
 fi
 
+
 LINKS="/usr/bin/links" \
 ./configure --prefix=/usr &&
 
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

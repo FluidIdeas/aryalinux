@@ -9,9 +9,11 @@ set +h
 #REQ:libgee
 #REQ:libbamf3
 
+
 cd $SOURCE_DIR
 
 wget -nc https://launchpad.net/plank/1.0/0.11.4/+download/plank-0.11.4.tar.xz
+
 
 NAME=plank
 VERSION=0.11.4
@@ -37,6 +39,8 @@ fi
 make
 sudo make install
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

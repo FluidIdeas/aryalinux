@@ -10,11 +10,13 @@ set +h
 #REQ:glib2
 #REQ:gpgme
 #REQ:nss
-#REC:swig
+#REQ:swig
+
 
 cd $SOURCE_DIR
 
 wget -nc https://github.com/felixonmars/volume_key/archive/volume_key-0.3.12.tar.gz
+
 
 NAME=volume_key
 VERSION=0.3.12
@@ -36,20 +38,23 @@ fi
 cd $DIRECTORY
 fi
 
-autoreconf -fiv &&
-./configure --prefix=/usr \
---without-python &&
-make
 
+autoreconf -fiv              &&
+./configure --prefix=/usr    \
+            --without-python &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

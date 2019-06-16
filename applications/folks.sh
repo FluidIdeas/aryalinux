@@ -9,14 +9,17 @@ set +h
 #REQ:evolution-data-server
 #REQ:gobject-introspection
 #REQ:libgee
+#REQ:python2
 #REQ:telepathy-glib
-#REC:bluez
-#REC:vala
+#REQ:bluez
+#REQ:vala
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/folks/0.12/folks-0.12.1.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/folks/0.12/folks-0.12.1.tar.xz
+
 
 NAME=folks
 VERSION=0.12.1
@@ -38,21 +41,24 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
 cd build &&
 
 meson --prefix=/usr --sysconfdir=/etc .. &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

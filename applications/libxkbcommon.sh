@@ -7,12 +7,14 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:xkeyboard-config
-#REC:libxcb
-#REC:wayland
+#REQ:libxcb
+#REQ:wayland
+
 
 cd $SOURCE_DIR
 
 wget -nc https://xkbcommon.org/download/libxkbcommon-0.8.4.tar.xz
+
 
 NAME=libxkbcommon
 VERSION=0.8.4
@@ -34,22 +36,23 @@ fi
 cd $DIRECTORY
 fi
 
-export XORG_PREFIX=/usr
-export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
+XORG_CONFIG=--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static
 
-./configure $XORG_CONFIG \
---docdir=/usr/share/doc/libxkbcommon-0.8.4 &&
+./configure $XORG_CONFIG     \
+            --docdir=/usr/share/doc/libxkbcommon-0.8.4 &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

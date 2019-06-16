@@ -9,12 +9,14 @@ set +h
 #REQ:sgml-common
 #REQ:unzip
 
+
 cd $SOURCE_DIR
 
 wget -nc http://www.docbook.org/sgml/3.1/docbk31.zip
 
+
 NAME=sgml-dtd-3
-VERSION=docbk31
+VERSION=31
 URL=http://www.docbook.org/sgml/3.1/docbk31.zip
 
 if [ ! -z $URL ]
@@ -33,10 +35,10 @@ fi
 cd $DIRECTORY
 fi
 
-sed -i -e '/ISO 8879/d' \
--e 's|DTDDECL "-//OASIS//DTD DocBook V3.1//EN"|SGMLDECL|g' \
-docbook.cat
 
+sed -i -e '/ISO 8879/d' \
+       -e 's|DTDDECL "-//OASIS//DTD DocBook V3.1//EN"|SGMLDECL|g' \
+       docbook.cat
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -d -m755 /usr/share/sgml/docbook/sgml-dtd-3.1 &&
@@ -45,31 +47,34 @@ install -v docbook.cat /usr/share/sgml/docbook/sgml-dtd-3.1/catalog &&
 cp -v -af *.dtd *.mod *.dcl /usr/share/sgml/docbook/sgml-dtd-3.1 &&
 
 install-catalog --add /etc/sgml/sgml-docbook-dtd-3.1.cat \
-/usr/share/sgml/docbook/sgml-dtd-3.1/catalog &&
+    /usr/share/sgml/docbook/sgml-dtd-3.1/catalog &&
 
 install-catalog --add /etc/sgml/sgml-docbook-dtd-3.1.cat \
-/etc/sgml/sgml-docbook.cat
+    /etc/sgml/sgml-docbook.cat
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat >> /usr/share/sgml/docbook/sgml-dtd-3.1/catalog << "EOF"
- -- Begin Single Major Version catalog changes --
+  -- Begin Single Major Version catalog changes --
 
 PUBLIC "-//Davenport//DTD DocBook V3.0//EN" "docbook.dtd"
 
--- End Single Major Version catalog changes --
+  -- End Single Major Version catalog changes --
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

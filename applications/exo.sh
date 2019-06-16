@@ -9,11 +9,13 @@ set +h
 #REQ:gtk3
 #REQ:libxfce4ui
 #REQ:libxfce4util
-#REQ:perl-uri
+#REQ:perl-modules#perl-uri
+
 
 cd $SOURCE_DIR
 
 wget -nc http://archive.xfce.org/src/xfce/exo/0.12/exo-0.12.5.tar.bz2
+
 
 NAME=exo
 VERSION=0.12.5
@@ -35,18 +37,21 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr --sysconfdir=/etc &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

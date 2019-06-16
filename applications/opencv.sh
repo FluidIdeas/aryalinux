@@ -8,21 +8,23 @@ set +h
 
 #REQ:cmake
 #REQ:unzip
-#REC:ffmpeg
-#REC:gst10-plugins-base
-#REC:gtk3
-#REC:jasper
-#REC:libjpeg
-#REC:libpng
-#REC:libtiff
-#REC:libwebp
-#REC:v4l-utils
-#REC:xine-lib
+#REQ:ffmpeg
+#REQ:gst10-plugins-base
+#REQ:gtk3
+#REQ:jasper
+#REQ:libjpeg
+#REQ:libpng
+#REQ:libtiff
+#REQ:libwebp
+#REQ:v4l-utils
+#REQ:xine-lib
+
 
 cd $SOURCE_DIR
 
 wget -nc https://github.com/opencv/opencv/archive/4.1.0/opencv-4.1.0.tar.gz
 wget -nc https://github.com/opencv/opencv_contrib/archive/4.1.0/opencv_contrib-4.1.0.tar.gz
+
 
 NAME=opencv
 VERSION=4.1.0
@@ -44,31 +46,34 @@ fi
 cd $DIRECTORY
 fi
 
+
 tar xf ../opencv_contrib-4.1.0.tar.gz
 mkdir build &&
-cd build &&
+cd    build &&
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
--DCMAKE_BUILD_TYPE=Release \
--DENABLE_CXX11=ON \
--DBUILD_PERF_TESTS=OFF \
--DWITH_XINE=ON \
--DBUILD_TESTS=OFF \
--DENABLE_PRECOMPILED_HEADERS=OFF \
--DCMAKE_SKIP_RPATH=ON \
--DBUILD_WITH_DEBUG_INFO=OFF \
--Wno-dev .. &&
+cmake -DCMAKE_INSTALL_PREFIX=/usr      \
+      -DCMAKE_BUILD_TYPE=Release       \
+      -DENABLE_CXX11=ON                \
+      -DBUILD_PERF_TESTS=OFF           \
+      -DWITH_XINE=ON                   \
+      -DBUILD_TESTS=OFF                \
+      -DENABLE_PRECOMPILED_HEADERS=OFF \
+      -DCMAKE_SKIP_RPATH=ON            \
+      -DBUILD_WITH_DEBUG_INFO=OFF      \
+      -Wno-dev  ..                     &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

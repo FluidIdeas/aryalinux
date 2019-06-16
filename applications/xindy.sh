@@ -9,10 +9,12 @@ set +h
 #REQ:clisp
 #REQ:texlive
 
+
 cd $SOURCE_DIR
 
 wget -nc http://tug.ctan.org/support/xindy/base/xindy-2.5.1.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/xindy-2.5.1-upstream_fixes-1.patch
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/xindy-2.5.1-upstream_fixes-1.patch
+
 
 NAME=xindy
 VERSION=2.5.1
@@ -34,6 +36,7 @@ fi
 cd $DIRECTORY
 fi
 
+
 export TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/') &&
 
 sed -i "s/ grep -v '^;'/ awk NF/" make-rules/inputenc/Makefile.in &&
@@ -42,24 +45,26 @@ sed -i 's%\(indexentry\)%\1\\%' make-rules/inputenc/make-inp-rules.pl &&
 
 patch -Np1 -i ../xindy-2.5.1-upstream_fixes-1.patch &&
 
-./configure --prefix=/opt/texlive/2018 \
---bindir=/opt/texlive/2018/bin/$TEXARCH \
---datarootdir=/opt/texlive/2018 \
---includedir=/usr/include \
---libdir=/opt/texlive/2018/texmf-dist \
---mandir=/opt/texlive/2018/texmf-dist/doc/man &&
+./configure --prefix=/opt/texlive/2019              \
+            --bindir=/opt/texlive/2019/bin/$TEXARCH \
+            --datarootdir=/opt/texlive/2019         \
+            --includedir=/usr/include               \
+            --libdir=/opt/texlive/2019/texmf-dist   \
+            --mandir=/opt/texlive/2019/texmf-dist/doc/man &&
 
 make LC_ALL=POSIX
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

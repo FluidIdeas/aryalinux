@@ -7,12 +7,14 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/aa-project/aalib-1.4rc5.tar.gz
 
+
 NAME=aalib
-VERSION=1.4rc5
+VERSION=1.
 URL=https://downloads.sourceforge.net/aa-project/aalib-1.4rc5.tar.gz
 
 if [ ! -z $URL ]
@@ -31,22 +33,25 @@ fi
 cd $DIRECTORY
 fi
 
-sed -i -e '/AM_PATH_AALIB,/s/AM_PATH_AALIB/[&]/' aalib.m4
-./configure --prefix=/usr \
---infodir=/usr/share/info \
---mandir=/usr/share/man \
---disable-static &&
-make
 
+sed -i -e '/AM_PATH_AALIB,/s/AM_PATH_AALIB/[&]/' aalib.m4
+./configure --prefix=/usr             \
+            --infodir=/usr/share/info \
+            --mandir=/usr/share/man   \
+            --disable-static          &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

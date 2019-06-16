@@ -8,11 +8,13 @@ set +h
 
 #REQ:cmake
 #REQ:mesa
-#REC:glu
+#REQ:glu
+
 
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/freeglut/freeglut-3.0.0.tar.gz
+
 
 NAME=freeglut
 VERSION=3.0.0
@@ -34,30 +36,31 @@ fi
 cd $DIRECTORY
 fi
 
-export XORG_PREFIX=/usr
 
 mkdir build &&
-cd build &&
+cd    build &&
 
-CMAKE_LIBRARY_PATH=$XORG_PREFIX/lib \
+CMAKE_LIBRARY_PATH=$XORG_PREFIX/lib     \
 CMAKE_INCLUDE_PATH=$XORG_PREFIX/include \
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
--DCMAKE_BUILD_TYPE=Release \
--DFREEGLUT_BUILD_DEMOS=OFF \
--DFREEGLUT_BUILD_STATIC_LIBS=OFF \
-.. &&
+cmake -DCMAKE_INSTALL_PREFIX=/usr       \
+      -DCMAKE_BUILD_TYPE=Release        \
+      -DFREEGLUT_BUILD_DEMOS=OFF        \
+      -DFREEGLUT_BUILD_STATIC_LIBS=OFF  \
+      .. &&
 
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

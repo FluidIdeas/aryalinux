@@ -9,16 +9,18 @@ set +h
 #REQ:gsettings-desktop-schemas
 #REQ:webkitgtk
 #REQ:yelp-xsl
-#REC:desktop-file-utils
+#REQ:desktop-file-utils
+
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/yelp/3.32/yelp-3.32.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/yelp/3.32/yelp-3.32.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/yelp/3.32/yelp-3.32.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/yelp/3.32/yelp-3.32.2.tar.xz
+
 
 NAME=yelp
-VERSION=3.32.1
-URL=http://ftp.gnome.org/pub/gnome/sources/yelp/3.32/yelp-3.32.1.tar.xz
+VERSION=3.32.2
+URL=http://ftp.gnome.org/pub/gnome/sources/yelp/3.32/yelp-3.32.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -36,27 +38,30 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr --disable-static &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 update-desktop-database
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

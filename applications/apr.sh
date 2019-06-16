@@ -7,10 +7,12 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://archive.apache.org/dist/apr/apr-1.7.0.tar.bz2
 wget -nc ftp://ftp.mirrorservice.org/sites/ftp.apache.org/apr/apr-1.7.0.tar.bz2
+
 
 NAME=apr
 VERSION=1.7.0
@@ -32,20 +34,23 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---disable-static \
---with-installbuilddir=/usr/share/apr-1/build &&
-make
 
+./configure --prefix=/usr    \
+            --disable-static \
+            --with-installbuilddir=/usr/share/apr-1/build &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

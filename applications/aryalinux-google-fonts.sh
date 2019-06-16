@@ -7,13 +7,15 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://sourceforge.net/projects/aryalinux-bin/files/files/1.4/aryalinux-google-fonts.tar.xz
 
+
 NAME=aryalinux-google-fonts
 VERSION=1.4
-URL=""
+URL=https://sourceforge.net/projects/aryalinux-bin/files/files/1.4/aryalinux-google-fonts.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -33,6 +35,8 @@ fi
 
 sudo tar xf aryalinux-google-fonts.tar.xz -C /
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

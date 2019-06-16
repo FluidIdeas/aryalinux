@@ -12,16 +12,18 @@ set +h
 #REQ:itstool
 #REQ:pcre2
 #REQ:vte
-#REC:nautilus
+#REQ:nautilus
+
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-terminal/3.32/gnome-terminal-3.32.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-terminal/3.32/gnome-terminal-3.32.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-terminal/3.32/gnome-terminal-3.32.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-terminal/3.32/gnome-terminal-3.32.2.tar.xz
+
 
 NAME=gnome-terminal
-VERSION=3.32.1
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-terminal/3.32/gnome-terminal-3.32.1.tar.xz
+VERSION=3.32.2
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-terminal/3.32/gnome-terminal-3.32.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -39,19 +41,22 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---disable-static &&
-make
 
+./configure --prefix=/usr       \
+            --disable-static    &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

@@ -10,9 +10,11 @@ set +h
 #REQ:perl-font-ttf
 #REQ:perl-io-string
 
+
 cd $SOURCE_DIR
 
 wget -nc https://sourceforge.net/projects/dejavu/files/dejavu/2.37/dejavu-fonts-2.37.tar.bz2
+
 
 NAME=dejavu-fonts
 VERSION=2.37
@@ -38,6 +40,8 @@ make full-ttf
 sudo mkdir -pv /usr/share/fonts/TTF/DejaVu
 sudo cp -f build/*.ttf /usr/share/fonts/TTF/DejaVu
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

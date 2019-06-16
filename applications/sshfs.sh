@@ -10,9 +10,11 @@ set +h
 #REQ:glib2
 #REQ:openssh
 
+
 cd $SOURCE_DIR
 
 wget -nc https://github.com/libfuse/sshfs/releases/download/sshfs-3.5.2/sshfs-3.5.2.tar.xz
+
 
 NAME=sshfs
 VERSION=3.5.2
@@ -34,16 +36,17 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build &&
-cd build &&
 
+mkdir build &&
+cd    build &&
+          
 meson --prefix=/usr .. &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
@@ -51,6 +54,8 @@ sudo rm -rf /tmp/rootscript.sh
 sshfs example.com:/home/userid ~/examplepath
 fusermount3 -u ~/example
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

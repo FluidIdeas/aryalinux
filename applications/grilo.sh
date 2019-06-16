@@ -8,16 +8,18 @@ set +h
 
 #REQ:glib2
 #REQ:libxml2
-#REC:gobject-introspection
-#REC:gtk3
-#REC:libsoup
-#REC:totem-pl-parser
-#REC:vala
+#REQ:gobject-introspection
+#REQ:gtk3
+#REQ:libsoup
+#REQ:totem-pl-parser
+#REQ:vala
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.7.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.7.tar.xz
+
 
 NAME=grilo
 VERSION=0.3.7
@@ -39,21 +41,24 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build &&
-cd build &&
-meson --prefix=/usr \
---libexecdir=/usr/lib .. &&
-ninja
 
+mkdir build &&
+cd build    &&
+meson --prefix=/usr \
+      --libexecdir=/usr/lib .. &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

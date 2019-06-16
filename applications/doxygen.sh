@@ -8,12 +8,14 @@ set +h
 
 #REQ:cmake
 
+
 cd $SOURCE_DIR
 
 wget -nc http://doxygen.nl/files/doxygen-1.8.15.src.tar.gz
 
+
 NAME=doxygen
-VERSION=1.8.15.src
+VERSION=1.8.15
 URL=http://doxygen.nl/files/doxygen-1.8.15.src.tar.gz
 
 if [ ! -z $URL ]
@@ -32,29 +34,32 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir -v build &&
-cd build &&
 
-cmake -G "Unix Makefiles" \
--DCMAKE_BUILD_TYPE=Release \
--DCMAKE_INSTALL_PREFIX=/usr \
--Wno-dev .. &&
+mkdir -v build &&
+cd       build &&
+
+cmake -G "Unix Makefiles"         \
+      -DCMAKE_BUILD_TYPE=Release  \
+      -DCMAKE_INSTALL_PREFIX=/usr \
+      -Wno-dev .. &&
 
 make
 cmake -DDOC_INSTALL_DIR=share/doc/doxygen-1.8.15 -Dbuild_doc=ON .. &&
 
 make docs
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 install -vm644 ../doc/*.1 /usr/share/man/man1
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

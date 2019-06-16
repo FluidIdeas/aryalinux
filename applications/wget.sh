@@ -6,12 +6,14 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REC:make-ca
+#REQ:make-ca
+
 
 cd $SOURCE_DIR
 
 wget -nc https://ftp.gnu.org/gnu/wget/wget-1.20.3.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/wget/wget-1.20.3.tar.gz
+
 
 NAME=wget
 VERSION=1.20.3
@@ -33,20 +35,23 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---sysconfdir=/etc \
---with-ssl=openssl &&
-make
 
+./configure --prefix=/usr      \
+            --sysconfdir=/etc  \
+            --with-ssl=openssl &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

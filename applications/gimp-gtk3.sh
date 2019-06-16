@@ -27,10 +27,12 @@ set +h
 #REQ:pygtk
 #REQ:xdg-utils
 
+
 cd $SOURCE_DIR
 
 wget -nc https://gitlab.gnome.org/GNOME/gimp/-/archive/gtk3-port/gimp-gtk3-port.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/gimp-gtk3.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/gimp-gtk3.patch
+
 
 NAME=gimp-gtk3
 VERSION=2.99.1
@@ -59,6 +61,8 @@ sudo make install
 sudo gtk-update-icon-cache &&
 sudo update-desktop-database
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

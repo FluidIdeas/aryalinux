@@ -11,9 +11,11 @@ set +h
 #REQ:ffmpeg
 #REQ:pulseaudio
 
+
 cd $SOURCE_DIR
 
 wget -nc https://github.com/MaartenBaert/ssr/archive/0.3.11.tar.gz
+
 
 NAME=ssr
 VERSION=0.3.11
@@ -41,6 +43,8 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr -DWITH_QT5=1 -DWITH_PULSEAUDIO=1 -DWITH_JACK=1
 make
 sudo make install
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

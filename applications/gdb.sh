@@ -6,16 +6,18 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REC:six
+#REQ:python-modules#six
+
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/gdb/gdb-8.2.1.tar.xz
-wget -nc ftp://ftp.gnu.org/gnu/gdb/gdb-8.2.1.tar.xz
+wget -nc https://ftp.gnu.org/gnu/gdb/gdb-8.3.tar.xz
+wget -nc ftp://ftp.gnu.org/gnu/gdb/gdb-8.3.tar.xz
+
 
 NAME=gdb
-VERSION=8.2.1
-URL=https://ftp.gnu.org/gnu/gdb/gdb-8.2.1.tar.xz
+VERSION=8.3
+URL=https://ftp.gnu.org/gnu/gdb/gdb-8.3.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -33,37 +35,40 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr \
---with-system-readline \
---with-python=/usr/bin/python3 &&
+            --with-system-readline \
+            --with-python=/usr/bin/python3 &&
 make
 make -C gdb/doc doxy
 pushd gdb/testsuite &&
-make site.exp &&
-echo "set gdb_test_timeout 120" >> site.exp &&
+make  site.exp      &&
+echo  "set gdb_test_timeout 120" >> site.exp &&
 runtest
 popd
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make -C gdb install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -d /usr/share/doc/gdb-8.2.1 &&
+install -d /usr/share/doc/gdb-8.3 &&
 rm -rf gdb/doc/doxy/xml &&
-cp -Rv gdb/doc/doxy /usr/share/doc/gdb-8.2.1
+cp -Rv gdb/doc/doxy /usr/share/doc/gdb-8.3
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

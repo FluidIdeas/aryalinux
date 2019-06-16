@@ -8,12 +8,16 @@ set +h
 
 #REQ:libarchive
 
+
 cd $SOURCE_DIR
+
+wget -nc https://ftp.gnu.org/gnu/ed/ed-1.15.tar.lz
+wget -nc ftp://ftp.gnu.org/gnu/ed/ed-1.15.tar.lz
 
 
 NAME=ed
-VERSION=""
-URL=""
+VERSION=1.15
+URL=https://ftp.gnu.org/gnu/ed/ed-1.15.tar.lz
 
 if [ ! -z $URL ]
 then
@@ -31,18 +35,21 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr --bindir=/bin &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

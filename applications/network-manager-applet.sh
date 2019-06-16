@@ -12,18 +12,20 @@ set +h
 #REQ:libsecret
 #REQ:libnotify
 #REQ:networkmanager
+#REQ:gobject-introspection
+#REQ:ModemManager
 #REQ:polkit-gnome
-#REC:gobject-introspection
-#REC:modemmanager
+
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/network-manager-applet/1.8/network-manager-applet-1.8.20.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/network-manager-applet/1.8/network-manager-applet-1.8.20.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/network-manager-applet/1.8/network-manager-applet-1.8.22.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/network-manager-applet/1.8/network-manager-applet-1.8.22.tar.xz
+
 
 NAME=network-manager-applet
-VERSION=1.8.20
-URL=http://ftp.gnome.org/pub/gnome/sources/network-manager-applet/1.8/network-manager-applet-1.8.20.tar.xz
+VERSION=1.8.22
+URL=http://ftp.gnome.org/pub/gnome/sources/network-manager-applet/1.8/network-manager-applet-1.8.22.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -41,25 +43,29 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
-cd build &&
+cd    build &&
 
-meson --prefix=/usr \
---sysconfdir=/etc \
--Dselinux=false \
--Dteam=false \
--Dmobile_broadband_provider_info=false .. &&
+meson --prefix=/usr     \
+      --sysconfdir=/etc \
+      -Dselinux=false   \
+      -Dteam=false      \
+      -Dmobile_broadband_provider_info=false \
+      -Dgtk_doc=false .. &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

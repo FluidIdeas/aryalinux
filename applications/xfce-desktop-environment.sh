@@ -35,12 +35,14 @@ set +h
 #REQ:aryalinux-icons
 #REQ:lightdm
 
+
 cd $SOURCE_DIR
+
 
 
 NAME=xfce-desktop-environment
 VERSION=4.12
-URL=""
+
 
 if [ ! -z $URL ]
 then
@@ -59,6 +61,9 @@ cd $DIRECTORY
 fi
 
 
+
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

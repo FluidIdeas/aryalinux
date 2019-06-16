@@ -7,18 +7,19 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:glib2
-#REQ:js52
+#REQ:js60
+#REQ:linux-pam
 #REQ:systemd
-#REC:linux-pam
+
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/polkit/releases/polkit-0.115.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/polkit-0.115-security_patch-3.patch
+wget -nc https://www.freedesktop.org/software/polkit/releases/polkit-0.116.tar.gz
+
 
 NAME=polkit
-VERSION=0.115
-URL=https://www.freedesktop.org/software/polkit/releases/polkit-0.115.tar.gz
+VERSION=0.116
+URL=https://www.freedesktop.org/software/polkit/releases/polkit-0.116.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -41,47 +42,50 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 groupadd -fg 27 polkitd &&
 useradd -c "PolicyKit Daemon Owner" -d /etc/polkit-1 -u 27 \
--g polkitd -s /bin/false polkitd
+        -g polkitd -s /bin/false polkitd
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 sed -i "s:/sys/fs/cgroup/systemd/:/sys:g" configure
-patch -Np1 -i ../polkit-0.115-security_patch-3.patch
-./configure --prefix=/usr \
---sysconfdir=/etc \
---localstatedir=/var \
---disable-static &&
+./configure --prefix=/usr        \
+            --sysconfdir=/etc    \
+            --localstatedir=/var \
+            --disable-static     \
+            --with-os-type=LFS   &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/pam.d/polkit-1 << "EOF"
 # Begin /etc/pam.d/polkit-1
 
-auth include system-auth
-account include system-account
-password include system-password
-session include system-session
+auth     include        system-auth
+account  include        system-account
+password include        system-password
+session  include        system-session
 
 # End /etc/pam.d/polkit-1
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

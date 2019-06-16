@@ -6,11 +6,14 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REC:gtk2
+#REQ:installing
+#REQ:gtk2
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.vim.org/vim/unix/vim-8.1.tar.bz2
+
 
 NAME=vim
 VERSION=8.1
@@ -32,43 +35,43 @@ fi
 cd $DIRECTORY
 fi
 
-echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h &&
+
+echo '#define SYS_VIMRC_FILE  "/etc/vimrc"' >>  src/feature.h &&
 echo '#define SYS_GVIMRC_FILE "/etc/gvimrc"' >> src/feature.h &&
 
 ./configure --prefix=/usr \
---with-features=huge \
---with-tlib=ncursesw &&
+            --with-features=huge \
+            --with-tlib=ncursesw &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ln -snfv ../vim/vim81/doc /usr/share/doc/vim-8.1
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 rsync -avzcP --exclude="/dos/" --exclude="/spell/" \
-ftp.nluug.nl::Vim/runtime/ ./runtime/
-
+    ftp.nluug.nl::Vim/runtime/ ./runtime/
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make -C src installruntime &&
 vim -c ":helptags /usr/share/doc/vim-8.1" -c ":q"
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -87,11 +90,14 @@ StartupNotify=true
 MimeType=text/plain;
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

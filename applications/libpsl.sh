@@ -8,9 +8,11 @@ set +h
 
 #REQ:libidn2
 
+
 cd $SOURCE_DIR
 
 wget -nc https://github.com/rockdaboot/libpsl/releases/download/libpsl-0.21.0/libpsl-0.21.0.tar.gz
+
 
 NAME=libpsl
 VERSION=0.21.0
@@ -32,19 +34,22 @@ fi
 cd $DIRECTORY
 fi
 
-sed -i 's/env python/&3/' src/psl-make-dafsa &&
-./configure --prefix=/usr --disable-static &&
-make
 
+sed -i 's/env python/&3/' src/psl-make-dafsa &&
+./configure --prefix=/usr --disable-static       &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

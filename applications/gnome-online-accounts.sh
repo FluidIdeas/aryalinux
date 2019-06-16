@@ -12,12 +12,14 @@ set +h
 #REQ:telepathy-glib
 #REQ:vala
 #REQ:webkitgtk
-#REC:gobject-introspection
+#REQ:gobject-introspection
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-online-accounts/3.32/gnome-online-accounts-3.32.0.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-online-accounts/3.32/gnome-online-accounts-3.32.0.tar.xz
+
 
 NAME=gnome-online-accounts
 VERSION=3.32.0
@@ -39,21 +41,24 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---disable-static \
---with-google-client-secret=5ntt6GbbkjnTVXx-MSxbmx5e \
---with-google-client-id=595013732528-llk8trb03f0ldpqq6nprjp1s79596646.apps.googleusercontent.com &&
-make
 
+./configure --prefix=/usr \
+            --disable-static \
+            --with-google-client-secret=5ntt6GbbkjnTVXx-MSxbmx5e \
+            --with-google-client-id=595013732528-llk8trb03f0ldpqq6nprjp1s79596646.apps.googleusercontent.com &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

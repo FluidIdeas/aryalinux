@@ -19,17 +19,19 @@ set +h
 #REQ:pulseaudio
 #REQ:systemd
 #REQ:upower
-#REQ:xorg-wacom-driver
-#REC:alsa
-#REC:cups
-#REC:networkmanager
-#REC:nss
-#REC:wayland
+#REQ:x7driver#xorg-wacom-driver
+#REQ:alsa
+#REQ:cups
+#REQ:networkmanager
+#REQ:nss
+#REQ:wayland
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-settings-daemon/3.32/gnome-settings-daemon-3.32.0.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-settings-daemon/3.32/gnome-settings-daemon-3.32.0.tar.xz
+
 
 NAME=gnome-settings-daemon
 VERSION=3.32.0
@@ -51,21 +53,24 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
-cd build &&
+cd    build &&
 
 meson --prefix=/usr --sysconfdir=/etc .. &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

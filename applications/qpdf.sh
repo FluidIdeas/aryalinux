@@ -8,13 +8,15 @@ set +h
 
 #REQ:libjpeg
 
+
 cd $SOURCE_DIR
 
-wget -nc https://github.com/qpdf/qpdf/releases/download/release-qpdf-8.4.1/qpdf-8.4.1.tar.gz
+wget -nc https://github.com/qpdf/qpdf/releases/download/release-qpdf-8.4.2/qpdf-8.4.2.tar.gz
+
 
 NAME=qpdf
-VERSION=8.4.1
-URL=https://github.com/qpdf/qpdf/releases/download/release-qpdf-8.4.1/qpdf-8.4.1.tar.gz
+VERSION=8.4.2
+URL=https://github.com/qpdf/qpdf/releases/download/release-qpdf-8.4.2/qpdf-8.4.2.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -32,20 +34,23 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr \
---disable-static \
---docdir=/usr/share/doc/qpdf-8.4.1 &&
-make
 
+./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/qpdf-8.4.2 &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

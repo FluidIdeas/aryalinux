@@ -7,11 +7,13 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:linux-pam
-#REC:polkit
+#REQ:polkit
+
 
 cd $SOURCE_DIR
 
 wget -nc https://github.com/systemd/systemd/archive/v241/systemd-241.tar.gz
+
 
 NAME=systemd
 VERSION=241
@@ -33,62 +35,55 @@ fi
 cd $DIRECTORY
 fi
 
+
 sed -i 's/GROUP="render", //' rules/50-udev-default.rules.in
 mkdir build &&
-cd build &&
+cd    build &&
 
-meson --prefix=/usr \
---sysconfdir=/etc \
---localstatedir=/var \
--Dblkid=true \
--Dbuildtype=release \
--Ddefault-dnssec=no \
--Dfirstboot=false \
--Dinstall-tests=false \
--Dldconfig=false \
--Drootprefix= \
--Drootlibdir=/lib \
--Dsplit-usr=true \
--Dsysusers=false \
--Db_lto=false \
-.. &&
+CFLAGS+="-Wno-format-overflow" \
+meson --prefix=/usr         \
+      --sysconfdir=/etc     \
+      --localstatedir=/var  \
+      -Dblkid=true          \
+      -Dbuildtype=release   \
+      -Ddefault-dnssec=no   \
+      -Dfirstboot=false     \
+      -Dinstall-tests=false \
+      -Dldconfig=false      \
+      -Drootprefix=         \
+      -Drootlibdir=/lib     \
+      -Dsplit-usr=true      \
+      -Dsysusers=false      \
+      -Drpmmacrosdir=no     \
+      -Db_lto=false         \
+      ..                    &&
 
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 systemctl start rescue.target
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-rm -rfv /usr/lib/rpm
-ENDOFROOTSCRIPT
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat >> /etc/pam.d/system-session << "EOF"
 # Begin Systemd addition
-
-session required pam_loginuid.so
-session optional pam_systemd.so
+    
+session  required    pam_loginuid.so
+session  optional    pam_systemd.so
 
 # End Systemd addition
 EOF
@@ -96,37 +91,40 @@ EOF
 cat > /etc/pam.d/systemd-user << "EOF"
 # Begin /etc/pam.d/systemd-user
 
-account required pam_access.so
-account include system-account
+account  required    pam_access.so
+account  include     system-account
 
-session required pam_env.so
-session required pam_limits.so
-session required pam_unix.so
-session required pam_loginuid.so
-session optional pam_keyinit.so force revoke
-session optional pam_systemd.so
+session  required    pam_env.so
+session  required    pam_limits.so
+session  required    pam_unix.so
+session  required    pam_loginuid.so
+session  optional    pam_keyinit.so force revoke
+session  optional    pam_systemd.so
 
-auth required pam_deny.so
-password required pam_deny.so
+auth     required    pam_deny.so
+password required    pam_deny.so
 
 # End /etc/pam.d/systemd-user
 EOF
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 systemctl daemon-reload
 systemctl start multi-user.target
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

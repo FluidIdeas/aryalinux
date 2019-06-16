@@ -7,13 +7,15 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libxml2
-#REC:docbook
-#REC:docbook-xsl
+#REQ:docbook
+#REQ:docbook-xsl
+
 
 cd $SOURCE_DIR
 
 wget -nc http://xmlsoft.org/sources/libxslt-1.1.33.tar.gz
 wget -nc ftp://xmlsoft.org/libxslt/libxslt-1.1.33.tar.gz
+
 
 NAME=libxslt
 VERSION=1.1.33
@@ -35,19 +37,22 @@ fi
 cd $DIRECTORY
 fi
 
-sed -i s/3000/5000/ libxslt/transform.c doc/xsltproc.{1,xml} &&
-./configure --prefix=/usr --disable-static &&
-make
 
+sed -i s/3000/5000/ libxslt/transform.c doc/xsltproc.{1,xml} &&
+./configure --prefix=/usr --disable-static                   &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

@@ -6,15 +6,16 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:gtk-doc
 #REQ:json-glib
 #REQ:libsoup
-#REC:gobject-introspection
+#REQ:gobject-introspection
+
 
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/geocode-glib/3.26/geocode-glib-3.26.1.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/geocode-glib/3.26/geocode-glib-3.26.1.tar.xz
+
 
 NAME=geocode-glib
 VERSION=3.26.1
@@ -36,20 +37,23 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build &&
-cd build &&
-meson --prefix /usr .. &&
-ninja
 
+mkdir build                                   &&
+cd    build                                   &&
+meson --prefix /usr .. -Denable-gtk-doc=false &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

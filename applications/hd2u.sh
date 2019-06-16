@@ -8,9 +8,11 @@ set +h
 
 #REQ:popt
 
+
 cd $SOURCE_DIR
 
 wget -nc http://hany.sk/~hany/_data/hd2u/hd2u-1.0.4.tgz
+
 
 NAME=hd2u
 VERSION=1.0.4
@@ -32,18 +34,21 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

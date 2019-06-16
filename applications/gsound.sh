@@ -6,14 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#REQ:gobject-introspection
+#REQ:vala
+
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gsound/1.0/gsound-1.0.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gsound/1.0/gsound-1.0.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gsound/1.0/gsound-1.0.2.tar.xz
+
 
 NAME=gsound
 VERSION=1.0.2
-URL=http://ftp.acc.umu.se/pub/gnome/sources/gsound/1.0/gsound-1.0.2.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/gsound/1.0/gsound-1.0.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -31,10 +36,21 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr
+
+./configure --prefix=/usr --disable-static &&
 make
-sudo make install
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

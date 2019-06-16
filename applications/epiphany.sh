@@ -10,20 +10,20 @@ set +h
 #REQ:gnome-desktop
 #REQ:iso-codes
 #REQ:json-glib
-#REQ:libdazzle
 #REQ:libnotify
-#REQ:libwnck
 #REQ:webkitgtk
-#REC:nss
+#REQ:libdazzle
+
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/epiphany/3.30/epiphany-3.30.3.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/epiphany/3.30/epiphany-3.30.3.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/epiphany/3.32/epiphany-3.32.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/epiphany/3.32/epiphany-3.32.2.tar.xz
+
 
 NAME=epiphany
-VERSION=3.30.3
-URL=http://ftp.gnome.org/pub/gnome/sources/epiphany/3.30/epiphany-3.30.3.tar.xz
+VERSION=3.32.2
+URL=http://ftp.gnome.org/pub/gnome/sources/epiphany/3.32/epiphany-3.32.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -41,30 +41,33 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir build &&
-cd build &&
+cd    build &&
 
 meson --prefix=/usr .. &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 glib-compile-schemas /usr/share/glib-2.0/schemas
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

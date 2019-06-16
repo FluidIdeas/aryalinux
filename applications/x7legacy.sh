@@ -8,12 +8,16 @@ set +h
 
 #REQ:xcursor-themes
 
+
 cd $SOURCE_DIR
+
+wget -nc https://www.x.org/pub/individual/
+wget -nc ftp://ftp.x.org/pub/individual/
 
 
 NAME=x7legacy
-VERSION=""
-URL=""
+VERSION=
+URL=https://www.x.org/pub/individual/
 
 if [ ! -z $URL ]
 then
@@ -31,8 +35,7 @@ fi
 cd $DIRECTORY
 fi
 
-export XORG_PREFIX=/usr
-export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
+XORG_CONFIG=--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static
 
 cat > legacy.dat << "EOF"
 2a455d3c02390597feb9cefb3fe97a45 app/ bdftopcf-1.1.tar.bz2
@@ -45,33 +48,35 @@ EOF
 mkdir legacy &&
 cd legacy &&
 grep -v '^#' ../legacy.dat | awk '{print $2$3}' | wget -i- -c \
--B https://www.x.org/pub/individual/ &&
+     -B https://www.x.org/pub/individual/ &&
 grep -v '^#' ../legacy.dat | awk '{print $1 " " $3}' > ../legacy.md5 &&
 md5sum -c ../legacy.md5
 as_root()
 {
-if [ $EUID = 0 ]; then $*
-elif [ -x /usr/bin/sudo ]; then sudo $*
-else su -c \\"$*\\"
-fi
+  if   [ $EUID = 0 ];        then $*
+  elif [ -x /usr/bin/sudo ]; then sudo $*
+  else                            su -c \\"$*\\"
+  fi
 }
 
 export -f as_root
 bash -e
 for package in $(grep -v '^#' ../legacy.md5 | awk '{print $2}')
 do
-packagedir=${package%.tar.bz2}
-tar -xf $package
-pushd $packagedir
-./configure $XORG_CONFIG
-make
-as_root make install
-popd
-rm -rf $packagedir
-as_root /sbin/ldconfig
+  packagedir=${package%.tar.bz2}
+  tar -xf $package
+  pushd $packagedir
+  ./configure $XORG_CONFIG
+  make
+  as_root make install
+  popd
+  rm -rf $packagedir
+  as_root /sbin/ldconfig
 done
 exit
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

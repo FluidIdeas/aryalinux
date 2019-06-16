@@ -9,11 +9,13 @@ set +h
 #REQ:python2
 #REQ:sqlite
 #REQ:telepathy-glib
-#REC:gobject-introspection
+#REQ:gobject-introspection
+
 
 cd $SOURCE_DIR
 
 wget -nc https://telepathy.freedesktop.org/releases/telepathy-logger/telepathy-logger-0.8.2.tar.bz2
+
 
 NAME=telepathy-logger
 VERSION=0.8.2
@@ -35,20 +37,23 @@ fi
 cd $DIRECTORY
 fi
 
+
 sed 's@/apps/@/org/freedesktop/@' \
--i data/org.freedesktop.Telepathy.Logger.gschema.xml.in
+    -i data/org.freedesktop.Telepathy.Logger.gschema.xml.in
 ./configure --prefix=/usr --disable-static &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

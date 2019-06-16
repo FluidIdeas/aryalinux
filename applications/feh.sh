@@ -9,11 +9,13 @@ set +h
 #REQ:libpng
 #REQ:imlib2
 #REQ:giflib
-#REC:curl
+#REQ:curl
+
 
 cd $SOURCE_DIR
 
 wget -nc http://feh.finalrewind.org/feh-3.1.3.tar.bz2
+
 
 NAME=feh
 VERSION=3.1.3
@@ -35,18 +37,21 @@ fi
 cd $DIRECTORY
 fi
 
+
 sed -i "s:doc/feh:&-3.1.3:" config.mk &&
 make PREFIX=/usr
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make PREFIX=/usr install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

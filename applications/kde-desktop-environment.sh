@@ -21,12 +21,14 @@ set +h
 #REQ:konsole5
 #REQ:lightdm
 
+
 cd $SOURCE_DIR
+
 
 
 NAME=kde-desktop-environment
 VERSION=5.53
-URL=""
+
 
 if [ ! -z $URL ]
 then
@@ -46,6 +48,8 @@ fi
 
 sudo ln -svf /usr/lib /usr/lib64
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

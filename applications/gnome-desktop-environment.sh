@@ -90,19 +90,20 @@ set +h
 #REQ:gnome-tweaks
 #REQ:plank
 #REQ:pavucontrol
-#REQ:ffmpegthumbnailer
 #REQ:aryalinux-wallpapers
 #REQ:aryalinux-google-fonts
 #REQ:aryalinux-icons
 #REQ:aryalinux-gtk-themes
 #REQ:aryalinux-gnome-settings
 
+
 cd $SOURCE_DIR
+
 
 
 NAME=gnome-desktop-environment
 VERSION=3.32.0
-URL=""
+
 
 if [ ! -z $URL ]
 then
@@ -136,6 +137,8 @@ default-gnome-user-instructions
 EOF
 sudo rm -rvf /usr/share/xsessions/gnome.desktop
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

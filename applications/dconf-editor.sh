@@ -8,9 +8,11 @@ set +h
 
 #REQ:dconf
 
+
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.30/dconf-editor-3.30.2.tar.xz
+
 
 NAME=dconf-editor
 VERSION=3.30.2
@@ -39,6 +41,8 @@ meson --prefix=/usr --sysconfdir=/etc .. &&
 ninja
 sudo ninja install
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

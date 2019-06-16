@@ -8,18 +8,20 @@ set +h
 
 #REQ:gs
 #REQ:texlive
-#REC:freeglut
-#REC:gc
-#REC:glew
-#REC:glm
-#REC:libtirpc
+#REQ:freeglut
+#REQ:gc
+#REQ:glew
+#REQ:glm
+#REQ:libtirpc
+
 
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/asymptote/asymptote-2.49.src.tgz
 
+
 NAME=asymptote
-VERSION=2.49.src
+VERSION=2.49
 URL=https://downloads.sourceforge.net/asymptote/asymptote-2.49.src.tgz
 
 if [ ! -z $URL ]
@@ -38,29 +40,32 @@ fi
 cd $DIRECTORY
 fi
 
+
 export TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/') &&
 
-./configure --prefix=/opt/texlive/2018 \
---bindir=/opt/texlive/2018/bin/$TEXARCH \
---datarootdir=/opt/texlive/2018/texmf-dist \
---infodir=/opt/texlive/2018/texmf-dist/doc/info \
---libdir=/opt/texlive/2018/texmf-dist \
---mandir=/opt/texlive/2018/texmf-dist/doc/man \
---enable-gc=system \
---with-latex=/opt/texlive/2018/texmf-dist/tex/latex \
---with-context=/opt/texlive/2018/texmf-dist/tex/context/third &&
+./configure --prefix=/opt/texlive/2019                          \
+            --bindir=/opt/texlive/2019/bin/$TEXARCH             \
+            --datarootdir=/opt/texlive/2019/texmf-dist          \
+            --infodir=/opt/texlive/2019/texmf-dist/doc/info     \
+            --libdir=/opt/texlive/2019/texmf-dist               \
+            --mandir=/opt/texlive/2019/texmf-dist/doc/man       \
+            --enable-gc=system                                  \
+            --with-latex=/opt/texlive/2019/texmf-dist/tex/latex \
+            --with-context=/opt/texlive/2019/texmf-dist/tex/context/third &&
 
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

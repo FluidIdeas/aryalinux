@@ -7,13 +7,15 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://sourceforge.net/projects/aryalinux-bin/files/artifacts/aryalinux-gnome-defaults.tar.xz
 
+
 NAME=aryalinux-gnome-settings
 VERSION=1.4
-URL=""
+URL=https://sourceforge.net/projects/aryalinux-bin/files/artifacts/aryalinux-gnome-defaults.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -35,6 +37,8 @@ sudo tar xf aryalinux-gnome-defaults.tar.xz -C /
 sudo cp -r /etc/skel/{.config,.local,.bash,.Xresources}* ~
 sudo chown -R $USER:$USER ~
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+

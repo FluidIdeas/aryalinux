@@ -7,9 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 
+
 cd $SOURCE_DIR
 
 wget -nc https://github.com/dosfstools/dosfstools/releases/download/v4.1/dosfstools-4.1.tar.xz
+
 
 NAME=dosfstools
 VERSION=4.1
@@ -31,21 +33,24 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/ \
---enable-compat-symlinks \
---mandir=/usr/share/man \
---docdir=/usr/share/doc/dosfstools-4.1 &&
-make
 
+./configure --prefix=/               \
+            --enable-compat-symlinks \
+            --mandir=/usr/share/man  \
+            --docdir=/usr/share/doc/dosfstools-4.1 &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
+
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+
