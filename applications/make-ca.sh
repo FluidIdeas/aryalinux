@@ -54,8 +54,6 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-ln -sfv /etc/pki/tls/certs/ca-bundle.crt \
-        /etc/ssl/ca-bundle.crt
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 systemctl enable update-pki.timer
