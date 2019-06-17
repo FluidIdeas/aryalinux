@@ -46,7 +46,7 @@ bfb2593d2102585f45daa960f43cb3c4  font-ibm-type1-1.0.3.tar.bz2
 6306c808f7d7e7d660dfb3859f9091d2  font-misc-ethiopic-1.0.3.tar.bz2
 3eeb3fb44690b477d510bbd8f86cf5aa  font-xfree86-type1-1.0.4.tar.bz2
 EOF
-mkdir font &&
+mkdir -pv font &&
 cd font &&
 grep -v '^#' ../font-7.md5 | awk '{print $2}' | wget -i- -c \
     -B https://www.x.org/pub/individual/font/ &&

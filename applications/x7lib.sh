@@ -70,7 +70,7 @@ d2f1f0ec68ac3932dd7f1d9aa0a7a11c  libdmx-1.1.4.tar.bz2
 dd7e1e946def674e78c0efbc5c7d5b3b  libxkbfile-1.1.0.tar.bz2
 42dda8016943dc12aff2c03a036e0937  libxshmfence-1.3.tar.bz2
 EOF
-mkdir lib &&
+mkdir -pv lib &&
 cd lib &&
 grep -v '^#' ../lib-7.md5 | awk '{print $2}' | wget -i- -c \
     -B https://www.x.org/pub/individual/lib/ &&
@@ -108,7 +108,7 @@ do
     ;;
   esac
   make
-  #make check 2>&1 | tee ../$packagedir-make_check.log
+  
   as_root make install
   popd
   rm -rf $packagedir

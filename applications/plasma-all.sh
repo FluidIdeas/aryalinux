@@ -146,7 +146,7 @@ while read -r line; do
        mkdir build
        cd    build
 
-       cmake -DCMAKE_INSTALL_PREFIX=$KF5_PREFIX \
+       cmake -DCMAKE_INSTALL_PREFIX=/usr \
              -DCMAKE_BUILD_TYPE=Release         \
              -DBUILD_TESTING=OFF                \
              -Wno-dev ..  &&
@@ -166,7 +166,7 @@ exit
 install -dvm 755 /usr/share/xsessions &&
 cd /usr/share/xsessions/              &&
 [ -e plasma.desktop ]                 ||
-as_root ln -sfv $KF5_PREFIX/share/xsessions/plasma.desktop
+as_root ln -sfv /usr/share/xsessions/plasma.desktop
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/pam.d/kde << "EOF" 

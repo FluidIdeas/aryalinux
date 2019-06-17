@@ -41,7 +41,7 @@ fi
 mkdir build &&
 cd    build &&
 
-cmake -DCMAKE_INSTALL_PREFIX=$KF5_PREFIX \
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
       -DCMAKE_BUILD_TYPE=Release         \
       -DBUILD_TESTING=OFF                \
       -Wno-dev .. &&
@@ -50,8 +50,8 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install  &&
 
-mv -v $KF5_PREFIX/share/kde4/services/khelpcenter.desktop /usr/share/applications/ &&
-rm -rv $KF5_PREFIX/share/kde4
+mv -v /usr/share/kde4/services/khelpcenter.desktop /usr/share/applications/ &&
+rm -rv /usr/share/kde4
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
