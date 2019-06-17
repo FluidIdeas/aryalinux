@@ -12,13 +12,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.x.org/pub/individual/lib/
-wget -nc ftp://ftp.x.org/pub/individual/lib/
 
 
 NAME=x7lib
 VERSION=
-URL=https://www.x.org/pub/individual/lib/
+
 
 if [ ! -z $URL ]
 then

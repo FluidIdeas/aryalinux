@@ -11,13 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.x.org/pub/individual/font/
-wget -nc ftp://ftp.x.org/pub/individual/font/
 
 
 NAME=x7font
 VERSION=
-URL=https://www.x.org/pub/individual/font/
+
 
 if [ ! -z $URL ]
 then
