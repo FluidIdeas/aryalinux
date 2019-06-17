@@ -7,8 +7,9 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:glib2
-#REQ:icu
 #REQ:graphite2
+#REQ:icu
+#REQ:freetype2
 #REQ:graphite-wo-harfbuzz
 #REQ:freetype2-wo-harfbuzz
 

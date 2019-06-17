@@ -6,40 +6,40 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:icu
-#REQ:cups
-#REQ:clucene
-#REQ:poppler
-#REQ:librsvg
-#REQ:nss
-#REQ:apr
 #REQ:perl-modules#perl-archive-zip
-#REQ:libxml2
-#REQ:glm
+#REQ:unzip
+#REQ:wget
+#REQ:which
 #REQ:zip
-#REQ:libatomic_ops
-#REQ:libxslt
-#REQ:unixodbc
-#REQ:neon
+#REQ:apr
+#REQ:boost
+#REQ:clucene
+#REQ:cups
+#REQ:curl
+#REQ:dbus-glib
+#REQ:libjpeg
+#REQ:glm
+#REQ:glu
 #REQ:gpgme
 #REQ:graphite2
-#REQ:glu
-#REQ:unzip
-#REQ:which
-#REQ:redland
-#REQ:dbus-glib
-#REQ:boost
-#REQ:wget
 #REQ:gst10-plugins-base
-#REQ:gtk2
-#REQ:openldap
-#REQ:serf
-#REQ:lcms2
-#REQ:libjpeg
-#REQ:curl
-#REQ:harfbuzz
-#REQ:mesa
 #REQ:gtk3
+#REQ:gtk2
+#REQ:harfbuzz
+#REQ:icu
+#REQ:libatomic_ops
+#REQ:lcms2
+#REQ:librsvg
+#REQ:libxml2
+#REQ:libxslt
+#REQ:mesa
+#REQ:neon
+#REQ:nss
+#REQ:openldap
+#REQ:poppler
+#REQ:redland
+#REQ:serf
+#REQ:unixodbc
 
 
 cd $SOURCE_DIR

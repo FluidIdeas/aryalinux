@@ -8,6 +8,7 @@ set +h
 
 #REQ:openjdk
 #REQ:glib2
+#REQ:java
 
 
 cd $SOURCE_DIR

@@ -7,11 +7,11 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:gnutls
-#REQ:xdg-utils
+#REQ:colord
+#REQ:dbus
 #REQ:libusb
 #REQ:linux-pam
-#REQ:dbus
-#REQ:colord
+#REQ:xdg-utils
 
 
 cd $SOURCE_DIR

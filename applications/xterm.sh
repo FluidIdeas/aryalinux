@@ -7,7 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:x7app
-#REQ:ttf-and-otf-fonts#dejavu-fonts
+#REQ:dejavu-fonts
 
 
 cd $SOURCE_DIR

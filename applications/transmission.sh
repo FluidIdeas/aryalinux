@@ -7,8 +7,8 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:curl
-#REQ:gtk3
 #REQ:libevent
+#REQ:gtk3
 
 
 cd $SOURCE_DIR

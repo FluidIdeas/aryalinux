@@ -7,8 +7,8 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:llvm
-#REQ:glu
 #REQ:alsa-lib
+#REQ:glu
 #REQ:libjpeg
 
 
