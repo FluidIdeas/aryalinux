@@ -7,20 +7,20 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:dbus-glib
+#REQ:curl
+#REQ:systemd
+#REQ:jansson
+#REQ:libndp
+#REQ:gobject-introspection
+#REQ:iptables
+#REQ:nss
+#REQ:dhcpcd
 #REQ:vala
 #REQ:newt
-#REQ:libndp
-#REQ:curl
-#REQ:nss
-#REQ:wpa_supplicant
-#REQ:upower
-#REQ:dhcpcd
-#REQ:jansson
-#REQ:systemd
-#REQ:gobject-introspection
 #REQ:python-modules#pygobject3
 #REQ:polkit
-#REQ:iptables
+#REQ:upower
+#REQ:wpa_supplicant
 
 
 cd $SOURCE_DIR

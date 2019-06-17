@@ -6,24 +6,18 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:cairo
-#REQ:pango
-#REQ:gobject-introspection
-#REQ:rust
-#REQ:libcroco
-#REQ:gdk-pixbuf
-#REQ:vala
+#REQ:libdrm
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.14.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.14.tar.xz
+wget -nc https://github.com/intel/libva/releases/download/2.4.0/libva-2.4.0.tar.bz2
+wget -nc https://github.com/intel/intel-vaapi-driver/releases/download/2.3.0/intel-vaapi-driver-2.3.0.tar.bz2
 
 
-NAME=librsvg
-VERSION=2.44.14
-URL=http://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.14.tar.xz
+NAME=libva-wo-mesa
+VERSION=2.4.0
+URL=https://github.com/intel/libva/releases/download/2.4.0/libva-2.4.0.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -41,23 +35,11 @@ fi
 cd $DIRECTORY
 fi
 
-
-./configure --prefix=/usr    \
-            --enable-vala    \
-            --disable-static &&
+./configure $XORG_CONFIG &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-gdk-pixbuf-query-loaders --update-cache
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

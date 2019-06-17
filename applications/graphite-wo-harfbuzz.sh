@@ -6,24 +6,17 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:cairo
-#REQ:pango
-#REQ:gobject-introspection
-#REQ:rust
-#REQ:libcroco
-#REQ:gdk-pixbuf
-#REQ:vala
+#REQ:cmake
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.14.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.14.tar.xz
+wget -nc https://github.com/silnrsi/graphite/releases/download/1.3.13/graphite2-1.3.13.tgz
 
 
-NAME=librsvg
-VERSION=2.44.14
-URL=http://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.14.tar.xz
+NAME=graphite-wo-harfbuzz
+VERSION=1.3.13
+URL=https://github.com/silnrsi/graphite/releases/download/1.3.13/graphite2-1.3.13.tgz
 
 if [ ! -z $URL ]
 then
@@ -42,22 +35,15 @@ cd $DIRECTORY
 fi
 
 
-./configure --prefix=/usr    \
-            --enable-vala    \
-            --disable-static &&
+sed -i '/cmptest/d' tests/CMakeLists.txt
+mkdir build &&
+cd    build &&
+
+cmake -DCMAKE_INSTALL_PREFIX=/usr .. &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-gdk-pixbuf-query-loaders --update-cache
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

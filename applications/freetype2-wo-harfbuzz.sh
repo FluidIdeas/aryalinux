@@ -6,24 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:cairo
-#REQ:pango
-#REQ:gobject-introspection
-#REQ:rust
-#REQ:libcroco
-#REQ:gdk-pixbuf
-#REQ:vala
+#REQ:libpng
+#REQ:which
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.14.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.14.tar.xz
+wget -nc https://downloads.sourceforge.net/freetype/freetype-2.10.0.tar.bz2
+wget -nc https://downloads.sourceforge.net/freetype/freetype-doc-2.10.0.tar.bz2
 
 
-NAME=librsvg
-VERSION=2.44.14
-URL=http://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.14.tar.xz
+NAME=freetype2-wo-harfbuzz
+VERSION=2.10.0
+URL=https://downloads.sourceforge.net/freetype/freetype-2.10.0.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -42,9 +37,13 @@ cd $DIRECTORY
 fi
 
 
-./configure --prefix=/usr    \
-            --enable-vala    \
-            --disable-static &&
+tar -xf ../freetype-doc-2.10.0.tar.bz2 --strip-components=2 -C docs
+sed -ri "s:.*(AUX_MODULES.*valid):\1:" modules.cfg &&
+
+sed -r "s:.*(#.*SUBPIXEL_RENDERING) .*:\1:" \
+    -i include/freetype/config/ftoption.h  &&
+
+./configure --prefix=/usr --enable-freetype-config --disable-static &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -57,7 +56,9 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-gdk-pixbuf-query-loaders --update-cache
+install -v -m755 -d /usr/share/doc/freetype-2.10.0 &&
+cp -v -R docs/*     /usr/share/doc/freetype-2.10.0 &&
+rm -v /usr/share/doc/freetype-2.10.0/freetype-config.1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

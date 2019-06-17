@@ -6,24 +6,18 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:cairo
-#REQ:pango
-#REQ:gobject-introspection
-#REQ:rust
-#REQ:libcroco
-#REQ:gdk-pixbuf
-#REQ:vala
+#REQ:icu
+#REQ:glib2
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.14.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.14.tar.xz
+wget -nc https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.5.0.tar.xz
 
 
-NAME=librsvg
-VERSION=2.44.14
-URL=http://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.14.tar.xz
+NAME=harfbuzz-wo-freetype2
+VERSION=2.5.0
+URL=https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.5.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -42,22 +36,11 @@ cd $DIRECTORY
 fi
 
 
-./configure --prefix=/usr    \
-            --enable-vala    \
-            --disable-static &&
+./configure --prefix=/usr --with-gobject --with-graphite2 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-gdk-pixbuf-query-loaders --update-cache
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

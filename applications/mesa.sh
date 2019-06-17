@@ -6,13 +6,13 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:python-modules#mako
-#REQ:llvm
-#REQ:wayland-protocols
+#REQ:x7lib
 #REQ:libva
 #REQ:libvdpau
-#REQ:x7lib
+#REQ:llvm
 #REQ:libdrm
+#REQ:wayland-protocols
+#REQ:python-modules#mako
 
 
 cd $SOURCE_DIR

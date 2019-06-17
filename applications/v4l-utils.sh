@@ -6,10 +6,10 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#REQ:alsa-lib
+#REQ:glu
 #REQ:libjpeg
 #REQ:llvm
-#REQ:glu
-#REQ:alsa-lib
 
 
 cd $SOURCE_DIR

@@ -6,40 +6,40 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:neon
-#REQ:dbus-glib
-#REQ:gtk2
-#REQ:clucene
-#REQ:wget
-#REQ:icu
-#REQ:serf
 #REQ:unixodbc
-#REQ:openldap
-#REQ:glu
-#REQ:mesa
-#REQ:which
-#REQ:perl-modules#perl-archive-zip
-#REQ:unzip
-#REQ:gtk3
-#REQ:redland
-#REQ:lcms2
-#REQ:librsvg
-#REQ:boost
-#REQ:gpgme
-#REQ:zip
-#REQ:glm
-#REQ:curl
-#REQ:nss
-#REQ:gst10-plugins-base
-#REQ:libatomic_ops
-#REQ:libxml2
-#REQ:apr
-#REQ:poppler
-#REQ:harfbuzz
-#REQ:graphite2
-#REQ:libjpeg
-#REQ:cups
 #REQ:libxslt
+#REQ:dbus-glib
+#REQ:zip
+#REQ:gst10-plugins-base
+#REQ:wget
+#REQ:libxml2
+#REQ:poppler
+#REQ:graphite2
+#REQ:perl-modules#perl-archive-zip
+#REQ:openldap
+#REQ:glm
+#REQ:libatomic_ops
+#REQ:icu
+#REQ:gtk3
+#REQ:gtk2
+#REQ:boost
+#REQ:curl
+#REQ:gpgme
+#REQ:neon
+#REQ:cups
+#REQ:librsvg
+#REQ:nss
+#REQ:redland
+#REQ:libjpeg
+#REQ:which
+#REQ:harfbuzz
+#REQ:serf
+#REQ:glu
+#REQ:apr
+#REQ:lcms2
+#REQ:mesa
+#REQ:unzip
+#REQ:clucene
 
 
 cd $SOURCE_DIR

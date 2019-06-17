@@ -6,9 +6,9 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#REQ:libpng
 #REQ:harfbuzz
 #REQ:which
-#REQ:libpng
 
 
 cd $SOURCE_DIR
