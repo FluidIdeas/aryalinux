@@ -22,7 +22,7 @@ set +h
 #REQ:samba
 #REQ:gnome-bluetooth
 #REQ:ibus
-#REQ:ModemManager
+#REQ:modemmanager
 #REQ:network-manager-applet
 
 

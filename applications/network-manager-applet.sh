@@ -13,7 +13,7 @@ set +h
 #REQ:libnotify
 #REQ:networkmanager
 #REQ:gobject-introspection
-#REQ:ModemManager
+#REQ:modemmanager
 #REQ:polkit-gnome
 
 

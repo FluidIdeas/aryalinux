@@ -8,7 +8,7 @@ set +h
 
 #REQ:json-glib
 #REQ:libsoup
-#REQ:ModemManager
+#REQ:modemmanager
 #REQ:vala
 #REQ:avahi
 

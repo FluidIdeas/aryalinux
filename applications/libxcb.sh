@@ -6,9 +6,9 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:libXau
+#REQ:libxau
 #REQ:xcb-proto
-#REQ:libXdmcp
+#REQ:libxdmcp
 
 
 cd $SOURCE_DIR
