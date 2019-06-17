@@ -98,7 +98,13 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install-samba
+
+pushd $SOURCE_DIR
+wget -nc http://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-20180105.tar.bz2
+tar xf blfs-systemd-units-20180105.tar.bz2
+cd blfs-systemd-units-20180105
+sudo make install-samba
+popd
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -107,7 +113,13 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install-winbindd
+
+pushd $SOURCE_DIR
+wget -nc http://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-20180105.tar.bz2
+tar xf blfs-systemd-units-20180105.tar.bz2
+cd blfs-systemd-units-20180105
+sudo make install-winbindd
+popd
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
