@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:python-modules#MarkupSafe
+#REQ:python-modules#markupsafe
 
 
 cd $SOURCE_DIR
