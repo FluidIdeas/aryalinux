@@ -44,7 +44,8 @@ fi
 cd $DIRECTORY
 fi
 
-XORG_CONFIG=--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static
+XORG_PREFIX="/usr"
+XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
 # Put code in place
 tar -xf ../xorg-server-1.20.4.tar.bz2 \

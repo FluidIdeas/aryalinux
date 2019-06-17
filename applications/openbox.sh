@@ -34,6 +34,7 @@ fi
 cd $DIRECTORY
 fi
 
+XORG_PREFIX="/usr"
 
 export LIBRARY_PATH=$XORG_PREFIX/lib
 2to3-3.7 -w data/autostart/openbox-xdg-autostart &&

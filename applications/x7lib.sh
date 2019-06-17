@@ -36,7 +36,7 @@ fi
 cd $DIRECTORY
 fi
 
-XORG_CONFIG=--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static
+XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
 cat > lib-7.md5 << "EOF"
 ce2fb8100c6647ee81451ebe388b17ad  xtrans-1.4.0.tar.bz2

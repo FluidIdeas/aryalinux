@@ -38,7 +38,8 @@ fi
 cd $DIRECTORY
 fi
 
-XORG_CONFIG=--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static
+XORG_PREFIX="/usr"
+XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
 cat > app-7.md5 << "EOF"
 3b9b79fa0f9928161f4bad94273de7ae  iceauth-1.0.8.tar.bz2
