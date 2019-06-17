@@ -127,6 +127,12 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+#!/bin/bash
+
+set -e
+set +h
+
+. /etc/alps/alps.conf
 
 pushd $SOURCE_DIR
 wget -nc http://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-20180105.tar.bz2
