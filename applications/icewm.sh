@@ -6,7 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:installing
 #REQ:gdk-pixbuf
 
 

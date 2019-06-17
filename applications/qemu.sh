@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:glib2
-#REQ:installing
 #REQ:alsa-lib
 #REQ:sdl2
 

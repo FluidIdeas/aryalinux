@@ -12,7 +12,6 @@ set +h
 #REQ:adwaita-icon-theme
 #REQ:oxygen-icons5
 #REQ:gnome-icon-theme
-#REQ:installing
 #REQ:yelp
 
 

@@ -19,7 +19,6 @@ set +h
 #REQ:lcms2
 #REQ:mypaint-brushes
 #REQ:poppler
-#REQ:installing
 #REQ:dbus-glib
 #REQ:gs
 #REQ:gvfs

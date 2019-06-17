@@ -12,7 +12,6 @@ set +h
 #REQ:libjpeg
 #REQ:openjpeg2
 #REQ:curl
-#REQ:installing
 
 
 cd $SOURCE_DIR

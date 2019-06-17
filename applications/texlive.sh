@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:gs
-#REQ:installing
 #REQ:fontconfig
 #REQ:freetype2
 #REQ:gc

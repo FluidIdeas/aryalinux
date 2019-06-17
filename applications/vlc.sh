@@ -12,7 +12,6 @@ set +h
 #REQ:libgcrypt
 #REQ:libmad
 #REQ:lua
-#REQ:installing
 
 
 cd $SOURCE_DIR

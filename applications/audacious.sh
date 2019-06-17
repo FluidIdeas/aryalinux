@@ -9,8 +9,6 @@ set +h
 #REQ:gtk2
 #REQ:qt5
 #REQ:libxml2
-#REQ:xorg7#xorg-env
-#REQ:installing
 #REQ:mpg123
 
 

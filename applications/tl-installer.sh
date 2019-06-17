@@ -10,7 +10,6 @@ set +h
 #REQ:gs
 #REQ:x7lib
 #REQ:libxcb
-#REQ:installing
 #REQ:epdfview
 #REQ:freeglut
 #REQ:python2

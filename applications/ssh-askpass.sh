@@ -9,7 +9,6 @@ set +h
 #REQ:gtk2
 #REQ:sudo
 #REQ:x7lib
-#REQ:installing
 
 
 cd $SOURCE_DIR
