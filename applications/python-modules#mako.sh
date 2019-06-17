@@ -6,17 +6,17 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:libyaml
+#REQ:python-modules#markupsafe
 
 
 cd $SOURCE_DIR
 
-wget -nc http://pyyaml.org/download/pyyaml/PyYAML-5.1.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/M/Mako/Mako-1.0.10.tar.gz
 
 
-NAME=python-modules#PyYAML
-VERSION=5.1
-URL=http://pyyaml.org/download/pyyaml/PyYAML-5.1.tar.gz
+NAME=python-modules#mako
+VERSION=1.0.10
+URL=https://files.pythonhosted.org/packages/source/M/Mako/Mako-1.0.10.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -34,11 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
-python2 setup.py build &&
-python3 setup.py build
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-python2 setup.py install --optimize=1 &&
 python3 setup.py install --optimize=1
 ENDOFROOTSCRIPT
 

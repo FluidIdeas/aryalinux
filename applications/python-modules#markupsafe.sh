@@ -6,17 +6,16 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:python-modules#markupsafe
 
 
 cd $SOURCE_DIR
 
-wget -nc https://files.pythonhosted.org/packages/source/J/Jinja2/Jinja2-2.10.1.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/M/MarkupSafe/MarkupSafe-1.1.1.tar.gz
 
 
-NAME=python-modules#Jinja2
-VERSION=2.10.1
-URL=https://files.pythonhosted.org/packages/source/J/Jinja2/Jinja2-2.10.1.tar.gz
+NAME=python-modules#markupsafe
+VERSION=1.1.1
+URL=https://files.pythonhosted.org/packages/source/M/MarkupSafe/MarkupSafe-1.1.1.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -34,15 +33,7 @@ fi
 cd $DIRECTORY
 fi
 
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-python2 setup.py install --optimize=1
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
+python3 setup.py build
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 python3 setup.py install --optimize=1

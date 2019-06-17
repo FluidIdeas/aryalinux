@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://files.pythonhosted.org/packages/source/M/Mako/Mako-1.0.10.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/J/Jinja2/Jinja2-2.10.1.tar.gz
 
 
-NAME=python-modules#Mako
-VERSION=1.0.10
-URL=https://files.pythonhosted.org/packages/source/M/Mako/Mako-1.0.10.tar.gz
+NAME=python-modules#jinja2
+VERSION=2.10.1
+URL=https://files.pythonhosted.org/packages/source/J/Jinja2/Jinja2-2.10.1.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -33,6 +33,15 @@ fi
 
 cd $DIRECTORY
 fi
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+python2 setup.py install --optimize=1
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

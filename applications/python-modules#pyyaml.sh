@@ -6,16 +6,17 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#REQ:libyaml
 
 
 cd $SOURCE_DIR
 
-wget -nc https://files.pythonhosted.org/packages/source/M/MarkupSafe/MarkupSafe-1.1.1.tar.gz
+wget -nc http://pyyaml.org/download/pyyaml/PyYAML-5.1.tar.gz
 
 
-NAME=python-modules#MarkupSafe
-VERSION=1.1.1
-URL=https://files.pythonhosted.org/packages/source/M/MarkupSafe/MarkupSafe-1.1.1.tar.gz
+NAME=python-modules#pyyaml
+VERSION=5.1
+URL=http://pyyaml.org/download/pyyaml/PyYAML-5.1.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -33,9 +34,11 @@ fi
 cd $DIRECTORY
 fi
 
+python2 setup.py build &&
 python3 setup.py build
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+python2 setup.py install --optimize=1 &&
 python3 setup.py install --optimize=1
 ENDOFROOTSCRIPT
 
