@@ -7,9 +7,8 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:harfbuzz
-#REQ:freetype2
-#REQ:libpng
 #REQ:which
+#REQ:libpng
 
 
 cd $SOURCE_DIR

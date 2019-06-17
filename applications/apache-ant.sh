@@ -6,7 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:java#java-bin
 #REQ:openjdk
 #REQ:glib2
 

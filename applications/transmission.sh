@@ -9,7 +9,6 @@ set +h
 #REQ:curl
 #REQ:libevent
 #REQ:gtk3
-#REQ:qt5
 
 
 cd $SOURCE_DIR

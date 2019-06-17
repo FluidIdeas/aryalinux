@@ -7,8 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:gtk3
-#REQ:notification-daemon
-#REQ:xfce4-notifyd
 
 
 cd $SOURCE_DIR

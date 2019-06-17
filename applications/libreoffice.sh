@@ -6,42 +6,40 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:perl-modules#perl-archive-zip
-#REQ:unzip
-#REQ:wget
-#REQ:which
-#REQ:zip
-#REQ:apache-ant
-#REQ:apr
-#REQ:boost
-#REQ:clucene
-#REQ:cups
-#REQ:curl
-#REQ:dbus-glib
-#REQ:libjpeg
-#REQ:glm
-#REQ:glu
-#REQ:gpgme
-#REQ:graphite2
-#REQ:gst10-plugins-base
-#REQ:gtk3
-#REQ:gtk2
-#REQ:harfbuzz
-#REQ:icu
-#REQ:libatomic_ops
-#REQ:lcms2
-#REQ:librsvg
-#REQ:libxml2
-#REQ:libxslt
-#REQ:mesa
 #REQ:neon
-#REQ:nss
-#REQ:openldap
-#REQ:poppler
-#REQ:postgresql
-#REQ:redland
+#REQ:dbus-glib
+#REQ:gtk2
+#REQ:clucene
+#REQ:wget
+#REQ:icu
 #REQ:serf
 #REQ:unixodbc
+#REQ:openldap
+#REQ:glu
+#REQ:mesa
+#REQ:which
+#REQ:perl-modules#perl-archive-zip
+#REQ:unzip
+#REQ:gtk3
+#REQ:redland
+#REQ:lcms2
+#REQ:librsvg
+#REQ:boost
+#REQ:gpgme
+#REQ:zip
+#REQ:glm
+#REQ:curl
+#REQ:nss
+#REQ:gst10-plugins-base
+#REQ:libatomic_ops
+#REQ:libxml2
+#REQ:apr
+#REQ:poppler
+#REQ:harfbuzz
+#REQ:graphite2
+#REQ:libjpeg
+#REQ:cups
+#REQ:libxslt
 
 
 cd $SOURCE_DIR

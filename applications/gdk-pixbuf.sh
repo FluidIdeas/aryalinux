@@ -7,11 +7,10 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:glib2
-#REQ:libjpeg
-#REQ:libpng
-#REQ:shared-mime-info
-#REQ:librsvg
 #REQ:libtiff
+#REQ:libpng
+#REQ:libjpeg
+#REQ:shared-mime-info
 #REQ:x7lib
 
 

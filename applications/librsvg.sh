@@ -6,14 +6,13 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:gdk-pixbuf
 #REQ:libcroco
-#REQ:cairo
-#REQ:pango
-#REQ:rust
-#REQ:gobject-introspection
-#REQ:gtk3
 #REQ:vala
+#REQ:cairo
+#REQ:gobject-introspection
+#REQ:rust
+#REQ:pango
+#REQ:gdk-pixbuf
 
 
 cd $SOURCE_DIR

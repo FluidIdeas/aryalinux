@@ -8,12 +8,7 @@ set +h
 
 #REQ:glib2
 #REQ:graphite2
-#REQ:texlive
-#REQ:libreoffice
 #REQ:icu
-#REQ:freetype2
-#REQ:harfbuzz
-#REQ:freetype2
 #REQ:graphite-wo-harfbuzz
 #REQ:freetype2-wo-harfbuzz
 

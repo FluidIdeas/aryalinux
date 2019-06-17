@@ -6,13 +6,12 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
+#REQ:linux-pam
+#REQ:dbus
 #REQ:gnutls
 #REQ:colord
-#REQ:dbus
-#REQ:libusb
-#REQ:linux-pam
 #REQ:xdg-utils
-#REQ:cups-filters
+#REQ:libusb
 
 
 cd $SOURCE_DIR
