@@ -19,7 +19,7 @@ set +h
 #REQ:pulseaudio
 #REQ:systemd
 #REQ:upower
-#REQ:x7driver#xorg-wacom-driver
+#REQ:xorg-wacom-driver
 #REQ:alsa
 #REQ:cups
 #REQ:networkmanager

@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:x7driver#libinput
+#REQ:libinput
 #REQ:xorg-server
 
 

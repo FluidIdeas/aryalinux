@@ -9,7 +9,7 @@ set +h
 #REQ:ffmpeg
 #REQ:gstreamer10
 #REQ:gst10-plugins-base
-#REQ:x7driver#libva
+#REQ:libva
 #REQ:sbc
 #REQ:sdl2
 

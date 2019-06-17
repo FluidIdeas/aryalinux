@@ -9,7 +9,7 @@ set +h
 #REQ:gstreamer10
 #REQ:gst10-plugins-base
 #REQ:gst10-plugins-bad
-#REQ:x7driver#libva
+#REQ:libva
 
 
 cd $SOURCE_DIR

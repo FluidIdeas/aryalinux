@@ -25,7 +25,7 @@ set +h
 #REQ:gsettings-desktop-schemas
 #REQ:libdbusmenu-qt
 #REQ:libcanberra
-#REQ:x7driver#libinput
+#REQ:libinput
 #REQ:linux-pam
 #REQ:lm_sensors
 #REQ:oxygen-icons5

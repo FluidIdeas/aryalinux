@@ -18,8 +18,8 @@ set +h
 #REQ:x265
 #REQ:yasm
 #REQ:alsa-lib
-#REQ:x7driver#libva
-#REQ:x7driver#libvdpau
+#REQ:libva
+#REQ:libvdpau
 #REQ:sdl2
 
 

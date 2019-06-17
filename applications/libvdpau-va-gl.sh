@@ -8,8 +8,8 @@ set +h
 
 #REQ:../general/cmake
 #REQ:../multimedia/ffmpeg
-#REQ:x7driver#libvdpau
-#REQ:x7driver#libva
+#REQ:libvdpau
+#REQ:libva
 
 
 cd $SOURCE_DIR

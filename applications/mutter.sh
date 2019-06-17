@@ -16,7 +16,7 @@ set +h
 #REQ:zenity
 #REQ:gobject-introspection
 #REQ:startup-notification
-#REQ:x7driver#libinput
+#REQ:libinput
 #REQ:wayland
 #REQ:wayland-protocols
 #REQ:xorg-server
