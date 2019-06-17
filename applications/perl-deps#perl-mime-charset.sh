@@ -9,7 +9,7 @@ set +h
 #REQ:perl-modules#perl-encode-eucjpascii
 #REQ:perl-modules#perl-encode-hanextra
 #REQ:perl-modules#perl-encode-jis2k
-#REQ:../pst/biber
+#REQ:biber
 
 
 cd $SOURCE_DIR

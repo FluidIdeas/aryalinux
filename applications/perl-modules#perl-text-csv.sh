@@ -7,7 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:perl-deps#perl-text-csv_xs
-#REQ:../pst/biber
+#REQ:biber
 
 
 cd $SOURCE_DIR

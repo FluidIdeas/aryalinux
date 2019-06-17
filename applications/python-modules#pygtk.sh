@@ -8,14 +8,14 @@ set +h
 
 #REQ:python-modules#pygobject2
 #REQ:python2
-#REQ:../x/atk
-#REQ:../x/pango
+#REQ:atk
+#REQ:pango
 #REQ:python-modules#pycairo
-#REQ:../x/pango
+#REQ:pango
 #REQ:python-modules#pycairo
-#REQ:../x/gtk2
+#REQ:gtk2
 #REQ:python-modules#pycairo
-#REQ:../x/libglade
+#REQ:libglade
 
 
 cd $SOURCE_DIR

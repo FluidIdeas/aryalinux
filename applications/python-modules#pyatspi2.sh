@@ -7,7 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:python-modules#pygobject3
-#REQ:../x/at-spi2-core
+#REQ:at-spi2-core
 
 
 cd $SOURCE_DIR

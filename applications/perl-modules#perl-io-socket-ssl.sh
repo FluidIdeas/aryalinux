@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:../postlfs/make-ca
+#REQ:make-ca
 #REQ:perl-deps#perl-net-ssleay
 #REQ:perl-modules#perl-uri
 

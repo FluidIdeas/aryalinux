@@ -8,7 +8,7 @@ set +h
 
 #REQ:perl-modules#perl-io-socket-ssl
 #REQ:perl-deps#perl-libwww-perl
-#REQ:../postlfs/make-ca
+#REQ:make-ca
 
 
 cd $SOURCE_DIR

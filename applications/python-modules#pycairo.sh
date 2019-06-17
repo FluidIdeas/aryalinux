@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:../x/cairo
+#REQ:cairo
 #REQ:python2
 #REQ:python-modules#pygtk
 

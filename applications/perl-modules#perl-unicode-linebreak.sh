@@ -7,7 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:perl-deps#perl-mime-charset
-#REQ:../basicnet/wget
+#REQ:wget
 
 
 cd $SOURCE_DIR

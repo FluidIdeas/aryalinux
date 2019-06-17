@@ -7,7 +7,7 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:libevdev
-#REQ:../general/mtdev
+#REQ:mtdev
 #REQ:xorg-server
 
 

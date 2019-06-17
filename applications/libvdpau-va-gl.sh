@@ -6,8 +6,8 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:../general/cmake
-#REQ:../multimedia/ffmpeg
+#REQ:cmake
+#REQ:ffmpeg
 #REQ:libvdpau
 #REQ:libva
 
