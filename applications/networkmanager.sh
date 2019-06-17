@@ -6,21 +6,21 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:dbus-glib
-#REQ:curl
-#REQ:systemd
-#REQ:jansson
-#REQ:libndp
 #REQ:gobject-introspection
-#REQ:iptables
-#REQ:nss
-#REQ:dhcpcd
-#REQ:vala
-#REQ:newt
-#REQ:python-modules#pygobject3
 #REQ:polkit
-#REQ:upower
+#REQ:iptables
 #REQ:wpa_supplicant
+#REQ:vala
+#REQ:nss
+#REQ:upower
+#REQ:newt
+#REQ:jansson
+#REQ:systemd
+#REQ:curl
+#REQ:libndp
+#REQ:dhcpcd
+#REQ:python-modules#pygobject3
+#REQ:dbus-glib
 
 
 cd $SOURCE_DIR

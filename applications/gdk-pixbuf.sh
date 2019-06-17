@@ -6,12 +6,12 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:x7lib
-#REQ:libpng
-#REQ:shared-mime-info
-#REQ:libtiff
 #REQ:libjpeg
+#REQ:shared-mime-info
 #REQ:glib2
+#REQ:libpng
+#REQ:x7lib
+#REQ:libtiff
 
 
 cd $SOURCE_DIR

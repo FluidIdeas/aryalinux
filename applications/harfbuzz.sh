@@ -6,9 +6,9 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:graphite2
-#REQ:icu
 #REQ:glib2
+#REQ:icu
+#REQ:graphite2
 #REQ:graphite-wo-harfbuzz
 #REQ:freetype2-wo-harfbuzz
 

@@ -6,40 +6,40 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:unixodbc
-#REQ:libxslt
-#REQ:dbus-glib
-#REQ:zip
-#REQ:gst10-plugins-base
-#REQ:wget
-#REQ:libxml2
-#REQ:poppler
-#REQ:graphite2
-#REQ:perl-modules#perl-archive-zip
-#REQ:openldap
-#REQ:glm
-#REQ:libatomic_ops
 #REQ:icu
-#REQ:gtk3
-#REQ:gtk2
-#REQ:boost
-#REQ:curl
-#REQ:gpgme
-#REQ:neon
 #REQ:cups
+#REQ:clucene
+#REQ:poppler
 #REQ:librsvg
 #REQ:nss
-#REQ:redland
-#REQ:libjpeg
-#REQ:which
-#REQ:harfbuzz
-#REQ:serf
-#REQ:glu
 #REQ:apr
-#REQ:lcms2
-#REQ:mesa
+#REQ:perl-modules#perl-archive-zip
+#REQ:libxml2
+#REQ:glm
+#REQ:zip
+#REQ:libatomic_ops
+#REQ:libxslt
+#REQ:unixodbc
+#REQ:neon
+#REQ:gpgme
+#REQ:graphite2
+#REQ:glu
 #REQ:unzip
-#REQ:clucene
+#REQ:which
+#REQ:redland
+#REQ:dbus-glib
+#REQ:boost
+#REQ:wget
+#REQ:gst10-plugins-base
+#REQ:gtk2
+#REQ:openldap
+#REQ:serf
+#REQ:lcms2
+#REQ:libjpeg
+#REQ:curl
+#REQ:harfbuzz
+#REQ:mesa
+#REQ:gtk3
 
 
 cd $SOURCE_DIR

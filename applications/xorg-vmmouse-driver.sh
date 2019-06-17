@@ -6,18 +6,17 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:glib2
-#REQ:icu
+#REQ:xorg-server
 
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.5.0.tar.xz
+wget -nc https://www.x.org/pub/individual/driver/xf86-input-vmmouse-13.1.0.tar.bz2
 
 
-NAME=harfbuzz-wo-freetype2
-VERSION=2.5.0
-URL=https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.5.0.tar.xz
+NAME=xorg-vmmouse-driver
+VERSION=13.1.0
+URL=https://www.x.org/pub/individual/driver/xf86-input-vmmouse-13.1.0.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -35,18 +34,9 @@ fi
 cd $DIRECTORY
 fi
 
+./configure $XORG_CONFIG --without-hal-fdi-dir --without-hal-callouts-dir --with-udev-rules-dir=/lib/udev/rules.d && make
 
-./configure --prefix=/usr --with-gobject --with-graphite2 &&
-make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
+sudo make install
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
