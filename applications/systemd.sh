@@ -40,7 +40,7 @@ sed -i 's/GROUP="render", //' rules/50-udev-default.rules.in
 mkdir build &&
 cd    build &&
 
-CFLAGS+="-Wno-format-overflow" \
+CFLAGS+=" -Wno-format-overflow" \
 meson --prefix=/usr         \
       --sysconfdir=/etc     \
       --localstatedir=/var  \
