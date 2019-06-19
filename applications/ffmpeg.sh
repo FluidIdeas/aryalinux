@@ -74,7 +74,6 @@ sed -i 's/-lflite"/-lflite -lasound"/' configure &&
 make &&
 
 gcc tools/qt-faststart.c -o tools/qt-faststart
-doxygen doc/Doxyfile
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
