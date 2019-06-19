@@ -9,7 +9,7 @@ set +h
 #REQ:libwnck
 #REQ:libgtop
 #REQ:libxslt
-#REQ:libxml2py2
+#REQ:python-modules#libxml2py2
 
 
 cd $SOURCE_DIR
