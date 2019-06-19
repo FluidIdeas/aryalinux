@@ -42,17 +42,6 @@ make                      &&
 make -C doc html                                                       &&
 makeinfo --html --no-split -o doc/gcrypt_nochunks.html doc/gcrypt.texi &&
 makeinfo --plaintext       -o doc/gcrypt.txt           doc/gcrypt.texi
-make -C doc pdf ps
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m644 doc/gcrypt.{pdf,ps,dvi} \
-                    /usr/share/doc/libgcrypt-1.8.4
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
