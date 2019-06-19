@@ -36,6 +36,7 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr --with-python=/usr/bin/python3
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

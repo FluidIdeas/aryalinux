@@ -33,6 +33,7 @@ fi
 cd $DIRECTORY
 fi
 
+
 python3 setup.py build
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

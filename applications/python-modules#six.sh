@@ -34,6 +34,7 @@ fi
 cd $DIRECTORY
 fi
 
+
 python2 setup.py build &&
 python3 setup.py build
 sudo rm -rf /tmp/rootscript.sh

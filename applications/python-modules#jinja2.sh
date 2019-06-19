@@ -34,6 +34,7 @@ fi
 cd $DIRECTORY
 fi
 
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 python2 setup.py install --optimize=1

@@ -38,6 +38,7 @@ fi
 cd $DIRECTORY
 fi
 
+
 mkdir python2                        &&
 pushd python2                        &&
 meson --prefix=/usr -Dpython=python2 &&

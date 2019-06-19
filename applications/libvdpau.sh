@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
+
 ./configure $XORG_CONFIG \
             --docdir=/usr/share/doc/libvdpau-1.2 &&
 make

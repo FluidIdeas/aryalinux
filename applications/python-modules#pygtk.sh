@@ -44,6 +44,7 @@ fi
 cd $DIRECTORY
 fi
 
+
 ./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh

@@ -36,6 +36,8 @@ fi
 cd $DIRECTORY
 fi
 
+XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
+
 ./configure $XORG_CONFIG &&
 make
 sudo rm -rf /tmp/rootscript.sh
