@@ -14,7 +14,7 @@ set +h
 #REQ:gvfs
 #REQ:iso-codes
 #REQ:libsoup
-#REQ:pygobject3
+#REQ:python-modules#pygobject3
 
 
 cd $SOURCE_DIR

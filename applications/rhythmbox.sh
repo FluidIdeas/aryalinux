@@ -22,7 +22,7 @@ set +h
 #REQ:brasero
 #REQ:libnotify
 #REQ:libmusicbrainz5
-#REQ:pygobject2
+#REQ:python-modules#pygobject2
 #REQ:libgpod
 #REQ:yelp
 
