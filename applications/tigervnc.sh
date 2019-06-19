@@ -13,6 +13,7 @@ set +h
 #REQ:libjpeg
 #REQ:pixman
 #REQ:x7app
+#REQ:x7legacy
 #REQ:imagemagick
 #REQ:linux-pam
 
