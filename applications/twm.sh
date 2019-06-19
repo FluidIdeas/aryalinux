@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:xorg-server
-#REQ:x7legacy
 
 
 cd $SOURCE_DIR
