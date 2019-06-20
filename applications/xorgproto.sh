@@ -34,7 +34,7 @@ fi
 cd $DIRECTORY
 fi
 
-XORG_PREFIX="/usr"
+export XORG_PREFIX="/usr"
 
 mkdir build &&
 cd    build &&

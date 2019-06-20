@@ -33,7 +33,7 @@ fi
 cd $DIRECTORY
 fi
 
-XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
+export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
 cat > font-7.md5 << "EOF"
 23756dab809f9ec5011bb27fb2c3c7d6  font-util-1.3.1.tar.bz2

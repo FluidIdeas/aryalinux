@@ -35,7 +35,7 @@ fi
 cd $DIRECTORY
 fi
 
-XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
+export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
 cat > legacy.dat << "EOF"
 2a455d3c02390597feb9cefb3fe97a45 app/ bdftopcf-1.1.tar.bz2

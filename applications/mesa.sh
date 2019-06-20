@@ -43,7 +43,7 @@ fi
 cd $DIRECTORY
 fi
 
-XORG_PREFIX="/usr"
+export XORG_PREFIX="/usr"
 
 patch -Np1 -i ../mesa-19.0.4-add_xdemos-2.patch
 GALLIUM_DRV="i915,nouveau,r600,radeonsi,svga,swrast,virgl"

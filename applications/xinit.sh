@@ -38,7 +38,7 @@ fi
 cd $DIRECTORY
 fi
 
-XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
+export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
 ./configure $XORG_CONFIG --with-xinitdir=/etc/X11/app-defaults &&
 make

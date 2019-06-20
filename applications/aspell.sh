@@ -14,6 +14,7 @@ cd $SOURCE_DIR
 wget -nc https://ftp.gnu.org/gnu/aspell/aspell-0.60.6.1.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/aspell/aspell-0.60.6.1.tar.gz
 wget -nc https://ftp.gnu.org/gnu/aspell/dict
+wget -nc https://ftp.gnu.org/gnu/aspell/dict/en/aspell6-en-2018.04.16-0.tar.bz2
 
 
 NAME=aspell
@@ -77,6 +78,12 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+cd $SOURCE_DIR
+TARBALL=$(ls aspell*.tar.bz2)
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
+
+tar xf $TARBALL
+cd $DIRECTORY
 ./configure &&
 make
 sudo rm -rf /tmp/rootscript.sh
