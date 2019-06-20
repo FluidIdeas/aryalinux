@@ -36,6 +36,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 groupadd -g 99 nogroup &&
 useradd -c "Unprivileged Nobody" -d /dev/null -g nogroup \

@@ -37,6 +37,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i -e '/cat./d' documentation/Makefile       &&
 

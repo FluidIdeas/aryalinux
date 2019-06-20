@@ -33,6 +33,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 pip3 install ply
 ./configure --prefix=/usr           \

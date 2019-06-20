@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i 's/env python/&3/' src/psl-make-dafsa &&
 ./configure --prefix=/usr --disable-static       &&

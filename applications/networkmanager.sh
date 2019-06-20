@@ -49,6 +49,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -e '/Qt[CDN]/s/Qt/Qt5/g'       \
     -e 's/-qt4/-qt5/'              \
@@ -115,7 +117,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 groupadd -fg 86 netdev &&
-/usr/sbin/usermod -a -G netdev <username>
+/usr/sbin/usermod -a -G netdev $(cat /tmp/currentuser)
 
 cat > /usr/share/polkit-1/rules.d/org.freedesktop.NetworkManager.rules << "EOF"
 polkit.addRule(function(action, subject) {

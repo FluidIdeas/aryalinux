@@ -37,6 +37,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 autoconf &&
 sed -i -e "s/GPERF --version |/& head -n 1 |/" \

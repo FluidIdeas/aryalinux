@@ -35,6 +35,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i -r '/^\s?testadobesdk/d' exempi/tests/Makefile.am &&
 autoreconf -fiv

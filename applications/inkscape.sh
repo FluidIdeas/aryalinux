@@ -49,6 +49,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -e 's|new Lexer(xref, obj)|obj|g' -i src/extension/internal/pdfinput/pdf-parser.cpp
 patch -Np1 -i ../inkscape-0.92.4-use_versioned_ImageMagick6-1.patch

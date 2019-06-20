@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 export XORG_PREFIX="/usr"
 
 ./configure --prefix=$XORG_PREFIX --disable-static &&

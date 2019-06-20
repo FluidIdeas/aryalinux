@@ -36,6 +36,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake &&
 

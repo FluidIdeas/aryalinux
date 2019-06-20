@@ -35,6 +35,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i 's/GROUP="render", //' rules/50-udev-default.rules.in
 mkdir build &&

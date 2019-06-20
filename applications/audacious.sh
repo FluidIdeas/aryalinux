@@ -38,6 +38,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 TPUT=/bin/true ./configure --prefix=/usr \
                            --with-buildstamp="BLFS" &&

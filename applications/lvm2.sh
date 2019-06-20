@@ -35,6 +35,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 SAVEPATH=$PATH                  &&
 PATH=$PATH:/sbin:/usr/sbin      &&

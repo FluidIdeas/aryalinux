@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i 's/32,/253,/' lib/Syntax.cxx &&
 sed -i 's/LITLEN          240 /LITLEN          8092/' \

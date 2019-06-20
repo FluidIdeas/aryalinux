@@ -57,6 +57,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 url=http://download.kde.org/stable/plasma/5.15.5/
 wget -r -nH -nd -A '*.xz' -np $url

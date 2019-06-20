@@ -56,6 +56,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 export QT5PREFIX=/opt/qt5
 sudo rm -rf /tmp/rootscript.sh

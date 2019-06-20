@@ -33,6 +33,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 make -f makefile
 sudo rm -rf /tmp/rootscript.sh

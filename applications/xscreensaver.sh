@@ -36,6 +36,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i '/^\/\//d' hacks/fontglide.c
 ./configure --prefix=/usr &&

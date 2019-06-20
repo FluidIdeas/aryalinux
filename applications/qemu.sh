@@ -36,11 +36,13 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 egrep '^flags.*(vmx|svm)' /proc/cpuinfo
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-usermod -a -G kvm <username>
+usermod -a -G kvm $(cat /tmp/currentuser)
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -40,6 +40,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed 's@/bin/sh@/bin/sh -l@' -i gnome-session/gnome-session.in
 mkdir build &&

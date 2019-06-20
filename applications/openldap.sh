@@ -37,6 +37,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 patch -Np1 -i ../openldap-2.4.47-consolidated-1.patch &&
 autoconf &&

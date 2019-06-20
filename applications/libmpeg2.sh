@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i 's/static const/static/' libmpeg2/idct_mmx.c &&
 

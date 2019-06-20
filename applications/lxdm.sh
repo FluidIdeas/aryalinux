@@ -37,6 +37,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 export XORG_PREFIX="/usr"
 
 cat > pam/lxdm << "EOF"

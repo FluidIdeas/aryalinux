@@ -33,6 +33,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed 's@SSL_library_init@SSL_new@g' -i configure.ac &&
 autoreconf -fi

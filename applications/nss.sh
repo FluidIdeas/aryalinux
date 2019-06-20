@@ -37,6 +37,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 patch -Np1 -i ../nss-3.44-standalone-1.patch &&
 

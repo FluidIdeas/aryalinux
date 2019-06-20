@@ -70,6 +70,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 install -dm755 external/tarballs &&
 ln -sv ../../../libreoffice-dictionaries-6.2.3.2.tar.xz external/tarballs/ &&

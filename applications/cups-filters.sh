@@ -43,6 +43,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i "s:cups.service:org.cups.cupsd.service:g" utils/cups-browsed.service
 ./configure --prefix=/usr        \

@@ -38,6 +38,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 patch -Np1 -i ../glib-2.60.2-skip_warnings-1.patch
 mkdir build &&

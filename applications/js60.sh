@@ -40,6 +40,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 mkdir mozjs-build &&
 cd    mozjs-build &&

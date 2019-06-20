@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 gzip -cd ../libpng-1.6.37-apng.patch.gz | patch -p1
 ./configure --prefix=/usr --disable-static &&

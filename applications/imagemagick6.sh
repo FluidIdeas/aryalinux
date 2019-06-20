@@ -36,6 +36,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 patch -Np1 -i ../ImageMagick-6.9.10-27-libs_only-1.patch &&
 autoreconf -fi                                          &&

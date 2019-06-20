@@ -33,6 +33,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i '/^udev/,$ s/^/#/' util/meson.build &&
 

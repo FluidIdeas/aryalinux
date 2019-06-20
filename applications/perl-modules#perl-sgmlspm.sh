@@ -34,6 +34,8 @@ cd $DIRECTORY
 fi
 
 
+echo $USER > /tmp/currentuser
+
 chmod -v 644 MYMETA.yml
 perl Makefile.PL &&
 make

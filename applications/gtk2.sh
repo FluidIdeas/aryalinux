@@ -38,6 +38,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -e 's#l \(gtk-.*\).sgml#& -o \1#' \
     -i docs/{faq,tutorial}/Makefile.in      &&

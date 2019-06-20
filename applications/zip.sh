@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 make -f unix/Makefile generic_gcc
 sudo rm -rf /tmp/rootscript.sh

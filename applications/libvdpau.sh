@@ -36,6 +36,8 @@ fi
 
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
+echo $USER > /tmp/currentuser
+
 ./configure $XORG_CONFIG \
             --docdir=/usr/share/doc/libvdpau-1.2 &&
 make

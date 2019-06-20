@@ -35,6 +35,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i '/( oxygen/ s/)/scalable )/' CMakeLists.txt
 mkdir build &&

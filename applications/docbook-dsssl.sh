@@ -40,6 +40,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 tar -xf ../docbook-dsssl-doc-1.79.tar.bz2 --strip-components=1
 sudo rm -rf /tmp/rootscript.sh

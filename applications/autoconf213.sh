@@ -35,6 +35,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 patch -Np1 -i ../autoconf-2.13-consolidated_fixes-1.patch &&
 mv -v autoconf.texi autoconf213.texi                      &&

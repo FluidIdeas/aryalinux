@@ -43,6 +43,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 rm -rf freetype lcms2mt jpeg libpng openjpeg
 rm -rf zlib &&

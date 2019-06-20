@@ -36,6 +36,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 ./configure --prefix=/usr --with-gitconfig=/etc/gitconfig &&
 make

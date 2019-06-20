@@ -39,6 +39,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i -r 's:"(/desktop):"/org/gnome\1:' schema/*.xml &&
 

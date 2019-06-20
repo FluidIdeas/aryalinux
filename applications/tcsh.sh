@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i 's|SVID_SOURCE|DEFAULT_SOURCE|g' config/linux  &&
 sed -i 's|BSD_SOURCE|DEFAULT_SOURCE|g'  config/linux

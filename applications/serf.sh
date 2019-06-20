@@ -35,6 +35,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i "/Append/s:RPATH=libdir,::"          SConstruct &&
 sed -i "/Default/s:lib_static,::"           SConstruct &&

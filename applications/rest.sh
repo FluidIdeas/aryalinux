@@ -37,6 +37,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 ./configure --prefix=/usr \
     --with-ca-certificates=/etc/pki/tls/certs/ca-bundle.crt &&

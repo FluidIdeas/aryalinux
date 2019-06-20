@@ -32,6 +32,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 export KF5_PREFIX=/usr
 sudo rm -rf /tmp/rootscript.sh

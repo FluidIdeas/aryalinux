@@ -35,6 +35,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i 's/\xd6/\xc3\x96/' gtk-3.0/xfce_style_types.h &&
 ./configure --prefix=/usr --enable-gtk3              &&

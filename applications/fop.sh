@@ -37,6 +37,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 unzip ../offo-hyphenation.zip &&
 cp offo-hyphenation/hyph/* fop/hyph &&

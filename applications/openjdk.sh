@@ -49,6 +49,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 tar -xf ../jtreg-4.2-b13-517.tar.gz
 unset JAVA_HOME                             &&

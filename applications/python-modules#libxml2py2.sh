@@ -37,6 +37,8 @@ cd $DIRECTORY
 fi
 
 
+echo $USER > /tmp/currentuser
+
 cd python             &&
 python2 setup.py build
 sudo rm -rf /tmp/rootscript.sh

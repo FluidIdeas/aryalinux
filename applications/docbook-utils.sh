@@ -38,6 +38,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 patch -Np1 -i ../docbook-utils-0.6.14-grep_fix-1.patch &&
 sed -i 's:/html::' doc/HTML/Makefile.in                &&

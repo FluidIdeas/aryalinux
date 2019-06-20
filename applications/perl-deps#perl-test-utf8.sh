@@ -34,6 +34,8 @@ cd $DIRECTORY
 fi
 
 
+echo $USER > /tmp/currentuser
+
 PERL_USE_UNSAFE_INC=1 perl Makefile.PL &&
 make
 sudo rm -rf /tmp/rootscript.sh

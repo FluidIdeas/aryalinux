@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 ./configure --libexecdir=/lib/dhcpcd \
             --dbdir=/var/lib/dhcpcd  &&

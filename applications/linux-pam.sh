@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 tar -xf ../Linux-PAM-1.3.1-docs.tar.xz --strip-components=1
 sed -e 's/dummy links/dummy lynx/'                                     \

@@ -37,6 +37,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i 's@cert.pem@certs/ca-bundle.crt@' CMakeLists.txt
 mkdir build &&

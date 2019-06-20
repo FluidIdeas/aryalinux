@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i 's%lib64%lib%g' config/Makefile.linux &&
 sed -i -e '/glew.lib.static:/d' \

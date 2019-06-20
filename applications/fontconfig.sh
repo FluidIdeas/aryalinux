@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 rm -f src/fcobjshash.h
 ./configure --prefix=/usr        \

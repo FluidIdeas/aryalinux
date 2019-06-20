@@ -33,6 +33,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 ./bootstrap                                &&
 ./configure --prefix=/usr --disable-static &&

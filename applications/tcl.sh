@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 tar -xf ../tcl8.6.9-html.tar.gz --strip-components=1
 export SRCDIR=`pwd` &&

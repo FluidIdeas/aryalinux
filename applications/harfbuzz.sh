@@ -39,6 +39,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 ./configure --prefix=/usr --with-gobject --with-graphite2 &&
 make

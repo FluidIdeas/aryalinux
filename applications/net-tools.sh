@@ -35,6 +35,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 patch -Np1 -i ../net-tools-CVS_20101030-remove_dups-1.patch &&
 sed -i '/#include <netinet\/ip.h>/d'  iptunnel.c &&

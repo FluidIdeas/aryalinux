@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 tar -xf lsof_4.91_src.tar  &&
 cd lsof_4.91_src           &&

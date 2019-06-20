@@ -36,6 +36,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i 's/--add-modules java.activation/-html4/' build.xml
 ./bootstrap.sh

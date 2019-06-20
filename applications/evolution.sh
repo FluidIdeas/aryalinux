@@ -50,6 +50,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 mkdir build &&
 cd    build &&

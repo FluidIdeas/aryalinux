@@ -37,6 +37,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 patch -Np1 -i ../subversion-1.12.0-apr_1.7.0_fix-1.patch
 ./autogen.sh &&

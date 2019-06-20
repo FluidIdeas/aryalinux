@@ -36,6 +36,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i -e '/socket/d' -e '/"streams"/d' tests/tests.lisp
 patch -Np1 -i ../clisp-2.49-readline7_fixes-1.patch

@@ -35,6 +35,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 patch -Np1 -i ../fetchmail-6.3.26-disable_sslv3-1.patch &&
 ./configure --prefix=/usr --with-ssl --enable-fallback=procmail &&
@@ -54,7 +56,7 @@ set no bouncemail
 set postmaster root
 
 poll SERVERNAME :
-    user <username> pass <password>;
+    user $(cat /tmp/currentuser) pass <password>;
     mda "/usr/bin/procmail -f %F -d %T";
 EOF
 

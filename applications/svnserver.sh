@@ -32,6 +32,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -101,7 +103,7 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 chown -R svn:svntest /srv/svn/repositories/svntest    &&
 chmod -R g+w         /srv/svn/repositories/svntest    &&
 chmod g+s            /srv/svn/repositories/svntest/db &&
-usermod -G svn,svntest -a <username>
+usermod -G svn,svntest -a $(cat /tmp/currentuser)
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -52,6 +52,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i '/ln -s/s/s /sf /' panels/user-accounts/meson.build &&
 

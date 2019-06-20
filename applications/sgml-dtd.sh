@@ -35,6 +35,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i -e '/ISO 8879/d' \
        -e '/gml/d' docbook.cat

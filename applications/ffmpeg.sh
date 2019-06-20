@@ -48,6 +48,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i 's/-lflite"/-lflite -lasound"/' configure &&
 

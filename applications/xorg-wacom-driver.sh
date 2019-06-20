@@ -36,6 +36,8 @@ fi
 
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
+echo $USER > /tmp/currentuser
+
 ./configure $XORG_CONFIG \
             --with-udev-rules-dir=/lib/udev/rules.d \
             --with-systemd-unit-dir=/lib/systemd/system &&

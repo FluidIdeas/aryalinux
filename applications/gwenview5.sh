@@ -37,6 +37,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i '/iptc.hpp/a#include <exiv2/error.hpp>' lib/imagemetainfomodel.cpp
 mkdir build &&

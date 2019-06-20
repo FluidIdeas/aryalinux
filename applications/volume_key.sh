@@ -38,6 +38,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 autoreconf -fiv              &&
 ./configure --prefix=/usr    \

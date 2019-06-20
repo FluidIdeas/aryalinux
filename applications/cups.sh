@@ -39,6 +39,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -60,7 +62,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-usermod -a -G lpadmin <username>
+usermod -a -G lpadmin $(cat /tmp/currentuser)
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

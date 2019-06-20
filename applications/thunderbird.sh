@@ -46,6 +46,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 cat > mozconfig << "EOF"
 # If you have a multicore machine, the build may be faster if using parallel

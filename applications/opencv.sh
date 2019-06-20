@@ -46,6 +46,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 tar xf ../opencv_contrib-4.1.0.tar.gz
 mkdir build &&

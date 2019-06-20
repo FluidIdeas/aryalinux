@@ -36,6 +36,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -e 's|xfce4/panel-plugins|xfce4/panel/plugins|' \
     -i panel-plugin/{Makefile.in,xkb-plugin.desktop.in.in} &&

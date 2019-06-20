@@ -36,6 +36,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 make PREFIX=/usr                \
      SHAREDIR=/usr/share/hwdata \

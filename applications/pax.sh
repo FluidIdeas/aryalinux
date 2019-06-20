@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 gzip -dck paxmirabilis-20161104.cpio.gz | cpio -mid &&
 cd pax &&

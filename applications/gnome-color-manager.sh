@@ -43,6 +43,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed /subdir\(\'man/d -i meson.build
 mkdir build &&

@@ -40,6 +40,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 patch -Np1 -i ../mupdf-1.15.0-shared_libs-1.patch &&
 

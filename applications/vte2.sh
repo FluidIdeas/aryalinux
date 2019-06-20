@@ -35,6 +35,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 ./configure --prefix=/usr \
             --libexecdir=/usr/lib/vte \

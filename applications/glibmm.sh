@@ -36,6 +36,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -e '/^libdocdir =/ s/$(book_name)/glibmm-2.60.0/' \
     -i docs/Makefile.in

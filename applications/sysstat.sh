@@ -33,6 +33,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sa_lib_dir=/usr/lib/sa    \
 sa_dir=/var/log/sa        \

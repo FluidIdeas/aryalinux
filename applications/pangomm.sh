@@ -37,6 +37,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -e '/^libdocdir =/ s/$(book_name)/pangomm-2.42.0/' \
     -i docs/Makefile.in

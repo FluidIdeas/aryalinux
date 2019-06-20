@@ -38,6 +38,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -e 's|wand/magick_wand.h|MagickWand/MagickWand.h|' \
     -i src/video_dec/image.c &&

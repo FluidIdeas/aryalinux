@@ -35,6 +35,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 patch -Np1 -i ../mypaint-brushes-1.3.0-automake_1.16-1.patch &&
 ./autogen.sh                                                 &&

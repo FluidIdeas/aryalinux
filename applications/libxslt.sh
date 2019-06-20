@@ -37,6 +37,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i s/3000/5000/ libxslt/transform.c doc/xsltproc.{1,xml} &&
 ./configure --prefix=/usr --disable-static                   &&

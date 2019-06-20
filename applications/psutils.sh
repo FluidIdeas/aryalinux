@@ -33,6 +33,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed 's@/usr/local@/usr@g' Makefile.unix > Makefile &&
 make

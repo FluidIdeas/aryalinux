@@ -36,6 +36,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 tar -xf ../cfe-8.0.0.src.tar.xz -C tools &&
 tar -xf ../compiler-rt-8.0.0.src.tar.xz -C projects &&

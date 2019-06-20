@@ -36,6 +36,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 CXXFLAGS=-std=c++98 \
 ./configure --prefix=/usr --disable-static &&

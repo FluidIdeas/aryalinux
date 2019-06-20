@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 make -C pam_cap
 sudo rm -rf /tmp/rootscript.sh

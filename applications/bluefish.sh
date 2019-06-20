@@ -36,6 +36,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 ./configure --prefix=/usr --docdir=/usr/share/doc/bluefish-2.2.10 &&
 make

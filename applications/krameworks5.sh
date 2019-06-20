@@ -63,6 +63,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 url=http://download.kde.org/stable/frameworks/5.58/
 wget -r -nH -nd -A '*.xz' -np $url

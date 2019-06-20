@@ -37,6 +37,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i "s:doc/feh:&-3.1.3:" config.mk &&
 make PREFIX=/usr

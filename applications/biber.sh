@@ -70,6 +70,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 wget -c https://github.com/plk/biber/archive/v2.12.tar.gz \
      -O biber-2.12.tar.gz

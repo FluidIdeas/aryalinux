@@ -35,6 +35,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 make PREFIX=/usr        \
      BUILD_STATIC_LIB=0 \

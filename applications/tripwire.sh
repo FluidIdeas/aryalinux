@@ -33,6 +33,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -e '/^CLOBBER/s/false/true/'         \
     -e 's|TWDB="${prefix}|TWDB="/var|'   \

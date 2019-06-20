@@ -36,6 +36,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i -r 's:"(/system):"/org/gnome\1:g' schemas/*.in &&
 

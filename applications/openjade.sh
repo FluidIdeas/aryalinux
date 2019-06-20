@@ -35,6 +35,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 patch -Np1 -i ../openjade-1.3.2-upstream-1.patch
 sed -i -e '/getopts/{N;s#&G#g#;s#do .getopts.pl.;##;}' \

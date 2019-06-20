@@ -37,6 +37,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i '/ top.do_check ==/s/top.do_check/*&/' modules/filter/tex.cpp &&
 sed -i '/word ==/s/word/*&/'                  prog/check_funs.cpp

@@ -32,6 +32,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 pvcreate /dev/sda4 /dev/sdb2
 vgcreate lfs-lvm /dev/sda4  /dev/sdb2

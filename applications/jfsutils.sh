@@ -33,6 +33,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i "/unistd.h/a#include <sys/types.h>"    fscklog/extract.c &&
 sed -i "/ioctl.h/a#include <sys/sysmacros.h>" libfs/devices.c   &&

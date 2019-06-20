@@ -37,6 +37,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed 's@/apps/@/org/freedesktop/@' \
     -i data/org.freedesktop.Telepathy.Logger.gschema.xml.in

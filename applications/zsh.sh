@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 tar --strip-components=1 -xvf ../zsh-5.7.1-doc.tar.xz
 ./configure --prefix=/usr         \

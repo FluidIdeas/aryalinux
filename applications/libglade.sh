@@ -36,6 +36,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i '/DG_DISABLE_DEPRECATED/d' glade/Makefile.in &&
 ./configure --prefix=/usr --disable-static &&

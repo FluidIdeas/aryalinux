@@ -33,6 +33,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i "s|n/a|unavailable|" lsb_release
 ./help2man -N --include ./lsb_release.examples \

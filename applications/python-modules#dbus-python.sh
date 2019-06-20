@@ -37,6 +37,8 @@ cd $DIRECTORY
 fi
 
 
+echo $USER > /tmp/currentuser
+
 mkdir python2 &&
 pushd python2 &&
 PYTHON=/usr/bin/python2     \

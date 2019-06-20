@@ -37,6 +37,8 @@ cd $DIRECTORY
 fi
 
 
+echo $USER > /tmp/currentuser
+
 perl Build.PL &&
 ./Build       &&
 ./Build test

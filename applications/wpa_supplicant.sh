@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 cat > wpa_supplicant/.config << "EOF"
 CONFIG_BACKEND=file

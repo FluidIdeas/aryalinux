@@ -33,6 +33,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -e 's/client_set/set/'  \
     -e 's/gnutls_retr/&2/'  \

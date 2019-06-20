@@ -38,6 +38,8 @@ fi
 
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
+echo $USER > /tmp/currentuser
+
 sed -i "s/#define force_inline inline __attribute__((always_inline))/#define force_inline inline/" src/sna/compiler.h
 ./autogen.sh $XORG_CONFIG     \
             --enable-kms-only \

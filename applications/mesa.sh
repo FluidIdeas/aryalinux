@@ -43,6 +43,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 export XORG_PREFIX="/usr"
 
 patch -Np1 -i ../mesa-19.0.4-add_xdemos-2.patch

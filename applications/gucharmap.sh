@@ -41,6 +41,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 LIBS="-ldl"               \
 ./configure --prefix=/usr \

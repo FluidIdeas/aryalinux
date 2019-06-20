@@ -39,6 +39,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 ./configure --prefix=/usr \
             --docdir=/usr/share/doc/gnutls-3.6.8 \

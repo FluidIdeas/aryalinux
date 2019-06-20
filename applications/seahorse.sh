@@ -44,6 +44,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i -r 's:"(/apps):"/org/gnome\1:' data/*.xml &&
 

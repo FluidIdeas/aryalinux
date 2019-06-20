@@ -36,6 +36,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 LINKS="/usr/bin/links" \
 ./configure --prefix=/usr &&

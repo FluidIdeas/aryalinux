@@ -47,6 +47,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 patch -Np1 -i ../cheese-3.32.1-gst_debug_disabled-1.patch &&
 

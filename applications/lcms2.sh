@@ -33,6 +33,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i '/AX_APPEND/s/^/#/' configure.ac &&
 autoreconf

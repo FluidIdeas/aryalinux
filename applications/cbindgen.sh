@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 cargo build --release
 sudo rm -rf /tmp/rootscript.sh

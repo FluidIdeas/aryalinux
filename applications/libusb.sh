@@ -33,6 +33,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i "s/^PROJECT_LOGO/#&/" doc/doxygen.cfg.in &&
 

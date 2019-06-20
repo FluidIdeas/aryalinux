@@ -33,6 +33,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sh autogen.sh                              &&
 ./configure --prefix=/usr --disable-static &&

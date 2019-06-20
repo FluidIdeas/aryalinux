@@ -36,6 +36,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 patch -Np1 -i ../docbook-xsl-nons-1.79.2-stack_fix-1.patch
 tar -xf ../docbook-xsl-doc-1.79.2.tar.bz2 --strip-components=1

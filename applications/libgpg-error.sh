@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i 's/namespace/pkg_&/' src/Makefile.{am,in} src/mkstrtable.awk
 ./configure --prefix=/usr &&

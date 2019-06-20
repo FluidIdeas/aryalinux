@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 ./bootstrap.sh --prefix=/usr &&
 ./b2 stage threading=multi link=shared

@@ -40,6 +40,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i "s:asoundlib.h:alsa/asoundlib.h:" src/modules/alsa/*.{c,h} &&
 sed -i "s:use-case.h:alsa/use-case.h:" configure.ac &&

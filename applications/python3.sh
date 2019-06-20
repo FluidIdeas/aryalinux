@@ -33,6 +33,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 CXX="/usr/bin/g++"              \
 ./configure --prefix=/usr       \

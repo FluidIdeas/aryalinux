@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -i '/cmptest/d' tests/CMakeLists.txt
 mkdir build &&

@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 PYTHON=/usr/bin/python3 ./configure --prefix=/usr &&
 make

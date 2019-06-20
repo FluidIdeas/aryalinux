@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -e '/^libdocdir =/ s/$(book_name)/libsigc++-2.10.1/' -i docs/Makefile.in
 ./configure --prefix=/usr &&

@@ -37,6 +37,8 @@ fi
 
 export XORG_PREFIX="/usr"
 
+echo $USER > /tmp/currentuser
+
 mkdir build &&
 cd    build &&
 

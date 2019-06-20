@@ -35,6 +35,8 @@ fi
 
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
+echo $USER > /tmp/currentuser
+
 ./configure $XORG_CONFIG &&
 make
 sudo rm -rf /tmp/rootscript.sh

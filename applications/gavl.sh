@@ -33,6 +33,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 LIBS=-lm                      \
 ./configure --prefix=/usr     \

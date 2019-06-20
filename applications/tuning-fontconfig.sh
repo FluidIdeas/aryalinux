@@ -32,6 +32,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 mkdir -pv ~/.config/fontconfig &&
 cat > ~/.config/fontconfig/fonts.conf << "EOF"

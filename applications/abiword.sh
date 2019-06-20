@@ -41,6 +41,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 patch -Np1 -i ../abiword-3.0.2-gtk3_22_render_fix-1.patch &&
 

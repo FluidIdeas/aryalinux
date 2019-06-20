@@ -37,6 +37,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 tar -xf ../freetype-doc-2.10.0.tar.bz2 --strip-components=2 -C docs
 sed -ri "s:.*(AUX_MODULES.*valid):\1:" modules.cfg &&

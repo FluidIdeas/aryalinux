@@ -37,6 +37,8 @@ cd $DIRECTORY
 fi
 
 
+echo $USER > /tmp/currentuser
+
 yes | perl Makefile.PL &&
 make
 sudo rm -rf /tmp/rootscript.sh

@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 make build
 sed -i '/runrst/s/N)/N)3/' doc/Makefile &&

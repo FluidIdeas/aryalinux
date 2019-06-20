@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 tar -xf ../nasm-2.14.02-xdoc.tar.xz --strip-components=1
 ./configure --prefix=/usr &&

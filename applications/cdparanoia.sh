@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 patch -Np1 -i ../cdparanoia-III-10.2-gcc_fixes-1.patch &&
 ./configure --prefix=/usr --mandir=/usr/share/man &&

@@ -46,6 +46,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 cat > mozconfig << "EOF"
 # If you have a multicore machine, all cores will be used by default.

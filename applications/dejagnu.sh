@@ -35,6 +35,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 ./configure --prefix=/usr &&
 makeinfo --html --no-split -o doc/dejagnu.html doc/dejagnu.texi &&

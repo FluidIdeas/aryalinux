@@ -35,6 +35,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 patch -Np1 -i ../liboauth-1.0.3-openssl-1.1.0-3.patch
 ./configure --prefix=/usr --disable-static &&

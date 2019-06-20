@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 unzip -q ../sqlite-doc-3280000.zip
 ./configure --prefix=/usr     \

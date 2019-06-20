@@ -36,6 +36,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 patch -Np1 -i ../libunique-1.1.6-upstream_fixes-1.patch &&
 autoreconf -fi &&

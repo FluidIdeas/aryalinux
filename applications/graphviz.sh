@@ -34,6 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 sed -e '/ruby/s/1\.9/2.6/' -i configure.ac
 patch -p1 -i ../graphviz-2.40.1-qt5-1.patch

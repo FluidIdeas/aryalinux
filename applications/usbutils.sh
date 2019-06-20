@@ -35,6 +35,8 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 
 ./autogen.sh --prefix=/usr --datadir=/usr/share/hwdata &&
 make
