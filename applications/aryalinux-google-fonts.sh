@@ -15,7 +15,7 @@ wget -nc https://sourceforge.net/projects/aryalinux-bin/files/files/1.4/aryalinu
 
 NAME=aryalinux-google-fonts
 VERSION=1.4
-URL=https://sourceforge.net/projects/aryalinux-bin/files/files/1.4/aryalinux-google-fonts.tar.xz
+
 
 if [ ! -z $URL ]
 then
