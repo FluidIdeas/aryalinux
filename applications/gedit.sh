@@ -8,6 +8,7 @@ set +h
 
 #REQ:gsettings-desktop-schemas
 #REQ:gtksourceview
+#REQ:gtksourceview4
 #REQ:itstool
 #REQ:libpeas
 #REQ:gspell
