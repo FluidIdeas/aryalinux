@@ -37,6 +37,11 @@ fi
 echo $USER > /tmp/currentuser
 
 
+TARBALL=$(ls libsass*.tar*)
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
+
+tar xf $TARBALL
+cd $DIRECTORY
 autoreconf -fi &&
 
 ./configure --prefix=/usr --disable-static &&
