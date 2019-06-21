@@ -37,6 +37,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+cd $SOURCE_DIR
 TARBALL=$(ls libsass*.tar*)
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
