@@ -41,25 +41,9 @@ echo $USER > /tmp/currentuser
 
 ./configure --prefix=/usr &&
 make
-pushd qt        &&
-  qmake qtr.pro &&
-  make          &&
-popd
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make INSTALL_ROOT=/usr -C qt install &&
-
-install -m644 qt/transmission-qt.desktop /usr/share/applications/transmission-qt.desktop &&
-install -m644 qt/icons/transmission.png  /usr/share/pixmaps/transmission-qt.png
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
