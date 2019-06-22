@@ -37,21 +37,13 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson -Dextension_set=all --prefix=/usr .. &&
 ninja
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install
-ENDOFROOTSCRIPT
 
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
+sudo ninja install
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
