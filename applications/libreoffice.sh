@@ -88,7 +88,7 @@ sed -e "/distro-install-file-lists/d" -i Makefile.in &&
 ./autogen.sh --prefix=$LO_PREFIX         \
              --sysconfdir=/etc           \
              --with-vendor=AryaLinux          \
-             --with-lang=ALL      \
+             --with-lang=ALL --without-java      \
              --with-help                 \
              --with-myspell-dicts        \
              --without-junit             \
