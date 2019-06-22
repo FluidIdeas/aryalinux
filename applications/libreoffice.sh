@@ -119,7 +119,7 @@ sed -e "/distro-install-file-lists/d" -i Makefile.in &&
              --with-system-openldap      \
              --with-system-openssl       \
              --with-system-poppler       \
-             --with-system-postgresql    \
+             --disable-postgresql-sdbc    \
              --with-system-redland       \
              --with-system-serf          \
              --with-system-zlib
