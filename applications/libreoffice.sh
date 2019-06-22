@@ -77,7 +77,7 @@ install -dm755 external/tarballs &&
 ln -sv ../../../libreoffice-dictionaries-6.2.3.2.tar.xz external/tarballs/ &&
 ln -sv ../../../libreoffice-help-6.2.3.2.tar.xz         external/tarballs/
 ln -sv ../../../libreoffice-translations-6.2.3.2.tar.xz external/tarballs/
-export LO_PREFIX=<PREFIX>
+export LO_PREFIX=/usr
 sed -e "/gzip -f/d"   \
     -e "s|.1.gz|.1|g" \
     -i bin/distro-install-desktop-integration &&
@@ -87,8 +87,8 @@ sed -e "/distro-install-file-lists/d" -i Makefile.in &&
 
 ./autogen.sh --prefix=$LO_PREFIX         \
              --sysconfdir=/etc           \
-             --with-vendor=BLFS          \
-             --with-lang='fr en-GB'      \
+             --with-vendor=AryaLinux          \
+             --with-lang=ALL      \
              --with-help                 \
              --with-myspell-dicts        \
              --without-junit             \
