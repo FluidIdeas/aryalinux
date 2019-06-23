@@ -34,7 +34,7 @@ cd $DIRECTORY
 fi
 
 sudo mkdir -pv /usr/share/fonts/others &&
-sudo mv monaco.ttf /usr/share/fonts/others
+sudo mv -v monaco.ttf /usr/share/fonts/others/
 
 sudo fc-cache -f -v
 
