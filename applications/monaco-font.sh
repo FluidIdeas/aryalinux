@@ -33,10 +33,10 @@ fi
 cd $DIRECTORY
 fi
 
-sudo mkdir -pv /usr/share/fons/others &&
+sudo mkdir -pv /usr/share/fonts/others &&
 sudo mv monaco.ttf /usr/share/fonts/others
 
-sudo fc-cache
+sudo fc-cache -f -v
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
