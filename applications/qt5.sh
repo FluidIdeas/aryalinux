@@ -19,6 +19,7 @@ set +h
 #REQ:libmng
 #REQ:libpng
 #REQ:libtiff
+#REQ:libwebp
 #REQ:libxkbcommon
 #REQ:mesa
 #REQ:mtdev
@@ -33,12 +34,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.qt.io/archive/qt/5.12/5.12.3/single/qt-everywhere-src-5.12.3.tar.xz
+wget -nc https://download.qt.io/archive/qt/5.12/5.12.4/single/qt-everywhere-src-5.12.4.tar.xz
 
 
 NAME=qt5
-VERSION=5.12.3
-URL=https://download.qt.io/archive/qt/5.12/5.12.3/single/qt-everywhere-src-5.12.3.tar.xz
+VERSION=5.12.4
+URL=https://download.qt.io/archive/qt/5.12/5.12.4/single/qt-everywhere-src-5.12.4.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -62,8 +63,8 @@ echo $USER > /tmp/currentuser
 export QT5PREFIX=/opt/qt5
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir /opt/qt-5.12.3
-ln -sfnv qt-5.12.3 /opt/qt5
+mkdir /opt/qt-5.12.4
+ln -sfnv qt-5.12.4 /opt/qt5
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

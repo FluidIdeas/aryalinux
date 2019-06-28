@@ -10,13 +10,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libsigc++/2.10/libsigc++-2.10.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libsigc++/2.10/libsigc++-2.10.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/libsigc++/2.10/libsigc++-2.10.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libsigc++/2.10/libsigc++-2.10.2.tar.xz
 
 
 NAME=libsigc
-VERSION=2.10.1
-URL=http://ftp.gnome.org/pub/gnome/sources/libsigc++/2.10/libsigc++-2.10.1.tar.xz
+VERSION=2.10.2
+URL=http://ftp.gnome.org/pub/gnome/sources/libsigc++/2.10/libsigc++-2.10.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -37,7 +37,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -e '/^libdocdir =/ s/$(book_name)/libsigc++-2.10.1/' -i docs/Makefile.in
+sed -e '/^libdocdir =/ s/$(book_name)/libsigc++-2.10.2/' -i docs/Makefile.in
 ./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh

@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=dbus-1.12.12.tar.gz
+TARBALL=dbus-1.12.16.tar.gz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -29,7 +29,7 @@ export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
             --disable-static                    \
             --disable-doxygen-docs              \
             --disable-xml-docs                  \
-            --docdir=/usr/share/doc/dbus-1.12.12 \
+            --docdir=/usr/share/doc/dbus-1.12.16 \
             --with-console-auth-dir=/run/console
 make
 make install

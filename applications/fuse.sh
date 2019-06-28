@@ -10,12 +10,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/libfuse/libfuse/releases/download/fuse-3.5.0/fuse-3.5.0.tar.xz
+wget -nc https://github.com/libfuse/libfuse/releases/download/fuse-3.6.1/fuse-3.6.1.tar.xz
 
 
 NAME=fuse
-VERSION=3.5.0
-URL=https://github.com/libfuse/libfuse/releases/download/fuse-3.5.0/fuse-3.5.0.tar.xz
+VERSION=3.6.1
+URL=https://github.com/libfuse/libfuse/releases/download/fuse-3.6.1/fuse-3.6.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -48,16 +48,16 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install                                             &&
 
 mv -vf   /usr/lib/libfuse3.so.3*     /lib                 &&
-ln -sfvn ../../lib/libfuse3.so.3.5.0 /usr/lib/libfuse3.so &&
+ln -sfvn ../../lib/libfuse3.so.3.6.1 /usr/lib/libfuse3.so &&
 
 mv -vf /usr/bin/fusermount3  /bin         &&
 mv -vf /usr/sbin/mount.fuse3 /sbin        &&
 chmod u+s /bin/fusermount3                &&
 
-install -v -m755 -d /usr/share/doc/fuse-3.5.0      &&
+install -v -m755 -d /usr/share/doc/fuse-3.6.1      &&
 install -v -m644    ../doc/{README.NFS,kernel.txt} \
-                    /usr/share/doc/fuse-3.5.0      &&
-cp -Rv ../doc/html  /usr/share/doc/fuse-3.5.0
+                    /usr/share/doc/fuse-3.6.1      &&
+cp -Rv ../doc/html  /usr/share/doc/fuse-3.6.1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

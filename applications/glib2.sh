@@ -13,14 +13,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/glib/2.60/glib-2.60.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glib/2.60/glib-2.60.2.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/glib-2.60.2-skip_warnings-1.patch
+wget -nc http://ftp.gnome.org/pub/gnome/sources/glib/2.60/glib-2.60.4.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glib/2.60/glib-2.60.4.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/glib-2.60.4-skip_warnings-1.patch
 
 
 NAME=glib2
-VERSION=2.60.2
-URL=http://ftp.gnome.org/pub/gnome/sources/glib/2.60/glib-2.60.2.tar.xz
+VERSION=2.60.4
+URL=http://ftp.gnome.org/pub/gnome/sources/glib/2.60/glib-2.60.4.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -41,7 +41,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../glib-2.60.2-skip_warnings-1.patch
+patch -Np1 -i ../glib-2.60.4-skip_warnings-1.patch
 mkdir build &&
 cd    build &&
 
@@ -54,8 +54,8 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
 
-mkdir -p /usr/share/doc/glib-2.60.2 &&
-cp -r ../docs/reference/{NEWS,gio,glib,gobject} /usr/share/doc/glib-2.60.2
+mkdir -p /usr/share/doc/glib-2.60.4 &&
+cp -r ../docs/reference/{NEWS,gio,glib,gobject} /usr/share/doc/glib-2.60.4
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -14,7 +14,8 @@ set +h
 #REQ:desktop-file-utils
 #REQ:hicolor-icon-theme
 #REQ:shared-mime-info
-#REQ:dbus
+#REQ:lxsession
+#REQ:polkit-gnome
 
 
 cd $SOURCE_DIR

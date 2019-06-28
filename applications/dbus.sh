@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://dbus.freedesktop.org/releases/dbus/dbus-1.12.12.tar.gz
+wget -nc https://dbus.freedesktop.org/releases/dbus/dbus-1.12.16.tar.gz
 wget -nc http://www.linuxfromscratch.org/hints/downloads/files/execute-session-scripts-using-kdm.txt
 
 
 NAME=dbus
-VERSION=1.12.12
-URL=https://dbus.freedesktop.org/releases/dbus/dbus-1.12.12.tar.gz
+VERSION=1.12.16
+URL=https://dbus.freedesktop.org/releases/dbus/dbus-1.12.16.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -46,7 +46,7 @@ echo $USER > /tmp/currentuser
             --disable-doxygen-docs               \
             --disable-xml-docs                   \
             --disable-static                     \
-            --docdir=/usr/share/doc/dbus-1.12.12 \
+            --docdir=/usr/share/doc/dbus-1.12.16 \
             --with-console-auth-dir=/run/console \
             --with-system-pid-file=/run/dbus/pid \
             --with-system-socket=/run/dbus/system_bus_socket &&

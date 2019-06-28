@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/gimp-print/gutenprint-5.2.14.tar.bz2
+wget -nc https://downloads.sourceforge.net/gimp-print/gutenprint-5.2.15.tar.bz2
 
 
 NAME=gutenprint
-VERSION=5.2.14
-URL=https://downloads.sourceforge.net/gimp-print/gutenprint-5.2.14.tar.bz2
+VERSION=5.2.15
+URL=https://downloads.sourceforge.net/gimp-print/gutenprint-5.2.15.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -47,11 +47,11 @@ make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-install -v -m755 -d /usr/share/doc/gutenprint-5.2.14/api/gutenprint{,ui2} &&
+install -v -m755 -d /usr/share/doc/gutenprint-5.2.15/api/gutenprint{,ui2} &&
 install -v -m644    doc/gutenprint/html/* \
-                    /usr/share/doc/gutenprint-5.2.14/api/gutenprint &&
+                    /usr/share/doc/gutenprint-5.2.15/api/gutenprint &&
 install -v -m644    doc/gutenprintui2/html/* \
-                    /usr/share/doc/gutenprint-5.2.14/api/gutenprintui2
+                    /usr/share/doc/gutenprint-5.2.15/api/gutenprintui2
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

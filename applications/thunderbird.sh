@@ -23,12 +23,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/thunderbird/releases/60.7.0/source/thunderbird-60.7.0.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/thunderbird/releases/60.7.2/source/thunderbird-60.7.2.source.tar.xz
 
 
 NAME=thunderbird
-VERSION=60.7.0
-URL=https://archive.mozilla.org/pub/thunderbird/releases/60.7.0/source/thunderbird-60.7.0.source.tar.xz
+VERSION=60.7.2
+URL=https://archive.mozilla.org/pub/thunderbird/releases/60.7.2/source/thunderbird-60.7.2.source.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -136,7 +136,7 @@ MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/xml;ap
 StartupNotify=true
 EOF
 
-ln -sfv /usr/lib/thunderbird-60.7.0/chrome/icons/default/default256.png \
+ln -sfv /usr/lib/thunderbird/chrome/icons/default/default256.png \
         /usr/share/pixmaps/thunderbird.png
 ENDOFROOTSCRIPT
 

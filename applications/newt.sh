@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://releases.pagure.org/newt/newt-0.52.20.tar.gz
+wget -nc https://releases.pagure.org/newt/newt-0.52.21.tar.gz
 
 
 NAME=newt
-VERSION=0.52.20
-URL=https://releases.pagure.org/newt/newt-0.52.20.tar.gz
+VERSION=0.52.21
+URL=https://releases.pagure.org/newt/newt-0.52.21.tar.gz
 
 if [ ! -z $URL ]
 then

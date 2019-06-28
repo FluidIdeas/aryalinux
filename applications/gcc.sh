@@ -45,15 +45,15 @@ case $(uname -m) in
   ;;
 esac
 
-mkdir build                                          &&
-cd    build                                          &&
+mkdir build                                            &&
+cd    build                                            &&
 
-../configure                                         \
-    --prefix=/usr                                    \
-    --disable-multilib                               \
-    --disable-libmpx                                 \
-    --with-system-zlib                               \
-    --enable-languages=c,c++,fortran,go,objc,obj-c++ &&
+../configure                                           \
+    --prefix=/usr                                      \
+    --disable-multilib                                 \
+    --disable-libmpx                                   \
+    --with-system-zlib                                 \
+    --enable-languages=c,c++,d,fortran,go,objc,obj-c++ &&
 make
 ulimit -s 32768 &&
 make -k check

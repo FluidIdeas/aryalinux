@@ -45,9 +45,10 @@ echo $USER > /tmp/currentuser
 
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
-./configure $XORG_CONFIG          \
-            --enable-glamor       \
-            --enable-suid-wrapper \
+./configure $XORG_CONFIG            \
+            --enable-glamor         \
+            --enable-suid-wrapper   \
+            --enable-install-setuid \
             --with-xkb-output=/var/lib/xkb &&
 make
 sudo rm -rf /tmp/rootscript.sh

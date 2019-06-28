@@ -48,13 +48,13 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
-install -v -dm755   /usr/share/doc/libassuan-1.8.4/html &&
+install -v -dm755   /usr/share/doc/libassuan-2.5.3/html &&
 install -v -m644 doc/assuan.html/* \
-                    /usr/share/doc/libassuan-1.8.4/html &&
+                    /usr/share/doc/libassuan-2.5.3/html &&
 install -v -m644 doc/assuan_nochunks.html \
-                    /usr/share/doc/libassuan-1.8.4      &&
+                    /usr/share/doc/libassuan-2.5.3      &&
 install -v -m644 doc/assuan.{txt,texi} \
-                    /usr/share/doc/libassuan-1.8.4
+                    /usr/share/doc/libassuan-2.5.3
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

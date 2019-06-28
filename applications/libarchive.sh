@@ -10,12 +10,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.libarchive.org/downloads/libarchive-3.3.3.tar.gz
+wget -nc https//github.com/libarchive/libarchive/releases/download/v3.4.0/libarchive-3.4.0.tar.gz
 
 
 NAME=libarchive
-VERSION=3.3.3
-URL=http://www.libarchive.org/downloads/libarchive-3.3.3.tar.gz
+VERSION=3.4.0
+URL=https//github.com/libarchive/libarchive/releases/download/v3.4.0/libarchive-3.4.0.tar.gz
 
 if [ ! -z $URL ]
 then

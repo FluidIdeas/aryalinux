@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/nfs/nfs-utils-2.3.4.tar.xz
+wget -nc https://downloads.sourceforge.net/nfs/nfs-utils-2.4.1.tar.xz
 
 
 NAME=nfs-utils
-VERSION=2.3.4
-URL=https://downloads.sourceforge.net/nfs/nfs-utils-2.3.4.tar.xz
+VERSION=2.4.1
+URL=https://downloads.sourceforge.net/nfs/nfs-utils-2.4.1.tar.xz
 
 if [ ! -z $URL ]
 then

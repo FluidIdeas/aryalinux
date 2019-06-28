@@ -9,7 +9,8 @@ set +h
 #REQ:gtk2
 #REQ:iso-codes
 #REQ:librsvg
-#REQ:linux-pam
+#REQ:lxsession
+#REQ:polkit-gnome
 
 
 cd $SOURCE_DIR
@@ -46,6 +47,7 @@ cat > pam/lxdm << "EOF"
 
 auth     requisite      pam_nologin.so
 auth     required       pam_env.so
+auth     required       pam_succeed_if.so uid >= 1000 quiet
 auth     include        system-auth
 
 account  include        system-account

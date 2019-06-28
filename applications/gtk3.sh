@@ -15,6 +15,7 @@ set +h
 #REQ:hicolor-icon-theme
 #REQ:iso-codes
 #REQ:libxkbcommon
+#REQ:sassc
 #REQ:wayland
 #REQ:wayland-protocols
 #REQ:gobject-introspection
@@ -22,13 +23,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.8.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.8.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.9.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.9.tar.xz
 
 
 NAME=gtk3
-VERSION=3.24.8
-URL=http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.8.tar.xz
+VERSION=3.24.9
+URL=http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.9.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -49,15 +50,16 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr             \
-            --sysconfdir=/etc         \
-            --enable-broadway-backend \
-            --enable-x11-backend      \
-            --enable-wayland-backend &&
-make
+cd build &&
+meson --prefix=/usr     \
+      -Dcolord=yes      \
+      -Dgtk_doc=false   \
+      -Dman=true        \
+      -Dbroadway_backend=true .. &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

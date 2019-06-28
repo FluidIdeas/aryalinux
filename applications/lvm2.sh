@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://sourceware.org/ftp/lvm2/LVM2.2.03.02.tgz
-wget -nc ftp://sourceware.org/pub/lvm2/LVM2.2.03.02.tgz
+wget -nc https://sourceware.org/ftp/lvm2/LVM2.2.03.05.tgz
+wget -nc ftp://sourceware.org/pub/lvm2/LVM2.2.03.05.tgz
 
 
 NAME=lvm2
-VERSION=2.2.03.02
-URL=https://sourceware.org/ftp/lvm2/LVM2.2.03.02.tgz
+VERSION=2.2.03.05
+URL=https://sourceware.org/ftp/lvm2/LVM2.2.03.05.tgz
 
 if [ ! -z $URL ]
 then
@@ -42,13 +42,23 @@ SAVEPATH=$PATH                  &&
 PATH=$PATH:/sbin:/usr/sbin      &&
 ./configure --prefix=/usr       \
             --exec-prefix=      \
-            --with-confdir=/etc \
             --enable-cmdlib     \
             --enable-pkgconfig  \
             --enable-udev_sync  &&
 make                            &&
 PATH=$SAVEPATH                  &&
 unset SAVEPATH
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make -C tools install_tools_dynamic &&
+make -C udev  install                 &&
+make -C libdm install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install

@@ -46,7 +46,7 @@ cat > app-7.md5 << "EOF"
 c4a3664e08e5a47c120ff9263ee2f20c  luit-1.1.1.tar.bz2
 18c429148c96c2079edda922a2b67632  mkfontdir-1.0.7.tar.bz2
 215940de158b1a3d8b3f8b442c606e2f  mkfontscale-1.2.1.tar.bz2
-e475167a892b589da23edf8edf8c942d  sessreg-1.1.1.tar.bz2
+92be564d4be7d8aa7b5024057b715210  sessreg-1.1.2.tar.bz2
 2c47a1b8e268df73963c4eb2316b1a89  setxkbmap-1.3.1.tar.bz2
 3a93d9f0859de5d8b65a68a125d48f6a  smproxy-1.0.6.tar.bz2
 e96b56756990c56c24d2d02c2964456b  x11perf-1.6.1.tar.bz2

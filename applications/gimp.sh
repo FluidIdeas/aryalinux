@@ -30,13 +30,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.10.tar.bz2
+wget -nc https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.12.tar.bz2
 wget -nc http://anduin.linuxfromscratch.org/BLFS/gimp/gimp-help-2019-04-08.tar.xz
 
 
 NAME=gimp
-VERSION=2.10.10
-URL=https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.10.tar.bz2
+VERSION=2.10.12
+URL=https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.12.tar.bz2
 
 if [ ! -z $URL ]
 then

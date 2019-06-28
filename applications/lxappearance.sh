@@ -40,7 +40,6 @@ echo $USER > /tmp/currentuser
 
 ./configure --prefix=/usr     \
             --sysconfdir=/etc \
-            --disable-static  \
             --enable-dbus     &&
 make
 sudo rm -rf /tmp/rootscript.sh

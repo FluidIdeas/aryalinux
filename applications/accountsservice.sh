@@ -43,9 +43,9 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd build &&
 
-meson --prefix=/usr            \
-            -Dadmin_group=adm  \
-            -Dsystemd=true     \
+meson --prefix=/usr           \
+            -Dadmin_group=adm \
+            -Dsystemd=true    \
             .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh

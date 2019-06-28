@@ -40,9 +40,9 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr \
+./configure --prefix=/usr          \
             --enable-vala-bindings \
-            --disable-static &&
+            --disable-static       &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

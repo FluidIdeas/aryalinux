@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.vim.org/vim/unix/vim-8.1.tar.bz2
+wget -nc http://github.com/vim/vim/archive/v8.1.1535/vim-8.1.1535.tar.gz
 
 
 NAME=vim
-VERSION=8.1
-URL=http://ftp.vim.org/vim/unix/vim-8.1.tar.bz2
+VERSION=8.1.1535
+URL=http://github.com/vim/vim/archive/v8.1.1535/vim-8.1.1535.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -55,7 +55,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ln -snfv ../vim/vim81/doc /usr/share/doc/vim-8.1
+ln -snfv ../vim/vim81/doc /usr/share/doc/vim-8.1.1535
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -67,7 +67,7 @@ rsync -avzcP --exclude="/dos/" --exclude="/spell/" \
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make -C src installruntime &&
-vim -c ":helptags /usr/share/doc/vim-8.1" -c ":q"
+vim -c ":helptags /usr/share/doc/vim-8.1.1535" -c ":q"
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

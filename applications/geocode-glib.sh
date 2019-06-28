@@ -42,7 +42,7 @@ echo $USER > /tmp/currentuser
 
 mkdir build                                   &&
 cd    build                                   &&
-meson --prefix /usr .. -Denable-gtk-doc=false &&
+meson --prefix /usr -Denable-gtk-doc=false .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
