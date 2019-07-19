@@ -15,6 +15,7 @@ cd $SOURCE_DIR
 
 wget -nc http://xmlsoft.org/sources/libxslt-1.1.33.tar.gz
 wget -nc ftp://xmlsoft.org/libxslt/libxslt-1.1.33.tar.gz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/libxslt-1.1.33-security_fix-1.patch
 
 
 NAME=libxslt
@@ -40,6 +41,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../libxslt-1.1.33-security_fix-1.patch
 sed -i s/3000/5000/ libxslt/transform.c doc/xsltproc.{1,xml} &&
 ./configure --prefix=/usr --disable-static                   &&
 make

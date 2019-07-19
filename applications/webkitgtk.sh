@@ -31,12 +31,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://webkitgtk.org/releases/webkitgtk-2.24.2.tar.xz
+wget -nc https://webkitgtk.org/releases/webkitgtk-2.24.3.tar.xz
 
 
 NAME=webkitgtk
-VERSION=2.24.2
-URL=https://webkitgtk.org/releases/webkitgtk-2.24.2.tar.xz
+VERSION=2.24.3
+URL=https://webkitgtk.org/releases/webkitgtk-2.24.3.tar.xz
 
 if [ ! -z $URL ]
 then

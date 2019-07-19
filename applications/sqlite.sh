@@ -10,13 +10,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://sqlite.org/2019/sqlite-autoconf-3280000.tar.gz
-wget -nc https://sqlite.org/2019/sqlite-doc-3280000.zip
+wget -nc https://sqlite.org/2019/sqlite-autoconf-3290000.tar.gz
+wget -nc https://sqlite.org/2019/sqlite-doc-3290000.zip
 
 
 NAME=sqlite
-VERSION=3280000
-URL=https://sqlite.org/2019/sqlite-autoconf-3280000.tar.gz
+VERSION=3290000
+URL=https://sqlite.org/2019/sqlite-autoconf-3290000.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -37,7 +37,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-unzip -q ../sqlite-doc-3280000.zip
+unzip -q ../sqlite-doc-3290000.zip
 ./configure --prefix=/usr     \
             --disable-static  \
             --enable-fts5     \
@@ -61,8 +61,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m755 -d /usr/share/doc/sqlite-3.28.0 &&
-cp -v -R sqlite-doc-3280000/* /usr/share/doc/sqlite-3.28.0
+install -v -m755 -d /usr/share/doc/sqlite-3.29.0 &&
+cp -v -R sqlite-doc-3290000/* /usr/share/doc/sqlite-3.29.0
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

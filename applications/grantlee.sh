@@ -13,6 +13,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://downloads.grantlee.org/grantlee-5.1.0.tar.gz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/grantlee-5.1.0-upstream_fixes-1.patch
 
 
 NAME=grantlee
@@ -38,6 +39,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../grantlee-5.1.0-upstream_fixes-1.patch
 mkdir build &&
 cd    build &&
 

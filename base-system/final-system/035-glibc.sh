@@ -70,7 +70,7 @@ rpc: files
 
 # End /etc/nsswitch.conf
 EOF
-tar -xf ../../tzdata2019a.tar.gz
+tar -xf ../../tzdata2019b.tar.gz
 
 ZONEINFO=/usr/share/zoneinfo
 mkdir -pv $ZONEINFO/{posix,right}

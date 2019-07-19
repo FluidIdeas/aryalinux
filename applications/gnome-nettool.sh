@@ -40,6 +40,8 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -i 's/%s ping/%s/' src/ping.h &&
+sed -i '27 s/%s6/%s /' src/ping.h &&
 ./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh

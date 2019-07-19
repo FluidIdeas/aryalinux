@@ -8,7 +8,6 @@ set +h
 
 #REQ:libassuan
 #REQ:libgcrypt
-#REQ:libgpg-error
 #REQ:libksba
 #REQ:npth
 #REQ:pinentry
@@ -16,13 +15,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.16.tar.bz2
-wget -nc ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-2.2.16.tar.bz2
+wget -nc https://www.gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.17.tar.bz2
+wget -nc ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-2.2.17.tar.bz2
 
 
 NAME=gnupg
-VERSION=2.2.16
-URL=https://www.gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.16.tar.bz2
+VERSION=2.2.17
+URL=https://www.gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.17.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -48,7 +47,7 @@ sed -e '/noinst_SCRIPTS = gpg-zip/c sbin_SCRIPTS += gpg-zip' \
 ./configure --prefix=/usr            \
             --enable-symcryptrun     \
             --localstatedir=/var     \
-            --docdir=/usr/share/doc/gnupg-2.2.16 &&
+            --docdir=/usr/share/doc/gnupg-2.2.17 &&
 make &&
 
 makeinfo --html --no-split -o doc/gnupg_nochunks.html doc/gnupg.texi &&
@@ -58,13 +57,13 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
-install -v -m755 -d /usr/share/doc/gnupg-2.2.16/html            &&
+install -v -m755 -d /usr/share/doc/gnupg-2.2.17/html            &&
 install -v -m644    doc/gnupg_nochunks.html \
-                    /usr/share/doc/gnupg-2.2.16/html/gnupg.html &&
+                    /usr/share/doc/gnupg-2.2.17/html/gnupg.html &&
 install -v -m644    doc/*.texi doc/gnupg.txt \
-                    /usr/share/doc/gnupg-2.2.16 &&
+                    /usr/share/doc/gnupg-2.2.17 &&
 install -v -m644    doc/gnupg.html/* \
-                    /usr/share/doc/gnupg-2.2.16/html
+                    /usr/share/doc/gnupg-2.2.17/html
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -10,12 +10,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://anduin.linuxfromscratch.org/BLFS/iso-codes/iso-codes-4.2.tar.xz
+wget -nc http://anduin.linuxfromscratch.org/BLFS/iso-codes/iso-codes-4.3.tar.xz
 
 
 NAME=iso-codes
-VERSION=4.2
-URL=http://anduin.linuxfromscratch.org/BLFS/iso-codes/iso-codes-4.2.tar.xz
+VERSION=4.3
+URL=http://anduin.linuxfromscratch.org/BLFS/iso-codes/iso-codes-4.3.tar.xz
 
 if [ ! -z $URL ]
 then

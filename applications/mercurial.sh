@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.mercurial-scm.org/release/mercurial-5.0.tar.gz
+wget -nc https://www.mercurial-scm.org/release/mercurial-5.0.2.tar.gz
 
 
 NAME=mercurial
-VERSION=5.0
-URL=https://www.mercurial-scm.org/release/mercurial-5.0.tar.gz
+VERSION=5.0.2
+URL=https://www.mercurial-scm.org/release/mercurial-5.0.2.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -42,7 +42,7 @@ sed -i '/runrst/s/N)/N)3/' doc/Makefile &&
 2to3-3.7 -w doc/hgmanpage.py            &&
 make doc
 rm -rf tests/tmp &&
-TESTFLAGS="-j<N> --tmpdir tmp --blacklist blacklists/failed-tests" make check
+TESTFLAGS="-j<N> --tmpdir tmp --blacklist blacklists/fsmonitor --blacklist blacklists/linux-vfat" make check
 pushd tests  &&
   rm -rf tmp &&
   ./run-tests.py --tmpdir tmp test-gpg.t

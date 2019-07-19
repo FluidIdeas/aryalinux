@@ -48,11 +48,10 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr                     \
-            --enable-compile-warnings=minimum \
-            --enable-introspection            \
-            --without-gspell                  \
-            --disable-static                  &&
+./configure --prefix=/usr           \
+            --enable-introspection  \
+            --without-gspell        \
+            --disable-static        &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/apps/xfce4-terminal/0.8/xfce4-terminal-0.8.7.4.tar.bz2
+wget -nc http://archive.xfce.org/src/apps/xfce4-terminal/0.8/xfce4-terminal-0.8.8.tar.bz2
 
 
 NAME=xfce4-terminal
-VERSION=0.8.7.4
-URL=http://archive.xfce.org/src/apps/xfce4-terminal/0.8/xfce4-terminal-0.8.7.4.tar.bz2
+VERSION=0.8.8
+URL=http://archive.xfce.org/src/apps/xfce4-terminal/0.8/xfce4-terminal-0.8.8.tar.bz2
 
 if [ ! -z $URL ]
 then

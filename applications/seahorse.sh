@@ -11,6 +11,7 @@ set +h
 #REQ:gpgme
 #REQ:itstool
 #REQ:libsecret
+#REQ:libpwquality
 #REQ:libsoup
 #REQ:p11-kit
 #REQ:openssh

@@ -10,19 +10,20 @@ set +h
 #REQ:clutter-gtk
 #REQ:gtk3
 #REQ:libsoup
+#REQ:sqlite
 #REQ:gobject-introspection
 #REQ:vala
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libchamplain/0.12/libchamplain-0.12.16.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libchamplain/0.12/libchamplain-0.12.16.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/libchamplain/0.12/libchamplain-0.12.19.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libchamplain/0.12/libchamplain-0.12.19.tar.xz
 
 
 NAME=libchamplain
-VERSION=0.12.16
-URL=http://ftp.gnome.org/pub/gnome/sources/libchamplain/0.12/libchamplain-0.12.16.tar.xz
+VERSION=0.12.19
+URL=http://ftp.gnome.org/pub/gnome/sources/libchamplain/0.12/libchamplain-0.12.19.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -43,13 +44,13 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr     \
-            --enable-vala     \
-            --disable-static  &&
-make
+cd build &&
+
+meson --prefix=/usr .. &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

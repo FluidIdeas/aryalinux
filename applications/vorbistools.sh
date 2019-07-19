@@ -12,6 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.0.tar.gz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/vorbis-tools-1.4.0-security_fix-1.patch
 
 
 NAME=vorbistools
@@ -37,6 +38,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../vorbis-tools-1.4.0-security_fix-1.patch
 ./configure --prefix=/usr \
             --enable-vcut \
             --without-curl &&

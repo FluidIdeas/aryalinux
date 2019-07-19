@@ -17,15 +17,15 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://mesa.freedesktop.org/archive/mesa-19.0.4.tar.xz
-wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-19.0.4.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/mesa-19.0.4-add_xdemos-2.patch
+wget -nc https://mesa.freedesktop.org/archive/mesa-19.1.2.tar.xz
+wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-19.1.2.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/mesa-19.1.2-add_xdemos-1.patch
 wget -nc ftp://ftp.freedesktop.org/pub/mesa/demos/
 
 
 NAME=mesa
-VERSION=19.0.4
-URL=https://mesa.freedesktop.org/archive/mesa-19.0.4.tar.xz
+VERSION=19.1.2
+URL=https://mesa.freedesktop.org/archive/mesa-19.1.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -47,7 +47,7 @@ echo $USER > /tmp/currentuser
 
 export XORG_PREFIX="/usr"
 
-patch -Np1 -i ../mesa-19.0.4-add_xdemos-2.patch
+patch -Np1 -i ../mesa-19.1.2-add_xdemos-1.patch
 GALLIUM_DRV="i915,nouveau,r600,radeonsi,svga,swrast,virgl"
 DRI_DRIVERS="i965,nouveau"
 mkdir build &&
@@ -57,7 +57,7 @@ meson --prefix=$XORG_PREFIX          \
       -Dbuildtype=release            \
       -Ddri-drivers=$DRI_DRIVERS     \
       -Dgallium-drivers=$GALLIUM_DRV \
-      -Dgallium-nine=true            \
+      -Dgallium-nine=false           \
       -Dglx=dri                      \
       -Dosmesa=gallium               \
       -Dvalgrind=false               \
@@ -77,8 +77,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -dm755 /usr/share/doc/mesa-19.0.4 &&
-cp -rfv ../docs/* /usr/share/doc/mesa-19.0.4
+install -v -dm755 /usr/share/doc/mesa-19.1.2 &&
+cp -rfv ../docs/* /usr/share/doc/mesa-19.1.2
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

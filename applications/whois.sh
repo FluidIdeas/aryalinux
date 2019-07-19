@@ -10,12 +10,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/rfc1036/whois/archive/v5.4.2/whois-5.4.2.tar.gz
+wget -nc https://github.com/rfc1036/whois/archive/v5.4.3/whois-5.4.3.tar.gz
 
 
 NAME=whois
-VERSION=5.4.2
-URL=https://github.com/rfc1036/whois/archive/v5.4.2/whois-5.4.2.tar.gz
+VERSION=5.4.3
+URL=https://github.com/rfc1036/whois/archive/v5.4.3/whois-5.4.3.tar.gz
 
 if [ ! -z $URL ]
 then

@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/shadow-maint/shadow/releases/download/4.6/shadow-4.6.tar.xz
+wget -nc https://github.com/shadow-maint/shadow/releases/download/4.7/shadow-4.7.tar.xz
 wget -nc http://www.deer-run.com/~hal/linux_passwords_pam.html
 
 
 NAME=shadow
-VERSION=4.6
-URL=https://github.com/shadow-maint/shadow/releases/download/4.6/shadow-4.6.tar.xz
+VERSION=4.7
+URL=https://github.com/shadow-maint/shadow/releases/download/4.7/shadow-4.7.tar.xz
 
 if [ ! -z $URL ]
 then

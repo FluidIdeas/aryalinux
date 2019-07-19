@@ -155,8 +155,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mv /opt/kf5{,-5.58.0}
-ln -sfv kf5-5.58.0 /opt/kf5
+mv /opt/kf5{,-5.60.0}
+ln -sfv kf5-5.60.0 /opt/kf5
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

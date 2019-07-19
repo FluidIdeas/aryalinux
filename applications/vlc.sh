@@ -16,12 +16,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.videolan.org/vlc/3.0.6/vlc-3.0.6.tar.xz
+wget -nc https://download.videolan.org/vlc/3.0.7.1/vlc-3.0.7.1.tar.xz
 
 
 NAME=vlc
-VERSION=3.0.6
-URL=https://download.videolan.org/vlc/3.0.6/vlc-3.0.6.tar.xz
+VERSION=3.0.7.1
+URL=https://download.videolan.org/vlc/3.0.7.1/vlc-3.0.7.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -52,7 +52,7 @@ BUILDCC=gcc ./configure --prefix=/usr    \
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make docdir=/usr/share/doc/vlc-3.0.6 install
+make docdir=/usr/share/doc/vlc-3.0.7.1 install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

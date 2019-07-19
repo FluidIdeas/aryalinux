@@ -16,12 +16,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.5.0.tar.xz
+wget -nc https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.5.3.tar.xz
 
 
 NAME=harfbuzz
-VERSION=2.5.0
-URL=https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.5.0.tar.xz
+VERSION=2.5.3
+URL=https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.5.3.tar.xz
 
 if [ ! -z $URL ]
 then

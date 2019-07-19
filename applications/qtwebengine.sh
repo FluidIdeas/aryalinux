@@ -20,12 +20,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.qt.io/archive/qt/5.12/5.12.4/submodules/qtwebengine-everywhere-src-5.12.4.tar.xz
+wget -nc https://download.qt.io/archive/qt/5.13/5.13.0/submodules/qtwebengine-everywhere-src-5.13.0.tar.xz
 
 
 NAME=qtwebengine
-VERSION=5.12.4
-URL=https://download.qt.io/archive/qt/5.12/5.12.4/submodules/qtwebengine-everywhere-src-5.12.4.tar.xz
+VERSION=5.13.0
+URL=https://download.qt.io/archive/qt/5.13/5.13.0/submodules/qtwebengine-everywhere-src-5.13.0.tar.xz
 
 if [ ! -z $URL ]
 then

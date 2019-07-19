@@ -10,13 +10,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/nettle/nettle-3.5.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/nettle/nettle-3.5.tar.gz
+wget -nc https://ftp.gnu.org/gnu/nettle/nettle-3.5.1.tar.gz
+wget -nc ftp://ftp.gnu.org/gnu/nettle/nettle-3.5.1.tar.gz
 
 
 NAME=nettle
-VERSION=3.5
-URL=https://ftp.gnu.org/gnu/nettle/nettle-3.5.tar.gz
+VERSION=3.5.1
+URL=https://ftp.gnu.org/gnu/nettle/nettle-3.5.1.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -43,8 +43,8 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 chmod   -v   755 /usr/lib/lib{hogweed,nettle}.so &&
-install -v -m755 -d /usr/share/doc/nettle-3.5 &&
-install -v -m644 nettle.html /usr/share/doc/nettle-3.5
+install -v -m755 -d /usr/share/doc/nettle-3.5.1 &&
+install -v -m644 nettle.html /usr/share/doc/nettle-3.5.1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

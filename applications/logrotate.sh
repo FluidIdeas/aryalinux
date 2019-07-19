@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:popt
-#REQ:fcron
 
 
 cd $SOURCE_DIR
@@ -145,6 +144,39 @@ file3 {
 EOF
 
 chmod -v 0644 /etc/logrotate.d/example.log
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+cat > /lib/systemd/system/logrotate.service << "EOF" &&
+[Unit]
+Description=Runs the logrotate command
+Documentation=logrotate(8)
+DefaultDependencies=no
+After=local-fs.target
+Before=shutdown.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/sbin/logrotate /etc/logrotate.conf
+EOF
+cat > /lib/systemd/system/logroate.timer << "EOF" &&
+[Unit]
+Description=Runs the logrotate command daily at 3:00 AM
+
+[Timer]
+OnCalendar=*-*-* 3:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+EOF
+systemctl enable logrotate.timer
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

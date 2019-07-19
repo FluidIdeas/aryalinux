@@ -10,13 +10,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.mirrorservice.org/sites/ftp.i-scream.org/pub/i-scream/libstatgrab/libstatgrab-0.91.tar.gz
-wget -nc ftp://www.mirrorservice.org/sites/ftp.i-scream.org/pub/i-scream/libstatgrab/libstatgrab-0.91.tar.gz
+wget -nc http://www.mirrorservice.org/sites/ftp.i-scream.org/pub/i-scream/libstatgrab/libstatgrab-0.92.tar.gz
+wget -nc ftp://www.mirrorservice.org/sites/ftp.i-scream.org/pub/i-scream/libstatgrab/libstatgrab-0.92.tar.gz
 
 
 NAME=libstatgrab
-VERSION=0.91
-URL=http://www.mirrorservice.org/sites/ftp.i-scream.org/pub/i-scream/libstatgrab/libstatgrab-0.91.tar.gz
+VERSION=0.92
+URL=http://www.mirrorservice.org/sites/ftp.i-scream.org/pub/i-scream/libstatgrab/libstatgrab-0.92.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -39,7 +39,7 @@ echo $USER > /tmp/currentuser
 
 ./configure --prefix=/usr   \
             --disable-static \
-            --docdir=/usr/share/doc/libstatgrab-0.91 &&
+            --docdir=/usr/share/doc/libstatgrab-0.92 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

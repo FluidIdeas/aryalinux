@@ -20,13 +20,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.9.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.9.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.10.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.10.tar.xz
 
 
 NAME=libgdata
-VERSION=0.17.9
-URL=http://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.9.tar.xz
+VERSION=0.17.10
+URL=http://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.10.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -54,7 +54,7 @@ meson --prefix=/usr .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -17,12 +17,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/thunar/1.8/Thunar-1.8.6.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/thunar/1.8/Thunar-1.8.7.tar.bz2
 
 
 NAME=thunar
-VERSION=1.8.6
-URL=http://archive.xfce.org/src/xfce/thunar/1.8/Thunar-1.8.6.tar.bz2
+VERSION=1.8.7
+URL=http://archive.xfce.org/src/xfce/thunar/1.8/Thunar-1.8.7.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -45,7 +45,7 @@ echo $USER > /tmp/currentuser
 
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
-            --docdir=/usr/share/doc/Thunar-1.8.6 &&
+            --docdir=/usr/share/doc/Thunar-1.8.7 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

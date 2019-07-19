@@ -10,12 +10,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.54.tar.gz
+wget -nc ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.55.tar.gz
 
 
 NAME=stunnel
-VERSION=5.54
-URL=ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.54.tar.gz
+VERSION=5.55
+URL=ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.55.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -54,7 +54,7 @@ sed -i '/LDFLAGS.*static_flag/ s/^/#/' configure
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make docdir=/usr/share/doc/stunnel-5.54 install
+make docdir=/usr/share/doc/stunnel-5.55 install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

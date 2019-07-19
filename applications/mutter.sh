@@ -25,13 +25,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/mutter/3.32/mutter-3.32.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/mutter/3.32/mutter-3.32.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/mutter/3.32/mutter-3.32.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/mutter/3.32/mutter-3.32.2.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/mutter-3.32.2-upstream_fixes-1.patch
 
 
 NAME=mutter
-VERSION=3.32.1
-URL=http://ftp.gnome.org/pub/gnome/sources/mutter/3.32/mutter-3.32.1.tar.xz
+VERSION=3.32.2
+URL=http://ftp.gnome.org/pub/gnome/sources/mutter/3.32/mutter-3.32.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -52,8 +53,9 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../mutter-3.32.2-upstream_fixes-1.patch
 mkdir build &&
-cd build &&
+cd    build &&
 
 meson --prefix=/usr .. &&
 ninja

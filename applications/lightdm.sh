@@ -17,13 +17,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/CanonicalLtd/lightdm/releases/download/1.28.0/lightdm-1.28.0.tar.xz
-wget -nc https://launchpad.net/lightdm-gtk-greeter/2.0/2.0.5/+download/lightdm-gtk-greeter-2.0.5.tar.gz
+wget -nc https://github.com/CanonicalLtd/lightdm/releases/download/1.30.0/lightdm-1.30.0.tar.xz
+wget -nc https://launchpad.net/lightdm-gtk-greeter/2.0/2.0.6/+download/lightdm-gtk-greeter-2.0.6.tar.gz
 
 
 NAME=lightdm
-VERSION=1.28.0
-URL=https://github.com/CanonicalLtd/lightdm/releases/download/1.28.0/lightdm-1.28.0.tar.xz
+VERSION=1.30.0
+URL=https://github.com/CanonicalLtd/lightdm/releases/download/1.30.0/lightdm-1.30.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -67,7 +67,7 @@ sudo rm -rf /tmp/rootscript.sh
        --disable-tests               \
        --with-greeter-user=lightdm   \
        --with-greeter-session=lightdm-gtk-greeter \
-       --docdir=/usr/share/doc/lightdm-1.28.0 &&
+       --docdir=/usr/share/doc/lightdm-1.30.0 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -85,8 +85,8 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-tar -xf ../lightdm-gtk-greeter-2.0.5.tar.gz &&
-cd lightdm-gtk-greeter-2.0.5 &&
+tar -xf ../lightdm-gtk-greeter-2.0.6.tar.gz &&
+cd lightdm-gtk-greeter-2.0.6 &&
 
 ./configure                      \
    --prefix=/usr                 \
@@ -98,7 +98,7 @@ cd lightdm-gtk-greeter-2.0.5 &&
    --disable-libido              \
    --disable-libindicator        \
    --disable-static              \
-   --docdir=/usr/share/doc/lightdm-gtk-greeter-2.0.5 &&
+   --docdir=/usr/share/doc/lightdm-gtk-greeter-2.0.6 &&
 
 make
 sudo rm -rf /tmp/rootscript.sh

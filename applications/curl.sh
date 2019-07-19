@@ -11,12 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://curl.haxx.se/download/curl-7.65.1.tar.xz
+wget -nc https://curl.haxx.se/download/curl-7.65.2.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/curl-7.65.1-fix_dns_segfaults-2.patch
 
 
 NAME=curl
-VERSION=7.65.1
-URL=https://curl.haxx.se/download/curl-7.65.1.tar.xz
+VERSION=7.65.2
+URL=https://curl.haxx.se/download/curl-7.65.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -37,6 +38,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../curl-7.65.1-fix_dns_segfaults-2.patch
 ./configure --prefix=/usr                           \
             --disable-static                        \
             --enable-threaded-resolver              \
@@ -50,8 +52,8 @@ rm -rf docs/examples/.deps &&
 
 find docs \( -name Makefile\* -o -name \*.1 -o -name \*.3 \) -exec rm {} \; &&
 
-install -v -d -m755 /usr/share/doc/curl-7.65.1 &&
-cp -v -R docs/*     /usr/share/doc/curl-7.65.1
+install -v -d -m755 /usr/share/doc/curl-7.65.2 &&
+cp -v -R docs/*     /usr/share/doc/curl-7.65.2
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

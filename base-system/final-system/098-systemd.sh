@@ -35,6 +35,7 @@ cd       build
 
 PKG_CONFIG_PATH="/usr/lib/pkgconfig:/tools/lib/pkgconfig" \
 LANG=$LOCALE                   \
+CFLAGS+="-Wno-format-overflow"     \
 meson --prefix=/usr                \
       --sysconfdir=/etc            \
       --localstatedir=/var         \
@@ -43,7 +44,6 @@ meson --prefix=/usr                \
       -Ddefault-dnssec=no          \
       -Dfirstboot=false            \
       -Dinstall-tests=false        \
-      -Dkill-path=/bin/kill        \
       -Dkmod-path=/bin/kmod        \
       -Dldconfig=false             \
       -Dmount-path=/bin/mount      \
@@ -54,12 +54,13 @@ meson --prefix=/usr                \
       -Dsysusers=false             \
       -Dumount-path=/bin/umount    \
       -Db_lto=false                \
+      -Drpmmacrosdir=no            \
       ..
 LANG=$LOCALE ninja
 LANG=$LOCALE ninja install
-rm -rfv /usr/lib/rpm
 rm -f /usr/bin/xsltproc
 systemd-machine-id-setup
+rm -fv /usr/lib/lib{blkid,uuid,mount}.so*
 rm -f /usr/lib/tmpfiles.d/systemd-nologin.conf
 
 fi

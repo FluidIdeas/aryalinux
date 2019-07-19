@@ -9,16 +9,17 @@ set +h
 #REQ:curl
 #REQ:cmake
 #REQ:libssh2
+#REQ:llvm
 
 
 cd $SOURCE_DIR
 
-wget -nc https://static.rust-lang.org/dist/rustc-1.32.0-src.tar.gz
+wget -nc https://static.rust-lang.org/dist/rustc-1.35.0-src.tar.gz
 
 
 NAME=rust
-VERSION=1.32.
-URL=https://static.rust-lang.org/dist/rustc-1.32.0-src.tar.gz
+VERSION=1.35.
+URL=https://static.rust-lang.org/dist/rustc-1.35.0-src.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -41,8 +42,8 @@ echo $USER > /tmp/currentuser
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir /opt/rustc-1.32.0             &&
-ln -svfin rustc-1.32.0 /opt/rustc
+mkdir /opt/rustc-1.35.0             &&
+ln -svfin rustc-1.35.0 /opt/rustc
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -51,30 +52,25 @@ sudo rm -rf /tmp/rootscript.sh
 
 cat << EOF > config.toml
 # see config.toml.example for more possible options
+# See the 8.4 book for an example using shipped LLVM
+# e.g. if not installing clang, or using a version before 8.0.
 [llvm]
-
-# use ninja
-ninja = true
-
+# by default, rust will build for a myriad of architectures
 targets = "X86"
-# When compiling LLVM, the experimental targets (WebAssembly
-# and RISCV) are built by default - omit them
-experimental-targets = ""
+
+# When using system llvm prefer shared libraries
+link-shared = true
 
 [build]
-# omit HTML docs to save time and space (comment this to build them)
+# omit docs to save time and space (default is to build them)
 docs = false
 
 # install cargo as well as rust
 extended = true
 
 [install]
-# Adjust the prefix for the desired destination
-#prefix = "/usr"
-prefix = "/opt/rustc-1.32.0"
-
-# docdir is used even if the full awesome docs are not installed
-docdir = "share/doc/rustc-1.32.0"
+prefix = "/opt/rustc-1.35.0"
+docdir = "share/doc/rustc-1.35.0"
 
 [rust]
 channel = "stable"
@@ -84,8 +80,10 @@ rpath = false
 # so disable codegen tests
 codegen-tests = false
 
-# get a trace if there is an Internal Compiler Exception
-backtrace-on-ice = true
+[target.x86_64-unknown-linux-gnu]
+# NB the output of llvm-config (i.e. help options) may be
+# dumped to the screen when config.toml is parsed.
+llvm-config = "/usr/bin/llvm-config"
 
 EOF
 export RUSTFLAGS="$RUSTFLAGS -C link-args=-lffi" &&

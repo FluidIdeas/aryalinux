@@ -23,6 +23,7 @@ export CFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 export CXXFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 export CPPFLAGS="-march=$BUILD_ARCH -mtune=$BUILD_TUNE -O$BUILD_OPT_LEVEL"
 
+sed -i '/@\tincremental_copy/d' gold/testsuite/Makefile.in
 mkdir -v build
 cd       build
 ../configure --prefix=/usr       \

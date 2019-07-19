@@ -8,17 +8,18 @@ set +h
 
 #REQ:gtk3
 #REQ:gsettings-desktop-schemas
+#REQ:itstool
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-logs/3.30/gnome-logs-3.30.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-logs/3.28/gnome-logs-3.30.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-logs/3.32/gnome-logs-3.32.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-logs/3.32/gnome-logs-3.32.1.tar.xz
 
 
 NAME=gnome-logs
-VERSION=3.30.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-logs/3.30/gnome-logs-3.30.0.tar.xz
+VERSION=3.32.1
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-logs/3.32/gnome-logs-3.32.1.tar.xz
 
 if [ ! -z $URL ]
 then

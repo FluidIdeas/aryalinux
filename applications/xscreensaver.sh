@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.jwz.org/xscreensaver/xscreensaver-5.42.tar.gz
+wget -nc https://www.jwz.org/xscreensaver/xscreensaver-5.43.tar.gz
 
 
 NAME=xscreensaver
-VERSION=5.42
-URL=https://www.jwz.org/xscreensaver/xscreensaver-5.42.tar.gz
+VERSION=5.43
+URL=https://www.jwz.org/xscreensaver/xscreensaver-5.43.tar.gz
 
 if [ ! -z $URL ]
 then

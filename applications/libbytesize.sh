@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/storaged-project/libbytesize/releases/download/2.0/libbytesize-2.0.tar.gz
+wget -nc https://github.com/storaged-project/libbytesize/releases/download/2.1/libbytesize-2.1.tar.gz
 
 
 NAME=libbytesize
-VERSION=2.0
-URL=https://github.com/storaged-project/libbytesize/releases/download/2.0/libbytesize-2.0.tar.gz
+VERSION=2.1
+URL=https://github.com/storaged-project/libbytesize/releases/download/2.1/libbytesize-2.1.tar.gz
 
 if [ ! -z $URL ]
 then

@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/guile/guile-2.2.4.tar.xz
-wget -nc ftp://ftp.gnu.org/gnu/guile/guile-2.2.4.tar.xz
+wget -nc https://ftp.gnu.org/gnu/guile/guile-2.2.6.tar.xz
+wget -nc ftp://ftp.gnu.org/gnu/guile/guile-2.2.6.tar.xz
 
 
 NAME=guile
-VERSION=2.2.4
-URL=https://ftp.gnu.org/gnu/guile/guile-2.2.4.tar.xz
+VERSION=2.2.6
+URL=https://ftp.gnu.org/gnu/guile/guile-2.2.6.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -41,7 +41,7 @@ echo $USER > /tmp/currentuser
 
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/guile-2.2.4 &&
+            --docdir=/usr/share/doc/guile-2.2.6 &&
 make      &&
 make html &&
 
@@ -53,15 +53,15 @@ make install      &&
 make install-html &&
 
 mv /usr/lib/libguile-*-gdb.scm /usr/share/gdb/auto-load/usr/lib &&
-mv /usr/share/doc/guile-2.2.4/{guile.html,ref} &&
-mv /usr/share/doc/guile-2.2.4/r5rs{.html,}     &&
+mv /usr/share/doc/guile-2.2.6/{guile.html,ref} &&
+mv /usr/share/doc/guile-2.2.6/r5rs{.html,}     &&
 
 find examples -name "Makefile*" -delete         &&
-cp -vR examples   /usr/share/doc/guile-2.2.4   &&
+cp -vR examples   /usr/share/doc/guile-2.2.6   &&
 
 for DIRNAME in r5rs ref; do
   install -v -m644  doc/${DIRNAME}/*.txt \
-                    /usr/share/doc/guile-2.2.4/${DIRNAME}
+                    /usr/share/doc/guile-2.2.6/${DIRNAME}
 done &&
 unset DIRNAME
 ENDOFROOTSCRIPT

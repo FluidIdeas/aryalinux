@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://invisible-mirror.net/archives/xterm/xterm-346.tgz
+wget -nc http://invisible-mirror.net/archives/xterm/xterm-347.tgz
 
 
 NAME=xterm
-VERSION=346
-URL=http://invisible-mirror.net/archives/xterm/xterm-346.tgz
+VERSION=347
+URL=http://invisible-mirror.net/archives/xterm/xterm-347.tgz
 
 if [ ! -z $URL ]
 then

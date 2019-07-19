@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/colord/releases/colord-gtk-0.1.26.tar.xz
+wget -nc https://www.freedesktop.org/software/colord/releases/colord-gtk-0.2.0.tar.xz
 
 
 NAME=colord-gtk
-VERSION=0.1.26
-URL=https://www.freedesktop.org/software/colord/releases/colord-gtk-0.1.26.tar.xz
+VERSION=0.2.0
+URL=https://www.freedesktop.org/software/colord/releases/colord-gtk-0.2.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -40,13 +40,18 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr    \
-            --enable-vala    \
-            --disable-static &&
-make
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr  \
+      -Dgtk2=true    \
+      -Dvapi=true    \
+      -Ddocs=false   \
+      -Dman=false .. &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

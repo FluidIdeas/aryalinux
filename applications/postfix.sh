@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.4.5.tar.gz
+wget -nc ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.4.6.tar.gz
 
 
 NAME=postfix
-VERSION=3.4.5
-URL=ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.4.5.tar.gz
+VERSION=3.4.6
+URL=ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.4.6.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -65,8 +65,8 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 sh postfix-install -non-interactive \
    daemon_directory=/usr/lib/postfix \
    manpage_directory=/usr/share/man \
-   html_directory=/usr/share/doc/postfix-3.4.5/html \
-   readme_directory=/usr/share/doc/postfix-3.4.5/readme
+   html_directory=/usr/share/doc/postfix-3.4.6/html \
+   readme_directory=/usr/share/doc/postfix-3.4.6/readme
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

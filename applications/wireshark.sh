@@ -14,13 +14,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.wireshark.org/download/src/all-versions/wireshark-3.0.1.tar.xz
+wget -nc https://www.wireshark.org/download/src/all-versions/wireshark-3.0.3.tar.xz
 wget -nc https://www.wireshark.org/download/docs/
 
 
 NAME=wireshark
-VERSION=3.0.1
-URL=https://www.wireshark.org/download/src/all-versions/wireshark-3.0.1.tar.xz
+VERSION=3.0.3
+URL=https://www.wireshark.org/download/src/all-versions/wireshark-3.0.3.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -55,7 +55,7 @@ cd    build &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr \
       -DCMAKE_BUILD_TYPE=Release  \
-      -DCMAKE_INSTALL_DOCDIR=/usr/share/doc/wireshark-3.0.1 \
+      -DCMAKE_INSTALL_DOCDIR=/usr/share/doc/wireshark-3.0.3 \
       -G Ninja \
       .. &&
 ninja
@@ -63,11 +63,11 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
 
-install -v -m755 -d /usr/share/doc/wireshark-3.0.1 &&
+install -v -m755 -d /usr/share/doc/wireshark-3.0.3 &&
 install -v -m644    ../README.linux ../doc/README.* ../doc/{*.pod,randpkt.txt} \
-                    /usr/share/doc/wireshark-3.0.1 &&
+                    /usr/share/doc/wireshark-3.0.3 &&
 
-pushd /usr/share/doc/wireshark-3.0.1 &&
+pushd /usr/share/doc/wireshark-3.0.3 &&
    for FILENAME in ../../wireshark/*.html; do
       ln -s -v -f $FILENAME .
    done &&
@@ -82,7 +82,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m644 <Downloaded_Files> \
-                 /usr/share/doc/wireshark-3.0.1
+                 /usr/share/doc/wireshark-3.0.3
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

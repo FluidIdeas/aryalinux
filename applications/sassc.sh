@@ -10,13 +10,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/sass/sassc/archive/3.5.0/sassc-3.5.0.tar.gz
-wget -nc https://github.com/sass/libsass/archive/3.5.5/libsass-3.5.5.tar.gz
+wget -nc https://github.com/sass/sassc/archive/3.6.1/sassc-3.6.1.tar.gz
+wget -nc https://github.com/sass/libsass/archive/3.6.1/libsass-3.6.1.tar.gz
 
 
 NAME=sassc
-VERSION=3.5.0
-URL=https://github.com/sass/sassc/archive/3.5.0/sassc-3.5.0.tar.gz
+VERSION=3.6.1
+URL=https://github.com/sass/sassc/archive/3.6.1/sassc-3.6.1.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -56,8 +56,8 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-tar -xf ../sassc-3.5.0.tar.gz &&
-cd sassc-3.5.0 &&
+tar -xf ../sassc-3.6.1.tar.gz &&
+cd sassc-3.6.1 &&
 autoreconf -fi &&
 
 ./configure --prefix=/usr &&

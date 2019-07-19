@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://files.pythonhosted.org/packages/source/M/Mako/Mako-1.0.12.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/M/Mako/Mako-1.0.13.tar.gz
 
 
 NAME=python-modules#mako
-VERSION=1.0.12
-URL=https://files.pythonhosted.org/packages/source/M/Mako/Mako-1.0.12.tar.gz
+VERSION=1.0.13
+URL=https://files.pythonhosted.org/packages/source/M/Mako/Mako-1.0.13.tar.gz
 
 if [ ! -z $URL ]
 then

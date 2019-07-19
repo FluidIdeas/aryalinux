@@ -34,12 +34,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.qt.io/archive/qt/5.12/5.12.4/single/qt-everywhere-src-5.12.4.tar.xz
+wget -nc https://download.qt.io/archive/qt/5.13/5.13.0/single/qt-everywhere-src-5.13.0.tar.xz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/qt-5.13.0-upstream_fixes-1.patch
 
 
 NAME=qt5
-VERSION=5.12.4
-URL=https://download.qt.io/archive/qt/5.12/5.12.4/single/qt-everywhere-src-5.12.4.tar.xz
+VERSION=5.13.0
+URL=https://download.qt.io/archive/qt/5.13/5.13.0/single/qt-everywhere-src-5.13.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -63,8 +64,8 @@ echo $USER > /tmp/currentuser
 export QT5PREFIX=/opt/qt5
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir /opt/qt-5.12.4
-ln -sfnv qt-5.12.4 /opt/qt5
+mkdir /opt/qt-5.13.0
+ln -sfnv qt-5.13.0 /opt/qt5
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -80,9 +81,9 @@ sudo rm -rf /tmp/rootscript.sh
             -docdir         /usr/share/doc/qt5          \
             -translationdir /usr/share/qt5/translations \
             -examplesdir    /usr/share/doc/qt5/examples
-sed -i "s/volatile//" \
-  qtscript/src/3rdparty/javascriptcore/JavaScriptCore/jit/JITStubs.cpp
-find . -name "*.pr[io]" | xargs sed -i 's/python/&3/' &&
+patch -Np1 -i ../qt-5.13.0-upstream_fixes-1.patch &&
+sed -i 's/python /python3 /' qtdeclarative/qtdeclarative.pro \
+                             qtdeclarative/src/3rdparty/masm/masm.pri &&
 
 ./configure -prefix $QT5PREFIX                        \
             -sysconfdir /etc/xdg                      \
