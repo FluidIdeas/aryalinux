@@ -126,27 +126,6 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m644 ../php_manual_en.html.gz \
-    /usr/share/doc/php-7.3.7 &&
-gunzip -v /usr/share/doc/php-7.3.7/php_manual_en.html.gz
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-tar -xvf ../php_manual_en.tar.gz \
-    -C /usr/share/doc/php-7.3.7 --no-same-owner
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 wget http://pear.php.net/go-pear.phar
 php ./go-pear.phar
 sudo rm -rf /tmp/rootscript.sh
@@ -202,6 +181,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+sudo systemctl enable php-fpm && sudo systemctl start php-fpm && sudo systemctl restart httpd
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

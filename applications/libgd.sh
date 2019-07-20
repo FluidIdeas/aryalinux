@@ -12,6 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://github.com/libgd/libgd/releases/download/gd-2.2.5/libgd-2.2.5.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2f08f4d7e5746ea6d66db0c22fa58ff9c18ca385/libgd-2.2.5-find-freetype2.patch
 
 
 NAME=libgd
@@ -36,9 +37,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
+patch -Np1 -i ../libgd-2.2.5-find-freetype2.patch &&
 mkdir -pv build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=/usr .. &&
+cmake -DCMAKE_INSTALL_PREFIX=/usr -DENABLE_FONTCONFIG=1 -DENABLE_FREETYPE=1 -DENABLE_ICONV=1 -DENABLE_JPEG=1 -DENABLE_LIQ=0 -DENABLE_PNG=1 -DENABLE_TIFF=1 -DENABLE_WEBP=1 -DENABLE_XPM=1 .. &&
 make
 sudo make install
 
