@@ -11,6 +11,7 @@ set +h
 #REQ:libgd
 #REQ:postgresql
 #REQ:net-snmp
+#REQ:tidy-htlm5
 
 
 cd $SOURCE_DIR
