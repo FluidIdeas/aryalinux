@@ -8,6 +8,9 @@ set +h
 
 #REQ:apache
 #REQ:libxml2
+#REQ:libgd
+#REQ:postgresql
+#REQ:net-snmp
 
 
 cd $SOURCE_DIR

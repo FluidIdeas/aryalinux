@@ -77,7 +77,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-su - postgres -c '/usr/bin/initdb -D /srv/pgsql/data'
+su postgres -c '/usr/bin/initdb -D /srv/pgsql/data'
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -107,7 +107,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-su - postgres -c '/usr/bin/postgres -D /srv/pgsql/data > \
+su postgres -c '/usr/bin/postgres -D /srv/pgsql/data > \
                   /srv/pgsql/data/logfile 2>&1 &'
 ENDOFROOTSCRIPT
 
@@ -117,16 +117,16 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-su - postgres -c '/usr/bin/createdb test' &&
+su postgres -c '/usr/bin/createdb test' &&
 echo "create table t1 ( name varchar(20), state_province varchar(20) );" \
-    | (su - postgres -c '/usr/bin/psql test ') &&
+    | (su postgres -c '/usr/bin/psql test ') &&
 echo "insert into t1 values ('Billy', 'NewYork');" \
-    | (su - postgres -c '/usr/bin/psql test ') &&
+    | (su postgres -c '/usr/bin/psql test ') &&
 echo "insert into t1 values ('Evanidus', 'Quebec');" \
-    | (su - postgres -c '/usr/bin/psql test ') &&
+    | (su postgres -c '/usr/bin/psql test ') &&
 echo "insert into t1 values ('Jesse', 'Ontario');" \
-    | (su - postgres -c '/usr/bin/psql test ') &&
-echo "select * from t1;" | (su - postgres -c '/usr/bin/psql test')
+    | (su postgres -c '/usr/bin/psql test ') &&
+echo "select * from t1;" | (su postgres -c '/usr/bin/psql test')
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -135,7 +135,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-su - postgres -c "/usr/bin/pg_ctl stop -D /srv/pgsql/data"
+su postgres -c "/usr/bin/pg_ctl stop -D /srv/pgsql/data"
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
