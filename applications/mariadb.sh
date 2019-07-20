@@ -74,9 +74,6 @@ cmake -DCMAKE_BUILD_TYPE=Release                      \
       -DTOKUDB_OK=0                                   \
       .. &&
 make
-pushd mysql-test
-./mtr --parallel <N> --mem --force
-popd
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -178,7 +175,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m755 -o mysql -g mysql -d /run/mysqld &&
-mysqld_safe --user=mysql 2>&1 >/dev/null &
+mysqld_safe --user=mysql 2>&1 >/dev/null && sleep 5 &
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
