@@ -40,7 +40,10 @@ echo $USER > /tmp/currentuser
 
 
 ./configure --prefix=/usr                    \
+            --datadir=/usr/share/php         \
             --sysconfdir=/etc                \
+            --enable-libxml                  \
+            --with-pear                      \
             --with-apxs2                     \
             --with-config-file-path=/etc     \
             --disable-ipv6                   \
@@ -63,17 +66,15 @@ echo $USER > /tmp/currentuser
             --with-zlib-dir=/usr             \
             --with-xpm-dir=/usr/X11R6/lib    \
             --with-freetype-dir=/usr         \
-            --with-t1lib                     \
             --with-gettext                   \
             --with-gmp                       \
             --with-ldap                      \
             --with-ldap-sasl                 \
             --enable-mbstring                \
-            --with-mysql                     \
-            --with-mysqli=mysqlnd            \
-            --with-mysql-sock=/var/run/mysql \
+            --with-mysqli=shared            \
+            --with-mysql-sock=/run/mysqld/mysqld.sock \
             --with-unixODBC=/usr             \
-            --with-pdo-mysql                 \
+            --with-pdo-mysql=shared          \
             --with-pdo-odbc=unixODBC,/usr    \
             --with-pdo-pgsql                 \
             --without-pdo-sqlite             \
@@ -82,7 +83,7 @@ echo $USER > /tmp/currentuser
             --with-readline                  \
             --with-snmp                      \
             --enable-sockets                 \
-            --with-tidy                      \
+            --with-tidy=shared               \
             --with-xsl                       \
             --enable-fpm                     \
             --with-fpm-user=apache           \
