@@ -39,29 +39,58 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr                \
-            --sysconfdir=/etc            \
-            --localstatedir=/var         \
-            --datadir=/usr/share/php     \
-            --mandir=/usr/share/man      \
-            --enable-fpm                 \
-            --without-pear               \
-            --with-fpm-user=apache       \
-            --with-fpm-group=apache      \
-            --with-fpm-systemd           \
-            --with-config-file-path=/etc \
-            --with-zlib                  \
-            --enable-bcmath              \
-            --with-bz2                   \
-            --enable-calendar            \
-            --enable-dba=shared          \
-            --with-gdbm                  \
-            --with-gmp                   \
-            --enable-ftp                 \
-            --with-gettext               \
-            --enable-mbstring            \
-            --with-readline              &&
+./configure --prefix=/usr                    \
+            --sysconfdir=/etc                \
+            --with-apxs2                     \
+            --with-config-file-path=/etc     \
+            --disable-ipv6                   \
+            --with-openssl                   \
+            --with-kerberos                  \
+            --with-pcre-regex=/usr           \
+            --with-zlib                      \
+            --enable-bcmath                  \
+            --with-bz2                       \
+            --enable-calendar                \
+            --with-curl                      \
+            --enable-dba=shared              \
+            --with-gdbm                      \
+            --enable-exif                    \
+            --enable-ftp                     \
+            --with-openssl-dir=/usr          \
+            --with-gd=/usr                   \
+            --with-jpeg-dir=/usr             \
+            --with-png-dir=/usr              \
+            --with-zlib-dir=/usr             \
+            --with-xpm-dir=/usr/X11R6/lib    \
+            --with-freetype-dir=/usr         \
+            --with-t1lib                     \
+            --with-gettext                   \
+            --with-gmp                       \
+            --with-ldap                      \
+            --with-ldap-sasl                 \
+            --enable-mbstring                \
+            --with-mysql                     \
+            --with-mysqli=mysqlnd            \
+            --with-mysql-sock=/var/run/mysql \
+            --with-unixODBC=/usr             \
+            --with-pdo-mysql                 \
+            --with-pdo-odbc=unixODBC,/usr    \
+            --with-pdo-pgsql                 \
+            --without-pdo-sqlite             \
+            --with-pgsql                     \
+            --with-pspell                    \
+            --with-readline                  \
+            --with-snmp                      \
+            --enable-sockets                 \
+            --with-tidy                      \
+            --with-xsl                       \
+            --enable-fpm                     \
+            --with-fpm-user=apache           \
+            --with-fpm-group=apache          \
+            --with-fpm-systemd               \
+            --with-iconv                     &&
 make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install                                     &&
