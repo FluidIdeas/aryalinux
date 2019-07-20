@@ -45,6 +45,7 @@ if [ "$BUILD_OPT_LEVEL" != "none" ]; then
 	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
 fi
 
+export CFLAGS+=" -Wno-error=pointer-sign"
 patch -Np1 -i ../efibootmgr-17-efidir.patch
 make
 install -v -D -m0755 src/efibootmgr /usr/sbin/efibootmgr
