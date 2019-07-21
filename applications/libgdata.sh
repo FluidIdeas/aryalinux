@@ -48,9 +48,9 @@ echo $USER > /tmp/currentuser
 
 
 mkdir build &&
-cd    build &&
+cd    build    &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr -Dgtk_doc=false .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
