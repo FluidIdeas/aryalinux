@@ -13,7 +13,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc ftp://ftp.sendmail.org/pub/sendmail/sendmail.8.15.2.tar.gz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/sendmail.8.15.2-openssl-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/sendmail.8.15.2-openssl-1.patch
 
 
 NAME=sendmail

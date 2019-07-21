@@ -13,7 +13,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/epdfview/epdfview-0.1.8.tar.bz2
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/epdfview-0.1.8-fixes-2.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/epdfview-0.1.8-fixes-2.patch
 
 
 NAME=epdfview

@@ -14,7 +14,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://archive.apache.org/dist/subversion/subversion-1.12.0.tar.bz2
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/subversion-1.12.0-apr_1.7.0_fix-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/subversion-1.12.0-apr_1.7.0_fix-1.patch
 
 
 NAME=subversion

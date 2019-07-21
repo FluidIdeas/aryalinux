@@ -11,7 +11,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/libquicktime/libquicktime-1.2.4.tar.gz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/libquicktime-1.2.4-ffmpeg4-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/libquicktime-1.2.4-ffmpeg4-1.patch
 
 
 NAME=libquicktime

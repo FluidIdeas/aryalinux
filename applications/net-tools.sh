@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/net-tools/net-tools-CVS_20101030.tar.gz
 wget -nc ftp://anduin.linuxfromscratch.org/BLFS/net-tools/net-tools-CVS_20101030.tar.gz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/net-tools-CVS_20101030-remove_dups-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/net-tools-CVS_20101030-remove_dups-1.patch
 
 
 NAME=net-tools

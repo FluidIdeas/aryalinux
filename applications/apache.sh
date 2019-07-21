@@ -13,7 +13,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://archive.apache.org/dist/httpd/httpd-2.4.39.tar.bz2
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/httpd-2.4.39-blfs_layout-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/httpd-2.4.39-blfs_layout-1.patch
 
 
 NAME=apache

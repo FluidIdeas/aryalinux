@@ -12,7 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://curl.haxx.se/download/curl-7.65.2.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/curl-7.65.1-fix_dns_segfaults-2.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/curl-7.65.1-fix_dns_segfaults-2.patch
 
 
 NAME=curl

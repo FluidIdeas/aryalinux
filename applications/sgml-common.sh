@@ -12,7 +12,7 @@ cd $SOURCE_DIR
 
 wget -nc https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/sgml-common-0.6.3.tgz
 wget -nc ftp://sourceware.org/pub/docbook-tools/new-trials/SOURCES/sgml-common-0.6.3.tgz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/sgml-common-0.6.3-manpage-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/sgml-common-0.6.3-manpage-1.patch
 
 
 NAME=sgml-common

@@ -35,7 +35,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://download.qt.io/archive/qt/5.13/5.13.0/single/qt-everywhere-src-5.13.0.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/qt-5.13.0-upstream_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/qt-5.13.0-upstream_fixes-1.patch
 
 
 NAME=qt5

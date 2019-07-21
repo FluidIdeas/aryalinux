@@ -18,7 +18,7 @@ cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/teams/releng/tarballs-needing-help/mozjs/mozjs-60.1.0.tar.bz2
 wget -nc ftp://ftp.gnome.org/pub/gnome/teams/releng/tarballs-needing-help/mozjs/mozjs-60.1.0.tar.bz2
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/js60-60.1.0-security_fix-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/js60-60.1.0-security_fix-1.patch
 
 
 NAME=js60

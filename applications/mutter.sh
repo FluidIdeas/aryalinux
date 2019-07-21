@@ -27,7 +27,7 @@ cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/mutter/3.32/mutter-3.32.2.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/mutter/3.32/mutter-3.32.2.tar.xz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/mutter-3.32.2-upstream_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/mutter-3.32.2-upstream_fixes-1.patch
 
 
 NAME=mutter
