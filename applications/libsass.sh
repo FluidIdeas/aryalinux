@@ -6,17 +6,16 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:libsass
 
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/sass/sassc/archive/3.6.1/sassc-3.6.1.tar.gz
+wget -nc https://github.com/sass/libsass/archive/3.6.1/libsass-3.6.1.tar.gz
 
 
-NAME=sassc
+NAME=libsass
 VERSION=3.6.1
-URL=https://github.com/sass/sassc/archive/3.6.1/sassc-3.6.1.tar.gz
+URL=https://github.com/sass/libsass/archive/3.6.1/libsass-3.6.1.tar.gz
 
 if [ ! -z $URL ]
 then
