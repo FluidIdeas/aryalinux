@@ -35,7 +35,7 @@ cd $DIRECTORY
 fi
 
 sudo mkdir -pv /usr/share/gnome-shell/extensions/$(basename $(pwd))
-sudo cp -rvf /usr/share/gnome-shell/extensions/$(basename $(pwd))
+sudo cp -rvf * /usr/share/gnome-shell/extensions/$(basename $(pwd))
 sudo chmod -R a+r /usr/share/gnome-shell/extensions/$(basename $(pwd))
 
 
