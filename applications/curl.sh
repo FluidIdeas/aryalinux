@@ -11,13 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://curl.haxx.se/download/curl-7.65.2.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/curl-7.65.1-fix_dns_segfaults-2.patch
+wget -nc https://curl.haxx.se/download/curl-7.65.3.tar.xz
 
 
 NAME=curl
-VERSION=7.65.2
-URL=https://curl.haxx.se/download/curl-7.65.2.tar.xz
+VERSION=7.65.3
+URL=https://curl.haxx.se/download/curl-7.65.3.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -38,7 +37,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../curl-7.65.1-fix_dns_segfaults-2.patch
 ./configure --prefix=/usr                           \
             --disable-static                        \
             --enable-threaded-resolver              \
@@ -52,8 +50,8 @@ rm -rf docs/examples/.deps &&
 
 find docs \( -name Makefile\* -o -name \*.1 -o -name \*.3 \) -exec rm {} \; &&
 
-install -v -d -m755 /usr/share/doc/curl-7.65.2 &&
-cp -v -R docs/*     /usr/share/doc/curl-7.65.2
+install -v -d -m755 /usr/share/doc/curl-7.65.3 &&
+cp -v -R docs/*     /usr/share/doc/curl-7.65.3
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

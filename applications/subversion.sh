@@ -41,6 +41,9 @@ echo $USER > /tmp/currentuser
 
 
 patch -Np1 -i ../subversion-1.12.0-apr_1.7.0_fix-1.patch
+sed -i '/define.*MEMORY/a#define SWIG_POINTER_NO_NULL 0x4' \
+   subversion/bindings/swig/proxy/swigrun.swg &&
+sed -i 's/classic/nofastunpack/' build.conf
 ./autogen.sh &&
 
 ./configure --prefix=/usr             \

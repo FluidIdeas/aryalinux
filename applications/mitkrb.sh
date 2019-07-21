@@ -44,8 +44,8 @@ sed -i -e '/eq 0/{N;s/12 //}'    plugins/kdb/db2/libdb2/test/run.test &&
 ./configure --prefix=/usr            \
             --sysconfdir=/etc        \
             --localstatedir=/var/lib \
-            --with-system-et         \
-            --with-system-ss         \
+            --without-system-et      \
+            --without-system-ss      \
             --with-system-verto=no   \
             --enable-dns-for-realm &&
 make
