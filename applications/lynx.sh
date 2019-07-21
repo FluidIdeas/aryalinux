@@ -47,20 +47,8 @@ echo $USER > /tmp/currentuser
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-#!/bin/bash
-
-set -e
-set +h
-
-. /etc/alps/alps.conf
-
-pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-20180105.tar.bz2
-tar xf blfs-systemd-units-20180105.tar.bz2
-cd blfs-systemd-units-20180105
-sudo make install-full &&
+make install-full &&
 chgrp -v -R root /usr/share/doc/lynx-2.8.9rel.1/lynx_doc
-popd
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
