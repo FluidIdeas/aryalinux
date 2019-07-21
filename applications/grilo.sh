@@ -48,13 +48,8 @@ mkdir build &&
 cd    build    &&
 
 meson --prefix=/usr \
-      --libexecdir=/usr/lib -Denable-gtk-doc=false .. &&
-ninja
-mkdir build &&
-cd    build    &&
-
-meson --prefix=/usr \
-      --libexecdir=/usr/lib .. &&
+      --libexecdir=/usr/lib \
+-Denable-gtk-doc=false .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
