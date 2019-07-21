@@ -48,6 +48,12 @@ mkdir build &&
 cd    build    &&
 
 meson --prefix=/usr \
+      --libexecdir=/usr/lib -Denable-gtk-doc=false .. &&
+ninja
+mkdir build &&
+cd    build    &&
+
+meson --prefix=/usr \
       --libexecdir=/usr/lib .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
