@@ -6,17 +6,15 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:ppp
 
 
 cd $SOURCE_DIR
 
-wget -nc https://sourceforge.net/projects/pptpclient/files/pptp/pptp-1.10.0/pptp-1.10.0.tar.gz
 
 
-NAME=pptp
-VERSION=1.10.0
-URL=https://sourceforge.net/projects/pptpclient/files/pptp/pptp-1.10.0/pptp-1.10.0.tar.gz
+NAME=ppp
+VERSION=2.4
+
 
 if [ ! -z $URL ]
 then
@@ -34,6 +32,9 @@ fi
 cd $DIRECTORY
 fi
 
+git clone https://github.com/paulusmack/ppp.git
+cd ppp
+./configure --prefix=/usr
 make
 sudo make install
 
