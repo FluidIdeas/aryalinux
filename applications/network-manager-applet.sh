@@ -54,7 +54,7 @@ meson --prefix=/usr     \
       -Dselinux=false   \
       -Dteam=false      \
       -Dmobile_broadband_provider_info=false \
-      -Dgtk_doc=false .. &&
+      -Dgtk_doc=false -Dlibnm_gtk=true .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
