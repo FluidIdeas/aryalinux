@@ -37,6 +37,9 @@ cd ppp
 ./configure --prefix=/usr
 make
 sudo make install
+cd ..
+
+rm -rf ppp
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
