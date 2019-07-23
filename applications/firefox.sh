@@ -29,6 +29,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://archive.mozilla.org/pub/firefox/releases/68.0/source/firefox-68.0.source.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/firefox-68.0-sockios.patch
 
 
 NAME=firefox
@@ -50,6 +51,8 @@ fi
 
 cd $DIRECTORY
 fi
+
+patch -Np1 -i ../firefox-68.0-sockios.patch &&
 
 cat > mozconfig << "EOF"
 # If you have a multicore machine, all cores will be used by default.
