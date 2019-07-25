@@ -50,22 +50,40 @@ export XORG_PREFIX="/usr"
 patch -Np1 -i ../mesa-19.1.2-add_xdemos-1.patch
 GALLIUM_DRV="i915,nouveau,r600,radeonsi,svga,swrast,virgl"
 DRI_DRIVERS="i965,nouveau"
+
+export XORG_PREFIX=/usr
+
 mkdir build &&
 cd    build &&
 
 meson --prefix=$XORG_PREFIX          \
-      -Dbuildtype=release            \
-      -Ddri-drivers=$DRI_DRIVERS     \
-      -Dgallium-drivers=$GALLIUM_DRV \
-      -Dgallium-nine=false           \
+      --sysconfdir=/etc              \
+      -Dllvm=true                    \
+      -Dshared-llvm=true             \
+      -Degl=true                     \
+      -Dshared-glapi=true            \
+      -Dgallium-xa=true              \
+      -Dgallium-nine=true            \
+      -Dgallium-vdpau=true           \
+      -Dgallium-va=true              \
+      -Ddri3=true                    \
       -Dglx=dri                      \
       -Dosmesa=gallium               \
+      -Dgbm=true                     \
+      -Dglx-direct=true              \
+      -Dgles1=true                   \
+      -Dgles2=true                   \
       -Dvalgrind=false               \
+      -Ddri-drivers=auto             \
+      -Dgallium-drivers=auto         \
+      -Dplatforms=auto               \
+      -Dvulkan-drivers=auto          \
       ..                             &&
 
-unset GALLIUM_DRV DRI_DRIVERS &&
+unset GALLIUM_DRIVERS DRI_DRIVERS EGL_PLATFORMS &&
 
 ninja
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
