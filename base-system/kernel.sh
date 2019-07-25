@@ -39,22 +39,6 @@ then
 
 cd /sources
 
-if [ "$BUILD_ARCH" != "none" ]; then
-	export CFLAGS="$CFLAGS -march=$BUILD_ARCH"
-	export CXXFLAGS="$CXXFLAGS -march=$BUILD_ARCH"
-	export CPPFLAGS="$CPPFLAGS -march=$BUILD_ARCH"
-fi
-if [ "$BUILD_TUNE" != "none" ]; then
-	export CFLAGS="$CFLAGS -mtune=$BUILD_TUNE"
-	export CXXFLAGS="$CXXFLAGS -mtune=$BUILD_TUNE"
-	export CPPFLAGS="$CPPFLAGS -mtune=$BUILD_TUNE"
-fi
-if [ "$BUILD_OPT_LEVEL" != "none" ]; then
-	export CFLAGS="$CFLAGS -O$BUILD_OPT_LEVEL"
-	export CXXFLAGS="$CXXFLAGS -O$BUILD_OPT_LEVEL"
-	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
-fi
-
 LINUX_TARBALL=$(grep "kernel.org/pub/linux/kernel" wget-list | rev | cut -d/ -f1 | rev)
 LINUX_SRC_DIR=`tar -tf $LINUX_TARBALL | cut "-d/" -f1 | uniq`
 tar xf $LINUX_TARBALL

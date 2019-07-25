@@ -29,22 +29,6 @@ then
 	cd $DIRECTORY
 fi
 
-if [ "$BUILD_ARCH" != "none" ]; then
-	export CFLAGS="$CFLAGS -march=$BUILD_ARCH"
-	export CXXFLAGS="$CXXFLAGS -march=$BUILD_ARCH"
-	export CPPFLAGS="$CPPFLAGS -march=$BUILD_ARCH"
-fi
-if [ "$BUILD_TUNE" != "none" ]; then
-	export CFLAGS="$CFLAGS -mtune=$BUILD_TUNE"
-	export CXXFLAGS="$CXXFLAGS -mtune=$BUILD_TUNE"
-	export CPPFLAGS="$CPPFLAGS -mtune=$BUILD_TUNE"
-fi
-if [ "$BUILD_OPT_LEVEL" != "none" ]; then
-	export CFLAGS="$CFLAGS -O$BUILD_OPT_LEVEL"
-	export CXXFLAGS="$CXXFLAGS -O$BUILD_OPT_LEVEL"
-	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
-fi
-
 install -vdm755 /etc/ssl/local
 
 install -vdm755 /etc/ssl/local &&
@@ -54,23 +38,6 @@ openssl x509 -in ../root.crt -text -fingerprint -setalias "CAcert Class 1 root" 
 openssl x509 -in ../class3.crt -text -fingerprint -setalias "CAcert Class 3 root" \
         -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning \
         > /etc/ssl/local/CAcert_Class_3_root.pem
-
-if [ "$BUILD_ARCH" != "none" ]; then
-	export CFLAGS="$CFLAGS -march=$BUILD_ARCH"
-	export CXXFLAGS="$CXXFLAGS -march=$BUILD_ARCH"
-	export CPPFLAGS="$CPPFLAGS -march=$BUILD_ARCH"
-fi
-if [ "$BUILD_TUNE" != "none" ]; then
-	export CFLAGS="$CFLAGS -mtune=$BUILD_TUNE"
-	export CXXFLAGS="$CXXFLAGS -mtune=$BUILD_TUNE"
-	export CPPFLAGS="$CPPFLAGS -mtune=$BUILD_TUNE"
-fi
-if [ "$BUILD_OPT_LEVEL" != "none" ]; then
-	export CFLAGS="$CFLAGS -O$BUILD_OPT_LEVEL"
-	export CXXFLAGS="$CXXFLAGS -O$BUILD_OPT_LEVEL"
-	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
-fi
-
 
 make install
 sed -e 's%= /etc/ssl;%= "/etc/ssl";%' \

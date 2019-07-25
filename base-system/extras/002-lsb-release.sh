@@ -29,22 +29,6 @@ then
 	cd $DIRECTORY
 fi
 
-if [ "$BUILD_ARCH" != "none" ]; then
-	export CFLAGS="$CFLAGS -march=$BUILD_ARCH"
-	export CXXFLAGS="$CXXFLAGS -march=$BUILD_ARCH"
-	export CPPFLAGS="$CPPFLAGS -march=$BUILD_ARCH"
-fi
-if [ "$BUILD_TUNE" != "none" ]; then
-	export CFLAGS="$CFLAGS -mtune=$BUILD_TUNE"
-	export CXXFLAGS="$CXXFLAGS -mtune=$BUILD_TUNE"
-	export CPPFLAGS="$CPPFLAGS -mtune=$BUILD_TUNE"
-fi
-if [ "$BUILD_OPT_LEVEL" != "none" ]; then
-	export CFLAGS="$CFLAGS -O$BUILD_OPT_LEVEL"
-	export CXXFLAGS="$CXXFLAGS -O$BUILD_OPT_LEVEL"
-	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
-fi
-
 sed -i "s|n/a|unavailable|" lsb_release
 ./help2man -N --include ./lsb_release.examples \
               --alt_version_key=program_version ./lsb_release > lsb_release.1
