@@ -10,22 +10,6 @@ then
 
 cd /sources
 
-if [ "$BUILD_ARCH" != "none" ]; then
-	export CFLAGS="$CFLAGS -march=$BUILD_ARCH"
-	export CXXFLAGS="$CXXFLAGS -march=$BUILD_ARCH"
-	export CPPFLAGS="$CPPFLAGS -march=$BUILD_ARCH"
-fi
-if [ "$BUILD_TUNE" != "none" ]; then
-	export CFLAGS="$CFLAGS -mtune=$BUILD_TUNE"
-	export CXXFLAGS="$CXXFLAGS -mtune=$BUILD_TUNE"
-	export CPPFLAGS="$CPPFLAGS -mtune=$BUILD_TUNE"
-fi
-if [ "$BUILD_OPT_LEVEL" != "none" ]; then
-	export CFLAGS="$CFLAGS -O$BUILD_OPT_LEVEL"
-	export CXXFLAGS="$CXXFLAGS -O$BUILD_OPT_LEVEL"
-	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
-fi
-
 tar xf cpio-2.12.tar.bz2
 cd cpio-2.12
 
