@@ -37,6 +37,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+. /etc/profile.d/rustc.sh
 cargo build --release
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

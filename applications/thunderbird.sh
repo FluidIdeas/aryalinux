@@ -49,6 +49,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+. /etc/profile.d/rustc.sh
 cat > mozconfig << "EOF"
 # If you have a multicore machine, the build may be faster if using parallel
 # jobs. The build system automatically adds -jN to the "make" flags, where N

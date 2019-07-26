@@ -44,6 +44,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+. /etc/profile.d/rustc.sh
 ./configure --prefix=/usr    \
             --enable-vala    \
             --disable-static &&
