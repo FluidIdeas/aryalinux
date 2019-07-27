@@ -172,30 +172,6 @@ export LANG="${LANG:-C}"
 # End /etc/profile.d/i18n.sh
 EOF
 
-if [ "$BUILD_ARCH" != "none" ]; then
-	export CFLAGS="$CFLAGS -march=$BUILD_ARCH"
-	export CXXFLAGS="$CXXFLAGS -march=$BUILD_ARCH"
-	export CPPFLAGS="$CPPFLAGS -march=$BUILD_ARCH"
-fi
-if [ "$BUILD_TUNE" != "none" ]; then
-	export CFLAGS="$CFLAGS -mtune=$BUILD_TUNE"
-	export CXXFLAGS="$CXXFLAGS -mtune=$BUILD_TUNE"
-	export CPPFLAGS="$CPPFLAGS -mtune=$BUILD_TUNE"
-fi
-if [ "$BUILD_OPT_LEVEL" != "none" ]; then
-	export CFLAGS="$CFLAGS -O$BUILD_OPT_LEVEL"
-	export CXXFLAGS="$CXXFLAGS -O$BUILD_OPT_LEVEL"
-	export CPPFLAGS="$CPPFLAGS -O$BUILD_OPT_LEVEL"
-fi
-
-if echo $CFLAGS | grep mtune &> /dev/null || echo $CFLAGS | grep march &> /dev/null || echo $CFLAGS | grep O &> /dev/null; then
-cat > /etc/profile.d/compilerflags.sh << EOF
-export CFLAGS="$CFLAGS"
-export CXXFLAGS="$CXXFLAGS"
-export CPPFLAGS="$CPPFLAGS"
-EOF
-fi
-
 cat > /etc/profile.d/buildflags.sh << EOF
 export MAKEFLAGS="j $(nproc)"
 EOF
