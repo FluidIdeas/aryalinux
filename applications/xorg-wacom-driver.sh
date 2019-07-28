@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/linuxwacom/xf86-input-wacom-0.36.0.tar.bz2
+wget -nc https://github.com/linuxwacom/xf86-input-wacom/releases/download/xf86-input-wacom-0.37.0/xf86-input-wacom-0.37.0.tar.bz2
 
 
 NAME=xorg-wacom-driver
-VERSION=0.36.0
-URL=https://downloads.sourceforge.net/linuxwacom/xf86-input-wacom-0.36.0.tar.bz2
+VERSION=0.37.0
+URL=https://github.com/linuxwacom/xf86-input-wacom/releases/download/xf86-input-wacom-0.37.0/xf86-input-wacom-0.37.0.tar.bz2
 
 if [ ! -z $URL ]
 then

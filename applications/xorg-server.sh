@@ -47,6 +47,7 @@ export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disab
 
 ./configure $XORG_CONFIG            \
             --enable-glamor         \
+            --enable-install-setuid \
             --enable-suid-wrapper   \
             --with-xkb-output=/var/lib/xkb &&
 make

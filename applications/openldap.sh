@@ -11,15 +11,15 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.47.tgz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/openldap-2.4.47-consolidated-1.patch
+wget -nc ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.48.tgz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/openldap-2.4.48-consolidated-1.patch
 wget -nc http://www.openldap.org/doc/admin24/
 wget -nc http://www.openldap.org/pub/
 
 
 NAME=openldap
-VERSION=2.4.47
-URL=ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.47.tgz
+VERSION=2.4.48
+URL=ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.48.tgz
 
 if [ ! -z $URL ]
 then
@@ -40,7 +40,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../openldap-2.4.47-consolidated-1.patch &&
+patch -Np1 -i ../openldap-2.4.48-consolidated-1.patch &&
 autoconf &&
 
 ./configure --prefix=/usr     \

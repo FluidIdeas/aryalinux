@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.23.tar.xz
+wget -nc https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.24.tar.xz
 
 
 NAME=desktop-file-utils
-VERSION=0.23
-URL=https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.23.tar.xz
+VERSION=0.24
+URL=https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.24.tar.xz
 
 if [ ! -z $URL ]
 then

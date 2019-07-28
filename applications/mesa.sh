@@ -17,15 +17,15 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://mesa.freedesktop.org/archive/mesa-19.1.2.tar.xz
-wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-19.1.2.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/mesa-19.1.2-add_xdemos-1.patch
+wget -nc https://mesa.freedesktop.org/archive/mesa-19.1.3.tar.xz
+wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-19.1.3.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/mesa-19.1.3-add_xdemos-1.patch
 wget -nc ftp://ftp.freedesktop.org/pub/mesa/demos/
 
 
 NAME=mesa
-VERSION=19.1.2
-URL=https://mesa.freedesktop.org/archive/mesa-19.1.2.tar.xz
+VERSION=19.1.3
+URL=https://mesa.freedesktop.org/archive/mesa-19.1.3.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -47,7 +47,7 @@ echo $USER > /tmp/currentuser
 
 export XORG_PREFIX="/usr"
 
-patch -Np1 -i ../mesa-19.1.2-add_xdemos-1.patch
+patch -Np1 -i ../mesa-19.1.3-add_xdemos-1.patch
 GALLIUM_DRV="i915,nouveau,r600,radeonsi,svga,swrast,virgl"
 DRI_DRIVERS="i965,nouveau"
 
@@ -95,8 +95,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -dm755 /usr/share/doc/mesa-19.1.2 &&
-cp -rfv ../docs/* /usr/share/doc/mesa-19.1.2
+install -v -dm755 /usr/share/doc/mesa-19.1.3 &&
+cp -rfv ../docs/* /usr/share/doc/mesa-19.1.3
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

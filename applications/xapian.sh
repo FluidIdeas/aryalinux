@@ -10,12 +10,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://oligarchy.co.uk/xapian/1.4.11/xapian-core-1.4.11.tar.xz
+wget -nc http://oligarchy.co.uk/xapian/1.4.12/xapian-core-1.4.12.tar.xz
 
 
 NAME=xapian
-VERSION=1.4.11
-URL=http://oligarchy.co.uk/xapian/1.4.11/xapian-core-1.4.11.tar.xz
+VERSION=1.4.12
+URL=http://oligarchy.co.uk/xapian/1.4.12/xapian-core-1.4.12.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -38,7 +38,7 @@ echo $USER > /tmp/currentuser
 
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/xapian-core-1.4.11 &&
+            --docdir=/usr/share/doc/xapian-core-1.4.12 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

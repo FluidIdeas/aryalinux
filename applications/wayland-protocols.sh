@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://wayland.freedesktop.org/releases/wayland-protocols-1.17.tar.xz
+wget -nc https://wayland.freedesktop.org/releases/wayland-protocols-1.18.tar.xz
 
 
 NAME=wayland-protocols
-VERSION=1.17
-URL=https://wayland.freedesktop.org/releases/wayland-protocols-1.17.tar.xz
+VERSION=1.18
+URL=https://wayland.freedesktop.org/releases/wayland-protocols-1.18.tar.xz
 
 if [ ! -z $URL ]
 then

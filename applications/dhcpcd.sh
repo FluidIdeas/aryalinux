@@ -10,13 +10,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://roy.marples.name/downloads/dhcpcd/dhcpcd-7.2.3.tar.xz
-wget -nc ftp://roy.marples.name/pub/dhcpcd/dhcpcd-7.2.3.tar.xz
+wget -nc https://roy.marples.name/downloads/dhcpcd/dhcpcd-8.0.1.tar.xz
+wget -nc ftp://roy.marples.name/pub/dhcpcd/dhcpcd-8.0.1.tar.xz
 
 
 NAME=dhcpcd
-VERSION=7.2.3
-URL=https://roy.marples.name/downloads/dhcpcd/dhcpcd-7.2.3.tar.xz
+VERSION=8.0.1
+URL=https://roy.marples.name/downloads/dhcpcd/dhcpcd-8.0.1.tar.xz
 
 if [ ! -z $URL ]
 then

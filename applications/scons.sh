@@ -10,12 +10,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/scons/scons-3.0.5.tar.gz
+wget -nc https://downloads.sourceforge.net/scons/scons-3.1.0.tar.gz
 
 
 NAME=scons
-VERSION=3.0.5
-URL=https://downloads.sourceforge.net/scons/scons-3.0.5.tar.gz
+VERSION=3.1.0
+URL=https://downloads.sourceforge.net/scons/scons-3.1.0.tar.gz
 
 if [ ! -z $URL ]
 then

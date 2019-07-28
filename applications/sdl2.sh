@@ -10,12 +10,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.libsdl.org/release/SDL2-2.0.9.tar.gz
+wget -nc http://www.libsdl.org/release/SDL2-2.0.10.tar.gz
 
 
 NAME=sdl2
-VERSION=2.0.9
-URL=http://www.libsdl.org/release/SDL2-2.0.9.tar.gz
+VERSION=2.0.10
+URL=http://www.libsdl.org/release/SDL2-2.0.10.tar.gz
 
 if [ ! -z $URL ]
 then

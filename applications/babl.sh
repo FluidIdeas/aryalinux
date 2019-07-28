@@ -10,12 +10,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gimp.org/pub/babl/0.1/babl-0.1.66.tar.bz2
+wget -nc https://download.gimp.org/pub/babl/0.1/babl-0.1.68.tar.xz
 
 
 NAME=babl
-VERSION=0.1.66
-URL=https://download.gimp.org/pub/babl/0.1/babl-0.1.66.tar.bz2
+VERSION=0.1.68
+URL=https://download.gimp.org/pub/babl/0.1/babl-0.1.68.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -36,6 +36,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+autoreconf -fiv           &&
 ./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh

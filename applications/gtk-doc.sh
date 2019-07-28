@@ -6,11 +6,11 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:python-modules#pygments
 #REQ:docbook
 #REQ:docbook-xsl
 #REQ:itstool
 #REQ:libxslt
+#REQ:python-modules#pygments
 
 
 cd $SOURCE_DIR

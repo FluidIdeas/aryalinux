@@ -21,6 +21,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://download.qt.io/archive/qt/5.13/5.13.0/submodules/qtwebengine-everywhere-src-5.13.0.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/qtwebengine-5.13.0-background_rendering_fix-1.patch
 
 
 NAME=qtwebengine
@@ -48,6 +49,7 @@ echo $USER > /tmp/currentuser
 
 find -type f -name "*.pr[io]" |
   xargs sed -i -e 's|INCLUDEPATH += |&$$QTWEBENGINE_ROOT/include |'
+patch -Np1 -i ../qtwebengine-5.13.0-background_rendering_fix-1.patch
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 if [ -e ${QT5DIR}/lib/libQtWebEngineCore.so ]; then
@@ -59,6 +61,8 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+sed -i 's/SIOCGSTAMP/0x8906/' \
+src/3rdparty/chromium/third_party/webrtc/rtc_base/physical_socket_server.cc &&
 mkdir build &&
 cd    build &&
 

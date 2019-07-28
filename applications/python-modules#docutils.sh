@@ -10,12 +10,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://downloads.sourceforge.net/docutils/docutils-0.14.tar.gz
+wget -nc http://downloads.sourceforge.net/docutils/docutils-0.15.tar.gz
 
 
 NAME=python-modules#docutils
-VERSION=0.14
-URL=http://downloads.sourceforge.net/docutils/docutils-0.14.tar.gz
+VERSION=0.15
+URL=http://downloads.sourceforge.net/docutils/docutils-0.15.tar.gz
 
 if [ ! -z $URL ]
 then

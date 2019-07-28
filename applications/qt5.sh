@@ -82,6 +82,8 @@ sudo rm -rf /tmp/rootscript.sh
             -translationdir /usr/share/qt5/translations \
             -examplesdir    /usr/share/doc/qt5/examples
 patch -Np1 -i ../qt-5.13.0-upstream_fixes-1.patch &&
+sed -i 's/SIOCGSTAMP/0x8906/' \
+qtserialbus/src/plugins/canbus/socketcan/socketcanbackend.cpp
 sed -i 's/python /python3 /' qtdeclarative/qtdeclarative.pro \
                              qtdeclarative/src/3rdparty/masm/masm.pri &&
 
