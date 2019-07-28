@@ -41,7 +41,7 @@ echo $USER > /tmp/currentuser
 
 
 patch -Np1 -i ../bluez-5.50-glibc-build.patch
-sed -i 's/SIOCGSTAMP/0x8906/' tools/rctest.c \
+sed -i 's/SIOCGSTAMP/0x8906_OLD/' tools/rctest.c \
                               tools/l2test.c
 ./configure --prefix=/usr         \
             --sysconfdir=/etc     \
