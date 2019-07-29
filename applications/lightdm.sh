@@ -6,17 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:xserver-meta
-#REQ:itstool
+#REQ:gtk3
 #REQ:libgcrypt
+#REQ:linux-pam
+#REQ:pcre
+#REQ:gobject-introspection
 #REQ:libxklavier
-#REQ:systemd
-#REQ:polkit
+#REQ:vala
 
 
 cd $SOURCE_DIR
 
 wget -nc https://github.com/CanonicalLtd/lightdm/releases/download/1.30.0/lightdm-1.30.0.tar.xz
+wget -nc https://launchpad.net/lightdm-gtk-greeter/2.0/2.0.6/+download/lightdm-gtk-greeter-2.0.6.tar.gz
 
 
 NAME=lightdm
@@ -39,6 +41,96 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+groupadd -g 65 lightdm       &&
+useradd  -c "Lightdm Daemon" \
+         -d /var/lib/lightdm \
+         -u 65 -g lightdm    \
+         -s /bin/false lightdm
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+./configure                          \
+       --prefix=/usr                 \
+       --libexecdir=/usr/lib/lightdm \
+       --localstatedir=/var          \
+       --sbindir=/usr/bin            \
+       --sysconfdir=/etc             \
+       --disable-static              \
+       --disable-tests               \
+       --with-greeter-user=lightdm   \
+       --with-greeter-session=lightdm-gtk-greeter \
+       --docdir=/usr/share/doc/lightdm-1.30.0 &&
+make
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install                                                  &&
+cp tests/src/lightdm-session /usr/bin                         &&
+sed -i '1 s/sh/bash --login/' /usr/bin/lightdm-session        &&
+rm -rf /etc/init                                              &&
+install -v -dm755 -o lightdm -g lightdm /var/lib/lightdm      &&
+install -v -dm755 -o lightdm -g lightdm /var/lib/lightdm-data &&
+install -v -dm755 -o lightdm -g lightdm /var/cache/lightdm    &&
+install -v -dm770 -o lightdm -g lightdm /var/log/lightdm
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+tar -xf ../lightdm-gtk-greeter-2.0.6.tar.gz &&
+cd lightdm-gtk-greeter-2.0.6 &&
+
+./configure                      \
+   --prefix=/usr                 \
+   --libexecdir=/usr/lib/lightdm \
+   --sbindir=/usr/bin            \
+   --sysconfdir=/etc             \
+   --with-libxklavier            \
+   --enable-kill-on-sigterm      \
+   --disable-libido              \
+   --disable-libindicator        \
+   --disable-static              \
+   --docdir=/usr/share/doc/lightdm-gtk-greeter-2.0.6 &&
+
+make
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+#!/bin/bash
+
+set -e
+set +h
+
+. /etc/alps/alps.conf
+
+pushd $SOURCE_DIR
+wget -nc http://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-20180105.tar.bz2
+tar xf blfs-systemd-units-20180105.tar.bz2
+cd blfs-systemd-units-20180105
+sudo make install-lightdm &&
+systemctl enable lightdm
+popd
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 
 
