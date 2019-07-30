@@ -59,8 +59,8 @@ grub-mkfont -o /usr/share/grub/unicode.pf2 /usr/share/fonts/unifont/unifont.pcf
 cd $SOURCE_DIR
 if [ "$TARBALL" != "" ]
 then
-	rm -rf grub-2.02
+	rm -rf grub-2.04
 	rm -rf {gcc,glibc,binutils}-build
 fi
 
-rm -rf grub-2.02
+rm -rf grub-2.04
