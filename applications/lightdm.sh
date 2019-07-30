@@ -397,6 +397,7 @@ sudo chown -R polkitd:polkitd /usr/share/polkit-1/rules.d
 sudo systemctl enable lightdm
 
 
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
