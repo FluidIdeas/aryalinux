@@ -60,7 +60,7 @@ set +h
 #REQ:gnome-shell-extensions
 #REQ:gnome-shell-coverflow-alt-tab
 #REQ:gnome-session
-#REQ:gdm
+#REQ:lightdm-gtk-greeter
 #REQ:gnome-user-docs
 #REQ:baobab
 #REQ:brasero
