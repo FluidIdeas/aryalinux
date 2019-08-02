@@ -7,16 +7,17 @@ set +h
 . /var/lib/alps/functions
 
 #REQ:gtksourceview
+#REQ:xfconf
 
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/apps/mousepad/0.4/mousepad-0.4.1.tar.bz2
+wget -nc http://archive.xfce.org/src/apps/mousepad/0.4/mousepad-0.4.2.tar.bz2
 
 
 NAME=mousepad
-VERSION=0.4.1
-URL=http://archive.xfce.org/src/apps/mousepad/0.4/mousepad-0.4.1.tar.bz2
+VERSION=0.4.2
+URL=http://archive.xfce.org/src/apps/mousepad/0.4/mousepad-0.4.2.tar.bz2
 
 if [ ! -z $URL ]
 then

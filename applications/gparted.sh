@@ -6,7 +6,7 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 
-#REQ:gtkmm2
+#REQ:gtkmm3
 #REQ:parted
 
 

@@ -94,28 +94,6 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cat > /usr/share/applications/vncviewer.desktop << "EOF"
-[Desktop Entry]
-Type=Application
-Name=TigerVNC Viewer
-Comment=VNC client
-Exec=/usr/bin/vncviewer
-Icon=tigervnc
-Terminal=false
-StartupNotify=false
-Categories=Network;RemoteAccess;
-EOF
-
-install -vm644 media/icons/tigervnc_24.png /usr/share/pixmaps &&
-ln -sfv tigervnc_24.png /usr/share/pixmaps/tigervnc.png
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

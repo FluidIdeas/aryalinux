@@ -10,12 +10,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.nlnetlabs.nl/downloads/ldns/ldns-1.7.0.tar.gz
+wget -nc http://www.nlnetlabs.nl/downloads/ldns/ldns-1.7.1.tar.gz
 
 
 NAME=ldns
-VERSION=1.7.0
-URL=http://www.nlnetlabs.nl/downloads/ldns/ldns-1.7.0.tar.gz
+VERSION=1.7.1
+URL=http://www.nlnetlabs.nl/downloads/ldns/ldns-1.7.1.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -53,8 +53,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m755 -d /usr/share/doc/ldns-1.7.0 &&
-install -v -m644 doc/html/* /usr/share/doc/ldns-1.7.0
+install -v -m755 -d /usr/share/doc/ldns-1.7.1 &&
+install -v -m644 doc/html/* /usr/share/doc/ldns-1.7.1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -109,8 +109,9 @@ ac_add_options --with-system-jpeg
 ac_add_options --with-system-png
 ac_add_options --with-system-zlib
 EOF
-sed -i -e '/#!\[deny(missing_docs)\]/d' servo/components/style/lib.rs
+sed -i -e '/#!\[deny(missing_docs)\]/d' servo/components/style/lib.rs &&
 sed -i -e 's/#!\[deny(unsafe_code, missing_docs)\]/#!\[deny(unsafe_code)\]/g' servo/components/style_traits/lib.rs
+./mach build
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ./mach install

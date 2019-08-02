@@ -118,8 +118,7 @@ ac_add_options --with-system-jpeg
 ac_add_options --with-system-png
 ac_add_options --with-system-zlib
 EOF
-grep -rl -- '-Werror=format' |
-    xargs sed -i 's/error=format/no-&/'
+grep -rl -- '-Werror=format' | xargs sed -i 's/error=format/no-&/'
 CC=gcc CXX=g++ make -f client.mk
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

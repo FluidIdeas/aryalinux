@@ -16,13 +16,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.php.net/distributions/php-7.3.7.tar.xz
+wget -nc http://www.php.net/distributions/php-7.3.8.tar.xz
 wget -nc http://www.php.net/download-docs.php
 
 
 NAME=php
-VERSION=7.3.7
-URL=http://www.php.net/distributions/php-7.3.7.tar.xz
+VERSION=7.3.8
+URL=http://www.php.net/distributions/php-7.3.8.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -101,13 +101,13 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install                                     &&
 install -v -m644 php.ini-production /etc/php.ini &&
 
-install -v -m755 -d /usr/share/doc/php-7.3.7 &&
+install -v -m755 -d /usr/share/doc/php-7.3.8 &&
 install -v -m644    CODING_STANDARDS EXTENSIONS INSTALL NEWS README* UPGRADING* php.gif \
-                    /usr/share/doc/php-7.3.7 &&
+                    /usr/share/doc/php-7.3.8 &&
 ln -v -sfn          /usr/lib/php/doc/Archive_Tar/docs/Archive_Tar.txt \
-                    /usr/share/doc/php-7.3.7 &&
+                    /usr/share/doc/php-7.3.8 &&
 ln -v -sfn          /usr/lib/php/doc/Structures_Graph/docs \
-                    /usr/share/doc/php-7.3.7
+                    /usr/share/doc/php-7.3.8
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

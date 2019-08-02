@@ -16,13 +16,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.mupdf.com/downloads/archive/mupdf-1.15.0-source.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/mupdf-1.15.0-shared_libs-1.patch
+wget -nc http://www.mupdf.com/downloads/archive/mupdf-1.16.0-source.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/mupdf-1.16.0-shared_libs-1.patch
 
 
 NAME=mupdf
-VERSION=1.15.
-URL=http://www.mupdf.com/downloads/archive/mupdf-1.15.0-source.tar.gz
+VERSION=1.16.
+URL=http://www.mupdf.com/downloads/archive/mupdf-1.16.0-source.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -43,7 +43,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../mupdf-1.15.0-shared_libs-1.patch &&
+patch -Np1 -i ../mupdf-1.16.0-shared_libs-1.patch &&
 
 USE_SYSTEM_LIBS=yes make
 sudo rm -rf /tmp/rootscript.sh
@@ -51,7 +51,7 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 USE_SYSTEM_LIBS=yes                     \
 make prefix=/usr                        \
      build=release                      \
-     docdir=/usr/share/doc/mupdf-1.15.0 \
+     docdir=/usr/share/doc/mupdf-1.16.0 \
      install                            &&
 
 ln -sfv mupdf-x11 /usr/bin/mupdf        &&

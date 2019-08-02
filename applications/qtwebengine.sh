@@ -52,8 +52,8 @@ find -type f -name "*.pr[io]" |
 patch -Np1 -i ../qtwebengine-5.13.0-background_rendering_fix-1.patch
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-if [ -e ${QT5DIR}/lib/libQtWebEngineCore.so ]; then
-  mv -v ${QT5DIR}/lib/libQtWebEngineCore.so{,.old}
+if [ -e ${QT5DIR}/lib/libQt5WebEngineCore.so ]; then
+  mv -v ${QT5DIR}/lib/libQt5WebEngineCore.so{,.old}
 fi
 ENDOFROOTSCRIPT
 
