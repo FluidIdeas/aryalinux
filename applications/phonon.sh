@@ -10,8 +10,6 @@ set +h
 #REQ:extra-cmake-modules
 #REQ:glib2
 #REQ:qt5
-#REQ:phonon-backend-gstreamer
-#REQ:phonon-backend-vlc
 
 
 cd $SOURCE_DIR
