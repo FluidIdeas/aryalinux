@@ -41,12 +41,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/frameworks/5.60
 
 
 NAME=krameworks5
 VERSION=5.60
-URL=http://download.kde.org/stable/frameworks/5.60
+
 
 if [ ! -z $URL ]
 then
