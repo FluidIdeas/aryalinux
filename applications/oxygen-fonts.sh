@@ -34,7 +34,7 @@ fi
 cd $DIRECTORY
 fi
 
-sudo cp -rv * /usr/
+sudo cp -rv share /usr/
 sudo cp -r lib64/* /usr/lib/
 
 
