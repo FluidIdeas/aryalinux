@@ -35,12 +35,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/plasma/5.15.5
 
 
 NAME=plasma-all
 VERSION=5.15.5
-URL=http://download.kde.org/stable/plasma/5.15.5
+
 
 if [ ! -z $URL ]
 then
