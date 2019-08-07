@@ -67,7 +67,7 @@ echo $USER > /tmp/currentuser
 
 
 url=http://download.kde.org/stable/frameworks/5.60/
-wget -r -nH -nd -A '*.xz' -np $url
+wget -r -nH -nd -np -A '*.xz' $url
 cat > frameworks-5.60.0.md5 << "EOF"
 51e0f8be234e1c310205d5c6f782e537  attica-5.60.0.tar.xz
 #faa5121d68c6d43f1340c1a1c8254ae4  extra-cmake-modules-5.60.0.tar.xz

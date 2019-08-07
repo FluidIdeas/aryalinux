@@ -61,7 +61,7 @@ echo $USER > /tmp/currentuser
 
 
 url=http://download.kde.org/stable/plasma/5.15.5/
-wget -r -nH -nd -A '*.xz' -np $url
+wget -r -nH -nd -np -A '*.xz' $url
 cat > plasma-5.15.5.md5 << "EOF"
 12e66b250e0e0036e837648f72e94b4e  kdecoration-5.15.5.tar.xz
 08e28135014852c1bf57dd738a7c8cda  libkscreen-5.15.5.tar.xz
