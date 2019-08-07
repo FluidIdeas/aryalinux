@@ -5,6 +5,7 @@ set +h
 
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
+. /etc/alps/directories.conf
 
 #REQ:perl-deps#perl-module-pluggable
 #REQ:perl-deps#perl-scope-guard

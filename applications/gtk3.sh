@@ -5,6 +5,7 @@ set +h
 
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
+. /etc/alps/directories.conf
 
 #REQ:at-spi2-atk
 #REQ:fribidi

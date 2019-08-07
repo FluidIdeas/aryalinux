@@ -5,6 +5,7 @@ set +h
 
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
+. /etc/alps/directories.conf
 
 #REQ:perl-deps#perl-package-stash
 #REQ:perl-deps#perl-params-util

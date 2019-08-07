@@ -5,6 +5,7 @@ set +h
 
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
+. /etc/alps/directories.conf
 
 #REQ:perl-modules#perl-autovivification
 #REQ:perl-modules#perl-business-isbn
