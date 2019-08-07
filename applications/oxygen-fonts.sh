@@ -35,6 +35,7 @@ cd $DIRECTORY
 fi
 
 sudo cp -rv * /usr/
+sudo cp -r lib64/* /usr/lib/
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
