@@ -34,7 +34,7 @@ fi
 cd $DIRECTORY
 fi
 
-sudo mv -v * /usr/
+sudo cp -rv * /usr/
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
