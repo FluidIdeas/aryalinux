@@ -34,7 +34,7 @@ fi
 cd $DIRECTORY
 fi
 
-sudo tar xf oxygen-fonts-5.4.3-x86_64.tar.xz -C /
+sudo mv -v * /usr/
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
