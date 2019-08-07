@@ -41,7 +41,7 @@ cat > /tmp/parser.py<<"EOF"
 from bs4 import BeautifulSoup
 
 with open('Linux_Downloads') as fp:
-	doc = BeautifulSoup(fp.read())
+	doc = BeautifulSoup(fp.read(), features="html.parser")
 
 for anchor in doc.select('a[href]'):
 	if 'All distributions' in str(anchor):
@@ -52,7 +52,8 @@ url=$(python /tmp/parser.py)
 tarball=$(echo $url | rev | cut -d/ -f1 | rev)
 
 KERNEL_VERSION=$(uname -r)
-KERNEL_URL=https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-$KERNEL_VERSION.tar.xz
+KERNEL_MAJOR_VERSION=$(uname -r | cut -d '.' -f1)
+KERNEL_URL=https://cdn.kernel.org/pub/linux/kernel/v$KERNEL_MAJOR_VERSION.x/linux-$KERNEL_VERSION.tar.xz
 KERNEL_TARBALL=$(echo $KERNEL_URL | rev | cut -d/ -f1 | rev)
 VBOX_INSTALLER=$(echo $url | rev | cut -d/ -f1 | rev)
 VERSION=$(echo $VBOX_INSTALLER | cut -d "-" -f2)
