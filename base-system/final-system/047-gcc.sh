@@ -36,6 +36,7 @@ SED=sed                               \
              --with-system-zlib
 make
 make install
+rm -rf /usr/lib/gcc/x86_64-pc-linux-gnu/9.1.0/include-fixed/bits/
 ln -sv ../usr/bin/cpp /lib
 ln -sv gcc /usr/bin/cc
 install -v -dm755 /usr/lib/bfd-plugins

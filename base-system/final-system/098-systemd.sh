@@ -20,6 +20,7 @@ tar xf $TARBALL
 cd $DIRECTORY
 
 
+patch -Np1 -i ../systemd-241-networkd_and_rdrand_fixes-1.patch
 ln -sf /tools/bin/true /usr/bin/xsltproc
 for file in /tools/lib/lib{blkid,mount,uuid}.so*; do
     ln -sf $file /usr/lib/

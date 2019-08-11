@@ -24,7 +24,7 @@ http://ftp.gnu.org/gnu/gawk/gawk-5.0.1.tar.xz
 http://ftp.gnu.org/gnu/gcc/gcc-9.1.0/gcc-9.1.0.tar.xz
 http://ftp.gnu.org/gnu/gdbm/gdbm-1.18.1.tar.gz
 http://ftp.gnu.org/gnu/gettext/gettext-0.20.1.tar.xz
-http://ftp.gnu.org/gnu/glibc/glibc-2.29.tar.xz
+http://ftp.gnu.org/gnu/glibc/glibc-2.30.tar.xz
 http://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz
 http://ftp.gnu.org/gnu/gperf/gperf-3.1.tar.gz
 http://ftp.gnu.org/gnu/grep/grep-3.3.tar.xz
@@ -35,7 +35,7 @@ http://anduin.linuxfromscratch.org/LFS/iana-etc-2.30.tar.bz2
 http://ftp.gnu.org/gnu/inetutils/inetutils-1.9.4.tar.xz
 https://launchpad.net/intltool/trunk/0.51.0/+download/intltool-0.51.0.tar.gz
 https://www.kernel.org/pub/linux/utils/net/iproute2/iproute2-5.2.0.tar.xz
-https://www.kernel.org/pub/linux/utils/kbd/kbd-2.1.0.tar.xz
+https://www.kernel.org/pub/linux/utils/kbd/kbd-2.2.0.tar.xz
 https://www.kernel.org/pub/linux/utils/kernel/kmod/kmod-26.tar.xz
 http://www.greenwoodsoftware.com/less/less-551.tar.gz
 http://www.linuxfromscratch.org/lfs/downloads/development/lfs-bootscripts-20190524.tar.xz
@@ -43,11 +43,11 @@ https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.27.t
 ftp://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz
 http://download.savannah.gnu.org/releases/libpipeline/libpipeline-1.5.1.tar.gz
 http://ftp.gnu.org/gnu/libtool/libtool-2.4.6.tar.xz
-https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.2.5.tar.xz
+https://www.kernel.org/pub/linux/kernel/v5.x/linux-5.2.5.tar.xz
 http://ftp.gnu.org/gnu/m4/m4-1.4.18.tar.xz
 http://ftp.gnu.org/gnu/make/make-4.2.1.tar.gz
 http://download.savannah.gnu.org/releases/man-db/man-db-2.8.5.tar.xz
-https://www.kernel.org/pub/linux/docs/man-pages/man-pages-5.01.tar.xz
+https://www.kernel.org/pub/linux/docs/man-pages/man-pages-5.02.tar.xz
 https://github.com/mesonbuild/meson/releases/download/0.51.1/meson-0.51.1.tar.gz
 https://ftp.gnu.org/gnu/mpc/mpc-1.1.0.tar.gz
 http://www.mpfr.org/mpfr-4.0.2/mpfr-4.0.2.tar.xz
@@ -80,6 +80,7 @@ https://tukaani.org/xz/xz-5.2.4.tar.xz
 https://zlib.net/zlib-1.2.11.tar.xz
 http://www.linuxfromscratch.org/patches/lfs/development/bzip2-1.0.8-install_docs-1.patch
 http://www.linuxfromscratch.org/patches/lfs/development/coreutils-8.31-i18n-1.patch
-http://www.linuxfromscratch.org/patches/lfs/development/glibc-2.29-fhs-1.patch
-http://www.linuxfromscratch.org/patches/lfs/development/kbd-2.1.0-backspace-1.patch
+http://www.linuxfromscratch.org/patches/lfs/development/glibc-2.30-fhs-1.patch
+http://www.linuxfromscratch.org/patches/lfs/development/kbd-2.2.0-backspace-1.patch
 http://www.linuxfromscratch.org/patches/lfs/development/sysvinit-2.95-consolidated-1.patch
+http://www.linuxfromscratch.org/patches/lfs/development/systemd-241-networkd_and_rdrand_fixes-1.patch
