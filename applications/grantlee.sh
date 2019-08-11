@@ -14,7 +14,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://downloads.grantlee.org/grantlee-5.1.0.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/grantlee-5.1.0-upstream_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/grantlee-5.1.0-upstream_fixes-2.patch
 
 
 NAME=grantlee
@@ -40,7 +40,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../grantlee-5.1.0-upstream_fixes-1.patch
+patch -Np1 -i ../grantlee-5.1.0-upstream_fixes-2.patch
 mkdir build &&
 cd    build &&
 

@@ -7,18 +7,18 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:libxml2
+#REQ:perl-deps#perl-alien-libxml2
 #REQ:perl-deps#perl-xml-sax
 
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0132.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0201.tar.gz
 
 
 NAME=perl-deps#perl-xml-libxml
-VERSION=2.0132
-URL=https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0132.tar.gz
+VERSION=2.0201
+URL=https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0201.tar.gz
 
 if [ ! -z $URL ]
 then

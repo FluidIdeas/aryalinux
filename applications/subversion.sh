@@ -40,12 +40,14 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -i 's/classic/nofastunpack/' build.conf
 ./configure --prefix=/usr             \
             --disable-static          \
             --with-apache-libexecdir  \
             --with-lz4=internal       \
             --with-utf8proc=internal &&
 make
+doxygen doc/doxygen.conf
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&

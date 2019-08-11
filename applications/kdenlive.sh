@@ -10,6 +10,7 @@ set +h
 #REQ:krameworks5
 #REQ:mlt
 #REQ:v4l-utils
+#REQ:breeze-icons
 
 
 cd $SOURCE_DIR

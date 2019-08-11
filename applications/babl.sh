@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gimp.org/pub/babl/0.1/babl-0.1.68.tar.xz
+wget -nc https://download.gimp.org/pub/babl/0.1/babl-0.1.70.tar.xz
 
 
 NAME=babl
-VERSION=0.1.68
-URL=https://download.gimp.org/pub/babl/0.1/babl-0.1.68.tar.xz
+VERSION=0.1.70
+URL=https://download.gimp.org/pub/babl/0.1/babl-0.1.70.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -37,16 +37,21 @@ fi
 echo $USER > /tmp/currentuser
 
 
-autoreconf -fiv           &&
-./configure --prefix=/usr &&
-make
+case $(uname -m) in
+   i?86) sed -i '27 s/no_cflags/sse2_cflags/' extensions/meson.build ;;
+esac
+mkdir bld &&
+cd    bld &&
+
+meson --prefix=/usr .. &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
+ninja install &&
 
-install -v -m755 -d /usr/share/gtk-doc/html/babl/graphics &&
-install -v -m644 docs/*.{css,html} /usr/share/gtk-doc/html/babl &&
-install -v -m644 docs/graphics/*.{html,png,svg} /usr/share/gtk-doc/html/babl/graphics
+install -v -m755 -d                         /usr/share/gtk-doc/html/babl/graphics &&
+install -v -m644 docs/*.{css,html}          /usr/share/gtk-doc/html/babl          &&
+install -v -m644 docs/graphics/*.{html,svg} /usr/share/gtk-doc/html/babl/graphics
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

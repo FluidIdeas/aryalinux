@@ -86,6 +86,12 @@ codegen-tests = false
 # dumped to the screen when config.toml is parsed.
 llvm-config = "/usr/bin/llvm-config"
 
+[target.i686-unknown-linux-gnu]
+# NB the output of llvm-config (i.e. help options) may be
+# dumped to the screen when config.toml is parsed.
+llvm-config = "/usr/bin/llvm-config"
+
+
 EOF
 export RUSTFLAGS="$RUSTFLAGS -C link-args=-lffi" &&
 python3 ./x.py build --exclude src/tools/miri

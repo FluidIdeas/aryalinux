@@ -41,7 +41,10 @@ export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disab
 
 echo $USER > /tmp/currentuser
 
-sed -i "s/#define force_inline inline __attribute__((always_inline))/#define force_inline inline/" src/sna/compiler.h
+case $(uname -m) in
+   i?86) sed -i "s/#define force_inline inline __attribute__((always_inline))/#define force_inline inline/" src/sna/compiler.h
+         ;;
+esac
 ./autogen.sh $XORG_CONFIG     \
             --enable-kms-only \
             --enable-uxa      \

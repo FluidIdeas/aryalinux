@@ -53,6 +53,7 @@ echo $USER > /tmp/currentuser
             --disable-vv         \
             --disable-tcl        &&
 make
+make docs
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&

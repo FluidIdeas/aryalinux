@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.libraw.org/data/LibRaw-0.19.3.tar.gz
+wget -nc http://www.libraw.org/data/LibRaw-0.19.4.tar.gz
 
 
 NAME=libraw
-VERSION=0.19.3
-URL=http://www.libraw.org/data/LibRaw-0.19.3.tar.gz
+VERSION=0.19.4
+URL=http://www.libraw.org/data/LibRaw-0.19.4.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -45,7 +45,7 @@ echo $USER > /tmp/currentuser
             --enable-jasper  \
             --enable-lcms    \
             --disable-static \
-            --docdir=/usr/share/doc/libraw-0.19.3 &&
+            --docdir=/usr/share/doc/libraw-0.19.4 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

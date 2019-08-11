@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/apps/ristretto/0.8/ristretto-0.8.5.tar.bz2
+wget -nc http://archive.xfce.org/src/apps/ristretto/0.10/ristretto-0.10.0.tar.bz2
 
 
 NAME=ristretto
-VERSION=0.8.5
-URL=http://archive.xfce.org/src/apps/ristretto/0.8/ristretto-0.8.5.tar.bz2
+VERSION=0.10.0
+URL=http://archive.xfce.org/src/apps/ristretto/0.10/ristretto-0.10.0.tar.bz2
 
 if [ ! -z $URL ]
 then

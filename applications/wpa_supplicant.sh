@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://w1.fi/releases/wpa_supplicant-2.8.tar.gz
+wget -nc https://w1.fi/releases/wpa_supplicant-2.9.tar.gz
 
 
 NAME=wpa_supplicant
-VERSION=2.8
-URL=https://w1.fi/releases/wpa_supplicant-2.8.tar.gz
+VERSION=2.9
+URL=https://w1.fi/releases/wpa_supplicant-2.9.tar.gz
 
 if [ ! -z $URL ]
 then

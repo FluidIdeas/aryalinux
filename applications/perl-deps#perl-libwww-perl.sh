@@ -22,12 +22,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/E/ET/ETHER/libwww-perl-6.36.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.39.tar.gz
 
 
 NAME=perl-deps#perl-libwww-perl
-VERSION=6.36
-URL=https://cpan.metacpan.org/authors/id/E/ET/ETHER/libwww-perl-6.36.tar.gz
+VERSION=6.39
+URL=https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.39.tar.gz
 
 if [ ! -z $URL ]
 then

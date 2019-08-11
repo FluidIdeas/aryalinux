@@ -7,16 +7,19 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:perl-modules#perl-file-which
+#REQ:perl-deps#perl-ffi-checklib
+#REQ:perl-deps#perl-file-chdir
 
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/H/HA/HAARG/Test-Needs-0.002006.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Build-1.79.tar.gz
 
 
-NAME=perl-deps#perl-test-needs
-VERSION=0.002006
-URL=https://cpan.metacpan.org/authors/id/H/HA/HAARG/Test-Needs-0.002006.tar.gz
+NAME=perl-deps#perl-alien-build
+VERSION=1.79
+URL=https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Build-1.79.tar.gz
 
 if [ ! -z $URL ]
 then

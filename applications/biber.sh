@@ -49,6 +49,7 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/plk/biber/archive/v2.12.tar.gz
 wget -nc http://sourceforge.net/projects/biblatex/files/biblatex-3.12/biblatex-3.12.tds.tgz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/biber-2.12-upstream_fixes-1.patch
 
 
 NAME=biber
@@ -76,6 +77,7 @@ echo $USER > /tmp/currentuser
 
 wget -c https://github.com/plk/biber/archive/v2.12.tar.gz \
      -O biber-2.12.tar.gz
+patch -Np1 -i ../biber-2.12-upstream_fixes-1.patch &&
 perl ./Build.PL &&
 ./Build
 sudo rm -rf /tmp/rootscript.sh

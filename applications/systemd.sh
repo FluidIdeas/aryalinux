@@ -14,6 +14,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://github.com/systemd/systemd/archive/v241/systemd-241.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/systemd-241-networkd_and_rdrand_fixes-1.patch
 
 
 NAME=systemd
@@ -39,6 +40,8 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../systemd-241-networkd_and_rdrand_fixes-1.patch
+sed -i '1506,1508 s/</>/' src/shared/seccomp-util.c
 sed -i 's/GROUP="render", //' rules/50-udev-default.rules.in
 mkdir build &&
 cd    build &&
@@ -59,6 +62,7 @@ meson --prefix=/usr         \
       -Dsysusers=false      \
       -Drpmmacrosdir=no     \
       -Db_lto=false         \
+      -Dgnutls=false        \
       ..                    &&
 
 ninja

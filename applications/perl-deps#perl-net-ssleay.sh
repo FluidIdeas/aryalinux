@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/rurban/Net-SSLeay/archive/1.86_06/Net-SSLeay-1.86_06.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/C/CH/CHRISN/Net-SSLeay-1.88.tar.gz
 
 
 NAME=perl-deps#perl-net-ssleay
-VERSION=1.8
-URL=https://github.com/rurban/Net-SSLeay/archive/1.86_06/Net-SSLeay-1.86_06.tar.gz
+VERSION=1.88
+URL=https://cpan.metacpan.org/authors/id/C/CH/CHRISN/Net-SSLeay-1.88.tar.gz
 
 if [ ! -z $URL ]
 then

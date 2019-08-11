@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libgudev/232/libgudev-232.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgudev/232/libgudev-232.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/libgudev/233/libgudev-233.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgudev/233/libgudev-233.tar.xz
 
 
 NAME=libgudev
-VERSION=232
-URL=http://ftp.gnome.org/pub/gnome/sources/libgudev/232/libgudev-232.tar.xz
+VERSION=233
+URL=http://ftp.gnome.org/pub/gnome/sources/libgudev/233/libgudev-233.tar.xz
 
 if [ ! -z $URL ]
 then

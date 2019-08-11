@@ -64,6 +64,16 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+sed -i 's:/var/run/fcron.pid:/run/fcron.pid:' \
+   /lib/systemd/system/fcron.service
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /usr/bin/run-parts << "EOF" &&
 #!/bin/sh
 # run-parts:  Runs all the scripts found in a directory.

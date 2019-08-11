@@ -130,7 +130,7 @@ while read -r line; do
     tar -xf $file
     pushd $packagedir
 
-       # Fix some build issues when generating some configureation files
+       # Fix some build issues when generating some configuration files
        case $name in
          plasma-workspace)
            sed -i '/set.HAVE_X11/a set(X11_FOUND 1)' CMakeLists.txt

@@ -7,16 +7,19 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:perl-deps#perl-alien-build
+#REQ:libxml2
+#REQ:perl-deps#perl-test2-suite
 
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/H/HA/HAARG/Test-Needs-0.002006.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Libxml2-0.09.tar.gz
 
 
-NAME=perl-deps#perl-test-needs
-VERSION=0.002006
-URL=https://cpan.metacpan.org/authors/id/H/HA/HAARG/Test-Needs-0.002006.tar.gz
+NAME=perl-deps#perl-alien-libxml2
+VERSION=0.09
+URL=https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Libxml2-0.09.tar.gz
 
 if [ ! -z $URL ]
 then

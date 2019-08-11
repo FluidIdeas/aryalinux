@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/H/HA/HAARG/Sub-Quote-2.005001.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/H/HA/HAARG/Sub-Quote-2.006003.tar.gz
 
 
 NAME=perl-deps#perl-sub-quote
-VERSION=2.005001
-URL=https://cpan.metacpan.org/authors/id/H/HA/HAARG/Sub-Quote-2.005001.tar.gz
+VERSION=2.006003
+URL=https://cpan.metacpan.org/authors/id/H/HA/HAARG/Sub-Quote-2.006003.tar.gz
 
 if [ ! -z $URL ]
 then

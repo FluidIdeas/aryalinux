@@ -73,6 +73,7 @@ sudo rm -rf /tmp/rootscript.sh
 sed -i 's#@CUPS_HTMLVIEW@#firefox#' desktop/cups.desktop.in
 sed -i 's:555:755:g;s:444:644:g' Makedefs.in                         &&
 sed -i '/MAN.EXT/s:.gz::g' configure config-scripts/cups-manpages.m4 &&
+sed -i '/stat.h/a #include <asm-generic/ioctls.h>' test/ipptool.c &&
 
 aclocal  -I config-scripts &&
 autoconf -I config-scripts &&

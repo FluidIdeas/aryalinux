@@ -37,13 +37,11 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr            \
-            --enable-gpl             \
-            --enable-gpl3            \
-            --enable-opengl          \
-            --disable-gtk2           \
-            --qt-libdir=$QT5DIR/lib  \
-            --qt-includedir=$QT5DIR/include &&
+./configure --prefix=/usr     \
+            --enable-gpl      \
+            --enable-gpl3     \
+            --enable-opengl   \
+            --disable-gtk2    &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

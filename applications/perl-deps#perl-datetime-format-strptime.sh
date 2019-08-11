@@ -8,17 +8,16 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:perl-deps#perl-datetime
-#REQ:perl-deps#perl-package-deprecationmanager
 
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Strptime-1.75.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Strptime-1.76.tar.gz
 
 
 NAME=perl-deps#perl-datetime-format-strptime
-VERSION=1.75
-URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Strptime-1.75.tar.gz
+VERSION=1.76
+URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Strptime-1.76.tar.gz
 
 if [ ! -z $URL ]
 then

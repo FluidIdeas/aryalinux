@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4224.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4229.tar.gz
 
 
 NAME=perl-modules#perl-module-build
-VERSION=0.4224
-URL=https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4224.tar.gz
+VERSION=0.4229
+URL=https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4229.tar.gz
 
 if [ ! -z $URL ]
 then

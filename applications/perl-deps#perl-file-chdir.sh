@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/H/HA/HAARG/Test-Needs-0.002006.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/File-chdir-0.1010.tar.gz
 
 
-NAME=perl-deps#perl-test-needs
-VERSION=0.002006
-URL=https://cpan.metacpan.org/authors/id/H/HA/HAARG/Test-Needs-0.002006.tar.gz
+NAME=perl-deps#perl-file-chdir
+VERSION=0.1010
+URL=https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/File-chdir-0.1010.tar.gz
 
 if [ ! -z $URL ]
 then

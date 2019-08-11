@@ -8,7 +8,6 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:yasm
-#REQ:nasm
 #REQ:which
 
 

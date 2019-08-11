@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.andre-simon.de/zip/highlight-3.52.tar.bz2
+wget -nc http://www.andre-simon.de/zip/highlight-3.53.tar.bz2
 
 
 NAME=highlight
-VERSION=3.52
-URL=http://www.andre-simon.de/zip/highlight-3.52.tar.bz2
+VERSION=3.53
+URL=http://www.andre-simon.de/zip/highlight-3.53.tar.bz2
 
 if [ ! -z $URL ]
 then
