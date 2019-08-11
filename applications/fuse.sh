@@ -44,7 +44,6 @@ cd    build &&
 
 meson --prefix=/usr .. &&
 ninja
-doxygen doc/Doxyfile
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install                                             &&
