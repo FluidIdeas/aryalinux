@@ -395,6 +395,7 @@ sudo getent passwd lightdm || sudo useradd -c "Light Display Manager" -u 63 -g l
 sudo chown -R lightdm:lightdm /var/lib/lightdm /var/log/lightdm
 
 sudo chown -R polkitd:polkitd /usr/share/polkit-1/rules.d
+if [ -f /etc/systemd/system/display-manager.service ]; then sudo systemctl disable gdm; fi
 sudo systemctl enable lightdm
 
 
