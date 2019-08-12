@@ -25,6 +25,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.16.0.tar.xz
+wget -nc https://gitlab.freedesktop.org/gstreamer/gst-plugins-good/merge_requests/292.diff
 
 
 NAME=gst10-plugins-good
@@ -50,6 +51,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../292.diff
 mkdir build &&
 cd    build &&
 
