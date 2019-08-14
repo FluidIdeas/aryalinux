@@ -151,9 +151,9 @@ if [ -f $LFS/etc/lightdm/lightdm.conf ]
 then
     sed -i "s@#autologin-user=@autologin-user=$USERNAME@g" $LFS/etc/lightdm/lightdm.conf
     sed -i "s@#autologin-user-timeout=0@autologin-user-timeout=0@g" $LFS/etc/lightdm/lightdm.conf
-    sed -i "s@#autologin-session=UNIMPLEMENTED@autologin-session=$autologin_session@g" $LFS/etc/lightdm/lightdm.conf
+    sed -i "s@#user-session=default@user-session=$autologin_session@g" $LFS/etc/lightdm/lightdm.conf
     sed -i "s@#pam-service=lightdm-autologin@pam-service=lightdm-autologin@g" $LFS/etc/lightdm/lightdm.conf
-    sed -i "s@#autologin-in-background=false@autologin-in-background=true@g" $LFS/etc/lightdm/lightdm.conf
+    sed -i "s@#autologin-guest=false@autologin-guest=false@g" $LFS/etc/lightdm/lightdm.conf
 else
     mkdir -pv $LFS/etc/systemd/system/getty@tty1.service.d/
     pushd $LFS/etc/systemd/system/getty@tty1.service.d/
@@ -174,8 +174,8 @@ then
     sed -i "s@autologin-user=$USERNAME@#autologin-user=@g" $LFS/etc/lightdm/lightdm.conf
     sed -i "s@autologin-user-timeout=0@#autologin-user-timeout=0@g" $LFS/etc/lightdm/lightdm.conf
     sed -i "s@pam-service=lightdm-autologin@#pam-service=lightdm-autologin@g" $LFS/etc/lightdm/lightdm.conf
-    sed -i "s@autologin-session=$autologin_session@#autologin-session=UNIMPLEMENTED@g" $LFS/etc/lightdm/lightdm.conf
-    sed -i "s@autologin-in-background=true@#autologin-in-background=false@g" $LFS/etc/lightdm/lightdm.conf
+    sed -i "s@user-session=$autologin_session@#user-session=default@g" $LFS/etc/lightdm/lightdm.conf
+    sed -i "s@autologin-guest=false@#autologin-guest=false@g" $LFS/etc/lightdm/lightdm.conf
 else
     rm -fv /etc/systemd/system/getty@tty1.service.d/override.conf
 fi
