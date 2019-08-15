@@ -14,10 +14,11 @@ if [ "$INSTALL_BOOTLOADER" == "n" ] || [ "$INSTALL_BOOTLOADER" == "N" ]; then
 	exit
 fi
 
-/sources/bootloader-check.sh &> $LOGFILE
-
-if [ "$?" != "0" ]; then
-  exit
+if [ "$INSTALL_BOOTLOADER" == "y" ] || [ "$INSTALL_BOOTLOADER" == "Y" ]; then
+  /sources/bootloader-check.sh &> $LOGFILE
+  if [ "$?" != "0" ]; then
+    exit
+  fi
 fi
 
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null

@@ -9,7 +9,7 @@ TIMEZONE=`tzselect`
 
 . ./build-properties
 
-if [ "x$INSTALL_BOOTLOADER" == "xy" ]; then
+if [ "x$INSTALL_BOOTLOADER" == "xy" ] || [ "x$INSTALL_BOOTLOADER" == "xY" ]; then
   ./bootloader-check.sh
 fi
 
