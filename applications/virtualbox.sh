@@ -8,6 +8,7 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:xserver-meta
+#REQ:kernel-headers
 
 
 cd $SOURCE_DIR
@@ -52,27 +53,10 @@ EOF
 url=$(python /tmp/parser.py)
 tarball=$(echo $url | rev | cut -d/ -f1 | rev)
 
-KERNEL_VERSION=$(uname -r)
-KERNEL_MAJOR_VERSION=$(uname -r | cut -d '.' -f1)
-KERNEL_URL=https://cdn.kernel.org/pub/linux/kernel/v$KERNEL_MAJOR_VERSION.x/linux-$KERNEL_VERSION.tar.xz
-KERNEL_TARBALL=$(echo $KERNEL_URL | rev | cut -d/ -f1 | rev)
 VBOX_INSTALLER=$(echo $url | rev | cut -d/ -f1 | rev)
 VERSION=$(echo $VBOX_INSTALLER | cut -d "-" -f2)
 
 wget -nc $url
-wget -nc $KERNEL_URL
-
-KERNEL_DIR=$(tar tf $KERNEL_TARBALL | cut -d/ -f1 | uniq)
-
-mkdir -pv /usr/src/
-sudo tar xf $KERNEL_TARBALL -C /usr/src
-sudo ln -svf /usr/src/$KERNEL_DIR /lib/modules/$KERNEL_VERSION/build
-
-pushd /usr/src/$KERNEL_DIR
-sudo make oldconfig
-sudo make prepare
-sudo make scripts
-popd
 
 chmod a+x $VBOX_INSTALLER
 
@@ -81,6 +65,7 @@ sudo ./$VBOX_INSTALLER
 sudo ln -svf /opt/VirtualBox/virtualbox.desktop /usr/share/applications/
 sudo update-desktop-database
 sudo update-mime-database /usr/share/mime
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
