@@ -143,6 +143,18 @@ sudo rm -rf /tmp/rootscript.sh
 source /etc/profile.d/rustc.sh
 
 
+cat > /tmp/clearcargo.sh <<EOF
+if [ -d $HOME/.cargo ]; then
+	rm -rf $HOME/.cargo
+fi
+EOF
+chmod a+x /tmp/clearcargo.sh
+/tmp/clearcargo.sh
+sed -i "s@$HOME@/root@g" /tmp/clearcargo.sh
+sudo /tmp/clearcargo.sh
+sudo rm -f /tmp/clearcargo.sh
+
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
