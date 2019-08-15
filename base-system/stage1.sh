@@ -7,6 +7,12 @@ clear
 
 TIMEZONE=`tzselect`
 
+. ./build-properties
+
+if [ "x$INSTALL_BOOTLOADER" == "xy" ]; then
+  ./bootloader-check.sh
+fi
+
 rm -rf /tools
 rm -rf /sources
 rm -rf /mnt/lfs
