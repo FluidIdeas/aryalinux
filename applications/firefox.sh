@@ -29,13 +29,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/firefox/releases/68.0/source/firefox-68.0.source.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/firefox-68.0-sockios.patch
+wget -nc https://archive.mozilla.org/pub/firefox/releases/68.0.2/source/firefox-68.0.2.source.tar.xz
 
 
 NAME=firefox
-VERSION=68.0
-URL=https://archive.mozilla.org/pub/firefox/releases/68.0/source/firefox-68.0.source.tar.xz
+VERSION=68.0.2
+URL=https://archive.mozilla.org/pub/firefox/releases/68.0.2/source/firefox-68.0.2.source.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -53,18 +52,16 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../firefox-68.0-sockios.patch &&
-
 cat > mozconfig << "EOF"
 # If you have a multicore machine, all cores will be used by default.
 
 # If you have installed dbus-glib, comment out this line:
-ac_add_options --disable-dbus
+#ac_add_options --disable-dbus
 
 # If you have installed dbus-glib, and you have installed (or will install)
 # wireless-tools, and you wish to use geolocation web services, comment out
 # this line
-ac_add_options --disable-necko-wifi
+#ac_add_options --disable-necko-wifi
 
 # API Keys for geolocation APIs - necko-wifi (above) is required for MLS
 # Uncomment the following line if you wish to use Mozilla Location Service
@@ -75,7 +72,7 @@ ac_add_options --disable-necko-wifi
 #ac_add_options --with-google-location-service-api-keyfile=$PWD/google-key
 
 # Uncomment this line if you have installed startup-notification:
-#ac_add_options --enable-startup-notification
+ac_add_options --enable-startup-notification
 
 # Uncomment the following option if you have not installed PulseAudio
 #ac_add_options --disable-pulseaudio
@@ -83,7 +80,7 @@ ac_add_options --disable-necko-wifi
 #ac_add_options --enable-alsa
 
 # If you have installed GConf, comment out this line
-ac_add_options --disable-gconf
+#ac_add_options --disable-gconf
 
 # From firefox-61, the stylo CSS code can no-longer be disabled
 
@@ -110,7 +107,7 @@ ac_add_options --enable-linker=gold
 ac_add_options --disable-av1
 
 # You cannot distribute the binary if you do this
-ac_add_options --enable-official-branding
+#ac_add_options --enable-official-branding
 
 # If you are going to apply the patch for system graphite
 # and system harfbuzz, uncomment these lines:
