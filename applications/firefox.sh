@@ -152,6 +152,10 @@ sed -e 's/checkImpl/checkFFImpl/g' -i js/src/vm/JSContext*.h &&
 export CC=clang CXX=clang++ AR=llvm-ar NM=llvm-nm RANLIB=llvm-ranlib &&
 export MOZBUILD_STATE_PATH=${PWD}/mozbuild &&
 ./mach build
+if [ -f /sources/distro-build.sh ]; then
+	DESTDIR=$BINARY_DIR/$NAME-$VERSION-$(uname-m) ./mach install
+fi
+
 sudo ./mach install                                                  &&
 
 sudo mkdir -pv  /usr/lib/mozilla/plugins                             &&
