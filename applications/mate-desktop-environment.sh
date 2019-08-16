@@ -92,6 +92,7 @@ set +h
 #REQ:marco
 #REQ:mozo
 #REQ:mate-backgrounds
+#REQ:libmatemixer
 #REQ:mate-media
 #REQ:wireless_tools
 #REQ:wpa_supplicant
