@@ -61,6 +61,7 @@ set +h
 #REQ:lightdm-gtk-greeter
 #REQ:plymouth
 #REQ:mate-screensaver
+#REQ:vte2
 #REQ:mate-terminal
 #REQ:caja
 #REQ:caja-extensions
