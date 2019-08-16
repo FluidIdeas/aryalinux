@@ -9,7 +9,6 @@ set +h
 
 #REQ:cairo
 #REQ:python2
-#REQ:python-modules#pygtk
 
 
 cd $SOURCE_DIR
