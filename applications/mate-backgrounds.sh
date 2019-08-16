@@ -34,10 +34,12 @@ fi
 cd $DIRECTORY
 fi
 
-./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static --without-keyring --with-gtk=3.0 &&
-make
+mkdir -pv build
+cd build
+meson --prefix=/usr&&
+ninja
 
-sudo make install
+sudo ninja install
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
