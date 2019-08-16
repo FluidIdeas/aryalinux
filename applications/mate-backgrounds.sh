@@ -34,7 +34,7 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static &&
+./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static --without-keyring --with-gtk=3.0 &&
 make
 
 sudo make install
