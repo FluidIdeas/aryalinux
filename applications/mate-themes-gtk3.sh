@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://pub.mate-desktop.org/releases/1.12/mate-themes-gtk3-1.12.2.tar.xz
+wget -nc https://pub.mate-desktop.org/releases/1.12/mate-themes-gtk3.18-1.12.2.tar.xz
 
 
 NAME=mate-themes-gtk3
-VERSION=1.12.2
-URL=https://pub.mate-desktop.org/releases/1.12/mate-themes-gtk3-1.12.2.tar.xz
+VERSION=18-1.12.2
+URL=https://pub.mate-desktop.org/releases/1.12/mate-themes-gtk3.18-1.12.2.tar.xz
 
 if [ ! -z $URL ]
 then
