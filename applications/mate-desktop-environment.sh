@@ -102,7 +102,6 @@ set +h
 #REQ:network-manager-applet
 #REQ:net-tools
 #REQ:usb-modeswitch
-#REQ:compton
 
 
 cd $SOURCE_DIR
