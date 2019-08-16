@@ -31,9 +31,7 @@ set +h
 #REQ:libwnck
 #REQ:librsvg
 #REQ:upower
-#REQ:intltool
 #REQ:libtasn1
-#REQ:libtool
 #REQ:xmlto
 #REQ:gtk-doc
 #REQ:rarian
@@ -88,10 +86,10 @@ set +h
 #REQ:wireless_tools
 #REQ:wpa_supplicant
 #REQ:networkmanager
-#REQ:ModemManager
+#REQ:modemmanager
 #REQ:network-manager-applet
 #REQ:net-tools
-#REQ:usb_modeswitch
+#REQ:usb-modeswitch
 #REQ:compton
 
 
