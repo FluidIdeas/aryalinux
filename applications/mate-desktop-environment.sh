@@ -54,6 +54,7 @@ set +h
 #REQ:gtkmm2
 #REQ:gtkmm3
 #REQ:glibmm
+#REQ:gnome-keyring
 #REQ:mate-common
 #REQ:mate-desktop
 #REQ:libmatekbd
