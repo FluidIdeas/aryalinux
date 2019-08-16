@@ -44,6 +44,9 @@ set +h
 #REQ:yelp
 #REQ:xdg-utils
 #REQ:xdg-user-dirs
+#REQ:python-modules#docutils
+#REQ:python-modules#pygobject2
+#REQ:python-modules#pygobject3
 #REQ:mate-common
 #REQ:mate-desktop
 #REQ:libmatekbd
@@ -79,8 +82,6 @@ set +h
 #REQ:mate-system-monitor
 #REQ:mate-power-manager
 #REQ:marco
-#REQ:python-modules#pygobject2
-#REQ:python-modules#pygobject3
 #REQ:mozo
 #REQ:mate-backgrounds
 #REQ:mate-media
