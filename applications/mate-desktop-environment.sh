@@ -50,6 +50,7 @@ set +h
 #REQ:libpeas
 #REQ:gtksourceview
 #REQ:poppler
+#REQ:libgtop
 #REQ:mate-common
 #REQ:mate-desktop
 #REQ:libmatekbd
