@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://pub.mate-desktop.org/releases/1.23/atril-1.23.tar.xz
+wget -nc https://pub.mate-desktop.org/releases/1.23/atril-1.23.0.tar.xz
 
 
 NAME=atril
-VERSION=1.23
-URL=https://pub.mate-desktop.org/releases/1.23/atril-1.23.tar.xz
+VERSION=1.23.0
+URL=https://pub.mate-desktop.org/releases/1.23/atril-1.23.0.tar.xz
 
 if [ ! -z $URL ]
 then

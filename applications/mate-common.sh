@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://pub.mate-desktop.org/releases/1.22/mate-common-1.22.tar.xz
+wget -nc https://pub.mate-desktop.org/releases/1.22/mate-common-1.22.0.tar.xz
 
 
 NAME=mate-common
-VERSION=1.22
-URL=https://pub.mate-desktop.org/releases/1.22/mate-common-1.22.tar.xz
+VERSION=1.22.0
+URL=https://pub.mate-desktop.org/releases/1.22/mate-common-1.22.0.tar.xz
 
 if [ ! -z $URL ]
 then
