@@ -49,6 +49,7 @@ set +h
 #REQ:python-modules#pygobject3
 #REQ:libpeas
 #REQ:gtksourceview
+#REQ:poppler
 #REQ:mate-common
 #REQ:mate-desktop
 #REQ:libmatekbd
