@@ -51,6 +51,9 @@ set +h
 #REQ:gtksourceview
 #REQ:poppler
 #REQ:libgtop
+#REQ:gtkmm2
+#REQ:gtkmm3
+#REQ:glibmm
 #REQ:mate-common
 #REQ:mate-desktop
 #REQ:libmatekbd
