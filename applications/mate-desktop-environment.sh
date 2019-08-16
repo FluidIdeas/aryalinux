@@ -28,7 +28,6 @@ set +h
 #REQ:libsoup
 #REQ:icon-naming-utils
 #REQ:libunique
-#REQ:libunique3
 #REQ:libwnck
 #REQ:librsvg
 #REQ:upower
