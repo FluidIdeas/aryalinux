@@ -102,15 +102,9 @@ set +h
 #REQ:net-tools
 #REQ:usb-modeswitch
 #REQ:aryalinux-wallpapers
-#REQ:aryalinux-fonts
+#REQ:aryalinux-google-fonts
 #REQ:aryalinux-themes
 #REQ:aryalinux-icons
-#REQ:arc-gtk-theme
-#REQ:paper-gtk-theme
-#REQ:adapta-gtk-theme
-#REQ:flat-remix-icon-theme
-#REQ:numix-icons
-#REQ:aryalinux-gnome-settings
 
 
 cd $SOURCE_DIR
