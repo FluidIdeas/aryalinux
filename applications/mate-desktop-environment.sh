@@ -103,7 +103,7 @@ set +h
 #REQ:usb-modeswitch
 #REQ:aryalinux-wallpapers
 #REQ:aryalinux-google-fonts
-#REQ:aryalinux-themes
+#REQ:aryalinux-gtk-themes
 #REQ:aryalinux-icons
 
 
