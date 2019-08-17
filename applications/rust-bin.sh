@@ -22,7 +22,7 @@ NAME=rust
 VERSION=1.35.0
 
 
-
+sudo tar -xf rustc-1.35.0-x86_64.tar.xz -C /
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

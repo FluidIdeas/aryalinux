@@ -52,6 +52,8 @@ NAME=libreoffice
 VERSION=6.2.5
 
 
+sudo tar -xf libreoffice-6.2.5-x86_64.tar.xz -C /
+
 sudo update-desktop-database
 
 
