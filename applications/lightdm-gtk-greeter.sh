@@ -54,7 +54,7 @@ xft-antialias = true
 xft-rgba = rgb
 icon-theme-name = 'Flat Remix'
 theme-name = Adapta-Nokto
-background = /usr/share/backgrounds/aryalinux/pexels-photo-459059.jpeg
+background = /usr/share/backgrounds/aryalinux/default-lock-screen-wallpaper.jpeg
 font-name = Droid Sans 10
 EOF
 

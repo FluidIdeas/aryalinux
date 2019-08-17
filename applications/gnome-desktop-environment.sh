@@ -96,6 +96,7 @@ set +h
 #REQ:aryalinux-icons
 #REQ:aryalinux-gtk-themes
 #REQ:aryalinux-gnome-settings
+#REQ:plymouth
 
 
 cd $SOURCE_DIR
