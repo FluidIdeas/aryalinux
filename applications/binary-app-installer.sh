@@ -33,8 +33,9 @@ fi
 cd $DIRECTORY
 fi
 
-sudo rm master.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/binary-app-installer/get/master.tar.bz2 && sudo tar xf master.tar.bz2 -C /
+sudo rm -rf master.tar.bz2
+wget -nc https://bitbucket.org/chandrakantsingh/binary-app-installer/get/master.tar.bz2 &&
+sudo tar xf master.tar.bz2 -C /
 sudo update-desktop-database
 
 
