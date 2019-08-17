@@ -143,7 +143,7 @@ if grep "gnome-desktop-environment" /etc/alps/installed-list &> /dev/null; then
 elif grep "xfce-desktop-environment" /etc/alps/installed-list &> /dev/null; then
         autologin_session="xfce"
 elif grep "mate-desktop-environment" /etc/alps/installed-list &> /dev/null; then
-        autologin_session="MATE"
+        autologin_session="mate"
 fi
 
 
