@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/nghttp2/nghttp2/releases/download/v1.39.1/nghttp2-1.39.1.tar.xz
+wget -nc https://github.com/nghttp2/nghttp2/releases/download/v1.39.2/nghttp2-1.39.2.tar.xz
 
 
 NAME=nghttp2
-VERSION=1.39.1
-URL=https://github.com/nghttp2/nghttp2/releases/download/v1.39.1/nghttp2-1.39.1.tar.xz
+VERSION=1.39.2
+URL=https://github.com/nghttp2/nghttp2/releases/download/v1.39.2/nghttp2-1.39.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -41,7 +41,7 @@ echo $USER > /tmp/currentuser
 ./configure --prefix=/usr     \
             --disable-static  \
             --enable-lib-only \
-            --docdir=/usr/share/doc/nghttp2-1.39.1 &&
+            --docdir=/usr/share/doc/nghttp2-1.39.2 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

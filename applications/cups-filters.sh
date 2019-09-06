@@ -21,12 +21,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.openprinting.org/download/cups-filters/cups-filters-1.25.1.tar.xz
+wget -nc https://www.openprinting.org/download/cups-filters/cups-filters-1.25.4.tar.xz
 
 
 NAME=cups-filters
-VERSION=1.25.1
-URL=https://www.openprinting.org/download/cups-filters/cups-filters-1.25.1.tar.xz
+VERSION=1.25.4
+URL=https://www.openprinting.org/download/cups-filters/cups-filters-1.25.4.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -54,7 +54,7 @@ sed -i "s:cups.service:org.cups.cupsd.service:g" utils/cups-browsed.service
             --without-rcdir      \
             --disable-static     \
             --disable-avahi      \
-            --docdir=/usr/share/doc/cups-filters-1.25.1 &&
+            --docdir=/usr/share/doc/cups-filters-1.25.4 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

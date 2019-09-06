@@ -21,7 +21,7 @@ set +h
 #REQ:perl-modules#perl-encode-hanextra
 #REQ:perl-modules#perl-encode-jis2k
 #REQ:perl-modules#perl-file-slurper
-#REQ:perl-modules#perl-perlio-utf8_strict
+#REQ:perl-modules#perl-io-string
 #REQ:perl-modules#perl-ipc-run3
 #REQ:perl-modules#perl-lingua-translit
 #REQ:perl-modules#perl-list-allutils
@@ -29,6 +29,7 @@ set +h
 #REQ:perl-modules#perl-log-log4perl
 #REQ:perl-modules#perl-lwp-protocol-https
 #REQ:perl-modules#perl-module-build
+#REQ:perl-modules#perl-perlio-utf8_strict
 #REQ:perl-modules#perl-regexp-common
 #REQ:perl-modules#perl-sort-key
 #REQ:perl-modules#perl-text-bibtex
@@ -47,14 +48,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/plk/biber/archive/v2.12.tar.gz
-wget -nc http://sourceforge.net/projects/biblatex/files/biblatex-3.12/biblatex-3.12.tds.tgz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/biber-2.12-upstream_fixes-1.patch
+wget -nc https://github.com/plk/biber/archive/v2.13/biber-2.13.tar.gz
+wget -nc http://sourceforge.net/projects/biblatex/files/biblatex-3.13/biblatex-3.13.tds.tgz
 
 
 NAME=biber
-VERSION=2.12
-URL=https://github.com/plk/biber/archive/v2.12.tar.gz
+VERSION=2.13
+URL=https://github.com/plk/biber/archive/v2.13/biber-2.13.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -75,14 +75,11 @@ fi
 echo $USER > /tmp/currentuser
 
 
-wget -c https://github.com/plk/biber/archive/v2.12.tar.gz \
-     -O biber-2.12.tar.gz
-patch -Np1 -i ../biber-2.12-upstream_fixes-1.patch &&
 perl ./Build.PL &&
 ./Build
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-tar -xf ../biblatex-3.12.tds.tgz -C /opt/texlive/2019/texmf-dist &&
+tar -xf ../biblatex-3.13.tds.tgz -C /opt/texlive/2019/texmf-dist &&
 texhash &&
 ./Build install
 ENDOFROOTSCRIPT

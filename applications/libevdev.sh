@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/libevdev/libevdev-1.7.0.tar.xz
+wget -nc https://www.freedesktop.org/software/libevdev/libevdev-1.8.0.tar.xz
 
 
 NAME=libevdev
-VERSION=1.7.0
-URL=https://www.freedesktop.org/software/libevdev/libevdev-1.7.0.tar.xz
+VERSION=1.8.0
+URL=https://www.freedesktop.org/software/libevdev/libevdev-1.8.0.tar.xz
 
 if [ ! -z $URL ]
 then

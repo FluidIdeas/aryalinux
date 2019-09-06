@@ -47,6 +47,7 @@ make &&
 pushd docs &&
   makeinfo --plaintext -o enscript.txt enscript.texi &&
 popd
+make -j1 -C docs ps pdf
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&

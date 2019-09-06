@@ -15,12 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/applications/19.04.1/src/kdenlive-19.04.1.tar.xz
+wget -nc http://download.kde.org/stable/applications/19.08.0/src/kdenlive-19.08.0.tar.xz
 
 
 NAME=kdenlive
-VERSION=19.04.1
-URL=http://download.kde.org/stable/applications/19.04.1/src/kdenlive-19.04.1.tar.xz
+VERSION=19.08.0
+URL=http://download.kde.org/stable/applications/19.08.0/src/kdenlive-19.08.0.tar.xz
 
 if [ ! -z $URL ]
 then

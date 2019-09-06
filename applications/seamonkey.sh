@@ -24,12 +24,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/seamonkey/releases/2.49.4/source/seamonkey-2.49.4.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/seamonkey/releases/2.49.5/source/seamonkey-2.49.5.source.tar.xz
 
 
 NAME=seamonkey
-VERSION=2.49.4
-URL=https://archive.mozilla.org/pub/seamonkey/releases/2.49.4/source/seamonkey-2.49.4.source.tar.xz
+VERSION=2.49.5
+URL=https://archive.mozilla.org/pub/seamonkey/releases/2.49.5/source/seamonkey-2.49.5.source.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -120,11 +120,13 @@ ac_add_options --with-system-png
 ac_add_options --with-system-zlib
 EOF
 grep -rl -- '-Werror=format' | xargs sed -i 's/error=format/no-&/'
+sed -i -e '/pid_t gettid/,+3 s@^@//@' mozilla/tools/profiler/core/platform.h
+sed -i '/USE_LIBS/,+2 s/^/#/' mozilla/security/manager/ssl/moz.build
 CC=gcc CXX=g++ make -f client.mk
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make  -f client.mk install INSTALL_SDK= &&
-chown -R 0:0 /usr/lib/seamonkey-2.49.4    &&
+chown -R 0:0 /usr/lib/seamonkey-2.49.5    &&
 
 cp -v $(find -name seamonkey.1 | head -n1) /usr/share/man/man1
 ENDOFROOTSCRIPT
@@ -151,7 +153,7 @@ StartupNotify=true
 Terminal=false
 EOF
 
-ln -sfv /usr/lib/seamonkey-2.49.4/chrome/icons/default/seamonkey.png \
+ln -sfv /usr/lib/seamonkey-2.49.5/chrome/icons/default/seamonkey.png \
         /usr/share/pixmaps
 ENDOFROOTSCRIPT
 

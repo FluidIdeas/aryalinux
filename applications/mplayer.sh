@@ -93,8 +93,9 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
-update-desktop-database -q
+tar -xvf  ../Clearlooks-2.0.tar.bz2 \
+    -C    /usr/share/mplayer/skins &&
+ln  -sfvn Clearlooks /usr/share/mplayer/skins/default
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -103,9 +104,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-tar -xvf  ../Clearlooks-2.0.tar.bz2 \
-    -C    /usr/share/mplayer/skins &&
-ln  -sfvn Clearlooks /usr/share/mplayer/skins/default
+gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
+update-desktop-database -q
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

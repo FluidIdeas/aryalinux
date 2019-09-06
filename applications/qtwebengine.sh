@@ -62,8 +62,6 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sed -i 's/SIOCGSTAMP/0x8906/' \
-src/3rdparty/chromium/third_party/webrtc/rtc_base/physical_socket_server.cc &&
 mkdir build &&
 cd    build &&
 

@@ -11,13 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://graphviz.gitlab.io/pub/graphviz/stable/SOURCES/graphviz.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/graphviz-2.40.1-qt5-1.patch
+wget -nc https://www2.graphviz.org/Packages/stable/portable_source/graphviz-2.42.1.tar.gz
 
 
 NAME=graphviz
-VERSION=
-URL=http://graphviz.gitlab.io/pub/graphviz/stable/SOURCES/graphviz.tar.gz
+VERSION=2.42.1
+URL=https://www2.graphviz.org/Packages/stable/portable_source/graphviz-2.42.1.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -38,8 +37,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -e '/ruby/s/1\.9/2.6/' -i configure.ac
-patch -p1 -i ../graphviz-2.40.1-qt5-1.patch
 sed -i '/LIBPOSTFIX="64"/s/64//' configure.ac &&
 
 autoreconf                &&
@@ -56,8 +53,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ln -v -s /usr/share/graphviz/doc \
-         /usr/share/doc/graphviz-2.40.1
+ln -v -s /usr/share/graphviz/doc /usr/share/doc/graphviz-2.42.1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

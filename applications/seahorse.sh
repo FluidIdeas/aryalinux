@@ -11,10 +11,11 @@ set +h
 #REQ:gnupg
 #REQ:gpgme
 #REQ:itstool
-#REQ:libsecret
 #REQ:libpwquality
+#REQ:libsecret
 #REQ:libsoup
 #REQ:p11-kit
+#REQ:openldap
 #REQ:openssh
 #REQ:vala
 #REQ:gnome-keyring

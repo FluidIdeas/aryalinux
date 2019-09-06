@@ -40,15 +40,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 gsettings reset-recursively org.gnome.desktop.app-folders
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
             --disable-static &&

@@ -12,6 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.6.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/proftpd-1.3.6-consolidated_fixes-1.patch
 
 
 NAME=proftpd
@@ -52,6 +53,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+patch -Np1 -i ../proftpd-1.3.6-consolidated_fixes-1.patch
 ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/run &&
 make
 sudo rm -rf /tmp/rootscript.sh

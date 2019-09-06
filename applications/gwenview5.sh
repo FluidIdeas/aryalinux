@@ -15,12 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/applications/19.04.1/src/gwenview-19.04.1.tar.xz
+wget -nc http://download.kde.org/stable/applications/19.08.0/src/gwenview-19.08.0.tar.xz
 
 
 NAME=gwenview5
-VERSION=19.04.1
-URL=http://download.kde.org/stable/applications/19.04.1/src/gwenview-19.04.1.tar.xz
+VERSION=19.08.0
+URL=http://download.kde.org/stable/applications/19.08.0/src/gwenview-19.08.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -41,7 +41,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i '/iptc.hpp/a#include <exiv2/error.hpp>' lib/imagemetainfomodel.cpp
 mkdir build &&
 cd    build &&
 

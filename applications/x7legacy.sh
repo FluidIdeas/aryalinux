@@ -69,9 +69,9 @@ do
   packagedir=${package%.tar.bz2}
   tar -xf $package
   pushd $packagedir
-  ./configure $XORG_CONFIG
-  make
-  as_root make install
+    ./configure $XORG_CONFIG
+    make
+    as_root make install
   popd
   rm -rf $packagedir
   as_root /sbin/ldconfig

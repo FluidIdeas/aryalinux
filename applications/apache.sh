@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.apache.org/dist/httpd/httpd-2.4.39.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/httpd-2.4.39-blfs_layout-1.patch
+wget -nc https://archive.apache.org/dist/httpd/httpd-2.4.41.tar.bz2
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/httpd-2.4.41-blfs_layout-1.patch
 
 
 NAME=apache
-VERSION=2.4.39
-URL=https://archive.apache.org/dist/httpd/httpd-2.4.39.tar.bz2
+VERSION=2.4.41
+URL=https://archive.apache.org/dist/httpd/httpd-2.4.41.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -51,7 +51,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-patch -Np1 -i ../httpd-2.4.39-blfs_layout-1.patch             &&
+patch -Np1 -i ../httpd-2.4.41-blfs_layout-1.patch             &&
 
 sed '/dir.*CFG_PREFIX/s@^@#@' -i support/apxs.in              &&
 

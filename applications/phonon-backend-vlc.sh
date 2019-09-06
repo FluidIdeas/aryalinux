@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/phonon/phonon-backend-vlc/0.10.3/phonon-backend-vlc-0.10.3.tar.xz
+wget -nc http://download.kde.org/stable/phonon/phonon-backend-vlc/0.11.0/phonon-backend-vlc-0.11.0.tar.xz
 
 
 NAME=phonon-backend-vlc
-VERSION=0.10.3
-URL=http://download.kde.org/stable/phonon/phonon-backend-vlc/0.10.3/phonon-backend-vlc-0.10.3.tar.xz
+VERSION=0.11.0
+URL=http://download.kde.org/stable/phonon/phonon-backend-vlc/0.11.0/phonon-backend-vlc-0.11.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -42,10 +42,9 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr    \
-      -DCMAKE_BUILD_TYPE=Release     \
-      -DPHONON_BUILD_PHONON4QT5=ON   \
-      -Wno-dev .. &&
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+      -DCMAKE_BUILD_TYPE=Release  \
+      .. &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

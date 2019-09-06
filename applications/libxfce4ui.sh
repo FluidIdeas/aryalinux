@@ -7,20 +7,20 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:gtk2
-#REQ:xfconf
 #REQ:gtk3
+#REQ:xfconf
+#REQ:gtk2
 #REQ:startup-notification
 
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/libxfce4ui/4.12/libxfce4ui-4.12.1.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/libxfce4ui/4.14/libxfce4ui-4.14.1.tar.bz2
 
 
 NAME=libxfce4ui
-VERSION=4.12.1
-URL=http://archive.xfce.org/src/xfce/libxfce4ui/4.12/libxfce4ui-4.12.1.tar.bz2
+VERSION=4.14.1
+URL=http://archive.xfce.org/src/xfce/libxfce4ui/4.14/libxfce4ui-4.14.1.tar.bz2
 
 if [ ! -z $URL ]
 then

@@ -26,13 +26,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.2+9.tar.bz2
-wget -nc http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-11.0.2/jtreg-4.2-b13-517.tar.gz
+wget -nc http://hg.openjdk.java.net/jdk-updates/jdk12u/archive/jdk-12.0.2+10.tar.bz2
+wget -nc http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-12.0.2/jtreg-4.2-b13-517.tar.gz
 
 
 NAME=openjdk
-VERSION=11.0.
-URL=http://hg.openjdk.java.net/jdk-updates/jdk11u/archive/jdk-11.0.2+9.tar.bz2
+VERSION=12.0.
+URL=http://hg.openjdk.java.net/jdk-updates/jdk12u/archive/jdk-12.0.2+10.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -64,7 +64,7 @@ bash configure --enable-unlimited-crypto    \
                --with-libjpeg=system        \
                --with-libpng=system         \
                --with-zlib=system           \
-               --with-version-build="9"    \
+               --with-version-build="10"    \
                --with-version-pre=""        \
                --with-version-opt=""        \
                --with-cacerts-file=/etc/pki/tls/java/cacerts &&
@@ -75,9 +75,9 @@ jtreg/bin/jtreg -jdk:$JT_JAVA -automatic -ignore:quiet -v1 \
 unset JT_JAVA
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -vdm755 /opt/jdk-11.0.2+9             &&
-cp -Rv build/*/images/jdk/* /opt/jdk-11.0.2+9 &&
-chown -R root:root /opt/jdk-11.0.2+9          &&
+install -vdm755 /opt/jdk-12.0.2+10             &&
+cp -Rv build/*/images/jdk/* /opt/jdk-12.0.2+10 &&
+chown -R root:root /opt/jdk-12.0.2+10          &&
 for s in 16 24 32 48; do
   install -vDm644 src/java.desktop/unix/classes/sun/awt/X11/java-icon${s}.png \
                   /usr/share/icons/hicolor/${s}x${s}/apps/java.png
@@ -90,7 +90,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ln -v -nsf jdk-11.0.2+9 /opt/jdk
+ln -v -nsf jdk-12.0.2+10 /opt/jdk
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -103,8 +103,8 @@ mkdir -pv /usr/share/applications &&
 
 cat > /usr/share/applications/openjdk-java.desktop << "EOF" &&
 [Desktop Entry]
-Name=OpenJDK Java 11.0.2 Runtime
-Comment=OpenJDK Java 11.0.2 Runtime
+Name=OpenJDK Java 12.0.2 Runtime
+Comment=OpenJDK Java 12.0.2 Runtime
 Exec=/opt/jdk/bin/java -jar
 Terminal=false
 Type=Application
@@ -114,8 +114,8 @@ NoDisplay=true
 EOF
 cat > /usr/share/applications/openjdk-jconsole.desktop << "EOF"
 [Desktop Entry]
-Name=OpenJDK Java 11.0.2 Console
-Comment=OpenJDK Java 11.0.2 Console
+Name=OpenJDK Java 12.0.2 Console
+Comment=OpenJDK Java 12.0.2 Console
 Keywords=java;console;monitoring
 Exec=/opt/jdk/bin/jconsole
 Terminal=false

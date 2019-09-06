@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/gcc/gcc-9.1.0/gcc-9.1.0.tar.xz
-wget -nc ftp://ftp.gnu.org/gnu/gcc/gcc-9.1.0/gcc-9.1.0.tar.xz
+wget -nc https://ftp.gnu.org/gnu/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz
+wget -nc ftp://ftp.gnu.org/gnu/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz
 
 
 NAME=gcc
-VERSION=9.1.0
-URL=https://ftp.gnu.org/gnu/gcc/gcc-9.1.0/gcc-9.1.0.tar.xz
+VERSION=9.2.0
+URL=https://ftp.gnu.org/gnu/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -52,7 +52,6 @@ cd    build                                            &&
 ../configure                                           \
     --prefix=/usr                                      \
     --disable-multilib                                 \
-    --disable-libmpx                                   \
     --with-system-zlib                                 \
     --enable-languages=c,c++,d,fortran,go,objc,obj-c++ &&
 make
@@ -67,7 +66,9 @@ mkdir -pv /usr/share/gdb/auto-load/usr/lib              &&
 mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib &&
 
 chown -v -R root:root \
-    /usr/lib/gcc/*linux-gnu/9.1.0/include{,-fixed}
+    /usr/lib/gcc/*linux-gnu/9.2.0/include{,-fixed}
+
+rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/9.2.0/include-fixed/bits/
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -79,7 +80,7 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ln -v -sf ../usr/bin/cpp /lib          &&
 ln -v -sf gcc /usr/bin/cc              &&
 install -v -dm755 /usr/lib/bfd-plugins &&
-ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/9.1.0/liblto_plugin.so /usr/lib/bfd-plugins/
+ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/9.2.0/liblto_plugin.so /usr/lib/bfd-plugins/
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

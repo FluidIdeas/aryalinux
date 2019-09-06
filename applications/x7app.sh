@@ -71,7 +71,7 @@ e50ffae17eeb3943079620cb78f5ce0b  xmessage-1.0.5.tar.bz2
 51f1d30a525e9903280ffeea2744b1f6  xmodmap-1.0.10.tar.bz2
 eaac255076ea351fd08d76025788d9f9  xpr-1.0.5.tar.bz2
 cc369c28383a5d7144e7197ee7d30bfa  xprop-1.2.4.tar.bz2
-ebffac98021b8f1dc71da0c1918e9b57  xrandr-1.5.0.tar.bz2
+fe40f7a4fd39dd3a02248d3e0b1972e4  xrandr-1.5.1.tar.xz
 34ae801ef994d192c70fcce2bdb2a1b2  xrdb-1.2.0.tar.bz2
 c56fa4adbeed1ee5173f464a4c4a61a6  xrefresh-1.0.6.tar.bz2
 70ea7bc7bacf1a124b1692605883f620  xset-1.2.4.tar.bz2
@@ -97,7 +97,7 @@ as_root()
 export -f as_root
 for package in $(grep -v '^#' ../app-7.md5 | awk '{print $2}')
 do
-  packagedir=${package%.tar.bz2}
+  packagedir=${package%.tar.?z*}
   tar -xf $package
   pushd $packagedir
      case $packagedir in

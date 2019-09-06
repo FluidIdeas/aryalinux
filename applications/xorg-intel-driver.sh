@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20190208.tar.xz
-wget -nc ftp://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20190208.tar.xz
+wget -nc http://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20190723.tar.xz
+wget -nc ftp://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20190723.tar.xz
 
 
 NAME=xorg-intel-driver
-VERSION=20190208
-URL=http://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20190208.tar.xz
+VERSION=20190723
+URL=http://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20190723.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -41,10 +41,6 @@ export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disab
 
 echo $USER > /tmp/currentuser
 
-case $(uname -m) in
-   i?86) sed -i "s/#define force_inline inline __attribute__((always_inline))/#define force_inline inline/" src/sna/compiler.h
-         ;;
-esac
 ./autogen.sh $XORG_CONFIG     \
             --enable-kms-only \
             --enable-uxa      \

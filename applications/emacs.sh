@@ -14,13 +14,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/emacs/emacs-26.2.tar.xz
-wget -nc ftp://ftp.gnu.org/gnu/emacs/emacs-26.2.tar.xz
+wget -nc https://ftp.gnu.org/gnu/emacs/emacs-26.3.tar.xz
+wget -nc ftp://ftp.gnu.org/gnu/emacs/emacs-26.3.tar.xz
 
 
 NAME=emacs
-VERSION=26.2
-URL=https://ftp.gnu.org/gnu/emacs/emacs-26.2.tar.xz
+VERSION=26.3
+URL=https://ftp.gnu.org/gnu/emacs/emacs-26.3.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -46,7 +46,7 @@ make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-chown -v -R root:root /usr/share/emacs/26.2
+chown -v -R root:root /usr/share/emacs/26.3
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

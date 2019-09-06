@@ -21,13 +21,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.10.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.10.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.11.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.11.tar.xz
 
 
 NAME=libgdata
-VERSION=0.17.10
-URL=http://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.10.tar.xz
+VERSION=0.17.11
+URL=http://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.11.tar.xz
 
 if [ ! -z $URL ]
 then

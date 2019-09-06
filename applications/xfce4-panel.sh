@@ -9,18 +9,18 @@ set +h
 
 #REQ:exo
 #REQ:garcon
-#REQ:libwnck2
+#REQ:libwnck
 #REQ:libxfce4ui
 
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/xfce4-panel/4.12/xfce4-panel-4.12.2.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/xfce4-panel/4.14/xfce4-panel-4.14.0.tar.bz2
 
 
 NAME=xfce4-panel
-VERSION=4.12.2
-URL=http://archive.xfce.org/src/xfce/xfce4-panel/4.12/xfce4-panel-4.12.2.tar.bz2
+VERSION=4.14.0
+URL=http://archive.xfce.org/src/xfce/xfce4-panel/4.14/xfce4-panel-4.14.0.tar.bz2
 
 if [ ! -z $URL ]
 then

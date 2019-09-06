@@ -41,7 +41,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i 's/subdir:/install_dir:/' atspi/meson.build
 mkdir build &&
 cd    build &&
 

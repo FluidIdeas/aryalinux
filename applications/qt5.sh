@@ -74,8 +74,6 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 patch -Np1 -i ../qt-5.13.0-upstream_fixes-1.patch &&
-sed -i 's/SIOCGSTAMP/0x8906/' \
-qtserialbus/src/plugins/canbus/socketcan/socketcanbackend.cpp
 sed -i 's/python /python3 /' qtdeclarative/qtdeclarative.pro \
                              qtdeclarative/src/3rdparty/masm/masm.pri &&
 
@@ -198,8 +196,6 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/profile.d/qt5.sh << "EOF"
 # Begin /etc/profile.d/qt5.sh
 
@@ -209,12 +205,6 @@ pathappend $QT5DIR/bin
 
 # End /etc/profile.d/qt5.sh
 EOF
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/sudoers.d/qt << "EOF"

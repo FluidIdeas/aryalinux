@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/acpid2/acpid-2.0.31.tar.xz
+wget -nc https://downloads.sourceforge.net/acpid2/acpid-2.0.32.tar.xz
 
 
 NAME=acpid
-VERSION=2.0.31
-URL=https://downloads.sourceforge.net/acpid2/acpid-2.0.31.tar.xz
+VERSION=2.0.32
+URL=https://downloads.sourceforge.net/acpid2/acpid-2.0.32.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -38,13 +38,13 @@ echo $USER > /tmp/currentuser
 
 
 ./configure --prefix=/usr \
-            --docdir=/usr/share/doc/acpid-2.0.31 &&
+            --docdir=/usr/share/doc/acpid-2.0.32 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install                         &&
 install -v -m755 -d /etc/acpi/events &&
-cp -r samples /usr/share/doc/acpid-2.0.31
+cp -r samples /usr/share/doc/acpid-2.0.32
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

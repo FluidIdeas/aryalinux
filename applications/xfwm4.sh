@@ -7,7 +7,7 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:libwnck2
+#REQ:libwnck
 #REQ:libxfce4ui
 #REQ:libxfce4util
 #REQ:startup-notification
@@ -15,12 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/xfwm4/4.12/xfwm4-4.12.5.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/xfwm4/4.14/xfwm4-4.14.0.tar.bz2
 
 
 NAME=xfwm4
-VERSION=4.12.5
-URL=http://archive.xfce.org/src/xfce/xfwm4/4.12/xfwm4-4.12.5.tar.bz2
+VERSION=4.14.0
+URL=http://archive.xfce.org/src/xfce/xfwm4/4.14/xfwm4-4.14.0.tar.bz2
 
 if [ ! -z $URL ]
 then

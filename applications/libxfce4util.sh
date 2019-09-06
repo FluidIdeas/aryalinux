@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/libxfce4util/4.12/libxfce4util-4.12.1.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/libxfce4util/4.14/libxfce4util-4.14.0.tar.bz2
 
 
 NAME=libxfce4util
-VERSION=4.12.1
-URL=http://archive.xfce.org/src/xfce/libxfce4util/4.12/libxfce4util-4.12.1.tar.bz2
+VERSION=4.14.0
+URL=http://archive.xfce.org/src/xfce/libxfce4util/4.14/libxfce4util-4.14.0.tar.bz2
 
 if [ ! -z $URL ]
 then

@@ -24,12 +24,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/thunderbird/releases/60.8.0/source/thunderbird-60.8.0.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/thunderbird/releases/68.0/source/thunderbird-68.0.source.tar.xz
 
 
 NAME=thunderbird
-VERSION=60.8.0
-URL=https://archive.mozilla.org/pub/thunderbird/releases/60.8.0/source/thunderbird-60.8.0.source.tar.xz
+VERSION=68.0
+URL=https://archive.mozilla.org/pub/thunderbird/releases/68.0/source/thunderbird-68.0.source.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -72,7 +72,6 @@ ac_add_options --disable-dbus
 ac_add_options --disable-necko-wifi
 
 # Uncomment these lines if you have installed optional dependencies:
-#ac_add_options --enable-system-hunspell
 #ac_add_options --enable-startup-notification
 
 # Comment out following option if you have PulseAudio installed
@@ -110,8 +109,6 @@ ac_add_options --enable-official-branding
 ac_add_options --enable-system-ffi
 ac_add_options --enable-system-pixman
 
-ac_add_options --with-pthreads
-
 ac_add_options --with-system-bz2
 ac_add_options --with-system-jpeg
 ac_add_options --with-system-png
@@ -119,6 +116,7 @@ ac_add_options --with-system-zlib
 EOF
 sed -i -e '/#!\[deny(missing_docs)\]/d' servo/components/style/lib.rs &&
 sed -i -e 's/#!\[deny(unsafe_code, missing_docs)\]/#!\[deny(unsafe_code)\]/g' servo/components/style_traits/lib.rs
+sed -i -e '/pid_t gettid/s@^@//@' tools/profiler/core/platform.h
 ./mach build
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

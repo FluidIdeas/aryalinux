@@ -11,6 +11,7 @@ set +h
 #REQ:qt5
 #REQ:libxml2
 #REQ:mpg123
+#REQ:neon
 
 
 cd $SOURCE_DIR
@@ -54,6 +55,8 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+tar -xf ../audacious-plugins-3.10.1.tar.bz2                &&
+cd audacious-plugins-3.10.1                                &&
 TPUT=/bin/true ./configure --prefix=/usr --disable-wavpack &&
 make
 sudo rm -rf /tmp/rootscript.sh

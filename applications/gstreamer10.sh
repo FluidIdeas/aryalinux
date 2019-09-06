@@ -14,6 +14,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.16.0.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/gstreamer-1.16.0-buffer_size_reset_fix-1.patch
 
 
 NAME=gstreamer10
@@ -39,6 +40,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../gstreamer-1.16.0-buffer_size_reset_fix-1.patch
 mkdir build &&
 cd    build &&
 

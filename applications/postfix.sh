@@ -15,6 +15,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.4.6.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/postfix-3.4.6-glibc230_fix-1.patch
 
 
 NAME=postfix
@@ -54,6 +55,7 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 sed -i 's/.\x08//g' README_FILES/*
+patch -Np1 -i ../postfix-3.4.6-glibc230_fix-1.patch
 sed -i -e 's/\$RELEASE_MAJOR/3/' \
        -e '/Linux..3/s/34/345/' makedefs
 make CCARGS="-DUSE_TLS -I/usr/include/openssl/                     \

@@ -11,7 +11,6 @@ set +h
 #REQ:gnutls
 #REQ:libgcrypt
 #REQ:libsecret
-#REQ:networkmanager
 #REQ:telepathy-glib
 
 

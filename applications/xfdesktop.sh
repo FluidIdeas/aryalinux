@@ -8,7 +8,7 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:exo
-#REQ:libwnck2
+#REQ:libwnck
 #REQ:libxfce4ui
 #REQ:libnotify
 #REQ:startup-notification
@@ -17,12 +17,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/xfdesktop/4.12/xfdesktop-4.12.5.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/xfdesktop/4.14/xfdesktop-4.14.1.tar.bz2
 
 
 NAME=xfdesktop
-VERSION=4.12.5
-URL=http://archive.xfce.org/src/xfce/xfdesktop/4.12/xfdesktop-4.12.5.tar.bz2
+VERSION=4.14.1
+URL=http://archive.xfce.org/src/xfce/xfdesktop/4.14/xfdesktop-4.14.1.tar.bz2
 
 if [ ! -z $URL ]
 then

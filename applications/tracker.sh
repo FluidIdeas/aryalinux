@@ -55,6 +55,7 @@ ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
+glib-compile-schemas /usr/share/glib-2.0/schemas
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

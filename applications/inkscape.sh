@@ -19,6 +19,7 @@ set +h
 #REQ:imagemagick6
 #REQ:lcms2
 #REQ:lcms
+#REQ:libcanberra
 #REQ:potrace
 #REQ:python-modules#lxml
 #REQ:python-modules#scour

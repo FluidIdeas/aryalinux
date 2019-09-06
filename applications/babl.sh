@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gimp.org/pub/babl/0.1/babl-0.1.70.tar.xz
+wget -nc https://download.gimp.org/pub/babl/0.1/babl-0.1.72.tar.xz
 
 
 NAME=babl
-VERSION=0.1.70
-URL=https://download.gimp.org/pub/babl/0.1/babl-0.1.70.tar.xz
+VERSION=0.1.72
+URL=https://download.gimp.org/pub/babl/0.1/babl-0.1.72.tar.xz
 
 if [ ! -z $URL ]
 then

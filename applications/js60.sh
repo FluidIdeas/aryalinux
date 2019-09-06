@@ -9,7 +9,6 @@ set +h
 
 #REQ:autoconf213
 #REQ:icu
-#REQ:nspr
 #REQ:python2
 #REQ:x7lib
 #REQ:zip
@@ -17,14 +16,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/teams/releng/tarballs-needing-help/mozjs/mozjs-60.1.0.tar.bz2
-wget -nc ftp://ftp.gnome.org/pub/gnome/teams/releng/tarballs-needing-help/mozjs/mozjs-60.1.0.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/js60-60.1.0-security_fix-1.patch
+wget -nc http://ftp.gnome.org/pub/gnome/teams/releng/tarballs-needing-help/mozjs/mozjs-60.8.0.tar.bz2
+wget -nc ftp://ftp.gnome.org/pub/gnome/teams/releng/tarballs-needing-help/mozjs/mozjs-60.8.0.tar.bz2
 
 
 NAME=js60
-VERSION=60.1.0
-URL=http://ftp.gnome.org/pub/gnome/teams/releng/tarballs-needing-help/mozjs/mozjs-60.1.0.tar.bz2
+VERSION=60.8.0
+URL=http://ftp.gnome.org/pub/gnome/teams/releng/tarballs-needing-help/mozjs/mozjs-60.8.0.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -45,14 +43,12 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../js60-60.1.0-security_fix-1.patch
 mkdir mozjs-build &&
 cd    mozjs-build &&
 
 ../js/src/configure --prefix=/usr       \
                     --with-intl-api     \
                     --with-system-zlib  \
-                    --with-system-nspr  \
                     --with-system-icu   \
                     --disable-jemalloc  \
                     --enable-readline   &&

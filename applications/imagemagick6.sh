@@ -12,14 +12,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.imagemagick.org/download/releases/ImageMagick-6.9.10-27.tar.xz
-wget -nc ftp://ftp.imagemagick.org/pub/ImageMagick/releases/ImageMagick-6.9.10-27.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/ImageMagick-6.9.10-27-libs_only-1.patch
+wget -nc https://www.imagemagick.org/download/releases/ImageMagick-6.9.10-60.tar.xz
+wget -nc ftp://ftp.imagemagick.org/pub/ImageMagick/releases/ImageMagick-6.9.10-60.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/ImageMagick-6.9.10-60-libs_only-1.patch
 
 
 NAME=imagemagick6
 VERSION=6.9.1
-URL=https://www.imagemagick.org/download/releases/ImageMagick-6.9.10-27.tar.xz
+URL=https://www.imagemagick.org/download/releases/ImageMagick-6.9.10-60.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -40,7 +40,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../ImageMagick-6.9.10-27-libs_only-1.patch &&
+patch -Np1 -i ../ImageMagick-6.9.10-60-libs_only-1.patch &&
 autoreconf -fi                                          &&
 ./configure --prefix=/usr     \
             --sysconfdir=/etc \

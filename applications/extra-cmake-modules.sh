@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/frameworks/5.60/extra-cmake-modules-5.60.0.tar.xz
+wget -nc http://download.kde.org/stable/frameworks/5.61/extra-cmake-modules-5.61.0.tar.xz
 
 
 NAME=extra-cmake-modules
-VERSION=5.60.0
-URL=http://download.kde.org/stable/frameworks/5.60/extra-cmake-modules-5.60.0.tar.xz
+VERSION=5.61.0
+URL=http://download.kde.org/stable/frameworks/5.61/extra-cmake-modules-5.61.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -39,6 +39,10 @@ echo $USER > /tmp/currentuser
 
 
 sed -i '/"lib64"/s/64//' kde-modules/KDEInstallDirs.cmake &&
+
+sed -e '/PACKAGE_INIT/i set(SAVE_PACKAGE_PREFIX_DIR "${PACKAGE_PREFIX_DIR}")' \
+    -e '/^include/a set(PACKAGE_PREFIX_DIR "${SAVE_PACKAGE_PREFIX_DIR}")' \
+    -i ECMConfig.cmake.in &&
 
 mkdir build &&
 cd    build &&

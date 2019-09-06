@@ -12,12 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/applications/19.04.1/src/konsole-19.04.1.tar.xz
+wget -nc http://download.kde.org/stable/applications/19.08.0/src/konsole-19.08.0.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/konsole-19.08.0-scrollbar-1.patch
 
 
 NAME=konsole5
-VERSION=19.04.1
-URL=http://download.kde.org/stable/applications/19.04.1/src/konsole-19.04.1.tar.xz
+VERSION=19.08.0
+URL=http://download.kde.org/stable/applications/19.08.0/src/konsole-19.08.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -38,6 +39,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../konsole-19.08.0-scrollbar-1.patch
 mkdir build &&
 cd    build &&
 

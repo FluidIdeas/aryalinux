@@ -12,7 +12,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/pcre/pcre2-10.33.tar.bz2
-wget -nc ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre2-10.33.tar.bz2
 
 
 NAME=pcre2

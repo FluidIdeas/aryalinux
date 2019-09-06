@@ -50,8 +50,7 @@ echo $USER > /tmp/currentuser
 sed -i -r 's:"(/desktop):"/org/gnome\1:' schema/*.xml &&
 
 ./configure --prefix=/usr     \
-            --sysconfdir=/etc \
-            --without-gtk-doc &&
+            --sysconfdir=/etc &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

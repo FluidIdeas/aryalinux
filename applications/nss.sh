@@ -14,13 +14,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/security/nss/releases/NSS_3_45_RTM/src/nss-3.45.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/nss-3.45-standalone-1.patch
+wget -nc https://archive.mozilla.org/pub/security/nss/releases/NSS_3_46_RTM/src/nss-3.46.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/nss-3.46-standalone-1.patch
 
 
 NAME=nss
-VERSION=3.45
-URL=https://archive.mozilla.org/pub/security/nss/releases/NSS_3_45_RTM/src/nss-3.45.tar.gz
+VERSION=3.46
+URL=https://archive.mozilla.org/pub/security/nss/releases/NSS_3_46_RTM/src/nss-3.46.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -41,7 +41,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../nss-3.45-standalone-1.patch &&
+patch -Np1 -i ../nss-3.46-standalone-1.patch &&
 
 cd nss &&
 

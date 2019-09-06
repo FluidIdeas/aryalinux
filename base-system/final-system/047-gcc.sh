@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=gcc-9.1.0.tar.xz
+TARBALL=gcc-9.2.0.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -36,11 +36,13 @@ SED=sed                               \
              --with-system-zlib
 make
 make install
-rm -rf /usr/lib/gcc/x86_64-pc-linux-gnu/9.1.0/include-fixed/bits/
+rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/9.2.0/include-fixed/bits/
+chown -v -R root:root \
+    /usr/lib/gcc/*linux-gnu/9.2.0/include{,-fixed}
 ln -sv ../usr/bin/cpp /lib
 ln -sv gcc /usr/bin/cc
 install -v -dm755 /usr/lib/bfd-plugins
-ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/9.1.0/liblto_plugin.so \
+ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/9.2.0/liblto_plugin.so \
         /usr/lib/bfd-plugins/
 echo 'int main(){}' > dummy.c
 cc dummy.c -v -Wl,--verbose &> dummy.log

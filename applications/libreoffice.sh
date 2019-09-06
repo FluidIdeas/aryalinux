@@ -33,6 +33,7 @@ set +h
 #REQ:librsvg
 #REQ:libxml2
 #REQ:libxslt
+#REQ:python-modules#lxml
 #REQ:mesa
 #REQ:neon
 #REQ:nss
@@ -45,15 +46,15 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.documentfoundation.org/libreoffice/src/6.2.5/libreoffice-6.2.5.2.tar.xz
-wget -nc http://download.documentfoundation.org/libreoffice/src/6.2.5/libreoffice-dictionaries-6.2.5.2.tar.xz
-wget -nc http://download.documentfoundation.org/libreoffice/src/6.2.5/libreoffice-help-6.2.5.2.tar.xz
-wget -nc http://download.documentfoundation.org/libreoffice/src/6.2.5/libreoffice-translations-6.2.5.2.tar.xz
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.3.0/libreoffice-6.3.0.4.tar.xz
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.3.0/libreoffice-dictionaries-6.3.0.4.tar.xz
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.3.0/libreoffice-help-6.3.0.4.tar.xz
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.3.0/libreoffice-translations-6.3.0.4.tar.xz
 
 
 NAME=libreoffice
-VERSION=6.2.5.2
-URL=http://download.documentfoundation.org/libreoffice/src/6.2.5/libreoffice-6.2.5.2.tar.xz
+VERSION=6.3.0.4
+URL=http://download.documentfoundation.org/libreoffice/src/6.3.0/libreoffice-6.3.0.4.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -75,15 +76,19 @@ echo $USER > /tmp/currentuser
 
 
 install -dm755 external/tarballs &&
-ln -sv ../../../libreoffice-dictionaries-6.2.5.2.tar.xz external/tarballs/ &&
-ln -sv ../../../libreoffice-help-6.2.5.2.tar.xz         external/tarballs/
-ln -sv ../../../libreoffice-translations-6.2.5.2.tar.xz external/tarballs/
+ln -sv ../../../libreoffice-dictionaries-6.3.0.4.tar.xz external/tarballs/ &&
+ln -sv ../../../libreoffice-help-6.3.0.4.tar.xz         external/tarballs/
+ln -sv ../../../libreoffice-translations-6.3.0.4.tar.xz external/tarballs/
 export LO_PREFIX=/usr
 sed -e "/gzip -f/d"   \
     -e "s|.1.gz|.1|g" \
     -i bin/distro-install-desktop-integration &&
 
 sed -e "/distro-install-file-lists/d" -i Makefile.in &&
+
+sed -e '/JAVA_SOURCE_VER/s/6/7/' \
+    -e '/JAVA_TARGET_VER/s/6/7/' \
+    -i configure.ac
 
 
 ./autogen.sh --prefix=$LO_PREFIX         \
@@ -95,14 +100,16 @@ sed -e "/distro-install-file-lists/d" -i Makefile.in &&
              --without-junit             \
              --without-system-dicts      \
              --disable-dconf             \
+             -disable-gtk -enable-gtk3   \
              --disable-odk               \
              --enable-release-build=yes  \
              --enable-python=system      \
+             --with-jdk-home=/opt/jdk    \
              --with-system-apr           \
              --with-system-boost         \
-             --with-system-cairo         \
              --with-system-clucene       \
              --with-system-curl          \
+             --with-system-epoxy         \
              --with-system-expat         \
              --with-system-glm           \
              --with-system-gpgmepp       \

@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://gitlab.freedesktop.org/vdpau/libvdpau/uploads/14b620084c027d546fa0b3f083b800c6/libvdpau-1.2.tar.bz2
+wget -nc https://gitlab.freedesktop.org/vdpau/libvdpau/-/archive/1.3/libvdpau-1.3.tar.bz2
 
 
 NAME=libvdpau
-VERSION=1.2
-URL=https://gitlab.freedesktop.org/vdpau/libvdpau/uploads/14b620084c027d546fa0b3f083b800c6/libvdpau-1.2.tar.bz2
+VERSION=1.3
+URL=https://gitlab.freedesktop.org/vdpau/libvdpau/-/archive/1.3/libvdpau-1.3.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -35,16 +35,19 @@ fi
 cd $DIRECTORY
 fi
 
-export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
+export XORG_PREFIX="/usr"
 
 echo $USER > /tmp/currentuser
 
-./configure $XORG_CONFIG \
-            --docdir=/usr/share/doc/libvdpau-1.2 &&
-make
+mkdir build &&
+cd    build &&
+
+meson --prefix=$XORG_PREFIX ..
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install &&
+mv -v $XORG_PREFIX/share/doc/libvdpau $XORG_PREFIX/share/doc/libvdpau-1.3
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

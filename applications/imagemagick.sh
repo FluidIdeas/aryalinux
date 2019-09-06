@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.imagemagick.org/download/releases/ImageMagick-7.0.8-27.tar.xz
-wget -nc ftp://ftp.imagemagick.org/pub/ImageMagick/releases/ImageMagick-7.0.8-27.tar.xz
+wget -nc https://www.imagemagick.org/download/releases/ImageMagick-7.0.8-60.tar.xz
+wget -nc ftp://ftp.imagemagick.org/pub/ImageMagick/releases/ImageMagick-7.0.8-60.tar.xz
 
 
 NAME=imagemagick
 VERSION=7.0.
-URL=https://www.imagemagick.org/download/releases/ImageMagick-7.0.8-27.tar.xz
+URL=https://www.imagemagick.org/download/releases/ImageMagick-7.0.8-60.tar.xz
 
 if [ ! -z $URL ]
 then

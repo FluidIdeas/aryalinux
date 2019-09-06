@@ -8,16 +8,17 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:cmake
+#REQ:git
 
 
 cd $SOURCE_DIR
 
-wget -nc http://doxygen.nl/files/doxygen-1.8.15.src.tar.gz
+wget -nc http://doxygen.nl/files/doxygen-1.8.16.src.tar.gz
 
 
 NAME=doxygen
-VERSION=1.8.15
-URL=http://doxygen.nl/files/doxygen-1.8.15.src.tar.gz
+VERSION=1.8.16
+URL=http://doxygen.nl/files/doxygen-1.8.16.src.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -47,7 +48,7 @@ cmake -G "Unix Makefiles"         \
       -Wno-dev .. &&
 
 make
-cmake -DDOC_INSTALL_DIR=share/doc/doxygen-1.8.15 -Dbuild_doc=ON .. &&
+cmake -DDOC_INSTALL_DIR=share/doc/doxygen-1.8.16 -Dbuild_doc=ON .. &&
 
 make docs
 sudo rm -rf /tmp/rootscript.sh

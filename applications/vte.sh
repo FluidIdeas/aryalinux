@@ -12,6 +12,7 @@ set +h
 #REQ:pcre2
 #REQ:gobject-introspection
 #REQ:gnutls
+#REQ:vala
 
 
 cd $SOURCE_DIR

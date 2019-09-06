@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.bz2
+wget -nc https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.bz2
 
 
 NAME=boost
 VERSION=
-URL=https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.bz2
+URL=https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.bz2
 
 if [ ! -z $URL ]
 then

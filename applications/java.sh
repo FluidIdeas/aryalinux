@@ -16,7 +16,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-11.0.2/OpenJDK-11.0.2+9-i686-bin.tar.xz
-wget -nc https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz
+wget -nc https://download.java.net/java/GA/jdk12.0.2/e482c34c86bd4bf8b56c0b35558996b9/10/GPL/openjdk-12.0.2_linux-x64_bin.tar.gz
 
 
 NAME=java
@@ -44,9 +44,9 @@ echo $USER > /tmp/currentuser
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -vdm755 /opt/OpenJDK-11.0.2+9-bin &&
-mv -v * /opt/OpenJDK-11.0.2+9-bin         &&
-chown -R root:root /opt/OpenJDK-11.0.2+9-bin
+install -vdm755 /opt/OpenJDK-12.0.2+10-bin &&
+mv -v * /opt/OpenJDK-12.0.2+10-bin         &&
+chown -R root:root /opt/OpenJDK-12.0.2+10-bin
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -55,7 +55,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ln -sfn OpenJDK-11.0.2+9-bin /opt/jdk
+ln -sfn OpenJDK-12.0.2+10-bin /opt/jdk
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -16,13 +16,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk-doc/1.31/gtk-doc-1.31.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk-doc/1.31/gtk-doc-1.31.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk-doc/1.32/gtk-doc-1.32.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk-doc/1.32/gtk-doc-1.32.tar.xz
 
 
 NAME=gtk-doc
-VERSION=1.31
-URL=http://ftp.gnome.org/pub/gnome/sources/gtk-doc/1.31/gtk-doc-1.31.tar.xz
+VERSION=1.32
+URL=http://ftp.gnome.org/pub/gnome/sources/gtk-doc/1.32/gtk-doc-1.32.tar.xz
 
 if [ ! -z $URL ]
 then

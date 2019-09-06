@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=102-e2fsprogs
+NAME=100-e2fsprogs
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

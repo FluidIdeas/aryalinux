@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/logrotate/logrotate/releases/download/3.15.0/logrotate-3.15.0.tar.xz
+wget -nc https://github.com/logrotate/logrotate/releases/download/3.15.1/logrotate-3.15.1.tar.xz
 
 
 NAME=logrotate
-VERSION=3.15.0
-URL=https://github.com/logrotate/logrotate/releases/download/3.15.0/logrotate-3.15.0.tar.xz
+VERSION=3.15.1
+URL=https://github.com/logrotate/logrotate/releases/download/3.15.1/logrotate-3.15.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -131,8 +131,6 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/logrotate.d/example.log << EOF
 file1
 file2
@@ -145,12 +143,6 @@ file3 {
 EOF
 
 chmod -v 0644 /etc/logrotate.d/example.log
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /lib/systemd/system/logrotate.service << "EOF" &&

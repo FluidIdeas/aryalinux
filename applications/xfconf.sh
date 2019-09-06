@@ -7,18 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:dbus-glib
 #REQ:libxfce4util
 
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/xfconf/4.12/xfconf-4.12.1.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/xfconf/4.14/xfconf-4.14.1.tar.bz2
 
 
 NAME=xfconf
-VERSION=4.12.1
-URL=http://archive.xfce.org/src/xfce/xfconf/4.12/xfconf-4.12.1.tar.bz2
+VERSION=4.14.1
+URL=http://archive.xfce.org/src/xfce/xfconf/4.14/xfconf-4.14.1.tar.bz2
 
 if [ ! -z $URL ]
 then

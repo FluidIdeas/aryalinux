@@ -47,12 +47,21 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-su $(whoami)
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+usermod -G scanner -a username
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sg scanner -c "                  \
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \
             --localstatedir=/var \
             --with-group=scanner \
-            --with-docdir=/usr/share/doc/sane-backends-1.0.27 &&
+            --with-docdir=/usr/share/doc/sane-backends-1.0.27" &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -65,6 +74,9 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+
+tar -xf ../sane-frontends-1.0.14.tar.gz &&
+cd sane-frontends-1.0.14                &&
 
 sed -i -e "/SANE_CAP_ALWAYS_SETTABLE/d" src/gtkglue.c &&
 ./configure --prefix=/usr --mandir=/usr/share/man &&

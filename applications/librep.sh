@@ -41,6 +41,7 @@ echo $USER > /tmp/currentuser
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+sed -i '5043,5044 d' libtool &&
 make install
 ENDOFROOTSCRIPT
 

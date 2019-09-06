@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/gsl/gsl-2.5.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/gsl/gsl-2.5.tar.gz
+wget -nc https://ftp.gnu.org/gnu/gsl/gsl-2.6.tar.gz
+wget -nc ftp://ftp.gnu.org/gnu/gsl/gsl-2.6.tar.gz
 
 
 NAME=gsl
-VERSION=2.5
-URL=https://ftp.gnu.org/gnu/gsl/gsl-2.5.tar.gz
+VERSION=2.6
+URL=https://ftp.gnu.org/gnu/gsl/gsl-2.6.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -52,8 +52,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir                   /usr/share/doc/gsl-2.5 &&
-cp -R doc/_build/html/* /usr/share/doc/gsl-2.5
+mkdir                   /usr/share/doc/gsl-2.6 &&
+cp -R doc/_build/html/* /usr/share/doc/gsl-2.6
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

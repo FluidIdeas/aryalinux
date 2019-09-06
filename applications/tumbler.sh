@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/tumbler/0.2/tumbler-0.2.6.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/tumbler/0.2/tumbler-0.2.7.tar.bz2
 
 
 NAME=tumbler
-VERSION=0.2.6
-URL=http://archive.xfce.org/src/xfce/tumbler/0.2/tumbler-0.2.6.tar.bz2
+VERSION=0.2.7
+URL=http://archive.xfce.org/src/xfce/tumbler/0.2/tumbler-0.2.7.tar.bz2
 
 if [ ! -z $URL ]
 then

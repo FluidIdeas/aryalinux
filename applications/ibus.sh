@@ -17,13 +17,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/ibus/ibus/releases/download/1.5.20/ibus-1.5.20.tar.gz
+wget -nc https://github.com/ibus/ibus/releases/download/1.5.21/ibus-1.5.21.tar.gz
 wget -nc https://www.unicode.org/Public/zipped/10.0.0/UCD.zip
 
 
 NAME=ibus
-VERSION=1.5.20
-URL=https://github.com/ibus/ibus/releases/download/1.5.20/ibus-1.5.20.tar.gz
+VERSION=1.5.21
+URL=https://github.com/ibus/ibus/releases/download/1.5.21/ibus-1.5.21.tar.gz
 
 if [ ! -z $URL ]
 then

@@ -25,6 +25,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.16.0.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/gst-plugins-good-1.16.0-v4l2_fix-1.patch
 wget -nc https://gitlab.freedesktop.org/gstreamer/gst-plugins-good/merge_requests/292.diff
 
 
@@ -52,6 +53,8 @@ echo $USER > /tmp/currentuser
 
 
 patch -Np1 -i ../292.diff
+patch -Np1 -i ../gst-plugins-good-1.16.0-v4l2_fix-1.patch &&
+
 mkdir build &&
 cd    build &&
 

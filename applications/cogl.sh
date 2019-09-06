@@ -45,8 +45,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i 's/^#if COGL/#ifdef COGL/' cogl/winsys/cogl-winsys-egl.c &&
-
 ./configure --prefix=/usr --enable-gles1 --enable-gles2         \
     --enable-{kms,wayland,xlib}-egl-platform                    \
     --enable-wayland-egl-server                                 &&
