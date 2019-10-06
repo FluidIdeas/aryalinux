@@ -35,13 +35,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.qt.io/archive/qt/5.13/5.13.0/single/qt-everywhere-src-5.13.0.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/qt-5.13.0-upstream_fixes-1.patch
+wget -nc https://download.qt.io/archive/qt/5.13/5.13.1/single/qt-everywhere-src-5.13.1.tar.xz
 
 
 NAME=qt5
-VERSION=5.13.0
-URL=https://download.qt.io/archive/qt/5.13/5.13.0/single/qt-everywhere-src-5.13.0.tar.xz
+VERSION=5.13.1
+URL=https://download.qt.io/archive/qt/5.13/5.13.1/single/qt-everywhere-src-5.13.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -65,15 +64,14 @@ echo $USER > /tmp/currentuser
 export QT5PREFIX=/opt/qt5
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir /opt/qt-5.13.0
-ln -sfnv qt-5.13.0 /opt/qt5
+mkdir /opt/qt-5.13.1
+ln -sfnv qt-5.13.1 /opt/qt5
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-patch -Np1 -i ../qt-5.13.0-upstream_fixes-1.patch &&
 sed -i 's/python /python3 /' qtdeclarative/qtdeclarative.pro \
                              qtdeclarative/src/3rdparty/masm/masm.pri &&
 

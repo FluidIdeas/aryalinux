@@ -39,7 +39,7 @@ echo $USER > /tmp/currentuser
 
 
 ./bootstrap.sh --prefix=/usr &&
-./b2 stage threading=multi link=shared
+./b2 stage -j<N> threading=multi link=shared
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ./b2 install threading=multi link=shared                 &&

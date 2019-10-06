@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.tcpdump.org/release/libpcap-1.9.0.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/libpcap-1.9.0-enable_bluetooth-1.patch
+wget -nc http://www.tcpdump.org/release/libpcap-1.9.1.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/libpcap-1.9.1-enable_bluetooth-1.patch
 
 
 NAME=libpcap
-VERSION=1.9.0
-URL=http://www.tcpdump.org/release/libpcap-1.9.0.tar.gz
+VERSION=1.9.1
+URL=http://www.tcpdump.org/release/libpcap-1.9.1.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -38,7 +38,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../libpcap-1.9.0-enable_bluetooth-1.patch &&
+patch -Np1 -i ../libpcap-1.9.1-enable_bluetooth-1.patch &&
 
 ./configure --prefix=/usr &&
 make

@@ -46,8 +46,7 @@ meson --prefix=$XORG_PREFIX ..
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install &&
-mv -v $XORG_PREFIX/share/doc/libvdpau $XORG_PREFIX/share/doc/libvdpau-1.3
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

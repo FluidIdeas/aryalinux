@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://sebastien.godard.pagesperso-orange.fr/sysstat-12.1.6.tar.xz
+wget -nc http://sebastien.godard.pagesperso-orange.fr/sysstat-12.1.7.tar.xz
 
 
 NAME=sysstat
-VERSION=12.1.6
-URL=http://sebastien.godard.pagesperso-orange.fr/sysstat-12.1.6.tar.xz
+VERSION=12.1.7
+URL=http://sebastien.godard.pagesperso-orange.fr/sysstat-12.1.7.tar.xz
 
 if [ ! -z $URL ]
 then

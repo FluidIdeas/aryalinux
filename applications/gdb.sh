@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/gdb/gdb-8.3.tar.xz
-wget -nc ftp://ftp.gnu.org/gnu/gdb/gdb-8.3.tar.xz
+wget -nc https://ftp.gnu.org/gnu/gdb/gdb-8.3.1.tar.xz
+wget -nc ftp://ftp.gnu.org/gnu/gdb/gdb-8.3.1.tar.xz
 
 
 NAME=gdb
-VERSION=8.3
-URL=https://ftp.gnu.org/gnu/gdb/gdb-8.3.tar.xz
+VERSION=8.3.1
+URL=https://ftp.gnu.org/gnu/gdb/gdb-8.3.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -60,9 +60,9 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -d /usr/share/doc/gdb-8.3 &&
+install -d /usr/share/doc/gdb-8.3.1 &&
 rm -rf gdb/doc/doxy/xml &&
-cp -Rv gdb/doc/doxy /usr/share/doc/gdb-8.3
+cp -Rv gdb/doc/doxy /usr/share/doc/gdb-8.3.1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=098-procps-ng
+NAME=100-procps-ng
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
@@ -25,7 +25,8 @@ cd $DIRECTORY
             --libdir=/usr/lib                        \
             --docdir=/usr/share/doc/procps-ng-3.3.15 \
             --disable-static                         \
-            --disable-kill
+            --disable-kill                           \
+            --with-systemd
 make
 make install
 mv -v /usr/lib/libprocps.so.* /lib

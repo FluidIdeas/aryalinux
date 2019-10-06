@@ -10,18 +10,17 @@ set +h
 #REQ:gst10-plugins-base
 #REQ:libdvdread
 #REQ:libdvdnav
-#REQ:llvm
 #REQ:soundtouch
 
 
 cd $SOURCE_DIR
 
-wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.16.0.tar.xz
+wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.16.1.tar.xz
 
 
 NAME=gst10-plugins-bad
-VERSION=1.16.0
-URL=https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.16.0.tar.xz
+VERSION=1.16.1
+URL=https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.16.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -48,7 +47,7 @@ cd    build &&
 meson  --prefix=/usr       \
        -Dbuildtype=release \
        -Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
-       -Dpackage-name="GStreamer 1.16.0 BLFS" &&
+       -Dpackage-name="GStreamer 1.16.1 BLFS" &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

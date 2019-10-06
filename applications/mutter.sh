@@ -26,14 +26,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/mutter/3.32/mutter-3.32.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/mutter/3.32/mutter-3.32.2.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/mutter-3.32.2-upstream_fixes-1.patch
+wget -nc http://ftp.gnome.org/pub/gnome/sources/mutter/3.34/mutter-3.34.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/mutter/3.34/mutter-3.34.0.tar.xz
 
 
 NAME=mutter
-VERSION=3.32.2
-URL=http://ftp.gnome.org/pub/gnome/sources/mutter/3.32/mutter-3.32.2.tar.xz
+VERSION=3.34.0
+URL=http://ftp.gnome.org/pub/gnome/sources/mutter/3.34/mutter-3.34.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -54,11 +53,10 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../mutter-3.32.2-upstream_fixes-1.patch
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr -Dprofiler=false .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

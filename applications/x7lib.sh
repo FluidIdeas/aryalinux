@@ -57,7 +57,7 @@ e5e06eb14a608b58746bdd1c0bd7b8e3  libXaw-1.0.13.tar.bz2
 9b9be0e289130fb820aedf67705fc549  libXcursor-1.2.0.tar.bz2
 e3f554267a7a04b042dc1f6352bd6d99  libXdamage-1.1.5.tar.bz2
 6447db6a689fb530c218f0f8328c3abc  libfontenc-1.1.4.tar.bz2
-b7ca87dfafeb5205b28a1e91ac3efe85  libXfont2-2.0.3.tar.bz2
+00516bed7ec1453d56974560379fff2f  libXfont2-2.0.4.tar.bz2
 4a433c24627b4ff60a4dd403a0990796  libXft-2.3.3.tar.bz2
 62c4af0839072024b4b1c8cbe84216c7  libXi-1.7.10.tar.bz2
 0d5f826a197dae74da67af4a9ef35885  libXinerama-1.1.4.tar.bz2
@@ -65,7 +65,7 @@ b7ca87dfafeb5205b28a1e91ac3efe85  libXfont2-2.0.3.tar.bz2
 5d6d443d1abc8e1f6fc1c57fb27729bb  libXres-1.2.0.tar.bz2
 ef8c2c1d16a00bd95b9fdcef63b8a2ca  libXtst-1.2.3.tar.bz2
 210b6ef30dda2256d54763136faa37b9  libXv-1.0.11.tar.bz2
-707175185a2e0490b8173686c657324f  libXvMC-1.0.11.tar.bz2
+3569ff7f3e26864d986d6a21147eaa58  libXvMC-1.0.12.tar.bz2
 0ddeafc13b33086357cfa96fae41ee8e  libXxf86dga-1.1.5.tar.bz2
 298b8fff82df17304dfdb5fe4066fe3a  libXxf86vm-1.1.4.tar.bz2
 d2f1f0ec68ac3932dd7f1d9aa0a7a11c  libdmx-1.1.4.tar.bz2

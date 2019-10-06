@@ -14,13 +14,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.4.6.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/postfix-3.4.6-glibc230_fix-1.patch
+wget -nc ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.4.7.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/postfix-3.4.7-glibc230_fix-1.patch
 
 
 NAME=postfix
-VERSION=3.4.6
-URL=ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.4.6.tar.gz
+VERSION=3.4.7
+URL=ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.4.7.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -55,9 +55,7 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 sed -i 's/.\x08//g' README_FILES/*
-patch -Np1 -i ../postfix-3.4.6-glibc230_fix-1.patch
-sed -i -e 's/\$RELEASE_MAJOR/3/' \
-       -e '/Linux..3/s/34/345/' makedefs
+patch -Np1 -i ../postfix-3.4.7-glibc230_fix-1.patch
 make CCARGS="-DUSE_TLS -I/usr/include/openssl/                     \
              -DUSE_SASL_AUTH -DUSE_CYRUS_SASL -I/usr/include/sasl" \
      AUXLIBS="-lssl -lcrypto -lsasl2"                              \
@@ -68,8 +66,8 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 sh postfix-install -non-interactive \
    daemon_directory=/usr/lib/postfix \
    manpage_directory=/usr/share/man \
-   html_directory=/usr/share/doc/postfix-3.4.6/html \
-   readme_directory=/usr/share/doc/postfix-3.4.6/readme
+   html_directory=/usr/share/doc/postfix-3.4.7/html \
+   readme_directory=/usr/share/doc/postfix-3.4.7/readme
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

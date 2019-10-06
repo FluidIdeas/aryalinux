@@ -24,14 +24,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.16.0.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/gst-plugins-good-1.16.0-v4l2_fix-1.patch
+wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.16.1.tar.xz
 wget -nc https://gitlab.freedesktop.org/gstreamer/gst-plugins-good/merge_requests/292.diff
 
 
 NAME=gst10-plugins-good
-VERSION=1.16.0
-URL=https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.16.0.tar.xz
+VERSION=1.16.1
+URL=https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.16.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -53,15 +52,13 @@ echo $USER > /tmp/currentuser
 
 
 patch -Np1 -i ../292.diff
-patch -Np1 -i ../gst-plugins-good-1.16.0-v4l2_fix-1.patch &&
-
 mkdir build &&
 cd    build &&
 
 meson  --prefix=/usr       \
        -Dbuildtype=release \
        -Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
-       -Dpackage-name="GStreamer 1.16.0 BLFS" &&
+       -Dpackage-name="GStreamer 1.16.1 BLFS" &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

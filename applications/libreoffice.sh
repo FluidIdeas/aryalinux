@@ -46,15 +46,15 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.documentfoundation.org/libreoffice/src/6.3.0/libreoffice-6.3.0.4.tar.xz
-wget -nc http://download.documentfoundation.org/libreoffice/src/6.3.0/libreoffice-dictionaries-6.3.0.4.tar.xz
-wget -nc http://download.documentfoundation.org/libreoffice/src/6.3.0/libreoffice-help-6.3.0.4.tar.xz
-wget -nc http://download.documentfoundation.org/libreoffice/src/6.3.0/libreoffice-translations-6.3.0.4.tar.xz
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.3.2/libreoffice-6.3.2.2.tar.xz
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.3.2/libreoffice-dictionaries-6.3.2.2.tar.xz
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.3.2/libreoffice-help-6.3.2.2.tar.xz
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.3.2/libreoffice-translations-6.3.2.2.tar.xz
 
 
 NAME=libreoffice
-VERSION=6.3.0.4
-URL=http://download.documentfoundation.org/libreoffice/src/6.3.0/libreoffice-6.3.0.4.tar.xz
+VERSION=6.3.2.2
+URL=http://download.documentfoundation.org/libreoffice/src/6.3.2/libreoffice-6.3.2.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -76,9 +76,9 @@ echo $USER > /tmp/currentuser
 
 
 install -dm755 external/tarballs &&
-ln -sv ../../../libreoffice-dictionaries-6.3.0.4.tar.xz external/tarballs/ &&
-ln -sv ../../../libreoffice-help-6.3.0.4.tar.xz         external/tarballs/
-ln -sv ../../../libreoffice-translations-6.3.0.4.tar.xz external/tarballs/
+ln -sv ../../../libreoffice-dictionaries-6.3.2.2.tar.xz external/tarballs/ &&
+ln -sv ../../../libreoffice-help-6.3.2.2.tar.xz         external/tarballs/
+ln -sv ../../../libreoffice-translations-6.3.2.2.tar.xz external/tarballs/
 export LO_PREFIX=/usr
 sed -e "/gzip -f/d"   \
     -e "s|.1.gz|.1|g" \

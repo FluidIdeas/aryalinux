@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://curl.haxx.se/download/curl-7.65.3.tar.xz
+wget -nc https://curl.haxx.se/download/curl-7.66.0.tar.xz
 
 
 NAME=curl
-VERSION=7.65.3
-URL=https://curl.haxx.se/download/curl-7.65.3.tar.xz
+VERSION=7.66.0
+URL=https://curl.haxx.se/download/curl-7.66.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -51,8 +51,8 @@ rm -rf docs/examples/.deps &&
 
 find docs \( -name Makefile\* -o -name \*.1 -o -name \*.3 \) -exec rm {} \; &&
 
-install -v -d -m755 /usr/share/doc/curl-7.65.3 &&
-cp -v -R docs/*     /usr/share/doc/curl-7.65.3
+install -v -d -m755 /usr/share/doc/curl-7.66.0 &&
+cp -v -R docs/*     /usr/share/doc/curl-7.66.0
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

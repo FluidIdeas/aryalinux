@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.kernel.org/pub/linux/utils/raid/mdadm/mdadm-4.0.tar.xz
+wget -nc https://www.kernel.org/pub/linux/utils/raid/mdadm/mdadm-4.1.tar.xz
 
 
 NAME=mdadm
-VERSION=4.0
-URL=https://www.kernel.org/pub/linux/utils/raid/mdadm/mdadm-4.0.tar.xz
+VERSION=4.1
+URL=https://www.kernel.org/pub/linux/utils/raid/mdadm/mdadm-4.1.tar.xz
 
 if [ ! -z $URL ]
 then

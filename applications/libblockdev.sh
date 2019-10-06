@@ -16,12 +16,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/storaged-project/libblockdev/releases/download/2.22-1/libblockdev-2.22.tar.gz
+wget -nc https://github.com/storaged-project/libblockdev/releases/download/2.23-1/libblockdev-2.23.tar.gz
 
 
 NAME=libblockdev
-VERSION=2.22
-URL=https://github.com/storaged-project/libblockdev/releases/download/2.22-1/libblockdev-2.22.tar.gz
+VERSION=2.23
+URL=https://github.com/storaged-project/libblockdev/releases/download/2.23-1/libblockdev-2.23.tar.gz
 
 if [ ! -z $URL ]
 then

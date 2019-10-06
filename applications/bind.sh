@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.isc.org/isc/bind9/9.14.5/bind-9.14.5.tar.gz
+wget -nc ftp://ftp.isc.org/isc/bind9/9.14.6/bind-9.14.6.tar.gz
 
 
 NAME=bind
-VERSION=9.14.5
-URL=ftp://ftp.isc.org/isc/bind9/9.14.5/bind-9.14.5.tar.gz
+VERSION=9.14.6
+URL=ftp://ftp.isc.org/isc/bind9/9.14.6/bind-9.14.6.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -76,9 +76,9 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
-install -v -m755 -d /usr/share/doc/bind-9.14.5/arm &&
+install -v -m755 -d /usr/share/doc/bind-9.14.6/arm &&
 install -v -m644    doc/arm/*.html \
-                    /usr/share/doc/bind-9.14.5/arm
+                    /usr/share/doc/bind-9.14.6/arm
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

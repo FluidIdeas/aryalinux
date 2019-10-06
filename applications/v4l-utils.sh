@@ -15,12 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.linuxtv.org/downloads/v4l-utils/v4l-utils-1.16.6.tar.bz2
+wget -nc https://www.linuxtv.org/downloads/v4l-utils/v4l-utils-1.18.0.tar.bz2
 
 
 NAME=v4l-utils
-VERSION=1.16.6
-URL=https://www.linuxtv.org/downloads/v4l-utils/v4l-utils-1.16.6.tar.bz2
+VERSION=1.18.0
+URL=https://www.linuxtv.org/downloads/v4l-utils/v4l-utils-1.18.0.tar.bz2
 
 if [ ! -z $URL ]
 then

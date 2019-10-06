@@ -15,12 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/phonon/4.11.0/phonon-4.11.0.tar.xz
+wget -nc http://download.kde.org/stable/phonon/4.11.1/phonon-4.11.1.tar.xz
 
 
 NAME=phonon
-VERSION=4.11.0
-URL=http://download.kde.org/stable/phonon/4.11.0/phonon-4.11.0.tar.xz
+VERSION=4.11.1
+URL=http://download.kde.org/stable/phonon/4.11.1/phonon-4.11.1.tar.xz
 
 if [ ! -z $URL ]
 then

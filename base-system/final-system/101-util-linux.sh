@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=099-util-linux
+NAME=101-util-linux
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
@@ -21,6 +21,7 @@ cd $DIRECTORY
 
 
 mkdir -pv /var/lib/hwclock
+rm -vf /usr/include/{blkid,libmount,uuid}
 ./configure ADJTIME_PATH=/var/lib/hwclock/adjtime   \
             --docdir=/usr/share/doc/util-linux-2.34 \
             --disable-chfn-chsh  \
@@ -31,9 +32,7 @@ mkdir -pv /var/lib/hwclock
             --disable-runuser    \
             --disable-pylibmount \
             --disable-static     \
-            --without-python     \
-            --without-systemd    \
-            --without-systemdsystemunitdir
+            --without-python
 make
 make install
 

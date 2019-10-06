@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://pub.mate-desktop.org/releases/1.22/mate-system-monitor-1.22.1.tar.xz
+wget -nc https://pub.mate-desktop.org/releases/1.22/mate-system-monitor-1.22.2.tar.xz
 
 
 NAME=mate-system-monitor
-VERSION=1.22.1
-URL=https://pub.mate-desktop.org/releases/1.22/mate-system-monitor-1.22.1.tar.xz
+VERSION=1.22.2
+URL=https://pub.mate-desktop.org/releases/1.22/mate-system-monitor-1.22.2.tar.xz
 
 if [ ! -z $URL ]
 then

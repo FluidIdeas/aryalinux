@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-backgrounds/3.32/gnome-backgrounds-3.32.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-backgrounds/3.32/gnome-backgrounds-3.32.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-backgrounds/3.34/gnome-backgrounds-3.34.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-backgrounds/3.34/gnome-backgrounds-3.34.0.tar.xz
 
 
 NAME=gnome-backgrounds
-VERSION=3.32.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-backgrounds/3.32/gnome-backgrounds-3.32.0.tar.xz
+VERSION=3.34.0
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-backgrounds/3.34/gnome-backgrounds-3.34.0.tar.xz
 
 if [ ! -z $URL ]
 then

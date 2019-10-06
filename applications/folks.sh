@@ -18,13 +18,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/folks/0.12/folks-0.12.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/folks/0.12/folks-0.12.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/folks/0.13/folks-0.13.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/folks/0.13/folks-0.13.1.tar.xz
 
 
 NAME=folks
-VERSION=0.12.1
-URL=http://ftp.gnome.org/pub/gnome/sources/folks/0.12/folks-0.12.1.tar.xz
+VERSION=0.13.1
+URL=http://ftp.gnome.org/pub/gnome/sources/folks/0.13/folks-0.13.1.tar.xz
 
 if [ ! -z $URL ]
 then

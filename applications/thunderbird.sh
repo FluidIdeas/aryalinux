@@ -24,12 +24,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/thunderbird/releases/68.0/source/thunderbird-68.0.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/thunderbird/releases/68.1.1/source/thunderbird-68.1.1.source.tar.xz
 
 
 NAME=thunderbird
-VERSION=68.0
-URL=https://archive.mozilla.org/pub/thunderbird/releases/68.0/source/thunderbird-68.0.source.tar.xz
+VERSION=68.1.1
+URL=https://archive.mozilla.org/pub/thunderbird/releases/68.1.1/source/thunderbird-68.1.1.source.tar.xz
 
 if [ ! -z $URL ]
 then

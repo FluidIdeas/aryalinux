@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/phonon/phonon-backend-vlc/0.11.0/phonon-backend-vlc-0.11.0.tar.xz
+wget -nc http://download.kde.org/stable/phonon/phonon-backend-vlc/0.11.1/phonon-backend-vlc-0.11.1.tar.xz
 
 
 NAME=phonon-backend-vlc
-VERSION=0.11.0
-URL=http://download.kde.org/stable/phonon/phonon-backend-vlc/0.11.0/phonon-backend-vlc-0.11.0.tar.xz
+VERSION=0.11.1
+URL=http://download.kde.org/stable/phonon/phonon-backend-vlc/0.11.1/phonon-backend-vlc-0.11.1.tar.xz
 
 if [ ! -z $URL ]
 then

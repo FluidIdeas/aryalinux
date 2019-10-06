@@ -17,15 +17,15 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf/0.32/dconf-0.32.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf/0.32/dconf-0.32.0.tar.xz
-wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.32/dconf-editor-3.32.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.32/dconf-editor-3.32.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf/0.34/dconf-0.34.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf/0.34/dconf-0.34.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.34/dconf-editor-3.34.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.34/dconf-editor-3.34.1.tar.xz
 
 
 NAME=dconf
-VERSION=0.32.0
-URL=http://ftp.gnome.org/pub/gnome/sources/dconf/0.32/dconf-0.32.0.tar.xz
+VERSION=0.34.0
+URL=http://ftp.gnome.org/pub/gnome/sources/dconf/0.34/dconf-0.34.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -61,8 +61,8 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 cd ..              &&
-tar -xf ../dconf-editor-3.32.0.tar.xz &&
-cd dconf-editor-3.32.0                &&
+tar -xf ../dconf-editor-3.34.1.tar.xz &&
+cd dconf-editor-3.34.1                &&
 
 mkdir build &&
 cd    build &&

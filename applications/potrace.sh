@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/potrace/potrace-1.15.tar.gz
+wget -nc https://downloads.sourceforge.net/potrace/potrace-1.16.tar.gz
 
 
 NAME=potrace
-VERSION=1.15
-URL=https://downloads.sourceforge.net/potrace/potrace-1.15.tar.gz
+VERSION=1.16
+URL=https://downloads.sourceforge.net/potrace/potrace-1.16.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -40,7 +40,7 @@ echo $USER > /tmp/currentuser
 
 ./configure --prefix=/usr                        \
             --disable-static                     \
-            --docdir=/usr/share/doc/potrace-1.15 \
+            --docdir=/usr/share/doc/potrace-1.16 \
             --enable-a4                          \
             --enable-metric                      \
             --with-libpotrace                    &&

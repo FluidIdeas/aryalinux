@@ -22,13 +22,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/evince/3.32/evince-3.32.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evince/3.32/evince-3.32.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/evince/3.34/evince-3.34.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evince/3.34/evince-3.34.0.tar.xz
 
 
 NAME=evince
-VERSION=3.32.0
-URL=http://ftp.gnome.org/pub/gnome/sources/evince/3.32/evince-3.32.0.tar.xz
+VERSION=3.34.0
+URL=http://ftp.gnome.org/pub/gnome/sources/evince/3.34/evince-3.34.0.tar.xz
 
 if [ ! -z $URL ]
 then

@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/djlucas/make-ca/releases/download/v1.4/make-ca-1.4.tar.xz
+wget -nc https://github.com/djlucas/make-ca/releases/download/v1.5/make-ca-1.5.tar.xz
 
 
 NAME=make-ca
-VERSION=1.4
-URL=https://github.com/djlucas/make-ca/releases/download/v1.4/make-ca-1.4.tar.xz
+VERSION=1.5
+URL=https://github.com/djlucas/make-ca/releases/download/v1.5/make-ca-1.5.tar.xz
 
 if [ ! -z $URL ]
 then

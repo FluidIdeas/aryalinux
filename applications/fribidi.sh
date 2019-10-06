@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/fribidi/fribidi/releases/download/v1.0.5/fribidi-1.0.5.tar.bz2
+wget -nc https://github.com/fribidi/fribidi/releases/download/v1.0.7/fribidi-1.0.7.tar.bz2
 
 
 NAME=fribidi
-VERSION=1.0.5
-URL=https://github.com/fribidi/fribidi/releases/download/v1.0.5/fribidi-1.0.5.tar.bz2
+VERSION=1.0.7
+URL=https://github.com/fribidi/fribidi/releases/download/v1.0.7/fribidi-1.0.7.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -38,7 +38,7 @@ echo $USER > /tmp/currentuser
 
 
 mkdir build &&
-cd build    &&
+cd    build &&
 
 meson --prefix=/usr .. &&
 ninja

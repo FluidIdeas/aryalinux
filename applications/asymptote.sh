@@ -18,12 +18,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/asymptote/asymptote-2.52.src.tgz
+wget -nc https://downloads.sourceforge.net/asymptote/asymptote-2.53.src.tgz
 
 
 NAME=asymptote
-VERSION=2.52
-URL=https://downloads.sourceforge.net/asymptote/asymptote-2.52.src.tgz
+VERSION=2.53
+URL=https://downloads.sourceforge.net/asymptote/asymptote-2.53.src.tgz
 
 if [ ! -z $URL ]
 then

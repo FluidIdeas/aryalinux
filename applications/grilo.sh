@@ -18,13 +18,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.9.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.9.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.10.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.10.tar.xz
 
 
 NAME=grilo
-VERSION=0.3.9
-URL=http://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.9.tar.xz
+VERSION=0.3.10
+URL=http://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.10.tar.xz
 
 if [ ! -z $URL ]
 then
