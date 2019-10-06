@@ -47,7 +47,7 @@ wget -c https://github.com/dracutdevs/dracut/archive/049.tar.gz -O dracut-049.ta
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/399ee7eb552ec30015e1a7e07e357f5815d25951/grub-2.02-gcc.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/b09bd478061f93f986442bf654bb3fe8fadb59f7/efibootmgr-17-efidir.patch
 wget -nc https://sourceware.org/ftp/lvm2/releases/LVM2.2.02.171.tgz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs-5.2.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs-5.4.tar.gz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs5-base.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs5-kbuild.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs5-mmap.patch
