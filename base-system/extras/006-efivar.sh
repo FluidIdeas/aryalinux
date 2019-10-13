@@ -38,7 +38,7 @@ make libdir="/usr/lib/" bindir="/usr/bin/" \
 make -j1 V=1 DESTDIR="${pkgdir}/" libdir="/usr/lib/" \
 	bindir="/usr/bin/" mandir="/usr/share/man"   \
 	includedir="/usr/include/" install
-install -v -D -m0755 src/test/tester /usr/bin/efivar-tester
+#install -v -D -m0755 src/test/tester /usr/bin/efivar-tester
 
 
 cd $SOURCE_DIR
