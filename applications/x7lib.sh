@@ -41,7 +41,7 @@ export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disab
 
 cat > lib-7.md5 << "EOF"
 ce2fb8100c6647ee81451ebe388b17ad  xtrans-1.4.0.tar.bz2
-c5fa5a86a20e3591bed6c046498d4b8f  libX11-1.6.8.tar.bz2
+55adbfb6d4370ecac5e70598c4e7eed2  libX11-1.6.9.tar.bz2
 f5b48bb76ba327cd2a8dc7a383532a95  libXext-1.3.4.tar.bz2
 4e1196275aa743d6ebd3d3d5ec1dff9c  libFS-1.0.8.tar.bz2
 76d77499ee7120a56566891ca2c0dbcf  libICE-1.0.10.tar.bz2

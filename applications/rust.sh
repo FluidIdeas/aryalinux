@@ -15,12 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://static.rust-lang.org/dist/rustc-1.35.0-src.tar.gz
+wget -nc https://static.rust-lang.org/dist/rustc-1.37.0-src.tar.gz
 
 
 NAME=rust
-VERSION=1.35.
-URL=https://static.rust-lang.org/dist/rustc-1.35.0-src.tar.gz
+VERSION=1.37.
+URL=https://static.rust-lang.org/dist/rustc-1.37.0-src.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -43,8 +43,8 @@ echo $USER > /tmp/currentuser
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir /opt/rustc-1.35.0             &&
-ln -svfin rustc-1.35.0 /opt/rustc
+mkdir /opt/rustc-1.37.0             &&
+ln -svfin rustc-1.37.0 /opt/rustc
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
