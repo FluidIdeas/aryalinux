@@ -1,13 +1,13 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/x86 5.3.4 Kernel Configuration
+# Linux/x86 5.3.1 Kernel Configuration
 #
 
 #
-# Compiler: gcc (GCC) 9.2.0
+# Compiler: gcc (GCC) 9.1.0
 #
 CONFIG_CC_IS_GCC=y
-CONFIG_GCC_VERSION=90200
+CONFIG_GCC_VERSION=90100
 CONFIG_CLANG_VERSION=0
 CONFIG_CC_CAN_LINK=y
 CONFIG_CC_HAS_ASM_GOTO=y
@@ -8216,6 +8216,7 @@ CONFIG_SYSV_FS=m
 CONFIG_UFS_FS=m
 # CONFIG_UFS_FS_WRITE is not set
 # CONFIG_UFS_DEBUG is not set
+# CONFIG_AUFS_FS is not set
 CONFIG_NETWORK_FILESYSTEMS=y
 CONFIG_NFS_FS=y
 CONFIG_NFS_V2=y
