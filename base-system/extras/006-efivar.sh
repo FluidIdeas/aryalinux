@@ -32,9 +32,9 @@ fi
 make libdir="/usr/lib/" bindir="/usr/bin/" \
 	mandir="/usr/share/man/"     \
 	includedir="/usr/include/" V=1 -j1
-pushd src/test
-make
-popd
+#pushd src/test
+#make
+#popd
 make -j1 V=1 DESTDIR="${pkgdir}/" libdir="/usr/lib/" \
 	bindir="/usr/bin/" mandir="/usr/share/man"   \
 	includedir="/usr/include/" install
