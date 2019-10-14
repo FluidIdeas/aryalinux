@@ -148,7 +148,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-cat > /etc/pam.d/system-password << "EOF"
+sudo tee /etc/pam.d/system-password << "EOF"
 # Begin /etc/pam.d/system-password
 
 # use sha512 hash for encryption, use shadow, and try to use any previously
