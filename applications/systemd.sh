@@ -8,7 +8,6 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:linux-pam
-#REQ:polkit
 
 
 cd $SOURCE_DIR
