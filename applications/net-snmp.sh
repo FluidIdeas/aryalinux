@@ -36,7 +36,7 @@ fi
 
 echo $USER > /tmp/currentuser
 
-./configure --prefix=/usr .. &&
+./configure --prefix=/usr &&
 make
 sudo make install
 
