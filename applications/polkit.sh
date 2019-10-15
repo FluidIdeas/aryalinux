@@ -10,6 +10,7 @@ set +h
 #REQ:glib2
 #REQ:js60
 #REQ:linux-pam
+#REQ:systemd
 
 
 cd $SOURCE_DIR

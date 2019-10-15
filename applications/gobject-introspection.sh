@@ -8,7 +8,6 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:glib2
-#REQ:git
 
 
 cd $SOURCE_DIR
