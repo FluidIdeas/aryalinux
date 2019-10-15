@@ -15,7 +15,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://www.kernel.org/pub/linux/bluetooth/bluez-5.51.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/bluez-5.50-glibc-build.patch
 
 
 NAME=bluez
@@ -41,7 +40,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../bluez-5.50-glibc-build.patch
 ./configure --prefix=/usr         \
             --sysconfdir=/etc     \
             --localstatedir=/var  \
