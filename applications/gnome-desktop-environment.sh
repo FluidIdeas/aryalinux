@@ -89,7 +89,6 @@ set +h
 #REQ:polkit-gnome
 #REQ:xdg-user-dirs
 #REQ:gnome-tweaks
-#REQ:plank
 #REQ:pavucontrol
 #REQ:aryalinux-wallpapers
 #REQ:aryalinux-google-fonts
