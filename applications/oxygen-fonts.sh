@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://sourceforge.net/projects/aryalinux-bin/files/files/1.4/oxygen-fonts-5.4.3-x86_64.tar.xz
+wget -nc https://sourceforge.net/projects/aryalinux/files/releases/2.0/oxygen-fonts-5.4.3-x86_64.tar.xz
 
 
 NAME=oxygen-fonts
 VERSION=5.4.3
-URL=https://sourceforge.net/projects/aryalinux-bin/files/files/1.4/oxygen-fonts-5.4.3-x86_64.tar.xz
+URL=https://sourceforge.net/projects/aryalinux/files/releases/2.0/oxygen-fonts-5.4.3-x86_64.tar.xz
 
 if [ ! -z $URL ]
 then

@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://sourceforge.net/projects/aryalinux-bin/files/releases/1.5/gnome-shell-extensions/CoverflowAltTab-gnome-extension-36.tar.gz
+wget -nc https://sourceforge.net/projects/aryalinux/files/releases/2.0/CoverflowAltTab-gnome-extension-36.tar.gz
 
 
 NAME=gnome-shell-coverflow-alt-tab
 VERSION=36
-URL=https://sourceforge.net/projects/aryalinux-bin/files/releases/1.5/gnome-shell-extensions/CoverflowAltTab-gnome-extension-36.tar.gz
+URL=https://sourceforge.net/projects/aryalinux/files/releases/2.0/CoverflowAltTab-gnome-extension-36.tar.gz
 
 if [ ! -z $URL ]
 then

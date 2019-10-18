@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://sourceforge.net/projects/aryalinux-bin/files/artifacts/aryalinux-gnome-defaults.tar.xz
+wget -nc https://sourceforge.net/projects/aryalinux/files/releases/2.0/aryalinux-gnome-defaults-2.0.tar.xz
 
 
 NAME=aryalinux-gnome-settings
-VERSION=1.4
+VERSION=2.0
 
 
 if [ ! -z $URL ]
@@ -34,7 +34,7 @@ fi
 cd $DIRECTORY
 fi
 
-sudo tar xf aryalinux-gnome-defaults.tar.xz -C /
+sudo tar xf aryalinux-gnome-defaults-2.0.tar.xz -C /
 sudo cp -r /etc/skel/{.config,.local,.bash,.Xresources}* ~
 sudo chown -R $USER:$USER ~
 

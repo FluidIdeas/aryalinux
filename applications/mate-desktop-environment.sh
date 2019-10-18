@@ -193,7 +193,7 @@ EOF
 if [ ! -f /usr/share/pixmaps/aryalinux.png ]
 then
   pushd /usr/share/pixmaps/
-  sudo wget https://sourceforge.net/projects/aryalinux-bin/files/artifacts/aryalinux.png
+  sudo https://sourceforge.net/projects/aryalinux/files/releases/2.0/aryalinux.png
   popd
 fi
 

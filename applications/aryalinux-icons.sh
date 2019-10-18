@@ -11,7 +11,7 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://sourceforge.net/projects/aryalinux-bin/files/files/1.4/aryalinux-icons.tar.xz
+wget -nc https://sourceforge.net/projects/aryalinux/files/releases/2.0/aryalinux-icons.tar.xz
 
 
 NAME=aryalinux-icons
