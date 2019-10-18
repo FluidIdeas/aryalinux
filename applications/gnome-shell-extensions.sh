@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-shell-extensions/3.32/gnome-shell-extensions-3.32.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-shell-extensions/3.32/gnome-shell-extensions-3.32.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-shell-extensions/3.34/gnome-shell-extensions-3.34.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-shell-extensions/3.34/gnome-shell-extensions-3.34.0.tar.xz
 
 
 NAME=gnome-shell-extensions
-VERSION=3.32.1
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-shell-extensions/3.32/gnome-shell-extensions-3.32.1.tar.xz
+VERSION=3.34.0
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-shell-extensions/3.34/gnome-shell-extensions-3.34.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -38,13 +38,20 @@ fi
 
 echo $USER > /tmp/currentuser
 
+
 mkdir build &&
 cd    build &&
 
-meson -Dextension_set=all --prefix=/usr .. &&
-ninja
+meson --prefix=/usr -Dextension_set=all ..
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ninja install
+ENDOFROOTSCRIPT
 
-sudo ninja install
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
