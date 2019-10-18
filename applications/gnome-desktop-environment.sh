@@ -59,7 +59,8 @@ set +h
 #REQ:mutter
 #REQ:gnome-shell
 #REQ:gnome-shell-extensions
-#REQ:gnome-shell-coverflow-alt-tab
+#REQ:dash-to-panel
+#REQ:dash-to-dock
 #REQ:gnome-session
 #REQ:lightdm-gtk-greeter
 #REQ:gnome-user-docs
