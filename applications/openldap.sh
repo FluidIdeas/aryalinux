@@ -41,6 +41,9 @@ fi
 echo $USER > /tmp/currentuser
 
 
+export MAKEFLAGS=
+
+
 patch -Np1 -i ../openldap-2.4.48-consolidated-1.patch &&
 autoconf &&
 
