@@ -37,7 +37,7 @@ fi
 git clone https://github.com/home-sweet-gnome/dash-to-panel.git
 
 cd dash-to-panel
-sudo make install
+sudo make DESTDIR=/ install
 
 cd ..
 sudo rm -rf dash-to-panel

@@ -38,7 +38,7 @@ git clone https://github.com/micheleg/dash-to-dock.git
 
 cd dash-to-dock
 make
-sudo make install
+sudo make DESTDIR=/ install
 
 cd ..
 sudo rm -rf dash-to-dock
