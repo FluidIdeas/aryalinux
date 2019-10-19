@@ -41,9 +41,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-export MAKEFLAGS=
-
-
 patch -Np1 -i ../openldap-2.4.48-consolidated-1.patch &&
 autoconf &&
 
@@ -56,9 +53,9 @@ autoconf &&
 
 make depend &&
 make
-make install
+sudo make install
 
-ln -sf ../lib/slapd /usr/sbin/slapd
+sudo ln -sf ../lib/slapd /usr/sbin/slapd
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
