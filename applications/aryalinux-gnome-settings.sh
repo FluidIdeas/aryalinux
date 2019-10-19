@@ -35,7 +35,7 @@ cd $DIRECTORY
 fi
 
 sudo tar xf aryalinux-gnome-defaults-2.0.tar.xz -C /
-sudo cp -r /etc/skel/{.config,.local,.bash,.Xresources}* ~
+sudo cp -r /etc/skel/{.config,.Xresources}* ~
 sudo chown -R $USER:$USER ~
 
 
