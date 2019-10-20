@@ -127,6 +127,11 @@ chroot "$LFS" /usr/bin/env -i              \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
     usermod -a -G autologin $USERNAME
 
+chroot "$LFS" /usr/bin/env -i              \
+    HOME=/root TERM="$TERM" PS1='\u:\w\$ ' \
+    PATH=/bin:/usr/bin:/sbin:/usr/sbin     \
+    compressdoc --bz2
+
 sleep 5
 set +e
 ./umountal.sh
@@ -170,7 +175,6 @@ rm -f $LFS/sources/root.sfs
 if [ -f $LFS/home/$USERNAME/.default-setup-done ]; then
 	rm $LFS/home/$USERNAME/.default-setup-done
 fi
-compressdoc --bz2
 # Exclude build directories, tools directory, fstab file and docs directory
 sudo mksquashfs $LFS $LFS/sources/root.sfs -b 1048576 -comp xz -Xdict-size 100% -e $LFS/sources -e $LFS/var/cache/alps/sources/* -e $LFS/tools -e $LFS/etc/fstab -e $LFS/usr/share/doc/*
 
