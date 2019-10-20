@@ -167,7 +167,12 @@ EOF
 fi
 
 rm -f $LFS/sources/root.sfs
-sudo mksquashfs $LFS $LFS/sources/root.sfs -b 1048576 -comp xz -Xdict-size 100% -e $LFS/sources -e $LFS/var/cache/alps/sources/* -e $LFS/tools -e $LFS/etc/fstab
+if [ -f $LFS/home/$USERNAME/.default-setup-done ]; then
+	rm $LFS/home/$USERNAME/.default-setup-done
+fi
+compressdoc --bz2
+# Exclude build directories, tools directory, fstab file and docs directory
+sudo mksquashfs $LFS $LFS/sources/root.sfs -b 1048576 -comp xz -Xdict-size 100% -e $LFS/sources -e $LFS/var/cache/alps/sources/* -e $LFS/tools -e $LFS/etc/fstab -e $LFS/usr/share/doc/*
 
 if [ -f $LFS/etc/lightdm/lightdm.conf ]
 then
