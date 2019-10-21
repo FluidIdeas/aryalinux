@@ -36,8 +36,11 @@ fi
 
 sudo mkdir -pv /opt/go
 sudo mv * /opt/go
+sudo mkdir /opt/gopath
+sudo chmod -R a+rw /opt/gopath
 sudo tee /etc/profile.d/go.sh << "EOF"
-export PATH=$PATH:/opt/go/bin
+export GOPATH=/opt/gopath
+export PATH=$PATH:/opt/go/bin:/opt/gopath/bin
 EOF
 
 
