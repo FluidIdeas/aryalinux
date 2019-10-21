@@ -34,7 +34,8 @@ fi
 cd $DIRECTORY
 fi
 
-sudo tar xf $TARBALL -C /opt
+sudo mkdir -pv /opt/go
+sudo mv * /opt/go
 sudo tee /etc/profile.d/go.sh << "EOF"
 export PATH=$PATH:/opt/go/bin
 EOF
