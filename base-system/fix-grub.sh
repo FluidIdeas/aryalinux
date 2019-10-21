@@ -13,9 +13,11 @@ TARBALL="grub-2.04.tar.xz"
 
 cd $SOURCE_DIR
 
-rm -rf grub-2.02
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
+
+rm -rf $DIRECTORY
 tar xf $TARBALL
-cd grub-2.02
+cd $DIRECTORY
 
 #patch -Np1 -i ../grub-2.02-gcc.patch
 #patch -Np1 -i ../grub-2.02-relocation.patch
@@ -59,8 +61,8 @@ grub-mkfont -o /usr/share/grub/unicode.pf2 /usr/share/fonts/unifont/unifont.pcf
 cd $SOURCE_DIR
 if [ "$TARBALL" != "" ]
 then
-	rm -rf grub-2.04
+	rm -rf $DIRECTORY
 	rm -rf {gcc,glibc,binutils}-build
 fi
 
-rm -rf grub-2.04
+rm -rf $DIRECTORY
