@@ -34,6 +34,7 @@ fi
 cd $DIRECTORY
 fi
 
+export CFLAGS+=" -Wno-error=deprecated-declarations" &&
 ./configure --prefix=/usr &&
 make &&
 sudo make install

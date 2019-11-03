@@ -34,6 +34,7 @@ fi
 cd $DIRECTORY
 fi
 
+export CFLAGS+=" -Wno-error=deprecated-declarations" &&
 ./configure --prefix=/usr --with-gtk=3 --disable-static &&
 make &&
 sudo make install
