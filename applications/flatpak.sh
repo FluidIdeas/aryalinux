@@ -40,6 +40,8 @@ fi
 ./configure --prefix=/usr &&
 make -j$(nproc)
 sudo make install
+sudo systemctl enable flatpak-system-helper
+sudo systemctl enable flatpak-session-helper
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
