@@ -40,10 +40,10 @@ fi
 ./configure --prefix=/usr &&
 make -j$(nproc)
 sudo make install
-sudo systemctl enable flatpak-system-helper
-sudo systemctl start flatpak-system-helper
-sudo systemctl enable flatpak-session-helper
-sudo systemctl start flatpak-session-helper
+sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+sudo tee /etc/profile.d/flatpak.sh << "EOF"
+export XDG_DATA_DIRS=/usr/var/lib/flatpak/exports/share/:/usr/local/share/:/usr/share/
+EOF
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
