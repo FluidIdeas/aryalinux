@@ -7,17 +7,19 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:valgrind
+#REQ:libostree
+#REQ:appstream-glib
+#REQ:libseccomp
 
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/seccomp/libseccomp/releases/download/v2.4.1/libseccomp-2.4.1.tar.gz
+wget -nc https://github.com/flatpak/flatpak/releases/download/1.5.0/flatpak-1.5.0.tar.xz
 
 
-NAME=libseccomp
-VERSION=2.4.1
-URL=https://github.com/seccomp/libseccomp/releases/download/v2.4.1/libseccomp-2.4.1.tar.gz
+NAME=flatpak
+VERSION=1.5.0
+URL=https://github.com/flatpak/flatpak/releases/download/1.5.0/flatpak-1.5.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -35,18 +37,9 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --disable-static &&
-make "-j`nproc`" || make
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make install
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
+./configure --prefix=/usr &&
+make -j$(nproc)
+sudo make install
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

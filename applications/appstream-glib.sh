@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/seccomp/libseccomp/releases/download/v2.4.1/libseccomp-2.4.1.tar.gz
+wget -nc https://github.com/hughsie/appstream-glib/archive/appstream_glib_0_7_16.tar.gz
 
 
-NAME=libseccomp
-VERSION=2.4.1
-URL=https://github.com/seccomp/libseccomp/releases/download/v2.4.1/libseccomp-2.4.1.tar.gz
+NAME=appstream-glib
+VERSION=0.7.16
+URL=https://github.com/hughsie/appstream-glib/archive/appstream_glib_0_7_16.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -35,18 +35,11 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --disable-static &&
-make "-j`nproc`" || make
-
-
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
-make install
-
-ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
+mkdir build
+cd build/
+meson --prefix=/usr --libdir=/usr/lib --sysconfdir=/etc --mandir=/usr/man -Dgtk-doc=false -Dstemmer=false -Drpm=false ..
+ninja
+sudo ninja install
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
