@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://launchpad.net/ido/12.10/12.10.2/+download/ido-12.10.2.tar.gz
+wget -nc https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/ido/13.10.0+17.04.20161028-0ubuntu1/ido_13.10.0+17.04.20161028.orig.tar.gz
 
 
 NAME=ido
-VERSION=12.10.2
-URL=https://launchpad.net/ido/12.10/12.10.2/+download/ido-12.10.2.tar.gz
+VERSION=13.10.0
+URL=https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/ido/13.10.0+17.04.20161028-0ubuntu1/ido_13.10.0+17.04.20161028.orig.tar.gz
 
 if [ ! -z $URL ]
 then
