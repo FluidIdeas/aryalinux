@@ -34,7 +34,7 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr &&
+./configure --prefix=/usr --with-gtk=3 --disable-static &&
 make &&
 sudo make install
 
