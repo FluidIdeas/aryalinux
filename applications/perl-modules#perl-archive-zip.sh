@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cpan.org/authors/id/P/PH/PHRED/Archive-Zip-1.66.tar.gz
+wget -nc https://www.cpan.org/authors/id/P/PH/PHRED/Archive-Zip-1.67.tar.gz
 
 
 NAME=perl-modules#perl-archive-zip
-VERSION=1.66
-URL=https://www.cpan.org/authors/id/P/PH/PHRED/Archive-Zip-1.66.tar.gz
+VERSION=1.67
+URL=https://www.cpan.org/authors/id/P/PH/PHRED/Archive-Zip-1.67.tar.gz
 
 if [ ! -z $URL ]
 then

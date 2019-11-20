@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.python.org/ftp/python/2.7.16/Python-2.7.16.tar.xz
-wget -nc https://docs.python.org/ftp/python/doc/2.7.16/python-2.7.16-docs-html.tar.bz2
+wget -nc https://www.python.org/ftp/python/2.7.17/Python-2.7.17.tar.xz
+wget -nc https://docs.python.org/ftp/python/doc/2.7.17/python-2.7.17-docs-html.tar.bz2
 
 
 NAME=python2
-VERSION=2.7.16
-URL=https://www.python.org/ftp/python/2.7.16/Python-2.7.16.tar.xz
+VERSION=2.7.17
+URL=https://www.python.org/ftp/python/2.7.17/Python-2.7.17.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -57,15 +57,15 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -dm755 /usr/share/doc/python-2.7.16 &&
+install -v -dm755 /usr/share/doc/python-2.7.17 &&
 
 tar --strip-components=1                     \
     --no-same-owner                          \
-    --directory /usr/share/doc/python-2.7.16 \
-    -xvf ../python-2.7.16-docs-html.tar.bz2 &&
+    --directory /usr/share/doc/python-2.7.17 \
+    -xvf ../python-2.7.17-docs-html.tar.bz2 &&
 
-find /usr/share/doc/python-2.7.16 -type d -exec chmod 0755 {} \; &&
-find /usr/share/doc/python-2.7.16 -type f -exec chmod 0644 {} \;
+find /usr/share/doc/python-2.7.17 -type d -exec chmod 0755 {} \; &&
+find /usr/share/doc/python-2.7.17 -type f -exec chmod 0644 {} \;
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -74,7 +74,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-export PYTHONDOCS=/usr/share/doc/python-2.7.16
+export PYTHONDOCS=/usr/share/doc/python-2.7.17
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

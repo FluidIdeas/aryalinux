@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://get.videolan.org/libdvdnav/6.0.0/libdvdnav-6.0.0.tar.bz2
+wget -nc https://get.videolan.org/libdvdnav/6.0.1/libdvdnav-6.0.1.tar.bz2
 
 
 NAME=libdvdnav
-VERSION=6.0.0
-URL=https://get.videolan.org/libdvdnav/6.0.0/libdvdnav-6.0.0.tar.bz2
+VERSION=6.0.1
+URL=https://get.videolan.org/libdvdnav/6.0.1/libdvdnav-6.0.1.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -40,7 +40,7 @@ echo $USER > /tmp/currentuser
 
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/libdvdnav-6.0.0 &&
+            --docdir=/usr/share/doc/libdvdnav-6.0.1 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

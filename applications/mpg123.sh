@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/mpg123/mpg123-1.25.12.tar.bz2
+wget -nc https://downloads.sourceforge.net/mpg123/mpg123-1.25.13.tar.bz2
 
 
 NAME=mpg123
-VERSION=1.25.12
-URL=https://downloads.sourceforge.net/mpg123/mpg123-1.25.12.tar.bz2
+VERSION=1.25.13
+URL=https://downloads.sourceforge.net/mpg123/mpg123-1.25.13.tar.bz2
 
 if [ ! -z $URL ]
 then

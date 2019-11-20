@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www2.graphviz.org/Packages/stable/portable_source/graphviz-2.42.1.tar.gz
+wget -nc https://www2.graphviz.org/Packages/stable/portable_source/graphviz-2.42.3.tar.gz
 
 
 NAME=graphviz
-VERSION=2.42.1
-URL=https://www2.graphviz.org/Packages/stable/portable_source/graphviz-2.42.1.tar.gz
+VERSION=2.42.3
+URL=https://www2.graphviz.org/Packages/stable/portable_source/graphviz-2.42.3.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -53,7 +53,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ln -v -s /usr/share/graphviz/doc /usr/share/doc/graphviz-2.42.1
+ln -v -s /usr/share/graphviz/doc /usr/share/doc/graphviz-2.42.3
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

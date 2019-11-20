@@ -6,28 +6,26 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=052-acl
+NAME=051-pkg-config
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=acl-2.2.53.tar.gz
+TARBALL=pkg-config-0.29.2.tar.gz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-./configure --prefix=/usr         \
-            --disable-static      \
-            --libexecdir=/usr/lib \
-            --docdir=/usr/share/doc/acl-2.2.53
+./configure --prefix=/usr              \
+            --with-internal-glib       \
+            --disable-host-tool        \
+            --docdir=/usr/share/doc/pkg-config-0.29.2
 make
 make install
-mv -v /usr/lib/libacl.so.* /lib
-ln -sfv ../../lib/$(readlink /usr/lib/libacl.so) /usr/lib/libacl.so
 
 fi
 

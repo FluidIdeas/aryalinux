@@ -15,13 +15,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gmime/3.2/gmime-3.2.4.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gmime/3.2/gmime-3.2.4.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gmime/3.2/gmime-3.2.5.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gmime/3.2/gmime-3.2.5.tar.xz
 
 
 NAME=gmime3
-VERSION=3.2.4
-URL=http://ftp.gnome.org/pub/gnome/sources/gmime/3.2/gmime-3.2.4.tar.xz
+VERSION=3.2.5
+URL=http://ftp.gnome.org/pub/gnome/sources/gmime/3.2/gmime-3.2.5.tar.xz
 
 if [ ! -z $URL ]
 then

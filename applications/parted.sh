@@ -12,14 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/parted/parted-3.2.tar.xz
-wget -nc ftp://ftp.gnu.org/gnu/parted/parted-3.2.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/parted-3.2-devmapper-1.patch
+wget -nc https://ftp.gnu.org/gnu/parted/parted-3.3.tar.xz
+wget -nc ftp://ftp.gnu.org/gnu/parted/parted-3.3.tar.xz
 
 
 NAME=parted
-VERSION=3.2
-URL=https://ftp.gnu.org/gnu/parted/parted-3.2.tar.xz
+VERSION=3.3
+URL=https://ftp.gnu.org/gnu/parted/parted-3.3.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -40,9 +39,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../parted-3.2-devmapper-1.patch
-sed -i '/utsname.h/a#include <sys/sysmacros.h>' libparted/arch/linux.c &&
-
 ./configure --prefix=/usr --disable-static &&
 make &&
 
@@ -52,11 +48,11 @@ makeinfo --plaintext -o doc/parted.txt doc/parted.texi
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-install -v -m755 -d /usr/share/doc/parted-3.2/html &&
+install -v -m755 -d /usr/share/doc/parted-3.3/html &&
 install -v -m644    doc/html/* \
-                    /usr/share/doc/parted-3.2/html &&
+                    /usr/share/doc/parted-3.3/html &&
 install -v -m644    doc/{FAT,API,parted.{txt,html}} \
-                    /usr/share/doc/parted-3.2
+                    /usr/share/doc/parted-3.3
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

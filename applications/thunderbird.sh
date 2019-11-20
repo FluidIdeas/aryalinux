@@ -24,12 +24,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/thunderbird/releases/68.1.2/source/thunderbird-68.1.2.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/thunderbird/releases/68.2.2/source/thunderbird-68.2.2.source.tar.xz
 
 
 NAME=thunderbird
-VERSION=68.1.2
-URL=https://archive.mozilla.org/pub/thunderbird/releases/68.1.2/source/thunderbird-68.1.2.source.tar.xz
+VERSION=68.2.2
+URL=https://archive.mozilla.org/pub/thunderbird/releases/68.2.2/source/thunderbird-68.2.2.source.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -114,9 +114,6 @@ ac_add_options --with-system-jpeg
 ac_add_options --with-system-png
 ac_add_options --with-system-zlib
 EOF
-sed -i -e '/#!\[deny(missing_docs)\]/d' servo/components/style/lib.rs &&
-sed -i -e 's/#!\[deny(unsafe_code, missing_docs)\]/#!\[deny(unsafe_code)\]/g' servo/components/style_traits/lib.rs
-sed -i -e '/pid_t gettid/s@^@//@' tools/profiler/core/platform.h
 ./mach build
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

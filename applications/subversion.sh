@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.apache.org/dist/subversion/subversion-1.12.2.tar.bz2
+wget -nc https://archive.apache.org/dist/subversion/subversion-1.13.0.tar.bz2
 
 
 NAME=subversion
-VERSION=1.12.2
-URL=https://archive.apache.org/dist/subversion/subversion-1.12.2.tar.bz2
+VERSION=1.13.0
+URL=https://archive.apache.org/dist/subversion/subversion-1.13.0.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -40,7 +40,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i 's/classic/nofastunpack/' build.conf
 ./configure --prefix=/usr             \
             --disable-static          \
             --with-apache-libexecdir  \
@@ -52,8 +51,8 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
-install -v -m755 -d /usr/share/doc/subversion-1.12.2 &&
-cp      -v -R doc/* /usr/share/doc/subversion-1.12.2
+install -v -m755 -d /usr/share/doc/subversion-1.13.0 &&
+cp      -v -R doc/* /usr/share/doc/subversion-1.13.0
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

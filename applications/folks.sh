@@ -46,7 +46,7 @@ echo $USER > /tmp/currentuser
 
 
 mkdir build &&
-cd build &&
+cd    build &&
 
 meson --prefix=/usr --sysconfdir=/etc .. &&
 ninja

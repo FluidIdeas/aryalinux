@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=048-bzip2
+NAME=050-bzip2
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

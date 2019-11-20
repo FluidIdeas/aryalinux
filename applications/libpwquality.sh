@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/libpwquality/libpwquality/releases/download/libpwquality-1.4.0/libpwquality-1.4.0.tar.bz2
+wget -nc https://github.com/libpwquality/libpwquality/releases/download/libpwquality-1.4.2/libpwquality-1.4.2.tar.bz2
 
 
 NAME=libpwquality
-VERSION=1.4.0
-URL=https://github.com/libpwquality/libpwquality/releases/download/libpwquality-1.4.0/libpwquality-1.4.0.tar.bz2
+VERSION=1.4.2
+URL=https://github.com/libpwquality/libpwquality/releases/download/libpwquality-1.4.2/libpwquality-1.4.2.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -39,9 +39,10 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr --disable-static \
+./configure --prefix=/usr                  \
+            --disable-static               \
             --with-securedir=/lib/security \
-            --with-python-binary=python3   &&
+            --with-python-binary=python3 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

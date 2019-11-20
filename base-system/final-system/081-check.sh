@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=check-0.12.0.tar.gz
+TARBALL=check-0.13.0.tar.gz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -22,7 +22,7 @@ cd $DIRECTORY
 
 ./configure --prefix=/usr
 make
-make docdir=/usr/share/doc/check-0.12.0 install
+make docdir=/usr/share/doc/check-0.13.0 install &&
 sed -i '1 s/tools/usr/' /usr/bin/checkmk
 
 fi

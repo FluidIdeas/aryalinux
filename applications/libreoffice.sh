@@ -38,7 +38,6 @@ set +h
 #REQ:neon
 #REQ:nss
 #REQ:openldap
-#REQ:poppler
 #REQ:redland
 #REQ:serf
 #REQ:unixodbc
@@ -46,15 +45,15 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.documentfoundation.org/libreoffice/src/6.3.2/libreoffice-6.3.2.2.tar.xz
-wget -nc http://download.documentfoundation.org/libreoffice/src/6.3.2/libreoffice-dictionaries-6.3.2.2.tar.xz
-wget -nc http://download.documentfoundation.org/libreoffice/src/6.3.2/libreoffice-help-6.3.2.2.tar.xz
-wget -nc http://download.documentfoundation.org/libreoffice/src/6.3.2/libreoffice-translations-6.3.2.2.tar.xz
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.3.3/libreoffice-6.3.3.2.tar.xz
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.3.3/libreoffice-dictionaries-6.3.3.2.tar.xz
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.3.3/libreoffice-help-6.3.3.2.tar.xz
+wget -nc http://download.documentfoundation.org/libreoffice/src/6.3.3/libreoffice-translations-6.3.3.2.tar.xz
 
 
 NAME=libreoffice
-VERSION=6.3.2.2
-URL=http://download.documentfoundation.org/libreoffice/src/6.3.2/libreoffice-6.3.2.2.tar.xz
+VERSION=6.3.3.2
+URL=http://download.documentfoundation.org/libreoffice/src/6.3.3/libreoffice-6.3.3.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -76,9 +75,9 @@ echo $USER > /tmp/currentuser
 
 
 install -dm755 external/tarballs &&
-ln -sv ../../../libreoffice-dictionaries-6.3.2.2.tar.xz external/tarballs/ &&
-ln -sv ../../../libreoffice-help-6.3.2.2.tar.xz         external/tarballs/
-ln -sv ../../../libreoffice-translations-6.3.2.2.tar.xz external/tarballs/
+ln -sv ../../../libreoffice-dictionaries-6.3.3.2.tar.xz external/tarballs/ &&
+ln -sv ../../../libreoffice-help-6.3.3.2.tar.xz         external/tarballs/
+ln -sv ../../../libreoffice-translations-6.3.3.2.tar.xz external/tarballs/
 export LO_PREFIX=/usr
 sed -e "/gzip -f/d"   \
     -e "s|.1.gz|.1|g" \
@@ -126,7 +125,6 @@ sed -e '/JAVA_SOURCE_VER/s/6/7/' \
              --with-system-odbc          \
              --with-system-openldap      \
              --with-system-openssl       \
-             --with-system-poppler       \
              --disable-postgresql-sdbc    \
              --with-system-redland       \
              --with-system-serf          \

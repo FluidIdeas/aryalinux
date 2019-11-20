@@ -16,13 +16,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.9.tar.xz
-wget -nc ftp://ftp.gnupg.org/gcrypt/gnutls/v3.6/gnutls-3.6.9.tar.xz
+wget -nc https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.10.tar.xz
+wget -nc ftp://ftp.gnupg.org/gcrypt/gnutls/v3.6/gnutls-3.6.10.tar.xz
 
 
 NAME=gnutls
-VERSION=3.6.9
-URL=https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.9.tar.xz
+VERSION=3.6.10
+URL=https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.10.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -44,7 +44,7 @@ echo $USER > /tmp/currentuser
 
 
 ./configure --prefix=/usr \
-            --docdir=/usr/share/doc/gnutls-3.6.9 \
+            --docdir=/usr/share/doc/gnutls-3.6.10 \
             --disable-guile \
             --with-default-trust-store-pkcs11="pkcs11:" &&
 make

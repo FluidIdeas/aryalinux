@@ -13,7 +13,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://github.com/systemd/systemd/archive/v243/systemd-243.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/systemd-243-consolidated_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/systemd-243-consolidated_fixes-2.patch
 
 
 NAME=systemd
@@ -39,7 +39,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../systemd-243-consolidated_fixes-1.patch
+patch -Np1 -i ../systemd-243-consolidated_fixes-2.patch
 sed -i 's/GROUP="render", //' rules/50-udev-default.rules.in
 mkdir build &&
 cd    build &&
@@ -53,6 +53,7 @@ meson --prefix=/usr         \
       -Dfirstboot=false     \
       -Dinstall-tests=false \
       -Dldconfig=false      \
+      -Dman=auto            \
       -Drootprefix=         \
       -Drootlibdir=/lib     \
       -Dsplit-usr=true      \

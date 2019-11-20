@@ -20,13 +20,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gcr/3.28/gcr-3.28.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gcr/3.28/gcr-3.28.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gcr/3.34/gcr-3.34.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gcr/3.34/gcr-3.34.0.tar.xz
 
 
 NAME=gcr
-VERSION=3.28.1
-URL=http://ftp.gnome.org/pub/gnome/sources/gcr/3.28/gcr-3.28.1.tar.xz
+VERSION=3.34.0
+URL=http://ftp.gnome.org/pub/gnome/sources/gcr/3.34/gcr-3.34.0.tar.xz
 
 if [ ! -z $URL ]
 then

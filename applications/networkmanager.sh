@@ -26,13 +26,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.20/NetworkManager-1.20.4.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.20/NetworkManager-1.20.4.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.20/NetworkManager-1.20.6.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.20/NetworkManager-1.20.6.tar.xz
 
 
 NAME=networkmanager
-VERSION=1.20.4
-URL=http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.20/NetworkManager-1.20.4.tar.xz
+VERSION=1.20.6
+URL=http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.20/NetworkManager-1.20.6.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -83,7 +83,7 @@ ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
-mv -v /usr/share/doc/NetworkManager{,-1.20.4}
+mv -v /usr/share/doc/NetworkManager{,-1.20.6}
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -143,7 +143,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-systemctl enable NetworkManager-wait-online
+systemctl disable NetworkManager-wait-online
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

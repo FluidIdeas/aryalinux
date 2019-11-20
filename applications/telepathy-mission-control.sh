@@ -8,18 +8,17 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:telepathy-glib
-#REQ:python2
 #REQ:networkmanager
 
 
 cd $SOURCE_DIR
 
-wget -nc https://telepathy.freedesktop.org/releases/telepathy-mission-control/telepathy-mission-control-5.16.4.tar.gz
+wget -nc https://telepathy.freedesktop.org/releases/telepathy-mission-control/telepathy-mission-control-5.16.5.tar.gz
 
 
 NAME=telepathy-mission-control
-VERSION=5.16.4
-URL=https://telepathy.freedesktop.org/releases/telepathy-mission-control/telepathy-mission-control-5.16.4.tar.gz
+VERSION=5.16.5
+URL=https://telepathy.freedesktop.org/releases/telepathy-mission-control/telepathy-mission-control-5.16.5.tar.gz
 
 if [ ! -z $URL ]
 then

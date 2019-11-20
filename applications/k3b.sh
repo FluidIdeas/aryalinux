@@ -23,12 +23,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/applications/19.08.0/src/k3b-19.08.0.tar.xz
+wget -nc http://download.kde.org/stable/applications/19.08.3/src/k3b-19.08.3.tar.xz
 
 
 NAME=k3b
-VERSION=19.08.0
-URL=http://download.kde.org/stable/applications/19.08.0/src/k3b-19.08.0.tar.xz
+VERSION=19.08.3
+URL=http://download.kde.org/stable/applications/19.08.3/src/k3b-19.08.3.tar.xz
 
 if [ ! -z $URL ]
 then

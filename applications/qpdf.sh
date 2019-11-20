@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/qpdf/qpdf/releases/download/release-qpdf-9.0.1/qpdf-9.0.1.tar.gz
+wget -nc https://github.com/qpdf/qpdf/releases/download/release-qpdf-9.1.0/qpdf-9.1.0.tar.gz
 
 
 NAME=qpdf
-VERSION=9.0.1
-URL=https://github.com/qpdf/qpdf/releases/download/release-qpdf-9.0.1/qpdf-9.0.1.tar.gz
+VERSION=9.1.0
+URL=https://github.com/qpdf/qpdf/releases/download/release-qpdf-9.1.0/qpdf-9.1.0.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -40,7 +40,7 @@ echo $USER > /tmp/currentuser
 
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/qpdf-9.0.1 &&
+            --docdir=/usr/share/doc/qpdf-9.1.0 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

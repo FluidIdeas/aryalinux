@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/aee9ae9646cbef724bbb1bd2ba146556/shared-mime-info-1.14.tar.xz
+wget -nc https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/b27eb88e4155d8fccb8bb3cd12025d5b/shared-mime-info-1.15.tar.xz
 
 
 NAME=shared-mime-info
-VERSION=1.14
-URL=https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/aee9ae9646cbef724bbb1bd2ba146556/shared-mime-info-1.14.tar.xz
+VERSION=1.15
+URL=https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/b27eb88e4155d8fccb8bb3cd12025d5b/shared-mime-info-1.15.tar.xz
 
 if [ ! -z $URL ]
 then

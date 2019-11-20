@@ -22,12 +22,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.qt.io/archive/qt/5.13/5.13.1/submodules/qtwebengine-everywhere-src-5.13.1.tar.xz
+wget -nc https://download.qt.io/archive/qt/5.13/5.13.2/submodules/qtwebengine-everywhere-src-5.13.2.tar.xz
 
 
 NAME=qtwebengine
-VERSION=5.13.1
-URL=https://download.qt.io/archive/qt/5.13/5.13.1/submodules/qtwebengine-everywhere-src-5.13.1.tar.xz
+VERSION=5.13.2
+URL=https://download.qt.io/archive/qt/5.13/5.13.2/submodules/qtwebengine-everywhere-src-5.13.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -50,6 +50,10 @@ echo $USER > /tmp/currentuser
 
 find -type f -name "*.pr[io]" |
   xargs sed -i -e 's|INCLUDEPATH += |&$$QTWEBENGINE_ROOT/include |'
+sed -e '/!buffer/a \
+\    BaseAudioContext::GraphAutoLocker context_locker(Context()); \
+\    MutexLocker locker(process_lock_);' -i \
+     src/3rdparty/chromium/third_party/blink/renderer/modules/webaudio/convolver_node.cc
 sed -e '/link_pulseaudio/s/false/true/' \
     -i src/3rdparty/chromium/media/media_options.gni
 sudo rm -rf /tmp/rootscript.sh

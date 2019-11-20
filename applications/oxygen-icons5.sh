@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/frameworks/5.61/oxygen-icons5-5.61.0.tar.xz
+wget -nc http://download.kde.org/stable/frameworks/5.64/oxygen-icons5-5.64.0.tar.xz
 
 
 NAME=oxygen-icons5
-VERSION=5.61.0
-URL=http://download.kde.org/stable/frameworks/5.61/oxygen-icons5-5.61.0.tar.xz
+VERSION=5.64.0
+URL=http://download.kde.org/stable/frameworks/5.64/oxygen-icons5-5.64.0.tar.xz
 
 if [ ! -z $URL ]
 then

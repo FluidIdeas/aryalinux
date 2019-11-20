@@ -12,13 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/fetchmail/fetchmail-6.3.26.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/fetchmail-6.3.26-disable_sslv3-1.patch
+wget -nc https://downloads.sourceforge.net/fetchmail/fetchmail-6.4.1.tar.xz
 
 
 NAME=fetchmail
-VERSION=6.3.26
-URL=https://downloads.sourceforge.net/fetchmail/fetchmail-6.3.26.tar.xz
+VERSION=6.4.1
+URL=https://downloads.sourceforge.net/fetchmail/fetchmail-6.4.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -39,12 +38,24 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../fetchmail-6.3.26-disable_sslv3-1.patch &&
-./configure --prefix=/usr --with-ssl --enable-fallback=procmail &&
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+useradd -c "Fetchmail User" -d /dev/null -g nogroup \
+        -s /bin/false -u 38 fetchmail
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+PYTHON=python3 \
+./configure --prefix=/usr \
+ --enable-fallback=procmail &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+make install                                  &&
+chown -v fetchmail:nogroup /usr/bin/fetchmail
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -52,15 +63,21 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 cat > ~/.fetchmailrc << "EOF"
-set logfile /var/log/fetchmail.log
+
+# The logfile needs to exist when fetchmail is invoked, otherwise it will
+# dump the details to the screen. As with all logs, you will need to rotate
+# or clear it from time to time.
+set logfile fetchmail.log
 set no bouncemail
-set postmaster root
+# You probably want to set your local username as the postmaster
+set postmaster $(cat /tmp/currentuser)
 
 poll SERVERNAME :
-    user $(cat /tmp/currentuser) pass <password>;
+    user <isp_username> pass <password>;
     mda "/usr/bin/procmail -f %F -d %T";
 EOF
 
+touch ~/fetchmail.log       &&
 chmod -v 0600 ~/.fetchmailrc
 
 

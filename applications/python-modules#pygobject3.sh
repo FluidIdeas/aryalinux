@@ -42,15 +42,15 @@ fi
 
 echo $USER > /tmp/currentuser
 
-mkdir python2                        &&
-pushd python2                        &&
-meson --prefix=/usr -Dpython=python2 &&
-ninja                                &&
+mkdir python2                           &&
+pushd python2                           &&
+meson --prefix=/usr -Dpython=python2 .. &&
+ninja                                   &&
 popd
-mkdir python3                        &&
-pushd python3                        &&
-meson --prefix=/usr -Dpython=python3 &&
-ninja                                &&
+mkdir python3                           &&
+pushd python3                           &&
+meson --prefix=/usr -Dpython=python3 .. &&
+ninja                                   &&
 popd
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

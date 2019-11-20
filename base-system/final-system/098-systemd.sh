@@ -20,7 +20,7 @@ tar xf $TARBALL
 cd $DIRECTORY
 
 
-patch -Np1 -i ../systemd-243-consolidated_fixes-1.patch
+patch -Np1 -i ../systemd-243-consolidated_fixes-2.patch
 ln -sf /tools/bin/true /usr/bin/xsltproc
 for file in /tools/lib/lib{blkid,mount,uuid}.so*; do
     ln -sf $file /usr/lib/

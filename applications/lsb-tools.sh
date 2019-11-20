@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/djlucas/LSB-Tools/releases/download/v0.4/LSB-Tools-0.4.tar.gz
+wget -nc https://github.com/djlucas/LSB-Tools/releases/download/v0.5/LSB-Tools-0.5.tar.gz
 
 
 NAME=lsb-tools
-VERSION=0.4
-URL=https://github.com/djlucas/LSB-Tools/releases/download/v0.4/LSB-Tools-0.4.tar.gz
+VERSION=0.5
+URL=https://github.com/djlucas/LSB-Tools/releases/download/v0.5/LSB-Tools-0.5.tar.gz
 
 if [ ! -z $URL ]
 then

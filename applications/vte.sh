@@ -17,13 +17,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/vte/0.58/vte-0.58.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/vte/0.58/vte-0.58.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/vte/0.58/vte-0.58.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/vte/0.58/vte-0.58.2.tar.xz
 
 
 NAME=vte
-VERSION=0.58.0
-URL=http://ftp.gnome.org/pub/gnome/sources/vte/0.58/vte-0.58.0.tar.xz
+VERSION=0.58.2
+URL=http://ftp.gnome.org/pub/gnome/sources/vte/0.58/vte-0.58.2.tar.xz
 
 if [ ! -z $URL ]
 then

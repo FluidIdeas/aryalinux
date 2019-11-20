@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://get.videolan.org/libdvdread/6.0.1/libdvdread-6.0.1.tar.bz2
+wget -nc https://get.videolan.org/libdvdread/6.0.2/libdvdread-6.0.2.tar.bz2
 
 
 NAME=libdvdread
-VERSION=6.0.1
-URL=https://get.videolan.org/libdvdread/6.0.1/libdvdread-6.0.1.tar.bz2
+VERSION=6.0.2
+URL=https://get.videolan.org/libdvdread/6.0.2/libdvdread-6.0.2.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -39,7 +39,7 @@ echo $USER > /tmp/currentuser
 
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/libdvdread-6.0.1 &&
+            --docdir=/usr/share/doc/libdvdread-6.0.2 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

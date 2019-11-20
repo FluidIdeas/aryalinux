@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=046-shadow
+NAME=048-shadow
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then

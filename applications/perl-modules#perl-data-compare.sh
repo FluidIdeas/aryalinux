@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cpan.org/authors/id/D/DC/DCANTRELL/Data-Compare-1.26.tar.gz
+wget -nc https://www.cpan.org/authors/id/D/DC/DCANTRELL/Data-Compare-1.27.tar.gz
 
 
 NAME=perl-modules#perl-data-compare
-VERSION=1.26
-URL=https://www.cpan.org/authors/id/D/DC/DCANTRELL/Data-Compare-1.26.tar.gz
+VERSION=1.27
+URL=https://www.cpan.org/authors/id/D/DC/DCANTRELL/Data-Compare-1.27.tar.gz
 
 if [ ! -z $URL ]
 then

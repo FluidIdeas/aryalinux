@@ -35,12 +35,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.qt.io/archive/qt/5.13/5.13.1/single/qt-everywhere-src-5.13.1.tar.xz
+wget -nc https://download.qt.io/archive/qt/5.13/5.13.2/single/qt-everywhere-src-5.13.2.tar.xz
 
 
 NAME=qt5
-VERSION=5.13.1
-URL=https://download.qt.io/archive/qt/5.13/5.13.1/single/qt-everywhere-src-5.13.1.tar.xz
+VERSION=5.13.2
+URL=https://download.qt.io/archive/qt/5.13/5.13.2/single/qt-everywhere-src-5.13.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -64,8 +64,8 @@ echo $USER > /tmp/currentuser
 export QT5PREFIX=/opt/qt5
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir /opt/qt-5.13.1
-ln -sfnv qt-5.13.1 /opt/qt5
+mkdir /opt/qt-5.13.2
+ln -sfnv qt-5.13.2 /opt/qt5
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2019.1.tar.bz2
+wget -nc https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2019.2.tar.bz2
 
 
 NAME=xorgproto
-VERSION=2019.1
-URL=https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2019.1.tar.bz2
+VERSION=2019.2
+URL=https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2019.2.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -48,8 +48,8 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
 
-install -vdm 755 $XORG_PREFIX/share/doc/xorgproto-2019.1 &&
-install -vm 644 ../[^m]*.txt ../PM_spec $XORG_PREFIX/share/doc/xorgproto-2019.1
+install -vdm 755 $XORG_PREFIX/share/doc/xorgproto-2019.2 &&
+install -vm 644 ../[^m]*.txt ../PM_spec $XORG_PREFIX/share/doc/xorgproto-2019.2
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

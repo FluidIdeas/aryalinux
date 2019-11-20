@@ -13,6 +13,7 @@ set +h
 #REQ:gexiv2
 #REQ:ffmpeg
 #REQ:flac
+#REQ:giflib
 #REQ:icu
 #REQ:libexif
 #REQ:libgrss
@@ -22,13 +23,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.2/tracker-miners-2.2.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.2/tracker-miners-2.2.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.3/tracker-miners-2.3.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.3/tracker-miners-2.3.1.tar.xz
 
 
 NAME=tracker-miners
-VERSION=2.2.2
-URL=http://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.2/tracker-miners-2.2.2.tar.xz
+VERSION=2.3.1
+URL=http://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.3/tracker-miners-2.3.1.tar.xz
 
 if [ ! -z $URL ]
 then

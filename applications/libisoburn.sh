@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://files.libburnia-project.org/releases/libisoburn-1.5.0.tar.gz
+wget -nc http://files.libburnia-project.org/releases/libisoburn-1.5.2.tar.gz
 
 
 NAME=libisoburn
-VERSION=1.5.0
-URL=http://files.libburnia-project.org/releases/libisoburn-1.5.0.tar.gz
+VERSION=1.5.2
+URL=http://files.libburnia-project.org/releases/libisoburn-1.5.2.tar.gz
 
 if [ ! -z $URL ]
 then

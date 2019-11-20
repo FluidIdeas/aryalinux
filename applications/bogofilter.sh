@@ -9,16 +9,17 @@ set +h
 
 #REQ:db
 #REQ:gsl
+#REQ:libxml2
 
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/bogofilter/bogofilter-1.2.4.tar.gz
+wget -nc https://downloads.sourceforge.net/bogofilter/bogofilter-1.2.5.tar.xz
 
 
 NAME=bogofilter
-VERSION=1.2.4
-URL=https://downloads.sourceforge.net/bogofilter/bogofilter-1.2.4.tar.gz
+VERSION=1.2.5
+URL=https://downloads.sourceforge.net/bogofilter/bogofilter-1.2.5.tar.xz
 
 if [ ! -z $URL ]
 then

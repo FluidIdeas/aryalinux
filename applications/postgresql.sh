@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.postgresql.org/pub/source/v12.0/postgresql-12.0.tar.bz2
+wget -nc http://ftp.postgresql.org/pub/source/v12.1/postgresql-12.1.tar.bz2
 
 
 NAME=postgresql
-VERSION=12.0
-URL=http://ftp.postgresql.org/pub/source/v12.0/postgresql-12.0.tar.bz2
+VERSION=12.1
+URL=http://ftp.postgresql.org/pub/source/v12.1/postgresql-12.1.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -52,7 +52,7 @@ sed -i '/DEFAULT_PGSOCKET_DIR/s@/tmp@/run/postgresql@' src/include/pg_config_man
 
 ./configure --prefix=/usr          \
             --enable-thread-safety \
-            --docdir=/usr/share/doc/postgresql-12.0 &&
+            --docdir=/usr/share/doc/postgresql-12.1 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

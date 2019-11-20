@@ -19,8 +19,8 @@ cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf/0.34/dconf-0.34.0.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf/0.34/dconf-0.34.0.tar.xz
-wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.34/dconf-editor-3.34.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.34/dconf-editor-3.34.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.34/dconf-editor-3.34.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.34/dconf-editor-3.34.2.tar.xz
 
 
 NAME=dconf
@@ -46,6 +46,8 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -i 's|link_whole|link_with|' common/meson.build &&
+sed -i 's/module/& | grep -v mangle_path/' gsettings/abicheck.sh
 mkdir build &&
 cd    build &&
 
@@ -61,8 +63,8 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 cd ..              &&
-tar -xf ../dconf-editor-3.34.1.tar.xz &&
-cd dconf-editor-3.34.1                &&
+tar -xf ../dconf-editor-3.34.2.tar.xz &&
+cd dconf-editor-3.34.2                &&
 
 mkdir build &&
 cd    build &&
