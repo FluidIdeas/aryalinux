@@ -2,7 +2,7 @@
 
 set -e
 
-. ./build-properties
+. /sources/build-properties
 
 type=$(sudo fdisk -l $DEV_NAME | grep "Disklabel type" | tr -s ' ' | rev | cut -d ' ' -f1 | rev)
 
