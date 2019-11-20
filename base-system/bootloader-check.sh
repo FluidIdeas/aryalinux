@@ -8,36 +8,22 @@ type=$(sudo fdisk -l $DEV_NAME | grep "Disklabel type" | tr -s ' ' | rev | cut -
 
 status=0
 
+# Bail out if have boot in UEFI mode but no GPT partition table
 if [ -d /sys/lib/firmware ] && [ $type == "msdos" ]; then
-  status=1
+	echo "Cannot install bootloader. Please boot in legacy mode."
+	exit 1
 fi
 
-if [ $type == "gpt" ]; then
-  efipart=$(sudo fdisk -l $DEV_NAME | grep "EFI System" | tr -s ' ' | cut -d ' ' -f1)
-  if [ "x$efipart" == "x" ]; then
-    if [ "x$status" == "x" ]; then
-      status=2
-    else
-      status=3
-    fi
-  fi
+# Bail out if have boot in legacy mode and no msdos partition table
+if [ ! -d /sys/lib/firmware ] && [ $type == "gpt" ]; then
+	echo "Cannot install bootloader. Please boot in EFI mode."
 fi
 
-if [ $status == "1" ]; then
-  echo "Would not install bootloader. Partition type msdos. Please reboot in legacy mode"
+efipart=$(sudo fdisk -l $DEV_NAME | grep "EFI System" | tr -s ' ' | cut -d ' ' -f1)
+
+# Bail out if have boot in UEFI mode and have GPT partition table but no EFI partition
+if [ -d /sys/lib/firmware ] && [ $type == "gpt" ] && [ "x$efipart" == "x" ]; then
+	echo "Cannot install bootloader. No EFI Partition found."
+	exit 1
 fi
 
-if [ $status == "2" ]; then
-  echo "Would not install bootloader. Partition type gpt but not EFI partition defined."
-fi
-
-if [ $status == "3" ]; then
-  echo "Would not install bootloader. Partition type msdos. Please reboot in legacy mode"
-  echo "Would not install bootloader. Partition type gpt but not EFI partition defined."
-fi
-
-if [ $status != "0" ]; then
-  exit 1
-else
-  exit 0
-fi
