@@ -109,9 +109,9 @@ set +h
 . /etc/alps/alps.conf
 
 pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-20180105.tar.bz2
-tar xf blfs-systemd-units-20180105.tar.bz2
-cd blfs-systemd-units-20180105
+wget -nc http://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-20191026.tar.xz
+tar xf blfs-systemd-units-20191026.tar.xz
+cd blfs-systemd-units-20191026
 sudo make install-exim
 popd
 ENDOFROOTSCRIPT
