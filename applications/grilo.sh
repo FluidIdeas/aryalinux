@@ -20,6 +20,7 @@ cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.10.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.10.tar.xz
+wget -nc https://gitlab.gnome.org/GNOME/grilo/merge_requests/52.diff
 
 
 NAME=grilo
@@ -44,6 +45,8 @@ fi
 
 echo $USER > /tmp/currentuser
 
+
+patch -Np1 -i ../52.diff
 
 mkdir build &&
 cd    build    &&
