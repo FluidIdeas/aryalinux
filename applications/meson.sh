@@ -11,13 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/mesonbuild/meson/releases/download/0.50.0/meson-0.50.0.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/meson-0.50.0-gnome.patch
+wget -nc https://github.com/mesonbuild/meson/releases/download/0.52.0/meson-0.52.0.tar.gz
 
 
 NAME=meson
-VERSION=0.50.0
-URL=https://github.com/mesonbuild/meson/releases/download/0.50.0/meson-0.50.0.tar.gz
+VERSION=0.52.0
+URL=https://github.com/mesonbuild/meson/releases/download/0.52.0/meson-0.52.0.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -35,7 +34,6 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../meson-0.50.0-gnome.patch
 python3 setup.py build
 python3 setup.py install --root=dest
 sudo cp -rv dest/* /
