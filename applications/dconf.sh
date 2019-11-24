@@ -21,6 +21,7 @@ wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf/0.34/dconf-0.34.0.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf/0.34/dconf-0.34.0.tar.xz
 wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.34/dconf-editor-3.34.2.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.34/dconf-editor-3.34.2.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/dconf-0.34.0-meson.patch
 
 
 NAME=dconf
@@ -46,8 +47,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i 's|link_whole|link_with|' common/meson.build &&
-sed -i 's/module/& | grep -v mangle_path/' gsettings/abicheck.sh
+patch -Np1 -i ../dconf-0.34.0-meson.patch
 mkdir build &&
 cd    build &&
 
@@ -62,6 +62,15 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+cd ..              &&
+tar -xf ../dconf-editor-3.34.2.tar.xz &&
+cd dconf-editor-3.34.2                &&
+
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr --sysconfdir=/etc .. &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install

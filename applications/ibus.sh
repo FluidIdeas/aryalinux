@@ -41,21 +41,36 @@ fi
 cd $DIRECTORY
 fi
 
-sudo mkdir -p               /usr/share/unicode/ucd &&
-sudo unzip -u ../UCD.zip -d /usr/share/unicode/ucd
+echo $USER > /tmp/currentuser
+
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+mkdir -p               /usr/share/unicode/ucd &&
+unzip -u ../UCD.zip -d /usr/share/unicode/ucd
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 sed -i 's@/desktop/ibus@/org/freedesktop/ibus@g' \
     data/dconf/org.freedesktop.ibus.gschema.xml
-
 ./configure --prefix=/usr             \
             --sysconfdir=/etc         \
             --disable-unicode-dict    \
-            --disable-dconf              \
             --disable-emoji-dict      &&
 rm -f tools/main.c                    &&
 make
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+ENDOFROOTSCRIPT
 
-sudo make install
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
