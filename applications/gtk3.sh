@@ -51,7 +51,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i 's/3.24.10/3.24.11/' meson.build
 mkdir build-gtk3 &&
 cd    build-gtk3 &&
 

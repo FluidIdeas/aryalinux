@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://fossies.org/linux/misc/tcsh-6.21.00.tar.gz
-wget -nc ftp://ftp.astron.com/pub/tcsh/tcsh-6.21.00.tar.gz
+wget -nc http://fossies.org/linux/misc/tcsh-6.22.00.tar.gz
+wget -nc ftp://ftp.astron.com/pub/tcsh/tcsh-6.22.00.tar.gz
 
 
 NAME=tcsh
-VERSION=6.21.00
-URL=http://fossies.org/linux/misc/tcsh-6.21.00.tar.gz
+VERSION=6.22.00
+URL=http://fossies.org/linux/misc/tcsh-6.22.00.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -38,8 +38,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i 's|SVID_SOURCE|DEFAULT_SOURCE|g' config/linux  &&
-sed -i 's|BSD_SOURCE|DEFAULT_SOURCE|g'  config/linux
 ./configure --prefix=/usr --bindir=/bin &&
 
 make &&
@@ -51,9 +49,9 @@ make install install.man &&
 ln -v -sf tcsh   /bin/csh &&
 ln -v -sf tcsh.1 /usr/share/man/man1/csh.1 &&
 
-install -v -m755 -d          /usr/share/doc/tcsh-6.21.00/html &&
-install -v -m644 tcsh.html/* /usr/share/doc/tcsh-6.21.00/html &&
-install -v -m644 FAQ         /usr/share/doc/tcsh-6.21.00
+install -v -m755 -d          /usr/share/doc/tcsh-6.22.00/html &&
+install -v -m644 tcsh.html/* /usr/share/doc/tcsh-6.22.00/html &&
+install -v -m644 FAQ         /usr/share/doc/tcsh-6.22.00
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

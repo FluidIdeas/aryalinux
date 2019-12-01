@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.icu-project.org/files/icu4c/64.2/icu4c-64_2-src.tgz
+wget -nc http://github.com/unicode-org/icu/releases/download/release-65-1/icu4c-65_1-src.tgz
 
 
 NAME=icu
 VERSION=6
-URL=http://download.icu-project.org/files/icu4c/64.2/icu4c-64_2-src.tgz
+URL=http://github.com/unicode-org/icu/releases/download/release-65-1/icu4c-65_1-src.tgz
 
 if [ ! -z $URL ]
 then

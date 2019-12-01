@@ -16,13 +16,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gjs/1.58/gjs-1.58.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gjs/1.58/gjs-1.58.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gjs/1.58/gjs-1.58.3.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gjs/1.58/gjs-1.58.3.tar.xz
 
 
 NAME=gjs
-VERSION=1.58.1
-URL=http://ftp.gnome.org/pub/gnome/sources/gjs/1.58/gjs-1.58.1.tar.xz
+VERSION=1.58.3
+URL=http://ftp.gnome.org/pub/gnome/sources/gjs/1.58/gjs-1.58.3.tar.xz
 
 if [ ! -z $URL ]
 then
