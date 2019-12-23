@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tar.xz
+wget -nc https://www.python.org/ftp/python/3.8.1/Python-3.8.1.tar.xz
 
 
 NAME=python3
-VERSION=3.8.0
-URL=https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tar.xz
+VERSION=3.8.1
+URL=https://www.python.org/ftp/python/3.8.1/Python-3.8.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -59,7 +59,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ln -svfn python-3.8.0 /usr/share/doc/python-3
+ln -svfn python-3.8.1 /usr/share/doc/python-3
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

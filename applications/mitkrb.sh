@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://kerberos.org/dist/krb5/1.17/krb5-1.17.tar.gz
+wget -nc https://kerberos.org/dist/krb5/1.17/krb5-1.17.1.tar.gz
 
 
 NAME=mitkrb
-VERSION=1.17
-URL=https://kerberos.org/dist/krb5/1.17/krb5-1.17.tar.gz
+VERSION=1.17.1
+URL=https://kerberos.org/dist/krb5/1.17/krb5-1.17.1.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -71,8 +71,8 @@ ln -v -sf ../../lib/libkrb5support.so.0.1 /usr/lib/libkrb5support.so &&
 mv -v /usr/bin/ksu /bin &&
 chmod -v 755 /bin/ksu   &&
 
-install -v -dm755 /usr/share/doc/krb5-1.17 &&
-cp -vfr ../doc/*  /usr/share/doc/krb5-1.17
+install -v -dm755 /usr/share/doc/krb5-1.17.1 &&
+cp -vfr ../doc/*  /usr/share/doc/krb5-1.17.1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

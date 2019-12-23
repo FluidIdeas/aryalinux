@@ -13,17 +13,18 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=elfutils-0.177.tar.bz2
+TARBALL=elfutils-0.178.tar.bz2
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-./configure --prefix=/usr
+./configure --prefix=/usr --disable-debuginfod
 make
 make -C libelf install
 install -vm644 config/libelf.pc /usr/lib/pkgconfig
+rm /usr/lib/libelf.a
 
 fi
 

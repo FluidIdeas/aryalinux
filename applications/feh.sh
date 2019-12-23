@@ -15,12 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://feh.finalrewind.org/feh-3.2.1.tar.bz2
+wget -nc http://feh.finalrewind.org/feh-3.3.tar.bz2
 
 
 NAME=feh
-VERSION=3.2.1
-URL=http://feh.finalrewind.org/feh-3.2.1.tar.bz2
+VERSION=3.3
+URL=http://feh.finalrewind.org/feh-3.3.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -41,7 +41,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i "s:doc/feh:&-3.2.1:" config.mk &&
+sed -i "s:doc/feh:&-3.3:" config.mk &&
 make PREFIX=/usr
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

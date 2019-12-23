@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://netfilter.org/projects/libnftnl/files/libnftnl-1.1.4.tar.bz2
+wget -nc https://netfilter.org/projects/libnftnl/files/libnftnl-1.1.5.tar.bz2
 
 
 NAME=libnftnl
-VERSION=1.1.4
-URL=https://netfilter.org/projects/libnftnl/files/libnftnl-1.1.4.tar.bz2
+VERSION=1.1.5
+URL=https://netfilter.org/projects/libnftnl/files/libnftnl-1.1.5.tar.bz2
 
 if [ ! -z $URL ]
 then

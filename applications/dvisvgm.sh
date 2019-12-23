@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/mgieseki/dvisvgm/releases/download/2.8/dvisvgm-2.8.tar.gz
+wget -nc https://github.com/mgieseki/dvisvgm/releases/download/2.8.2/dvisvgm-2.8.2.tar.gz
 
 
 NAME=dvisvgm
-VERSION=2.8
-URL=https://github.com/mgieseki/dvisvgm/releases/download/2.8/dvisvgm-2.8.tar.gz
+VERSION=2.8.2
+URL=https://github.com/mgieseki/dvisvgm/releases/download/2.8.2/dvisvgm-2.8.2.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -56,7 +56,7 @@ make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install                            &&
-install -v -m644 doc/dvisgm.1            \
+install -v -m644 doc/dvisvgm.1           \
  /opt/texlive/2019/texmf-dist/doc/man/man1
 ENDOFROOTSCRIPT
 

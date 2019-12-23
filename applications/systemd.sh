@@ -12,13 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/systemd/systemd/archive/v243/systemd-243.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/systemd-243-consolidated_fixes-2.patch
+wget -nc https://github.com/systemd/systemd/archive/v244/systemd-244.tar.gz
 
 
 NAME=systemd
-VERSION=243
-URL=https://github.com/systemd/systemd/archive/v243/systemd-243.tar.gz
+VERSION=244
+URL=https://github.com/systemd/systemd/archive/v244/systemd-244.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -39,8 +38,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../systemd-243-consolidated_fixes-2.patch
-sed -i 's/GROUP="render", //' rules/50-udev-default.rules.in
+sed -i 's/GROUP="render", //' rules.d/50-udev-default.rules.in
 mkdir build &&
 cd    build &&
 
@@ -60,7 +58,6 @@ meson --prefix=/usr         \
       -Dsysusers=false      \
       -Drpmmacrosdir=no     \
       -Db_lto=false         \
-      -Dgnutls=false        \
       ..                    &&
 
 ninja

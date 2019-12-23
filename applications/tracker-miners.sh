@@ -25,6 +25,7 @@ cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.3/tracker-miners-2.3.1.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.3/tracker-miners-2.3.1.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/tracker-miners-2.3.1-upstream_fixes-1.patch
 
 
 NAME=tracker-miners
@@ -50,6 +51,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../tracker-miners-2.3.1-upstream_fixes-1.patch
 mkdir build &&
 cd    build &&
 

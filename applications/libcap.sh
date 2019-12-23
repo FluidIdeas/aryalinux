@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.27.tar.xz
+wget -nc https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.28.tar.xz
 
 
 NAME=libcap
-VERSION=2.27
-URL=https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.27.tar.xz
+VERSION=2.28
+URL=https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.28.tar.xz
 
 if [ ! -z $URL ]
 then

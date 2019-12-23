@@ -44,6 +44,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -i '338a "KX26",' libgweather/test_libgweather.c
 mkdir build &&
 cd    build &&
 

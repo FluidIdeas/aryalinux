@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.16.1.tar.xz
+wget -nc https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.16.2.tar.xz
 
 
 NAME=gst10-libav
-VERSION=1.16.1
-URL=https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.16.1.tar.xz
+VERSION=1.16.2
+URL=https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.16.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -46,7 +46,7 @@ cd    build &&
 meson  --prefix=/usr       \
        -Dbuildtype=release \
        -Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
-       -Dpackage-name="GStreamer 1.16.1 BLFS" &&
+       -Dpackage-name="GStreamer 1.16.2 BLFS" &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

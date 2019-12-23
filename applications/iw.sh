@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.kernel.org/pub/software/network/iw/iw-5.3.tar.xz
+wget -nc https://www.kernel.org/pub/software/network/iw/iw-5.4.tar.xz
 
 
 NAME=iw
-VERSION=5.3
-URL=https://www.kernel.org/pub/software/network/iw/iw-5.3.tar.xz
+VERSION=5.4
+URL=https://www.kernel.org/pub/software/network/iw/iw-5.4.tar.xz
 
 if [ ! -z $URL ]
 then

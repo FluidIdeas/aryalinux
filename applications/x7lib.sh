@@ -49,7 +49,7 @@ f5b48bb76ba327cd2a8dc7a383532a95  libXext-1.3.4.tar.bz2
 eeea9d5af3e6c143d0ea1721d27a5e49  libXScrnSaver-1.2.3.tar.bz2
 a9019421d3ee8b4937b6afd9025f018a  libXt-1.2.0.tar.bz2
 ac774cff8b493f566088a255dbf91201  libXmu-1.1.3.tar.bz2
-20f4627672edb2bd06a749f11aa97302  libXpm-3.5.12.tar.bz2
+6f0ecf8d103d528cfc803aa475137afa  libXpm-3.5.13.tar.bz2
 e5e06eb14a608b58746bdd1c0bd7b8e3  libXaw-1.0.13.tar.bz2
 07e01e046a0215574f36a3aacb148be0  libXfixes-5.0.3.tar.bz2
 3fa0841ea89024719b20cd702a9b54e0  libXcomposite-0.4.5.tar.bz2

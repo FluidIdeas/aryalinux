@@ -39,10 +39,10 @@ fi
 echo $USER > /tmp/currentuser
 
 
-mkdir out                           &
-cd out                              &
+mkdir out                           &&
+cd    out                           &&
 cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DCMAKE_BUILD_TYPE=Release .. &
+      -DCMAKE_BUILD_TYPE=Release .. &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

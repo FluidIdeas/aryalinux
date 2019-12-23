@@ -39,7 +39,7 @@ echo $USER > /tmp/currentuser
 
 
 mkdir out &&
-cd out    &&
+cd    out    &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr \
       -DCMAKE_BUILD_TYPE=Release  \

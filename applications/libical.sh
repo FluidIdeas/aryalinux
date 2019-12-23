@@ -8,16 +8,18 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:cmake
+#REQ:gobject-introspection
+#REQ:vala
 
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/libical/libical/releases/download/v3.0.6/libical-3.0.6.tar.gz
+wget -nc https://github.com/libical/libical/releases/download/v3.0.7/libical-3.0.7.tar.gz
 
 
 NAME=libical
-VERSION=3.0.6
-URL=https://github.com/libical/libical/releases/download/v3.0.6/libical-3.0.6.tar.gz
+VERSION=3.0.7
+URL=https://github.com/libical/libical/releases/download/v3.0.7/libical-3.0.7.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -40,6 +42,8 @@ echo $USER > /tmp/currentuser
 
 mkdir build &&
 cd    build &&
+
+  
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr  \
       -DCMAKE_BUILD_TYPE=Release   \

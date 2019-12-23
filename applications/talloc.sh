@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.samba.org/ftp/talloc/talloc-2.3.0.tar.gz
+wget -nc https://www.samba.org/ftp/talloc/talloc-2.3.1.tar.gz
 
 
 NAME=talloc
-VERSION=2.3.0
-URL=https://www.samba.org/ftp/talloc/talloc-2.3.0.tar.gz
+VERSION=2.3.1
+URL=https://www.samba.org/ftp/talloc/talloc-2.3.1.tar.gz
 
 if [ ! -z $URL ]
 then

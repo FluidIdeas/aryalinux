@@ -55,6 +55,7 @@ meson --prefix=/usr \
       --libexecdir=/usr/lib \
 -Denable-gtk-doc=false .. &&
 ninja
+sed -i 's/TOTEM_IS_PL_PARSER/TOTEM_PL_IS_PARSER/' libs/pls/grl-pls.c
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install

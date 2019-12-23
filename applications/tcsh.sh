@@ -11,13 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://fossies.org/linux/misc/tcsh-6.22.00.tar.gz
-wget -nc ftp://ftp.astron.com/pub/tcsh/tcsh-6.22.00.tar.gz
+wget -nc ftp://ftp.astron.com/pub/tcsh/tcsh-6.22.02.tar.gz
 
 
 NAME=tcsh
-VERSION=6.22.00
-URL=http://fossies.org/linux/misc/tcsh-6.22.00.tar.gz
+VERSION=6.22.02
+URL=ftp://ftp.astron.com/pub/tcsh/tcsh-6.22.02.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -49,9 +48,9 @@ make install install.man &&
 ln -v -sf tcsh   /bin/csh &&
 ln -v -sf tcsh.1 /usr/share/man/man1/csh.1 &&
 
-install -v -m755 -d          /usr/share/doc/tcsh-6.22.00/html &&
-install -v -m644 tcsh.html/* /usr/share/doc/tcsh-6.22.00/html &&
-install -v -m644 FAQ         /usr/share/doc/tcsh-6.22.00
+install -v -m755 -d          /usr/share/doc/tcsh-6.22.02/html &&
+install -v -m644 tcsh.html/* /usr/share/doc/tcsh-6.22.02/html &&
+install -v -m644 FAQ         /usr/share/doc/tcsh-6.22.02
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

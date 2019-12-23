@@ -9,6 +9,7 @@ set +h
 
 #REQ:python-modules#dbus-python
 #REQ:python-modules#decorator
+#REQ:python-modules#six
 
 
 cd $SOURCE_DIR

@@ -16,12 +16,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cairographics.org/releases/cairo-1.16.0.tar.xz
+wget -nc http://anduin.linuxfromscratch.org/BLFS/cairo/cairo-1.17.2+f93fc72c03e.tar.xz
 
 
 NAME=cairo
-VERSION=1.16.0
-URL=https://www.cairographics.org/releases/cairo-1.16.0.tar.xz
+VERSION=1.17.
+URL=http://anduin.linuxfromscratch.org/BLFS/cairo/cairo-1.17.2+f93fc72c03e.tar.xz
 
 if [ ! -z $URL ]
 then

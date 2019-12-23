@@ -9,17 +9,18 @@ set +h
 
 #REQ:libarchive
 #REQ:gtk3
+#REQ:vala
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-autoar/0.2/gnome-autoar-0.2.3.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-autoar/0.2/gnome-autoar-0.2.3.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-autoar/0.2/gnome-autoar-0.2.4.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-autoar/0.2/gnome-autoar-0.2.4.tar.xz
 
 
 NAME=gnome-autoar
-VERSION=0.2.3
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-autoar/0.2/gnome-autoar-0.2.3.tar.xz
+VERSION=0.2.4
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-autoar/0.2/gnome-autoar-0.2.4.tar.xz
 
 if [ ! -z $URL ]
 then

@@ -30,7 +30,7 @@ cd $SOURCE_DIR
 wget -nc https://media.inkscape.org/dl/resources/file/inkscape-0.92.4.tar.bz2
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/inkscape-0.92.4-use_versioned_ImageMagick6-1.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/inkscape-0.92.4-upstream_fixes-1.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/inkscape-0.92.4-poppler_0_82_0_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/inkscape-0.92.4-poppler_0_83_0_fixes-1.patch
 
 
 NAME=inkscape
@@ -57,7 +57,8 @@ echo $USER > /tmp/currentuser
 
 
 sed -e 's|new Lexer(xref, obj)|obj|g' -i src/extension/internal/pdfinput/pdf-parser.cpp
-patch -Np1 -i ../inkscape-0.92.4-poppler_0_82_0_fixes-1.patch
+sed -e 's|Unicode \*u|Unicode const *u|g' -i src/extension/internal/pdfinput/*
+patch -Np1 -i ../inkscape-0.92.4-poppler_0_83_0_fixes-1.patch
 patch -Np1 -i ../inkscape-0.92.4-use_versioned_ImageMagick6-1.patch
 patch -Np1 -i ../inkscape-0.92.4-upstream_fixes-1.patch
 bash download-gtest.sh

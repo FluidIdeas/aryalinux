@@ -44,7 +44,6 @@ patch -Np1 -i ../xarchiver-0.5.4-fixes-1.patch &&
 
 ./autogen.sh --prefix=/usr               \
              --libexecdir=/usr/lib/xfce4 \
-             --disable-gtk3              \
              --docdir=/usr/share/doc/xarchiver-0.5.4 &&
 make
 sudo rm -rf /tmp/rootscript.sh

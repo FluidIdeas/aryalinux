@@ -26,13 +26,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.20/NetworkManager-1.20.6.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.20/NetworkManager-1.20.6.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.22/NetworkManager-1.22.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.22/NetworkManager-1.22.0.tar.xz
 
 
 NAME=networkmanager
-VERSION=1.20.6
-URL=http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.20/NetworkManager-1.20.6.tar.xz
+VERSION=1.22.0
+URL=http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.22/NetworkManager-1.22.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -53,8 +53,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -e '/Qt[CDN]/s/Qt/Qt5/g'       \
-    -e 's/-qt4/-qt5/'              \
+sed -e 's/-qt4/-qt5/'              \
     -e 's/moc_location/host_bins/' \
     -i examples/C/qt/meson.build
 sed '/initrd/d' -i src/meson.build
@@ -83,7 +82,7 @@ ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
-mv -v /usr/share/doc/NetworkManager{,-1.20.6}
+mv -v /usr/share/doc/NetworkManager{,-1.22.0}
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

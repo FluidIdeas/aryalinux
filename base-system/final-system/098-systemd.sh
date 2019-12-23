@@ -13,21 +13,20 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=systemd-243.tar.gz
+TARBALL=systemd-244.tar.gz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-patch -Np1 -i ../systemd-243-consolidated_fixes-2.patch
 ln -sf /tools/bin/true /usr/bin/xsltproc
 for file in /tools/lib/lib{blkid,mount,uuid}.so*; do
     ln -sf $file /usr/lib/
 done
-tar -xf ../systemd-man-pages-243.tar.xz
+tar -xf ../systemd-man-pages-244.tar.xz
 sed '177,$ d' -i src/resolve/meson.build
-sed -i 's/GROUP="render", //' rules/50-udev-default.rules.in
+sed -i 's/GROUP="render", //' rules.d/50-udev-default.rules.in
 mkdir -p build
 cd       build
 

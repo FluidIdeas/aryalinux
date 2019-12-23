@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.qemu-project.org/qemu-4.1.1.tar.xz
+wget -nc http://download.qemu-project.org/qemu-4.2.0.tar.xz
 
 
 NAME=qemu
-VERSION=4.1.1
-URL=http://download.qemu-project.org/qemu-4.1.1.tar.xz
+VERSION=4.2.0
+URL=http://download.qemu-project.org/qemu-4.2.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -64,7 +64,7 @@ cd        build &&
              --sysconfdir=/etc           \
              --target-list=$QEMU_ARCH    \
              --audio-drv-list=alsa       \
-             --docdir=/usr/share/doc/qemu-4.1.1 &&
+             --docdir=/usr/share/doc/qemu-4.2.0 &&
 
 unset QEMU_ARCH &&
 

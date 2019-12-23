@@ -11,12 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.2.1.1.tar.bz2
+wget -nc https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.1.2.tar.bz2
+wget -nc ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.2.1.2.tar.bz2
 
 
 NAME=alsa-lib
-VERSION=1.2.1.1
-URL=ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.2.1.1.tar.bz2
+VERSION=1.2.1.2
+URL=https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.1.2.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -37,7 +38,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i '40a #include <alsa/asoundlib.h>' include/use-case.h
 ./configure &&
 make
 sudo rm -rf /tmp/rootscript.sh

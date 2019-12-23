@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:perl-deps#perl-clone
 #REQ:perl-deps#perl-file-find-rule
 
 

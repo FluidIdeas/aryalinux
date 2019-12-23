@@ -8,21 +8,20 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:nftables
-#REQ:iptables
 #REQ:python-modules#python-slip
 #REQ:docbook
+#REQ:iptables
 #REQ:libxslt
 
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/firewalld/firewalld/releases/download/v0.7.2/firewalld-0.7.2.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/firewalld-0.7.2-builtin-1.patch
+wget -nc https://github.com/firewalld/firewalld/releases/download/v0.8.0/firewalld-0.8.0.tar.gz
 
 
 NAME=firewalld
-VERSION=0.7.2
-URL=https://github.com/firewalld/firewalld/releases/download/v0.7.2/firewalld-0.7.2.tar.gz
+VERSION=0.8.0
+URL=https://github.com/firewalld/firewalld/releases/download/v0.8.0/firewalld-0.8.0.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -43,7 +42,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../firewalld-0.7.2-builtin-1.patch
 PYTHON=/usr/bin/python3           \
     ./configure --sysconfdir=/etc \
                 --without-ipset   &&

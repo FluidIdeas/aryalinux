@@ -8,16 +8,17 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:libnftnl
+#REQ:jansson
 
 
 cd $SOURCE_DIR
 
-wget -nc https://netfilter.org/projects/nftables/files/nftables-0.9.2.tar.bz2
+wget -nc https://netfilter.org/projects/nftables/files/nftables-0.9.3.tar.bz2
 
 
 NAME=nftables
-VERSION=0.9.2
-URL=https://netfilter.org/projects/nftables/files/nftables-0.9.2.tar.bz2
+VERSION=0.9.3
+URL=https://netfilter.org/projects/nftables/files/nftables-0.9.3.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -41,6 +42,7 @@ echo $USER > /tmp/currentuser
 ./configure --prefix=/usr     \
             --sbindir=/sbin   \
             --sysconfdir=/etc \
+            --with-json       \
             --with-python-bin=/usr/bin/python3 &&
 make
 sudo rm -rf /tmp/rootscript.sh

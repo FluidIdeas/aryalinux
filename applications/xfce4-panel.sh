@@ -41,7 +41,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr --sysconfdir=/etc --enable-gtk3 &&
+./configure --prefix=/usr --sysconfdir=/etc &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

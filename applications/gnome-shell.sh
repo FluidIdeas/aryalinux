@@ -17,6 +17,7 @@ set +h
 #REQ:startup-notification
 #REQ:systemd
 #REQ:asciidoc
+#REQ:desktop-file-utils
 #REQ:gnome-bluetooth
 #REQ:gst10-plugins-base
 #REQ:network-manager-applet
@@ -31,13 +32,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.34/gnome-shell-3.34.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.34/gnome-shell-3.34.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.34/gnome-shell-3.34.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.34/gnome-shell-3.34.2.tar.xz
 
 
 NAME=gnome-shell
-VERSION=3.34.1
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.34/gnome-shell-3.34.1.tar.xz
+VERSION=3.34.2
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.34/gnome-shell-3.34.2.tar.xz
 
 if [ ! -z $URL ]
 then

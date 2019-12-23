@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.16.1.tar.xz
+wget -nc https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.16.2.tar.xz
 
 
 NAME=gstreamer10
-VERSION=1.16.1
-URL=https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.16.1.tar.xz
+VERSION=1.16.2
+URL=https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.16.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -47,7 +47,7 @@ meson  --prefix=/usr       \
        -Dgst_debug=false   \
        -Dgtk_doc=disabled  \
        -Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
-       -Dpackage-name="GStreamer 1.16.1 BLFS" &&
+       -Dpackage-name="GStreamer 1.16.2 BLFS" &&
 ninja
 rm -rf /usr/bin/gst-* /usr/{lib,libexec}/gstreamer-1.0
 sudo rm -rf /tmp/rootscript.sh

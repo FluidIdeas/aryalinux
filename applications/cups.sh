@@ -17,12 +17,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/apple/cups/releases/download/v2.3.0/cups-2.3.0-source.tar.gz
+wget -nc https://github.com/apple/cups/releases/download/v2.3.1/cups-2.3.1-source.tar.gz
 
 
 NAME=cups
 VERSION=2.3.
-URL=https://github.com/apple/cups/releases/download/v2.3.0/cups-2.3.0-source.tar.gz
+URL=https://github.com/apple/cups/releases/download/v2.3.1/cups-2.3.1-source.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -71,20 +71,19 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 sed -i 's#@CUPS_HTMLVIEW@#firefox#' desktop/cups.desktop.in
-sed -i 's:555:755:g;s:444:644:g' Makedefs.in                        &&
 sed -i '/stat.h/a #include <asm-generic/ioctls.h>' tools/ipptool.c   &&
 
 CC=gcc CXX=g++ \
 ./configure --libdir=/usr/lib            \
             --with-rcdir=/tmp/cupsinit   \
             --with-system-groups=lpadmin \
-            --with-docdir=/usr/share/cups/doc-2.3.0 &&
+            --with-docdir=/usr/share/cups/doc-2.3.1 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 rm -rf /tmp/cupsinit &&
-ln -svnf ../cups/doc-2.3.0 /usr/share/doc/cups-2.3.0
+ln -svnf ../cups/doc-2.3.1 /usr/share/doc/cups-2.3.1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

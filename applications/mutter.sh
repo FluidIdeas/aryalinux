@@ -15,6 +15,7 @@ set +h
 #REQ:pipewire
 #REQ:upower
 #REQ:zenity
+#REQ:desktop-file-utils
 #REQ:gobject-introspection
 #REQ:startup-notification
 #REQ:libinput
