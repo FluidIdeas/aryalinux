@@ -57,7 +57,7 @@ cat << EOF > config.toml
 # e.g. if not installing clang, or using a version before 8.0.
 [llvm]
 # by default, rust will build for a myriad of architectures
-targets = "X86"
+targets = "X86_64"
 
 # When using system llvm prefer shared libraries
 link-shared = true
