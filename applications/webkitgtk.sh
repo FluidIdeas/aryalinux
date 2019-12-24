@@ -33,6 +33,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://webkitgtk.org/releases/webkitgtk-2.26.2.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/webkitgtk-2.26.2-missing-semicolon.patch
 
 
 NAME=webkitgtk
@@ -58,6 +59,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../webkitgtk-2.26.2-missing-semicolon.patch
 mkdir -vp build &&
 cd        build &&
 
