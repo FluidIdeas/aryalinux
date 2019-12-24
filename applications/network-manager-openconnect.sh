@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnome.org/pub/gnome/sources/NetworkManager-openconnect/1.2/NetworkManager-openconnect-1.2.4.tar.xz
+wget -nc https://ftp.gnome.org/pub/gnome/sources/NetworkManager-openconnect/1.2/NetworkManager-openconnect-1.2.6.tar.xz
 
 
 NAME=network-manager-openconnect
-VERSION=1.2.4
-URL=https://ftp.gnome.org/pub/gnome/sources/NetworkManager-openconnect/1.2/NetworkManager-openconnect-1.2.4.tar.xz
+VERSION=1.2.6
+URL=https://ftp.gnome.org/pub/gnome/sources/NetworkManager-openconnect/1.2/NetworkManager-openconnect-1.2.6.tar.xz
 
 if [ ! -z $URL ]
 then
