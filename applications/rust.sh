@@ -41,6 +41,8 @@ sudo mkdir /opt/rustc-1.37.0             &&
 sudo ln -svfin rustc-1.37.0 /opt/rustc
 
 cp config.toml.example config.toml
+echo "[build]" >> config.toml
+echo "extended = true" >> config.toml
 
 export RUSTFLAGS="$RUSTFLAGS -C link-args=-lffi" &&
 python3 ./x.py build --exclude src/tools/miri
@@ -52,23 +54,7 @@ unset LIBSSH2_SYS_USE_PKG_CONFIG
 sudo chown -R root:root install &&
 sudo cp -a install/* /
 
-sudo tee -a /etc/ld.so.conf << EOF
-# Begin rustc addition
-
-/opt/rustc/lib
-
-# End rustc addition
-EOF
-
 sudo ldconfig
-
-sudo tee /etc/profile.d/rustc.sh << "EOF"
-# Begin /etc/profile.d/rustc.sh
-
-pathprepend /opt/rustc/bin           PATH
-
-# End /etc/profile.d/rustc.sh
-EOF
 
 if [ -d $HOME/.cargo ]; then
        rm -rf $HOME/.cargo
