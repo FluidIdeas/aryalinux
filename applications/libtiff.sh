@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.osgeo.org/libtiff/tiff-4.1.0.tar.gz
+wget -nc http://download.osgeo.org/libtiff/tiff-4.0.10.tar.gz
 
 
 NAME=libtiff
-VERSION=4.1.0
-URL=http://download.osgeo.org/libtiff/tiff-4.1.0.tar.gz
+VERSION=4.0.10
+URL=http://download.osgeo.org/libtiff/tiff-4.0.10.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -41,7 +41,7 @@ echo $USER > /tmp/currentuser
 mkdir -p libtiff-build &&
 cd       libtiff-build &&
 
-cmake -DCMAKE_INSTALL_DOCDIR=/usr/share/doc/libtiff-4.1.0 \
+cmake -DCMAKE_INSTALL_DOCDIR=/usr/share/doc/libtiff-4.0.10 \
       -DCMAKE_INSTALL_PREFIX=/usr -G Ninja .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh

@@ -18,7 +18,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://www.mupdf.com/downloads/archive/mupdf-1.16.1-source.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/mupdf-1.16.1-shared_libs-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/mupdf-1.16.1-shared_libs-1.patch
 
 
 NAME=mupdf

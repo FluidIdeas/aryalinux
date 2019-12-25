@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://files.pythonhosted.org/packages/source/J/Jinja2/Jinja2-2.10.3.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/J/Jinja2/Jinja2-2.10.1.tar.gz
 
 
 NAME=python-modules#jinja2
-VERSION=2.10.3
-URL=https://files.pythonhosted.org/packages/source/J/Jinja2/Jinja2-2.10.3.tar.gz
+VERSION=2.10.1
+URL=https://files.pythonhosted.org/packages/source/J/Jinja2/Jinja2-2.10.1.tar.gz
 
 if [ ! -z $URL ]
 then

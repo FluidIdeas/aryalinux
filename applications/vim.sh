@@ -7,17 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:gtk3
+#REQ:gtk2
 
 
 cd $SOURCE_DIR
 
-wget -nc http://github.com/vim/vim/archive/v8.2.0024/vim-8.2.0024.tar.gz
+wget -nc http://github.com/vim/vim/archive/v8.1.1846/vim-8.1.1846.tar.gz
 
 
 NAME=vim
-VERSION=8.2.0024
-URL=http://github.com/vim/vim/archive/v8.2.0024/vim-8.2.0024.tar.gz
+VERSION=8.1.1846
+URL=http://github.com/vim/vim/archive/v8.1.1846/vim-8.1.1846.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -41,9 +41,8 @@ echo $USER > /tmp/currentuser
 echo '#define SYS_VIMRC_FILE  "/etc/vimrc"' >>  src/feature.h &&
 echo '#define SYS_GVIMRC_FILE "/etc/gvimrc"' >> src/feature.h &&
 
-./configure --prefix=/usr        \
+./configure --prefix=/usr \
             --with-features=huge \
-            --enable-gui=gtk3    \
             --with-tlib=ncursesw &&
 make
 sudo rm -rf /tmp/rootscript.sh
@@ -57,7 +56,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ln -snfv ../vim/vim82/doc /usr/share/doc/vim-8.2.0024
+ln -snfv ../vim/vim81/doc /usr/share/doc/vim-8.1.1846
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -69,7 +68,7 @@ rsync -avzcP --exclude="/dos/" --exclude="/spell/" \
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make -C src installruntime &&
-vim -c ":helptags /usr/share/doc/vim-8.2.0024" -c ":q"
+vim -c ":helptags /usr/share/doc/vim-8.1.1846" -c ":q"
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.15.0.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/libtasn1/libtasn1-4.15.0.tar.gz
+wget -nc https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.14.tar.gz
+wget -nc ftp://ftp.gnu.org/gnu/libtasn1/libtasn1-4.14.tar.gz
 
 
 NAME=libtasn1
-VERSION=4.15.0
-URL=https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.15.0.tar.gz
+VERSION=4.14
+URL=https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.14.tar.gz
 
 if [ ! -z $URL ]
 then

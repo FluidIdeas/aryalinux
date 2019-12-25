@@ -31,12 +31,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.14.tar.bz2
+wget -nc https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.12.tar.bz2
 
 
 NAME=gimp
-VERSION=2.10.14
-URL=https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.14.tar.bz2
+VERSION=2.10.12
+URL=https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.12.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -68,8 +68,16 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
 update-desktop-database -q
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

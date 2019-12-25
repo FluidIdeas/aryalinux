@@ -9,19 +9,18 @@ set +h
 
 #REQ:gobject-introspection
 #REQ:gtk3
-#REQ:libxml2
 #REQ:python-modules#pygobject3
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libpeas/1.24/libpeas-1.24.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libpeas/1.24/libpeas-1.24.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/libpeas/1.22/libpeas-1.22.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libpeas/1.22/libpeas-1.22.0.tar.xz
 
 
 NAME=libpeas
-VERSION=1.24.1
-URL=http://ftp.gnome.org/pub/gnome/sources/libpeas/1.24/libpeas-1.24.1.tar.xz
+VERSION=1.22.0
+URL=http://ftp.gnome.org/pub/gnome/sources/libpeas/1.22/libpeas-1.22.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -42,14 +41,11 @@ fi
 echo $USER > /tmp/currentuser
 
 
-mkdir build &&
-cd    build &&
-
-meson --prefix=/usr .. &&
-ninja
+./configure --prefix=/usr &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://swupdate.openvpn.org/community/releases/openvpn-2.4.8.tar.gz
+wget -nc https://swupdate.openvpn.org/community/releases/openvpn-2.4.7.tar.xz
 
 
 NAME=openvpn
-VERSION=2.4.8
-URL=https://swupdate.openvpn.org/community/releases/openvpn-2.4.8.tar.gz
+VERSION=2.4.7
+URL=https://swupdate.openvpn.org/community/releases/openvpn-2.4.7.tar.xz
 
 if [ ! -z $URL ]
 then

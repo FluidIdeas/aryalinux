@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gtksourceview/4.4/gtksourceview-4.4.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtksourceview/4.4/gtksourceview-4.4.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gtksourceview/4.2/gtksourceview-4.2.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtksourceview/4.2/gtksourceview-4.2.0.tar.xz
 
 
 NAME=gtksourceview4
-VERSION=4.4.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gtksourceview/4.4/gtksourceview-4.4.0.tar.xz
+VERSION=4.2.0
+URL=http://ftp.gnome.org/pub/gnome/sources/gtksourceview/4.2/gtksourceview-4.2.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -40,14 +40,11 @@ fi
 echo $USER > /tmp/currentuser
 
 
-mkdir build &&
-cd    build &&
-
-meson --prefix=/usr .. &&
-ninja
+./configure --prefix=/usr &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

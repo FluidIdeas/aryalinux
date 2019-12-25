@@ -13,12 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.16.2.tar.xz
+wget -nc https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.16.0.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/gstreamer-1.16.0-buffer_size_reset_fix-1.patch
 
 
 NAME=gstreamer10
-VERSION=1.16.2
-URL=https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.16.2.tar.xz
+VERSION=1.16.0
+URL=https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.16.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -39,6 +40,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../gstreamer-1.16.0-buffer_size_reset_fix-1.patch
 mkdir build &&
 cd    build &&
 
@@ -47,7 +49,7 @@ meson  --prefix=/usr       \
        -Dgst_debug=false   \
        -Dgtk_doc=disabled  \
        -Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
-       -Dpackage-name="GStreamer 1.16.2 BLFS" &&
+       -Dpackage-name="GStreamer 1.16.0 BLFS" &&
 ninja
 rm -rf /usr/bin/gst-* /usr/{lib,libexec}/gstreamer-1.0
 sudo rm -rf /tmp/rootscript.sh

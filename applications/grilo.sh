@@ -18,13 +18,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.10.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.10.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.9.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.9.tar.xz
+wget -nc https://gitlab.gnome.org/GNOME/grilo/merge_requests/52.diff
 
 
 NAME=grilo
-VERSION=0.3.10
-URL=http://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.10.tar.xz
+VERSION=0.3.9
+URL=http://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.9.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -45,13 +46,14 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i 's/TOTEM_IS_PL_PARSER/TOTEM_PL_IS_PARSER/' libs/pls/grl-pls.c
+patch -Np1 -i ../52.diff
+
 mkdir build &&
 cd    build    &&
 
 meson --prefix=/usr \
       --libexecdir=/usr/lib \
-      -Denable-gtk-doc=false .. &&
+-Denable-gtk-doc=false .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

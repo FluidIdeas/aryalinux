@@ -14,13 +14,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/emacs/emacs-26.3.tar.xz
-wget -nc ftp://ftp.gnu.org/gnu/emacs/emacs-26.3.tar.xz
+wget -nc https://ftp.gnu.org/gnu/emacs/emacs-26.2.tar.xz
+wget -nc ftp://ftp.gnu.org/gnu/emacs/emacs-26.2.tar.xz
 
 
 NAME=emacs
-VERSION=26.3
-URL=https://ftp.gnu.org/gnu/emacs/emacs-26.3.tar.xz
+VERSION=26.2
+URL=https://ftp.gnu.org/gnu/emacs/emacs-26.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -46,14 +46,23 @@ make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-chown -v -R root:root /usr/share/emacs/26.3
+chown -v -R root:root /usr/share/emacs/26.2
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-gtk-update-icon-cache -qtf /usr/share/icons/hicolor
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+gtk-update-icon-cache -t -f --include-image-data /usr/share/icons/hicolor &&
+update-desktop-database
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -13,13 +13,16 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=findutils-4.7.0.tar.xz
+TARBALL=findutils-4.6.0.tar.gz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
+sed -i 's/IO_ftrylockfile/IO_EOF_SEEN/' gl/lib/*.c
+sed -i '/unistd/a #include <sys/sysmacros.h>' gl/lib/mountlist.c
+echo "#define _IO_IN_BACKUP 0x100" >> gl/lib/stdio-impl.h
 ./configure --prefix=/tools
 make
 make install

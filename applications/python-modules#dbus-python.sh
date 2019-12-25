@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://dbus.freedesktop.org/releases/dbus-python/dbus-python-1.2.14.tar.gz
+wget -nc https://dbus.freedesktop.org/releases/dbus-python/dbus-python-1.2.8.tar.gz
 
 
 NAME=python-modules#dbus-python
-VERSION=1.2.14
-URL=https://dbus.freedesktop.org/releases/dbus-python/dbus-python-1.2.14.tar.gz
+VERSION=1.2.8
+URL=https://dbus.freedesktop.org/releases/dbus-python/dbus-python-1.2.8.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -43,13 +43,13 @@ echo $USER > /tmp/currentuser
 mkdir python2 &&
 pushd python2 &&
 PYTHON=/usr/bin/python2     \
-../configure --prefix=/usr --docdir=/usr/share/doc/dbus-python-1.2.14 &&
+../configure --prefix=/usr --docdir=/usr/share/doc/dbus-python-1.2.8 &&
 make &&
 popd
 mkdir python3 &&
 pushd python3 &&
 PYTHON=/usr/bin/python3    \
-../configure --prefix=/usr --docdir=/usr/share/doc/dbus-python-1.2.14 &&
+../configure --prefix=/usr --docdir=/usr/share/doc/dbus-python-1.2.8 &&
 make &&
 popd
 sudo rm -rf /tmp/rootscript.sh

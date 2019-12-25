@@ -13,7 +13,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.48.tgz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/openldap-2.4.48-consolidated-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/openldap-2.4.48-consolidated-1.patch
 wget -nc http://www.openldap.org/doc/admin24/
 wget -nc http://www.openldap.org/pub/
 
@@ -53,9 +53,17 @@ autoconf &&
 
 make depend &&
 make
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 sudo make install
 
 sudo ln -sf ../lib/slapd /usr/sbin/slapd
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

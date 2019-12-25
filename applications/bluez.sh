@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.kernel.org/pub/linux/bluetooth/bluez-5.52.tar.xz
+wget -nc https://www.kernel.org/pub/linux/bluetooth/bluez-5.50.tar.xz
 
 
 NAME=bluez
-VERSION=5.52
-URL=https://www.kernel.org/pub/linux/bluetooth/bluez-5.52.tar.xz
+VERSION=5.50
+URL=https://www.kernel.org/pub/linux/bluetooth/bluez-5.50.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -67,8 +67,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -dm755 /usr/share/doc/bluez-5.52 &&
-install -v -m644 doc/*.txt /usr/share/doc/bluez-5.52
+install -v -dm755 /usr/share/doc/bluez-5.50 &&
+install -v -m644 doc/*.txt /usr/share/doc/bluez-5.50
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

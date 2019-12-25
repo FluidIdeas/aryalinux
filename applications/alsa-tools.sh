@@ -13,13 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.alsa-project.org/files/pub/tools/alsa-tools-1.1.7.tar.bz2
 wget -nc ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.1.7.tar.bz2
 
 
 NAME=alsa-tools
 VERSION=1.1.7
-URL=https://www.alsa-project.org/files/pub/tools/alsa-tools-1.1.7.tar.bz2
+URL=ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.1.7.tar.bz2
 
 if [ ! -z $URL ]
 then

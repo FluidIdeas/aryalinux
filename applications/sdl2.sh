@@ -12,7 +12,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://www.libsdl.org/release/SDL2-2.0.10.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/SDL2-2.0.10-opengl_include_fix-1.patch
 
 
 NAME=sdl2
@@ -38,9 +37,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-case $(uname -m) in
-   i?86) patch -Np1 -i ../SDL2-2.0.10-opengl_include_fix-1.patch ;;
-esac
 ./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh

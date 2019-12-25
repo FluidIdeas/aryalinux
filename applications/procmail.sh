@@ -13,7 +13,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.osuosl.org/pub/blfs/conglomeration/procmail/procmail-3.22.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/procmail-3.22-consolidated_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/procmail-3.22-consolidated_fixes-1.patch
 
 
 NAME=procmail

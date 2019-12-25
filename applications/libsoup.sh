@@ -17,13 +17,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libsoup/2.68/libsoup-2.68.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libsoup/2.68/libsoup-2.68.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/libsoup/2.66/libsoup-2.66.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libsoup/2.66/libsoup-2.66.2.tar.xz
 
 
 NAME=libsoup
-VERSION=2.68.2
-URL=http://ftp.gnome.org/pub/gnome/sources/libsoup/2.68/libsoup-2.68.2.tar.xz
+VERSION=2.66.2
+URL=http://ftp.gnome.org/pub/gnome/sources/libsoup/2.66/libsoup-2.66.2.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -47,7 +47,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr -Dvapi=enabled -Dgssapi=disabled .. &&
+meson --prefix=/usr -Dvapi=true -Dgssapi=false .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

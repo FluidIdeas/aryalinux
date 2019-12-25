@@ -13,7 +13,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.0.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/vorbis-tools-1.4.0-security_fix-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/vorbis-tools-1.4.0-security_fix-1.patch
 
 
 NAME=vorbistools

@@ -17,12 +17,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/ModemManager/ModemManager-1.12.2.tar.xz
+wget -nc https://www.freedesktop.org/software/ModemManager/ModemManager-1.10.4.tar.xz
 
 
 NAME=modemmanager
-VERSION=1.12.2
-URL=https://www.freedesktop.org/software/ModemManager/ModemManager-1.12.2.tar.xz
+VERSION=1.10.4
+URL=https://www.freedesktop.org/software/ModemManager/ModemManager-1.10.4.tar.xz
 
 if [ ! -z $URL ]
 then

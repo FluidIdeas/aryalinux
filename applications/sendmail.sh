@@ -14,7 +14,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc ftp://ftp.sendmail.org/pub/sendmail/sendmail.8.15.2.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/sendmail.8.15.2-openssl-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/sendmail.8.15.2-openssl-1.patch
 
 
 NAME=sendmail
@@ -161,9 +161,9 @@ set +h
 . /etc/alps/alps.conf
 
 pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-20191026.tar.xz
-tar xf blfs-systemd-units-20191026.tar.xz
-cd blfs-systemd-units-20191026
+wget -nc http://www.linuxfromscratch.org/blfs/downloads/9.0-systemd/blfs-systemd-units-20180105.tar.bz2
+tar xf blfs-systemd-units-20180105.tar.bz2
+cd blfs-systemd-units-20180105
 sudo make install-sendmail
 popd
 ENDOFROOTSCRIPT

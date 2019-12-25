@@ -7,17 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:unzip
+#REQ:perl-deps#perl-test-mockmodule
 
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cpan.org/authors/id/P/PH/PHRED/Archive-Zip-1.67.tar.gz
+wget -nc https://www.cpan.org/authors/id/P/PH/PHRED/Archive-Zip-1.64.tar.gz
 
 
 NAME=perl-modules#perl-archive-zip
-VERSION=1.67
-URL=https://www.cpan.org/authors/id/P/PH/PHRED/Archive-Zip-1.67.tar.gz
+VERSION=1.64
+URL=https://www.cpan.org/authors/id/P/PH/PHRED/Archive-Zip-1.64.tar.gz
 
 if [ ! -z $URL ]
 then

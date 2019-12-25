@@ -9,19 +9,17 @@ set +h
 
 #REQ:babl
 #REQ:json-glib
-#REQ:gobject-introspection
-#REQ:python-modules#pygments
-#REQ:python-modules#pygobject3
+#REQ:libjpeg
 
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gimp.org/pub/gegl/0.4/gegl-0.4.18.tar.xz
+wget -nc https://download.gimp.org/pub/gegl/0.4/gegl-0.4.16.tar.bz2
 
 
 NAME=gegl
-VERSION=0.4.18
-URL=https://download.gimp.org/pub/gegl/0.4/gegl-0.4.18.tar.xz
+VERSION=0.4.16
+URL=https://download.gimp.org/pub/gegl/0.4/gegl-0.4.16.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -42,14 +40,13 @@ fi
 echo $USER > /tmp/currentuser
 
 
-mkdir build &&
-cd    build &&
-
-meson --prefix=/usr .. &&
-ninja
+./configure --prefix=/usr &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install
+make install &&
+install -v -m644 docs/*.{css,html} /usr/share/gtk-doc/html/gegl &&
+install -v -m644 docs/images/*.{png,ico,svg} /usr/share/gtk-doc/html/gegl/images
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

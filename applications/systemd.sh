@@ -12,12 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/systemd/systemd/archive/v244/systemd-244.tar.gz
+wget -nc https://github.com/systemd/systemd/archive/v241/systemd-241.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/systemd-241-networkd_and_rdrand_fixes-1.patch
 
 
 NAME=systemd
-VERSION=244
-URL=https://github.com/systemd/systemd/archive/v244/systemd-244.tar.gz
+VERSION=241
+URL=https://github.com/systemd/systemd/archive/v241/systemd-241.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -38,10 +39,13 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i 's/GROUP="render", //' rules.d/50-udev-default.rules.in
+patch -Np1 -i ../systemd-241-networkd_and_rdrand_fixes-1.patch
+sed -i '1506,1508 s/</>/' src/shared/seccomp-util.c
+sed -i 's/GROUP="render", //' rules/50-udev-default.rules.in
 mkdir build &&
 cd    build &&
 
+CFLAGS+=" -Wno-format-overflow" \
 meson --prefix=/usr         \
       --sysconfdir=/etc     \
       --localstatedir=/var  \
@@ -51,13 +55,13 @@ meson --prefix=/usr         \
       -Dfirstboot=false     \
       -Dinstall-tests=false \
       -Dldconfig=false      \
-      -Dman=auto            \
       -Drootprefix=         \
       -Drootlibdir=/lib     \
       -Dsplit-usr=true      \
       -Dsysusers=false      \
       -Drpmmacrosdir=no     \
       -Db_lto=false         \
+      -Dgnutls=false        \
       ..                    &&
 
 ninja
@@ -73,15 +77,6 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-rm -fv /etc/sysctl.d/50-pid-max.conf
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

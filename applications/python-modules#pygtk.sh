@@ -48,7 +48,6 @@ fi
 
 echo $USER > /tmp/currentuser
 
-sed -i '1394,1402 d' pango.defs
 ./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh

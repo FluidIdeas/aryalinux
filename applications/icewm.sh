@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/ice-wm/icewm/archive/1.6.3/icewm-1.6.3.tar.gz
+wget -nc https://github.com/ice-wm/icewm/archive/1.6.1/icewm-1.6.1.tar.gz
 
 
 NAME=icewm
-VERSION=1.6.3
-URL=https://github.com/ice-wm/icewm/archive/1.6.3/icewm-1.6.3.tar.gz
+VERSION=1.6.1
+URL=https://github.com/ice-wm/icewm/archive/1.6.1/icewm-1.6.1.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -38,6 +38,8 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -i "s/nullptr/NULL/" src/{wmconfig.cc,icewmhint.cc} &&
+
 mkdir build &&
 cd    build &&
 
@@ -45,8 +47,8 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr \
       -DCMAKE_BUILD_TYPE=Release  \
       -DCFGDIR=/etc               \
       -DCMAKE_EXE_LINKER_FLAGS='-lXrandr -lXinerama' \
-      -DDOCDIR=/usr/share/doc/icewm-1.6.3  \
-      .. &&
+      -DDOCDIR=/usr/share/doc/icewm-1.6.1  \
+      ..
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

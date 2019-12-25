@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cpan.org/authors/id/W/WY/WYANT/DateTime-Calendar-Julian-0.102.tar.gz
+wget -nc https://www.cpan.org/authors/id/W/WY/WYANT/DateTime-Calendar-Julian-0.101.tar.gz
 
 
 NAME=perl-modules#perl-datetime-calendar-julian
-VERSION=0.102
-URL=https://www.cpan.org/authors/id/W/WY/WYANT/DateTime-Calendar-Julian-0.102.tar.gz
+VERSION=0.101
+URL=https://www.cpan.org/authors/id/W/WY/WYANT/DateTime-Calendar-Julian-0.101.tar.gz
 
 if [ ! -z $URL ]
 then

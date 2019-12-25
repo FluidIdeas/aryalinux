@@ -32,13 +32,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://webkitgtk.org/releases/webkitgtk-2.26.2.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/webkitgtk-2.26.2-missing-semicolon.patch
+wget -nc https://webkitgtk.org/releases/webkitgtk-2.24.4.tar.xz
 
 
 NAME=webkitgtk
-VERSION=2.26.2
-URL=https://webkitgtk.org/releases/webkitgtk-2.26.2.tar.xz
+VERSION=2.24.4
+URL=https://webkitgtk.org/releases/webkitgtk-2.24.4.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -59,10 +58,11 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../webkitgtk-2.26.2-missing-semicolon.patch
 mkdir -vp build &&
 cd        build &&
 
+CFLAGS=-Wno-expansion-to-defined  \
+CXXFLAGS=-Wno-expansion-to-defined \
 cmake -DCMAKE_BUILD_TYPE=Release  \
       -DCMAKE_INSTALL_PREFIX=/usr \
       -DCMAKE_SKIP_RPATH=ON       \
@@ -71,9 +71,7 @@ cmake -DCMAKE_BUILD_TYPE=Release  \
       -DUSE_LIBHYPHEN=OFF         \
       -DENABLE_MINIBROWSER=ON     \
       -DUSE_WOFF2=OFF             \
-      -DUSE_WPE_RENDERER=OFF      \
-      -DENABLE_BUBBLEWRAP_SANDBOX=OFF \
-      -Wno-dev -G Ninja ..        &&
+      -Wno-dev -G Ninja .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

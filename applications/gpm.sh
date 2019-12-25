@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/gpm/gpm-1.20.7.tar.bz2
 wget -nc ftp://anduin.linuxfromscratch.org/BLFS/gpm/gpm-1.20.7.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/gpm-1.20.7-glibc_2.26-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/gpm-1.20.7-glibc_2.26-1.patch
 
 
 NAME=gpm
@@ -75,9 +75,9 @@ set +h
 . /etc/alps/alps.conf
 
 pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-20191026.tar.xz
-tar xf blfs-systemd-units-20191026.tar.xz
-cd blfs-systemd-units-20191026
+wget -nc http://www.linuxfromscratch.org/blfs/downloads/9.0-systemd/blfs-systemd-units-20180105.tar.bz2
+tar xf blfs-systemd-units-20180105.tar.bz2
+cd blfs-systemd-units-20180105
 sudo make install-gpm
 popd
 ENDOFROOTSCRIPT

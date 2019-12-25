@@ -21,8 +21,8 @@ cd $DIRECTORY
 
 
 make mrproper
-make headers
-cp -rv usr/include/* /tools/include
+make INSTALL_HDR_PATH=dest headers_install
+cp -rv dest/include/* /tools/include
 
 fi
 

@@ -13,7 +13,6 @@ set +h
 #REQ:alsa-lib
 #REQ:pulseaudio
 #REQ:ffmpeg
-#REQ:python-modules#jinja2
 #REQ:icu
 #REQ:libwebp
 #REQ:libxslt
@@ -22,12 +21,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.qt.io/archive/qt/5.14/5.14.0/submodules/qtwebengine-everywhere-src-5.14.0.tar.xz
+wget -nc https://download.qt.io/archive/qt/5.13/5.13.0/submodules/qtwebengine-everywhere-src-5.13.0.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/qtwebengine-5.13.0-background_rendering_fix-1.patch
 
 
 NAME=qtwebengine
-VERSION=5.14.0
-URL=https://download.qt.io/archive/qt/5.14/5.14.0/submodules/qtwebengine-everywhere-src-5.14.0.tar.xz
+VERSION=5.13.0
+URL=https://download.qt.io/archive/qt/5.13/5.13.0/submodules/qtwebengine-everywhere-src-5.13.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -50,9 +50,7 @@ echo $USER > /tmp/currentuser
 
 find -type f -name "*.pr[io]" |
   xargs sed -i -e 's|INCLUDEPATH += |&$$QTWEBENGINE_ROOT/include |'
-sed -e '/link_pulseaudio/s/false/true/' \
-    -i src/3rdparty/chromium/media/media_options.gni
-sed -i 's/NINJAJOBS/NINJA_JOBS/' src/core/gn_run.pro
+patch -Np1 -i ../qtwebengine-5.13.0-background_rendering_fix-1.patch
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 if [ -e ${QT5DIR}/lib/libQt5WebEngineCore.so ]; then

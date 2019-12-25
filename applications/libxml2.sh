@@ -11,14 +11,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://xmlsoft.org/sources/libxml2-2.9.10.tar.gz
-wget -nc ftp://xmlsoft.org/libxml2/libxml2-2.9.10.tar.gz
+wget -nc http://xmlsoft.org/sources/libxml2-2.9.9.tar.gz
+wget -nc ftp://xmlsoft.org/libxml2/libxml2-2.9.9.tar.gz
 wget -nc http://www.w3.org/XML/Test/xmlts20130923.tar.gz
 
 
 NAME=libxml2
-VERSION=2.9.10
-URL=http://xmlsoft.org/sources/libxml2-2.9.10.tar.gz
+VERSION=2.9.9
+URL=http://xmlsoft.org/sources/libxml2-2.9.9.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -39,7 +39,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i 's/test.test/#&/' python/tests/tstLastError.py
 ./configure --prefix=/usr    \
             --disable-static \
             --with-history   \

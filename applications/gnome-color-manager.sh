@@ -14,7 +14,6 @@ set +h
 #REQ:lcms2
 #REQ:libcanberra
 #REQ:libexif
-#REQ:desktop-file-utils
 #REQ:exiv2
 #REQ:vte
 

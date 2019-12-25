@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/nspr/releases/v4.24/src/nspr-4.24.tar.gz
+wget -nc https://archive.mozilla.org/pub/nspr/releases/v4.21/src/nspr-4.21.tar.gz
 
 
 NAME=nspr
-VERSION=4.24
-URL=https://archive.mozilla.org/pub/nspr/releases/v4.24/src/nspr-4.24.tar.gz
+VERSION=4.21
+URL=https://archive.mozilla.org/pub/nspr/releases/v4.21/src/nspr-4.21.tar.gz
 
 if [ ! -z $URL ]
 then

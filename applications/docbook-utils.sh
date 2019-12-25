@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 
 wget -nc https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/docbook-utils-0.6.14.tar.gz
 wget -nc ftp://sourceware.org/pub/docbook-tools/new-trials/SOURCES/docbook-utils-0.6.14.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/docbook-utils-0.6.14-grep_fix-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/docbook-utils-0.6.14-grep_fix-1.patch
 
 
 NAME=docbook-utils

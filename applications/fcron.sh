@@ -51,12 +51,21 @@ sudo rm -rf /tmp/rootscript.sh
             --sysconfdir=/etc      \
             --localstatedir=/var   \
             --without-sendmail     \
-            --with-piddir=/run     \
             --with-boot-install=no &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+sed -i 's:/var/run/fcron.pid:/run/fcron.pid:' \
+   /lib/systemd/system/fcron.service
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

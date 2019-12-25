@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cmake.org/files/v3.16/cmake-3.16.1.tar.gz
+wget -nc https://cmake.org/files/v3.15/cmake-3.15.2.tar.gz
 
 
 NAME=cmake
-VERSION=3.16.1
-URL=https://cmake.org/files/v3.16/cmake-3.16.1.tar.gz
+VERSION=3.15.2
+URL=https://cmake.org/files/v3.15/cmake-3.15.2.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -47,7 +47,7 @@ sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake &&
             --mandir=/share/man  \
             --no-system-jsoncpp  \
             --no-system-librhash \
-            --docdir=/share/doc/cmake-3.16.1 &&
+            --docdir=/share/doc/cmake-3.15.2 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

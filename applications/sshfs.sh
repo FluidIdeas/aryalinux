@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/libfuse/sshfs/releases/download/sshfs-3.6.0/sshfs-3.6.0.tar.xz
+wget -nc https://github.com/libfuse/sshfs/releases/download/sshfs-3.5.2/sshfs-3.5.2.tar.xz
 
 
 NAME=sshfs
-VERSION=3.6.0
-URL=https://github.com/libfuse/sshfs/releases/download/sshfs-3.6.0/sshfs-3.6.0.tar.xz
+VERSION=3.5.2
+URL=https://github.com/libfuse/sshfs/releases/download/sshfs-3.5.2/sshfs-3.5.2.tar.xz
 
 if [ ! -z $URL ]
 then

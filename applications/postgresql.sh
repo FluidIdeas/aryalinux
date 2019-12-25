@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.postgresql.org/pub/source/v12.1/postgresql-12.1.tar.bz2
+wget -nc http://ftp.postgresql.org/pub/source/v11.5/postgresql-11.5.tar.bz2
 
 
 NAME=postgresql
-VERSION=12.1
-URL=http://ftp.postgresql.org/pub/source/v12.1/postgresql-12.1.tar.bz2
+VERSION=11.5
+URL=http://ftp.postgresql.org/pub/source/v11.5/postgresql-11.5.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -52,7 +52,7 @@ sed -i '/DEFAULT_PGSOCKET_DIR/s@/tmp@/run/postgresql@' src/include/pg_config_man
 
 ./configure --prefix=/usr          \
             --enable-thread-safety \
-            --docdir=/usr/share/doc/postgresql-12.1 &&
+            --docdir=/usr/share/doc/postgresql-11.5 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -96,9 +96,9 @@ set +h
 . /etc/alps/alps.conf
 
 pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-20191026.tar.xz
-tar xf blfs-systemd-units-20191026.tar.xz
-cd blfs-systemd-units-20191026
+wget -nc http://www.linuxfromscratch.org/blfs/downloads/9.0-systemd/blfs-systemd-units-20180105.tar.bz2
+tar xf blfs-systemd-units-20180105.tar.bz2
+cd blfs-systemd-units-20180105
 sudo make install-postgresql
 popd
 ENDOFROOTSCRIPT

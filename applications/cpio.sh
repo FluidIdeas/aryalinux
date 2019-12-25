@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/cpio/cpio-2.13.tar.bz2
-wget -nc ftp://ftp.gnu.org/gnu/cpio/cpio-2.13.tar.bz2
+wget -nc https://ftp.gnu.org/gnu/cpio/cpio-2.12.tar.bz2
+wget -nc ftp://ftp.gnu.org/gnu/cpio/cpio-2.12.tar.bz2
 
 
 NAME=cpio
-VERSION=2.13
-URL=https://ftp.gnu.org/gnu/cpio/cpio-2.13.tar.bz2
+VERSION=2.12
+URL=https://ftp.gnu.org/gnu/cpio/cpio-2.12.tar.bz2
 
 if [ ! -z $URL ]
 then
@@ -49,11 +49,11 @@ makeinfo --plaintext       -o doc/cpio.txt  doc/cpio.texi
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-install -v -m755 -d /usr/share/doc/cpio-2.13/html &&
+install -v -m755 -d /usr/share/doc/cpio-2.12/html &&
 install -v -m644    doc/html/* \
-                    /usr/share/doc/cpio-2.13/html &&
+                    /usr/share/doc/cpio-2.12/html &&
 install -v -m644    doc/cpio.{html,txt} \
-                    /usr/share/doc/cpio-2.13
+                    /usr/share/doc/cpio-2.12
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -7,16 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:cmake
 
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/g-truc/glm/archive/0.9.9.6/glm-0.9.9.6.tar.gz
+wget -nc https://github.com/g-truc/glm/archive/0.9.9.5/glm-0.9.9.5.tar.gz
 
 
 NAME=glm
-VERSION=0.9.9.6
-URL=https://github.com/g-truc/glm/archive/0.9.9.6/glm-0.9.9.6.tar.gz
+VERSION=0.9.9.5
+URL=https://github.com/g-truc/glm/archive/0.9.9.5/glm-0.9.9.5.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -37,10 +38,15 @@ fi
 echo $USER > /tmp/currentuser
 
 
+mkdir build &&
+cd build    &&
+
+cmake -DCMAKE_INSTALL_PREFIX=/usr   \
+      -DCMAKE_INSTALL_LIBDIR=lib .. &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cp -r glm /usr/include/ &&
-cp -r doc /usr/share/doc/glm-0.9.9.6
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

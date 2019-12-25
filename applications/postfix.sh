@@ -14,13 +14,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.4.8.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/postfix-3.4.8-glibc230_fix-1.patch
+wget -nc ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.4.6.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/postfix-3.4.6-glibc230_fix-1.patch
 
 
 NAME=postfix
-VERSION=3.4.8
-URL=ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.4.8.tar.gz
+VERSION=3.4.6
+URL=ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.4.6.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -55,7 +55,9 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 sed -i 's/.\x08//g' README_FILES/*
-patch -Np1 -i ../postfix-3.4.8-glibc230_fix-1.patch
+patch -Np1 -i ../postfix-3.4.6-glibc230_fix-1.patch
+sed -i -e 's/\$RELEASE_MAJOR/3/' \
+       -e '/Linux..3/s/34/345/' makedefs
 make CCARGS="-DUSE_TLS -I/usr/include/openssl/                     \
              -DUSE_SASL_AUTH -DUSE_CYRUS_SASL -I/usr/include/sasl" \
      AUXLIBS="-lssl -lcrypto -lsasl2"                              \
@@ -66,8 +68,8 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 sh postfix-install -non-interactive \
    daemon_directory=/usr/lib/postfix \
    manpage_directory=/usr/share/man \
-   html_directory=/usr/share/doc/postfix-3.4.8/html \
-   readme_directory=/usr/share/doc/postfix-3.4.8/readme
+   html_directory=/usr/share/doc/postfix-3.4.6/html \
+   readme_directory=/usr/share/doc/postfix-3.4.6/readme
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -120,9 +122,9 @@ set +h
 . /etc/alps/alps.conf
 
 pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-20191026.tar.xz
-tar xf blfs-systemd-units-20191026.tar.xz
-cd blfs-systemd-units-20191026
+wget -nc http://www.linuxfromscratch.org/blfs/downloads/9.0-systemd/blfs-systemd-units-20180105.tar.bz2
+tar xf blfs-systemd-units-20180105.tar.bz2
+cd blfs-systemd-units-20180105
 sudo make install-postfix
 popd
 ENDOFROOTSCRIPT

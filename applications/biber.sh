@@ -49,7 +49,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://github.com/plk/biber/archive/v2.13/biber-2.13.tar.gz
-wget -nc http://sourceforge.net/projects/biblatex/files/biblatex-3.13/biblatex-3.13a.tds.tgz
+wget -nc http://sourceforge.net/projects/biblatex/files/biblatex-3.13/biblatex-3.13.tds.tgz
 
 
 NAME=biber
@@ -79,7 +79,7 @@ perl ./Build.PL &&
 ./Build
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-tar -xf ../biblatex-3.13a.tds.tgz -C /opt/texlive/2019/texmf-dist &&
+tar -xf ../biblatex-3.13.tds.tgz -C /opt/texlive/2019/texmf-dist &&
 texhash &&
 ./Build install
 ENDOFROOTSCRIPT

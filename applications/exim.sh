@@ -13,14 +13,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.exim.org/pub/exim/exim4/exim-4.93.tar.xz
-wget -nc ftp://ftp.exim.org/pub/exim/exim4/exim-4.93.tar.xz
+wget -nc https://ftp.exim.org/pub/exim/exim4/exim-4.92.1.tar.xz
+wget -nc ftp://ftp.exim.org/pub/exim/exim4/exim-4.92.1.tar.xz
 wget -nc http://exim.org/docs.html
 
 
 NAME=exim
-VERSION=4.93
-URL=https://ftp.exim.org/pub/exim/exim4/exim-4.93.tar.xz
+VERSION=4.92.1
+URL=https://ftp.exim.org/pub/exim/exim4/exim-4.92.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -54,8 +54,9 @@ sudo rm -rf /tmp/rootscript.sh
 sed -e 's,^BIN_DIR.*$,BIN_DIRECTORY=/usr/sbin,'    \
     -e 's,^CONF.*$,CONFIGURE_FILE=/etc/exim.conf,' \
     -e 's,^EXIM_USER.*$,EXIM_USER=exim,'           \
-    -e '/# SUPPORT_TLS=yes/s,^#,,'                   \
-    -e '/# USE_OPENSSL/s,^#,,'                       \
+    -e '/SUPPORT_TLS/s,^#,,'                       \
+    -e '/USE_OPENSSL/s,^#,,'                       \
+    -e '515 d'                                     \
     -e 's,^EXIM_MONITOR,#EXIM_MONITOR,' src/EDITME > Local/Makefile &&
 
 printf "USE_GDBM = yes\nDBMLIB = -lgdbm\n" >> Local/Makefile &&
@@ -65,8 +66,8 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install                                    &&
 install -v -m644 doc/exim.8 /usr/share/man/man8 &&
 
-install -v -d -m755    /usr/share/doc/exim-4.93 &&
-install -v -m644 doc/* /usr/share/doc/exim-4.93 &&
+install -v -d -m755    /usr/share/doc/exim-4.92.1 &&
+install -v -m644 doc/* /usr/share/doc/exim-4.92.1 &&
 
 ln -sfv exim /usr/sbin/sendmail                 &&
 install -v -d -m750 -o exim -g exim /var/spool/exim
@@ -109,9 +110,9 @@ set +h
 . /etc/alps/alps.conf
 
 pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-20191026.tar.xz
-tar xf blfs-systemd-units-20191026.tar.xz
-cd blfs-systemd-units-20191026
+wget -nc http://www.linuxfromscratch.org/blfs/downloads/9.0-systemd/blfs-systemd-units-20180105.tar.bz2
+tar xf blfs-systemd-units-20180105.tar.bz2
+cd blfs-systemd-units-20180105
 sudo make install-exim
 popd
 ENDOFROOTSCRIPT

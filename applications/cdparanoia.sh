@@ -12,7 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://downloads.xiph.org/releases/cdparanoia/cdparanoia-III-10.2.src.tgz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/cdparanoia-III-10.2-gcc_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/cdparanoia-III-10.2-gcc_fixes-1.patch
 
 
 NAME=cdparanoia

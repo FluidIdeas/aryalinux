@@ -10,28 +10,27 @@ set +h
 #REQ:jansson
 #REQ:libtirpc
 #REQ:lmdb
-#REQ:python3
+#REQ:python2
 #REQ:rpcsvc-proto
 #REQ:fuse
 #REQ:gpgme
 #REQ:libxslt
-#REQ:linux-pam
 #REQ:perl-modules#perl-parse-yapp
-#REQ:python-modules#pycryptodome
+#REQ:python-modules#pycrypto
 #REQ:openldap
 
 
 cd $SOURCE_DIR
 
-wget -nc https://www.samba.org/ftp/samba/stable/samba-4.11.0.tar.gz
+wget -nc https://www.samba.org/ftp/samba/stable/samba-4.10.7.tar.gz
 wget -nc http://www.samba.org/samba/docs/using_samba/toc.html
 wget -nc http://www.samba.org/samba/docs/man/Samba-HOWTO-Collection/
 wget -nc http://www.samba.org/samba/docs/man/Samba-Guide/
 
 
 NAME=samba
-VERSION=4.11.0
-URL=https://www.samba.org/ftp/samba/stable/samba-4.11.0.tar.gz
+VERSION=4.10.7
+URL=https://www.samba.org/ftp/samba/stable/samba-4.10.7.tar.gz
 
 if [ ! -z $URL ]
 then

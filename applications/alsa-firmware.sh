@@ -12,13 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.alsa-project.org/files/pub/firmware/alsa-firmware-1.2.1.tar.bz2
-wget -nc ftp://ftp.alsa-project.org/pub/firmware/alsa-firmware-1.2.1.tar.bz2
+wget -nc ftp://ftp.alsa-project.org/pub/firmware/alsa-firmware-1.0.29.tar.bz2
 
 
 NAME=alsa-firmware
-VERSION=1.2.1
-URL=https://www.alsa-project.org/files/pub/firmware/alsa-firmware-1.2.1.tar.bz2
+VERSION=1.0.29
+URL=ftp://ftp.alsa-project.org/pub/firmware/alsa-firmware-1.0.29.tar.bz2
 
 if [ ! -z $URL ]
 then

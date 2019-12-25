@@ -22,13 +22,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/evince/3.34/evince-3.34.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evince/3.34/evince-3.34.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/evince/3.32/evince-3.32.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evince/3.32/evince-3.32.0.tar.xz
 
 
 NAME=evince
-VERSION=3.34.1
-URL=http://ftp.gnome.org/pub/gnome/sources/evince/3.34/evince-3.34.1.tar.xz
+VERSION=3.32.0
+URL=http://ftp.gnome.org/pub/gnome/sources/evince/3.32/evince-3.32.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -49,12 +49,10 @@ fi
 echo $USER > /tmp/currentuser
 
 
-CFLAGS="$CFLAGS -I/opt/texlive/2019/include"     \
-CXXFLAGS="$CXXFLAGS -I/opt/texlive/2019/include" \
-./configure --prefix=/usr                         \
-            --enable-introspection                \
-            --without-gspell                      \
-            --disable-static                     &&
+./configure --prefix=/usr           \
+            --enable-introspection  \
+            --without-gspell        \
+            --disable-static        &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

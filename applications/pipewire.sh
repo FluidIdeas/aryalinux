@@ -17,12 +17,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/PipeWire/pipewire/archive/0.2.7/pipewire-0.2.7.tar.gz
+wget -nc https://github.com/PipeWire/pipewire/archive/0.2.6/pipewire-0.2.6.tar.gz
 
 
 NAME=pipewire
-VERSION=0.2.7
-URL=https://github.com/PipeWire/pipewire/archive/0.2.7/pipewire-0.2.7.tar.gz
+VERSION=0.2.6
+URL=https://github.com/PipeWire/pipewire/archive/0.2.6/pipewire-0.2.6.tar.gz
 
 if [ ! -z $URL ]
 then

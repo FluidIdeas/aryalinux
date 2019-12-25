@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://files.libburnia-project.org/releases/libisofs-1.5.2.tar.gz
+wget -nc http://files.libburnia-project.org/releases/libisofs-1.5.0.tar.gz
 
 
 NAME=libisofs
-VERSION=1.5.2
-URL=http://files.libburnia-project.org/releases/libisofs-1.5.2.tar.gz
+VERSION=1.5.0
+URL=http://files.libburnia-project.org/releases/libisofs-1.5.0.tar.gz
 
 if [ ! -z $URL ]
 then

@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/tcl/tk8.6.10-src.tar.gz
+wget -nc https://downloads.sourceforge.net/tcl/tk8.6.9-src.tar.gz
 
 
 NAME=tk
 VERSION=
-URL=https://downloads.sourceforge.net/tcl/tk8.6.10-src.tar.gz
+URL=https://downloads.sourceforge.net/tcl/tk8.6.9-src.tar.gz
 
 if [ ! -z $URL ]
 then

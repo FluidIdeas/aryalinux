@@ -17,13 +17,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/vte/0.58/vte-0.58.3.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/vte/0.58/vte-0.58.3.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/vte/0.56/vte-0.56.3.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/vte/0.56/vte-0.56.3.tar.xz
 
 
 NAME=vte
-VERSION=0.58.3
-URL=http://ftp.gnome.org/pub/gnome/sources/vte/0.58/vte-0.58.3.tar.xz
+VERSION=0.56.3
+URL=http://ftp.gnome.org/pub/gnome/sources/vte/0.56/vte-0.56.3.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -44,14 +44,13 @@ fi
 echo $USER > /tmp/currentuser
 
 
-mkdir build &&
-cd    build &&
-
-meson  --prefix=/usr --sysconfdir=/etc -Dfribidi=false &&
-ninja
+./configure --prefix=/usr          \
+            --sysconfdir=/etc      \
+            --disable-static       &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

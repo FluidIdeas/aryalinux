@@ -15,12 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/apps/xfburn/0.6/xfburn-0.6.1.tar.bz2
+wget -nc http://archive.xfce.org/src/apps/xfburn/0.5/xfburn-0.5.5.tar.bz2
 
 
 NAME=xfburn
-VERSION=0.6.1
-URL=http://archive.xfce.org/src/apps/xfburn/0.6/xfburn-0.6.1.tar.bz2
+VERSION=0.5.5
+URL=http://archive.xfce.org/src/apps/xfburn/0.5/xfburn-0.5.5.tar.bz2
 
 if [ ! -z $URL ]
 then

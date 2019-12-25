@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://sourceware.org/ftp/lvm2/LVM2.2.03.07.tgz
-wget -nc ftp://sourceware.org/pub/lvm2/LVM2.2.03.07.tgz
+wget -nc https://sourceware.org/ftp/lvm2/LVM2.2.03.05.tgz
+wget -nc ftp://sourceware.org/pub/lvm2/LVM2.2.03.05.tgz
 
 
 NAME=lvm2
-VERSION=2.2.03.07
-URL=https://sourceware.org/ftp/lvm2/LVM2.2.03.07.tgz
+VERSION=2.2.03.05
+URL=https://sourceware.org/ftp/lvm2/LVM2.2.03.05.tgz
 
 if [ ! -z $URL ]
 then

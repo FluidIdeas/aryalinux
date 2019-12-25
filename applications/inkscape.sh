@@ -28,9 +28,8 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://media.inkscape.org/dl/resources/file/inkscape-0.92.4.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/inkscape-0.92.4-use_versioned_ImageMagick6-1.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/inkscape-0.92.4-upstream_fixes-1.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/inkscape-0.92.4-poppler_0_83_0_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/inkscape-0.92.4-use_versioned_ImageMagick6-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/inkscape-0.92.4-upstream_fixes-1.patch
 
 
 NAME=inkscape
@@ -57,8 +56,6 @@ echo $USER > /tmp/currentuser
 
 
 sed -e 's|new Lexer(xref, obj)|obj|g' -i src/extension/internal/pdfinput/pdf-parser.cpp
-sed -e 's|Unicode \*u|Unicode const *u|g' -i src/extension/internal/pdfinput/*
-patch -Np1 -i ../inkscape-0.92.4-poppler_0_83_0_fixes-1.patch
 patch -Np1 -i ../inkscape-0.92.4-use_versioned_ImageMagick6-1.patch
 patch -Np1 -i ../inkscape-0.92.4-upstream_fixes-1.patch
 bash download-gtest.sh
@@ -79,8 +76,16 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
 update-desktop-database -q
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

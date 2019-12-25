@@ -17,7 +17,6 @@ set +h
 #REQ:desktop-file-utils
 #REQ:exempi
 #REQ:gobject-introspection
-#REQ:gst10-plugins-base
 #REQ:libexif
 #REQ:adwaita-icon-theme
 #REQ:gvfs
@@ -25,13 +24,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/nautilus/3.34/nautilus-3.34.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/nautilus/3.34/nautilus-3.34.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/nautilus/3.32/nautilus-3.32.3.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/nautilus/3.32/nautilus-3.32.3.tar.xz
 
 
 NAME=nautilus
-VERSION=3.34.2
-URL=http://ftp.gnome.org/pub/gnome/sources/nautilus/3.34/nautilus-3.34.2.tar.xz
+VERSION=3.32.3
+URL=http://ftp.gnome.org/pub/gnome/sources/nautilus/3.32/nautilus-3.32.3.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -64,15 +63,7 @@ meson --prefix=/usr      \
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ninja install &&
 glib-compile-schemas /usr/share/glib-2.0/schemas
 ENDOFROOTSCRIPT
 

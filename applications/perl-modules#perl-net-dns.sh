@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cpan.org/authors/id/N/NL/NLNETLABS/Net-DNS-1.21.tar.gz
+wget -nc https://www.cpan.org/authors/id/N/NL/NLNETLABS/Net-DNS-1.20.tar.gz
 
 
 NAME=perl-modules#perl-net-dns
-VERSION=1.21
-URL=https://www.cpan.org/authors/id/N/NL/NLNETLABS/Net-DNS-1.21.tar.gz
+VERSION=1.20
+URL=https://www.cpan.org/authors/id/N/NL/NLNETLABS/Net-DNS-1.20.tar.gz
 
 if [ ! -z $URL ]
 then

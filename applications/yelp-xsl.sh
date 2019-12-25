@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/yelp-xsl/3.34/yelp-xsl-3.34.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/yelp-xsl/3.34/yelp-xsl-3.34.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/yelp-xsl/3.32/yelp-xsl-3.32.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/yelp-xsl/3.32/yelp-xsl-3.32.1.tar.xz
 
 
 NAME=yelp-xsl
-VERSION=3.34.2
-URL=http://ftp.gnome.org/pub/gnome/sources/yelp-xsl/3.34/yelp-xsl-3.34.2.tar.xz
+VERSION=3.32.1
+URL=http://ftp.gnome.org/pub/gnome/sources/yelp-xsl/3.32/yelp-xsl-3.32.1.tar.xz
 
 if [ ! -z $URL ]
 then

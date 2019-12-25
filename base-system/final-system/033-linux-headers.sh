@@ -21,10 +21,9 @@ cd $DIRECTORY
 
 
 make mrproper
-make headers
-find usr/include -name '.*' -delete
-rm usr/include/Makefile
-cp -rv usr/include/* /usr/include
+make INSTALL_HDR_PATH=dest headers_install
+find dest/include \( -name .install -o -name ..install.cmd \) -delete
+cp -rv dest/include/* /usr/include
 
 fi
 

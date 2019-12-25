@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://xmlsoft.org/sources/libxml2-2.9.10.tar.gz
-wget -nc ftp://xmlsoft.org/libxml2/libxml2-2.9.10.tar.gz
+wget -nc http://xmlsoft.org/sources/libxml2-2.9.9.tar.gz
+wget -nc ftp://xmlsoft.org/libxml2/libxml2-2.9.9.tar.gz
 
 
 NAME=python-modules#libxml2py2
-VERSION=2.9.10
-URL=http://xmlsoft.org/sources/libxml2-2.9.10.tar.gz
+VERSION=2.9.9
+URL=http://xmlsoft.org/sources/libxml2-2.9.9.tar.gz
 
 if [ ! -z $URL ]
 then

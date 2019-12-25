@@ -10,7 +10,6 @@ set +h
 #REQ:aspell
 #REQ:enchant
 #REQ:gmime
-#REQ:gpgme
 #REQ:libesmtp
 #REQ:rarian
 #REQ:pcre
@@ -18,12 +17,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://pawsa.fedorapeople.org/balsa/balsa-2.5.9.tar.bz2
+wget -nc http://pawsa.fedorapeople.org/balsa/balsa-2.5.7.tar.bz2
 
 
 NAME=balsa
-VERSION=2.5.9
-URL=http://pawsa.fedorapeople.org/balsa/balsa-2.5.9.tar.bz2
+VERSION=2.5.7
+URL=http://pawsa.fedorapeople.org/balsa/balsa-2.5.7.tar.bz2
 
 if [ ! -z $URL ]
 then

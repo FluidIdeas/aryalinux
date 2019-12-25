@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.1p1.tar.gz
+wget -nc http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.0p1.tar.gz
 
 
 NAME=openssh
 VERSION=8.
-URL=http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.1p1.tar.gz
+URL=http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.0p1.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -66,9 +66,9 @@ install -v -m755    contrib/ssh-copy-id /usr/bin     &&
 
 install -v -m644    contrib/ssh-copy-id.1 \
                     /usr/share/man/man1              &&
-install -v -m755 -d /usr/share/doc/openssh-8.1p1     &&
+install -v -m755 -d /usr/share/doc/openssh-8.0p1     &&
 install -v -m644    INSTALL LICENCE OVERVIEW README* \
-                    /usr/share/doc/openssh-8.1p1
+                    /usr/share/doc/openssh-8.0p1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -115,9 +115,9 @@ set +h
 . /etc/alps/alps.conf
 
 pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-20191026.tar.xz
-tar xf blfs-systemd-units-20191026.tar.xz
-cd blfs-systemd-units-20191026
+wget -nc http://www.linuxfromscratch.org/blfs/downloads/9.0-systemd/blfs-systemd-units-20180105.tar.bz2
+tar xf blfs-systemd-units-20180105.tar.bz2
+cd blfs-systemd-units-20180105
 sudo make install-sshd
 popd
 ENDOFROOTSCRIPT

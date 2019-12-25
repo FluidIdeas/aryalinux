@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://bitbucket.org/multicoreware/x265/downloads/x265_3.2.1.tar.gz
+wget -nc https://bitbucket.org/multicoreware/x265/downloads/x265_3.1.2.tar.gz
 
 
 NAME=x265
 VERSION=26
-URL=https://bitbucket.org/multicoreware/x265/downloads/x265_3.2.1.tar.gz
+URL=https://bitbucket.org/multicoreware/x265/downloads/x265_3.1.2.tar.gz
 
 if [ ! -z $URL ]
 then

@@ -12,15 +12,15 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.apache.org/dist/xmlgraphics/fop/source/fop-2.4-src.tar.gz
-wget -nc http://mirror.reverse.net/pub/apache/pdfbox/2.0.17/pdfbox-2.0.17.jar
-wget -nc http://mirror.reverse.net/pub/apache/pdfbox/2.0.17/fontbox-2.0.17.jar
+wget -nc https://archive.apache.org/dist/xmlgraphics/fop/source/fop-2.3-src.tar.gz
+wget -nc http://mirror.reverse.net/pub/apache/pdfbox/2.0.16/pdfbox-2.0.16.jar
+wget -nc http://mirror.reverse.net/pub/apache/pdfbox/2.0.16/fontbox-2.0.16.jar
 wget -nc https://downloads.sourceforge.net/offo/2.2/offo-hyphenation.zip
 
 
 NAME=fop
 VERSION=2.
-URL=https://archive.apache.org/dist/xmlgraphics/fop/source/fop-2.4-src.tar.gz
+URL=https://archive.apache.org/dist/xmlgraphics/fop/source/fop-2.3-src.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -53,17 +53,17 @@ sed -e '/hyph\.stack/s/512k/1M/' \
     -i fop/build.xml
 sed -e 's/1\.6/1.7/' \
     -i fop/build.xml
-cp ../{pdf,font}box-2.0.17.jar fop/lib
+cp ../{pdf,font}box-2.0.16.jar fop/lib
 cd fop                    &&
 export LC_ALL=en_US.UTF-8 &&
 ant all javadocs          &&
 mv build/javadocs .
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -d -m755 -o root -g root          /opt/fop-2.4 &&
-cp -vR build conf examples fop* javadocs lib /opt/fop-2.4 &&
-chmod a+x /opt/fop-2.4/fop                                &&
-ln -v -sfn fop-2.4 /opt/fop
+install -v -d -m755 -o root -g root          /opt/fop-2.3 &&
+cp -vR build conf examples fop* javadocs lib /opt/fop-2.3 &&
+chmod a+x /opt/fop-2.3/fop                                &&
+ln -v -sfn fop-2.3 /opt/fop
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

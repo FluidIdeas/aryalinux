@@ -14,7 +14,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://archive.apache.org/dist/httpd/httpd-2.4.41.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/httpd-2.4.41-blfs_layout-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/httpd-2.4.41-blfs_layout-1.patch
 
 
 NAME=apache
@@ -94,9 +94,9 @@ set +h
 . /etc/alps/alps.conf
 
 pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-20191026.tar.xz
-tar xf blfs-systemd-units-20191026.tar.xz
-cd blfs-systemd-units-20191026
+wget -nc http://www.linuxfromscratch.org/blfs/downloads/9.0-systemd/blfs-systemd-units-20180105.tar.bz2
+tar xf blfs-systemd-units-20180105.tar.bz2
+cd blfs-systemd-units-20180105
 sudo make install-httpd
 popd
 ENDOFROOTSCRIPT

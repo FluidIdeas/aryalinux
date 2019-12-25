@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/shadow-maint/shadow/releases/download/4.8/shadow-4.8.tar.xz
+wget -nc https://github.com/shadow-maint/shadow/releases/download/4.7/shadow-4.7.tar.xz
 wget -nc http://www.deer-run.com/~hal/linux_passwords_pam.html
 
 
 NAME=shadow
-VERSION=4.8
-URL=https://github.com/shadow-maint/shadow/releases/download/4.8/shadow-4.8.tar.xz
+VERSION=4.7
+URL=https://github.com/shadow-maint/shadow/releases/download/4.7/shadow-4.7.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -56,7 +56,8 @@ sed -i 's/1000/999/' etc/useradd                           &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+make install &&
+mv -v /usr/bin/passwd /bin
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

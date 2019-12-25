@@ -23,13 +23,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/cheese/3.34/cheese-3.34.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/cheese/3.34/cheese-3.34.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/cheese/3.32/cheese-3.32.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/cheese/3.32/cheese-3.32.1.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/cheese-3.32.1-gst_debug_disabled-1.patch
 
 
 NAME=cheese
-VERSION=3.34.0
-URL=http://ftp.gnome.org/pub/gnome/sources/cheese/3.34/cheese-3.34.0.tar.xz
+VERSION=3.32.1
+URL=http://ftp.gnome.org/pub/gnome/sources/cheese/3.32/cheese-3.32.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -50,15 +51,13 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i "s/&version;/3.34.0/" docs/reference/cheese{,-docs}.xml
-mkdir build &&
-cd    build &&
+patch -Np1 -i ../cheese-3.32.1-gst_debug_disabled-1.patch &&
 
-meson --prefix=/usr -Dgtk_doc=false .. &&
-ninja
+./configure --prefix=/usr &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

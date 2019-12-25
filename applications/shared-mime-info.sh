@@ -8,18 +8,17 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:glib2
-#REQ:itstool
 #REQ:libxml2
 
 
 cd $SOURCE_DIR
 
-wget -nc https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/b27eb88e4155d8fccb8bb3cd12025d5b/shared-mime-info-1.15.tar.xz
+wget -nc https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/80c7f1afbcad2769f38aeb9ba6317a51/shared-mime-info-1.12.tar.xz
 
 
 NAME=shared-mime-info
-VERSION=1.15
-URL=https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/b27eb88e4155d8fccb8bb3cd12025d5b/shared-mime-info-1.15.tar.xz
+VERSION=1.12
+URL=https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/80c7f1afbcad2769f38aeb9ba6317a51/shared-mime-info-1.12.tar.xz
 
 if [ ! -z $URL ]
 then

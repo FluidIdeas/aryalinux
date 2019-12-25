@@ -17,7 +17,6 @@ set +h
 #REQ:bogofilter
 #REQ:enchant
 #REQ:gnome-desktop
-#REQ:gspell
 #REQ:highlight
 #REQ:libcanberra
 #REQ:libgweather
@@ -28,13 +27,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/evolution/3.34/evolution-3.34.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evolution/3.34/evolution-3.34.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/evolution/3.32/evolution-3.32.4.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evolution/3.32/evolution-3.32.4.tar.xz
 
 
 NAME=evolution
-VERSION=3.34.1
-URL=http://ftp.gnome.org/pub/gnome/sources/evolution/3.34/evolution-3.34.1.tar.xz
+VERSION=3.32.4
+URL=http://ftp.gnome.org/pub/gnome/sources/evolution/3.32/evolution-3.32.4.tar.xz
 
 if [ ! -z $URL ]
 then

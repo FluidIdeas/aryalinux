@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gsettings-desktop-schemas/3.34/gsettings-desktop-schemas-3.34.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gsettings-desktop-schemas/3.34/gsettings-desktop-schemas-3.34.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gsettings-desktop-schemas/3.32/gsettings-desktop-schemas-3.32.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gsettings-desktop-schemas/3.32/gsettings-desktop-schemas-3.32.0.tar.xz
 
 
 NAME=gsettings-desktop-schemas
-VERSION=3.34.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gsettings-desktop-schemas/3.34/gsettings-desktop-schemas-3.34.0.tar.xz
+VERSION=3.32.0
+URL=http://ftp.gnome.org/pub/gnome/sources/gsettings-desktop-schemas/3.32/gsettings-desktop-schemas-3.32.0.tar.xz
 
 if [ ! -z $URL ]
 then

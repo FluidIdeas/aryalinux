@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/AbiWord/enchant/releases/download/v2.2.7/enchant-2.2.7.tar.gz
+wget -nc https://github.com/AbiWord/enchant/releases/download/v2.2.5/enchant-2.2.5.tar.gz
 
 
 NAME=enchant
-VERSION=2.2.7
-URL=https://github.com/AbiWord/enchant/releases/download/v2.2.7/enchant-2.2.7.tar.gz
+VERSION=2.2.5
+URL=https://github.com/AbiWord/enchant/releases/download/v2.2.5/enchant-2.2.5.tar.gz
 
 if [ ! -z $URL ]
 then

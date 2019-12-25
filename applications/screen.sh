@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/screen/screen-4.7.0.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/screen/screen-4.7.0.tar.gz
+wget -nc https://ftp.gnu.org/gnu/screen/screen-4.6.2.tar.gz
+wget -nc ftp://ftp.gnu.org/gnu/screen/screen-4.6.2.tar.gz
 
 
 NAME=screen
-VERSION=4.7.0
-URL=https://ftp.gnu.org/gnu/screen/screen-4.7.0.tar.gz
+VERSION=4.6.2
+URL=https://ftp.gnu.org/gnu/screen/screen-4.6.2.tar.gz
 
 if [ ! -z $URL ]
 then

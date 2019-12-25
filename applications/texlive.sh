@@ -26,7 +26,7 @@ cd $SOURCE_DIR
 
 wget -nc ftp://tug.org/texlive/historic/2019/texlive-20190410-source.tar.xz
 wget -nc ftp://tug.org/texlive/historic/2019/texlive-20190410-texmf.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/texlive-20190410-source-upstream_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/texlive-20190410-source-upstream_fixes-1.patch
 
 
 NAME=texlive
@@ -111,9 +111,9 @@ set +h
 . /etc/alps/alps.conf
 
 pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/systemd/blfs-systemd-units-20191026.tar.xz
-tar xf blfs-systemd-units-20191026.tar.xz
-cd blfs-systemd-units-20191026
+wget -nc http://www.linuxfromscratch.org/blfs/downloads/9.0-systemd/blfs-systemd-units-20180105.tar.bz2
+tar xf blfs-systemd-units-20180105.tar.bz2
+cd blfs-systemd-units-20180105
 sudo make install-strip &&
 /sbin/ldconfig &&
 make texlinks &&

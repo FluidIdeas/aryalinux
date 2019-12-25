@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/mltframework/mlt/releases/download/v6.18.0/mlt-6.18.0.tar.gz
+wget -nc https://github.com/mltframework/mlt/releases/download/v6.16.0/mlt-6.16.0.tar.gz
 
 
 NAME=mlt
-VERSION=6.18.0
-URL=https://github.com/mltframework/mlt/releases/download/v6.18.0/mlt-6.18.0.tar.gz
+VERSION=6.16.0
+URL=https://github.com/mltframework/mlt/releases/download/v6.16.0/mlt-6.16.0.tar.gz
 
 if [ ! -z $URL ]
 then

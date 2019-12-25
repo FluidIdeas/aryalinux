@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnome.org/pub/gnome/sources/NetworkManager-openvpn/1.8/NetworkManager-openvpn-1.8.10.tar.xz
+wget -nc https://download.gnome.org/sources/NetworkManager-openvpn/1.8/NetworkManager-openvpn-1.8.10.tar.xz
 
 
 NAME=network-manager-openvpn
 VERSION=1.8.10
-URL=https://ftp.gnome.org/pub/gnome/sources/NetworkManager-openvpn/1.8/NetworkManager-openvpn-1.8.10.tar.xz
+URL=https://download.gnome.org/sources/NetworkManager-openvpn/1.8/NetworkManager-openvpn-1.8.10.tar.xz
 
 if [ ! -z $URL ]
 then

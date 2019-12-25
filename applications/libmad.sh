@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/mad/libmad-0.15.1b.tar.gz
 wget -nc ftp://ftp.mars.org/pub/mpeg/libmad-0.15.1b.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/libmad-0.15.1b-fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/libmad-0.15.1b-fixes-1.patch
 
 
 NAME=libmad
