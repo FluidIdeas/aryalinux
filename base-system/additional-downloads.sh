@@ -23,7 +23,7 @@ wget -nc https://downloads.sourceforge.net/freetype/freetype-2.9.tar.bz2
 wget -nc https://ftp.gnu.org/gnu/unifont/unifont-7.0.05/unifont-7.0.05.pcf.gz
 wget -nc https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.5.5.tar.xz
 wget -nc https://ftp.osuosl.org/pub/blfs/conglomeration/popt/popt-1.16.tar.gz
-wget -nc https://sourceforge.net/projects/aryalinux/files/releases/2.0/linux-firmware.tar.xz
+wget -nc http://aryalinux.info/files/linux-firmware-20191215.tar.gz
 wget -nc https://ftp.gnu.org/gnu/cpio/cpio-2.12.tar.bz2
 wget -nc https://ftp.osuosl.org/pub/blfs/conglomeration/lsb-release/lsb-release-1.4.tar.gz
 wget -nc https://busybox.net/downloads/fixes-1.20.2/busybox-1.20.2-sys-resource.patch
