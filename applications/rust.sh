@@ -40,23 +40,7 @@ fi
 sudo mkdir /opt/rustc-1.37.0             &&
 sudo ln -svfin rustc-1.37.0 /opt/rustc
 
-cat > config.toml << EOF
-[llvm]
-link-shared = true
-
-[build]
-docs = false
-extended = true
-
-[install]
-prefix = "/opt/rustc-1.37.0"
-docdir = "share/doc/rustc-1.37.0"
-
-[rust]
-channel = "stable"
-rpath = false
-codegen-tests = false
-EOF
+cp config.toml.example config.toml
 
 export RUSTFLAGS="$RUSTFLAGS -C link-args=-lffi" &&
 python3 ./x.py build --exclude src/tools/miri
