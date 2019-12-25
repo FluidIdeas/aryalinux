@@ -37,10 +37,6 @@ fi
 cd $DIRECTORY
 fi
 
-sudo mkdir /opt/rustc-1.37.0             &&
-sudo ln -svfin rustc-1.37.0 /opt/rustc
-
-cp config.toml.example config.toml
 echo "[build]" >> config.toml
 echo "extended = true" >> config.toml
 
