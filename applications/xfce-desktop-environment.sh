@@ -12,7 +12,6 @@ set +h
 #REQ:libxfce4ui
 #REQ:exo
 #REQ:garcon
-#REQ:gtk-xfce-engine
 #REQ:libwnck2
 #REQ:xfce4-panel
 #REQ:xfce4-xkb-plugin
