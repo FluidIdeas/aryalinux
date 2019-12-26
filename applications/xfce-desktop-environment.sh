@@ -14,7 +14,6 @@ set +h
 #REQ:garcon
 #REQ:libwnck2
 #REQ:xfce4-panel
-#REQ:xfce4-xkb-plugin
 #REQ:thunar
 #REQ:thunar-volman
 #REQ:tumbler
