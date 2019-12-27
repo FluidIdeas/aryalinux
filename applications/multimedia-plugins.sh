@@ -71,7 +71,7 @@ cd $SOURCE_DIR
 
 
 
-NAME=multimedia-pack
+NAME=multimedia-plugins
 VERSION=1.4
 
 
