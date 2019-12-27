@@ -83,6 +83,7 @@ set +h
 #REQ:eom
 #REQ:engrampa
 #REQ:atril
+#REQ:udisks2
 #REQ:mate-utils
 #REQ:murrine-gtk-engine
 #REQ:mate-themes
