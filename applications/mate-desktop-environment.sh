@@ -73,6 +73,7 @@ set +h
 #REQ:plymouth
 #REQ:mate-screensaver
 #REQ:vte2
+#REQ:vte
 #REQ:mate-terminal
 #REQ:caja
 #REQ:caja-extensions
