@@ -35,6 +35,7 @@ cd $DIRECTORY
 fi
 
 sudo tar xf aryalinux-wallpapers-2.0.tar.xz -C /
+sudo chown -R root:root /usr/share/backgrounds/aryalinux
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

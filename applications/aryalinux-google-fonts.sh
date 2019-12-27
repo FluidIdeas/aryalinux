@@ -35,6 +35,7 @@ cd $DIRECTORY
 fi
 
 sudo tar xf aryalinux-google-fonts.tar.xz -C /
+sudo chown -R root:root /usr/share/fonts/aryalinux-google-fonts
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -35,6 +35,7 @@ cd $DIRECTORY
 fi
 
 sudo tar xf aryalinux-icons.tar.xz -C /
+sudo chown -R root:root /usr/share/icons/
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

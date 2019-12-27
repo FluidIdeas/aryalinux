@@ -138,14 +138,15 @@ then
     mount $HOME_PART $LFS/home
 fi
 
-if grep "gnome-desktop-environment" /etc/alps/installed-list &> /dev/null; then
+if grep "gnome-desktop-environment" /mnt/lfs/etc/alps/installed-list &> /dev/null; then
 	autologin_session="gnome-xorg"
-elif grep "xfce-desktop-environment" /etc/alps/installed-list &> /dev/null; then
+elif grep "xfce-desktop-environment" /mnt/lfs/etc/alps/installed-list &> /dev/null; then
         autologin_session="xfce"
-elif grep "mate-desktop-environment" /etc/alps/installed-list &> /dev/null; then
+elif grep "mate-desktop-environment" /mnt/lfs/etc/alps/installed-list &> /dev/null; then
         autologin_session="mate"
+elif grep "kde-desktop-environment" /mnt/lfs/etc/alps/installed-list &> /dev/null; then
+        autologin_session="kde"
 fi
-
 
 if [ -f $LFS/etc/lightdm/lightdm.conf ]
 then
