@@ -196,7 +196,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-cat > /etc/profile.d/qt5.sh << "EOF"
+sudo tee /etc/profile.d/qt5.sh << "EOF"
 # Begin /etc/profile.d/qt5.sh
 
 QT5DIR=/usr
@@ -235,7 +235,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cat > /etc/profile.d/qt5.sh << "EOF"
+sudo tee /etc/profile.d/qt5.sh << "EOF"
 # Begin /etc/profile.d/qt5.sh
 
 QT5DIR=/opt/qt5
