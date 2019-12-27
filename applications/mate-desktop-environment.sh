@@ -84,7 +84,7 @@ set +h
 #REQ:atril
 #REQ:mate-utils
 #REQ:murrine-gtk-engine
-#REQ:mate-themes-gtk3
+#REQ:mate-themes
 #REQ:gnome-themes-standard
 #REQ:adwaita-icon-theme
 #REQ:mate-system-monitor
