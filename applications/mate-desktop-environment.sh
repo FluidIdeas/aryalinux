@@ -75,6 +75,7 @@ set +h
 #REQ:vte2
 #REQ:vte
 #REQ:mate-terminal
+#REQ:gvfs
 #REQ:caja
 #REQ:caja-extensions
 #REQ:caja-dropbox
