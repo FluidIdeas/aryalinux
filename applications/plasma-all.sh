@@ -163,7 +163,6 @@ while read -r line; do
 
 done < plasma-5.16.4.md5
 
-exit
 as_root install -dvm 755 /usr/share/xsessions              &&
 cd /usr/share/xsessions/                                   &&
 [ -e plasma.desktop ]                                      ||

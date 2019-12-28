@@ -189,7 +189,6 @@ while read -r line; do
 
 done < frameworks-5.61.0.md5
 
-exit
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
