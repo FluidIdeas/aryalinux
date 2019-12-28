@@ -145,7 +145,7 @@ elif grep "xfce-desktop-environment" /mnt/lfs/etc/alps/installed-list &> /dev/nu
 elif grep "mate-desktop-environment" /mnt/lfs/etc/alps/installed-list &> /dev/null; then
         autologin_session="mate"
 elif grep "kde-desktop-environment" /mnt/lfs/etc/alps/installed-list &> /dev/null; then
-        autologin_session="kde"
+        autologin_session="plasma"
 fi
 
 if [ -f $LFS/etc/lightdm/lightdm.conf ]
