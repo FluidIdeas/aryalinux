@@ -65,7 +65,7 @@ if [ "x$INSTALL_DESKTOP_ENVIRONMENT" == "xy" ]; then
     else
         DE="Builder"
     fi
-    LABEL="$OS_NAME $DE $OS_VERSION"
+    LABEL="$OS_NAME $OS_VERSION $DE"
 else
     LABEL="$OS_NAME $OS_VERSION"
 fi
