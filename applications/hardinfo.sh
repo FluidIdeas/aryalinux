@@ -33,14 +33,18 @@ fi
 cd $DIRECTORY
 fi
 
+sudo rm -rf hardinfo
+
 git clone https://github.com/lpereira/hardinfo.git
 cd hardinfo
-./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static &&
+mkdir -pv build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=/usr ..
 make
 sudo make install
 
 cd ..
-rm -rf hardinfo
+sudo rm -rf hardinfo
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
