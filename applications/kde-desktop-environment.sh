@@ -29,7 +29,7 @@ set +h
 #REQ:dolphin
 #REQ:dolphin-plugins
 #REQ:kcalc
-#REQ:gwenview
+#REQ:gwenview5
 
 
 cd $SOURCE_DIR
