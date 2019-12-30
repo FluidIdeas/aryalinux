@@ -34,6 +34,7 @@ fi
 cd $DIRECTORY
 fi
 
+export CFLAGS=" -std=gnu89"
 cd hardinfo2
 ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static &&
 make
