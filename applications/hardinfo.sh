@@ -11,12 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/lpereira/hardinfo/archive/release-0.5.1.tar.gz
 
 
 NAME=hardinfo
 VERSION=0.5.1
-URL=https://github.com/lpereira/hardinfo/archive/release-0.5.1.tar.gz
+
 
 if [ ! -z $URL ]
 then
@@ -34,11 +33,13 @@ fi
 cd $DIRECTORY
 fi
 
-export CFLAGS=" -std=gnu89"
-cd hardinfo2
+git clone https://github.com/lpereira/hardinfo.git
+cd hardinfo
 ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static &&
 make
 sudo make install
+
+cd ..m -rf hardinfo
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
