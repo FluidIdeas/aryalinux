@@ -7,18 +7,16 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:mpv
-#REQ:gnome-desktop-environment
 
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/gnome-mpv/gnome-mpv/releases/download/v0.16/gnome-mpv-0.16.tar.xz
+wget -nc https://github.com/lpereira/hardinfo/archive/release-0.5.1.tar.gz
 
 
-NAME=gnome-mpv
-VERSION=0.16
-URL=https://github.com/gnome-mpv/gnome-mpv/releases/download/v0.16/gnome-mpv-0.16.tar.xz
+NAME=hardinfo
+VERSION=0.5.1
+URL=https://github.com/lpereira/hardinfo/archive/release-0.5.1.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -36,7 +34,7 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr &&
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static &&
 make
 sudo make install
 
