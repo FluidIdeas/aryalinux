@@ -29,7 +29,6 @@ set +h
 #REQ:dolphin
 #REQ:dolphin-plugins
 #REQ:kcalc
-#REQ:ark
 #REQ:gwenview
 
 
