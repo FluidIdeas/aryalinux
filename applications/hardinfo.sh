@@ -34,7 +34,7 @@ fi
 cd $DIRECTORY
 fi
 
-cd hardinfo
+cd hardinfo2
 ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static &&
 make
 sudo make install
