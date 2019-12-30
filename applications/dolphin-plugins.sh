@@ -7,39 +7,16 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:gtk2
-#REQ:gtk3
-#REQ:gconf
-#REQ:pulseaudio
-#REQ:qt5
-#REQ:extra-cmake-modules
-#REQ:phonon
-#REQ:phonon-backend-gstreamer
-#REQ:polkit-qt
-#REQ:libdbusmenu-qt
-#REQ:krameworks5
-#REQ:fftw
-#REQ:plasma-all
-#REQ:ark5
-#REQ:kdenlive
-#REQ:kmix5
-#REQ:khelpcenter
-#REQ:konsole5
-#REQ:lightdm
-#REQ:dolphin
-#REQ:dolphin-plugins
-#REQ:kcalc
-#REQ:ark
-#REQ:gwenview
 
 
 cd $SOURCE_DIR
 
+wget -nc https://download.kde.org/stable/applications/19.08.0/src/dolphin-plugins-19.08.0.tar.xz
 
 
-NAME=kde-desktop-environment
-VERSION=5.53
-
+NAME=dolphin-plugins
+VERSION=19.08.0
+URL=https://download.kde.org/stable/applications/19.08.0/src/dolphin-plugins-19.08.0.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -57,7 +34,13 @@ fi
 cd $DIRECTORY
 fi
 
-sudo ln -svf /usr/lib /usr/lib64
+mkdir build
+cd build
+
+cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+make -j$(nproc)
+
+sudo make install
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
