@@ -39,7 +39,8 @@ cd hardinfo
 make
 sudo make install
 
-cd ..m -rf hardinfo
+cd ..
+rm -rf hardinfo
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
