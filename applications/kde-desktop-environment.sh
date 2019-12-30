@@ -26,6 +26,8 @@ set +h
 #REQ:khelpcenter
 #REQ:konsole5
 #REQ:lightdm
+#REQ:gvfs
+#REQ:udisks2
 #REQ:dolphin
 #REQ:dolphin-plugins
 #REQ:kcalc
