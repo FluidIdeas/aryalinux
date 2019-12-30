@@ -7,6 +7,11 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:gtk2
+#REQ:gtk3
+#REQ:gconf
+#REQ:pulseaudio
+#REQ:qt5
 #REQ:extra-cmake-modules
 #REQ:phonon
 #REQ:phonon-backend-gstreamer
