@@ -115,7 +115,7 @@ cd $SOURCE_DIR
 
 
 NAME=mate-desktop-environment
-VERSION=1.23
+VERSION=1.23.2
 
 
 if [ ! -z $URL ]

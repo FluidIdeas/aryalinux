@@ -29,12 +29,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/firefox/releases/68.0.2/source/firefox-68.0.2.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/firefox/releases/69.0.3/source/firefox-69.0.3.source.tar.xz
 
 
 NAME=firefox
-VERSION=68.0.2
-URL=https://archive.mozilla.org/pub/firefox/releases/68.0.2/source/firefox-68.0.2.source.tar.xz
+VERSION=69.0.3
+URL=https://archive.mozilla.org/pub/firefox/releases/69.0.3/source/firefox-69.0.3.source.tar.xz
 
 if [ ! -z $URL ]
 then

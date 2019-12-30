@@ -7,16 +7,18 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:enchant
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gspell/1.8/gspell-1.8.1.tar.xz
+wget -nc https://ftp.gnome.org/pub/gnome/sources/gspell/1.8/gspell-1.8.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gspell/1.8/gspell-1.8.1.tar.xz
 
 
 NAME=gspell
 VERSION=1.8.1
-URL=http://ftp.gnome.org/pub/gnome/sources/gspell/1.8/gspell-1.8.1.tar.xz
+URL=https://ftp.gnome.org/pub/gnome/sources/gspell/1.8/gspell-1.8.1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -34,9 +36,20 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --sysconfdir=/etc &&
+echo $USER > /tmp/currentuser
+
+
+./configure --prefix=/usr &&
 make
-sudo make install
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

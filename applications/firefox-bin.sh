@@ -26,7 +26,7 @@ cd $SOURCE_DIR
 
 
 NAME=firefox-bin
-VERSION=08-2019
+VERSION=12-2019
 
 
 if [ ! -z $URL ]

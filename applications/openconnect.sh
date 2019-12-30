@@ -7,17 +7,16 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:vpnc
 
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.infradead.org/pub/openconnect/openconnect-8.02.tar.gz
+wget -nc ftp://ftp.infradead.org/pub/openconnect/openconnect-8.05.tar.gz
 
 
 NAME=openconnect
-VERSION=8.02
-URL=ftp://ftp.infradead.org/pub/openconnect/openconnect-8.02.tar.gz
+VERSION=8.05
+URL=ftp://ftp.infradead.org/pub/openconnect/openconnect-8.05.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -34,6 +33,8 @@ fi
 
 cd $DIRECTORY
 fi
+
+sudo wget http://git.infradead.org/users/dwmw2/vpnc-scripts.git/blob_plain/HEAD:/vpnc-script -O /etc/vpnc/vpnc-script
 
 ./configure --prefix=/usr  &&
 make

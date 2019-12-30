@@ -11,12 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/intel/cmrt/archive/1.0.6.tar.gz
 
 
 NAME=libcmrt
 VERSION=1.0.6
-URL=https://github.com/intel/cmrt/archive/1.0.6.tar.gz
+
 
 if [ ! -z $URL ]
 then
@@ -34,9 +33,15 @@ fi
 cd $DIRECTORY
 fi
 
+git clone https://github.com/intel/cmrt
+cd cmrt
+
 ./autogen.sh --prefix=/usr --sysconfdir=/etc &&
 make
 sudo make install
+
+cd ..
+rm -rf cmrt
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
