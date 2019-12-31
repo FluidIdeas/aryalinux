@@ -11,7 +11,7 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://sourceforge.net/projects/aryalinux/files/releases/2.0/aryalinux-gnome-defaults-2.0.tar.xz
+wget -nc http://aryalinux.info/files/aryalinux-gnome-defaults-2.0.tar.xz
 
 
 NAME=aryalinux-gnome-settings

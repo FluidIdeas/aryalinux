@@ -7,17 +7,21 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:gnome-shell-extensions
+#REQ:openconnect
+#REQ:pptp
+#REQ:openvpn
+#REQ:network-manager-openconnect
+#REQ:network-manager-pptp
+#REQ:network-manager-openvpn
 
 
 cd $SOURCE_DIR
 
-wget -nc http://aryalinux.info/files/CoverflowAltTab-gnome-extension-36.tar.gz
 
 
-NAME=gnome-shell-coverflow-alt-tab
-VERSION=36
-URL=http://aryalinux.info/files/CoverflowAltTab-gnome-extension-36.tar.gz
+NAME=vpn-libs
+VERSION=2.1
+
 
 if [ ! -z $URL ]
 then
@@ -35,9 +39,7 @@ fi
 cd $DIRECTORY
 fi
 
-sudo mkdir -pv /usr/share/gnome-shell/extensions/$(basename $(pwd))
-sudo cp -rvf * /usr/share/gnome-shell/extensions/$(basename $(pwd))
-sudo chmod -R a+r /usr/share/gnome-shell/extensions/$(basename $(pwd))
+echo "Installation completed successfully."
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
