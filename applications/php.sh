@@ -13,6 +13,7 @@ set +h
 #REQ:postgresql
 #REQ:net-snmp
 #REQ:tidy-html5
+#REQ:onig
 
 
 cd $SOURCE_DIR

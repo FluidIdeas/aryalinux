@@ -7,17 +7,16 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:pulseaudio
 
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/mltframework/mlt/releases/download/v6.16.0/mlt-6.16.0.tar.gz
+wget -nc https://github.com/kkos/oniguruma/releases/download/v6.9.4/onig-6.9.4.tar.gz
 
 
-NAME=mlt
-VERSION=6.16.0
-URL=https://github.com/mltframework/mlt/releases/download/v6.16.0/mlt-6.16.0.tar.gz
+NAME=onig
+VERSION=6.9.4
+URL=https://github.com/kkos/oniguruma/releases/download/v6.9.4/onig-6.9.4.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -35,24 +34,12 @@ fi
 cd $DIRECTORY
 fi
 
-echo $USER > /tmp/currentuser
+mkdir -pv build
+cd build
 
-
-./configure --prefix=/usr     \
-            --enable-gpl      \
-            --enable-gpl3     \
-            --enable-opengl   \
-            --disable-gtk2    &&
-make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
+cmake -DCMAKE_INSTALL_PREFIX=/usr .. &&
+make -j$(nproc)
+sudo make install
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
