@@ -39,7 +39,7 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../epdfview-0.1.8-fixes-2.patch &&
+patch -Np1 -i $SOURCE_DIR/epdfview-0.1.8-fixes-2.patch &&
 ./configure --prefix=/usr &&
 make
 sudo make install
