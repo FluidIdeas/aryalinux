@@ -94,7 +94,7 @@ sudo gtk-update-icon-cache /usr/share/icons/Numix-Square
 sudo gtk-update-icon-cache /usr/share/icons/Paper
 sudo gtk-update-icon-cache /usr/share/icons/Paper-Mono-Dark
 
-set-e
+set -e
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
