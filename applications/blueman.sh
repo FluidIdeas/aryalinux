@@ -35,7 +35,7 @@ fi
 cd $DIRECTORY
 fi
 
-./autogen.sh --prefix=/usr &&
+./autogen.sh --prefix=/usr --disable-runtime-deps-check &&
 make
 sudo make install
 
