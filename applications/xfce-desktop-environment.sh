@@ -52,6 +52,7 @@ set +h
 #REQ:thunar-archive-plugin
 #REQ:xfce4-whiskermenu-plugin
 #REQ:xfce4-screenshooter
+#REQ:blueman
 
 
 cd $SOURCE_DIR

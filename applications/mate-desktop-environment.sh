@@ -108,6 +108,7 @@ set +h
 #REQ:aryalinux-google-fonts
 #REQ:aryalinux-gtk-themes
 #REQ:aryalinux-icons
+#REQ:blueman
 
 
 cd $SOURCE_DIR
