@@ -35,6 +35,8 @@ fi
 cd $DIRECTORY
 fi
 
+sudo pip3 install Cython
+
 ./autogen.sh --prefix=/usr --disable-runtime-deps-check &&
 make
 sudo make install
