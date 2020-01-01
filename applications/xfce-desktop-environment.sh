@@ -81,6 +81,8 @@ fi
 cd $DIRECTORY
 fi
 
+set +e
+
 sudo gtk-update-icon-cache /usr/share/icons/Flat-Remix
 sudo gtk-update-icon-cache /usr/share/icons/Flat-Remix-Dark
 sudo gtk-update-icon-cache /usr/share/icons/Flat-Remix-Light
@@ -91,6 +93,8 @@ sudo gtk-update-icon-cache /usr/share/icons/Numix-Light
 sudo gtk-update-icon-cache /usr/share/icons/Numix-Square
 sudo gtk-update-icon-cache /usr/share/icons/Paper
 sudo gtk-update-icon-cache /usr/share/icons/Paper-Mono-Dark
+
+set-e
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
