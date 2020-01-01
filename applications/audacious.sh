@@ -8,7 +8,6 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:gtk2
-#REQ:qt5
 #REQ:libxml2
 #REQ:mpg123
 #REQ:neon
