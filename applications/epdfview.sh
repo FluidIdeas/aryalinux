@@ -15,13 +15,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://anduin.linuxfromscratch.org/BLFS/epdfview/epdfview-0.1.8.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/epdfview-0.1.8-fixes-2.patch
-
+##DOWNLOADS##
 
 NAME=epdfview
 VERSION=0.1.8
-
+##URL##
 
 if [ ! -z $URL ]
 then
@@ -39,7 +37,7 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i $SOURCE_DIR/epdfview-0.1.8-fixes-2.patch &&
+patch -Np1 -i ../epdfview-0.1.8-fixes-2.patch &&
 ./configure --prefix=/usr &&
 make
 sudo make install
