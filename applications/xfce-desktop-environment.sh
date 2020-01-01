@@ -14,6 +14,8 @@ set +h
 #REQ:garcon
 #REQ:libwnck2
 #REQ:xfce4-panel
+#REQ:udisks2
+#REQ:gvfs
 #REQ:thunar
 #REQ:thunar-volman
 #REQ:tumbler
