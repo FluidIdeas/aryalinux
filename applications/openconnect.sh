@@ -36,6 +36,7 @@ fi
 
 sudo mkdir -pv /etc/vpnc
 sudo wget http://git.infradead.org/users/dwmw2/vpnc-scripts.git/blob_plain/HEAD:/vpnc-script -O /etc/vpnc/vpnc-script
+sudo chmod a+x /etc/vpnc/vpnc-script
 
 ./configure --prefix=/usr  &&
 make
