@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/xfce-mirror/xfce4-screenshooter/releases/tag/xfce4-screenshooter-1.9.7
+wget -nc https://github.com/xfce-mirror/xfce4-screenshooter/archive/xfce4-screenshooter-1.9.7.tar.gz
 
 
 NAME=xfce4-screenshooter
 VERSION=1.9.7
-
+URL=https://github.com/xfce-mirror/xfce4-screenshooter/archive/xfce4-screenshooter-1.9.7.tar.gz
 
 if [ ! -z $URL ]
 then

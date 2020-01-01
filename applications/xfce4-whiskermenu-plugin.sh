@@ -16,7 +16,7 @@ wget -nc https://archive.xfce.org/src/panel-plugins/xfce4-whiskermenu-plugin/2.3
 
 NAME=xfce4-whiskermenu-plugin
 VERSION=2.3.4
-
+URL=https://archive.xfce.org/src/panel-plugins/xfce4-whiskermenu-plugin/2.3/xfce4-whiskermenu-plugin-2.3.4.tar.bz2
 
 if [ ! -z $URL ]
 then

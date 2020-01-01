@@ -17,7 +17,7 @@ wget -nc https://github.com/blueman-project/blueman/releases/download/2.1.1/blue
 
 NAME=blueman
 VERSION=2.1.1
-
+URL=https://github.com/blueman-project/blueman/releases/download/2.1.1/blueman-2.1.1.tar.gz
 
 if [ ! -z $URL ]
 then
