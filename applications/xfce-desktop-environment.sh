@@ -40,6 +40,8 @@ set +h
 #REQ:plymouth
 #REQ:aryalinux-xfce-settings
 #REQ:pnmixer
+#REQ:xdg-user-dirs
+#REQ:xdg-utils
 
 
 cd $SOURCE_DIR
