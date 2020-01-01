@@ -15,7 +15,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://github.com/nicklan/pnmixer/releases/download/v0.7.2/pnmixer-v0.7.2.tar.gz
-wget -nc 
 
 
 NAME=pnmixer
