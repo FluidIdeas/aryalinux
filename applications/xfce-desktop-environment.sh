@@ -33,6 +33,7 @@ set +h
 #REQ:aryalinux-wallpapers
 #REQ:aryalinux-icons
 #REQ:lightdm
+#REQ:xfce4-dev-tools
 #REQ:network-manager-applet
 #REQ:cups
 #REQ:cups-filters
@@ -42,6 +43,15 @@ set +h
 #REQ:pnmixer
 #REQ:xdg-user-dirs
 #REQ:xdg-utils
+#REQ:mousepad
+#REQ:pavucontrol
+#REQ:galculator
+#REQ:epdfview
+#REQ:p7zip
+#REQ:xarchiver
+#REQ:thunar-archive-plugin
+#REQ:xfce4-whiskermenu-plugin
+#REQ:xfce4-screenshooter
 
 
 cd $SOURCE_DIR
@@ -49,7 +59,7 @@ cd $SOURCE_DIR
 
 
 NAME=xfce-desktop-environment
-VERSION=4.12
+VERSION=4.14
 
 
 if [ ! -z $URL ]

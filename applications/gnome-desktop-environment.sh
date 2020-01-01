@@ -68,6 +68,7 @@ set +h
 #REQ:cheese
 #REQ:eog
 #REQ:evince
+#REQ:p7zip
 #REQ:file-roller
 #REQ:gedit
 #REQ:gtksourceview4

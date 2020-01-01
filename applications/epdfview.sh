@@ -9,6 +9,8 @@ set +h
 
 #REQ:gtk2
 #REQ:poppler
+#REQ:desktop-file-utils
+#REQ:hicolor-icon-theme
 
 
 cd $SOURCE_DIR
@@ -19,7 +21,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/epdfview-0.1.8-f
 
 NAME=epdfview
 VERSION=0.1.8
-URL=http://anduin.linuxfromscratch.org/BLFS/epdfview/epdfview-0.1.8.tar.bz2
+
 
 if [ ! -z $URL ]
 then
@@ -37,37 +39,18 @@ fi
 cd $DIRECTORY
 fi
 
-echo $USER > /tmp/currentuser
-
-
 patch -Np1 -i ../epdfview-0.1.8-fixes-2.patch &&
 ./configure --prefix=/usr &&
 make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+sudo make install
 for size in 24 32 48; do
-  ln -svf ../../../../epdfview/pixmaps/icon_epdfview-$size.png \
+  sudo ln -svf ../../../../epdfview/pixmaps/icon_epdfview-$size.png \
           /usr/share/icons/hicolor/${size}x${size}/apps
 done &&
 unset size &&
 
-update-desktop-database &&
-gtk-update-icon-cache -t -f --include-image-data /usr/share/icons/hicolor
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
+sudo update-desktop-database &&
+sudo gtk-update-icon-cache -t -f --include-image-data /usr/share/icons/hicolor
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
