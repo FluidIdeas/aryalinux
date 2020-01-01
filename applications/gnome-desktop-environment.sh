@@ -96,6 +96,9 @@ set +h
 #REQ:aryalinux-gtk-themes
 #REQ:aryalinux-gnome-settings
 #REQ:plymouth
+#REQ:cups
+#REQ:cups-filters
+#REQ:vpn-libs
 
 
 cd $SOURCE_DIR

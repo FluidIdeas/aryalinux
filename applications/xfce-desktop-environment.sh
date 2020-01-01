@@ -33,6 +33,13 @@ set +h
 #REQ:aryalinux-wallpapers
 #REQ:aryalinux-icons
 #REQ:lightdm
+#REQ:network-manager-applet
+#REQ:cups
+#REQ:cups-filters
+#REQ:vpn-libs
+#REQ:plymouth
+#REQ:aryalinux-xfce-settings
+#REQ:pnmixer
 
 
 cd $SOURCE_DIR
@@ -59,7 +66,16 @@ fi
 cd $DIRECTORY
 fi
 
-
+sudo gtk-update-icon-cache /usr/share/icons/Flat-Remix
+sudo gtk-update-icon-cache /usr/share/icons/Flat-Remix-Dark
+sudo gtk-update-icon-cache /usr/share/icons/Flat-Remix-Light
+sudo gtk-update-icon-cache /usr/share/icons/Numix
+sudo gtk-update-icon-cache /usr/share/icons/Numix-Circle
+sudo gtk-update-icon-cache /usr/share/icons/Numix-Cicle-Light
+sudo gtk-update-icon-cache /usr/share/icons/Numix-Light
+sudo gtk-update-icon-cache /usr/share/icons/Numix-Square
+sudo gtk-update-icon-cache /usr/share/icons/Paper
+sudo gtk-update-icon-cache /usr/share/icons/Paper-Mono-Dark
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
