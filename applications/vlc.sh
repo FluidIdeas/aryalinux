@@ -13,6 +13,7 @@ set +h
 #REQ:libgcrypt
 #REQ:libmad
 #REQ:lua
+#REQ:qt5
 
 
 cd $SOURCE_DIR
