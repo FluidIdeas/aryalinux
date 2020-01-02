@@ -55,6 +55,7 @@ wget -nc http://download.documentfoundation.org/libreoffice/src/6.3.0/libreoffic
 NAME=libreoffice
 VERSION=6.3.0.4
 URL=http://download.documentfoundation.org/libreoffice/src/6.3.0/libreoffice-6.3.0.4.tar.xz
+SECTION="Office Productivity"
 
 if [ ! -z $URL ]
 then

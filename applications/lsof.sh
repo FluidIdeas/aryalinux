@@ -18,6 +18,7 @@ wget -nc https://www.mirrorservice.org/sites/lsof.itap.purdue.edu/pub/tools/unix
 NAME=lsof
 VERSION=4.91
 URL=https://www.mirrorservice.org/sites/lsof.itap.purdue.edu/pub/tools/unix/lsof/lsof_4.91.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

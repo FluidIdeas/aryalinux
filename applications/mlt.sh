@@ -18,6 +18,7 @@ wget -nc https://github.com/mltframework/mlt/releases/download/v6.16.0/mlt-6.16.
 NAME=mlt
 VERSION=6.16.0
 URL=https://github.com/mltframework/mlt/releases/download/v6.16.0/mlt-6.16.0.tar.gz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

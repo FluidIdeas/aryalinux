@@ -31,6 +31,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/cheese-3.32.1-gs
 NAME=cheese
 VERSION=3.32.1
 URL=http://ftp.gnome.org/pub/gnome/sources/cheese/3.32/cheese-3.32.1.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

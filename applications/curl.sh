@@ -18,6 +18,7 @@ wget -nc https://curl.haxx.se/download/curl-7.65.3.tar.xz
 NAME=curl
 VERSION=7.65.3
 URL=https://curl.haxx.se/download/curl-7.65.3.tar.xz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

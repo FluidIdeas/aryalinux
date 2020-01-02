@@ -18,6 +18,7 @@ wget -nc https://downloads.sourceforge.net/lxde/lxinput-0.3.5.tar.xz
 NAME=lxinput
 VERSION=0.3.5
 URL=https://downloads.sourceforge.net/lxde/lxinput-0.3.5.tar.xz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

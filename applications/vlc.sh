@@ -24,6 +24,7 @@ wget -nc https://download.videolan.org/vlc/3.0.8/vlc-3.0.8.tar.xz
 NAME=vlc
 VERSION=3.0.8
 URL=https://download.videolan.org/vlc/3.0.8/vlc-3.0.8.tar.xz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

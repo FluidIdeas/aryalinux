@@ -18,6 +18,7 @@ wget -nc https://www.cpan.org/authors/id/O/OA/OALDERS/URI-1.76.tar.gz
 NAME=perl-modules#perl-uri
 VERSION=1.76
 URL=https://www.cpan.org/authors/id/O/OA/OALDERS/URI-1.76.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

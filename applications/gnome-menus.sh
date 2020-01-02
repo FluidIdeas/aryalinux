@@ -20,6 +20,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.32/gnome-menus-3.32
 NAME=gnome-menus
 VERSION=3.32.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.32/gnome-menus-3.32.0.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

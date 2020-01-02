@@ -19,6 +19,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/liboauth-1.0.3-o
 NAME=liboauth
 VERSION=1.0.3
 URL=https://downloads.sourceforge.net/liboauth/liboauth-1.0.3.tar.gz
+SECTION="Security"
 
 if [ ! -z $URL ]
 then

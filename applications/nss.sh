@@ -21,6 +21,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/nss-3.45-standal
 NAME=nss
 VERSION=3.45
 URL=https://archive.mozilla.org/pub/security/nss/releases/NSS_3_45_RTM/src/nss-3.45.tar.gz
+SECTION="Security"
 
 if [ ! -z $URL ]
 then

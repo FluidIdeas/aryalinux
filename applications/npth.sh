@@ -18,6 +18,7 @@ wget -nc ftp://ftp.gnupg.org/gcrypt/npth/npth-1.6.tar.bz2
 NAME=npth
 VERSION=1.6
 URL=https://www.gnupg.org/ftp/gcrypt/npth/npth-1.6.tar.bz2
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

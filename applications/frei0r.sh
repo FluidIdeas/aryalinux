@@ -17,6 +17,7 @@ wget -nc https://files.dyne.org/frei0r/releases/frei0r-plugins-1.6.1.tar.gz
 NAME=frei0r
 VERSION=1.6.1
 URL=https://files.dyne.org/frei0r/releases/frei0r-plugins-1.6.1.tar.gz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

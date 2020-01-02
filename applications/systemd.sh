@@ -19,6 +19,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/systemd-241-netw
 NAME=systemd
 VERSION=241
 URL=https://github.com/systemd/systemd/archive/v241/systemd-241.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

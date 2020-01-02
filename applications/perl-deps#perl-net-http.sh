@@ -18,6 +18,7 @@ wget -nc https://cpan.metacpan.org/authors/id/O/OA/OALDERS/Net-HTTP-6.19.tar.gz
 NAME=perl-deps#perl-net-http
 VERSION=6.19
 URL=https://cpan.metacpan.org/authors/id/O/OA/OALDERS/Net-HTTP-6.19.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

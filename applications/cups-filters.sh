@@ -27,6 +27,7 @@ wget -nc https://www.openprinting.org/download/cups-filters/cups-filters-1.25.2.
 NAME=cups-filters
 VERSION=1.25.2
 URL=https://www.openprinting.org/download/cups-filters/cups-filters-1.25.2.tar.xz
+SECTION="Printing and Typesetting"
 
 if [ ! -z $URL ]
 then

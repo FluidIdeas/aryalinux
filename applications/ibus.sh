@@ -24,6 +24,7 @@ wget -nc https://www.unicode.org/Public/zipped/10.0.0/UCD.zip
 NAME=ibus
 VERSION=1.5.20
 URL=https://github.com/ibus/ibus/releases/download/1.5.20/ibus-1.5.20.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

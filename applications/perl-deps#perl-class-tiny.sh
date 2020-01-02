@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Class-Tiny-1.006.tar
 NAME=perl-deps#perl-class-tiny
 VERSION=1.006
 URL=https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Class-Tiny-1.006.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

@@ -36,6 +36,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.32/gnome-c
 NAME=gnome-control-center
 VERSION=3.32.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.32/gnome-control-center-3.32.2.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

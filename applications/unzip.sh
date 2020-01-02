@@ -18,6 +18,7 @@ wget -nc ftp://ftp.info-zip.org/pub/infozip/src/unzip60.tgz
 NAME=unzip
 VERSION=60
 URL=https://downloads.sourceforge.net/infozip/unzip60.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

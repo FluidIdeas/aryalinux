@@ -20,6 +20,7 @@ wget -nc https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/FFI-CheckLib-0.25.ta
 NAME=perl-deps#perl-ffi-checklib
 VERSION=0.25
 URL=https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/FFI-CheckLib-0.25.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

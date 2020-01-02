@@ -37,6 +37,7 @@ wget -nc https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.12.tar.bz2
 NAME=gimp
 VERSION=2.10.12
 URL=https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.12.tar.bz2
+SECTION="Office Productivity"
 
 if [ ! -z $URL ]
 then

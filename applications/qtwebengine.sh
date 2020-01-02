@@ -28,6 +28,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/qtwebengine-5.13
 NAME=qtwebengine
 VERSION=5.13.0
 URL=https://download.qt.io/archive/qt/5.13/5.13.0/submodules/qtwebengine-everywhere-src-5.13.0.tar.xz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

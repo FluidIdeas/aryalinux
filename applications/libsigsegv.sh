@@ -18,6 +18,7 @@ wget -nc ftp://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.12.tar.gz
 NAME=libsigsegv
 VERSION=2.12
 URL=https://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.12.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

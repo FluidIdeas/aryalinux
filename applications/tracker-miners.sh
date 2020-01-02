@@ -29,6 +29,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.2/tracker-miners
 NAME=tracker-miners
 VERSION=2.2.2
 URL=http://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.2/tracker-miners-2.2.2.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

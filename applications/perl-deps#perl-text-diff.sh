@@ -18,6 +18,7 @@ wget -nc https://cpan.metacpan.org/authors/id/N/NE/NEILB/Text-Diff-1.45.tar.gz
 NAME=perl-deps#perl-text-diff
 VERSION=1.45
 URL=https://cpan.metacpan.org/authors/id/N/NE/NEILB/Text-Diff-1.45.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

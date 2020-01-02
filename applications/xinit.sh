@@ -22,6 +22,7 @@ wget -nc ftp://ftp.x.org/pub/individual/app/xinit-1.4.1.tar.bz2
 NAME=xinit
 VERSION=1.4.1
 URL=https://www.x.org/pub/individual/app/xinit-1.4.1.tar.bz2
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

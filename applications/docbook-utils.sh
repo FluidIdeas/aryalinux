@@ -22,6 +22,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/docbook-utils-0.
 NAME=docbook-utils
 VERSION=0.6.14
 URL=https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/docbook-utils-0.6.14.tar.gz
+SECTION="Printing and Typesetting"
 
 if [ ! -z $URL ]
 then

@@ -18,6 +18,7 @@ wget -nc http://pyyaml.org/download/pyyaml/PyYAML-5.1.2.tar.gz
 NAME=python-modules#pyyaml
 VERSION=5.1.2
 URL=http://pyyaml.org/download/pyyaml/PyYAML-5.1.2.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

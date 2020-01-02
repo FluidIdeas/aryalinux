@@ -18,6 +18,7 @@ wget -nc ftp://ftp.alsa-project.org/pub/plugins/alsa-plugins-1.1.9.tar.bz2
 NAME=alsa-plugins
 VERSION=1.1.9
 URL=ftp://ftp.alsa-project.org/pub/plugins/alsa-plugins-1.1.9.tar.bz2
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

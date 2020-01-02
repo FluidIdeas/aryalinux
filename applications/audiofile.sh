@@ -20,6 +20,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/audiofile/0.3/audiofile-0.3.6.tar
 NAME=audiofile
 VERSION=0.3.6
 URL=http://ftp.gnome.org/pub/gnome/sources/audiofile/0.3/audiofile-0.3.6.tar.xz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

@@ -18,6 +18,7 @@ wget -nc https://sqlite.org/2019/sqlite-doc-3290000.zip
 NAME=sqlite
 VERSION=3290000
 URL=https://sqlite.org/2019/sqlite-autoconf-3290000.tar.gz
+SECTION="Servers"
 
 if [ ! -z $URL ]
 then

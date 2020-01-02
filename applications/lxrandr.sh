@@ -19,6 +19,7 @@ wget -nc https://downloads.sourceforge.net/lxde/lxrandr-0.3.2.tar.xz
 NAME=lxrandr
 VERSION=0.3.2
 URL=https://downloads.sourceforge.net/lxde/lxrandr-0.3.2.tar.xz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

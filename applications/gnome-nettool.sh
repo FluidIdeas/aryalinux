@@ -21,6 +21,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-nettool/3.8/gnome-nettool-3
 NAME=gnome-nettool
 VERSION=3.8.1
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-nettool/3.8/gnome-nettool-3.8.1.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

@@ -18,6 +18,7 @@ wget -nc https://files.pythonhosted.org/packages/source/s/six/six-1.12.0.tar.gz
 NAME=python-modules#six
 VERSION=1.12.0
 URL=https://files.pythonhosted.org/packages/source/s/six/six-1.12.0.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

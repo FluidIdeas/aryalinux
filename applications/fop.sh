@@ -21,6 +21,7 @@ wget -nc https://downloads.sourceforge.net/offo/2.2/offo-hyphenation.zip
 NAME=fop
 VERSION=2.
 URL=https://archive.apache.org/dist/xmlgraphics/fop/source/fop-2.3-src.tar.gz
+SECTION="Printing and Typesetting"
 
 if [ ! -z $URL ]
 then

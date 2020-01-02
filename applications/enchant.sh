@@ -19,6 +19,7 @@ wget -nc https://github.com/AbiWord/enchant/releases/download/v2.2.5/enchant-2.2
 NAME=enchant
 VERSION=2.2.5
 URL=https://github.com/AbiWord/enchant/releases/download/v2.2.5/enchant-2.2.5.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

@@ -26,6 +26,7 @@ wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base
 NAME=gst10-plugins-base
 VERSION=1.16.0
 URL=https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.16.0.tar.xz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

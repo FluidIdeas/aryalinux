@@ -18,6 +18,7 @@ wget -nc https://cpan.metacpan.org/authors/id/G/GA/GAAS/WWW-RobotRules-6.02.tar.
 NAME=perl-deps#perl-www-robotrules
 VERSION=6.02
 URL=https://cpan.metacpan.org/authors/id/G/GA/GAAS/WWW-RobotRules-6.02.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

@@ -20,6 +20,7 @@ wget -nc https://archive.apache.org/dist/ant/source/apache-ant-1.10.6-src.tar.xz
 NAME=apache-ant
 VERSION=1.10.
 URL=https://archive.apache.org/dist/ant/source/apache-ant-1.10.6-src.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

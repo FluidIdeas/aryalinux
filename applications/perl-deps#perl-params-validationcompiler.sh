@@ -21,6 +21,7 @@ wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Params-ValidationComp
 NAME=perl-deps#perl-params-validationcompiler
 VERSION=0.30
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Params-ValidationCompiler-0.30.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

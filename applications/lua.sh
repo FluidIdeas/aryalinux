@@ -19,6 +19,7 @@ wget -nc http://www.lua.org/tests/lua-5.3.4-tests.tar.gz
 NAME=lua
 VERSION=5.3.5
 URL=http://www.lua.org/ftp/lua-5.3.5.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

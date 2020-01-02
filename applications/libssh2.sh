@@ -17,6 +17,7 @@ wget -nc https://www.libssh2.org/download/libssh2-1.9.0.tar.gz
 NAME=libssh2
 VERSION=1.9.0
 URL=https://www.libssh2.org/download/libssh2-1.9.0.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

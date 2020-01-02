@@ -23,6 +23,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/teams/releng/tarballs-needing-help/mozjs/
 NAME=js60
 VERSION=60.8.0
 URL=http://ftp.gnome.org/pub/gnome/teams/releng/tarballs-needing-help/mozjs/mozjs-60.8.0.tar.bz2
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

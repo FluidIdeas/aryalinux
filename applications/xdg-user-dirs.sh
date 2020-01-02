@@ -17,6 +17,7 @@ wget -nc https://user-dirs.freedesktop.org/releases/xdg-user-dirs-0.17.tar.gz
 NAME=xdg-user-dirs
 VERSION=0.17
 URL=https://user-dirs.freedesktop.org/releases/xdg-user-dirs-0.17.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

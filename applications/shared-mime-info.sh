@@ -19,6 +19,7 @@ wget -nc https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/80c7f1afbca
 NAME=shared-mime-info
 VERSION=1.12
 URL=https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/80c7f1afbcad2769f38aeb9ba6317a51/shared-mime-info-1.12.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

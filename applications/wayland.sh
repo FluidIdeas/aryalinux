@@ -18,6 +18,7 @@ wget -nc https://wayland.freedesktop.org/releases/wayland-1.17.0.tar.xz
 NAME=wayland
 VERSION=1.17.0
 URL=https://wayland.freedesktop.org/releases/wayland-1.17.0.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

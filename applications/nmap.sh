@@ -21,6 +21,7 @@ wget -nc http://nmap.org/dist/nmap-7.80.tar.bz2
 NAME=nmap
 VERSION=7.80
 URL=http://nmap.org/dist/nmap-7.80.tar.bz2
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

@@ -17,6 +17,7 @@ wget -nc http://sg.danny.cz/sg/p/sg3_utils-1.44.tar.xz
 NAME=sg3_utils
 VERSION=1.44
 URL=http://sg.danny.cz/sg/p/sg3_utils-1.44.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

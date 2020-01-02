@@ -19,6 +19,7 @@ wget -nc https://downloads.sourceforge.net/gimp-print/gutenprint-5.3.3.tar.xz
 NAME=gutenprint
 VERSION=5.3.3
 URL=https://downloads.sourceforge.net/gimp-print/gutenprint-5.3.3.tar.xz
+SECTION="Printing and Typesetting"
 
 if [ ! -z $URL ]
 then

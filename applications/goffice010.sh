@@ -23,6 +23,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/goffice/0.10/goffice-0.10.45.tar.
 NAME=goffice010
 VERSION=0.10.45
 URL=http://ftp.gnome.org/pub/gnome/sources/goffice/0.10/goffice-0.10.45.tar.xz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

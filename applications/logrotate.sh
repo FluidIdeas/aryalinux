@@ -18,6 +18,7 @@ wget -nc https://github.com/logrotate/logrotate/releases/download/3.15.0/logrota
 NAME=logrotate
 VERSION=3.15.0
 URL=https://github.com/logrotate/logrotate/releases/download/3.15.0/logrotate-3.15.0.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

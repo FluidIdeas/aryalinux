@@ -33,6 +33,7 @@ wget -nc http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-12.0.2/jtreg-4.
 NAME=openjdk
 VERSION=12.0.
 URL=http://hg.openjdk.java.net/jdk-updates/jdk12u/archive/jdk-12.0.2+10.tar.bz2
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

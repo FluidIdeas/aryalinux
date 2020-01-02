@@ -21,6 +21,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pygobject/2.28/pygobject-2.28.7.t
 NAME=python-modules#pygobject2
 VERSION=2.28.7
 URL=http://ftp.gnome.org/pub/gnome/sources/pygobject/2.28/pygobject-2.28.7.tar.xz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

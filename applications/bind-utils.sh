@@ -17,6 +17,7 @@ wget -nc ftp://ftp.isc.org/isc/bind9/9.14.5/bind-9.14.5.tar.gz
 NAME=bind-utils
 VERSION=9.14.5
 URL=ftp://ftp.isc.org/isc/bind9/9.14.5/bind-9.14.5.tar.gz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

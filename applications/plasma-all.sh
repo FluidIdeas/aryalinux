@@ -40,6 +40,7 @@ cd $SOURCE_DIR
 NAME=plasma-all
 VERSION=5.16.4
 
+SECTION="KDE"
 
 if [ ! -z $URL ]
 then

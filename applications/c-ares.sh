@@ -17,6 +17,7 @@ wget -nc https://c-ares.haxx.se/download/c-ares-1.15.0.tar.gz
 NAME=c-ares
 VERSION=1.15.0
 URL=https://c-ares.haxx.se/download/c-ares-1.15.0.tar.gz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

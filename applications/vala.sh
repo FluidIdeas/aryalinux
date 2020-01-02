@@ -20,6 +20,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/vala/0.44/vala-0.44.7.tar.xz
 NAME=vala
 VERSION=0.44.7
 URL=http://ftp.gnome.org/pub/gnome/sources/vala/0.44/vala-0.44.7.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

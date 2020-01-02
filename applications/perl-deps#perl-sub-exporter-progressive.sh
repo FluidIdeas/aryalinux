@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/F/FR/FREW/Sub-Exporter-Progressive
 NAME=perl-deps#perl-sub-exporter-progressive
 VERSION=0.001013
 URL=https://cpan.metacpan.org/authors/id/F/FR/FREW/Sub-Exporter-Progressive-0.001013.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

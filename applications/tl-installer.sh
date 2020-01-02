@@ -26,6 +26,7 @@ wget -nc http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
 NAME=tl-installer
 VERSION=
 URL=http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+SECTION="Printing and Typesetting"
 
 if [ ! -z $URL ]
 then

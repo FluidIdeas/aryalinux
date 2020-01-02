@@ -17,6 +17,7 @@ wget -nc http://ftp.de.debian.org/debian/pool/main/liba/libaio/libaio_0.3.112.or
 NAME=libaio
 VERSION=0.3.112
 URL=http://ftp.de.debian.org/debian/pool/main/liba/libaio/libaio_0.3.112.orig.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

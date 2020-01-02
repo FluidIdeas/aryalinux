@@ -18,6 +18,7 @@ wget -nc http://doxygen.nl/files/doxygen-1.8.16.src.tar.gz
 NAME=doxygen
 VERSION=1.8.16
 URL=http://doxygen.nl/files/doxygen-1.8.16.src.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

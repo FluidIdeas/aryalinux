@@ -18,6 +18,7 @@ wget -nc http://www.zsh.org/pub/zsh-5.7.1-doc.tar.xz
 NAME=zsh
 VERSION=5.7.1
 URL=http://www.zsh.org/pub/zsh-5.7.1.tar.xz
+SECTION="Shells"
 
 if [ ! -z $URL ]
 then

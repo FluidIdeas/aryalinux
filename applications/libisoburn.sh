@@ -19,6 +19,7 @@ wget -nc http://files.libburnia-project.org/releases/libisoburn-1.5.0.tar.gz
 NAME=libisoburn
 VERSION=1.5.0
 URL=http://files.libburnia-project.org/releases/libisoburn-1.5.0.tar.gz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

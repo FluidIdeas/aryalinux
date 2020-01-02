@@ -19,6 +19,7 @@ wget -nc http://download.kde.org/stable/applications/19.08.0/src/kmix-19.08.0.ta
 NAME=kmix5
 VERSION=19.08.0
 URL=http://download.kde.org/stable/applications/19.08.0/src/kmix-19.08.0.tar.xz
+SECTION="KDE"
 
 if [ ! -z $URL ]
 then

@@ -24,6 +24,7 @@ wget -nc https://downloads.sourceforge.net/asymptote/asymptote-2.52.src.tgz
 NAME=asymptote
 VERSION=2.52
 URL=https://downloads.sourceforge.net/asymptote/asymptote-2.52.src.tgz
+SECTION="Printing and Typesetting"
 
 if [ ! -z $URL ]
 then

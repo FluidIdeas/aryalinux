@@ -21,6 +21,7 @@ wget -nc https://www.freedesktop.org/software/polkit/releases/polkit-0.116.tar.g
 NAME=polkit
 VERSION=0.116
 URL=https://www.freedesktop.org/software/polkit/releases/polkit-0.116.tar.gz
+SECTION="Security"
 
 if [ ! -z $URL ]
 then

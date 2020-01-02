@@ -18,6 +18,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/libquicktime-1.2
 NAME=libquicktime
 VERSION=1.2.4
 URL=https://downloads.sourceforge.net/libquicktime/libquicktime-1.2.4.tar.gz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

@@ -19,6 +19,7 @@ wget -nc https://www.freedesktop.org/software/libinput/libinput-1.14.0.tar.xz
 NAME=libinput
 VERSION=1.14.0
 URL=https://www.freedesktop.org/software/libinput/libinput-1.14.0.tar.xz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

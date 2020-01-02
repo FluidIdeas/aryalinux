@@ -20,6 +20,7 @@ wget -nc https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/co
 NAME=llvm
 VERSION=8.0.1
 URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/llvm-8.0.1.src.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

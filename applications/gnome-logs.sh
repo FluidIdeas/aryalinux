@@ -21,6 +21,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-logs/3.32/gnome-logs-3.32.1
 NAME=gnome-logs
 VERSION=3.32.1
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-logs/3.32/gnome-logs-3.32.1.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

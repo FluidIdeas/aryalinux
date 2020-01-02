@@ -23,6 +23,7 @@ wget -nc ftp://ftp.gnupg.org/gcrypt/gnutls/v3.6/gnutls-3.6.9.tar.xz
 NAME=gnutls
 VERSION=3.6.9
 URL=https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.9.tar.xz
+SECTION="Security"
 
 if [ ! -z $URL ]
 then

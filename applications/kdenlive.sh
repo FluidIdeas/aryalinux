@@ -21,6 +21,7 @@ wget -nc http://download.kde.org/stable/applications/19.08.0/src/kdenlive-19.08.
 NAME=kdenlive
 VERSION=19.08.0
 URL=http://download.kde.org/stable/applications/19.08.0/src/kdenlive-19.08.0.tar.xz
+SECTION="KDE"
 
 if [ ! -z $URL ]
 then

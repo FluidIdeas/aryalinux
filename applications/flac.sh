@@ -17,6 +17,7 @@ wget -nc https://downloads.xiph.org/releases/flac/flac-1.3.3.tar.xz
 NAME=flac
 VERSION=1.3.3
 URL=https://downloads.xiph.org/releases/flac/flac-1.3.3.tar.xz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

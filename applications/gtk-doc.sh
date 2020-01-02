@@ -23,6 +23,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk-doc/1.32/gtk-doc-1.32.tar.xz
 NAME=gtk-doc
 VERSION=1.32
 URL=http://ftp.gnome.org/pub/gnome/sources/gtk-doc/1.32/gtk-doc-1.32.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

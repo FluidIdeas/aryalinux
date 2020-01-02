@@ -18,6 +18,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/id3lib-3.8.3-con
 NAME=id3lib
 VERSION=3.8.3
 URL=https://downloads.sourceforge.net/id3lib/id3lib-3.8.3.tar.gz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

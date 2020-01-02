@@ -17,6 +17,7 @@ wget -nc https://fossies.org/linux/www/neon-0.30.2.tar.gz
 NAME=neon
 VERSION=0.30.2
 URL=https://fossies.org/linux/www/neon-0.30.2.tar.gz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

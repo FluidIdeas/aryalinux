@@ -17,6 +17,7 @@ wget -nc http://ftp.debian.org/debian/pool/main/libp/libpaper/libpaper_1.1.24+nm
 NAME=libpaper
 VERSION=1.1.2
 URL=http://ftp.debian.org/debian/pool/main/libp/libpaper/libpaper_1.1.24+nmu5.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

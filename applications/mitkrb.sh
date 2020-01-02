@@ -17,6 +17,7 @@ wget -nc https://kerberos.org/dist/krb5/1.17/krb5-1.17.tar.gz
 NAME=mitkrb
 VERSION=1.17
 URL=https://kerberos.org/dist/krb5/1.17/krb5-1.17.tar.gz
+SECTION="Security"
 
 if [ ! -z $URL ]
 then

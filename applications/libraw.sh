@@ -20,6 +20,7 @@ wget -nc http://www.libraw.org/data/LibRaw-0.19.5.tar.gz
 NAME=libraw
 VERSION=0.19.5
 URL=http://www.libraw.org/data/LibRaw-0.19.5.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

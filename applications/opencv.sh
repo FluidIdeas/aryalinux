@@ -30,6 +30,7 @@ wget -nc https://github.com/opencv/opencv_contrib/archive/4.1.1/opencv_contrib-4
 NAME=opencv
 VERSION=4.1.1
 URL=https://github.com/opencv/opencv/archive/4.1.1/opencv-4.1.1.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

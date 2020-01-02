@@ -21,6 +21,7 @@ wget -nc https://github.com/libass/libass/releases/download/0.14.0/libass-0.14.0
 NAME=libass
 VERSION=0.14.0
 URL=https://github.com/libass/libass/releases/download/0.14.0/libass-0.14.0.tar.xz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

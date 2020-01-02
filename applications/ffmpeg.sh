@@ -32,6 +32,7 @@ wget -nc http://ffmpeg.org/releases/ffmpeg-4.2.tar.xz
 NAME=ffmpeg
 VERSION=4.2
 URL=http://ffmpeg.org/releases/ffmpeg-4.2.tar.xz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

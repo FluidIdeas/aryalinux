@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/T/TO/TOKUHIROM/Test-Requires-0.10.
 NAME=perl-deps#perl-test-requires
 VERSION=0.10
 URL=https://cpan.metacpan.org/authors/id/T/TO/TOKUHIROM/Test-Requires-0.10.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

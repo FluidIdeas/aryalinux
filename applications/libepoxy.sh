@@ -18,6 +18,7 @@ wget -nc https://github.com/anholt/libepoxy/releases/download/1.5.3/libepoxy-1.5
 NAME=libepoxy
 VERSION=1.5.3
 URL=https://github.com/anholt/libepoxy/releases/download/1.5.3/libepoxy-1.5.3.tar.xz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

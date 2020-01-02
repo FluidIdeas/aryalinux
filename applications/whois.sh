@@ -17,6 +17,7 @@ wget -nc https://github.com/rfc1036/whois/archive/v5.4.3/whois-5.4.3.tar.gz
 NAME=whois
 VERSION=5.4.3
 URL=https://github.com/rfc1036/whois/archive/v5.4.3/whois-5.4.3.tar.gz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

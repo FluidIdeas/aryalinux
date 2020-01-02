@@ -17,6 +17,7 @@ wget -nc https://www.kernel.org/pub/linux/utils/net/bridge-utils/bridge-utils-1.
 NAME=bridge-utils
 VERSION=1.6
 URL=https://www.kernel.org/pub/linux/utils/net/bridge-utils/bridge-utils-1.6.tar.xz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

@@ -20,6 +20,7 @@ wget -nc https://downloads.sourceforge.net/nfs/nfs-utils-2.4.1.tar.xz
 NAME=nfs-utils
 VERSION=2.4.1
 URL=https://downloads.sourceforge.net/nfs/nfs-utils-2.4.1.tar.xz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

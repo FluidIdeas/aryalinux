@@ -18,6 +18,7 @@ wget -nc https://docs.python.org/ftp/python/doc/2.7.16/python-2.7.16-docs-html.t
 NAME=python2
 VERSION=2.7.16
 URL=https://www.python.org/ftp/python/2.7.16/Python-2.7.16.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

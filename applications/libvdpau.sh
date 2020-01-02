@@ -18,6 +18,7 @@ wget -nc https://gitlab.freedesktop.org/vdpau/libvdpau/uploads/14b620084c027d546
 NAME=libvdpau
 VERSION=1.2
 URL=https://gitlab.freedesktop.org/vdpau/libvdpau/uploads/14b620084c027d546fa0b3f083b800c6/libvdpau-1.2.tar.bz2
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

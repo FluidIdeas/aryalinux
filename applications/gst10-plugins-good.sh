@@ -31,6 +31,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/gst-plugins-good
 NAME=gst10-plugins-good
 VERSION=1.16.0
 URL=https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.16.0.tar.xz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

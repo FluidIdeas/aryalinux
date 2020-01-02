@@ -24,6 +24,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/mupdf-1.16.1-sha
 NAME=mupdf
 VERSION=1.16.
 URL=http://www.mupdf.com/downloads/archive/mupdf-1.16.1-source.tar.gz
+SECTION="Printing and Typesetting"
 
 if [ ! -z $URL ]
 then

@@ -17,6 +17,7 @@ wget -nc https://github.com/LMDB/lmdb/archive/LMDB_0.9.24.tar.gz
 NAME=lmdb
 VERSION=0.9.24
 URL=https://github.com/LMDB/lmdb/archive/LMDB_0.9.24.tar.gz
+SECTION="Servers"
 
 if [ ! -z $URL ]
 then

@@ -18,6 +18,7 @@ wget -nc ftp://ftp.gnu.org/gnu/pth/pth-2.0.7.tar.gz
 NAME=pth
 VERSION=2.0.7
 URL=https://ftp.gnu.org/gnu/pth/pth-2.0.7.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

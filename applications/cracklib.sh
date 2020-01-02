@@ -19,6 +19,7 @@ wget -nc https://github.com/cracklib/cracklib/releases/download/v2.9.7/cracklib-
 NAME=cracklib
 VERSION=2.9.7
 URL=https://github.com/cracklib/cracklib/releases/download/v2.9.7/cracklib-2.9.7.tar.bz2
+SECTION="Security"
 
 if [ ! -z $URL ]
 then

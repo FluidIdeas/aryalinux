@@ -27,6 +27,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/clutter/1.26/clutter-1.26.2.tar.x
 NAME=clutter
 VERSION=1.26.2
 URL=http://ftp.gnome.org/pub/gnome/sources/clutter/1.26/clutter-1.26.2.tar.xz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

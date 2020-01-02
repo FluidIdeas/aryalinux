@@ -22,6 +22,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gmime/3.2/gmime-3.2.3.tar.xz
 NAME=gmime3
 VERSION=3.2.3
 URL=http://ftp.gnome.org/pub/gnome/sources/gmime/3.2/gmime-3.2.3.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

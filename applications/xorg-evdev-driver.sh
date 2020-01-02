@@ -21,6 +21,7 @@ wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-input-evdev-2.10.6.tar.bz2
 NAME=xorg-evdev-driver
 VERSION=2.10.6
 URL=https://www.x.org/pub/individual/driver/xf86-input-evdev-2.10.6.tar.bz2
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

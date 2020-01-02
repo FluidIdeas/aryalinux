@@ -17,6 +17,7 @@ wget -nc http://www.nlnetlabs.nl/downloads/ldns/ldns-1.7.1.tar.gz
 NAME=ldns
 VERSION=1.7.1
 URL=http://www.nlnetlabs.nl/downloads/ldns/ldns-1.7.1.tar.gz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

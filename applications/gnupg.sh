@@ -23,6 +23,7 @@ wget -nc ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-2.2.17.tar.bz2
 NAME=gnupg
 VERSION=2.2.17
 URL=https://www.gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.17.tar.bz2
+SECTION="Security"
 
 if [ ! -z $URL ]
 then

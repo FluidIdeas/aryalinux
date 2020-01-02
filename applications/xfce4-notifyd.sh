@@ -20,6 +20,7 @@ wget -nc http://archive.xfce.org/src/apps/xfce4-notifyd/0.4/xfce4-notifyd-0.4.4.
 NAME=xfce4-notifyd
 VERSION=0.4.4
 URL=http://archive.xfce.org/src/apps/xfce4-notifyd/0.4/xfce4-notifyd-0.4.4.tar.bz2
+SECTION="XFCE"
 
 if [ ! -z $URL ]
 then

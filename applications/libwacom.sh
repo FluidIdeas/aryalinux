@@ -19,6 +19,7 @@ wget -nc https://downloads.sourceforge.net/linuxwacom/libwacom-0.29.tar.bz2
 NAME=libwacom
 VERSION=0.29
 URL=https://downloads.sourceforge.net/linuxwacom/libwacom-0.29.tar.bz2
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

@@ -18,6 +18,7 @@ wget -nc https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISBN-3.004.tar.gz
 NAME=perl-modules#perl-business-isbn
 VERSION=3.004
 URL=https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISBN-3.004.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

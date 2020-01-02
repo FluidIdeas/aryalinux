@@ -17,6 +17,7 @@ wget -nc http://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.4.tar.xz
 NAME=ruby
 VERSION=2.6.4
 URL=http://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.4.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

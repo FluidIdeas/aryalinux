@@ -19,6 +19,7 @@ wget -nc http://archive.xfce.org/src/apps/mousepad/0.4/mousepad-0.4.2.tar.bz2
 NAME=mousepad
 VERSION=0.4.2
 URL=http://archive.xfce.org/src/apps/mousepad/0.4/mousepad-0.4.2.tar.bz2
+SECTION="Editors"
 
 if [ ! -z $URL ]
 then

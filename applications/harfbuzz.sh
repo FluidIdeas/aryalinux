@@ -23,6 +23,7 @@ wget -nc https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.6.0.ta
 NAME=harfbuzz
 VERSION=2.6.0
 URL=https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.6.0.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

@@ -17,6 +17,7 @@ wget -nc https://github.com/projectatomic/bubblewrap/releases/download/v0.3.3/bu
 NAME=bubblewrap
 VERSION=0.3.3
 URL=https://github.com/projectatomic/bubblewrap/releases/download/v0.3.3/bubblewrap-0.3.3.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

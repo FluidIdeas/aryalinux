@@ -38,6 +38,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-settings-daemon/3.32/gnome-
 NAME=gnome-settings-daemon
 VERSION=3.32.1
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-settings-daemon/3.32/gnome-settings-daemon-3.32.1.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

@@ -21,6 +21,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libpeas/1.22/libpeas-1.22.0.tar.x
 NAME=libpeas
 VERSION=1.22.0
 URL=http://ftp.gnome.org/pub/gnome/sources/libpeas/1.22/libpeas-1.22.0.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

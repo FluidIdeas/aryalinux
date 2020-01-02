@@ -18,6 +18,7 @@ wget -nc https://get.videolan.org/libdvdnav/6.0.0/libdvdnav-6.0.0.tar.bz2
 NAME=libdvdnav
 VERSION=6.0.0
 URL=https://get.videolan.org/libdvdnav/6.0.0/libdvdnav-6.0.0.tar.bz2
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

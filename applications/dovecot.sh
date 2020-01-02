@@ -18,6 +18,7 @@ wget -nc https://www.dovecot.org/releases/2.3/dovecot-2.3.7.2.tar.gz
 NAME=dovecot
 VERSION=2.3.7.2
 URL=https://www.dovecot.org/releases/2.3/dovecot-2.3.7.2.tar.gz
+SECTION="Servers"
 
 if [ ! -z $URL ]
 then

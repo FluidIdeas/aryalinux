@@ -23,6 +23,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libsecret/0.18/libsecret-0.18.8.t
 NAME=libsecret
 VERSION=0.18.8
 URL=http://ftp.gnome.org/pub/gnome/sources/libsecret/0.18/libsecret-0.18.8.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

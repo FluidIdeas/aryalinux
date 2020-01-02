@@ -18,6 +18,7 @@ wget -nc http://archive.xfce.org/src/xfce/xfconf/4.14/xfconf-4.14.1.tar.bz2
 NAME=xfconf
 VERSION=4.14.1
 URL=http://archive.xfce.org/src/xfce/xfconf/4.14/xfconf-4.14.1.tar.bz2
+SECTION="XFCE"
 
 if [ ! -z $URL ]
 then

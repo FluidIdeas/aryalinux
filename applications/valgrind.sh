@@ -18,6 +18,7 @@ wget -nc ftp://sourceware.org/pub/valgrind/valgrind-3.15.0.tar.bz2
 NAME=valgrind
 VERSION=3.15.0
 URL=https://sourceware.org/ftp/valgrind/valgrind-3.15.0.tar.bz2
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

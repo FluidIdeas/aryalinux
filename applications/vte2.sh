@@ -19,6 +19,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/vte/0.28/vte-0.28.2.tar.xz
 NAME=vte2
 VERSION=0.28.2
 URL=http://ftp.gnome.org/pub/gnome/sources/vte/0.28/vte-0.28.2.tar.xz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

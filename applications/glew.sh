@@ -18,6 +18,7 @@ wget -nc https://downloads.sourceforge.net/glew/glew-2.1.0.tgz
 NAME=glew
 VERSION=2.1.0
 URL=https://downloads.sourceforge.net/glew/glew-2.1.0.tgz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

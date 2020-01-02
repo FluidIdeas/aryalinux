@@ -20,6 +20,7 @@ wget -nc https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.066.tar.gz
 NAME=perl-modules#perl-io-socket-ssl
 VERSION=2.066
 URL=https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.066.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

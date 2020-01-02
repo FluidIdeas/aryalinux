@@ -19,6 +19,7 @@ wget -nc https://cpan.metacpan.org/authors/id/D/DO/DOY/Eval-Closure-0.14.tar.gz
 NAME=perl-deps#perl-eval-closure
 VERSION=0.14
 URL=https://cpan.metacpan.org/authors/id/D/DO/DOY/Eval-Closure-0.14.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

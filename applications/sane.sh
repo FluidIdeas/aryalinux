@@ -18,6 +18,7 @@ wget -nc http://anduin.linuxfromscratch.org/BLFS/sane-frontends/sane-frontends-1
 NAME=sane
 VERSION=1.0.27
 URL=http://fossies.org/linux/misc/sane-backends-1.0.27.tar.gz
+SECTION="Printing and Typesetting"
 
 if [ ! -z $URL ]
 then

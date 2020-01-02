@@ -18,6 +18,7 @@ wget -nc ftp://ftp.gnu.org/gnu/nettle/nettle-3.5.1.tar.gz
 NAME=nettle
 VERSION=3.5.1
 URL=https://ftp.gnu.org/gnu/nettle/nettle-3.5.1.tar.gz
+SECTION="Security"
 
 if [ ! -z $URL ]
 then

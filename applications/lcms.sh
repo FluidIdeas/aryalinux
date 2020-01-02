@@ -18,6 +18,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/lcms-1.19-cve_20
 NAME=lcms
 VERSION=1.19
 URL=https://downloads.sourceforge.net/lcms/lcms-1.19.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

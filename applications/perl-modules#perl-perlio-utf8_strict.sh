@@ -18,6 +18,7 @@ wget -nc https://www.cpan.org/authors/id/L/LE/LEONT/PerlIO-utf8_strict-0.007.tar
 NAME=perl-modules#perl-perlio-utf8_strict
 VERSION=
 URL=https://www.cpan.org/authors/id/L/LE/LEONT/PerlIO-utf8_strict-0.007.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

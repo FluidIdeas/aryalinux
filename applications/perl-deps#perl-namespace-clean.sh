@@ -19,6 +19,7 @@ wget -nc https://cpan.metacpan.org/authors/id/R/RI/RIBASUSHI/namespace-clean-0.2
 NAME=perl-deps#perl-namespace-clean
 VERSION=0.27
 URL=https://cpan.metacpan.org/authors/id/R/RI/RIBASUSHI/namespace-clean-0.27.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

@@ -21,6 +21,7 @@ wget -nc ftp://ftp.osuosl.org/pub/midnightcommander/mc-4.8.23.tar.xz
 NAME=mc
 VERSION=4.8.23
 URL=http://ftp.midnight-commander.org/mc-4.8.23.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

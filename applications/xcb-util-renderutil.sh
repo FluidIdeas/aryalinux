@@ -18,6 +18,7 @@ wget -nc https://xcb.freedesktop.org/dist/xcb-util-renderutil-0.3.9.tar.bz2
 NAME=xcb-util-renderutil
 VERSION=0.3.9
 URL=https://xcb.freedesktop.org/dist/xcb-util-renderutil-0.3.9.tar.bz2
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

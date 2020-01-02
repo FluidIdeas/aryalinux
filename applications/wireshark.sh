@@ -22,6 +22,7 @@ wget -nc https://www.wireshark.org/download/docs/
 NAME=wireshark
 VERSION=3.0.3
 URL=https://www.wireshark.org/download/src/all-versions/wireshark-3.0.3.tar.xz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

@@ -17,6 +17,7 @@ wget -nc http://files.libburnia-project.org/releases/libisofs-1.5.0.tar.gz
 NAME=libisofs
 VERSION=1.5.0
 URL=http://files.libburnia-project.org/releases/libisofs-1.5.0.tar.gz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

@@ -19,6 +19,7 @@ wget -nc https://www.cpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-0.428.tar.g
 NAME=perl-modules#perl-list-moreutils
 VERSION=0.428
 URL=https://www.cpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-0.428.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

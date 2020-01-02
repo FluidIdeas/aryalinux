@@ -19,6 +19,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/openjade-1.3.2-u
 NAME=openjade
 VERSION=1.3.2
 URL=https://downloads.sourceforge.net/openjade/openjade-1.3.2.tar.gz
+SECTION="Printing and Typesetting"
 
 if [ ! -z $URL ]
 then

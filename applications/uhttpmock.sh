@@ -20,6 +20,7 @@ wget -nc http://tecnocode.co.uk/downloads/uhttpmock/uhttpmock-0.5.1.tar.xz
 NAME=uhttpmock
 VERSION=0.5.1
 URL=http://tecnocode.co.uk/downloads/uhttpmock/uhttpmock-0.5.1.tar.xz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

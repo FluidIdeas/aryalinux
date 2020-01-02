@@ -20,6 +20,7 @@ wget -nc http://download.qemu-project.org/qemu-4.1.0.tar.xz
 NAME=qemu
 VERSION=4.1.0
 URL=http://download.qemu-project.org/qemu-4.1.0.tar.xz
+SECTION="Virtualization"
 
 if [ ! -z $URL ]
 then

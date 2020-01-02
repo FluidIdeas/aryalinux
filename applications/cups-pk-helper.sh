@@ -19,6 +19,7 @@ wget -nc https://www.freedesktop.org/software/cups-pk-helper/releases/cups-pk-he
 NAME=cups-pk-helper
 VERSION=0.2.6
 URL=https://www.freedesktop.org/software/cups-pk-helper/releases/cups-pk-helper-0.2.6.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

@@ -22,6 +22,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk+/2.24/gtk+-2.24.32.tar.xz
 NAME=gtk2
 VERSION=2.24.32
 URL=http://ftp.gnome.org/pub/gnome/sources/gtk+/2.24/gtk+-2.24.32.tar.xz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

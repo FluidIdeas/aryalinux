@@ -17,6 +17,7 @@ wget -nc http://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz
 NAME=lzo
 VERSION=2.10
 URL=http://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

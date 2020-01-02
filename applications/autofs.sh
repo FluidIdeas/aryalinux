@@ -19,6 +19,7 @@ wget -nc https://www.kernel.org/pub/linux/daemons/autofs/v5/autofs-5.1.5.tar.xz
 NAME=autofs
 VERSION=5.1.5
 URL=https://www.kernel.org/pub/linux/daemons/autofs/v5/autofs-5.1.5.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

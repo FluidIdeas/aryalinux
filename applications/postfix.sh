@@ -21,6 +21,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/postfix-3.4.6-gl
 NAME=postfix
 VERSION=3.4.6
 URL=ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.4.6.tar.gz
+SECTION="Servers"
 
 if [ ! -z $URL ]
 then

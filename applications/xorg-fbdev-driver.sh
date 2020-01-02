@@ -19,6 +19,7 @@ wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-fbdev-0.5.0.tar.bz2
 NAME=xorg-fbdev-driver
 VERSION=0.5.0
 URL=https://www.x.org/pub/individual/driver/xf86-video-fbdev-0.5.0.tar.bz2
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

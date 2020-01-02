@@ -18,6 +18,7 @@ wget -nc https://xcb.freedesktop.org/dist/xcb-util-keysyms-0.4.0.tar.bz2
 NAME=xcb-util-keysyms
 VERSION=0.4.0
 URL=https://xcb.freedesktop.org/dist/xcb-util-keysyms-0.4.0.tar.bz2
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

@@ -17,6 +17,7 @@ wget -nc https://get.videolan.org/libdvdread/6.0.1/libdvdread-6.0.1.tar.bz2
 NAME=libdvdread
 VERSION=6.0.1
 URL=https://get.videolan.org/libdvdread/6.0.1/libdvdread-6.0.1.tar.bz2
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

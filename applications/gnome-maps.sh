@@ -26,6 +26,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-maps/3.32/gnome-maps-3.32.2
 NAME=gnome-maps
 VERSION=3.32.2.1
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-maps/3.32/gnome-maps-3.32.2.1.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

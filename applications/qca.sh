@@ -21,6 +21,7 @@ wget -nc http://download.kde.org/stable/qca/2.2.1/qca-2.2.1.tar.xz
 NAME=qca
 VERSION=2.2.1
 URL=http://download.kde.org/stable/qca/2.2.1/qca-2.2.1.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

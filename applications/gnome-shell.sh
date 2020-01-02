@@ -36,6 +36,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.32/gnome-shell-3.32
 NAME=gnome-shell
 VERSION=3.32.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.32/gnome-shell-3.32.2.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

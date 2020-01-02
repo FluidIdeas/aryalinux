@@ -19,6 +19,7 @@ wget -nc https://github.com/scour-project/scour/archive/v0.37/scour-0.37.tar.gz
 NAME=python-modules#scour
 VERSION=0.37
 URL=https://github.com/scour-project/scour/archive/v0.37/scour-0.37.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

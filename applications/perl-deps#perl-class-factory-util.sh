@@ -18,6 +18,7 @@ wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Class-Factory-Util-1.
 NAME=perl-deps#perl-class-factory-util
 VERSION=1.7
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Class-Factory-Util-1.7.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

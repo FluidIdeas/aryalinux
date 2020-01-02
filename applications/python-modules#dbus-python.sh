@@ -20,6 +20,7 @@ wget -nc https://dbus.freedesktop.org/releases/dbus-python/dbus-python-1.2.8.tar
 NAME=python-modules#dbus-python
 VERSION=1.2.8
 URL=https://dbus.freedesktop.org/releases/dbus-python/dbus-python-1.2.8.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

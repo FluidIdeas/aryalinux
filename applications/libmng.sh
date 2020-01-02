@@ -19,6 +19,7 @@ wget -nc https://downloads.sourceforge.net/libmng/libmng-2.0.3.tar.xz
 NAME=libmng
 VERSION=2.0.3
 URL=https://downloads.sourceforge.net/libmng/libmng-2.0.3.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

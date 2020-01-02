@@ -17,6 +17,7 @@ wget -nc https://downloads.sourceforge.net/traceroute/traceroute-2.1.0.tar.gz
 NAME=traceroute
 VERSION=2.1.0
 URL=https://downloads.sourceforge.net/traceroute/traceroute-2.1.0.tar.gz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

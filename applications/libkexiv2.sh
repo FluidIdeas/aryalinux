@@ -19,6 +19,7 @@ wget -nc http://download.kde.org/stable/applications/19.08.0/src/libkexiv2-19.08
 NAME=libkexiv2
 VERSION=19.08.0
 URL=http://download.kde.org/stable/applications/19.08.0/src/libkexiv2-19.08.0.tar.xz
+SECTION="KDE"
 
 if [ ! -z $URL ]
 then

@@ -18,6 +18,7 @@ wget -nc https://downloads.sourceforge.net/potrace/potrace-1.15.tar.gz
 NAME=potrace
 VERSION=1.15
 URL=https://downloads.sourceforge.net/potrace/potrace-1.15.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

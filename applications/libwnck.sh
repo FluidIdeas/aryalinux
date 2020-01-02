@@ -21,6 +21,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libwnck/3.32/libwnck-3.32.0.tar.x
 NAME=libwnck
 VERSION=3.32.0
 URL=http://ftp.gnome.org/pub/gnome/sources/libwnck/3.32/libwnck-3.32.0.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

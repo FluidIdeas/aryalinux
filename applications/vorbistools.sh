@@ -19,6 +19,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/vorbis-tools-1.4
 NAME=vorbistools
 VERSION=1.4.0
 URL=https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.0.tar.gz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

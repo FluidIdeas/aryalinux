@@ -17,6 +17,7 @@ wget -nc https://github.com/libfuse/libfuse/releases/download/fuse-3.6.2/fuse-3.
 NAME=fuse
 VERSION=3.6.2
 URL=https://github.com/libfuse/libfuse/releases/download/fuse-3.6.2/fuse-3.6.2.tar.xz
+SECTION="Filesystems"
 
 if [ ! -z $URL ]
 then

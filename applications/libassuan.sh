@@ -19,6 +19,7 @@ wget -nc ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.5.3.tar.bz2
 NAME=libassuan
 VERSION=2.5.3
 URL=https://www.gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.3.tar.bz2
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

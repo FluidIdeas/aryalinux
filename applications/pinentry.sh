@@ -20,6 +20,7 @@ wget -nc ftp://ftp.gnupg.org/gcrypt/pinentry/pinentry-1.1.0.tar.bz2
 NAME=pinentry
 VERSION=1.1.0
 URL=https://www.gnupg.org/ftp/gcrypt/pinentry/pinentry-1.1.0.tar.bz2
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

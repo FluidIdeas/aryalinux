@@ -19,6 +19,7 @@ wget -nc http://download.tuxfamily.org/librep/rep-gtk/rep-gtk_0.90.8.3.tar.xz
 NAME=rep-gtk
 VERSION=0.90.8.3
 URL=http://download.tuxfamily.org/librep/rep-gtk/rep-gtk_0.90.8.3.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

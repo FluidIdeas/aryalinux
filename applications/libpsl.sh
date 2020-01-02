@@ -18,6 +18,7 @@ wget -nc https://github.com/rockdaboot/libpsl/releases/download/libpsl-0.21.0/li
 NAME=libpsl
 VERSION=0.21.0
 URL=https://github.com/rockdaboot/libpsl/releases/download/libpsl-0.21.0/libpsl-0.21.0.tar.gz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

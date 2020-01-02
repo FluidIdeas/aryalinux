@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISBN-Data-2014
 NAME=perl-deps#perl-business-isbn-data
 VERSION=20140910.003
 URL=https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISBN-Data-20140910.003.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

@@ -17,6 +17,7 @@ wget -nc https://www.cpan.org/authors/id/V/VP/VPIT/autovivification-0.18.tar.gz
 NAME=perl-modules#perl-autovivification
 VERSION=0.18
 URL=https://www.cpan.org/authors/id/V/VP/VPIT/autovivification-0.18.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

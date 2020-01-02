@@ -24,6 +24,7 @@ wget -nc https://www.mplayerhq.hu/MPlayer/skins/
 NAME=mplayer
 VERSION=1.4
 URL=http://www.mplayerhq.hu/MPlayer/releases/MPlayer-1.4.tar.xz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

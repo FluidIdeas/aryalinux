@@ -18,6 +18,7 @@ wget -nc https://files.pythonhosted.org/packages/source/M/Mako/Mako-1.1.0.tar.gz
 NAME=python-modules#mako
 VERSION=1.1.0
 URL=https://files.pythonhosted.org/packages/source/M/Mako/Mako-1.1.0.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

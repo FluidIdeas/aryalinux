@@ -18,6 +18,7 @@ wget -nc http://pub.allbsd.org/MirOS/dist/mir/cpio/paxmirabilis-20161104.cpio.gz
 NAME=pax
 VERSION=20161104
 URL=http://pub.allbsd.org/MirOS/dist/mir/cpio/paxmirabilis-20161104.cpio.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

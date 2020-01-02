@@ -24,6 +24,7 @@ wget -nc https://downloads.sourceforge.net/docbook/docbook-dsssl-doc-1.79.tar.bz
 NAME=docbook-dsssl
 VERSION=1.79
 URL=https://downloads.sourceforge.net/docbook/docbook-dsssl-1.79.tar.bz2
+SECTION="Printing and Typesetting"
 
 if [ ! -z $URL ]
 then

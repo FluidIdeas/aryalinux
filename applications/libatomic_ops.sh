@@ -17,6 +17,7 @@ wget -nc https://github.com/ivmai/libatomic_ops/releases/download/v7.6.10/libato
 NAME=libatomic_ops
 VERSION=7.6.10
 URL=https://github.com/ivmai/libatomic_ops/releases/download/v7.6.10/libatomic_ops-7.6.10.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

@@ -23,6 +23,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/clutter-gst/3.0/clutter-gst-3.0.2
 NAME=clutter-gst
 VERSION=3.0.27
 URL=http://ftp.gnome.org/pub/gnome/sources/clutter-gst/3.0/clutter-gst-3.0.27.tar.xz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

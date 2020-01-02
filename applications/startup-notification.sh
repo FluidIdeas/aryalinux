@@ -19,6 +19,7 @@ wget -nc https://www.freedesktop.org/software/startup-notification/releases/star
 NAME=startup-notification
 VERSION=0.12
 URL=https://www.freedesktop.org/software/startup-notification/releases/startup-notification-0.12.tar.gz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

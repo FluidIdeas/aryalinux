@@ -20,6 +20,7 @@ wget -nc https://github.com/intel/intel-vaapi-driver/releases/download/2.3.0/int
 NAME=libva
 VERSION=2.5.0
 URL=https://github.com/intel/libva/releases/download/2.5.0/libva-2.5.0.tar.bz2
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

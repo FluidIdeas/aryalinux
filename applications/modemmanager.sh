@@ -23,6 +23,7 @@ wget -nc https://www.freedesktop.org/software/ModemManager/ModemManager-1.10.4.t
 NAME=modemmanager
 VERSION=1.10.4
 URL=https://www.freedesktop.org/software/ModemManager/ModemManager-1.10.4.tar.xz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

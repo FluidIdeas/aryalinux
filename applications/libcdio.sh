@@ -19,6 +19,7 @@ wget -nc https://ftp.gnu.org/gnu/libcdio/libcdio-paranoia-10.2+2.0.0.tar.bz2
 NAME=libcdio
 VERSION=2.1.0
 URL=https://ftp.gnu.org/gnu/libcdio/libcdio-2.1.0.tar.bz2
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

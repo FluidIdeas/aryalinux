@@ -22,6 +22,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/libxslt-1.1.33-s
 NAME=libxslt
 VERSION=1.1.33
 URL=http://xmlsoft.org/sources/libxslt-1.1.33.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

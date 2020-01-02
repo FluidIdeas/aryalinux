@@ -17,6 +17,7 @@ wget -nc https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tar.xz
 NAME=python3
 VERSION=3.7.4
 URL=https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

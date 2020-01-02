@@ -18,6 +18,7 @@ wget -nc ftp://ftp.pcre.org/pub/pcre/pcre-8.43.tar.bz2
 NAME=pcre
 VERSION=8.43
 URL=https://ftp.pcre.org/pub/pcre/pcre-8.43.tar.bz2
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

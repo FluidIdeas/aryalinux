@@ -21,6 +21,7 @@ wget -nc ftp://ftp.gnu.org/gnu/emacs/emacs-26.2.tar.xz
 NAME=emacs
 VERSION=26.2
 URL=https://ftp.gnu.org/gnu/emacs/emacs-26.2.tar.xz
+SECTION="Editors"
 
 if [ ! -z $URL ]
 then

@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Class-Inspector-1.36
 NAME=perl-deps#perl-class-inspector
 VERSION=1.36
 URL=https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Class-Inspector-1.36.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

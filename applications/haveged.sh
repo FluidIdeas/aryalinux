@@ -17,6 +17,7 @@ wget -nc https://downloads.sourceforge.net/haveged/haveged-1.9.2.tar.gz
 NAME=haveged
 VERSION=1.9.2
 URL=https://downloads.sourceforge.net/haveged/haveged-1.9.2.tar.gz
+SECTION="Security"
 
 if [ ! -z $URL ]
 then

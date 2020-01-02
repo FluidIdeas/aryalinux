@@ -20,6 +20,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glibmm/2.60/glibmm-2.60.0.tar.xz
 NAME=glibmm
 VERSION=2.60.0
 URL=http://ftp.gnome.org/pub/gnome/sources/glibmm/2.60/glibmm-2.60.0.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

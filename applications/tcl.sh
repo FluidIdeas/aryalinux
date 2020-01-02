@@ -18,6 +18,7 @@ wget -nc https://downloads.sourceforge.net/tcl/tcl8.6.9-html.tar.gz
 NAME=tcl
 VERSION=
 URL=https://downloads.sourceforge.net/tcl/tcl8.6.9-src.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

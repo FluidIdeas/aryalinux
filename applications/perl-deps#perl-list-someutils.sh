@@ -19,6 +19,7 @@ wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/List-SomeUtils-0.56.t
 NAME=perl-deps#perl-list-someutils
 VERSION=0.56
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/List-SomeUtils-0.56.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

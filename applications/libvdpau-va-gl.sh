@@ -21,6 +21,7 @@ wget -nc https://github.com/i-rinat/libvdpau-va-gl/archive/v0.4.0/libvdpau-va-gl
 NAME=libvdpau-va-gl
 VERSION=0.4.0
 URL=https://github.com/i-rinat/libvdpau-va-gl/archive/v0.4.0/libvdpau-va-gl-0.4.0.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

@@ -18,6 +18,7 @@ wget -nc https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.
 NAME=boost
 VERSION=
 URL=https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.bz2
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

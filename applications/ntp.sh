@@ -18,6 +18,7 @@ wget -nc https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p13.tar
 NAME=ntp
 VERSION=4.2.
 URL=https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p13.tar.gz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

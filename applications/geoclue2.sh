@@ -22,6 +22,7 @@ wget -nc https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.5.3/geoclue-
 NAME=geoclue2
 VERSION=2.5.3
 URL=https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.5.3/geoclue-2.5.3.tar.bz2
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302164.
 NAME=perl-deps#perl-test-simple
 VERSION=1.302164
 URL=https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302164.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

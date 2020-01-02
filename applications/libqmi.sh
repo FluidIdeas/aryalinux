@@ -19,6 +19,7 @@ wget -nc https://www.freedesktop.org/software/libqmi/libqmi-1.22.4.tar.xz
 NAME=libqmi
 VERSION=1.22.4
 URL=https://www.freedesktop.org/software/libqmi/libqmi-1.22.4.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

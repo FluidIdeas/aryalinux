@@ -19,6 +19,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/gpm-1.20.7-glibc
 NAME=gpm
 VERSION=1.20.7
 URL=http://anduin.linuxfromscratch.org/BLFS/gpm/gpm-1.20.7.tar.bz2
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

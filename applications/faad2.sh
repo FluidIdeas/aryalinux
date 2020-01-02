@@ -18,6 +18,7 @@ wget -nc http://www.nch.com.au/acm/sample.aac
 NAME=faad2
 VERSION=2.8.8
 URL=https://downloads.sourceforge.net/faac/faad2-2.8.8.tar.gz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

@@ -18,6 +18,7 @@ wget -nc https://cpan.metacpan.org/authors/id/C/CH/CHROMATIC/SUPER-1.20190531.ta
 NAME=perl-deps#perl-super
 VERSION=1.20190531
 URL=https://cpan.metacpan.org/authors/id/C/CH/CHROMATIC/SUPER-1.20190531.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

@@ -20,6 +20,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/ImageMagick-6.9.
 NAME=imagemagick6
 VERSION=6.9.1
 URL=https://www.imagemagick.org/download/releases/ImageMagick-6.9.10-60.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

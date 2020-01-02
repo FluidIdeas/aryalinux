@@ -18,6 +18,7 @@ wget -nc http://tango.freedesktop.org/releases/icon-naming-utils-0.8.90.tar.bz2
 NAME=icon-naming-utils
 VERSION=0.8.90
 URL=http://tango.freedesktop.org/releases/icon-naming-utils-0.8.90.tar.bz2
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

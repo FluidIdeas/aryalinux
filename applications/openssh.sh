@@ -17,6 +17,7 @@ wget -nc http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.0p1.tar.g
 NAME=openssh
 VERSION=8.
 URL=http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.0p1.tar.gz
+SECTION="Security"
 
 if [ ! -z $URL ]
 then

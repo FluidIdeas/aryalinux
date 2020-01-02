@@ -30,6 +30,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/seahorse/3.32/seahorse-3.32.2.tar
 NAME=seahorse
 VERSION=3.32.2
 URL=http://ftp.gnome.org/pub/gnome/sources/seahorse/3.32/seahorse-3.32.2.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

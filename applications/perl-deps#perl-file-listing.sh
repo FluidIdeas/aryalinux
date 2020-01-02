@@ -18,6 +18,7 @@ wget -nc https://cpan.metacpan.org/authors/id/G/GA/GAAS/File-Listing-6.04.tar.gz
 NAME=perl-deps#perl-file-listing
 VERSION=6.04
 URL=https://cpan.metacpan.org/authors/id/G/GA/GAAS/File-Listing-6.04.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

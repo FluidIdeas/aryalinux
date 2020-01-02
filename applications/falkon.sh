@@ -19,6 +19,7 @@ wget -nc https://download.kde.org/stable/falkon/3.0.1/falkon-3.0.1.tar.xz
 NAME=falkon
 VERSION=3.0.1
 URL=https://download.kde.org/stable/falkon/3.0.1/falkon-3.0.1.tar.xz
+SECTION="Office Productivity"
 
 if [ ! -z $URL ]
 then

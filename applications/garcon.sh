@@ -20,6 +20,7 @@ wget -nc http://archive.xfce.org/src/xfce/garcon/0.6/garcon-0.6.4.tar.bz2
 NAME=garcon
 VERSION=0.6.4
 URL=http://archive.xfce.org/src/xfce/garcon/0.6/garcon-0.6.4.tar.bz2
+SECTION="XFCE"
 
 if [ ! -z $URL ]
 then

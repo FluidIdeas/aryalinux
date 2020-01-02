@@ -20,6 +20,7 @@ cd $SOURCE_DIR
 NAME=x7app
 VERSION=
 
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

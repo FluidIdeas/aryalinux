@@ -22,6 +22,7 @@ wget -nc https://github.com/storaged-project/libblockdev/releases/download/2.22-
 NAME=libblockdev
 VERSION=2.22
 URL=https://github.com/storaged-project/libblockdev/releases/download/2.22-1/libblockdev-2.22.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

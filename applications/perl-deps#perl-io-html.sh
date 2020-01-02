@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/C/CJ/CJM/IO-HTML-1.001.tar.gz
 NAME=perl-deps#perl-io-html
 VERSION=1.001
 URL=https://cpan.metacpan.org/authors/id/C/CJ/CJM/IO-HTML-1.001.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

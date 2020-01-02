@@ -21,6 +21,7 @@ wget -nc https://telepathy.freedesktop.org/releases/telepathy-logger/telepathy-l
 NAME=telepathy-logger
 VERSION=0.8.2
 URL=https://telepathy.freedesktop.org/releases/telepathy-logger/telepathy-logger-0.8.2.tar.bz2
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

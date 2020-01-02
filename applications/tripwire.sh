@@ -17,6 +17,7 @@ wget -nc https://github.com/Tripwire/tripwire-open-source/releases/download/2.4.
 NAME=tripwire
 VERSION=2.4.3.7
 URL=https://github.com/Tripwire/tripwire-open-source/releases/download/2.4.3.7/tripwire-open-source-2.4.3.7.tar.gz
+SECTION="Security"
 
 if [ ! -z $URL ]
 then

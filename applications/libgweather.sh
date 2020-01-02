@@ -23,6 +23,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgweather/3.32/libgweather-3.32
 NAME=libgweather
 VERSION=3.32.2
 URL=http://ftp.gnome.org/pub/gnome/sources/libgweather/3.32/libgweather-3.32.2.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

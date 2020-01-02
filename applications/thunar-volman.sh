@@ -24,6 +24,7 @@ wget -nc http://archive.xfce.org/src/xfce/thunar-volman/0.9/thunar-volman-0.9.5.
 NAME=thunar-volman
 VERSION=0.9.5
 URL=http://archive.xfce.org/src/xfce/thunar-volman/0.9/thunar-volman-0.9.5.tar.bz2
+SECTION="XFCE"
 
 if [ ! -z $URL ]
 then

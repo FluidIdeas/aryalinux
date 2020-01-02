@@ -18,6 +18,7 @@ wget -nc https://www.cpan.org/authors/id/W/WY/WYANT/DateTime-Calendar-Julian-0.1
 NAME=perl-modules#perl-datetime-calendar-julian
 VERSION=0.101
 URL=https://www.cpan.org/authors/id/W/WY/WYANT/DateTime-Calendar-Julian-0.101.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

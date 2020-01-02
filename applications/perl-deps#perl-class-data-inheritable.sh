@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/T/TM/TMTM/Class-Data-Inheritable-0
 NAME=perl-deps#perl-class-data-inheritable
 VERSION=0.08
 URL=https://cpan.metacpan.org/authors/id/T/TM/TMTM/Class-Data-Inheritable-0.08.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

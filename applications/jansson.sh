@@ -17,6 +17,7 @@ wget -nc http://www.digip.org/jansson/releases/jansson-2.12.tar.gz
 NAME=jansson
 VERSION=2.12
 URL=http://www.digip.org/jansson/releases/jansson-2.12.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

@@ -18,6 +18,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libsigc++/2.10/libsigc++-2.10.2.t
 NAME=libsigc
 VERSION=2.10.2
 URL=http://ftp.gnome.org/pub/gnome/sources/libsigc++/2.10/libsigc++-2.10.2.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

@@ -17,6 +17,7 @@ wget -nc https://www.cpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.25.tar.gz
 NAME=perl-modules#perl-xml-simple
 VERSION=2.25
 URL=https://www.cpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.25.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

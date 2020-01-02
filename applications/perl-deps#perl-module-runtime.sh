@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Module-Runtime-0.016.t
 NAME=perl-deps#perl-module-runtime
 VERSION=0.016
 URL=https://cpan.metacpan.org/authors/id/Z/ZE/ZEFRAM/Module-Runtime-0.016.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

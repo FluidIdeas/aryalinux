@@ -33,6 +33,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.20/NetworkManage
 NAME=networkmanager
 VERSION=1.20.0
 URL=http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.20/NetworkManager-1.20.0.tar.xz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

@@ -23,6 +23,7 @@ wget -nc http://pawsa.fedorapeople.org/balsa/balsa-2.5.7.tar.bz2
 NAME=balsa
 VERSION=2.5.7
 URL=http://pawsa.fedorapeople.org/balsa/balsa-2.5.7.tar.bz2
+SECTION="Office Productivity"
 
 if [ ! -z $URL ]
 then

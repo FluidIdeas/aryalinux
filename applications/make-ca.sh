@@ -18,6 +18,7 @@ wget -nc https://github.com/djlucas/make-ca/releases/download/v1.4/make-ca-1.4.t
 NAME=make-ca
 VERSION=1.4
 URL=https://github.com/djlucas/make-ca/releases/download/v1.4/make-ca-1.4.tar.xz
+SECTION="Security"
 
 if [ ! -z $URL ]
 then

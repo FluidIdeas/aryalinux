@@ -18,6 +18,7 @@ wget -nc https://files.pythonhosted.org/packages/source/J/Jinja2/Jinja2-2.10.1.t
 NAME=python-modules#jinja2
 VERSION=2.10.1
 URL=https://files.pythonhosted.org/packages/source/J/Jinja2/Jinja2-2.10.1.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

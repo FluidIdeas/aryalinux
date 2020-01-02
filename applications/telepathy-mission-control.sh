@@ -20,6 +20,7 @@ wget -nc https://telepathy.freedesktop.org/releases/telepathy-mission-control/te
 NAME=telepathy-mission-control
 VERSION=5.16.4
 URL=https://telepathy.freedesktop.org/releases/telepathy-mission-control/telepathy-mission-control-5.16.4.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

@@ -19,6 +19,7 @@ wget -nc ftp://ftp.gnu.org/gnu/dejagnu/dejagnu-1.6.2.tar.gz
 NAME=dejagnu
 VERSION=1.6.2
 URL=https://ftp.gnu.org/gnu/dejagnu/dejagnu-1.6.2.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

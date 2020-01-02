@@ -17,6 +17,7 @@ wget -nc https://www.cpan.org/authors/id/M/MW/MWX/Data-Uniqid-0.12.tar.gz
 NAME=perl-modules#perl-data-uniqid
 VERSION=0.12
 URL=https://www.cpan.org/authors/id/M/MW/MWX/Data-Uniqid-0.12.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

@@ -26,6 +26,7 @@ wget -nc https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz
 NAME=poppler
 VERSION=0.79.0
 URL=https://poppler.freedesktop.org/poppler-0.79.0.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

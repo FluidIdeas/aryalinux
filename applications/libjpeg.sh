@@ -20,6 +20,7 @@ wget -nc https://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-2.0.2.tar
 NAME=libjpeg
 VERSION=2.0.2
 URL=https://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-2.0.2.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

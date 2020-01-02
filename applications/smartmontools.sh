@@ -17,6 +17,7 @@ wget -nc https://downloads.sourceforge.net/smartmontools/smartmontools-7.0.tar.g
 NAME=smartmontools
 VERSION=7.0
 URL=https://downloads.sourceforge.net/smartmontools/smartmontools-7.0.tar.gz
+SECTION="Filesystems"
 
 if [ ! -z $URL ]
 then

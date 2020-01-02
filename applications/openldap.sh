@@ -21,6 +21,7 @@ wget -nc http://www.openldap.org/pub/
 NAME=openldap
 VERSION=2.4.48
 URL=ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.48.tgz
+SECTION="Servers"
 
 if [ ! -z $URL ]
 then

@@ -21,6 +21,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.32/at-spi2-core-2.
 NAME=at-spi2-core
 VERSION=2.32.1
 URL=http://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.32/at-spi2-core-2.32.1.tar.xz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

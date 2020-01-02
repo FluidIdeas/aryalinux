@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/M/MA/MARKF/Test-utf8-1.01.tar.gz
 NAME=perl-deps#perl-test-utf8
 VERSION=1.01
 URL=https://cpan.metacpan.org/authors/id/M/MA/MARKF/Test-utf8-1.01.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

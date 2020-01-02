@@ -18,6 +18,7 @@ wget -nc http://download.osgeo.org/libtiff/tiff-4.0.10.tar.gz
 NAME=libtiff
 VERSION=4.0.10
 URL=http://download.osgeo.org/libtiff/tiff-4.0.10.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

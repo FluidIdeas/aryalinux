@@ -19,6 +19,7 @@ wget -nc https://www.cpan.org/authors/id/D/DC/DCANTRELL/Test-Differences-0.67.ta
 NAME=perl-modules#perl-test-differences
 VERSION=0.67
 URL=https://www.cpan.org/authors/id/D/DC/DCANTRELL/Test-Differences-0.67.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

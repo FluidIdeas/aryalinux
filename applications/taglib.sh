@@ -18,6 +18,7 @@ wget -nc https://taglib.github.io/releases/taglib-1.11.1.tar.gz
 NAME=taglib
 VERSION=1.11.1
 URL=https://taglib.github.io/releases/taglib-1.11.1.tar.gz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

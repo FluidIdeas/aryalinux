@@ -18,6 +18,7 @@ wget -nc http://openbox.org/dist/openbox/openbox-3.6.1.tar.gz
 NAME=openbox
 VERSION=3.6.1
 URL=http://openbox.org/dist/openbox/openbox-3.6.1.tar.gz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

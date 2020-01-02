@@ -23,6 +23,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/vino/3.22/vino-3.22.0.tar.xz
 NAME=vino
 VERSION=3.22.0
 URL=http://ftp.gnome.org/pub/gnome/sources/vino/3.22/vino-3.22.0.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

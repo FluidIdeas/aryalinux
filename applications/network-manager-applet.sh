@@ -27,6 +27,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/network-manager-applet/1.8/networ
 NAME=network-manager-applet
 VERSION=1.8.22
 URL=http://ftp.gnome.org/pub/gnome/sources/network-manager-applet/1.8/network-manager-applet-1.8.22.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

@@ -23,6 +23,7 @@ wget -nc https://github.com/PipeWire/pipewire/archive/0.2.6/pipewire-0.2.6.tar.g
 NAME=pipewire
 VERSION=0.2.6
 URL=https://github.com/PipeWire/pipewire/archive/0.2.6/pipewire-0.2.6.tar.gz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

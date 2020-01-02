@@ -18,6 +18,7 @@ wget -nc ftp://ftp.gnu.org/gnu/gsl/gsl-2.6.tar.gz
 NAME=gsl
 VERSION=2.6
 URL=https://ftp.gnu.org/gnu/gsl/gsl-2.6.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

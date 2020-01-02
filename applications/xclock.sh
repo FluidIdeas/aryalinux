@@ -19,6 +19,7 @@ wget -nc ftp://ftp.x.org/pub/individual/app/xclock-1.0.9.tar.bz2
 NAME=xclock
 VERSION=1.0.9
 URL=https://www.x.org/pub/individual/app/xclock-1.0.9.tar.bz2
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

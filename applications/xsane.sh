@@ -20,6 +20,7 @@ wget -nc ftp://anduin.linuxfromscratch.org/BLFS/xsane/xsane-0.999.tar.gz
 NAME=xsane
 VERSION=0.999
 URL=http://anduin.linuxfromscratch.org/BLFS/xsane/xsane-0.999.tar.gz
+SECTION="Printing and Typesetting"
 
 if [ ! -z $URL ]
 then

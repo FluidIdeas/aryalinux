@@ -18,6 +18,7 @@ wget -nc https://github.com/cyrusimap/cyrus-sasl/releases/download/cyrus-sasl-2.
 NAME=cyrus-sasl
 VERSION=2.1.27
 URL=https://github.com/cyrusimap/cyrus-sasl/releases/download/cyrus-sasl-2.1.27/cyrus-sasl-2.1.27.tar.gz
+SECTION="Security"
 
 if [ ! -z $URL ]
 then

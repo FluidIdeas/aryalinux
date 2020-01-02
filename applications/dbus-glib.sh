@@ -19,6 +19,7 @@ wget -nc https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.110.tar.gz
 NAME=dbus-glib
 VERSION=0.110
 URL=https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.110.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

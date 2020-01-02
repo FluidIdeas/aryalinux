@@ -17,6 +17,7 @@ wget -nc http://brianstafford.info/libesmtp/libesmtp-1.0.6.tar.bz2
 NAME=libesmtp
 VERSION=1.0.6
 URL=http://brianstafford.info/libesmtp/libesmtp-1.0.6.tar.bz2
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

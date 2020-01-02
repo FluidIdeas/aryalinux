@@ -18,6 +18,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-video-effects/0.5/gnome-vid
 NAME=gnome-video-effects
 VERSION=0.5.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-video-effects/0.5/gnome-video-effects-0.5.0.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

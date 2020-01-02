@@ -34,6 +34,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evolution/3.32/evolution-3.32.4.t
 NAME=evolution
 VERSION=3.32.4
 URL=http://ftp.gnome.org/pub/gnome/sources/evolution/3.32/evolution-3.32.4.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

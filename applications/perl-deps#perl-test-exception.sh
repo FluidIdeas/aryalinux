@@ -18,6 +18,7 @@ wget -nc https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Exception-0.43.t
 NAME=perl-deps#perl-test-exception
 VERSION=0.43
 URL=https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Exception-0.43.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

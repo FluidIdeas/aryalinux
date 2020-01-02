@@ -18,6 +18,7 @@ wget -nc https://sourceforge.net/projects/giflib/files/giflib-5.2.1.tar.gz
 NAME=giflib
 VERSION=5.2.1
 URL=https://sourceforge.net/projects/giflib/files/giflib-5.2.1.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

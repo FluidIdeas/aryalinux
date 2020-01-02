@@ -20,6 +20,7 @@ wget -nc https://xkbcommon.org/download/libxkbcommon-0.8.4.tar.xz
 NAME=libxkbcommon
 VERSION=0.8.4
 URL=https://xkbcommon.org/download/libxkbcommon-0.8.4.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

@@ -19,6 +19,7 @@ wget -nc http://download.tuxfamily.org/sawfish/sawfish_1.12.0.tar.xz
 NAME=sawfish
 VERSION=1.12.0
 URL=http://download.tuxfamily.org/sawfish/sawfish_1.12.0.tar.xz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

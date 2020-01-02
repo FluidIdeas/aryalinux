@@ -21,6 +21,7 @@ wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly
 NAME=gst10-plugins-ugly
 VERSION=1.16.0
 URL=https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.16.0.tar.xz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

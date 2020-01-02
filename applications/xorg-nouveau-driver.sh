@@ -19,6 +19,7 @@ wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-nouveau-1.0.16.tar.bz2
 NAME=xorg-nouveau-driver
 VERSION=1.0.16
 URL=https://www.x.org/pub/individual/driver/xf86-video-nouveau-1.0.16.tar.bz2
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

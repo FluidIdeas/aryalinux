@@ -18,6 +18,7 @@ wget -nc https://cpan.metacpan.org/authors/id/B/BJ/BJOERN/XML-SAX-Expat-0.51.tar
 NAME=perl-deps#perl-xml-sax-expat
 VERSION=0.51
 URL=https://cpan.metacpan.org/authors/id/B/BJ/BJOERN/XML-SAX-Expat-0.51.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

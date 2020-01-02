@@ -19,6 +19,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.60/gobjec
 NAME=gobject-introspection
 VERSION=1.60.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.60/gobject-introspection-1.60.2.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

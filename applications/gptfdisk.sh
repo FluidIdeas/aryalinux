@@ -19,6 +19,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/gptfdisk-1.0.4-c
 NAME=gptfdisk
 VERSION=1.0.4
 URL=https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.4.tar.gz
+SECTION="Filesystems"
 
 if [ ! -z $URL ]
 then

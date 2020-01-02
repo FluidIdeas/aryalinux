@@ -28,6 +28,7 @@ wget -nc https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.39.tar.
 NAME=perl-deps#perl-libwww-perl
 VERSION=6.39
 URL=https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.39.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

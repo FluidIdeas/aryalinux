@@ -18,6 +18,7 @@ wget -nc ftp://ftp.gnu.org/gnu/libidn/libidn-1.35.tar.gz
 NAME=libidn
 VERSION=1.35
 URL=https://ftp.gnu.org/gnu/libidn/libidn-1.35.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

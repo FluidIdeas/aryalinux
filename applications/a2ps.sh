@@ -21,6 +21,7 @@ wget -nc http://anduin.linuxfromscratch.org/BLFS/i18n-fonts/i18n-fonts-0.1.tar.b
 NAME=a2ps
 VERSION=4.14
 URL=https://ftp.gnu.org/gnu/a2ps/a2ps-4.14.tar.gz
+SECTION="Printing and Typesetting"
 
 if [ ! -z $URL ]
 then

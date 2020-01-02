@@ -18,6 +18,7 @@ wget -nc https://cpan.metacpan.org/authors/id/G/GA/GAAS/HTTP-Negotiate-6.01.tar.
 NAME=perl-deps#perl-http-negotiate
 VERSION=6.01
 URL=https://cpan.metacpan.org/authors/id/G/GA/GAAS/HTTP-Negotiate-6.01.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

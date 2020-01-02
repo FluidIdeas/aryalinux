@@ -17,6 +17,7 @@ wget -nc http://www.libsdl.org/release/SDL2-2.0.10.tar.gz
 NAME=sdl2
 VERSION=2.0.10
 URL=http://www.libsdl.org/release/SDL2-2.0.10.tar.gz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

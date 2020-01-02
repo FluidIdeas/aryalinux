@@ -18,6 +18,7 @@ wget -nc ftp://ftp.sudo.ws/pub/sudo/sudo-1.8.27.tar.gz
 NAME=sudo
 VERSION=1.8.27
 URL=http://www.sudo.ws/dist/sudo-1.8.27.tar.gz
+SECTION="Security"
 
 if [ ! -z $URL ]
 then

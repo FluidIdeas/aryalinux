@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/E/ET/ETHER/Try-Tiny-0.30.tar.gz
 NAME=perl-deps#perl-try-tiny
 VERSION=0.30
 URL=https://cpan.metacpan.org/authors/id/E/ET/ETHER/Try-Tiny-0.30.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

@@ -18,6 +18,7 @@ wget -nc ftp://ftp.mirrorservice.org/sites/ftp.apache.org/apr/apr-1.7.0.tar.bz2
 NAME=apr
 VERSION=1.7.0
 URL=https://archive.apache.org/dist/apr/apr-1.7.0.tar.bz2
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

@@ -19,6 +19,7 @@ wget -nc https://downloads.sourceforge.net/lxde/lxappearance-obconf-0.2.3.tar.xz
 NAME=lxappearance-obconf
 VERSION=0.2.3
 URL=https://downloads.sourceforge.net/lxde/lxappearance-obconf-0.2.3.tar.xz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

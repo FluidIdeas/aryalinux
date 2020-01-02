@@ -17,6 +17,7 @@ wget -nc http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
 NAME=yasm
 VERSION=1.3.0
 URL=http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

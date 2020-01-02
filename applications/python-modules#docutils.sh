@@ -17,6 +17,7 @@ wget -nc http://downloads.sourceforge.net/docutils/docutils-0.15.tar.gz
 NAME=python-modules#docutils
 VERSION=0.15
 URL=http://downloads.sourceforge.net/docutils/docutils-0.15.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

@@ -28,6 +28,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.11.ta
 NAME=libgdata
 VERSION=0.17.11
 URL=http://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.11.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

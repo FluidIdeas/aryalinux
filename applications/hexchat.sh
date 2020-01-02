@@ -20,6 +20,7 @@ wget -nc https://dl.hexchat.net/hexchat/hexchat-2.14.2.tar.xz
 NAME=hexchat
 VERSION=2.14.2
 URL=https://dl.hexchat.net/hexchat/hexchat-2.14.2.tar.xz
+SECTION="Office Productivity"
 
 if [ ! -z $URL ]
 then

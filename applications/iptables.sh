@@ -18,6 +18,7 @@ wget -nc ftp://ftp.netfilter.org/pub/iptables/iptables-1.8.3.tar.bz2
 NAME=iptables
 VERSION=1.8.3
 URL=http://www.netfilter.org/projects/iptables/files/iptables-1.8.3.tar.bz2
+SECTION="Security"
 
 if [ ! -z $URL ]
 then

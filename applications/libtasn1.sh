@@ -18,6 +18,7 @@ wget -nc ftp://ftp.gnu.org/gnu/libtasn1/libtasn1-4.14.tar.gz
 NAME=libtasn1
 VERSION=4.14
 URL=https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.14.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

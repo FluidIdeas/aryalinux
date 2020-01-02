@@ -21,6 +21,7 @@ wget -nc https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1
 NAME=gstreamer10-vaapi
 VERSION=1.16.0
 URL=https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.16.0.tar.xz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

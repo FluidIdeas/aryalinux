@@ -20,6 +20,7 @@ wget -nc
 NAME=wv
 VERSION=1.2.9
 URL=http://www.abisource.com/downloads/wv/1.2.9/wv-1.2.9.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

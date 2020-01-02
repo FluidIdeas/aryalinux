@@ -18,6 +18,7 @@ wget -nc http://ftp.debian.org/debian/pool/main/a/at/at_3.1.23.orig.tar.gz
 NAME=at
 VERSION=3.1.23
 URL=http://ftp.debian.org/debian/pool/main/a/at/at_3.1.23.orig.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

@@ -25,6 +25,7 @@ wget -nc https://downloads.sourceforge.net/lxde/lxpanel-0.10.0.tar.xz
 NAME=lxpanel
 VERSION=0.10.0
 URL=https://downloads.sourceforge.net/lxde/lxpanel-0.10.0.tar.xz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

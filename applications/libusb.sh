@@ -17,6 +17,7 @@ wget -nc https://github.com//libusb/libusb/releases/download/v1.0.22/libusb-1.0.
 NAME=libusb
 VERSION=1.0.22
 URL=https://github.com//libusb/libusb/releases/download/v1.0.22/libusb-1.0.22.tar.bz2
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

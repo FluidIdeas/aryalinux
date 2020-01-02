@@ -17,6 +17,7 @@ wget -nc https://www.cpan.org/authors/id/G/GA/GAAS/IO-String-1.08.tar.gz
 NAME=perl-modules#perl-io-string
 VERSION=1.08
 URL=https://www.cpan.org/authors/id/G/GA/GAAS/IO-String-1.08.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

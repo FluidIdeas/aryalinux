@@ -18,6 +18,7 @@ wget -nc http://download.kde.org/stable/frameworks/5.61/extra-cmake-modules-5.61
 NAME=extra-cmake-modules
 VERSION=5.61.0
 URL=http://download.kde.org/stable/frameworks/5.61/extra-cmake-modules-5.61.0.tar.xz
+SECTION="KDE"
 
 if [ ! -z $URL ]
 then

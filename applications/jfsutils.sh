@@ -17,6 +17,7 @@ wget -nc http://jfs.sourceforge.net/project/pub/jfsutils-1.1.15.tar.gz
 NAME=jfsutils
 VERSION=1.1.15
 URL=http://jfs.sourceforge.net/project/pub/jfsutils-1.1.15.tar.gz
+SECTION="Filesystems"
 
 if [ ! -z $URL ]
 then

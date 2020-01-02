@@ -21,6 +21,7 @@ wget -nc https://www.freedesktop.org/software/colord/releases/colord-gtk-0.2.0.t
 NAME=colord-gtk
 VERSION=0.2.0
 URL=https://www.freedesktop.org/software/colord/releases/colord-gtk-0.2.0.tar.xz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

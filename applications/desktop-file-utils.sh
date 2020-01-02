@@ -18,6 +18,7 @@ wget -nc https://www.freedesktop.org/software/desktop-file-utils/releases/deskto
 NAME=desktop-file-utils
 VERSION=0.24
 URL=https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.24.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

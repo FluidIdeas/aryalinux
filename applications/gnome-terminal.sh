@@ -25,6 +25,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-terminal/3.32/gnome-termina
 NAME=gnome-terminal
 VERSION=3.32.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-terminal/3.32/gnome-terminal-3.32.2.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

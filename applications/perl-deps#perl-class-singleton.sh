@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/S/SH/SHAY/Class-Singleton-1.5.tar.
 NAME=perl-deps#perl-class-singleton
 VERSION=1.5
 URL=https://cpan.metacpan.org/authors/id/S/SH/SHAY/Class-Singleton-1.5.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

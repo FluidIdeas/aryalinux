@@ -18,6 +18,7 @@ wget -nc https://github.com/thom311/libnl/releases/download/libnl3_4_0/libnl-doc
 NAME=libnl
 VERSION=3.4.0
 URL=https://github.com/thom311/libnl/releases/download/libnl3_4_0/libnl-3.4.0.tar.gz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

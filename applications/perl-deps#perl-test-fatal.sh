@@ -18,6 +18,7 @@ wget -nc https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Fatal-0.014.tar.gz
 NAME=perl-deps#perl-test-fatal
 VERSION=0.014
 URL=https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Fatal-0.014.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

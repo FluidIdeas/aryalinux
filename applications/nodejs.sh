@@ -23,6 +23,7 @@ wget -nc https://nodejs.org/dist/v10.16.3/node-v10.16.3.tar.xz
 NAME=nodejs
 VERSION=10.16.3
 URL=https://nodejs.org/dist/v10.16.3/node-v10.16.3.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

@@ -18,6 +18,7 @@ wget -nc ftp://ftp.alsa-project.org/pub/firmware/alsa-firmware-1.0.29.tar.bz2
 NAME=alsa-firmware
 VERSION=1.0.29
 URL=ftp://ftp.alsa-project.org/pub/firmware/alsa-firmware-1.0.29.tar.bz2
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

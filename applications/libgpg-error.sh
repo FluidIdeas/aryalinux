@@ -18,6 +18,7 @@ wget -nc ftp://ftp.gnupg.org/gcrypt/libgpg-error/libgpg-error-1.36.tar.bz2
 NAME=libgpg-error
 VERSION=1.36
 URL=https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.36.tar.bz2
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

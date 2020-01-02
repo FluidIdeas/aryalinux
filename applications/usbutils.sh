@@ -19,6 +19,7 @@ wget -nc https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-012.tar.xz
 NAME=usbutils
 VERSION=012
 URL=https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-012.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

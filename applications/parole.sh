@@ -22,6 +22,7 @@ wget -nc http://archive.xfce.org/src/apps/parole/1.0/parole-1.0.4.tar.bz2
 NAME=parole
 VERSION=1.0.4
 URL=http://archive.xfce.org/src/apps/parole/1.0/parole-1.0.4.tar.bz2
+SECTION="XFCE"
 
 if [ ! -z $URL ]
 then

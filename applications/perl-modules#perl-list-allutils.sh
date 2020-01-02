@@ -19,6 +19,7 @@ wget -nc https://www.cpan.org/authors/id/D/DR/DROLSKY/List-AllUtils-0.15.tar.gz
 NAME=perl-modules#perl-list-allutils
 VERSION=0.15
 URL=https://www.cpan.org/authors/id/D/DR/DROLSKY/List-AllUtils-0.15.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

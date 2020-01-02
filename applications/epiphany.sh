@@ -25,6 +25,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/epiphany/3.32/epiphany-3.32.4.tar
 NAME=epiphany
 VERSION=3.32.4
 URL=http://ftp.gnome.org/pub/gnome/sources/epiphany/3.32/epiphany-3.32.4.tar.xz
+SECTION="Office Productivity"
 
 if [ ! -z $URL ]
 then

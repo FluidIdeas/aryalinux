@@ -19,6 +19,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libnotify/0.7/libnotify-0.7.8.tar
 NAME=libnotify
 VERSION=0.7.8
 URL=http://ftp.gnome.org/pub/gnome/sources/libnotify/0.7/libnotify-0.7.8.tar.xz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

@@ -19,6 +19,7 @@ wget -nc https://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.xz
 NAME=libtheora
 VERSION=1.1.1
 URL=https://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.xz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

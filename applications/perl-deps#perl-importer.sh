@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Importer-0.025.tar.gz
 NAME=perl-deps#perl-importer
 VERSION=0.025
 URL=https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Importer-0.025.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

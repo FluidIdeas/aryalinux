@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/H/HA/HAARG/Role-Tiny-2.000008.tar.
 NAME=perl-deps#perl-role-tiny
 VERSION=2.000008
 URL=https://cpan.metacpan.org/authors/id/H/HA/HAARG/Role-Tiny-2.000008.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

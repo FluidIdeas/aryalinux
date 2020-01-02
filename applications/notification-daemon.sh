@@ -21,6 +21,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/notification-daemon/3.20/notifica
 NAME=notification-daemon
 VERSION=3.20.0
 URL=http://ftp.gnome.org/pub/gnome/sources/notification-daemon/3.20/notification-daemon-3.20.0.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

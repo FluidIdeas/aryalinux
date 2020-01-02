@@ -20,6 +20,7 @@ wget -nc https://archive.apache.org/dist/subversion/subversion-1.12.2.tar.bz2
 NAME=subversion
 VERSION=1.12.2
 URL=https://archive.apache.org/dist/subversion/subversion-1.12.2.tar.bz2
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

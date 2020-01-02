@@ -20,6 +20,7 @@ wget -nc https://github.com/webmproject/libvpx/archive/v1.8.1/libvpx-1.8.1.tar.g
 NAME=libvpx
 VERSION=1.8.1
 URL=https://github.com/webmproject/libvpx/archive/v1.8.1/libvpx-1.8.1.tar.gz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

@@ -17,6 +17,7 @@ wget -nc http://www.rarlab.com/rar/unrarsrc-5.7.5.tar.gz
 NAME=unrar
 VERSION=5.7.5
 URL=http://www.rarlab.com/rar/unrarsrc-5.7.5.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

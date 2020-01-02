@@ -18,6 +18,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/cdparanoia-III-1
 NAME=cdparanoia
 VERSION=10.2
 URL=https://downloads.xiph.org/releases/cdparanoia/cdparanoia-III-10.2.src.tgz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

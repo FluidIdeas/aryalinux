@@ -17,6 +17,7 @@ wget -nc https://www.freedesktop.org/software/libevdev/libevdev-1.7.0.tar.xz
 NAME=libevdev
 VERSION=1.7.0
 URL=https://www.freedesktop.org/software/libevdev/libevdev-1.7.0.tar.xz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

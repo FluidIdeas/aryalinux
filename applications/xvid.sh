@@ -17,6 +17,7 @@ wget -nc http://downloads.xvid.org/downloads/xvidcore-1.3.5.tar.gz
 NAME=xvid
 VERSION=1.3.5
 URL=http://downloads.xvid.org/downloads/xvidcore-1.3.5.tar.gz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

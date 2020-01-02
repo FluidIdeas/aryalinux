@@ -17,6 +17,7 @@ cd $SOURCE_DIR
 NAME=x7font
 VERSION=
 
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

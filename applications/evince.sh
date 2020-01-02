@@ -29,6 +29,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evince/3.32/evince-3.32.0.tar.xz
 NAME=evince
 VERSION=3.32.0
 URL=http://ftp.gnome.org/pub/gnome/sources/evince/3.32/evince-3.32.0.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

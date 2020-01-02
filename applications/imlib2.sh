@@ -18,6 +18,7 @@ wget -nc https://downloads.sourceforge.net/enlightenment/imlib2-1.5.1.tar.bz2
 NAME=imlib2
 VERSION=1.5.1
 URL=https://downloads.sourceforge.net/enlightenment/imlib2-1.5.1.tar.bz2
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

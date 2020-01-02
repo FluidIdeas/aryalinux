@@ -20,6 +20,7 @@ wget -nc http://www.linuxfromscratch.org/hints/downloads/files/execute-session-s
 NAME=dbus
 VERSION=1.12.16
 URL=https://dbus.freedesktop.org/releases/dbus/dbus-1.12.16.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

@@ -19,6 +19,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/libmusicbrainz-2
 NAME=libmusicbrainz
 VERSION=2.1.5
 URL=http://ftp.musicbrainz.org/pub/musicbrainz/historical/libmusicbrainz-2.1.5.tar.gz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

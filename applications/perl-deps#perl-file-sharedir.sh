@@ -19,6 +19,7 @@ wget -nc https://cpan.metacpan.org/authors/id/R/RE/REHSACK/File-ShareDir-1.116.t
 NAME=perl-deps#perl-file-sharedir
 VERSION=1.116
 URL=https://cpan.metacpan.org/authors/id/R/RE/REHSACK/File-ShareDir-1.116.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/P/PJ/PJF/IPC-System-Simple-1.25.ta
 NAME=perl-deps#perl-ipc-system-simple
 VERSION=1.25
 URL=https://cpan.metacpan.org/authors/id/P/PJ/PJF/IPC-System-Simple-1.25.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

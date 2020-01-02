@@ -19,6 +19,7 @@ wget -nc https://downloads.xiph.org/releases/speex/speexdsp-1.2rc3.tar.gz
 NAME=speex
 VERSION=1.2.0
 URL=https://downloads.xiph.org/releases/speex/speex-1.2.0.tar.gz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

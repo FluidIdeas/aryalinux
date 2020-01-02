@@ -18,6 +18,7 @@ wget -nc ftp://ftp.musicbrainz.org/pub/musicbrainz/libdiscid/libdiscid-0.6.2.tar
 NAME=libdiscid
 VERSION=0.6.2
 URL=http://ftp.musicbrainz.org/pub/musicbrainz/libdiscid/libdiscid-0.6.2.tar.gz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

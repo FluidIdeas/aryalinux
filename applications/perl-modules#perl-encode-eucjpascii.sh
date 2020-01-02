@@ -17,6 +17,7 @@ wget -nc https://www.cpan.org/authors/id/N/NE/NEZUMI/Encode-EUCJPASCII-0.03.tar.
 NAME=perl-modules#perl-encode-eucjpascii
 VERSION=0.03
 URL=https://www.cpan.org/authors/id/N/NE/NEZUMI/Encode-EUCJPASCII-0.03.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

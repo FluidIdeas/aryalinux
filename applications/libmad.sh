@@ -19,6 +19,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/libmad-0.15.1b-f
 NAME=libmad
 VERSION=0.15.
 URL=https://downloads.sourceforge.net/mad/libmad-0.15.1b.tar.gz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

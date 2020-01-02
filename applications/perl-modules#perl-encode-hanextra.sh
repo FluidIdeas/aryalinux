@@ -17,6 +17,7 @@ wget -nc https://www.cpan.org/authors/id/A/AU/AUDREYT/Encode-HanExtra-0.23.tar.g
 NAME=perl-modules#perl-encode-hanextra
 VERSION=0.23
 URL=https://www.cpan.org/authors/id/A/AU/AUDREYT/Encode-HanExtra-0.23.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

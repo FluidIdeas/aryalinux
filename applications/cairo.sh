@@ -22,6 +22,7 @@ wget -nc https://www.cairographics.org/releases/cairo-1.16.0.tar.xz
 NAME=cairo
 VERSION=1.16.0
 URL=https://www.cairographics.org/releases/cairo-1.16.0.tar.xz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

@@ -19,6 +19,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/rpcbind-1.2.5-vu
 NAME=rpcbind
 VERSION=1.2.5
 URL=https://downloads.sourceforge.net/rpcbind/rpcbind-1.2.5.tar.bz2
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

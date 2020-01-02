@@ -18,6 +18,7 @@ wget -nc https://github.com/linux-pam/linux-pam/releases/download/v1.3.1/Linux-P
 NAME=linux-pam
 VERSION=1.3.1
 URL=https://github.com/linux-pam/linux-pam/releases/download/v1.3.1/Linux-PAM-1.3.1.tar.xz
+SECTION="Security"
 
 if [ ! -z $URL ]
 then

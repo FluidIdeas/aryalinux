@@ -17,6 +17,7 @@ wget -nc https://github.com/yaml/libyaml/archive/0.2.2/libyaml-dist-0.2.2.tar.gz
 NAME=libyaml
 VERSION=0.2.2
 URL=https://github.com/yaml/libyaml/archive/0.2.2/libyaml-dist-0.2.2.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

@@ -21,6 +21,7 @@ wget -nc https://www.freedesktop.org/software/accountsservice/accountsservice-0.
 NAME=accountsservice
 VERSION=0.6.55
 URL=https://www.freedesktop.org/software/accountsservice/accountsservice-0.6.55.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

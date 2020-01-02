@@ -20,6 +20,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/grantlee-5.1.0-u
 NAME=grantlee
 VERSION=5.1.0
 URL=http://downloads.grantlee.org/grantlee-5.1.0.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

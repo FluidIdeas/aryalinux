@@ -17,6 +17,7 @@ wget -nc https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2017.3.23.tgz
 NAME=ntfs-3g
 VERSION=
 URL=https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2017.3.23.tgz
+SECTION="Filesystems"
 
 if [ ! -z $URL ]
 then

@@ -17,6 +17,7 @@ wget -nc https://files.pythonhosted.org/packages/source/P/Pygments/Pygments-2.4.
 NAME=python-modules#pygments
 VERSION=2.4.2
 URL=https://files.pythonhosted.org/packages/source/P/Pygments/Pygments-2.4.2.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

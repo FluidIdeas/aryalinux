@@ -18,6 +18,7 @@ wget -nc https://www.cpan.org/authors/id/P/PH/PHRED/Archive-Zip-1.64.tar.gz
 NAME=perl-modules#perl-archive-zip
 VERSION=1.64
 URL=https://www.cpan.org/authors/id/P/PH/PHRED/Archive-Zip-1.64.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

@@ -19,6 +19,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-shell-extensions/3.32/gnome
 NAME=gnome-shell-extensions
 VERSION=3.32.1
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-shell-extensions/3.32/gnome-shell-extensions-3.32.1.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

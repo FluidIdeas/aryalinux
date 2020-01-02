@@ -20,6 +20,7 @@ wget -nc ftp://ftp.gnu.org/gnu/guile/guile-2.2.6.tar.xz
 NAME=guile
 VERSION=2.2.6
 URL=https://ftp.gnu.org/gnu/guile/guile-2.2.6.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

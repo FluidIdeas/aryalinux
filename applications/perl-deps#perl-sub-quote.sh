@@ -18,6 +18,7 @@ wget -nc https://cpan.metacpan.org/authors/id/H/HA/HAARG/Sub-Quote-2.006003.tar.
 NAME=perl-deps#perl-sub-quote
 VERSION=2.006003
 URL=https://cpan.metacpan.org/authors/id/H/HA/HAARG/Sub-Quote-2.006003.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

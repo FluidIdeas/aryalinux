@@ -20,6 +20,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/xarchiver-0.5.4-
 NAME=xarchiver
 VERSION=0.5.4
 URL=https://downloads.sourceforge.net/xarchiver/xarchiver-0.5.4.tar.bz2
+SECTION="Office Productivity"
 
 if [ ! -z $URL ]
 then

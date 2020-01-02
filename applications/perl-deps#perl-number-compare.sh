@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/R/RC/RCLAMP/Number-Compare-0.03.ta
 NAME=perl-deps#perl-number-compare
 VERSION=0.03
 URL=https://cpan.metacpan.org/authors/id/R/RC/RCLAMP/Number-Compare-0.03.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

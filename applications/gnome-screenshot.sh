@@ -20,6 +20,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.32/gnome-scree
 NAME=gnome-screenshot
 VERSION=3.32.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.32/gnome-screenshot-3.32.0.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

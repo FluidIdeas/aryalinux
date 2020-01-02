@@ -17,6 +17,7 @@ wget -nc https://files.pythonhosted.org/packages/source/M/MarkupSafe/MarkupSafe-
 NAME=python-modules#markupsafe
 VERSION=1.1.1
 URL=https://files.pythonhosted.org/packages/source/M/MarkupSafe/MarkupSafe-1.1.1.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

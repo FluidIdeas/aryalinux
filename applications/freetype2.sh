@@ -21,6 +21,7 @@ wget -nc https://downloads.sourceforge.net/freetype/freetype-doc-2.10.1.tar.xz
 NAME=freetype2
 VERSION=2.10.1
 URL=https://downloads.sourceforge.net/freetype/freetype-2.10.1.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

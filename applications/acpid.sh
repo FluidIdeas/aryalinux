@@ -17,6 +17,7 @@ wget -nc https://downloads.sourceforge.net/acpid2/acpid-2.0.32.tar.xz
 NAME=acpid
 VERSION=2.0.32
 URL=https://downloads.sourceforge.net/acpid2/acpid-2.0.32.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

@@ -19,6 +19,7 @@ wget -nc ftp://ftp.gwdg.de/pub/linux/misc/lm-sensors/lm_sensors-3.4.0.tar.bz2
 NAME=lm_sensors
 VERSION=3.4.0
 URL=https://ftp.gwdg.de/pub/linux/misc/lm-sensors/lm_sensors-3.4.0.tar.bz2
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

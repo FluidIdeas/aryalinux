@@ -17,6 +17,7 @@ wget -nc http://download.tuxfamily.org/librep/librep_0.92.7.tar.xz
 NAME=librep
 VERSION=0.92.7
 URL=http://download.tuxfamily.org/librep/librep_0.92.7.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

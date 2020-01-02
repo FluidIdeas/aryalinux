@@ -19,6 +19,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/sgml-common-0.6.
 NAME=sgml-common
 VERSION=0.6.3
 URL=https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/sgml-common-0.6.3.tgz
+SECTION="Printing and Typesetting"
 
 if [ ! -z $URL ]
 then

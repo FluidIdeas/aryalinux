@@ -18,6 +18,7 @@ wget -nc http://www.nasm.us/pub/nasm/releasebuilds/2.14.02/nasm-2.14.02-xdoc.tar
 NAME=nasm
 VERSION=2.14.02
 URL=http://www.nasm.us/pub/nasm/releasebuilds/2.14.02/nasm-2.14.02.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

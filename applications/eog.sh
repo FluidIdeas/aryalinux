@@ -29,6 +29,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/eog/3.32/eog-3.32.2.tar.xz
 NAME=eog
 VERSION=3.32.2
 URL=http://ftp.gnome.org/pub/gnome/sources/eog/3.32/eog-3.32.2.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

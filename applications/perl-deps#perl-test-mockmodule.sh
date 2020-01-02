@@ -20,6 +20,7 @@ wget -nc https://cpan.metacpan.org/authors/id/G/GF/GFRANKS/Test-MockModule-v0.17
 NAME=perl-deps#perl-test-mockmodule
 VERSION=0.170.0
 URL=https://cpan.metacpan.org/authors/id/G/GF/GFRANKS/Test-MockModule-v0.170.0.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

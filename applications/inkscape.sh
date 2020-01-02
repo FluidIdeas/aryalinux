@@ -35,6 +35,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/inkscape-0.92.4-
 NAME=inkscape
 VERSION=0.92.4
 URL=https://media.inkscape.org/dl/resources/file/inkscape-0.92.4.tar.bz2
+SECTION="Office Productivity"
 
 if [ ! -z $URL ]
 then

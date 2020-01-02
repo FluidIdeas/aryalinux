@@ -23,6 +23,7 @@ wget -nc https://github.com/apple/cups/releases/download/v2.2.12/cups-2.2.12-sou
 NAME=cups
 VERSION=2.2.1
 URL=https://github.com/apple/cups/releases/download/v2.2.12/cups-2.2.12-source.tar.gz
+SECTION="Printing and Typesetting"
 
 if [ ! -z $URL ]
 then

@@ -17,6 +17,7 @@ wget -nc https://github.com/dosfstools/dosfstools/releases/download/v4.1/dosfsto
 NAME=dosfstools
 VERSION=4.1
 URL=https://github.com/dosfstools/dosfstools/releases/download/v4.1/dosfstools-4.1.tar.xz
+SECTION="Filesystems"
 
 if [ ! -z $URL ]
 then

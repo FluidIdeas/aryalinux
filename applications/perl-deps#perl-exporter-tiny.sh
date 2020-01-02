@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.00200
 NAME=perl-deps#perl-exporter-tiny
 VERSION=1.002001
 URL=https://cpan.metacpan.org/authors/id/T/TO/TOBYINK/Exporter-Tiny-1.002001.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

@@ -32,6 +32,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/texlive-20190410
 NAME=texlive
 VERSION=2019041
 URL=ftp://tug.org/texlive/historic/2019/texlive-20190410-source.tar.xz
+SECTION="Printing and Typesetting"
 
 if [ ! -z $URL ]
 then

@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/S/SI/SIMONW/Module-Pluggable-5.2.t
 NAME=perl-deps#perl-module-pluggable
 VERSION=5.2
 URL=https://cpan.metacpan.org/authors/id/S/SI/SIMONW/Module-Pluggable-5.2.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

@@ -28,6 +28,7 @@ wget -nc https://github.com/storaged-project/udisks/releases/download/udisks-2.8
 NAME=udisks2
 VERSION=2.8.4
 URL=https://github.com/storaged-project/udisks/releases/download/udisks-2.8.4/udisks-2.8.4.tar.bz2
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

@@ -22,6 +22,7 @@ wget -nc https://downloads.sourceforge.net/lxdm/lxdm-0.5.3.tar.xz
 NAME=lxdm
 VERSION=0.5.3
 URL=https://downloads.sourceforge.net/lxdm/lxdm-0.5.3.tar.xz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

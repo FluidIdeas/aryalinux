@@ -21,6 +21,7 @@ wget -nc https://www.linuxtv.org/downloads/v4l-utils/v4l-utils-1.16.6.tar.bz2
 NAME=v4l-utils
 VERSION=1.16.6
 URL=https://www.linuxtv.org/downloads/v4l-utils/v4l-utils-1.16.6.tar.bz2
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

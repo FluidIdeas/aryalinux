@@ -24,6 +24,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libsoup/2.66/libsoup-2.66.2.tar.x
 NAME=libsoup
 VERSION=2.66.2
 URL=http://ftp.gnome.org/pub/gnome/sources/libsoup/2.66/libsoup-2.66.2.tar.xz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

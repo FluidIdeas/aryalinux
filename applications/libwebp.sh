@@ -20,6 +20,7 @@ wget -nc http://downloads.webmproject.org/releases/webp/libwebp-1.0.3.tar.gz
 NAME=libwebp
 VERSION=1.0.3
 URL=http://downloads.webmproject.org/releases/webp/libwebp-1.0.3.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

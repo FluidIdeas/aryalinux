@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/T/TY/TYEMQ//Algorithm-Diff-1.1903.
 NAME=perl-deps#perl-algorithm-diff
 VERSION=1.1903
 URL=https://cpan.metacpan.org/authors/id/T/TY/TYEMQ//Algorithm-Diff-1.1903.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

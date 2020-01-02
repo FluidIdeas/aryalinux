@@ -18,6 +18,7 @@ wget -nc http://links.twibright.com/download/links-2.19.tar.bz2
 NAME=links
 VERSION=2.19
 URL=http://links.twibright.com/download/links-2.19.tar.bz2
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

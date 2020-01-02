@@ -18,6 +18,7 @@ wget -nc ftp://ftp.alsa-project.org/pub/oss-lib/alsa-oss-1.1.8.tar.bz2
 NAME=alsa-oss
 VERSION=1.1.8
 URL=ftp://ftp.alsa-project.org/pub/oss-lib/alsa-oss-1.1.8.tar.bz2
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

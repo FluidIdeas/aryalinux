@@ -18,6 +18,7 @@ wget -nc https://github.com/storaged-project/libbytesize/releases/download/2.1/l
 NAME=libbytesize
 VERSION=2.1
 URL=https://github.com/storaged-project/libbytesize/releases/download/2.1/libbytesize-2.1.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

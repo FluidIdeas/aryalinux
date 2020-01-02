@@ -17,6 +17,7 @@ wget -nc https://www.cpan.org/authors/id/M/MS/MSCHILLI/Log-Log4perl-1.49.tar.gz
 NAME=perl-modules#perl-log-log4perl
 VERSION=
 URL=https://www.cpan.org/authors/id/M/MS/MSCHILLI/Log-Log4perl-1.49.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

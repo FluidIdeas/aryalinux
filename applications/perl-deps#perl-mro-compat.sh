@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/H/HA/HAARG/MRO-Compat-0.13.tar.gz
 NAME=perl-deps#perl-mro-compat
 VERSION=0.13
 URL=https://cpan.metacpan.org/authors/id/H/HA/HAARG/MRO-Compat-0.13.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

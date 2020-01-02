@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/P/PE/PEVANS/List-UtilsBy-0.11.tar.
 NAME=perl-deps#perl-list-utilsby
 VERSION=0.11
 URL=https://cpan.metacpan.org/authors/id/P/PE/PEVANS/List-UtilsBy-0.11.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

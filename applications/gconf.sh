@@ -23,6 +23,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/GConf/3.2/GConf-3.2.6.tar.xz
 NAME=gconf
 VERSION=3.2.6
 URL=http://ftp.gnome.org/pub/gnome/sources/GConf/3.2/GConf-3.2.6.tar.xz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

@@ -19,6 +19,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/fetchmail-6.3.26
 NAME=fetchmail
 VERSION=6.3.26
 URL=https://downloads.sourceforge.net/fetchmail/fetchmail-6.3.26.tar.xz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

@@ -19,6 +19,7 @@ wget -nc https://www.cpan.org/authors/id/I/IS/ISHIGAKI/Text-CSV-2.00.tar.gz
 NAME=perl-modules#perl-text-csv
 VERSION=2.00
 URL=https://www.cpan.org/authors/id/I/IS/ISHIGAKI/Text-CSV-2.00.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

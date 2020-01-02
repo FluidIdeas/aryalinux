@@ -17,6 +17,7 @@ wget -nc https://downloads.sourceforge.net/libtirpc/libtirpc-1.1.4.tar.bz2
 NAME=libtirpc
 VERSION=1.1.4
 URL=https://downloads.sourceforge.net/libtirpc/libtirpc-1.1.4.tar.bz2
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

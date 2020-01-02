@@ -19,6 +19,7 @@ wget -nc https://files.pythonhosted.org/packages/source/l/lxml/lxml-4.4.1.tar.gz
 NAME=python-modules#lxml
 VERSION=4.4.1
 URL=https://files.pythonhosted.org/packages/source/l/lxml/lxml-4.4.1.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

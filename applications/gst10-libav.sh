@@ -20,6 +20,7 @@ wget -nc https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.16.0.tar.xz
 NAME=gst10-libav
 VERSION=1.16.0
 URL=https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.16.0.tar.xz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

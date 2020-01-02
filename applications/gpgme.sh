@@ -19,6 +19,7 @@ wget -nc ftp://ftp.gnupg.org/gcrypt/gpgme/gpgme-1.13.1.tar.bz2
 NAME=gpgme
 VERSION=1.13.1
 URL=https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.13.1.tar.bz2
+SECTION="Security"
 
 if [ ! -z $URL ]
 then

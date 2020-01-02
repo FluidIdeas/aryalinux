@@ -18,6 +18,7 @@ wget -nc http://github.com/vim/vim/archive/v8.1.1846/vim-8.1.1846.tar.gz
 NAME=vim
 VERSION=8.1.1846
 URL=http://github.com/vim/vim/archive/v8.1.1846/vim-8.1.1846.tar.gz
+SECTION="Editors"
 
 if [ ! -z $URL ]
 then

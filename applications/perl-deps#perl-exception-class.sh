@@ -19,6 +19,7 @@ wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Exception-Class-1.44.
 NAME=perl-deps#perl-exception-class
 VERSION=1.44
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Exception-Class-1.44.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

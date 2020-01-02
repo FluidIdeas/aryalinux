@@ -22,6 +22,7 @@ wget -nc https://github.com/felixonmars/volume_key/archive/volume_key-0.3.12.tar
 NAME=volume_key
 VERSION=0.3.12
 URL=https://github.com/felixonmars/volume_key/archive/volume_key-0.3.12.tar.gz
+SECTION="Security"
 
 if [ ! -z $URL ]
 then

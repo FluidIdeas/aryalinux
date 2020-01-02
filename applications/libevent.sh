@@ -17,6 +17,7 @@ wget -nc https://github.com/libevent/libevent/releases/download/release-2.1.11-s
 NAME=libevent
 VERSION=2.1.1
 URL=https://github.com/libevent/libevent/releases/download/release-2.1.11-stable/libevent-2.1.11-stable.tar.gz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

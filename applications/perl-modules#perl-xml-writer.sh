@@ -17,6 +17,7 @@ wget -nc https://www.cpan.org/authors/id/J/JO/JOSEPHW/XML-Writer-0.625.tar.gz
 NAME=perl-modules#perl-xml-writer
 VERSION=0.625
 URL=https://www.cpan.org/authors/id/J/JO/JOSEPHW/XML-Writer-0.625.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

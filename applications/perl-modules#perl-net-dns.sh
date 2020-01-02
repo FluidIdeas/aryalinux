@@ -17,6 +17,7 @@ wget -nc https://www.cpan.org/authors/id/N/NL/NLNETLABS/Net-DNS-1.20.tar.gz
 NAME=perl-modules#perl-net-dns
 VERSION=1.20
 URL=https://www.cpan.org/authors/id/N/NL/NLNETLABS/Net-DNS-1.20.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

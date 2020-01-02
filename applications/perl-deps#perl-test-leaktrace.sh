@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/L/LE/LEEJO/Test-LeakTrace-0.16.tar
 NAME=perl-deps#perl-test-leaktrace
 VERSION=0.16
 URL=https://cpan.metacpan.org/authors/id/L/LE/LEEJO/Test-LeakTrace-0.16.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

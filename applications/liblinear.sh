@@ -17,6 +17,7 @@ wget -nc https://github.com/cjlin1/liblinear/archive/v230/liblinear-230.tar.gz
 NAME=liblinear
 VERSION=230
 URL=https://github.com/cjlin1/liblinear/archive/v230/liblinear-230.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

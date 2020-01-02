@@ -19,6 +19,7 @@ wget -nc http://download.librdf.org/source/raptor2-2.0.15.tar.gz
 NAME=raptor
 VERSION=2.0.15
 URL=http://download.librdf.org/source/raptor2-2.0.15.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

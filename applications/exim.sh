@@ -21,6 +21,7 @@ wget -nc http://exim.org/docs.html
 NAME=exim
 VERSION=4.92.1
 URL=https://ftp.exim.org/pub/exim/exim4/exim-4.92.1.tar.xz
+SECTION="Servers"
 
 if [ ! -z $URL ]
 then

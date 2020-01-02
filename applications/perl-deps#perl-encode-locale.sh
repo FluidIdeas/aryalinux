@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/G/GA/GAAS/Encode-Locale-1.05.tar.g
 NAME=perl-deps#perl-encode-locale
 VERSION=1.05
 URL=https://cpan.metacpan.org/authors/id/G/GA/GAAS/Encode-Locale-1.05.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

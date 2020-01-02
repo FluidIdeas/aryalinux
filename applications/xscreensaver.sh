@@ -20,6 +20,7 @@ wget -nc https://www.jwz.org/xscreensaver/xscreensaver-5.43.tar.gz
 NAME=xscreensaver
 VERSION=5.43
 URL=https://www.jwz.org/xscreensaver/xscreensaver-5.43.tar.gz
+SECTION="Office Productivity"
 
 if [ ! -z $URL ]
 then

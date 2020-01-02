@@ -20,6 +20,7 @@ wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-input-synaptics-1.9.1.tar.bz
 NAME=xorg-synaptics-driver
 VERSION=1.9.1
 URL=https://www.x.org/pub/individual/driver/xf86-input-synaptics-1.9.1.tar.bz2
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

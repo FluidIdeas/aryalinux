@@ -18,6 +18,7 @@ wget -nc ftp://ftp.mutt.org/pub/mutt/mutt-1.12.1.tar.gz
 NAME=mutt
 VERSION=1.12.1
 URL=http://ftp.mutt.org/pub/mutt/mutt-1.12.1.tar.gz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

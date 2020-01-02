@@ -23,6 +23,7 @@ wget -nc https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.18.tar
 NAME=perl-deps#perl-http-message
 VERSION=6.18
 URL=https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.18.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

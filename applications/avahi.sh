@@ -23,6 +23,7 @@ wget -nc https://github.com/lathiat/avahi/releases/download/v0.7/avahi-0.7.tar.g
 NAME=avahi
 VERSION=0.7
 URL=https://github.com/lathiat/avahi/releases/download/v0.7/avahi-0.7.tar.gz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

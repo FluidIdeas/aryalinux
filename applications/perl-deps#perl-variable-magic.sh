@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/V/VP/VPIT/Variable-Magic-0.62.tar.
 NAME=perl-deps#perl-variable-magic
 VERSION=0.62
 URL=https://cpan.metacpan.org/authors/id/V/VP/VPIT/Variable-Magic-0.62.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

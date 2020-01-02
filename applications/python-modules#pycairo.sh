@@ -19,6 +19,7 @@ wget -nc https://github.com/pygobject/pycairo/releases/download/v1.18.1/pycairo-
 NAME=python-modules#pycairo
 VERSION=1.18.1
 URL=https://github.com/pygobject/pycairo/releases/download/v1.18.1/pycairo-1.18.1.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

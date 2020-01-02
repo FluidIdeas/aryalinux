@@ -22,6 +22,7 @@ wget -nc https://people.freedesktop.org/~svu/libxklavier-5.4.tar.bz2
 NAME=libxklavier
 VERSION=5.4
 URL=https://people.freedesktop.org/~svu/libxklavier-5.4.tar.bz2
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

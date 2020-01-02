@@ -21,6 +21,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gfbgraph/0.2/gfbgraph-0.2.3.tar.x
 NAME=gfbgraph
 VERSION=0.2.3
 URL=http://ftp.gnome.org/pub/gnome/sources/gfbgraph/0.2/gfbgraph-0.2.3.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

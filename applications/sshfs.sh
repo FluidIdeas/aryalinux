@@ -20,6 +20,7 @@ wget -nc https://github.com/libfuse/sshfs/releases/download/sshfs-3.5.2/sshfs-3.
 NAME=sshfs
 VERSION=3.5.2
 URL=https://github.com/libfuse/sshfs/releases/download/sshfs-3.5.2/sshfs-3.5.2.tar.xz
+SECTION="Filesystems"
 
 if [ ! -z $URL ]
 then

@@ -23,6 +23,7 @@ wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.3
 NAME=perl-deps#perl-datetime-timezone
 VERSION=2.36
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.36.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

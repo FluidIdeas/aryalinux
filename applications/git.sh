@@ -20,6 +20,7 @@ wget -nc https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.23.0.tar.xz
 NAME=git
 VERSION=2.23.0
 URL=https://www.kernel.org/pub/software/scm/git/git-2.23.0.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

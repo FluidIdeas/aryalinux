@@ -18,6 +18,7 @@ wget -nc https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Cookies-6.04.tar
 NAME=perl-deps#perl-http-cookies
 VERSION=6.04
 URL=https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Cookies-6.04.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

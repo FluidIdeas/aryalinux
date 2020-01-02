@@ -18,6 +18,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/heirloom-mailx-1
 NAME=mailx
 VERSION=12.5
 URL=http://ftp.debian.org/debian/pool/main/h/heirloom-mailx/heirloom-mailx_12.5.orig.tar.gz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

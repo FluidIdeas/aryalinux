@@ -22,6 +22,7 @@ wget -nc https://download.java.net/java/GA/jdk12.0.2/e482c34c86bd4bf8b56c0b35558
 NAME=java
 VERSION=11.0.
 URL=http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-11.0.2/OpenJDK-11.0.2+9-i686-bin.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

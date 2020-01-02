@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/Text-CSV_XS-1.39.tgz
 NAME=perl-deps#perl-text-csv_xs
 VERSION=1.39
 URL=https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/Text-CSV_XS-1.39.tgz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

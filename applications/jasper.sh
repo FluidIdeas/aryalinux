@@ -19,6 +19,7 @@ wget -nc http://www.ece.uvic.ca/~frodo/jasper/software/jasper-2.0.14.tar.gz
 NAME=jasper
 VERSION=2.0.14
 URL=http://www.ece.uvic.ca/~frodo/jasper/software/jasper-2.0.14.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

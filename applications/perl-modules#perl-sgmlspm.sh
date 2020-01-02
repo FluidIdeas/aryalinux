@@ -17,6 +17,7 @@ wget -nc https://www.cpan.org/authors/id/R/RA/RAAB/SGMLSpm-1.1.tar.gz
 NAME=perl-modules#perl-sgmlspm
 VERSION=1.1
 URL=https://www.cpan.org/authors/id/R/RA/RAAB/SGMLSpm-1.1.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

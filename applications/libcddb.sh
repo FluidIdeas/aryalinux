@@ -17,6 +17,7 @@ wget -nc https://downloads.sourceforge.net/libcddb/libcddb-1.3.2.tar.bz2
 NAME=libcddb
 VERSION=1.3.2
 URL=https://downloads.sourceforge.net/libcddb/libcddb-1.3.2.tar.bz2
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

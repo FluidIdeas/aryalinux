@@ -30,6 +30,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/brasero/3.12/brasero-3.12.2.tar.x
 NAME=brasero
 VERSION=3.12.2
 URL=http://ftp.gnome.org/pub/gnome/sources/brasero/3.12/brasero-3.12.2.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

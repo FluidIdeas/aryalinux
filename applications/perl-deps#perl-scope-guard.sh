@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/C/CH/CHOCOLATE/Scope-Guard-0.21.ta
 NAME=perl-deps#perl-scope-guard
 VERSION=0.21
 URL=https://cpan.metacpan.org/authors/id/C/CH/CHOCOLATE/Scope-Guard-0.21.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

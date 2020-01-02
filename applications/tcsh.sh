@@ -18,6 +18,7 @@ wget -nc ftp://ftp.astron.com/pub/tcsh/tcsh-6.21.00.tar.gz
 NAME=tcsh
 VERSION=6.21.00
 URL=http://fossies.org/linux/misc/tcsh-6.21.00.tar.gz
+SECTION="Shells"
 
 if [ ! -z $URL ]
 then

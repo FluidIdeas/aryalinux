@@ -21,6 +21,7 @@ wget -nc https://static.rust-lang.org/dist/rustc-1.35.0-src.tar.gz
 NAME=rust
 VERSION=1.35.
 URL=https://static.rust-lang.org/dist/rustc-1.35.0-src.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

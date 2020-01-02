@@ -27,6 +27,7 @@ wget -nc https://www.freedesktop.org/software/colord/releases/colord-1.4.4.tar.x
 NAME=colord
 VERSION=1.4.4
 URL=https://www.freedesktop.org/software/colord/releases/colord-1.4.4.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

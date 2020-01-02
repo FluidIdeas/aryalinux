@@ -23,6 +23,7 @@ wget -nc http://archive.xfce.org/src/xfce/xfdesktop/4.14/xfdesktop-4.14.1.tar.bz
 NAME=xfdesktop
 VERSION=4.14.1
 URL=http://archive.xfce.org/src/xfce/xfdesktop/4.14/xfdesktop-4.14.1.tar.bz2
+SECTION="XFCE"
 
 if [ ! -z $URL ]
 then

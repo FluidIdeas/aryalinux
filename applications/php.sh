@@ -27,6 +27,7 @@ wget -nc http://www.php.net/download-docs.php
 NAME=php
 VERSION=7.3.8
 URL=http://www.php.net/distributions/php-7.3.8.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

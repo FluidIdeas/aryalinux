@@ -20,6 +20,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/libunique-1.1.6-
 NAME=libunique
 VERSION=1.1.6
 URL=http://ftp.gnome.org/pub/gnome/sources/libunique/1.1/libunique-1.1.6.tar.bz2
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

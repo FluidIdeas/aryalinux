@@ -21,6 +21,7 @@ wget -nc http://archive.xfce.org/src/xfce/libxfce4ui/4.14/libxfce4ui-4.14.1.tar.
 NAME=libxfce4ui
 VERSION=4.14.1
 URL=http://archive.xfce.org/src/xfce/libxfce4ui/4.14/libxfce4ui-4.14.1.tar.bz2
+SECTION="XFCE"
 
 if [ ! -z $URL ]
 then

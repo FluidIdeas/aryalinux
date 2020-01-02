@@ -17,6 +17,7 @@ wget -nc https://downloads.sourceforge.net/gmerlin/gavl-1.4.0.tar.gz
 NAME=gavl
 VERSION=1.4.0
 URL=https://downloads.sourceforge.net/gmerlin/gavl-1.4.0.tar.gz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

@@ -31,6 +31,7 @@ wget -nc http://www.samba.org/samba/docs/man/Samba-Guide/
 NAME=samba
 VERSION=4.10.7
 URL=https://www.samba.org/ftp/samba/stable/samba-4.10.7.tar.gz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

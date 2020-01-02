@@ -17,6 +17,7 @@ wget -nc https://www.samba.org/ftp/talloc/talloc-2.2.0.tar.gz
 NAME=talloc
 VERSION=2.2.0
 URL=https://www.samba.org/ftp/talloc/talloc-2.2.0.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

@@ -25,6 +25,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/cogl/1.22/cogl-1.22.4.tar.xz
 NAME=cogl
 VERSION=1.22.4
 URL=http://ftp.gnome.org/pub/gnome/sources/cogl/1.22/cogl-1.22.4.tar.xz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

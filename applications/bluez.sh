@@ -20,6 +20,7 @@ wget -nc https://www.kernel.org/pub/linux/bluetooth/bluez-5.50.tar.xz
 NAME=bluez
 VERSION=5.50
 URL=https://www.kernel.org/pub/linux/bluetooth/bluez-5.50.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

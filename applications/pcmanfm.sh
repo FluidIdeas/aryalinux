@@ -22,6 +22,7 @@ wget -nc https://downloads.sourceforge.net/pcmanfm/pcmanfm-1.3.1.tar.xz
 NAME=pcmanfm
 VERSION=1.3.1
 URL=https://downloads.sourceforge.net/pcmanfm/pcmanfm-1.3.1.tar.xz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

@@ -21,6 +21,7 @@ wget -nc http://fltk.org/pub/fltk/1.3.5/fltk-1.3.5-source.tar.gz
 NAME=fltk
 VERSION=1.3.
 URL=http://fltk.org/pub/fltk/1.3.5/fltk-1.3.5-source.tar.gz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

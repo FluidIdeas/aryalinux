@@ -17,6 +17,7 @@ wget -nc https://www.cpan.org/authors/id/S/SA/SADAHIRO/Unicode-Collate-1.27.tar.
 NAME=perl-modules#perl-unicode-collate
 VERSION=1.27
 URL=https://www.cpan.org/authors/id/S/SA/SADAHIRO/Unicode-Collate-1.27.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

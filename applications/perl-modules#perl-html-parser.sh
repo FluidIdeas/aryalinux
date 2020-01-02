@@ -19,6 +19,7 @@ wget -nc https://www.cpan.org/authors/id/G/GA/GAAS/HTML-Parser-3.72.tar.gz
 NAME=perl-modules#perl-html-parser
 VERSION=3.72
 URL=https://www.cpan.org/authors/id/G/GA/GAAS/HTML-Parser-3.72.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

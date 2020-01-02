@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/R/RC/RCLAMP/Text-Glob-0.11.tar.gz
 NAME=perl-deps#perl-text-glob
 VERSION=0.11
 URL=https://cpan.metacpan.org/authors/id/R/RC/RCLAMP/Text-Glob-0.11.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

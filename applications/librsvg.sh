@@ -25,6 +25,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.14.tar.
 NAME=librsvg
 VERSION=2.44.14
 URL=http://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.14.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

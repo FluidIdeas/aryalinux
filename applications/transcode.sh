@@ -25,6 +25,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/transcode-1.1.7-
 NAME=transcode
 VERSION=1.1.7
 URL=https://sources.archlinux.org/other/community/transcode/transcode-1.1.7.tar.bz2
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

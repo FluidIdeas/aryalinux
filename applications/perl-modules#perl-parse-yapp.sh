@@ -17,6 +17,7 @@ wget -nc https://www.cpan.org/authors/id/W/WB/WBRASWELL/Parse-Yapp-1.21.tar.gz
 NAME=perl-modules#perl-parse-yapp
 VERSION=1.21
 URL=https://www.cpan.org/authors/id/W/WB/WBRASWELL/Parse-Yapp-1.21.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

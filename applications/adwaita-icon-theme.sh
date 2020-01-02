@@ -18,6 +18,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/adwaita-icon-theme/3.32/adwaita-i
 NAME=adwaita-icon-theme
 VERSION=3.32.0
 URL=http://ftp.gnome.org/pub/gnome/sources/adwaita-icon-theme/3.32/adwaita-icon-theme-3.32.0.tar.xz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

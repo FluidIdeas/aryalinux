@@ -18,6 +18,7 @@ wget -nc ftp://roy.marples.name/pub/dhcpcd/dhcpcd-8.0.3.tar.xz
 NAME=dhcpcd
 VERSION=8.0.3
 URL=https://roy.marples.name/downloads/dhcpcd/dhcpcd-8.0.3.tar.xz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

@@ -18,6 +18,7 @@ wget -nc https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Term-Table-0.013.tar.
 NAME=perl-deps#perl-term-table
 VERSION=0.013
 URL=https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Term-Table-0.013.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

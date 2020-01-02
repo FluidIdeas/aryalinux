@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Deep-1.128.tar.gz
 NAME=perl-deps#perl-test-deep
 VERSION=1.128
 URL=https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Deep-1.128.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

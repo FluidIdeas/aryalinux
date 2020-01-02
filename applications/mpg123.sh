@@ -18,6 +18,7 @@ wget -nc https://downloads.sourceforge.net/mpg123/mpg123-1.25.12.tar.bz2
 NAME=mpg123
 VERSION=1.25.12
 URL=https://downloads.sourceforge.net/mpg123/mpg123-1.25.12.tar.bz2
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

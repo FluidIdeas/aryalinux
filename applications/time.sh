@@ -18,6 +18,7 @@ wget -nc ftp://ftp.gnu.org/gnu/time/time-1.9.tar.gz
 NAME=time
 VERSION=1.9
 URL=https://ftp.gnu.org/gnu/time/time-1.9.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

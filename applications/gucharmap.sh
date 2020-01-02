@@ -25,6 +25,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gucharmap/12.0/gucharmap-12.0.1.t
 NAME=gucharmap
 VERSION=12.0.1
 URL=http://ftp.gnome.org/pub/gnome/sources/gucharmap/12.0/gucharmap-12.0.1.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

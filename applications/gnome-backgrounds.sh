@@ -18,6 +18,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-backgrounds/3.32/gnome-back
 NAME=gnome-backgrounds
 VERSION=3.32.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-backgrounds/3.32/gnome-backgrounds-3.32.0.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

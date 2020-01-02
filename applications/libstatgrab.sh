@@ -18,6 +18,7 @@ wget -nc ftp://www.mirrorservice.org/sites/ftp.i-scream.org/pub/i-scream/libstat
 NAME=libstatgrab
 VERSION=0.92
 URL=http://www.mirrorservice.org/sites/ftp.i-scream.org/pub/i-scream/libstatgrab/libstatgrab-0.92.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

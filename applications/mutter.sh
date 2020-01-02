@@ -34,6 +34,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/mutter-3.32.2-up
 NAME=mutter
 VERSION=3.32.2
 URL=http://ftp.gnome.org/pub/gnome/sources/mutter/3.32/mutter-3.32.2.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

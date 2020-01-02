@@ -19,6 +19,7 @@ wget -nc http://invisible-mirror.net/archives/xterm/xterm-348.tgz
 NAME=xterm
 VERSION=348
 URL=http://invisible-mirror.net/archives/xterm/xterm-348.tgz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

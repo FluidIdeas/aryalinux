@@ -17,6 +17,7 @@ wget -nc ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.55.tar.gz
 NAME=stunnel
 VERSION=5.55
 URL=ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.55.tar.gz
+SECTION="Security"
 
 if [ ! -z $URL ]
 then

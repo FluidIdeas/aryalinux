@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Devel-StackTrace-2.04
 NAME=perl-deps#perl-devel-stacktrace
 VERSION=2.04
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Devel-StackTrace-2.04.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

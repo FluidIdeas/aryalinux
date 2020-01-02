@@ -18,6 +18,7 @@ wget -nc ftp://ftp.info-zip.org/pub/infozip/src/zip30.tgz
 NAME=zip
 VERSION=30
 URL=https://downloads.sourceforge.net/infozip/zip30.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

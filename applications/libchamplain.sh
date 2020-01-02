@@ -25,6 +25,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libchamplain/0.12/libchamplain-0.
 NAME=libchamplain
 VERSION=0.12.19
 URL=http://ftp.gnome.org/pub/gnome/sources/libchamplain/0.12/libchamplain-0.12.19.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

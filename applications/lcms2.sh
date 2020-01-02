@@ -17,6 +17,7 @@ wget -nc https://downloads.sourceforge.net/lcms/lcms2-2.9.tar.gz
 NAME=lcms2
 VERSION=2.9
 URL=https://downloads.sourceforge.net/lcms/lcms2-2.9.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

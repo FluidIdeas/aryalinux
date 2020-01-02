@@ -18,6 +18,7 @@ wget -nc https://files.pythonhosted.org/packages/source/p/pycrypto/pycrypto-2.6.
 NAME=python-modules#pycrypto
 VERSION=2.6.1
 URL=https://files.pythonhosted.org/packages/source/p/pycrypto/pycrypto-2.6.1.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

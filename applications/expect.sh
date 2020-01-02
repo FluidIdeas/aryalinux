@@ -18,6 +18,7 @@ wget -nc https://downloads.sourceforge.net/expect/expect5.45.4.tar.gz
 NAME=expect
 VERSION=5.45.4
 URL=https://downloads.sourceforge.net/expect/expect5.45.4.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

@@ -18,6 +18,7 @@ wget -nc https://www.cpan.org/authors/id/E/ET/ETHER/HTTP-Daemon-6.05.tar.gz
 NAME=perl-modules#perl-http-daemon
 VERSION=6.05
 URL=https://www.cpan.org/authors/id/E/ET/ETHER/HTTP-Daemon-6.05.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

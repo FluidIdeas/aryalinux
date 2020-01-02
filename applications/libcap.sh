@@ -18,6 +18,7 @@ wget -nc https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libc
 NAME=libcap
 VERSION=2.27
 URL=https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.27.tar.xz
+SECTION="Security"
 
 if [ ! -z $URL ]
 then

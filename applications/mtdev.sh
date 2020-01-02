@@ -17,6 +17,7 @@ wget -nc http://bitmath.org/code/mtdev/mtdev-1.1.5.tar.bz2
 NAME=mtdev
 VERSION=1.1.5
 URL=http://bitmath.org/code/mtdev/mtdev-1.1.5.tar.bz2
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

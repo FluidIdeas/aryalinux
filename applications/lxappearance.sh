@@ -19,6 +19,7 @@ wget -nc https://downloads.sourceforge.net/lxde/lxappearance-0.6.3.tar.xz
 NAME=lxappearance
 VERSION=0.6.3
 URL=https://downloads.sourceforge.net/lxde/lxappearance-0.6.3.tar.xz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

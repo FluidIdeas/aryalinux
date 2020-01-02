@@ -18,6 +18,7 @@ wget -nc https://wayland.freedesktop.org/releases/wayland-protocols-1.18.tar.xz
 NAME=wayland-protocols
 VERSION=1.18
 URL=https://wayland.freedesktop.org/releases/wayland-protocols-1.18.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

@@ -23,6 +23,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-calculator/3.32/gnome-calcu
 NAME=gnome-calculator
 VERSION=3.32.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-calculator/3.32/gnome-calculator-3.32.2.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

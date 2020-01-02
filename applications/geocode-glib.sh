@@ -21,6 +21,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/geocode-glib/3.26/geocode-glib-3.
 NAME=geocode-glib
 VERSION=3.26.1
 URL=http://ftp.gnome.org/pub/gnome/sources/geocode-glib/3.26/geocode-glib-3.26.1.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

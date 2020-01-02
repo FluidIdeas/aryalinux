@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/G/GR/GRANTM/XML-SAX-Base-1.09.tar.
 NAME=perl-deps#perl-xml-sax-base
 VERSION=1.09
 URL=https://cpan.metacpan.org/authors/id/G/GR/GRANTM/XML-SAX-Base-1.09.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

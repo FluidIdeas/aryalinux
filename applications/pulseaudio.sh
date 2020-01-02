@@ -24,6 +24,7 @@ wget -nc https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-12.
 NAME=pulseaudio
 VERSION=12.2
 URL=https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-12.2.tar.xz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

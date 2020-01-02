@@ -22,6 +22,7 @@ wget -nc https://cpan.metacpan.org/authors/id/D/DM/DMUEY/File-Copy-Recursive-0.4
 NAME=perl-deps#perl-file-copy-recursive
 VERSION=0.45
 URL=https://cpan.metacpan.org/authors/id/D/DM/DMUEY/File-Copy-Recursive-0.45.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

@@ -20,6 +20,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-weather/3.32/gnome-weather-
 NAME=gnome-weather
 VERSION=3.32.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-weather/3.32/gnome-weather-3.32.2.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

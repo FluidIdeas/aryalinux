@@ -17,6 +17,7 @@ wget -nc http://fy.chalmers.se/~appro/linux/DVD+RW/tools/dvd+rw-tools-7.1.tar.gz
 NAME=dvd-rw-tools
 VERSION=7.1
 URL=http://fy.chalmers.se/~appro/linux/DVD+RW/tools/dvd+rw-tools-7.1.tar.gz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

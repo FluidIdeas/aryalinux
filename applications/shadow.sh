@@ -20,6 +20,7 @@ wget -nc http://www.deer-run.com/~hal/linux_passwords_pam.html
 NAME=shadow
 VERSION=4.7
 URL=https://github.com/shadow-maint/shadow/releases/download/4.7/shadow-4.7.tar.xz
+SECTION="Security"
 
 if [ ! -z $URL ]
 then

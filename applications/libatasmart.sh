@@ -17,6 +17,7 @@ wget -nc http://0pointer.de/public/libatasmart-0.19.tar.xz
 NAME=libatasmart
 VERSION=0.19
 URL=http://0pointer.de/public/libatasmart-0.19.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

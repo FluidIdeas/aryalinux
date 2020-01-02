@@ -27,6 +27,7 @@ wget -nc https://github.com/fontforge/fontforge/releases/download/20170731/fontf
 NAME=fontforge
 VERSION=20170731
 URL=https://github.com/fontforge/fontforge/releases/download/20170731/fontforge-dist-20170731.tar.xz
+SECTION="Office Productivity"
 
 if [ ! -z $URL ]
 then

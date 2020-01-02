@@ -19,6 +19,7 @@ wget -nc http://download.kde.org/stable/frameworks/5.61/breeze-icons-5.61.0.tar.
 NAME=breeze-icons
 VERSION=5.61.0
 URL=http://download.kde.org/stable/frameworks/5.61/breeze-icons-5.61.0.tar.xz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

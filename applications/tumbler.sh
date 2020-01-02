@@ -18,6 +18,7 @@ wget -nc http://archive.xfce.org/src/xfce/tumbler/0.2/tumbler-0.2.7.tar.bz2
 NAME=tumbler
 VERSION=0.2.7
 URL=http://archive.xfce.org/src/xfce/tumbler/0.2/tumbler-0.2.7.tar.bz2
+SECTION="XFCE"
 
 if [ ! -z $URL ]
 then

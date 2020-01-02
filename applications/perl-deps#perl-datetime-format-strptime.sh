@@ -18,6 +18,7 @@ wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Strpt
 NAME=perl-deps#perl-datetime-format-strptime
 VERSION=1.76
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Strptime-1.76.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

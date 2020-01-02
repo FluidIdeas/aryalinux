@@ -18,6 +18,7 @@ wget -nc https://www.kernel.org/pub/software/network/iw/iw-5.3.tar.xz
 NAME=iw
 VERSION=5.3
 URL=https://www.kernel.org/pub/software/network/iw/iw-5.3.tar.xz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

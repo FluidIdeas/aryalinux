@@ -18,6 +18,7 @@ wget -nc https://cpan.metacpan.org/authors/id/A/AM/AMBS/ExtUtils-LibBuilder-0.08
 NAME=perl-deps#perl-extutils-libbuilder
 VERSION=0.08
 URL=https://cpan.metacpan.org/authors/id/A/AM/AMBS/ExtUtils-LibBuilder-0.08.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

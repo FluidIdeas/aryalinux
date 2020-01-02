@@ -19,6 +19,7 @@ wget -nc https://github.com/htacg/tidy-html5/archive/5.6.0/tidy-html5-5.6.0.tar.
 NAME=tidy-html5
 VERSION=5.6.0
 URL=https://github.com/htacg/tidy-html5/archive/5.6.0/tidy-html5-5.6.0.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

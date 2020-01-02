@@ -19,6 +19,7 @@ wget -nc http://download.kde.org/stable/frameworks/5.61/oxygen-icons5-5.61.0.tar
 NAME=oxygen-icons5
 VERSION=5.61.0
 URL=http://download.kde.org/stable/frameworks/5.61/oxygen-icons5-5.61.0.tar.xz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

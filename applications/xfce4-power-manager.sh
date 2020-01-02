@@ -20,6 +20,7 @@ wget -nc http://archive.xfce.org/src/xfce/xfce4-power-manager/1.6/xfce4-power-ma
 NAME=xfce4-power-manager
 VERSION=1.6.5
 URL=http://archive.xfce.org/src/xfce/xfce4-power-manager/1.6/xfce4-power-manager-1.6.5.tar.bz2
+SECTION="XFCE"
 
 if [ ! -z $URL ]
 then

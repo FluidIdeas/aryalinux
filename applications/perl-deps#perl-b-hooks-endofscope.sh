@@ -21,6 +21,7 @@ wget -nc https://cpan.metacpan.org/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.24
 NAME=perl-deps#perl-b-hooks-endofscope
 VERSION=0.24
 URL=https://cpan.metacpan.org/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.24.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

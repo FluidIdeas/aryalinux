@@ -55,6 +55,7 @@ wget -nc http://sourceforge.net/projects/biblatex/files/biblatex-3.13/biblatex-3
 NAME=biber
 VERSION=2.13
 URL=https://github.com/plk/biber/archive/v2.13/biber-2.13.tar.gz
+SECTION="Printing and Typesetting"
 
 if [ ! -z $URL ]
 then

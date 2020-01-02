@@ -20,6 +20,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/sendmail.8.15.2-
 NAME=sendmail
 VERSION=.8.15.2
 URL=ftp://ftp.sendmail.org/pub/sendmail/sendmail.8.15.2.tar.gz
+SECTION="Servers"
 
 if [ ! -z $URL ]
 then

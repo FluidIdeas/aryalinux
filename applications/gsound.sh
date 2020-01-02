@@ -20,6 +20,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gsound/1.0/gsound-1.0.2.tar.xz
 NAME=gsound
 VERSION=1.0.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gsound/1.0/gsound-1.0.2.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

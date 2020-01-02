@@ -26,6 +26,7 @@ wget -nc https://gitlab.gnome.org/GNOME/grilo/merge_requests/52.diff
 NAME=grilo
 VERSION=0.3.9
 URL=http://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.9.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

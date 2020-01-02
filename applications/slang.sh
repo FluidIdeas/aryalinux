@@ -17,6 +17,7 @@ wget -nc http://www.jedsoft.org/releases/slang/slang-2.3.2.tar.bz2
 NAME=slang
 VERSION=2.3.2
 URL=http://www.jedsoft.org/releases/slang/slang-2.3.2.tar.bz2
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

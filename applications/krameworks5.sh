@@ -46,6 +46,7 @@ cd $SOURCE_DIR
 NAME=krameworks5
 VERSION=5.61
 
+SECTION="KDE"
 
 if [ ! -z $URL ]
 then

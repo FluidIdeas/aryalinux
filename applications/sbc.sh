@@ -17,6 +17,7 @@ wget -nc https://www.kernel.org/pub/linux/bluetooth/sbc-1.4.tar.xz
 NAME=sbc
 VERSION=1.4
 URL=https://www.kernel.org/pub/linux/bluetooth/sbc-1.4.tar.xz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

@@ -19,6 +19,7 @@ wget -nc http://www.exiv2.org/builds/exiv2-0.27.2-Source.tar.gz
 NAME=exiv2
 VERSION=0.27.
 URL=http://www.exiv2.org/builds/exiv2-0.27.2-Source.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

@@ -19,6 +19,7 @@ wget -nc ftp://ftp.gnu.org/gnu/ed/ed-1.15.tar.lz
 NAME=ed
 VERSION=1.15
 URL=https://ftp.gnu.org/gnu/ed/ed-1.15.tar.lz
+SECTION="Editors"
 
 if [ ! -z $URL ]
 then

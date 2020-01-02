@@ -22,6 +22,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/glib-2.60.6-skip
 NAME=glib2
 VERSION=2.60.6
 URL=http://ftp.gnome.org/pub/gnome/sources/glib/2.60/glib-2.60.6.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

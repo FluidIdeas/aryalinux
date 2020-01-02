@@ -19,6 +19,7 @@ wget -nc https://downloads.sourceforge.net/gparted/gparted-1.0.0.tar.gz
 NAME=gparted
 VERSION=1.0.0
 URL=https://downloads.sourceforge.net/gparted/gparted-1.0.0.tar.gz
+SECTION="Office Productivity"
 
 if [ ! -z $URL ]
 then

@@ -18,6 +18,7 @@ wget -nc https://cpan.metacpan.org/authors/id/R/RE/REHSACK/Config-AutoConf-0.317
 NAME=perl-deps#perl-config-autoconf
 VERSION=0.317
 URL=https://cpan.metacpan.org/authors/id/R/RE/REHSACK/Config-AutoConf-0.317.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

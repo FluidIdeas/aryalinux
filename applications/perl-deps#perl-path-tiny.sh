@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.108.tar.
 NAME=perl-deps#perl-path-tiny
 VERSION=0.108
 URL=https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.108.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

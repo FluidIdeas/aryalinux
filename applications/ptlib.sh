@@ -21,6 +21,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/ptlib-2.10.11-op
 NAME=ptlib
 VERSION=2.10.11
 URL=http://ftp.gnome.org/pub/gnome/sources/ptlib/2.10/ptlib-2.10.11.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

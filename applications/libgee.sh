@@ -21,6 +21,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgee/0.20/libgee-0.20.2.tar.xz
 NAME=libgee
 VERSION=0.20.2
 URL=http://ftp.gnome.org/pub/gnome/sources/libgee/0.20/libgee-0.20.2.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

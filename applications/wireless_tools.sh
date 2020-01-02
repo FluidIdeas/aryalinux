@@ -18,6 +18,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/wireless_tools-2
 NAME=wireless_tools
 VERSION=.29
 URL=https://hewlettpackard.github.io/wireless-tools/wireless_tools.29.tar.gz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

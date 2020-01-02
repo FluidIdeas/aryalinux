@@ -19,6 +19,7 @@ wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-ati-19.0.1.tar.bz2
 NAME=xorg-ati-driver
 VERSION=19.0.1
 URL=https://www.x.org/pub/individual/driver/xf86-video-ati-19.0.1.tar.bz2
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

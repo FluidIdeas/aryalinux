@@ -21,6 +21,7 @@ wget -nc https://www.kernel.org/pub/linux/utils/cryptsetup/v2.0/cryptsetup-2.0.6
 NAME=cryptsetup
 VERSION=2.0.6
 URL=https://www.kernel.org/pub/linux/utils/cryptsetup/v2.0/cryptsetup-2.0.6.tar.xz
+SECTION="Security"
 
 if [ ! -z $URL ]
 then

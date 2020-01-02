@@ -18,6 +18,7 @@ wget -nc https://github.com/linuxwacom/xf86-input-wacom/releases/download/xf86-i
 NAME=xorg-wacom-driver
 VERSION=0.37.0
 URL=https://github.com/linuxwacom/xf86-input-wacom/releases/download/xf86-input-wacom-0.37.0/xf86-input-wacom-0.37.0.tar.bz2
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

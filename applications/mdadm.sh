@@ -17,6 +17,7 @@ wget -nc https://www.kernel.org/pub/linux/utils/raid/mdadm/mdadm-4.0.tar.xz
 NAME=mdadm
 VERSION=4.0
 URL=https://www.kernel.org/pub/linux/utils/raid/mdadm/mdadm-4.0.tar.xz
+SECTION="Filesystems"
 
 if [ ! -z $URL ]
 then

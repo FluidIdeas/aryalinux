@@ -18,6 +18,7 @@ wget -nc https://downloads.sourceforge.net/swig/swig-4.0.0.tar.gz
 NAME=swig
 VERSION=4.0.0
 URL=https://downloads.sourceforge.net/swig/swig-4.0.0.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

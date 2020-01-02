@@ -18,6 +18,7 @@ wget -nc https://www.cpan.org/authors/id/D/DC/DCANTRELL/Data-Compare-1.25.tar.gz
 NAME=perl-modules#perl-data-compare
 VERSION=1.25
 URL=https://www.cpan.org/authors/id/D/DC/DCANTRELL/Data-Compare-1.25.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

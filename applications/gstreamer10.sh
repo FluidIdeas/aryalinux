@@ -20,6 +20,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/gstreamer-1.16.0
 NAME=gstreamer10
 VERSION=1.16.0
 URL=https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.16.0.tar.xz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

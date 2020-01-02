@@ -19,6 +19,7 @@ wget -nc http://www.docbook.org/sgml/3.1/docbk31.zip
 NAME=sgml-dtd-3
 VERSION=31
 URL=http://www.docbook.org/sgml/3.1/docbk31.zip
+SECTION="Printing and Typesetting"
 
 if [ ! -z $URL ]
 then

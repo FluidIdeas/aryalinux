@@ -17,6 +17,7 @@ wget -nc https://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.17.tar
 NAME=hicolor-icon-theme
 VERSION=0.17
 URL=https://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.17.tar.xz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

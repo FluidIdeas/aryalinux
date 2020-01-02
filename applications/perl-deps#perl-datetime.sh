@@ -22,6 +22,7 @@ wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.51.tar.gz
 NAME=perl-deps#perl-datetime
 VERSION=1.51
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.51.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

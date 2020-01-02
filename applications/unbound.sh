@@ -17,6 +17,7 @@ wget -nc http://www.unbound.net/downloads/unbound-1.9.2.tar.gz
 NAME=unbound
 VERSION=1.9.2
 URL=http://www.unbound.net/downloads/unbound-1.9.2.tar.gz
+SECTION="Servers"
 
 if [ ! -z $URL ]
 then

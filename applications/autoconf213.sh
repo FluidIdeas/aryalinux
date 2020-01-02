@@ -19,6 +19,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/autoconf-2.13-co
 NAME=autoconf213
 VERSION=2.13
 URL=https://ftp.gnu.org/gnu/autoconf/autoconf-2.13.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

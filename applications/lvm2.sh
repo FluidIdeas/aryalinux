@@ -19,6 +19,7 @@ wget -nc ftp://sourceware.org/pub/lvm2/LVM2.2.03.05.tgz
 NAME=lvm2
 VERSION=2.2.03.05
 URL=https://sourceware.org/ftp/lvm2/LVM2.2.03.05.tgz
+SECTION="Filesystems"
 
 if [ ! -z $URL ]
 then

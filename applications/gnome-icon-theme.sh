@@ -22,6 +22,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-icon-theme/3.12/gnome-icon-
 NAME=gnome-icon-theme
 VERSION=3.12.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-icon-theme/3.12/gnome-icon-theme-3.12.0.tar.xz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

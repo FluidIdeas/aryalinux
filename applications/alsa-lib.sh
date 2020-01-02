@@ -17,6 +17,7 @@ wget -nc ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.1.9.tar.bz2
 NAME=alsa-lib
 VERSION=1.1.9
 URL=ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.1.9.tar.bz2
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

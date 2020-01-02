@@ -18,6 +18,7 @@ wget -nc https://dri.freedesktop.org/libdrm/libdrm-2.4.99.tar.bz2
 NAME=libdrm
 VERSION=2.4.99
 URL=https://dri.freedesktop.org/libdrm/libdrm-2.4.99.tar.bz2
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

@@ -17,6 +17,7 @@ wget -nc https://get.videolan.org/libdvdcss/1.4.2/libdvdcss-1.4.2.tar.bz2
 NAME=libdvdcss
 VERSION=1.4.2
 URL=https://get.videolan.org/libdvdcss/1.4.2/libdvdcss-1.4.2.tar.bz2
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

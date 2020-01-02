@@ -24,6 +24,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk-vnc/1.0/gtk-vnc-1.0.0.tar.xz
 NAME=gtk-vnc
 VERSION=1.0.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gtk-vnc/1.0/gtk-vnc-1.0.0.tar.xz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

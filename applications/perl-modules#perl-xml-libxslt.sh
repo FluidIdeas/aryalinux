@@ -19,6 +19,7 @@ wget -nc https://www.cpan.org/authors/id/S/SH/SHLOMIF/XML-LibXSLT-1.96.tar.gz
 NAME=perl-modules#perl-xml-libxslt
 VERSION=1.96
 URL=https://www.cpan.org/authors/id/S/SH/SHLOMIF/XML-LibXSLT-1.96.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

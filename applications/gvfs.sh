@@ -30,6 +30,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gvfs/1.40/gvfs-1.40.2.tar.xz
 NAME=gvfs
 VERSION=1.40.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gvfs/1.40/gvfs-1.40.2.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

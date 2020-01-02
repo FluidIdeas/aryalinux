@@ -20,6 +20,7 @@ wget -nc https://releases.pagure.org/xmlto/xmlto-0.0.28.tar.bz2
 NAME=xmlto
 VERSION=0.0.28
 URL=https://releases.pagure.org/xmlto/xmlto-0.0.28.tar.bz2
+SECTION="Printing and Typesetting"
 
 if [ ! -z $URL ]
 then

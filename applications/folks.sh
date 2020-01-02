@@ -25,6 +25,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/folks/0.12/folks-0.12.1.tar.xz
 NAME=folks
 VERSION=0.12.1
 URL=http://ftp.gnome.org/pub/gnome/sources/folks/0.12/folks-0.12.1.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

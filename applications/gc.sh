@@ -18,6 +18,7 @@ wget -nc http://www.hboehm.info/gc/gc_source/gc-8.0.4.tar.gz
 NAME=gc
 VERSION=8.0.4
 URL=http://www.hboehm.info/gc/gc_source/gc-8.0.4.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

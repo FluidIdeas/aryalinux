@@ -19,6 +19,7 @@ wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-vmware-13.3.0.tar.bz2
 NAME=xorg-vmware-driver
 VERSION=13.3.0
 URL=https://www.x.org/pub/individual/driver/xf86-video-vmware-13.3.0.tar.bz2
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

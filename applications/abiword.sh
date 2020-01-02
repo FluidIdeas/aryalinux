@@ -25,6 +25,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/abiword-3.0.2-fi
 NAME=abiword
 VERSION=3.0.2
 URL=http://www.abisource.com/downloads/abiword/3.0.2/source/abiword-3.0.2.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

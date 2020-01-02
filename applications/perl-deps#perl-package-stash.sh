@@ -21,6 +21,7 @@ wget -nc https://cpan.metacpan.org/authors/id/E/ET/ETHER/Package-Stash-0.38.tar.
 NAME=perl-deps#perl-package-stash
 VERSION=0.38
 URL=https://cpan.metacpan.org/authors/id/E/ET/ETHER/Package-Stash-0.38.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

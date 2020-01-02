@@ -17,6 +17,7 @@ wget -nc http://download.icu-project.org/files/icu4c/64.2/icu4c-64_2-src.tgz
 NAME=icu
 VERSION=6
 URL=http://download.icu-project.org/files/icu4c/64.2/icu4c-64_2-src.tgz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

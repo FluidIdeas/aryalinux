@@ -22,6 +22,7 @@ wget -nc https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test2-Suite-0.000122.
 NAME=perl-deps#perl-test2-suite
 VERSION=0.000122
 URL=https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test2-Suite-0.000122.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

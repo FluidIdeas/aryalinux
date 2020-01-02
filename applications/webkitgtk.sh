@@ -38,6 +38,7 @@ wget -nc https://webkitgtk.org/releases/webkitgtk-2.24.4.tar.xz
 NAME=webkitgtk
 VERSION=2.24.4
 URL=https://webkitgtk.org/releases/webkitgtk-2.24.4.tar.xz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

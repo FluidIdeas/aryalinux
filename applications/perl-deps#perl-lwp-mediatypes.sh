@@ -18,6 +18,7 @@ wget -nc https://cpan.metacpan.org/authors/id/O/OA/OALDERS/LWP-MediaTypes-6.04.t
 NAME=perl-deps#perl-lwp-mediatypes
 VERSION=6.04
 URL=https://cpan.metacpan.org/authors/id/O/OA/OALDERS/LWP-MediaTypes-6.04.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

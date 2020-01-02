@@ -21,6 +21,7 @@ wget -nc https://telepathy.freedesktop.org/releases/telepathy-glib/telepathy-gli
 NAME=telepathy-glib
 VERSION=0.24.1
 URL=https://telepathy.freedesktop.org/releases/telepathy-glib/telepathy-glib-0.24.1.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

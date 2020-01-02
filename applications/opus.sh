@@ -17,6 +17,7 @@ wget -nc https://archive.mozilla.org/pub/opus/opus-1.3.1.tar.gz
 NAME=opus
 VERSION=1.3.1
 URL=https://archive.mozilla.org/pub/opus/opus-1.3.1.tar.gz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

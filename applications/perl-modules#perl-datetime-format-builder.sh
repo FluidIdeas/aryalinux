@@ -20,6 +20,7 @@ wget -nc https://www.cpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Builder-0.
 NAME=perl-modules#perl-datetime-format-builder
 VERSION=0.82
 URL=https://www.cpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Builder-0.82.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

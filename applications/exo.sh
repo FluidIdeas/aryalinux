@@ -21,6 +21,7 @@ wget -nc http://archive.xfce.org/src/xfce/exo/0.12/exo-0.12.8.tar.bz2
 NAME=exo
 VERSION=0.12.8
 URL=http://archive.xfce.org/src/xfce/exo/0.12/exo-0.12.8.tar.bz2
+SECTION="XFCE"
 
 if [ ! -z $URL ]
 then

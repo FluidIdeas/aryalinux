@@ -18,6 +18,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/proftpd-1.3.6-co
 NAME=proftpd
 VERSION=1.3.6
 URL=ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.6.tar.gz
+SECTION="Servers"
 
 if [ ! -z $URL ]
 then

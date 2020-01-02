@@ -26,6 +26,7 @@ wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Specio-0.43.tar.gz
 NAME=perl-deps#perl-specio
 VERSION=0.43
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Specio-0.43.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

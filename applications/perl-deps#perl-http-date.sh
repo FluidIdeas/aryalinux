@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/G/GA/GAAS/HTTP-Date-6.02.tar.gz
 NAME=perl-deps#perl-http-date
 VERSION=6.02
 URL=https://cpan.metacpan.org/authors/id/G/GA/GAAS/HTTP-Date-6.02.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

@@ -17,6 +17,7 @@ wget -nc https://www.cpan.org/authors/id/P/PL/PLICEASE/File-Which-1.23.tar.gz
 NAME=perl-modules#perl-file-which
 VERSION=1.23
 URL=https://www.cpan.org/authors/id/P/PL/PLICEASE/File-Which-1.23.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

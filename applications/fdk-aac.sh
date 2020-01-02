@@ -17,6 +17,7 @@ wget -nc https://downloads.sourceforge.net/opencore-amr/fdk-aac-2.0.0.tar.gz
 NAME=fdk-aac
 VERSION=2.0.0
 URL=https://downloads.sourceforge.net/opencore-amr/fdk-aac-2.0.0.tar.gz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

@@ -17,6 +17,7 @@ wget -nc https://downloads.sourceforge.net/scons/scons-3.1.1.tar.gz
 NAME=scons
 VERSION=3.1.1
 URL=https://downloads.sourceforge.net/scons/scons-3.1.1.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

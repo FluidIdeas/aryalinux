@@ -20,6 +20,7 @@ wget -nc http://www.docbook.org/xml/4.5/docbook-xml-4.5.zip
 NAME=docbook
 VERSION=4.5
 URL=http://www.docbook.org/xml/4.5/docbook-xml-4.5.zip
+SECTION="Printing and Typesetting"
 
 if [ ! -z $URL ]
 then

@@ -18,6 +18,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/lua-5.2.4-shared
 NAME=lua52
 VERSION=5.2.4
 URL=http://www.lua.org/ftp/lua-5.2.4.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

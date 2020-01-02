@@ -18,6 +18,7 @@ wget -nc https://github.com/ice-wm/icewm/archive/1.6.1/icewm-1.6.1.tar.gz
 NAME=icewm
 VERSION=1.6.1
 URL=https://github.com/ice-wm/icewm/archive/1.6.1/icewm-1.6.1.tar.gz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

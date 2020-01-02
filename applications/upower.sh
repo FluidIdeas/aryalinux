@@ -21,6 +21,7 @@ wget -nc https://gitlab.freedesktop.org/upower/upower/uploads/c438511024b9bc5a90
 NAME=upower
 VERSION=0.99.10
 URL=https://gitlab.freedesktop.org/upower/upower/uploads/c438511024b9bc5a904f8775cfc8e4c4/upower-0.99.10.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

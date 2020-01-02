@@ -19,6 +19,7 @@ wget -nc ftp://ftp.x.org/pub/individual/
 NAME=x7legacy
 VERSION=
 URL=https://www.x.org/pub/individual/
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

@@ -19,6 +19,7 @@ wget -nc ftp://ftp.gnu.org/gnu/gdb/gdb-8.3.tar.xz
 NAME=gdb
 VERSION=8.3
 URL=https://ftp.gnu.org/gnu/gdb/gdb-8.3.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

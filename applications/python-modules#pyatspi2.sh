@@ -20,6 +20,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pyatspi/2.32/pyatspi-2.32.1.tar.x
 NAME=python-modules#pyatspi2
 VERSION=2.32.1
 URL=http://ftp.gnome.org/pub/gnome/sources/pyatspi/2.32/pyatspi-2.32.1.tar.xz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

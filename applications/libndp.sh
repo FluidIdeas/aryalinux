@@ -17,6 +17,7 @@ wget -nc http://libndp.org/files/libndp-1.7.tar.gz
 NAME=libndp
 VERSION=1.7
 URL=http://libndp.org/files/libndp-1.7.tar.gz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

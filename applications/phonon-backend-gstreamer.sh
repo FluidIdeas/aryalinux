@@ -24,6 +24,7 @@ wget -nc http://download.kde.org/stable/phonon/phonon-backend-gstreamer/4.9.1/ph
 NAME=phonon-backend-gstreamer
 VERSION=4.9.1
 URL=http://download.kde.org/stable/phonon/phonon-backend-gstreamer/4.9.1/phonon-backend-gstreamer-4.9.1.tar.xz
+SECTION="KDE"
 
 if [ ! -z $URL ]
 then

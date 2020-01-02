@@ -24,6 +24,7 @@ wget -nc http://archive.xfce.org/src/xfce/thunar/1.8/Thunar-1.8.9.tar.bz2
 NAME=thunar
 VERSION=1.8.9
 URL=http://archive.xfce.org/src/xfce/thunar/1.8/Thunar-1.8.9.tar.bz2
+SECTION="XFCE"
 
 if [ ! -z $URL ]
 then

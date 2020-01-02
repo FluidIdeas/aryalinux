@@ -18,6 +18,7 @@ wget -nc https://github.com/uclouvain/openjpeg/archive/v2.3.1/openjpeg-2.3.1.tar
 NAME=openjpeg2
 VERSION=2.3.1
 URL=https://github.com/uclouvain/openjpeg/archive/v2.3.1/openjpeg-2.3.1.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

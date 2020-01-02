@@ -19,6 +19,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libdazzle/3.32/libdazzle-3.32.3.t
 NAME=libdazzle
 VERSION=3.32.3
 URL=http://ftp.gnome.org/pub/gnome/sources/libdazzle/3.32/libdazzle-3.32.3.tar.xz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

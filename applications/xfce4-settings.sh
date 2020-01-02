@@ -25,6 +25,7 @@ wget -nc http://archive.xfce.org/src/xfce/xfce4-settings/4.14/xfce4-settings-4.1
 NAME=xfce4-settings
 VERSION=4.14.1
 URL=http://archive.xfce.org/src/xfce/xfce4-settings/4.14/xfce4-settings-4.14.1.tar.bz2
+SECTION="XFCE"
 
 if [ ! -z $URL ]
 then

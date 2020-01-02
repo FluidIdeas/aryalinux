@@ -25,6 +25,7 @@ wget -nc http://download.kde.org/stable/applications/19.08.0/src/kwave-19.08.0.t
 NAME=kwave
 VERSION=19.08.0
 URL=http://download.kde.org/stable/applications/19.08.0/src/kwave-19.08.0.tar.xz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

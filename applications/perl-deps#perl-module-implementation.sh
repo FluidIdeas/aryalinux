@@ -21,6 +21,7 @@ wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Module-Implementation
 NAME=perl-deps#perl-module-implementation
 VERSION=0.09
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Module-Implementation-0.09.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

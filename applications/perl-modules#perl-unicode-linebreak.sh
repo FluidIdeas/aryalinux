@@ -19,6 +19,7 @@ wget -nc https://www.cpan.org/authors/id/N/NE/NEZUMI/Unicode-LineBreak-2019.001.
 NAME=perl-modules#perl-unicode-linebreak
 VERSION=2019.001
 URL=https://www.cpan.org/authors/id/N/NE/NEZUMI/Unicode-LineBreak-2019.001.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

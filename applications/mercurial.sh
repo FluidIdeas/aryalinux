@@ -18,6 +18,7 @@ wget -nc https://www.mercurial-scm.org/release/mercurial-5.1.tar.gz
 NAME=mercurial
 VERSION=5.1
 URL=https://www.mercurial-scm.org/release/mercurial-5.1.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

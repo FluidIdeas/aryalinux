@@ -17,6 +17,7 @@ wget -nc https://github.com/libarchive/libarchive/releases/download/v3.4.0/libar
 NAME=libarchive
 VERSION=3.4.0
 URL=https://github.com/libarchive/libarchive/releases/download/v3.4.0/libarchive-3.4.0.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

@@ -18,6 +18,7 @@ wget -nc ftp://ftp.gnu.org/gnu/which/which-2.21.tar.gz
 NAME=which
 VERSION=2.21
 URL=https://ftp.gnu.org/gnu/which/which-2.21.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

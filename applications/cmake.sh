@@ -20,6 +20,7 @@ wget -nc https://cmake.org/files/v3.15/cmake-3.15.2.tar.gz
 NAME=cmake
 VERSION=3.15.2
 URL=https://cmake.org/files/v3.15/cmake-3.15.2.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

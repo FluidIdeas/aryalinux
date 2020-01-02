@@ -21,6 +21,7 @@ wget -nc https://releases.pagure.org/newt/newt-0.52.21.tar.gz
 NAME=newt
 VERSION=0.52.21
 URL=https://releases.pagure.org/newt/newt-0.52.21.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

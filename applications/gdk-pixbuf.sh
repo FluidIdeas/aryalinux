@@ -24,6 +24,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.38/gdk-pixbuf-2.38.1
 NAME=gdk-pixbuf
 VERSION=2.38.1
 URL=http://ftp.gnome.org/pub/gnome/sources/gdk-pixbuf/2.38/gdk-pixbuf-2.38.1.tar.xz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

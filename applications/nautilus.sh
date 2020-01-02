@@ -31,6 +31,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/nautilus/3.32/nautilus-3.32.3.tar
 NAME=nautilus
 VERSION=3.32.3
 URL=http://ftp.gnome.org/pub/gnome/sources/nautilus/3.32/nautilus-3.32.3.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

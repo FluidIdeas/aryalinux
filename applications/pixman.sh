@@ -17,6 +17,7 @@ wget -nc https://www.cairographics.org/releases/pixman-0.38.4.tar.gz
 NAME=pixman
 VERSION=0.38.4
 URL=https://www.cairographics.org/releases/pixman-0.38.4.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

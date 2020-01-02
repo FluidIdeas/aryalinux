@@ -18,6 +18,7 @@ wget -nc https://w1.fi/releases/wpa_supplicant-2.9.tar.gz
 NAME=wpa_supplicant
 VERSION=2.9
 URL=https://w1.fi/releases/wpa_supplicant-2.9.tar.gz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

@@ -18,6 +18,7 @@ wget -nc ftp://anduin.linuxfromscratch.org/BLFS/compface/compface-1.5.2.tar.gz
 NAME=compface
 VERSION=1.5.2
 URL=http://anduin.linuxfromscratch.org/BLFS/compface/compface-1.5.2.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

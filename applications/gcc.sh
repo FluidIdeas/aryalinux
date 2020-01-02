@@ -19,6 +19,7 @@ wget -nc ftp://ftp.gnu.org/gnu/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz
 NAME=gcc
 VERSION=9.2.0
 URL=https://ftp.gnu.org/gnu/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

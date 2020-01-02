@@ -18,6 +18,7 @@ cd $SOURCE_DIR
 NAME=x7lib
 VERSION=
 
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

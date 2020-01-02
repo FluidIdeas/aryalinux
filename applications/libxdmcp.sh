@@ -19,6 +19,7 @@ wget -nc ftp://ftp.x.org/pub/individual/lib/libXdmcp-1.1.3.tar.bz2
 NAME=libxdmcp
 VERSION=1.1.3
 URL=https://www.x.org/pub/individual/lib/libXdmcp-1.1.3.tar.bz2
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

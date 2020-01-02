@@ -21,6 +21,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgsf/1.14/libgsf-1.14.46.tar.xz
 NAME=libgsf
 VERSION=1.14.46
 URL=http://ftp.gnome.org/pub/gnome/sources/libgsf/1.14/libgsf-1.14.46.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

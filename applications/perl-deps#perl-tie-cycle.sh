@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Tie-Cycle-1.225.tar.gz
 NAME=perl-deps#perl-tie-cycle
 VERSION=1.225
 URL=https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Tie-Cycle-1.225.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

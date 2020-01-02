@@ -20,6 +20,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/xindy-2.5.1-upst
 NAME=xindy
 VERSION=2.5.1
 URL=http://tug.ctan.org/support/xindy/base/xindy-2.5.1.tar.gz
+SECTION="Printing and Typesetting"
 
 if [ ! -z $URL ]
 then

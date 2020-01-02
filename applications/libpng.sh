@@ -18,6 +18,7 @@ wget -nc https://downloads.sourceforge.net/sourceforge/libpng-apng/libpng-1.6.37
 NAME=libpng
 VERSION=1.6.37
 URL=https://downloads.sourceforge.net/libpng/libpng-1.6.37.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

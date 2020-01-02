@@ -21,6 +21,7 @@ wget -nc http://feh.finalrewind.org/feh-3.2.1.tar.bz2
 NAME=feh
 VERSION=3.2.1
 URL=http://feh.finalrewind.org/feh-3.2.1.tar.bz2
+SECTION="Office Productivity"
 
 if [ ! -z $URL ]
 then

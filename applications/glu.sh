@@ -18,6 +18,7 @@ wget -nc ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.1.tar.xz
 NAME=glu
 VERSION=9.0.1
 URL=ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.1.tar.xz
+SECTION="X-Server"
 
 if [ ! -z $URL ]
 then

@@ -21,6 +21,7 @@ wget -nc https://downloads.sourceforge.net/lxde/lxsession-0.5.4.tar.xz
 NAME=lxsession
 VERSION=0.5.4
 URL=https://downloads.sourceforge.net/lxde/lxsession-0.5.4.tar.xz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

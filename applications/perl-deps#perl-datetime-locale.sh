@@ -25,6 +25,7 @@ wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Locale-1.24.
 NAME=perl-deps#perl-datetime-locale
 VERSION=1.24
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Locale-1.24.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

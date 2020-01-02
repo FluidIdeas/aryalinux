@@ -20,6 +20,7 @@ wget -nc ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.4.7/source/mariadb-10.4.7
 NAME=mariadb
 VERSION=10.4.7
 URL=https://downloads.mariadb.org/interstitial/mariadb-10.4.7/source/mariadb-10.4.7.tar.gz
+SECTION="Servers"
 
 if [ ! -z $URL ]
 then

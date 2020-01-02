@@ -17,6 +17,7 @@ wget -nc https://gitlab.com/soundtouch/soundtouch/-/archive/2.1.0/soundtouch-2.1
 NAME=soundtouch
 VERSION=2.1.0
 URL=https://gitlab.com/soundtouch/soundtouch/-/archive/2.1.0/soundtouch-2.1.0.tar.bz2
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

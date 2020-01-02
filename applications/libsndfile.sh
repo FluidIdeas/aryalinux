@@ -20,6 +20,7 @@ wget -nc http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.28.tar.gz
 NAME=libsndfile
 VERSION=1.0.28
 URL=http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.28.tar.gz
+SECTION="Multimedia"
 
 if [ ! -z $URL ]
 then

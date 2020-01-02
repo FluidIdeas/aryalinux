@@ -18,6 +18,7 @@ wget -nc http://files.itstool.org/itstool/itstool-2.0.6.tar.bz2
 NAME=itstool
 VERSION=2.0.6
 URL=http://files.itstool.org/itstool/itstool-2.0.6.tar.bz2
+SECTION="Printing and Typesetting"
 
 if [ ! -z $URL ]
 then

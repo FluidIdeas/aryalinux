@@ -20,6 +20,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/polkit-gnome/0.105/polkit-gnome-0
 NAME=polkit-gnome
 VERSION=0.105
 URL=http://ftp.gnome.org/pub/gnome/sources/polkit-gnome/0.105/polkit-gnome-0.105.tar.xz
+SECTION="Gnome"
 
 if [ ! -z $URL ]
 then

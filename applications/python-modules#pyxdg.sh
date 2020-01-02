@@ -17,6 +17,7 @@ wget -nc https://people.freedesktop.org/~takluyver/pyxdg-0.25.tar.gz
 NAME=python-modules#pyxdg
 VERSION=0.25
 URL=https://people.freedesktop.org/~takluyver/pyxdg-0.25.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

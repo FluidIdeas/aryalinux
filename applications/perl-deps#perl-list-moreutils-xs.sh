@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-XS-0.4
 NAME=perl-deps#perl-list-moreutils-xs
 VERSION=0.428
 URL=https://cpan.metacpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-XS-0.428.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

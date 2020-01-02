@@ -17,6 +17,7 @@ wget -nc https://www.nano-editor.org/dist/v4/nano-4.4.tar.xz
 NAME=nano
 VERSION=4.4
 URL=https://www.nano-editor.org/dist/v4/nano-4.4.tar.xz
+SECTION="Editors"
 
 if [ ! -z $URL ]
 then

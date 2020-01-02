@@ -19,6 +19,7 @@ wget -nc ftp://ftp.gnu.org/gnu/wget/wget-1.20.3.tar.gz
 NAME=wget
 VERSION=1.20.3
 URL=https://ftp.gnu.org/gnu/wget/wget-1.20.3.tar.gz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

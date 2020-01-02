@@ -20,6 +20,7 @@ wget -nc https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Build-1.79.tar
 NAME=perl-deps#perl-alien-build
 VERSION=1.79
 URL=https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Build-1.79.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

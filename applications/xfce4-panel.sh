@@ -21,6 +21,7 @@ wget -nc http://archive.xfce.org/src/xfce/xfce4-panel/4.14/xfce4-panel-4.14.0.ta
 NAME=xfce4-panel
 VERSION=4.14.0
 URL=http://archive.xfce.org/src/xfce/xfce4-panel/4.14/xfce4-panel-4.14.0.tar.bz2
+SECTION="XFCE"
 
 if [ ! -z $URL ]
 then

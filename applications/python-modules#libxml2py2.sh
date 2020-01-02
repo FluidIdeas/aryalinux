@@ -20,6 +20,7 @@ wget -nc ftp://xmlsoft.org/libxml2/libxml2-2.9.9.tar.gz
 NAME=python-modules#libxml2py2
 VERSION=2.9.9
 URL=http://xmlsoft.org/sources/libxml2-2.9.9.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

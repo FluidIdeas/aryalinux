@@ -28,6 +28,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gedit/3.32/gedit-3.32.2.tar.xz
 NAME=gedit
 VERSION=3.32.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gedit/3.32/gedit-3.32.2.tar.xz
+SECTION="Editors"
 
 if [ ! -z $URL ]
 then

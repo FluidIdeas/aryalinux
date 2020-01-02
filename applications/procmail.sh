@@ -19,6 +19,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/procmail-3.22-co
 NAME=procmail
 VERSION=3.22
 URL=http://ftp.osuosl.org/pub/blfs/conglomeration/procmail/procmail-3.22.tar.gz
+SECTION="Networking"
 
 if [ ! -z $URL ]
 then

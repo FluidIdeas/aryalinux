@@ -19,6 +19,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/mypaint-brushes-
 NAME=mypaint-brushes
 VERSION=1.3.0
 URL=https://github.com/Jehan/mypaint-brushes/archive/v1.3.0/mypaint-brushes-v1.3.0.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

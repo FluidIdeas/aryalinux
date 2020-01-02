@@ -18,6 +18,7 @@ wget -nc https://github.com/g-truc/glm/archive/0.9.9.5/glm-0.9.9.5.tar.gz
 NAME=glm
 VERSION=0.9.9.5
 URL=https://github.com/g-truc/glm/archive/0.9.9.5/glm-0.9.9.5.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

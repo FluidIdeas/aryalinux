@@ -17,6 +17,7 @@ wget -nc https://downloads.sourceforge.net/hdparm/hdparm-9.58.tar.gz
 NAME=hdparm
 VERSION=9.58
 URL=https://downloads.sourceforge.net/hdparm/hdparm-9.58.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

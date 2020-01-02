@@ -19,6 +19,7 @@ wget -nc https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0201.tar
 NAME=perl-deps#perl-xml-libxml
 VERSION=2.0201
 URL=https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0201.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

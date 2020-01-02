@@ -17,6 +17,7 @@ wget -nc http://0pointer.de/lennart/projects/libdaemon/libdaemon-0.14.tar.gz
 NAME=libdaemon
 VERSION=0.14
 URL=http://0pointer.de/lennart/projects/libdaemon/libdaemon-0.14.tar.gz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then

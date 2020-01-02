@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/C/CO/CORION/Test-Without-Module-0.
 NAME=perl-deps#perl-test-without-module
 VERSION=0.20
 URL=https://cpan.metacpan.org/authors/id/C/CO/CORION/Test-Without-Module-0.20.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

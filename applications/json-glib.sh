@@ -19,6 +19,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/json-glib/1.4/json-glib-1.4.4.tar
 NAME=json-glib
 VERSION=1.4.4
 URL=http://ftp.gnome.org/pub/gnome/sources/json-glib/1.4/json-glib-1.4.4.tar.xz
+SECTION="Miscellaneous"
 
 if [ ! -z $URL ]
 then
