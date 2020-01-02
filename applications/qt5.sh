@@ -84,7 +84,7 @@ sed -i 's/python /python3 /' qtdeclarative/qtdeclarative.pro \
             -examplesdir    /usr/share/doc/qt5/examples &&
 make -j$(nproc)
 sudo make install
-find $QT5PREFIX/ -name \*.prl \
+sudo find $QT5PREFIX/ -name \*.prl \
    -exec sudo sed -i -e '/^QMAKE_PRL_BUILD_DIR/d' {} \;
 export QT5BINDIR=$QT5PREFIX/bin
 for file in moc uic rcc qmake lconvert lrelease lupdate; do
