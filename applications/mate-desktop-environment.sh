@@ -109,6 +109,7 @@ set +h
 #REQ:aryalinux-gtk-themes
 #REQ:aryalinux-icons
 #REQ:blueman
+#REQ:aryalinux-mate-settings
 
 
 cd $SOURCE_DIR
