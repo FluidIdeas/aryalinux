@@ -20,6 +20,7 @@ wget -nc https://sourceforge.net/projects/dejavu/files/dejavu/2.37/dejavu-fonts-
 NAME=dejavu-fonts
 VERSION=2.37
 URL=https://sourceforge.net/projects/dejavu/files/dejavu/2.37/dejavu-fonts-2.37.tar.bz2
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

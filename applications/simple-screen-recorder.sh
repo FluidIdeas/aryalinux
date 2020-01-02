@@ -18,7 +18,7 @@ cd $SOURCE_DIR
 wget -nc https://github.com/MaartenBaert/ssr/archive/0.3.11.tar.gz
 
 
-NAME=ssr
+NAME=simple-screen-recorder
 VERSION=0.3.11
 URL=https://github.com/MaartenBaert/ssr/archive/0.3.11.tar.gz
 
@@ -40,7 +40,7 @@ fi
 
 mkdir -pv build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=/usr -DWITH_QT5=1 -DWITH_PULSEAUDIO=1 -DWITH_JACK=1 .. &&
+cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DWITH_QT5=1 -DWITH_PULSEAUDIO=1 -DWITH_JACK=1 .. &&
 make
 sudo make install
 

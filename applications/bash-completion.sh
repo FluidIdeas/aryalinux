@@ -17,6 +17,7 @@ wget -nc https://github.com/scop/bash-completion/releases/download/2.8/bash-comp
 NAME=bash-completion
 VERSION=2.8
 URL=https://github.com/scop/bash-completion/releases/download/2.8/bash-completion-2.8.tar.xz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

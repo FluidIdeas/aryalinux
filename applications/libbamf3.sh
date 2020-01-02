@@ -21,6 +21,7 @@ wget -nc https://launchpad.net/bamf/0.5/0.5.4/+download/bamf-0.5.4.tar.gz
 NAME=libbamf3
 VERSION=0.5.4
 URL=https://launchpad.net/bamf/0.5/0.5.4/+download/bamf-0.5.4.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

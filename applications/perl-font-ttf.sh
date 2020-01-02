@@ -17,6 +17,7 @@ wget -nc https://cpan.metacpan.org/authors/id/B/BH/BHALLISSY/Font-TTF-1.06.tar.g
 NAME=perl-font-ttf
 VERSION=1.06
 URL=https://cpan.metacpan.org/authors/id/B/BH/BHALLISSY/Font-TTF-1.06.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

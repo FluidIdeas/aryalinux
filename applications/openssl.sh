@@ -17,6 +17,7 @@ wget -nc https://openssl.org/source/openssl-1.1.1a.tar.gz
 NAME=openssl
 VERSION=1.1.1a
 URL=https://openssl.org/source/openssl-1.1.1a.tar.gz
+SECTION="Security"
 
 if [ ! -z $URL ]
 then

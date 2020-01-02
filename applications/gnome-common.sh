@@ -18,6 +18,7 @@ wget -nc https://ftp.gnome.org/pub/GNOME/sources/gnome-common/3.18/gnome-common-
 NAME=gnome-common
 VERSION=0.31.0
 URL=https://ftp.gnome.org/pub/GNOME/sources/gnome-common/3.18/gnome-common-3.18.0.tar.xz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

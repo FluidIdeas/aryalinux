@@ -18,6 +18,7 @@ wget -nc https://ftp.gnome.org/pub/GNOME/sources/gnome-doc-utils/0.20/gnome-doc-
 NAME=gnome-doc-utils
 VERSION=0.20.10
 URL=https://ftp.gnome.org/pub/GNOME/sources/gnome-doc-utils/0.20/gnome-doc-utils-0.20.10.tar.xz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

@@ -17,6 +17,7 @@ wget -nc https://www.samba.org/ftp/tdb/tdb-1.3.17.tar.gz
 NAME=libtdb
 VERSION=1.3.17
 URL=https://www.samba.org/ftp/tdb/tdb-1.3.17.tar.gz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then

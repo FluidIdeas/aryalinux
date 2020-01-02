@@ -17,6 +17,7 @@ wget -nc https://www.samba.org/ftp/ccache/ccache-3.5.1a.tar.xz
 NAME=ccache
 VERSION=3.5.1
 URL=https://www.samba.org/ftp/ccache/ccache-3.5.1a.tar.xz
+SECTION="Others"
 
 if [ ! -z $URL ]
 then
