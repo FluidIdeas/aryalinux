@@ -24,12 +24,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/clementine-player/Clementine/releases/download/1.3.1/clementine-1.3.1.tar.xz
+wget -nc https://github.com/clementine-player/Clementine/releases/download/1.4.0rc1/clementine-1.4.0rc1.tar.xz
 
 
 NAME=clementine
-VERSION=1.3.1
-URL=https://github.com/clementine-player/Clementine/releases/download/1.3.1/clementine-1.3.1.tar.xz
+VERSION=1.4.0rc1
+URL=https://github.com/clementine-player/Clementine/releases/download/1.4.0rc1/clementine-1.4.0rc1.tar.xz
 
 if [ ! -z $URL ]
 then
@@ -49,7 +49,7 @@ fi
 
 mkdir build &&
 cd build &&
-cmake -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_WITH_QT4=off .. &&
+cmake -DCMAKE_INSTALL_PREFIX=/usr .. &&
 make "-j`nproc`"
 sudo make install
 
