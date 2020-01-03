@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.ubuntu.com/ubuntu/pool/universe/libc/libcrypto++/libcrypto++_5.6.3.orig.tar.xz
+wget -nc https://github.com/weidai11/cryptopp/archive/CRYPTOPP_8_2_0.tar.gz
 
 
 NAME=libcrypto++
-VERSION=5.6.3
-URL=http://archive.ubuntu.com/ubuntu/pool/universe/libc/libcrypto++/libcrypto++_5.6.3.orig.tar.xz
+VERSION=8.2.0
+URL=https://github.com/weidai11/cryptopp/archive/CRYPTOPP_8_2_0.tar.gz
 
 if [ ! -z $URL ]
 then
