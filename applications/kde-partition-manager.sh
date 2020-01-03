@@ -17,7 +17,7 @@ wget -nc https://download.kde.org/stable/partitionmanager/4.0.0/src/partitionman
 
 NAME=kde-partition-manager
 VERSION=4.0.0
-
+URL=https://download.kde.org/stable/partitionmanager/4.0.0/src/partitionmanager-4.0.0.tar.xz
 
 if [ ! -z $URL ]
 then
