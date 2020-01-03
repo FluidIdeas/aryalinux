@@ -34,7 +34,7 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr  &&
+./autogen.sh --prefix=/usr  &&
 make "-j`nproc`"
 sudo make install
 
