@@ -12,11 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-##DOWNLOADS##
+wget -nc https://download.kde.org/stable/partitionmanager/4.0.0/src/partitionmanager-4.0.0.tar.xz
+
 
 NAME=kde-partition-manager
 VERSION=4.0.0
-##URL##
+
 
 if [ ! -z $URL ]
 then
