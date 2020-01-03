@@ -7,18 +7,16 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:kde-desktop-environment
-#REQ:kpmcore
 
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/stable/partitionmanager/4.0.0/src/partitionmanager-4.0.0.tar.xz
+wget -nc https://download.kde.org/stable/kpmcore/4.0.1/src/kpmcore-4.0.1.tar.xz
 
 
-NAME=kde-partition-manager
-VERSION=4.0.0
-URL=https://download.kde.org/stable/partitionmanager/4.0.0/src/partitionmanager-4.0.0.tar.xz
+NAME=kpmcore
+VERSION=4.0.1
+URL=https://download.kde.org/stable/kpmcore/4.0.1/src/kpmcore-4.0.1.tar.xz
 
 if [ ! -z $URL ]
 then
