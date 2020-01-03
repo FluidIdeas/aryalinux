@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/libimobiledevice/libplist/archive/2.0.0.tar.gz
+wget -nc https://github.com/libimobiledevice/libplist/archive/2.1.0.tar.gz
 
 
 NAME=libplist
-VERSION=2.0.0
-URL=https://github.com/libimobiledevice/libplist/archive/2.0.0.tar.gz
+VERSION=2.1.0
+URL=https://github.com/libimobiledevice/libplist/archive/2.1.0.tar.gz
 
 if [ ! -z $URL ]
 then
