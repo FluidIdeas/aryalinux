@@ -33,6 +33,11 @@ set +h
 #REQ:dolphin-plugins
 #REQ:kcalc
 #REQ:gwenview5
+#REQ:aryalinux-gtk-themes
+#REQ:aryalinux-google-fonts
+#REQ:aryalinux-wallpapers
+#REQ:aryalinux-icons
+#REQ:aryalinux-kde-settings
 
 
 cd $SOURCE_DIR
