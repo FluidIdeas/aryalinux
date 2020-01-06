@@ -26,6 +26,7 @@ set +h
 #REQ:khelpcenter
 #REQ:konsole5
 #REQ:lightdm
+#REQ:lightdm-gtk-greeter
 #REQ:libnotify
 #REQ:gvfs
 #REQ:udisks2
