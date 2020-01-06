@@ -35,7 +35,7 @@ cd $DIRECTORY
 fi
 
 sudo tar xf aryalinux-kde-defaults-2.0.tar.xz -C /
-sudo cp -r /etc/skel/{.config,.Xresources}* ~
+sudo cp -r /etc/skel/{.gtkrc-2.0-kde4,.gtkrc-2.0,.config,.Xresources}* ~
 sudo chown -R $USER:$USER ~
 
 
