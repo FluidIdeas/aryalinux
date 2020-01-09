@@ -16,7 +16,7 @@ wget -nc https://download.filezilla-project.org/client/FileZilla_3.46.3_src.tar.
 
 NAME=filezilla
 VERSION=3.46.3
-
+URL=https://download.filezilla-project.org/client/FileZilla_3.46.3_src.tar.bz2
 
 if [ ! -z $URL ]
 then
