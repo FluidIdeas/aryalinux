@@ -7,19 +7,16 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:libfilezilla
-#REQ:wxwidgets
-#REQ:pugixml
 
 
 cd $SOURCE_DIR
 
-wget -nc https://download.filezilla-project.org/client/FileZilla_3.46.3_src.tar.bz2
+wget -nc http://github.com/zeux/pugixml/releases/download/v1.10/pugixml-1.10.tar.gz
 
 
-NAME=filezilla
-VERSION=3.46.3
-URL=https://download.filezilla-project.org/client/FileZilla_3.46.3_src.tar.bz2
+NAME=pugixml
+VERSION=1.10
+URL=http://github.com/zeux/pugixml/releases/download/v1.10/pugixml-1.10.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -37,7 +34,12 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr && make -j$(nproc)
+mkdir build
+cd build
+
+cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+make -j$(nproc)
+
 sudo make install
 
 

@@ -7,19 +7,16 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:libfilezilla
-#REQ:wxwidgets
-#REQ:pugixml
 
 
 cd $SOURCE_DIR
 
-wget -nc https://download.filezilla-project.org/client/FileZilla_3.46.3_src.tar.bz2
+wget -nc https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.4/wxWidgets-3.0.4.tar.bz2
 
 
-NAME=filezilla
-VERSION=3.46.3
-URL=https://download.filezilla-project.org/client/FileZilla_3.46.3_src.tar.bz2
+NAME=wxwidgets
+VERSION=3.0.4
+URL=https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.4/wxWidgets-3.0.4.tar.bz2
 
 if [ ! -z $URL ]
 then
