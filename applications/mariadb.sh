@@ -177,7 +177,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m755 -o mysql -g mysql -d /run/mysqld &&
-mysqld_safe --user=mysql 2>&1 >/dev/null && sleep 5 &
+mysqld_safe --user=mysql 2>&1 >/dev/null & sleep 10 && echo "Lets try connecting" &
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
