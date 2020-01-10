@@ -17,7 +17,7 @@ DESCRIPTION="Chromium is an open source browser from which google chrome is fork
 
 #REQ:git
 #REQ:cups
-#REQ:GConf
+#REQ:gconf
 
 cd $SOURCE_DIR
 git clone https://github.com/scheib/chromium-latest-linux.git

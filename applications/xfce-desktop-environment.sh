@@ -35,7 +35,6 @@ set +h
 #REQ:aryalinux-wallpapers
 #REQ:aryalinux-icons
 #REQ:lightdm
-#REQ:lightdm-gtk-greeter
 #REQ:xfce4-dev-tools
 #REQ:network-manager-applet
 #REQ:cups

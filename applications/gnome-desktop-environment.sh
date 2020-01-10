@@ -61,7 +61,6 @@ set +h
 #REQ:dash-to-panel
 #REQ:dash-to-dock
 #REQ:gnome-session
-#REQ:lightdm
 #REQ:lightdm-gtk-greeter
 #REQ:gnome-user-docs
 #REQ:baobab
