@@ -8,6 +8,8 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:pulseaudio
+#REQ:gtkmm3
+#REQ:libsigc
 
 
 cd $SOURCE_DIR
