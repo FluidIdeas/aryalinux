@@ -7,18 +7,16 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:scons
-#REQ:pyyaml
 
 
 cd $SOURCE_DIR
 
-wget -nc https://fastdl.mongodb.org/src/mongodb-src-r4.2.2.tar.gz
+wget -nc https://github.com/yaml/pyyaml/archive/5.3.tar.gz
 
 
-NAME=mongodb
-VERSION=4.2.2
-URL=https://fastdl.mongodb.org/src/mongodb-src-r4.2.2.tar.gz
+NAME=pyyaml
+VERSION=5.3
+URL=https://github.com/yaml/pyyaml/archive/5.3.tar.gz
 
 if [ ! -z $URL ]
 then
@@ -36,12 +34,12 @@ fi
 cd $DIRECTORY
 fi
 
-sudo pip3 install psutil
-sudo pip install psutil
-sudo pip3 install yaml
-sudo pip install yaml
-scons core --disable-warnings-as-errors -j$(nproc) install &&
-sudo cp -v build/opt/mongo/mongo* /usr/bin
+python setup.py build --prefix=/usr
+sudo python setup.py install --prefix=/usr
+
+python3 setup.py build --prefix=/usr
+sudo python3 setup.py install --prefix=/usr
+
 
 
 
