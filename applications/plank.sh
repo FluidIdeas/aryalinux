@@ -39,6 +39,11 @@ fi
 ./configure --prefix=/usr &&
 make
 sudo make install
+mkdir -pv /usr/share/plank/themes
+git clone https://github.com/kennyh0727/plank-themes
+cd plank-themes
+cp -r {anti-shade,paperterial,shade} /usr/share/plank/themes/
+cd ..
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
