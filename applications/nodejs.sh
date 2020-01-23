@@ -7,23 +7,16 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:python2
-#REQ:which
-#REQ:c-ares
-#REQ:icu
-#REQ:libuv
-#REQ:nghttp2
+#REQ:openjdk
 
 
 cd $SOURCE_DIR
 
-wget -nc https://nodejs.org/dist/v10.16.3/node-v10.16.3.tar.xz
 
 
 NAME=nodejs
-VERSION=10.16.3
-URL=https://nodejs.org/dist/v10.16.3/node-v10.16.3.tar.xz
-SECTION="Miscellaneous"
+VERSION=1.9.14
+
 
 if [ ! -z $URL ]
 then
@@ -41,27 +34,15 @@ fi
 cd $DIRECTORY
 fi
 
-echo $USER > /tmp/currentuser
+version="12.14.1"
+wget https://nodejs.org/dist/v$version/node-v$version-linux-x64.tar.xz
+dir=$(tar tf node-v$version-linux-x64.tar.xz | cut -d/ -f1 | uniq)
+sudo tar xf node-v$version-linux-x64.tar.xz -C /opt/
+sudo tee /etc/profile.d/nodejs.sh<<"EOF"
+export PATH=$PATH:/opt/node-dir/bin
+EOF
 
-
-./configure --prefix=/usr                  \
-            --shared-cares                 \
-            --shared-libuv                 \
-            --shared-nghttp2               \
-            --shared-openssl               \
-            --shared-zlib                  \
-            --with-intl=system-icu         &&
-make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-ln -sf node /usr/share/doc/node-10.16.3
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
+sudo sed -i "s@node-dir@$dir@g" /etc/profile.d/nodejs.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
