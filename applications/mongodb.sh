@@ -40,8 +40,8 @@ sudo pip3 install psutil
 sudo pip install psutil
 sudo pip3 install Cheetah3
 sudo pip install Cheetah
-groupadd -g 49 mongodb &&
-useradd -c "MongoDB User" -g mongodb -d /var/lib/mongodb \
+sudo groupadd -g 49 mongodb &&
+sudo useradd -c "MongoDB User" -g mongodb -d /var/lib/mongodb \
         -u 49 mongodb
 sudo mkdir -pv /var/lib/mongodb/
 sudo mkdir -pv /var/run/mongodb/
