@@ -38,8 +38,8 @@ fi
 
 sudo pip3 install psutil
 sudo pip install psutil
-sudo pip3 install yaml
-sudo pip install yaml
+sudo pip3 install Cheetah3
+sudo pip install Cheetah
 scons core --disable-warnings-as-errors -j$(nproc) install &&
 sudo cp -v build/opt/mongo/mongo* /usr/bin
 
