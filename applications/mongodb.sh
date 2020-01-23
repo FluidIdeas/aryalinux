@@ -35,6 +35,8 @@ fi
 cd $DIRECTORY
 fi
 
+sudo pip3 install psutils
+sudo pip install psutils
 scons core --disable-warnings-as-errors -j$(nproc) install &&
 sudo cp -v build/opt/mongo/mongo* /usr/bin
 
