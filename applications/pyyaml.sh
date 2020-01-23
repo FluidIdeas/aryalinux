@@ -34,11 +34,11 @@ fi
 cd $DIRECTORY
 fi
 
-python setup.py build --prefix=/usr
-sudo python setup.py install --prefix=/usr
+python setup.py build
+sudo python setup.py install
 
-python3 setup.py build --prefix=/usr
-sudo python3 setup.py install --prefix=/usr
+python3 setup.py build
+sudo python3 setup.py install
 
 
 
