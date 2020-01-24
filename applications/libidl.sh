@@ -17,6 +17,7 @@ wget -nc http://ftp.gnome.org/pub/gnome/sources/libIDL/0.8/libIDL-0.8.14.tar.bz2
 NAME=libidl
 VERSION=0.8.14
 URL=http://ftp.gnome.org/pub/gnome/sources/libIDL/0.8/libIDL-0.8.14.tar.bz2
+DESCRIPTION="The libIDL package contains libraries for Interface Definition Language files. This is a specification for defining portable interfaces."
 
 if [ ! -z $URL ]
 then

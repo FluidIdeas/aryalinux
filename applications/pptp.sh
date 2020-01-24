@@ -18,6 +18,7 @@ wget -nc https://sourceforge.net/projects/pptpclient/files/pptp/pptp-1.10.0/pptp
 NAME=pptp
 VERSION=1.10.0
 URL=https://sourceforge.net/projects/pptpclient/files/pptp/pptp-1.10.0/pptp-1.10.0.tar.gz
+DESCRIPTION="Linux and FreeBSD client for the proprietary Microsoft Point-to-Point tunneling protocol, PPTP"
 
 if [ ! -z $URL ]
 then

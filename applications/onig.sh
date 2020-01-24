@@ -17,6 +17,7 @@ wget -nc https://github.com/kkos/oniguruma/releases/download/v6.9.4/onig-6.9.4.t
 NAME=onig
 VERSION=6.9.4
 URL=https://github.com/kkos/oniguruma/releases/download/v6.9.4/onig-6.9.4.tar.gz
+DESCRIPTION="Oniguruma is a library for working with regular expressions."
 
 if [ ! -z $URL ]
 then

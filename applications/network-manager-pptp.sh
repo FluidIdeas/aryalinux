@@ -17,6 +17,7 @@ wget -nc https://ftp.gnome.org/pub/gnome/sources/NetworkManager-pptp/1.2/Network
 NAME=network-manager-pptp
 VERSION=1.2.8
 URL=https://ftp.gnome.org/pub/gnome/sources/NetworkManager-pptp/1.2/NetworkManager-pptp-1.2.8.tar.xz
+DESCRIPTION="Network Manager plugin for pptp"
 
 if [ ! -z $URL ]
 then

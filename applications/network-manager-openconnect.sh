@@ -17,6 +17,7 @@ wget -nc https://ftp.acc.umu.se/pub/gnome/sources/NetworkManager-openconnect/1.2
 NAME=network-manager-openconnect
 VERSION=1.2.6
 URL=https://ftp.acc.umu.se/pub/gnome/sources/NetworkManager-openconnect/1.2/NetworkManager-openconnect-1.2.6.tar.xz
+DESCRIPTION="Network Manager plugin for openconnect"
 
 if [ ! -z $URL ]
 then

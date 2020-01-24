@@ -17,6 +17,7 @@ wget -nc https://github.com/jackaudio/jack2/releases/download/v1.9.12/jack2-1.9.
 NAME=jack2
 VERSION=1.9.12
 URL=https://github.com/jackaudio/jack2/releases/download/v1.9.12/jack2-1.9.12.tar.gz
+DESCRIPTION="JACK2 aka jackdmp is a C++ version of the JACK low-latency audio server for multi-processor machines. It is a new implementation of the JACK server core features that aims at removing some limitations of the JACK1 design."
 
 if [ ! -z $URL ]
 then

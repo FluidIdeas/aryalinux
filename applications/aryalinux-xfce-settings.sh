@@ -17,6 +17,7 @@ wget -nc http://aryalinux.info/files/aryalinux-xfce-defaults-2.0.tar.xz
 NAME=aryalinux-xfce-settings
 VERSION=2.0
 
+DESCRIPTION="Default settings of the XFCE desktop environment in AryaLinux. Includes commands for setting themes, icons and fonts for the defualt XFCE desktop."
 
 if [ ! -z $URL ]
 then

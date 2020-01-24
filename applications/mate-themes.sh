@@ -17,6 +17,7 @@ wget -nc https://pub.mate-desktop.org/releases/themes/3.22/mate-themes-3.22.9.ta
 NAME=mate-themes
 VERSION=3.22.9
 URL=https://pub.mate-desktop.org/releases/themes/3.22/mate-themes-3.22.9.tar.xz
+DESCRIPTION="Themes for mate desktop environment"
 
 if [ ! -z $URL ]
 then

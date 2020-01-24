@@ -16,6 +16,7 @@ cd $SOURCE_DIR
 NAME=kernel-headers
 VERSION=current
 
+DESCRIPTION="The current linux kernel headers."
 
 if [ ! -z $URL ]
 then

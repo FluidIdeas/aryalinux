@@ -17,6 +17,7 @@ wget -nc https://download.gnome.org/sources/NetworkManager-openvpn/1.8/NetworkMa
 NAME=network-manager-openvpn
 VERSION=1.8.10
 URL=https://download.gnome.org/sources/NetworkManager-openvpn/1.8/NetworkManager-openvpn-1.8.10.tar.xz
+DESCRIPTION="Network Manager plugin for openvpn"
 
 if [ ! -z $URL ]
 then

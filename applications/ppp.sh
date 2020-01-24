@@ -16,6 +16,7 @@ cd $SOURCE_DIR
 NAME=ppp
 VERSION=2.4
 
+DESCRIPTION="ppp (Paul's PPP Package) is an open source package which implements the Point-to-Point Protocol (PPP) on Linux and Solaris systems."
 
 if [ ! -z $URL ]
 then

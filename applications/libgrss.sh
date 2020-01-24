@@ -7,16 +7,20 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:libsoup
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/libgrss-0.7.0-bugfixes-1.patch
 
 
 NAME=libgrss
 VERSION=0.7.0
-URL=http://ftp.acc.umu.se/pub/gnome/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
+URL=http://ftp.gnome.org/pub/gnome/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
+SECTION="Miscellaneous"
 DESCRIPTION="The libgrss package contains a library designed to manipulate RSS and Atom feeds."
 
 if [ ! -z $URL ]
@@ -35,9 +39,22 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr &&
+echo $USER > /tmp/currentuser
+
+
+patch -Np1 -i ../libgrss-0.7.0-bugfixes-1.patch &&
+autoreconf -fiv &&
+./configure --prefix=/usr --disable-static &&
 make
-sudo make install
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

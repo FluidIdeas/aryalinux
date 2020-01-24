@@ -17,6 +17,7 @@ wget -nc http://aryalinux.info/files/aryalinux-kde-defaults-2.0.tar.xz
 NAME=aryalinux-kde-settings
 VERSION=2.0
 
+DESCRIPTION="Default settings of the KDE plasma desktop environment in AryaLinux. Includes commands for setting themes, icons and fonts for the defualt KDE plasma desktop."
 
 if [ ! -z $URL ]
 then

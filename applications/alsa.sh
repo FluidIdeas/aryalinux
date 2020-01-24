@@ -22,6 +22,7 @@ cd $SOURCE_DIR
 NAME=alsa
 VERSION=1.1.9
 
+DESCRIPTION="ALSA is the Advanced Linux Sound Architecture."
 
 if [ ! -z $URL ]
 then

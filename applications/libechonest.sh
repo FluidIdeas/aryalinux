@@ -17,6 +17,7 @@ wget -nc http://archive.ubuntu.com/ubuntu/pool/universe/libe/libechonest/libecho
 NAME=libechonest
 VERSION=2.3.1
 URL=http://archive.ubuntu.com/ubuntu/pool/universe/libe/libechonest/libechonest_2.3.1.orig.tar.gz
+DESCRIPTION="Libechonest is a Qt library for communicating with 'The Echo Nest': an 'intelligent music application platform'. It currently supports all of the features of the Echo Nest API, including all the API functions."
 
 if [ ! -z $URL ]
 then

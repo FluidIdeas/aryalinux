@@ -20,6 +20,7 @@ wget -nc http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-3.0.
 NAME=pavucontrol
 VERSION=3.0
 URL=http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-3.0.tar.gz
+DESCRIPTION="PulseAudio Volume Control (pavucontrol) is a simple GTK based volume control tool ("mixer") for the PulseAudio sound server. In contrast to classic mixer tools this one allows you to control both the volume of hardware devices and of each playback stream separately."
 
 if [ ! -z $URL ]
 then

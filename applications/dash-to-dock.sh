@@ -17,6 +17,7 @@ cd $SOURCE_DIR
 NAME=dash-to-dock
 VERSION=latest
 
+DESCRIPTION="This extension moves the dash out of the overview transforming it in a dock for an easier launching of applications and a faster switching between windows and desktops. Side and bottom placement options are available."
 
 if [ ! -z $URL ]
 then

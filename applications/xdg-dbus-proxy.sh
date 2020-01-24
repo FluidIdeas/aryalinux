@@ -17,6 +17,7 @@ wget -nc https://github.com/flatpak/xdg-dbus-proxy/releases/download/0.1.2/xdg-d
 NAME=xdg-dbus-proxy
 VERSION=0.1.2
 URL=https://github.com/flatpak/xdg-dbus-proxy/releases/download/0.1.2/xdg-dbus-proxy-0.1.2.tar.xz
+DESCRIPTION="xdg-dbus-proxy is a filtering proxy for D-Bus connections. It was originally part of the Flatpak project, but it has been broken out as a standalone module to facilitate using it in other contexts, for example in WebKit-GTK's optional bubblewrap-based sandbox."
 
 if [ ! -z $URL ]
 then

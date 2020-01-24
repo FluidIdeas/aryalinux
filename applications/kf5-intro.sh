@@ -16,6 +16,7 @@ cd $SOURCE_DIR
 NAME=kf5-intro
 VERSION=5
 
+DESCRIPTION="A meta package that sets the environment for building KDE Frameworks."
 
 if [ ! -z $URL ]
 then

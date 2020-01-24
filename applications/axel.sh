@@ -17,6 +17,7 @@ wget -nc https://github.com/axel-download-accelerator/axel/releases/download/v2.
 NAME=axel
 VERSION=2.17.6
 URL=https://github.com/axel-download-accelerator/axel/releases/download/v2.17.6/axel-2.17.6.tar.xz
+DESCRIPTION="Lightweight CLI download accelerator"
 
 if [ ! -z $URL ]
 then

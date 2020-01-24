@@ -19,6 +19,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2f08f4d7e5746ea6d66d
 NAME=libgd
 VERSION=2.2.5
 URL=https://github.com/libgd/libgd/releases/download/gd-2.2.5/libgd-2.2.5.tar.xz
+DESCRIPTION="Perl module to create barcode images"
 
 if [ ! -z $URL ]
 then

@@ -22,6 +22,7 @@ cd $SOURCE_DIR
 NAME=vpn-libs
 VERSION=2.1
 
+DESCRIPTION="Meta package to install vpn support - openvpn, openconnect, pptp"
 
 if [ ! -z $URL ]
 then

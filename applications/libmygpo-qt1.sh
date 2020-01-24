@@ -19,6 +19,7 @@ wget -nc https://github.com/gpodder/libmygpo-qt/archive/1.0.9.tar.gz
 NAME=libmygpo-qt1
 VERSION=1.0.9
 URL=https://github.com/gpodder/libmygpo-qt/archive/1.0.9.tar.gz
+DESCRIPTION="C++/Qt Library wrapping the gpodder.net Webservice"
 
 if [ ! -z $URL ]
 then

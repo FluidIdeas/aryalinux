@@ -17,6 +17,7 @@ wget -nc http://aryalinux.info/files/aryalinux-mate-defaults-2.0.tar.xz
 NAME=aryalinux-mate-settings
 VERSION=2.0
 
+DESCRIPTION="Default settings of the Mate desktop environment in AryaLinux. Includes commands for setting themes, icons and fonts for the defualt Mate desktop."
 
 if [ ! -z $URL ]
 then

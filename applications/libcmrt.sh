@@ -16,6 +16,7 @@ cd $SOURCE_DIR
 NAME=libcmrt
 VERSION=1.0.6
 
+DESCRIPTION="C bindings for Intel Media Runtime"
 
 if [ ! -z $URL ]
 then

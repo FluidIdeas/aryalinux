@@ -17,6 +17,7 @@ wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-themes-standard/3.27/gnom
 NAME=gnome-themes-standard
 VERSION=3.27.90
 URL=http://ftp.acc.umu.se/pub/gnome/sources/gnome-themes-standard/3.27/gnome-themes-standard-3.27.90.tar.xz
+DESCRIPTION="Adwaita GTK+ 2 theme — engine"
 
 if [ ! -z $URL ]
 then

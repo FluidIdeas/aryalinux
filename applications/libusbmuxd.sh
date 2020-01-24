@@ -17,6 +17,7 @@ wget -nc https://github.com/libimobiledevice/libusbmuxd/archive/2.0.1.tar.gz
 NAME=libusbmuxd
 VERSION=2.0.1
 URL=https://github.com/libimobiledevice/libusbmuxd/archive/2.0.1.tar.gz
+DESCRIPTION="usbmuxd, the USB multiplexor daemon, is in charge of coordinating access to iPhone and iPod Touch services over USB. Synchronization and management applications for the iPhone and iPod Touch need this daemon to communicate with such devices concurrently."
 
 if [ ! -z $URL ]
 then

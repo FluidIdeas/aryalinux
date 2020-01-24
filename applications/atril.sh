@@ -17,6 +17,7 @@ wget -nc https://github.com/mate-desktop/atril/releases/download/v1.22.3/atril-1
 NAME=atril
 VERSION=1.22.3
 URL=https://github.com/mate-desktop/atril/releases/download/v1.22.3/atril-1.22.3.tar.xz
+DESCRIPTION="Atril is a document viewer capable of displaying multiple and single page document formats like PDF and Postscript."
 
 if [ ! -z $URL ]
 then

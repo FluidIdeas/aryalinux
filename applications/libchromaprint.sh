@@ -18,6 +18,7 @@ wget -nc https://github.com/acoustid/chromaprint/releases/download/v1.4.3/chroma
 NAME=libchromaprint
 VERSION=1.4.3
 URL=https://github.com/acoustid/chromaprint/releases/download/v1.4.3/chromaprint-1.4.3.tar.gz
+DESCRIPTION="Chromaprint is a library for calculating audio fingerprints which are used by the Acoustid service. Its main purpose is to provide an accurate identifier for record tracks"
 
 if [ ! -z $URL ]
 then

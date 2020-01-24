@@ -18,6 +18,7 @@ wget -nc https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/lightdm-gtk-
 NAME=lightdm-gtk-greeter
 VERSION=2.0.1
 URL=https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/lightdm-gtk-greeter/2.0.1-2ubuntu4/lightdm-gtk-greeter_2.0.1.orig.tar.gz
+DESCRIPTION="A LightDM greeter that uses the GTK+ toolkit."
 
 if [ ! -z $URL ]
 then

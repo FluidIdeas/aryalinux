@@ -28,6 +28,7 @@ cd $SOURCE_DIR
 NAME=firefox-bin
 VERSION=12-2019
 
+DESCRIPTION="The Firefox binary package. This package unlike firefox is not built from source. The latest online binaries are downloaded and extracted when this package is installed."
 
 if [ ! -z $URL ]
 then
