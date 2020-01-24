@@ -20,7 +20,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/rarian/0.8/rarian-0.8.1.tar.bz2
 NAME=rarian
 VERSION=0.8.1
 URL=http://ftp.gnome.org/pub/gnome/sources/rarian/0.8/rarian-0.8.1.tar.bz2
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The Rarian package is a documentation metadata library based on the proposed Freedesktop.org spec. Rarian is designed to be a replacement for ScrollKeeper."
 
 if [ ! -z $URL ]

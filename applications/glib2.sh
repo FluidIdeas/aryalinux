@@ -22,7 +22,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/glib-2.60.6-skip
 NAME=glib2
 VERSION=2.60.6
 URL=http://ftp.gnome.org/pub/gnome/sources/glib/2.60/glib-2.60.6.tar.xz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The GLib package contains low-level libraries useful for providing data structure handling for C, portability wrappers and interfaces for such runtime functionality as an event loop, threads, dynamic loading and an object system."
 
 if [ ! -z $URL ]

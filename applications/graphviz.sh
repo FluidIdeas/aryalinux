@@ -18,7 +18,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/graphviz-2.40.1-
 NAME=graphviz
 VERSION=
 URL=http://graphviz.gitlab.io/pub/graphviz/stable/SOURCES/graphviz.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The Graphviz package contains graph visualization software. Graph visualization is a way of representing structural information as diagrams of abstract graphs and networks. Graphviz has several main graph layout programs. It also has web and interactive graphical interfaces, auxiliary tools, libraries, and language bindings."
 
 if [ ! -z $URL ]

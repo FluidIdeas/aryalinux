@@ -18,7 +18,7 @@ wget -nc https://www.freedesktop.org/software/libmbim/libmbim-1.18.2.tar.xz
 NAME=libmbim
 VERSION=1.18.2
 URL=https://www.freedesktop.org/software/libmbim/libmbim-1.18.2.tar.xz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The libmbim package contains a GLib-based library for talking to WWAN modems and devices which speak the Mobile Interface Broadband Model (MBIM) protocol."
 
 if [ ! -z $URL ]

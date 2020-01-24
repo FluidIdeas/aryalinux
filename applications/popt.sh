@@ -18,7 +18,7 @@ wget -nc ftp://anduin.linuxfromscratch.org/BLFS/popt/popt-1.16.tar.gz
 NAME=popt
 VERSION=1.16
 URL=http://rpm5.org/files/popt/popt-1.16.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The popt package contains the popt libraries which are used by some programs to parse command-line options."
 
 if [ ! -z $URL ]

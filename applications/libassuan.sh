@@ -19,7 +19,7 @@ wget -nc ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.5.3.tar.bz2
 NAME=libassuan
 VERSION=2.5.3
 URL=https://www.gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.3.tar.bz2
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The libassuan package contains an inter process communication library used by some of the other GnuPG related packages. libassuan's primary use is to allow a client to interact with a non-persistent server. libassuan is not, however, limited to use with GnuPG servers and clients. It was designed to be flexible enough to meet the demands of many transaction based environments with non-persistent servers."
 
 if [ ! -z $URL ]

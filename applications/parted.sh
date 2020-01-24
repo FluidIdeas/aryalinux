@@ -20,7 +20,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/parted-3.2-devma
 NAME=parted
 VERSION=3.2
 URL=https://ftp.gnu.org/gnu/parted/parted-3.2.tar.xz
-SECTION="Filesystems"
+SECTION="Filesystems and disk management"
 DESCRIPTION="The Parted package is a disk partitioning and partition resizing tool."
 
 if [ ! -z $URL ]

@@ -18,7 +18,7 @@ wget -nc ftp://ftp.gnu.org/gnu/cpio/cpio-2.12.tar.bz2
 NAME=cpio
 VERSION=2.12
 URL=https://ftp.gnu.org/gnu/cpio/cpio-2.12.tar.bz2
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The cpio package contains tools for archiving."
 
 if [ ! -z $URL ]

@@ -17,7 +17,7 @@ wget -nc https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.2.1.t
 NAME=xfsprogs
 VERSION=5.2.1
 URL=https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.2.1.tar.xz
-SECTION="Filesystems"
+SECTION="Filesystems and disk management"
 DESCRIPTION="The xfsprogs package contains administration and debugging tools for the XFS file system."
 
 if [ ! -z $URL ]

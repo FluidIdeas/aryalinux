@@ -17,7 +17,7 @@ wget -nc https://people.freedesktop.org/~dbn/initd-tools/releases/initd-tools-0.
 NAME=initd-tools
 VERSION=0.1.3
 URL=https://people.freedesktop.org/~dbn/initd-tools/releases/initd-tools-0.1.3.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The initd-tools package contains programs to install and remove LSB based bootscripts."
 
 if [ ! -z $URL ]

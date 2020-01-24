@@ -18,7 +18,7 @@ wget -nc http://links.twibright.com/download/links-2.19.tar.bz2
 NAME=links
 VERSION=2.19
 URL=http://links.twibright.com/download/links-2.19.tar.bz2
-SECTION="Networking"
+SECTION="Text Web Browswers"
 DESCRIPTION="Links is a text and graphics mode WWW browser. It includes support for rendering tables and frames, features background downloads, can display colors and has many other features."
 
 if [ ! -z $URL ]

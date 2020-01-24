@@ -17,7 +17,7 @@ wget -nc https://user-dirs.freedesktop.org/releases/xdg-user-dirs-0.17.tar.gz
 NAME=xdg-user-dirs
 VERSION=0.17
 URL=https://user-dirs.freedesktop.org/releases/xdg-user-dirs-0.17.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="Xdg-user-dirs is a tool to help manage “well known” user directories like the desktop folder and the music folder. It also handles localization (i.e. translation) of the filenames."
 
 if [ ! -z $URL ]

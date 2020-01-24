@@ -18,7 +18,7 @@ wget -nc https://sourceforge.net/projects/giflib/files/giflib-5.2.1.tar.gz
 NAME=giflib
 VERSION=5.2.1
 URL=https://sourceforge.net/projects/giflib/files/giflib-5.2.1.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The giflib package contains libraries for reading and writing GIFs as well as programs for converting and working with GIF files."
 
 if [ ! -z $URL ]

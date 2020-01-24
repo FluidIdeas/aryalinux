@@ -17,7 +17,7 @@ wget -nc https://c-ares.haxx.se/download/c-ares-1.15.0.tar.gz
 NAME=c-ares
 VERSION=1.15.0
 URL=https://c-ares.haxx.se/download/c-ares-1.15.0.tar.gz
-SECTION="Networking"
+SECTION="Networking Libraries"
 DESCRIPTION="c-ares is a C library for asynchronous DNS requests."
 
 if [ ! -z $URL ]

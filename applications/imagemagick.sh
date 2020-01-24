@@ -19,7 +19,7 @@ wget -nc ftp://ftp.imagemagick.org/pub/ImageMagick/releases/ImageMagick-7.0.8-60
 NAME=imagemagick
 VERSION=7.0.
 URL=https://www.imagemagick.org/download/releases/ImageMagick-7.0.8-60.tar.xz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="ImageMagick is a collection of tools and libraries to read, write, and manipulate an image in various image formats. Image processing operations are available from the command line. Bindings for Perl and C++ are also available."
 
 if [ ! -z $URL ]

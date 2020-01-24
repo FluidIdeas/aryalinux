@@ -18,7 +18,7 @@ wget -nc https://downloads.sourceforge.net/expect/expect5.45.4.tar.gz
 NAME=expect
 VERSION=5.45.4
 URL=https://downloads.sourceforge.net/expect/expect5.45.4.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The Expect package was installed in the LFS temporary tools directory for testing other packages. These procedures install it in a permanent location. It contains tools for automating interactive applications such as telnet, ftp, passwd, fsck, rlogin, tip, etc. Expect is also useful for testing these same applications as well as easing all sorts of tasks that are prohibitively difficult with anything else."
 
 if [ ! -z $URL ]

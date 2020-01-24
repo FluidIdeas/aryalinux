@@ -17,7 +17,7 @@ wget -nc http://www.jedsoft.org/releases/slang/slang-2.3.2.tar.bz2
 NAME=slang
 VERSION=2.3.2
 URL=http://www.jedsoft.org/releases/slang/slang-2.3.2.tar.bz2
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="S-Lang (slang) is an interpreted language that may be embedded into an application to make the application extensible. It provides facilities required by interactive applications such as display/screen management, keyboard input and keymaps."
 
 if [ ! -z $URL ]

@@ -22,7 +22,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glib-networking/2.60/glib-network
 NAME=glib-networking
 VERSION=2.60.3
 URL=http://ftp.gnome.org/pub/gnome/sources/glib-networking/2.60/glib-networking-2.60.3.tar.xz
-SECTION="Networking"
+SECTION="Networking Libraries"
 DESCRIPTION="The GLib Networking package contains Network related gio modules for GLib."
 
 if [ ! -z $URL ]

@@ -21,7 +21,7 @@ wget -nc https://telepathy.freedesktop.org/releases/telepathy-glib/telepathy-gli
 NAME=telepathy-glib
 VERSION=0.24.1
 URL=https://telepathy.freedesktop.org/releases/telepathy-glib/telepathy-glib-0.24.1.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The Telepathy GLib contains a library used by GLib based Telepathy components. Telepathy is a D-Bus framework for unifying real time communication, including instant messaging, voice calls and video calls. It abstracts differences between protocols to provide a unified interface for applications."
 
 if [ ! -z $URL ]

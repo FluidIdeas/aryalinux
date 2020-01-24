@@ -18,7 +18,7 @@ wget -nc ftp://ftp.gnu.org/gnu/time/time-1.9.tar.gz
 NAME=time
 VERSION=1.9
 URL=https://ftp.gnu.org/gnu/time/time-1.9.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The time utility is a program that measures many of the CPU resources, such as time and memory, that other programs use. The GNU version can format the output in arbitrary ways by using a printf-style format string to include various resource measurements."
 
 if [ ! -z $URL ]

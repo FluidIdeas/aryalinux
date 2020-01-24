@@ -19,7 +19,7 @@ wget -nc https://downloads.sourceforge.net/tcl/tk8.6.9-src.tar.gz
 NAME=tk
 VERSION=
 URL=https://downloads.sourceforge.net/tcl/tk8.6.9-src.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The Tk package contains a TCL GUI Toolkit."
 
 if [ ! -z $URL ]

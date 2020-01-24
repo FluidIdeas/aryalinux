@@ -17,7 +17,7 @@ wget -nc https://www.samba.org/ftp/talloc/talloc-2.2.0.tar.gz
 NAME=talloc
 VERSION=2.2.0
 URL=https://www.samba.org/ftp/talloc/talloc-2.2.0.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="Talloc provides a hierarchical, reference counted memory pool system with destructors. It is the core memory allocator used in Samba."
 
 if [ ! -z $URL ]

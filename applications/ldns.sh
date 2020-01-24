@@ -17,7 +17,7 @@ wget -nc http://www.nlnetlabs.nl/downloads/ldns/ldns-1.7.1.tar.gz
 NAME=ldns
 VERSION=1.7.1
 URL=http://www.nlnetlabs.nl/downloads/ldns/ldns-1.7.1.tar.gz
-SECTION="Networking"
+SECTION="Networking Libraries"
 DESCRIPTION="ldns is a fast DNS library with the goal to simplify DNS programming and to allow developers to easily create software conforming to current RFCs and Internet drafts. This packages also includes the drill tool."
 
 if [ ! -z $URL ]

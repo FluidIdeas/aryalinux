@@ -18,7 +18,7 @@ wget -nc ftp://ftp.gnu.org/gnu/libunistring/libunistring-0.9.10.tar.xz
 NAME=libunistring
 VERSION=0.9.10
 URL=https://ftp.gnu.org/gnu/libunistring/libunistring-0.9.10.tar.xz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="libunistring is a library that provides functions for manipulating Unicode strings and for manipulating C strings according to the Unicode standard."
 
 if [ ! -z $URL ]

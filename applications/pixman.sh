@@ -17,7 +17,7 @@ wget -nc https://www.cairographics.org/releases/pixman-0.38.4.tar.gz
 NAME=pixman
 VERSION=0.38.4
 URL=https://www.cairographics.org/releases/pixman-0.38.4.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The Pixman package contains a library that provides low-level pixel manipulation features such as image compositing and trapezoid rasterization."
 
 if [ ! -z $URL ]

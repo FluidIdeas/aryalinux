@@ -18,7 +18,7 @@ wget -nc https://github.com/libical/libical/releases/download/v3.0.5/libical-3.0
 NAME=libical
 VERSION=3.0.5
 URL=https://github.com/libical/libical/releases/download/v3.0.5/libical-3.0.5.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The libical package contains an implementation of the iCalendar protocols and data formats."
 
 if [ ! -z $URL ]

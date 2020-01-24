@@ -19,7 +19,7 @@ wget -nc http://www.ece.uvic.ca/~frodo/jasper/software/jasper-2.0.14.tar.gz
 NAME=jasper
 VERSION=2.0.14
 URL=http://www.ece.uvic.ca/~frodo/jasper/software/jasper-2.0.14.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The JasPer Project is an open-source initiative to provide a free software-based reference implementation of the JPEG-2000 codec."
 
 if [ ! -z $URL ]

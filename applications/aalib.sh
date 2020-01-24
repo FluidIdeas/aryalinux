@@ -17,7 +17,7 @@ wget -nc https://downloads.sourceforge.net/aa-project/aalib-1.4rc5.tar.gz
 NAME=aalib
 VERSION=1.
 URL=https://downloads.sourceforge.net/aa-project/aalib-1.4rc5.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="AAlib is a library to render any graphic into ASCII Art."
 
 if [ ! -z $URL ]

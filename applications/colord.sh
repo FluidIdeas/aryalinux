@@ -27,7 +27,7 @@ wget -nc https://www.freedesktop.org/software/colord/releases/colord-1.4.4.tar.x
 NAME=colord
 VERSION=1.4.4
 URL=https://www.freedesktop.org/software/colord/releases/colord-1.4.4.tar.xz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="Colord is a system service that makes it easy to manage, install, and generate color profiles. It is used mainly by GNOME Color Manager for system integration and use when no users are logged in."
 
 if [ ! -z $URL ]

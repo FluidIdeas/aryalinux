@@ -18,7 +18,7 @@ wget -nc http://www.nasm.us/pub/nasm/releasebuilds/2.14.02/nasm-2.14.02-xdoc.tar
 NAME=nasm
 VERSION=2.14.02
 URL=http://www.nasm.us/pub/nasm/releasebuilds/2.14.02/nasm-2.14.02.tar.xz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="NASM (Netwide Assembler) is an 80x86 assembler designed for portability and modularity. It includes a disassembler as well."
 
 if [ ! -z $URL ]

@@ -18,7 +18,7 @@ wget -nc https://github.com/storaged-project/libbytesize/releases/download/2.1/l
 NAME=libbytesize
 VERSION=2.1
 URL=https://github.com/storaged-project/libbytesize/releases/download/2.1/libbytesize-2.1.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The libbytesize package is a library facilitates the common operations with sizes in bytes."
 
 if [ ! -z $URL ]

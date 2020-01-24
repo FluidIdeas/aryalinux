@@ -18,7 +18,7 @@ wget -nc ftp://www.mirrorservice.org/sites/ftp.i-scream.org/pub/i-scream/libstat
 NAME=libstatgrab
 VERSION=0.92
 URL=http://www.mirrorservice.org/sites/ftp.i-scream.org/pub/i-scream/libstatgrab/libstatgrab-0.92.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="This is a library that provides cross platform access to statistics about the system on which it's run. It's written in C and presents a selection of useful interfaces which can be used to access key system statistics. The current list of statistics includes CPU usage, memory utilisation, disk usage, process counts, network traffic, disk I/O, and more."
 
 if [ ! -z $URL ]

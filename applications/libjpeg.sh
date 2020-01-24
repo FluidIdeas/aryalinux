@@ -20,7 +20,7 @@ wget -nc https://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-2.0.2.tar
 NAME=libjpeg
 VERSION=2.0.2
 URL=https://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-2.0.2.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="libjpeg-turbo is a fork of the original IJG libjpeg which uses SIMD to accelerate baseline JPEG compression and decompression. libjpeg is a library that implements JPEG image encoding, decoding and transcoding."
 
 if [ ! -z $URL ]

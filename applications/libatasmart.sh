@@ -17,7 +17,7 @@ wget -nc http://0pointer.de/public/libatasmart-0.19.tar.xz
 NAME=libatasmart
 VERSION=0.19
 URL=http://0pointer.de/public/libatasmart-0.19.tar.xz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The libatasmart package is a disk reporting library. It only supports a subset of the ATA S.M.A.R.T. functionality."
 
 if [ ! -z $URL ]

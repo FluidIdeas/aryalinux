@@ -18,6 +18,7 @@ wget -nc https://www-us.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-mave
 NAME=maven
 VERSION=3.6.3
 
+SECTION="Programming"
 DESCRIPTION="Build and automation tool for Java projects."
 
 if [ ! -z $URL ]

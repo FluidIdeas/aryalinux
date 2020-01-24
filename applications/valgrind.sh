@@ -18,7 +18,7 @@ wget -nc ftp://sourceware.org/pub/valgrind/valgrind-3.15.0.tar.bz2
 NAME=valgrind
 VERSION=3.15.0
 URL=https://sourceware.org/ftp/valgrind/valgrind-3.15.0.tar.bz2
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="Valgrind is an instrumentation framework for building dynamic analysis tools. There are Valgrind tools that can automatically detect many memory management and threading bugs, and profile programs in detail. Valgrind can also be used to build new tools."
 
 if [ ! -z $URL ]

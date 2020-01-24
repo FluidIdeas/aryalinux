@@ -21,7 +21,7 @@ wget -nc https://static.rust-lang.org/dist/rustc-1.35.0-src.tar.gz
 NAME=rust
 VERSION=1.35.
 URL=https://static.rust-lang.org/dist/rustc-1.35.0-src.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The Rust programming language is designed to be a safe, concurrent, practical language."
 
 if [ ! -z $URL ]

@@ -17,7 +17,7 @@ wget -nc http://brianstafford.info/libesmtp/libesmtp-1.0.6.tar.bz2
 NAME=libesmtp
 VERSION=1.0.6
 URL=http://brianstafford.info/libesmtp/libesmtp-1.0.6.tar.bz2
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The libESMTP package contains the libESMTP libraries which are used by some programs to manage email submission to a mail transport layer."
 
 if [ ! -z $URL ]

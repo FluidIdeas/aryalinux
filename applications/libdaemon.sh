@@ -17,7 +17,7 @@ wget -nc http://0pointer.de/lennart/projects/libdaemon/libdaemon-0.14.tar.gz
 NAME=libdaemon
 VERSION=0.14
 URL=http://0pointer.de/lennart/projects/libdaemon/libdaemon-0.14.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The libdaemon package is a lightweight C library that eases the writing of UNIX daemons."
 
 if [ ! -z $URL ]

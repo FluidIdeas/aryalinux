@@ -19,7 +19,7 @@ wget -nc ftp://ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.8.5.tar.bz2
 NAME=libgcrypt
 VERSION=1.8.5
 URL=https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.8.5.tar.bz2
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The libgcrypt package contains a general purpose crypto library based on the code used in GnuPG. The library provides a high level interface to cryptographic building blocks using an extendable and flexible API."
 
 if [ ! -z $URL ]

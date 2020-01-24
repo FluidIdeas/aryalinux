@@ -21,7 +21,7 @@ wget -nc https://www.freedesktop.org/software/accountsservice/accountsservice-0.
 NAME=accountsservice
 VERSION=0.6.55
 URL=https://www.freedesktop.org/software/accountsservice/accountsservice-0.6.55.tar.xz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The AccountsService package provides a set of D-Bus interfaces for querying and manipulating user account information and an implementation of those interfaces based on the usermod(8), useradd(8) and userdel(8) commands."
 
 if [ ! -z $URL ]

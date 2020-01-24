@@ -19,7 +19,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/systemd-241-netw
 NAME=systemd
 VERSION=241
 URL=https://github.com/systemd/systemd/archive/v241/systemd-241.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="While systemd was installed when building LFS, there are many features provided by the package that were not included in the initial installation because Linux-PAM was not yet installed. The systemd package needs to be rebuilt to provide a working systemd-logind service, which provides many additional features for dependent packages."
 
 if [ ! -z $URL ]

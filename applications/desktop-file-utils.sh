@@ -18,7 +18,7 @@ wget -nc https://www.freedesktop.org/software/desktop-file-utils/releases/deskto
 NAME=desktop-file-utils
 VERSION=0.24
 URL=https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.24.tar.xz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The Desktop File Utils package contains command line utilities for working with Desktop entries. These utilities are used by Desktop Environments and other applications to manipulate the MIME-types application databases and help adhere to the Desktop Entry Specification."
 
 if [ ! -z $URL ]

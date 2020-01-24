@@ -19,7 +19,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgudev/233/libgudev-233.tar.xz
 NAME=libgudev
 VERSION=233
 URL=http://ftp.gnome.org/pub/gnome/sources/libgudev/233/libgudev-233.tar.xz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The libgudev package contains GObject bindings for libudev."
 
 if [ ! -z $URL ]

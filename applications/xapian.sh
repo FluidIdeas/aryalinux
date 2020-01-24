@@ -17,7 +17,7 @@ wget -nc http://oligarchy.co.uk/xapian/1.4.12/xapian-core-1.4.12.tar.xz
 NAME=xapian
 VERSION=1.4.12
 URL=http://oligarchy.co.uk/xapian/1.4.12/xapian-core-1.4.12.tar.xz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="Xapian is an open source search engine library."
 
 if [ ! -z $URL ]

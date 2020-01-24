@@ -17,7 +17,7 @@ wget -nc http://jfs.sourceforge.net/project/pub/jfsutils-1.1.15.tar.gz
 NAME=jfsutils
 VERSION=1.1.15
 URL=http://jfs.sourceforge.net/project/pub/jfsutils-1.1.15.tar.gz
-SECTION="Filesystems"
+SECTION="Filesystems and disk management"
 DESCRIPTION="The jfsutils package contains administration and debugging tools for the jfs file system."
 
 if [ ! -z $URL ]

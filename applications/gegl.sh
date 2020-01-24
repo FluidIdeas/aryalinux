@@ -20,7 +20,7 @@ wget -nc https://download.gimp.org/pub/gegl/0.4/gegl-0.4.16.tar.bz2
 NAME=gegl
 VERSION=0.4.16
 URL=https://download.gimp.org/pub/gegl/0.4/gegl-0.4.16.tar.bz2
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="This package provides the GEneric Graphics Library, which is a graph based image processing format."
 
 if [ ! -z $URL ]

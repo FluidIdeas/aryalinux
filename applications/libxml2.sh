@@ -19,7 +19,7 @@ wget -nc http://www.w3.org/XML/Test/xmlts20130923.tar.gz
 NAME=libxml2
 VERSION=2.9.9
 URL=http://xmlsoft.org/sources/libxml2-2.9.9.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The libxml2 package contains libraries and utilities used for parsing XML files."
 
 if [ ! -z $URL ]

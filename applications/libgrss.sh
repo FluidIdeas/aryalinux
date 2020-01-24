@@ -20,7 +20,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/libgrss-0.7.0-bu
 NAME=libgrss
 VERSION=0.7.0
 URL=http://ftp.gnome.org/pub/gnome/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The libgrss package contains a library designed to manipulate RSS and Atom feeds."
 
 if [ ! -z $URL ]

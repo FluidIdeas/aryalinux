@@ -18,7 +18,7 @@ wget -nc https://github.com/nghttp2/nghttp2/releases/download/v1.39.2/nghttp2-1.
 NAME=nghttp2
 VERSION=1.39.2
 URL=https://github.com/nghttp2/nghttp2/releases/download/v1.39.2/nghttp2-1.39.2.tar.xz
-SECTION="Networking"
+SECTION="Networking Libraries"
 DESCRIPTION="nghttp2 is an implementation of HTTP/2 and its header compression algorithm, HPACK."
 
 if [ ! -z $URL ]

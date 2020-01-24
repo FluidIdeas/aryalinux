@@ -18,7 +18,7 @@ wget -nc ftp://ftp.mirrorservice.org/sites/ftp.apache.org/apr/apr-1.7.0.tar.bz2
 NAME=apr
 VERSION=1.7.0
 URL=https://archive.apache.org/dist/apr/apr-1.7.0.tar.bz2
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The Apache Portable Runtime (APR) is a supporting library for the Apache web server. It provides a set of application programming interfaces (APIs) that map to the underlying Operating System (OS). Where the OS doesn't support a particular function, APR will provide an emulation. Thus programmers can use the APR to make a program portable across different platforms."
 
 if [ ! -z $URL ]

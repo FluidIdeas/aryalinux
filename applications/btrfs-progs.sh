@@ -20,7 +20,7 @@ wget -nc https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-
 NAME=btrfs-progs
 VERSION=5.2.1
 URL=https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v5.2.1.tar.xz
-SECTION="Filesystems"
+SECTION="Filesystems and disk management"
 DESCRIPTION="The btrfs-progs package contains administration and debugging tools for the B-tree file system (btrfs)."
 
 if [ ! -z $URL ]

@@ -17,7 +17,7 @@ wget -nc http://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz
 NAME=lzo
 VERSION=2.10
 URL=http://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="LZO is a data compression library which is suitable for data decompression and compression in real-time. This means it favors speed over compression ratio."
 
 if [ ! -z $URL ]

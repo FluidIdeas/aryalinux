@@ -20,7 +20,7 @@ wget -nc https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.6.2.tar.x
 NAME=pciutils
 VERSION=3.6.2
 URL=https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.6.2.tar.xz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The PCI Utils package contains a set of programs for listing PCI devices, inspecting their status and setting their configuration registers."
 
 if [ ! -z $URL ]

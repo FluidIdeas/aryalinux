@@ -18,7 +18,7 @@ wget -nc ftp://ftp.gnu.org/gnu/which/which-2.21.tar.gz
 NAME=which
 VERSION=2.21
 URL=https://ftp.gnu.org/gnu/which/which-2.21.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The first option is to install the actual GNU which package."
 
 if [ ! -z $URL ]

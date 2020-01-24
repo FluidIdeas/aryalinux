@@ -18,7 +18,7 @@ wget -nc https://github.com/qpdf/qpdf/releases/download/release-qpdf-8.4.2/qpdf-
 NAME=qpdf
 VERSION=8.4.2
 URL=https://github.com/qpdf/qpdf/releases/download/release-qpdf-8.4.2/qpdf-8.4.2.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The Qpdf package contains command-line programs and library that do structural, content-preserving transformations on PDF files."
 
 if [ ! -z $URL ]

@@ -18,7 +18,7 @@ wget -nc https://github.com/eqrion/cbindgen/archive/v0.9.0/cbindgen-0.9.0.tar.gz
 NAME=cbindgen
 VERSION=0.9.0
 URL=https://github.com/eqrion/cbindgen/archive/v0.9.0/cbindgen-0.9.0.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="Cbindgen can be used to generate C bindings for Rust code."
 
 if [ ! -z $URL ]

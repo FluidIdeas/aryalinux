@@ -17,7 +17,7 @@ wget -nc https://github.com/cjlin1/liblinear/archive/v230/liblinear-230.tar.gz
 NAME=liblinear
 VERSION=230
 URL=https://github.com/cjlin1/liblinear/archive/v230/liblinear-230.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="This package provides a library for learning linear classifiers for large scale applications. It supports Support Vector Machines (SVM) with L2 and L1 loss, logistic regression, multi class classification and also Linear Programming Machines (L1-regularized SVMs). Its computational complexity scales linearly with the number of training examples making it one of the fastest SVM solvers around."
 
 if [ ! -z $URL ]

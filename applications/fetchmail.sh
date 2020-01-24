@@ -19,7 +19,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/fetchmail-6.3.26
 NAME=fetchmail
 VERSION=6.3.26
 URL=https://downloads.sourceforge.net/fetchmail/fetchmail-6.3.26.tar.xz
-SECTION="Networking"
+SECTION="Mail/News Clients"
 DESCRIPTION="The Fetchmail package contains a mail retrieval program. It retrieves mail from remote mail servers and forwards it to the local (client) machine's delivery system, so it can then be read by normal mail user agents."
 
 if [ ! -z $URL ]

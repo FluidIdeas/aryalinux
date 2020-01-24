@@ -19,7 +19,7 @@ wget -nc http://www.lua.org/tests/lua-5.3.4-tests.tar.gz
 NAME=lua
 VERSION=5.3.5
 URL=http://www.lua.org/ftp/lua-5.3.5.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="Lua is a powerful light-weight programming language designed for extending applications. It is also frequently used as a general-purpose, stand-alone language. Lua is implemented as a small library of C functions, written in ANSI C, and compiles unmodified in all known platforms. The implementation goals are simplicity, efficiency, portability, and low embedding cost. The result is a fast language engine with small footprint, making it ideal in embedded systems too."
 
 if [ ! -z $URL ]

@@ -17,7 +17,7 @@ wget -nc http://www.digip.org/jansson/releases/jansson-2.12.tar.gz
 NAME=jansson
 VERSION=2.12
 URL=http://www.digip.org/jansson/releases/jansson-2.12.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The Jansson package contains a library used to encode, decode, and manipulate JSON data."
 
 if [ ! -z $URL ]

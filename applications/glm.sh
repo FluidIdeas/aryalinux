@@ -18,7 +18,7 @@ wget -nc https://github.com/g-truc/glm/archive/0.9.9.5/glm-0.9.9.5.tar.gz
 NAME=glm
 VERSION=0.9.9.5
 URL=https://github.com/g-truc/glm/archive/0.9.9.5/glm-0.9.9.5.tar.gz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="OpenGL Mathematics (GLM) is a header-only C++ mathematics library for graphics software based on the OpenGL Shading Language (GLSL) specifications. An extension system provides extended capabilities such as matrix transformations and quaternions."
 
 if [ ! -z $URL ]

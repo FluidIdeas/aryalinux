@@ -7,19 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:popt
 
 
 cd $SOURCE_DIR
 
-wget -nc http://hany.sk/~hany/_data/hd2u/hd2u-1.0.4.tgz
 
 
-NAME=hd2u
-VERSION=1.0.4
-URL=http://hany.sk/~hany/_data/hd2u/hd2u-1.0.4.tgz
-SECTION="General Libraries and Utilities"
-DESCRIPTION="The hd2u package contains an any to any text format converter."
+NAME=neofetch
+VERSION=6.1.0
+
+SECTION="Others"
+DESCRIPTION="Neofetch is a command-line system information tool written in bash 3.2+. Neofetch displays information about your operating system, software and hardware in an aesthetic and visually pleasing way."
 
 if [ ! -z $URL ]
 then
@@ -37,20 +35,11 @@ fi
 cd $DIRECTORY
 fi
 
-echo $USER > /tmp/currentuser
-
-
-./configure --prefix=/usr &&
-make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
+git clone https://github.com/dylanaraps/neofetch.git
+cd neofetch
+sudo make install
+cd ..
+rm -rf neofetch
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

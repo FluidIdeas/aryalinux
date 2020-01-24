@@ -18,7 +18,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/libpcap-1.9.0-en
 NAME=libpcap
 VERSION=1.9.0
 URL=http://www.tcpdump.org/release/libpcap-1.9.0.tar.gz
-SECTION="Networking"
+SECTION="Networking Libraries"
 DESCRIPTION="libpcap provides functions for user-level packet capture, used in low-level network monitoring."
 
 if [ ! -z $URL ]

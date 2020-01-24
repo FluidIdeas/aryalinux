@@ -18,7 +18,7 @@ wget -nc https://github.com/rockdaboot/libpsl/releases/download/libpsl-0.21.0/li
 NAME=libpsl
 VERSION=0.21.0
 URL=https://github.com/rockdaboot/libpsl/releases/download/libpsl-0.21.0/libpsl-0.21.0.tar.gz
-SECTION="Networking"
+SECTION="Networking Libraries"
 DESCRIPTION="The libpsl package provides a library for accessing and resolving information from the Public Suffix List (PSL). The PSL is a set of domain names beyond the standard suffixes, such as .com."
 
 if [ ! -z $URL ]

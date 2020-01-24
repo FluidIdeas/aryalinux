@@ -18,7 +18,7 @@ wget -nc ftp://ftp.mutt.org/pub/mutt/mutt-1.12.1.tar.gz
 NAME=mutt
 VERSION=1.12.1
 URL=http://ftp.mutt.org/pub/mutt/mutt-1.12.1.tar.gz
-SECTION="Networking"
+SECTION="Mail/News Clients"
 DESCRIPTION="The Mutt package contains a Mail User Agent. This is useful for reading, writing, replying to, saving, and deleting your email."
 
 if [ ! -z $URL ]

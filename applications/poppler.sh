@@ -26,7 +26,7 @@ wget -nc https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz
 NAME=poppler
 VERSION=0.79.0
 URL=https://poppler.freedesktop.org/poppler-0.79.0.tar.xz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The Poppler package contains a PDF rendering library and command line tools used to manipulate PDF files. This is useful for providing PDF rendering functionality as a shared library."
 
 if [ ! -z $URL ]

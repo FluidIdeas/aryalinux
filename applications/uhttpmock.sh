@@ -20,7 +20,7 @@ wget -nc http://tecnocode.co.uk/downloads/uhttpmock/uhttpmock-0.5.1.tar.xz
 NAME=uhttpmock
 VERSION=0.5.1
 URL=http://tecnocode.co.uk/downloads/uhttpmock/uhttpmock-0.5.1.tar.xz
-SECTION="Networking"
+SECTION="Networking Libraries"
 DESCRIPTION="The uhttpmock package contains a library for mocking web service APIs which use HTTP or HTTPS."
 
 if [ ! -z $URL ]

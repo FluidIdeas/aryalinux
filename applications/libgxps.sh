@@ -24,7 +24,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgxps/0.3/libgxps-0.3.1.tar.xz
 NAME=libgxps
 VERSION=0.3.1
 URL=http://ftp.gnome.org/pub/gnome/sources/libgxps/0.3/libgxps-0.3.1.tar.xz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The libgxps package provides an interface to manipulate XPS documents."
 
 if [ ! -z $URL ]

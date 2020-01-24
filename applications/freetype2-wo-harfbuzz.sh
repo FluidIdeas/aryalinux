@@ -20,7 +20,7 @@ wget -nc https://downloads.sourceforge.net/freetype/freetype-doc-2.10.1.tar.xz
 NAME=freetype2-wo-harfbuzz
 VERSION=2.10.1
 URL=https://downloads.sourceforge.net/freetype/freetype-2.10.1.tar.xz
-SECTION="Miscellaneous"
+SECTION="General Libraries and Utilities"
 DESCRIPTION="The FreeType2 package contains a library which allows applications to properly render TrueType fonts."
 
 if [ ! -z $URL ]
