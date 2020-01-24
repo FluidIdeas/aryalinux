@@ -38,6 +38,7 @@ NAME=gimp
 VERSION=2.10.12
 URL=https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.12.tar.bz2
 SECTION="Office Productivity"
+DESCRIPTION="The Gimp package contains the GNU Image Manipulation Program which is useful for photo retouching, image composition and image authoring."
 
 if [ ! -z $URL ]
 then

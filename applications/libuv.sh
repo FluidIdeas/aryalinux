@@ -18,6 +18,7 @@ NAME=libuv
 VERSION=1.31.0
 URL=https://dist.libuv.org/dist/v1.31.0/libuv-v1.31.0.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="The libuv package is a multi-platform support library with a focus on asynchronous I/O."
 
 if [ ! -z $URL ]
 then

@@ -20,6 +20,7 @@ NAME=libxml2
 VERSION=2.9.9
 URL=http://xmlsoft.org/sources/libxml2-2.9.9.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="The libxml2 package contains libraries and utilities used for parsing XML files."
 
 if [ ! -z $URL ]
 then

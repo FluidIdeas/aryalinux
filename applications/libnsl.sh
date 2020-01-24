@@ -20,6 +20,7 @@ NAME=libnsl
 VERSION=1.2.0
 URL=https://github.com/thkukuk/libnsl/archive/v1.2.0/libnsl-1.2.0.tar.gz
 SECTION="Networking"
+DESCRIPTION="The libnsl package contains the public client interface for NIS(YP) and NIS+. It replaces the NIS library that used to be in glibc."
 
 if [ ! -z $URL ]
 then

@@ -20,6 +20,7 @@ NAME=harfbuzz-wo-freetype2
 VERSION=2.6.0
 URL=https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.6.0.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The HarfBuzz package contains an OpenType text shaping engine."
 
 if [ ! -z $URL ]
 then

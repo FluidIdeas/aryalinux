@@ -18,6 +18,7 @@ NAME=joe
 VERSION=4.6
 URL=https://downloads.sourceforge.net/joe-editor/joe-4.6.tar.gz
 SECTION="Editors"
+DESCRIPTION="JOE (Joe's own editor) is a small text editor capable of emulating WordStar, Pico, and Emacs."
 
 if [ ! -z $URL ]
 then

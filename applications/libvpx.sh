@@ -21,6 +21,7 @@ NAME=libvpx
 VERSION=1.8.1
 URL=https://github.com/webmproject/libvpx/archive/v1.8.1/libvpx-1.8.1.tar.gz
 SECTION="Multimedia"
+DESCRIPTION="This package, from the WebM project, provides the reference implementations of the VP8 Codec, used in most current html5 video, and of the next-generation VP9 Codec."
 
 if [ ! -z $URL ]
 then

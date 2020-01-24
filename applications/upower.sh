@@ -22,6 +22,7 @@ NAME=upower
 VERSION=0.99.10
 URL=https://gitlab.freedesktop.org/upower/upower/uploads/c438511024b9bc5a904f8775cfc8e4c4/upower-0.99.10.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The UPower package provides an interface to enumerating power devices, listening to device events and querying history and statistics. Any application or service on the system can access the org.freedesktop.UPower service via the system message bus."
 
 if [ ! -z $URL ]
 then

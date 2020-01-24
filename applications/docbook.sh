@@ -21,6 +21,7 @@ NAME=docbook
 VERSION=4.5
 URL=http://www.docbook.org/xml/4.5/docbook-xml-4.5.zip
 SECTION="Printing and Typesetting"
+DESCRIPTION="The DocBook XML DTD-4.5 package contains document type definitions for verification of XML data files against the DocBook rule set. These are useful for structuring books and software documentation to a standard allowing you to utilize transformations already written for that standard."
 
 if [ ! -z $URL ]
 then

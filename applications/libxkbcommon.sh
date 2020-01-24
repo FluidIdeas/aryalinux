@@ -21,6 +21,7 @@ NAME=libxkbcommon
 VERSION=0.8.4
 URL=https://xkbcommon.org/download/libxkbcommon-0.8.4.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="libxkbcommon is a keymap compiler and support library which processes a reduced subset of keymaps as defined by the XKB specification."
 
 if [ ! -z $URL ]
 then

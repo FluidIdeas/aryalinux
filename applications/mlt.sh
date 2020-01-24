@@ -19,6 +19,7 @@ NAME=mlt
 VERSION=6.16.0
 URL=https://github.com/mltframework/mlt/releases/download/v6.16.0/mlt-6.16.0.tar.gz
 SECTION="Multimedia"
+DESCRIPTION="MLT package is the Media Lovin Toolkit. It is an open source multimedia framework, designed and developed for television broadcasting. It provides a toolkit for broadcasters, video editors, media players, transcoders, web streamers and many more types of applications."
 
 if [ ! -z $URL ]
 then

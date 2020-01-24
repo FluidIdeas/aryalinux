@@ -21,6 +21,7 @@ NAME=at-spi2-atk
 VERSION=2.32.0
 URL=http://ftp.gnome.org/pub/gnome/sources/at-spi2-atk/2.32/at-spi2-atk-2.32.0.tar.xz
 SECTION="X-Server"
+DESCRIPTION="The At-Spi2 Atk package contains a library that bridges ATK to At-Spi2 D-Bus service."
 
 if [ ! -z $URL ]
 then

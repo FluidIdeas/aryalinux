@@ -19,6 +19,7 @@ NAME=alsa-firmware
 VERSION=1.0.29
 URL=ftp://ftp.alsa-project.org/pub/firmware/alsa-firmware-1.0.29.tar.bz2
 SECTION="Multimedia"
+DESCRIPTION="The ALSA Firmware package contains firmware for certain sound cards."
 
 if [ ! -z $URL ]
 then

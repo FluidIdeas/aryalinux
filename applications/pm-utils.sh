@@ -18,6 +18,7 @@ NAME=pm-utils
 VERSION=1.4.1
 URL=https://pm-utils.freedesktop.org/releases/pm-utils-1.4.1.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="The Power Management Utilities provide simple shell command line tools to suspend and hibernate the computer. They can be used to run user supplied scripts on suspend and resume."
 
 if [ ! -z $URL ]
 then

@@ -21,6 +21,7 @@ NAME=libunique
 VERSION=1.1.6
 URL=http://ftp.gnome.org/pub/gnome/sources/libunique/1.1/libunique-1.1.6.tar.bz2
 SECTION="Miscellaneous"
+DESCRIPTION="The libunique package contains a library for writing single instance applications."
 
 if [ ! -z $URL ]
 then

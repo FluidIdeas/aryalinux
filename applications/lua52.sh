@@ -19,6 +19,7 @@ NAME=lua52
 VERSION=5.2.4
 URL=http://www.lua.org/ftp/lua-5.2.4.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="Lua is a powerful light-weight programming language designed for extending applications. It is also frequently used as a general-purpose, stand-alone language. Lua is implemented as a small library of C functions, written in ANSI C, and compiles unmodified in all known platforms. The implementation goals are simplicity, efficiency, portability, and low embedding cost. The result is a fast language engine with small footprint, making it ideal in embedded systems too."
 
 if [ ! -z $URL ]
 then

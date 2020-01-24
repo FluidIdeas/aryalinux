@@ -22,6 +22,7 @@ NAME=aspell
 VERSION=0.60.7
 URL=https://ftp.gnu.org/gnu/aspell/aspell-0.60.7.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="The Aspell package contains an interactive spell checking program and the Aspell libraries. Aspell can either be used as a library or as an independent spell checker."
 
 if [ ! -z $URL ]
 then

@@ -37,6 +37,7 @@ NAME=gnome-control-center
 VERSION=3.32.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.32/gnome-control-center-3.32.2.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The GNOME Control Center package contains the GNOME settings manager."
 
 if [ ! -z $URL ]
 then

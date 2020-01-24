@@ -21,6 +21,7 @@ NAME=sendmail
 VERSION=.8.15.2
 URL=ftp://ftp.sendmail.org/pub/sendmail/sendmail.8.15.2.tar.gz
 SECTION="Servers"
+DESCRIPTION="The sendmail package contains a Mail Transport Agent (MTA)."
 
 if [ ! -z $URL ]
 then

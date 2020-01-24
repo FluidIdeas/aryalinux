@@ -22,6 +22,7 @@ NAME=libcanberra
 VERSION=0.30
 URL=http://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz
 SECTION="Multimedia"
+DESCRIPTION="libcanberra is an implementation of the XDG Sound Theme and Name Specifications, for generating event sounds on free desktops, such as GNOME."
 
 if [ ! -z $URL ]
 then

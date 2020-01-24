@@ -19,6 +19,7 @@ NAME=nettle
 VERSION=3.5.1
 URL=https://ftp.gnu.org/gnu/nettle/nettle-3.5.1.tar.gz
 SECTION="Security"
+DESCRIPTION="The Nettle package contains a low-level cryptographic library that is designed to fit easily in many contexts."
 
 if [ ! -z $URL ]
 then

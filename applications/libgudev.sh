@@ -20,6 +20,7 @@ NAME=libgudev
 VERSION=233
 URL=http://ftp.gnome.org/pub/gnome/sources/libgudev/233/libgudev-233.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The libgudev package contains GObject bindings for libudev."
 
 if [ ! -z $URL ]
 then

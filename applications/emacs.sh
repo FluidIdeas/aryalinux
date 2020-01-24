@@ -22,6 +22,7 @@ NAME=emacs
 VERSION=26.2
 URL=https://ftp.gnu.org/gnu/emacs/emacs-26.2.tar.xz
 SECTION="Editors"
+DESCRIPTION="The Emacs package contains an extensible, customizable, self-documenting real-time display editor."
 
 if [ ! -z $URL ]
 then

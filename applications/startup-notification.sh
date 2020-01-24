@@ -20,6 +20,7 @@ NAME=startup-notification
 VERSION=0.12
 URL=https://www.freedesktop.org/software/startup-notification/releases/startup-notification-0.12.tar.gz
 SECTION="X-Server"
+DESCRIPTION="The startup-notification package contains startup-notification libraries. These are useful for building a consistent manner to notify the user through the cursor that the application is loading."
 
 if [ ! -z $URL ]
 then

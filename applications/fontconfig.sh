@@ -19,6 +19,7 @@ NAME=fontconfig
 VERSION=2.13.1
 URL=https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.13.1.tar.bz2
 SECTION="Miscellaneous"
+DESCRIPTION="The Fontconfig package contains a library and support programs used for configuring and customizing font access."
 
 if [ ! -z $URL ]
 then

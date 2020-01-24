@@ -19,6 +19,7 @@ NAME=libcap
 VERSION=2.27
 URL=https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.27.tar.xz
 SECTION="Security"
+DESCRIPTION="The libcap package was installed in LFS, but if Linux-PAM support is desired, the PAM module must be built (after installation of Linux-PAM)."
 
 if [ ! -z $URL ]
 then

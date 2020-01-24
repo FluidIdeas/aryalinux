@@ -17,6 +17,7 @@ wget -nc https://gitlab.gnome.org/GNOME/gnome-tweaks/-/archive/3.31.3/gnome-twea
 NAME=gnome-tweaks
 VERSION=3.31.3
 URL=https://gitlab.gnome.org/GNOME/gnome-tweaks/-/archive/3.31.3/gnome-tweaks-3.31.3.tar.bz2
+DESCRIPTION="GNOME Tweaks is a simple program used to tweak advanced GNOME settings."
 
 if [ ! -z $URL ]
 then

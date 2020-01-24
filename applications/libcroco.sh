@@ -21,6 +21,7 @@ NAME=libcroco
 VERSION=0.6.13
 URL=http://ftp.gnome.org/pub/gnome/sources/libcroco/0.6/libcroco-0.6.13.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The libcroco package contains a standalone CSS2 parsing and manipulation library."
 
 if [ ! -z $URL ]
 then

@@ -23,6 +23,7 @@ NAME=yelp
 VERSION=3.32.2
 URL=http://ftp.gnome.org/pub/gnome/sources/yelp/3.32/yelp-3.32.2.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The Yelp package contains a help browser used for viewing help files."
 
 if [ ! -z $URL ]
 then

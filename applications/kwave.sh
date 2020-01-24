@@ -26,6 +26,7 @@ NAME=kwave
 VERSION=19.08.0
 URL=http://download.kde.org/stable/applications/19.08.0/src/kwave-19.08.0.tar.xz
 SECTION="Multimedia"
+DESCRIPTION="The KWave package contains a KF5 based Sound Editor application."
 
 if [ ! -z $URL ]
 then

@@ -21,6 +21,7 @@ NAME=keybinder
 VERSION=0.3.1
 URL=https://github.com/kupferlauncher/keybinder/releases/download/v0.3.1/keybinder-0.3.1.tar.gz
 SECTION="X-Server"
+DESCRIPTION="The keybinder package contains a utility library registering global X keyboard shortcuts."
 
 if [ ! -z $URL ]
 then

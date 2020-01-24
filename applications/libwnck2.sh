@@ -21,6 +21,7 @@ NAME=libwnck2
 VERSION=2.30.7
 URL=http://ftp.gnome.org/pub/gnome/sources/libwnck/2.30/libwnck-2.30.7.tar.xz
 SECTION="Others"
+DESCRIPTION="The libwnck package contains a Window Navigator Construction Kit."
 
 if [ ! -z $URL ]
 then

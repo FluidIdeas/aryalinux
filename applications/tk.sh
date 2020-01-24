@@ -20,6 +20,7 @@ NAME=tk
 VERSION=
 URL=https://downloads.sourceforge.net/tcl/tk8.6.9-src.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="The Tk package contains a TCL GUI Toolkit."
 
 if [ ! -z $URL ]
 then

@@ -18,6 +18,7 @@ NAME=hdparm
 VERSION=9.58
 URL=https://downloads.sourceforge.net/hdparm/hdparm-9.58.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="The Hdparm package contains a utility that is useful for obtaining information about, and controlling ATA/IDE controllers and hard drives. It allows to increase performance and sometimes to increase stability."
 
 if [ ! -z $URL ]
 then

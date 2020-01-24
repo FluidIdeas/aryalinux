@@ -35,6 +35,7 @@ NAME=evolution
 VERSION=3.32.4
 URL=http://ftp.gnome.org/pub/gnome/sources/evolution/3.32/evolution-3.32.4.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The Evolution package contains an integrated mail, calendar and address book suite designed for the GNOME environment."
 
 if [ ! -z $URL ]
 then

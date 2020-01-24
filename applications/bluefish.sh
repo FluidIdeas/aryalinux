@@ -21,6 +21,7 @@ NAME=bluefish
 VERSION=2.2.10
 URL=http://www.bennewitz.com/bluefish/stable/source/bluefish-2.2.10.tar.bz2
 SECTION="Editors"
+DESCRIPTION="Bluefish is a GTK+ text editor targeted towards programmers and web designers, with many options to write websites, scripts and programming code. Bluefish supports many programming and markup languages, and it focuses on editing dynamic and interactive websites."
 
 if [ ! -z $URL ]
 then

@@ -24,6 +24,7 @@ NAME=goffice010
 VERSION=0.10.45
 URL=http://ftp.gnome.org/pub/gnome/sources/goffice/0.10/goffice-0.10.45.tar.xz
 SECTION="X-Server"
+DESCRIPTION="The GOffice package contains a library of GLib/GTK document centric objects and utilities. This is useful for performing common operations for document centric applications that are conceptually simple, but complex to implement fully. Some of the operations provided by the GOffice library include support for plugins, load/save routines for application documents and undo/redo functions."
 
 if [ ! -z $URL ]
 then

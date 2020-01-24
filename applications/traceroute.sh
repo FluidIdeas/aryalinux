@@ -18,6 +18,7 @@ NAME=traceroute
 VERSION=2.1.0
 URL=https://downloads.sourceforge.net/traceroute/traceroute-2.1.0.tar.gz
 SECTION="Networking"
+DESCRIPTION="The Traceroute package contains a program which is used to display the network route that packets take to reach a specified host. This is a standard network troubleshooting tool. If you find yourself unable to connect to another system, traceroute can help pinpoint the problem."
 
 if [ ! -z $URL ]
 then

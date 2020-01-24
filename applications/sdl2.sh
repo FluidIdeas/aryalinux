@@ -18,6 +18,7 @@ NAME=sdl2
 VERSION=2.0.10
 URL=http://www.libsdl.org/release/SDL2-2.0.10.tar.gz
 SECTION="Multimedia"
+DESCRIPTION="The Simple DirectMedia Layer Version 2 (SDL2 for short) is a cross-platform library designed to make it easy to write multimedia software, such as games and emulators."
 
 if [ ! -z $URL ]
 then

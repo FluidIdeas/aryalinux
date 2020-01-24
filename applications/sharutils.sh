@@ -19,6 +19,7 @@ NAME=sharutils
 VERSION=4.15.2
 URL=https://ftp.gnu.org/gnu/sharutils/sharutils-4.15.2.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The Sharutils package contains utilities that can create 'shell' archives."
 
 if [ ! -z $URL ]
 then

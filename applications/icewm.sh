@@ -19,6 +19,7 @@ NAME=icewm
 VERSION=1.6.1
 URL=https://github.com/ice-wm/icewm/archive/1.6.1/icewm-1.6.1.tar.gz
 SECTION="X-Server"
+DESCRIPTION="IceWM is a window manager with the goals of speed, simplicity, and not getting in the user's way."
 
 if [ ! -z $URL ]
 then

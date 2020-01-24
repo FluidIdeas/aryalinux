@@ -21,6 +21,7 @@ NAME=uhttpmock
 VERSION=0.5.1
 URL=http://tecnocode.co.uk/downloads/uhttpmock/uhttpmock-0.5.1.tar.xz
 SECTION="Networking"
+DESCRIPTION="The uhttpmock package contains a library for mocking web service APIs which use HTTP or HTTPS."
 
 if [ ! -z $URL ]
 then

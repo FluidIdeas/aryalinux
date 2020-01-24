@@ -21,6 +21,7 @@ NAME=libxcb
 VERSION=1.13.1
 URL=https://xcb.freedesktop.org/dist/libxcb-1.13.1.tar.bz2
 SECTION="X-Server"
+DESCRIPTION="The libxcb package provides an interface to the X Window System protocol, which replaces the current Xlib interface. Xlib can also use XCB as a transport layer, allowing software to make requests and receive responses with both."
 
 if [ ! -z $URL ]
 then

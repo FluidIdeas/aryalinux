@@ -19,6 +19,7 @@ NAME=libtasn1
 VERSION=4.14
 URL=https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.14.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="libtasn1 is a highly portable C library that encodes and decodes DER/BER data following an ASN.1 schema."
 
 if [ ! -z $URL ]
 then

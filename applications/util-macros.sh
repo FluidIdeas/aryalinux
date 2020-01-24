@@ -19,6 +19,7 @@ NAME=util-macros
 VERSION=1.19.2
 URL=https://www.x.org/pub/individual/util/util-macros-1.19.2.tar.bz2
 SECTION="X-Server"
+DESCRIPTION="The util-macros package contains the m4 macros used by all of the Xorg packages."
 
 if [ ! -z $URL ]
 then

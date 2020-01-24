@@ -19,6 +19,7 @@ NAME=tcl
 VERSION=
 URL=https://downloads.sourceforge.net/tcl/tcl8.6.9-src.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="The Tcl package contains the Tool Command Language, a robust general-purpose scripting language."
 
 if [ ! -z $URL ]
 then

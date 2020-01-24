@@ -20,6 +20,7 @@ NAME=enchant
 VERSION=2.2.5
 URL=https://github.com/AbiWord/enchant/releases/download/v2.2.5/enchant-2.2.5.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="The enchant package provide a generic interface into various existing spell checking libraries."
 
 if [ ! -z $URL ]
 then

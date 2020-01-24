@@ -21,6 +21,7 @@ NAME=libraw
 VERSION=0.19.5
 URL=http://www.libraw.org/data/LibRaw-0.19.5.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="Libraw is a library for reading RAW files obtained from digital photo cameras (CRW/CR2, NEF, RAF, DNG, and others)."
 
 if [ ! -z $URL ]
 then

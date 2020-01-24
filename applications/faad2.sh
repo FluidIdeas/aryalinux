@@ -19,6 +19,7 @@ NAME=faad2
 VERSION=2.8.8
 URL=https://downloads.sourceforge.net/faac/faad2-2.8.8.tar.gz
 SECTION="Multimedia"
+DESCRIPTION="FAAD2 is a decoder for a lossy sound compression scheme specified in MPEG-2 Part 7 and MPEG-4 Part 3 standards and known as Advanced Audio Coding (AAC)."
 
 if [ ! -z $URL ]
 then

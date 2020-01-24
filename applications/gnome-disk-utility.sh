@@ -25,6 +25,7 @@ NAME=gnome-disk-utility
 VERSION=3.32.1
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-disk-utility/3.32/gnome-disk-utility-3.32.1.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The GNOME Disk Utility package provides applications used for dealing with storage devices."
 
 if [ ! -z $URL ]
 then

@@ -18,6 +18,7 @@ NAME=libdvdread
 VERSION=6.0.1
 URL=https://get.videolan.org/libdvdread/6.0.1/libdvdread-6.0.1.tar.bz2
 SECTION="Multimedia"
+DESCRIPTION="libdvdread is a library which provides a simple foundation for reading DVDs."
 
 if [ ! -z $URL ]
 then

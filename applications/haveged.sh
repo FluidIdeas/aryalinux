@@ -18,6 +18,7 @@ NAME=haveged
 VERSION=1.9.2
 URL=https://downloads.sourceforge.net/haveged/haveged-1.9.2.tar.gz
 SECTION="Security"
+DESCRIPTION="The Haveged package contains a daemon that generates an unpredictable stream of random numbers and feeds the /dev/random device."
 
 if [ ! -z $URL ]
 then

@@ -19,6 +19,7 @@ NAME=id3lib
 VERSION=3.8.3
 URL=https://downloads.sourceforge.net/id3lib/id3lib-3.8.3.tar.gz
 SECTION="Multimedia"
+DESCRIPTION="id3lib is a library for reading, writing and manipulating id3v1 and id3v2 multimedia data containers."
 
 if [ ! -z $URL ]
 then

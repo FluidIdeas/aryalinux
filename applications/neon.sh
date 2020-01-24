@@ -18,6 +18,7 @@ NAME=neon
 VERSION=0.30.2
 URL=https://fossies.org/linux/www/neon-0.30.2.tar.gz
 SECTION="Networking"
+DESCRIPTION="neon is an HTTP and WebDAV client library, with a C interface."
 
 if [ ! -z $URL ]
 then

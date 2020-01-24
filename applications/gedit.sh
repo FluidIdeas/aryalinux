@@ -29,6 +29,7 @@ NAME=gedit
 VERSION=3.32.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gedit/3.32/gedit-3.32.2.tar.xz
 SECTION="Editors"
+DESCRIPTION="The Gedit package contains a lightweight UTF-8 text editor for the GNOME Desktop."
 
 if [ ! -z $URL ]
 then

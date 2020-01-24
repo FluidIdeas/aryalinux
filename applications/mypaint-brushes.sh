@@ -20,6 +20,7 @@ NAME=mypaint-brushes
 VERSION=1.3.0
 URL=https://github.com/Jehan/mypaint-brushes/archive/v1.3.0/mypaint-brushes-v1.3.0.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="The mypaint-brushes package contains brushes used by packages which use libmypaint."
 
 if [ ! -z $URL ]
 then

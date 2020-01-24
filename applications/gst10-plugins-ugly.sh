@@ -22,6 +22,7 @@ NAME=gst10-plugins-ugly
 VERSION=1.16.0
 URL=https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.16.0.tar.xz
 SECTION="Multimedia"
+DESCRIPTION="The GStreamer Ugly Plug-ins is a set of plug-ins considered by the GStreamer developers to have good quality and correct functionality, but distributing them might pose problems. The license on either the plug-ins or the supporting libraries might not be how the GStreamer developers would like. The code might be widely known to present patent problems."
 
 if [ ! -z $URL ]
 then

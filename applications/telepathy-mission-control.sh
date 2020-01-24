@@ -21,6 +21,7 @@ NAME=telepathy-mission-control
 VERSION=5.16.4
 URL=https://telepathy.freedesktop.org/releases/telepathy-mission-control/telepathy-mission-control-5.16.4.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="Telepathy Mission Control is an account manager and channel dispatcher for the Telepathy framework, allowing user interfaces and other clients to share connections to real-time communication services without conflicting."
 
 if [ ! -z $URL ]
 then

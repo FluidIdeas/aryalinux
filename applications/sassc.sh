@@ -18,6 +18,7 @@ wget -nc https://github.com/sass/sassc/archive/3.6.1/sassc-3.6.1.tar.gz
 NAME=sassc
 VERSION=3.6.1
 URL=https://github.com/sass/sassc/archive/3.6.1/sassc-3.6.1.tar.gz
+DESCRIPTION="SassC is a wrapper around libsass, a CSS pre-processor language."
 
 if [ ! -z $URL ]
 then

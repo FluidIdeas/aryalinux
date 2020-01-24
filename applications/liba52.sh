@@ -18,6 +18,7 @@ NAME=liba52
 VERSION=0.7.4
 URL=http://liba52.sourceforge.net/files/a52dec-0.7.4.tar.gz
 SECTION="Multimedia"
+DESCRIPTION="liba52 is a free library for decoding ATSC A/52 (also known as AC-3) streams. The A/52 standard is used in a variety of applications, including digital television and DVD."
 
 if [ ! -z $URL ]
 then

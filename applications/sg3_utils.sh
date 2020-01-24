@@ -18,6 +18,7 @@ NAME=sg3_utils
 VERSION=1.44
 URL=http://sg.danny.cz/sg/p/sg3_utils-1.44.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The sg3_utils package contains low level utilities for devices that use a SCSI command set. Apart from SCSI parallel interface (SPI) devices, the SCSI command set is used by ATAPI devices (CD/DVDs and tapes), USB mass storage devices, Fibre Channel disks, IEEE 1394 storage devices (that use the "SBP" protocol), SAS, iSCSI and FCoE devices (amongst others)."
 
 if [ ! -z $URL ]
 then

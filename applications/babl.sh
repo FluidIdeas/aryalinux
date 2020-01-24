@@ -19,6 +19,7 @@ NAME=babl
 VERSION=0.1.70
 URL=https://download.gimp.org/pub/babl/0.1/babl-0.1.70.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The Babl package is a dynamic, any to any, pixel format translation library."
 
 if [ ! -z $URL ]
 then

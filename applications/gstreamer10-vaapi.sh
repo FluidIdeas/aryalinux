@@ -22,6 +22,7 @@ NAME=gstreamer10-vaapi
 VERSION=1.16.0
 URL=https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.16.0.tar.xz
 SECTION="Multimedia"
+DESCRIPTION="The gstreamer-vaapi package contains a gstreamer plugin for hardware accelerated video decode/encode for the prevailing coding standards today (MPEG-2, MPEG-4 ASP/H.263, MPEG-4 AVC/H.264, and VC-1/VMW3)."
 
 if [ ! -z $URL ]
 then

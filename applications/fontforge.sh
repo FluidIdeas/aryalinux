@@ -28,6 +28,7 @@ NAME=fontforge
 VERSION=20170731
 URL=https://github.com/fontforge/fontforge/releases/download/20170731/fontforge-dist-20170731.tar.xz
 SECTION="Office Productivity"
+DESCRIPTION="The FontForge package contains an outline font editor that lets you create your own postscript, truetype, opentype, cid-keyed, multi-master, cff, svg and bitmap (bdf, FON, NFNT) fonts, or edit existing ones."
 
 if [ ! -z $URL ]
 then

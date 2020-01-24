@@ -20,6 +20,7 @@ NAME=openjade
 VERSION=1.3.2
 URL=https://downloads.sourceforge.net/openjade/openjade-1.3.2.tar.gz
 SECTION="Printing and Typesetting"
+DESCRIPTION="The OpenJade package contains a DSSSL engine. This is useful for SGML and XML transformations into RTF, TeX, SGML and XML."
 
 if [ ! -z $URL ]
 then

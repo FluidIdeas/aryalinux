@@ -18,6 +18,7 @@ NAME=xvid
 VERSION=1.3.5
 URL=http://downloads.xvid.org/downloads/xvidcore-1.3.5.tar.gz
 SECTION="Multimedia"
+DESCRIPTION="XviD is an MPEG-4 compliant video CODEC."
 
 if [ ! -z $URL ]
 then

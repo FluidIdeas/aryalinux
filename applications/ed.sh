@@ -20,6 +20,7 @@ NAME=ed
 VERSION=1.15
 URL=https://ftp.gnu.org/gnu/ed/ed-1.15.tar.lz
 SECTION="Editors"
+DESCRIPTION="Ed is a line-oriented text editor. It is used to create, display, modify and otherwise manipulate text files, both interactively and via shell scripts. Ed isn't something which many people use. It's described here because it can be used by the patch program if you encounter an ed-based patch file. This happens rarely because diff-based patches are preferred these days."
 
 if [ ! -z $URL ]
 then

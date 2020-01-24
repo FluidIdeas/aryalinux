@@ -19,6 +19,7 @@ NAME=lcms
 VERSION=1.19
 URL=https://downloads.sourceforge.net/lcms/lcms-1.19.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="The Little CMS library is used by other programs to provide color management facilities."
 
 if [ ! -z $URL ]
 then

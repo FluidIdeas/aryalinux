@@ -21,6 +21,7 @@ NAME=parted
 VERSION=3.2
 URL=https://ftp.gnu.org/gnu/parted/parted-3.2.tar.xz
 SECTION="Filesystems"
+DESCRIPTION="The Parted package is a disk partitioning and partition resizing tool."
 
 if [ ! -z $URL ]
 then

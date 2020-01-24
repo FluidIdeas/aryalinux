@@ -21,6 +21,7 @@ NAME=subversion
 VERSION=1.12.2
 URL=https://archive.apache.org/dist/subversion/subversion-1.12.2.tar.bz2
 SECTION="Miscellaneous"
+DESCRIPTION="Subversion is a version control system that is designed to be a compelling replacement for CVS in the open source community. It extends and enhances CVS' feature set, while maintaining a similar interface for those already familiar with CVS. These instructions install the client and server software used to manipulate a Subversion repository. Creation of a repository is covered at Running a Subversion Server."
 
 if [ ! -z $URL ]
 then

@@ -20,6 +20,7 @@ NAME=apr-util
 VERSION=1.6.1
 URL=https://archive.apache.org/dist/apr/apr-util-1.6.1.tar.bz2
 SECTION="Miscellaneous"
+DESCRIPTION="The Apache Portable Runtime Utility Library provides a predictable and consistent interface to underlying client library interfaces. This application programming interface assures predictable if not identical behaviour regardless of which libraries are available on a given platform."
 
 if [ ! -z $URL ]
 then

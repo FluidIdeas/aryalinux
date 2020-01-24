@@ -19,6 +19,7 @@ NAME=wayland-protocols
 VERSION=1.18
 URL=https://wayland.freedesktop.org/releases/wayland-protocols-1.18.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The Wayland-Protocols package contains additional Wayland protocols that add functionality outside of protocols already in the Wayland core."
 
 if [ ! -z $URL ]
 then

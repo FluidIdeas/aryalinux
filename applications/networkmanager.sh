@@ -34,6 +34,7 @@ NAME=networkmanager
 VERSION=1.20.0
 URL=http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.20/NetworkManager-1.20.0.tar.xz
 SECTION="Networking"
+DESCRIPTION="NetworkManager is a set of co-operative tools that make networking simple and straightforward. Whether you use WiFi, wired, 3G, or Bluetooth, NetworkManager allows you to quickly move from one network to another: Once a network has been configured and joined once, it can be detected and re-joined automatically the next time it's available."
 
 if [ ! -z $URL ]
 then

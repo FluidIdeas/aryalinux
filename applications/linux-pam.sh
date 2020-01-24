@@ -19,6 +19,7 @@ NAME=linux-pam
 VERSION=1.3.1
 URL=https://github.com/linux-pam/linux-pam/releases/download/v1.3.1/Linux-PAM-1.3.1.tar.xz
 SECTION="Security"
+DESCRIPTION="The Linux PAM package contains Pluggable Authentication Modules used to enable the local system administrator to choose how applications authenticate users."
 
 if [ ! -z $URL ]
 then

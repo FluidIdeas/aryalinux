@@ -22,6 +22,7 @@ NAME=gfbgraph
 VERSION=0.2.3
 URL=http://ftp.gnome.org/pub/gnome/sources/gfbgraph/0.2/gfbgraph-0.2.3.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The gfbgraph package contains a GObject wrapper for the Facebook Graph API."
 
 if [ ! -z $URL ]
 then

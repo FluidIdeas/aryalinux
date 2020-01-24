@@ -23,6 +23,7 @@ NAME=gnome-icon-theme
 VERSION=3.12.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-icon-theme/3.12/gnome-icon-theme-3.12.0.tar.xz
 SECTION="X-Server"
+DESCRIPTION="The GNOME Icon Theme package contains an assortment of non-scalable icons of different sizes and themes."
 
 if [ ! -z $URL ]
 then

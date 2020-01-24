@@ -21,6 +21,7 @@ NAME=shadow
 VERSION=4.7
 URL=https://github.com/shadow-maint/shadow/releases/download/4.7/shadow-4.7.tar.xz
 SECTION="Security"
+DESCRIPTION="Shadow was indeed installed in LFS and there is no reason to reinstall it unless you installed CrackLib or Linux-PAM after your LFS system was completed. If you have installed CrackLib after LFS, then reinstalling Shadow will enable strong password support. If you have installed Linux-PAM, reinstalling Shadow will allow programs such as login and su to utilize PAM."
 
 if [ ! -z $URL ]
 then

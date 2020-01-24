@@ -18,6 +18,7 @@ NAME=ruby
 VERSION=2.6.4
 URL=http://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.4.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The Ruby package contains the Ruby development environment. This is useful for object-oriented scripting."
 
 if [ ! -z $URL ]
 then

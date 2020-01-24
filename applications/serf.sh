@@ -20,6 +20,7 @@ NAME=serf
 VERSION=1.3.9
 URL=https://archive.apache.org/dist/serf/serf-1.3.9.tar.bz2
 SECTION="Networking"
+DESCRIPTION="The Serf package contains a C-based HTTP client library built upon the Apache Portable Runtime (APR) library. It multiplexes connections, running the read/write communication asynchronously. Memory copies and transformations are kept to a minimum to provide high performance operation."
 
 if [ ! -z $URL ]
 then

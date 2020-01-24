@@ -24,6 +24,7 @@ NAME=libsecret
 VERSION=0.18.8
 URL=http://ftp.gnome.org/pub/gnome/sources/libsecret/0.18/libsecret-0.18.8.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The libsecret package contains a GObject based library for accessing the Secret Service API."
 
 if [ ! -z $URL ]
 then

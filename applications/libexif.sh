@@ -18,6 +18,7 @@ NAME=libexif
 VERSION=0.6.21
 URL=https://downloads.sourceforge.net/libexif/libexif-0.6.21.tar.bz2
 SECTION="Miscellaneous"
+DESCRIPTION="The libexif package contains a library for parsing, editing, and saving EXIF data. Most digital cameras produce EXIF files, which are JPEG files with extra tags that contain information about the image. All EXIF tags described in EXIF standard 2.1 are supported."
 
 if [ ! -z $URL ]
 then

@@ -18,6 +18,7 @@ NAME=iso-codes
 VERSION=4.3
 URL=http://anduin.linuxfromscratch.org/BLFS/iso-codes/iso-codes-4.3.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The ISO Codes package contains a list of country, language and currency names and it is used as a central database for accessing this data."
 
 if [ ! -z $URL ]
 then

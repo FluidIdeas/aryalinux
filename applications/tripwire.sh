@@ -18,6 +18,7 @@ NAME=tripwire
 VERSION=2.4.3.7
 URL=https://github.com/Tripwire/tripwire-open-source/releases/download/2.4.3.7/tripwire-open-source-2.4.3.7.tar.gz
 SECTION="Security"
+DESCRIPTION="The Tripwire package contains programs used to verify the integrity of the files on a given system."
 
 if [ ! -z $URL ]
 then

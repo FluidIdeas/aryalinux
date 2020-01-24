@@ -21,6 +21,7 @@ NAME=apache
 VERSION=2.4.41
 URL=https://archive.apache.org/dist/httpd/httpd-2.4.41.tar.bz2
 SECTION="Servers"
+DESCRIPTION="The Apache HTTPD package contains an open-source HTTP server. It is useful for creating local intranet web sites or running huge web serving operations."
 
 if [ ! -z $URL ]
 then

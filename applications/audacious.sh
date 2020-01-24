@@ -23,6 +23,7 @@ NAME=audacious
 VERSION=3.10.1
 URL=https://distfiles.audacious-media-player.org/audacious-3.10.1.tar.bz2
 SECTION="Multimedia"
+DESCRIPTION="Audacious is an audio player."
 
 if [ ! -z $URL ]
 then

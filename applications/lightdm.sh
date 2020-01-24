@@ -23,6 +23,7 @@ wget -nc https://launchpad.net/lightdm/1.18/1.18.3/+download/lightdm-1.18.3.tar.
 NAME=lightdm
 VERSION=1.18.3
 URL=https://launchpad.net/lightdm/1.18/1.18.3/+download/lightdm-1.18.3.tar.xz
+DESCRIPTION="The lightdm package contains a lightweight display manager based upon GTK."
 
 if [ ! -z $URL ]
 then

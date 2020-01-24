@@ -26,6 +26,7 @@ NAME=abiword
 VERSION=3.0.2
 URL=http://www.abisource.com/downloads/abiword/3.0.2/source/abiword-3.0.2.tar.gz
 SECTION="Others"
+DESCRIPTION="AbiWord is a word processor which is useful for writing reports, letters and other formatted documents."
 
 if [ ! -z $URL ]
 then

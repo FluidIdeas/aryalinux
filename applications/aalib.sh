@@ -18,6 +18,7 @@ NAME=aalib
 VERSION=1.
 URL=https://downloads.sourceforge.net/aa-project/aalib-1.4rc5.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="AAlib is a library to render any graphic into ASCII Art."
 
 if [ ! -z $URL ]
 then

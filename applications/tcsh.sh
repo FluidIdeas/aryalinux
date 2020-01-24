@@ -19,6 +19,7 @@ NAME=tcsh
 VERSION=6.21.00
 URL=http://fossies.org/linux/misc/tcsh-6.21.00.tar.gz
 SECTION="Shells"
+DESCRIPTION="The Tcsh package contains “an enhanced but completely compatible version of the Berkeley Unix C shell (csh)”. This is useful as an alternative shell for those who prefer C syntax to that of the bash shell, and also because some programs require the C shell in order to perform installation tasks."
 
 if [ ! -z $URL ]
 then

@@ -19,6 +19,7 @@ NAME=wayland
 VERSION=1.17.0
 URL=https://wayland.freedesktop.org/releases/wayland-1.17.0.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="Wayland is a project to define a protocol for a compositor to talk to its clients as well as a library implementation of the protocol."
 
 if [ ! -z $URL ]
 then

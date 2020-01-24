@@ -23,6 +23,7 @@ NAME=lxdm
 VERSION=0.5.3
 URL=https://downloads.sourceforge.net/lxdm/lxdm-0.5.3.tar.xz
 SECTION="X-Server"
+DESCRIPTION="The LXDM is a lightweight Display Manager for the LXDE desktop. It can also be used as an alternative to other Display Managers such as GNOME's GDM or LightDM."
 
 if [ ! -z $URL ]
 then

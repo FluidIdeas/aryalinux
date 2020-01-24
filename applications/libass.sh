@@ -22,6 +22,7 @@ NAME=libass
 VERSION=0.14.0
 URL=https://github.com/libass/libass/releases/download/0.14.0/libass-0.14.0.tar.xz
 SECTION="Multimedia"
+DESCRIPTION="libass is a portable subtitle renderer for the ASS/SSA (Advanced Substation Alpha/Substation Alpha) subtitle format that allows for more advanced subtitles than the conventional SRT and similar formats."
 
 if [ ! -z $URL ]
 then

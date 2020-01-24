@@ -32,6 +32,7 @@ NAME=gst10-plugins-good
 VERSION=1.16.0
 URL=https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.16.0.tar.xz
 SECTION="Multimedia"
+DESCRIPTION="The GStreamer Good Plug-ins is a set of plug-ins considered by the GStreamer developers to have good quality code, correct functionality, and the preferred license (LGPL for the plug-in code, LGPL or LGPL-compatible for the supporting library). A wide range of video and audio decoders, encoders, and filters are included."
 
 if [ ! -z $URL ]
 then

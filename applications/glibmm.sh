@@ -21,6 +21,7 @@ NAME=glibmm
 VERSION=2.60.0
 URL=http://ftp.gnome.org/pub/gnome/sources/glibmm/2.60/glibmm-2.60.0.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The GLibmm package is a set of C++ bindings for GLib."
 
 if [ ! -z $URL ]
 then

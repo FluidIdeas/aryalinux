@@ -20,6 +20,7 @@ NAME=libxau
 VERSION=1.0.9
 URL=https://www.x.org/pub/individual/lib/libXau-1.0.9.tar.bz2
 SECTION="Others"
+DESCRIPTION="The libXau package contains a library implementing the X11 Authorization Protocol. This is useful for restricting client access to the display."
 
 if [ ! -z $URL ]
 then

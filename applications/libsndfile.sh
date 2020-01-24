@@ -21,6 +21,7 @@ NAME=libsndfile
 VERSION=1.0.28
 URL=http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.28.tar.gz
 SECTION="Multimedia"
+DESCRIPTION="Libsndfile is a library of C routines for reading and writing files containing sampled audio data."
 
 if [ ! -z $URL ]
 then

@@ -25,6 +25,7 @@ NAME=libsoup
 VERSION=2.66.2
 URL=http://ftp.gnome.org/pub/gnome/sources/libsoup/2.66/libsoup-2.66.2.tar.xz
 SECTION="Networking"
+DESCRIPTION="The libsoup is a HTTP client/server library for GNOME. It uses GObject and the GLib main loop to integrate with GNOME applications and it also has an asynchronous API for use in threaded applications."
 
 if [ ! -z $URL ]
 then

@@ -20,6 +20,7 @@ NAME=sawfish
 VERSION=1.12.0
 URL=http://download.tuxfamily.org/sawfish/sawfish_1.12.0.tar.xz
 SECTION="X-Server"
+DESCRIPTION="The sawfish package contains a window manager. This is useful for organizing and displaying windows where all window decorations are configurable and all user-interface policy is controlled through the extension language."
 
 if [ ! -z $URL ]
 then

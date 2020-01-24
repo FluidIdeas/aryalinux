@@ -20,6 +20,7 @@ NAME=autofs
 VERSION=5.1.5
 URL=https://www.kernel.org/pub/linux/daemons/autofs/v5/autofs-5.1.5.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="Autofs controls the operation of the automount daemons. The automount daemons automatically mount filesystems when they are accessed and unmount them after a period of inactivity. This is done based on a set of pre-configured maps."
 
 if [ ! -z $URL ]
 then

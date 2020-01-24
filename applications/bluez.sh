@@ -21,6 +21,7 @@ NAME=bluez
 VERSION=5.50
 URL=https://www.kernel.org/pub/linux/bluetooth/bluez-5.50.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The BlueZ package contains the Bluetooth protocol stack for Linux."
 
 if [ ! -z $URL ]
 then

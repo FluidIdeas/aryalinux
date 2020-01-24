@@ -20,6 +20,7 @@ NAME=falkon
 VERSION=3.0.1
 URL=https://download.kde.org/stable/falkon/3.0.1/falkon-3.0.1.tar.xz
 SECTION="Office Productivity"
+DESCRIPTION="Falkon is a KDE web browser using the QtWebEngine rendering engine. It was previously known as QupZilla. It aims to be a lightweight web browser available through all major platforms."
 
 if [ ! -z $URL ]
 then

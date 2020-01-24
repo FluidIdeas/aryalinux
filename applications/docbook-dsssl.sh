@@ -25,6 +25,7 @@ NAME=docbook-dsssl
 VERSION=1.79
 URL=https://downloads.sourceforge.net/docbook/docbook-dsssl-1.79.tar.bz2
 SECTION="Printing and Typesetting"
+DESCRIPTION="The DocBook DSSSL Stylesheets package contains DSSSL stylesheets. These are used by OpenJade or other tools to transform SGML and XML DocBook files."
 
 if [ ! -z $URL ]
 then

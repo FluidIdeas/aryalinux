@@ -19,6 +19,7 @@ NAME=glew
 VERSION=2.1.0
 URL=https://downloads.sourceforge.net/glew/glew-2.1.0.tgz
 SECTION="X-Server"
+DESCRIPTION="GLEW is the OpenGL Extension Wrangler Library."
 
 if [ ! -z $URL ]
 then

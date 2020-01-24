@@ -19,6 +19,7 @@ NAME=libnl
 VERSION=3.4.0
 URL=https://github.com/thom311/libnl/releases/download/libnl3_4_0/libnl-3.4.0.tar.gz
 SECTION="Networking"
+DESCRIPTION="The libnl suite is a collection of libraries providing APIs to netlink protocol based Linux kernel interfaces."
 
 if [ ! -z $URL ]
 then

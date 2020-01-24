@@ -28,6 +28,7 @@ NAME=network-manager-applet
 VERSION=1.8.22
 URL=http://ftp.gnome.org/pub/gnome/sources/network-manager-applet/1.8/network-manager-applet-1.8.22.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The NetworkManager Applet provides a tool and a panel applet used to configure wired and wireless network connections through GUI. It's designed for use with any desktop environment that uses GTK+, such as Xfce and LXDE."
 
 if [ ! -z $URL ]
 then

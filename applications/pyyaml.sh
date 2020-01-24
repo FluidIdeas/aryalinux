@@ -17,6 +17,7 @@ wget -nc https://github.com/yaml/pyyaml/archive/5.3.tar.gz
 NAME=pyyaml
 VERSION=5.3
 URL=https://github.com/yaml/pyyaml/archive/5.3.tar.gz
+DESCRIPTION="PyYAML - The next generation YAML parser and emitter for Python."
 
 if [ ! -z $URL ]
 then

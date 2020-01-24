@@ -26,6 +26,7 @@ NAME=xfce4-settings
 VERSION=4.14.1
 URL=http://archive.xfce.org/src/xfce/xfce4-settings/4.14/xfce4-settings-4.14.1.tar.bz2
 SECTION="XFCE"
+DESCRIPTION="The Xfce4 Settings package contains a collection of programs that are useful for adjusting your Xfce preferences."
 
 if [ ! -z $URL ]
 then

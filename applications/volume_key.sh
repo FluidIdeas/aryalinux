@@ -23,6 +23,7 @@ NAME=volume_key
 VERSION=0.3.12
 URL=https://github.com/felixonmars/volume_key/archive/volume_key-0.3.12.tar.gz
 SECTION="Security"
+DESCRIPTION="The volume_key package provides a library for manipulating storage volume encryption keys and storing them separately from volumes to handle forgotten passphrases."
 
 if [ ! -z $URL ]
 then

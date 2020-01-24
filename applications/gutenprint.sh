@@ -20,6 +20,7 @@ NAME=gutenprint
 VERSION=5.3.3
 URL=https://downloads.sourceforge.net/gimp-print/gutenprint-5.3.3.tar.xz
 SECTION="Printing and Typesetting"
+DESCRIPTION="The Gutenprint (formerly Gimp-Print) package contains high quality drivers for many brands and models of printers for use with Cups-2.2.12 and the GIMP-2.0. See a list of supported printers at http://gutenprint.sourceforge.net/p_Supported_Printers.php."
 
 if [ ! -z $URL ]
 then

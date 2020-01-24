@@ -18,6 +18,7 @@ NAME=mdadm
 VERSION=4.0
 URL=https://www.kernel.org/pub/linux/utils/raid/mdadm/mdadm-4.0.tar.xz
 SECTION="Filesystems"
+DESCRIPTION="The mdadm package contains administration tools for software RAID."
 
 if [ ! -z $URL ]
 then

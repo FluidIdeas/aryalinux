@@ -18,6 +18,7 @@ NAME=dhcp
 VERSION=4.4.1
 URL=ftp://ftp.isc.org/isc/dhcp/4.4.1/dhcp-4.4.1.tar.gz
 SECTION="Networking"
+DESCRIPTION="The ISC DHCP package contains both the client and server programs for DHCP. dhclient (the client) is used for connecting to a network which uses DHCP to assign network addresses. dhcpd (the server) is used for assigning network addresses on private networks."
 
 if [ ! -z $URL ]
 then

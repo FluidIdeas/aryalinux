@@ -25,6 +25,7 @@ NAME=asymptote
 VERSION=2.52
 URL=https://downloads.sourceforge.net/asymptote/asymptote-2.52.src.tgz
 SECTION="Printing and Typesetting"
+DESCRIPTION="Asymptote is a powerful descriptive vector graphics language that provides a natural coordinate-based framework for technical drawing. Labels and equations can be typeset with LaTeX."
 
 if [ ! -z $URL ]
 then

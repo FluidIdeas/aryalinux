@@ -28,6 +28,7 @@ NAME=mesa
 VERSION=19.1.4
 URL=https://mesa.freedesktop.org/archive/mesa-19.1.4.tar.xz
 SECTION="X-Server"
+DESCRIPTION="Mesa is an OpenGL compatible 3D graphics library."
 
 if [ ! -z $URL ]
 then

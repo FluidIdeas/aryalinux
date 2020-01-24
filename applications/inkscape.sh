@@ -36,6 +36,7 @@ NAME=inkscape
 VERSION=0.92.4
 URL=https://media.inkscape.org/dl/resources/file/inkscape-0.92.4.tar.bz2
 SECTION="Office Productivity"
+DESCRIPTION="Inkscape is a what you see is what you get Scalable Vector Graphics editor. It is useful for creating, viewing and changing SVG images."
 
 if [ ! -z $URL ]
 then

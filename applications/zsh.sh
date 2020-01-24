@@ -19,6 +19,7 @@ NAME=zsh
 VERSION=5.7.1
 URL=http://www.zsh.org/pub/zsh-5.7.1.tar.xz
 SECTION="Shells"
+DESCRIPTION="The zsh package contains a command interpreter (shell) usable as an interactive login shell and as a shell script command processor. Of the standard shells, zsh most closely resembles ksh but includes many enhancements."
 
 if [ ! -z $URL ]
 then

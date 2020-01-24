@@ -19,6 +19,7 @@ NAME=cpio
 VERSION=2.12
 URL=https://ftp.gnu.org/gnu/cpio/cpio-2.12.tar.bz2
 SECTION="Miscellaneous"
+DESCRIPTION="The cpio package contains tools for archiving."
 
 if [ ! -z $URL ]
 then

@@ -26,6 +26,7 @@ NAME=folks
 VERSION=0.12.1
 URL=http://ftp.gnome.org/pub/gnome/sources/folks/0.12/folks-0.12.1.tar.xz
 SECTION="Gnome"
+DESCRIPTION="Folks is a library that aggregates people from multiple sources (e.g, Telepathy connection managers and eventually Evolution Data Server, Facebook, etc.) to create metacontacts."
 
 if [ ! -z $URL ]
 then

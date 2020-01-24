@@ -18,6 +18,7 @@ NAME=libssh2
 VERSION=1.9.0
 URL=https://www.libssh2.org/download/libssh2-1.9.0.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="Libssh2 package is a client-side C library implementing the SSH2 protocol."
 
 if [ ! -z $URL ]
 then

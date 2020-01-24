@@ -28,6 +28,7 @@ NAME=tracker
 VERSION=2.2.2
 URL=http://ftp.gnome.org/pub/gnome/sources/tracker/2.2/tracker-2.2.2.tar.xz
 SECTION="Gnome"
+DESCRIPTION="Tracker is the file indexing and search provider used in the GNOME desktop environment."
 
 if [ ! -z $URL ]
 then

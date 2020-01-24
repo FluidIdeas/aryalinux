@@ -41,6 +41,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/qt-5.13.0-upstre
 NAME=qt5
 VERSION=5.13.0
 URL=https://download.qt.io/archive/qt/5.13/5.13.0/single/qt-everywhere-src-5.13.0.tar.xz
+DESCRIPTION="Qt5 is a cross-platform application framework that is widely used for developing application software with a graphical user interface (GUI) (in which cases Qt5 is classified as a widget toolkit), and also used for developing non-GUI programs such as command-line tools and consoles for servers. One of the major users of Qt is KDE Frameworks 5 (KF5)."
 
 if [ ! -z $URL ]
 then

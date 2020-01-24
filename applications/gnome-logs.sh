@@ -22,6 +22,7 @@ NAME=gnome-logs
 VERSION=3.32.1
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-logs/3.32/gnome-logs-3.32.1.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The GNOME Logs package contains a log viewer for the systemd journal."
 
 if [ ! -z $URL ]
 then

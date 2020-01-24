@@ -21,6 +21,7 @@ NAME=gnome-autoar
 VERSION=0.2.3
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-autoar/0.2/gnome-autoar-0.2.3.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The gnome-autoar package provides a framework for automatic archive extraction, compression, and management."
 
 if [ ! -z $URL ]
 then

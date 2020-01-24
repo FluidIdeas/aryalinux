@@ -20,6 +20,7 @@ NAME=libidn2
 VERSION=2.2.0
 URL=https://ftp.gnu.org/gnu/libidn/libidn2-2.2.0.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="libidn2 is a package designed for internationalized string handling based on standards from the Internet Engineering Task Force (IETF)'s IDN working group, designed for internationalized domain names."
 
 if [ ! -z $URL ]
 then

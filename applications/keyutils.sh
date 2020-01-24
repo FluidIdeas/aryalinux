@@ -19,6 +19,7 @@ NAME=keyutils
 VERSION=1.6
 URL=http://people.redhat.com/~dhowells/keyutils/keyutils-1.6.tar.bz2
 SECTION="Miscellaneous"
+DESCRIPTION="Keyutils is a set of utilities for managing the key retention facility in the kernel, which can be used by filesystems, block devices and more to gain and retain the authorization and encryption keys required to perform secure operations."
 
 if [ ! -z $URL ]
 then

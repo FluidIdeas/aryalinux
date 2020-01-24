@@ -18,6 +18,7 @@ NAME=json-c
 VERSION=0.13.1
 URL=https://s3.amazonaws.com/json-c_releases/releases/json-c-0.13.1.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="The JSON-C implements a reference counting object model that allows you to easily construct JSON objects in C, output them as JSON formatted strings and parse JSON formatted strings back into the C representation of JSON objects."
 
 if [ ! -z $URL ]
 then

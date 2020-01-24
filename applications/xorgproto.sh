@@ -19,6 +19,7 @@ NAME=xorgproto
 VERSION=2019.1
 URL=https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2019.1.tar.bz2
 SECTION="X-Server"
+DESCRIPTION="The xorgproto package provides the header files required to build the X Window system, and to allow other applications to build against the installed X Window system."
 
 if [ ! -z $URL ]
 then

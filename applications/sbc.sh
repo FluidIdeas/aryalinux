@@ -18,6 +18,7 @@ NAME=sbc
 VERSION=1.4
 URL=https://www.kernel.org/pub/linux/bluetooth/sbc-1.4.tar.xz
 SECTION="Multimedia"
+DESCRIPTION="The SBC is a digital audio encoder and decoder used to transfer data to Bluetooth audio output devices like headphones or loudspeakers."
 
 if [ ! -z $URL ]
 then

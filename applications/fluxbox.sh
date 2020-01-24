@@ -18,6 +18,7 @@ NAME=fluxbox
 VERSION=1.3.7
 URL=https://downloads.sourceforge.net/fluxbox/fluxbox-1.3.7.tar.xz
 SECTION="X-Server"
+DESCRIPTION="The Fluxbox package contains a window manager."
 
 if [ ! -z $URL ]
 then

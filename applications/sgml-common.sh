@@ -20,6 +20,7 @@ NAME=sgml-common
 VERSION=0.6.3
 URL=https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/sgml-common-0.6.3.tgz
 SECTION="Printing and Typesetting"
+DESCRIPTION="The SGML Common package contains install-catalog. This is useful for creating and maintaining centralized SGML catalogs."
 
 if [ ! -z $URL ]
 then

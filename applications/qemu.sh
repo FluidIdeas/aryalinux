@@ -21,6 +21,7 @@ NAME=qemu
 VERSION=4.1.0
 URL=http://download.qemu-project.org/qemu-4.1.0.tar.xz
 SECTION="Virtualization"
+DESCRIPTION="qemu is a full virtualization solution for Linux on x86 hardware containing virtualization extensions (Intel VT or AMD-V)."
 
 if [ ! -z $URL ]
 then

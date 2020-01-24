@@ -20,6 +20,7 @@ NAME=vorbistools
 VERSION=1.4.0
 URL=https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.0.tar.gz
 SECTION="Multimedia"
+DESCRIPTION="The Vorbis Tools package contains command-line tools useful for encoding, playing or editing files using the Ogg CODEC."
 
 if [ ! -z $URL ]
 then

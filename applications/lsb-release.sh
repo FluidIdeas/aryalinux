@@ -18,6 +18,7 @@ NAME=lsb-release
 VERSION=1.4
 URL=https://downloads.sourceforge.net/lsb/lsb-release-1.4.tar.gz
 SECTION="Configuration"
+DESCRIPTION="The lsb_release script gives information about the Linux Standards Base (LSB) status of the distribution."
 
 if [ ! -z $URL ]
 then

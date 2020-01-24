@@ -22,6 +22,7 @@ NAME=exo
 VERSION=0.12.8
 URL=http://archive.xfce.org/src/xfce/exo/0.12/exo-0.12.8.tar.bz2
 SECTION="XFCE"
+DESCRIPTION="Exo is a support library used in the Xfce desktop. It also has some helper applications that are used throughout Xfce."
 
 if [ ! -z $URL ]
 then

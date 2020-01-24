@@ -18,6 +18,7 @@ NAME=lcms2
 VERSION=2.9
 URL=https://downloads.sourceforge.net/lcms/lcms2-2.9.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="The Little Color Management System is a small-footprint color management engine, with special focus on accuracy and performance. It uses the International Color Consortium standard (ICC), which is the modern standard for color management."
 
 if [ ! -z $URL ]
 then

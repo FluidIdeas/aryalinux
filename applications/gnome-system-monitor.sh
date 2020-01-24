@@ -24,6 +24,7 @@ NAME=gnome-system-monitor
 VERSION=3.32.1
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-system-monitor/3.32/gnome-system-monitor-3.32.1.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The GNOME System Monitor package contains GNOME's replacement for gtop."
 
 if [ ! -z $URL ]
 then

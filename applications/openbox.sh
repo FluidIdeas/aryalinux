@@ -19,6 +19,7 @@ NAME=openbox
 VERSION=3.6.1
 URL=http://openbox.org/dist/openbox/openbox-3.6.1.tar.gz
 SECTION="X-Server"
+DESCRIPTION="Openbox is a highly configurable desktop window manager with extensive standards support. It allows you to control almost every aspect of how you interact with your desktop."
 
 if [ ! -z $URL ]
 then

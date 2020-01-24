@@ -19,6 +19,7 @@ NAME=alsa-utils
 VERSION=1.1.9
 URL=ftp://ftp.alsa-project.org/pub/utils/alsa-utils-1.1.9.tar.bz2
 SECTION="Multimedia"
+DESCRIPTION="The ALSA Utilities package contains various utilities which are useful for controlling your sound card."
 
 if [ ! -z $URL ]
 then

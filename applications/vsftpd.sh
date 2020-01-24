@@ -19,6 +19,7 @@ NAME=vsftpd
 VERSION=3.0.3
 URL=https://security.appspot.com/downloads/vsftpd-3.0.3.tar.gz
 SECTION="Servers"
+DESCRIPTION="The vsftpd package contains a very secure and very small FTP daemon. This is useful for serving files over a network."
 
 if [ ! -z $URL ]
 then

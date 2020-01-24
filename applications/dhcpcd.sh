@@ -19,6 +19,7 @@ NAME=dhcpcd
 VERSION=8.0.3
 URL=https://roy.marples.name/downloads/dhcpcd/dhcpcd-8.0.3.tar.xz
 SECTION="Networking"
+DESCRIPTION="dhcpcd is an implementation of the DHCP client specified in RFC2131. A DHCP client is useful for connecting your computer to a network which uses DHCP to assign network addresses. dhcpcd strives to be a fully featured, yet very lightweight DHCP client."
 
 if [ ! -z $URL ]
 then

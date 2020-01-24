@@ -20,6 +20,7 @@ NAME=libmad
 VERSION=0.15.
 URL=https://downloads.sourceforge.net/mad/libmad-0.15.1b.tar.gz
 SECTION="Multimedia"
+DESCRIPTION="libmad is a high-quality MPEG audio decoder capable of 24-bit output."
 
 if [ ! -z $URL ]
 then

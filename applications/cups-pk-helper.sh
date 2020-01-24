@@ -20,6 +20,7 @@ NAME=cups-pk-helper
 VERSION=0.2.6
 URL=https://www.freedesktop.org/software/cups-pk-helper/releases/cups-pk-helper-0.2.6.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The cups-pk-helper package contains a PolicyKit helper used to configure Cups with fine-grained privileges."
 
 if [ ! -z $URL ]
 then

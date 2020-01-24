@@ -24,6 +24,7 @@ NAME=xfdesktop
 VERSION=4.14.1
 URL=http://archive.xfce.org/src/xfce/xfdesktop/4.14/xfdesktop-4.14.1.tar.bz2
 SECTION="XFCE"
+DESCRIPTION="Xfdesktop is a desktop manager for the Xfce Desktop Environment. Xfdesktop sets the background image / color, creates the right click menu and window list and displays the file icons on the desktop using Thunar libraries."
 
 if [ ! -z $URL ]
 then

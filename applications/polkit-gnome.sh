@@ -21,6 +21,7 @@ NAME=polkit-gnome
 VERSION=0.105
 URL=http://ftp.gnome.org/pub/gnome/sources/polkit-gnome/0.105/polkit-gnome-0.105.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The Polkit GNOME package provides an Authentication Agent for Polkit that integrates well with the GNOME Desktop environment."
 
 if [ ! -z $URL ]
 then

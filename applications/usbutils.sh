@@ -20,6 +20,7 @@ NAME=usbutils
 VERSION=012
 URL=https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-012.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The USB Utils package contains utilities used to display information about USB buses in the system and the devices connected to them."
 
 if [ ! -z $URL ]
 then

@@ -19,6 +19,7 @@ NAME=boost
 VERSION=
 URL=https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.bz2
 SECTION="Miscellaneous"
+DESCRIPTION="Boost provides a set of free peer-reviewed portable C++ source libraries. It includes libraries for linear algebra, pseudorandom number generation, multithreading, image processing, regular expressions and unit testing."
 
 if [ ! -z $URL ]
 then

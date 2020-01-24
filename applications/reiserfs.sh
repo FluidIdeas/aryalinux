@@ -18,6 +18,7 @@ NAME=reiserfs
 VERSION=3.6.27
 URL=https://www.kernel.org/pub/linux/kernel/people/jeffm/reiserfsprogs/v3.6.27/reiserfsprogs-3.6.27.tar.xz
 SECTION="Filesystems"
+DESCRIPTION="The reiserfsprogs package contains various utilities for use with the Reiser file system."
 
 if [ ! -z $URL ]
 then

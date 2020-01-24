@@ -18,6 +18,7 @@ NAME=libsamplerate
 VERSION=0.1.9
 URL=http://www.mega-nerd.com/SRC/libsamplerate-0.1.9.tar.gz
 SECTION="Multimedia"
+DESCRIPTION="libsamplerate is a sample rate converter for audio."
 
 if [ ! -z $URL ]
 then

@@ -20,6 +20,7 @@ NAME=lm_sensors
 VERSION=3.4.0
 URL=https://ftp.gwdg.de/pub/linux/misc/lm-sensors/lm_sensors-3.4.0.tar.bz2
 SECTION="Miscellaneous"
+DESCRIPTION="The lm_sensors package provides user-space support for the hardware monitoring drivers in the Linux kernel. This is useful for monitoring the temperature of the CPU and adjusting the performance of some hardware (such as cooling fans)."
 
 if [ ! -z $URL ]
 then

@@ -30,6 +30,7 @@ NAME=tracker-miners
 VERSION=2.2.2
 URL=http://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.2/tracker-miners-2.2.2.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The Tracker-miners package contains a set of data extractors for Tracker."
 
 if [ ! -z $URL ]
 then

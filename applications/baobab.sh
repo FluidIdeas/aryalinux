@@ -23,6 +23,7 @@ NAME=baobab
 VERSION=3.32.0
 URL=http://ftp.gnome.org/pub/gnome/sources/baobab/3.32/baobab-3.32.0.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The Baobab package contains a graphical directory tree analyzer."
 
 if [ ! -z $URL ]
 then

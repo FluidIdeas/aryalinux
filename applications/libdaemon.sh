@@ -18,6 +18,7 @@ NAME=libdaemon
 VERSION=0.14
 URL=http://0pointer.de/lennart/projects/libdaemon/libdaemon-0.14.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="The libdaemon package is a lightweight C library that eases the writing of UNIX daemons."
 
 if [ ! -z $URL ]
 then

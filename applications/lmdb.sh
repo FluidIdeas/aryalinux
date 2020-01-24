@@ -18,6 +18,7 @@ NAME=lmdb
 VERSION=0.9.24
 URL=https://github.com/LMDB/lmdb/archive/LMDB_0.9.24.tar.gz
 SECTION="Servers"
+DESCRIPTION="The lmdb package is a fast, compact, key-value embedded data store. It uses memory-mapped files, so it has the read performance of a pure in-memory database while still offering the persistence of standard disk-based databases, and is only limited to the size of the virtual address space"
 
 if [ ! -z $URL ]
 then

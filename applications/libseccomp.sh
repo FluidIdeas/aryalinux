@@ -18,6 +18,7 @@ wget -nc https://github.com/seccomp/libseccomp/releases/download/v2.4.1/libsecco
 NAME=libseccomp
 VERSION=2.4.1
 URL=https://github.com/seccomp/libseccomp/releases/download/v2.4.1/libseccomp-2.4.1.tar.gz
+DESCRIPTION="The libseccomp package provides an easy to use and platform independent interface to the Linux kernel's syscall filtering mechanism."
 
 if [ ! -z $URL ]
 then

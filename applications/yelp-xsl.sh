@@ -21,6 +21,7 @@ NAME=yelp-xsl
 VERSION=3.32.1
 URL=http://ftp.gnome.org/pub/gnome/sources/yelp-xsl/3.32/yelp-xsl-3.32.1.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The Yelp XSL package contains XSL stylesheets that are used by the Yelp help browser to format Docbook and Mallard documents."
 
 if [ ! -z $URL ]
 then

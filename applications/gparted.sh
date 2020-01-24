@@ -20,6 +20,7 @@ NAME=gparted
 VERSION=1.0.0
 URL=https://downloads.sourceforge.net/gparted/gparted-1.0.0.tar.gz
 SECTION="Office Productivity"
+DESCRIPTION="Gparted is the Gnome Partition Editor, a Gtk 2 GUI for other command line tools that can create, reorganise or delete disk partitions."
 
 if [ ! -z $URL ]
 then

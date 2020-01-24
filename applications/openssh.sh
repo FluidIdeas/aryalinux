@@ -18,6 +18,7 @@ NAME=openssh
 VERSION=8.
 URL=http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.0p1.tar.gz
 SECTION="Security"
+DESCRIPTION="The OpenSSH package contains ssh clients and the sshd daemon. This is useful for encrypting authentication and subsequent traffic over a network. The ssh and scp commands are secure implementations of telnet and rcp respectively."
 
 if [ ! -z $URL ]
 then

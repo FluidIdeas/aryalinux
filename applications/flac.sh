@@ -18,6 +18,7 @@ NAME=flac
 VERSION=1.3.3
 URL=https://downloads.xiph.org/releases/flac/flac-1.3.3.tar.xz
 SECTION="Multimedia"
+DESCRIPTION="FLAC is an audio CODEC similar to MP3, but lossless, meaning that audio is compressed without losing any information."
 
 if [ ! -z $URL ]
 then

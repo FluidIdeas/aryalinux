@@ -20,6 +20,7 @@ NAME=exempi
 VERSION=2.5.1
 URL=https://libopenraw.freedesktop.org/download/exempi-2.5.1.tar.bz2
 SECTION="Miscellaneous"
+DESCRIPTION="Exempi is an implementation of XMP (Adobe's Extensible Metadata Platform)."
 
 if [ ! -z $URL ]
 then

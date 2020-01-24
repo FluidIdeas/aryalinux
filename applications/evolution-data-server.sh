@@ -33,6 +33,7 @@ NAME=evolution-data-server
 VERSION=3.32.4
 URL=http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.32/evolution-data-server-3.32.4.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The Evolution Data Server package provides a unified backend for programs that work with contacts, tasks, and calendar information. It was originally developed for Evolution (hence the name), but is now used by other packages as well."
 
 if [ ! -z $URL ]
 then

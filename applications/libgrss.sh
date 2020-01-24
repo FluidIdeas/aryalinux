@@ -17,6 +17,7 @@ wget -nc http://ftp.acc.umu.se/pub/gnome/sources/libgrss/0.7/libgrss-0.7.0.tar.x
 NAME=libgrss
 VERSION=0.7.0
 URL=http://ftp.acc.umu.se/pub/gnome/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
+DESCRIPTION="The libgrss package contains a library designed to manipulate RSS and Atom feeds."
 
 if [ ! -z $URL ]
 then

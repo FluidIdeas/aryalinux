@@ -19,6 +19,7 @@ NAME=mercurial
 VERSION=5.1
 URL=https://www.mercurial-scm.org/release/mercurial-5.1.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="Mercurial is a distributed source control management tool similar to Git and Bazaar. Mercurial is written in Python and is used by projects such as Mozilla and Vim."
 
 if [ ! -z $URL ]
 then

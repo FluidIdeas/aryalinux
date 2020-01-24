@@ -22,6 +22,7 @@ NAME=qca
 VERSION=2.2.1
 URL=http://download.kde.org/stable/qca/2.2.1/qca-2.2.1.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="Qca aims to provide a straightforward and cross-platform crypto API, using Qt datatypes and conventions. Qca separates the API from the implementation, using plugins known as Providers."
 
 if [ ! -z $URL ]
 then

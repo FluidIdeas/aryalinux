@@ -19,6 +19,7 @@ NAME=libsigc
 VERSION=2.10.2
 URL=http://ftp.gnome.org/pub/gnome/sources/libsigc++/2.10/libsigc++-2.10.2.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The libsigc++ package implements a typesafe callback system for standard C++."
 
 if [ ! -z $URL ]
 then

@@ -20,6 +20,7 @@ NAME=libisoburn
 VERSION=1.5.0
 URL=http://files.libburnia-project.org/releases/libisoburn-1.5.0.tar.gz
 SECTION="Multimedia"
+DESCRIPTION="libisoburn is a frontend for libraries libburn and libisofs which enables creation and expansion of ISO-9660 filesystems on all CD/DVD/BD media supported by libburn. This includes media like DVD+RW, which do not support multi-session management on media level and even plain disk files or block devices."
 
 if [ ! -z $URL ]
 then

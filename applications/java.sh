@@ -23,6 +23,7 @@ NAME=java
 VERSION=11.0.
 URL=http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-11.0.2/OpenJDK-11.0.2+9-i686-bin.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="Creating a JVM from source requires a set of circular dependencies. The first thing that's needed is a set of programs called a Java Development Kit (JDK). This set of programs includes java, javac, jar, and several others. It also includes several base jar files."
 
 if [ ! -z $URL ]
 then

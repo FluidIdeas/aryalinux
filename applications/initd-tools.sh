@@ -18,6 +18,7 @@ NAME=initd-tools
 VERSION=0.1.3
 URL=https://people.freedesktop.org/~dbn/initd-tools/releases/initd-tools-0.1.3.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="The initd-tools package contains programs to install and remove LSB based bootscripts."
 
 if [ ! -z $URL ]
 then

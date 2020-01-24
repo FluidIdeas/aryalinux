@@ -21,6 +21,7 @@ NAME=gsettings-desktop-schemas
 VERSION=3.32.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gsettings-desktop-schemas/3.32/gsettings-desktop-schemas-3.32.0.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The GSettings Desktop Schemas package contains a collection of GSettings schemas for settings shared by various components of a GNOME Desktop."
 
 if [ ! -z $URL ]
 then

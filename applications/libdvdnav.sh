@@ -19,6 +19,7 @@ NAME=libdvdnav
 VERSION=6.0.0
 URL=https://get.videolan.org/libdvdnav/6.0.0/libdvdnav-6.0.0.tar.bz2
 SECTION="Multimedia"
+DESCRIPTION="libdvdnav is a library that allows easy use of sophisticated DVD navigation features such as DVD menus, multiangle playback and even interactive DVD games."
 
 if [ ! -z $URL ]
 then

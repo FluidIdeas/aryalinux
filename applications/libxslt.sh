@@ -23,6 +23,7 @@ NAME=libxslt
 VERSION=1.1.33
 URL=http://xmlsoft.org/sources/libxslt-1.1.33.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="The libxslt package contains XSLT libraries used for extending libxml2 libraries to support XSLT files."
 
 if [ ! -z $URL ]
 then

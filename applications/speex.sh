@@ -20,6 +20,7 @@ NAME=speex
 VERSION=1.2.0
 URL=https://downloads.xiph.org/releases/speex/speex-1.2.0.tar.gz
 SECTION="Multimedia"
+DESCRIPTION="Speex is an audio compression format designed especially for speech. It is well-adapted to internet applications and provides useful features that are not present in most other CODECs."
 
 if [ ! -z $URL ]
 then

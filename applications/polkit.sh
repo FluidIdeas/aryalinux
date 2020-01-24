@@ -22,6 +22,7 @@ NAME=polkit
 VERSION=0.116
 URL=https://www.freedesktop.org/software/polkit/releases/polkit-0.116.tar.gz
 SECTION="Security"
+DESCRIPTION="Polkit is a toolkit for defining and handling authorizations. It is used for allowing unprivileged processes to communicate with privileged processes."
 
 if [ ! -z $URL ]
 then

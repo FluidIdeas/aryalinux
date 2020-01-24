@@ -22,6 +22,7 @@ NAME=postfix
 VERSION=3.4.6
 URL=ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.4.6.tar.gz
 SECTION="Servers"
+DESCRIPTION="The Postfix package contains a Mail Transport Agent (MTA). This is useful for sending email to other users of your host machine. It can also be configured to be a central mail server for your domain, a mail relay agent or simply a mail delivery agent to your local Internet Service Provider."
 
 if [ ! -z $URL ]
 then

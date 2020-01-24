@@ -19,6 +19,7 @@ NAME=mpg123
 VERSION=1.25.12
 URL=https://downloads.sourceforge.net/mpg123/mpg123-1.25.12.tar.bz2
 SECTION="Multimedia"
+DESCRIPTION="The mpg123 package contains a console-based MP3 player. It claims to be the fastest MP3 decoder for Unix."
 
 if [ ! -z $URL ]
 then

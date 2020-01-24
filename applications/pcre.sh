@@ -19,6 +19,7 @@ NAME=pcre
 VERSION=8.43
 URL=https://ftp.pcre.org/pub/pcre/pcre-8.43.tar.bz2
 SECTION="Miscellaneous"
+DESCRIPTION="The PCRE package contains Perl Compatible Regular Expression libraries. These are useful for implementing regular expression pattern matching using the same syntax and semantics as Perl 5."
 
 if [ ! -z $URL ]
 then

@@ -20,6 +20,7 @@ NAME=xfce4-appfinder
 VERSION=4.14.0
 URL=http://archive.xfce.org/src/xfce/xfce4-appfinder/4.14/xfce4-appfinder-4.14.0.tar.bz2
 SECTION="XFCE"
+DESCRIPTION="Xfce4 Appfinder is a tool to find and launch installed applications by searching the .desktop files installed on your system."
 
 if [ ! -z $URL ]
 then

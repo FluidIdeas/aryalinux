@@ -24,6 +24,7 @@ NAME=libgweather
 VERSION=3.32.2
 URL=http://ftp.gnome.org/pub/gnome/sources/libgweather/3.32/libgweather-3.32.2.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The libgweather package is a library used to access weather information from online services for numerous locations."
 
 if [ ! -z $URL ]
 then

@@ -19,6 +19,7 @@ NAME=libpng
 VERSION=1.6.37
 URL=https://downloads.sourceforge.net/libpng/libpng-1.6.37.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The libpng package contains libraries used by other programs for reading and writing PNG files. The PNG format was designed as a replacement for GIF and, to a lesser extent, TIFF, with many improvements and extensions and lack of patent problems."
 
 if [ ! -z $URL ]
 then

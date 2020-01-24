@@ -22,6 +22,7 @@ NAME=openldap
 VERSION=2.4.48
 URL=ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.48.tgz
 SECTION="Servers"
+DESCRIPTION="The OpenLDAP package provides an open source implementation of the Lightweight Directory Access Protocol."
 
 if [ ! -z $URL ]
 then

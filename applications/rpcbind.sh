@@ -20,6 +20,7 @@ NAME=rpcbind
 VERSION=1.2.5
 URL=https://downloads.sourceforge.net/rpcbind/rpcbind-1.2.5.tar.bz2
 SECTION="Networking"
+DESCRIPTION="The rpcbind program is a replacement for portmap. It is required for import or export of Network File System (NFS) shared directories."
 
 if [ ! -z $URL ]
 then

@@ -28,6 +28,7 @@ NAME=dconf
 VERSION=0.32.0
 URL=http://ftp.gnome.org/pub/gnome/sources/dconf/0.32/dconf-0.32.0.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The DConf package contains a low-level configuration system. Its main purpose is to provide a backend to GSettings on platforms that don't already have configuration storage systems."
 
 if [ ! -z $URL ]
 then

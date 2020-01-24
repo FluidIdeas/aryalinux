@@ -21,6 +21,7 @@ NAME=freeglut
 VERSION=3.0.0
 URL=https://downloads.sourceforge.net/freeglut/freeglut-3.0.0.tar.gz
 SECTION="X-Server"
+DESCRIPTION="Freeglut is intended to be a 100% compatible, completely opensourced clone of the GLUT library. GLUT is a window system independent toolkit for writing OpenGL programs, implementing a simple windowing API, which makes learning about and exploring OpenGL programming very easy."
 
 if [ ! -z $URL ]
 then

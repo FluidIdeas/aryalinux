@@ -21,6 +21,7 @@ NAME=gexiv2
 VERSION=0.12.0
 URL=https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.0.tar.xz
 SECTION="Gnome"
+DESCRIPTION="gexiv2 is a GObject-based wrapper around the Exiv2 library."
 
 if [ ! -z $URL ]
 then

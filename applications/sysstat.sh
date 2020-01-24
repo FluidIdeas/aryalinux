@@ -18,6 +18,7 @@ NAME=sysstat
 VERSION=12.1.6
 URL=http://sebastien.godard.pagesperso-orange.fr/sysstat-12.1.6.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The Sysstat package contains utilities to monitor system performance and usage activity. Sysstat contains the sar utility, common to many commercial Unixes, and tools you can schedule via cron to collect and historize performance and activity data."
 
 if [ ! -z $URL ]
 then

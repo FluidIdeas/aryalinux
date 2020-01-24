@@ -18,6 +18,7 @@ NAME=dosfstools
 VERSION=4.1
 URL=https://github.com/dosfstools/dosfstools/releases/download/v4.1/dosfstools-4.1.tar.xz
 SECTION="Filesystems"
+DESCRIPTION="The dosfstools package contains various utilities for use with the FAT family of file systems."
 
 if [ ! -z $URL ]
 then

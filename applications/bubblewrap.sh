@@ -18,6 +18,7 @@ NAME=bubblewrap
 VERSION=0.3.3
 URL=https://github.com/projectatomic/bubblewrap/releases/download/v0.3.3/bubblewrap-0.3.3.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="Bubblewrap is a setuid implementation of user namespaces, or sandboxing, that provides access to a subset of kernel user namespace features. Bubblewrap allows user owned processes to run in an isolated environment with limited access to the underlying filesystem."
 
 if [ ! -z $URL ]
 then

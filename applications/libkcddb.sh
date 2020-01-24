@@ -20,6 +20,7 @@ NAME=libkcddb
 VERSION=19.08.0
 URL=http://download.kde.org/stable/applications/19.08.0/src/libkcddb-19.08.0.tar.xz
 SECTION="KDE"
+DESCRIPTION="The libkcddb package contains a library used to retrieve audio CD meta data from the internet."
 
 if [ ! -z $URL ]
 then

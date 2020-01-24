@@ -39,6 +39,7 @@ NAME=webkitgtk
 VERSION=2.24.4
 URL=https://webkitgtk.org/releases/webkitgtk-2.24.4.tar.xz
 SECTION="X-Server"
+DESCRIPTION="The WebKitGTK+ package is a port of the portable web rendering engine WebKit to the GTK+ 3 and GTK+ 2 platforms."
 
 if [ ! -z $URL ]
 then

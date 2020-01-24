@@ -23,6 +23,7 @@ NAME=gmime
 VERSION=2.6.23
 URL=http://ftp.gnome.org/pub/gnome/sources/gmime/2.6/gmime-2.6.23.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The GMime package contains a set of utilities for parsing and creating messages using the Multipurpose Internet Mail Extension (MIME) as defined by the applicable RFCs. See the GMime web site for the RFCs resourced. This is useful as it provides an API which adheres to the MIME specification as closely as possible while also providing programmers with an extremely easy to use interface to the API functions."
 
 if [ ! -z $URL ]
 then

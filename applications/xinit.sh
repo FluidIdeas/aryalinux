@@ -23,6 +23,7 @@ NAME=xinit
 VERSION=1.4.1
 URL=https://www.x.org/pub/individual/app/xinit-1.4.1.tar.bz2
 SECTION="X-Server"
+DESCRIPTION="The xinit package contains a usable script to start the xserver."
 
 if [ ! -z $URL ]
 then

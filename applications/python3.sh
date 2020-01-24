@@ -18,6 +18,7 @@ NAME=python3
 VERSION=3.7.4
 URL=https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The Python 3 package contains the Python development environment. This is useful for object-oriented programming, writing scripts, prototyping large programs or developing entire applications."
 
 if [ ! -z $URL ]
 then

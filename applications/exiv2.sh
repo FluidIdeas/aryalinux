@@ -20,6 +20,7 @@ NAME=exiv2
 VERSION=0.27.
 URL=http://www.exiv2.org/builds/exiv2-0.27.2-Source.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="Exiv2 is a C++ library and a command line utility for managing image and video metadata."
 
 if [ ! -z $URL ]
 then

@@ -24,6 +24,7 @@ NAME=gjs
 VERSION=1.56.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gjs/1.56/gjs-1.56.2.tar.xz
 SECTION="Gnome"
+DESCRIPTION="Gjs is a set of Javascript bindings for GNOME."
 
 if [ ! -z $URL ]
 then

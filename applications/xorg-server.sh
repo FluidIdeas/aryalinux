@@ -26,6 +26,7 @@ NAME=xorg-server
 VERSION=1.20.5
 URL=https://www.x.org/pub/individual/xserver/xorg-server-1.20.5.tar.bz2
 SECTION="X-Server"
+DESCRIPTION="The Xorg Server is the core of the X Window system."
 
 if [ ! -z $URL ]
 then

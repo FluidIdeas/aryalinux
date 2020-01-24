@@ -56,6 +56,7 @@ NAME=biber
 VERSION=2.13
 URL=https://github.com/plk/biber/archive/v2.13/biber-2.13.tar.gz
 SECTION="Printing and Typesetting"
+DESCRIPTION="Biber is a BibTeX replacement for users of biblatex, written in Perl, with full Unicode support."
 
 if [ ! -z $URL ]
 then

@@ -33,6 +33,7 @@ NAME=texlive
 VERSION=2019041
 URL=ftp://tug.org/texlive/historic/2019/texlive-20190410-source.tar.xz
 SECTION="Printing and Typesetting"
+DESCRIPTION="Most of TeX Live can be built from source without a pre-existing installation, but xindy (for indexing) needs working versions of latex and pdflatex when configure is run, and the testsuite and install for asy (for vector graphics) will fail if TeX has not already been installed. Additionally, biber is not provided within the texlive source."
 
 if [ ! -z $URL ]
 then

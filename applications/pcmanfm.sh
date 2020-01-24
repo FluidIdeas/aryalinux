@@ -23,6 +23,7 @@ NAME=pcmanfm
 VERSION=1.3.1
 URL=https://downloads.sourceforge.net/pcmanfm/pcmanfm-1.3.1.tar.xz
 SECTION="Others"
+DESCRIPTION="The PCManFM package contains an extremely fast, lightweight, yet feature-rich file manager with tabbed browsing."
 
 if [ ! -z $URL ]
 then

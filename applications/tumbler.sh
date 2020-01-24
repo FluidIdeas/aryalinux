@@ -19,6 +19,7 @@ NAME=tumbler
 VERSION=0.2.7
 URL=http://archive.xfce.org/src/xfce/tumbler/0.2/tumbler-0.2.7.tar.bz2
 SECTION="XFCE"
+DESCRIPTION="The Tumbler package contains a D-Bus thumbnailing service based on the thumbnail management D-Bus specification. This is useful for generating thumbnail images of files."
 
 if [ ! -z $URL ]
 then

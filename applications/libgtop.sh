@@ -22,6 +22,7 @@ NAME=libgtop
 VERSION=2.40.0
 URL=http://ftp.gnome.org/pub/gnome/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The libgtop package contains the GNOME top libraries."
 
 if [ ! -z $URL ]
 then

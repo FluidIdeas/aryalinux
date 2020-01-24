@@ -21,6 +21,7 @@ NAME=wv
 VERSION=1.2.9
 URL=http://www.abisource.com/downloads/wv/1.2.9/wv-1.2.9.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="This package contains tools for reading information from an MS Word document."
 
 if [ ! -z $URL ]
 then

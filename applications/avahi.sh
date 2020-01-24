@@ -24,6 +24,7 @@ NAME=avahi
 VERSION=0.7
 URL=https://github.com/lathiat/avahi/releases/download/v0.7/avahi-0.7.tar.gz
 SECTION="Networking"
+DESCRIPTION="The Avahi package is a system which facilitates service discovery on a local network."
 
 if [ ! -z $URL ]
 then

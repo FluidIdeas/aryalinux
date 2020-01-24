@@ -21,6 +21,7 @@ NAME=gst10-libav
 VERSION=1.16.0
 URL=https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.16.0.tar.xz
 SECTION="Multimedia"
+DESCRIPTION="The GStreamer Libav package contains GStreamer plugins for Libav (a fork of FFmpeg)."
 
 if [ ! -z $URL ]
 then

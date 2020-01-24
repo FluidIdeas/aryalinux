@@ -30,6 +30,7 @@ NAME=gdm
 VERSION=3.32.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gdm/3.32/gdm-3.32.0.tar.xz
 SECTION="Gnome"
+DESCRIPTION="GDM is a system service that is responsible for providing graphical logins and managing local and remote displays."
 
 if [ ! -z $URL ]
 then

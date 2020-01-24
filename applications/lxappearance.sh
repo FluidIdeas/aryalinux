@@ -20,6 +20,7 @@ NAME=lxappearance
 VERSION=0.6.3
 URL=https://downloads.sourceforge.net/lxde/lxappearance-0.6.3.tar.xz
 SECTION="Others"
+DESCRIPTION="The LXAppearance package contains a desktop-independent theme switcher for GTK+."
 
 if [ ! -z $URL ]
 then

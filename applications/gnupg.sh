@@ -24,6 +24,7 @@ NAME=gnupg
 VERSION=2.2.17
 URL=https://www.gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.17.tar.bz2
 SECTION="Security"
+DESCRIPTION="The GnuPG package is GNU's tool for secure communication and data storage. It can be used to encrypt data and to create digital signatures. It includes an advanced key management facility and is compliant with the proposed OpenPGP Internet standard as described in RFC2440 and the S/MIME standard as described by several RFCs. GnuPG 2 is the stable version of GnuPG integrating support for OpenPGP and S/MIME."
 
 if [ ! -z $URL ]
 then

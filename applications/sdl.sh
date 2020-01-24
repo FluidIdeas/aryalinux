@@ -18,6 +18,7 @@ NAME=sdl
 VERSION=1.2.15
 URL=http://www.libsdl.org/release/SDL-1.2.15.tar.gz
 SECTION="Multimedia"
+DESCRIPTION="The Simple DirectMedia Layer (SDL for short) is a cross-platform library designed to make it easy to write multimedia software, such as games and emulators."
 
 if [ ! -z $URL ]
 then

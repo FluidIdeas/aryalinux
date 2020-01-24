@@ -18,6 +18,7 @@ NAME=libyaml
 VERSION=0.2.2
 URL=https://github.com/yaml/libyaml/archive/0.2.2/libyaml-dist-0.2.2.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="The libyaml package contains a C library for parsing and emitting YAML (YAML Ain't Markup Language) code."
 
 if [ ! -z $URL ]
 then

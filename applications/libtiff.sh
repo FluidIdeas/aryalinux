@@ -19,6 +19,7 @@ NAME=libtiff
 VERSION=4.0.10
 URL=http://download.osgeo.org/libtiff/tiff-4.0.10.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="The LibTIFF package contains the TIFF libraries and associated utilities. The libraries are used by many programs for reading and writing TIFF files and the utilities are used for general work with TIFF files."
 
 if [ ! -z $URL ]
 then

@@ -20,6 +20,7 @@ NAME=libwacom
 VERSION=0.29
 URL=https://downloads.sourceforge.net/linuxwacom/libwacom-0.29.tar.bz2
 SECTION="Miscellaneous"
+DESCRIPTION="The libwacom package contains a library used to identify wacom tablets and their model-specific features."
 
 if [ ! -z $URL ]
 then

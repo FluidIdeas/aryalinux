@@ -19,6 +19,7 @@ NAME=proftpd
 VERSION=1.3.6
 URL=ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.6.tar.gz
 SECTION="Servers"
+DESCRIPTION="The ProFTPD package contains a secure and highly configurable FTP daemon. This is useful for serving large file archives over a network."
 
 if [ ! -z $URL ]
 then

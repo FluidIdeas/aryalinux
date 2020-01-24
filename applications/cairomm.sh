@@ -20,6 +20,7 @@ NAME=cairomm
 VERSION=1.12.2
 URL=https://www.cairographics.org/releases/cairomm-1.12.2.tar.gz
 SECTION="X-Server"
+DESCRIPTION="The Cairomm package provides a C++ interface to Cairo."
 
 if [ ! -z $URL ]
 then

@@ -23,6 +23,7 @@ NAME=zenity
 VERSION=3.32.0
 URL=http://ftp.gnome.org/pub/gnome/sources/zenity/3.32/zenity-3.32.0.tar.xz
 SECTION="Gnome"
+DESCRIPTION="Zenity is a rewrite of gdialog, the GNOME port of dialog which allows you to display GTK+ dialog boxes from the command line and shell scripts."
 
 if [ ! -z $URL ]
 then

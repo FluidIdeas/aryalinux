@@ -24,6 +24,7 @@ NAME=vino
 VERSION=3.22.0
 URL=http://ftp.gnome.org/pub/gnome/sources/vino/3.22/vino-3.22.0.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The Vino package is a VNC server for GNOME. VNC is a protocol that allows remote display of a user's desktop."
 
 if [ ! -z $URL ]
 then

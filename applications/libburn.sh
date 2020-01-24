@@ -18,6 +18,7 @@ NAME=libburn
 VERSION=1.5.0
 URL=http://files.libburnia-project.org/releases/libburn-1.5.0.tar.gz
 SECTION="Multimedia"
+DESCRIPTION="libburn is a library for writing preformatted data onto optical media: CD, DVD and BD (Blu-Ray)."
 
 if [ ! -z $URL ]
 then

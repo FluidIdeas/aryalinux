@@ -28,6 +28,7 @@ NAME=cups-filters
 VERSION=1.25.2
 URL=https://www.openprinting.org/download/cups-filters/cups-filters-1.25.2.tar.xz
 SECTION="Printing and Typesetting"
+DESCRIPTION="The CUPS Filters package contains backends, filters and other software that was once part of the core CUPS distribution but is no longer maintained by Apple Inc."
 
 if [ ! -z $URL ]
 then

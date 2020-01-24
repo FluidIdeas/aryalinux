@@ -22,6 +22,7 @@ NAME=gnome-nettool
 VERSION=3.8.1
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-nettool/3.8/gnome-nettool-3.8.1.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The GNOME Nettool package is a network information tool which provides GUI interface for some of the most common command line network tools."
 
 if [ ! -z $URL ]
 then

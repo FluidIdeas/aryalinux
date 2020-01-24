@@ -28,6 +28,7 @@ NAME=gcr
 VERSION=3.28.1
 URL=http://ftp.gnome.org/pub/gnome/sources/gcr/3.28/gcr-3.28.1.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The Gcr package contains libraries used for displaying certificates and accessing key stores. It also provides the viewer for crypto files on the GNOME Desktop."
 
 if [ ! -z $URL ]
 then

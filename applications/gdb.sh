@@ -20,6 +20,7 @@ NAME=gdb
 VERSION=8.3
 URL=https://ftp.gnu.org/gnu/gdb/gdb-8.3.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="GDB, the GNU Project debugger, allows you to see what is going on “inside” another program while it executes -- or what another program was doing at the moment it crashed. Note that GDB is most effective when tracing programs and libraries that were built with debugging symbols and not stripped."
 
 if [ ! -z $URL ]
 then

@@ -18,6 +18,7 @@ NAME=psutils
 VERSION=17
 URL=http://pkgs.fedoraproject.org/repo/pkgs/psutils/psutils-p17.tar.gz/b161522f3bd1507655326afa7db4a0ad/psutils-p17.tar.gz
 SECTION="Printing and Typesetting"
+DESCRIPTION="PSUtils is a set of utilities to manipulate PostScript files."
 
 if [ ! -z $URL ]
 then

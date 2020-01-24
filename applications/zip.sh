@@ -19,6 +19,7 @@ NAME=zip
 VERSION=30
 URL=https://downloads.sourceforge.net/infozip/zip30.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="The Zip package contains Zip utilities. These are useful for compressing files into ZIP archives."
 
 if [ ! -z $URL ]
 then

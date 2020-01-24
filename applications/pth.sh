@@ -19,6 +19,7 @@ NAME=pth
 VERSION=2.0.7
 URL=https://ftp.gnu.org/gnu/pth/pth-2.0.7.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="The Pth package contains a very portable POSIX/ANSI-C based library for Unix platforms which provides non-preemptive priority-based scheduling for multiple threads of execution (multithreading) inside event-driven applications. All threads run in the same address space of the server application, but each thread has its own individual program-counter, run-time stack, signal mask and errno variable."
 
 if [ ! -z $URL ]
 then

@@ -21,6 +21,7 @@ NAME=imagemagick6
 VERSION=6.9.1
 URL=https://www.imagemagick.org/download/releases/ImageMagick-6.9.10-60.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="ImageMagick underwent many changes in its libraries between versions 6 and 7. Most packages in BLFS which use ImageMagick can use version 7, but for the others this page will install only the libraries, headers and general documentation (not programs, manpages, perl modules), and it will rename the unversioned pkgconfig files so that they do not overwrite the same-named files from version 7."
 
 if [ ! -z $URL ]
 then

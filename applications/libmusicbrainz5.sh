@@ -21,6 +21,7 @@ NAME=libmusicbrainz5
 VERSION=5.1.0
 URL=https://github.com/metabrainz/libmusicbrainz/releases/download/release-5.1.0/libmusicbrainz-5.1.0.tar.gz
 SECTION="Multimedia"
+DESCRIPTION="The libmusicbrainz package contains a library which allows you to access the data held on the MusicBrainz server."
 
 if [ ! -z $URL ]
 then

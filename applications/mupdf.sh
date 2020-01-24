@@ -25,6 +25,7 @@ NAME=mupdf
 VERSION=1.16.
 URL=http://www.mupdf.com/downloads/archive/mupdf-1.16.1-source.tar.gz
 SECTION="Printing and Typesetting"
+DESCRIPTION="MuPDF is a lightweight PDF and XPS viewer."
 
 if [ ! -z $URL ]
 then

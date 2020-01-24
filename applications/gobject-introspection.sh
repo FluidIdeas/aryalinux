@@ -20,6 +20,7 @@ NAME=gobject-introspection
 VERSION=1.60.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gobject-introspection/1.60/gobject-introspection-1.60.2.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The GObject Introspection is used to describe the program APIs and collect them in a uniform, machine readable format."
 
 if [ ! -z $URL ]
 then

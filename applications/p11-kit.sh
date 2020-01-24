@@ -20,6 +20,7 @@ NAME=p11-kit
 VERSION=0.23.16.1
 URL=https://github.com/p11-glue/p11-kit/releases/download/0.23.16.1/p11-kit-0.23.16.1.tar.gz
 SECTION="Security"
+DESCRIPTION="The p11-kit package provides a way to load and enumerate PKCS #11 (a Cryptographic Token Interface Standard) modules."
 
 if [ ! -z $URL ]
 then

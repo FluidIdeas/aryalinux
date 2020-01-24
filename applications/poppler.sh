@@ -27,6 +27,7 @@ NAME=poppler
 VERSION=0.79.0
 URL=https://poppler.freedesktop.org/poppler-0.79.0.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The Poppler package contains a PDF rendering library and command line tools used to manipulate PDF files. This is useful for providing PDF rendering functionality as a shared library."
 
 if [ ! -z $URL ]
 then

@@ -21,6 +21,7 @@ NAME=gsound
 VERSION=1.0.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gsound/1.0/gsound-1.0.2.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The gsound package contains a small library for playing system sounds."
 
 if [ ! -z $URL ]
 then

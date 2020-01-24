@@ -18,6 +18,7 @@ NAME=lxmenu-data
 VERSION=0.1.5
 URL=https://downloads.sourceforge.net/lxde/lxmenu-data-0.1.5.tar.xz
 SECTION="Others"
+DESCRIPTION="The LXMenu Data package provides files required to build freedesktop.org menu spec-compliant desktop menus for LXDE."
 
 if [ ! -z $URL ]
 then

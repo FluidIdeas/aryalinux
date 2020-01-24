@@ -20,6 +20,7 @@ NAME=xterm
 VERSION=348
 URL=http://invisible-mirror.net/archives/xterm/xterm-348.tgz
 SECTION="X-Server"
+DESCRIPTION="xterm is a terminal emulator for the X Window System."
 
 if [ ! -z $URL ]
 then

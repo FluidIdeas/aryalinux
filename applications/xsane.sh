@@ -21,6 +21,7 @@ NAME=xsane
 VERSION=0.999
 URL=http://anduin.linuxfromscratch.org/BLFS/xsane/xsane-0.999.tar.gz
 SECTION="Printing and Typesetting"
+DESCRIPTION="XSane is another front end for SANE-1.0.27. It has additional features to improve the image quality and ease of use compared to xscanimage."
 
 if [ ! -z $URL ]
 then

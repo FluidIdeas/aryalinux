@@ -22,6 +22,7 @@ NAME=nmap
 VERSION=7.80
 URL=http://nmap.org/dist/nmap-7.80.tar.bz2
 SECTION="Networking"
+DESCRIPTION="Nmap is a utility for network exploration and security auditing. It supports ping scanning, port scanning and TCP/IP fingerprinting."
 
 if [ ! -z $URL ]
 then

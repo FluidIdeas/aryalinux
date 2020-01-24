@@ -25,6 +25,7 @@ NAME=thunar
 VERSION=1.8.9
 URL=http://archive.xfce.org/src/xfce/thunar/1.8/Thunar-1.8.9.tar.bz2
 SECTION="XFCE"
+DESCRIPTION="Thunar is the Xfce file manager, a GTK+ 3 GUI to organise the files on your computer."
 
 if [ ! -z $URL ]
 then

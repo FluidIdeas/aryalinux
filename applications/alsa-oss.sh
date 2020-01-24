@@ -19,6 +19,7 @@ NAME=alsa-oss
 VERSION=1.1.8
 URL=ftp://ftp.alsa-project.org/pub/oss-lib/alsa-oss-1.1.8.tar.bz2
 SECTION="Multimedia"
+DESCRIPTION="The alsa-oss package contains the alsa-oss compatibility library. This is used by programs which wish to use the alsa-oss sound interface."
 
 if [ ! -z $URL ]
 then

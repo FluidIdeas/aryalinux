@@ -18,6 +18,7 @@ NAME=libao
 VERSION=1.2.0
 URL=https://downloads.xiph.org/releases/ao/libao-1.2.0.tar.gz
 SECTION="Multimedia"
+DESCRIPTION="The libao package contains a cross-platform audio library. This is useful to output audio on a wide variety of platforms. It currently supports WAV files, OSS (Open Sound System), ESD (Enlighten Sound Daemon), ALSA (Advanced Linux Sound Architecture), NAS (Network Audio system), aRTS (analog Real-Time Synthesizer), and PulseAudio (next generation GNOME sound architecture)."
 
 if [ ! -z $URL ]
 then

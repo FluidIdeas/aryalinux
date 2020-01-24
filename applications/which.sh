@@ -19,6 +19,7 @@ NAME=which
 VERSION=2.21
 URL=https://ftp.gnu.org/gnu/which/which-2.21.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="The first option is to install the actual GNU which package."
 
 if [ ! -z $URL ]
 then

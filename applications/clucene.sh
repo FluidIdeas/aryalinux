@@ -21,6 +21,7 @@ NAME=clucene
 VERSION=2.3.3.4
 URL=https://downloads.sourceforge.net/clucene/clucene-core-2.3.3.4.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="CLucene is a C++ version of Lucene, a high performance text search engine."
 
 if [ ! -z $URL ]
 then

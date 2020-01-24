@@ -20,6 +20,7 @@ NAME=dejagnu
 VERSION=1.6.2
 URL=https://ftp.gnu.org/gnu/dejagnu/dejagnu-1.6.2.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="DejaGnu is a framework for running test suites on GNU tools. It is written in expect, which uses Tcl (Tool command language). It was installed by LFS in the temporary /tools directory. These instructions install it permanently."
 
 if [ ! -z $URL ]
 then

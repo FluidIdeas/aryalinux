@@ -22,6 +22,7 @@ NAME=libxfce4ui
 VERSION=4.14.1
 URL=http://archive.xfce.org/src/xfce/libxfce4ui/4.14/libxfce4ui-4.14.1.tar.bz2
 SECTION="XFCE"
+DESCRIPTION="The libxfce4ui package contains GTK+ 2 widgets that are used by other Xfce applications."
 
 if [ ! -z $URL ]
 then

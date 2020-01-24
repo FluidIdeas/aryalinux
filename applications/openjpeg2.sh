@@ -19,6 +19,7 @@ NAME=openjpeg2
 VERSION=2.3.1
 URL=https://github.com/uclouvain/openjpeg/archive/v2.3.1/openjpeg-2.3.1.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="OpenJPEG is an open-source implementation of the JPEG-2000 standard. OpenJPEG fully respects the JPEG-2000 specifications and can compress/decompress lossless 16-bit images."
 
 if [ ! -z $URL ]
 then

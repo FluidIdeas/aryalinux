@@ -18,6 +18,7 @@ NAME=nano
 VERSION=4.4
 URL=https://www.nano-editor.org/dist/v4/nano-4.4.tar.xz
 SECTION="Editors"
+DESCRIPTION="The Nano package contains a small, simple text editor which aims to replace Pico, the default editor in the Pine package."
 
 if [ ! -z $URL ]
 then

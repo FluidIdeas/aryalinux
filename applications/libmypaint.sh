@@ -21,6 +21,7 @@ NAME=libmypaint
 VERSION=1.3.0
 URL=https://github.com/mypaint/libmypaint/releases/download/v1.3.0/libmypaint-1.3.0.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The libmypaint package, a.k.a. "brushlib", is a library for making brushstrokes which is used by MyPaint and other projects."
 
 if [ ! -z $URL ]
 then

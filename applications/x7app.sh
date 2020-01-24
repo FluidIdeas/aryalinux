@@ -21,6 +21,7 @@ NAME=x7app
 VERSION=
 
 SECTION="X-Server"
+DESCRIPTION="The Xorg applications provide the expected applications available in previous X Window implementations."
 
 if [ ! -z $URL ]
 then

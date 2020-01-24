@@ -20,6 +20,7 @@ NAME=dbus-glib
 VERSION=0.110
 URL=https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.110.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="The D-Bus GLib package contains GLib interfaces to the D-Bus API."
 
 if [ ! -z $URL ]
 then

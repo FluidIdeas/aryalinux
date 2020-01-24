@@ -21,6 +21,7 @@ NAME=gnome-user-docs
 VERSION=3.32.3
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-user-docs/3.32/gnome-user-docs-3.32.3.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The GNOME User Docs package contains documentation for GNOME."
 
 if [ ! -z $URL ]
 then

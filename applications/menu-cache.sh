@@ -19,6 +19,7 @@ NAME=menu-cache
 VERSION=1.1.0
 URL=https://downloads.sourceforge.net/lxde/menu-cache-1.1.0.tar.xz
 SECTION="Others"
+DESCRIPTION="The Menu Cache package contains a library for creating and utilizing caches to speed up the manipulation for freedesktop.org defined application menus."
 
 if [ ! -z $URL ]
 then

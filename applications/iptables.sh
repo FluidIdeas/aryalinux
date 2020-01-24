@@ -19,6 +19,7 @@ NAME=iptables
 VERSION=1.8.3
 URL=http://www.netfilter.org/projects/iptables/files/iptables-1.8.3.tar.bz2
 SECTION="Security"
+DESCRIPTION="The next part of this chapter deals with firewalls. The principal firewall tool for Linux is Iptables. You will need to install Iptables if you intend on using any form of a firewall."
 
 if [ ! -z $URL ]
 then

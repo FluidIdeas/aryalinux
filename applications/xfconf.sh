@@ -19,6 +19,7 @@ NAME=xfconf
 VERSION=4.14.1
 URL=http://archive.xfce.org/src/xfce/xfconf/4.14/xfconf-4.14.1.tar.bz2
 SECTION="XFCE"
+DESCRIPTION="Xfconf is the configuration storage system for Xfce."
 
 if [ ! -z $URL ]
 then

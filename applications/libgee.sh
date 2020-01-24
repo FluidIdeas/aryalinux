@@ -22,6 +22,7 @@ NAME=libgee
 VERSION=0.20.2
 URL=http://ftp.gnome.org/pub/gnome/sources/libgee/0.20/libgee-0.20.2.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The libgee package is a collection library providing GObject based interfaces and classes for commonly used data structures."
 
 if [ ! -z $URL ]
 then

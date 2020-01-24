@@ -22,6 +22,7 @@ NAME=khelpcenter
 VERSION=19.08.0
 URL=http://download.kde.org/stable/applications/19.08.0/src/khelpcenter-19.08.0.tar.xz
 SECTION="KDE"
+DESCRIPTION="Khelpcenter is an application to show KDE Applications' documentation."
 
 if [ ! -z $URL ]
 then

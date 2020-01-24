@@ -20,6 +20,7 @@ NAME=lxappearance-obconf
 VERSION=0.2.3
 URL=https://downloads.sourceforge.net/lxde/lxappearance-obconf-0.2.3.tar.xz
 SECTION="Others"
+DESCRIPTION="The LXAppearance OBconf package contains a plugin for LXAppearance to configure OpenBox."
 
 if [ ! -z $URL ]
 then

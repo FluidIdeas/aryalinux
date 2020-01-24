@@ -24,6 +24,7 @@ NAME=gnutls
 VERSION=3.6.9
 URL=https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.9.tar.xz
 SECTION="Security"
+DESCRIPTION="The GnuTLS package contains libraries and userspace tools which provide a secure layer over a reliable transport layer. Currently the GnuTLS library implements the proposed standards by the IETF's TLS working group. Quoting from the TLS protocol specification:"
 
 if [ ! -z $URL ]
 then

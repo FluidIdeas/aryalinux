@@ -19,6 +19,7 @@ NAME=gnome-video-effects
 VERSION=0.5.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-video-effects/0.5/gnome-video-effects-0.5.0.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The GNOME Video Effects package contains a collection of GStreamer effects."
 
 if [ ! -z $URL ]
 then

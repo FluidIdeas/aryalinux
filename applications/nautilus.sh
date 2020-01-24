@@ -32,6 +32,7 @@ NAME=nautilus
 VERSION=3.32.3
 URL=http://ftp.gnome.org/pub/gnome/sources/nautilus/3.32/nautilus-3.32.3.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The Nautilus package contains the GNOME file manager."
 
 if [ ! -z $URL ]
 then

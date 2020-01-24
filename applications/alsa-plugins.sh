@@ -19,6 +19,7 @@ NAME=alsa-plugins
 VERSION=1.1.9
 URL=ftp://ftp.alsa-project.org/pub/plugins/alsa-plugins-1.1.9.tar.bz2
 SECTION="Multimedia"
+DESCRIPTION="The ALSA Plugins package contains plugins for various audio libraries and sound servers."
 
 if [ ! -z $URL ]
 then

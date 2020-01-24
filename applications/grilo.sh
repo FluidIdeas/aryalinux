@@ -27,6 +27,7 @@ NAME=grilo
 VERSION=0.3.9
 URL=http://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.9.tar.xz
 SECTION="Gnome"
+DESCRIPTION="Grilo is a framework focused on making media discovery and browsing easy for applications and application developers."
 
 if [ ! -z $URL ]
 then

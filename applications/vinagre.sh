@@ -25,6 +25,7 @@ NAME=vinagre
 VERSION=3.22.0
 URL=http://ftp.gnome.org/pub/gnome/sources/vinagre/3.22/vinagre-3.22.0.tar.xz
 SECTION="Gnome"
+DESCRIPTION="Vinagre is a VNC client for the GNOME Desktop."
 
 if [ ! -z $URL ]
 then

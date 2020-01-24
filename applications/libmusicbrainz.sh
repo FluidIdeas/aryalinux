@@ -20,6 +20,7 @@ NAME=libmusicbrainz
 VERSION=2.1.5
 URL=http://ftp.musicbrainz.org/pub/musicbrainz/historical/libmusicbrainz-2.1.5.tar.gz
 SECTION="Multimedia"
+DESCRIPTION="The libmusicbrainz package contains a library which allows you to access the data held on the MusicBrainz server. This is useful for adding MusicBrainz lookup capabilities to other applications."
 
 if [ ! -z $URL ]
 then

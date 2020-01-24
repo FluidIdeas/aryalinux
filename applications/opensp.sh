@@ -19,6 +19,7 @@ NAME=opensp
 VERSION=1.5.2
 URL=https://downloads.sourceforge.net/openjade/OpenSP-1.5.2.tar.gz
 SECTION="Printing and Typesetting"
+DESCRIPTION="The OpenSP package contains a C++ library for using SGML/XML files. This is useful for validating, parsing and manipulating SGML and XML documents."
 
 if [ ! -z $URL ]
 then

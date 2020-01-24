@@ -19,6 +19,7 @@ NAME=unzip
 VERSION=60
 URL=https://downloads.sourceforge.net/infozip/unzip60.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="The UnZip package contains ZIP extraction utilities. These are useful for extracting files from ZIP archives. ZIP archives are created with PKZIP or Info-ZIP utilities, primarily in a DOS environment."
 
 if [ ! -z $URL ]
 then

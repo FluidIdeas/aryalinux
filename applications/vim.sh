@@ -19,6 +19,7 @@ NAME=vim
 VERSION=8.1.1846
 URL=http://github.com/vim/vim/archive/v8.1.1846/vim-8.1.1846.tar.gz
 SECTION="Editors"
+DESCRIPTION="The Vim package, which is an abbreviation for VI IMproved, contains a vi clone with extra features as compared to the original vi."
 
 if [ ! -z $URL ]
 then

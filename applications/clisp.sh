@@ -21,6 +21,7 @@ NAME=clisp
 VERSION=2.49
 URL=https://ftp.gnu.org/gnu/clisp/latest/clisp-2.49.tar.bz2
 SECTION="Miscellaneous"
+DESCRIPTION="GNU Clisp is a Common Lisp implementation which includes an interpreter, compiler, debugger, and many extensions."
 
 if [ ! -z $URL ]
 then

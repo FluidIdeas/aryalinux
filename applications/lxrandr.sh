@@ -20,6 +20,7 @@ NAME=lxrandr
 VERSION=0.3.2
 URL=https://downloads.sourceforge.net/lxde/lxrandr-0.3.2.tar.xz
 SECTION="Others"
+DESCRIPTION="The LXRandR package contains a monitor configuration tool for LXDE."
 
 if [ ! -z $URL ]
 then

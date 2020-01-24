@@ -18,6 +18,7 @@ NAME=rxvt-unicode
 VERSION=9.22
 URL=http://dist.schmorp.de/rxvt-unicode/Attic/rxvt-unicode-9.22.tar.bz2
 SECTION="Office Productivity"
+DESCRIPTION="rxvt-unicode is a clone of the terminal emulator rxvt, an X Window System terminal emulator which includes support for XFT and Unicode."
 
 if [ ! -z $URL ]
 then

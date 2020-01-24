@@ -20,6 +20,7 @@ NAME=procmail
 VERSION=3.22
 URL=http://ftp.osuosl.org/pub/blfs/conglomeration/procmail/procmail-3.22.tar.gz
 SECTION="Networking"
+DESCRIPTION="The Procmail package contains an autonomous mail processor. This is useful for filtering and sorting incoming mail."
 
 if [ ! -z $URL ]
 then

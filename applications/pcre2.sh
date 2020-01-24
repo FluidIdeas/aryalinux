@@ -18,6 +18,7 @@ NAME=pcre2
 VERSION=10.33
 URL=https://downloads.sourceforge.net/pcre/pcre2-10.33.tar.bz2
 SECTION="Miscellaneous"
+DESCRIPTION="The PCRE2 package contains a new generation of the Perl Compatible Regular Expression libraries. These are useful for implementing regular expression pattern matching using the same syntax and semantics as Perl."
 
 if [ ! -z $URL ]
 then

@@ -26,6 +26,7 @@ NAME=gnome-terminal
 VERSION=3.32.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-terminal/3.32/gnome-terminal-3.32.2.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The GNOME Terminal package contains the terminal emulator for GNOME Desktop."
 
 if [ ! -z $URL ]
 then

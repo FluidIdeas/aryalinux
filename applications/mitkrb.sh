@@ -18,6 +18,7 @@ NAME=mitkrb
 VERSION=1.17
 URL=https://kerberos.org/dist/krb5/1.17/krb5-1.17.tar.gz
 SECTION="Security"
+DESCRIPTION="MIT Kerberos V5 is a free implementation of Kerberos 5. Kerberos is a network authentication protocol. It centralizes the authentication database and uses kerberized applications to work with servers or services that support Kerberos allowing single logins and encrypted communication over internal networks or the Internet."
 
 if [ ! -z $URL ]
 then

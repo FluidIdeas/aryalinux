@@ -20,6 +20,7 @@ NAME=twm
 VERSION=1.0.10
 URL=https://www.x.org/pub/individual/app/twm-1.0.10.tar.bz2
 SECTION="X-Server"
+DESCRIPTION="The twm package contains a very minimal window manager."
 
 if [ ! -z $URL ]
 then

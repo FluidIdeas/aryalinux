@@ -27,6 +27,7 @@ NAME=gnome-maps
 VERSION=3.32.2.1
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-maps/3.32/gnome-maps-3.32.2.1.tar.xz
 SECTION="Gnome"
+DESCRIPTION="GNOME Maps is a map application for GNOME."
 
 if [ ! -z $URL ]
 then

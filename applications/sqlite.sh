@@ -19,6 +19,7 @@ NAME=sqlite
 VERSION=3290000
 URL=https://sqlite.org/2019/sqlite-autoconf-3290000.tar.gz
 SECTION="Servers"
+DESCRIPTION="The SQLite package is a software library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine."
 
 if [ ! -z $URL ]
 then

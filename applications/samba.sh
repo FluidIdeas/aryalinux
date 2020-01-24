@@ -32,6 +32,7 @@ NAME=samba
 VERSION=4.10.7
 URL=https://www.samba.org/ftp/samba/stable/samba-4.10.7.tar.gz
 SECTION="Networking"
+DESCRIPTION="The Samba package provides file and print services to SMB/CIFS clients and Windows networking to Linux clients. Samba can also be configured as a Windows Domain Controller replacement, a file/print server acting as a member of a Windows Active Directory domain and a NetBIOS (rfc1001/1002) nameserver (which among other things provides LAN browsing support)."
 
 if [ ! -z $URL ]
 then

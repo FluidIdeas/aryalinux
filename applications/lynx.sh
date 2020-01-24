@@ -18,6 +18,7 @@ NAME=lynx
 VERSION=2.8.
 URL=https://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.9rel.1.tar.bz2
 SECTION="Networking"
+DESCRIPTION="Lynx is a text based web browser."
 
 if [ ! -z $URL ]
 then

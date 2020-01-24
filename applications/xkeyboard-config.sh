@@ -20,6 +20,7 @@ NAME=xkeyboard-config
 VERSION=2.27
 URL=https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.27.tar.bz2
 SECTION="X-Server"
+DESCRIPTION="The XKeyboardConfig package contains the keyboard configuration database for the X Window System."
 
 if [ ! -z $URL ]
 then

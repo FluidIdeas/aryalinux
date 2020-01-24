@@ -19,6 +19,7 @@ NAME=x7lib
 VERSION=
 
 SECTION="X-Server"
+DESCRIPTION="The Xorg libraries provide library routines that are used within all X Window applications."
 
 if [ ! -z $URL ]
 then

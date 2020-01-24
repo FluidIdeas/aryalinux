@@ -23,6 +23,7 @@ NAME=totem-pl-parser
 VERSION=3.26.3
 URL=http://ftp.gnome.org/pub/gnome/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.3.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The Totem PL Parser package contains a simple GObject-based library used to parse multiple playlist formats."
 
 if [ ! -z $URL ]
 then

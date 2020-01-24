@@ -18,6 +18,7 @@ NAME=alsa-lib
 VERSION=1.1.9
 URL=ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.1.9.tar.bz2
 SECTION="Multimedia"
+DESCRIPTION="The ALSA Library package contains the ALSA library used by programs (including ALSA Utilities) requiring access to the ALSA sound interface."
 
 if [ ! -z $URL ]
 then

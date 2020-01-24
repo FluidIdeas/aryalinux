@@ -19,6 +19,7 @@ NAME=python2
 VERSION=2.7.16
 URL=https://www.python.org/ftp/python/2.7.16/Python-2.7.16.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The Python 2 package contains the Python development environment. It is useful for object-oriented programming, writing scripts, prototyping large programs or developing entire applications. This version is for backward compatibility with other dependent packages."
 
 if [ ! -z $URL ]
 then

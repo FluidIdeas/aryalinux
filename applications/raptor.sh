@@ -20,6 +20,7 @@ NAME=raptor
 VERSION=2.0.15
 URL=http://download.librdf.org/source/raptor2-2.0.15.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="Raptor is a C library that provides a set of parsers and serializers that generate Resource Description Framework (RDF) triples."
 
 if [ ! -z $URL ]
 then

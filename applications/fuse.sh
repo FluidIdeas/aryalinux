@@ -18,6 +18,7 @@ NAME=fuse
 VERSION=3.6.2
 URL=https://github.com/libfuse/libfuse/releases/download/fuse-3.6.2/fuse-3.6.2.tar.xz
 SECTION="Filesystems"
+DESCRIPTION="FUSE (Filesystem in Userspace) is a simple interface for userspace programs to export a virtual filesystem to the Linux kernel. Fuse also aims to provide a secure method for non privileged users to create and mount their own filesystem implementations."
 
 if [ ! -z $URL ]
 then

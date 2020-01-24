@@ -20,6 +20,7 @@ NAME=bogofilter
 VERSION=1.2.4
 URL=https://downloads.sourceforge.net/bogofilter/bogofilter-1.2.4.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="The Bogofilter application is a mail filter that classifies mail as spam or ham (non-spam) by a statistical analysis of the message's header and content (body)."
 
 if [ ! -z $URL ]
 then

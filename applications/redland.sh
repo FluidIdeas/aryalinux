@@ -19,6 +19,7 @@ NAME=redland
 VERSION=1.0.17
 URL=http://download.librdf.org/source/redland-1.0.17.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="Redland is a set of free software C libraries that provide support for the Resource Description Framework (RDF)."
 
 if [ ! -z $URL ]
 then

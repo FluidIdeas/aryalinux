@@ -25,6 +25,7 @@ NAME=libgxps
 VERSION=0.3.1
 URL=http://ftp.gnome.org/pub/gnome/sources/libgxps/0.3/libgxps-0.3.1.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The libgxps package provides an interface to manipulate XPS documents."
 
 if [ ! -z $URL ]
 then

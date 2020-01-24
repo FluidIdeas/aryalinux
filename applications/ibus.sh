@@ -25,6 +25,7 @@ NAME=ibus
 VERSION=1.5.20
 URL=https://github.com/ibus/ibus/releases/download/1.5.20/ibus-1.5.20.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="ibus is an Intelligent Input Bus. It is a new input framework for the Linux OS. It provides a fully featured and user friendly input method user interface."
 
 if [ ! -z $URL ]
 then

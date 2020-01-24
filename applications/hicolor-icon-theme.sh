@@ -18,6 +18,7 @@ NAME=hicolor-icon-theme
 VERSION=0.17
 URL=https://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.17.tar.xz
 SECTION="X-Server"
+DESCRIPTION="The hicolor-icon-theme package contains a default fallback theme for implementations of the icon theme specification."
 
 if [ ! -z $URL ]
 then

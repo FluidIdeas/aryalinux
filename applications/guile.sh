@@ -21,6 +21,7 @@ NAME=guile
 VERSION=2.2.6
 URL=https://ftp.gnu.org/gnu/guile/guile-2.2.6.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The Guile package contains the GNU Project's extension language library. Guile also contains a stand alone Scheme interpreter."
 
 if [ ! -z $URL ]
 then

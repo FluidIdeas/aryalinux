@@ -18,6 +18,7 @@ NAME=xcb-proto
 VERSION=1.13
 URL=https://xcb.freedesktop.org/dist/xcb-proto-1.13.tar.bz2
 SECTION="X-Server"
+DESCRIPTION="The xcb-proto package provides the XML-XCB protocol descriptions that libxcb uses to generate the majority of its code and API."
 
 if [ ! -z $URL ]
 then

@@ -23,6 +23,7 @@ NAME=geoclue2
 VERSION=2.5.3
 URL=https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.5.3/geoclue-2.5.3.tar.bz2
 SECTION="Networking"
+DESCRIPTION="GeoClue is a modular geoinformation service built on top of the D-Bus messaging system. The goal of the GeoClue project is to make creating location-aware applications as simple as possible."
 
 if [ ! -z $URL ]
 then

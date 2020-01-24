@@ -22,6 +22,7 @@ NAME=freetype2
 VERSION=2.10.1
 URL=https://downloads.sourceforge.net/freetype/freetype-2.10.1.tar.xz
 SECTION="Miscellaneous"
+DESCRIPTION="The FreeType2 package contains a library which allows applications to properly render TrueType fonts."
 
 if [ ! -z $URL ]
 then

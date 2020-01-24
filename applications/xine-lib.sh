@@ -23,6 +23,7 @@ NAME=xine-lib
 VERSION=1.2.9
 URL=https://downloads.sourceforge.net/xine/xine-lib-1.2.9.tar.xz
 SECTION="Multimedia"
+DESCRIPTION="The Xine Libraries package contains xine libraries. These are useful for interfacing with external plug-ins that allow the flow of information from the source to the audio and video hardware."
 
 if [ ! -z $URL ]
 then

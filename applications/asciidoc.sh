@@ -19,6 +19,7 @@ NAME=asciidoc
 VERSION=8.6.9
 URL=https://downloads.sourceforge.net/asciidoc/asciidoc-8.6.9.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="The Asciidoc package is a text document format for writing notes, documentation, articles, books, ebooks, slideshows, web pages, man pages and blogs. AsciiDoc files can be translated to many formats including HTML, PDF, EPUB, and man page."
 
 if [ ! -z $URL ]
 then

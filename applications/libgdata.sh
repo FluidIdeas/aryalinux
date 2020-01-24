@@ -29,6 +29,7 @@ NAME=libgdata
 VERSION=0.17.11
 URL=http://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.11.tar.xz
 SECTION="Gnome"
+DESCRIPTION="The libgdata package is a GLib-based library for accessing online service APIs using the GData protocol, most notably, Google's services. It provides APIs to access the common Google services and has full asynchronous support."
 
 if [ ! -z $URL ]
 then

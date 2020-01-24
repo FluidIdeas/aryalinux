@@ -21,6 +21,7 @@ NAME=dbus
 VERSION=1.12.16
 URL=https://dbus.freedesktop.org/releases/dbus/dbus-1.12.16.tar.gz
 SECTION="Miscellaneous"
+DESCRIPTION="Even though D-Bus was built in LFS, there are some features provided by the package that other BLFS packages need, but their dependencies didn't fit into LFS."
 
 if [ ! -z $URL ]
 then

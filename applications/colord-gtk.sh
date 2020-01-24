@@ -22,6 +22,7 @@ NAME=colord-gtk
 VERSION=0.2.0
 URL=https://www.freedesktop.org/software/colord/releases/colord-gtk-0.2.0.tar.xz
 SECTION="X-Server"
+DESCRIPTION="The Colord GTK package contains GTK+ bindings for Colord."
 
 if [ ! -z $URL ]
 then

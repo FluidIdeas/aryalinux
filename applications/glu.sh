@@ -19,6 +19,7 @@ NAME=glu
 VERSION=9.0.1
 URL=ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.1.tar.xz
 SECTION="X-Server"
+DESCRIPTION="This package provides the Mesa OpenGL Utility library."
 
 if [ ! -z $URL ]
 then
