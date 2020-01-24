@@ -51,6 +51,7 @@ cd $SOURCE_DIR
 NAME=xserver-meta
 VERSION=1.20.3
 
+DESCRIPTION="A meta package to install the collection of packages needed to install x-server."
 
 if [ ! -z $URL ]
 then

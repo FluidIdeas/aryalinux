@@ -17,6 +17,7 @@ wget -nc http://aryalinux.info/files/aryalinux-google-fonts.tar.xz
 NAME=aryalinux-google-fonts
 VERSION=1.4
 
+DESCRIPTION="Collection of TTF fonts, sourced from Google for AryaLinux"
 
 if [ ! -z $URL ]
 then

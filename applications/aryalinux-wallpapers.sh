@@ -17,6 +17,7 @@ wget -nc http://aryalinux.info/files/aryalinux-wallpapers-2.0.tar.xz
 NAME=aryalinux-wallpapers
 VERSION=2.0
 
+DESCRIPTION="The wallpaper collection for AryaLinux desktop."
 
 if [ ! -z $URL ]
 then

@@ -17,6 +17,7 @@ wget -nc https://sourceforge.net/projects/libmtp/files/libmtp/1.1.16/libmtp-1.1.
 NAME=libmtp
 VERSION=1.1.16
 URL=https://sourceforge.net/projects/libmtp/files/libmtp/1.1.16/libmtp-1.1.16.tar.gz
+DESCRIPTION="A library to access MTP (Media Transfer Protocol) Devices."
 
 if [ ! -z $URL ]
 then

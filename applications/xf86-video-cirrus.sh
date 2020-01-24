@@ -17,6 +17,7 @@ wget -nc https://www.x.org/archive/individual/driver/xf86-video-cirrus-1.5.3.tar
 NAME=xf86-video-cirrus
 VERSION=1.5.3
 URL=https://www.x.org/archive/individual/driver/xf86-video-cirrus-1.5.3.tar.gz
+DESCRIPTION="Userspace cirrus video graphics driver"
 
 if [ ! -z $URL ]
 then

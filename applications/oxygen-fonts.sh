@@ -17,6 +17,7 @@ wget -nc http://aryalinux.info/files/oxygen-fonts-5.4.3-x86_64.tar.xz
 NAME=oxygen-fonts
 VERSION=5.4.3
 URL=http://aryalinux.info/files/oxygen-fonts-5.4.3-x86_64.tar.xz
+DESCRIPTION="The Oxygen typeface family is created as part of the KDE Project, a libre desktop for the GNU+Linux operating system. The design is optimised for the FreeType font rendering system and works well in all graphical user interfaces, desktops and devices."
 
 if [ ! -z $URL ]
 then

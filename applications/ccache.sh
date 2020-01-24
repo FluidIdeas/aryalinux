@@ -18,6 +18,7 @@ NAME=ccache
 VERSION=3.5.1
 URL=https://www.samba.org/ftp/ccache/ccache-3.5.1a.tar.xz
 SECTION="Others"
+DESCRIPTION="ccache (or “Ccache”) is a compiler cache. It speeds up recompilation by caching previous compilations and detecting when the same compilation is being done again. Supported languages are C, C++, Objective-C and Objective-C++."
 
 if [ ! -z $URL ]
 then

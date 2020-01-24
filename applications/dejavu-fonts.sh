@@ -21,6 +21,7 @@ NAME=dejavu-fonts
 VERSION=2.37
 URL=https://sourceforge.net/projects/dejavu/files/dejavu/2.37/dejavu-fonts-2.37.tar.bz2
 SECTION="Others"
+DESCRIPTION="The DejaVu fonts are modifications of the Bitstream Vera fonts designed for greater coverage of Unicode, as well as providing more styles."
 
 if [ ! -z $URL ]
 then

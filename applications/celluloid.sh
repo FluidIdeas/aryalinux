@@ -19,6 +19,7 @@ wget -nc https://github.com/celluloid-player/celluloid/releases/download/v0.18/c
 NAME=celluloid
 VERSION=0.18
 URL=https://github.com/celluloid-player/celluloid/releases/download/v0.18/celluloid-0.18.tar.xz
+DESCRIPTION="Celluloid (formerly GNOME MPV) is a simple GTK+ frontend for mpv. It aims to be easy to use while maintaining high level of configurability."
 
 if [ ! -z $URL ]
 then

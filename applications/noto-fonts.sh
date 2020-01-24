@@ -16,6 +16,7 @@ cd $SOURCE_DIR
 NAME=noto-fonts
 VERSION=1.4
 
+DESCRIPTION="Noto is a font family comprising over 100 individual fonts, which are together designed to cover all the scripts encoded in the Unicode standard."
 
 if [ ! -z $URL ]
 then

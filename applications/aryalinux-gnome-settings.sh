@@ -17,6 +17,7 @@ wget -nc http://aryalinux.info/files/aryalinux-gnome-defaults-2.0.tar.xz
 NAME=aryalinux-gnome-settings
 VERSION=2.0
 
+DESCRIPTION="Default settings for the AryaLinux Gnome desktop environment."
 
 if [ ! -z $URL ]
 then

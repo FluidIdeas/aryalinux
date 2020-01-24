@@ -109,6 +109,7 @@ cd $SOURCE_DIR
 NAME=gnome-desktop-environment
 VERSION=3.32.0
 
+DESCRIPTION="GNOME is a free and open-source desktop environment for Unix-like operating systems. GNOME was originally an acronym for GNU Network Object Model Environment, but the acronym was dropped because it no longer reflected the vision of the GNOME project."
 
 if [ ! -z $URL ]
 then

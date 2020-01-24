@@ -47,6 +47,7 @@ cd $SOURCE_DIR
 NAME=kde-desktop-environment
 VERSION=5.53
 
+DESCRIPTION="Plasma is KDE's desktop environment. Simple by default, powerful when needed."
 
 if [ ! -z $URL ]
 then

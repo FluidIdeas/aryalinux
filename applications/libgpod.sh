@@ -18,6 +18,7 @@ wget -nc https://sourceforge.net/projects/gtkpod/files/libgpod/libgpod-0.8/libgp
 NAME=libgpod
 VERSION=0.8.2
 URL=https://sourceforge.net/projects/gtkpod/files/libgpod/libgpod-0.8/libgpod-0.8.2.tar.bz2
+DESCRIPTION="libgpod is a shared library to access the contents of an iPod. This library is based on code used in the gtkpod project."
 
 if [ ! -z $URL ]
 then

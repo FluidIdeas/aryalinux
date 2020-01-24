@@ -22,6 +22,7 @@ NAME=libbamf3
 VERSION=0.5.4
 URL=https://launchpad.net/bamf/0.5/0.5.4/+download/bamf-0.5.4.tar.gz
 SECTION="Others"
+DESCRIPTION="Bamf matches application windows to desktop files. It removes the headache of applications matching into a simple DBus daemon and C wrapper library. It currently features application matching at amazing levels of accuracy (covering nearly every corner case)."
 
 if [ ! -z $URL ]
 then

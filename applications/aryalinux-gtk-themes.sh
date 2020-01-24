@@ -17,6 +17,7 @@ wget -nc http://aryalinux.info/files/aryalinux-gtk-themes.tar.xz
 NAME=aryalinux-gtk-themes
 VERSION=1.4
 
+DESCRIPTION="Collection of GTK themes from various souces for usage within AryaLinux."
 
 if [ ! -z $URL ]
 then

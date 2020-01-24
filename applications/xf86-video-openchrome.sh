@@ -17,6 +17,7 @@ wget -nc https://www.x.org/archive/individual/driver/xf86-video-openchrome-0.6.0
 NAME=xf86-video-openchrome
 VERSION=0.6.0
 URL=https://www.x.org/archive/individual/driver/xf86-video-openchrome-0.6.0.tar.gz
+DESCRIPTION="Userspace openchrome video graphics driver"
 
 if [ ! -z $URL ]
 then

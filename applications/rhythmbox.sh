@@ -36,6 +36,7 @@ wget -nc https://download.gnome.org/sources/rhythmbox/3.4/rhythmbox-3.4.3.tar.xz
 NAME=rhythmbox
 VERSION=3.4.3
 URL=https://download.gnome.org/sources/rhythmbox/3.4/rhythmbox-3.4.3.tar.xz
+DESCRIPTION="Rhythmbox is a free and open-source audio player that plays and organizes digital audio files. Rhythmbox is designed to work well under the GNOME desktop, however it can function on many desktop environments."
 
 if [ ! -z $URL ]
 then

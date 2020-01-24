@@ -17,6 +17,7 @@ wget -nc https://github.com/intel/intel-vaapi-driver/releases/download/2.3.0/int
 NAME=intel-vaapi-driver
 VERSION=2.3.0
 URL=https://github.com/intel/intel-vaapi-driver/releases/download/2.3.0/intel-vaapi-driver-2.3.0.tar.bz2
+DESCRIPTION="VA-API (Video Acceleration API) user mode driver for Intel GEN Graphics family."
 
 if [ ! -z $URL ]
 then

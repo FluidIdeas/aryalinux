@@ -17,6 +17,7 @@ wget -nc http://aryalinux.info/files/aryalinux-icons.tar.xz
 NAME=aryalinux-icons
 VERSION=1.4
 
+DESCRIPTION="Collections of icons for usage in AryaLinux."
 
 if [ ! -z $URL ]
 then

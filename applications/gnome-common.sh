@@ -19,6 +19,7 @@ NAME=gnome-common
 VERSION=0.31.0
 URL=https://ftp.gnome.org/pub/GNOME/sources/gnome-common/3.18/gnome-common-3.18.0.tar.xz
 SECTION="Others"
+DESCRIPTION="This module contains various files needed to bootstrap GNOME modules built from git."
 
 if [ ! -z $URL ]
 then

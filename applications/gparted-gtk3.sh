@@ -20,6 +20,7 @@ cd $SOURCE_DIR
 NAME=gparted-gtk3
 VERSION=0.31.0
 
+DESCRIPTION="GTK3 version of gparted partition editing tool."
 
 if [ ! -z $URL ]
 then

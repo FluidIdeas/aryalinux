@@ -74,6 +74,7 @@ cd $SOURCE_DIR
 NAME=multimedia-plugins
 VERSION=1.4
 
+DESCRIPTION="A meta package which is a collection of audio and video codecs and plugins."
 
 if [ ! -z $URL ]
 then

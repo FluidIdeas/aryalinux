@@ -17,6 +17,7 @@ wget -nc https://github.com/libimobiledevice/libplist/archive/2.1.0.tar.gz
 NAME=libplist
 VERSION=2.1.0
 URL=https://github.com/libimobiledevice/libplist/archive/2.1.0.tar.gz
+DESCRIPTION="A library to handle Apple Property List format in binary or XML - libimobiledevice/libplist"
 
 if [ ! -z $URL ]
 then

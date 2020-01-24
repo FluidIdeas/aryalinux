@@ -27,6 +27,7 @@ wget -nc https://github.com/mpv-player/mpv/archive/v0.29.1.tar.gz
 NAME=mpv
 VERSION=0.29.1
 URL=https://github.com/mpv-player/mpv/archive/v0.29.1.tar.gz
+DESCRIPTION="mpv is a free (as in freedom) media player for the command line. It supports a wide variety of media file formats, audio and video codecs, and subtitle types."
 
 if [ ! -z $URL ]
 then
