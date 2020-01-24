@@ -17,6 +17,7 @@ wget -nc https://download.docker.com/linux/static/stable/x86_64/docker-19.03.5.t
 NAME=docker
 VERSION=19.03.5
 URL=https://download.docker.com/linux/static/stable/x86_64/docker-19.03.5.tgz
+DESCRIPTION="DescriptionDocker is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers. Containers are isolated from one another and bundle their own software, libraries and configuration files; they can communicate with each other through well-defined channels."
 
 if [ ! -z $URL ]
 then

@@ -7,6 +7,7 @@ set +h
 
 NAME="xfce4-dev-tools"
 VERSION="4.14.0"
+DESCRIPTION="xfce4-dev-tools provide an easy way to handle the setup and maintenance of a projects build framework. It's required to build Xfce applications from git."
 
 KDE_PREFIX=/usr
 cd $SOURCE_DIR
