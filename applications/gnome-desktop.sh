@@ -27,7 +27,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-desktop/3.32/gnome-desktop-
 NAME=gnome-desktop
 VERSION=3.32.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-desktop/3.32/gnome-desktop-3.32.2.tar.xz
-SECTION="Gnome"
+SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Desktop package contains a library that provides an API shared by several applications on the GNOME Desktop."
 
 if [ ! -z $URL ]

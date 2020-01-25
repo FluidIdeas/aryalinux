@@ -17,7 +17,7 @@ wget -nc https://github.com/ivmai/libatomic_ops/releases/download/v7.6.10/libato
 NAME=libatomic_ops
 VERSION=7.6.10
 URL=https://github.com/ivmai/libatomic_ops/releases/download/v7.6.10/libatomic_ops-7.6.10.tar.gz
-SECTION="General Libraries and Utilities"
+SECTION="General Libraries"
 DESCRIPTION="libatomic_ops provides implementations for atomic memory update operations on a number of architectures. This allows direct use of these in reasonably portable code. Unlike earlier similar packages, this one explicitly considers memory barrier semantics, and allows the construction of code that involves minimum overhead across a variety of architectures."
 
 if [ ! -z $URL ]

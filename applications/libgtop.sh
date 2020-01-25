@@ -21,7 +21,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgtop/2.40/libgtop-2.40.0.tar.x
 NAME=libgtop
 VERSION=2.40.0
 URL=http://ftp.gnome.org/pub/gnome/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
-SECTION="Gnome"
+SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libgtop package contains the GNOME top libraries."
 
 if [ ! -z $URL ]

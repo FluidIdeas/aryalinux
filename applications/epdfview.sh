@@ -20,7 +20,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/epdfview-0.1.8-f
 NAME=epdfview
 VERSION=0.1.8
 URL=http://anduin.linuxfromscratch.org/BLFS/epdfview/epdfview-0.1.8.tar.bz2
-SECTION="Printing and Typesetting"
+SECTION="PostScript"
 DESCRIPTION="ePDFView is a free standalone lightweight PDF document viewer using Poppler and GTK+ libraries. It is a good replacement for Evince as it does not rely upon GNOME libraries."
 
 if [ ! -z $URL ]

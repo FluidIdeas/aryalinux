@@ -17,7 +17,7 @@ wget -nc https://files.dyne.org/frei0r/releases/frei0r-plugins-1.6.1.tar.gz
 NAME=frei0r
 VERSION=1.6.1
 URL=https://files.dyne.org/frei0r/releases/frei0r-plugins-1.6.1.tar.gz
-SECTION="Multimedia"
+SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="Frei0r is a minimalistic plugin API for video effects. Note that the 0 in the name is a zero, not a capital letter o."
 
 if [ ! -z $URL ]

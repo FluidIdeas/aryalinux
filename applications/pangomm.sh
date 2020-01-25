@@ -21,7 +21,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pangomm/2.42/pangomm-2.42.0.tar.x
 NAME=pangomm
 VERSION=2.42.0
 URL=http://ftp.gnome.org/pub/gnome/sources/pangomm/2.42/pangomm-2.42.0.tar.xz
-SECTION="X-Server"
+SECTION="X Libraries"
 DESCRIPTION="The Pangomm package provides a C++ interface to Pango."
 
 if [ ! -z $URL ]

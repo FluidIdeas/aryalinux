@@ -17,7 +17,7 @@ wget -nc https://github.com/libarchive/libarchive/releases/download/v3.4.0/libar
 NAME=libarchive
 VERSION=3.4.0
 URL=https://github.com/libarchive/libarchive/releases/download/v3.4.0/libarchive-3.4.0.tar.gz
-SECTION="General Libraries and Utilities"
+SECTION="General Libraries"
 DESCRIPTION="The libarchive library provides a single interface for reading/writing various compression formats."
 
 if [ ! -z $URL ]

@@ -18,7 +18,7 @@ wget -nc https://downloads.sourceforge.net/lxde/lxinput-0.3.5.tar.xz
 NAME=lxinput
 VERSION=0.3.5
 URL=https://downloads.sourceforge.net/lxde/lxinput-0.3.5.tar.xz
-SECTION="Others"
+SECTION="LXDE Applications"
 DESCRIPTION="The LXInput package contains a small program used to configure keyboard and mouse for LXDE."
 
 if [ ! -z $URL ]

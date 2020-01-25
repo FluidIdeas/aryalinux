@@ -18,7 +18,7 @@ wget -nc https://downloads.sourceforge.net/lxde/gpicview-0.2.5.tar.xz
 NAME=gpicview
 VERSION=0.2.5
 URL=https://downloads.sourceforge.net/lxde/gpicview-0.2.5.tar.xz
-SECTION="Others"
+SECTION="LXDE Applications"
 DESCRIPTION="The GPicView package contains a lightweight image viewer."
 
 if [ ! -z $URL ]

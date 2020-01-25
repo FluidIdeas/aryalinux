@@ -20,7 +20,7 @@ wget -nc https://raw.githubusercontent.com/transmission/transmission-releases/ma
 NAME=transmission
 VERSION=2.94
 URL=https://raw.githubusercontent.com/transmission/transmission-releases/master/transmission-2.94.tar.xz
-SECTION="Office Productivity"
+SECTION="Other X-based Programs"
 DESCRIPTION="Transmission is a cross-platform, open source BitTorrent client. This is useful for downloading large files (such as Linux ISOs) and reduces the need for the distributors to provide server bandwidth."
 
 if [ ! -z $URL ]

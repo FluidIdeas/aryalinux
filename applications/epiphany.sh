@@ -25,7 +25,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/epiphany/3.32/epiphany-3.32.4.tar
 NAME=epiphany
 VERSION=3.32.4
 URL=http://ftp.gnome.org/pub/gnome/sources/epiphany/3.32/epiphany-3.32.4.tar.xz
-SECTION="Office Productivity"
+SECTION="Graphical Web Browsers"
 DESCRIPTION="Epiphany is a simple yet powerful GNOME web browser targeted at non-technical users. Its principles are simplicity and standards compliance."
 
 if [ ! -z $URL ]

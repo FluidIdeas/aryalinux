@@ -19,7 +19,7 @@ wget -nc https://www.cairographics.org/releases/cairomm-1.12.2.tar.gz
 NAME=cairomm
 VERSION=1.12.2
 URL=https://www.cairographics.org/releases/cairomm-1.12.2.tar.gz
-SECTION="X-Server"
+SECTION="X Libraries"
 DESCRIPTION="The Cairomm package provides a C++ interface to Cairo."
 
 if [ ! -z $URL ]

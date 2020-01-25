@@ -19,7 +19,7 @@ wget -nc https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.110.tar.gz
 NAME=dbus-glib
 VERSION=0.110
 URL=https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.110.tar.gz
-SECTION="General Libraries and Utilities"
+SECTION="General Libraries"
 DESCRIPTION="The D-Bus GLib package contains GLib interfaces to the D-Bus API."
 
 if [ ! -z $URL ]

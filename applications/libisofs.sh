@@ -17,7 +17,7 @@ wget -nc http://files.libburnia-project.org/releases/libisofs-1.5.0.tar.gz
 NAME=libisofs
 VERSION=1.5.0
 URL=http://files.libburnia-project.org/releases/libisofs-1.5.0.tar.gz
-SECTION="Multimedia"
+SECTION="CD/DVD-Writing Utilities"
 DESCRIPTION="libisofs is a library to create an ISO-9660 filesystem with extensions like RockRidge or Joliet."
 
 if [ ! -z $URL ]

@@ -21,7 +21,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtkmm/3.24/gtkmm-3.24.1.tar.xz
 NAME=gtkmm3
 VERSION=3.24.1
 URL=http://ftp.gnome.org/pub/gnome/sources/gtkmm/3.24/gtkmm-3.24.1.tar.xz
-SECTION="X-Server"
+SECTION="X Libraries"
 DESCRIPTION="The Gtkmm package provides a C++ interface to GTK+ 3."
 
 if [ ! -z $URL ]

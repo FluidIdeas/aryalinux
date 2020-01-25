@@ -20,7 +20,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.32/gnome-menus-3.32
 NAME=gnome-menus
 VERSION=3.32.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.32/gnome-menus-3.32.0.tar.xz
-SECTION="Gnome"
+SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Menus package contains an implementation of the draft Desktop Menu Specification from freedesktop.org. It also contains the GNOME menu layout configuration files and .directory files."
 
 if [ ! -z $URL ]

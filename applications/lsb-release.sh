@@ -17,7 +17,7 @@ wget -nc https://downloads.sourceforge.net/lsb/lsb-release-1.4.tar.gz
 NAME=lsb-release
 VERSION=1.4
 URL=https://downloads.sourceforge.net/lsb/lsb-release-1.4.tar.gz
-SECTION="Configuration"
+SECTION="After LFS Configuration Issues"
 DESCRIPTION="The lsb_release script gives information about the Linux Standards Base (LSB) status of the distribution."
 
 if [ ! -z $URL ]

@@ -21,7 +21,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/ptlib-2.10.11-op
 NAME=ptlib
 VERSION=2.10.11
 URL=http://ftp.gnome.org/pub/gnome/sources/ptlib/2.10/ptlib-2.10.11.tar.xz
-SECTION="General Libraries and Utilities"
+SECTION="General Libraries"
 DESCRIPTION="The Ptlib (Portable Tools Library) package contains a class library that has its genesis many years ago as PWLib (portable Windows Library), a method to produce applications to run on various platforms."
 
 if [ ! -z $URL ]

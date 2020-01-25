@@ -30,7 +30,7 @@ wget -nc https://archive.mozilla.org/pub/seamonkey/releases/2.49.4/source/seamon
 NAME=seamonkey
 VERSION=2.49.4
 URL=https://archive.mozilla.org/pub/seamonkey/releases/2.49.4/source/seamonkey-2.49.4.source.tar.xz
-SECTION="Office Productivity"
+SECTION="Graphical Web Browsers"
 DESCRIPTION="SeaMonkey is a browser suite, the Open Source sibling of Netscape. It includes the browser, composer, mail and news clients, and an IRC client. It is the follow-on to the Mozilla browser suite."
 
 if [ ! -z $URL ]

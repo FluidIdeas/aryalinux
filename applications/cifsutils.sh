@@ -18,7 +18,7 @@ wget -nc https://www.samba.org/ftp/linux-cifs/cifs-utils/cifs-utils-6.9.tar.bz2
 NAME=cifsutils
 VERSION=6.9
 URL=https://www.samba.org/ftp/linux-cifs/cifs-utils/cifs-utils-6.9.tar.bz2
-SECTION="Networking"
+SECTION="Networking Programs"
 DESCRIPTION="The cifs-utils provides a means for mounting SMB/CIFS shares on a Linux system."
 
 if [ ! -z $URL ]

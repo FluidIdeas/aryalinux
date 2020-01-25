@@ -24,7 +24,7 @@ wget -nc https://www.unicode.org/Public/zipped/10.0.0/UCD.zip
 NAME=ibus
 VERSION=1.5.20
 URL=https://github.com/ibus/ibus/releases/download/1.5.20/ibus-1.5.20.tar.gz
-SECTION="General Libraries and Utilities"
+SECTION="General Utilities"
 DESCRIPTION="ibus is an Intelligent Input Bus. It is a new input framework for the Linux OS. It provides a fully featured and user friendly input method user interface."
 
 if [ ! -z $URL ]

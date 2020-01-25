@@ -23,7 +23,7 @@ wget -nc https://github.com/PipeWire/pipewire/archive/0.2.6/pipewire-0.2.6.tar.g
 NAME=pipewire
 VERSION=0.2.6
 URL=https://github.com/PipeWire/pipewire/archive/0.2.6/pipewire-0.2.6.tar.gz
-SECTION="Multimedia"
+SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The pipewire package contains a server and user-space API to handle multimedia pipelines. This includes a universal API to connect to multimedia devices, as well as sharing multimedia files between applications."
 
 if [ ! -z $URL ]

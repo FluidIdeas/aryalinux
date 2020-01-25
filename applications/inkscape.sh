@@ -35,7 +35,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/inkscape-0.92.4-
 NAME=inkscape
 VERSION=0.92.4
 URL=https://media.inkscape.org/dl/resources/file/inkscape-0.92.4.tar.bz2
-SECTION="Office Productivity"
+SECTION="Other X-based Programs"
 DESCRIPTION="Inkscape is a what you see is what you get Scalable Vector Graphics editor. It is useful for creating, viewing and changing SVG images."
 
 if [ ! -z $URL ]

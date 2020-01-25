@@ -24,7 +24,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-disk-utility/3.32/gnome-dis
 NAME=gnome-disk-utility
 VERSION=3.32.1
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-disk-utility/3.32/gnome-disk-utility-3.32.1.tar.xz
-SECTION="Gnome"
+SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Disk Utility package provides applications used for dealing with storage devices."
 
 if [ ! -z $URL ]

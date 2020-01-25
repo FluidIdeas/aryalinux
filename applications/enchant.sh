@@ -19,7 +19,7 @@ wget -nc https://github.com/AbiWord/enchant/releases/download/v2.2.5/enchant-2.2
 NAME=enchant
 VERSION=2.2.5
 URL=https://github.com/AbiWord/enchant/releases/download/v2.2.5/enchant-2.2.5.tar.gz
-SECTION="General Libraries and Utilities"
+SECTION="General Libraries"
 DESCRIPTION="The enchant package provide a generic interface into various existing spell checking libraries."
 
 if [ ! -z $URL ]

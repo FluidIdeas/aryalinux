@@ -19,7 +19,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/konsole-19.08.0-
 NAME=konsole5
 VERSION=19.08.0
 URL=http://download.kde.org/stable/applications/19.08.0/src/konsole-19.08.0.tar.xz
-SECTION="KDE"
+SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="The Konsole package is a KF5 based terminal emulator."
 
 if [ ! -z $URL ]

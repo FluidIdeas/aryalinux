@@ -24,7 +24,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-session/3.32/gnome-session-
 NAME=gnome-session
 VERSION=3.32.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-session/3.32/gnome-session-3.32.0.tar.xz
-SECTION="Gnome"
+SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Session package contains the GNOME session manager."
 
 if [ ! -z $URL ]

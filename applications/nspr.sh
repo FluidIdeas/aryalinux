@@ -17,7 +17,7 @@ wget -nc https://archive.mozilla.org/pub/nspr/releases/v4.21/src/nspr-4.21.tar.g
 NAME=nspr
 VERSION=4.21
 URL=https://archive.mozilla.org/pub/nspr/releases/v4.21/src/nspr-4.21.tar.gz
-SECTION="General Libraries and Utilities"
+SECTION="General Libraries"
 DESCRIPTION="Netscape Portable Runtime (NSPR) provides a platform-neutral API for system level and libc like functions."
 
 if [ ! -z $URL ]

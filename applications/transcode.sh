@@ -25,7 +25,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/transcode-1.1.7-
 NAME=transcode
 VERSION=1.1.7
 URL=https://sources.archlinux.org/other/community/transcode/transcode-1.1.7.tar.bz2
-SECTION="Multimedia"
+SECTION="Video Utilities"
 DESCRIPTION="Transcode was a fast, versatile and command-line based audio/video everything to everything converter primarily focussed on producing AVI video files with MP3 audio, but also including a program to read all the video and audio streams from a DVD."
 
 if [ ! -z $URL ]

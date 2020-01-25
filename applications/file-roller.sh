@@ -26,7 +26,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/file-roller/3.32/file-roller-3.32
 NAME=file-roller
 VERSION=3.32.1
 URL=http://ftp.gnome.org/pub/gnome/sources/file-roller/3.32/file-roller-3.32.1.tar.xz
-SECTION="Gnome"
+SECTION="GNOME Applications"
 DESCRIPTION="File Roller is an archive manager for GNOME with support for tar, bzip2, gzip, zip, jar, compress, lzop and many other archive formats."
 
 if [ ! -z $URL ]

@@ -22,7 +22,7 @@ wget -nc https://distfiles.audacious-media-player.org/audacious-plugins-3.10.1.t
 NAME=audacious
 VERSION=3.10.1
 URL=https://distfiles.audacious-media-player.org/audacious-3.10.1.tar.bz2
-SECTION="Multimedia"
+SECTION="Audio Utilities"
 DESCRIPTION="Audacious is an audio player."
 
 if [ ! -z $URL ]

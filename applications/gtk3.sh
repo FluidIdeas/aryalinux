@@ -31,7 +31,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.10.tar.xz
 NAME=gtk3
 VERSION=3.24.10
 URL=http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.10.tar.xz
-SECTION="X-Server"
+SECTION="X Libraries"
 DESCRIPTION="The GTK+ 3 package contains libraries used for creating graphical user interfaces for applications."
 
 if [ ! -z $URL ]

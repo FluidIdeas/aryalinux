@@ -17,7 +17,7 @@ wget -nc https://github.com/dosfstools/dosfstools/releases/download/v4.1/dosfsto
 NAME=dosfstools
 VERSION=4.1
 URL=https://github.com/dosfstools/dosfstools/releases/download/v4.1/dosfstools-4.1.tar.xz
-SECTION="Filesystems and disk management"
+SECTION="File Systems and Disk Management"
 DESCRIPTION="The dosfstools package contains various utilities for use with the FAT family of file systems."
 
 if [ ! -z $URL ]

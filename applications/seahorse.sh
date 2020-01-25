@@ -30,7 +30,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/seahorse/3.32/seahorse-3.32.2.tar
 NAME=seahorse
 VERSION=3.32.2
 URL=http://ftp.gnome.org/pub/gnome/sources/seahorse/3.32/seahorse-3.32.2.tar.xz
-SECTION="Gnome"
+SECTION="GNOME Applications"
 DESCRIPTION="Seahorse is a graphical interface for managing and using encryption keys. Currently it supports PGP keys (using GPG/GPGME) and SSH keys."
 
 if [ ! -z $URL ]

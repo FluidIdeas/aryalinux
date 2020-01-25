@@ -18,7 +18,7 @@ wget -nc https://downloads.sourceforge.net/lxde/lxterminal-0.3.2.tar.xz
 NAME=lxterminal
 VERSION=0.3.2
 URL=https://downloads.sourceforge.net/lxde/lxterminal-0.3.2.tar.xz
-SECTION="Others"
+SECTION="LXDE Applications"
 DESCRIPTION="The LXTerminal package contains a VTE-based terminal emulator for LXDE with support for multiple tabs."
 
 if [ ! -z $URL ]

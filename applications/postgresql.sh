@@ -17,7 +17,7 @@ wget -nc http://ftp.postgresql.org/pub/source/v11.5/postgresql-11.5.tar.bz2
 NAME=postgresql
 VERSION=11.5
 URL=http://ftp.postgresql.org/pub/source/v11.5/postgresql-11.5.tar.bz2
-SECTION="Servers"
+SECTION="Databases"
 DESCRIPTION="PostgreSQL is an advanced object-relational database management system (ORDBMS), derived from the Berkeley Postgres database management system."
 
 if [ ! -z $URL ]

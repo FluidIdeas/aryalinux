@@ -28,7 +28,7 @@ wget -nc https://downloads.sourceforge.net/gs-fonts/gnu-gs-fonts-other-6.0.tar.g
 NAME=gs
 VERSION=9.27
 URL=https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs927/ghostscript-9.27.tar.xz
-SECTION="Printing and Typesetting"
+SECTION="Printing"
 DESCRIPTION="Ghostscript is a versatile processor for PostScript data with the ability to render PostScript to different targets. It is a mandatory part of the cups printing stack."
 
 if [ ! -z $URL ]

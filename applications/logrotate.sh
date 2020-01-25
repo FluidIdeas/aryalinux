@@ -18,7 +18,7 @@ wget -nc https://github.com/logrotate/logrotate/releases/download/3.15.0/logrota
 NAME=logrotate
 VERSION=3.15.0
 URL=https://github.com/logrotate/logrotate/releases/download/3.15.0/logrotate-3.15.0.tar.xz
-SECTION="General Libraries and Utilities"
+SECTION="System Utilities"
 DESCRIPTION="The logrotate package allows automatic rotation, compression, removal, and mailing of log files."
 
 if [ ! -z $URL ]

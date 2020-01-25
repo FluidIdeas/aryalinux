@@ -21,7 +21,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.32/at-spi2-core-2.
 NAME=at-spi2-core
 VERSION=2.32.1
 URL=http://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.32/at-spi2-core-2.32.1.tar.xz
-SECTION="X-Server"
+SECTION="X Libraries"
 DESCRIPTION="The At-Spi2 Core package is a part of the GNOME Accessibility Project. It provides a Service Provider Interface for the Assistive Technologies available on the GNOME platform and a library against which applications can be linked."
 
 if [ ! -z $URL ]

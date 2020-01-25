@@ -22,7 +22,7 @@ wget -nc https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.0.tar.xz
 NAME=libgusb
 VERSION=0.3.0
 URL=https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.0.tar.xz
-SECTION="General Libraries and Utilities"
+SECTION="General Libraries"
 DESCRIPTION="The libgusb package contains the GObject wrappers for libusb-1.0 that makes it easy to do asynchronous control, bulk and interrupt transfers with proper cancellation and integration into a mainloop."
 
 if [ ! -z $URL ]

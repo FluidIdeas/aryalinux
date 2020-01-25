@@ -30,7 +30,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/brasero/3.12/brasero-3.12.2.tar.x
 NAME=brasero
 VERSION=3.12.2
 URL=http://ftp.gnome.org/pub/gnome/sources/brasero/3.12/brasero-3.12.2.tar.xz
-SECTION="Gnome"
+SECTION="GNOME Applications"
 DESCRIPTION="Brasero is an application used to burn CD/DVD on the GNOME Desktop. It is designed to be as simple as possible and has some unique features that enable users to create their discs easily and quickly."
 
 if [ ! -z $URL ]

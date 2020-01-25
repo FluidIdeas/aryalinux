@@ -23,7 +23,7 @@ wget -nc https://downloads.sourceforge.net/pcmanfm/libfm-1.3.1.tar.xz
 NAME=libfm
 VERSION=1.3.1
 URL=https://downloads.sourceforge.net/pcmanfm/libfm-1.3.1.tar.xz
-SECTION="Others"
+SECTION="LXDE Desktop"
 DESCRIPTION="The libfm package contains a library used to develop file managers providing some file management utilities."
 
 if [ ! -z $URL ]

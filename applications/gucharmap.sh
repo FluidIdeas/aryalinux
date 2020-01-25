@@ -25,7 +25,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gucharmap/12.0/gucharmap-12.0.1.t
 NAME=gucharmap
 VERSION=12.0.1
 URL=http://ftp.gnome.org/pub/gnome/sources/gucharmap/12.0/gucharmap-12.0.1.tar.xz
-SECTION="Gnome"
+SECTION="GNOME Applications"
 DESCRIPTION="Gucharmap is a Unicode character map and font viewer. It allows you to browse through all the available Unicode characters and categories for the installed fonts, and to examine their detailed properties. It is an easy way to find the character you might only know by its Unicode name or code point."
 
 if [ ! -z $URL ]

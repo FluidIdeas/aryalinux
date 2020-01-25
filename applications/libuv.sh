@@ -17,7 +17,7 @@ wget -nc https://dist.libuv.org/dist/v1.31.0/libuv-v1.31.0.tar.gz
 NAME=libuv
 VERSION=1.31.0
 URL=https://dist.libuv.org/dist/v1.31.0/libuv-v1.31.0.tar.gz
-SECTION="General Libraries and Utilities"
+SECTION="General Libraries"
 DESCRIPTION="The libuv package is a multi-platform support library with a focus on asynchronous I/O."
 
 if [ ! -z $URL ]

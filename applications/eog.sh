@@ -29,7 +29,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/eog/3.32/eog-3.32.2.tar.xz
 NAME=eog
 VERSION=3.32.2
 URL=http://ftp.gnome.org/pub/gnome/sources/eog/3.32/eog-3.32.2.tar.xz
-SECTION="Gnome"
+SECTION="GNOME Applications"
 DESCRIPTION="EOG is an application used for viewing and cataloging image files on the GNOME Desktop. It has basic editing capabilites."
 
 if [ ! -z $URL ]

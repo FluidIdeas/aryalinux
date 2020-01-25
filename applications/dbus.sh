@@ -20,7 +20,7 @@ wget -nc http://www.linuxfromscratch.org/hints/downloads/files/execute-session-s
 NAME=dbus
 VERSION=1.12.16
 URL=https://dbus.freedesktop.org/releases/dbus/dbus-1.12.16.tar.gz
-SECTION="General Libraries and Utilities"
+SECTION="System Utilities"
 DESCRIPTION="Even though D-Bus was built in LFS, there are some features provided by the package that other BLFS packages need, but their dependencies didn't fit into LFS."
 
 if [ ! -z $URL ]

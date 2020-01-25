@@ -19,7 +19,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libnotify/0.7/libnotify-0.7.8.tar
 NAME=libnotify
 VERSION=0.7.8
 URL=http://ftp.gnome.org/pub/gnome/sources/libnotify/0.7/libnotify-0.7.8.tar.xz
-SECTION="X-Server"
+SECTION="X Libraries"
 DESCRIPTION="The libnotify library is used to send desktop notifications to a notification daemon, as defined in the Desktop Notifications spec. These notifications can be used to inform the user about an event or display some form of information without getting in the user's way."
 
 if [ ! -z $URL ]

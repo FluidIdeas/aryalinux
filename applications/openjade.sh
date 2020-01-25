@@ -19,7 +19,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/openjade-1.3.2-u
 NAME=openjade
 VERSION=1.3.2
 URL=https://downloads.sourceforge.net/openjade/openjade-1.3.2.tar.gz
-SECTION="Printing and Typesetting"
+SECTION="Standard Generalized Markup Language (SGML)"
 DESCRIPTION="The OpenJade package contains a DSSSL engine. This is useful for SGML and XML transformations into RTF, TeX, SGML and XML."
 
 if [ ! -z $URL ]

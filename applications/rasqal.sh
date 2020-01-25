@@ -18,7 +18,7 @@ wget -nc http://download.librdf.org/source/rasqal-0.9.33.tar.gz
 NAME=rasqal
 VERSION=0.9.33
 URL=http://download.librdf.org/source/rasqal-0.9.33.tar.gz
-SECTION="General Libraries and Utilities"
+SECTION="System Utilities"
 DESCRIPTION="Rasqal is a C library that handles Resource Description Framework (RDF) query language syntaxes, query construction, and execution of queries returning results as bindings, boolean, RDF graphs/triples or syntaxes."
 
 if [ ! -z $URL ]

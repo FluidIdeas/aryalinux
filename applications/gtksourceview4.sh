@@ -20,7 +20,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtksourceview/4.2/gtksourceview-4
 NAME=gtksourceview4
 VERSION=4.2.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gtksourceview/4.2/gtksourceview-4.2.0.tar.xz
-SECTION="X-Server"
+SECTION="X Libraries"
 DESCRIPTION="The GtkSourceView package contains libraries used for extending the GTK+ text functions to include syntax highlighting."
 
 if [ ! -z $URL ]

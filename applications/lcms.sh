@@ -18,7 +18,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/lcms-1.19-cve_20
 NAME=lcms
 VERSION=1.19
 URL=https://downloads.sourceforge.net/lcms/lcms-1.19.tar.gz
-SECTION="General Libraries and Utilities"
+SECTION="Graphics and Font Libraries"
 DESCRIPTION="The Little CMS library is used by other programs to provide color management facilities."
 
 if [ ! -z $URL ]

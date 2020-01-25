@@ -22,7 +22,7 @@ wget -nc https://downloads.sourceforge.net/pidgin/pidgin-2.13.0.tar.bz2
 NAME=pidgin
 VERSION=2.13.0
 URL=https://downloads.sourceforge.net/pidgin/pidgin-2.13.0.tar.bz2
-SECTION="Office Productivity"
+SECTION="Other X-based Programs"
 DESCRIPTION="Pidgin is a Gtk+ 2 instant messaging client that can connect with a wide range of networks including AIM, ICQ, GroupWise, MSN, Jabber, IRC, Napster, Gadu-Gadu, SILC, Zephyr and Yahoo!"
 
 if [ ! -z $URL ]

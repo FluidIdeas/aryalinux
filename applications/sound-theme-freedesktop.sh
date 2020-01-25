@@ -17,7 +17,7 @@ wget -nc https://people.freedesktop.org/~mccann/dist/sound-theme-freedesktop-0.8
 NAME=sound-theme-freedesktop
 VERSION=0.8
 URL=https://people.freedesktop.org/~mccann/dist/sound-theme-freedesktop-0.8.tar.bz2
-SECTION="Multimedia"
+SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The Sound Theme Freedesktop package contains sound themes for the desktop."
 
 if [ ! -z $URL ]

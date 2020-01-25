@@ -17,7 +17,7 @@ wget -nc https://gitlab.com/soundtouch/soundtouch/-/archive/2.1.0/soundtouch-2.1
 NAME=soundtouch
 VERSION=2.1.0
 URL=https://gitlab.com/soundtouch/soundtouch/-/archive/2.1.0/soundtouch-2.1.0.tar.bz2
-SECTION="Multimedia"
+SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The SoundTouch package contains an open-source audio processing library that allows changing the sound tempo, pitch and playback rate parameters independently from each other."
 
 if [ ! -z $URL ]

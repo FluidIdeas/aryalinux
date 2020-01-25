@@ -18,7 +18,7 @@ wget -nc http://ftp.debian.org/debian/pool/main/a/at/at_3.1.23.orig.tar.gz
 NAME=at
 VERSION=3.1.23
 URL=http://ftp.debian.org/debian/pool/main/a/at/at_3.1.23.orig.tar.gz
-SECTION="General Libraries and Utilities"
+SECTION="System Utilities"
 DESCRIPTION="The at package provide delayed job execution and batch processing. It is required for Linux Standards Base (LSB) conformance."
 
 if [ ! -z $URL ]

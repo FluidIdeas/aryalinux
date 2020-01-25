@@ -20,7 +20,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/xindy-2.5.1-upst
 NAME=xindy
 VERSION=2.5.1
 URL=http://tug.ctan.org/support/xindy/base/xindy-2.5.1.tar.gz
-SECTION="Printing and Typesetting"
+SECTION="Typesetting"
 DESCRIPTION="Xindy is an index processor that can be used to generate book-like indexes for arbitrary document-preparation systems. This includes systems such as TeX and LaTeX, the roff-family, and SGML/XML-based systems (e.g., HTML) that process some kind of text and generate indexing information."
 
 if [ ! -z $URL ]

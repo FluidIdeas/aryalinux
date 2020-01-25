@@ -18,7 +18,7 @@ wget -nc https://wayland.freedesktop.org/releases/wayland-1.17.0.tar.xz
 NAME=wayland
 VERSION=1.17.0
 URL=https://wayland.freedesktop.org/releases/wayland-1.17.0.tar.xz
-SECTION="General Libraries and Utilities"
+SECTION="General Libraries"
 DESCRIPTION="Wayland is a project to define a protocol for a compositor to talk to its clients as well as a library implementation of the protocol."
 
 if [ ! -z $URL ]

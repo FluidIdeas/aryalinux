@@ -21,7 +21,7 @@ wget -nc http://download.kde.org/stable/applications/19.08.0/src/okular-19.08.0.
 NAME=okular5
 VERSION=19.08.0
 URL=http://download.kde.org/stable/applications/19.08.0/src/okular-19.08.0.tar.xz
-SECTION="KDE"
+SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="Okular is a document viewer for KDE. It can view documents of many types including PDF, PostScript, TIFF, Microsoft CHM, DjVu, DVI, XPS and ePub."
 
 if [ ! -z $URL ]

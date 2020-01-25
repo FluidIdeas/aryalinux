@@ -17,7 +17,7 @@ wget -nc http://www.rarlab.com/rar/unrarsrc-5.7.5.tar.gz
 NAME=unrar
 VERSION=5.7.5
 URL=http://www.rarlab.com/rar/unrarsrc-5.7.5.tar.gz
-SECTION="General Libraries and Utilities"
+SECTION="System Utilities"
 DESCRIPTION="The UnRar package contains a RAR extraction utility used for extracting files from RAR archives. RAR archives are usually created with WinRAR, primarily in a Windows environment."
 
 if [ ! -z $URL ]

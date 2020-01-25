@@ -18,7 +18,7 @@ wget -nc https://download.videolan.org/x264/snapshots/x264-snapshot-20190815-224
 NAME=x264
 VERSION=2019081
 URL=https://download.videolan.org/x264/snapshots/x264-snapshot-20190815-2245-stable.tar.bz2
-SECTION="Multimedia"
+SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="x264 package provides a library for encoding video streams into the H.264/MPEG-4 AVC format."
 
 if [ ! -z $URL ]

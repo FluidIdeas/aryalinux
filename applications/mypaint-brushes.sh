@@ -19,7 +19,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/mypaint-brushes-
 NAME=mypaint-brushes
 VERSION=1.3.0
 URL=https://github.com/Jehan/mypaint-brushes/archive/v1.3.0/mypaint-brushes-v1.3.0.tar.gz
-SECTION="General Libraries and Utilities"
+SECTION="Graphics and Font Libraries"
 DESCRIPTION="The mypaint-brushes package contains brushes used by packages which use libmypaint."
 
 if [ ! -z $URL ]

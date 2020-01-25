@@ -17,7 +17,7 @@ wget -nc http://ftp.debian.org/debian/pool/main/libp/libpaper/libpaper_1.1.24+nm
 NAME=libpaper
 VERSION=1.1.2
 URL=http://ftp.debian.org/debian/pool/main/libp/libpaper/libpaper_1.1.24+nmu5.tar.gz
-SECTION="General Libraries and Utilities"
+SECTION="General Libraries"
 DESCRIPTION="This package is intended to provide a simple way for applications to take actions based on a system or user-specified paper size."
 
 if [ ! -z $URL ]

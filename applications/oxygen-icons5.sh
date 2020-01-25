@@ -19,7 +19,7 @@ wget -nc http://download.kde.org/stable/frameworks/5.61/oxygen-icons5-5.61.0.tar
 NAME=oxygen-icons5
 VERSION=5.61.0
 URL=http://download.kde.org/stable/frameworks/5.61/oxygen-icons5-5.61.0.tar.xz
-SECTION="X-Server"
+SECTION="Icons"
 DESCRIPTION="The oxygen icons 5 theme is a photo-realistic icon style, with a high standard of graphics quality."
 
 if [ ! -z $URL ]

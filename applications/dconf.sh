@@ -27,7 +27,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.0/dconf-0.34.0-mes
 NAME=dconf
 VERSION=0.32.0
 URL=http://ftp.gnome.org/pub/gnome/sources/dconf/0.32/dconf-0.32.0.tar.xz
-SECTION="Gnome"
+SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The DConf package contains a low-level configuration system. Its main purpose is to provide a backend to GSettings on platforms that don't already have configuration storage systems."
 
 if [ ! -z $URL ]

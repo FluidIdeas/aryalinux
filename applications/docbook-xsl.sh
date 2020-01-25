@@ -20,7 +20,7 @@ wget -nc https://github.com/docbook/xslt10-stylesheets/releases/download/release
 NAME=docbook-xsl
 VERSION=1.79.2
 URL=https://github.com/docbook/xslt10-stylesheets/releases/download/release/1.79.2/docbook-xsl-nons-1.79.2.tar.bz2
-SECTION="Printing and Typesetting"
+SECTION="Extensible Markup Language (XML)"
 DESCRIPTION="The DocBook XSL Stylesheets package contains XSL stylesheets. These are useful for performing transformations on XML DocBook files."
 
 if [ ! -z $URL ]

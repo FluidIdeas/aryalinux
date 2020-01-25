@@ -20,7 +20,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-weather/3.32/gnome-weather-
 NAME=gnome-weather
 VERSION=3.32.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-weather/3.32/gnome-weather-3.32.2.tar.xz
-SECTION="Gnome"
+SECTION="GNOME Applications"
 DESCRIPTION="GNOME Weather is a small application that allows you to monitor the current weather conditions for your city, or anywhere in the world, and to access updated forecasts provided by various internet services."
 
 if [ ! -z $URL ]

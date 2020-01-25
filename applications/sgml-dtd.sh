@@ -19,7 +19,7 @@ wget -nc http://www.docbook.org/sgml/4.5/docbook-4.5.zip
 NAME=sgml-dtd
 VERSION=4.5
 URL=http://www.docbook.org/sgml/4.5/docbook-4.5.zip
-SECTION="Printing and Typesetting"
+SECTION="Standard Generalized Markup Language (SGML)"
 DESCRIPTION="The DocBook SGML DTD package contains document type definitions for verification of SGML data files against the DocBook rule set. These are useful for structuring books and software documentation to a standard allowing you to utilize transformations already written for that standard."
 
 if [ ! -z $URL ]

@@ -23,7 +23,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-keyring/3.28/gnome-keyring-
 NAME=gnome-keyring
 VERSION=3.28.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-keyring/3.28/gnome-keyring-3.28.2.tar.xz
-SECTION="Gnome"
+SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Keyring package contains a daemon that keeps passwords and other secrets for users."
 
 if [ ! -z $URL ]

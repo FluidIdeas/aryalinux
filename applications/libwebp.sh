@@ -20,7 +20,7 @@ wget -nc http://downloads.webmproject.org/releases/webp/libwebp-1.0.3.tar.gz
 NAME=libwebp
 VERSION=1.0.3
 URL=http://downloads.webmproject.org/releases/webp/libwebp-1.0.3.tar.gz
-SECTION="General Libraries and Utilities"
+SECTION="Graphics and Font Libraries"
 DESCRIPTION="The libwebp package contains a library and support programs to encode and decode images in WebP format."
 
 if [ ! -z $URL ]

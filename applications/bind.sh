@@ -17,7 +17,7 @@ wget -nc ftp://ftp.isc.org/isc/bind9/9.14.5/bind-9.14.5.tar.gz
 NAME=bind
 VERSION=9.14.5
 URL=ftp://ftp.isc.org/isc/bind9/9.14.5/bind-9.14.5.tar.gz
-SECTION="Servers"
+SECTION="Major Servers"
 DESCRIPTION="The BIND package provides a DNS server and client utilities. If you are only interested in the utilities, refer to the BIND Utilities-9.14.5."
 
 if [ ! -z $URL ]

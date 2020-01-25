@@ -25,7 +25,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnumeric/1.12/gnumeric-1.12.45.ta
 NAME=gnumeric
 VERSION=1.12.45
 URL=http://ftp.gnome.org/pub/gnome/sources/gnumeric/1.12/gnumeric-1.12.45.tar.xz
-SECTION="Office Productivity"
+SECTION="Office Programs"
 DESCRIPTION="The Gnumeric package contains a spreadsheet program which is useful for mathematical analysis."
 
 if [ ! -z $URL ]

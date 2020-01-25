@@ -20,7 +20,7 @@ wget -nc http://archive.xfce.org/src/xfce/xfce4-power-manager/1.6/xfce4-power-ma
 NAME=xfce4-power-manager
 VERSION=1.6.5
 URL=http://archive.xfce.org/src/xfce/xfce4-power-manager/1.6/xfce4-power-manager-1.6.5.tar.bz2
-SECTION="XFCE"
+SECTION="Xfce Desktop"
 DESCRIPTION="The Xfce4 Power Manager is a power manager for the Xfce desktop, Xfce power manager manages the power sources on the computer and the devices that can be controlled to reduce their power consumption (such as LCD brightness level, monitor sleep, CPU frequency scaling). In addition, Xfce4 Power Manager provides a set of freedesktop-compliant DBus interfaces to inform other applications about current power level so that they can adjust their power consumption."
 
 if [ ! -z $URL ]

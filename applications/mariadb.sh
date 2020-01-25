@@ -20,7 +20,7 @@ wget -nc https://ftp.osuosl.org/pub/blfs/conglomeration/mariadb/mariadb-10.4.11.
 NAME=mariadb
 VERSION=10.4.11
 URL=https://ftp.osuosl.org/pub/blfs/conglomeration/mariadb/mariadb-10.4.11.tar.gz
-SECTION="Servers"
+SECTION="Databases"
 DESCRIPTION="MariaDB is a community-developed fork and a drop-in replacement for the MySQL relational database management system."
 
 if [ ! -z $URL ]

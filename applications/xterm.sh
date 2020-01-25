@@ -19,7 +19,7 @@ wget -nc http://invisible-mirror.net/archives/xterm/xterm-348.tgz
 NAME=xterm
 VERSION=348
 URL=http://invisible-mirror.net/archives/xterm/xterm-348.tgz
-SECTION="X-Server"
+SECTION="X Window System Environment"
 DESCRIPTION="xterm is a terminal emulator for the X Window System."
 
 if [ ! -z $URL ]

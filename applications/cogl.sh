@@ -25,7 +25,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/cogl/1.22/cogl-1.22.4.tar.xz
 NAME=cogl
 VERSION=1.22.4
 URL=http://ftp.gnome.org/pub/gnome/sources/cogl/1.22/cogl-1.22.4.tar.xz
-SECTION="X-Server"
+SECTION="X Libraries"
 DESCRIPTION="Cogl is a modern 3D graphics API with associated utility APIs designed to expose the features of 3D graphics hardware using a direct state access API design, as opposed to the state-machine style of OpenGL."
 
 if [ ! -z $URL ]

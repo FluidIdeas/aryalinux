@@ -23,7 +23,7 @@ wget -nc https://github.com/apple/cups/releases/download/v2.2.12/cups-2.2.12-sou
 NAME=cups
 VERSION=2.2.1
 URL=https://github.com/apple/cups/releases/download/v2.2.12/cups-2.2.12-source.tar.gz
-SECTION="Printing and Typesetting"
+SECTION="Printing"
 DESCRIPTION="The Common Unix Printing System (CUPS) is a print spooler and associated utilities. It is based on the "Internet Printing Protocol" and provides printing services to most PostScript and raster printers."
 
 if [ ! -z $URL ]

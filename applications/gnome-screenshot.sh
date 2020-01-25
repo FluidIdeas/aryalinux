@@ -20,7 +20,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.32/gnome-scree
 NAME=gnome-screenshot
 VERSION=3.32.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.32/gnome-screenshot-3.32.0.tar.xz
-SECTION="Gnome"
+SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Screenshot is a utility used for taking screenshots of the entire screen, a window or a user-defined area of the screen, with optional beautifying border effects."
 
 if [ ! -z $URL ]

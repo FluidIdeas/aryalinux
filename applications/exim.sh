@@ -21,7 +21,7 @@ wget -nc http://exim.org/docs.html
 NAME=exim
 VERSION=4.92.1
 URL=https://ftp.exim.org/pub/exim/exim4/exim-4.92.1.tar.xz
-SECTION="Servers"
+SECTION="Mail Server Software"
 DESCRIPTION="The Exim package contains a Mail Transport Agent written by the University of Cambridge, released under the GNU Public License."
 
 if [ ! -z $URL ]

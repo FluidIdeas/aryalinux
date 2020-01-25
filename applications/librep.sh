@@ -17,7 +17,7 @@ wget -nc http://download.tuxfamily.org/librep/librep_0.92.7.tar.xz
 NAME=librep
 VERSION=0.92.7
 URL=http://download.tuxfamily.org/librep/librep_0.92.7.tar.xz
-SECTION="General Libraries and Utilities"
+SECTION="Programming"
 DESCRIPTION="The librep package contains a Lisp system. This is useful for scripting or for applications that may use the Lisp interpreter as an extension language."
 
 if [ ! -z $URL ]

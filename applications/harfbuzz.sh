@@ -23,7 +23,7 @@ wget -nc https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.6.0.ta
 NAME=harfbuzz
 VERSION=2.6.0
 URL=https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.6.0.tar.xz
-SECTION="General Libraries and Utilities"
+SECTION="Graphics and Font Libraries"
 DESCRIPTION="The HarfBuzz package contains an OpenType text shaping engine."
 
 if [ ! -z $URL ]

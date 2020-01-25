@@ -22,7 +22,7 @@ wget -nc https://www.wireshark.org/download/docs/
 NAME=wireshark
 VERSION=3.0.3
 URL=https://www.wireshark.org/download/src/all-versions/wireshark-3.0.3.tar.xz
-SECTION="Networking"
+SECTION="Networking Utilities"
 DESCRIPTION="The Wireshark package contains a network protocol analyzer, also known as a “sniffer”. This is useful for analyzing data captured “off the wire” from a live network connection, or data read from a capture file."
 
 if [ ! -z $URL ]

@@ -18,7 +18,7 @@ wget -nc http://anduin.linuxfromscratch.org/BLFS/sane-frontends/sane-frontends-1
 NAME=sane
 VERSION=1.0.27
 URL=http://fossies.org/linux/misc/sane-backends-1.0.27.tar.gz
-SECTION="Printing and Typesetting"
+SECTION="Scanning"
 DESCRIPTION="SANE is short for Scanner Access Now Easy. Scanner access, however, is far from easy, since every vendor has their own protocols. The only known protocol that should bring some unity into this chaos is the TWAIN interface, but this is too imprecise to allow a stable scanning framework. Therefore, SANE comes with its own protocol, and the vendor drivers can't be used."
 
 if [ ! -z $URL ]

@@ -18,7 +18,7 @@ wget -nc ftp://mama.indstate.edu/linux/tree/tree-1.8.0.tgz
 NAME=tree
 VERSION=1.8.0
 URL=http://mama.indstate.edu/users/ice/tree/src/tree-1.8.0.tgz
-SECTION="General Libraries and Utilities"
+SECTION="General Utilities"
 DESCRIPTION="The tree application, as the name suggests, is useful to display, in a terminal, directory contents, including directories, files, links."
 
 if [ ! -z $URL ]

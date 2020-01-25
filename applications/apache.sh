@@ -20,7 +20,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/httpd-2.4.41-blf
 NAME=apache
 VERSION=2.4.41
 URL=https://archive.apache.org/dist/httpd/httpd-2.4.41.tar.bz2
-SECTION="Servers"
+SECTION="Major Servers"
 DESCRIPTION="The Apache HTTPD package contains an open-source HTTP server. It is useful for creating local intranet web sites or running huge web serving operations."
 
 if [ ! -z $URL ]

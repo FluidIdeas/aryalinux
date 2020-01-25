@@ -30,7 +30,7 @@ wget -nc https://archive.mozilla.org/pub/thunderbird/releases/68.0/source/thunde
 NAME=thunderbird
 VERSION=68.0
 URL=https://archive.mozilla.org/pub/thunderbird/releases/68.0/source/thunderbird-68.0.source.tar.xz
-SECTION="Office Productivity"
+SECTION="Other X-based Programs"
 DESCRIPTION="Thunderbird is a stand-alone mail/news client based on the Mozilla codebase. It uses the Gecko rendering engine to enable it to display and compose HTML emails."
 
 if [ ! -z $URL ]

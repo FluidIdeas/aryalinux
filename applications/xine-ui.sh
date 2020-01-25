@@ -19,7 +19,7 @@ wget -nc https://downloads.sourceforge.net/xine/xine-ui-0.99.10.tar.xz
 NAME=xine-ui
 VERSION=0.99.10
 URL=https://downloads.sourceforge.net/xine/xine-ui-0.99.10.tar.xz
-SECTION="Multimedia"
+SECTION="Video Utilities"
 DESCRIPTION="The xine User Interface package contains a multimedia player. It plays back CDs, DVDs and VCDs. It also decodes multimedia files like AVI, MOV, WMV, MPEG and MP3 from local disk drives, and displays multimedia streamed over the Internet."
 
 if [ ! -z $URL ]

@@ -23,7 +23,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk-doc/1.32/gtk-doc-1.32.tar.xz
 NAME=gtk-doc
 VERSION=1.32
 URL=http://ftp.gnome.org/pub/gnome/sources/gtk-doc/1.32/gtk-doc-1.32.tar.xz
-SECTION="General Libraries and Utilities"
+SECTION="General Utilities"
 DESCRIPTION="The GTK-Doc package contains a code documenter. This is useful for extracting specially formatted comments from the code to create API documentation. This package is optional; if it is not installed, packages will not build the documentation. This does not mean that you will not have any documentation. If GTK-Doc is not available, the install process will copy any pre-built documentation to your system."
 
 if [ ! -z $URL ]

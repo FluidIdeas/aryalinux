@@ -18,7 +18,7 @@ cd $SOURCE_DIR
 NAME=x7lib
 VERSION=
 
-SECTION="X-Server"
+SECTION="X Window System Environment"
 DESCRIPTION="The Xorg libraries provide library routines that are used within all X Window applications."
 
 if [ ! -z $URL ]

@@ -22,7 +22,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk+/2.24/gtk+-2.24.32.tar.xz
 NAME=gtk2
 VERSION=2.24.32
 URL=http://ftp.gnome.org/pub/gnome/sources/gtk+/2.24/gtk+-2.24.32.tar.xz
-SECTION="X-Server"
+SECTION="X Libraries"
 DESCRIPTION="The GTK+ 2 package contains libraries used for creating graphical user interfaces for applications."
 
 if [ ! -z $URL ]

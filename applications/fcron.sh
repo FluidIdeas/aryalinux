@@ -17,7 +17,7 @@ wget -nc http://fcron.free.fr/archives/fcron-3.2.1.src.tar.gz
 NAME=fcron
 VERSION=3.2.1
 URL=http://fcron.free.fr/archives/fcron-3.2.1.src.tar.gz
-SECTION="General Libraries and Utilities"
+SECTION="System Utilities"
 DESCRIPTION="The Fcron package contains a periodical command scheduler which aims at replacing Vixie Cron."
 
 if [ ! -z $URL ]

@@ -18,7 +18,7 @@ wget -nc https://downloads.sourceforge.net/tcl/tcl8.6.9-html.tar.gz
 NAME=tcl
 VERSION=
 URL=https://downloads.sourceforge.net/tcl/tcl8.6.9-src.tar.gz
-SECTION="General Libraries and Utilities"
+SECTION="Programming"
 DESCRIPTION="The Tcl package contains the Tool Command Language, a robust general-purpose scripting language."
 
 if [ ! -z $URL ]

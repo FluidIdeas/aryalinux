@@ -21,7 +21,7 @@ wget -nc https://downloads.sourceforge.net/offo/2.2/offo-hyphenation.zip
 NAME=fop
 VERSION=2.
 URL=https://archive.apache.org/dist/xmlgraphics/fop/source/fop-2.3-src.tar.gz
-SECTION="Printing and Typesetting"
+SECTION="PostScript"
 DESCRIPTION="The FOP (Formatting Objects Processor) package contains a print formatter driven by XSL formatting objects (XSL-FO). It is a Java application that reads a formatting object tree and renders the resulting pages to a specified output. Output formats currently supported include PDF, PCL, PostScript, SVG, XML (area tree representation), print, AWT, MIF and ASCII text. The primary output target is PDF."
 
 if [ ! -z $URL ]

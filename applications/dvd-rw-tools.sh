@@ -17,7 +17,7 @@ wget -nc http://fy.chalmers.se/~appro/linux/DVD+RW/tools/dvd+rw-tools-7.1.tar.gz
 NAME=dvd-rw-tools
 VERSION=7.1
 URL=http://fy.chalmers.se/~appro/linux/DVD+RW/tools/dvd+rw-tools-7.1.tar.gz
-SECTION="Multimedia"
+SECTION="CD/DVD-Writing Utilities"
 DESCRIPTION="The dvd+rw-tools package contains several utilities to master the DVD media, both +RW/+R and -R[W]. The principle tool is growisofs which provides a way to both lay down and grow an ISO9660 file system on (as well as to burn an arbitrary pre-mastered image to) all supported DVD media. This is useful for creating a new DVD or adding to an existing image on a partially burned DVD."
 
 if [ ! -z $URL ]

@@ -18,7 +18,7 @@ wget -nc https://downloads.sourceforge.net/potrace/potrace-1.15.tar.gz
 NAME=potrace
 VERSION=1.15
 URL=https://downloads.sourceforge.net/potrace/potrace-1.15.tar.gz
-SECTION="General Libraries and Utilities"
+SECTION="Graphics and Font Libraries"
 DESCRIPTION="Potrace™ is a tool for transforming a bitmap (PBM, PGM, PPM, or BMP format) into one of several vector file formats."
 
 if [ ! -z $URL ]

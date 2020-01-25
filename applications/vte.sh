@@ -24,7 +24,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/vte/0.56/vte-0.56.3.tar.xz
 NAME=vte
 VERSION=0.56.3
 URL=http://ftp.gnome.org/pub/gnome/sources/vte/0.56/vte-0.56.3.tar.xz
-SECTION="Gnome"
+SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The VTE package contains a termcap file implementation for terminal emulators."
 
 if [ ! -z $URL ]

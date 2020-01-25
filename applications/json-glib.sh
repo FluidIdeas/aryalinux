@@ -19,7 +19,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/json-glib/1.4/json-glib-1.4.4.tar
 NAME=json-glib
 VERSION=1.4.4
 URL=http://ftp.gnome.org/pub/gnome/sources/json-glib/1.4/json-glib-1.4.4.tar.xz
-SECTION="General Libraries and Utilities"
+SECTION="General Libraries"
 DESCRIPTION="The JSON GLib package is a library providing serialization and deserialization support for the JavaScript Object Notation (JSON) format described by RFC 4627."
 
 if [ ! -z $URL ]

@@ -17,7 +17,7 @@ wget -nc https://downloads.sourceforge.net/faac/faac-1.29.9.2.tar.gz
 NAME=faac
 VERSION=1.29.9.2
 URL=https://downloads.sourceforge.net/faac/faac-1.29.9.2.tar.gz
-SECTION="Multimedia"
+SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="FAAC is an encoder for a lossy sound compression scheme specified in MPEG-2 Part 7 and MPEG-4 Part 3 standards and known as Advanced Audio Coding (AAC). This encoder is useful for producing files that can be played back on iPod. Moreover, iPod does not understand other sound compression schemes in video files."
 
 if [ ! -z $URL ]

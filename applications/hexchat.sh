@@ -20,7 +20,7 @@ wget -nc https://dl.hexchat.net/hexchat/hexchat-2.14.2.tar.xz
 NAME=hexchat
 VERSION=2.14.2
 URL=https://dl.hexchat.net/hexchat/hexchat-2.14.2.tar.xz
-SECTION="Office Productivity"
+SECTION="Other X-based Programs"
 DESCRIPTION="HexChat is an IRC chat program. It allows you to join multiple IRC channels (chat rooms) at the same time, talk publicly, have private one-on-one conversations, etc. File transfers are also possible."
 
 if [ ! -z $URL ]

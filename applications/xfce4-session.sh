@@ -25,7 +25,7 @@ wget -nc http://archive.xfce.org/src/xfce/xfce4-session/4.14/xfce4-session-4.14.
 NAME=xfce4-session
 VERSION=4.14.0
 URL=http://archive.xfce.org/src/xfce/xfce4-session/4.14/xfce4-session-4.14.0.tar.bz2
-SECTION="XFCE"
+SECTION="Xfce Desktop"
 DESCRIPTION="Xfce4 Session is a session manager for Xfce. Its task is to save the state of your desktop (opened applications and their location) and restore it during a next startup. You can create several different sessions and choose one of them on startup."
 
 if [ ! -z $URL ]

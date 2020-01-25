@@ -18,7 +18,7 @@ wget -nc https://downloads.sourceforge.net/lxde/lxtask-0.1.9.tar.xz
 NAME=lxtask
 VERSION=0.1.9
 URL=https://downloads.sourceforge.net/lxde/lxtask-0.1.9.tar.xz
-SECTION="Others"
+SECTION="LXDE Applications"
 DESCRIPTION="The LXTask package contains a lightweight and desktop-independent task manager."
 
 if [ ! -z $URL ]

@@ -19,7 +19,7 @@ wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk-engines/2.20/gtk-engines-2.2
 NAME=gtk-engines
 VERSION=2.20.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gtk-engines/2.20/gtk-engines-2.20.2.tar.bz2
-SECTION="X-Server"
+SECTION="X Libraries"
 DESCRIPTION="The GTK Engines package contains eight themes/engines and two additional engines for GTK2."
 
 if [ ! -z $URL ]

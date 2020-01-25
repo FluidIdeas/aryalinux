@@ -21,7 +21,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-themes-extra/3.28/gnome-the
 NAME=gnome-themes-extra
 VERSION=3.28
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-themes-extra/3.28/gnome-themes-extra-3.28.tar.xz
-SECTION="X-Server"
+SECTION="Icons"
 DESCRIPTION="The GNOME Themes Extra package, formerly known as GNOME Themes Standard, contains various components of the default GNOME theme."
 
 if [ ! -z $URL ]

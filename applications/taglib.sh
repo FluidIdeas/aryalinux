@@ -18,7 +18,7 @@ wget -nc https://taglib.github.io/releases/taglib-1.11.1.tar.gz
 NAME=taglib
 VERSION=1.11.1
 URL=https://taglib.github.io/releases/taglib-1.11.1.tar.gz
-SECTION="Multimedia"
+SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="Taglib is a library used for reading, writing and manipulating audio file tags and is used by applications such as Amarok and VLC."
 
 if [ ! -z $URL ]

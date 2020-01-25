@@ -19,7 +19,7 @@ wget -nc ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.1.7.tar.bz2
 NAME=alsa-tools
 VERSION=1.1.7
 URL=ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.1.7.tar.bz2
-SECTION="Multimedia"
+SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The ALSA Tools package contains advanced tools for certain sound cards."
 
 if [ ! -z $URL ]

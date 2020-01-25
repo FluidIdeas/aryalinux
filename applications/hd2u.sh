@@ -18,7 +18,7 @@ wget -nc http://hany.sk/~hany/_data/hd2u/hd2u-1.0.4.tgz
 NAME=hd2u
 VERSION=1.0.4
 URL=http://hany.sk/~hany/_data/hd2u/hd2u-1.0.4.tgz
-SECTION="General Libraries and Utilities"
+SECTION="General Utilities"
 DESCRIPTION="The hd2u package contains an any to any text format converter."
 
 if [ ! -z $URL ]

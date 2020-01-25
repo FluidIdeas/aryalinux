@@ -17,7 +17,7 @@ wget -nc https://downloads.xiph.org/releases/ogg/libogg-1.3.3.tar.xz
 NAME=libogg
 VERSION=1.3.3
 URL=https://downloads.xiph.org/releases/ogg/libogg-1.3.3.tar.xz
-SECTION="Multimedia"
+SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The libogg package contains the Ogg file structure. This is useful for creating (encoding) or playing (decoding) a single physical bit stream."
 
 if [ ! -z $URL ]

@@ -18,7 +18,7 @@ wget -nc https://www.samba.org/ftp/rsync/src/rsync-3.1.3.tar.gz
 NAME=rsync
 VERSION=3.1.3
 URL=https://www.samba.org/ftp/rsync/src/rsync-3.1.3.tar.gz
-SECTION="Networking"
+SECTION="Networking Programs"
 DESCRIPTION="The rsync package contains the rsync utility. This is useful for synchronizing large file archives over a network."
 
 if [ ! -z $URL ]

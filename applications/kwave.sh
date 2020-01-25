@@ -25,7 +25,7 @@ wget -nc http://download.kde.org/stable/applications/19.08.0/src/kwave-19.08.0.t
 NAME=kwave
 VERSION=19.08.0
 URL=http://download.kde.org/stable/applications/19.08.0/src/kwave-19.08.0.tar.xz
-SECTION="Multimedia"
+SECTION="Audio Utilities"
 DESCRIPTION="The KWave package contains a KF5 based Sound Editor application."
 
 if [ ! -z $URL ]

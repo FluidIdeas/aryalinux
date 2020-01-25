@@ -17,7 +17,7 @@ wget -nc https://www.libssh2.org/download/libssh2-1.9.0.tar.gz
 NAME=libssh2
 VERSION=1.9.0
 URL=https://www.libssh2.org/download/libssh2-1.9.0.tar.gz
-SECTION="General Libraries and Utilities"
+SECTION="General Libraries"
 DESCRIPTION="Libssh2 package is a client-side C library implementing the SSH2 protocol."
 
 if [ ! -z $URL ]

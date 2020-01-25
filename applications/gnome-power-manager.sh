@@ -20,7 +20,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/3.32/gnome-po
 NAME=gnome-power-manager
 VERSION=3.32.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/3.32/gnome-power-manager-3.32.0.tar.xz
-SECTION="Gnome"
+SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Power Manager package contains a tool used to report on power management on the system."
 
 if [ ! -z $URL ]

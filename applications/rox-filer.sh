@@ -19,7 +19,7 @@ wget -nc https://downloads.sourceforge.net/rox/rox-filer-2.11.tar.bz2
 NAME=rox-filer
 VERSION=2.11
 URL=https://downloads.sourceforge.net/rox/rox-filer-2.11.tar.bz2
-SECTION="Office Productivity"
+SECTION="Other X-based Programs"
 DESCRIPTION="rox-filer is a fast, lightweight, gtk2 file manager."
 
 if [ ! -z $URL ]

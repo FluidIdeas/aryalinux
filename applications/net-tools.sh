@@ -19,7 +19,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/net-tools-CVS_20
 NAME=net-tools
 VERSION=20101030
 URL=http://anduin.linuxfromscratch.org/BLFS/net-tools/net-tools-CVS_20101030.tar.gz
-SECTION="Networking"
+SECTION="Networking Programs"
 DESCRIPTION="The Net-tools package is a collection of programs for controlling the network subsystem of the Linux kernel."
 
 if [ ! -z $URL ]

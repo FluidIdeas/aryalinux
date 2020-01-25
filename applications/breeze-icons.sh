@@ -19,7 +19,7 @@ wget -nc http://download.kde.org/stable/frameworks/5.61/breeze-icons-5.61.0.tar.
 NAME=breeze-icons
 VERSION=5.61.0
 URL=http://download.kde.org/stable/frameworks/5.61/breeze-icons-5.61.0.tar.xz
-SECTION="X-Server"
+SECTION="Icons"
 DESCRIPTION="The Breeze Icons package contains the default icons for KDE Plasma 5 applications, but it can be used for other window environments."
 
 if [ ! -z $URL ]

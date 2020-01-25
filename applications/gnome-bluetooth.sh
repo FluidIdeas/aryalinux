@@ -23,7 +23,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-bluetooth/3.32/gnome-blueto
 NAME=gnome-bluetooth
 VERSION=3.32.1
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-bluetooth/3.32/gnome-bluetooth-3.32.1.tar.xz
-SECTION="Gnome"
+SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Bluetooth package contains tools for managing and manipulating Bluetooth devices using the GNOME Desktop."
 
 if [ ! -z $URL ]

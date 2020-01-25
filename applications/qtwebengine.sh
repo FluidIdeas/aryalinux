@@ -28,7 +28,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/qtwebengine-5.13
 NAME=qtwebengine
 VERSION=5.13.0
 URL=https://download.qt.io/archive/qt/5.13/5.13.0/submodules/qtwebengine-everywhere-src-5.13.0.tar.xz
-SECTION="X-Server"
+SECTION="X Libraries"
 DESCRIPTION="QtWebEngine integrates chromium's web capabilities into Qt. It ships with its own copy of ninja which it uses for the build if it cannot find a system copy, and various copies of libraries from ffmpeg, icu, libvpx, and zlib (including libminizip) which have been forked by the chromium developers."
 
 if [ ! -z $URL ]

@@ -29,7 +29,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gdm/3.32/gdm-3.32.0.tar.xz
 NAME=gdm
 VERSION=3.32.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gdm/3.32/gdm-3.32.0.tar.xz
-SECTION="Gnome"
+SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="GDM is a system service that is responsible for providing graphical logins and managing local and remote displays."
 
 if [ ! -z $URL ]

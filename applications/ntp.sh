@@ -18,7 +18,7 @@ wget -nc https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p13.tar
 NAME=ntp
 VERSION=4.2.
 URL=https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p13.tar.gz
-SECTION="Networking"
+SECTION="Networking Programs"
 DESCRIPTION="The ntp package contains a client and server to keep the time synchronized between various computers over a network. This package is the official reference implementation of the NTP protocol."
 
 if [ ! -z $URL ]

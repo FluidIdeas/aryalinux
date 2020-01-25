@@ -18,7 +18,7 @@ wget -nc ftp://ftp.gnu.org/gnu/enscript/enscript-1.6.6.tar.gz
 NAME=enscript
 VERSION=1.6.6
 URL=https://ftp.gnu.org/gnu/enscript/enscript-1.6.6.tar.gz
-SECTION="Printing and Typesetting"
+SECTION="PostScript"
 DESCRIPTION="Enscript converts ASCII text files to PostScript, HTML, RTF, ANSI and overstrikes."
 
 if [ ! -z $URL ]

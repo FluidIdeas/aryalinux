@@ -18,7 +18,7 @@ wget -nc https://downloads.sourceforge.net/paps/paps-0.6.8.tar.gz
 NAME=paps
 VERSION=0.6.8
 URL=https://downloads.sourceforge.net/paps/paps-0.6.8.tar.gz
-SECTION="Printing and Typesetting"
+SECTION="PostScript"
 DESCRIPTION="paps is a text to PostScript converter that works through Pango. Its input is a UTF-8 encoded text file and it outputs vectorized PostScript. It may be used for printing any complex script supported by Pango."
 
 if [ ! -z $URL ]

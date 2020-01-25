@@ -55,7 +55,7 @@ wget -nc http://download.documentfoundation.org/libreoffice/src/6.3.0/libreoffic
 NAME=libreoffice
 VERSION=6.3.0.4
 URL=http://download.documentfoundation.org/libreoffice/src/6.3.0/libreoffice-6.3.0.4.tar.xz
-SECTION="Office Productivity"
+SECTION="Office Programs"
 DESCRIPTION="LibreOffice is a full-featured office suite. It is largely compatible with Microsoft Office and is descended from OpenOffice.org."
 
 if [ ! -z $URL ]

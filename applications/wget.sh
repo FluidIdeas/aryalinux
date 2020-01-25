@@ -19,7 +19,7 @@ wget -nc ftp://ftp.gnu.org/gnu/wget/wget-1.20.3.tar.gz
 NAME=wget
 VERSION=1.20.3
 URL=https://ftp.gnu.org/gnu/wget/wget-1.20.3.tar.gz
-SECTION="Networking"
+SECTION="Networking Programs"
 DESCRIPTION="The Wget package contains a utility useful for non-interactive downloading of files from the Web."
 
 if [ ! -z $URL ]

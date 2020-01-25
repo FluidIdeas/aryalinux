@@ -17,7 +17,7 @@ wget -nc https://downloads.sourceforge.net/smartmontools/smartmontools-7.0.tar.g
 NAME=smartmontools
 VERSION=7.0
 URL=https://downloads.sourceforge.net/smartmontools/smartmontools-7.0.tar.gz
-SECTION="Filesystems and disk management"
+SECTION="File Systems and Disk Management"
 DESCRIPTION="The smartmontools package contains utility programs (smartctl, smartd) to control/monitor storage systems using the Self-Monitoring, Analysis and Reporting Technology System (S.M.A.R.T.) built into most modern ATA and SCSI disks."
 
 if [ ! -z $URL ]

@@ -19,7 +19,7 @@ wget -nc https://libopenraw.freedesktop.org/download/exempi-2.5.1.tar.bz2
 NAME=exempi
 VERSION=2.5.1
 URL=https://libopenraw.freedesktop.org/download/exempi-2.5.1.tar.bz2
-SECTION="General Libraries and Utilities"
+SECTION="General Libraries"
 DESCRIPTION="Exempi is an implementation of XMP (Adobe's Extensible Metadata Platform)."
 
 if [ ! -z $URL ]

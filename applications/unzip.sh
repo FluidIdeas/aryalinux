@@ -18,7 +18,7 @@ wget -nc ftp://ftp.info-zip.org/pub/infozip/src/unzip60.tgz
 NAME=unzip
 VERSION=60
 URL=https://downloads.sourceforge.net/infozip/unzip60.tar.gz
-SECTION="General Libraries and Utilities"
+SECTION="System Utilities"
 DESCRIPTION="The UnZip package contains ZIP extraction utilities. These are useful for extracting files from ZIP archives. ZIP archives are created with PKZIP or Info-ZIP utilities, primarily in a DOS environment."
 
 if [ ! -z $URL ]

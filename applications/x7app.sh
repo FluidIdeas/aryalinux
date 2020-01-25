@@ -20,7 +20,7 @@ cd $SOURCE_DIR
 NAME=x7app
 VERSION=
 
-SECTION="X-Server"
+SECTION="X Window System Environment"
 DESCRIPTION="The Xorg applications provide the expected applications available in previous X Window implementations."
 
 if [ ! -z $URL ]

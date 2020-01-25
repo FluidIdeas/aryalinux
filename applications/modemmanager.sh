@@ -23,7 +23,7 @@ wget -nc https://www.freedesktop.org/software/ModemManager/ModemManager-1.10.4.t
 NAME=modemmanager
 VERSION=1.10.4
 URL=https://www.freedesktop.org/software/ModemManager/ModemManager-1.10.4.tar.xz
-SECTION="Others"
+SECTION="System Utilities"
 DESCRIPTION="ModemManager provides a unified high level API for communicating with mobile broadband modems, regardless of the protocol used to communicate with the actual device."
 
 if [ ! -z $URL ]

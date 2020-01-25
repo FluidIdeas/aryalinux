@@ -19,7 +19,7 @@ wget -nc https://downloads.sourceforge.net/libmng/libmng-2.0.3.tar.xz
 NAME=libmng
 VERSION=2.0.3
 URL=https://downloads.sourceforge.net/libmng/libmng-2.0.3.tar.xz
-SECTION="General Libraries and Utilities"
+SECTION="Graphics and Font Libraries"
 DESCRIPTION="The libmng libraries are used by programs wanting to read and write Multiple-image Network Graphics (MNG) files which are the animation equivalents to PNG files."
 
 if [ ! -z $URL ]

@@ -17,7 +17,7 @@ wget -nc https://downloads.sourceforge.net/opencore-amr/fdk-aac-2.0.0.tar.gz
 NAME=fdk-aac
 VERSION=2.0.0
 URL=https://downloads.sourceforge.net/opencore-amr/fdk-aac-2.0.0.tar.gz
-SECTION="Multimedia"
+SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="fdk-aac package provides the Fraunhofer FDK AAC library, which is purported to be a high quality Advanced Audio Coding implementation."
 
 if [ ! -z $URL ]

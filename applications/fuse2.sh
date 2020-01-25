@@ -17,7 +17,7 @@ wget -nc https://github.com/libfuse/libfuse/releases/download/fuse-2.9.7/fuse-2.
 NAME=fuse2
 VERSION=2.9.7
 URL=https://github.com/libfuse/libfuse/releases/download/fuse-2.9.7/fuse-2.9.7.tar.gz
-SECTION="Filesystems and disk management"
+SECTION="File Systems and Disk Management"
 DESCRIPTION="FUSE (Filesystem in Userspace) is a simple interface for userspace programs to export a virtual filesystem to the Linux kernel. Fuse also aims to provide a secure method for non privileged users to create and mount their own filesystem implementations."
 
 if [ ! -z $URL ]

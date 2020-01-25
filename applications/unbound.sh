@@ -17,7 +17,7 @@ wget -nc http://www.unbound.net/downloads/unbound-1.9.2.tar.gz
 NAME=unbound
 VERSION=1.9.2
 URL=http://www.unbound.net/downloads/unbound-1.9.2.tar.gz
-SECTION="Servers"
+SECTION="Other Server Software"
 DESCRIPTION="Unbound is a validating, recursive, and caching DNS resolver. It is designed as a set of modular components that incorporate modern features, such as enhanced security (DNSSEC) validation, Internet Protocol Version 6 (IPv6), and a client resolver library API as an integral part of the architecture."
 
 if [ ! -z $URL ]

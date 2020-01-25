@@ -19,7 +19,7 @@ wget -nc http://download.kde.org/stable/phonon/phonon-backend-vlc/0.10.3/phonon-
 NAME=phonon-backend-vlc
 VERSION=0.10.3
 URL=http://download.kde.org/stable/phonon/phonon-backend-vlc/0.10.3/phonon-backend-vlc-0.10.3.tar.xz
-SECTION="KDE"
+SECTION="Introduction to KDE"
 DESCRIPTION="This package provides a Phonon backend which utilizes the VLC media framework."
 
 if [ ! -z $URL ]

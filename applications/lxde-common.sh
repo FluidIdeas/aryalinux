@@ -27,7 +27,7 @@ wget -nc https://downloads.sourceforge.net/lxde/lxde-common-0.99.2.tar.xz
 NAME=lxde-common
 VERSION=0.99.2
 URL=https://downloads.sourceforge.net/lxde/lxde-common-0.99.2.tar.xz
-SECTION="Others"
+SECTION="LXDE Desktop"
 DESCRIPTION="The LXDE Common package provides a set of default configuration for LXDE."
 
 if [ ! -z $URL ]

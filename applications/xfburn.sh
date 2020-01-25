@@ -21,7 +21,7 @@ wget -nc http://archive.xfce.org/src/apps/xfburn/0.5/xfburn-0.5.5.tar.bz2
 NAME=xfburn
 VERSION=0.5.5
 URL=http://archive.xfce.org/src/apps/xfburn/0.5/xfburn-0.5.5.tar.bz2
-SECTION="XFCE"
+SECTION="Xfce Applications"
 DESCRIPTION="Xfburn is a GTK+ 2 GUI frontend for Libisoburn. This is useful for creating CDs and DVDs from files on your computer or ISO images downloaded from elsewhere."
 
 if [ ! -z $URL ]

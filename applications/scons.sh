@@ -17,7 +17,7 @@ wget -nc https://downloads.sourceforge.net/scons/scons-3.1.1.tar.gz
 NAME=scons
 VERSION=3.1.1
 URL=https://downloads.sourceforge.net/scons/scons-3.1.1.tar.gz
-SECTION="General Libraries and Utilities"
+SECTION="Programming"
 DESCRIPTION="SCons is a tool for building software (and other files) implemented in Python."
 
 if [ ! -z $URL ]

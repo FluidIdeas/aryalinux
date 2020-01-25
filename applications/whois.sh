@@ -17,7 +17,7 @@ wget -nc https://github.com/rfc1036/whois/archive/v5.4.3/whois-5.4.3.tar.gz
 NAME=whois
 VERSION=5.4.3
 URL=https://github.com/rfc1036/whois/archive/v5.4.3/whois-5.4.3.tar.gz
-SECTION="Networking"
+SECTION="Networking Utilities"
 DESCRIPTION="Whois is a client-side application which queries the whois directory service for information pertaining to a particular domain name. This package will install two programs by default: whois and mkpasswd. The mkpasswd command is also installed by the Expect-5.45.4 package."
 
 if [ ! -z $URL ]

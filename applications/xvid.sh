@@ -17,7 +17,7 @@ wget -nc http://downloads.xvid.org/downloads/xvidcore-1.3.5.tar.gz
 NAME=xvid
 VERSION=1.3.5
 URL=http://downloads.xvid.org/downloads/xvidcore-1.3.5.tar.gz
-SECTION="Multimedia"
+SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="XviD is an MPEG-4 compliant video CODEC."
 
 if [ ! -z $URL ]

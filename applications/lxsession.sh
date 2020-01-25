@@ -21,7 +21,7 @@ wget -nc https://downloads.sourceforge.net/lxde/lxsession-0.5.4.tar.xz
 NAME=lxsession
 VERSION=0.5.4
 URL=https://downloads.sourceforge.net/lxde/lxsession-0.5.4.tar.xz
-SECTION="Others"
+SECTION="LXDE Desktop"
 DESCRIPTION="The LXSession package contains the default session manager for LXDE."
 
 if [ ! -z $URL ]

@@ -27,7 +27,7 @@ wget -nc http://www.php.net/download-docs.php
 NAME=php
 VERSION=7.3.8
 URL=http://www.php.net/distributions/php-7.3.8.tar.xz
-SECTION="General Libraries and Utilities"
+SECTION="Programming"
 DESCRIPTION="PHP is the PHP Hypertext Preprocessor. Primarily used in dynamic web sites, it allows for programming code to be directly embedded into the HTML markup. It is also useful as a general purpose scripting language."
 
 if [ ! -z $URL ]

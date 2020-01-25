@@ -18,7 +18,7 @@ wget -nc https://downloads.xiph.org/releases/vorbis/libvorbis-1.3.6.tar.xz
 NAME=libvorbis
 VERSION=1.3.6
 URL=https://downloads.xiph.org/releases/vorbis/libvorbis-1.3.6.tar.xz
-SECTION="Multimedia"
+SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The libvorbis package contains a general purpose audio and music encoding format. This is useful for creating (encoding) and playing (decoding) sound in an open (patent free) format."
 
 if [ ! -z $URL ]

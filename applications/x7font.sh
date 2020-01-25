@@ -17,7 +17,7 @@ cd $SOURCE_DIR
 NAME=x7font
 VERSION=
 
-SECTION="X-Server"
+SECTION="X Window System Environment"
 DESCRIPTION="The Xorg font packages provide some scalable fonts and supporting packages for Xorg applications. Many people will want to install other TTF or OTF fonts in addition to, or instead of, these. Some are listed at the section called “TTF and OTF fonts”."
 
 if [ ! -z $URL ]

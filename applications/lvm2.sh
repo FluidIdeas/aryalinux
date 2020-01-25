@@ -19,7 +19,7 @@ wget -nc ftp://sourceware.org/pub/lvm2/LVM2.2.03.05.tgz
 NAME=lvm2
 VERSION=2.2.03.05
 URL=https://sourceware.org/ftp/lvm2/LVM2.2.03.05.tgz
-SECTION="Filesystems and disk management"
+SECTION="File Systems and Disk Management"
 DESCRIPTION="The LVM2 package is a set of tools that manage logical partitions. It allows spanning of file systems across multiple physical disks and disk partitions and provides for dynamic growing or shrinking of logical partitions, mirroring and low storage footprint snapshots."
 
 if [ ! -z $URL ]

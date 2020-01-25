@@ -21,7 +21,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgsf/1.14/libgsf-1.14.46.tar.xz
 NAME=libgsf
 VERSION=1.14.46
 URL=http://ftp.gnome.org/pub/gnome/sources/libgsf/1.14/libgsf-1.14.46.tar.xz
-SECTION="General Libraries and Utilities"
+SECTION="General Libraries"
 DESCRIPTION="The libgsf package contains a library used for providing an extensible input/output abstraction layer for structured file formats."
 
 if [ ! -z $URL ]

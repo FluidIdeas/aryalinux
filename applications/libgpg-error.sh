@@ -18,7 +18,7 @@ wget -nc ftp://ftp.gnupg.org/gcrypt/libgpg-error/libgpg-error-1.36.tar.bz2
 NAME=libgpg-error
 VERSION=1.36
 URL=https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.36.tar.bz2
-SECTION="General Libraries and Utilities"
+SECTION="General Libraries"
 DESCRIPTION="The libgpg-error package contains a library that defines common error values for all GnuPG components."
 
 if [ ! -z $URL ]

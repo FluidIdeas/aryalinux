@@ -24,7 +24,7 @@ wget -nc http://archive.xfce.org/src/xfce/thunar-volman/0.9/thunar-volman-0.9.5.
 NAME=thunar-volman
 VERSION=0.9.5
 URL=http://archive.xfce.org/src/xfce/thunar-volman/0.9/thunar-volman-0.9.5.tar.bz2
-SECTION="XFCE"
+SECTION="Xfce Desktop"
 DESCRIPTION="The Thunar Volume Manager is an extension for the Thunar file manager, which enables automatic management of removable drives and media."
 
 if [ ! -z $URL ]

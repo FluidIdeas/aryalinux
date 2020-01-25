@@ -17,7 +17,7 @@ wget -nc ftp://ftp.isc.org/isc/bind9/9.14.5/bind-9.14.5.tar.gz
 NAME=bind-utils
 VERSION=9.14.5
 URL=ftp://ftp.isc.org/isc/bind9/9.14.5/bind-9.14.5.tar.gz
-SECTION="Networking"
+SECTION="Networking Utilities"
 DESCRIPTION="BIND Utilities is not a separate package, it is a collection of the client side programs that are included with BIND-9.14.5. The BIND package includes the client side programs nslookup, dig and host. If you install BIND server, these programs will be installed automatically. This section is for those users who don't need the complete BIND server, but need these client side applications."
 
 if [ ! -z $URL ]

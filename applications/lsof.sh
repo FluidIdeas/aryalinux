@@ -18,7 +18,7 @@ wget -nc https://www.mirrorservice.org/sites/lsof.itap.purdue.edu/pub/tools/unix
 NAME=lsof
 VERSION=4.91
 URL=https://www.mirrorservice.org/sites/lsof.itap.purdue.edu/pub/tools/unix/lsof/lsof_4.91.tar.gz
-SECTION="General Libraries and Utilities"
+SECTION="General Utilities"
 DESCRIPTION="The lsof package is useful to LiSt Open Files for a given running application or process."
 
 if [ ! -z $URL ]

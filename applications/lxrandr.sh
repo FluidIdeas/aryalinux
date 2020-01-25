@@ -19,7 +19,7 @@ wget -nc https://downloads.sourceforge.net/lxde/lxrandr-0.3.2.tar.xz
 NAME=lxrandr
 VERSION=0.3.2
 URL=https://downloads.sourceforge.net/lxde/lxrandr-0.3.2.tar.xz
-SECTION="Others"
+SECTION="LXDE Applications"
 DESCRIPTION="The LXRandR package contains a monitor configuration tool for LXDE."
 
 if [ ! -z $URL ]

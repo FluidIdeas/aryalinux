@@ -19,7 +19,7 @@ wget -nc http://archive.xfce.org/src/apps/xfce4-terminal/0.8/xfce4-terminal-0.8.
 NAME=xfce4-terminal
 VERSION=0.8.8
 URL=http://archive.xfce.org/src/apps/xfce4-terminal/0.8/xfce4-terminal-0.8.8.tar.bz2
-SECTION="XFCE"
+SECTION="Xfce Applications"
 DESCRIPTION="Xfce4 Terminal is a GTK+3 terminal emulator. This is useful for running commands or programs in the comfort of an Xorg window; you can drag and drop files into the Xfce4 Terminal or copy and paste text with your mouse."
 
 if [ ! -z $URL ]

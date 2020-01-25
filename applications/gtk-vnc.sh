@@ -24,7 +24,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk-vnc/1.0/gtk-vnc-1.0.0.tar.xz
 NAME=gtk-vnc
 VERSION=1.0.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gtk-vnc/1.0/gtk-vnc-1.0.0.tar.xz
-SECTION="X-Server"
+SECTION="X Libraries"
 DESCRIPTION="The Gtk VNC package contains a VNC viewer widget for GTK+. It is built using coroutines allowing it to be completely asynchronous while remaining single threaded."
 
 if [ ! -z $URL ]

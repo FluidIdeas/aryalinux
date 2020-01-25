@@ -19,7 +19,7 @@ wget -nc https://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.xz
 NAME=libtheora
 VERSION=1.1.1
 URL=https://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.xz
-SECTION="Multimedia"
+SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="libtheora is a reference implementation of the Theora video compression format being developed by the Xiph.Org Foundation."
 
 if [ ! -z $URL ]

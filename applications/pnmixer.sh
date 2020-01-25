@@ -20,7 +20,7 @@ wget -nc https://github.com/nicklan/pnmixer/releases/download/v0.7.2/pnmixer-v0.
 NAME=pnmixer
 VERSION=0.7.2
 URL=https://github.com/nicklan/pnmixer/releases/download/v0.7.2/pnmixer-v0.7.2.tar.gz
-SECTION="Multimedia"
+SECTION="Audio Utilities"
 DESCRIPTION="The Pnmixer package provides a lightweight volume control with a tray icon."
 
 if [ ! -z $URL ]

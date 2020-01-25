@@ -25,7 +25,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-online-accounts/3.32/gnome-
 NAME=gnome-online-accounts
 VERSION=3.32.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-online-accounts/3.32/gnome-online-accounts-3.32.0.tar.xz
-SECTION="Gnome"
+SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Online Accounts package contains a framework used to access the user's online accounts."
 
 if [ ! -z $URL ]

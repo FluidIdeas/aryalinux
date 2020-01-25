@@ -17,7 +17,7 @@ wget -nc https://get.videolan.org/libdvdcss/1.4.2/libdvdcss-1.4.2.tar.bz2
 NAME=libdvdcss
 VERSION=1.4.2
 URL=https://get.videolan.org/libdvdcss/1.4.2/libdvdcss-1.4.2.tar.bz2
-SECTION="Multimedia"
+SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="libdvdcss is a simple library designed for accessing DVDs as a block device without having to bother about the decryption."
 
 if [ ! -z $URL ]

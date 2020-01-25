@@ -23,7 +23,7 @@ wget -nc http://pawsa.fedorapeople.org/balsa/balsa-2.5.7.tar.bz2
 NAME=balsa
 VERSION=2.5.7
 URL=http://pawsa.fedorapeople.org/balsa/balsa-2.5.7.tar.bz2
-SECTION="Office Productivity"
+SECTION="Other X-based Programs"
 DESCRIPTION="The Balsa package contains a GNOME-2 based mail client."
 
 if [ ! -z $URL ]

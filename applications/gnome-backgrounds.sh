@@ -18,7 +18,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-backgrounds/3.32/gnome-back
 NAME=gnome-backgrounds
 VERSION=3.32.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-backgrounds/3.32/gnome-backgrounds-3.32.0.tar.xz
-SECTION="Gnome"
+SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Backgrounds package contains a collection of graphics files which can be used as backgrounds in the GNOME Desktop environment. Additionally, the package creates the proper framework and directory structure so that you can add your own files to the collection."
 
 if [ ! -z $URL ]

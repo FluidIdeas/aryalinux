@@ -20,7 +20,7 @@ wget -nc https://downloads.sourceforge.net/nfs/nfs-utils-2.4.1.tar.xz
 NAME=nfs-utils
 VERSION=2.4.1
 URL=https://downloads.sourceforge.net/nfs/nfs-utils-2.4.1.tar.xz
-SECTION="Networking"
+SECTION="Networking Programs"
 DESCRIPTION="The NFS Utilities package contains the userspace server and client tools necessary to use the kernel's NFS abilities. NFS is a protocol that allows sharing file systems over the network."
 
 if [ ! -z $URL ]

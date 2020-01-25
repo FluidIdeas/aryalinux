@@ -21,7 +21,7 @@ wget -nc https://portland.freedesktop.org/download/xdg-utils-1.1.3.tar.gz
 NAME=xdg-utils
 VERSION=1.1.3
 URL=https://portland.freedesktop.org/download/xdg-utils-1.1.3.tar.gz
-SECTION="Office Productivity"
+SECTION="Other X-based Programs"
 DESCRIPTION="xdg-utils is a a set of command line tools that assist applications with a variety of desktop integration tasks. It is required for Linux Standards Base (LSB) conformance."
 
 if [ ! -z $URL ]

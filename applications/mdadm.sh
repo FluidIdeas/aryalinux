@@ -17,7 +17,7 @@ wget -nc https://www.kernel.org/pub/linux/utils/raid/mdadm/mdadm-4.0.tar.xz
 NAME=mdadm
 VERSION=4.0
 URL=https://www.kernel.org/pub/linux/utils/raid/mdadm/mdadm-4.0.tar.xz
-SECTION="Filesystems and disk management"
+SECTION="File Systems and Disk Management"
 DESCRIPTION="The mdadm package contains administration tools for software RAID."
 
 if [ ! -z $URL ]

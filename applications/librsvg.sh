@@ -25,7 +25,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.14.tar.
 NAME=librsvg
 VERSION=2.44.14
 URL=http://ftp.gnome.org/pub/gnome/sources/librsvg/2.44/librsvg-2.44.14.tar.xz
-SECTION="General Libraries and Utilities"
+SECTION="Graphics and Font Libraries"
 DESCRIPTION="The librsvg package contains a library and tools used to manipulate, convert and view Scalable Vector Graphic (SVG) images."
 
 if [ ! -z $URL ]

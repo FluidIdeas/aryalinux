@@ -36,7 +36,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.32/gnome-c
 NAME=gnome-control-center
 VERSION=3.32.2
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.32/gnome-control-center-3.32.2.tar.xz
-SECTION="Gnome"
+SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Control Center package contains the GNOME settings manager."
 
 if [ ! -z $URL ]

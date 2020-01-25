@@ -19,7 +19,7 @@ wget -nc ftp://ftp.x.org/pub/individual/
 NAME=x7legacy
 VERSION=
 URL=https://www.x.org/pub/individual/
-SECTION="X-Server"
+SECTION="X Window System Environment"
 DESCRIPTION="Xorg's ancestor (X11R1, in 1987) at first only provided bitmap fonts, with a tool (bdftopcf) to assist in their installation. With the introduction of xorg-server-1.19.0 and libXfont2 many people will not need them. There are still a few old packages which might require, or benefit from, these deprecated fonts and so the following packages are shown here."
 
 if [ ! -z $URL ]

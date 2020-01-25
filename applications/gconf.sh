@@ -23,7 +23,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/GConf/3.2/GConf-3.2.6.tar.xz
 NAME=gconf
 VERSION=3.2.6
 URL=http://ftp.gnome.org/pub/gnome/sources/GConf/3.2/GConf-3.2.6.tar.xz
-SECTION="Others"
+SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GConf package contains a configuration database system used by many GNOME applications."
 
 if [ ! -z $URL ]

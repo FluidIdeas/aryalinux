@@ -19,7 +19,7 @@ wget -nc http://www.andre-simon.de/zip/highlight-3.53.tar.bz2
 NAME=highlight
 VERSION=3.53
 URL=http://www.andre-simon.de/zip/highlight-3.53.tar.bz2
-SECTION="General Libraries and Utilities"
+SECTION="General Utilities"
 DESCRIPTION="Highlight is an utility that converts source code to formatted text with syntax highlighting."
 
 if [ ! -z $URL ]

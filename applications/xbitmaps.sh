@@ -19,7 +19,7 @@ wget -nc ftp://ftp.x.org/pub/individual/data/xbitmaps-1.1.2.tar.bz2
 NAME=xbitmaps
 VERSION=1.1.2
 URL=https://www.x.org/pub/individual/data/xbitmaps-1.1.2.tar.bz2
-SECTION="X-Server"
+SECTION="X Window System Environment"
 DESCRIPTION="The xbitmaps package contains bitmap images used by multiple applications built in Xorg chapter."
 
 if [ ! -z $URL ]

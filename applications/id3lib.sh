@@ -18,7 +18,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/id3lib-3.8.3-con
 NAME=id3lib
 VERSION=3.8.3
 URL=https://downloads.sourceforge.net/id3lib/id3lib-3.8.3.tar.gz
-SECTION="Multimedia"
+SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="id3lib is a library for reading, writing and manipulating id3v1 and id3v2 multimedia data containers."
 
 if [ ! -z $URL ]

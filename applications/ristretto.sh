@@ -19,7 +19,7 @@ wget -nc http://archive.xfce.org/src/apps/ristretto/0.10/ristretto-0.10.0.tar.bz
 NAME=ristretto
 VERSION=0.10.0
 URL=http://archive.xfce.org/src/apps/ristretto/0.10/ristretto-0.10.0.tar.bz2
-SECTION="XFCE"
+SECTION="Xfce Applications"
 DESCRIPTION="Ristretto is a fast and lightweight image viewer for the Xfce desktop."
 
 if [ ! -z $URL ]

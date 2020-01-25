@@ -18,7 +18,7 @@ wget -nc https://xcb.freedesktop.org/dist/xcb-util-image-0.4.0.tar.bz2
 NAME=xcb-util-image
 VERSION=0.4.0
 URL=https://xcb.freedesktop.org/dist/xcb-util-image-0.4.0.tar.bz2
-SECTION="X-Server"
+SECTION="X Window System Environment"
 DESCRIPTION="The xcb-util-image package provides additional extensions to the XCB library."
 
 if [ ! -z $URL ]

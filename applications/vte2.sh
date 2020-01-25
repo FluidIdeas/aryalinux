@@ -19,7 +19,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/vte/0.28/vte-0.28.2.tar.xz
 NAME=vte2
 VERSION=0.28.2
 URL=http://ftp.gnome.org/pub/gnome/sources/vte/0.28/vte-0.28.2.tar.xz
-SECTION="Others"
+SECTION="LXDE Applications"
 DESCRIPTION="Vte is a library (libvte) implementing a terminal emulator widget for GTK+ 2, and a minimal demonstration application (vte) that uses libvte."
 
 if [ ! -z $URL ]

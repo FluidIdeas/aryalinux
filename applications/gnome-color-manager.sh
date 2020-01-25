@@ -27,7 +27,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-color-manager/3.32/gnome-co
 NAME=gnome-color-manager
 VERSION=3.32.0
 URL=http://ftp.gnome.org/pub/gnome/sources/gnome-color-manager/3.32/gnome-color-manager-3.32.0.tar.xz
-SECTION="Gnome"
+SECTION="GNOME Applications"
 DESCRIPTION="GNOME Color Manager is a session framework for the GNOME desktop environment that makes it easy to manage, install and generate color profiles."
 
 if [ ! -z $URL ]

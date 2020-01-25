@@ -18,7 +18,7 @@ wget -nc http://archive.xfce.org/src/xfce/libxfce4util/4.14/libxfce4util-4.14.0.
 NAME=libxfce4util
 VERSION=4.14.0
 URL=http://archive.xfce.org/src/xfce/libxfce4util/4.14/libxfce4util-4.14.0.tar.bz2
-SECTION="XFCE"
+SECTION="Xfce Desktop"
 DESCRIPTION="The libxfce4util package is a basic utility library for the Xfce desktop environment."
 
 if [ ! -z $URL ]

@@ -25,7 +25,7 @@ wget -nc https://downloads.sourceforge.net/lxde/lxpanel-0.10.0.tar.xz
 NAME=lxpanel
 VERSION=0.10.0
 URL=https://downloads.sourceforge.net/lxde/lxpanel-0.10.0.tar.xz
-SECTION="Others"
+SECTION="LXDE Desktop"
 DESCRIPTION="The LXPanel package contains a lightweight X11 desktop panel."
 
 if [ ! -z $URL ]

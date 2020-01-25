@@ -20,7 +20,7 @@ wget -nc ftp://ftp.gnome.org/pub/gnome/sources/vala/0.44/vala-0.44.7.tar.xz
 NAME=vala
 VERSION=0.44.7
 URL=http://ftp.gnome.org/pub/gnome/sources/vala/0.44/vala-0.44.7.tar.xz
-SECTION="General Libraries and Utilities"
+SECTION="Programming"
 DESCRIPTION="Vala is a new programming language that aims to bring modern programming language features to GNOME developers without imposing any additional runtime requirements and without using a different ABI compared to applications and libraries written in C."
 
 if [ ! -z $URL ]
