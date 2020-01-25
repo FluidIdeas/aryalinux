@@ -20,7 +20,7 @@ wget -nc http://download.kde.org/stable/apps/KDE4.x/admin/polkit-qt-1-0.112.0.ta
 NAME=polkit-qt
 VERSION=0.112.0
 URL=http://download.kde.org/stable/apps/KDE4.x/admin/polkit-qt-1-0.112.0.tar.bz2
-SECTION="Introduction to KDE"
+SECTION="KDE Prerequisites"
 DESCRIPTION="Polkit-Qt provides an API to PolicyKit in the Qt environment."
 
 if [ ! -z $URL ]
