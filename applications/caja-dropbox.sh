@@ -17,6 +17,8 @@ wget -nc https://pub.mate-desktop.org/releases/1.23/caja-dropbox-1.23.0.tar.xz
 NAME=caja-dropbox
 VERSION=1.23.0
 URL=https://pub.mate-desktop.org/releases/1.23/caja-dropbox-1.23.0.tar.xz
+SECTION="Mate Desktop"
+DESCRIPTION="Dropbox extension for Caja file manager"
 
 if [ ! -z $URL ]
 then

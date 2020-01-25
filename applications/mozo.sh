@@ -17,6 +17,8 @@ wget -nc https://pub.mate-desktop.org/releases/1.23/mozo-1.23.0.tar.xz
 NAME=mozo
 VERSION=1.23.0
 URL=https://pub.mate-desktop.org/releases/1.23/mozo-1.23.0.tar.xz
+SECTION="Mate Desktop Applications"
+DESCRIPTION="Menu editor for MATE using the freedesktop.org menu specification"
 
 if [ ! -z $URL ]
 then

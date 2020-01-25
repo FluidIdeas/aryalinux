@@ -35,6 +35,7 @@ wget -nc https://archive.mozilla.org/pub/firefox/releases/69.0.3/source/firefox-
 NAME=firefox
 VERSION=69.0.3
 URL=https://archive.mozilla.org/pub/firefox/releases/69.0.3/source/firefox-69.0.3.source.tar.xz
+SECTION="Graphical Web Browsers"
 DESCRIPTION="Firefox is a stand-alone browser based on the Mozilla codebase."
 
 if [ ! -z $URL ]

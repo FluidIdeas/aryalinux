@@ -17,6 +17,8 @@ wget -nc https://pub.mate-desktop.org/releases/1.6/libmatewnck-1.6.1.tar.xz
 NAME=libmatewnck
 VERSION=1.6.1
 URL=https://pub.mate-desktop.org/releases/1.6/libmatewnck-1.6.1.tar.xz
+SECTION="Mate Desktop"
+DESCRIPTION="Mate Desktop"
 
 if [ ! -z $URL ]
 then

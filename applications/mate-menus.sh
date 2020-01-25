@@ -17,6 +17,8 @@ wget -nc https://pub.mate-desktop.org/releases/1.23/mate-menus-1.23.0.tar.xz
 NAME=mate-menus
 VERSION=1.23.0
 URL=https://pub.mate-desktop.org/releases/1.23/mate-menus-1.23.0.tar.xz
+SECTION="Mate Desktop"
+DESCRIPTION="Library for the Desktop Menu freedesktop.org specification"
 
 if [ ! -z $URL ]
 then

@@ -17,6 +17,8 @@ wget -nc https://download.kde.org/stable/applications/19.08.0/src/dolphin-19.08.
 NAME=dolphin
 VERSION=19.08.0
 URL=https://download.kde.org/stable/applications/19.08.0/src/dolphin-19.08.0.tar.xz
+SECTION="KDE Frameworks 5 Based Applications"
+DESCRIPTION="Dolphin is a free and open source file manager included in the KDE Applications bundle. Dolphin became the default file manager of KDE Plasma desktop environments in the fourth iteration, termed KDE Software Compilation 4. It can also be optionally installed on K Desktop Environment 3."
 
 if [ ! -z $URL ]
 then

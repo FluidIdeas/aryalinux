@@ -17,6 +17,8 @@ wget -nc https://pub.mate-desktop.org/releases/1.23/mate-backgrounds-1.23.0.tar.
 NAME=mate-backgrounds
 VERSION=1.23.0
 URL=https://pub.mate-desktop.org/releases/1.23/mate-backgrounds-1.23.0.tar.xz
+SECTION="Mate Desktop"
+DESCRIPTION="This module contains a set of backgrounds packaged with the MATE desktop."
 
 if [ ! -z $URL ]
 then

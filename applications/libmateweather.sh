@@ -17,6 +17,8 @@ wget -nc https://pub.mate-desktop.org/releases/1.23/libmateweather-1.23.0.tar.xz
 NAME=libmateweather
 VERSION=1.23.0
 URL=https://pub.mate-desktop.org/releases/1.23/libmateweather-1.23.0.tar.xz
+SECTION="Mate Desktop"
+DESCRIPTION="Library to access weather information from online services"
 
 if [ ! -z $URL ]
 then

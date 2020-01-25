@@ -11,14 +11,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://pub.mate-desktop.org/releases/1.23/libmatemixer-1.23.0.tar.xz
+wget -nc https://pub.mate-desktop.org/releases/1.23/mate-applets-1.23.1.tar.xz
 
 
-NAME=libmatemixer
-VERSION=1.23.0
-URL=https://pub.mate-desktop.org/releases/1.23/libmatemixer-1.23.0.tar.xz
+NAME=mate-applets
+VERSION=1.23.1
+URL=https://pub.mate-desktop.org/releases/1.23/mate-applets-1.23.1.tar.xz
 SECTION="Mate Desktop"
-DESCRIPTION="Mixer library for MATE Desktop"
+DESCRIPTION="Applets for use with the MATE panel"
 
 if [ ! -z $URL ]
 then

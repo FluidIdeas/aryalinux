@@ -11,12 +11,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://pub.mate-desktop.org/releases/1.23/mate-control-center-1.23.2.tar.xz
+wget -nc https://pub.mate-desktop.org/releases/1.23/mate-control-center-1.23.3.tar.xz
 
 
 NAME=mate-control-center
-VERSION=1.23.2
-URL=https://pub.mate-desktop.org/releases/1.23/mate-control-center-1.23.2.tar.xz
+VERSION=1.23.3
+URL=https://pub.mate-desktop.org/releases/1.23/mate-control-center-1.23.3.tar.xz
+SECTION="Mate Desktop"
+DESCRIPTION="Utilities to configure the MATE desktop"
 
 if [ ! -z $URL ]
 then

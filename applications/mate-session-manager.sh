@@ -17,6 +17,8 @@ wget -nc https://pub.mate-desktop.org/releases/1.23/mate-session-manager-1.23.0.
 NAME=mate-session-manager
 VERSION=1.23.0
 URL=https://pub.mate-desktop.org/releases/1.23/mate-session-manager-1.23.0.tar.xz
+SECTION="Mate Desktop"
+DESCRIPTION="MATE session manager"
 
 if [ ! -z $URL ]
 then

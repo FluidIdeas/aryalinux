@@ -11,14 +11,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/stable/applications/19.08.0/src/kcalc-19.08.0.tar.xz
+wget -nc https://download.kde.org/stable/applications/19.08.0/src/kget-19.08.0.tar.xz
 
 
-NAME=kcalc
+NAME=kget
 VERSION=19.08.0
-URL=https://download.kde.org/stable/applications/19.08.0/src/kcalc-19.08.0.tar.xz
+URL=https://download.kde.org/stable/applications/19.08.0/src/kget-19.08.0.tar.xz
 SECTION="KDE Frameworks 5 Based Applications"
-DESCRIPTION="DescriptionKCalc is the software calculator integrated with the KDE Software Compilation. In the default view it includes a number pad, buttons for adding, subtracting, multiplying, and dividing, brackets, memory keys, percent, reciprocal, factorial, square, square root, and x to the power of y buttons."
+DESCRIPTION="KGet is a versatile and user-friendly download manager."
 
 if [ ! -z $URL ]
 then

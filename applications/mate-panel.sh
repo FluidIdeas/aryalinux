@@ -11,12 +11,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://pub.mate-desktop.org/releases/1.23/mate-panel-1.23.2.tar.xz
+wget -nc https://pub.mate-desktop.org/releases/1.23/mate-panel-1.23.3.tar.xz
 
 
 NAME=mate-panel
-VERSION=1.23.2
-URL=https://pub.mate-desktop.org/releases/1.23/mate-panel-1.23.2.tar.xz
+VERSION=1.23.3
+URL=https://pub.mate-desktop.org/releases/1.23/mate-panel-1.23.3.tar.xz
+SECTION="Mate Desktop"
+DESCRIPTION="MATE panel"
 
 if [ ! -z $URL ]
 then

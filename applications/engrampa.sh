@@ -11,12 +11,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://pub.mate-desktop.org/releases/1.23/engrampa-1.23.2.tar.xz
+wget -nc https://pub.mate-desktop.org/releases/1.23/engrampa-1.23.3.tar.xz
 
 
 NAME=engrampa
-VERSION=1.23.2
-URL=https://pub.mate-desktop.org/releases/1.23/engrampa-1.23.2.tar.xz
+VERSION=1.23.3
+URL=https://pub.mate-desktop.org/releases/1.23/engrampa-1.23.3.tar.xz
+SECTION="Mate Desktop Applications"
+DESCRIPTION="A file archiver for MATE"
 
 if [ ! -z $URL ]
 then

@@ -11,12 +11,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://pub.mate-desktop.org/releases/1.23/mate-power-manager-1.23.1.tar.xz
+wget -nc https://pub.mate-desktop.org/releases/1.23/mate-power-manager-1.23.2.tar.xz
 
 
 NAME=mate-power-manager
-VERSION=1.23.1
-URL=https://pub.mate-desktop.org/releases/1.23/mate-power-manager-1.23.1.tar.xz
+VERSION=1.23.2
+URL=https://pub.mate-desktop.org/releases/1.23/mate-power-manager-1.23.2.tar.xz
+SECTION="Mate Desktop"
+DESCRIPTION="Power management tool for the MATE desktop"
 
 if [ ! -z $URL ]
 then

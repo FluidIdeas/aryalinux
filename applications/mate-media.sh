@@ -17,6 +17,8 @@ wget -nc https://pub.mate-desktop.org/releases/1.23/mate-media-1.23.1.tar.xz
 NAME=mate-media
 VERSION=1.23.1
 URL=https://pub.mate-desktop.org/releases/1.23/mate-media-1.23.1.tar.xz
+SECTION="Mate Desktop"
+DESCRIPTION="Media tools for MATE"
 
 if [ ! -z $URL ]
 then

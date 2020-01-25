@@ -11,12 +11,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://pub.mate-desktop.org/releases/1.23/caja-extensions-1.23.0.tar.xz
+wget -nc https://pub.mate-desktop.org/releases/1.23/caja-extensions-1.23.1.tar.xz
 
 
 NAME=caja-extensions
-VERSION=1.23.0
-URL=https://pub.mate-desktop.org/releases/1.23/caja-extensions-1.23.0.tar.xz
+VERSION=1.23.1
+URL=https://pub.mate-desktop.org/releases/1.23/caja-extensions-1.23.1.tar.xz
+SECTION="Mate Desktop"
+DESCRIPTION="Set of extensions for Caja, the MATE file manager"
 
 if [ ! -z $URL ]
 then

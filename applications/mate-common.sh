@@ -17,6 +17,8 @@ wget -nc https://pub.mate-desktop.org/releases/1.23/mate-common-1.23.152.tar.xz
 NAME=mate-common
 VERSION=1.23.152
 URL=https://pub.mate-desktop.org/releases/1.23/mate-common-1.23.152.tar.xz
+SECTION="Mate Desktop"
+DESCRIPTION="Common scripts and macros to develop with MATE"
 
 if [ ! -z $URL ]
 then

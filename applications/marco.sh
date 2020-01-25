@@ -17,6 +17,8 @@ wget -nc https://pub.mate-desktop.org/releases/1.23/marco-1.23.2.tar.xz
 NAME=marco
 VERSION=1.23.2
 URL=https://pub.mate-desktop.org/releases/1.23/marco-1.23.2.tar.xz
+SECTION="Mate Desktop"
+DESCRIPTION="MATE default window manager"
 
 if [ ! -z $URL ]
 then

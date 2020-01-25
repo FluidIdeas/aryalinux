@@ -17,6 +17,8 @@ wget -nc https://pub.mate-desktop.org/releases/1.23/libmatekbd-1.23.0.tar.xz
 NAME=libmatekbd
 VERSION=1.23.0
 URL=https://pub.mate-desktop.org/releases/1.23/libmatekbd-1.23.0.tar.xz
+SECTION="Mate Desktop"
+DESCRIPTION="Keyboard management library"
 
 if [ ! -z $URL ]
 then
