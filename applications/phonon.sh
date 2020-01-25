@@ -21,7 +21,7 @@ wget -nc http://download.kde.org/stable/phonon/4.10.3/phonon-4.10.3.tar.xz
 NAME=phonon
 VERSION=4.10.3
 URL=http://download.kde.org/stable/phonon/4.10.3/phonon-4.10.3.tar.xz
-SECTION="KDE Prerequisites"
+SECTION="KDE Plasma 5"
 DESCRIPTION="Phonon is the multimedia API for KDE. It replaces the old aRts package. Phonon needs either the GStreamer or VLC backend."
 
 if [ ! -z $URL ]

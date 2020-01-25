@@ -18,7 +18,7 @@ wget -nc http://launchpad.net/ubuntu/+archive/primary/+files/libdbusmenu-qt_0.9.
 NAME=libdbusmenu-qt
 VERSION=0.9.
 URL=http://launchpad.net/ubuntu/+archive/primary/+files/libdbusmenu-qt_0.9.3+16.04.20160218.orig.tar.gz
-SECTION="KDE Prerequisites"
+SECTION="KDE Plasma 5"
 DESCRIPTION="This library provides a Qt implementation of the DBusMenu specification that exposes menus via DBus."
 
 if [ ! -z $URL ]

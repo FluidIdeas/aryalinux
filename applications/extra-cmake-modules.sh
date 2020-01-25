@@ -18,7 +18,7 @@ wget -nc http://download.kde.org/stable/frameworks/5.61/extra-cmake-modules-5.61
 NAME=extra-cmake-modules
 VERSION=5.61.0
 URL=http://download.kde.org/stable/frameworks/5.61/extra-cmake-modules-5.61.0.tar.xz
-SECTION="KDE Prerequisites"
+SECTION="KDE Plasma 5"
 DESCRIPTION="The Extra Cmake Modules package contains extra CMake modules used by KDE Frameworks 5 and other packages."
 
 if [ ! -z $URL ]
