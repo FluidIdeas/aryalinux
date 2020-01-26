@@ -22,7 +22,7 @@ NAME=rest
 VERSION=0.8.1
 URL=http://ftp.gnome.org/pub/gnome/sources/rest/0.8/rest-0.8.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
-DESCRIPTION="The rest package contains a library that was designed to make it easier to access web services that claim to be "RESTful". It includes convenience wrappers for libsoup and libxml to ease remote use of the RESTful API."
+DESCRIPTION="The rest package contains a library that was designed to make it easier to access web services that claim to be \"RESTful\". It includes convenience wrappers for libsoup and libxml to ease remote use of the RESTful API."
 
 if [ ! -z $URL ]
 then

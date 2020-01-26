@@ -22,7 +22,7 @@ NAME=fltk
 VERSION=1.3.
 URL=http://fltk.org/pub/fltk/1.3.5/fltk-1.3.5-source.tar.gz
 SECTION="X Libraries"
-DESCRIPTION="FLTK (pronounced "fulltick") is a cross-platform C++ GUI toolkit. FLTK provides modern GUI functionality and supports 3D graphics via OpenGL and its built-in GLUT emulation libraries used for creating graphical user interfaces for applications."
+DESCRIPTION="FLTK (pronounced \"fulltick\") is a cross-platform C++ GUI toolkit. FLTK provides modern GUI functionality and supports 3D graphics via OpenGL and its built-in GLUT emulation libraries used for creating graphical user interfaces for applications."
 
 if [ ! -z $URL ]
 then
