@@ -39,9 +39,6 @@ fi
 cd $DIRECTORY
 fi
 
-echo $USER > /tmp/currentuser
-
-
 sed -i 's/classic/nofastunpack/' build.conf
 ./configure --prefix=/usr             \
             --disable-static          \
@@ -49,19 +46,7 @@ sed -i 's/classic/nofastunpack/' build.conf
             --with-lz4=internal       \
             --with-utf8proc=internal &&
 make
-doxygen doc/doxygen.conf
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-
-install -v -m755 -d /usr/share/doc/subversion-1.12.2 &&
-cp      -v -R doc/* /usr/share/doc/subversion-1.12.2
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
+sudo make install
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
