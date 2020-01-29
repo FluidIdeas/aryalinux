@@ -55,7 +55,7 @@ popd
 
 sudo rm -rf $KERNEL_TARBALL
 
-VERSION=$KERNEL_VERSION
+VERSION=current
 
 
 
