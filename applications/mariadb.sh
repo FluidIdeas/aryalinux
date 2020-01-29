@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.osuosl.org/pub/blfs/conglomeration/mariadb/mariadb-10.4.11.tar.gz
-wget -nc https://ftp.osuosl.org/pub/blfs/conglomeration/mariadb/mariadb-10.4.11.tar.gz
+wget -nc https://downloads.mariadb.org/interstitial/mariadb-10.4.7/source/mariadb-10.4.7.tar.gz
+wget -nc ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.4.7/source/mariadb-10.4.7.tar.gz
 
 
 NAME=mariadb
-VERSION=10.4.11
-URL=https://ftp.osuosl.org/pub/blfs/conglomeration/mariadb/mariadb-10.4.11.tar.gz
+VERSION=10.4.7
+URL=https://downloads.mariadb.org/interstitial/mariadb-10.4.7/source/mariadb-10.4.7.tar.gz
 SECTION="Databases"
 DESCRIPTION="MariaDB is a community-developed fork and a drop-in replacement for the MySQL relational database management system."
 
