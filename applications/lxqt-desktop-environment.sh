@@ -27,7 +27,6 @@ set +h
 #REQ:gtk3
 #REQ:python-modules#pygobject2
 #REQ:python-modules#pygobject3
-#REQ:lightdm-gtk-greeter
 #REQ:aryalinux-gtk-themes
 #REQ:aryalinux-icons
 #REQ:aryalinux-google-fonts
@@ -41,6 +40,8 @@ set +h
 #REQ:solid
 #REQ:kguiaddons
 #REQ:libconfig
+#REQ:lightdm
+#REQ:lightdm-gtk-greeter
 
 
 cd $SOURCE_DIR
