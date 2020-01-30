@@ -20,7 +20,6 @@ set +h
 #REQ:lm_sensors
 #REQ:json-glib
 #REQ:openbox
-#REQ:kwin
 #REQ:media-player-info
 #REQ:libdbusmenu-qt
 #REQ:polkit-qt
