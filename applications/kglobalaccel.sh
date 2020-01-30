@@ -7,20 +7,16 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:kconfigwidgets
-#REQ:kcoreaddons
-#REQ:kcrash
-#REQ:kglobalaccel
 
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/stable/plasma/5.16.4/kwin-5.16.4.tar.xz
+wget -nc https://download.kde.org/stable/frameworks/5.61/kglobalaccel-5.61.0.tar.xz
 
 
-NAME=kwin
-VERSION=5.16.4
-URL=https://download.kde.org/stable/plasma/5.16.4/kwin-5.16.4.tar.xz
+NAME=kglobalaccel
+VERSION=5.61.0
+URL=https://download.kde.org/stable/frameworks/5.61/kglobalaccel-5.61.0.tar.xz
 SECTION="LXQT Desktop"
 DESCRIPTION=""
 
