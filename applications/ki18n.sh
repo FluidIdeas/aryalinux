@@ -7,20 +7,16 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:kauth
-#REQ:kcodecs
-#REQ:kconfig
-#REQ:ki18n
 
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/stable/frameworks/5.61/kconfigwidgets-5.61.0.tar.xz
+wget -nc https://download.kde.org/stable/frameworks/5.61/ki18n-5.61.0.tar.xz
 
 
-NAME=kconfigwidgets
+NAME=ki18n
 VERSION=5.61.0
-URL=https://download.kde.org/stable/frameworks/5.61/kconfigwidgets-5.61.0.tar.xz
+URL=https://download.kde.org/stable/frameworks/5.61/ki18n-5.61.0.tar.xz
 SECTION="LXQT Desktop"
 DESCRIPTION=""
 
