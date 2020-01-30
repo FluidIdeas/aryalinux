@@ -8,6 +8,7 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:qt5
+#REQ:krameworks5
 #REQ:extra-cmake-modules
 #REQ:udisks2
 #REQ:upower
@@ -35,12 +36,7 @@ set +h
 #REQ:aryalinux-wallpapers
 #REQ:noto-fonts
 #REQ:muparser
-#REQ:kwindowsystem
-#REQ:kwayland
 #REQ:libkscreen
-#REQ:kidletime
-#REQ:solid
-#REQ:kguiaddons
 #REQ:libconfig
 #REQ:lightdm
 #REQ:lightdm-gtk-greeter
