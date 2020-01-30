@@ -7,16 +7,19 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:kconfigwidgets
+#REQ:kcoreaddons
+#REQ:kcrash
 
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/stable/plasma/5.16.3/libkscreen-5.16.3.tar.xz
+wget -nc https://download.kde.org/stable/plasma/5.16.4/kwin-5.16.4.tar.xz
 
 
-NAME=libkscreen
-VERSION=5.16.3
-URL=https://download.kde.org/stable/plasma/5.16.3/libkscreen-5.16.3.tar.xz
+NAME=kwin
+VERSION=5.16.4
+URL=https://download.kde.org/stable/plasma/5.16.4/kwin-5.16.4.tar.xz
 SECTION="LXQT Desktop"
 DESCRIPTION=""
 

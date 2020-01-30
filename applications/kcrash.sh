@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/stable/plasma/5.16.3/libkscreen-5.16.3.tar.xz
+wget -nc https://download.kde.org/stable/frameworks/5.61/kcrash-5.61.0.tar.xz
 
 
-NAME=libkscreen
-VERSION=5.16.3
-URL=https://download.kde.org/stable/plasma/5.16.3/libkscreen-5.16.3.tar.xz
+NAME=kcrash
+VERSION=5.61.0
+URL=https://download.kde.org/stable/frameworks/5.61/kcrash-5.61.0.tar.xz
 SECTION="LXQT Desktop"
 DESCRIPTION=""
 
