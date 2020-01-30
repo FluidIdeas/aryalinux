@@ -7,7 +7,7 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:frameworks5
+#REQ:krameworks5
 
 
 cd $SOURCE_DIR
