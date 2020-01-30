@@ -8,6 +8,7 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:kauth
+#REQ:kcodecs
 
 
 cd $SOURCE_DIR
