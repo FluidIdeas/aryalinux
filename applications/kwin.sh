@@ -7,11 +7,7 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:kconfigwidgets
-#REQ:kcoreaddons
-#REQ:kcrash
-#REQ:kglobalaccel
-#REQ:kiconthemes
+#REQ:frameworks5
 
 
 cd $SOURCE_DIR
