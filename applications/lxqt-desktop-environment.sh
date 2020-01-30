@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:qt5
 #REQ:extra-cmake-modules
 #REQ:udisks2
 #REQ:upower
