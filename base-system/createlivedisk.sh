@@ -62,7 +62,9 @@ if [ "x$INSTALL_DESKTOP_ENVIRONMENT" == "xy" ]; then
         DE="KDE"
     elif [ "x$DESKTOP_ENVIRONMENT" == "x4" ]; then
         DE="GNOME"
-    else
+    elif [ "x$DESKTOP_ENVIRONMENT" == "x5" ]; then
+        DE="LxQT"
+     else
         DE="Builder"
     fi
     LABEL="$OS_NAME $OS_VERSION $DE"
@@ -146,6 +148,8 @@ elif grep "mate-desktop-environment" /mnt/lfs/etc/alps/installed-list &> /dev/nu
         autologin_session="mate"
 elif grep "kde-desktop-environment" /mnt/lfs/etc/alps/installed-list &> /dev/null; then
         autologin_session="plasma"
+elif grep "lxqt-desktop-environment" /mnt/lfs/etc/alps/installed-list &> /dev/null; then
+        autologin_session="lxqt"
 fi
 
 if [ -f $LFS/etc/lightdm/lightdm.conf ]

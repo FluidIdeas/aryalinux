@@ -117,7 +117,7 @@ def inputBuildProperties():
 	if getParamValue('INSTALL_XSERVER') == 'y' or getParamValue('INSTALL_XSERVER') == 'Y':
 		readInput("Install Desktop Environment? (y/N) ", 'INSTALL_DESKTOP_ENVIRONMENT', propsFile, 'n')
 		if getParamValue('INSTALL_DESKTOP_ENVIRONMENT') == 'y' or getParamValue('INSTALL_DESKTOP_ENVIRONMENT') == 'Y':
-			readInput("Choose the Desktop Environment you want to install:\n1) XFCE\n2) Mate\n3) KDE\n4) Gnome\n\nEnter your choice (1-4): ", 'DESKTOP_ENVIRONMENT', propsFile, '2')
+			readInput("Choose the Desktop Environment you want to install:\n1) XFCE\n2) Mate\n3) KDE\n4) Gnome\n5) LxQT\n\nEnter your choice (1-5): ", 'DESKTOP_ENVIRONMENT', propsFile, '2')
 	passwords['root'] = getpassword('Enter the root password : ', 'Re-enter the root password : ')
 	passwords['user'] = getpassword('Enter the user password : ', 'Re-enter the user password : ')
 	readInput('Install bootloader? (Y/n) : ', 'INSTALL_BOOTLOADER', propsFile, 'y')
@@ -257,6 +257,10 @@ def freshBuild(startFrom):
 					desktopEnv = 'kde5'
 					print 'Installing ' + desktopEnv
 					runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'kde-desktop-environment'])
+                                elif getParamValue('DESKTOP_ENVIRONMENT') == '5':
+                                        desktopEnv = 'lxqt'
+                                        print 'Installing ' + desktopEnv
+                                        runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'lxqt-desktop-environment'])
 				elif getParamValue('DESKTOP_ENVIRONMENT') == '4':
 					desktopEnv = 'gnome'
 					print 'Installing ' + desktopEnv
