@@ -27,7 +27,7 @@ mv google-chrome-stable_current_amd64.deb chrome-work-dir
 pushd chrome-work-dir
 ar -xv google-chrome-stable_current_amd64.deb
 mkdir -pv chrome
-tar xvf data.tar.gz -C chrome
+tar xvf data.tar.xz -C chrome
 cd chrome
 sudo cp -prvf * /
 popd
