@@ -12,6 +12,7 @@ set +h
 #REQ:modemmanager
 #REQ:vala
 #REQ:avahi
+#REQ:libnotify
 
 
 cd $SOURCE_DIR

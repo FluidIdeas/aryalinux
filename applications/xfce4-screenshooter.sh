@@ -17,7 +17,7 @@ wget -nc https://github.com/xfce-mirror/xfce4-screenshooter/archive/xfce4-screen
 NAME=xfce4-screenshooter
 VERSION=1.9.7
 URL=https://github.com/xfce-mirror/xfce4-screenshooter/archive/xfce4-screenshooter-1.9.7.tar.gz
-DESCRIPTION="Screenshooter is an utility for the Xfce Desktop Environment. It can take desktop, rectangles or selected window screenshots, and you can bind it to your "Print Screen" key. A panel plugin is provided too."
+DESCRIPTION="Screenshooter is an utility for the Xfce Desktop Environment. It can take desktop, rectangles or selected window screenshots, and you can bind it to your 'Print Screen' key. A panel plugin is provided too."
 
 if [ ! -z $URL ]
 then

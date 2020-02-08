@@ -62,7 +62,6 @@ echo $USER > /tmp/currentuser
 
 
 url=http://download.kde.org/stable/plasma/5.16.4/
-wget -r -nH -nd -np -A '*.xz' $url
 cat > plasma-5.16.4.md5 << "EOF"
 5e44ce8c340a2776d0c26c01e052de98  kdecoration-5.16.4.tar.xz
 e9a04fac01548ed807f1e74afa6cecbc  libkscreen-5.16.4.tar.xz
@@ -124,6 +123,10 @@ while read -r line; do
     # Get the file name, ignoring comments and blank lines
     if $(echo $line | grep -E -q '^ *$|^#' ); then continue; fi
     file=$(echo $line | cut -d" " -f2)
+    touch /tmp/plasma-done
+    if grep $file /tmp/plasma-done; then continue; fi
+    wget -nc $url/$file
+    if echo $file | grep /; then file=$(echo $file | cut -d/ -f2); fi
 
     pkg=$(echo $file|sed 's|^.*/||')          # Remove directory
     packagedir=$(echo $pkg|sed 's|\.tar.*||') # Package directory
@@ -161,17 +164,10 @@ while read -r line; do
 
     as_root rm -rf $packagedir
     as_root /sbin/ldconfig
+echo $file >> /tmp/plasma-done
 
 done < plasma-5.16.4.md5
 
-as_root install -dvm 755 /usr/share/xsessions              &&
-cd /usr/share/xsessions/                                   &&
-[ -e plasma.desktop ]                                      ||
-as_root ln -sfv /usr/share/xsessions/plasma.desktop &&
-as_root install -dvm 755 /usr/share/wayland-sessions       &&
-cd /usr/share/wayland-sessions/                            &&
-[ -e plasma.desktop ]                                      ||
-as_root ln -sfv /usr/share/wayland-sessions/plasma.desktop
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/pam.d/kde << "EOF" 

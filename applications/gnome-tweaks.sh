@@ -7,16 +7,22 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:gtk3
+#REQ:gsettings-desktop-schemas
+#REQ:python-modules#pygobject3
+#REQ:sound-theme-freedesktop
 
 
 cd $SOURCE_DIR
 
-wget -nc https://gitlab.gnome.org/GNOME/gnome-tweaks/-/archive/3.31.3/gnome-tweaks-3.31.3.tar.bz2
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-tweaks/3.32/gnome-tweaks-3.32.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-tweaks/3.32/gnome-tweaks-3.32.0.tar.xz
 
 
 NAME=gnome-tweaks
-VERSION=3.31.3
-URL=https://gitlab.gnome.org/GNOME/gnome-tweaks/-/archive/3.31.3/gnome-tweaks-3.31.3.tar.bz2
+VERSION=3.32.0
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-tweaks/3.32/gnome-tweaks-3.32.0.tar.xz
+SECTION="GNOME Applications"
 DESCRIPTION="GNOME Tweaks is a simple program used to tweak advanced GNOME settings."
 
 if [ ! -z $URL ]
@@ -35,12 +41,23 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build &&
-cd build &&
+echo $USER > /tmp/currentuser
 
-meson --prefix=/usr .. &&
+
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr &&
 ninja
-sudo ninja install
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ninja install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -68,7 +68,6 @@ echo $USER > /tmp/currentuser
 
 
 url=http://download.kde.org/stable/frameworks/5.61/
-wget -r -nH -nd -np -A '*.xz' $url
 cat > frameworks-5.61.0.md5 << "EOF"
 9ad93d635ed42f46ea5d0ba3d4922431  attica-5.61.0.tar.xz
 #2f6f98d6c7cfd0d55eecd7516f415193  extra-cmake-modules-5.61.0.tar.xz
@@ -164,6 +163,10 @@ while read -r line; do
     # Get the file name, ignoring comments and blank lines
     if $(echo $line | grep -E -q '^ *$|^#' ); then continue; fi
     file=$(echo $line | cut -d" " -f2)
+    touch /tmp/kframeworks-done
+    if grep $file /tmp/kframeworks-done; then continue; fi
+    wget -nc $url/$file
+    if echo $file | grep /; then file=$(echo $file | cut -d/ -f2); fi
 
     pkg=$(echo $file|sed 's|^.*/||')          # Remove directory
     packagedir=$(echo $pkg|sed 's|\.tar.*||') # Package directory
@@ -187,6 +190,7 @@ while read -r line; do
 
   as_root rm -rf $packagedir
   as_root /sbin/ldconfig
+echo $file >> /tmp/kframeworks-done
 
 done < frameworks-5.61.0.md5
 

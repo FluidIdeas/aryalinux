@@ -61,7 +61,7 @@ set +h
 #REQ:dash-to-panel
 #REQ:dash-to-dock
 #REQ:gnome-session
-#REQ:lightdm-gtk-greeter
+#REQ:lightdm
 #REQ:gnome-user-docs
 #REQ:baobab
 #REQ:brasero
@@ -82,7 +82,6 @@ set +h
 #REQ:gnome-terminal
 #REQ:gnome-weather
 #REQ:gucharmap
-#REQ:vino
 #REQ:vinagre
 #REQ:network-manager-applet
 #REQ:seahorse

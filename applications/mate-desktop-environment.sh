@@ -69,7 +69,6 @@ set +h
 #REQ:mate-panel
 #REQ:mate-control-center
 #REQ:lightdm
-#REQ:lightdm-gtk-greeter
 #REQ:plymouth
 #REQ:mate-screensaver
 #REQ:vte2

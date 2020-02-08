@@ -47,6 +47,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -i "s@py_installation.dependency('dbusmock')@py_installation.dependency()@g" meson.build
 mkdir build &&
 cd build &&
 

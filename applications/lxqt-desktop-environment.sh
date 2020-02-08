@@ -38,7 +38,6 @@ set +h
 #REQ:libkscreen
 #REQ:libconfig
 #REQ:lightdm
-#REQ:lightdm-gtk-greeter
 
 
 cd $SOURCE_DIR
