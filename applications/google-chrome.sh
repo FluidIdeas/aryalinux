@@ -23,8 +23,9 @@ cd $SOURCE_DIR
 wget -nc https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 
 mkdir -pv chrome-work-dir
-tar -xvf google-chrome-stable_current_amd64.deb -C chrome-work-dir
+mv google-chrome-stable_current_amd64.deb chrome-work-dir
 pushd chrome-work-dir
+ar -xv google-chrome-stable_current_amd64.deb
 mkdir -pv chrome
 tar xvf data.tar.gz -C chrome
 cd chrome
