@@ -29,6 +29,7 @@ then
 	cd $DIRECTORY
 fi
 
+patch -Np1 -i ../busybox-1.31.1-glibc.patch
 make defconfig
 sed 's/# CONFIG_STATIC is not set/CONFIG_STATIC=y/' -i .config
 
