@@ -17,12 +17,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/apple/cups/releases/download/v2.2.12/cups-2.2.12-source.tar.gz
+wget -nc https://github.com/apple/cups/releases/download/v2.3.1/cups-2.3.1-source.tar.gz
 
 
 NAME=cups
-VERSION=2.2.1
-URL=https://github.com/apple/cups/releases/download/v2.2.12/cups-2.2.12-source.tar.gz
+VERSION=2.3.
+URL=https://github.com/apple/cups/releases/download/v2.3.1/cups-2.3.1-source.tar.gz
 SECTION="Printing"
 DESCRIPTION="The Common Unix Printing System (CUPS) is a print spooler and associated utilities. It is based on the \"Internet Printing Protocol\" and provides printing services to most PostScript and raster printers."
 
@@ -73,24 +73,19 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 sed -i 's#@CUPS_HTMLVIEW@#firefox#' desktop/cups.desktop.in
-sed -i 's:555:755:g;s:444:644:g' Makedefs.in                        &&
-sed -i '/MAN.EXT/s:.gz::' configure config-scripts/cups-manpages.m4 &&
-sed -i '/stat.h/a #include <asm-generic/ioctls.h>' test/ipptool.c   &&
-
-aclocal  -I config-scripts &&
-autoconf -I config-scripts &&
+sed -i '/stat.h/a #include <asm-generic/ioctls.h>' tools/ipptool.c   &&
 
 CC=gcc CXX=g++ \
 ./configure --libdir=/usr/lib            \
             --with-rcdir=/tmp/cupsinit   \
             --with-system-groups=lpadmin \
-            --with-docdir=/usr/share/cups/doc-2.2.12 &&
+            --with-docdir=/usr/share/cups/doc-2.3.1 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 rm -rf /tmp/cupsinit &&
-ln -svnf ../cups/doc-2.2.12 /usr/share/doc/cups-2.2.12
+ln -svnf ../cups/doc-2.3.1 /usr/share/doc/cups-2.3.1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -99,7 +94,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-echo "ServerName /var/run/cups/cups.sock" > /etc/cups/client.conf
+echo "ServerName /run/cups/cups.sock" > /etc/cups/client.conf
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

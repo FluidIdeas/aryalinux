@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/libtirpc/libtirpc-1.1.4.tar.bz2
+wget -nc https://downloads.sourceforge.net/libtirpc/libtirpc-1.2.5.tar.bz2
 
 
 NAME=libtirpc
-VERSION=1.1.4
-URL=https://downloads.sourceforge.net/libtirpc/libtirpc-1.1.4.tar.bz2
+VERSION=1.2.5
+URL=https://downloads.sourceforge.net/libtirpc/libtirpc-1.2.5.tar.bz2
 SECTION="Networking Libraries"
 DESCRIPTION="The libtirpc package contains libraries that support programs that use the Remote Procedure Call (RPC) API. It replaces the RPC, but not the NIS library entries that used to be in glibc."
 

@@ -19,12 +19,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Locale-1.24.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Locale-1.25.tar.gz
 
 
 NAME=perl-deps#perl-datetime-locale
-VERSION=1.24
-URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Locale-1.24.tar.gz
+VERSION=1.25
+URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Locale-1.25.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

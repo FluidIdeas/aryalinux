@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/stable/falkon/3.0.1/falkon-3.0.1.tar.xz
+wget -nc https://download.kde.org/stable/falkon/3.1/falkon-3.1.0.tar.xz
 
 
 NAME=falkon
-VERSION=3.0.1
-URL=https://download.kde.org/stable/falkon/3.0.1/falkon-3.0.1.tar.xz
+VERSION=3.1.0
+URL=https://download.kde.org/stable/falkon/3.1/falkon-3.1.0.tar.xz
 SECTION="Graphical Web Browsers"
 DESCRIPTION="Falkon is a KDE web browser using the QtWebEngine rendering engine. It was previously known as QupZilla. It aims to be a lightweight web browser available through all major platforms."
 
@@ -42,6 +42,8 @@ echo $USER > /tmp/currentuser
 
 
 rm -rf po/
+sed -i '/#include <QSettings>/a#include <QFile>' \
+  src/plugins/VerticalTabs/verticaltabsplugin.cpp
 mkdir build &&
 cd    build &&
 

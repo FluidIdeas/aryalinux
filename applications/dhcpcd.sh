@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://roy.marples.name/downloads/dhcpcd/dhcpcd-8.0.3.tar.xz
-wget -nc ftp://roy.marples.name/pub/dhcpcd/dhcpcd-8.0.3.tar.xz
+wget -nc https://roy.marples.name/downloads/dhcpcd/dhcpcd-8.1.6.tar.xz
+wget -nc ftp://roy.marples.name/pub/dhcpcd/dhcpcd-8.1.6.tar.xz
 
 
 NAME=dhcpcd
-VERSION=8.0.3
-URL=https://roy.marples.name/downloads/dhcpcd/dhcpcd-8.0.3.tar.xz
+VERSION=8.1.6
+URL=https://roy.marples.name/downloads/dhcpcd/dhcpcd-8.1.6.tar.xz
 SECTION="Connecting to a Network"
 DESCRIPTION="dhcpcd is an implementation of the DHCP client specified in RFC2131. A DHCP client is useful for connecting your computer to a network which uses DHCP to assign network addresses. dhcpcd strives to be a fully featured, yet very lightweight DHCP client."
 

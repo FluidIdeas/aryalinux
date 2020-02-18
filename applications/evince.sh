@@ -22,13 +22,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/evince/3.32/evince-3.32.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evince/3.32/evince-3.32.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/evince/3.34/evince-3.34.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evince/3.34/evince-3.34.2.tar.xz
 
 
 NAME=evince
-VERSION=3.32.0
-URL=http://ftp.gnome.org/pub/gnome/sources/evince/3.32/evince-3.32.0.tar.xz
+VERSION=3.34.2
+URL=http://ftp.gnome.org/pub/gnome/sources/evince/3.34/evince-3.34.2.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="Evince is a document viewer for multiple document formats. It supports PDF, Postscript, DjVu, TIFF and DVI. It is useful for viewing documents of various types using one simple application instead of the multiple document viewers that once existed on the GNOME Desktop."
 
@@ -51,10 +51,13 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr           \
-            --enable-introspection  \
-            --without-gspell        \
-            --disable-static        &&
+CFLAGS="$CFLAGS -I/opt/texlive/2019/include"     \
+CXXFLAGS="$CXXFLAGS -I/opt/texlive/2019/include" \
+LDFLAGS="$LDFLAGS -L/opt/texlive/2019/lib"
+./configure --prefix=/usr                         \
+            --enable-introspection                \
+            --without-gspell                      \
+            --disable-static                     &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

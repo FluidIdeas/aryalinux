@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.32/gnome-menus-3.32.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.32/gnome-menus-3.32.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.35/gnome-menus-3.35.3.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.35/gnome-menus-3.35.3.tar.xz
 
 
 NAME=gnome-menus
-VERSION=3.32.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.32/gnome-menus-3.32.0.tar.xz
+VERSION=3.35.3
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-menus/3.35/gnome-menus-3.35.3.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Menus package contains an implementation of the draft Desktop Menu Specification from freedesktop.org. It also contains the GNOME menu layout configuration files and .directory files."
 

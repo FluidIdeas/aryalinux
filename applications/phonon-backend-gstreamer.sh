@@ -18,12 +18,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/phonon/phonon-backend-gstreamer/4.9.1/phonon-backend-gstreamer-4.9.1.tar.xz
+wget -nc http://download.kde.org/stable/phonon/phonon-backend-gstreamer/4.10.0/phonon-backend-gstreamer-4.10.0.tar.xz
 
 
 NAME=phonon-backend-gstreamer
-VERSION=4.9.1
-URL=http://download.kde.org/stable/phonon/phonon-backend-gstreamer/4.9.1/phonon-backend-gstreamer-4.9.1.tar.xz
+VERSION=4.10.0
+URL=http://download.kde.org/stable/phonon/phonon-backend-gstreamer/4.10.0/phonon-backend-gstreamer-4.10.0.tar.xz
 SECTION="KDE Plasma 5"
 DESCRIPTION="This package provides a Phonon backend which utilizes the GStreamer media framework."
 
@@ -51,8 +51,7 @@ cd    build &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr    \
       -DCMAKE_BUILD_TYPE=Release     \
-      -DPHONON_BUILD_PHONON4QT5=ON   \
-      -Wno-dev .. &&
+      .. &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

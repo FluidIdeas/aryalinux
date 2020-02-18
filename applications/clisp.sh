@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 
 wget -nc https://ftp.gnu.org/gnu/clisp/latest/clisp-2.49.tar.bz2
 wget -nc ftp://ftp.gnu.org/gnu/clisp/latest/clisp-2.49.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/clisp-2.49-readline7_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/clisp-2.49-readline7_fixes-1.patch
 
 
 NAME=clisp
@@ -42,6 +42,9 @@ fi
 echo $USER > /tmp/currentuser
 
 
+case $(uname -m) in
+    i?86) export CFLAGS+=-falign-functions=4 ;;
+esac
 sed -i -e '/socket/d' -e '/"streams"/d' tests/tests.lisp
 patch -Np1 -i ../clisp-2.49-readline7_fixes-1.patch
 mkdir build &&

@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/applications/19.08.0/src/konsole-19.08.0.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/konsole-19.08.0-scrollbar-1.patch
+wget -nc http://download.kde.org/stable/release-service/19.12.2/src/konsole-19.12.2.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/konsole-19.12.2-scrollbar-1.patch
 
 
 NAME=konsole5
-VERSION=19.08.0
-URL=http://download.kde.org/stable/applications/19.08.0/src/konsole-19.08.0.tar.xz
+VERSION=19.12.2
+URL=http://download.kde.org/stable/release-service/19.12.2/src/konsole-19.12.2.tar.xz
 SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="The Konsole package is a KF5 based terminal emulator."
 
@@ -41,7 +41,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../konsole-19.08.0-scrollbar-1.patch
+patch -Np1 -i ../konsole-19.12.2-scrollbar-1.patch
 mkdir build &&
 cd    build &&
 

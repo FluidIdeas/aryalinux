@@ -18,15 +18,15 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.php.net/distributions/php-7.3.8.tar.xz
+wget -nc http://www.php.net/distributions/php-7.4.2.tar.xz
 wget -nc https://www.php.net/distributions/manual/php_manual_en.html.gz
 wget -nc https://www.php.net/distributions/manual/php_manual_en.tar.gz
 wget -nc http://www.php.net/download-docs.php
 
 
 NAME=php
-VERSION=7.3.8
-URL=http://www.php.net/distributions/php-7.3.8.tar.xz
+VERSION=7.4.2
+URL=http://www.php.net/distributions/php-7.4.2.tar.xz
 SECTION="Programming"
 DESCRIPTION="PHP is the PHP Hypertext Preprocessor. Primarily used in dynamic web sites, it allows for programming code to be directly embedded into the HTML markup. It is also useful as a general purpose scripting language."
 
@@ -107,13 +107,9 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install                                     &&
 install -v -m644 php.ini-production /etc/php.ini &&
 
-install -v -m755 -d /usr/share/doc/php-7.3.8 &&
-install -v -m644    CODING_STANDARDS EXTENSIONS INSTALL NEWS README* UPGRADING* php.gif \
-                    /usr/share/doc/php-7.3.8 &&
-ln -v -sfn          /usr/lib/php/doc/Archive_Tar/docs/Archive_Tar.txt \
-                    /usr/share/doc/php-7.3.8 &&
-ln -v -sfn          /usr/lib/php/doc/Structures_Graph/docs \
-                    /usr/share/doc/php-7.3.8
+install -v -m755 -d /usr/share/doc/php-7.4.2 &&
+install -v -m644    CODING_STANDARDS* EXTENSIONS NEWS README* UPGRADING* \
+                    /usr/share/doc/php-7.4.2
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

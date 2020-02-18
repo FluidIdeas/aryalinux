@@ -48,6 +48,9 @@ case $(uname -m) in
   ;;
 esac
 
+sed -e '1161 s|^|//|' \
+    -i libsanitizer/sanitizer_common/sanitizer_platform_limits_posix.cc
+
 mkdir build                                            &&
 cd    build                                            &&
 

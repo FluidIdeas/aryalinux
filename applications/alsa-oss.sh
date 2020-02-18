@@ -12,12 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
+wget -nc https://www.alsa-project.org/files/pub/oss-lib/alsa-oss-1.1.8.tar.bz2
 wget -nc ftp://ftp.alsa-project.org/pub/oss-lib/alsa-oss-1.1.8.tar.bz2
 
 
 NAME=alsa-oss
 VERSION=1.1.8
-URL=ftp://ftp.alsa-project.org/pub/oss-lib/alsa-oss-1.1.8.tar.bz2
+URL=https://www.alsa-project.org/files/pub/oss-lib/alsa-oss-1.1.8.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The alsa-oss package contains the alsa-oss compatibility library. This is used by programs which wish to use the alsa-oss sound interface."
 

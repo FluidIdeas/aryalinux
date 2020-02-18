@@ -10,7 +10,7 @@ set +h
 #REQ:evolution-data-server
 #REQ:gobject-introspection
 #REQ:libgee
-#REQ:python2
+#REQ:python-modules#python-dbusmock
 #REQ:telepathy-glib
 #REQ:bluez
 #REQ:vala
@@ -18,13 +18,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/folks/0.12/folks-0.12.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/folks/0.12/folks-0.12.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/folks/0.13/folks-0.13.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/folks/0.13/folks-0.13.2.tar.xz
 
 
 NAME=folks
-VERSION=0.12.1
-URL=http://ftp.gnome.org/pub/gnome/sources/folks/0.12/folks-0.12.1.tar.xz
+VERSION=0.13.2
+URL=http://ftp.gnome.org/pub/gnome/sources/folks/0.13/folks-0.13.2.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Folks is a library that aggregates people from multiple sources (e.g, Telepathy connection managers and eventually Evolution Data Server, Facebook, etc.) to create metacontacts."
 
@@ -47,9 +47,8 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i "s@py_installation.dependency('dbusmock')@py_installation.dependency()@g" meson.build
 mkdir build &&
-cd build &&
+cd    build &&
 
 meson --prefix=/usr --sysconfdir=/etc .. &&
 ninja

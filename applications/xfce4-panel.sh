@@ -15,12 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/xfce4-panel/4.14/xfce4-panel-4.14.0.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/xfce4-panel/4.14/xfce4-panel-4.14.3.tar.bz2
 
 
 NAME=xfce4-panel
-VERSION=4.14.0
-URL=http://archive.xfce.org/src/xfce/xfce4-panel/4.14/xfce4-panel-4.14.0.tar.bz2
+VERSION=4.14.3
+URL=http://archive.xfce.org/src/xfce/xfce4-panel/4.14/xfce4-panel-4.14.3.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="The Xfce4 Panel package contains the Xfce4 Panel."
 
@@ -43,7 +43,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr --sysconfdir=/etc --enable-gtk3 &&
+./configure --prefix=/usr --sysconfdir=/etc &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

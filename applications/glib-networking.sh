@@ -15,13 +15,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/glib-networking/2.60/glib-networking-2.60.3.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glib-networking/2.60/glib-networking-2.60.3.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/glib-networking/2.62/glib-networking-2.62.3.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glib-networking/2.62/glib-networking-2.62.3.tar.xz
 
 
 NAME=glib-networking
-VERSION=2.60.3
-URL=http://ftp.gnome.org/pub/gnome/sources/glib-networking/2.60/glib-networking-2.60.3.tar.xz
+VERSION=2.62.3
+URL=http://ftp.gnome.org/pub/gnome/sources/glib-networking/2.62/glib-networking-2.62.3.tar.xz
 SECTION="Networking Libraries"
 DESCRIPTION="The GLib Networking package contains Network related gio modules for GLib."
 

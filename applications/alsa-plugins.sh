@@ -12,12 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.alsa-project.org/pub/plugins/alsa-plugins-1.1.9.tar.bz2
+wget -nc https://www.alsa-project.org/files/pub/plugins/alsa-plugins-1.2.1.tar.bz2
+wget -nc ftp://ftp.alsa-project.org/pub/plugins/alsa-plugins-1.2.1.tar.bz2
 
 
 NAME=alsa-plugins
-VERSION=1.1.9
-URL=ftp://ftp.alsa-project.org/pub/plugins/alsa-plugins-1.1.9.tar.bz2
+VERSION=1.2.1
+URL=https://www.alsa-project.org/files/pub/plugins/alsa-plugins-1.2.1.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The ALSA Plugins package contains plugins for various audio libraries and sound servers."
 

@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://wayland.freedesktop.org/releases/wayland-1.17.0.tar.xz
+wget -nc https://wayland.freedesktop.org/releases/wayland-1.18.0.tar.xz
 
 
 NAME=wayland
-VERSION=1.17.0
-URL=https://wayland.freedesktop.org/releases/wayland-1.17.0.tar.xz
+VERSION=1.18.0
+URL=https://wayland.freedesktop.org/releases/wayland-1.18.0.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="Wayland is a project to define a protocol for a compositor to talk to its clients as well as a library implementation of the protocol."
 

@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/atk/2.32/atk-2.32.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/atk/2.32/atk-2.32.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/atk/2.34/atk-2.34.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/atk/2.34/atk-2.34.1.tar.xz
 
 
 NAME=atk
-VERSION=2.32.0
-URL=http://ftp.gnome.org/pub/gnome/sources/atk/2.32/atk-2.32.0.tar.xz
+VERSION=2.34.1
+URL=http://ftp.gnome.org/pub/gnome/sources/atk/2.34/atk-2.34.1.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="ATK provides the set of accessibility interfaces that are implemented by other toolkits and applications. Using the ATK interfaces, accessibility tools have full access to view and control running applications."
 
@@ -45,7 +45,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr &&
+meson --prefix=/usr .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

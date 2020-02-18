@@ -14,8 +14,8 @@ cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/ptlib/2.10/ptlib-2.10.11.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/ptlib/2.10/ptlib-2.10.11.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/ptlib-2.10.11-bison_fixes-2.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/ptlib-2.10.11-openssl-1.1.0-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/ptlib-2.10.11-bison_fixes-2.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/ptlib-2.10.11-openssl-1.1.0-1.patch
 
 
 NAME=ptlib
@@ -47,6 +47,7 @@ sed -i "s/sbin\.Right(1) == '\\\\0')/strlen(sbin\.Right(1)) == 0)/" \
     src/ptclib/podbc.cxx &&
     
 sed -i '/\/ioctl.h/a#include <sys/uio.h>' src/ptlib/unix/channel.cxx
+sed 's/\\#/#/' -i make/common.mak
 patch -Np1 -i ../ptlib-2.10.11-openssl-1.1.0-1.patch &&
 patch -Np1 -i ../ptlib-2.10.11-bison_fixes-2.patch &&
 

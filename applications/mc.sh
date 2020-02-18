@@ -14,13 +14,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.midnight-commander.org/mc-4.8.23.tar.xz
-wget -nc ftp://ftp.osuosl.org/pub/midnightcommander/mc-4.8.23.tar.xz
+wget -nc http://ftp.midnight-commander.org/mc-4.8.24.tar.xz
+wget -nc ftp://ftp.osuosl.org/pub/midnightcommander/mc-4.8.24.tar.xz
 
 
 NAME=mc
-VERSION=4.8.23
-URL=http://ftp.midnight-commander.org/mc-4.8.23.tar.xz
+VERSION=4.8.24
+URL=http://ftp.midnight-commander.org/mc-4.8.24.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="MC (Midnight Commander) is a text-mode full-screen file manager and visual shell. It provides a clear, user-friendly, and somewhat protected interface to a Unix system while making many frequent file operations more efficient and preserving the full power of the command prompt."
 

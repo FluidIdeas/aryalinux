@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/stable/applications/19.08.0/src/kget-19.08.0.tar.xz
+wget -nc https://download.kde.org/stable/applications/19.08.3/src/kget-19.08.3.tar.xz
 
 
 NAME=kget
-VERSION=19.08.0
-URL=https://download.kde.org/stable/applications/19.08.0/src/kget-19.08.0.tar.xz
+VERSION=19.08.3
+URL=https://download.kde.org/stable/applications/19.08.3/src/kget-19.08.3.tar.xz
 SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="KGet is a versatile and user-friendly download manager."
 

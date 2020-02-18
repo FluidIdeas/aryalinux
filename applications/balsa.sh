@@ -10,19 +10,20 @@ set +h
 #REQ:aspell
 #REQ:enchant
 #REQ:gmime
-#REQ:libesmtp
+#REQ:gpgme
 #REQ:rarian
+#REQ:mail
 #REQ:pcre
 
 
 cd $SOURCE_DIR
 
-wget -nc http://pawsa.fedorapeople.org/balsa/balsa-2.5.7.tar.bz2
+wget -nc http://pawsa.fedorapeople.org/balsa/balsa-2.5.9.tar.bz2
 
 
 NAME=balsa
-VERSION=2.5.7
-URL=http://pawsa.fedorapeople.org/balsa/balsa-2.5.7.tar.bz2
+VERSION=2.5.9
+URL=http://pawsa.fedorapeople.org/balsa/balsa-2.5.9.tar.bz2
 SECTION="Other X-based Programs"
 DESCRIPTION="The Balsa package contains a GNOME-2 based mail client."
 

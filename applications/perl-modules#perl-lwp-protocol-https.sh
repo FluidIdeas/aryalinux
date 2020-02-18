@@ -14,13 +14,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.linuxfromscratch.org/patches/blfs/9.0/LWP-Protocol-https-6.07-system_certs-1.patch
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/LWP-Protocol-https-6.07-system_certs-1.patch
 wget -nc https://www.cpan.org/authors/id/O/OA/OALDERS/LWP-Protocol-https-6.07.tar.gz
 
 
 NAME=perl-modules#perl-lwp-protocol-https
 VERSION=6.0
-URL=http://www.linuxfromscratch.org/patches/blfs/9.0/LWP-Protocol-https-6.07-system_certs-1.patch
+URL=http://www.linuxfromscratch.org/patches/blfs/svn/LWP-Protocol-https-6.07-system_certs-1.patch
 SECTION="Others"
 
 if [ ! -z $URL ]

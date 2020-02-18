@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/stable/applications/19.08.0/src/dolphin-plugins-19.08.0.tar.xz
+wget -nc https://download.kde.org/stable/applications/19.08.3/src/dolphin-plugins-19.08.3.tar.xz
 
 
 NAME=dolphin-plugins
-VERSION=19.08.0
-URL=https://download.kde.org/stable/applications/19.08.0/src/dolphin-plugins-19.08.0.tar.xz
+VERSION=19.08.3
+URL=https://download.kde.org/stable/applications/19.08.3/src/dolphin-plugins-19.08.3.tar.xz
 SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="These plugins integrate Dolphin with the revision control systems Bazaar, Mercurial and Git. A Dropbox plugin gives action items to keep your files synced to the Dropbox service."
 

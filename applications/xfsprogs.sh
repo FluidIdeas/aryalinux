@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.2.1.tar.xz
+wget -nc https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.4.0.tar.xz
 
 
 NAME=xfsprogs
-VERSION=5.2.1
-URL=https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.2.1.tar.xz
+VERSION=5.4.0
+URL=https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.4.0.tar.xz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The xfsprogs package contains administration and debugging tools for the XFS file system."
 
@@ -45,8 +45,8 @@ make DEBUG=-DNDEBUG     \
      LOCAL_CONFIGURE_OPTIONS="--enable-readline"
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make PKG_DOC_DIR=/usr/share/doc/xfsprogs-5.2.1 install     &&
-make PKG_DOC_DIR=/usr/share/doc/xfsprogs-5.2.1 install-dev &&
+make PKG_DOC_DIR=/usr/share/doc/xfsprogs-5.4.0 install     &&
+make PKG_DOC_DIR=/usr/share/doc/xfsprogs-5.4.0 install-dev &&
 
 rm -rfv /usr/lib/libhandle.a                                &&
 rm -rfv /lib/libhandle.{a,la,so}                            &&

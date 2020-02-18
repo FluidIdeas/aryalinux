@@ -10,7 +10,7 @@ set +h
 #REQ:autoconf213
 #REQ:icu
 #REQ:python2
-#REQ:x7lib
+#REQ:which
 #REQ:zip
 
 

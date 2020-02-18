@@ -17,12 +17,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/ModemManager/ModemManager-1.10.4.tar.xz
+wget -nc https://www.freedesktop.org/software/ModemManager/ModemManager-1.12.6.tar.xz
 
 
 NAME=modemmanager
-VERSION=1.10.4
-URL=https://www.freedesktop.org/software/ModemManager/ModemManager-1.10.4.tar.xz
+VERSION=1.12.6
+URL=https://www.freedesktop.org/software/ModemManager/ModemManager-1.12.6.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="ModemManager provides a unified high level API for communicating with mobile broadband modems, regardless of the protocol used to communicate with the actual device."
 

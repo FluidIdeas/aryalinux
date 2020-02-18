@@ -17,12 +17,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.6.0.tar.xz
+wget -nc https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.6.4.tar.xz
 
 
 NAME=harfbuzz
-VERSION=2.6.0
-URL=https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.6.0.tar.xz
+VERSION=2.6.4
+URL=https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.6.4.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The HarfBuzz package contains an OpenType text shaping engine."
 

@@ -10,19 +10,20 @@ set +h
 #REQ:gtk3
 #REQ:gtksourceview4
 #REQ:itstool
+#REQ:libgee
 #REQ:libsoup
 #REQ:vala
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-calculator/3.32/gnome-calculator-3.32.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-calculator/3.32/gnome-calculator-3.32.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-calculator/3.34/gnome-calculator-3.34.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-calculator/3.34/gnome-calculator-3.34.1.tar.xz
 
 
 NAME=gnome-calculator
-VERSION=3.32.2
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-calculator/3.32/gnome-calculator-3.32.2.tar.xz
+VERSION=3.34.1
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-calculator/3.34/gnome-calculator-3.34.1.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="GNOME Calculator is a powerful graphical calculator with financial, logical and scientific modes. It uses a multiple precision package to do its arithmetic to give a high degree of accuracy."
 

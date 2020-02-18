@@ -18,13 +18,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libchamplain/0.12/libchamplain-0.12.19.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libchamplain/0.12/libchamplain-0.12.19.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/libchamplain/0.12/libchamplain-0.12.20.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libchamplain/0.12/libchamplain-0.12.20.tar.xz
 
 
 NAME=libchamplain
-VERSION=0.12.19
-URL=http://ftp.gnome.org/pub/gnome/sources/libchamplain/0.12/libchamplain-0.12.19.tar.xz
+VERSION=0.12.20
+URL=http://ftp.gnome.org/pub/gnome/sources/libchamplain/0.12/libchamplain-0.12.20.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libchamplain package contains a Clutter-based widget that is used to display rich and interactive maps."
 
@@ -47,7 +47,8 @@ fi
 echo $USER > /tmp/currentuser
 
 
-cd build &&
+mkdir build &&
+cd    build &&
 
 meson --prefix=/usr .. &&
 ninja

@@ -8,9 +8,11 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:autoconf213
+#REQ:cbindgen
 #REQ:gtk3
 #REQ:gtk2
 #REQ:llvm
+#REQ:nodejs
 #REQ:rust
 #REQ:zip
 #REQ:unzip
@@ -24,12 +26,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/thunderbird/releases/68.0/source/thunderbird-68.0.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/thunderbird/releases/68.4.2/source/thunderbird-68.4.2.source.tar.xz
 
 
 NAME=thunderbird
-VERSION=68.0
-URL=https://archive.mozilla.org/pub/thunderbird/releases/68.0/source/thunderbird-68.0.source.tar.xz
+VERSION=68.4.2
+URL=https://archive.mozilla.org/pub/thunderbird/releases/68.4.2/source/thunderbird-68.4.2.source.tar.xz
 SECTION="Other X-based Programs"
 DESCRIPTION="Thunderbird is a stand-alone mail/news client based on the Mozilla codebase. It uses the Gecko rendering engine to enable it to display and compose HTML emails."
 
@@ -93,6 +95,11 @@ ac_add_options --with-system-nspr
 ac_add_options --with-system-nss
 ac_add_options --with-system-icu
 
+# The elf-hack causes failed builds on clang-9.0.1 with some CFLAGS including
+# -march=native on Ryzen. It is supposed to improve startup time and it shrinks
+# libxul.so by a few MB - Uncomment this if your build is affected.
+#ac_add_options --disable-elf-hack
+
 # The BLFS editors recommend not changing anything below this line:
 ac_add_options --prefix=/usr
 ac_add_options --enable-application=comm/mail
@@ -116,9 +123,6 @@ ac_add_options --with-system-jpeg
 ac_add_options --with-system-png
 ac_add_options --with-system-zlib
 EOF
-sed -i -e '/#!\[deny(missing_docs)\]/d' servo/components/style/lib.rs &&
-sed -i -e 's/#!\[deny(unsafe_code, missing_docs)\]/#!\[deny(unsafe_code)\]/g' servo/components/style_traits/lib.rs
-sed -i -e '/pid_t gettid/s@^@//@' tools/profiler/core/platform.h
 ./mach build
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

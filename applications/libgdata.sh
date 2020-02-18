@@ -12,7 +12,6 @@ set +h
 #REQ:gnome-online-accounts
 #REQ:gtk3
 #REQ:json-glib
-#REQ:uhttpmock
 #REQ:vala
 #REQ:gcr
 #REQ:git
@@ -51,9 +50,9 @@ echo $USER > /tmp/currentuser
 
 
 mkdir build &&
-cd    build    &&
+cd    build &&
 
-meson --prefix=/usr -Dgtk_doc=false .. &&
+meson --prefix=/usr -Dgtk_doc=false -Dalways_build_tests=false .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

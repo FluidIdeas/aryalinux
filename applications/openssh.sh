@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.0p1.tar.gz
+wget -nc http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.2p1.tar.gz
 
 
 NAME=openssh
 VERSION=8.
-URL=http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.0p1.tar.gz
+URL=http://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.2p1.tar.gz
 SECTION="Security"
 DESCRIPTION="The OpenSSH package contains ssh clients and the sshd daemon. This is useful for encrypting authentication and subsequent traffic over a network. The ssh and scp commands are secure implementations of telnet and rcp respectively."
 
@@ -68,9 +68,9 @@ install -v -m755    contrib/ssh-copy-id /usr/bin     &&
 
 install -v -m644    contrib/ssh-copy-id.1 \
                     /usr/share/man/man1              &&
-install -v -m755 -d /usr/share/doc/openssh-8.0p1     &&
+install -v -m755 -d /usr/share/doc/openssh-8.2p1     &&
 install -v -m644    INSTALL LICENCE OVERVIEW README* \
-                    /usr/share/doc/openssh-8.0p1
+                    /usr/share/doc/openssh-8.2p1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/nfs/nfs-utils-2.4.1.tar.xz
+wget -nc https://www.kernel.org/pub/linux/utils/nfs-utils/2.4.3/nfs-utils-2.4.3.tar.xz
 
 
 NAME=nfs-utils
-VERSION=2.4.1
-URL=https://downloads.sourceforge.net/nfs/nfs-utils-2.4.1.tar.xz
+VERSION=2.4.3
+URL=https://www.kernel.org/pub/linux/utils/nfs-utils/2.4.3/nfs-utils-2.4.3.tar.xz
 SECTION="Networking Programs"
 DESCRIPTION="The NFS Utilities package contains the userspace server and client tools necessary to use the kernel's NFS abilities. NFS is a protocol that allows sharing file systems over the network."
 

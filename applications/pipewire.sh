@@ -17,12 +17,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/PipeWire/pipewire/archive/0.2.6/pipewire-0.2.6.tar.gz
+wget -nc https://github.com/PipeWire/pipewire/archive/0.2.7/pipewire-0.2.7.tar.gz
 
 
 NAME=pipewire
-VERSION=0.2.6
-URL=https://github.com/PipeWire/pipewire/archive/0.2.6/pipewire-0.2.6.tar.gz
+VERSION=0.2.7
+URL=https://github.com/PipeWire/pipewire/archive/0.2.7/pipewire-0.2.7.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The pipewire package contains a server and user-space API to handle multimedia pipelines. This includes a universal API to connect to multimedia devices, as well as sharing multimedia files between applications."
 

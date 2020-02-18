@@ -22,7 +22,7 @@ NAME=gtkmm2
 VERSION=2.24.5
 URL=http://ftp.gnome.org/pub/gnome/sources/gtkmm/2.24/gtkmm-2.24.5.tar.xz
 SECTION="X Libraries"
-DESCRIPTION="The Gtkmm package provides a C++ interface to GTK+ 2. It can be installed alongside Gtkmm-3.24.1 (the GTK+ 3 version) with no namespace conflicts."
+DESCRIPTION="The Gtkmm package provides a C++ interface to GTK+ 2. It can be installed alongside Gtkmm-3.24.2 (the GTK+ 3 version) with no namespace conflicts."
 
 if [ ! -z $URL ]
 then

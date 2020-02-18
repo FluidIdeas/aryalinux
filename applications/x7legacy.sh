@@ -49,9 +49,10 @@ cat > legacy.dat << "EOF"
 cb7b57d7800fd9e28ec35d85761ed278 font/ font-jis-misc-1.0.3.tar.bz2
 0571bf77f8fab465a5454569d9989506 font/ font-daewoo-misc-1.0.3.tar.bz2
 a2401caccbdcf5698e001784dbd43f1a font/ font-isas-misc-1.0.3.tar.bz2
+c88eb44b3b903d79fb44b860a213e623 font/ font-misc-misc-1.1.2.tar.bz2
 EOF
 mkdir legacy &&
-cd legacy &&
+cd    legacy &&
 grep -v '^#' ../legacy.dat | awk '{print $2$3}' | wget -i- -c \
      -B https://www.x.org/pub/individual/ &&
 grep -v '^#' ../legacy.dat | awk '{print $1 " " $3}' > ../legacy.md5 &&

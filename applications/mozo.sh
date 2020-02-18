@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://pub.mate-desktop.org/releases/1.23/mozo-1.23.1.tar.xz
+wget -nc https://pub.mate-desktop.org/releases/1.24/mozo-1.24.0.tar.xz
 
 
 NAME=mozo
-VERSION=1.23.1
-URL=https://pub.mate-desktop.org/releases/1.23/mozo-1.23.1.tar.xz
+VERSION=1.24.0
+URL=https://pub.mate-desktop.org/releases/1.24/mozo-1.24.0.tar.xz
 SECTION="Mate Desktop Applications"
 DESCRIPTION="Menu editor for MATE using the freedesktop.org menu specification"
 

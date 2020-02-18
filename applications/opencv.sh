@@ -23,13 +23,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/opencv/opencv/archive/4.1.1/opencv-4.1.1.tar.gz
-wget -nc https://github.com/opencv/opencv_contrib/archive/4.1.1/opencv_contrib-4.1.1.tar.gz
+wget -nc https://github.com/opencv/opencv/archive/4.2.0/opencv-4.2.0.tar.gz
+wget -nc https://github.com/opencv/opencv_contrib/archive/4.2.0/opencv_contrib-4.2.0.tar.gz
 
 
 NAME=opencv
-VERSION=4.1.1
-URL=https://github.com/opencv/opencv/archive/4.1.1/opencv-4.1.1.tar.gz
+VERSION=4.2.0
+URL=https://github.com/opencv/opencv/archive/4.2.0/opencv-4.2.0.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The opencv package contains graphics libraries mainly aimed at real-time computer vision."
 
@@ -52,7 +52,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-tar xf ../opencv_contrib-4.1.1.tar.gz
+tar xf ../opencv_contrib-4.2.0.tar.gz
 mkdir build &&
 cd    build &&
 

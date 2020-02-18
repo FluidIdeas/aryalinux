@@ -7,16 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:perl-deps#perl-timedate
 
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/G/GA/GAAS/HTTP-Date-6.02.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Date-6.05.tar.gz
 
 
 NAME=perl-deps#perl-http-date
-VERSION=6.02
-URL=https://cpan.metacpan.org/authors/id/G/GA/GAAS/HTTP-Date-6.02.tar.gz
+VERSION=6.05
+URL=https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Date-6.05.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

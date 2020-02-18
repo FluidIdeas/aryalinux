@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/freeglut/freeglut-3.0.0.tar.gz
+wget -nc https://downloads.sourceforge.net/freeglut/freeglut-3.2.1.tar.gz
 
 
 NAME=freeglut
-VERSION=3.0.0
-URL=https://downloads.sourceforge.net/freeglut/freeglut-3.0.0.tar.gz
+VERSION=3.2.1
+URL=https://downloads.sourceforge.net/freeglut/freeglut-3.2.1.tar.gz
 SECTION="X Libraries"
 DESCRIPTION="Freeglut is intended to be a 100% compatible, completely opensourced clone of the GLUT library. GLUT is a window system independent toolkit for writing OpenGL programs, implementing a simple windowing API, which makes learning about and exploring OpenGL programming very easy."
 
@@ -41,13 +41,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
-export XORG_PREFIX="/usr"
 
 mkdir build &&
 cd    build &&
 
-CMAKE_LIBRARY_PATH=$XORG_PREFIX/lib     \
-CMAKE_INCLUDE_PATH=$XORG_PREFIX/include \
 cmake -DCMAKE_INSTALL_PREFIX=/usr       \
       -DCMAKE_BUILD_TYPE=Release        \
       -DFREEGLUT_BUILD_DEMOS=OFF        \

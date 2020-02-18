@@ -13,6 +13,7 @@ set +h
 #REQ:gexiv2
 #REQ:ffmpeg
 #REQ:flac
+#REQ:giflib
 #REQ:icu
 #REQ:libexif
 #REQ:libgrss
@@ -22,13 +23,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.2/tracker-miners-2.2.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.2/tracker-miners-2.2.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.3/tracker-miners-2.3.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.3/tracker-miners-2.3.1.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/tracker-miners-2.3.1-upstream_fixes-1.patch
 
 
 NAME=tracker-miners
-VERSION=2.2.2
-URL=http://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.2/tracker-miners-2.2.2.tar.xz
+VERSION=2.3.1
+URL=http://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.3/tracker-miners-2.3.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Tracker-miners package contains a set of data extractors for Tracker."
 
@@ -51,6 +53,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../tracker-miners-2.3.1-upstream_fixes-1.patch
 mkdir build &&
 cd    build &&
 

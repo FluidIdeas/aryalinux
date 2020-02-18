@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.36.tar.bz2
-wget -nc ftp://ftp.gnupg.org/gcrypt/libgpg-error/libgpg-error-1.36.tar.bz2
+wget -nc https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.37.tar.bz2
+wget -nc ftp://ftp.gnupg.org/gcrypt/libgpg-error/libgpg-error-1.37.tar.bz2
 
 
 NAME=libgpg-error
-VERSION=1.36
-URL=https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.36.tar.bz2
+VERSION=1.37
+URL=https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.37.tar.bz2
 SECTION="General Libraries"
 DESCRIPTION="The libgpg-error package contains a library that defines common error values for all GnuPG components."
 
@@ -40,13 +40,12 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i 's/namespace/pkg_&/' src/Makefile.{am,in} src/mkstrtable.awk
 ./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-install -v -m644 -D README /usr/share/doc/libgpg-error-1.36/README
+install -v -m644 -D README /usr/share/doc/libgpg-error-1.37/README
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

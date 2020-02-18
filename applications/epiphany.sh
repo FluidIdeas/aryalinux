@@ -14,17 +14,18 @@ set +h
 #REQ:libnotify
 #REQ:webkitgtk
 #REQ:libdazzle
+#REQ:libhandy
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/epiphany/3.32/epiphany-3.32.4.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/epiphany/3.32/epiphany-3.32.4.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/epiphany/3.34/epiphany-3.34.3.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/epiphany/3.34/epiphany-3.34.3.1.tar.xz
 
 
 NAME=epiphany
-VERSION=3.32.4
-URL=http://ftp.gnome.org/pub/gnome/sources/epiphany/3.32/epiphany-3.32.4.tar.xz
+VERSION=3.34.3.1
+URL=http://ftp.gnome.org/pub/gnome/sources/epiphany/3.34/epiphany-3.34.3.1.tar.xz
 SECTION="Graphical Web Browsers"
 DESCRIPTION="Epiphany is a simple yet powerful GNOME web browser targeted at non-technical users. Its principles are simplicity and standards compliance."
 

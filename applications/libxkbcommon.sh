@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://xkbcommon.org/download/libxkbcommon-0.8.4.tar.xz
+wget -nc https://xkbcommon.org/download/libxkbcommon-0.10.0.tar.xz
 
 
 NAME=libxkbcommon
-VERSION=0.8.4
-URL=https://xkbcommon.org/download/libxkbcommon-0.8.4.tar.xz
+VERSION=0.10.0
+URL=https://xkbcommon.org/download/libxkbcommon-0.10.0.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="libxkbcommon is a keymap compiler and support library which processes a reduced subset of keymaps as defined by the XKB specification."
 
@@ -41,14 +41,15 @@ fi
 
 echo $USER > /tmp/currentuser
 
-export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
-./configure $XORG_CONFIG     \
-            --docdir=/usr/share/doc/libxkbcommon-0.8.4 &&
-make
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr -Denable-docs=false .. &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

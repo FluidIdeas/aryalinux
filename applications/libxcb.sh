@@ -49,6 +49,8 @@ sed -i "s/pthread-stubs//" configure &&
             --without-doxygen \
             --docdir='${datadir}'/doc/libxcb-1.13.1 &&
 make
+sed -i "s/TFun tf/const TTest *tt/" tests/check_all.c tests/check_suites.h &&
+sed -i "s/tcase_add_test(tc, tf);/tcase_add_test(tc, tt);/" tests/check_all.c
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install

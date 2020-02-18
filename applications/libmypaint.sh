@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/mypaint/libmypaint/releases/download/v1.3.0/libmypaint-1.3.0.tar.xz
+wget -nc https://github.com/mypaint/libmypaint/releases/download/v1.5.0/libmypaint-1.5.0.tar.xz
 
 
 NAME=libmypaint
-VERSION=1.3.0
-URL=https://github.com/mypaint/libmypaint/releases/download/v1.3.0/libmypaint-1.3.0.tar.xz
+VERSION=1.5.0
+URL=https://github.com/mypaint/libmypaint/releases/download/v1.5.0/libmypaint-1.5.0.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The libmypaint package, a.k.a. \"brushlib\", is a library for making brushstrokes which is used by MyPaint and other projects."
 

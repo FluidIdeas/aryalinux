@@ -11,12 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.1.9.tar.bz2
+wget -nc https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.1.2.tar.bz2
+wget -nc ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.2.1.2.tar.bz2
 
 
 NAME=alsa-lib
-VERSION=1.1.9
-URL=ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.1.9.tar.bz2
+VERSION=1.2.1.2
+URL=https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.1.2.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The ALSA Library package contains the ALSA library used by programs (including ALSA Utilities) requiring access to the ALSA sound interface."
 

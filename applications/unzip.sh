@@ -13,6 +13,7 @@ cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/infozip/unzip60.tar.gz
 wget -nc ftp://ftp.info-zip.org/pub/infozip/src/unzip60.tgz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/unzip-6.0-consolidated_fixes-1.patch
 
 
 NAME=unzip
@@ -40,6 +41,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../unzip-6.0-consolidated_fixes-1.patch
 make -f unix/Makefile generic
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

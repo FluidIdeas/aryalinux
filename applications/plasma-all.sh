@@ -38,7 +38,7 @@ cd $SOURCE_DIR
 
 
 NAME=plasma-all
-VERSION=5.16.4
+VERSION=5.18.0
 
 SECTION="KDE Plasma 5"
 
@@ -61,53 +61,56 @@ fi
 echo $USER > /tmp/currentuser
 
 
-url=http://download.kde.org/stable/plasma/5.16.4/
-cat > plasma-5.16.4.md5 << "EOF"
-5e44ce8c340a2776d0c26c01e052de98  kdecoration-5.16.4.tar.xz
-e9a04fac01548ed807f1e74afa6cecbc  libkscreen-5.16.4.tar.xz
-54f83ba22b7bffb8b29ecb4304eba290  libksysguard-5.16.4.tar.xz
-b9669c56c282a3a99ad8b5c8ab9e28e7  breeze-5.16.4.tar.xz
-6800789a7165d7d0ea5cab3f37a412d8  breeze-gtk-5.16.4.tar.xz
-68d3ce5b520f3295cdf449d129163f31  kscreenlocker-5.16.4.tar.xz
-37b8aa51e815547a0ca7891f6f28bfd1  oxygen-5.16.4.tar.xz
-f0aca5810cbf7d6fe9b234dd188bf866  kinfocenter-5.16.4.tar.xz
-42ad987f068e263e2c04bd46203748aa  ksysguard-5.16.4.tar.xz
-03e03a0d82a2c7a44357a0b70a818364  kwin-5.16.4.tar.xz
-28ecbe477db45e0ec87d04d89cd00a5e  plasma-workspace-5.16.4.tar.xz
-2f5c188ec483ba13a141d01f914fbdca  bluedevil-5.16.4.tar.xz
-d57f164978aa8ddaa2029834197cd79c  kde-gtk-config-5.16.4.tar.xz
-d665005eee4c4f286d02352f3ed1cca8  khotkeys-5.16.4.tar.xz
-8411a6adb83f6d07ce57d68518524a60  kmenuedit-5.16.4.tar.xz
-3e8620ef18c1a077da5b94d2d8da221f  kscreen-5.16.4.tar.xz
-578af3befcb637107e38ef68904549b1  kwallet-pam-5.16.4.tar.xz
-95e8f7c97d92ce842f4cd88e4244164f  kwayland-integration-5.16.4.tar.xz
-0193b8e80dcdff29b9bde53bfcbe57e7  kwrited-5.16.4.tar.xz
-40f100f10fc791b636c90a890d6a72d0  milou-5.16.4.tar.xz
-fdfc54509ba708cc341a0e0b5925c04c  plasma-nm-5.16.4.tar.xz
-243d1a5f17ea39cae8df5051a4d57a74  plasma-pa-5.16.4.tar.xz
-1c6dcff4dd988d57e8666d29436cd770  plasma-workspace-wallpapers-5.16.4.tar.xz
-251a7f86e34c718c76b5463ff923f1f4  polkit-kde-agent-1-5.16.4.tar.xz
-d7d1e680ebb4bd522e09cd3d7c485809  powerdevil-5.16.4.tar.xz
-9f6022331ff678064507f8c1936db3b6  plasma-desktop-5.16.4.tar.xz
-66cf356c39e8e5a361fa5bdbac07ea0e  kdeplasma-addons-5.16.4.tar.xz
-a4bbf8ecc177bb640a21e0b699f41717  kgamma5-5.16.4.tar.xz
-f4cdc68f40a0d9de75080473c5653aeb  ksshaskpass-5.16.4.tar.xz
-#98189f9c245ee94c36b52c0b4899fd6a  plasma-sdk-5.16.4.tar.xz
-0614d7063840aa22c5f273aa94eb59b5  sddm-kcm-5.16.4.tar.xz
-87770cae80be1d91f5a69e6964b35d90  user-manager-5.16.4.tar.xz
-31de7a8ab5233c568331c415a9932afb  discover-5.16.4.tar.xz
-#9cd0a7f9624a2f2b4b0fa56913644431  breeze-grub-5.16.4.tar.xz
-#973aad521ffcd3f4713984ed7c30ffe2  breeze-plymouth-5.16.4.tar.xz
-4fde8ca5608fd6af1612695b7d1574bc  kactivitymanagerd-5.16.4.tar.xz
-31b52d29b0aa1c6be4d90844217c7e63  plasma-integration-5.16.4.tar.xz
-d66af09fc97717ca4da55e37646708c5  plasma-tests-5.16.4.tar.xz
-3544c8e414e44c1a4622fa706dc09e93  plymouth-kcm-5.16.4.tar.xz
-3877c03570407e2382899b76e36e71cf  xdg-desktop-portal-kde-5.16.4.tar.xz
-8a5a274541943f365aa971318b52dc33  drkonqi-5.16.4.tar.xz
-2c323e7f60b6042d0b8c66f0726e7499  plasma-vault-5.16.4.tar.xz
-b48e4ea395f4ca9a98aecb4cb9616186  plasma-browser-integration-5.16.4.tar.xz
-5c1a41d205f55cc7828c485d08a366f3  kde-cli-tools-5.16.4.tar.xz
-39f47836ddf69aed04a26e26899a208a  systemsettings-5.16.4.tar.xz
+url=http://download.kde.org/stable/plasma/5.18.0/
+cat > plasma-5.18.0.md5 << "EOF"
+65ad6be44bae48a8b95282f38a172bd5  kdecoration-5.18.0.tar.xz
+352ee02e39de0bb991fde185d910dc2b  libkscreen-5.18.0.tar.xz
+6cd8353bb8ee8017eb9cec1d9784354e  libksysguard-5.18.0.tar.xz
+4bfa3626154af80e53fa6df31088fa5d  breeze-5.18.0.tar.xz
+6f4e972f00edbcc3078646066546fd1d  breeze-gtk-5.18.0.tar.xz
+44ced6d2ea583ecdf39eb12121f797ea  kscreenlocker-5.18.0.tar.xz
+8ad9334b3b7cdc74a457a43fe8e3d763  oxygen-5.18.0.tar.xz
+49a00ae8e8516ee9c63b1361e7e8b35a  kinfocenter-5.18.0.tar.xz
+8877136028cbf810156ace05e23a0606  ksysguard-5.18.0.tar.xz
+6c9e520619c2dd1cfb58b18c39a35a2a  kwin-5.18.0.tar.xz
+37a8c7b47c30a6fbc96812e07e520a17  plasma-workspace-5.18.0.tar.xz
+2df5eab9f574037d8ddd44595ae9740b  bluedevil-5.18.0.tar.xz
+0bdcc24e5892f1ef18dacec5a7a02335  kde-gtk-config-5.18.0.tar.xz
+c9aa2a00ef44caf72fc35bac425bfb11  khotkeys-5.18.0.tar.xz
+bf513fd5cb621fe6188ae539af1357a0  kmenuedit-5.18.0.tar.xz
+a24eb028b1942bbb6be277830c883ca4  kscreen-5.18.0.tar.xz
+ff159637ce8450930120560657dc7aa4  kwallet-pam-5.18.0.tar.xz
+76828427796d566b04947c01219fb538  kwayland-integration-5.18.0.tar.xz
+26a01a5e99685854aa6cee4c1b5aa3ac  kwrited-5.18.0.tar.xz
+75d8aef7a58acabd6cbf8e58622264e2  milou-5.18.0.tar.xz
+3702c99b031856ee14facf953ab96a12  plasma-nm-5.18.0.tar.xz
+af558e3b675c1dbde752b8f27d107f34  plasma-pa-5.18.0.tar.xz
+dbbf224c5f626d6e93aa049f05c79824  plasma-workspace-wallpapers-5.18.0.tar.xz
+64d690559f2ae9ad9724709d880e500b  polkit-kde-agent-1-5.18.0.tar.xz
+2a295e35d8344c8c486d35ce31daed2e  powerdevil-5.18.0.tar.xz
+f7763083a9ae5562a88725ede46019d9  plasma-desktop-5.18.0.tar.xz
+fbd61128d753723f94f3e3377f1c6dbf  kdeplasma-addons-5.18.0.tar.xz
+04ff88998c5a0732b9a1bb76320155ca  kgamma5-5.18.0.tar.xz
+54420fb7d114b527c820018db615db80  ksshaskpass-5.18.0.tar.xz
+#246b73de780bf92444ac4d6f69f50d2f  plasma-sdk-5.18.0.tar.xz
+3ae3cbec00e5f354e680ae88683e92b4  sddm-kcm-5.18.0.tar.xz
+01663f7d1817c976119189ccbd8fc139  user-manager-5.18.0.tar.xz
+434034a0af6aa4456adef6002f9964d7  discover-5.18.0.tar.xz
+#0a5db8616c37961c34b4107672f8ca1f  breeze-grub-5.18.0.tar.xz
+#2483b77974bfcd0b311d10d947486b8d  breeze-plymouth-5.18.0.tar.xz
+19eeb2603042ed8f13861728a42240c3  kactivitymanagerd-5.18.0.tar.xz
+75ba0f7a3eb652b8aa52cdb2bb6cf449  plasma-integration-5.18.0.tar.xz
+71b682f963f4c219a10c92706f7e0de0  plasma-tests-5.18.0.tar.xz
+#2d10a553fa7d7ab7df3ad14ce41d4f7e  plymouth-kcm-5.18.0.tar.xz
+6801ac281d11cd0b06132b8f0044b913  xdg-desktop-portal-kde-5.18.0.tar.xz
+69c20946b2cfaa5d94443bf2daa5cefc  drkonqi-5.18.0.tar.xz
+404bb032a9870e2182ed28bac4b62f30  plasma-vault-5.18.0.tar.xz
+916bb56baee7ce272dc0076eef96c116  plasma-browser-integration-5.18.0.tar.xz
+6d28a752327246b0085192d784a30164  kde-cli-tools-5.18.0.tar.xz
+b89a6fcfd152fcff0c737b7994b93503  systemsettings-5.18.0.tar.xz
+9a4d8193ff7a01e0fea74de69897f63a  plasma-thunderbolt-5.18.0.tar.xz
+#7f67365c7aa0e385abdc3b8e5a4ed290  plasma-nano-5.18.0.tar.xz
+#98a08ead926817ef803e0f0037ed7336  plasma-phone-components-5.18.0.tar.xz
 EOF
 as_root()
 {
@@ -166,7 +169,7 @@ while read -r line; do
     as_root /sbin/ldconfig
 echo $file >> /tmp/plasma-done
 
-done < plasma-5.16.4.md5
+done < plasma-5.18.0.md5
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

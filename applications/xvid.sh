@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://downloads.xvid.org/downloads/xvidcore-1.3.5.tar.gz
+wget -nc http://downloads.xvid.com/downloads/xvidcore-1.3.7.tar.gz
 
 
 NAME=xvid
-VERSION=1.3.5
-URL=http://downloads.xvid.org/downloads/xvidcore-1.3.5.tar.gz
+VERSION=1.3.7
+URL=http://downloads.xvid.com/downloads/xvidcore-1.3.7.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="XviD is an MPEG-4 compliant video CODEC."
 
@@ -50,10 +50,10 @@ make install &&
 
 chmod -v 755 /usr/lib/libxvidcore.so.4.3 &&
 
-install -v -m755 -d /usr/share/doc/xvidcore-1.3.5/examples &&
-install -v -m644 ../../doc/* /usr/share/doc/xvidcore-1.3.5 &&
+install -v -m755 -d /usr/share/doc/xvidcore-1.3.7/examples &&
+install -v -m644 ../../doc/* /usr/share/doc/xvidcore-1.3.7 &&
 install -v -m644 ../../examples/* \
-    /usr/share/doc/xvidcore-1.3.5/examples
+    /usr/share/doc/xvidcore-1.3.7/examples
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

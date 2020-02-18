@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://sebastien.godard.pagesperso-orange.fr/sysstat-12.1.6.tar.xz
+wget -nc http://sebastien.godard.pagesperso-orange.fr/sysstat-12.3.1.tar.xz
 
 
 NAME=sysstat
-VERSION=12.1.6
-URL=http://sebastien.godard.pagesperso-orange.fr/sysstat-12.1.6.tar.xz
+VERSION=12.3.1
+URL=http://sebastien.godard.pagesperso-orange.fr/sysstat-12.3.1.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="The Sysstat package contains utilities to monitor system performance and usage activity. Sysstat contains the sar utility, common to many commercial Unixes, and tools you can schedule via cron to collect and historize performance and activity data."
 

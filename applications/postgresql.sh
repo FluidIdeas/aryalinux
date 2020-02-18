@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.postgresql.org/pub/source/v11.5/postgresql-11.5.tar.bz2
+wget -nc http://ftp.postgresql.org/pub/source/v12.1/postgresql-12.1.tar.bz2
 
 
 NAME=postgresql
-VERSION=11.5
-URL=http://ftp.postgresql.org/pub/source/v11.5/postgresql-11.5.tar.bz2
+VERSION=12.1
+URL=http://ftp.postgresql.org/pub/source/v12.1/postgresql-12.1.tar.bz2
 SECTION="Databases"
 DESCRIPTION="PostgreSQL is an advanced object-relational database management system (ORDBMS), derived from the Berkeley Postgres database management system."
 
@@ -54,7 +54,7 @@ sed -i '/DEFAULT_PGSOCKET_DIR/s@/tmp@/run/postgresql@' src/include/pg_config_man
 
 ./configure --prefix=/usr          \
             --enable-thread-safety \
-            --docdir=/usr/share/doc/postgresql-11.5 &&
+            --docdir=/usr/share/doc/postgresql-12.1 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

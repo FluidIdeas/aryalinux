@@ -12,6 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/libexif/libexif-0.6.21.tar.bz2
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/libexif-0.6.21-security_fix-1.patch
 
 
 NAME=libexif
@@ -39,6 +40,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../libexif-0.6.21-security_fix-1.patch
 ./configure --prefix=/usr    \
             --disable-static \
             --with-doc-dir=/usr/share/doc/libexif-0.6.21 &&

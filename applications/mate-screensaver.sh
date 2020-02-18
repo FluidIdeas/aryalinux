@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://pub.mate-desktop.org/releases/1.23/mate-screensaver-1.23.1.tar.xz
+wget -nc https://pub.mate-desktop.org/releases/1.24/mate-screensaver-1.24.0.tar.xz
 
 
 NAME=mate-screensaver
-VERSION=1.23.1
-URL=https://pub.mate-desktop.org/releases/1.23/mate-screensaver-1.23.1.tar.xz
+VERSION=1.24.0
+URL=https://pub.mate-desktop.org/releases/1.24/mate-screensaver-1.24.0.tar.xz
 SECTION="Mate Desktop"
 DESCRIPTION="MATE screen saver and locker"
 

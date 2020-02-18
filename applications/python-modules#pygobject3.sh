@@ -15,13 +15,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/pygobject/3.32/pygobject-3.32.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pygobject/3.32/pygobject-3.32.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/pygobject/3.34/pygobject-3.34.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pygobject/3.34/pygobject-3.34.0.tar.xz
 
 
 NAME=python-modules#pygobject3
-VERSION=3.32.2
-URL=http://ftp.gnome.org/pub/gnome/sources/pygobject/3.32/pygobject-3.32.2.tar.xz
+VERSION=3.34.0
+URL=http://ftp.gnome.org/pub/gnome/sources/pygobject/3.34/pygobject-3.34.0.tar.xz
 SECTION="Others"
 
 if [ ! -z $URL ]
@@ -43,15 +43,15 @@ fi
 
 echo $USER > /tmp/currentuser
 
-mkdir python2                        &&
-pushd python2                        &&
-meson --prefix=/usr -Dpython=python2 &&
-ninja                                &&
+mkdir python2                           &&
+pushd python2                           &&
+meson --prefix=/usr -Dpython=python2 .. &&
+ninja                                   &&
 popd
-mkdir python3                        &&
-pushd python3                        &&
-meson --prefix=/usr -Dpython=python3 &&
-ninja                                &&
+mkdir python3                           &&
+pushd python3                           &&
+meson --prefix=/usr -Dpython=python3 .. &&
+ninja                                   &&
 popd
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

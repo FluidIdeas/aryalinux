@@ -20,13 +20,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/tracker/2.2/tracker-2.2.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/tracker/2.2/tracker-2.2.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/tracker/2.3/tracker-2.3.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/tracker/2.3/tracker-2.3.1.tar.xz
 
 
 NAME=tracker
-VERSION=2.2.2
-URL=http://ftp.gnome.org/pub/gnome/sources/tracker/2.2/tracker-2.2.2.tar.xz
+VERSION=2.3.1
+URL=http://ftp.gnome.org/pub/gnome/sources/tracker/2.3/tracker-2.3.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Tracker is the file indexing and search provider used in the GNOME desktop environment."
 
@@ -57,7 +57,6 @@ ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
-glib-compile-schemas /usr/share/glib-2.0/schemas
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

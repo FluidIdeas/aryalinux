@@ -7,30 +7,32 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:gnutls
 #REQ:jansson
 #REQ:libtirpc
 #REQ:lmdb
-#REQ:python2
+#REQ:python3
 #REQ:rpcsvc-proto
 #REQ:fuse
 #REQ:gpgme
 #REQ:libxslt
+#REQ:linux-pam
 #REQ:perl-modules#perl-parse-yapp
-#REQ:python-modules#pycrypto
+#REQ:python-modules#pycryptodome
 #REQ:openldap
 
 
 cd $SOURCE_DIR
 
-wget -nc https://www.samba.org/ftp/samba/stable/samba-4.10.7.tar.gz
+wget -nc https://www.samba.org/ftp/samba/stable/samba-4.11.6.tar.gz
 wget -nc http://www.samba.org/samba/docs/using_samba/toc.html
 wget -nc http://www.samba.org/samba/docs/man/Samba-HOWTO-Collection/
 wget -nc http://www.samba.org/samba/docs/man/Samba-Guide/
 
 
 NAME=samba
-VERSION=4.10.7
-URL=https://www.samba.org/ftp/samba/stable/samba-4.10.7.tar.gz
+VERSION=4.11.6
+URL=https://www.samba.org/ftp/samba/stable/samba-4.11.6.tar.gz
 SECTION="Networking Programs"
 DESCRIPTION="The Samba package provides file and print services to SMB/CIFS clients and Windows networking to Linux clients. Samba can also be configured as a Windows Domain Controller replacement, a file/print server acting as a member of a Windows Active Directory domain and a NetBIOS (rfc1001/1002) nameserver (which among other things provides LAN browsing support)."
 

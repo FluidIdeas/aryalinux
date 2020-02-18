@@ -17,6 +17,7 @@ set +h
 #REQ:bogofilter
 #REQ:enchant
 #REQ:gnome-desktop
+#REQ:gspell
 #REQ:highlight
 #REQ:libcanberra
 #REQ:libgweather
@@ -27,13 +28,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/evolution/3.32/evolution-3.32.4.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evolution/3.32/evolution-3.32.4.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/evolution/3.34/evolution-3.34.3.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evolution/3.34/evolution-3.34.3.tar.xz
 
 
 NAME=evolution
-VERSION=3.32.4
-URL=http://ftp.gnome.org/pub/gnome/sources/evolution/3.32/evolution-3.32.4.tar.xz
+VERSION=3.34.3
+URL=http://ftp.gnome.org/pub/gnome/sources/evolution/3.34/evolution-3.34.3.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The Evolution package contains an integrated mail, calendar and address book suite designed for the GNOME environment."
 
@@ -63,7 +64,6 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr \
       -DSYSCONF_INSTALL_DIR=/etc  \
       -DENABLE_INSTALLED_TESTS=ON \
       -DENABLE_PST_IMPORT=OFF     \
-      -DENABLE_GTKSPELL=OFF       \
       -DENABLE_YTNEF=OFF          \
       -DENABLE_CONTACT_MAPS=OFF   \
       -G Ninja .. &&

@@ -7,17 +7,18 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:perl-deps#perl-clone
 #REQ:perl-deps#perl-file-find-rule
 
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cpan.org/authors/id/D/DC/DCANTRELL/Data-Compare-1.25.tar.gz
+wget -nc https://www.cpan.org/authors/id/D/DC/DCANTRELL/Data-Compare-1.27.tar.gz
 
 
 NAME=perl-modules#perl-data-compare
-VERSION=1.25
-URL=https://www.cpan.org/authors/id/D/DC/DCANTRELL/Data-Compare-1.25.tar.gz
+VERSION=1.27
+URL=https://www.cpan.org/authors/id/D/DC/DCANTRELL/Data-Compare-1.27.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

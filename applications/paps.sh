@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/paps/paps-0.6.8.tar.gz
+wget -nc https://downloads.sourceforge.net/paps/paps-0.7.1.tar.gz
 
 
 NAME=paps
-VERSION=0.6.8
-URL=https://downloads.sourceforge.net/paps/paps-0.6.8.tar.gz
+VERSION=0.7.1
+URL=https://downloads.sourceforge.net/paps/paps-0.7.1.tar.gz
 SECTION="PostScript"
 DESCRIPTION="paps is a text to PostScript converter that works through Pango. Its input is a UTF-8 encoded text file and it outputs vectorized PostScript. It may be used for printing any complex script supported by Pango."
 
@@ -44,9 +44,7 @@ echo $USER > /tmp/currentuser
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-install -v -m755 -d                 /usr/share/doc/paps-0.6.8 &&
-install -v -m644 doxygen-doc/html/* /usr/share/doc/paps-0.6.8
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

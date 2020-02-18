@@ -13,12 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
+wget -nc https://www.alsa-project.org/files/pub/tools/alsa-tools-1.1.7.tar.bz2
 wget -nc ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.1.7.tar.bz2
 
 
 NAME=alsa-tools
 VERSION=1.1.7
-URL=ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.1.7.tar.bz2
+URL=https://www.alsa-project.org/files/pub/tools/alsa-tools-1.1.7.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The ALSA Tools package contains advanced tools for certain sound cards."
 
@@ -50,7 +51,13 @@ as_root()
 }
 
 export -f as_root
-rm -rf qlo10k1 Makefile gitcompile
+rm -rf qlo10k1 Makefile gitcompile sb16_csp ld10k1
+sed -i -e "/#include/i #define __user" \
+                             hdspconf/src/*.cxx  \
+                             hdspmixer/src/*.cxx \
+                             hdsploader/hdsploader.c &&
+sed -i -e '39 s/uint32_t/__u32/' hdspmixer/src/HDSPMixerWindow.cxx &&
+sed -i -e '40 s/uint64_t/__u64/' hdspmixer/src/HDSPMixerWindow.cxx
 for tool in *
 do
   case $tool in

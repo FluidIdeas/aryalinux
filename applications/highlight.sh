@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.andre-simon.de/zip/highlight-3.53.tar.bz2
+wget -nc http://www.andre-simon.de/zip/highlight-3.55.tar.bz2
 
 
 NAME=highlight
-VERSION=3.53
-URL=http://www.andre-simon.de/zip/highlight-3.53.tar.bz2
+VERSION=3.55
+URL=http://www.andre-simon.de/zip/highlight-3.55.tar.bz2
 SECTION="General Utilities"
 DESCRIPTION="Highlight is an utility that converts source code to formatted text with syntax highlighting."
 

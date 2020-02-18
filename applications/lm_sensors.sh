@@ -12,13 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gwdg.de/pub/linux/misc/lm-sensors/lm_sensors-3.4.0.tar.bz2
-wget -nc ftp://ftp.gwdg.de/pub/linux/misc/lm-sensors/lm_sensors-3.4.0.tar.bz2
+wget -nc https://github.com/lm-sensors/lm-sensors/archive/V3-6-0/lm-sensors-3-6-0.tar.gz
 
 
 NAME=lm_sensors
-VERSION=3.4.0
-URL=https://ftp.gwdg.de/pub/linux/misc/lm-sensors/lm_sensors-3.4.0.tar.bz2
+VERSION=0
+URL=https://github.com/lm-sensors/lm-sensors/archive/V3-6-0/lm-sensors-3-6-0.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="The lm_sensors package provides user-space support for the hardware monitoring drivers in the Linux kernel. This is useful for monitoring the temperature of the CPU and adjusting the performance of some hardware (such as cooling fans)."
 
@@ -50,9 +49,9 @@ make PREFIX=/usr        \
      BUILD_STATIC_LIB=0 \
      MANDIR=/usr/share/man install &&
 
-install -v -m755 -d /usr/share/doc/lm_sensors-3.4.0 &&
+install -v -m755 -d /usr/share/doc/lm_sensors-3-6-0 &&
 cp -rv              README INSTALL doc/* \
-                    /usr/share/doc/lm_sensors-3.4.0
+                    /usr/share/doc/lm_sensors-3-6-0
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

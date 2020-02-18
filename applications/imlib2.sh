@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/enlightenment/imlib2-1.5.1.tar.bz2
+wget -nc https://downloads.sourceforge.net/enlightenment/imlib2-1.6.1.tar.bz2
 
 
 NAME=imlib2
-VERSION=1.5.1
-URL=https://downloads.sourceforge.net/enlightenment/imlib2-1.5.1.tar.bz2
+VERSION=1.6.1
+URL=https://downloads.sourceforge.net/enlightenment/imlib2-1.6.1.tar.bz2
 SECTION="X Libraries"
 DESCRIPTION="imlib2 is a graphics library for fast file loading, saving, rendering and manipulation."
 
@@ -45,9 +45,9 @@ make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-install -v -m755 -d /usr/share/doc/imlib2-1.5.1 &&
+install -v -m755 -d /usr/share/doc/imlib2-1.6.1 &&
 install -v -m644    doc/{*.gif,index.html} \
-                    /usr/share/doc/imlib2-1.5.1
+                    /usr/share/doc/imlib2-1.6.1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

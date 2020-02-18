@@ -19,13 +19,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/file-roller/3.32/file-roller-3.32.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/file-roller/3.32/file-roller-3.32.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/file-roller/3.32/file-roller-3.32.3.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/file-roller/3.32/file-roller-3.32.3.tar.xz
 
 
 NAME=file-roller
-VERSION=3.32.1
-URL=http://ftp.gnome.org/pub/gnome/sources/file-roller/3.32/file-roller-3.32.1.tar.xz
+VERSION=3.32.3
+URL=http://ftp.gnome.org/pub/gnome/sources/file-roller/3.32/file-roller-3.32.3.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="File Roller is an archive manager for GNOME with support for tar, bzip2, gzip, zip, jar, compress, lzop and many other archive formats."
 
@@ -72,16 +72,8 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
 update-desktop-database -q
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -9,17 +9,19 @@ set +h
 
 #REQ:babl
 #REQ:json-glib
-#REQ:libjpeg
+#REQ:gobject-introspection
+#REQ:python-modules#pygments
+#REQ:python-modules#pygobject3
 
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gimp.org/pub/gegl/0.4/gegl-0.4.16.tar.bz2
+wget -nc https://download.gimp.org/pub/gegl/0.4/gegl-0.4.20.tar.xz
 
 
 NAME=gegl
-VERSION=0.4.16
-URL=https://download.gimp.org/pub/gegl/0.4/gegl-0.4.16.tar.bz2
+VERSION=0.4.20
+URL=https://download.gimp.org/pub/gegl/0.4/gegl-0.4.20.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="This package provides the GEneric Graphics Library, which is a graph based image processing format."
 
@@ -42,13 +44,14 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr &&
-make
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr .. &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-install -v -m644 docs/*.{css,html} /usr/share/gtk-doc/html/gegl &&
-install -v -m644 docs/images/*.{png,ico,svg} /usr/share/gtk-doc/html/gegl/images
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

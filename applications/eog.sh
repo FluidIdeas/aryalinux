@@ -22,13 +22,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/eog/3.32/eog-3.32.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/eog/3.32/eog-3.32.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/eog/3.34/eog-3.34.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/eog/3.34/eog-3.34.2.tar.xz
 
 
 NAME=eog
-VERSION=3.32.2
-URL=http://ftp.gnome.org/pub/gnome/sources/eog/3.32/eog-3.32.2.tar.xz
+VERSION=3.34.2
+URL=http://ftp.gnome.org/pub/gnome/sources/eog/3.34/eog-3.34.2.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="EOG is an application used for viewing and cataloging image files on the GNOME Desktop. It has basic editing capabilites."
 
@@ -59,6 +59,7 @@ ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
+update-desktop-database
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

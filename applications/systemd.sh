@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/systemd/systemd/archive/v241/systemd-241.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/systemd-241-networkd_and_rdrand_fixes-1.patch
+wget -nc https://github.com/systemd/systemd/archive/v244/systemd-244.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/systemd-244-seccomp_and_cpuaffinity_fix-1.patch
 
 
 NAME=systemd
-VERSION=241
-URL=https://github.com/systemd/systemd/archive/v241/systemd-241.tar.gz
+VERSION=244
+URL=https://github.com/systemd/systemd/archive/v244/systemd-244.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="While systemd was installed when building LFS, there are many features provided by the package that were not included in the initial installation because Linux-PAM was not yet installed. The systemd package needs to be rebuilt to provide a working systemd-logind service, which provides many additional features for dependent packages."
 
@@ -41,13 +41,11 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../systemd-241-networkd_and_rdrand_fixes-1.patch
-sed -i '1506,1508 s/</>/' src/shared/seccomp-util.c
-sed -i 's/GROUP="render", //' rules/50-udev-default.rules.in
+patch -Np1 -i ../systemd-244-seccomp_and_cpuaffinity_fix-1.patch
+sed -i 's/GROUP="render", //' rules.d/50-udev-default.rules.in
 mkdir build &&
 cd    build &&
 
-CFLAGS+=" -Wno-format-overflow" \
 meson --prefix=/usr         \
       --sysconfdir=/etc     \
       --localstatedir=/var  \
@@ -57,13 +55,13 @@ meson --prefix=/usr         \
       -Dfirstboot=false     \
       -Dinstall-tests=false \
       -Dldconfig=false      \
+      -Dman=auto            \
       -Drootprefix=         \
       -Drootlibdir=/lib     \
       -Dsplit-usr=true      \
       -Dsysusers=false      \
       -Drpmmacrosdir=no     \
       -Db_lto=false         \
-      -Dgnutls=false        \
       ..                    &&
 
 ninja

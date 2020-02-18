@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.sudo.ws/dist/sudo-1.8.27.tar.gz
-wget -nc ftp://ftp.sudo.ws/pub/sudo/sudo-1.8.27.tar.gz
+wget -nc http://www.sudo.ws/dist/sudo-1.8.31.tar.gz
+wget -nc ftp://ftp.sudo.ws/pub/sudo/sudo-1.8.31.tar.gz
 
 
 NAME=sudo
-VERSION=1.8.27
-URL=http://www.sudo.ws/dist/sudo-1.8.27.tar.gz
+VERSION=1.8.31
+URL=http://www.sudo.ws/dist/sudo-1.8.31.tar.gz
 SECTION="Security"
 DESCRIPTION="The Sudo package allows a system administrator to give certain users (or groups of users) the ability to run some (or all) commands as root or another user while logging the commands and arguments."
 
@@ -38,12 +38,14 @@ cd $DIRECTORY
 fi
 
 
+sed -e '/^pre-install:/{N;s@;@ -a -r $(sudoersdir)/sudoers;@}' \
+    -i plugins/sudoers/Makefile.in
 ./configure --prefix=/usr              \
             --libexecdir=/usr/lib      \
             --with-secure-path         \
             --with-all-insults         \
             --with-env-editor          \
-            --docdir=/usr/share/doc/sudo-1.8.27 \
+            --docdir=/usr/share/doc/sudo-1.8.31 \
             --with-passprompt="[sudo] password for %p: " &&
 make
 make install &&

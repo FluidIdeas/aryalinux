@@ -11,18 +11,19 @@ set +h
 #REQ:gtk3
 #REQ:libsoup
 #REQ:gobject-introspection
+#REQ:libxml2
 #REQ:vala
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libgweather/3.32/libgweather-3.32.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgweather/3.32/libgweather-3.32.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/libgweather/3.34/libgweather-3.34.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgweather/3.34/libgweather-3.34.0.tar.xz
 
 
 NAME=libgweather
-VERSION=3.32.2
-URL=http://ftp.gnome.org/pub/gnome/sources/libgweather/3.32/libgweather-3.32.2.tar.xz
+VERSION=3.34.0
+URL=http://ftp.gnome.org/pub/gnome/sources/libgweather/3.34/libgweather-3.34.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libgweather package is a library used to access weather information from online services for numerous locations."
 
@@ -45,6 +46,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -i '338a "KX26",' libgweather/test_libgweather.c
 mkdir build &&
 cd    build &&
 

@@ -12,15 +12,15 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.apache.org/dist/xmlgraphics/fop/source/fop-2.3-src.tar.gz
-wget -nc http://mirror.reverse.net/pub/apache/pdfbox/2.0.16/pdfbox-2.0.16.jar
-wget -nc http://mirror.reverse.net/pub/apache/pdfbox/2.0.16/fontbox-2.0.16.jar
+wget -nc https://archive.apache.org/dist/xmlgraphics/fop/source/fop-2.4-src.tar.gz
+wget -nc http://mirror.reverse.net/pub/apache/pdfbox/2.0.18/pdfbox-2.0.18.jar
+wget -nc http://mirror.reverse.net/pub/apache/pdfbox/2.0.18/fontbox-2.0.18.jar
 wget -nc https://downloads.sourceforge.net/offo/2.2/offo-hyphenation.zip
 
 
 NAME=fop
 VERSION=2.
-URL=https://archive.apache.org/dist/xmlgraphics/fop/source/fop-2.3-src.tar.gz
+URL=https://archive.apache.org/dist/xmlgraphics/fop/source/fop-2.4-src.tar.gz
 SECTION="PostScript"
 DESCRIPTION="The FOP (Formatting Objects Processor) package contains a print formatter driven by XSL formatting objects (XSL-FO). It is a Java application that reads a formatting object tree and renders the resulting pages to a specified output. Output formats currently supported include PDF, PCL, PostScript, SVG, XML (area tree representation), print, AWT, MIF and ASCII text. The primary output target is PDF."
 
@@ -55,17 +55,17 @@ sed -e '/hyph\.stack/s/512k/1M/' \
     -i fop/build.xml
 sed -e 's/1\.6/1.7/' \
     -i fop/build.xml
-cp ../{pdf,font}box-2.0.16.jar fop/lib
+cp ../{pdf,font}box-2.0.18.jar fop/lib
 cd fop                    &&
 export LC_ALL=en_US.UTF-8 &&
 ant all javadocs          &&
 mv build/javadocs .
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -d -m755 -o root -g root          /opt/fop-2.3 &&
-cp -vR build conf examples fop* javadocs lib /opt/fop-2.3 &&
-chmod a+x /opt/fop-2.3/fop                                &&
-ln -v -sfn fop-2.3 /opt/fop
+install -v -d -m755 -o root -g root          /opt/fop-2.4 &&
+cp -vR build conf examples fop* javadocs lib /opt/fop-2.4 &&
+chmod a+x /opt/fop-2.4/fop                                &&
+ln -v -sfn fop-2.4 /opt/fop
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

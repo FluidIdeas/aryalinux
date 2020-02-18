@@ -7,8 +7,9 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:gtk3
+#REQ:exo
 #REQ:libgcrypt
+#REQ:itstool
 #REQ:linux-pam
 #REQ:pcre
 #REQ:gobject-introspection

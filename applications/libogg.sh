@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.xiph.org/releases/ogg/libogg-1.3.3.tar.xz
+wget -nc https://downloads.xiph.org/releases/ogg/libogg-1.3.4.tar.xz
 
 
 NAME=libogg
-VERSION=1.3.3
-URL=https://downloads.xiph.org/releases/ogg/libogg-1.3.3.tar.xz
+VERSION=1.3.4
+URL=https://downloads.xiph.org/releases/ogg/libogg-1.3.4.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The libogg package contains the Ogg file structure. This is useful for creating (encoding) or playing (decoding) a single physical bit stream."
 
@@ -41,7 +41,7 @@ echo $USER > /tmp/currentuser
 
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/libogg-1.3.3 &&
+            --docdir=/usr/share/doc/libogg-1.3.4 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

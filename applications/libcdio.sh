@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 wget -nc https://ftp.gnu.org/gnu/libcdio/libcdio-2.1.0.tar.bz2
 wget -nc ftp://ftp.gnu.org/gnu/libcdio/libcdio-2.1.0.tar.bz2
-wget -nc https://ftp.gnu.org/gnu/libcdio/libcdio-paranoia-10.2+2.0.0.tar.bz2
+wget -nc https://ftp.gnu.org/gnu/libcdio/libcdio-paranoia-10.2+2.0.1.tar.bz2
 
 
 NAME=libcdio
@@ -52,8 +52,8 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-tar -xf ../libcdio-paranoia-10.2+2.0.0.tar.bz2 &&
-cd libcdio-paranoia-10.2+2.0.0 &&
+tar -xf ../libcdio-paranoia-10.2+2.0.1.tar.bz2 &&
+cd libcdio-paranoia-10.2+2.0.1 &&
 
 ./configure --prefix=/usr --disable-static &&
 make

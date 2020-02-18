@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-shell-extensions/3.32/gnome-shell-extensions-3.32.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-shell-extensions/3.32/gnome-shell-extensions-3.32.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-shell-extensions/3.34/gnome-shell-extensions-3.34.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-shell-extensions/3.34/gnome-shell-extensions-3.34.2.tar.xz
 
 
 NAME=gnome-shell-extensions
-VERSION=3.32.1
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-shell-extensions/3.32/gnome-shell-extensions-3.32.1.tar.xz
+VERSION=3.34.2
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-shell-extensions/3.34/gnome-shell-extensions-3.34.2.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Shell Extensions package contains a collection of extensions providing additional and optional functionality to the GNOME Shell."
 

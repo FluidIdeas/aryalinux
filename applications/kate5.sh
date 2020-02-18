@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/applications/19.08.0/src/kate-19.08.0.tar.xz
+wget -nc http://download.kde.org/stable/release-service/19.12.2/src/kate-19.12.2.tar.xz
 
 
 NAME=kate5
-VERSION=19.08.0
-URL=http://download.kde.org/stable/applications/19.08.0/src/kate-19.08.0.tar.xz
+VERSION=19.12.2
+URL=http://download.kde.org/stable/release-service/19.12.2/src/kate-19.12.2.tar.xz
 SECTION="Editors"
 DESCRIPTION="The Kate package contains an advanced KF5 based graphical text editor."
 

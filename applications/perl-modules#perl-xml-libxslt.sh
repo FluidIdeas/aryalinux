@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cpan.org/authors/id/S/SH/SHLOMIF/XML-LibXSLT-1.96.tar.gz
+wget -nc https://www.cpan.org/authors/id/S/SH/SHLOMIF/XML-LibXSLT-1.99.tar.gz
 
 
 NAME=perl-modules#perl-xml-libxslt
-VERSION=1.96
-URL=https://www.cpan.org/authors/id/S/SH/SHLOMIF/XML-LibXSLT-1.96.tar.gz
+VERSION=1.99
+URL=https://www.cpan.org/authors/id/S/SH/SHLOMIF/XML-LibXSLT-1.99.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

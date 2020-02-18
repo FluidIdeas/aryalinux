@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/libgrss-0.7.0-bugfixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/libgrss-0.7.0-bugfixes-1.patch
 
 
 NAME=libgrss

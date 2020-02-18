@@ -12,7 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://www.lua.org/ftp/lua-5.3.5.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/lua-5.3.5-shared_library-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/lua-5.3.5-shared_library-1.patch
 wget -nc http://www.lua.org/tests/lua-5.3.4-tests.tar.gz
 
 

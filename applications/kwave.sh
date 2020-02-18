@@ -19,12 +19,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/applications/19.08.0/src/kwave-19.08.0.tar.xz
+wget -nc http://download.kde.org/stable/release-service/19.12.2/src/kwave-19.12.2.tar.xz
 
 
 NAME=kwave
-VERSION=19.08.0
-URL=http://download.kde.org/stable/applications/19.08.0/src/kwave-19.08.0.tar.xz
+VERSION=19.12.2
+URL=http://download.kde.org/stable/release-service/19.12.2/src/kwave-19.12.2.tar.xz
 SECTION="Audio Utilities"
 DESCRIPTION="The KWave package contains a KF5 based Sound Editor application."
 

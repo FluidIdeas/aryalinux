@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cpan.org/authors/id/M/MA/MARKOV/XML-LibXML-Simple-0.99.tar.gz
+wget -nc https://www.cpan.org/authors/id/M/MA/MARKOV/XML-LibXML-Simple-1.01.tar.gz
 
 
 NAME=perl-modules#perl-xml-libxml-simple
-VERSION=0.99
-URL=https://www.cpan.org/authors/id/M/MA/MARKOV/XML-LibXML-Simple-0.99.tar.gz
+VERSION=1.01
+URL=https://www.cpan.org/authors/id/M/MA/MARKOV/XML-LibXML-Simple-1.01.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

@@ -19,15 +19,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs927/ghostscript-9.27.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/ghostscript-9.27-upstream_fixes-1.patch
+wget -nc https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs950/ghostscript-9.50.tar.xz
 wget -nc https://downloads.sourceforge.net/gs-fonts/ghostscript-fonts-std-8.11.tar.gz
 wget -nc https://downloads.sourceforge.net/gs-fonts/gnu-gs-fonts-other-6.0.tar.gz
 
 
 NAME=gs
-VERSION=9.27
-URL=https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs927/ghostscript-9.27.tar.xz
+VERSION=9.50
+URL=https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs950/ghostscript-9.50.tar.xz
 SECTION="Printing"
 DESCRIPTION="Ghostscript is a versatile processor for PostScript data with the ability to render PostScript to different targets. It is a mandatory part of the cups printing stack."
 
@@ -52,8 +51,6 @@ echo $USER > /tmp/currentuser
 
 rm -rf freetype lcms2mt jpeg libpng openjpeg
 rm -rf zlib &&
-
-patch -Np1 -i ../ghostscript-9.27-upstream_fixes-1.patch &&
 
 ./configure --prefix=/usr           \
             --disable-compile-inits \
@@ -83,9 +80,9 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mv -v /usr/share/doc/ghostscript/9.27 /usr/share/doc/ghostscript-9.27  &&
+mv -v /usr/share/doc/ghostscript/9.50 /usr/share/doc/ghostscript-9.50  &&
 rm -rfv /usr/share/doc/ghostscript &&
-cp -a examples/ /usr/share/ghostscript/9.27/
+cp -a examples/ /usr/share/ghostscript/9.50/
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

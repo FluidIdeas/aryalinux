@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v5.2.1.tar.xz
+wget -nc https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v5.4.1.tar.xz
 
 
 NAME=btrfs-progs
-VERSION=5.2.1
-URL=https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v5.2.1.tar.xz
+VERSION=5.4.1
+URL=https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v5.4.1.tar.xz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The btrfs-progs package contains administration and debugging tools for the B-tree file system (btrfs)."
 

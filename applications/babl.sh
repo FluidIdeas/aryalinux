@@ -7,17 +7,19 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:gobject-introspection
+#REQ:librsvg
 #REQ:lcms2
 
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gimp.org/pub/babl/0.1/babl-0.1.70.tar.xz
+wget -nc https://download.gimp.org/pub/babl/0.1/babl-0.1.74.tar.xz
 
 
 NAME=babl
-VERSION=0.1.70
-URL=https://download.gimp.org/pub/babl/0.1/babl-0.1.70.tar.xz
+VERSION=0.1.74
+URL=https://download.gimp.org/pub/babl/0.1/babl-0.1.74.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The Babl package is a dynamic, any to any, pixel format translation library."
 
@@ -40,9 +42,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-case $(uname -m) in
-   i?86) sed -i '27 s/no_cflags/sse2_cflags/' extensions/meson.build ;;
-esac
 mkdir bld &&
 cd    bld &&
 

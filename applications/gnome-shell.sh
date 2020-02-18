@@ -9,12 +9,15 @@ set +h
 
 #REQ:evolution-data-server
 #REQ:gjs
+#REQ:gnome-autoar
 #REQ:gnome-control-center
 #REQ:libcroco
 #REQ:mutter
 #REQ:sassc
 #REQ:startup-notification
 #REQ:systemd
+#REQ:asciidoc
+#REQ:desktop-file-utils
 #REQ:gnome-bluetooth
 #REQ:gst10-plugins-base
 #REQ:network-manager-applet
@@ -23,19 +26,18 @@ set +h
 #REQ:gdm
 #REQ:gnome-backgrounds
 #REQ:gnome-menus
-#REQ:gnome-themes-extra
 #REQ:telepathy-mission-control
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.32/gnome-shell-3.32.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.32/gnome-shell-3.32.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.34/gnome-shell-3.34.3.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.34/gnome-shell-3.34.3.tar.xz
 
 
 NAME=gnome-shell
-VERSION=3.32.2
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.32/gnome-shell-3.32.2.tar.xz
+VERSION=3.34.3
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.34/gnome-shell-3.34.3.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Shell is the core user interface of the GNOME Desktop environment."
 

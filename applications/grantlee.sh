@@ -13,13 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://downloads.grantlee.org/grantlee-5.1.0.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/grantlee-5.1.0-upstream_fixes-2.patch
+wget -nc http://downloads.grantlee.org/grantlee-5.2.0.tar.gz
 
 
 NAME=grantlee
-VERSION=5.1.0
-URL=http://downloads.grantlee.org/grantlee-5.1.0.tar.gz
+VERSION=5.2.0
+URL=http://downloads.grantlee.org/grantlee-5.2.0.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="Grantlee is a set of free software libraries written using the Qt framework. Currently two libraries are shipped with Grantlee: Grantlee Templates and Grantlee TextDocument. The goal of Grantlee Templates is to make it easier for application developers to separate the structure of documents from the data they contain, opening the door for theming."
 
@@ -42,7 +41,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../grantlee-5.1.0-upstream_fixes-2.patch
 mkdir build &&
 cd    build &&
 

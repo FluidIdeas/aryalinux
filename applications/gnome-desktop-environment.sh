@@ -141,7 +141,6 @@ cd ~
 xdg-user-dirs-update
 default-gnome-user-instructions
 EOF
-sudo rm -rvf /usr/share/xsessions/gnome.desktop
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

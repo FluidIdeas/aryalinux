@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/swig/swig-4.0.0.tar.gz
+wget -nc https://downloads.sourceforge.net/swig/swig-4.0.1.tar.gz
 
 
 NAME=swig
-VERSION=4.0.0
-URL=https://downloads.sourceforge.net/swig/swig-4.0.0.tar.gz
+VERSION=4.0.1
+URL=https://downloads.sourceforge.net/swig/swig-4.0.1.tar.gz
 SECTION="Programming"
 DESCRIPTION="SWIG (Simplified Wrapper and Interface Generator) is a compiler that integrates C and C++ with languages including Perl, Python, Tcl, Ruby, PHP, Java, C#, D, Go, Lua, Octave, R, Scheme, and Ocaml. SWIG can also export its parse tree into Lisp s-expressions and XML."
 
@@ -46,8 +46,8 @@ make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-install -v -m755 -d /usr/share/doc/swig-4.0.0 &&
-cp -v -R Doc/* /usr/share/doc/swig-4.0.0
+install -v -m755 -d /usr/share/doc/swig-4.0.1 &&
+cp -v -R Doc/* /usr/share/doc/swig-4.0.1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

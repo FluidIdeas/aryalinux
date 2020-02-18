@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.mercurial-scm.org/release/mercurial-5.1.tar.gz
+wget -nc https://www.mercurial-scm.org/release/mercurial-5.3.tar.gz
 
 
 NAME=mercurial
-VERSION=5.1
-URL=https://www.mercurial-scm.org/release/mercurial-5.1.tar.gz
+VERSION=5.3
+URL=https://www.mercurial-scm.org/release/mercurial-5.3.tar.gz
 SECTION="Programming"
 DESCRIPTION="Mercurial is a distributed source control management tool similar to Git and Bazaar. Mercurial is written in Python and is used by projects such as Mozilla and Vim."
 
@@ -41,9 +41,8 @@ echo $USER > /tmp/currentuser
 
 
 make build
-sed -i '/runrst/s/N)/N)3/' doc/Makefile &&
-2to3-3.7 -w doc/hgmanpage.py            &&
-make doc
+2to3 -w doc/hgmanpage.py &&
+PYTHON=python3 make doc
 rm -rf tests/tmp &&
 TESTFLAGS="-j<N> --tmpdir tmp --blacklist blacklists/fsmonitor --blacklist blacklists/linux-vfat" make check
 pushd tests  &&

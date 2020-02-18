@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://dist.libuv.org/dist/v1.31.0/libuv-v1.31.0.tar.gz
+wget -nc https://dist.libuv.org/dist/v1.34.2/libuv-v1.34.2.tar.gz
 
 
 NAME=libuv
-VERSION=1.31.0
-URL=https://dist.libuv.org/dist/v1.31.0/libuv-v1.31.0.tar.gz
+VERSION=1.34.2
+URL=https://dist.libuv.org/dist/v1.34.2/libuv-v1.34.2.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The libuv package is a multi-platform support library with a focus on asynchronous I/O."
 

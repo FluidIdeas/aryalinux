@@ -41,7 +41,7 @@ echo $USER > /tmp/currentuser
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
 cat > font-7.md5 << "EOF"
-23756dab809f9ec5011bb27fb2c3c7d6  font-util-1.3.1.tar.bz2
+3d6adb76fdd072db8c8fae41b40855e8  font-util-1.3.2.tar.bz2
 bbae4f247b88ccde0e85ed6a403da22a  encodings-1.0.5.tar.bz2
 6d25f64796fef34b53b439c2e9efa562  font-alias-1.0.3.tar.bz2
 fcf24554c348df3c689b91596d7f9971  font-adobe-utopia-type1-1.0.4.tar.bz2

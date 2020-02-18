@@ -11,11 +11,11 @@ set +h
 #REQ:python2
 #REQ:atk
 #REQ:pango
-#REQ:python-modules#pycairo
+#REQ:python-modules#pycairo2
 #REQ:pango
-#REQ:python-modules#pycairo
+#REQ:python-modules#pycairo2
 #REQ:gtk2
-#REQ:python-modules#pycairo
+#REQ:python-modules#pycairo2
 #REQ:libglade
 
 
@@ -49,6 +49,7 @@ fi
 
 echo $USER > /tmp/currentuser
 
+sed -i '1394,1402 d' pango.defs
 ./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh

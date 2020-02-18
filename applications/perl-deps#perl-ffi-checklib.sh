@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/FFI-CheckLib-0.25.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/FFI-CheckLib-0.26.tar.gz
 
 
 NAME=perl-deps#perl-ffi-checklib
-VERSION=0.25
-URL=https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/FFI-CheckLib-0.25.tar.gz
+VERSION=0.26
+URL=https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/FFI-CheckLib-0.26.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

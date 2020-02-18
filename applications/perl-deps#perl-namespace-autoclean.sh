@@ -9,16 +9,17 @@ set +h
 
 #REQ:perl-deps#perl-namespace-clean
 #REQ:perl-deps#perl-sub-identify
+#REQ:perl-deps#perl-test-needs
 
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/E/ET/ETHER/namespace-autoclean-0.28.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/E/ET/ETHER/namespace-autoclean-0.29.tar.gz
 
 
 NAME=perl-deps#perl-namespace-autoclean
-VERSION=0.28
-URL=https://cpan.metacpan.org/authors/id/E/ET/ETHER/namespace-autoclean-0.28.tar.gz
+VERSION=0.29
+URL=https://cpan.metacpan.org/authors/id/E/ET/ETHER/namespace-autoclean-0.29.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

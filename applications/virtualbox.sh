@@ -8,7 +8,6 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:xserver-meta
-#REQ:kernel-headers
 
 
 cd $SOURCE_DIR

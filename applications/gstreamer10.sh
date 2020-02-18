@@ -13,15 +13,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.16.0.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/gstreamer-1.16.0-buffer_size_reset_fix-1.patch
+wget -nc https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.16.2.tar.xz
 
 
 NAME=gstreamer10
-VERSION=1.16.0
-URL=https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.16.0.tar.xz
+VERSION=1.16.2
+URL=https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.16.2.tar.xz
 SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="gstreamer is a streaming media framework that enables applications to share a common set of plugins for things like video encoding and decoding, audio encoding and decoding, audio and video filters, audio visualisation, web streaming and anything else that streams in real-time or otherwise. This package only provides base functionality and libraries. You may need at least gst-plugins-base-1.16.0 and one of Good, Bad, Ugly or Libav plugins."
+DESCRIPTION="gstreamer is a streaming media framework that enables applications to share a common set of plugins for things like video encoding and decoding, audio encoding and decoding, audio and video filters, audio visualisation, web streaming and anything else that streams in real-time or otherwise. This package only provides base functionality and libraries. You may need at least gst-plugins-base-1.16.2 and one of Good, Bad, Ugly or Libav plugins."
 
 if [ ! -z $URL ]
 then
@@ -42,7 +41,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../gstreamer-1.16.0-buffer_size_reset_fix-1.patch
 mkdir build &&
 cd    build &&
 
@@ -51,7 +49,7 @@ meson  --prefix=/usr       \
        -Dgst_debug=false   \
        -Dgtk_doc=disabled  \
        -Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
-       -Dpackage-name="GStreamer 1.16.0 BLFS" &&
+       -Dpackage-name="GStreamer 1.16.2 BLFS" &&
 ninja
 rm -rf /usr/bin/gst-* /usr/{lib,libexec}/gstreamer-1.0
 sudo rm -rf /tmp/rootscript.sh

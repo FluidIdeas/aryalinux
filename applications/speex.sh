@@ -13,7 +13,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://downloads.xiph.org/releases/speex/speex-1.2.0.tar.gz
-wget -nc https://downloads.xiph.org/releases/speex/speexdsp-1.2rc3.tar.gz
+wget -nc https://downloads.xiph.org/releases/speex/speexdsp-1.2.0.tar.gz
 
 
 NAME=speex
@@ -55,12 +55,12 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 cd ..                          &&
-tar -xf speexdsp-1.2rc3.tar.gz &&
-cd speexdsp-1.2rc3             &&
+tar -xf speexdsp-1.2.0.tar.gz &&
+cd speexdsp-1.2.0             &&
 
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/speexdsp-1.2rc3 &&
+            --docdir=/usr/share/doc/speexdsp-1.2.0 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

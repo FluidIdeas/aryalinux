@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/frameworks/5.61/extra-cmake-modules-5.61.0.tar.xz
+wget -nc http://download.kde.org/stable/frameworks/5.67/extra-cmake-modules-5.67.0.tar.xz
 
 
 NAME=extra-cmake-modules
-VERSION=5.61.0
-URL=http://download.kde.org/stable/frameworks/5.61/extra-cmake-modules-5.61.0.tar.xz
+VERSION=5.67.0
+URL=http://download.kde.org/stable/frameworks/5.67/extra-cmake-modules-5.67.0.tar.xz
 SECTION="KDE Plasma 5"
 DESCRIPTION="The Extra Cmake Modules package contains extra CMake modules used by KDE Frameworks 5 and other packages."
 

@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.14.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/libtasn1/libtasn1-4.14.tar.gz
+wget -nc https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.16.0.tar.gz
+wget -nc ftp://ftp.gnu.org/gnu/libtasn1/libtasn1-4.16.0.tar.gz
 
 
 NAME=libtasn1
-VERSION=4.14
-URL=https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.14.tar.gz
+VERSION=4.16.0
+URL=https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.16.0.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="libtasn1 is a highly portable C library that encodes and decodes DER/BER data following an ASN.1 schema."
 

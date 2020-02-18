@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://files.dyne.org/frei0r/releases/frei0r-plugins-1.6.1.tar.gz
+wget -nc https://files.dyne.org/frei0r/releases/frei0r-plugins-1.7.0.tar.gz
 
 
 NAME=frei0r
-VERSION=1.6.1
-URL=https://files.dyne.org/frei0r/releases/frei0r-plugins-1.6.1.tar.gz
+VERSION=1.7.0
+URL=https://files.dyne.org/frei0r/releases/frei0r-plugins-1.7.0.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="Frei0r is a minimalistic plugin API for video effects. Note that the 0 in the name is a zero, not a capital letter o."
 
@@ -39,14 +39,13 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i 's/CV_RGB/cv::Scalar/' src/filter/facebl0r/facebl0r.cpp &&
-
 mkdir -vp build &&
 cd        build &&
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr    \
-      -DCMAKE_BUILD_TYPE=Release     \
-      -Wno-dev ..                    &&
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+      -DCMAKE_BUILD_TYPE=Release  \
+      -DWITHOUT_OPENCV=TRUE       \
+      -Wno-dev ..                 &&
 
 make
 sudo rm -rf /tmp/rootscript.sh

@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://pub.mate-desktop.org/releases/1.23/pluma-1.23.3.tar.xz
+wget -nc https://pub.mate-desktop.org/releases/1.24/pluma-1.24.0.tar.xz
 
 
 NAME=pluma
-VERSION=1.23.3
-URL=https://pub.mate-desktop.org/releases/1.23/pluma-1.23.3.tar.xz
+VERSION=1.24.0
+URL=https://pub.mate-desktop.org/releases/1.24/pluma-1.24.0.tar.xz
 SECTION="Mate Desktop Applications"
 DESCRIPTION="A powerful text editor for MATE"
 

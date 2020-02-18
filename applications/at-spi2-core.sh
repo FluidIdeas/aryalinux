@@ -14,13 +14,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.32/at-spi2-core-2.32.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.32/at-spi2-core-2.32.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.34/at-spi2-core-2.34.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.34/at-spi2-core-2.34.0.tar.xz
 
 
 NAME=at-spi2-core
-VERSION=2.32.1
-URL=http://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.32/at-spi2-core-2.32.1.tar.xz
+VERSION=2.34.0
+URL=http://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.34/at-spi2-core-2.34.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The At-Spi2 Core package is a part of the GNOME Accessibility Project. It provides a Service Provider Interface for the Assistive Technologies available on the GNOME platform and a library against which applications can be linked."
 

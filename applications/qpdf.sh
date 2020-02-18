@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/qpdf/qpdf/releases/download/release-qpdf-8.4.2/qpdf-8.4.2.tar.gz
+wget -nc https://github.com/qpdf/qpdf/releases/download/release-qpdf-9.1.1/qpdf-9.1.1.tar.gz
 
 
 NAME=qpdf
-VERSION=8.4.2
-URL=https://github.com/qpdf/qpdf/releases/download/release-qpdf-8.4.2/qpdf-8.4.2.tar.gz
+VERSION=9.1.1
+URL=https://github.com/qpdf/qpdf/releases/download/release-qpdf-9.1.1/qpdf-9.1.1.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The Qpdf package contains command-line programs and library that do structural, content-preserving transformations on PDF files."
 
@@ -42,7 +42,7 @@ echo $USER > /tmp/currentuser
 
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/qpdf-8.4.2 &&
+            --docdir=/usr/share/doc/qpdf-9.1.1 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

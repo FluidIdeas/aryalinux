@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.pcre.org/pub/pcre/pcre-8.43.tar.bz2
-wget -nc ftp://ftp.pcre.org/pub/pcre/pcre-8.43.tar.bz2
+wget -nc https://ftp.pcre.org/pub/pcre/pcre-8.44.tar.bz2
+wget -nc ftp://ftp.pcre.org/pub/pcre/pcre-8.44.tar.bz2
 
 
 NAME=pcre
-VERSION=8.43
-URL=https://ftp.pcre.org/pub/pcre/pcre-8.43.tar.bz2
+VERSION=8.44
+URL=https://ftp.pcre.org/pub/pcre/pcre-8.44.tar.bz2
 SECTION="General Libraries"
 DESCRIPTION="The PCRE package contains Perl Compatible Regular Expression libraries. These are useful for implementing regular expression pattern matching using the same syntax and semantics as Perl 5."
 
@@ -41,7 +41,7 @@ echo $USER > /tmp/currentuser
 
 
 ./configure --prefix=/usr                     \
-            --docdir=/usr/share/doc/pcre-8.43 \
+            --docdir=/usr/share/doc/pcre-8.44 \
             --enable-unicode-properties       \
             --enable-pcre16                   \
             --enable-pcre32                   \

@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Libxml2-0.09.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Libxml2-0.12.tar.gz
 
 
 NAME=perl-deps#perl-alien-libxml2
-VERSION=0.09
-URL=https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Libxml2-0.09.tar.gz
+VERSION=0.12
+URL=https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Libxml2-0.12.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

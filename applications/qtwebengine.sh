@@ -13,6 +13,7 @@ set +h
 #REQ:alsa-lib
 #REQ:pulseaudio
 #REQ:ffmpeg
+#REQ:python-modules#jinja2
 #REQ:icu
 #REQ:libwebp
 #REQ:libxslt
@@ -21,13 +22,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.qt.io/archive/qt/5.13/5.13.0/submodules/qtwebengine-everywhere-src-5.13.0.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/qtwebengine-5.13.0-background_rendering_fix-1.patch
+wget -nc https://download.qt.io/archive/qt/5.14/5.14.1/submodules/qtwebengine-everywhere-src-5.14.1.tar.xz
 
 
 NAME=qtwebengine
-VERSION=5.13.0
-URL=https://download.qt.io/archive/qt/5.13/5.13.0/submodules/qtwebengine-everywhere-src-5.13.0.tar.xz
+VERSION=5.14.1
+URL=https://download.qt.io/archive/qt/5.14/5.14.1/submodules/qtwebengine-everywhere-src-5.14.1.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="QtWebEngine integrates chromium's web capabilities into Qt. It ships with its own copy of ninja which it uses for the build if it cannot find a system copy, and various copies of libraries from ffmpeg, icu, libvpx, and zlib (including libminizip) which have been forked by the chromium developers."
 
@@ -52,7 +52,9 @@ echo $USER > /tmp/currentuser
 
 find -type f -name "*.pr[io]" |
   xargs sed -i -e 's|INCLUDEPATH += |&$$QTWEBENGINE_ROOT/include |'
-patch -Np1 -i ../qtwebengine-5.13.0-background_rendering_fix-1.patch
+sed -e '/link_pulseaudio/s/false/true/' \
+    -i src/3rdparty/chromium/media/media_options.gni
+sed -i 's/NINJAJOBS/NINJA_JOBS/' src/core/gn_run.pro
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 if [ -e ${QT5DIR}/lib/libQt5WebEngineCore.so ]; then

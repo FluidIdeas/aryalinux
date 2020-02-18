@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.bz2
+wget -nc https://dl.bintray.com/boostorg/release/1.72.0/source/boost_1_72_0.tar.bz2
 
 
 NAME=boost
 VERSION=
-URL=https://dl.bintray.com/boostorg/release/1.70.0/source/boost_1_70_0.tar.bz2
+URL=https://dl.bintray.com/boostorg/release/1.72.0/source/boost_1_72_0.tar.bz2
 SECTION="General Libraries"
 DESCRIPTION="Boost provides a set of free peer-reviewed portable C++ source libraries. It includes libraries for linear algebra, pseudorandom number generation, multithreading, image processing, regular expressions and unit testing."
 
@@ -41,7 +41,7 @@ echo $USER > /tmp/currentuser
 
 
 ./bootstrap.sh --prefix=/usr &&
-./b2 stage threading=multi link=shared
+./b2 stage -j$(nproc) threading=multi link=shared
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ./b2 install threading=multi link=shared                 &&

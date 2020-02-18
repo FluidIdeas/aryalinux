@@ -15,13 +15,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gmime/3.2/gmime-3.2.3.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gmime/3.2/gmime-3.2.3.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gmime/3.2/gmime-3.2.6.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gmime/3.2/gmime-3.2.6.tar.xz
 
 
 NAME=gmime3
-VERSION=3.2.3
-URL=http://ftp.gnome.org/pub/gnome/sources/gmime/3.2/gmime-3.2.3.tar.xz
+VERSION=3.2.6
+URL=http://ftp.gnome.org/pub/gnome/sources/gmime/3.2/gmime-3.2.6.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The GMime package contains a set of utilities for parsing and creating messages using the Multipurpose Internet Mail Extension (MIME) as defined by the applicable RFCs. See the GMime web site for the RFCs resourced. This is useful as it provides an API which adheres to the MIME specification as closely as possible while also providing programmers with an extremely easy to use interface to the API functions."
 

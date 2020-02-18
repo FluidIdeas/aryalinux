@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/pyatspi/2.32/pyatspi-2.32.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pyatspi/2.32/pyatspi-2.32.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/pyatspi/2.34/pyatspi-2.34.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pyatspi/2.34/pyatspi-2.34.0.tar.xz
 
 
 NAME=python-modules#pyatspi2
-VERSION=2.32.1
-URL=http://ftp.gnome.org/pub/gnome/sources/pyatspi/2.32/pyatspi-2.32.1.tar.xz
+VERSION=2.34.0
+URL=http://ftp.gnome.org/pub/gnome/sources/pyatspi/2.34/pyatspi-2.34.0.tar.xz
 SECTION="Others"
 
 if [ ! -z $URL ]

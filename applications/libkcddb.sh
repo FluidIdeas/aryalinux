@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/applications/19.08.0/src/libkcddb-19.08.0.tar.xz
+wget -nc http://download.kde.org/stable/release-service/19.12.2/src/libkcddb-19.12.2.tar.xz
 
 
 NAME=libkcddb
-VERSION=19.08.0
-URL=http://download.kde.org/stable/applications/19.08.0/src/libkcddb-19.08.0.tar.xz
+VERSION=19.12.2
+URL=http://download.kde.org/stable/release-service/19.12.2/src/libkcddb-19.12.2.tar.xz
 SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="The libkcddb package contains a library used to retrieve audio CD meta data from the internet."
 

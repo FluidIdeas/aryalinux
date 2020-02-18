@@ -9,19 +9,20 @@ set +h
 
 #REQ:gtk3
 #REQ:gsettings-desktop-schemas
+#REQ:libhandy
 #REQ:python-modules#pygobject3
 #REQ:sound-theme-freedesktop
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-tweaks/3.32/gnome-tweaks-3.32.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-tweaks/3.32/gnome-tweaks-3.32.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-tweaks/3.34/gnome-tweaks-3.34.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-tweaks/3.34/gnome-tweaks-3.34.0.tar.xz
 
 
 NAME=gnome-tweaks
-VERSION=3.32.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-tweaks/3.32/gnome-tweaks-3.32.0.tar.xz
+VERSION=3.34.0
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-tweaks/3.34/gnome-tweaks-3.34.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="GNOME Tweaks is a simple program used to tweak advanced GNOME settings."
 

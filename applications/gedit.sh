@@ -21,13 +21,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gedit/3.32/gedit-3.32.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gedit/3.32/gedit-3.32.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gedit/3.34/gedit-3.34.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gedit/3.34/gedit-3.34.1.tar.xz
 
 
 NAME=gedit
-VERSION=3.32.2
-URL=http://ftp.gnome.org/pub/gnome/sources/gedit/3.32/gedit-3.32.2.tar.xz
+VERSION=3.34.1
+URL=http://ftp.gnome.org/pub/gnome/sources/gedit/3.34/gedit-3.34.1.tar.xz
 SECTION="Editors"
 DESCRIPTION="The Gedit package contains a lightweight UTF-8 text editor for the GNOME Desktop."
 
@@ -57,7 +57,15 @@ meson --prefix=/usr -Dbuildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install &&
+ninja install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 glib-compile-schemas /usr/share/glib-2.0/schemas
 ENDOFROOTSCRIPT
 

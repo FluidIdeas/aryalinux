@@ -123,8 +123,6 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 sudo tee /etc/pam.d/system-password << "EOF"
 # Begin /etc/pam.d/system-password
 
@@ -134,12 +132,6 @@ password  required    pam_unix.so       sha512 shadow try_first_pass
 
 # End /etc/pam.d/system-password
 EOF
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/pam.d/other << "EOF"

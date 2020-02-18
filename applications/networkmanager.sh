@@ -26,13 +26,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.20/NetworkManager-1.20.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.20/NetworkManager-1.20.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.22/NetworkManager-1.22.6.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.22/NetworkManager-1.22.6.tar.xz
 
 
 NAME=networkmanager
-VERSION=1.20.0
-URL=http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.20/NetworkManager-1.20.0.tar.xz
+VERSION=1.22.6
+URL=http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.22/NetworkManager-1.22.6.tar.xz
 SECTION="Networking Utilities"
 DESCRIPTION="NetworkManager is a set of co-operative tools that make networking simple and straightforward. Whether you use WiFi, wired, 3G, or Bluetooth, NetworkManager allows you to quickly move from one network to another: Once a network has been configured and joined once, it can be detected and re-joined automatically the next time it's available."
 
@@ -55,10 +55,11 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -e '/Qt[CDN]/s/Qt/Qt5/g'       \
-    -e 's/-qt4/-qt5/'              \
+sed -e 's/-qt4/-qt5/'              \
     -e 's/moc_location/host_bins/' \
-    -i examples/C/qt/meson.build
+    -i examples/C/qt/meson.build   &&
+sed -e 's/Qt/&5/'                  \
+    -i meson.build
 sed '/initrd/d' -i src/meson.build
 grep -rl '^#!.*python$' | xargs sed -i '1s/python/&3/'
 mkdir build &&
@@ -85,7 +86,7 @@ ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
-mv -v /usr/share/doc/NetworkManager{,-1.20.0}
+mv -v /usr/share/doc/NetworkManager{,-1.22.6}
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -145,7 +146,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-systemctl enable NetworkManager-wait-online
+systemctl disable NetworkManager-wait-online
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

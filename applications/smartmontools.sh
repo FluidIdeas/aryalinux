@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/smartmontools/smartmontools-7.0.tar.gz
+wget -nc https://downloads.sourceforge.net/smartmontools/smartmontools-7.1.tar.gz
 
 
 NAME=smartmontools
-VERSION=7.0
-URL=https://downloads.sourceforge.net/smartmontools/smartmontools-7.0.tar.gz
+VERSION=7.1
+URL=https://downloads.sourceforge.net/smartmontools/smartmontools-7.1.tar.gz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The smartmontools package contains utility programs (smartctl, smartd) to control/monitor storage systems using the Self-Monitoring, Analysis and Reporting Technology System (S.M.A.R.T.) built into most modern ATA and SCSI disks."
 
@@ -42,7 +42,7 @@ echo $USER > /tmp/currentuser
 ./configure --prefix=/usr           \
             --sysconfdir=/etc       \
             --with-initscriptdir=no \
-            --docdir=/usr/share/doc/smartmontools-7.0 &&
+            --docdir=/usr/share/doc/smartmontools-7.1 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

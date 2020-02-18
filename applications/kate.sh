@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/stable/applications/19.08.0/src/kate-19.08.0.tar.xz
+wget -nc https://download.kde.org/stable/applications/19.08.3/src/kate-19.08.3.tar.xz
 
 
 NAME=kate
-VERSION=19.08.0
-URL=https://download.kde.org/stable/applications/19.08.0/src/kate-19.08.0.tar.xz
+VERSION=19.08.3
+URL=https://download.kde.org/stable/applications/19.08.3/src/kate-19.08.3.tar.xz
 SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="DescriptionThe KDE Advanced Text Editor is a text editor developed by the KDE free software community. It has been a part of KDE Software Compilation since version 2.2, which was first released in 2001."
 

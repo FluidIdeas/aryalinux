@@ -11,14 +11,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.isc.org/isc/bind9/9.14.5/bind-9.14.5.tar.gz
+wget -nc ftp://ftp.isc.org/isc/bind9/9.14.10/bind-9.14.10.tar.gz
 
 
 NAME=bind
-VERSION=9.14.5
-URL=ftp://ftp.isc.org/isc/bind9/9.14.5/bind-9.14.5.tar.gz
+VERSION=9.14.10
+URL=ftp://ftp.isc.org/isc/bind9/9.14.10/bind-9.14.10.tar.gz
 SECTION="Major Servers"
-DESCRIPTION="The BIND package provides a DNS server and client utilities. If you are only interested in the utilities, refer to the BIND Utilities-9.14.5."
+DESCRIPTION="The BIND package provides a DNS server and client utilities. If you are only interested in the utilities, refer to the BIND Utilities-9.14.10."
 
 if [ ! -z $URL ]
 then
@@ -78,9 +78,9 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
-install -v -m755 -d /usr/share/doc/bind-9.14.5/arm &&
+install -v -m755 -d /usr/share/doc/bind-9.14.10/arm &&
 install -v -m644    doc/arm/*.html \
-                    /usr/share/doc/bind-9.14.5/arm
+                    /usr/share/doc/bind-9.14.10/arm
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -102,12 +102,11 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mkdir -p /srv/named &&
 cd       /srv/named &&
-mkdir -p dev etc/namedb/{slave,pz} usr/lib/engines var/run/named &&
+mkdir -p dev etc/named/{slave,pz} usr/lib/engines var/run/named &&
 mknod /srv/named/dev/null c 1 3 &&
 mknod /srv/named/dev/urandom c 1 9 &&
 chmod 666 /srv/named/dev/{null,urandom} &&
-cp /etc/localtime etc &&
-touch /srv/named/managed-keys.bind
+cp /etc/localtime etc
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -116,8 +115,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-rndc-confgen -r /dev/urandom -b 512 > /etc/rndc.conf &&
-sed '/conf/d;/^#/!d;s:^# ::' /etc/rndc.conf > /srv/named/etc/named.conf
+rndc-confgen -a -b 512 -t /srv/named
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -128,7 +126,7 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat >> /srv/named/etc/named.conf << "EOF"
 options {
-    directory "/etc/namedb";
+    directory "/etc/named";
     pid-file "/var/run/named.pid";
     statistics-file "/var/run/named.stats";
 
@@ -187,7 +185,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cat > /srv/named/etc/namedb/pz/127.0.0 << "EOF"
+cat > /srv/named/etc/named/pz/127.0.0 << "EOF"
 $TTL 3D
 @      IN      SOA     ns.local.domain. hostmaster.local.domain. (
                         1       ; Serial
@@ -206,7 +204,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cat > /srv/named/etc/namedb/root.hints << "EOF"
+cat > /srv/named/etc/named/root.hints << "EOF"
 .                       6D  IN      NS      A.ROOT-SERVERS.NET.
 .                       6D  IN      NS      B.ROOT-SERVERS.NET.
 .                       6D  IN      NS      C.ROOT-SERVERS.NET.

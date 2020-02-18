@@ -15,12 +15,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://static.rust-lang.org/dist/rustc-1.35.0-src.tar.gz
+wget -nc https://static.rust-lang.org/dist/rustc-1.37.0-src.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/rustc-1.37.0-llvm9_fixes-1.patch
 
 
 NAME=rust
-VERSION=1.35.0
-URL=https://static.rust-lang.org/dist/rustc-1.35.0-src.tar.gz
+VERSION=1.37.0
+URL=https://static.rust-lang.org/dist/rustc-1.37.0-src.tar.gz
 SECTION="Programming"
 DESCRIPTION="The Rust programming language is designed to be a safe, concurrent, practical language."
 
@@ -45,8 +46,8 @@ echo $USER > /tmp/currentuser
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir /opt/rustc-1.35.0             &&
-ln -svfin rustc-1.35.0 /opt/rustc
+mkdir /opt/rustc-1.37.0             &&
+ln -svfin rustc-1.37.0 /opt/rustc
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -72,8 +73,8 @@ docs = false
 extended = true
 
 [install]
-prefix = "/opt/rustc-1.35.0"
-docdir = "share/doc/rustc-1.35.0"
+prefix = "/opt/rustc-1.37.0"
+docdir = "share/doc/rustc-1.37.0"
 
 [rust]
 channel = "stable"
@@ -95,6 +96,7 @@ llvm-config = "/usr/bin/llvm-config"
 
 
 EOF
+patch -Np1 -i ../rustc-1.37.0-llvm9_fixes-1.patch
 export RUSTFLAGS="$RUSTFLAGS -C link-args=-lffi" &&
 python3 ./x.py build --exclude src/tools/miri
 export LIBSSH2_SYS_USE_PKG_CONFIG=1 &&

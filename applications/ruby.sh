@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.4.tar.xz
+wget -nc http://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.0.tar.xz
 
 
 NAME=ruby
-VERSION=2.6.4
-URL=http://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.4.tar.xz
+VERSION=2.7.0
+URL=http://cache.ruby-lang.org/pub/ruby/2.7/ruby-2.7.0.tar.xz
 SECTION="Programming"
 DESCRIPTION="The Ruby package contains the Ruby development environment. This is useful for object-oriented scripting."
 
@@ -41,7 +41,7 @@ echo $USER > /tmp/currentuser
 
 ./configure --prefix=/usr   \
             --enable-shared \
-            --docdir=/usr/share/doc/ruby-2.6.4 &&
+            --docdir=/usr/share/doc/ruby-2.7.0 &&
 make
 make capi
 sudo rm -rf /tmp/rootscript.sh

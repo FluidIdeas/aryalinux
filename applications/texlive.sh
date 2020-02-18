@@ -26,7 +26,7 @@ cd $SOURCE_DIR
 
 wget -nc ftp://tug.org/texlive/historic/2019/texlive-20190410-source.tar.xz
 wget -nc ftp://tug.org/texlive/historic/2019/texlive-20190410-texmf.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/texlive-20190410-source-upstream_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/texlive-20190410-source-upstream_fixes-1.patch
 
 
 NAME=texlive

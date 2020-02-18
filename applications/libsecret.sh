@@ -16,13 +16,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libsecret/0.18/libsecret-0.18.8.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libsecret/0.18/libsecret-0.18.8.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/libsecret/0.20/libsecret-0.20.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libsecret/0.20/libsecret-0.20.1.tar.xz
 
 
 NAME=libsecret
-VERSION=0.18.8
-URL=http://ftp.gnome.org/pub/gnome/sources/libsecret/0.18/libsecret-0.18.8.tar.xz
+VERSION=0.20.1
+URL=http://ftp.gnome.org/pub/gnome/sources/libsecret/0.20/libsecret-0.20.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libsecret package contains a GObject based library for accessing the Secret Service API."
 
@@ -45,11 +45,14 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr --disable-static &&
-make
+mkdir bld &&
+cd bld &&
+
+meson --prefix=/usr -Dgtk_doc=false .. &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

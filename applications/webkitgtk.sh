@@ -11,7 +11,6 @@ set +h
 #REQ:cmake
 #REQ:gst10-plugins-base
 #REQ:gst10-plugins-bad
-#REQ:gtk2
 #REQ:gtk3
 #REQ:icu
 #REQ:libgudev
@@ -32,12 +31,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://webkitgtk.org/releases/webkitgtk-2.24.4.tar.xz
+wget -nc https://webkitgtk.org/releases/webkitgtk-2.26.3.tar.xz
 
 
 NAME=webkitgtk
-VERSION=2.24.4
-URL=https://webkitgtk.org/releases/webkitgtk-2.24.4.tar.xz
+VERSION=2.26.3
+URL=https://webkitgtk.org/releases/webkitgtk-2.26.3.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The WebKitGTK+ package is a port of the portable web rendering engine WebKit to the GTK+ 3 and GTK+ 2 platforms."
 
@@ -63,8 +62,6 @@ echo $USER > /tmp/currentuser
 mkdir -vp build &&
 cd        build &&
 
-CFLAGS=-Wno-expansion-to-defined  \
-CXXFLAGS=-Wno-expansion-to-defined \
 cmake -DCMAKE_BUILD_TYPE=Release  \
       -DCMAKE_INSTALL_PREFIX=/usr \
       -DCMAKE_SKIP_RPATH=ON       \
@@ -73,7 +70,9 @@ cmake -DCMAKE_BUILD_TYPE=Release  \
       -DUSE_LIBHYPHEN=OFF         \
       -DENABLE_MINIBROWSER=ON     \
       -DUSE_WOFF2=OFF             \
-      -Wno-dev -G Ninja .. &&
+      -DUSE_WPE_RENDERER=OFF      \
+      -DENABLE_BUBBLEWRAP_SANDBOX=OFF \
+      -Wno-dev -G Ninja ..        &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

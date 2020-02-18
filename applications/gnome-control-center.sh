@@ -18,24 +18,26 @@ set +h
 #REQ:libpwquality
 #REQ:mitkrb
 #REQ:shared-mime-info
+#REQ:udisks2
 #REQ:cheese
 #REQ:cups
 #REQ:samba
 #REQ:gnome-bluetooth
 #REQ:ibus
+#REQ:libhandy
 #REQ:modemmanager
 #REQ:network-manager-applet
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.32/gnome-control-center-3.32.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.32/gnome-control-center-3.32.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.34/gnome-control-center-3.34.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.34/gnome-control-center-3.34.2.tar.xz
 
 
 NAME=gnome-control-center
-VERSION=3.32.2
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.32/gnome-control-center-3.32.2.tar.xz
+VERSION=3.34.2
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-control-center/3.34/gnome-control-center-3.34.2.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Control Center package contains the GNOME settings manager."
 
@@ -57,8 +59,6 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sed -i '/ln -s/s/s /sf /' panels/user-accounts/meson.build &&
 
 mkdir build &&
 cd    build &&

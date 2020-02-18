@@ -14,7 +14,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/xarchiver/xarchiver-0.5.4.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/xarchiver-0.5.4-fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/xarchiver-0.5.4-fixes-1.patch
 
 
 NAME=xarchiver
@@ -46,7 +46,6 @@ patch -Np1 -i ../xarchiver-0.5.4-fixes-1.patch &&
 
 ./autogen.sh --prefix=/usr               \
              --libexecdir=/usr/lib/xfce4 \
-             --disable-gtk3              \
              --docdir=/usr/share/doc/xarchiver-0.5.4 &&
 make
 sudo rm -rf /tmp/rootscript.sh
@@ -58,16 +57,8 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-update-desktop-database &&
-gtk-update-icon-cache -t -f --include-image-data /usr/share/icons/hicolor
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
+gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
+update-desktop-database -q
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

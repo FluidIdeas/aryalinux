@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/libidn/libidn2-2.2.0.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/libidn/libidn2-2.2.0.tar.gz
+wget -nc https://ftp.gnu.org/gnu/libidn/libidn2-2.3.0.tar.gz
+wget -nc ftp://ftp.gnu.org/gnu/libidn/libidn2-2.3.0.tar.gz
 
 
 NAME=libidn2
-VERSION=2.2.0
-URL=https://ftp.gnu.org/gnu/libidn/libidn2-2.2.0.tar.gz
+VERSION=2.3.0
+URL=https://ftp.gnu.org/gnu/libidn/libidn2-2.3.0.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="libidn2 is a package designed for internationalized string handling based on standards from the Internet Engineering Task Force (IETF)'s IDN working group, designed for internationalized domain names."
 

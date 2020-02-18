@@ -17,13 +17,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/ibus/ibus/releases/download/1.5.20/ibus-1.5.20.tar.gz
+wget -nc https://github.com/ibus/ibus/releases/download/1.5.21/ibus-1.5.21.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/ibus-1.5.21-upstream_fixes-1.patch
 wget -nc https://www.unicode.org/Public/zipped/10.0.0/UCD.zip
 
 
 NAME=ibus
-VERSION=1.5.20
-URL=https://github.com/ibus/ibus/releases/download/1.5.20/ibus-1.5.20.tar.gz
+VERSION=1.5.21
+URL=https://github.com/ibus/ibus/releases/download/1.5.21/ibus-1.5.21.tar.gz
 SECTION="General Utilities"
 DESCRIPTION="ibus is an Intelligent Input Bus. It is a new input framework for the Linux OS. It provides a fully featured and user friendly input method user interface."
 
@@ -58,6 +59,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sed -i 's@/desktop/ibus@/org/freedesktop/ibus@g' \
     data/dconf/org.freedesktop.ibus.gschema.xml
+patch -Np1 -i ../ibus-1.5.21-upstream_fixes-1.patch
 ./configure --prefix=/usr             \
             --sysconfdir=/etc         \
             --disable-unicode-dict    \
@@ -66,7 +68,8 @@ rm -f tools/main.c                    &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+make install &&
+gzip -dfv /usr/share/man/man{{1,5}/ibus*.gz,5/00-upstream-settings.5.gz}
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

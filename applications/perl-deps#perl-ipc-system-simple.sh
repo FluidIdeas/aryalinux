@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/P/PJ/PJF/IPC-System-Simple-1.25.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/J/JK/JKEENAN/IPC-System-Simple-1.26.tar.gz
 
 
 NAME=perl-deps#perl-ipc-system-simple
-VERSION=1.25
-URL=https://cpan.metacpan.org/authors/id/P/PJ/PJF/IPC-System-Simple-1.25.tar.gz
+VERSION=1.26
+URL=https://cpan.metacpan.org/authors/id/J/JK/JKEENAN/IPC-System-Simple-1.26.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

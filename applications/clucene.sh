@@ -14,7 +14,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/clucene/clucene-core-2.3.3.4.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/clucene-2.3.3.4-contribs_lib-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/clucene-2.3.3.4-contribs_lib-1.patch
 
 
 NAME=clucene

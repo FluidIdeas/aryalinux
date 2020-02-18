@@ -15,12 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/phonon/4.10.3/phonon-4.10.3.tar.xz
+wget -nc http://download.kde.org/stable/phonon/4.11.1/phonon-4.11.1.tar.xz
 
 
 NAME=phonon
-VERSION=4.10.3
-URL=http://download.kde.org/stable/phonon/4.10.3/phonon-4.10.3.tar.xz
+VERSION=4.11.1
+URL=http://download.kde.org/stable/phonon/4.11.1/phonon-4.11.1.tar.xz
 SECTION="KDE Plasma 5"
 DESCRIPTION="Phonon is the multimedia API for KDE. It replaces the old aRts package. Phonon needs either the GStreamer or VLC backend."
 
@@ -46,10 +46,9 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr    \
-      -DCMAKE_BUILD_TYPE=Release     \
-      -DPHONON_BUILD_PHONON4QT5=ON   \
-      -Wno-dev .. &&
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+      -DCMAKE_BUILD_TYPE=Release  \
+      .. &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

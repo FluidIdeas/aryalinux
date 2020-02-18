@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/applications/19.08.0/src/ark-19.08.0.tar.xz
+wget -nc http://download.kde.org/stable/release-service/19.12.2/src/ark-19.12.2.tar.xz
 
 
 NAME=ark5
-VERSION=19.08.0
-URL=http://download.kde.org/stable/applications/19.08.0/src/ark-19.08.0.tar.xz
+VERSION=19.12.2
+URL=http://download.kde.org/stable/release-service/19.12.2/src/ark-19.12.2.tar.xz
 SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="The Ark package is a KF5 archive tool. It is a graphical front end to tar and similar tools."
 

@@ -15,12 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/exo/0.12/exo-0.12.8.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/exo/0.12/exo-0.12.11.tar.bz2
 
 
 NAME=exo
-VERSION=0.12.8
-URL=http://archive.xfce.org/src/xfce/exo/0.12/exo-0.12.8.tar.bz2
+VERSION=0.12.11
+URL=http://archive.xfce.org/src/xfce/exo/0.12/exo-0.12.11.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="Exo is a support library used in the Xfce desktop. It also has some helper applications that are used throughout Xfce."
 

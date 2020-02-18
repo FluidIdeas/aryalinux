@@ -18,7 +18,7 @@ NAME=libnfsidmap
 VERSION=0.26
 URL=https://fedorapeople.org/~steved/libnfsidmap/0.26/libnfsidmap-0.26.tar.bz2
 SECTION="General Libraries"
-DESCRIPTION="The libnfsidmap package contains a library to help mapping id's, mainly for NFSv4."
+DESCRIPTION="The libnfsidmap package contains a library to help with mapping id's, mainly for NFSv4."
 
 if [ ! -z $URL ]
 then

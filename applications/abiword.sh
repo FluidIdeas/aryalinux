@@ -16,15 +16,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.abisource.com/downloads/abiword/3.0.2/source/abiword-3.0.2.tar.gz
+wget -nc http://www.abisource.com/downloads/abiword/3.0.4/source/abiword-3.0.4.tar.gz
 wget -nc http://www.abisource.com/downloads/abiword/3.0.2/source/abiword-docs-3.0.2.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/abiword-3.0.2-gtk3_22_render_fix-1.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.1/abiword-3.0.2-fix_flicker-1.patch
 
 
 NAME=abiword
-VERSION=3.0.2
-URL=http://www.abisource.com/downloads/abiword/3.0.2/source/abiword-3.0.2.tar.gz
+VERSION=3.0.4
+URL=http://www.abisource.com/downloads/abiword/3.0.4/source/abiword-3.0.4.tar.gz
 SECTION="Office Programs"
 DESCRIPTION="AbiWord is a word processor which is useful for writing reports, letters and other formatted documents."
 
@@ -47,19 +45,12 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../abiword-3.0.2-gtk3_22_render_fix-1.patch &&
-
-patch -Np1 -i ../abiword-3.0.2-fix_flicker-1.patch &&
-   
 sed -e "s/free_suggestions/free_string_list/" \
     -e "s/_to_personal//"                     \
     -e "s/in_session/added/"                  \
     -i src/af/xap/xp/enchant_checker.cpp      &&
 
-sed -e "/icaltime_from_timet/{s/timet/&_with_zone/;s/0/0, 0/}" \
-    -i src/text/ptbl/xp/pd_DocumentRDF.cpp &&
-
-./configure --prefix=/usr --without-evolution-data-server &&
+./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

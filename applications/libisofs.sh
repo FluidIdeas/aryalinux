@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://files.libburnia-project.org/releases/libisofs-1.5.0.tar.gz
+wget -nc http://files.libburnia-project.org/releases/libisofs-1.5.2.tar.gz
 
 
 NAME=libisofs
-VERSION=1.5.0
-URL=http://files.libburnia-project.org/releases/libisofs-1.5.0.tar.gz
+VERSION=1.5.2
+URL=http://files.libburnia-project.org/releases/libisofs-1.5.2.tar.gz
 SECTION="CD/DVD-Writing Utilities"
 DESCRIPTION="libisofs is a library to create an ISO-9660 filesystem with extensions like RockRidge or Joliet."
 

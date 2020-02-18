@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://dl.hexchat.net/hexchat/hexchat-2.14.2.tar.xz
+wget -nc https://dl.hexchat.net/hexchat/hexchat-2.14.3.tar.xz
 
 
 NAME=hexchat
-VERSION=2.14.2
-URL=https://dl.hexchat.net/hexchat/hexchat-2.14.2.tar.xz
+VERSION=2.14.3
+URL=https://dl.hexchat.net/hexchat/hexchat-2.14.3.tar.xz
 SECTION="Other X-based Programs"
 DESCRIPTION="HexChat is an IRC chat program. It allows you to join multiple IRC channels (chat rooms) at the same time, talk publicly, have private one-on-one conversations, etc. File transfers are also possible."
 
