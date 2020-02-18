@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=linux-5.2.8.tar.xz
+TARBALL=linux-5.5.3.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -21,8 +21,8 @@ cd $DIRECTORY
 
 
 make mrproper
-make INSTALL_HDR_PATH=dest headers_install
-cp -rv dest/include/* /tools/include
+make headers
+cp -rv usr/include/* /tools/include
 
 fi
 

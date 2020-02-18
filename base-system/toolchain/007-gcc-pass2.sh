@@ -42,10 +42,12 @@ case $(uname -m) in
 esac
 tar -xf ../mpfr-4.0.2.tar.xz
 mv -v mpfr-4.0.2 mpfr
-tar -xf ../gmp-6.1.2.tar.xz
-mv -v gmp-6.1.2 gmp
+tar -xf ../gmp-6.2.0.tar.xz
+mv -v gmp-6.2.0 gmp
 tar -xf ../mpc-1.1.0.tar.gz
 mv -v mpc-1.1.0 mpc
+sed -e '1161 s|^|//|' \
+    -i libsanitizer/sanitizer_common/sanitizer_platform_limits_posix.cc
 mkdir -v build
 cd       build
 CC=$LFS_TGT-gcc                                    \

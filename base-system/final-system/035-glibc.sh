@@ -13,14 +13,14 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=glibc-2.30.tar.xz
+TARBALL=glibc-2.31.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-patch -Np1 -i ../glibc-2.30-fhs-1.patch
+patch -Np1 -i ../glibc-2.31-fhs-1.patch
 sed -i '/asm.socket.h/a# include <linux/sockios.h>' \
    sysdeps/unix/sysv/linux/bits/socket.h
 case $(uname -m) in
@@ -69,7 +69,7 @@ rpc: files
 
 # End /etc/nsswitch.conf
 EOF
-tar -xf ../../tzdata2019b.tar.gz
+tar -xf ../../tzdata2019c.tar.gz
 
 ZONEINFO=/usr/share/zoneinfo
 mkdir -pv $ZONEINFO/{posix,right}
