@@ -16,7 +16,7 @@ set +h
 #REQ:gobject-introspection
 #REQ:modemmanager
 #REQ:polkit
-#REQ:polkit#polkit-agent
+#REQ:polkit-gnome
 
 
 cd $SOURCE_DIR
