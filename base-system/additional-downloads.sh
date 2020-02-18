@@ -26,8 +26,7 @@ wget -nc https://ftp.osuosl.org/pub/blfs/conglomeration/popt/popt-1.16.tar.gz
 wget -nc http://aryalinux.info/files/linux-firmware-20191215.tar.gz
 wget -nc https://ftp.gnu.org/gnu/cpio/cpio-2.12.tar.bz2
 wget -nc https://ftp.osuosl.org/pub/blfs/conglomeration/lsb-release/lsb-release-1.4.tar.gz
-wget -nc https://busybox.net/downloads/fixes-1.20.2/busybox-1.20.2-sys-resource.patch
-wget -nc https://busybox.net/downloads/busybox-1.20.2.tar.bz2
+wget -nc https://busybox.net/downloads/busybox-1.31.1.tar.bz2
 wget -nc https://ftp.gnu.org/gnu/nettle/nettle-3.3.tar.gz
 wget -nc https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.12.tar.gz
 wget -nc https://github.com/p11-glue/p11-kit/releases/download/0.23.8/p11-kit-0.23.8.tar.gz
