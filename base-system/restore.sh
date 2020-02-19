@@ -20,6 +20,7 @@ ROOT_DIR=$ROOT_DIR
 CREATE_BACKUPS="y"
 EOF
 
+./umountal.sh
 mkdir -pv $LFS
 yes | mkfs.ext4 $ROOT_PART
 mount $ROOT_PART $LFS
