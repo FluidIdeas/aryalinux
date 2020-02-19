@@ -14,6 +14,13 @@ echo "5. Base System with KDE"
 echo "6. Base System with Gnome"
 read -p "Enter your choice (1 - 6) : " CHOICE
 
+if [ "x$BACKUP_DIR" == "x" ]; then
+    BACKUP_DIR="/root/backup"
+fi
+if [ "x$LFS" == "x" ]; then
+    LFS="/mnt/lfs"
+fi
+
 cat > build-properties <<EOF
 LFS=$LFS
 ROOT_DIR=$ROOT_DIR
