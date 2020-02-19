@@ -39,7 +39,7 @@ fi
 mkdir build
 cd build
 
-meson prefix=/usr ..
+meson --prefix=/usr ..
 ninja
 sudo ninja install
 
