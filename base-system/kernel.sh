@@ -177,7 +177,9 @@ install uhci_hcd /sbin/modprobe ehci_hcd ; /sbin/modprobe -i uhci_hcd ; true
 EOF
 
 cd /sources
-rm -rf $LINUX_SRC_DIR
+mv $LINUX_SRC_DIR /usr/src/
+ln -svf /usr/src/$LINUX_SRC_DIR /lib/modules/$(ls /lib/modules)/build
+ln -svf /usr/src/$LINUX_SRC_DIR /lib/modules/$(ls /lib/modules)/source
 
 FIRMWARE_TAR=`ls linux-firmware*`
 FIRMWARE_DIR=`tar tf $FIRMWARE_TAR | cut -d/ -f1 | uniq`
