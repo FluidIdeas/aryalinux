@@ -31,35 +31,35 @@ if [ -d ~/sources ]; then
     cp -r ~/sources/* /sources/
 fi
 
-tar xf $BACKUP_DIR/toolchain-*-x86_64.tar.xz -C /
-cp $BACKUP_DIR/toolchain-*-x86_64.tar.xz /sources/
+tar xf $BACKUP_DIR/toolchain*x86_64.tar.xz -C /
+cp $BACKUP_DIR/toolchain*x86_64.tar.xz /sources/
 if [ "x$CHOICE" == "x1" ]; then
-    tar xf $BACKUP_DIR/aryalinux-*-base-system-x86_64.tar.gz -C /
-    cp $BACKUP_DIR/aryalinux-*-base-system-x86_64.tar.gz /sources/
+    tar xf $BACKUP_DIR/aryalinux*base-system-x86_64.tar.gz -C /
+    cp $BACKUP_DIR/aryalinux*base-system-x86_64.tar.gz /sources/
 elif [ "x$CHOICE" == "x2" ]; then
-    tar xf $BACKUP_DIR/aryalinux-*-base-system-with-xserver-x86_64.tar.gz -C /
-    cp $BACKUP_DIR/aryalinux-*-base-system-x86_64.tar.gz /sources/
-    cp $BACKUP_DIR/aryalinux-*-base-system-with-xserver-x86_64.tar.gz /sources/
+    tar xf $BACKUP_DIR/aryalinux*base-system-with-xserver-x86_64.tar.gz -C /
+    cp $BACKUP_DIR/aryalinux*base-system-x86_64.tar.gz /sources/
+    cp $BACKUP_DIR/aryalinux*base-system-with-xserver-x86_64.tar.gz /sources/
 elif [ "x$CHOICE" == "x3" ]; then
-    tar xf $BACKUP_DIR/min/aryalinux-*-base-system-with-xfce-x86_64.tar.gz -C /
-    cp $BACKUP_DIR/aryalinux-*-base-system-x86_64.tar.gz /sources/
-    cp $BACKUP_DIR/aryalinux-*-base-system-with-xserver-x86_64.tar.gz /sources/
-    cp $BACKUP_DIR/min/aryalinux-*-base-system-with-xfce-x86_64.tar.gz /sources/
+    tar xf $BACKUP_DIR/min/aryalinux*base-system-with-xfce-x86_64.tar.gz -C /
+    cp $BACKUP_DIR/aryalinux*base-system-x86_64.tar.gz /sources/
+    cp $BACKUP_DIR/aryalinux*base-system-with-xserver-x86_64.tar.gz /sources/
+    cp $BACKUP_DIR/min/aryalinux*base-system-with-xfce-x86_64.tar.gz /sources/
 elif [ "x$CHOICE" == "x4" ]; then
-    tar xf $BACKUP_DIR/min/aryalinux-*-base-system-with-mate-x86_64.tar.gz -C /
-    cp $BACKUP_DIR/aryalinux-*-base-system-x86_64.tar.gz /sources/
-    cp $BACKUP_DIR/aryalinux-*-base-system-with-xserver-x86_64.tar.gz /sources/
-    cp $BACKUP_DIR/min/aryalinux-*-base-system-with-mate-x86_64.tar.gz /sources/
+    tar xf $BACKUP_DIR/min/aryalinux*base-system-with-mate-x86_64.tar.gz -C /
+    cp $BACKUP_DIR/aryalinux*base-system-x86_64.tar.gz /sources/
+    cp $BACKUP_DIR/aryalinux*base-system-with-xserver-x86_64.tar.gz /sources/
+    cp $BACKUP_DIR/min/aryalinux*base-system-with-mate-x86_64.tar.gz /sources/
 elif [ "x$CHOICE" == "x5" ]; then
-    tar xf $BACKUP_DIR/min/aryalinux-*-base-system-with-kde-x86_64.tar.gz -C /
-    cp $BACKUP_DIR/aryalinux-*-base-system-x86_64.tar.gz /sources/
-    cp $BACKUP_DIR/aryalinux-*-base-system-with-xserver-x86_64.tar.gz /sources/
-    cp $BACKUP_DIR/min/aryalinux-*-base-system-with-kde-x86_64.tar.gz /sources/
+    tar xf $BACKUP_DIR/min/aryalinux*base-system-with-kde-x86_64.tar.gz -C /
+    cp $BACKUP_DIR/aryalinux*base-system-x86_64.tar.gz /sources/
+    cp $BACKUP_DIR/aryalinux*base-system-with-xserver-x86_64.tar.gz /sources/
+    cp $BACKUP_DIR/min/aryalinux*base-system-with-kde-x86_64.tar.gz /sources/
 elif [ "x$CHOICE" == "x6" ]; then
-    tar xf $BACKUP_DIR/min/aryalinux-*-base-system-with-gnome-x86_64.tar.gz -C /
-    cp $BACKUP_DIR/aryalinux-*-base-system-x86_64.tar.gz /sources/
-    cp $BACKUP_DIR/aryalinux-*-base-system-with-xserver-x86_64.tar.gz /sources/
-    cp $BACKUP_DIR/min/aryalinux-*-base-system-with-gnome-x86_64.tar.gz /sources/
+    tar xf $BACKUP_DIR/min/aryalinux*base-system-with-gnome-x86_64.tar.gz -C /
+    cp $BACKUP_DIR/aryalinux*base-system-x86_64.tar.gz /sources/
+    cp $BACKUP_DIR/aryalinux*base-system-with-xserver-x86_64.tar.gz /sources/
+    cp $BACKUP_DIR/min/aryalinux*base-system-with-gnome-x86_64.tar.gz /sources/
 fi
 
 cp ~/backup/build-log /sources
