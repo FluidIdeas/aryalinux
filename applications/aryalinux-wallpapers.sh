@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://aryalinux.info/files/aryalinux-wallpapers-2.0.tar.xz
+wget -nc http://aryalinux.info/files/aryalinux-wallpapers-2.4.tar.xz
 
 
 NAME=aryalinux-wallpapers
-VERSION=2.0
+VERSION=2.4
 
 DESCRIPTION="The wallpaper collection for AryaLinux desktop."
 

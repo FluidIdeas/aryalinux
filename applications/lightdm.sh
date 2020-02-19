@@ -137,6 +137,17 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 
+sudo tee -a /etc/lightdm/lightdm-gtk-greeter.conf << EOF
+[greeter]
+xft-hintstyle = hintmedium
+xft-antialias = true
+xft-rgba = rgb
+icon-theme-name = 'Flat Remix'
+theme-name = Adapta-Nokto
+background = /usr/share/backgrounds/aryalinux/default-lock-screen-wallpaper.jpeg
+font-name = Source Sans Pro 11
+EOF
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
