@@ -85,7 +85,6 @@ set +h
 #REQ:udisks2
 #REQ:mate-utils
 #REQ:murrine-gtk-engine
-#REQ:mate-themes
 #REQ:gnome-themes-standard
 #REQ:adwaita-icon-theme
 #REQ:mate-system-monitor
