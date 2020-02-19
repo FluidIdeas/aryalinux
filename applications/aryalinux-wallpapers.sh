@@ -35,7 +35,7 @@ fi
 cd $DIRECTORY
 fi
 
-sudo tar xf aryalinux-wallpapers-2.0.tar.xz -C /
+sudo tar xf aryalinux-wallpapers-2.4.tar.xz -C /
 sudo chown -R root:root /usr/share/backgrounds/aryalinux
 
 
