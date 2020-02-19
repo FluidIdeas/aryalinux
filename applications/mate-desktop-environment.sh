@@ -79,7 +79,7 @@ set +h
 #REQ:caja-extensions
 #REQ:caja-dropbox
 #REQ:pluma
-#REQ:eom
+#REQ:gthumb
 #REQ:engrampa
 #REQ:atril
 #REQ:udisks2
