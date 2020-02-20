@@ -81,7 +81,7 @@ set +h
 #REQ:pluma
 #REQ:gthumb
 #REQ:engrampa
-#REQ:atril
+#REQ:epdfview
 #REQ:udisks2
 #REQ:mate-utils
 #REQ:murrine-gtk-engine
