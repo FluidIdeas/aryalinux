@@ -81,7 +81,6 @@ set +h
 #REQ:pluma
 #REQ:gthumb
 #REQ:engrampa
-#REQ:texlive
 #REQ:atril
 #REQ:udisks2
 #REQ:mate-utils
