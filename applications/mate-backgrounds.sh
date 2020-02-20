@@ -36,12 +36,10 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir -pv build
-cd build
-meson --prefix=/usr&&
-ninja
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static &&
+make
 
-sudo ninja install
+sudo make install
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
