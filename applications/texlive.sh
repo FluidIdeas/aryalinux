@@ -105,23 +105,11 @@ cd texlive-build    &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-#!/bin/bash
-
-set -e
-set +h
-
-. /etc/alps/alps.conf
-
-pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/9.0-systemd/blfs-systemd-units-20180105.tar.bz2
-tar xf blfs-systemd-units-20180105.tar.bz2
-cd blfs-systemd-units-20180105
-sudo make install-strip &&
+make install-strip &&
 /sbin/ldconfig &&
 make texlinks &&
 mkdir -pv /opt/texlive/2019/tlpkg/TeXLive/ &&
 install -v -m644 ../texk/tests/TeXLive/* /opt/texlive/2019/tlpkg/TeXLive/
-popd
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
