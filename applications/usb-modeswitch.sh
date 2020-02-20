@@ -18,7 +18,7 @@ wget -nc http://www.draisberghof.de/usb_modeswitch/usb-modeswitch-data-20150627.
 NAME=usb-modeswitch
 VERSION=2.2.5
 URL=http://www.draisberghof.de/usb_modeswitch/usb-modeswitch-2.2.5.tar.bz2
-DESCRIPTION="mode switching tool for controlling "flip flop" USB devices"
+DESCRIPTION="mode switching tool for controlling 'flip flop' USB devices"
 
 if [ ! -z $URL ]
 then
