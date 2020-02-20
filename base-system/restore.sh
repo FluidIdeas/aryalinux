@@ -71,3 +71,5 @@ fi
 
 cp ~/backup/build-log /sources
 echo "5" > /sources/currentstage
+cp -r ~/sources-apps /mnt/lfs/var/cache/alps/sources
+chmod -R a+rw /mnt/lfs/var/cache/alps/sources/
