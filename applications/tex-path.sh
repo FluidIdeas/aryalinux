@@ -37,7 +37,7 @@ fi
 
 export TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/') &&
 
-cat >> /etc/profile.d/extrapaths.sh << EOF
+sudo tee -a /etc/profile.d/extrapaths.sh << EOF
 
 # Begin texlive addition
 
