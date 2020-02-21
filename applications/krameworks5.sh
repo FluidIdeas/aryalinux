@@ -124,7 +124,7 @@ cc3125f7ae87b52e62571040749a4732  kparts-5.67.0.tar.xz
 #a447900424cd04dbaf49e8bf9617f6dc  kdewebkit-5.67.0.tar.xz
 91319edc9d27393df6812d60f1505b99  syntax-highlighting-5.67.0.tar.xz
 de9f38ec3ad76a5f19b4fc665dee5b82  ktexteditor-5.67.0.tar.xz
-923482f22930286d7f99af334c3a2181  kdesignerplugin-5.67.0.tar.xz
+923482f22930286d7f99af334c3a2181  portingAids/kdesignerplugin-5.67.0.tar.xz
 5141cdc1fcd46d43ac0043c10112be2b  kwayland-5.67.0.tar.xz
 5203954a541766bd0def96fe2ddc1d05  plasma-framework-5.67.0.tar.xz
 #f7b27e1fb53fbf7ccc3fabb3469b2ac3  modemmanager-qt-5.67.0.tar.xz
