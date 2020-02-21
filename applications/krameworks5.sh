@@ -140,7 +140,7 @@ b89c11f239048e4d65b4781fbc660a41  kactivities-stats-5.67.0.tar.xz
 #181d901dbda09ee7d26fd234eef56ed4  prison-5.67.0.tar.xz
 46b9c80d3ef84a26803d47fc57426158  qqc2-desktop-style-5.67.0.tar.xz
 b8352b2a459df37ac5fc8b5be5674d08  portingAids/kjs-5.67.0.tar.xz
-aa5d6287fdae772c72ac15bb56315e53  kdelibs4support-5.67.0.tar.xz
+aa5d6287fdae772c72ac15bb56315e53  portingAids/kdelibs4support-5.67.0.tar.xz
 8c4ec0e9a3ac90622c64ecc0e3329d91  portingAids/khtml-5.67.0.tar.xz
 10163d7d799db8cc90afcb7f2acb89d8  portingAids/kjsembed-5.67.0.tar.xz
 88c78b268916199328c381de5d65020b  portingAids/kmediaplayer-5.67.0.tar.xz
