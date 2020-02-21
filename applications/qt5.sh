@@ -30,6 +30,7 @@ set +h
 #REQ:xcb-util-image
 #REQ:xcb-util-keysyms
 #REQ:xcb-util-renderutil
+#REQ:nss
 
 
 cd $SOURCE_DIR
