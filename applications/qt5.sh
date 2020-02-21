@@ -86,7 +86,7 @@ sed -i 's/python /python3 /' qtdeclarative/qtdeclarative.pro \
 make -j$(nproc)
 
 sudo make install
-find $QT5PREFIX/ -name \*.prl \
+sudo find $QT5PREFIX/ -name \*.prl \
    -exec sudo sed -i -e '/^QMAKE_PRL_BUILD_DIR/d' {} \;
 export QT5BINDIR=$QT5PREFIX/bin
 
