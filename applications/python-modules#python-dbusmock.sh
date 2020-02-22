@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:python-modules#dbus-python
 
 
 cd $SOURCE_DIR
