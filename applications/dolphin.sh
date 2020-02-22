@@ -12,7 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://download.kde.org/stable/applications/19.08.3/src/dolphin-19.08.3.tar.xz
-
+wget https://bugsfiles.kde.org/attachment.cgi?id=124163 -O dolphin-19.08.3-build.patch
 
 NAME=dolphin
 VERSION=19.08.3
@@ -36,6 +36,7 @@ fi
 cd $DIRECTORY
 fi
 
+patch -Np1 -i ../dolphin-19.08.3-build.patch
 mkdir build
 cd build
 
