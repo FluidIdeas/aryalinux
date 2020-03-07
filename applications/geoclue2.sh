@@ -11,7 +11,6 @@ set +h
 #REQ:libsoup
 #REQ:modemmanager
 #REQ:vala
-#REQ:avahi
 #REQ:libnotify
 
 
