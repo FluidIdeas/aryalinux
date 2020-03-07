@@ -172,7 +172,7 @@ export LANG="${LANG:-C}"
 # End /etc/profile.d/i18n.sh
 EOF
 
-cat > /etc/profile.d/buildflags.sh << EOF
+cat > /etc/profile.d/buildflags.sh << "EOF"
 export MAKEFLAGS="j $(nproc)"
 EOF
 
