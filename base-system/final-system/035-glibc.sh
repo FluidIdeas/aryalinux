@@ -21,8 +21,6 @@ cd $DIRECTORY
 
 
 patch -Np1 -i ../glibc-2.31-fhs-1.patch
-sed -i '/asm.socket.h/a# include <linux/sockios.h>' \
-   sysdeps/unix/sysv/linux/bits/socket.h
 case $(uname -m) in
     i?86)   ln -sfv ld-linux.so.2 /lib/ld-lsb.so.3
     ;;

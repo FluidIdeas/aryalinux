@@ -13,17 +13,20 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=libcap-2.31.tar.xz
+TARBALL=libcap-2.33.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-sed -i '/install.*STA...LIBNAME/d' libcap/Makefile
+sed -i '/install.*STACAPLIBNAME/d' libcap/Makefile
 make lib=lib
 make lib=lib install
-chmod -v 755 /lib/libcap.so.2.31
+chmod -v 755 /lib/libcap.so.2.33
+mv -v /lib/libpsx.a /usr/lib
+rm -v /lib/libcap.so
+ln -sfv ../../lib/libcap.so.2 /usr/lib/libcap.so
 
 fi
 
