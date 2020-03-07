@@ -11,7 +11,6 @@ set +h
 #REQ:perl-deps#perl-scope-guard
 #REQ:perl-deps#perl-sub-info
 #REQ:perl-deps#perl-term-table
-#REQ:perl-deps#perl-test-simple
 
 
 cd $SOURCE_DIR

@@ -29,6 +29,7 @@ set +h
 #REQ:perl-modules#perl-log-log4perl
 #REQ:perl-modules#perl-lwp-protocol-https
 #REQ:perl-modules#perl-module-build
+#REQ:perl-modules#perl-parse-recdescent
 #REQ:perl-modules#perl-perlio-utf8_strict
 #REQ:perl-modules#perl-regexp-common
 #REQ:perl-modules#perl-sort-key

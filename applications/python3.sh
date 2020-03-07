@@ -7,17 +7,16 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:lsb-tools
 
 
 cd $SOURCE_DIR
 
-wget -nc https://www.python.org/ftp/python/3.8.1/Python-3.8.1.tar.xz
+wget -nc https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tar.xz
 
 
 NAME=python3
-VERSION=3.8.1
-URL=https://www.python.org/ftp/python/3.8.1/Python-3.8.1.tar.xz
+VERSION=3.8.2
+URL=https://www.python.org/ftp/python/3.8.2/Python-3.8.2.tar.xz
 SECTION="Programming"
 DESCRIPTION="The Python 3 package contains the Python development environment. This is useful for object-oriented programming, writing scripts, prototyping large programs or developing entire applications."
 
@@ -61,7 +60,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ln -svfn python-3.8.1 /usr/share/doc/python-3
+ln -svfn python-3.8.2 /usr/share/doc/python-3
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

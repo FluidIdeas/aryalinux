@@ -15,12 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/lxde/lxsession-0.5.4.tar.xz
+wget -nc https://downloads.sourceforge.net/lxde/lxsession-0.5.5.tar.xz
 
 
 NAME=lxsession
-VERSION=0.5.4
-URL=https://downloads.sourceforge.net/lxde/lxsession-0.5.4.tar.xz
+VERSION=0.5.5
+URL=https://downloads.sourceforge.net/lxde/lxsession-0.5.5.tar.xz
 SECTION="LXDE Desktop"
 DESCRIPTION="The LXSession package contains the default session manager for LXDE."
 

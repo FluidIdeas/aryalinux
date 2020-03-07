@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://github.com/vim/vim/archive/v8.2.0024/vim-8.2.0024.tar.gz
+wget -nc http://anduin.linuxfromscratch.org/BLFS/vim/vim-8.2.0190.tar.gz
 
 
 NAME=vim
-VERSION=8.2.0024
-URL=http://github.com/vim/vim/archive/v8.2.0024/vim-8.2.0024.tar.gz
+VERSION=8.2.0190
+URL=http://anduin.linuxfromscratch.org/BLFS/vim/vim-8.2.0190.tar.gz
 SECTION="Editors"
 DESCRIPTION="The Vim package, which is an abbreviation for VI IMproved, contains a vi clone with extra features as compared to the original vi."
 
@@ -59,7 +59,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ln -snfv ../vim/vim82/doc /usr/share/doc/vim-8.2.0024
+ln -snfv ../vim/vim82/doc /usr/share/doc/vim-8.2.0190
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -71,7 +71,7 @@ rsync -avzcP --exclude="/dos/" --exclude="/spell/" \
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make -C src installruntime &&
-vim -c ":helptags /usr/share/doc/vim-8.2.0024" -c ":q"
+vim -c ":helptags /usr/share/doc/vim-8.2.0190" -c ":q"
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

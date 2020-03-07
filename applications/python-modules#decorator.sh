@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://files.pythonhosted.org/packages/source/d/decorator/decorator-4.4.1.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/d/decorator/decorator-4.4.2.tar.gz
 
 
 NAME=python-modules#decorator
-VERSION=4.4.1
-URL=https://files.pythonhosted.org/packages/source/d/decorator/decorator-4.4.1.tar.gz
+VERSION=4.4.2
+URL=https://files.pythonhosted.org/packages/source/d/decorator/decorator-4.4.2.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

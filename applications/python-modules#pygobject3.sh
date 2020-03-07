@@ -10,7 +10,7 @@ set +h
 #REQ:gobject-introspection
 #REQ:python-modules#pycairo
 #REQ:python2
-#REQ:python-modules#pycairo
+#REQ:python-modules#pycairo2
 #REQ:python-modules#pycairo2
 
 

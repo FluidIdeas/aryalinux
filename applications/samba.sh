@@ -11,7 +11,6 @@ set +h
 #REQ:jansson
 #REQ:libtirpc
 #REQ:lmdb
-#REQ:python3
 #REQ:rpcsvc-proto
 #REQ:fuse
 #REQ:gpgme

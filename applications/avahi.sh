@@ -13,16 +13,17 @@ set +h
 #REQ:gtk3
 #REQ:libdaemon
 #REQ:libglade
+#REQ:qt5
 
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/lathiat/avahi/releases/download/v0.7/avahi-0.7.tar.gz
+wget -nc https://github.com/lathiat/avahi/releases/download/v0.8/avahi-0.8.tar.gz
 
 
 NAME=avahi
-VERSION=0.7
-URL=https://github.com/lathiat/avahi/releases/download/v0.7/avahi-0.7.tar.gz
+VERSION=0.8
+URL=https://github.com/lathiat/avahi/releases/download/v0.8/avahi-0.8.tar.gz
 SECTION="Networking Utilities"
 DESCRIPTION="The Avahi package is a system which facilitates service discovery on a local network."
 
@@ -69,6 +70,7 @@ sudo rm -rf /tmp/rootscript.sh
             --sysconfdir=/etc    \
             --localstatedir=/var \
             --disable-static     \
+            --disable-libevent   \
             --disable-mono       \
             --disable-monodoc    \
             --disable-python     \

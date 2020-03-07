@@ -42,9 +42,7 @@ echo $USER > /tmp/currentuser
 python3 setup.py build
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-python3 setup.py install --optimize=1       &&
-ln -sfv /usr/lib/lsb/install_initd /usr/sbin &&
-ln -sfv /usr/lib/lsb/remove_initd  /usr/sbin
+python3 setup.py install --optimize=1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

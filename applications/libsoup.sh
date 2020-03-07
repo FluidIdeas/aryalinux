@@ -17,13 +17,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libsoup/2.68/libsoup-2.68.3.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libsoup/2.68/libsoup-2.68.3.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/libsoup/2.68/libsoup-2.68.4.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libsoup/2.68/libsoup-2.68.4.tar.xz
 
 
 NAME=libsoup
-VERSION=2.68.3
-URL=http://ftp.gnome.org/pub/gnome/sources/libsoup/2.68/libsoup-2.68.3.tar.xz
+VERSION=2.68.4
+URL=http://ftp.gnome.org/pub/gnome/sources/libsoup/2.68/libsoup-2.68.4.tar.xz
 SECTION="Networking Libraries"
 DESCRIPTION="The libsoup is a HTTP client/server library for GNOME. It uses GObject and the GLib main loop to integrate with GNOME applications and it also has an asynchronous API for use in threaded applications."
 

@@ -11,14 +11,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.isc.org/isc/bind9/9.14.10/bind-9.14.10.tar.gz
+wget -nc ftp://ftp.isc.org/isc/bind9/9.16.0/bind-9.16.0.tar.gz
 
 
 NAME=bind
-VERSION=9.14.10
-URL=ftp://ftp.isc.org/isc/bind9/9.14.10/bind-9.14.10.tar.gz
+VERSION=9.16.0
+URL=ftp://ftp.isc.org/isc/bind9/9.16.0/bind-9.16.0.tar.gz
 SECTION="Major Servers"
-DESCRIPTION="The BIND package provides a DNS server and client utilities. If you are only interested in the utilities, refer to the BIND Utilities-9.14.10."
+DESCRIPTION="The BIND package provides a DNS server and client utilities. If you are only interested in the utilities, refer to the BIND Utilities-9.16.0."
 
 if [ ! -z $URL ]
 then
@@ -78,9 +78,9 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
-install -v -m755 -d /usr/share/doc/bind-9.14.10/arm &&
+install -v -m755 -d /usr/share/doc/bind-9.16.0/arm &&
 install -v -m644    doc/arm/*.html \
-                    /usr/share/doc/bind-9.14.10/arm
+                    /usr/share/doc/bind-9.16.0/arm
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

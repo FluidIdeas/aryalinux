@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://xcb.freedesktop.org/dist/xcb-proto-1.13.tar.bz2
+wget -nc https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.14.tar.xz
 
 
 NAME=xcb-proto
-VERSION=1.13
-URL=https://xcb.freedesktop.org/dist/xcb-proto-1.13.tar.bz2
+VERSION=1.14
+URL=https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.14.tar.xz
 SECTION="X Window System Environment"
 DESCRIPTION="The xcb-proto package provides the XML-XCB protocol descriptions that libxcb uses to generate the majority of its code and API."
 

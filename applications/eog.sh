@@ -58,7 +58,7 @@ meson --prefix=/usr .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install
+ninja install &&
 update-desktop-database
 ENDOFROOTSCRIPT
 

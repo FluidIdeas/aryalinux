@@ -17,12 +17,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.5.5/geoclue-2.5.5.tar.bz2
+wget -nc https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.5.6/geoclue-2.5.6.tar.bz2
 
 
 NAME=geoclue2
-VERSION=2.5.5
-URL=https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.5.5/geoclue-2.5.5.tar.bz2
+VERSION=2.5.6
+URL=https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.5.6/geoclue-2.5.6.tar.bz2
 SECTION="Networking Libraries"
 DESCRIPTION="GeoClue is a modular geoinformation service built on top of the D-Bus messaging system. The goal of the GeoClue project is to make creating location-aware applications as simple as possible."
 

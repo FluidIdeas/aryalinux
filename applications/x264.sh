@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.videolan.org/x264/snapshots/x264-snapshot-20190815-2245-stable.tar.bz2
+wget -nc http://anduin.linuxfromscratch.org/BLFS/x264/x264-20200218.tar.xz
 
 
 NAME=x264
-VERSION=2019081
-URL=https://download.videolan.org/x264/snapshots/x264-snapshot-20190815-2245-stable.tar.bz2
+VERSION=20200218
+URL=http://anduin.linuxfromscratch.org/BLFS/x264/x264-20200218.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="x264 package provides a library for encoding video streams into the H.264/MPEG-4 AVC format."
 

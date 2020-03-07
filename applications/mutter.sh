@@ -27,13 +27,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/mutter/3.34/mutter-3.34.3.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/mutter/3.34/mutter-3.34.3.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/mutter/3.34/mutter-3.34.4.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/mutter/3.34/mutter-3.34.4.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/mutter-3.34.4-mesa_20_fixes-1.patch
 
 
 NAME=mutter
-VERSION=3.34.3
-URL=http://ftp.gnome.org/pub/gnome/sources/mutter/3.34/mutter-3.34.3.tar.xz
+VERSION=3.34.4
+URL=http://ftp.gnome.org/pub/gnome/sources/mutter/3.34/mutter-3.34.4.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Mutter is the window manager for GNOME. It is not invoked directly, but from GNOME Session (on a machine with a hardware accelerated video driver)."
 
@@ -56,6 +57,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../mutter-3.34.4-mesa_20_fixes-1.patch
 mkdir build &&
 cd    build &&
 

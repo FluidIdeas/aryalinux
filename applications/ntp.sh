@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p13.tar.gz
+wget -nc https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p14.tar.gz
 
 
 NAME=ntp
 VERSION=4.2.
-URL=https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p13.tar.gz
+URL=https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p14.tar.gz
 SECTION="Networking Programs"
 DESCRIPTION="The ntp package contains a client and server to keep the time synchronized between various computers over a network. This package is the official reference implementation of the NTP protocol."
 
@@ -59,7 +59,7 @@ sed -e 's/"(\\S+)"/"?([^\\s"]+)"?/' \
             --sysconfdir=/etc     \
             --enable-linuxcaps    \
             --with-lineeditlibs=readline \
-            --docdir=/usr/share/doc/ntp-4.2.8p13 &&
+            --docdir=/usr/share/doc/ntp-4.2.8p14 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -92,7 +92,7 @@ server 2.south-america.pool.ntp.org
 driftfile /var/lib/ntp/ntp.drift
 pidfile   /var/run/ntpd.pid
 
-leapfile  /etc/ntp.leapseconds
+leapfile  /var/lib/ntp/ntp.leapseconds
 EOF
 ENDOFROOTSCRIPT
 

@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/thkukuk/rpcsvc-proto/releases/download/v1.4/rpcsvc-proto-1.4.tar.gz
+wget -nc https://github.com/thkukuk/rpcsvc-proto/releases/download/v1.4.1/rpcsvc-proto-1.4.1.tar.xz
 
 
 NAME=rpcsvc-proto
-VERSION=1.4
-URL=https://github.com/thkukuk/rpcsvc-proto/releases/download/v1.4/rpcsvc-proto-1.4.tar.gz
+VERSION=1.4.1
+URL=https://github.com/thkukuk/rpcsvc-proto/releases/download/v1.4.1/rpcsvc-proto-1.4.1.tar.xz
 SECTION="Networking Libraries"
 DESCRIPTION="The rpcsvc-proto package contains the rcpsvc protocol.x files and headers, formerly included with glibc, that are not included in replacement libtirpc-1.2.5, along with the rpcgen program."
 

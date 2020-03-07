@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.6b.tar.gz
+wget -nc ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.6c.tar.gz
 
 
 NAME=proftpd
 VERSION=1.3.
-URL=ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.6b.tar.gz
+URL=ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.6c.tar.gz
 SECTION="Major Servers"
 DESCRIPTION="The ProFTPD package contains a secure and highly configurable FTP daemon. This is useful for serving large file archives over a network."
 
@@ -59,8 +59,8 @@ make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install                                   &&
-install -d -m755 /usr/share/doc/proftpd-1.3.6b &&
-cp -Rv doc/*     /usr/share/doc/proftpd-1.3.6b
+install -d -m755 /usr/share/doc/proftpd-1.3.6c &&
+cp -Rv doc/*     /usr/share/doc/proftpd-1.3.6c
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

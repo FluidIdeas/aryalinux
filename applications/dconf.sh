@@ -19,8 +19,8 @@ cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf/0.34/dconf-0.34.0.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf/0.34/dconf-0.34.0.tar.xz
-wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.34/dconf-editor-3.34.3.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.34/dconf-editor-3.34.3.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.34/dconf-editor-3.34.4.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.34/dconf-editor-3.34.4.tar.xz
 
 
 NAME=dconf
@@ -65,8 +65,8 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 cd ..              &&
-tar -xf ../dconf-editor-3.34.3.tar.xz &&
-cd dconf-editor-3.34.3                &&
+tar -xf ../dconf-editor-3.34.4.tar.xz &&
+cd dconf-editor-3.34.4                &&
 
 mkdir build &&
 cd    build &&

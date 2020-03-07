@@ -26,12 +26,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/thunderbird/releases/68.4.2/source/thunderbird-68.4.2.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/thunderbird/releases/68.5.0/source/thunderbird-68.5.0.source.tar.xz
 
 
 NAME=thunderbird
-VERSION=68.4.2
-URL=https://archive.mozilla.org/pub/thunderbird/releases/68.4.2/source/thunderbird-68.4.2.source.tar.xz
+VERSION=68.5.0
+URL=https://archive.mozilla.org/pub/thunderbird/releases/68.5.0/source/thunderbird-68.5.0.source.tar.xz
 SECTION="Other X-based Programs"
 DESCRIPTION="Thunderbird is a stand-alone mail/news client based on the Mozilla codebase. It uses the Gecko rendering engine to enable it to display and compose HTML emails."
 

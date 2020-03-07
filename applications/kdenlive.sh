@@ -16,6 +16,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://download.kde.org/stable/release-service/19.12.2/src/kdenlive-19.12.2.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/kdenlive-19.12.2-segfault_fix-1.patch
 
 
 NAME=kdenlive
@@ -43,6 +44,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../kdenlive-19.12.2-segfault_fix-1.patch
 mkdir build &&
 cd    build &&
 

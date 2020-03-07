@@ -31,13 +31,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.34/gnome-shell-3.34.3.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.34/gnome-shell-3.34.3.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.34/gnome-shell-3.34.4.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.34/gnome-shell-3.34.4.tar.xz
 
 
 NAME=gnome-shell
-VERSION=3.34.3
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.34/gnome-shell-3.34.3.tar.xz
+VERSION=3.34.4
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-shell/3.34/gnome-shell-3.34.4.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Shell is the core user interface of the GNOME Desktop environment."
 

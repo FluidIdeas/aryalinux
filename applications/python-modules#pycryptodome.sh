@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://files.pythonhosted.org/packages/source/p/pycryptodome/pycryptodome-3.9.6.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/p/pycryptodome/pycryptodome-3.9.7.tar.gz
 
 
 NAME=python-modules#pycryptodome
-VERSION=3.9.6
-URL=https://files.pythonhosted.org/packages/source/p/pycryptodome/pycryptodome-3.9.6.tar.gz
+VERSION=3.9.7
+URL=https://files.pythonhosted.org/packages/source/p/pycryptodome/pycryptodome-3.9.7.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

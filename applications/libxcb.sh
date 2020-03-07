@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://xcb.freedesktop.org/dist/libxcb-1.13.1.tar.bz2
+wget -nc https://xorg.freedesktop.org/archive/individual/lib/libxcb-1.14.tar.xz
 
 
 NAME=libxcb
-VERSION=1.13.1
-URL=https://xcb.freedesktop.org/dist/libxcb-1.13.1.tar.bz2
+VERSION=1.14
+URL=https://xorg.freedesktop.org/archive/individual/lib/libxcb-1.14.tar.xz
 SECTION="X Window System Environment"
 DESCRIPTION="The libxcb package provides an interface to the X Window System protocol, which replaces the current Xlib interface. Xlib can also use XCB as a transport layer, allowing software to make requests and receive responses with both."
 
@@ -47,10 +47,8 @@ sed -i "s/pthread-stubs//" configure &&
 
 ./configure $XORG_CONFIG      \
             --without-doxygen \
-            --docdir='${datadir}'/doc/libxcb-1.13.1 &&
+            --docdir='${datadir}'/doc/libxcb-1.14 &&
 make
-sed -i "s/TFun tf/const TTest *tt/" tests/check_all.c tests/check_suites.h &&
-sed -i "s/tcase_add_test(tc, tf);/tcase_add_test(tc, tt);/" tests/check_all.c
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install

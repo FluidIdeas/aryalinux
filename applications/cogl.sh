@@ -20,6 +20,7 @@ cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/cogl/1.22/cogl-1.22.4.tar.xz
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/cogl/1.22/cogl-1.22.4.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/cogl-1.22.4-mesa_20_fixes-1.patch
 
 
 NAME=cogl
@@ -46,6 +47,9 @@ fi
 
 echo $USER > /tmp/currentuser
 
+
+patch -Np1 -i ../cogl-1.22.4-mesa_20_fixes-1.patch
+autoreconf &&
 
 ./configure --prefix=/usr --enable-gles1 --enable-gles2         \
     --enable-{kms,wayland,xlib}-egl-platform                    \

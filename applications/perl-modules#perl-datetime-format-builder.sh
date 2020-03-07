@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:perl-deps#perl-class-factory-util
 #REQ:perl-deps#perl-datetime-format-strptime
 #REQ:perl-deps#perl-params-validate
 

@@ -14,15 +14,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/glib/2.62/glib-2.62.4.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glib/2.62/glib-2.62.4.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/glib-2.62.4-cve_2020_6750_fix-1.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/glib-2.62.4-skip_warnings-1.patch
+wget -nc http://ftp.gnome.org/pub/gnome/sources/glib/2.64/glib-2.64.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glib/2.64/glib-2.64.0.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/glib-2.64.0-skip_warnings-1.patch
 
 
 NAME=glib2
-VERSION=2.62.4
-URL=http://ftp.gnome.org/pub/gnome/sources/glib/2.62/glib-2.62.4.tar.xz
+VERSION=2.64.0
+URL=http://ftp.gnome.org/pub/gnome/sources/glib/2.64/glib-2.64.0.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The GLib package contains low-level libraries useful for providing data structure handling for C, portability wrappers and interfaces for such runtime functionality as an event loop, threads, dynamic loading and an object system."
 
@@ -45,8 +44,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../glib-2.62.4-skip_warnings-1.patch
-patch -Np1 -i ../glib-2.62.4-cve_2020_6750_fix-1.patch
+patch -Np1 -i ../glib-2.64.0-skip_warnings-1.patch
 mkdir build &&
 cd    build &&
 
@@ -59,8 +57,8 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
 
-mkdir -p /usr/share/doc/glib-2.62.4 &&
-cp -r ../docs/reference/{NEWS,gio,glib,gobject} /usr/share/doc/glib-2.62.4
+mkdir -p /usr/share/doc/glib-2.64.0 &&
+cp -r ../docs/reference/{NEWS,gio,glib,gobject} /usr/share/doc/glib-2.64.0
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

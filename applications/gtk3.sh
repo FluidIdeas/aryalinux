@@ -24,13 +24,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.13.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.13.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.14.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.14.tar.xz
 
 
 NAME=gtk3
-VERSION=3.24.13
-URL=http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.13.tar.xz
+VERSION=3.24.14
+URL=http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.14.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The GTK+ 3 package contains libraries used for creating graphical user interfaces for applications."
 

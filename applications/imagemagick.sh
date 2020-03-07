@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.imagemagick.org/download/releases/ImageMagick-7.0.9-60.tar.xz
-wget -nc ftp://ftp.imagemagick.org/pub/ImageMagick/releases/ImageMagick-7.0.9-60.tar.xz
+wget -nc https://www.imagemagick.org/download/releases/ImageMagick-7.0.9-23.tar.xz
+wget -nc ftp://ftp.imagemagick.org/pub/ImageMagick/releases/ImageMagick-7.0.9-23.tar.xz
 
 
 NAME=imagemagick
 VERSION=7.0.
-URL=https://www.imagemagick.org/download/releases/ImageMagick-7.0.9-60.tar.xz
+URL=https://www.imagemagick.org/download/releases/ImageMagick-7.0.9-23.tar.xz
 SECTION="General Utilities"
 DESCRIPTION="ImageMagick is a collection of tools and libraries to read, write, and manipulate an image in various image formats. Image processing operations are available from the command line. Bindings for Perl and C++ are also available."
 

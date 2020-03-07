@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/logrotate/logrotate/releases/download/3.15.1/logrotate-3.15.1.tar.xz
+wget -nc https://github.com/logrotate/logrotate/releases/download/3.16.0/logrotate-3.16.0.tar.xz
 
 
 NAME=logrotate
-VERSION=3.15.1
-URL=https://github.com/logrotate/logrotate/releases/download/3.15.1/logrotate-3.15.1.tar.xz
+VERSION=3.16.0
+URL=https://github.com/logrotate/logrotate/releases/download/3.16.0/logrotate-3.16.0.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="The logrotate package allows automatic rotation, compression, removal, and mailing of log files."
 
@@ -40,7 +40,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr        &&
+./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -54,7 +54,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/logrotate.conf << EOF
-# Begin of /etc/logrotate.conf
+# Begin /etc/logrotate.conf
 
 # Rotate log files weekly
 weekly
@@ -71,7 +71,7 @@ rotate 2
 
 # Create new empty files after rotating old ones
 # This will create empty log files, with owner
-# set to root, group set to sys, and permissions 644
+# set to root, group set to sys, and permissions 664
 create 0664 root sys
 
 # Compress the backups with gzip
@@ -93,7 +93,7 @@ compress
 # so we include any file in it.
 include /etc/logrotate.d
 
-# End of /etc/logrotate.conf
+# End /etc/logrotate.conf
 EOF
 
 chmod -v 0644 /etc/logrotate.conf
@@ -112,8 +112,6 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/logrotate.d/sys.log << EOF
 /var/log/sys.log {
    # If the log file is larger than 100kb, rotate it
@@ -127,12 +125,6 @@ cat > /etc/logrotate.d/sys.log << EOF
 EOF
 
 chmod -v 0644 /etc/logrotate.d/sys.log
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 cat > /etc/logrotate.d/example.log << EOF
 file1
 file2
@@ -150,7 +142,7 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /lib/systemd/system/logrotate.service << "EOF" &&
 [Unit]
 Description=Runs the logrotate command
-Documentation=logrotate(8)
+Documentation=man:logrotate(8)
 DefaultDependencies=no
 After=local-fs.target
 Before=shutdown.target
