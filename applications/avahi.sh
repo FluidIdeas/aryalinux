@@ -13,7 +13,6 @@ set +h
 #REQ:gtk3
 #REQ:libdaemon
 #REQ:libglade
-#REQ:qt5
 
 
 cd $SOURCE_DIR
@@ -43,28 +42,11 @@ fi
 cd $DIRECTORY
 fi
 
-echo $USER > /tmp/currentuser
-
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-groupadd -fg 84 avahi &&
-useradd -c "Avahi Daemon Owner" -d /var/run/avahi-daemon -u 84 \
+sudo groupadd -fg 84 avahi &&
+sudo useradd -c "Avahi Daemon Owner" -d /var/run/avahi-daemon -u 84 \
         -g avahi -s /bin/false avahi
-ENDOFROOTSCRIPT
 
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-groupadd -fg 86 netdev
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
+sudo groupadd -fg 86 netdev
 
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \
@@ -76,37 +58,14 @@ sudo rm -rf /tmp/rootscript.sh
             --disable-python     \
             --disable-qt3        \
             --disable-qt4        \
+            --disable-qt5        \
             --enable-core-docs   \
             --with-distro=none   \
             --with-systemdsystemunitdir=/lib/systemd/system &&
 make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-systemctl enable avahi-daemon
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-systemctl enable avahi-dnsconfd
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
+sudo make install
+sudo systemctl enable avahi-daemon
+sudo systemctl enable avahi-dnsconfd
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
