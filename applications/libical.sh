@@ -55,6 +55,7 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr  \
       -DICAL_GLIB_VAPI=true        \
       .. &&
 make
+export MAKEFLAGS="j 1"
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
