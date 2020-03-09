@@ -23,6 +23,7 @@ set +h
 #REQ:sqlite
 #REQ:which
 #REQ:enchant
+#REQ:geoclue2
 #REQ:gobject-introspection
 #REQ:hicolor-icon-theme
 #REQ:libnotify
