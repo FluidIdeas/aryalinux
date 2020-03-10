@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.samba.org/ftp/tdb/tdb-1.3.17.tar.gz
+wget -nc https://www.samba.org/ftp/tdb/tdb-1.4.3.tar.gz
 
 
 NAME=libtdb
-VERSION=1.3.17
-URL=https://www.samba.org/ftp/tdb/tdb-1.3.17.tar.gz
+VERSION=1.4.3
+URL=https://www.samba.org/ftp/tdb/tdb-1.4.3.tar.gz
 SECTION="Others"
 DESCRIPTION="This is a simple database API. It is modelled after the structure of GDBM. TDB features, unlike GDBM, multiple writers support with appropriate locking and transactions."
 
