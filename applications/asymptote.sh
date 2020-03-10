@@ -19,12 +19,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/asymptote/asymptote-2.62.src.tgz
+wget -nc https://downloads.sourceforge.net/asymptote/asymptote-2.64.src.tgz
 
 
 NAME=asymptote
-VERSION=2.62
-URL=https://downloads.sourceforge.net/asymptote/asymptote-2.62.src.tgz
+VERSION=2.64
+URL=https://downloads.sourceforge.net/asymptote/asymptote-2.64.src.tgz
 SECTION="Typesetting"
 DESCRIPTION="Asymptote is a powerful descriptive vector graphics language that provides a natural coordinate-based framework for technical drawing. Labels and equations can be typeset with LaTeX. As well as EPS, PDF and PNG output it can produce WebGL 3D HTML rendering and (using dvisvgm) SVG output."
 

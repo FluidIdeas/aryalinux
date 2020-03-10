@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.isc.org/isc/bind9/9.16.0/bind-9.16.0.tar.gz
+wget -nc ftp://ftp.isc.org/isc/bind9/9.16.0/bind-9.16.0.tar.xz
 
 
 NAME=bind
 VERSION=9.16.0
-URL=ftp://ftp.isc.org/isc/bind9/9.16.0/bind-9.16.0.tar.gz
+URL=ftp://ftp.isc.org/isc/bind9/9.16.0/bind-9.16.0.tar.xz
 SECTION="Major Servers"
 DESCRIPTION="The BIND package provides a DNS server and client utilities. If you are only interested in the utilities, refer to the BIND Utilities-9.16.0."
 

@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://files.pythonhosted.org/packages/source/P/Pygments/Pygments-2.5.2.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/P/Pygments/Pygments-2.6.1.tar.gz
 
 
 NAME=python-modules#pygments
-VERSION=2.5.2
-URL=https://files.pythonhosted.org/packages/source/P/Pygments/Pygments-2.5.2.tar.gz
+VERSION=2.6.1
+URL=https://files.pythonhosted.org/packages/source/P/Pygments/Pygments-2.6.1.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

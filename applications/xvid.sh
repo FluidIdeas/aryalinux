@@ -49,7 +49,6 @@ sed -i '/libdir.*STATIC_LIB/ s/^/#/' Makefile &&
 make install &&
 
 chmod -v 755 /usr/lib/libxvidcore.so.4.3 &&
-
 install -v -m755 -d /usr/share/doc/xvidcore-1.3.7/examples &&
 install -v -m644 ../../doc/* /usr/share/doc/xvidcore-1.3.7 &&
 install -v -m644 ../../examples/* \
