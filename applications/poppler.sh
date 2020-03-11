@@ -19,13 +19,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://poppler.freedesktop.org/poppler-0.86.1.tar.xz
+wget -nc https://poppler.freedesktop.org/poppler-0.85.0.tar.xz
 wget -nc https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz
 
 
 NAME=poppler
-VERSION=0.86.1
-URL=https://poppler.freedesktop.org/poppler-0.86.1.tar.xz
+VERSION=0.85.0
+URL=https://poppler.freedesktop.org/poppler-0.85.0.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The Poppler package contains a PDF rendering library and command line tools used to manipulate PDF files. This is useful for providing PDF rendering functionality as a shared library."
 
@@ -68,8 +68,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m755 -d           /usr/share/doc/poppler-0.86.1 &&
-cp -vr ../glib/reference/html /usr/share/doc/poppler-0.86.1
+install -v -m755 -d           /usr/share/doc/poppler-0.85.0 &&
+cp -vr ../glib/reference/html /usr/share/doc/poppler-0.85.0
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
