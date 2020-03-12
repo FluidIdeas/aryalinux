@@ -45,12 +45,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://aryalinux.info/files/2.4/libreoffice-6.4.0.3-x86_64.tar.gz
 
 
 NAME=libreoffice
 VERSION=6.4.0.3
-URL=http://aryalinux.info/files/2.4/libreoffice-6.4.0.3-x86_64.tar.gz
+
 SECTION="Office Programs"
 DESCRIPTION="LibreOffice is a full-featured office suite. It is largely compatible with Microsoft Office and is descended from OpenOffice.org."
 
@@ -69,6 +68,8 @@ fi
 
 cd $DIRECTORY
 fi
+
+wget -nc http://aryalinux.info/files/2.4/libreoffice-6.4.0.3-x86_64.tar.gz
 
 sudo tar xf libreoffice-6.4.0.3-x86_64.tar.gz -C /
 

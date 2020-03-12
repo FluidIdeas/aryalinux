@@ -15,12 +15,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://aryalinux.info/files/2.4/rust-1.37.0-x86_64.tar.gz
 
 
 NAME=rust
 VERSION=1.37.0
-URL=http://aryalinux.info/files/2.4/rust-1.37.0-x86_64.tar.gz
+
 SECTION="Programming"
 DESCRIPTION="The Rust programming language is designed to be a safe, concurrent, practical language."
 
@@ -39,6 +38,8 @@ fi
 
 cd $DIRECTORY
 fi
+
+wget -nc http://aryalinux.info/files/2.4/rust-1.37.0-x86_64.tar.gz
 
 sudo tar xf rust-1.37.0-x86_64.tar.gz -C /
 
