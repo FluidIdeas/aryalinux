@@ -51,7 +51,7 @@ sudo tee -a /etc/ld.so.conf << EOF
 # End rustc addition
 EOF
 
-ldconfig
+sudo ldconfig
 
 sudo tee /etc/profile.d/rustc.sh << "EOF"
 # Begin /etc/profile.d/rustc.sh
