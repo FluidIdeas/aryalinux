@@ -17,6 +17,7 @@ set +h
 #REQ:modemmanager
 #REQ:polkit
 #REQ:polkit-gnome
+#REQ:libnma
 
 
 cd $SOURCE_DIR
