@@ -16,6 +16,7 @@ set +h
 #REQ:gtk3
 #REQ:libxslt
 #REQ:vala
+#REQ:gtk-doc
 
 
 cd $SOURCE_DIR
