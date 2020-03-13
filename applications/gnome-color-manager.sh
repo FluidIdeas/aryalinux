@@ -21,13 +21,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-color-manager/3.32/gnome-color-manager-3.32.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-color-manager/3.32/gnome-color-manager-3.32.0.tar.xz
+wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-color-manager/3.35/gnome-color-manager-3.35.90.tar.xz
+wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-color-manager/3.35/gnome-color-manager-3.35.90.tar.xz
 
 
 NAME=gnome-color-manager
-VERSION=3.32.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-color-manager/3.32/gnome-color-manager-3.32.0.tar.xz
+VERSION=3.35.90
+URL=http://ftp.acc.umu.se/pub/gnome/sources/gnome-color-manager/3.35/gnome-color-manager-3.35.90.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="GNOME Color Manager is a session framework for the GNOME desktop environment that makes it easy to manage, install and generate color profiles."
 

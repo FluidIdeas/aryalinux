@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.34/gnome-screenshot-3.34.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.34/gnome-screenshot-3.34.0.tar.xz
+wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-screenshot/3.36/gnome-screenshot-3.36.0.tar.xz
+wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-screenshot/3.36/gnome-screenshot-3.36.0.tar.xz
 
 
 NAME=gnome-screenshot
-VERSION=3.34.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-screenshot/3.34/gnome-screenshot-3.34.0.tar.xz
+VERSION=3.36.0
+URL=http://ftp.acc.umu.se/pub/gnome/sources/gnome-screenshot/3.36/gnome-screenshot-3.36.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Screenshot is a utility used for taking screenshots of the entire screen, a window or a user-defined area of the screen, with optional beautifying border effects."
 

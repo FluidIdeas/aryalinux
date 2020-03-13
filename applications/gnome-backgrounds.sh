@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-backgrounds/3.34/gnome-backgrounds-3.34.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-backgrounds/3.34/gnome-backgrounds-3.34.0.tar.xz
+wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-backgrounds/3.36/gnome-backgrounds-3.36.0.tar.xz
+wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-backgrounds/3.36/gnome-backgrounds-3.36.0.tar.xz
 
 
 NAME=gnome-backgrounds
-VERSION=3.34.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-backgrounds/3.34/gnome-backgrounds-3.34.0.tar.xz
+VERSION=3.36.0
+URL=http://ftp.acc.umu.se/pub/gnome/sources/gnome-backgrounds/3.36/gnome-backgrounds-3.36.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Backgrounds package contains a collection of graphics files which can be used as backgrounds in the GNOME Desktop environment. Additionally, the package creates the proper framework and directory structure so that you can add your own files to the collection."
 
