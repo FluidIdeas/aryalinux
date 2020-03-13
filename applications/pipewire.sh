@@ -14,6 +14,7 @@ set +h
 #REQ:sbc
 #REQ:sdl2
 #REQ:jack2
+#REQ:vulkan
 
 
 cd $SOURCE_DIR
