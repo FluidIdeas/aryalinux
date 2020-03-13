@@ -7,7 +7,7 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:glib
+#REQ:glib2
 #REQ:libgcrypt
 #REQ:libtasn1
 #REQ:p11-kit
