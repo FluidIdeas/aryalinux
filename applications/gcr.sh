@@ -50,7 +50,7 @@ echo $USER > /tmp/currentuser
 
 sed -i -r 's:"(/desktop):"/org/gnome\1:' schema/*.xml &&
 
-./configure --prefix=/usr     \
+./autogen.sh --prefix=/usr     \
             --sysconfdir=/etc &&
 make
 sudo rm -rf /tmp/rootscript.sh
