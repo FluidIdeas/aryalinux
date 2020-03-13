@@ -23,6 +23,7 @@ set +h
 #REQ:wayland-protocols
 #REQ:xorg-server
 #REQ:gtk3
+#REQ:graphene
 
 
 cd $SOURCE_DIR
