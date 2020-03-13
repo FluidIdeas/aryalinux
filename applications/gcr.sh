@@ -7,7 +7,7 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:glib2
+#REQ:glib
 #REQ:libgcrypt
 #REQ:libtasn1
 #REQ:p11-kit
@@ -16,17 +16,15 @@ set +h
 #REQ:gtk3
 #REQ:libxslt
 #REQ:vala
-#REQ:gtk-doc
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gcr/3.36/gcr-3.36.0.tar.xz
 
 
 NAME=gcr
 VERSION=3.36.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gcr/3.36/gcr-3.36.0.tar.xz
+
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Gcr package contains libraries used for displaying certificates and accessing key stores. It also provides the viewer for crypto files on the GNOME Desktop."
 
@@ -46,23 +44,15 @@ fi
 cd $DIRECTORY
 fi
 
-echo $USER > /tmp/currentuser
-
-
-sed -i -r 's:"(/desktop):"/org/gnome\1:' schema/*.xml &&
-
-./autogen.sh --prefix=/usr     \
-            --sysconfdir=/etc &&
-make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
+git clone https://github.com/GNOME/gcr.git
+cd gcr
+sed -i -r 's:"(/desktop):"/org/gnome\1:' schema/*.xml
+mkdir builddir
+meson --prefix=/usr
+ninja
+sudo ninja install
+cd $SOURCE_DIR
+sudo rm -rf gcr
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
