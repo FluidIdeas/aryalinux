@@ -207,7 +207,12 @@ http://ftp.gnome.org/pub/gnome/sources/network-manager-applet/1.16/network-manag
 http://ftp.gnome.org/pub/gnome/sources/seahorse/3.36/seahorse-3.36.tar.xz
 http://ftp.gnome.org/pub/gnome/sources/vinagre/3.22/vinagre-3.22.0.tar.xz"
 
+logfile=$(mktemp)
 for url in $(echo $urls); do
+	package_name=$(echo $url | cut -d/ -f7)
+	if grep $package_name $logfile &> /dev/null; then
+		continue
+	fi
 	pushd $SOURCE_DIR
 	wget $url
 	tarball=$(echo $url | rev | cut -d/ -f1 | rev)
@@ -236,6 +241,7 @@ for url in $(echo $urls); do
 		DESTDIR=/var/cache/alps/binaries/gnome ninja install
 	fi
 	popd
+	echo "$package_name" | tee -a $logfile
 done
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
