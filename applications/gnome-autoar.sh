@@ -15,6 +15,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-autoar/0.2/gnome-autoar-0.2.4.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-autoar/0.2/gnome-autoar-0.2.4.tar.xz
 
 
 NAME=gnome-autoar

@@ -19,6 +19,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gucharmap/12.0/gucharmap-12.0.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gucharmap/12.0/gucharmap-12.0.1.tar.xz
 
 
 NAME=gucharmap

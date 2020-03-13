@@ -20,11 +20,13 @@ set +h
 
 cd $SOURCE_DIR
 
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gcr/3.34/gcr-3.34.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gcr/3.34/gcr-3.34.0.tar.xz
 
 
 NAME=gcr
-VERSION=3.36.0
-
+VERSION=3.34.0
+URL=http://ftp.gnome.org/pub/gnome/sources/gcr/3.34/gcr-3.34.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Gcr package contains libraries used for displaying certificates and accessing key stores. It also provides the viewer for crypto files on the GNOME Desktop."
 
@@ -44,16 +46,23 @@ fi
 cd $DIRECTORY
 fi
 
-git clone https://github.com/GNOME/gcr.git
-cd gcr
-sed -i -r 's:"(/desktop):"/org/gnome\1:' schema/*.xml
-mkdir builddir
-cd builddir
-meson --prefix=/usr
-ninja
-sudo ninja install
-cd $SOURCE_DIR
-sudo rm -rf gcr
+echo $USER > /tmp/currentuser
+
+
+sed -i -r 's:"(/desktop):"/org/gnome\1:' schema/*.xml &&
+
+./autogen.sh --prefix=/usr     \
+            --sysconfdir=/etc &&
+make
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

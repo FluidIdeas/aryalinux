@@ -15,6 +15,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/libgee/0.20/libgee-0.20.3.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgee/0.20/libgee-0.20.3.tar.xz
 
 
 NAME=libgee

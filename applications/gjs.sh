@@ -16,12 +16,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gjs/1.64/gjs-1.64.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gjs/1.58/gjs-1.58.5.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gjs/1.58/gjs-1.58.5.tar.xz
 
 
 NAME=gjs
-VERSION=1.64.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gjs/1.64/gjs-1.64.0.tar.xz
+VERSION=1.58.5
+URL=http://ftp.gnome.org/pub/gnome/sources/gjs/1.58/gjs-1.58.5.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Gjs is a set of Javascript bindings for GNOME."
 

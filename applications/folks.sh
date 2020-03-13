@@ -18,12 +18,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/folks/0.14/folks-0.14.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/folks/0.13/folks-0.13.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/folks/0.13/folks-0.13.2.tar.xz
 
 
 NAME=folks
-VERSION=0.14.0
-URL=http://ftp.gnome.org/pub/gnome/sources/folks/0.14/folks-0.14.0.tar.xz
+VERSION=0.13.2
+URL=http://ftp.gnome.org/pub/gnome/sources/folks/0.13/folks-0.13.2.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Folks is a library that aggregates people from multiple sources (e.g, Telepathy connection managers and Evolution Data Server, Facebook, etc.) to create metacontacts."
 

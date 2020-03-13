@@ -23,6 +23,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/cheese/3.34/cheese-3.34.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/cheese/3.34/cheese-3.34.0.tar.xz
 
 
 NAME=cheese

@@ -17,13 +17,15 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf/0.36/dconf-0.36.0.tar.xz
-wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.36/dconf-editor-3.36.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf/0.34/dconf-0.34.0.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf/0.34/dconf-0.34.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.34/dconf-editor-3.34.4.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/dconf-editor/3.34/dconf-editor-3.34.4.tar.xz
 
 
 NAME=dconf
-VERSION=0.36.0
-URL=http://ftp.gnome.org/pub/gnome/sources/dconf/0.36/dconf-0.36.0.tar.xz
+VERSION=0.34.0
+URL=http://ftp.gnome.org/pub/gnome/sources/dconf/0.34/dconf-0.34.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The DConf package contains a low-level configuration system. Its main purpose is to provide a backend to GSettings on platforms that don't already have configuration storage systems."
 
@@ -63,8 +65,8 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 cd ..              &&
-tar -xf ../dconf-editor-3.36.0.tar.xz &&
-cd dconf-editor-3.36.0                &&
+tar -xf ../dconf-editor-3.34.4.tar.xz &&
+cd dconf-editor-3.34.4                &&
 
 mkdir build &&
 cd    build &&

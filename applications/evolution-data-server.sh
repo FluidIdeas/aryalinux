@@ -25,12 +25,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.36/evolution-data-server-3.36.0.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.34/evolution-data-server-3.34.4.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.34/evolution-data-server-3.34.4.tar.xz
 
 
 NAME=evolution-data-server
-VERSION=3.36.0
-URL=http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.36/evolution-data-server-3.36.0.tar.xz
+VERSION=3.34.4
+URL=http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.34/evolution-data-server-3.34.4.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Evolution Data Server package provides a unified backend for programs that work with contacts, tasks, and calendar information. It was originally developed for Evolution (hence the name), but is now used by other packages as well."
 

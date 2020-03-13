@@ -16,12 +16,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libsecret/0.20/libsecret-0.20.2.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/libsecret/0.20/libsecret-0.20.1.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libsecret/0.20/libsecret-0.20.1.tar.xz
 
 
 NAME=libsecret
-VERSION=0.20.2
-URL=http://ftp.gnome.org/pub/gnome/sources/libsecret/0.20/libsecret-0.20.2.tar.xz
+VERSION=0.20.1
+URL=http://ftp.gnome.org/pub/gnome/sources/libsecret/0.20/libsecret-0.20.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libsecret package contains a GObject based library for accessing the Secret Service API."
 

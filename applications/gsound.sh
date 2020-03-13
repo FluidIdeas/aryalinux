@@ -14,6 +14,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gsound/1.0/gsound-1.0.2.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gsound/1.0/gsound-1.0.2.tar.xz
 
 
 NAME=gsound
