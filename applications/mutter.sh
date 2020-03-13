@@ -24,6 +24,7 @@ set +h
 #REQ:xorg-server
 #REQ:gtk3
 #REQ:graphene
+#REQ:pipewire
 
 
 cd $SOURCE_DIR
