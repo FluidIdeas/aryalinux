@@ -45,11 +45,13 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr &&
-make
+mkdir -pv build_dir
+  cd build_dir
+  meson --prefix=/usr &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
