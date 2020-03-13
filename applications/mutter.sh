@@ -29,7 +29,6 @@ cd $SOURCE_DIR
 
 wget -nc http://ftp.acc.umu.se/pub/gnome/sources/mutter/3.36/mutter-3.36.0.tar.xz
 wget -nc http://ftp.acc.umu.se/pub/gnome/sources/mutter/3.36/mutter-3.36.0.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/mutter-3.34.4-mesa_20_fixes-1.patch
 
 
 NAME=mutter
@@ -57,7 +56,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../mutter-3.34.4-mesa_20_fixes-1.patch
 mkdir build &&
 cd    build &&
 
