@@ -7,19 +7,18 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:mobile-broadband-provider-info
 
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libnma/1.8/libnma-1.8.28.tar.xz
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/mobile-broadband-provider-info/20190618/mobile-broadband-provider-info-20190618.tar.xz
 
 
-NAME=libnma
-VERSION=1.8.28
-URL=ftp://ftp.gnome.org/pub/gnome/sources/libnma/1.8/libnma-1.8.28.tar.xz
+NAME=mobile-broadband-provider-info
+VERSION=20190618
+URL=ftp://ftp.gnome.org/pub/gnome/sources/mobile-broadband-provider-info/20190618/mobile-broadband-provider-info-20190618.tar.xz
 SECTION="Networking Utilities"
-DESCRIPTION="libnma is a library for wireless and mobile dialogs"
+DESCRIPTION="A database of mobile broadband service providers"
 
 if [ ! -z $URL ]
 then
@@ -37,13 +36,10 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build
-cd build
+./configure --prefix=/usr &&
+make
 
-meson --prefix=/usr &&
-ninja
-
-sudo ninja install
+sudo make install
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
