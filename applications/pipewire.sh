@@ -13,6 +13,7 @@ set +h
 #REQ:libva
 #REQ:sbc
 #REQ:sdl2
+#REQ:jack2
 
 
 cd $SOURCE_DIR
