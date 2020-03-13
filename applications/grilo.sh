@@ -19,7 +19,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.12.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/grilo/0.3/grilo-0.3.12.tar.xz
 
 
 NAME=grilo

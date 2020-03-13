@@ -19,7 +19,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/libchamplain/0.12/libchamplain-0.12.20.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libchamplain/0.12/libchamplain-0.12.20.tar.xz
 
 
 NAME=libchamplain

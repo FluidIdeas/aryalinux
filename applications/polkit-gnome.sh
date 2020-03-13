@@ -14,7 +14,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/polkit-gnome/0.105/polkit-gnome-0.105.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/polkit-gnome/0.105/polkit-gnome-0.105.tar.xz
 
 
 NAME=polkit-gnome

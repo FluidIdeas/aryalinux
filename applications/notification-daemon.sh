@@ -15,7 +15,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/notification-daemon/3.20/notification-daemon-3.20.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/notification-daemon/3.20/notification-daemon-3.20.0.tar.xz
 
 
 NAME=notification-daemon

@@ -12,7 +12,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-video-effects/0.5/gnome-video-effects-0.5.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-video-effects/0.5/gnome-video-effects-0.5.0.tar.xz
 
 
 NAME=gnome-video-effects

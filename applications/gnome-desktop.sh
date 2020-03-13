@@ -20,13 +20,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-desktop/3.34/gnome-desktop-3.34.4.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-desktop/3.34/gnome-desktop-3.34.4.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-desktop/3.36/gnome-desktop-3.36.0.tar.xz
 
 
 NAME=gnome-desktop
-VERSION=3.34.4
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-desktop/3.34/gnome-desktop-3.34.4.tar.xz
+VERSION=3.36.0
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-desktop/3.36/gnome-desktop-3.36.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Desktop package contains a library that provides an API shared by several applications on the GNOME Desktop."
 

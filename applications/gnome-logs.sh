@@ -15,7 +15,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-logs/3.34/gnome-logs-3.34.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-logs/3.34/gnome-logs-3.34.0.tar.xz
 
 
 NAME=gnome-logs

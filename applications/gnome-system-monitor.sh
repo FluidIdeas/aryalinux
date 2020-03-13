@@ -16,13 +16,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-system-monitor/3.32/gnome-system-monitor-3.32.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-system-monitor/3.32/gnome-system-monitor-3.32.1.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-system-monitor/3.36/gnome-system-monitor-3.36.0.tar.xz
 
 
 NAME=gnome-system-monitor
-VERSION=3.32.1
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-system-monitor/3.32/gnome-system-monitor-3.32.1.tar.xz
+VERSION=3.36.0
+URL=http://ftp.gnome.org/pub/gnome/sources/gnome-system-monitor/3.36/gnome-system-monitor-3.36.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The GNOME System Monitor package contains GNOME's replacement for gtop."
 

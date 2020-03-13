@@ -16,7 +16,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.gnome.org/pub/gnome/sources/baobab/3.34/baobab-3.34.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/baobab/3.34/baobab-3.34.0.tar.xz
 
 
 NAME=baobab
