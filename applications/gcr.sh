@@ -48,6 +48,7 @@ git clone https://github.com/GNOME/gcr.git
 cd gcr
 sed -i -r 's:"(/desktop):"/org/gnome\1:' schema/*.xml
 mkdir builddir
+cd builddir
 meson --prefix=/usr
 ninja
 sudo ninja install
