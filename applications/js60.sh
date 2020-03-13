@@ -11,6 +11,7 @@ set +h
 #REQ:icu
 #REQ:python2
 #REQ:which
+#REQ:rust
 #REQ:zip
 
 
@@ -44,6 +45,14 @@ fi
 
 echo $USER > /tmp/currentuser
 
+
+if ! grep -ri "/opt/rustc/lib" /etc/ld.so.conf &> /dev/null; then
+	echo "/opt/rustc/lib" | sudo tee -a /etc/ld.so.conf
+	sudo ldconfig
+fi
+
+sudo ldconfig
+. /etc/profile.d/rustc.sh
 
 mkdir mozjs-build &&
 cd    mozjs-build &&
