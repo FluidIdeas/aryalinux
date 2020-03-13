@@ -14,7 +14,6 @@ set +h
 #REQ:sbc
 #REQ:sdl2
 #REQ:jack2
-#REQ:vulkan
 
 
 cd $SOURCE_DIR
@@ -50,7 +49,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr --sysconfdir=/etc .. &&
+meson --prefix=/usr --sysconfdir=/etc -D vulkan=false .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
