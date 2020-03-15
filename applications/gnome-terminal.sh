@@ -18,13 +18,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-terminal/3.36/gnome-terminal-3.36.0.1.tar.xz
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-terminal/3.36/gnome-terminal-3.36.0.1.tar.xz
+wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-terminal/3.34/gnome-terminal-3.34.2.tar.xz
 
 
 NAME=gnome-terminal
-VERSION=3.36.0.1
-URL=http://ftp.acc.umu.se/pub/gnome/sources/gnome-terminal/3.36/gnome-terminal-3.36.0.1.tar.xz
+VERSION=3.34.2
+URL=http://ftp.acc.umu.se/pub/gnome/sources/gnome-terminal/3.34/gnome-terminal-3.34.2.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Terminal package contains the terminal emulator for GNOME Desktop."
 
