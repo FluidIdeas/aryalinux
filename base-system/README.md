@@ -1,1 +1,0 @@
-# aryalinux-scripts
