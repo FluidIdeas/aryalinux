@@ -2,7 +2,11 @@
 
 set -e
 
-. /sources/build-properties
+if [ -f ./build-properties ]; then
+	. ./build-properties
+else
+	. /sources/build-properties
+fi
 
 type=$(sudo fdisk -l $DEV_NAME | grep "Disklabel type" | tr -s ' ' | rev | cut -d ' ' -f1 | rev)
 
