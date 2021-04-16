@@ -148,16 +148,18 @@ def freshBuild(startFrom):
 
 	if startFrom == 3:
 		logCurrentStage('3')
-		env={}
-		LFS='/mnt/lfs'
-		LC_ALL='POSIX'
-		LFS_TGT=check_output("echo $(uname -m)-lfs-linux-gnu", shell=True).strip('\n')
-		PATH='/tools/bin:/bin:/usr/bin'
+		env = {}
+		LFS = '/mnt/lfs'
+		LC_ALL = 'POSIX'
+		LFS_TGT = check_output("echo $(uname -m)-lfs-linux-gnu", shell=True).strip('\n')
+		PATH = '/tools/bin:/bin:/usr/bin'
+		CONFIG_SITE = LFS + '/usr/share/config.site'
 
 		env['LFS'] = LFS
 		env['LC_ALL'] = LC_ALL
 		env['PATH'] = PATH
-		env['LFS_TGT']=LFS_TGT
+		env['LFS_TGT'] = LFS_TGT
+    env['CONFIG_SITE'] = CONFIG_SITE
 
 		try:
 			runScriptWithEnvAs('lfs', 'stage2.sh', env, '/home/lfs')

@@ -5,7 +5,10 @@ set +h
 
 LFS=/mnt/lfs
 
-chown -R root:root $LFS/tools
+chown -R root:root $LFS/{usr,lib,var,etc,bin,sbin,tools}
+case $(uname -m) in
+  x86_64) chown -R root:root $LFS/lib64 ;;
+esac
 
 mkdir -pv $LFS/{dev,proc,sys,run}
 

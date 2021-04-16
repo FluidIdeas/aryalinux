@@ -88,9 +88,17 @@ ln -svf $LFS/sources /sources
 cp -r ~/sources/* $LFS/sources
 touch $LFS/sources/currentstage
 
+# Creating a limited directory layout in LFS filesystem
+mkdir -pv $LFS/{bin,etc,lib,sbin,usr,var}
+case $(uname -m) in
+  x86_64) mkdir -pv $LFS/lib64 ;;
+esac
+
+# Creating toolchain directory
 mkdir -v $LFS/tools
 ln -sv $LFS/tools /
 
+# Creating directory for source archives and copying sources
 mkdir -pv $LFS/var/cache/alps/sources
 
 if [ -d ~/sources-apps ]
@@ -99,6 +107,7 @@ then
 	chmod -R a+rw $LFS/var/cache/alps/sources
 fi
 
+# Removing lfs user if exists and creating again
 if grep lfs /etc/passwd
 then
 	userdel -r lfs
@@ -106,6 +115,12 @@ fi
 
 groupadd lfs
 useradd -s /bin/bash -g lfs -m -k /dev/null lfs
+
+# Changing ownership to lfs
+chown -v lfs $LFS/{usr,lib,var,etc,bin,sbin,tools}
+case $(uname -m) in
+  x86_64) chown -v lfs $LFS/lib64 ;;
+esac
 
 chown -v lfs $LFS/tools
 chown -v lfs $LFS/sources
