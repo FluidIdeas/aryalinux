@@ -10,45 +10,37 @@ then
 
 cd /sources
 
-tar xf cpio-2.12.tar.bz2
-cd cpio-2.12
+tar xf cpio-2.13.tar.bz2
+cd cpio-2.13
 
 ./configure --prefix=/usr \
             --bindir=/bin \
             --enable-mt   \
             --with-rmt=/usr/libexec/rmt &&
 make &&
-makeinfo --html            -o doc/html      doc/cpio.texi &&
-makeinfo --html --no-split -o doc/cpio.html doc/cpio.texi &&
-makeinfo --plaintext       -o doc/cpio.txt  doc/cpio.texi
-make install &&
-install -v -m755 -d /usr/share/doc/cpio-2.12/html &&
-install -v -m644    doc/html/* \
-                    /usr/share/doc/cpio-2.12/html &&
-install -v -m644    doc/cpio.{html,txt} \
-                    /usr/share/doc/cpio-2.12
+make install
 
 cd /sources
-rm -rf cpio-2.12
+rm -rf cpio-2.13
 
-tar xf dash-0.5.9.1.tar.gz
-cd dash-0.5.9.1
+tar xf dash-0.5.11.3.tar.gz
+cd dash-0.5.11.3
 ./configure --prefix=/usr --enable-static
 make
 make install
 
 cd /sources
-rm -rf dash-0.5.9.1
+rm -rf dash-0.5.11.3
 
-tar xf dracut-049.tar.gz
-cd dracut-049
+tar xf dracut-053.tar.xz
+cd dracut-053
 sed -i "s/enable_documentation=yes/enable_documentation=no/g" configure
 ./configure
 make
 make install
 
 cd /sources
-rm -rf dracut-049
+rm -rf dracut-053
 
 echo "initramfs" | tee -a /sources/build-log
 

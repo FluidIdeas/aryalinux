@@ -19,7 +19,7 @@ wget -nc https://ftp.gnu.org/gnu/unifont/unifont-7.0.05/unifont-7.0.05.pcf.gz
 wget -nc https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.5.5.tar.xz
 wget -nc http://ftp.rpm.org/popt/releases/popt-1.x/popt-1.18.tar.gz
 wget -nc https://cdn.kernel.org/pub/linux/kernel/firmware/linux-firmware-20210315.tar.xz
-wget -nc https://ftp.gnu.org/gnu/cpio/cpio-2.12.tar.bz2
+wget -nc https://ftp.gnu.org/gnu/cpio/cpio-2.13.tar.bz2
 wget -nc https://github.com/djlucas/LSB-Tools/releases/download/v0.9/LSB-Tools-0.9.tar.gz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/busybox-1.31.1-glibc.patch
 wget -nc https://busybox.net/downloads/busybox-1.32.1.tar.bz2
@@ -35,9 +35,9 @@ wget -nc http://www.cacert.org/certs/root.crt
 wget -nc http://www.cacert.org/certs/class3.crt
 wget -nc https://hg.mozilla.org/projects/nss/raw-file/tip/lib/ckfw/builtins/certdata.txt
 wget -nc http://www.kernel.org/pub/linux/utils/boot/syslinux/syslinux-4.06.tar.xz
-wget -nc http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.9.1.tar.gz
+wget -nc http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.11.3.tar.gz
 
-wget -c https://github.com/dracutdevs/dracut/archive/049.tar.gz -O dracut-049.tar.gz
+wget -c https://github.com/dracutdevs/dracut/releases/download/053/dracut-053.tar.xz
 
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/b09bd478061f93f986442bf654bb3fe8fadb59f7/efibootmgr-17-efidir.patch
 wget -nc https://sourceware.org/ftp/lvm2/releases/LVM2.2.02.171.tgz
