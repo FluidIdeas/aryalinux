@@ -6,14 +6,14 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=070-autoconf
+NAME=044-dejagnu
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=autoconf-2.71.tar.xz
+TARBALL=dejagnu-1.6.2.tar.gz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -21,8 +21,11 @@ cd $DIRECTORY
 
 
 ./configure --prefix=/usr
-make
+makeinfo --html --no-split -o doc/dejagnu.html doc/dejagnu.texi
+makeinfo --plaintext       -o doc/dejagnu.txt  doc/dejagnu.texi
 make install
+install -v -dm755  /usr/share/doc/dejagnu-1.6.2
+install -v -m644   doc/dejagnu.{html,txt} /usr/share/doc/dejagnu-1.6.2
 
 fi
 

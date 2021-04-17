@@ -6,21 +6,27 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=070-autoconf
+NAME=001-binutils-pass1
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=autoconf-2.71.tar.xz
+TARBALL=binutils-2.36.1.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-./configure --prefix=/usr
+mkdir -v build
+cd       build
+../configure --prefix=$LFS/tools       \
+             --with-sysroot=$LFS        \
+             --target=$LFS_TGT          \
+             --disable-nls              \
+             --disable-werror
 make
 make install
 

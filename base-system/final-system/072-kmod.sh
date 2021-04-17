@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=kmod-27.tar.xz
+TARBALL=kmod-28.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -25,6 +25,7 @@ cd $DIRECTORY
             --sysconfdir=/etc      \
             --with-rootlibdir=/lib \
             --with-xz              \
+            --with-zstd            \
             --with-zlib
 make
 make install

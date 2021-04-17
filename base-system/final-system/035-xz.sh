@@ -6,14 +6,14 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=063-gdbm
+NAME=035-xz
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=gdbm-1.19.tar.gz
+TARBALL=xz-5.2.5.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -22,9 +22,12 @@ cd $DIRECTORY
 
 ./configure --prefix=/usr    \
             --disable-static \
-            --enable-libgdbm-compat
+            --docdir=/usr/share/doc/xz-5.2.5
 make
 make install
+mv -v   /usr/bin/{lzma,unlzma,lzcat,xz,unxz,xzcat} /bin
+mv -v /usr/lib/liblzma.so.* /lib
+ln -svf ../../lib/$(readlink /usr/lib/liblzma.so) /usr/lib/liblzma.so
 
 fi
 

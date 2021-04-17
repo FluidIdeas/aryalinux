@@ -6,23 +6,26 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=070-autoconf
+NAME=013-gawk
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=autoconf-2.71.tar.xz
+TARBALL=gawk-5.1.0.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-./configure --prefix=/usr
+sed -i 's/extras//' Makefile.in
+./configure --prefix=/usr   \
+            --host=$LFS_TGT \
+            --build=$(./config.guess)
 make
-make install
+make DESTDIR=$LFS install
 
 fi
 

@@ -6,23 +6,23 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=070-autoconf
+NAME=024-gettext
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=autoconf-2.71.tar.xz
+TARBALL=gettext-0.21.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-./configure --prefix=/usr
+./configure --disable-shared
 make
-make install
+cp -v gettext-tools/src/{msgfmt,msgmerge,xgettext} /usr/bin
 
 fi
 

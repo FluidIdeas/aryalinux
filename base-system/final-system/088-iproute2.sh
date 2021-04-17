@@ -6,23 +6,25 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=070-autoconf
+NAME=088-iproute2
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=autoconf-2.71.tar.xz
+TARBALL=iproute2-5.10.0.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-./configure --prefix=/usr
+sed -i /ARPD/d Makefile
+rm -fv man/man8/arpd.8
+sed -i 's/.m_ipt.o//' tc/Makefile
 make
-make install
+make DOCDIR=/usr/share/doc/iproute2-5.10.0 install
 
 fi
 

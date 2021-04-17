@@ -6,23 +6,27 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=070-autoconf
+NAME=012-findutils
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=autoconf-2.71.tar.xz
+TARBALL=findutils-4.8.0.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-./configure --prefix=/usr
+./configure --prefix=/usr   \
+            --host=$LFS_TGT \
+            --build=$(build-aux/config.guess)
 make
-make install
+make DESTDIR=$LFS install
+mv -v $LFS/usr/bin/find $LFS/bin
+sed -i 's|find:=${BINDIR}|find:=/bin|' $LFS/usr/bin/updatedb
 
 fi
 
