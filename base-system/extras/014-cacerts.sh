@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="014-cacerts.sh"
-TARBALL="make-ca-0.7.tar.gz"
+TARBALL="make-ca-1.7.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,22 +29,9 @@ then
 	cd $DIRECTORY
 fi
 
+make install &&
 install -vdm755 /etc/ssl/local
-
-install -vdm755 /etc/ssl/local &&
-openssl x509 -in ../root.crt -text -fingerprint -setalias "CAcert Class 1 root" \
-        -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning \
-        > /etc/ssl/local/CAcert_Class_1_root.pem &&
-openssl x509 -in ../class3.crt -text -fingerprint -setalias "CAcert Class 3 root" \
-        -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning \
-        > /etc/ssl/local/CAcert_Class_3_root.pem
-
-make install
-sed -e 's%= /etc/ssl;%= "/etc/ssl";%' \
-    -e 's%= /usr;%= "/usr";%'         \
-    -i /usr/bin/c_rehash              &&
-/usr/sbin/make-ca -f -C ../certdata.txt
-
+/usr/sbin/make-ca -g
 
 cd $SOURCE_DIR
 if [ "$TARBALL" != "" ]

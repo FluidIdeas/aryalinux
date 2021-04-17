@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="004-dosfs-tools.sh"
-TARBALL="dosfstools-4.1.tar.xz"
+TARBALL="dosfstools-4.2.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 

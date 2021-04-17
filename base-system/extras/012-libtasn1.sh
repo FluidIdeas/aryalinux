@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="012-libtasn1.sh"
-TARBALL="libtasn1-4.12.tar.gz"
+TARBALL="libtasn1-4.16.0.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 

@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="011-nettle.sh"
-TARBALL="nettle-3.3.tar.gz"
+TARBALL="nettle-3.7.1.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 

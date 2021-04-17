@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="019-sudo.sh"
-TARBALL="sudo-1.8.20p2.tar.gz"
+TARBALL="sudo-1.9.5p2.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -34,7 +34,7 @@ fi
             --with-secure-path         \
             --with-all-insults         \
             --with-env-editor          \
-            --docdir=/usr/share/doc/sudo-1.8.20p2 \
+            --docdir=/usr/share/doc/sudo-1.9.5p2 \
             --with-passprompt="[sudo] password for %p: " &&
 make
 make install &&

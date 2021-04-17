@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="018-wget.sh"
-TARBALL="wget-1.19.1.tar.xz"
+TARBALL="wget-1.21.1.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 

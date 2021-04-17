@@ -8,34 +8,29 @@ VERSION=2.4
 CURRENT_DIR=$(pwd)
 pushd ~/sources
 
-wget -nc https://github.com/dosfstools/dosfstools/releases/download/v4.1/dosfstools-4.1.tar.xz
+wget -nc https://github.com/dosfstools/dosfstools/releases/download/v4.2/dosfstools-4.2.tar.gz
 wget -nc http://ftp.gnu.org/gnu/which/which-2.21.tar.gz
-wget -nc http://mirrors.ocf.berkeley.edu/tanglu/pool/main/o/os-prober/os-prober_1.71.tar.xz
-wget -nc https://github.com/rhboot/efivar/archive/master.zip
-
-# Creating the tarball for efivar
-unzip master.zip
-tar -cJvf efivar-master.tar.xz efivar-master
-rm -rf efivar-master master.zip
+wget -nc http://deb.debian.org/debian/pool/main/o/os-prober/os-prober_1.78.tar.xz
+wget -nc https://github.com/rhboot/efivar/releases/download/37/efivar-37.tar.bz2
 
 wget -c https://github.com/rhboot/efibootmgr/archive/17.tar.gz -O efibootmgr-17.tar.gz
 wget -nc https://downloads.sourceforge.net/freetype/freetype-2.9.tar.bz2
 wget -nc https://ftp.gnu.org/gnu/unifont/unifont-7.0.05/unifont-7.0.05.pcf.gz
 wget -nc https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.5.5.tar.xz
-wget -nc https://ftp.osuosl.org/pub/blfs/conglomeration/popt/popt-1.16.tar.gz
+wget -nc http://ftp.rpm.org/popt/releases/popt-1.x/popt-1.18.tar.gz
 wget -nc http://aryalinux.info/files/linux-firmware-20191215.tar.gz
 wget -nc https://ftp.gnu.org/gnu/cpio/cpio-2.12.tar.bz2
-wget -nc https://ftp.osuosl.org/pub/blfs/conglomeration/lsb-release/lsb-release-1.4.tar.gz
+wget -nc https://github.com/djlucas/LSB-Tools/releases/download/v0.9/LSB-Tools-0.9.tar.gz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/busybox-1.31.1-glibc.patch
-wget -nc https://busybox.net/downloads/busybox-1.31.1.tar.bz2
-wget -nc https://ftp.gnu.org/gnu/nettle/nettle-3.3.tar.gz
-wget -nc https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.12.tar.gz
-wget -nc https://github.com/p11-glue/p11-kit/releases/download/0.23.8/p11-kit-0.23.8.tar.gz
-wget -nc https://www.gnupg.org/ftp/gcrypt/gnutls/v3.5/gnutls-3.5.14.tar.xz
-wget -nc https://ftp.gnu.org/gnu/wget/wget-1.19.1.tar.xz
-wget -nc http://ftp.ussg.iu.edu/security/sudo/sudo-1.8.20p2.tar.gz
+wget -nc https://busybox.net/downloads/busybox-1.32.1.tar.bz2
+wget -nc https://ftp.gnu.org/gnu/nettle/nettle-3.7.1.tar.gz
+wget -nc https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.16.0.tar.gz
+wget -nc https://github.com/p11-glue/p11-kit/releases/download/0.23.22/p11-kit-0.23.22.tar.xz
+wget -nc https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/gnutls-3.7.0.tar.xz
+wget -nc https://ftp.gnu.org/gnu/wget/wget-1.21.1.tar.gz
+wget -nc http://www.sudo.ws/dist/sudo-1.9.5p2.tar.gz
 wget -nc https://www.python.org/ftp/python/2.7.13/Python-2.7.13.tar.xz
-wget -nc https://github.com/djlucas/make-ca/archive/v0.7/make-ca-0.7.tar.gz
+wget -nc https://github.com/djlucas/make-ca/releases/download/v1.7/make-ca-1.7.tar.xz
 wget -nc http://www.cacert.org/certs/root.crt
 wget -nc http://www.cacert.org/certs/class3.crt
 wget -nc https://hg.mozilla.org/projects/nss/raw-file/tip/lib/ckfw/builtins/certdata.txt
@@ -66,9 +61,10 @@ mv -f $CURRENT_DIR/../applications/alps-scripts-$VERSION.tar.gz .
 
 wget -nc https://sourceforge.net/projects/cdrtools/files/cdrtools-3.01.tar.bz2
 wget -nc https://launchpad.net/ubuntu/+archive/primary/+files/cdrkit_1.1.11.orig.tar.gz
-wget -nc https://cmake.org/files/v3.9/cmake-3.9.1.tar.gz
+wget -nc https://cmake.org/files/v3.19/cmake-3.19.5.tar.gz
 wget -nc https://sourceforge.net/projects/squashfs/files/squashfs/squashfs4.3/squashfs4.3.tar.gz
 wget -nc http://downloads.sourceforge.net/infozip/unzip60.tar.gz
+wget -nc http://www.linuxfromscratch.org/patches/blfs/10.1/unzip-6.0-consolidated_fixes-1.patch
 
 set +e
 

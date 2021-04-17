@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="002-lsb-release.sh"
-TARBALL="lsb-release-1.4.tar.gz"
+STEPNAME="002-lsb-tools.sh"
+TARBALL="LSB-Tools-0.9.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,11 +29,8 @@ then
 	cd $DIRECTORY
 fi
 
-sed -i "s|n/a|unavailable|" lsb_release
-./help2man -N --include ./lsb_release.examples \
-              --alt_version_key=program_version ./lsb_release > lsb_release.1
-install -v -m 644 lsb_release.1 /usr/share/man/man1/lsb_release.1 &&
-install -v -m 755 lsb_release /usr/bin/lsb_release
+python3 setup.py build
+python3 setup.py install --optimize=1
 
 cat > /etc/os-release << EOF
 NAME="$OS_NAME"

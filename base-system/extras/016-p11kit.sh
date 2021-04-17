@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="016-p11kit.sh"
-TARBALL="p11-kit-0.23.8.tar.gz"
+TARBALL="p11-kit-0.23.22.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,17 +29,22 @@ then
 	cd $DIRECTORY
 fi
 
+sed '20,$ d' -i trust/trust-extract-compat &&
+cat >> trust/trust-extract-compat << "EOF"
+# Copy existing anchor modifications to /etc/ssl/local
+/usr/libexec/make-ca/copy-trust-modifications
+
+# Generate a new trust store
+/usr/sbin/make-ca -f -g
+EOF
 ./configure --prefix=/usr     \
             --sysconfdir=/etc \
             --with-trust-paths=/etc/pki/anchors &&
 make
-make install
-if [ -e /usr/lib/libnssckbi.so ]; then
-  readlink /usr/lib/libnssckbi.so ||
-  rm -v /usr/lib/libnssckbi.so    &&
-  ln -sfv ./pkcs11/p11-kit-trust.so /usr/lib/libnssckbi.so
-fi
-
+make install &&
+ln -sfv /usr/libexec/p11-kit/trust-extract-compat \
+        /usr/bin/update-ca-certificates
+ln -sfv ./pkcs11/p11-kit-trust.so /usr/lib/libnssckbi.so
 
 cd $SOURCE_DIR
 if [ "$TARBALL" != "" ]

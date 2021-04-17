@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="024-cmake.sh"
-TARBALL="cmake-3.9.1.tar.gz"
+TARBALL="cmake-3.19.5.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,16 +29,14 @@ then
 	cd $DIRECTORY
 fi
 
-sed -i '/CMAKE_USE_LIBUV 1/s/1/0/' CMakeLists.txt     &&
 sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake &&
+
 ./bootstrap --prefix=/usr        \
             --system-libs        \
             --mandir=/share/man  \
             --no-system-jsoncpp  \
             --no-system-librhash \
-            --no-system-curl     \
-            --no-system-libarchive \
-            --docdir=/share/doc/cmake-3.9.1 &&
+            --docdir=/share/doc/cmake-3.19.5 &&
 make
 make install
 
