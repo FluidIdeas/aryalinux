@@ -20,7 +20,6 @@ tar xf $TARBALL
 cd $DIRECTORY
 
 
-ln -svf /tools/bin/env /usr/bin/
 ./config --prefix=/usr         \
          --openssldir=/etc/ssl \
          --libdir=lib          \
