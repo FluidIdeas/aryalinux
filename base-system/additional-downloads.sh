@@ -18,7 +18,7 @@ wget -nc https://downloads.sourceforge.net/freetype/freetype-2.9.tar.bz2
 wget -nc https://ftp.gnu.org/gnu/unifont/unifont-7.0.05/unifont-7.0.05.pcf.gz
 wget -nc https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.5.5.tar.xz
 wget -nc http://ftp.rpm.org/popt/releases/popt-1.x/popt-1.18.tar.gz
-wget -nc http://aryalinux.info/files/linux-firmware-20191215.tar.gz
+wget -nc https://cdn.kernel.org/pub/linux/kernel/firmware/linux-firmware-20210315.tar.xz
 wget -nc https://ftp.gnu.org/gnu/cpio/cpio-2.12.tar.bz2
 wget -nc https://github.com/djlucas/LSB-Tools/releases/download/v0.9/LSB-Tools-0.9.tar.gz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/busybox-1.31.1-glibc.patch
