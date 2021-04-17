@@ -13,6 +13,7 @@ cd /sources
 tar xf cpio-2.13.tar.bz2
 cd cpio-2.13
 
+patch -Np1 -i ../0001-src-global.c-drop-duplicate-definition-of-program_na.patch
 ./configure --prefix=/usr \
             --bindir=/bin \
             --enable-mt   \
