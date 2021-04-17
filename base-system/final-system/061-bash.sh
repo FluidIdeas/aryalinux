@@ -26,7 +26,6 @@ sed -i  '/^bashline.o:.*shmbchar.h/a bashline.o: ${DEFDIR}/builtext.h' Makefile.
             --without-bash-malloc            \
             --with-installed-readline
 make
-chown -Rv tester .
 make install
 mv -vf /usr/bin/bash /bin
 

@@ -23,7 +23,6 @@ cd $DIRECTORY
 echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h
 ./configure --prefix=/usr
 make
-chown -Rv tester .
 make install
 ln -sv vim /usr/bin/vi
 for L in  /usr/share/man/{,*/}man1/vim.1; do
