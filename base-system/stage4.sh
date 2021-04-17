@@ -29,7 +29,7 @@ install -dv -m 1777 /tmp /var/tmp
 
 # Creating Essential Files and Symlinks
 
-ln -sv /proc/self/mounts /etc/mtab
+ln -svf /proc/self/mounts /etc/mtab
 echo "127.0.0.1 localhost $(hostname)" > /etc/hosts
 
 cat > /etc/passwd << "EOF"
