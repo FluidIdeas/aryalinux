@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.6.4.tar.xz
+wget -nc https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.7.0.tar.xz
 
 
 NAME=pciutils
-VERSION=3.6.4
-URL=https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.6.4.tar.xz
+VERSION=3.7.0
+URL=https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.7.0.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="The PCI Utils package contains a set of programs for listing PCI devices, inspecting their status and setting their configuration registers."
 

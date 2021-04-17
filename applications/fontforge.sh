@@ -7,26 +7,20 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:freetype2
-#REQ:glib2
+#REQ:libspiro
+#REQ:libuninameslist
 #REQ:libxml2
-#REQ:cairo
-#REQ:gtk2
-#REQ:harfbuzz
-#REQ:pango
-#REQ:desktop-file-utils
-#REQ:shared-mime-info
-#REQ:x7lib
+#REQ:gtk3
 
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/fontforge/fontforge/releases/download/20170731/fontforge-dist-20170731.tar.xz
+wget -nc https://github.com/fontforge/fontforge/releases/download/20201107/fontforge-20201107.tar.xz
 
 
 NAME=fontforge
-VERSION=20170731
-URL=https://github.com/fontforge/fontforge/releases/download/20170731/fontforge-dist-20170731.tar.xz
+VERSION=20201107
+URL=https://github.com/fontforge/fontforge/releases/download/20201107/fontforge-20201107.tar.xz
 SECTION="Other X-based Programs"
 DESCRIPTION="The FontForge package contains an outline font editor that lets you create your own postscript, truetype, opentype, cid-keyed, multi-master, cff, svg and bitmap (bdf, FON, NFNT) fonts, or edit existing ones."
 
@@ -49,14 +43,25 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr     \
-            --enable-gtk2-use \
-            --disable-static  \
-            --docdir=/usr/share/doc/fontforge-20170731 &&
+mkdir build &&
+cd build    &&
+
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+      -DCMAKE_BUILD_TYPE=Release  \
+      -Wno-dev .. &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ln -sv fontforge /usr/share/doc/fontforge-20201107
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

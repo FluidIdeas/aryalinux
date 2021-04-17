@@ -12,14 +12,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/llvm-9.0.1.src.tar.xz
-wget -nc https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/clang-9.0.1.src.tar.xz
-wget -nc https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/compiler-rt-9.0.1.src.tar.xz
+wget -nc https://github.com/llvm/llvm-project/releases/download/llvmorg-11.1.0/llvm-11.1.0.src.tar.xz
+wget -nc https://github.com/llvm/llvm-project/releases/download/llvmorg-11.1.0/clang-11.1.0.src.tar.xz
+wget -nc https://github.com/llvm/llvm-project/releases/download/llvmorg-11.1.0/compiler-rt-11.1.0.src.tar.xz
 
 
 NAME=llvm
-VERSION=9.0.1
-URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-9.0.1/llvm-9.0.1.src.tar.xz
+VERSION=11.1.0
+URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-11.1.0/llvm-11.1.0.src.tar.xz
 SECTION="Programming"
 DESCRIPTION="The LLVM package contains a collection of modular and reusable compiler and toolchain technologies. The Low Level Virtual Machine (LLVM) Core libraries provide a modern source and target-independent optimizer, along with code generation support for many popular CPUs (as well as some less common ones!). These libraries are built around a well specified code representation known as the LLVM intermediate representation (\"LLVM IR\")."
 
@@ -42,13 +42,11 @@ fi
 echo $USER > /tmp/currentuser
 
 
-tar -xf ../clang-9.0.1.src.tar.xz -C tools          &&
-tar -xf ../compiler-rt-9.0.1.src.tar.xz -C projects &&
-
-mv tools/clang-9.0.1.src tools/clang &&
-mv projects/compiler-rt-9.0.1.src projects/compiler-rt
-sed -e '/ipc_perm, mode/s|^|//|' \
-    -i projects/compiler-rt/lib/sanitizer_common/sanitizer_platform_limits_posix.cc
+tar -xf ../clang-11.1.0.src.tar.xz -C tools &&
+mv tools/clang-11.1.0.src tools/clang
+tar -xf ../compiler-rt-11.1.0.src.tar.xz -C projects &&
+mv projects/compiler-rt-11.1.0.src projects/compiler-rt
+grep -rl '#!.*python' | xargs sed -i '1s/python$/python3/'
 mkdir -v build &&
 cd       build &&
 
@@ -61,8 +59,14 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr               \
       -DLLVM_ENABLE_RTTI=ON                     \
       -DLLVM_TARGETS_TO_BUILD="host;AMDGPU;BPF" \
       -DLLVM_BUILD_TESTS=ON                     \
+      -DLLVM_BINUTILS_INCDIR=/usr/include       \
       -Wno-dev -G Ninja ..                      &&
 ninja
+cmake -DLLVM_BUILD_DOCS=ON            \
+      -DLLVM_ENABLE_SPHINX=ON         \
+      -DSPHINX_WARNINGS_AS_ERRORS=OFF \
+      -Wno-dev -G Ninja ..            &&
+ninja docs-llvm-html  docs-llvm-man
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install

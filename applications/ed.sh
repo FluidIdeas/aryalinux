@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/ed/ed-1.16.tar.lz
-wget -nc ftp://ftp.gnu.org/gnu/ed/ed-1.16.tar.lz
+wget -nc https://ftp.gnu.org/gnu/ed/ed-1.17.tar.lz
+wget -nc ftp://ftp.gnu.org/gnu/ed/ed-1.17.tar.lz
 
 
 NAME=ed
-VERSION=1.16
-URL=https://ftp.gnu.org/gnu/ed/ed-1.16.tar.lz
+VERSION=1.17
+URL=https://ftp.gnu.org/gnu/ed/ed-1.17.tar.lz
 SECTION="Editors"
 DESCRIPTION="Ed is a line-oriented text editor. It is used to create, display, modify and otherwise manipulate text files, both interactively and via shell scripts. Ed isn't something which many people use. It's described here because it can be used by the patch program if you encounter an ed-based patch file. This happens rarely because diff-based patches are preferred these days."
 

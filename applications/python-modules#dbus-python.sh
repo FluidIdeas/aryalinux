@@ -44,7 +44,7 @@ echo $USER > /tmp/currentuser
 mkdir python2 &&
 pushd python2 &&
 PYTHON=/usr/bin/python2     \
-../configure --prefix=/usr --docdir=/usr/share/doc/dbus-python-1.2.16 &&
+../configure --prefix=/usr --disable-documentation &&
 make &&
 popd
 mkdir python3 &&

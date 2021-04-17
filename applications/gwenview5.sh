@@ -8,19 +8,19 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:exiv2
-#REQ:krameworks5
+#REQ:frameworks5
 #REQ:lcms2
 #REQ:libkdcraw
 
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/release-service/19.12.2/src/gwenview-19.12.2.tar.xz
+wget -nc https://download.kde.org/stable/release-service/20.12.2/src/gwenview-20.12.2.tar.xz
 
 
 NAME=gwenview5
-VERSION=19.12.2
-URL=http://download.kde.org/stable/release-service/19.12.2/src/gwenview-19.12.2.tar.xz
+VERSION=20.12.2
+URL=https://download.kde.org/stable/release-service/20.12.2/src/gwenview-20.12.2.tar.xz
 SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="Gwenview is a fast and easy-to-use image viewer for KDE."
 

@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Deep-1.128.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Deep-1.130.tar.gz
 
 
 NAME=perl-deps#perl-test-deep
-VERSION=1.128
-URL=https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Deep-1.128.tar.gz
+VERSION=1.130
+URL=https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Deep-1.130.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

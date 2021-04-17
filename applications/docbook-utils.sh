@@ -9,14 +9,14 @@ set +h
 
 #REQ:openjade
 #REQ:docbook-dsssl
-#REQ:sgml-dtd-3
+#REQ:docbook-3.1-dtd
 
 
 cd $SOURCE_DIR
 
 wget -nc https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/docbook-utils-0.6.14.tar.gz
 wget -nc ftp://sourceware.org/pub/docbook-tools/new-trials/SOURCES/docbook-utils-0.6.14.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/docbook-utils-0.6.14-grep_fix-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/docbook-utils-0.6.14-grep_fix-1.patch
 
 
 NAME=docbook-utils

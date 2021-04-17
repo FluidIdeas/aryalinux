@@ -12,7 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://ftp.debian.org/debian/pool/main/h/heirloom-mailx/heirloom-mailx_12.5.orig.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/heirloom-mailx-12.5-fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/heirloom-mailx-12.5-fixes-1.patch
 
 
 NAME=mailx

@@ -14,14 +14,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/notification-daemon/3.20/notification-daemon-3.20.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/notification-daemon/3.20/notification-daemon-3.20.0.tar.xz
+wget -nc https://download.gnome.org/sources/notification-daemon/3.20/notification-daemon-3.20.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/notification-daemon/3.20/notification-daemon-3.20.0.tar.xz
 
 
 NAME=notification-daemon
 VERSION=3.20.0
-URL=http://ftp.gnome.org/pub/gnome/sources/notification-daemon/3.20/notification-daemon-3.20.0.tar.xz
-SECTION="GNOME Libraries and Desktop"
+URL=https://download.gnome.org/sources/notification-daemon/3.20/notification-daemon-3.20.0.tar.xz
+SECTION="System Utilities"
 DESCRIPTION="The Notification Daemon package contains a daemon that displays passive pop-up notifications."
 
 if [ ! -z $URL ]

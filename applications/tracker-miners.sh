@@ -23,13 +23,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.3/tracker-miners-2.3.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.3/tracker-miners-2.3.2.tar.xz
+wget -nc https://download.gnome.org/sources/tracker-miners/2.3/tracker-miners-2.3.5.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/tracker-miners/2.3/tracker-miners-2.3.5.tar.xz
 
 
 NAME=tracker-miners
-VERSION=2.3.2
-URL=http://ftp.gnome.org/pub/gnome/sources/tracker-miners/2.3/tracker-miners-2.3.2.tar.xz
+VERSION=2.3.5
+URL=https://download.gnome.org/sources/tracker-miners/2.3/tracker-miners-2.3.5.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Tracker-miners package contains a set of data extractors for Tracker."
 

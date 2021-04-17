@@ -9,6 +9,7 @@ set +h
 
 #REQ:gnome-desktop
 #REQ:gnome-settings-daemon
+#REQ:graphene
 #REQ:libcanberra
 #REQ:libwacom
 #REQ:libxkbcommon
@@ -18,6 +19,7 @@ set +h
 #REQ:desktop-file-utils
 #REQ:gobject-introspection
 #REQ:startup-notification
+#REQ:sysprof
 #REQ:libinput
 #REQ:wayland
 #REQ:wayland-protocols
@@ -29,13 +31,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/mutter/3.36/mutter-3.36.0.tar.xz
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/mutter/3.36/mutter-3.36.0.tar.xz
+wget -nc https://download.gnome.org/sources/mutter/3.38/mutter-3.38.3.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/mutter/3.38/mutter-3.38.3.tar.xz
 
 
 NAME=mutter
-VERSION=3.36.0
-URL=http://ftp.acc.umu.se/pub/gnome/sources/mutter/3.36/mutter-3.36.0.tar.xz
+VERSION=3.38.3
+URL=https://download.gnome.org/sources/mutter/3.38/mutter-3.38.3.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Mutter is the window manager for GNOME. It is not invoked directly, but from GNOME Session (on a machine with a hardware accelerated video driver)."
 
@@ -61,7 +63,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr -Dprofiler=false .. &&
+meson --prefix=/usr .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

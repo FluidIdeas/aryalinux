@@ -40,7 +40,8 @@ echo $USER > /tmp/currentuser
 
 
 ./configure --prefix=/usr \
-            --disable-thorough-tests &&
+            --disable-thorough-tests \
+            --docdir=/usr/share/doc/flac-1.3.3 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

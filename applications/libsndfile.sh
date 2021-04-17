@@ -8,18 +8,18 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:flac
-#REQ:libogg
+#REQ:opus
 #REQ:libvorbis
 
 
 cd $SOURCE_DIR
 
-wget -nc http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.28.tar.gz
+wget -nc https://github.com/libsndfile/libsndfile/releases/download/1.0.31/libsndfile-1.0.31.tar.bz2
 
 
 NAME=libsndfile
-VERSION=1.0.28
-URL=http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.28.tar.gz
+VERSION=1.0.31
+URL=https://github.com/libsndfile/libsndfile/releases/download/1.0.31/libsndfile-1.0.31.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="Libsndfile is a library of C routines for reading and writing files containing sampled audio data."
 
@@ -44,7 +44,7 @@ echo $USER > /tmp/currentuser
 
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/libsndfile-1.0.28 &&
+            --docdir=/usr/share/doc/libsndfile-1.0.31 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/intel/libva/releases/download/2.6.1/libva-2.6.1.tar.bz2
-wget -nc https://github.com/intel/intel-vaapi-driver/releases/download/2.4.0/intel-vaapi-driver-2.4.0.tar.bz2
+wget -nc https://github.com/intel/libva/releases/download/2.10.0/libva-2.10.0.tar.bz2
+wget -nc https://github.com/intel/intel-vaapi-driver/releases/download/2.4.1/intel-vaapi-driver-2.4.1.tar.bz2
 
 
 NAME=libva-wo-mesa
-VERSION=2.6.1
-URL=https://github.com/intel/libva/releases/download/2.6.1/libva-2.6.1.tar.bz2
+VERSION=2.10.0
+URL=https://github.com/intel/libva/releases/download/2.10.0/libva-2.10.0.tar.bz2
 SECTION="Others"
 
 if [ ! -z $URL ]
@@ -52,8 +52,8 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-tar -xvf ../intel-vaapi-driver-2.4.0.tar.bz2 &&
-cd intel-vaapi-driver-2.4.0
+tar -xvf ../intel-vaapi-driver-2.4.1.tar.bz2 &&
+cd intel-vaapi-driver-2.4.1
 ./configure $XORG_CONFIG &&
 make
 sudo rm -rf /tmp/rootscript.sh

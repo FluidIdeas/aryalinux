@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.rarlab.com/rar/unrarsrc-5.9.1.tar.gz
+wget -nc http://www.rarlab.com/rar/unrarsrc-6.0.3.tar.gz
 
 
 NAME=unrar
-VERSION=5.9.1
-URL=http://www.rarlab.com/rar/unrarsrc-5.9.1.tar.gz
+VERSION=6.0.3
+URL=http://www.rarlab.com/rar/unrarsrc-6.0.3.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="The UnRar package contains a RAR extraction utility used for extracting files from RAR archives. RAR archives are usually created with WinRAR, primarily in a Windows environment."
 

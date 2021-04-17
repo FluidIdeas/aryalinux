@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://raw.githubusercontent.com/transmission/transmission-releases/master/transmission-2.94.tar.xz
+wget -nc https://raw.githubusercontent.com/transmission/transmission-releases/master/transmission-3.00.tar.xz
 
 
 NAME=transmission
-VERSION=2.94
-URL=https://raw.githubusercontent.com/transmission/transmission-releases/master/transmission-2.94.tar.xz
+VERSION=3.00
+URL=https://raw.githubusercontent.com/transmission/transmission-releases/master/transmission-3.00.tar.xz
 SECTION="Other X-based Programs"
 DESCRIPTION="Transmission is a cross-platform, open source BitTorrent client. This is useful for downloading large files (such as Linux ISOs) and reduces the need for the distributors to provide server bandwidth."
 
@@ -42,7 +42,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr &&
+./configure --prefix=/usr --enable-cli &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

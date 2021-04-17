@@ -20,12 +20,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Specio-0.43.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Specio-0.46.tar.gz
 
 
 NAME=perl-deps#perl-specio
-VERSION=0.43
-URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Specio-0.43.tar.gz
+VERSION=0.46
+URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Specio-0.46.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

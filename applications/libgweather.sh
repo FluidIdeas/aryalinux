@@ -17,13 +17,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/libgweather/3.36/libgweather-3.36.0.tar.xz
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/libgweather/3.36/libgweather-3.36.0.tar.xz
+wget -nc https://download.gnome.org/sources/libgweather/3.36/libgweather-3.36.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgweather/3.36/libgweather-3.36.1.tar.xz
 
 
 NAME=libgweather
-VERSION=3.36.0
-URL=http://ftp.acc.umu.se/pub/gnome/sources/libgweather/3.36/libgweather-3.36.0.tar.xz
+VERSION=3.36.1
+URL=https://download.gnome.org/sources/libgweather/3.36/libgweather-3.36.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libgweather package is a library used to access weather information from online services for numerous locations."
 
@@ -46,7 +46,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i '338a "KX26",' libgweather/test_libgweather.c
 mkdir build &&
 cd    build &&
 

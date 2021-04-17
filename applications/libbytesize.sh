@@ -12,14 +12,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/storaged-project/libbytesize/releases/download/2.2/libbytesize-2.2.tar.gz
+wget -nc https://github.com/storaged-project/libbytesize/releases/download/2.5/libbytesize-2.5.tar.gz
 
 
 NAME=libbytesize
-VERSION=2.2
-URL=https://github.com/storaged-project/libbytesize/releases/download/2.2/libbytesize-2.2.tar.gz
+VERSION=2.5
+URL=https://github.com/storaged-project/libbytesize/releases/download/2.5/libbytesize-2.5.tar.gz
 SECTION="General Libraries"
-DESCRIPTION="The libbytesize package is a library facilitates the common operations with sizes in bytes."
+DESCRIPTION="The libbytesize package is a library which facilitates the common operations with sizes in bytes."
 
 if [ ! -z $URL ]
 then

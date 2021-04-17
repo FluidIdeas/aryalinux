@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/T/TY/TYEMQ//Algorithm-Diff-1.1903.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/R/RJ/RJBS//Algorithm-Diff-1.201.tar.gz
 
 
 NAME=perl-deps#perl-algorithm-diff
-VERSION=1.1903
-URL=https://cpan.metacpan.org/authors/id/T/TY/TYEMQ//Algorithm-Diff-1.1903.tar.gz
+VERSION=1.201
+URL=https://cpan.metacpan.org/authors/id/R/RJ/RJBS//Algorithm-Diff-1.201.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

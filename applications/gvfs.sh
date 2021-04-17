@@ -23,13 +23,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gvfs/1.44/gvfs-1.44.0.tar.xz
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gvfs/1.44/gvfs-1.44.0.tar.xz
+wget -nc https://download.gnome.org/sources/gvfs/1.46/gvfs-1.46.2.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gvfs/1.46/gvfs-1.46.2.tar.xz
 
 
 NAME=gvfs
-VERSION=1.44.0
-URL=http://ftp.acc.umu.se/pub/gnome/sources/gvfs/1.44/gvfs-1.44.0.tar.xz
+VERSION=1.46.2
+URL=https://download.gnome.org/sources/gvfs/1.46/gvfs-1.46.2.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Gvfs package is a userspace virtual filesystem designed to work with the I/O abstractions of GLib's GIO library."
 
@@ -56,7 +56,6 @@ mkdir build &&
 cd    build &&
 
 meson --prefix=/usr     \
-      --sysconfdir=/etc \
       -Dfuse=false      \
       -Dgphoto2=false   \
       -Dafc=false       \

@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/libical/libical/releases/download/v3.0.7/libical-3.0.7.tar.gz
+wget -nc https://github.com/libical/libical/releases/download/v3.0.9/libical-3.0.9.tar.gz
 
 
 NAME=libical
-VERSION=3.0.7
-URL=https://github.com/libical/libical/releases/download/v3.0.7/libical-3.0.7.tar.gz
+VERSION=3.0.9
+URL=https://github.com/libical/libical/releases/download/v3.0.9/libical-3.0.9.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The libical package contains an implementation of the iCalendar protocols and data formats."
 

@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/logrotate/logrotate/releases/download/3.16.0/logrotate-3.16.0.tar.xz
+wget -nc https://github.com/logrotate/logrotate/releases/download/3.18.0/logrotate-3.18.0.tar.xz
 
 
 NAME=logrotate
-VERSION=3.16.0
-URL=https://github.com/logrotate/logrotate/releases/download/3.16.0/logrotate-3.16.0.tar.xz
+VERSION=3.18.0
+URL=https://github.com/logrotate/logrotate/releases/download/3.18.0/logrotate-3.18.0.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="The logrotate package allows automatic rotation, compression, removal, and mailing of log files."
 

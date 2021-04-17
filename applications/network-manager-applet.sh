@@ -7,12 +7,10 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:gcr
 #REQ:gtk3
-#REQ:iso-codes
-#REQ:libsecret
+#REQ:libnma
 #REQ:libnotify
-#REQ:networkmanager
+#REQ:libsecret
 #REQ:gobject-introspection
 #REQ:modemmanager
 #REQ:polkit
@@ -22,14 +20,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/network-manager-applet/1.16/network-manager-applet-1.16.0.tar.xz
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/network-manager-applet/1.16/network-manager-applet-1.16.0.tar.xz
+wget -nc https://download.gnome.org/sources/network-manager-applet/1.20/network-manager-applet-1.20.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/network-manager-applet/1.20/network-manager-applet-1.20.0.tar.xz
 
 
 NAME=network-manager-applet
-VERSION=1.16.0
-URL=http://ftp.acc.umu.se/pub/gnome/sources/network-manager-applet/1.16/network-manager-applet-1.16.0.tar.xz
-SECTION="GNOME Applications"
+VERSION=1.20.0
+URL=https://download.gnome.org/sources/network-manager-applet/1.20/network-manager-applet-1.20.0.tar.xz
+SECTION="Networking Utilities"
 DESCRIPTION="The NetworkManager Applet provides a tool and a panel applet used to configure wired and wireless network connections through GUI. It's designed for use with any desktop environment that uses GTK+, such as Xfce and LXDE."
 
 if [ ! -z $URL ]
@@ -55,11 +53,9 @@ mkdir build &&
 cd    build &&
 
 meson --prefix=/usr     \
-      --sysconfdir=/etc \
+      -Dappindicator=no \
       -Dselinux=false   \
-      -Dteam=false      \
-      -Dmobile_broadband_provider_info=false \
-      -Dgtk_doc=false .. &&
+      -Dteam=false      .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

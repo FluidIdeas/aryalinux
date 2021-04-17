@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/dosfstools/dosfstools/releases/download/v4.1/dosfstools-4.1.tar.xz
+wget -nc https://github.com/dosfstools/dosfstools/releases/download/v4.2/dosfstools-4.2.tar.gz
 
 
 NAME=dosfstools
-VERSION=4.1
-URL=https://github.com/dosfstools/dosfstools/releases/download/v4.1/dosfstools-4.1.tar.xz
+VERSION=4.2
+URL=https://github.com/dosfstools/dosfstools/releases/download/v4.2/dosfstools-4.2.tar.gz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The dosfstools package contains various utilities for use with the FAT family of file systems."
 
@@ -42,7 +42,7 @@ echo $USER > /tmp/currentuser
 ./configure --prefix=/               \
             --enable-compat-symlinks \
             --mandir=/usr/share/man  \
-            --docdir=/usr/share/doc/dosfstools-4.1 &&
+            --docdir=/usr/share/doc/dosfstools-4.2 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

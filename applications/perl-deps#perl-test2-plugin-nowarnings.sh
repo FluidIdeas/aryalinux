@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Test2-Plugin-NoWarnings-0.07.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Test2-Plugin-NoWarnings-0.09.tar.gz
 
 
 NAME=perl-deps#perl-test2-plugin-nowarnings
-VERSION=0.07
-URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Test2-Plugin-NoWarnings-0.07.tar.gz
+VERSION=0.09
+URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Test2-Plugin-NoWarnings-0.09.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

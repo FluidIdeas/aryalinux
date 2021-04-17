@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISMN-1.201.tar.gz
+wget -nc https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISMN-1.202.tar.gz
 
 
 NAME=perl-modules#perl-business-ismn
-VERSION=1.201
-URL=https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISMN-1.201.tar.gz
+VERSION=1.202
+URL=https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISMN-1.202.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

@@ -42,7 +42,7 @@ echo $USER > /tmp/currentuser
 
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
-./configure $XORG_CONFIG &&
+./configure $XORG_CONFIG --docdir=/usr/share/doc/libXdmcp-1.1.3 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -25,13 +25,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.36/evolution-data-server-3.36.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.36/evolution-data-server-3.36.0.tar.xz
+wget -nc https://download.gnome.org/sources/evolution-data-server/3.38/evolution-data-server-3.38.4.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/evolution-data-server/3.38/evolution-data-server-3.38.4.tar.xz
 
 
 NAME=evolution-data-server
-VERSION=3.36.0
-URL=http://ftp.gnome.org/pub/gnome/sources/evolution-data-server/3.36/evolution-data-server-3.36.0.tar.xz
+VERSION=3.38.4
+URL=https://download.gnome.org/sources/evolution-data-server/3.38/evolution-data-server-3.38.4.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Evolution Data Server package provides a unified backend for programs that work with contacts, tasks, and calendar information. It was originally developed for Evolution (hence the name), but is now used by other packages as well."
 
@@ -53,6 +53,15 @@ fi
 
 echo $USER > /tmp/currentuser
 
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+rm -fv /usr/lib/systemd/user/evolution-*.service
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 mkdir build &&
 cd    build &&

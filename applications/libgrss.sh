@@ -12,14 +12,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/libgrss-0.7.0-bugfixes-1.patch
+wget -nc https://download.gnome.org/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/libgrss-0.7.0-bugfixes-1.patch
 
 
 NAME=libgrss
 VERSION=0.7.0
-URL=http://ftp.gnome.org/pub/gnome/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
+URL=https://download.gnome.org/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libgrss package contains a library designed to manipulate RSS and Atom feeds."
 
@@ -43,7 +43,7 @@ echo $USER > /tmp/currentuser
 
 
 patch -Np1 -i ../libgrss-0.7.0-bugfixes-1.patch &&
-autoreconf -fiv &&
+autoreconf -fv &&
 ./configure --prefix=/usr --disable-static &&
 make
 sudo rm -rf /tmp/rootscript.sh

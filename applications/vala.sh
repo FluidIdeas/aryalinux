@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/vala/0.48/vala-0.48.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/vala/0.48/vala-0.48.0.tar.xz
+wget -nc https://download.gnome.org/sources/vala/0.50/vala-0.50.3.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/vala/0.50/vala-0.50.3.tar.xz
 
 
 NAME=vala
-VERSION=0.48.0
-URL=http://ftp.gnome.org/pub/gnome/sources/vala/0.48/vala-0.48.0.tar.xz
+VERSION=0.50.3
+URL=https://download.gnome.org/sources/vala/0.50/vala-0.50.3.tar.xz
 SECTION="Programming"
 DESCRIPTION="Vala is a new programming language that aims to bring modern programming language features to GNOME developers without imposing any additional runtime requirements and without using a different ABI compared to applications and libraries written in C."
 

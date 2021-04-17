@@ -8,17 +8,16 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:garcon
-#REQ:libxfce4ui
 
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/xfce4-appfinder/4.14/xfce4-appfinder-4.14.0.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/xfce4-appfinder/4.16/xfce4-appfinder-4.16.1.tar.bz2
 
 
 NAME=xfce4-appfinder
-VERSION=4.14.0
-URL=http://archive.xfce.org/src/xfce/xfce4-appfinder/4.14/xfce4-appfinder-4.14.0.tar.bz2
+VERSION=4.16.1
+URL=http://archive.xfce.org/src/xfce/xfce4-appfinder/4.16/xfce4-appfinder-4.16.1.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="Xfce4 Appfinder is a tool to find and launch installed applications by searching the .desktop files installed on your system."
 

@@ -7,16 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:inih
 
 
 cd $SOURCE_DIR
 
-wget -nc https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.4.0.tar.xz
+wget -nc https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.10.0.tar.xz
 
 
 NAME=xfsprogs
-VERSION=5.4.0
-URL=https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.4.0.tar.xz
+VERSION=5.10.0
+URL=https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.10.0.tar.xz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The xfsprogs package contains administration and debugging tools for the XFS file system."
 
@@ -41,17 +42,15 @@ echo $USER > /tmp/currentuser
 
 make DEBUG=-DNDEBUG     \
      INSTALL_USER=root  \
-     INSTALL_GROUP=root \
-     LOCAL_CONFIGURE_OPTIONS="--enable-readline"
+     INSTALL_GROUP=root
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make PKG_DOC_DIR=/usr/share/doc/xfsprogs-5.4.0 install     &&
-make PKG_DOC_DIR=/usr/share/doc/xfsprogs-5.4.0 install-dev &&
+make PKG_DOC_DIR=/usr/share/doc/xfsprogs-5.10.0 install     &&
+make PKG_DOC_DIR=/usr/share/doc/xfsprogs-5.10.0 install-dev &&
 
 rm -rfv /usr/lib/libhandle.a                                &&
 rm -rfv /lib/libhandle.{a,la,so}                            &&
-ln -sfv ../../lib/libhandle.so.1 /usr/lib/libhandle.so      &&
-sed -i "s@libdir='/lib@libdir='/usr/lib@" /usr/lib/libhandle.la
+ln -sfv ../../lib/libhandle.so.1 /usr/lib/libhandle.so
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

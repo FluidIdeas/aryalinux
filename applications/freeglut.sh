@@ -15,6 +15,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/freeglut/freeglut-3.2.1.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/freeglut-3.2.1-gcc10_fix-1.patch
 
 
 NAME=freeglut
@@ -42,6 +43,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../freeglut-3.2.1-gcc10_fix-1.patch
 mkdir build &&
 cd    build &&
 
@@ -49,7 +51,7 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr       \
       -DCMAKE_BUILD_TYPE=Release        \
       -DFREEGLUT_BUILD_DEMOS=OFF        \
       -DFREEGLUT_BUILD_STATIC_LIBS=OFF  \
-      .. &&
+      -Wno-dev .. &&
 
 make
 sudo rm -rf /tmp/rootscript.sh

@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/glew/glew-2.1.0.tgz
+wget -nc https://downloads.sourceforge.net/glew/glew-2.2.0.tgz
 
 
 NAME=glew
-VERSION=2.1.0
-URL=https://downloads.sourceforge.net/glew/glew-2.1.0.tgz
+VERSION=2.2.0
+URL=https://downloads.sourceforge.net/glew/glew-2.2.0.tgz
 SECTION="X Libraries"
 DESCRIPTION="GLEW is the OpenGL Extension Wrangler Library."
 

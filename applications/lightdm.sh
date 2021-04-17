@@ -20,7 +20,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://github.com/CanonicalLtd/lightdm/releases/download/1.30.0/lightdm-1.30.0.tar.xz
-wget -nc https://launchpad.net/lightdm-gtk-greeter/2.0/2.0.6/+download/lightdm-gtk-greeter-2.0.6.tar.gz
+wget -nc https://github.com/Xubuntu/lightdm-gtk-greeter/releases/download/lightdm-gtk-greeter-2.0.8/lightdm-gtk-greeter-2.0.8.tar.gz
 
 
 NAME=lightdm
@@ -89,8 +89,8 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-tar -xf ../lightdm-gtk-greeter-2.0.6.tar.gz &&
-cd lightdm-gtk-greeter-2.0.6 &&
+tar -xf ../lightdm-gtk-greeter-2.0.8.tar.gz &&
+cd lightdm-gtk-greeter-2.0.8 &&
 
 ./configure                      \
    --prefix=/usr                 \
@@ -102,7 +102,8 @@ cd lightdm-gtk-greeter-2.0.6 &&
    --disable-libido              \
    --disable-libindicator        \
    --disable-static              \
-   --docdir=/usr/share/doc/lightdm-gtk-greeter-2.0.6 &&
+   --disable-maintainer-mode     \
+   --docdir=/usr/share/doc/lightdm-gtk-greeter-2.0.8 &&
 
 make
 sudo rm -rf /tmp/rootscript.sh

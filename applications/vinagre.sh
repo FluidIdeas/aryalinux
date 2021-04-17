@@ -17,13 +17,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/vinagre/3.22/vinagre-3.22.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/vinagre/3.22/vinagre-3.22.0.tar.xz
+wget -nc https://download.gnome.org/sources/vinagre/3.22/vinagre-3.22.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/vinagre/3.22/vinagre-3.22.0.tar.xz
 
 
 NAME=vinagre
 VERSION=3.22.0
-URL=http://ftp.gnome.org/pub/gnome/sources/vinagre/3.22/vinagre-3.22.0.tar.xz
+URL=https://download.gnome.org/sources/vinagre/3.22/vinagre-3.22.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="Vinagre is a VNC client for the GNOME Desktop."
 
@@ -46,6 +46,10 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -e '/_VinagreVnc/i gboolean scaling_command_line;' \
+    -i plugins/vnc/vinagre-vnc-connection.c &&
+sed -e '/scaling_/s/^/extern /' \
+    -i plugins/vnc/vinagre-vnc-connection.h
 ./configure --prefix=/usr \
             --enable-compile-warnings=minimum &&
 make

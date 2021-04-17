@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:gobject-introspection
 #REQ:glib2
 #REQ:graphite2
 #REQ:icu
@@ -17,12 +18,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.6.4.tar.xz
+wget -nc https://github.com/harfbuzz/harfbuzz/releases/download/2.7.4/harfbuzz-2.7.4.tar.xz
 
 
 NAME=harfbuzz
-VERSION=2.6.4
-URL=https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.6.4.tar.xz
+VERSION=2.7.4
+URL=https://github.com/harfbuzz/harfbuzz/releases/download/2.7.4/harfbuzz-2.7.4.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The HarfBuzz package contains an OpenType text shaping engine."
 
@@ -45,11 +46,14 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr --with-gobject --with-graphite2 &&
-make
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr -Dgraphite=enabled -Dbenchmark=disabled &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

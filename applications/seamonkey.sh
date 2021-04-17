@@ -10,26 +10,28 @@ set +h
 #REQ:autoconf213
 #REQ:gtk2
 #REQ:gtk3
+#REQ:python2
 #REQ:rust
 #REQ:unzip
 #REQ:yasm
 #REQ:zip
 #REQ:icu
 #REQ:libevent
+#REQ:libwebp
+#REQ:nasm
 #REQ:nspr
 #REQ:nss
 #REQ:pulseaudio
-#REQ:sqlite
 
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/seamonkey/releases/2.53.1/source/seamonkey-2.53.1.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/seamonkey/releases/2.53.6/source/seamonkey-2.53.6.source.tar.xz
 
 
 NAME=seamonkey
-VERSION=2.53.1
-URL=https://archive.mozilla.org/pub/seamonkey/releases/2.53.1/source/seamonkey-2.53.1.source.tar.xz
+VERSION=2.53.6
+URL=https://archive.mozilla.org/pub/seamonkey/releases/2.53.6/source/seamonkey-2.53.6.source.tar.xz
 SECTION="Graphical Web Browsers"
 DESCRIPTION="SeaMonkey is a browser suite, the Open Source sibling of Netscape. It includes the browser, composer, mail and news clients, and an IRC client. It is the follow-on to the Mozilla browser suite."
 
@@ -88,17 +90,20 @@ ac_add_options --disable-gconf
 
 # Comment out following options if you have not installed
 # recommended dependencies:
-ac_add_options --enable-system-sqlite
+ac_add_options --with-system-icu
 ac_add_options --with-system-libevent
 ac_add_options --with-system-nspr
 ac_add_options --with-system-nss
-ac_add_options --with-system-icu
+ac_add_options --with-system-webp
 
-
+# The elf-hack is reported to cause failed installs (after successful builds)
+# on some machines. It is supposed to improve startup time and it shrinks
+# libxul.so by a few MB - comment this if you know your machine is not affected.
+ac_add_options --disable-elf-hack
 
 # The BLFS editors recommend not changing anything below this line:
 ac_add_options --prefix=/usr
-ac_add_options --enable-application=suite
+ac_add_options --enable-application=comm/suite
 
 ac_add_options --disable-crashreporter
 ac_add_options --disable-updater
@@ -121,19 +126,19 @@ ac_add_options --enable-system-cairo
 ac_add_options --enable-system-ffi
 ac_add_options --enable-system-pixman
 
-ac_add_options --with-pthreads
+# not recognized since 2.53.6 - ac_add_options --with-pthreads
 
 ac_add_options --with-system-bz2
 ac_add_options --with-system-jpeg
 ac_add_options --with-system-png
 ac_add_options --with-system-zlib
 EOF
-sed -i -e '/pid_t gettid/,+3 s@^@//@' mozilla/tools/profiler/core/platform.h
+mountpoint -q /dev/shm || mount -t tmpfs devshm /dev/shm
 CC=gcc CXX=g++ make -f client.mk
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make  -f client.mk install INSTALL_SDK= &&
-chown -R 0:0 /usr/lib/seamonkey-2.53.1    &&
+chown -R 0:0 /usr/lib/seamonkey         &&
 
 cp -v $(find -name seamonkey.1 | head -n1) /usr/share/man/man1
 ENDOFROOTSCRIPT
@@ -159,8 +164,8 @@ StartupNotify=true
 Terminal=false
 EOF
 
-ln -sfv /usr/lib/seamonkey-2.53.1/chrome/icons/default/seamonkey.png \
-        /usr/share/pixmaps
+ln -sfv /usr/lib/seamonkey/chrome/icons/default/default128.png \
+        /usr/share/pixmaps/seamonkey.png
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

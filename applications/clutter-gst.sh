@@ -16,13 +16,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/clutter-gst/3.0/clutter-gst-3.0.27.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/clutter-gst/3.0/clutter-gst-3.0.27.tar.xz
+wget -nc https://download.gnome.org/sources/clutter-gst/3.0/clutter-gst-3.0.27.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/clutter-gst/3.0/clutter-gst-3.0.27.tar.xz
 
 
 NAME=clutter-gst
 VERSION=3.0.27
-URL=http://ftp.gnome.org/pub/gnome/sources/clutter-gst/3.0/clutter-gst-3.0.27.tar.xz
+URL=https://download.gnome.org/sources/clutter-gst/3.0/clutter-gst-3.0.27.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The Clutter Gst package contains an integration library for using GStreamer with Clutter. Its purpose is to implement the ClutterMedia interface using GStreamer."
 

@@ -8,17 +8,18 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:gtk3
+#REQ:vala
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libdazzle/3.34/libdazzle-3.34.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libdazzle/3.34/libdazzle-3.34.1.tar.xz
+wget -nc https://download.gnome.org/sources/libdazzle/3.38/libdazzle-3.38.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libdazzle/3.38/libdazzle-3.38.0.tar.xz
 
 
 NAME=libdazzle
-VERSION=3.34.1
-URL=http://ftp.gnome.org/pub/gnome/sources/libdazzle/3.34/libdazzle-3.34.1.tar.xz
+VERSION=3.38.0
+URL=https://download.gnome.org/sources/libdazzle/3.38/libdazzle-3.38.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="libdazzle is a companion library to GObject and GTK+ that adds APIs for special graphical effects."
 

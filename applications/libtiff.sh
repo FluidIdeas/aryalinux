@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.osgeo.org/libtiff/tiff-4.1.0.tar.gz
+wget -nc http://download.osgeo.org/libtiff/tiff-4.2.0.tar.gz
 
 
 NAME=libtiff
-VERSION=4.1.0
-URL=http://download.osgeo.org/libtiff/tiff-4.1.0.tar.gz
+VERSION=4.2.0
+URL=http://download.osgeo.org/libtiff/tiff-4.2.0.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The LibTIFF package contains the TIFF libraries and associated utilities. The libraries are used by many programs for reading and writing TIFF files and the utilities are used for general work with TIFF files."
 
@@ -43,7 +43,7 @@ echo $USER > /tmp/currentuser
 mkdir -p libtiff-build &&
 cd       libtiff-build &&
 
-cmake -DCMAKE_INSTALL_DOCDIR=/usr/share/doc/libtiff-4.1.0 \
+cmake -DCMAKE_INSTALL_DOCDIR=/usr/share/doc/libtiff-4.2.0 \
       -DCMAKE_INSTALL_PREFIX=/usr -G Ninja .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh

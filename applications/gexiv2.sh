@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/GNOME/sources/gexiv2/0.12/gexiv2-0.12.0.tar.xz
+wget -nc https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.2.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gexiv2/0.12/gexiv2-0.12.2.tar.xz
 
 
 NAME=gexiv2
-VERSION=0.12.0
-URL=https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.0.tar.xz
+VERSION=0.12.2
+URL=https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.2.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="gexiv2 is a GObject-based wrapper around the Exiv2 library."
 

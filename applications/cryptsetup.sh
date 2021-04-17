@@ -8,19 +8,18 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:json-c
-#REQ:libgcrypt
 #REQ:lvm2
 #REQ:popt
 
 
 cd $SOURCE_DIR
 
-wget -nc https://www.kernel.org/pub/linux/utils/cryptsetup/v2.3/cryptsetup-2.3.0.tar.xz
+wget -nc https://www.kernel.org/pub/linux/utils/cryptsetup/v2.3/cryptsetup-2.3.4.tar.xz
 
 
 NAME=cryptsetup
-VERSION=2.3.0
-URL=https://www.kernel.org/pub/linux/utils/cryptsetup/v2.3/cryptsetup-2.3.0.tar.xz
+VERSION=2.3.4
+URL=https://www.kernel.org/pub/linux/utils/cryptsetup/v2.3/cryptsetup-2.3.4.tar.xz
 SECTION="Security"
 DESCRIPTION="cryptsetup is used to set up transparent encryption of block devices using the kernel crypto API."
 
@@ -43,8 +42,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr \
-            --with-crypto_backend=openssl &&
+./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

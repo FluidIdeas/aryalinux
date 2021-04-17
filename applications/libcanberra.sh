@@ -16,6 +16,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/libcanberra-0.30-wayland-1.patch
 
 
 NAME=libcanberra
@@ -43,6 +44,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../libcanberra-0.30-wayland-1.patch
 ./configure --prefix=/usr --disable-oss &&
 make
 sudo rm -rf /tmp/rootscript.sh

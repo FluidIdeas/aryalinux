@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://files.libburnia-project.org/releases/libisoburn-1.5.2.tar.gz
+wget -nc http://files.libburnia-project.org/releases/libisoburn-1.5.4.tar.gz
 
 
 NAME=libisoburn
-VERSION=1.5.2
-URL=http://files.libburnia-project.org/releases/libisoburn-1.5.2.tar.gz
+VERSION=1.5.4
+URL=http://files.libburnia-project.org/releases/libisoburn-1.5.4.tar.gz
 SECTION="CD/DVD-Writing Utilities"
 DESCRIPTION="libisoburn is a frontend for libraries libburn and libisofs which enables creation and expansion of ISO-9660 filesystems on all CD/DVD/BD media supported by libburn. This includes media like DVD+RW, which do not support multi-session management on media level and even plain disk files or block devices."
 

@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cairographics.org/releases/pixman-0.38.4.tar.gz
+wget -nc https://www.cairographics.org/releases/pixman-0.40.0.tar.gz
 
 
 NAME=pixman
-VERSION=0.38.4
-URL=https://www.cairographics.org/releases/pixman-0.38.4.tar.gz
+VERSION=0.40.0
+URL=https://www.cairographics.org/releases/pixman-0.40.0.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The Pixman package contains a library that provides low-level pixel manipulation features such as image compositing and trapezoid rasterization."
 

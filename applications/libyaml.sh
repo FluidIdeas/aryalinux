@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/yaml/libyaml/archive/0.2.2/libyaml-dist-0.2.2.tar.gz
+wget -nc https://github.com/yaml/libyaml/archive/0.2.4/libyaml-dist-0.2.4.tar.gz
 
 
 NAME=libyaml
-VERSION=0.2.2
-URL=https://github.com/yaml/libyaml/archive/0.2.2/libyaml-dist-0.2.2.tar.gz
+VERSION=0.2.4
+URL=https://github.com/yaml/libyaml/archive/0.2.4/libyaml-dist-0.2.4.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The libyaml package contains a C library for parsing and emitting YAML (YAML Ain't Markup Language) code."
 

@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://libopenraw.freedesktop.org/download/exempi-2.5.1.tar.bz2
+wget -nc https://libopenraw.freedesktop.org/download/exempi-2.5.2.tar.bz2
 
 
 NAME=exempi
-VERSION=2.5.1
-URL=https://libopenraw.freedesktop.org/download/exempi-2.5.1.tar.bz2
+VERSION=2.5.2
+URL=https://libopenraw.freedesktop.org/download/exempi-2.5.2.tar.bz2
 SECTION="General Libraries"
 DESCRIPTION="Exempi is an implementation of XMP (Adobe's Extensible Metadata Platform)."
 
@@ -41,7 +41,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i -r '/^\s?testadobesdk/d' exempi/tests/Makefile.am &&
+sed -i -r '/^\s?testadobesdk/d' exempi/Makefile.am &&
 autoreconf -fiv
 ./configure --prefix=/usr --disable-static &&
 make

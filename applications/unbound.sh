@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.unbound.net/downloads/unbound-1.10.0.tar.gz
+wget -nc http://www.unbound.net/downloads/unbound-1.13.1.tar.gz
 
 
 NAME=unbound
-VERSION=1.10.0
-URL=http://www.unbound.net/downloads/unbound-1.10.0.tar.gz
+VERSION=1.13.1
+URL=http://www.unbound.net/downloads/unbound-1.13.1.tar.gz
 SECTION="Other Server Software"
 DESCRIPTION="Unbound is a validating, recursive, and caching DNS resolver. It is designed as a set of modular components that incorporate modern features, such as enhanced security (DNSSEC) validation, Internet Protocol Version 6 (IPv6), and a client resolver library API as an integral part of the architecture."
 
@@ -42,7 +42,7 @@ echo $USER > /tmp/currentuser
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 groupadd -g 88 unbound &&
-useradd -c "Unbound DNS resolver" -d /var/lib/unbound -u 88 \
+useradd -c "Unbound DNS Resolver" -d /var/lib/unbound -u 88 \
         -g unbound -s /bin/false unbound
 ENDOFROOTSCRIPT
 
@@ -68,8 +68,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m755 -d /usr/share/doc/unbound-1.10.0 &&
-install -v -m644 doc/html/* /usr/share/doc/unbound-1.10.0
+install -v -m755 -d /usr/share/doc/unbound-1.13.1 &&
+install -v -m644 doc/html/* /usr/share/doc/unbound-1.13.1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

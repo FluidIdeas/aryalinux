@@ -10,6 +10,7 @@ set +h
 #REQ:colord
 #REQ:gtk3
 #REQ:gobject-introspection
+#REQ:gtk2
 #REQ:vala
 
 

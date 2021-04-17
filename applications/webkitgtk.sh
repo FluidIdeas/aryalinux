@@ -31,12 +31,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://webkitgtk.org/releases/webkitgtk-2.26.4.tar.xz
+wget -nc https://webkitgtk.org/releases/webkitgtk-2.30.5.tar.xz
 
 
 NAME=webkitgtk
-VERSION=2.26.4
-URL=https://webkitgtk.org/releases/webkitgtk-2.26.4.tar.xz
+VERSION=2.30.5
+URL=https://webkitgtk.org/releases/webkitgtk-2.30.5.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The WebKitGTK+ package is a port of the portable web rendering engine WebKit to the GTK+ 3 and GTK+ 2 platforms."
 

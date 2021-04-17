@@ -19,7 +19,7 @@ NAME=libnma
 VERSION=1.8.28
 URL=ftp://ftp.gnome.org/pub/gnome/sources/libnma/1.8/libnma-1.8.28.tar.xz
 SECTION="Networking Utilities"
-DESCRIPTION="libnma is a library for wireless and mobile dialogs"
+DESCRIPTION="The libnma package contains an implementation of the NetworkManager GUI functions."
 
 if [ ! -z $URL ]
 then

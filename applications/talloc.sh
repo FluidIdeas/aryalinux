@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.samba.org/ftp/talloc/talloc-2.3.1.tar.gz
+wget -nc https://www.samba.org/ftp/talloc/talloc-2.3.2.tar.gz
 
 
 NAME=talloc
-VERSION=2.3.1
-URL=https://www.samba.org/ftp/talloc/talloc-2.3.1.tar.gz
+VERSION=2.3.2
+URL=https://www.samba.org/ftp/talloc/talloc-2.3.2.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="Talloc provides a hierarchical, reference counted memory pool system with destructors. It is the core memory allocator used in Samba."
 

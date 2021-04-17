@@ -18,12 +18,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-13.0.tar.xz
+wget -nc https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-14.2.tar.xz
 
 
 NAME=pulseaudio
-VERSION=13.0
-URL=https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-13.0.tar.xz
+VERSION=14.2
+URL=https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-14.2.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="PulseAudio is a sound system for POSIX OSes, meaning that it is a proxy for sound applications. It allows you to do advanced operations on your sound data as it passes between your application and your hardware. Things like transferring the audio to a different machine, changing the sample format or channel count and mixing several sounds into one are easily achieved using a sound server."
 
@@ -46,16 +46,14 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr        \
-            --sysconfdir=/etc    \
-            --localstatedir=/var \
-            --disable-bluez4     \
-            --disable-bluez5     \
-            --disable-rpath      &&
-make
+mkdir build &&
+cd    build &&
+
+meson  --prefix=/usr -Ddatabase=gdbm -Dbluez5=false &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

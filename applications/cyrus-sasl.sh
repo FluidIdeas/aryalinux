@@ -13,6 +13,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://github.com/cyrusimap/cyrus-sasl/releases/download/cyrus-sasl-2.1.27/cyrus-sasl-2.1.27.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/cyrus-sasl-2.1.27-doc_fixes-1.patch
 
 
 NAME=cyrus-sasl
@@ -40,6 +41,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../cyrus-sasl-2.1.27-doc_fixes-1.patch
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \
             --enable-auth-sasldb \

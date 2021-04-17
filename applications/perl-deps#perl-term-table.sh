@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Term-Table-0.013.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Term-Table-0.015.tar.gz
 
 
 NAME=perl-deps#perl-term-table
-VERSION=0.013
-URL=https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Term-Table-0.013.tar.gz
+VERSION=0.015
+URL=https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Term-Table-0.015.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

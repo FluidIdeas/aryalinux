@@ -17,13 +17,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/ibus/ibus/releases/download/1.5.22/ibus-1.5.22.tar.gz
-wget -nc https://www.unicode.org/Public/zipped/10.0.0/UCD.zip
+wget -nc https://github.com/ibus/ibus/releases/download/1.5.23/ibus-1.5.23.tar.gz
+wget -nc https://www.unicode.org/Public/zipped/13.0.0/UCD.zip
 
 
 NAME=ibus
-VERSION=1.5.22
-URL=https://github.com/ibus/ibus/releases/download/1.5.22/ibus-1.5.22.tar.gz
+VERSION=1.5.23
+URL=https://github.com/ibus/ibus/releases/download/1.5.23/ibus-1.5.23.tar.gz
 SECTION="General Utilities"
 DESCRIPTION="ibus is an Intelligent Input Bus. It is a new input framework for the Linux OS. It provides a fully featured and user friendly input method user interface."
 
@@ -48,8 +48,8 @@ echo $USER > /tmp/currentuser
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir -p               /usr/share/unicode/ucd &&
-unzip -u ../UCD.zip -d /usr/share/unicode/ucd
+mkdir -p                /usr/share/unicode/ucd &&
+unzip -uo ../UCD.zip -d /usr/share/unicode/ucd
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

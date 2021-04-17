@@ -12,14 +12,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.samba.org/ftp/linux-cifs/cifs-utils/cifs-utils-6.10.tar.bz2
+wget -nc https://www.samba.org/ftp/linux-cifs/cifs-utils/cifs-utils-6.12.tar.bz2
 
 
 NAME=cifsutils
-VERSION=6.10
-URL=https://www.samba.org/ftp/linux-cifs/cifs-utils/cifs-utils-6.10.tar.bz2
+VERSION=6.12
+URL=https://www.samba.org/ftp/linux-cifs/cifs-utils/cifs-utils-6.12.tar.bz2
 SECTION="Networking Programs"
-DESCRIPTION="The cifs-utils provides a means for mounting SMB/CIFS shares on a Linux system."
+DESCRIPTION="The cifs-utils package provides a means for mounting SMB/CIFS shares on a Linux system."
 
 if [ ! -z $URL ]
 then
@@ -40,7 +40,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-autoreconf -fiv           &&
 ./configure --prefix=/usr \
             --disable-pam &&
 make

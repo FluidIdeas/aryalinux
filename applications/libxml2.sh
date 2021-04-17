@@ -13,6 +13,7 @@ cd $SOURCE_DIR
 
 wget -nc http://xmlsoft.org/sources/libxml2-2.9.10.tar.gz
 wget -nc ftp://xmlsoft.org/libxml2/libxml2-2.9.10.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/libxml2-2.9.10-security_fixes-1.patch
 wget -nc http://www.w3.org/XML/Test/xmlts20130923.tar.gz
 
 
@@ -41,7 +42,10 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -p1 -i ../libxml2-2.9.10-security_fixes-1.patch
+sed -i '/if Py/{s/Py/(Py/;s/)/))/}' python/{types.c,libxml.c}
 sed -i 's/test.test/#&/' python/tests/tstLastError.py
+sed -i 's/ TRUE/ true/' encoding.c
 ./configure --prefix=/usr    \
             --disable-static \
             --with-history   \

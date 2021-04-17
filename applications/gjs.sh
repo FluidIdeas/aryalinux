@@ -10,19 +10,19 @@ set +h
 #REQ:cairo
 #REQ:dbus
 #REQ:gobject-introspection
-#REQ:js60
+#REQ:js78
 #REQ:gtk3
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gjs/1.64/gjs-1.64.0.tar.xz
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gjs/1.64/gjs-1.64.0.tar.xz
+wget -nc https://download.gnome.org/sources/gjs/1.66/gjs-1.66.2.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gjs/1.66/gjs-1.66.2.tar.xz
 
 
 NAME=gjs
-VERSION=1.64.0
-URL=http://ftp.acc.umu.se/pub/gnome/sources/gjs/1.64/gjs-1.64.0.tar.xz
+VERSION=1.66.2
+URL=https://download.gnome.org/sources/gjs/1.66/gjs-1.66.2.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Gjs is a set of Javascript bindings for GNOME."
 
@@ -45,13 +45,15 @@ fi
 echo $USER > /tmp/currentuser
 
 
-mkdir -pv build_dir
-  cd build_dir
-  meson --prefix=/usr &&
+mkdir gjs-build &&
+cd    gjs-build &&
+
+meson --prefix=/usr .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install
+ninja install &&
+ln -sfv gjs-console /usr/bin/gjs
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

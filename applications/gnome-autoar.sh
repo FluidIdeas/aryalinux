@@ -14,13 +14,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-autoar/0.2/gnome-autoar-0.2.4.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-autoar/0.2/gnome-autoar-0.2.4.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-autoar/0.3/gnome-autoar-0.3.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-autoar/0.3/gnome-autoar-0.3.0.tar.xz
 
 
 NAME=gnome-autoar
-VERSION=0.2.4
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-autoar/0.2/gnome-autoar-0.2.4.tar.xz
+VERSION=0.3.0
+URL=https://download.gnome.org/sources/gnome-autoar/0.3/gnome-autoar-0.3.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The gnome-autoar package provides a framework for automatic archive extraction, compression, and management."
 

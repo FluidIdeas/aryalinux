@@ -13,6 +13,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/lxde/menu-cache-1.1.0.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/menu-cache-1.1.0-consolidated_fixes-1.patch
 
 
 NAME=menu-cache
@@ -40,7 +41,8 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr \
+patch -Np1 -i ../menu-cache-1.1.0-consolidated_fixes-1.patch
+./configure --prefix=/usr    \
             --disable-static &&
 make
 sudo rm -rf /tmp/rootscript.sh

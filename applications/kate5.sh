@@ -7,17 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:krameworks5
+#REQ:frameworks5
 
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/release-service/19.12.2/src/kate-19.12.2.tar.xz
+wget -nc https://download.kde.org/stable/release-service/20.12.2/src/kate-20.12.2.tar.xz
 
 
 NAME=kate5
-VERSION=19.12.2
-URL=http://download.kde.org/stable/release-service/19.12.2/src/kate-19.12.2.tar.xz
+VERSION=20.12.2
+URL=https://download.kde.org/stable/release-service/20.12.2/src/kate-20.12.2.tar.xz
 SECTION="Editors"
 DESCRIPTION="The Kate package contains an advanced KF5 based graphical text editor."
 

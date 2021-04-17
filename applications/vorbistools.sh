@@ -12,13 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.0.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/vorbis-tools-1.4.0-security_fix-1.patch
+wget -nc https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.2.tar.gz
 
 
 NAME=vorbistools
-VERSION=1.4.0
-URL=https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.0.tar.gz
+VERSION=1.4.2
+URL=https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.2.tar.gz
 SECTION="Audio Utilities"
 DESCRIPTION="The Vorbis Tools package contains command-line tools useful for encoding, playing or editing files using the Ogg CODEC."
 
@@ -41,7 +40,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../vorbis-tools-1.4.0-security_fix-1.patch
 ./configure --prefix=/usr \
             --enable-vcut \
             --without-curl &&

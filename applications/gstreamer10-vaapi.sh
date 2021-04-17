@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:gtk3
 #REQ:gstreamer10
 #REQ:gst10-plugins-base
 #REQ:gst10-plugins-bad
@@ -15,12 +16,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.16.2.tar.xz
+wget -nc https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.18.3.tar.xz
 
 
 NAME=gstreamer10-vaapi
-VERSION=1.16.2
-URL=https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.16.2.tar.xz
+VERSION=1.18.3
+URL=https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.18.3.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The gstreamer-vaapi package contains a gstreamer plugin for hardware accelerated video decode/encode for the prevailing coding standards today (MPEG-2, MPEG-4 ASP/H.263, MPEG-4 AVC/H.264, and VC-1/VMW3)."
 
@@ -48,8 +49,7 @@ cd    build &&
 
 meson  --prefix=/usr       \
        -Dbuildtype=release \
-       -Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
-       -Dpackage-name="GStreamer 1.16.2 BLFS" &&
+       -Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

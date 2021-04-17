@@ -7,17 +7,16 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:python2
 
 
 cd $SOURCE_DIR
 
-wget -nc https://files.pythonhosted.org/packages/source/p/pycryptodome/pycryptodome-3.9.7.tar.gz
+wget -nc https://github.com/Legrandin/pycryptodome/archive/v3.10.1/pycryptodome-3.10.1.tar.gz
 
 
 NAME=python-modules#pycryptodome
-VERSION=3.9.7
-URL=https://files.pythonhosted.org/packages/source/p/pycryptodome/pycryptodome-3.9.7.tar.gz
+VERSION=3.10.1
+URL=https://github.com/Legrandin/pycryptodome/archive/v3.10.1/pycryptodome-3.10.1.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]
@@ -39,11 +38,9 @@ fi
 
 echo $USER > /tmp/currentuser
 
-python2 setup.py build &&
 python3 setup.py build
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-python2 setup.py install --optimize=1 &&
 python3 setup.py install --optimize=1
 ENDOFROOTSCRIPT
 

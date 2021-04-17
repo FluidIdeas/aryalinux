@@ -17,12 +17,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/apple/cups/releases/download/v2.3.1/cups-2.3.1-source.tar.gz
+wget -nc https://github.com/apple/cups/releases/download/v2.3.3/cups-2.3.3-source.tar.gz
 
 
 NAME=cups
 VERSION=2.3.
-URL=https://github.com/apple/cups/releases/download/v2.3.1/cups-2.3.1-source.tar.gz
+URL=https://github.com/apple/cups/releases/download/v2.3.3/cups-2.3.3-source.tar.gz
 SECTION="Printing"
 DESCRIPTION="The Common Unix Printing System (CUPS) is a print spooler and associated utilities. It is based on the \"Internet Printing Protocol\" and provides printing services to most PostScript and raster printers."
 
@@ -79,13 +79,13 @@ CC=gcc CXX=g++ \
 ./configure --libdir=/usr/lib            \
             --with-rcdir=/tmp/cupsinit   \
             --with-system-groups=lpadmin \
-            --with-docdir=/usr/share/cups/doc-2.3.1 &&
+            --with-docdir=/usr/share/cups/doc-2.3.3 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 rm -rf /tmp/cupsinit &&
-ln -svnf ../cups/doc-2.3.1 /usr/share/doc/cups-2.3.1
+ln -svnf ../cups/doc-2.3.3 /usr/share/doc/cups-2.3.3
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

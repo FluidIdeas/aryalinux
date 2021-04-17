@@ -11,14 +11,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/p7zip/p7zip_16.02_src_all.tar.bz2
+wget -nc https://github.com/jinfeihan57/p7zip/archive/v17.03/p7zip-17.03.tar.gz
 
 
 NAME=p7zip
-VERSION=
-URL=https://downloads.sourceforge.net/p7zip/p7zip_16.02_src_all.tar.bz2
+VERSION=17.03
+URL=https://github.com/jinfeihan57/p7zip/archive/v17.03/p7zip-17.03.tar.gz
 SECTION="System Utilities"
-DESCRIPTION="p7zip is the Unix command-line port of 7-Zip, a file archiver that archives with high compression ratios. It handles 7z, ZIP, GZIP, BZIP2, XZ, TAR, APM, ARJ, CAB, CHM, CPIO, CramFS, DEB, DMG, FAT, HFS, ISO, LZH, LZMA, LZMA2, MBR, MSI, MSLZ, NSIS, NTFS, RAR RPM, SquashFS, UDF, VHD, WIM, XAR and Z formats."
+DESCRIPTION="p7zip is the Unix command-line port of 7-Zip, a file archiver that archives with high compression ratios. It handles 7z, ZIP, GZIP, Brotli, BZIP2, XZ, TAR, APM, ARJ, CAB, CHM, CPIO, CramFS, DEB, DMG, FAT, HFS, ISO, Lizard, LZ5, LZFSE, LZH, LZMA, LZMA2, MBR, MSI, MSLZ, NSIS, NTFS, RAR, RPM, SquashFS, UDF, VHD, WIM, XAR, Z, and Zstd formats."
 
 if [ ! -z $URL ]
 then
@@ -39,12 +39,13 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed '/^gzip/d' -i install.sh
 make all3
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make DEST_HOME=/usr \
      DEST_MAN=/usr/share/man \
-     DEST_SHARE_DOC=/usr/share/doc/p7zip-16.02 install
+     DEST_SHARE_DOC=/usr/share/doc/p7zip-17.03 install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

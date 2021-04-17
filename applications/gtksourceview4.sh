@@ -9,17 +9,18 @@ set +h
 
 #REQ:gtk3
 #REQ:gobject-introspection
+#REQ:libxml2
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gtksourceview/4.4/gtksourceview-4.4.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtksourceview/4.4/gtksourceview-4.4.0.tar.xz
+wget -nc https://download.gnome.org/sources/gtksourceview/4.8/gtksourceview-4.8.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtksourceview/4.8/gtksourceview-4.8.0.tar.xz
 
 
 NAME=gtksourceview4
-VERSION=4.4.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gtksourceview/4.4/gtksourceview-4.4.0.tar.xz
+VERSION=4.8.0
+URL=https://download.gnome.org/sources/gtksourceview/4.8/gtksourceview-4.8.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The GtkSourceView package contains libraries used for extending the GTK+ text functions to include syntax highlighting."
 

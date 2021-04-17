@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2019.2.tar.bz2
+wget -nc https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2020.1.tar.bz2
 
 
 NAME=xorgproto
-VERSION=2019.2
-URL=https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2019.2.tar.bz2
+VERSION=2020.1
+URL=https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2020.1.tar.bz2
 SECTION="X Window System Environment"
 DESCRIPTION="The xorgproto package provides the header files required to build the X Window system, and to allow other applications to build against the installed X Window system."
 
@@ -44,14 +44,14 @@ export XORG_PREFIX="/usr"
 mkdir build &&
 cd    build &&
 
-meson --prefix=$XORG_PREFIX .. &&
+meson --prefix=$XORG_PREFIX -Dlegacy=true .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
 
-install -vdm 755 $XORG_PREFIX/share/doc/xorgproto-2019.2 &&
-install -vm 644 ../[^m]*.txt ../PM_spec $XORG_PREFIX/share/doc/xorgproto-2019.2
+install -vdm 755 $XORG_PREFIX/share/doc/xorgproto-2020.1 &&
+install -vm 644 ../[^m]*.txt ../PM_spec $XORG_PREFIX/share/doc/xorgproto-2020.1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -49,13 +49,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/plk/biber/archive/v2.14/biber-2.14.tar.gz
-wget -nc http://sourceforge.net/projects/biblatex/files/biblatex-3.14/biblatex-3.14.tds.tgz
+wget -nc https://github.com/plk/biber/archive/v2.16/biber-2.16.tar.gz
+wget -nc http://sourceforge.net/projects/biblatex/files/biblatex-3.16/biblatex-3.16.tds.tgz
 
 
 NAME=biber
-VERSION=2.14
-URL=https://github.com/plk/biber/archive/v2.14/biber-2.14.tar.gz
+VERSION=2.16
+URL=https://github.com/plk/biber/archive/v2.16/biber-2.16.tar.gz
 SECTION="Typesetting"
 DESCRIPTION="Biber is a BibTeX replacement for users of biblatex, written in Perl, with full Unicode support."
 
@@ -82,7 +82,7 @@ perl ./Build.PL &&
 ./Build
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-tar -xf ../biblatex-3.14.tds.tgz -C /opt/texlive/2019/texmf-dist &&
+tar -xf ../biblatex-3.16.tds.tgz -C /opt/texlive/2020/texmf-dist &&
 texhash &&
 ./Build install
 ENDOFROOTSCRIPT

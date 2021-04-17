@@ -8,6 +8,7 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:boost
+#REQ:curl
 #REQ:fribidi
 #REQ:goffice010
 #REQ:wv
@@ -16,13 +17,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.abisource.com/downloads/abiword/3.0.4/source/abiword-3.0.4.tar.gz
-wget -nc http://www.abisource.com/downloads/abiword/3.0.2/source/abiword-docs-3.0.2.tar.gz
+wget -nc https://www.abisource.com/downloads/abiword/3.0.4/source/abiword-3.0.4.tar.gz
+wget -nc https://www.abisource.com/downloads/abiword/3.0.2/source/abiword-docs-3.0.2.tar.gz
 
 
 NAME=abiword
 VERSION=3.0.4
-URL=http://www.abisource.com/downloads/abiword/3.0.4/source/abiword-3.0.4.tar.gz
+URL=https://www.abisource.com/downloads/abiword/3.0.4/source/abiword-3.0.4.tar.gz
 SECTION="Office Programs"
 DESCRIPTION="AbiWord is a word processor which is useful for writing reports, letters and other formatted documents."
 

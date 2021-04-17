@@ -12,15 +12,16 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.49.tgz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/openldap-2.4.49-consolidated-1.patch
+wget -nc https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.4.57.tgz
+wget -nc ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.57.tgz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/openldap-2.4.57-consolidated-1.patch
 wget -nc http://www.openldap.org/doc/admin24/
 wget -nc http://www.openldap.org/pub/
 
 
 NAME=openldap
-VERSION=2.4.49
-URL=ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.49.tgz
+VERSION=2.4.57
+URL=https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.4.57.tgz
 SECTION="Other Server Software"
 DESCRIPTION="The OpenLDAP package provides an open source implementation of the Lightweight Directory Access Protocol."
 
@@ -43,7 +44,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../openldap-2.4.49-consolidated-1.patch &&
+patch -Np1 -i ../openldap-2.4.57-consolidated-1.patch &&
 autoconf &&
 
 ./configure --prefix=/usr     \
@@ -56,8 +57,6 @@ autoconf &&
 make depend &&
 make
 sudo make install
-
-sudo ln -sf ../lib/slapd /usr/sbin/slapd
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

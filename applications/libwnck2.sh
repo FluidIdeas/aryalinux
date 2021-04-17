@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libwnck/2.30/libwnck-2.30.7.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libwnck/2.30/libwnck-2.30.7.tar.xz
+wget -nc https://download.gnome.org/sources/libwnck/2.30/libwnck-2.30.7.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libwnck/2.30/libwnck-2.30.7.tar.xz
 
 
 NAME=libwnck2
 VERSION=2.30.7
-URL=http://ftp.gnome.org/pub/gnome/sources/libwnck/2.30/libwnck-2.30.7.tar.xz
+URL=https://download.gnome.org/sources/libwnck/2.30/libwnck-2.30.7.tar.xz
 SECTION="LXDE Desktop"
 DESCRIPTION="The libwnck package contains a Window Navigator Construction Kit."
 

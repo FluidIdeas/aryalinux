@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://pub.mate-desktop.org/releases/1.24/mate-applets-1.24.0.tar.xz
+wget -nc https://pub.mate-desktop.org/releases/1.25/mate-applets-1.25.3.tar.xz
 
 
 NAME=mate-applets
-VERSION=1.24.0
-URL=https://pub.mate-desktop.org/releases/1.24/mate-applets-1.24.0.tar.xz
+VERSION=1.25.3
+URL=https://pub.mate-desktop.org/releases/1.25/mate-applets-1.25.3.tar.xz
 SECTION="Mate Desktop"
 DESCRIPTION="Applets for use with the MATE panel"
 

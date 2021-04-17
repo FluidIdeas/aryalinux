@@ -14,13 +14,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/emacs/emacs-26.3.tar.xz
-wget -nc ftp://ftp.gnu.org/gnu/emacs/emacs-26.3.tar.xz
+wget -nc https://ftp.gnu.org/gnu/emacs/emacs-27.1.tar.xz
+wget -nc ftp://ftp.gnu.org/gnu/emacs/emacs-27.1.tar.xz
 
 
 NAME=emacs
-VERSION=26.3
-URL=https://ftp.gnu.org/gnu/emacs/emacs-26.3.tar.xz
+VERSION=27.1
+URL=https://ftp.gnu.org/gnu/emacs/emacs-27.1.tar.xz
 SECTION="Editors"
 DESCRIPTION="The Emacs package contains an extensible, customizable, self-documenting real-time display editor."
 
@@ -48,7 +48,7 @@ make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-chown -v -R root:root /usr/share/emacs/26.3
+chown -v -R root:root /usr/share/emacs/27.1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

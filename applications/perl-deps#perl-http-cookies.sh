@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Cookies-6.08.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Cookies-6.10.tar.gz
 
 
 NAME=perl-deps#perl-http-cookies
-VERSION=6.08
-URL=https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Cookies-6.08.tar.gz
+VERSION=6.10
+URL=https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Cookies-6.10.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

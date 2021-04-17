@@ -8,7 +8,6 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:at-spi2-atk
-#REQ:fribidi
 #REQ:gdk-pixbuf
 #REQ:libepoxy
 #REQ:pango
@@ -24,13 +23,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.14.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.14.tar.xz
+wget -nc https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.25.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtk+/3.24/gtk+-3.24.25.tar.xz
 
 
 NAME=gtk3
-VERSION=3.24.14
-URL=http://ftp.gnome.org/pub/gnome/sources/gtk+/3.24/gtk+-3.24.14.tar.xz
+VERSION=3.24.25
+URL=https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.25.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The GTK+ 3 package contains libraries used for creating graphical user interfaces for applications."
 
@@ -53,24 +52,27 @@ fi
 echo $USER > /tmp/currentuser
 
 
-mkdir build-gtk3 &&
-cd    build-gtk3 &&
-
-meson --prefix=/usr     \
-      -Dcolord=yes      \
-      -Dgtk_doc=false   \
-      -Dman=true        \
-      -Dbroadway_backend=true .. &&
-ninja
+./configure --prefix=/usr              \
+            --sysconfdir=/etc          \
+            --enable-broadway-backend  \
+            --enable-x11-backend       \
+            --enable-wayland-backend   &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+cat > ~/.config/gtk-3.0/gtk.css << "EOF"
+*  {
+   -GtkScrollbar-has-backward-stepper: 1;
+   -GtkScrollbar-has-forward-stepper: 1;
+}
+EOF
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

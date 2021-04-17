@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:gdk-pixbuf-xlib
 #REQ:libglade
 #REQ:x7app
 #REQ:glu
@@ -14,14 +15,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.jwz.org/xscreensaver/xscreensaver-5.43.tar.gz
+wget -nc https://www.jwz.org/xscreensaver/xscreensaver-5.45.tar.gz
 
 
 NAME=xscreensaver
-VERSION=5.43
-URL=https://www.jwz.org/xscreensaver/xscreensaver-5.43.tar.gz
+VERSION=5.45
+URL=https://www.jwz.org/xscreensaver/xscreensaver-5.45.tar.gz
 SECTION="Other X-based Programs"
-DESCRIPTION="The XScreenSaver is a modular screen saver and locker for the X Window System. It is highly customizable and allows the use of any program that can draw on the root window as a display mode. The purpose of XScreenSaver is to display pretty pictures on your screen when it is not in use, in keeping with the philosophy that unattended monitors should always be doing something interesting, just like they do in the movies. However, XScreenSaver can also be used as a screen locker, to prevent others from using your terminal while you are away."
+DESCRIPTION="The XScreenSaver package is a modular screen saver and locker for the X Window System. It is highly customizable and allows the use of any program that can draw on the root window as a display mode. The purpose of XScreenSaver is to display pretty pictures on your screen when it is not in use, in keeping with the philosophy that unattended monitors should always be doing something interesting, just like they do in the movies. However, XScreenSaver can also be used as a screen locker, to prevent others from using your terminal while you are away."
 
 if [ ! -z $URL ]
 then
@@ -42,7 +43,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i '/^\/\//d' hacks/fontglide.c
 ./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh

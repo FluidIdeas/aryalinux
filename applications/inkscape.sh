@@ -8,15 +8,17 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:boost
+#REQ:double-conversion
 #REQ:gc
+#REQ:gdl
 #REQ:gsl
-#REQ:gtkmm2
 #REQ:gtkmm3
+#REQ:libsoup
 #REQ:libxslt
 #REQ:poppler
 #REQ:popt
 #REQ:wget
-#REQ:imagemagick6
+#REQ:imagemagick
 #REQ:lcms2
 #REQ:lcms
 #REQ:libcanberra
@@ -27,15 +29,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://media.inkscape.org/dl/resources/file/inkscape-0.92.4.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/inkscape-0.92.4-use_versioned_ImageMagick6-1.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/inkscape-0.92.4-upstream_fixes-1.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/inkscape-0.92.4-poppler_0_83_0_fixes-1.patch
+wget -nc https://media.inkscape.org/dl/resources/file/inkscape-1.0.2.tar.xz
 
 
 NAME=inkscape
-VERSION=0.92.4
-URL=https://media.inkscape.org/dl/resources/file/inkscape-0.92.4.tar.bz2
+VERSION=1.0.2
+URL=https://media.inkscape.org/dl/resources/file/inkscape-1.0.2.tar.xz
 SECTION="Other X-based Programs"
 DESCRIPTION="Inkscape is a what you see is what you get Scalable Vector Graphics editor. It is useful for creating, viewing and changing SVG images."
 
@@ -58,12 +57,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -e 's|new Lexer(xref, obj)|obj|g' -i src/extension/internal/pdfinput/pdf-parser.cpp
-sed -e 's|Unicode \*u|Unicode const *u|g' -i src/extension/internal/pdfinput/*
-patch -Np1 -i ../inkscape-0.92.4-poppler_0_83_0_fixes-1.patch
-patch -Np1 -i ../inkscape-0.92.4-use_versioned_ImageMagick6-1.patch
-patch -Np1 -i ../inkscape-0.92.4-upstream_fixes-1.patch
-bash download-gtest.sh
 mkdir build &&
 cd    build &&
 
@@ -73,8 +66,7 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr \
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install                      &&
-rm -v /usr/lib/inkscape/lib*_LIB.a
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

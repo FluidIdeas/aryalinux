@@ -16,13 +16,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-keyring/3.36/gnome-keyring-3.36.0.tar.xz
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-keyring/3.36/gnome-keyring-3.36.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-keyring/3.36/gnome-keyring-3.36.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-keyring/3.36/gnome-keyring-3.36.0.tar.xz
 
 
 NAME=gnome-keyring
 VERSION=3.36.0
-URL=http://ftp.acc.umu.se/pub/gnome/sources/gnome-keyring/3.36/gnome-keyring-3.36.0.tar.xz
+URL=https://download.gnome.org/sources/gnome-keyring/3.36/gnome-keyring-3.36.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Keyring package contains a daemon that keeps passwords and other secrets for users."
 
@@ -45,7 +45,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i -r 's:"(/desktop):"/org/gnome\1:' schema/*.xml &&
+sed -i 's:"/desktop:"/org:' schema/*.xml &&
 
 ./configure --prefix=/usr     \
             --sysconfdir=/etc \

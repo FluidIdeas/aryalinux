@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libgudev/233/libgudev-233.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgudev/233/libgudev-233.tar.xz
+wget -nc https://download.gnome.org/sources/libgudev/234/libgudev-234.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgudev/234/libgudev-234.tar.xz
 
 
 NAME=libgudev
-VERSION=233
-URL=http://ftp.gnome.org/pub/gnome/sources/libgudev/233/libgudev-233.tar.xz
+VERSION=234
+URL=https://download.gnome.org/sources/libgudev/234/libgudev-234.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libgudev package contains GObject bindings for libudev."
 

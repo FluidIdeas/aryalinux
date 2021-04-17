@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/haveged/haveged-1.9.2.tar.gz
+wget -nc https://github.com/jirka-h/haveged/archive/v1.9.14/haveged-1.9.14.tar.gz
 
 
 NAME=haveged
-VERSION=1.9.2
-URL=https://downloads.sourceforge.net/haveged/haveged-1.9.2.tar.gz
+VERSION=1.9.14
+URL=https://github.com/jirka-h/haveged/archive/v1.9.14/haveged-1.9.14.tar.gz
 SECTION="Security"
 DESCRIPTION="The Haveged package contains a daemon that generates an unpredictable stream of random numbers and feeds the /dev/random device."
 
@@ -39,13 +39,13 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr &&
+./configure --prefix=/usr --disable-static &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-mkdir -pv    /usr/share/doc/haveged-1.9.2 &&
-cp -v README /usr/share/doc/haveged-1.9.2
+mkdir -pv    /usr/share/doc/haveged-1.9.14 &&
+cp -v README /usr/share/doc/haveged-1.9.14
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

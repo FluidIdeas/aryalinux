@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cpan.org/authors/id/O/OA/OALDERS/HTTP-Daemon-6.06.tar.gz
+wget -nc https://www.cpan.org/authors/id/O/OA/OALDERS/HTTP-Daemon-6.12.tar.gz
 
 
 NAME=perl-modules#perl-http-daemon
-VERSION=6.06
-URL=https://www.cpan.org/authors/id/O/OA/OALDERS/HTTP-Daemon-6.06.tar.gz
+VERSION=6.12
+URL=https://www.cpan.org/authors/id/O/OA/OALDERS/HTTP-Daemon-6.12.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

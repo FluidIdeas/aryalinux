@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/AbiWord/enchant/releases/download/v2.2.8/enchant-2.2.8.tar.gz
+wget -nc https://github.com/AbiWord/enchant/releases/download/v2.2.15/enchant-2.2.15.tar.gz
 
 
 NAME=enchant
-VERSION=2.2.8
-URL=https://github.com/AbiWord/enchant/releases/download/v2.2.8/enchant-2.2.8.tar.gz
+VERSION=2.2.15
+URL=https://github.com/AbiWord/enchant/releases/download/v2.2.15/enchant-2.2.15.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The enchant package provide a generic interface into various existing spell checking libraries."
 

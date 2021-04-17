@@ -44,11 +44,6 @@ LINUX_SRC_DIR=`tar -tf $LINUX_TARBALL | cut "-d/" -f1 | uniq`
 tar xf $LINUX_TARBALL
 cd $LINUX_SRC_DIR
 
-tar xf ../aufs-*.tar.gz
-for patch in ../aufs*patch; do
-	patch -Np1 -i $patch
-done
-
 make mrproper
 
 if [ `uname -m` != "x86_64" ]

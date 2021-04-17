@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://people.freedesktop.org/~takluyver/pyxdg-0.25.tar.gz
+wget -nc https://files.pythonhosted.org/packages/6f/2e/2251b5ae2f003d865beef79c8fcd517e907ed6a69f58c32403cec3eba9b2/pyxdg-0.27.tar.gz
 
 
 NAME=python-modules#pyxdg
-VERSION=0.25
-URL=https://people.freedesktop.org/~takluyver/pyxdg-0.25.tar.gz
+VERSION=0.27
+URL=https://files.pythonhosted.org/packages/6f/2e/2251b5ae2f003d865beef79c8fcd517e907ed6a69f58c32403cec3eba9b2/pyxdg-0.27.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

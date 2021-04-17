@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/cjlin1/liblinear/archive/v230/liblinear-230.tar.gz
+wget -nc https://github.com/cjlin1/liblinear/archive/v242/liblinear-242.tar.gz
 
 
 NAME=liblinear
-VERSION=230
-URL=https://github.com/cjlin1/liblinear/archive/v230/liblinear-230.tar.gz
+VERSION=242
+URL=https://github.com/cjlin1/liblinear/archive/v242/liblinear-242.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="This package provides a library for learning linear classifiers for large scale applications. It supports Support Vector Machines (SVM) with L2 and L1 loss, logistic regression, multi class classification and also Linear Programming Machines (L1-regularized SVMs). Its computational complexity scales linearly with the number of training examples making it one of the fastest SVM solvers around."
 
@@ -43,8 +43,8 @@ make lib
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -vm644 linear.h /usr/include &&
-install -vm755 liblinear.so.3 /usr/lib &&
-ln -sfv liblinear.so.3 /usr/lib/liblinear.so
+install -vm755 liblinear.so.4 /usr/lib &&
+ln -sfv liblinear.so.4 /usr/lib/liblinear.so
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

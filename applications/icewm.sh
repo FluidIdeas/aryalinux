@@ -7,17 +7,18 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:gdk-pixbuf
+#REQ:cmake
+#REQ:gdk-pixbuf-xlib
 
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/ice-wm/icewm/archive/1.6.4/icewm-1.6.4.tar.gz
+wget -nc https://github.com/ice-wm/icewm/archive/2.1.2/icewm-2.1.2.tar.gz
 
 
 NAME=icewm
-VERSION=1.6.4
-URL=https://github.com/ice-wm/icewm/archive/1.6.4/icewm-1.6.4.tar.gz
+VERSION=2.1.2
+URL=https://github.com/ice-wm/icewm/archive/2.1.2/icewm-2.1.2.tar.gz
 SECTION="Window Managers"
 DESCRIPTION="IceWM is a window manager with the goals of speed, simplicity, and not getting in the user's way."
 
@@ -40,8 +41,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i '/ADD_EXECUTABLE(icesh/s/yarray.cc/& ytimer.cc/' src/CMakeLists.txt &&
-
 mkdir build &&
 cd    build &&
 
@@ -49,15 +48,14 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr \
       -DCMAKE_BUILD_TYPE=Release  \
       -DCFGDIR=/etc               \
       -DENABLE_LTO=ON             \
-      -DCMAKE_EXE_LINKER_FLAGS='-lXrandr -lXinerama' \
-      -DDOCDIR=/usr/share/doc/icewm-1.6.4  \
+      -DCONFIG_GDK_PIXBUF_XLIB=ON \
+      -DCONFIG_IMLIB2=OFF         \
+      -DDOCDIR=/usr/share/doc/icewm-2.1.2  \
       .. &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cp ../lib/IceWM.jpg lib &&
-make install         &&
-rm /usr/share/xsessions/icewm.desktop
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

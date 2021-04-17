@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://fossies.org/linux/misc/sane-backends-1.0.27.tar.gz
-wget -nc http://anduin.linuxfromscratch.org/BLFS/sane-frontends/sane-frontends-1.0.14.tar.gz
+wget -nc http://anduin.linuxfromscratch.org/BLFS/sane/sane-backends-1.0.29.tar.gz
+wget -nc http://anduin.linuxfromscratch.org/BLFS/sane/sane-frontends-1.0.14.tar.gz
 
 
 NAME=sane
-VERSION=1.0.27
-URL=http://fossies.org/linux/misc/sane-backends-1.0.27.tar.gz
+VERSION=1.0.29
+URL=http://anduin.linuxfromscratch.org/BLFS/sane/sane-backends-1.0.29.tar.gz
 SECTION="Scanning"
 DESCRIPTION="SANE is short for Scanner Access Now Easy. Scanner access, however, is far from easy, since every vendor has their own protocols. The only known protocol that should bring some unity into this chaos is the TWAIN interface, but this is too imprecise to allow a stable scanning framework. Therefore, SANE comes with its own protocol, and the vendor drivers can't be used."
 
@@ -63,7 +63,7 @@ sg scanner -c "                  \
             --sysconfdir=/etc    \
             --localstatedir=/var \
             --with-group=scanner \
-            --with-docdir=/usr/share/doc/sane-backends-1.0.27" &&
+            --docdir=/usr/share/doc/sane-backends-1.0.29" &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

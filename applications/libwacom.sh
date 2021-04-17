@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/linuxwacom/libwacom-0.29.tar.bz2
+wget -nc https://github.com/linuxwacom/libwacom/releases/download/libwacom-1.8/libwacom-1.8.tar.bz2
 
 
 NAME=libwacom
-VERSION=0.29
-URL=https://downloads.sourceforge.net/linuxwacom/libwacom-0.29.tar.bz2
+VERSION=1.8
+URL=https://github.com/linuxwacom/libwacom/releases/download/libwacom-1.8/libwacom-1.8.tar.bz2
 SECTION="General Libraries"
 DESCRIPTION="The libwacom package contains a library used to identify wacom tablets and their model-specific features."
 
@@ -41,11 +41,14 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr --disable-static &&
-make
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr -Dudev-dir=/lib/udev -Dtests=disabled .. &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

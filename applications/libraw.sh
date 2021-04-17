@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.libraw.org/data/LibRaw-0.19.5.tar.gz
+wget -nc http://www.libraw.org/data/LibRaw-0.20.2.tar.gz
 
 
 NAME=libraw
-VERSION=0.19.5
-URL=http://www.libraw.org/data/LibRaw-0.19.5.tar.gz
+VERSION=0.20.2
+URL=http://www.libraw.org/data/LibRaw-0.20.2.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="Libraw is a library for reading RAW files obtained from digital photo cameras (CRW/CR2, NEF, RAF, DNG, and others)."
 
@@ -42,12 +42,13 @@ fi
 echo $USER > /tmp/currentuser
 
 
+autoreconf -fiv              &&
 ./configure --prefix=/usr    \
             --enable-jpeg    \
             --enable-jasper  \
             --enable-lcms    \
             --disable-static \
-            --docdir=/usr/share/doc/libraw-0.19.5 &&
+            --docdir=/usr/share/doc/libraw-0.20.2 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

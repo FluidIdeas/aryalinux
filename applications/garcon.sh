@@ -8,18 +8,17 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:libxfce4ui
-#REQ:gtk2
 #REQ:gtk3
 
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/garcon/0.6/garcon-0.6.4.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/garcon/4.16/garcon-4.16.1.tar.bz2
 
 
 NAME=garcon
-VERSION=0.6.4
-URL=http://archive.xfce.org/src/xfce/garcon/0.6/garcon-0.6.4.tar.bz2
+VERSION=4.16.1
+URL=http://archive.xfce.org/src/xfce/garcon/4.16/garcon-4.16.1.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="The Garcon package contains a freedesktop.org compliant menu implementation based on GLib and GIO."
 

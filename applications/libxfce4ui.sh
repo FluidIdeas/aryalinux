@@ -9,18 +9,17 @@ set +h
 
 #REQ:gtk3
 #REQ:xfconf
-#REQ:gtk2
 #REQ:startup-notification
 
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/libxfce4ui/4.14/libxfce4ui-4.14.1.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/libxfce4ui/4.16/libxfce4ui-4.16.0.tar.bz2
 
 
 NAME=libxfce4ui
-VERSION=4.14.1
-URL=http://archive.xfce.org/src/xfce/libxfce4ui/4.14/libxfce4ui-4.14.1.tar.bz2
+VERSION=4.16.0
+URL=http://archive.xfce.org/src/xfce/libxfce4ui/4.16/libxfce4ui-4.16.0.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="The libxfce4ui package contains GTK+ 2 widgets that are used by other Xfce applications."
 

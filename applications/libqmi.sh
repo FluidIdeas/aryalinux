@@ -8,17 +8,18 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:glib2
+#REQ:gobject-introspection
 #REQ:libmbim
 
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/libqmi/libqmi-1.24.6.tar.xz
+wget -nc https://www.freedesktop.org/software/libqmi/libqmi-1.26.10.tar.xz
 
 
 NAME=libqmi
-VERSION=1.24.6
-URL=https://www.freedesktop.org/software/libqmi/libqmi-1.24.6.tar.xz
+VERSION=1.26.10
+URL=https://www.freedesktop.org/software/libqmi/libqmi-1.26.10.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libqmi package contains a GLib-based library for talking to WWAN modems and devices which speak the Qualcomm MSM Interface (QMI) protocol."
 

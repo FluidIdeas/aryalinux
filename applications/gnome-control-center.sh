@@ -24,20 +24,20 @@ set +h
 #REQ:samba
 #REQ:gnome-bluetooth
 #REQ:ibus
-#REQ:libhandy
+#REQ:libhandy1
 #REQ:modemmanager
-#REQ:network-manager-applet
+#REQ:libnma
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-control-center/3.36/gnome-control-center-3.36.0.tar.xz
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-control-center/3.36/gnome-control-center-3.36.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-control-center/3.38/gnome-control-center-3.38.4.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-control-center/3.38/gnome-control-center-3.38.4.tar.xz
 
 
 NAME=gnome-control-center
-VERSION=3.36.0
-URL=http://ftp.acc.umu.se/pub/gnome/sources/gnome-control-center/3.36/gnome-control-center-3.36.0.tar.xz
+VERSION=3.38.4
+URL=https://download.gnome.org/sources/gnome-control-center/3.38/gnome-control-center-3.38.4.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Control Center package contains the GNOME settings manager."
 

@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:gdk-pixbuf-xlib
 #REQ:keybinder
 #REQ:libwnck2
 #REQ:lxmenu-data
@@ -19,12 +20,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/lxde/lxpanel-0.10.0.tar.xz
+wget -nc https://downloads.sourceforge.net/lxde/lxpanel-0.10.1.tar.xz
 
 
 NAME=lxpanel
-VERSION=0.10.0
-URL=https://downloads.sourceforge.net/lxde/lxpanel-0.10.0.tar.xz
+VERSION=0.10.1
+URL=https://downloads.sourceforge.net/lxde/lxpanel-0.10.1.tar.xz
 SECTION="LXDE Desktop"
 DESCRIPTION="The LXPanel package contains a lightweight X11 desktop panel."
 

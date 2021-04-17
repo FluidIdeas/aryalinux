@@ -7,20 +7,20 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:krameworks5
+#REQ:frameworks5
 #REQ:libraw
 
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/release-service/19.12.2/src/libkdcraw-19.12.2.tar.xz
+wget -nc https://download.kde.org/stable/release-service/20.12.2/src/libkdcraw-20.12.2.tar.xz
 
 
 NAME=libkdcraw
-VERSION=19.12.2
-URL=http://download.kde.org/stable/release-service/19.12.2/src/libkdcraw-19.12.2.tar.xz
+VERSION=20.12.2
+URL=https://download.kde.org/stable/release-service/20.12.2/src/libkdcraw-20.12.2.tar.xz
 SECTION="KDE Frameworks 5 Based Applications"
-DESCRIPTION="Libkdcraw is a KDE wrapper around the libraw-0.19.5 library for manipulating image metadata."
+DESCRIPTION="Libkdcraw is a KDE wrapper around the libraw-0.20.2 library for manipulating image metadata."
 
 if [ ! -z $URL ]
 then

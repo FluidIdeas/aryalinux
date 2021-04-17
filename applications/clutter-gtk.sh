@@ -14,13 +14,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/clutter-gtk/1.8/clutter-gtk-1.8.4.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/clutter-gtk/1.8/clutter-gtk-1.8.4.tar.xz
+wget -nc https://download.gnome.org/sources/clutter-gtk/1.8/clutter-gtk-1.8.4.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/clutter-gtk/1.8/clutter-gtk-1.8.4.tar.xz
 
 
 NAME=clutter-gtk
 VERSION=1.8.4
-URL=http://ftp.gnome.org/pub/gnome/sources/clutter-gtk/1.8/clutter-gtk-1.8.4.tar.xz
+URL=https://download.gnome.org/sources/clutter-gtk/1.8/clutter-gtk-1.8.4.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The Clutter Gtk package is a library providing facilities to integrate Clutter into GTK+ applications."
 

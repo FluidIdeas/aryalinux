@@ -15,6 +15,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://github.com/metabrainz/libmusicbrainz/releases/download/release-5.1.0/libmusicbrainz-5.1.0.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/libmusicbrainz-5.1.0-cmake_fixes-1.patch
 
 
 NAME=libmusicbrainz5
@@ -42,10 +43,11 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../libmusicbrainz-5.1.0-cmake_fixes-1.patch
 mkdir build &&
 cd    build &&
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr .. &&
+cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release .. &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -9,6 +9,7 @@ set +h
 
 #REQ:glib2
 #REQ:gtk2
+#REQ:libcanberra
 #REQ:lua
 
 

@@ -17,13 +17,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-session/3.36/gnome-session-3.36.0.tar.xz
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-session/3.36/gnome-session-3.36.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-session/3.38/gnome-session-3.38.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-session/3.38/gnome-session-3.38.0.tar.xz
 
 
 NAME=gnome-session
-VERSION=3.36.0
-URL=http://ftp.acc.umu.se/pub/gnome/sources/gnome-session/3.36/gnome-session-3.36.0.tar.xz
+VERSION=3.38.0
+URL=https://download.gnome.org/sources/gnome-session/3.38/gnome-session-3.38.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Session package contains the GNOME session manager."
 
@@ -47,6 +47,7 @@ echo $USER > /tmp/currentuser
 
 
 sed 's@/bin/sh@/bin/sh -l@' -i gnome-session/gnome-session.in
+echo 'Slice=-.slice' >> data/gnome-session-restart-dbus.service.in
 mkdir build &&
 cd    build &&
 

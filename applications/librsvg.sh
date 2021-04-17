@@ -8,7 +8,6 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:gdk-pixbuf
-#REQ:libcroco
 #REQ:cairo
 #REQ:pango
 #REQ:rust
@@ -18,13 +17,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/librsvg/2.46/librsvg-2.46.4.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/librsvg/2.46/librsvg-2.46.4.tar.xz
+wget -nc https://download.gnome.org/sources/librsvg/2.50/librsvg-2.50.3.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/librsvg/2.50/librsvg-2.50.3.tar.xz
 
 
 NAME=librsvg
-VERSION=2.46.4
-URL=http://ftp.gnome.org/pub/gnome/sources/librsvg/2.46/librsvg-2.46.4.tar.xz
+VERSION=2.50.3
+URL=https://download.gnome.org/sources/librsvg/2.50/librsvg-2.50.3.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The librsvg package contains a library and tools used to manipulate, convert and view Scalable Vector Graphic (SVG) images."
 
@@ -57,7 +56,8 @@ sudo ldconfig
 
 ./configure --prefix=/usr    \
             --enable-vala    \
-            --disable-static &&
+            --disable-static \
+            --docdir=/usr/share/doc/librsvg-2.50.3 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

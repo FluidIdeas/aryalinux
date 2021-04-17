@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.14.tar.xz
+wget -nc https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.14.1.tar.xz
 
 
 NAME=xcb-proto
-VERSION=1.14
-URL=https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.14.tar.xz
+VERSION=1.14.1
+URL=https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.14.1.tar.xz
 SECTION="X Window System Environment"
 DESCRIPTION="The xcb-proto package provides the XML-XCB protocol descriptions that libxcb uses to generate the majority of its code and API."
 
@@ -40,7 +40,7 @@ echo $USER > /tmp/currentuser
 
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
-./configure $XORG_CONFIG
+PYTHON=python3 ./configure $XORG_CONFIG
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install

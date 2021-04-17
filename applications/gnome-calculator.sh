@@ -17,13 +17,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-calculator/3.36/gnome-calculator-3.36.0.tar.xz
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-calculator/3.36/gnome-calculator-3.36.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-calculator/3.38/gnome-calculator-3.38.2.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-calculator/3.38/gnome-calculator-3.38.2.tar.xz
 
 
 NAME=gnome-calculator
-VERSION=3.36.0
-URL=http://ftp.acc.umu.se/pub/gnome/sources/gnome-calculator/3.36/gnome-calculator-3.36.0.tar.xz
+VERSION=3.38.2
+URL=https://download.gnome.org/sources/gnome-calculator/3.38/gnome-calculator-3.38.2.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="GNOME Calculator is a powerful graphical calculator with financial, logical and scientific modes. It uses a multiple precision package to do its arithmetic to give a high degree of accuracy."
 

@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:gdk-pixbuf-xlib
 #REQ:rep-gtk
 #REQ:which
 
@@ -14,6 +15,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://download.tuxfamily.org/sawfish/sawfish_1.12.0.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/sawfish-1.12.0-gcc10_fixes-1.patch
 
 
 NAME=sawfish
@@ -41,6 +43,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../sawfish-1.12.0-gcc10_fixes-1.patch
 ./configure --prefix=/usr --with-pango  &&
 make
 sudo rm -rf /tmp/rootscript.sh

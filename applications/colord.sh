@@ -21,12 +21,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/colord/releases/colord-1.4.4.tar.xz
+wget -nc https://www.freedesktop.org/software/colord/releases/colord-1.4.5.tar.xz
 
 
 NAME=colord
-VERSION=1.4.4
-URL=https://www.freedesktop.org/software/colord/releases/colord-1.4.4.tar.xz
+VERSION=1.4.5
+URL=https://www.freedesktop.org/software/colord/releases/colord-1.4.5.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="Colord is a system service that makes it easy to manage, install, and generate color profiles. It is used mainly by GNOME Color Manager for system integration and use when no users are logged in."
 
@@ -66,8 +66,6 @@ mkdir build &&
 cd build &&
 
 meson --prefix=/usr            \
-      --sysconfdir=/etc        \
-      --localstatedir=/var     \
       -Ddaemon_user=colord     \
       -Dvapi=true              \
       -Dsystemd=true           \

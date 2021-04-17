@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.8.5.tar.bz2
-wget -nc ftp://ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.8.5.tar.bz2
+wget -nc https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.9.2.tar.bz2
+wget -nc ftp://ftp.gnupg.org/gcrypt/libgcrypt/libgcrypt-1.9.2.tar.bz2
 
 
 NAME=libgcrypt
-VERSION=1.8.5
-URL=https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.8.5.tar.bz2
+VERSION=1.9.2
+URL=https://www.gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.9.2.tar.bz2
 SECTION="General Libraries"
 DESCRIPTION="The libgcrypt package contains a general purpose crypto library based on the code used in GnuPG. The library provides a high level interface to cryptographic building blocks using an extendable and flexible API."
 
@@ -50,17 +50,17 @@ makeinfo --plaintext       -o doc/gcrypt.txt           doc/gcrypt.texi
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-install -v -dm755   /usr/share/doc/libgcrypt-1.8.5 &&
+install -v -dm755   /usr/share/doc/libgcrypt-1.9.2 &&
 install -v -m644    README doc/{README.apichanges,fips*,libgcrypt*} \
-                    /usr/share/doc/libgcrypt-1.8.5 &&
+                    /usr/share/doc/libgcrypt-1.9.2 &&
 
-install -v -dm755   /usr/share/doc/libgcrypt-1.8.5/html &&
+install -v -dm755   /usr/share/doc/libgcrypt-1.9.2/html &&
 install -v -m644 doc/gcrypt.html/* \
-                    /usr/share/doc/libgcrypt-1.8.5/html &&
+                    /usr/share/doc/libgcrypt-1.9.2/html &&
 install -v -m644 doc/gcrypt_nochunks.html \
-                    /usr/share/doc/libgcrypt-1.8.5      &&
+                    /usr/share/doc/libgcrypt-1.9.2      &&
 install -v -m644 doc/gcrypt.{txt,texi} \
-                    /usr/share/doc/libgcrypt-1.8.5
+                    /usr/share/doc/libgcrypt-1.9.2
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -40,7 +40,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-rm -f src/fcobjshash.h
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \
             --localstatedir=/var \

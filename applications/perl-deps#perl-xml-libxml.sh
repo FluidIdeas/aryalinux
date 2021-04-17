@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0201.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0205.tar.gz
 
 
 NAME=perl-deps#perl-xml-libxml
-VERSION=2.0201
-URL=https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0201.tar.gz
+VERSION=2.0205
+URL=https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0205.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

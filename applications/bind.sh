@@ -7,18 +7,21 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:libuv
+#REQ:json-c
+#REQ:libcap
 
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.isc.org/isc/bind9/9.16.0/bind-9.16.0.tar.xz
+wget -nc ftp://ftp.isc.org/isc/bind9/9.16.11/bind-9.16.11.tar.xz
 
 
 NAME=bind
-VERSION=9.16.0
-URL=ftp://ftp.isc.org/isc/bind9/9.16.0/bind-9.16.0.tar.xz
+VERSION=9.16.11
+URL=ftp://ftp.isc.org/isc/bind9/9.16.11/bind-9.16.11.tar.xz
 SECTION="Major Servers"
-DESCRIPTION="The BIND package provides a DNS server and client utilities. If you are only interested in the utilities, refer to the BIND Utilities-9.16.0."
+DESCRIPTION="The BIND package provides a DNS server and client utilities. If you are only interested in the utilities, refer to the BIND Utilities-9.16.11."
 
 if [ ! -z $URL ]
 then
@@ -48,6 +51,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+sed -i '851 s/len/(len + 1)/' lib/dns/spnego.c
 ./configure --prefix=/usr           \
             --sysconfdir=/etc       \
             --localstatedir=/var    \
@@ -76,11 +80,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-
-install -v -m755 -d /usr/share/doc/bind-9.16.0/arm &&
-install -v -m644    doc/arm/*.html \
-                    /usr/share/doc/bind-9.16.0/arm
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -7,20 +7,20 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:cairomm
+#REQ:cairomm-1.0
 #REQ:glibmm
 #REQ:pango
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/pangomm/2.42/pangomm-2.42.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pangomm/2.42/pangomm-2.42.0.tar.xz
+wget -nc https://download.gnome.org/sources/pangomm/2.46/pangomm-2.46.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/pangomm/2.46/pangomm-2.46.0.tar.xz
 
 
 NAME=pangomm
-VERSION=2.42.0
-URL=http://ftp.gnome.org/pub/gnome/sources/pangomm/2.42/pangomm-2.42.0.tar.xz
+VERSION=2.46.0
+URL=https://download.gnome.org/sources/pangomm/2.46/pangomm-2.46.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The Pangomm package provides a C++ interface to Pango."
 
@@ -43,13 +43,14 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -e '/^libdocdir =/ s/$(book_name)/pangomm-2.42.0/' \
-    -i docs/Makefile.in
-./configure --prefix=/usr &&
-make
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr .. &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

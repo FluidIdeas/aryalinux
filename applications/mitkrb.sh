@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://kerberos.org/dist/krb5/1.18/krb5-1.18.tar.gz
+wget -nc https://kerberos.org/dist/krb5/1.19/krb5-1.19.1.tar.gz
 
 
 NAME=mitkrb
-VERSION=1.18
-URL=https://kerberos.org/dist/krb5/1.18/krb5-1.18.tar.gz
+VERSION=1.19.1
+URL=https://kerberos.org/dist/krb5/1.19/krb5-1.19.1.tar.gz
 SECTION="Security"
 DESCRIPTION="MIT Kerberos V5 is a free implementation of Kerberos 5. Kerberos is a network authentication protocol. It centralizes the authentication database and uses kerberized applications to work with servers or services that support Kerberos allowing single logins and encrypted communication over internal networks or the Internet."
 
@@ -40,13 +40,15 @@ echo $USER > /tmp/currentuser
 
 
 cd src &&
- 
+
 sed -i -e 's@\^u}@^u cols 300}@' tests/dejagnu/config/default.exp     &&
 sed -i -e '/eq 0/{N;s/12 //}'    plugins/kdb/db2/libdb2/test/run.test &&
+sed -i '/t_iprop.py/d'           tests/Makefile.in                    &&
 
 ./configure --prefix=/usr            \
             --sysconfdir=/etc        \
             --localstatedir=/var/lib \
+            --runstatedir=/run       \
             --with-system-et         \
             --with-system-ss         \
             --with-system-verto=no   \
@@ -73,8 +75,17 @@ ln -v -sf ../../lib/libkrb5support.so.0.1 /usr/lib/libkrb5support.so &&
 mv -v /usr/bin/ksu /bin &&
 chmod -v 755 /bin/ksu   &&
 
-install -v -dm755 /usr/share/doc/krb5-1.18 &&
-cp -vfr ../doc/*  /usr/share/doc/krb5-1.18
+install -v -dm755 /usr/share/doc/krb5-1.19.1 &&
+cp -vfr ../doc/*  /usr/share/doc/krb5-1.19.1
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+touch /var/lib/krb5kdc/kadm5.acl
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

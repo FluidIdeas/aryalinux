@@ -13,13 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.sendmail.org/pub/sendmail/sendmail.8.15.2.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/sendmail.8.15.2-openssl-1.patch
+wget -nc ftp://ftp.sendmail.org/pub/sendmail/sendmail.8.16.1.tar.gz
 
 
 NAME=sendmail
-VERSION=.8.15.2
-URL=ftp://ftp.sendmail.org/pub/sendmail/sendmail.8.15.2.tar.gz
+VERSION=.8.16.1
+URL=ftp://ftp.sendmail.org/pub/sendmail/sendmail.8.16.1.tar.gz
 SECTION="Mail Server Software"
 DESCRIPTION="The sendmail package contains a Mail Transport Agent (MTA)."
 
@@ -60,8 +59,6 @@ APPENDDEF(`confENVDEF',`-DSTARTTLS -DSASL -DLDAPMAP')
 APPENDDEF(`confLIBS', `-lssl -lcrypto -lsasl2 -lldap -llber -ldb')
 APPENDDEF(`confINCDIRS', `-I/usr/include/sasl')
 EOF
-patch -Np1 -i ../sendmail.8.15.2-openssl-1.patch &&
-
 cat >> devtools/Site/site.config.m4 << "EOF"
 define(`confMANGRP',`root')
 define(`confMANOWN',`root')
@@ -89,15 +86,15 @@ sh Build install    &&
 install -v -m644 cf/cf/{submit,sendmail}.mc /etc/mail &&
 cp -v -R cf/* /etc/mail                               &&
 
-install -v -m755 -d /usr/share/doc/sendmail-8.15.2/{cf,sendmail} &&
+install -v -m755 -d /usr/share/doc/sendmail-8.16.1/{cf,sendmail} &&
 
 install -v -m644 CACerts FAQ KNOWNBUGS LICENSE PGPKEYS README RELEASE_NOTES \
-        /usr/share/doc/sendmail-8.15.2 &&
+        /usr/share/doc/sendmail-8.16.1 &&
 
 install -v -m644 sendmail/{README,SECURITY,TRACEFLAGS,TUNING} \
-        /usr/share/doc/sendmail-8.15.2/sendmail &&
+        /usr/share/doc/sendmail-8.16.1/sendmail &&
 
-install -v -m644 cf/README /usr/share/doc/sendmail-8.15.2/cf &&
+install -v -m644 cf/README /usr/share/doc/sendmail-8.16.1/cf &&
 
 for manpage in sendmail editmap mailstats makemap praliases smrsh
 do
@@ -119,8 +116,8 @@ sed -i 's/groff/GROFF_NO_SGR=1 groff/' Makefile &&
 make op.txt op.pdf
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -d -m755 /usr/share/doc/sendmail-8.15.2 &&
-install -v -m644 op.ps op.txt op.pdf /usr/share/doc/sendmail-8.15.2 &&
+install -v -d -m755 /usr/share/doc/sendmail-8.16.1 &&
+install -v -m644 op.ps op.txt op.pdf /usr/share/doc/sendmail-8.16.1 &&
 cd ../..
 ENDOFROOTSCRIPT
 

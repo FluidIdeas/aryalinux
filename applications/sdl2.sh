@@ -7,17 +7,20 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:libxkbcommon
+#REQ:wayland-protocols
+#REQ:x7lib
 
 
 cd $SOURCE_DIR
 
-wget -nc http://www.libsdl.org/release/SDL2-2.0.10.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/SDL2-2.0.10-opengl_include_fix-1.patch
+wget -nc http://www.libsdl.org/release/SDL2-2.0.14.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/SDL2-2.0.14-opengl_include_fix-1.patch
 
 
 NAME=sdl2
-VERSION=2.0.10
-URL=http://www.libsdl.org/release/SDL2-2.0.10.tar.gz
+VERSION=2.0.14
+URL=http://www.libsdl.org/release/SDL2-2.0.14.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The Simple DirectMedia Layer Version 2 (SDL2 for short) is a cross-platform library designed to make it easy to write multimedia software, such as games and emulators."
 
@@ -41,7 +44,7 @@ echo $USER > /tmp/currentuser
 
 
 case $(uname -m) in
-   i?86) patch -Np1 -i ../SDL2-2.0.10-opengl_include_fix-1.patch ;;
+   i?86) patch -Np1 -i ../SDL2-2.0.14-opengl_include_fix-1.patch ;;
 esac
 ./configure --prefix=/usr &&
 make

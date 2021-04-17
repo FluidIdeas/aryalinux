@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/apps/xfce4-notifyd/0.4/xfce4-notifyd-0.4.4.tar.bz2
+wget -nc http://archive.xfce.org/src/apps/xfce4-notifyd/0.6/xfce4-notifyd-0.6.2.tar.bz2
 
 
 NAME=xfce4-notifyd
-VERSION=0.4.4
-URL=http://archive.xfce.org/src/apps/xfce4-notifyd/0.4/xfce4-notifyd-0.4.4.tar.bz2
+VERSION=0.6.2
+URL=http://archive.xfce.org/src/apps/xfce4-notifyd/0.6/xfce4-notifyd-0.6.2.tar.bz2
 SECTION="Xfce Applications"
 DESCRIPTION="The Xfce4 Notification Daemon is a small program that implements the \"server-side\" portion of the Freedesktop desktop notifications specification. Applications that wish to pop up a notification bubble in a standard way can use Xfce4-Notifyd to do so by sending standard messages over D-Bus using the org.freedesktop.Notifications interface."
 
@@ -42,7 +42,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr &&
+./configure --prefix=/usr --sysconfdir=/etc &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

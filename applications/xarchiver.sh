@@ -13,13 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/xarchiver/xarchiver-0.5.4.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/xarchiver-0.5.4-fixes-1.patch
+wget -nc https://github.com/ib/xarchiver/archive/0.5.4.17/xarchiver-0.5.4.17.tar.gz
 
 
 NAME=xarchiver
-VERSION=0.5.4
-URL=https://downloads.sourceforge.net/xarchiver/xarchiver-0.5.4.tar.bz2
+VERSION=0.5.4.17
+URL=https://github.com/ib/xarchiver/archive/0.5.4.17/xarchiver-0.5.4.17.tar.gz
 SECTION="Other X-based Programs"
 DESCRIPTION="XArchiver is a GTK+ archive manager with support for tar, xz, bzip2, gzip, zip, 7z, rar, lzo and many other archive formats."
 
@@ -42,15 +41,13 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../xarchiver-0.5.4-fixes-1.patch &&
-
-./autogen.sh --prefix=/usr               \
+./configure  --prefix=/usr               \
              --libexecdir=/usr/lib/xfce4 \
-             --docdir=/usr/share/doc/xarchiver-0.5.4 &&
+             --docdir=/usr/share/doc/xarchiver-0.5.4.17 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make DOCDIR=/usr/share/doc/xarchiver-0.5.4 install
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

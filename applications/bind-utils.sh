@@ -7,18 +7,20 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:libuv
+#REQ:json-c
 
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.isc.org/isc/bind9/9.16.0/bind-9.16.0.tar.xz
+wget -nc ftp://ftp.isc.org/isc/bind9/9.16.11/bind-9.16.11.tar.xz
 
 
 NAME=bind-utils
-VERSION=9.16.0
-URL=ftp://ftp.isc.org/isc/bind9/9.16.0/bind-9.16.0.tar.xz
+VERSION=9.16.11
+URL=ftp://ftp.isc.org/isc/bind9/9.16.11/bind-9.16.11.tar.xz
 SECTION="Networking Utilities"
-DESCRIPTION="BIND Utilities is not a separate package, it is a collection of the client side programs that are included with BIND-9.16.0. The BIND package includes the client side programs nslookup, dig and host. If you install BIND server, these programs will be installed automatically. This section is for those users who don't need the complete BIND server, but need these client side applications."
+DESCRIPTION="BIND Utilities is not a separate package, it is a collection of the client side programs that are included with BIND-9.16.11. The BIND package includes the client side programs nslookup, dig and host. If you install BIND server, these programs will be installed automatically. This section is for those users who don't need the complete BIND server, but need these client side applications."
 
 if [ ! -z $URL ]
 then
@@ -45,10 +47,12 @@ make -C lib/isc    &&
 make -C lib/bind9  &&
 make -C lib/isccfg &&
 make -C lib/irs    &&
-make -C bin/dig
+make -C bin/dig    &&
+make -C doc
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make -C bin/dig install
+make -C bin/dig install &&
+cp -v doc/man/{dig.1,host.1,nslookup.1} /usr/share/man/man1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

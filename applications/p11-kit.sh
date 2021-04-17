@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/p11-glue/p11-kit/releases/download/0.23.20/p11-kit-0.23.20.tar.xz
+wget -nc https://github.com/p11-glue/p11-kit/releases/download/0.23.22/p11-kit-0.23.22.tar.xz
 
 
 NAME=p11-kit
-VERSION=0.23.20
-URL=https://github.com/p11-glue/p11-kit/releases/download/0.23.20/p11-kit-0.23.20.tar.xz
+VERSION=0.23.22
+URL=https://github.com/p11-glue/p11-kit/releases/download/0.23.22/p11-kit-0.23.22.tar.xz
 SECTION="Security"
 DESCRIPTION="The p11-kit package provides a way to load and enumerate PKCS #11 (a Cryptographic Token Interface Standard) modules."
 
@@ -41,8 +41,8 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed '20,$ d' -i trust/trust-extract-compat.in &&
-cat >> trust/trust-extract-compat.in << "EOF"
+sed '20,$ d' -i trust/trust-extract-compat &&
+cat >> trust/trust-extract-compat << "EOF"
 # Copy existing anchor modifications to /etc/ssl/local
 /usr/libexec/make-ca/copy-trust-modifications
 

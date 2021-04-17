@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Warnings-0.026.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Warnings-0.030.tar.gz
 
 
 NAME=perl-deps#perl-test-warnings
-VERSION=0.026
-URL=https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Warnings-0.026.tar.gz
+VERSION=0.030
+URL=https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Warnings-0.030.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

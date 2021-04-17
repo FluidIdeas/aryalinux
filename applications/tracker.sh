@@ -20,13 +20,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/tracker/2.3/tracker-2.3.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/tracker/2.3/tracker-2.3.2.tar.xz
+wget -nc https://download.gnome.org/sources/tracker/2.3/tracker-2.3.6.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/tracker/2.3/tracker-2.3.6.tar.xz
 
 
 NAME=tracker
-VERSION=2.3.2
-URL=http://ftp.gnome.org/pub/gnome/sources/tracker/2.3/tracker-2.3.2.tar.xz
+VERSION=2.3.6
+URL=https://download.gnome.org/sources/tracker/2.3/tracker-2.3.6.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Tracker is the file indexing and search provider used in the GNOME desktop environment."
 
@@ -52,7 +52,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr --sysconfdir=/etc .. &&
+meson --prefix=/usr .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

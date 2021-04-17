@@ -8,6 +8,7 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:dbus-glib
+#REQ:gtk-doc
 #REQ:libxslt
 #REQ:gobject-introspection
 #REQ:vala
@@ -15,12 +16,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://telepathy.freedesktop.org/releases/telepathy-glib/telepathy-glib-0.24.1.tar.gz
+wget -nc https://telepathy.freedesktop.org/releases/telepathy-glib/telepathy-glib-0.24.2.tar.gz
 
 
 NAME=telepathy-glib
-VERSION=0.24.1
-URL=https://telepathy.freedesktop.org/releases/telepathy-glib/telepathy-glib-0.24.1.tar.gz
+VERSION=0.24.2
+URL=https://telepathy.freedesktop.org/releases/telepathy-glib/telepathy-glib-0.24.2.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The Telepathy GLib contains a library used by GLib based Telepathy components. Telepathy is a D-Bus framework for unifying real time communication, including instant messaging, voice calls and video calls. It abstracts differences between protocols to provide a unified interface for applications."
 
@@ -43,9 +44,10 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr          \
-            --enable-vala-bindings \
-            --disable-static       &&
+sed -i 's%/usr/bin/python%&3%' tests/all-errors-documented.py
+PYTHON=/usr/bin/python3 ./configure --prefix=/usr          \
+                                    --enable-vala-bindings \
+                                    --disable-static       &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

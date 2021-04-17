@@ -47,7 +47,6 @@ export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disab
 cat > app-7.md5 << "EOF"
 3b9b79fa0f9928161f4bad94273de7ae  iceauth-1.0.8.tar.bz2
 c4a3664e08e5a47c120ff9263ee2f20c  luit-1.1.1.tar.bz2
-18c429148c96c2079edda922a2b67632  mkfontdir-1.0.7.tar.bz2
 215940de158b1a3d8b3f8b442c606e2f  mkfontscale-1.2.1.tar.bz2
 92be564d4be7d8aa7b5024057b715210  sessreg-1.1.2.tar.bz2
 93e736c98fb75856ee8227a0c49a128d  setxkbmap-1.3.2.tar.bz2
@@ -59,11 +58,11 @@ e50587c1bb832aafd1a19d91a0890a0b  xauth-1.1.tar.bz2
 25cc7ca1ce5dcbb61c2b471c55e686b5  xcursorgen-1.0.7.tar.bz2
 8809037bd48599af55dad81c508b6b39  xdpyinfo-1.3.2.tar.bz2
 480e63cd365f03eb2515a6527d5f4ca6  xdriinfo-1.0.6.tar.bz2
-eec82a5d4b599736f0fa637e96136746  xev-1.2.3.tar.bz2
+e1d7dc1afd3ddb8fab16d6a76f21a258  xev-1.2.4.tar.bz2
 90b4305157c2b966d5180e2ee61262be  xgamma-1.0.6.tar.bz2
 a48c72954ae6665e0616f6653636da8c  xhost-1.0.8.tar.bz2
 ac6b7432726008b2f50eba82b0e2dbe4  xinput-1.6.3.tar.bz2
-6e4751d99373f85d459ab4dff28893f5  xkbcomp-1.4.3.tar.bz2
+41d0b6d370f907615364a6330b8f42ff  xkbcomp-1.4.4.tar.bz2
 c747faf1f78f5a5962419f8bdd066501  xkbevd-1.1.4.tar.bz2
 502b14843f610af977dffc6cbf2102d5  xkbutils-1.0.4.tar.bz2
 938177e4472c346cf031c1aefd8934fc  xkill-1.0.5.tar.bz2
@@ -72,7 +71,7 @@ c747faf1f78f5a5962419f8bdd066501  xkbevd-1.1.4.tar.bz2
 e50ffae17eeb3943079620cb78f5ce0b  xmessage-1.0.5.tar.bz2
 51f1d30a525e9903280ffeea2744b1f6  xmodmap-1.0.10.tar.bz2
 eaac255076ea351fd08d76025788d9f9  xpr-1.0.5.tar.bz2
-cc369c28383a5d7144e7197ee7d30bfa  xprop-1.2.4.tar.bz2
+2358e29133d183ff67d4ef8afd70b9d2  xprop-1.2.5.tar.bz2
 fe40f7a4fd39dd3a02248d3e0b1972e4  xrandr-1.5.1.tar.xz
 34ae801ef994d192c70fcce2bdb2a1b2  xrdb-1.2.0.tar.bz2
 c56fa4adbeed1ee5173f464a4c4a61a6  xrefresh-1.0.6.tar.bz2

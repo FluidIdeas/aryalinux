@@ -10,18 +10,19 @@ set +h
 #REQ:babl
 #REQ:json-glib
 #REQ:gobject-introspection
+#REQ:graphviz
 #REQ:python-modules#pygments
 #REQ:python-modules#pygobject3
 
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gimp.org/pub/gegl/0.4/gegl-0.4.22.tar.xz
+wget -nc https://download.gimp.org/pub/gegl/0.4/gegl-0.4.28.tar.xz
 
 
 NAME=gegl
-VERSION=0.4.22
-URL=https://download.gimp.org/pub/gegl/0.4/gegl-0.4.22.tar.xz
+VERSION=0.4.28
+URL=https://download.gimp.org/pub/gegl/0.4/gegl-0.4.28.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="This package provides the GEneric Graphics Library, which is a graph based image processing format."
 
@@ -44,6 +45,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed '1s@python@&3@' -i tests/python/*.py
 mkdir build &&
 cd    build &&
 

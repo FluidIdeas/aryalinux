@@ -14,13 +14,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.36/at-spi2-core-2.36.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.36/at-spi2-core-2.36.0.tar.xz
+wget -nc https://download.gnome.org/sources/at-spi2-core/2.38/at-spi2-core-2.38.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/at-spi2-core/2.38/at-spi2-core-2.38.0.tar.xz
 
 
 NAME=at-spi2-core
-VERSION=2.36.0
-URL=http://ftp.gnome.org/pub/gnome/sources/at-spi2-core/2.36/at-spi2-core-2.36.0.tar.xz
+VERSION=2.38.0
+URL=https://download.gnome.org/sources/at-spi2-core/2.38/at-spi2-core-2.38.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The At-Spi2 Core package is a part of the GNOME Accessibility Project. It provides a Service Provider Interface for the Assistive Technologies available on the GNOME platform and a library against which applications can be linked."
 
@@ -46,7 +46,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr --sysconfdir=/etc  .. &&
+meson --prefix=/usr .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

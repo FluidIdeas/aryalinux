@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/libexif/libexif-0.6.21.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/libexif-0.6.21-security_fix-1.patch
+wget -nc https://github.com/libexif/libexif/releases/download/libexif-0_6_22-release/libexif-0.6.22.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/libexif-0.6.22-security_fixes-1.patch
 
 
 NAME=libexif
-VERSION=0.6.21
-URL=https://downloads.sourceforge.net/libexif/libexif-0.6.21.tar.bz2
+VERSION=0.6.22
+URL=https://github.com/libexif/libexif/releases/download/libexif-0_6_22-release/libexif-0.6.22.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The libexif package contains a library for parsing, editing, and saving EXIF data. Most digital cameras produce EXIF files, which are JPEG files with extra tags that contain information about the image. All EXIF tags described in EXIF standard 2.1 are supported."
 
@@ -40,10 +40,10 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../libexif-0.6.21-security_fix-1.patch
+patch -Np1 -i ../libexif-0.6.22-security_fixes-1.patch
 ./configure --prefix=/usr    \
             --disable-static \
-            --with-doc-dir=/usr/share/doc/libexif-0.6.21 &&
+            --with-doc-dir=/usr/share/doc/libexif-0.6.22 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

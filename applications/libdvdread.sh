@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://get.videolan.org/libdvdread/6.0.2/libdvdread-6.0.2.tar.bz2
+wget -nc https://get.videolan.org/libdvdread/6.1.1/libdvdread-6.1.1.tar.bz2
 
 
 NAME=libdvdread
-VERSION=6.0.2
-URL=https://get.videolan.org/libdvdread/6.0.2/libdvdread-6.0.2.tar.bz2
+VERSION=6.1.1
+URL=https://get.videolan.org/libdvdread/6.1.1/libdvdread-6.1.1.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="libdvdread is a library which provides a simple foundation for reading DVDs."
 
@@ -41,7 +41,7 @@ echo $USER > /tmp/currentuser
 
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/libdvdread-6.0.2 &&
+            --docdir=/usr/share/doc/libdvdread-6.1.1 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://oligarchy.co.uk/xapian/1.4.15/xapian-core-1.4.15.tar.xz
+wget -nc http://oligarchy.co.uk/xapian/1.4.18/xapian-core-1.4.18.tar.xz
 
 
 NAME=xapian
-VERSION=1.4.15
-URL=http://oligarchy.co.uk/xapian/1.4.15/xapian-core-1.4.15.tar.xz
+VERSION=1.4.18
+URL=http://oligarchy.co.uk/xapian/1.4.18/xapian-core-1.4.18.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="Xapian is an open source search engine library."
 
@@ -41,7 +41,7 @@ echo $USER > /tmp/currentuser
 
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/xapian-core-1.4.15 &&
+            --docdir=/usr/share/doc/xapian-core-1.4.18 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

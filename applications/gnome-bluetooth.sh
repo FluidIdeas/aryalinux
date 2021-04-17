@@ -16,13 +16,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-bluetooth/3.34/gnome-bluetooth-3.34.1.tar.xz
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-bluetooth/3.34/gnome-bluetooth-3.34.1.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-bluetooth/3.34/gnome-bluetooth-3.34.3.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-bluetooth/3.34/gnome-bluetooth-3.34.3.tar.xz
 
 
 NAME=gnome-bluetooth
-VERSION=3.34.1
-URL=http://ftp.acc.umu.se/pub/gnome/sources/gnome-bluetooth/3.34/gnome-bluetooth-3.34.1.tar.xz
+VERSION=3.34.3
+URL=https://download.gnome.org/sources/gnome-bluetooth/3.34/gnome-bluetooth-3.34.3.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Bluetooth package contains tools for managing and manipulating Bluetooth devices using the GNOME Desktop."
 

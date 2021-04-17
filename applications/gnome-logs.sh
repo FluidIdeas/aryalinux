@@ -14,13 +14,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-logs/3.34/gnome-logs-3.34.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-logs/3.34/gnome-logs-3.34.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-logs/3.36/gnome-logs-3.36.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-logs/3.36/gnome-logs-3.36.0.tar.xz
 
 
 NAME=gnome-logs
-VERSION=3.34.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-logs/3.34/gnome-logs-3.34.0.tar.xz
+VERSION=3.36.0
+URL=https://download.gnome.org/sources/gnome-logs/3.36/gnome-logs-3.36.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Logs package contains a log viewer for the systemd journal."
 

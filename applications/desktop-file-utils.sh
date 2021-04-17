@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.24.tar.xz
+wget -nc https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.26.tar.xz
 
 
 NAME=desktop-file-utils
-VERSION=0.24
-URL=https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.24.tar.xz
+VERSION=0.26
+URL=https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.26.tar.xz
 SECTION="General Utilities"
 DESCRIPTION="The Desktop File Utils package contains command line utilities for working with Desktop entries. These utilities are used by Desktop Environments and other applications to manipulate the MIME-types application databases and help adhere to the Desktop Entry Specification."
 
@@ -40,11 +40,23 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr &&
-make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+rm -fv /usr/bin/desktop-file-edit
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr .. &&
+ninja
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

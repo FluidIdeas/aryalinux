@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://roy.marples.name/downloads/dhcpcd/dhcpcd-8.1.6.tar.xz
-wget -nc ftp://roy.marples.name/pub/dhcpcd/dhcpcd-8.1.6.tar.xz
+wget -nc https://roy.marples.name/downloads/dhcpcd/dhcpcd-9.4.0.tar.xz
+wget -nc ftp://roy.marples.name/pub/dhcpcd/dhcpcd-9.4.0.tar.xz
 
 
 NAME=dhcpcd
-VERSION=8.1.6
-URL=https://roy.marples.name/downloads/dhcpcd/dhcpcd-8.1.6.tar.xz
+VERSION=9.4.0
+URL=https://roy.marples.name/downloads/dhcpcd/dhcpcd-9.4.0.tar.xz
 SECTION="Connecting to a Network"
 DESCRIPTION="dhcpcd is an implementation of the DHCP client specified in RFC2131. A DHCP client is useful for connecting your computer to a network which uses DHCP to assign network addresses. dhcpcd strives to be a fully featured, yet very lightweight DHCP client."
 
@@ -40,8 +40,26 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+install  -v -m700 -d /var/lib/dhcpcd &&
+
+groupadd -g 52 dhcpcd        &&
+useradd  -c 'dhcpcd PrivSep' \
+         -d /var/lib/dhcpcd  \
+         -g dhcpcd           \
+         -s /bin/false     \
+         -u 52 dhcpcd &&
+chown    -v dhcpcd:dhcpcd /var/lib/dhcpcd
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 ./configure --libexecdir=/lib/dhcpcd \
-            --dbdir=/var/lib/dhcpcd  &&
+            --dbdir=/var/lib/dhcpcd  \
+            --privsepuser=dhcpcd     &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

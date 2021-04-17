@@ -9,20 +9,21 @@ set +h
 
 #REQ:gtk3
 #REQ:gsettings-desktop-schemas
-#REQ:libhandy
+#REQ:libhandy1
 #REQ:python-modules#pygobject3
 #REQ:sound-theme-freedesktop
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-tweaks/3.34/gnome-tweaks-3.34.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-tweaks/3.34/gnome-tweaks-3.34.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-tweaks/3.34/gnome-tweaks-3.34.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-tweaks/3.34/gnome-tweaks-3.34.1.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/gnome-tweaks-3.34.1-port_to_libhandy1-1.patch
 
 
 NAME=gnome-tweaks
-VERSION=3.34.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-tweaks/3.34/gnome-tweaks-3.34.0.tar.xz
+VERSION=3.34.1
+URL=https://download.gnome.org/sources/gnome-tweaks/3.34/gnome-tweaks-3.34.1.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="GNOME Tweaks is a simple program used to tweak advanced GNOME settings."
 
@@ -45,6 +46,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../gnome-tweaks-3.34.1-port_to_libhandy1-1.patch
 mkdir build &&
 cd    build &&
 

@@ -39,7 +39,11 @@ fi
 echo $USER > /tmp/currentuser
 
 
-( export CFLAGS="$CFLAGS -Wall -fno-strict-aliasing                 \
+sed -i '/o.*dhcp_type/d' server/mdb.c &&
+sed -r '/u.*(local|remote)_port/d'    \
+    -i client/dhclient.c              \
+       relay/dhcrelay.c
+( export CFLAGS="${CFLAGS:--g -O2} -Wall -fno-strict-aliasing                 \
         -D_PATH_DHCLIENT_SCRIPT='\"/sbin/dhclient-script\"'         \
         -D_PATH_DHCPD_CONF='\"/etc/dhcp/dhcpd.conf\"'               \
         -D_PATH_DHCLIENT_CONF='\"/etc/dhcp/dhclient.conf\"'"        &&

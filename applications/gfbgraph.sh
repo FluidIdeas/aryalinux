@@ -14,13 +14,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gfbgraph/0.2/gfbgraph-0.2.3.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gfbgraph/0.2/gfbgraph-0.2.3.tar.xz
+wget -nc https://download.gnome.org/sources/gfbgraph/0.2/gfbgraph-0.2.4.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gfbgraph/0.2/gfbgraph-0.2.4.tar.xz
 
 
 NAME=gfbgraph
-VERSION=0.2.3
-URL=http://ftp.gnome.org/pub/gnome/sources/gfbgraph/0.2/gfbgraph-0.2.3.tar.xz
+VERSION=0.2.4
+URL=https://download.gnome.org/sources/gfbgraph/0.2/gfbgraph-0.2.4.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The gfbgraph package contains a GObject wrapper for the Facebook Graph API."
 
@@ -43,11 +43,11 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr --disable-static &&
+./autogen.sh --prefix=/usr --disable-static &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make libgfbgraphdocdir=/usr/share/doc/gfbgraph-0.2.3 install
+make libgfbgraphdocdir=/usr/share/doc/gfbgraph-0.2.4 install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

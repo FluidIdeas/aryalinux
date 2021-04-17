@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/R/RE/REHSACK/Config-AutoConf-0.318.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/R/RE/REHSACK/Config-AutoConf-0.319.tar.gz
 
 
 NAME=perl-deps#perl-config-autoconf
-VERSION=0.318
-URL=https://cpan.metacpan.org/authors/id/R/RE/REHSACK/Config-AutoConf-0.318.tar.gz
+VERSION=0.319
+URL=https://cpan.metacpan.org/authors/id/R/RE/REHSACK/Config-AutoConf-0.319.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

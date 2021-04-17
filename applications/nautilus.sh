@@ -13,7 +13,7 @@ set +h
 #REQ:gnome-desktop
 #REQ:libnotify
 #REQ:libseccomp
-#REQ:tracker-miners
+#REQ:tracker3-miners
 #REQ:desktop-file-utils
 #REQ:exempi
 #REQ:gobject-introspection
@@ -25,13 +25,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/nautilus/3.36/nautilus-3.36.0.tar.xz
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/nautilus/3.36/nautilus-3.36.0.tar.xz
+wget -nc https://download.gnome.org/sources/nautilus/3.38/nautilus-3.38.2.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/nautilus/3.38/nautilus-3.38.2.tar.xz
 
 
 NAME=nautilus
-VERSION=3.36.0
-URL=http://ftp.acc.umu.se/pub/gnome/sources/nautilus/3.36/nautilus-3.36.0.tar.xz
+VERSION=3.38.2
+URL=https://download.gnome.org/sources/nautilus/3.38/nautilus-3.38.2.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Nautilus package contains the GNOME file manager."
 
@@ -58,7 +58,6 @@ mkdir build &&
 cd    build &&
 
 meson --prefix=/usr      \
-      --sysconfdir=/etc  \
       -Dselinux=false    \
       -Dpackagekit=false \
       .. &&

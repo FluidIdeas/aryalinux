@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/silnrsi/graphite/releases/download/1.3.13/graphite2-1.3.13.tgz
+wget -nc https://github.com/silnrsi/graphite/releases/download/1.3.14/graphite2-1.3.14.tgz
 
 
 NAME=graphite2
-VERSION=1.3.13
-URL=https://github.com/silnrsi/graphite/releases/download/1.3.13/graphite2-1.3.13.tgz
+VERSION=1.3.14
+URL=https://github.com/silnrsi/graphite/releases/download/1.3.14/graphite2-1.3.14.tgz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="Graphite2 is a rendering engine for graphite fonts. These are TrueType fonts with additional tables containing smart rendering information and were originally developed to support complex non-Roman writing systems. They may contain rules for e.g. ligatures, glyph substitution, kerning, justification - this can make them useful even on text written in Roman writing systems such as English. Note that firefox by default provides an internal copy of the graphite engine and cannot use a system version (although it can now be patched to use it), but it too should benefit from the availability of graphite fonts."
 

@@ -9,7 +9,6 @@ set +h
 
 #REQ:popt
 #REQ:slang
-#REQ:tcl
 #REQ:gpm
 
 

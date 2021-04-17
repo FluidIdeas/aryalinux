@@ -15,13 +15,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/xine/xine-lib-1.2.10.tar.xz
-wget -nc ftp://ftp.mirrorservice.org/sites/distfiles.gentoo.org/distfiles/xine-lib-1.2.10.tar.xz
+wget -nc https://downloads.sourceforge.net/xine/xine-lib-1.2.11.tar.xz
+wget -nc ftp://ftp.mirrorservice.org/sites/distfiles.gentoo.org/distfiles/xine-lib-1.2.11.tar.xz
 
 
 NAME=xine-lib
-VERSION=1.2.10
-URL=https://downloads.sourceforge.net/xine/xine-lib-1.2.10.tar.xz
+VERSION=1.2.11
+URL=https://downloads.sourceforge.net/xine/xine-lib-1.2.11.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The Xine Libraries package contains xine libraries. These are useful for interfacing with external plug-ins that allow the flow of information from the source to the audio and video hardware."
 
@@ -47,7 +47,7 @@ echo $USER > /tmp/currentuser
 ./configure --prefix=/usr          \
             --disable-vcd          \
             --with-external-dvdnav \
-            --docdir=/usr/share/doc/xine-lib-1.2.10 &&
+            --docdir=/usr/share/doc/xine-lib-1.2.11 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

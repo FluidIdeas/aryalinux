@@ -14,18 +14,19 @@ set +h
 #REQ:gfbgraph
 #REQ:gjs
 #REQ:libchamplain
+#REQ:libgee
 #REQ:rest
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-maps/3.36/gnome-maps-3.36.0.tar.xz
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-maps/3.36/gnome-maps-3.36.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-maps/3.38/gnome-maps-3.38.4.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-maps/3.38/gnome-maps-3.38.4.tar.xz
 
 
 NAME=gnome-maps
-VERSION=3.36.0
-URL=http://ftp.acc.umu.se/pub/gnome/sources/gnome-maps/3.36/gnome-maps-3.36.0.tar.xz
+VERSION=3.38.4
+URL=https://download.gnome.org/sources/gnome-maps/3.38/gnome-maps-3.38.4.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="GNOME Maps is a map application for GNOME."
 

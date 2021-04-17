@@ -11,15 +11,15 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.netfilter.org/projects/iptables/files/iptables-1.8.4.tar.bz2
-wget -nc ftp://ftp.netfilter.org/pub/iptables/iptables-1.8.4.tar.bz2
+wget -nc http://www.netfilter.org/projects/iptables/files/iptables-1.8.7.tar.bz2
+wget -nc ftp://ftp.netfilter.org/pub/iptables/iptables-1.8.7.tar.bz2
 
 
 NAME=iptables
-VERSION=1.8.4
-URL=http://www.netfilter.org/projects/iptables/files/iptables-1.8.4.tar.bz2
+VERSION=1.8.7
+URL=http://www.netfilter.org/projects/iptables/files/iptables-1.8.7.tar.bz2
 SECTION="Security"
-DESCRIPTION="iptables is a userspace command line program used to configure Linux 2.4 and later kernel packet filtering ruleset."
+DESCRIPTION="iptables is a userspace command line program used to configure the Linux 2.4 and later kernel packet filtering ruleset."
 
 if [ ! -z $URL ]
 then
@@ -135,7 +135,7 @@ iptables -A OUTPUT -j ACCEPT
 # (e.g. port mode ftp)
 iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
 
-# Log everything else. What's Windows' latest exploitable vulnerability?
+# Log everything else.
 iptables -A INPUT -j LOG --log-prefix "FIREWALL:INPUT "
 
 # End /etc/systemd/scripts/iptables

@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/gpm/gpm-1.20.7.tar.bz2
 wget -nc ftp://anduin.linuxfromscratch.org/BLFS/gpm/gpm-1.20.7.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/gpm-1.20.7-glibc_2.26-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/gpm-1.20.7-consolidated-1.patch
 
 
 NAME=gpm
@@ -41,10 +41,9 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i -e 's:<gpm.h>:"headers/gpm.h":' src/prog/{display-buttons,display-coords,get-versions}.c &&
-patch -Np1 -i ../gpm-1.20.7-glibc_2.26-1.patch &&
-./autogen.sh                                &&
-./configure --prefix=/usr --sysconfdir=/etc &&
+patch -Np1 -i ../gpm-1.20.7-consolidated-1.patch &&
+./autogen.sh                                     &&
+./configure --prefix=/usr --sysconfdir=/etc      &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -13,14 +13,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.exim.org/pub/exim/exim4/exim-4.93.tar.xz
-wget -nc ftp://ftp.exim.org/pub/exim/exim4/exim-4.93.tar.xz
+wget -nc https://ftp.exim.org/pub/exim/exim4/exim-4.94.tar.xz
+wget -nc ftp://ftp.exim.org/pub/exim/exim4/exim-4.94.tar.xz
 wget -nc http://exim.org/docs.html
 
 
 NAME=exim
-VERSION=4.93
-URL=https://ftp.exim.org/pub/exim/exim4/exim-4.93.tar.xz
+VERSION=4.94
+URL=https://ftp.exim.org/pub/exim/exim4/exim-4.94.tar.xz
 SECTION="Mail Server Software"
 DESCRIPTION="The Exim package contains a Mail Transport Agent written by the University of Cambridge, released under the GNU Public License."
 
@@ -67,8 +67,8 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install                                    &&
 install -v -m644 doc/exim.8 /usr/share/man/man8 &&
 
-install -v -d -m755    /usr/share/doc/exim-4.93 &&
-install -v -m644 doc/* /usr/share/doc/exim-4.93 &&
+install -v -d -m755    /usr/share/doc/exim-4.94 &&
+install -v -m644 doc/* /usr/share/doc/exim-4.94 &&
 
 ln -sfv exim /usr/sbin/sendmail                 &&
 install -v -d -m750 -o exim -g exim /var/spool/exim
@@ -93,7 +93,6 @@ cat >> /etc/aliases << "EOF"
 postmaster: root
 MAILER-DAEMON: root
 EOF
-exim -v -bi &&
 /usr/sbin/exim -bd -q15m
 ENDOFROOTSCRIPT
 

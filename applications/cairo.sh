@@ -44,6 +44,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+autoreconf -fv              &&
 ./configure --prefix=/usr    \
             --disable-static \
             --enable-tee &&

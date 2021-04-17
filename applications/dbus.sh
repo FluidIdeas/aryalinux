@@ -13,13 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://dbus.freedesktop.org/releases/dbus/dbus-1.12.16.tar.gz
-wget -nc http://www.linuxfromscratch.org/hints/downloads/files/execute-session-scripts-using-kdm.txt
+wget -nc https://dbus.freedesktop.org/releases/dbus/dbus-1.12.20.tar.gz
 
 
 NAME=dbus
-VERSION=1.12.16
-URL=https://dbus.freedesktop.org/releases/dbus/dbus-1.12.16.tar.gz
+VERSION=1.12.20
+URL=https://dbus.freedesktop.org/releases/dbus/dbus-1.12.20.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="Even though D-Bus was built in LFS, there are some features provided by the package that other BLFS packages need, but their dependencies didn't fit into LFS."
 
@@ -49,7 +48,7 @@ echo $USER > /tmp/currentuser
             --disable-doxygen-docs               \
             --disable-xml-docs                   \
             --disable-static                     \
-            --docdir=/usr/share/doc/dbus-1.12.16 \
+            --docdir=/usr/share/doc/dbus-1.12.20 \
             --with-console-auth-dir=/run/console \
             --with-system-pid-file=/run/dbus/pid \
             --with-system-socket=/run/dbus/system_bus_socket &&

@@ -41,7 +41,8 @@ echo $USER > /tmp/currentuser
 
 ./configure --prefix=/usr        \
             --disable-static     \
-            --with-fuse=internal &&
+            --with-fuse=internal \
+            --docdir=/usr/share/doc/ntfs-3g-2017.3.23 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

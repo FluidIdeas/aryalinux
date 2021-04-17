@@ -14,13 +14,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gtkmm/3.24/gtkmm-3.24.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gtkmm/3.24/gtkmm-3.24.2.tar.xz
+wget -nc https://download.gnome.org/sources/gtkmm/3.24/gtkmm-3.24.3.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtkmm/3.24/gtkmm-3.24.3.tar.xz
 
 
 NAME=gtkmm3
-VERSION=3.24.2
-URL=http://ftp.gnome.org/pub/gnome/sources/gtkmm/3.24/gtkmm-3.24.2.tar.xz
+VERSION=3.24.3
+URL=https://download.gnome.org/sources/gtkmm/3.24/gtkmm-3.24.3.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The Gtkmm package provides a C++ interface to GTK+ 3."
 
@@ -43,13 +43,16 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -e '/^libdocdir =/ s/$(book_name)/gtkmm-3.24.2/' \
-    -i docs/Makefile.in
-./configure --prefix=/usr &&
-make
+mkdir gtkmm3-build &&
+cd    gtkmm3-build &&
+
+meson --prefix=/usr \
+      ..           &&
+
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -8,8 +8,8 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:sgml-common
-#REQ:sgml-dtd-3
-#REQ:sgml-dtd
+#REQ:docbook-3.1-dtd
+#REQ:docbook-4.5-dtd
 #REQ:opensp
 #REQ:openjade
 

@@ -17,13 +17,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-disk-utility/3.36/gnome-disk-utility-3.36.0.tar.xz
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-disk-utility/3.36/gnome-disk-utility-3.36.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-disk-utility/3.38/gnome-disk-utility-3.38.2.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-disk-utility/3.38/gnome-disk-utility-3.38.2.tar.xz
 
 
 NAME=gnome-disk-utility
-VERSION=3.36.0
-URL=http://ftp.acc.umu.se/pub/gnome/sources/gnome-disk-utility/3.36/gnome-disk-utility-3.36.0.tar.xz
+VERSION=3.38.2
+URL=https://download.gnome.org/sources/gnome-disk-utility/3.38/gnome-disk-utility-3.38.2.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Disk Utility package provides applications used for dealing with storage devices."
 
@@ -49,7 +49,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr --sysconfdir=/etc &&
+meson --prefix=/usr &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

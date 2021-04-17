@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/lxde/lxterminal-0.3.2.tar.xz
+wget -nc https://downloads.sourceforge.net/lxde/lxterminal-0.4.0.tar.xz
 
 
 NAME=lxterminal
-VERSION=0.3.2
-URL=https://downloads.sourceforge.net/lxde/lxterminal-0.3.2.tar.xz
+VERSION=0.4.0
+URL=https://downloads.sourceforge.net/lxde/lxterminal-0.4.0.tar.xz
 SECTION="LXDE Applications"
 DESCRIPTION="The LXTerminal package contains a VTE-based terminal emulator for LXDE with support for multiple tabs."
 

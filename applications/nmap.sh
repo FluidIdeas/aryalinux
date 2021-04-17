@@ -15,12 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://nmap.org/dist/nmap-7.80.tar.bz2
+wget -nc http://nmap.org/dist/nmap-7.91.tar.bz2
 
 
 NAME=nmap
-VERSION=7.80
-URL=http://nmap.org/dist/nmap-7.80.tar.bz2
+VERSION=7.91
+URL=http://nmap.org/dist/nmap-7.91.tar.bz2
 SECTION="Networking Utilities"
 DESCRIPTION="Nmap is a utility for network exploration and security auditing. It supports ping scanning, port scanning and TCP/IP fingerprinting."
 
@@ -43,7 +43,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr --with-liblua=included &&
+./configure --prefix=/usr &&
 make
 sed -i 's/lib./lib/' zenmap/test/run_tests.py
 sudo rm -rf /tmp/rootscript.sh

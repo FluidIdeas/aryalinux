@@ -15,13 +15,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/yelp/3.36/yelp-3.36.0.tar.xz
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/yelp/3.36/yelp-3.36.0.tar.xz
+wget -nc https://download.gnome.org/sources/yelp/3.38/yelp-3.38.3.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/yelp/3.38/yelp-3.38.3.tar.xz
 
 
 NAME=yelp
-VERSION=3.36.0
-URL=http://ftp.acc.umu.se/pub/gnome/sources/yelp/3.36/yelp-3.36.0.tar.xz
+VERSION=3.38.3
+URL=https://download.gnome.org/sources/yelp/3.38/yelp-3.38.3.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Yelp package contains a help browser used for viewing help files."
 

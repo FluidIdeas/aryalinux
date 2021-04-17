@@ -7,17 +7,16 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:python2
 
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/asciidoc/asciidoc-8.6.9.tar.gz
+wget -nc https://github.com/asciidoc/asciidoc-py3/releases/download/9.1.0/asciidoc-9.1.0.tar.gz
 
 
 NAME=asciidoc
-VERSION=8.6.9
-URL=https://downloads.sourceforge.net/asciidoc/asciidoc-8.6.9.tar.gz
+VERSION=9.1.0
+URL=https://github.com/asciidoc/asciidoc-py3/releases/download/9.1.0/asciidoc-9.1.0.tar.gz
 SECTION="General Utilities"
 DESCRIPTION="The Asciidoc package is a text document format for writing notes, documentation, articles, books, ebooks, slideshows, web pages, man pages and blogs. AsciiDoc files can be translated to many formats including HTML, PDF, EPUB, and man page."
 
@@ -40,9 +39,11 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -i 's:doc/testasciidoc.1::' Makefile.in &&
+rm doc/testasciidoc.1.txt
 ./configure --prefix=/usr     \
             --sysconfdir=/etc \
-            --docdir=/usr/share/doc/asciidoc-8.6.9 &&
+            --docdir=/usr/share/doc/asciidoc-9.1.0 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -12,7 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://www.lua.org/ftp/lua-5.2.4.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/lua-5.2.4-shared_library-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/lua-5.2.4-shared_library-1.patch
 
 
 NAME=lua52
@@ -87,8 +87,8 @@ cp -v doc/*.{html,css,gif,png} install/usr/share/doc/lua-5.2.4 &&
 ln -s liblua5.2.so install/usr/lib/liblua.so.5.2   &&
 ln -s liblua5.2.so install/usr/lib/liblua.so.5.2.4 &&
 
-mv install/usr/share/man/man1/{lua.1,lua52.1} &&
-mv install/usr/share/man/man1/{luac.1,luac52.1}
+mv install/usr/share/man/man1/{lua.1,lua5.2.1} &&
+mv install/usr/share/man/man1/{luac.1,luac5.2.1}
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 chown -R root:root install  &&

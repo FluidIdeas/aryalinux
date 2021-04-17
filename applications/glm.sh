@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/g-truc/glm/archive/0.9.9.7/glm-0.9.9.7.tar.gz
+wget -nc https://github.com/g-truc/glm/archive/0.9.9.8/glm-0.9.9.8.tar.gz
 
 
 NAME=glm
-VERSION=0.9.9.7
-URL=https://github.com/g-truc/glm/archive/0.9.9.7/glm-0.9.9.7.tar.gz
+VERSION=0.9.9.8
+URL=https://github.com/g-truc/glm/archive/0.9.9.8/glm-0.9.9.8.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="OpenGL Mathematics (GLM) is a header-only C++ mathematics library for graphics software based on the OpenGL Shading Language (GLSL) specifications. An extension system provides extended capabilities such as matrix transformations and quaternions."
 
@@ -42,7 +42,7 @@ echo $USER > /tmp/currentuser
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cp -r glm /usr/include/ &&
-cp -r doc /usr/share/doc/glm-0.9.9.7
+cp -r doc /usr/share/doc/glm-0.9.9.8
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

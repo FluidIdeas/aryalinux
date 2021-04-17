@@ -15,6 +15,7 @@ set +h
 #REQ:openjpeg2
 #REQ:gnome-keyring
 #REQ:gobject-introspection
+#REQ:libarchive
 #REQ:libsecret
 #REQ:nautilus
 #REQ:poppler
@@ -22,13 +23,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/evince/3.36/evince-3.36.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/evince/3.36/evince-3.36.0.tar.xz
+wget -nc https://download.gnome.org/sources/evince/3.38/evince-3.38.2.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/evince/3.38/evince-3.38.2.tar.xz
 
 
 NAME=evince
-VERSION=3.36.0
-URL=http://ftp.gnome.org/pub/gnome/sources/evince/3.36/evince-3.36.0.tar.xz
+VERSION=3.38.2
+URL=https://download.gnome.org/sources/evince/3.38/evince-3.38.2.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="Evince is a document viewer for multiple document formats. It supports PDF, Postscript, DjVu, TIFF and DVI. It is useful for viewing documents of various types using one simple application instead of the multiple document viewers that once existed on the GNOME Desktop."
 
@@ -51,17 +52,17 @@ fi
 echo $USER > /tmp/currentuser
 
 
-CFLAGS="$CFLAGS -I/opt/texlive/2019/include"     \
-CXXFLAGS="$CXXFLAGS -I/opt/texlive/2019/include" \
-LDFLAGS="$LDFLAGS -L/opt/texlive/2019/lib"
-./configure --prefix=/usr                         \
-            --enable-introspection                \
-            --without-gspell                      \
-            --disable-static                     &&
-make
+export CFLAGS="$CFLAGS -I/opt/texlive/2020/include" &&
+export CXXFLAGS="$CXXFLAGS -I/opt/texlive/2020/include" &&
+export LDFLAGS="$LDFLAGS -L/opt/texlive/2020/lib"
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr -Dgtk_doc=false .. &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

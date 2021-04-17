@@ -15,12 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/phonon/4.11.1/phonon-4.11.1.tar.xz
+wget -nc https://download.kde.org/stable/phonon/4.11.1/phonon-4.11.1.tar.xz
 
 
 NAME=phonon
 VERSION=4.11.1
-URL=http://download.kde.org/stable/phonon/4.11.1/phonon-4.11.1.tar.xz
+URL=https://download.kde.org/stable/phonon/4.11.1/phonon-4.11.1.tar.xz
 SECTION="KDE Plasma 5"
 DESCRIPTION="Phonon is the multimedia API for KDE. It replaces the old aRts package. Phonon needs either the GStreamer or VLC backend."
 

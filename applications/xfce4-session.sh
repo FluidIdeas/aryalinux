@@ -9,8 +9,6 @@ set +h
 
 #REQ:libwnck
 #REQ:libxfce4ui
-#REQ:which
-#REQ:x7app
 #REQ:desktop-file-utils
 #REQ:shared-mime-info
 #REQ:polkit-gnome
@@ -19,12 +17,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/xfce4-session/4.14/xfce4-session-4.14.1.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/xfce4-session/4.16/xfce4-session-4.16.0.tar.bz2
 
 
 NAME=xfce4-session
-VERSION=4.14.1
-URL=http://archive.xfce.org/src/xfce/xfce4-session/4.14/xfce4-session-4.14.1.tar.bz2
+VERSION=4.16.0
+URL=http://archive.xfce.org/src/xfce/xfce4-session/4.16/xfce4-session-4.16.0.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="Xfce4 Session is a session manager for Xfce. Its task is to save the state of your desktop (opened applications and their location) and restore it during a next startup. You can create several different sessions and choose one of them on startup."
 

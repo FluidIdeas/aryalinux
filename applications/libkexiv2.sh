@@ -7,18 +7,18 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:krameworks5
+#REQ:frameworks5
 #REQ:exiv2
 
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/release-service/19.12.2/src/libkexiv2-19.12.2.tar.xz
+wget -nc https://download.kde.org/stable/release-service/20.12.2/src/libkexiv2-20.12.2.tar.xz
 
 
 NAME=libkexiv2
-VERSION=19.12.2
-URL=http://download.kde.org/stable/release-service/19.12.2/src/libkexiv2-19.12.2.tar.xz
+VERSION=20.12.2
+URL=https://download.kde.org/stable/release-service/20.12.2/src/libkexiv2-20.12.2.tar.xz
 SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="Libkexiv2 is a KDE wrapper around the Exiv2 library for manipulating image metadata."
 

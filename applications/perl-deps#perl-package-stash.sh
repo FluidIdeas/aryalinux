@@ -9,18 +9,19 @@ set +h
 
 #REQ:perl-deps#perl-dist-checkconflicts
 #REQ:perl-deps#perl-module-implementation
+#REQ:perl-deps#perl-cpan-meta-check
 #REQ:perl-deps#perl-test-fatal
-#REQ:perl-deps#perl-test-requires
+#REQ:perl-deps#perl-test-needs
 
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/E/ET/ETHER/Package-Stash-0.38.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/E/ET/ETHER/Package-Stash-0.39.tar.gz
 
 
 NAME=perl-deps#perl-package-stash
-VERSION=0.38
-URL=https://cpan.metacpan.org/authors/id/E/ET/ETHER/Package-Stash-0.38.tar.gz
+VERSION=0.39
+URL=https://cpan.metacpan.org/authors/id/E/ET/ETHER/Package-Stash-0.39.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

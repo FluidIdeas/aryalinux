@@ -8,16 +8,17 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:libgudev
+#REQ:gobject-introspection
 
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/libmbim/libmbim-1.22.0.tar.xz
+wget -nc https://www.freedesktop.org/software/libmbim/libmbim-1.24.6.tar.xz
 
 
 NAME=libmbim
-VERSION=1.22.0
-URL=https://www.freedesktop.org/software/libmbim/libmbim-1.22.0.tar.xz
+VERSION=1.24.6
+URL=https://www.freedesktop.org/software/libmbim/libmbim-1.24.6.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libmbim package contains a GLib-based library for talking to WWAN modems and devices which speak the Mobile Interface Broadband Model (MBIM) protocol."
 

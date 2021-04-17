@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.kernel.org/pub/software/network/iw/iw-5.4.tar.xz
+wget -nc https://www.kernel.org/pub/software/network/iw/iw-5.9.tar.xz
 
 
 NAME=iw
-VERSION=5.4
-URL=https://www.kernel.org/pub/software/network/iw/iw-5.4.tar.xz
+VERSION=5.9
+URL=https://www.kernel.org/pub/software/network/iw/iw-5.9.tar.xz
 SECTION="Networking Programs"
 DESCRIPTION="iw is a new nl80211 based CLI configuration utility for wireless devices. It supports all new drivers that have been added to the kernel recently. The old tool iwconfig, which uses Wireless Extensions interface, is deprecated and it's strongly recommended to switch to iw and nl80211."
 

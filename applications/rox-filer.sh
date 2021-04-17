@@ -43,6 +43,7 @@ echo $USER > /tmp/currentuser
 
 cd ROX-Filer                                                        &&
 sed -i 's:g_strdup(getenv("APP_DIR")):"/usr/share/rox":' src/main.c &&
+sed -i 's/gboolean/extern &/' src/session.h                     &&
 
 mkdir build                        &&
 pushd build                        &&

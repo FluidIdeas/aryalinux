@@ -14,17 +14,16 @@ set +h
 #REQ:perl-deps#perl-cpan-meta-check
 #REQ:perl-deps#perl-ipc-system-simple
 #REQ:perl-deps#perl-test-file-sharedir
-#REQ:perl-deps#perl-test-warnings
 
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Locale-1.25.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Locale-1.31.tar.gz
 
 
 NAME=perl-deps#perl-datetime-locale
-VERSION=1.25
-URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Locale-1.25.tar.gz
+VERSION=1.31
+URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Locale-1.31.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

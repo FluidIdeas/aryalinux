@@ -19,15 +19,15 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/file-roller/3.36/file-roller-3.36.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/file-roller/3.36/file-roller-3.36.0.tar.xz
+wget -nc https://download.gnome.org/sources/file-roller/3.38/file-roller-3.38.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/file-roller/3.38/file-roller-3.38.0.tar.xz
 
 
 NAME=file-roller
-VERSION=3.36.0
-URL=http://ftp.gnome.org/pub/gnome/sources/file-roller/3.36/file-roller-3.36.0.tar.xz
+VERSION=3.38.0
+URL=https://download.gnome.org/sources/file-roller/3.38/file-roller-3.38.0.tar.xz
 SECTION="GNOME Applications"
-DESCRIPTION="File Roller is an archive manager for GNOME with support for tar, bzip2, gzip, zip, jar, compress, lzop and many other archive formats."
+DESCRIPTION="File Roller is an archive manager for GNOME with support for tar, bzip2, gzip, zip, jar, compress, lzop, zstd, and many other archive formats."
 
 if [ ! -z $URL ]
 then

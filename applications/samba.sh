@@ -14,6 +14,7 @@ set +h
 #REQ:rpcsvc-proto
 #REQ:fuse
 #REQ:gpgme
+#REQ:icu
 #REQ:libxslt
 #REQ:linux-pam
 #REQ:perl-modules#perl-parse-yapp
@@ -23,15 +24,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.samba.org/ftp/samba/stable/samba-4.11.6.tar.gz
-wget -nc http://www.samba.org/samba/docs/using_samba/toc.html
-wget -nc http://www.samba.org/samba/docs/man/Samba-HOWTO-Collection/
-wget -nc http://www.samba.org/samba/docs/man/Samba-Guide/
+wget -nc https://www.samba.org/ftp/samba/stable/samba-4.13.4.tar.gz
 
 
 NAME=samba
-VERSION=4.11.6
-URL=https://www.samba.org/ftp/samba/stable/samba-4.11.6.tar.gz
+VERSION=4.13.4
+URL=https://www.samba.org/ftp/samba/stable/samba-4.13.4.tar.gz
 SECTION="Networking Programs"
 DESCRIPTION="The Samba package provides file and print services to SMB/CIFS clients and Windows networking to Linux clients. Samba can also be configured as a Windows Domain Controller replacement, a file/print server acting as a member of a Windows Active Directory domain and a NetBIOS (rfc1001/1002) nameserver (which among other things provides LAN browsing support)."
 
@@ -71,7 +69,7 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
-mv -v /usr/lib/libnss_win{s,bind}.so*   /lib                       &&
+mv -v /usr/lib/libnss_win{s,bind}.so.*  /lib                       &&
 ln -v -sf ../../lib/libnss_winbind.so.2 /usr/lib/libnss_winbind.so &&
 ln -v -sf ../../lib/libnss_wins.so.2    /usr/lib/libnss_wins.so    &&
 
@@ -95,6 +93,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+install -dvm 755 /usr/lib/cups/backend &&
 ln -v -sf /usr/bin/smbspool /usr/lib/cups/backend/smb
 ENDOFROOTSCRIPT
 

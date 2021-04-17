@@ -21,13 +21,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/pygtk/2.24/pygtk-2.24.0.tar.bz2
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pygtk/2.24/pygtk-2.24.0.tar.bz2
+wget -nc https://download.gnome.org/sources/pygtk/2.24/pygtk-2.24.0.tar.bz2
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/pygtk/2.24/pygtk-2.24.0.tar.bz2
 
 
 NAME=python-modules#pygtk
 VERSION=2.24.0
-URL=http://ftp.gnome.org/pub/gnome/sources/pygtk/2.24/pygtk-2.24.0.tar.bz2
+URL=https://download.gnome.org/sources/pygtk/2.24/pygtk-2.24.0.tar.bz2
 SECTION="Others"
 
 if [ ! -z $URL ]

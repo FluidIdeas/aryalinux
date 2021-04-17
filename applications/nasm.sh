@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.nasm.us/pub/nasm/releasebuilds/2.14.02/nasm-2.14.02.tar.xz
-wget -nc http://www.nasm.us/pub/nasm/releasebuilds/2.14.02/nasm-2.14.02-xdoc.tar.xz
+wget -nc http://www.nasm.us/pub/nasm/releasebuilds/2.15.05/nasm-2.15.05.tar.xz
+wget -nc http://www.nasm.us/pub/nasm/releasebuilds/2.15.05/nasm-2.15.05-xdoc.tar.xz
 
 
 NAME=nasm
-VERSION=2.14.02
-URL=http://www.nasm.us/pub/nasm/releasebuilds/2.14.02/nasm-2.14.02.tar.xz
+VERSION=2.15.05
+URL=http://www.nasm.us/pub/nasm/releasebuilds/2.15.05/nasm-2.15.05.tar.xz
 SECTION="Programming"
 DESCRIPTION="NASM (Netwide Assembler) is an 80x86 assembler designed for portability and modularity. It includes a disassembler as well."
 
@@ -40,7 +40,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-tar -xf ../nasm-2.14.02-xdoc.tar.xz --strip-components=1
+tar -xf ../nasm-2.15.05-xdoc.tar.xz --strip-components=1
 ./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh
@@ -54,9 +54,9 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -m755 -d         /usr/share/doc/nasm-2.14.02/html  &&
-cp -v doc/html/*.html    /usr/share/doc/nasm-2.14.02/html  &&
-cp -v doc/*.{txt,ps,pdf} /usr/share/doc/nasm-2.14.02
+install -m755 -d         /usr/share/doc/nasm-2.15.05/html  &&
+cp -v doc/html/*.html    /usr/share/doc/nasm-2.15.05/html  &&
+cp -v doc/*.{txt,ps,pdf} /usr/share/doc/nasm-2.15.05
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

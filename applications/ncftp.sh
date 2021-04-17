@@ -39,6 +39,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -i 's/^Bookmark/extern Bookmark/' sh_util/gpshare.c
 ./configure --prefix=/usr --sysconfdir=/etc &&
 make -C libncftp shared &&
 make

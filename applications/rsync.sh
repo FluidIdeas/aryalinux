@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.samba.org/ftp/rsync/src/rsync-3.1.3.tar.gz
+wget -nc https://www.samba.org/ftp/rsync/src/rsync-3.2.3.tar.gz
 
 
 NAME=rsync
-VERSION=3.1.3
-URL=https://www.samba.org/ftp/rsync/src/rsync-3.1.3.tar.gz
+VERSION=3.2.3
+URL=https://www.samba.org/ftp/rsync/src/rsync-3.2.3.tar.gz
 SECTION="Networking Programs"
 DESCRIPTION="The rsync package contains the rsync utility. This is useful for synchronizing large file archives over a network."
 
@@ -43,7 +43,7 @@ echo $USER > /tmp/currentuser
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 groupadd -g 48 rsyncd &&
-useradd -c "rsyncd Daemon" -d /home/rsync -g rsyncd \
+useradd -c "rsyncd Daemon" -m -d /home/rsync -g rsyncd \
     -s /bin/false -u 48 rsyncd
 ENDOFROOTSCRIPT
 
@@ -51,7 +51,10 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-./configure --prefix=/usr --without-included-zlib &&
+./configure --prefix=/usr    \
+            --disable-lz4    \
+            --disable-xxhash \
+            --without-included-zlib &&
 make
 doxygen
 sudo rm -rf /tmp/rootscript.sh
@@ -65,8 +68,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m755 -d          /usr/share/doc/rsync-3.1.3/api &&
-install -v -m644 dox/html/*  /usr/share/doc/rsync-3.1.3/api
+install -v -m755 -d          /usr/share/doc/rsync-3.2.3/api &&
+install -v -m644 dox/html/*  /usr/share/doc/rsync-3.2.3/api
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -13,15 +13,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.abisource.com/downloads/wv/1.2.9/wv-1.2.9.tar.gz
-wget -nc 
+wget -nc https://www.abisource.com/downloads/wv/1.2.9/wv-1.2.9.tar.gz
 
 
 NAME=wv
 VERSION=1.2.9
-URL=http://www.abisource.com/downloads/wv/1.2.9/wv-1.2.9.tar.gz
+URL=https://www.abisource.com/downloads/wv/1.2.9/wv-1.2.9.tar.gz
 SECTION="General Libraries"
-DESCRIPTION="This package contains tools for reading information from an MS Word document."
+DESCRIPTION="The wv package contains tools for reading information from an MS Word document."
 
 if [ ! -z $URL ]
 then

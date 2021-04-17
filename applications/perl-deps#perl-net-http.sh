@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/O/OA/OALDERS/Net-HTTP-6.19.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/O/OA/OALDERS/Net-HTTP-6.20.tar.gz
 
 
 NAME=perl-deps#perl-net-http
-VERSION=6.19
-URL=https://cpan.metacpan.org/authors/id/O/OA/OALDERS/Net-HTTP-6.19.tar.gz
+VERSION=6.20
+URL=https://cpan.metacpan.org/authors/id/O/OA/OALDERS/Net-HTTP-6.20.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

@@ -9,21 +9,18 @@ set +h
 
 #REQ:exo
 #REQ:libgudev
-#REQ:libxfce4ui
 #REQ:libnotify
-#REQ:startup-notification
 #REQ:gvfs
-#REQ:polkit-gnome
 
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/thunar-volman/0.9/thunar-volman-0.9.5.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/thunar-volman/4.16/thunar-volman-4.16.0.tar.bz2
 
 
 NAME=thunar-volman
-VERSION=0.9.5
-URL=http://archive.xfce.org/src/xfce/thunar-volman/0.9/thunar-volman-0.9.5.tar.bz2
+VERSION=4.16.0
+URL=http://archive.xfce.org/src/xfce/thunar-volman/4.16/thunar-volman-4.16.0.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="The Thunar Volume Manager is an extension for the Thunar file manager, which enables automatic management of removable drives and media."
 

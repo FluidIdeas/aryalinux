@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://pub.mate-desktop.org/releases/1.24/mate-settings-daemon-1.24.0.tar.xz
+wget -nc https://pub.mate-desktop.org/releases/1.25/mate-settings-daemon-1.25.0.tar.xz
 
 
 NAME=mate-settings-daemon
-VERSION=1.24.0
-URL=https://pub.mate-desktop.org/releases/1.24/mate-settings-daemon-1.24.0.tar.xz
+VERSION=1.25.0
+URL=https://pub.mate-desktop.org/releases/1.25/mate-settings-daemon-1.25.0.tar.xz
 SECTION="Mate Desktop"
 DESCRIPTION="MATE settings daemon"
 

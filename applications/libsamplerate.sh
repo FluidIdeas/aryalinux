@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.mega-nerd.com/SRC/libsamplerate-0.1.9.tar.gz
+wget -nc https://github.com/libsndfile/libsamplerate/releases/download/0.2.1/libsamplerate-0.2.1.tar.bz2
 
 
 NAME=libsamplerate
-VERSION=0.1.9
-URL=http://www.mega-nerd.com/SRC/libsamplerate-0.1.9.tar.gz
+VERSION=0.2.1
+URL=https://github.com/libsndfile/libsamplerate/releases/download/0.2.1/libsamplerate-0.2.1.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="libsamplerate is a sample rate converter for audio."
 
@@ -39,11 +39,13 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr --disable-static &&
+./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/libsamplerate-0.2.1 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make htmldocdir=/usr/share/doc/libsamplerate-0.1.9 install
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

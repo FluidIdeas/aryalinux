@@ -7,17 +7,16 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:python2
 
 
 cd $SOURCE_DIR
 
-wget -nc https://www.mercurial-scm.org/release/mercurial-5.3.1.tar.gz
+wget -nc https://www.mercurial-scm.org/release/mercurial-5.7.tar.gz
 
 
 NAME=mercurial
-VERSION=5.3.1
-URL=https://www.mercurial-scm.org/release/mercurial-5.3.1.tar.gz
+VERSION=5.7
+URL=https://www.mercurial-scm.org/release/mercurial-5.7.tar.gz
 SECTION="Programming"
 DESCRIPTION="Mercurial is a distributed source control management tool similar to Git and Bazaar. Mercurial is written in Python and is used by projects such as Mozilla and Vim."
 
@@ -40,10 +39,9 @@ fi
 echo $USER > /tmp/currentuser
 
 
+export PYTHON=python3
 make build
-2to3 -w doc/hgmanpage.py &&
-PYTHON=python3 make doc
-rm -rf tests/tmp &&
+make doc
 TESTFLAGS="-j<N> --tmpdir tmp --blacklist blacklists/fsmonitor --blacklist blacklists/linux-vfat" make check
 pushd tests  &&
   rm -rf tmp &&
@@ -67,6 +65,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+unset PYTHON
 cat >> ~/.hgrc << "EOF"
 [ui]
 username = <user_name> <user@mail>

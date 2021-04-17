@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cpan.org/authors/id/S/SA/SADAHIRO/Unicode-Collate-1.27.tar.gz
+wget -nc https://www.cpan.org/authors/id/S/SA/SADAHIRO/Unicode-Collate-1.29.tar.gz
 
 
 NAME=perl-modules#perl-unicode-collate
-VERSION=1.27
-URL=https://www.cpan.org/authors/id/S/SA/SADAHIRO/Unicode-Collate-1.27.tar.gz
+VERSION=1.29
+URL=https://www.cpan.org/authors/id/S/SA/SADAHIRO/Unicode-Collate-1.29.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

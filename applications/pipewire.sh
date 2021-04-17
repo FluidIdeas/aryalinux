@@ -7,23 +7,26 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:bluez
 #REQ:ffmpeg
 #REQ:gstreamer10
 #REQ:gst10-plugins-base
 #REQ:libva
+#REQ:pulseaudio
 #REQ:sbc
 #REQ:sdl2
+#REQ:v4l-utils
 #REQ:jack2
 
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/PipeWire/pipewire/archive/0.3.1/pipewire-0.3.1.tar.gz
+wget -nc https://github.com/PipeWire/pipewire/archive/0.3.22/pipewire-0.3.22.tar.gz
 
 
 NAME=pipewire
-VERSION=0.3.1
-URL=https://github.com/PipeWire/pipewire/archive/0.3.1/pipewire-0.3.1.tar.gz
+VERSION=0.3.22
+URL=https://github.com/PipeWire/pipewire/archive/0.3.22/pipewire-0.3.22.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The pipewire package contains a server and user-space API to handle multimedia pipelines. This includes a universal API to connect to multimedia devices, as well as sharing multimedia files between applications."
 
@@ -49,7 +52,11 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr --sysconfdir=/etc -D vulkan=false .. &&
+meson --prefix=/usr           \
+      -Djack=false            \
+      -Dpipewire-jack=false   \
+      -Dvulkan=false          \
+      ..                      &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

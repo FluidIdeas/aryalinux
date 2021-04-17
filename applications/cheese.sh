@@ -22,13 +22,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/cheese/3.34/cheese-3.34.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/cheese/3.34/cheese-3.34.0.tar.xz
+wget -nc https://download.gnome.org/sources/cheese/3.38/cheese-3.38.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/cheese/3.38/cheese-3.38.0.tar.xz
 
 
 NAME=cheese
-VERSION=3.34.0
-URL=http://ftp.gnome.org/pub/gnome/sources/cheese/3.34/cheese-3.34.0.tar.xz
+VERSION=3.38.0
+URL=https://download.gnome.org/sources/cheese/3.38/cheese-3.38.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="Cheese is used to take photos and videos with fun graphical effects."
 
@@ -51,7 +51,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i "s/&version;/3.34.0/" docs/reference/cheese{,-docs}.xml
+sed -i "s/&version;/3.38.0/" docs/reference/cheese{,-docs}.xml
 mkdir build &&
 cd    build &&
 

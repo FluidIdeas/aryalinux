@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.gnupg.org/ftp/gcrypt/pinentry/pinentry-1.1.0.tar.bz2
-wget -nc ftp://ftp.gnupg.org/gcrypt/pinentry/pinentry-1.1.0.tar.bz2
+wget -nc https://www.gnupg.org/ftp/gcrypt/pinentry/pinentry-1.1.1.tar.bz2
+wget -nc ftp://ftp.gnupg.org/gcrypt/pinentry/pinentry-1.1.1.tar.bz2
 
 
 NAME=pinentry
-VERSION=1.1.0
-URL=https://www.gnupg.org/ftp/gcrypt/pinentry/pinentry-1.1.0.tar.bz2
+VERSION=1.1.1
+URL=https://www.gnupg.org/ftp/gcrypt/pinentry/pinentry-1.1.1.tar.bz2
 SECTION="General Utilities"
 DESCRIPTION="The PIN-Entry package contains a collection of simple PIN or pass-phrase entry dialogs which utilize the Assuan protocol as described by the Ägypten project. PIN-Entry programs are usually invoked by the gpg-agent daemon, but can be run from the command line as well. There are programs for various text-based and GUI environments, including interfaces designed for Ncurses (text-based), and for the common GTK and Qt toolkits."
 

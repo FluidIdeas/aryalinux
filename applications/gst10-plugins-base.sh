@@ -12,20 +12,23 @@ set +h
 #REQ:cdparanoia
 #REQ:gobject-introspection
 #REQ:iso-codes
+#REQ:libgudev
 #REQ:libogg
 #REQ:libtheora
 #REQ:libvorbis
+#REQ:mesa
+#REQ:wayland-protocols
 #REQ:x7lib
 
 
 cd $SOURCE_DIR
 
-wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.16.2.tar.xz
+wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.18.3.tar.xz
 
 
 NAME=gst10-plugins-base
-VERSION=1.16.2
-URL=https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.16.2.tar.xz
+VERSION=1.18.3
+URL=https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.18.3.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The GStreamer Base Plug-ins is a well-groomed and well-maintained collection of GStreamer plug-ins and elements, spanning the range of possible types of elements one would want to write for GStreamer. You will need at least one of Good, Bad, Ugly or Libav plugins for GStreamer applications to function properly."
 
@@ -53,9 +56,9 @@ cd    build &&
 
 meson  --prefix=/usr       \
        -Dbuildtype=release \
-       -Dgtk_doc=disabled  \
        -Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
-       -Dpackage-name="GStreamer 1.16.2 BLFS" &&
+       -Dpackage-name="GStreamer 1.18.3 BLFS"    \
+       --wrap-mode=nodownload &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

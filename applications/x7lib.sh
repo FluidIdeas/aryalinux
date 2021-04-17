@@ -39,17 +39,18 @@ fi
 
 echo $USER > /tmp/currentuser
 
+export XORG_PREFIX="/usr"
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
 cat > lib-7.md5 << "EOF"
 ce2fb8100c6647ee81451ebe388b17ad  xtrans-1.4.0.tar.bz2
-55adbfb6d4370ecac5e70598c4e7eed2  libX11-1.6.9.tar.bz2
+f46572566e2cec801609d25f735285b7  libX11-1.7.0.tar.bz2
 f5b48bb76ba327cd2a8dc7a383532a95  libXext-1.3.4.tar.bz2
 4e1196275aa743d6ebd3d3d5ec1dff9c  libFS-1.0.8.tar.bz2
 76d77499ee7120a56566891ca2c0dbcf  libICE-1.0.10.tar.bz2
 87c7fad1c1813517979184c8ccd76628  libSM-1.2.3.tar.bz2
 eeea9d5af3e6c143d0ea1721d27a5e49  libXScrnSaver-1.2.3.tar.bz2
-a9019421d3ee8b4937b6afd9025f018a  libXt-1.2.0.tar.bz2
+b122ff9a7ec70c94dbbfd814899fffa5  libXt-1.2.1.tar.bz2
 ac774cff8b493f566088a255dbf91201  libXmu-1.1.3.tar.bz2
 6f0ecf8d103d528cfc803aa475137afa  libXpm-3.5.13.tar.bz2
 e5e06eb14a608b58746bdd1c0bd7b8e3  libXaw-1.0.13.tar.bz2
@@ -94,22 +95,23 @@ do
   packagedir=${package%.tar.bz2}
   tar -xf $package
   pushd $packagedir
+  docdir="--docdir=$XORG_PREFIX/share/doc/$packagedir"
   case $packagedir in
     libICE* )
-      ./configure $XORG_CONFIG ICE_LIBS=-lpthread
+      ./configure $XORG_CONFIG $docdir ICE_LIBS=-lpthread
     ;;
 
     libXfont2-[0-9]* )
-      ./configure $XORG_CONFIG --disable-devel-docs
+      ./configure $XORG_CONFIG $docdir --disable-devel-docs
     ;;
 
     libXt-[0-9]* )
-      ./configure $XORG_CONFIG \
+      ./configure $XORG_CONFIG $docdir \
                   --with-appdefaultdir=/etc/X11/app-defaults
     ;;
 
     * )
-      ./configure $XORG_CONFIG
+      ./configure $XORG_CONFIG $docdir
     ;;
   esac
   make

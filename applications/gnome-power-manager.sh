@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/3.32/gnome-power-manager-3.32.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/3.32/gnome-power-manager-3.32.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-power-manager/3.32/gnome-power-manager-3.32.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-power-manager/3.32/gnome-power-manager-3.32.0.tar.xz
 
 
 NAME=gnome-power-manager
 VERSION=3.32.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-power-manager/3.32/gnome-power-manager-3.32.0.tar.xz
+URL=https://download.gnome.org/sources/gnome-power-manager/3.32/gnome-power-manager-3.32.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Power Manager package contains a tool used to report on power management on the system."
 

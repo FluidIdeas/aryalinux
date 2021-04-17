@@ -9,20 +9,18 @@ set +h
 
 #REQ:gobject-introspection
 #REQ:python-modules#pycairo
-#REQ:python2
-#REQ:python-modules#pycairo2
 #REQ:python-modules#pycairo2
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/pygobject/3.36/pygobject-3.36.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pygobject/3.36/pygobject-3.36.0.tar.xz
+wget -nc https://download.gnome.org/sources/pygobject/3.38/pygobject-3.38.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/pygobject/3.38/pygobject-3.38.0.tar.xz
 
 
 NAME=python-modules#pygobject3
-VERSION=3.36.0
-URL=http://ftp.gnome.org/pub/gnome/sources/pygobject/3.36/pygobject-3.36.0.tar.xz
+VERSION=3.38.0
+URL=https://download.gnome.org/sources/pygobject/3.38/pygobject-3.38.0.tar.xz
 SECTION="Others"
 
 if [ ! -z $URL ]
@@ -44,28 +42,14 @@ fi
 
 echo $USER > /tmp/currentuser
 
-mkdir python2                             &&
-pushd python2                             &&
-  meson --prefix=/usr -Dpython=python2 .. &&
-  ninja                                   &&
-popd
-mkdir python3                             &&
-pushd python3                             &&
-  meson --prefix=/usr -Dpython=python3 .. &&
-  ninja                                   &&
-popd
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr .. &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja -C python2 install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja -C python3 install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

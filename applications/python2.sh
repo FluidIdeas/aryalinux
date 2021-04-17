@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.python.org/ftp/python/2.7.17/Python-2.7.17.tar.xz
-wget -nc https://docs.python.org/ftp/python/doc/2.7.17/python-2.7.17-docs-html.tar.bz2
+wget -nc https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tar.xz
+wget -nc https://docs.python.org/ftp/python/doc/2.7.18/python-2.7.18-docs-html.tar.bz2
 
 
 NAME=python2
-VERSION=2.7.17
-URL=https://www.python.org/ftp/python/2.7.17/Python-2.7.17.tar.xz
+VERSION=2.7.18
+URL=https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tar.xz
 SECTION="Programming"
 DESCRIPTION="The Python 2 package contains the Python development environment. It is useful for object-oriented programming, writing scripts, prototyping large programs or developing entire applications. This version is for backward compatibility with other dependent packages."
 
@@ -40,16 +40,18 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -i '/2to3/d' ./setup.py
 ./configure --prefix=/usr       \
             --enable-shared     \
             --with-system-expat \
             --with-system-ffi   \
-            --with-ensurepip=yes \
             --enable-unicode=ucs4 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
+make altinstall                                &&
+ln -s python2.7        /usr/bin/python2        &&
+ln -s python2.7-config /usr/bin/python2-config &&
 chmod -v 755 /usr/lib/libpython2.7.so.1.0
 ENDOFROOTSCRIPT
 
@@ -59,15 +61,15 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -dm755 /usr/share/doc/python-2.7.17 &&
+install -v -dm755 /usr/share/doc/python-2.7.18 &&
 
 tar --strip-components=1                     \
     --no-same-owner                          \
-    --directory /usr/share/doc/python-2.7.17 \
-    -xvf ../python-2.7.17-docs-html.tar.bz2 &&
+    --directory /usr/share/doc/python-2.7.18 \
+    -xvf ../python-2.7.18-docs-html.tar.bz2 &&
 
-find /usr/share/doc/python-2.7.17 -type d -exec chmod 0755 {} \; &&
-find /usr/share/doc/python-2.7.17 -type f -exec chmod 0644 {} \;
+find /usr/share/doc/python-2.7.18 -type d -exec chmod 0755 {} \; &&
+find /usr/share/doc/python-2.7.18 -type f -exec chmod 0644 {} \;
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -76,7 +78,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-export PYTHONDOCS=/usr/share/doc/python-2.7.17
+export PYTHONDOCS=/usr/share/doc/python-2.7.18
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

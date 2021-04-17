@@ -41,12 +41,6 @@ wget -c https://github.com/dracutdevs/dracut/archive/049.tar.gz -O dracut-049.ta
 
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/b09bd478061f93f986442bf654bb3fe8fadb59f7/efibootmgr-17-efidir.patch
 wget -nc https://sourceware.org/ftp/lvm2/releases/LVM2.2.02.171.tgz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs-5.5.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs5-base.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs5-kbuild.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs5-mmap.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs5-standalone.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/aufs5-loopback.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/squashfs-tools-4.3-sysmacros.patch
 wget -nc https://sourceware.org/ftp/elfutils/0.170/elfutils-0.170.tar.bz2
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.1/0.21-nvme_ioctl.h.patch

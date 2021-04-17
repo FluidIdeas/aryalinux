@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.qemu-project.org/qemu-4.2.0.tar.xz
+wget -nc http://download.qemu-project.org/qemu-5.2.0.tar.xz
 
 
 NAME=qemu
-VERSION=4.2.0
-URL=http://download.qemu-project.org/qemu-4.2.0.tar.xz
+VERSION=5.2.0
+URL=http://download.qemu-project.org/qemu-5.2.0.tar.xz
 SECTION="Virtualization"
 DESCRIPTION="qemu is a full virtualization solution for Linux on x86 hardware containing virtualization extensions (Intel VT or AMD-V)."
 
@@ -52,6 +52,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+sed -i "/LDFLAGS_NOPIE/d" configure pc-bios/optionrom/Makefile
 if [ $(uname -m) = i686 ]; then
    QEMU_ARCH=i386-softmmu
 else
@@ -66,7 +67,7 @@ cd        build &&
              --sysconfdir=/etc           \
              --target-list=$QEMU_ARCH    \
              --audio-drv-list=alsa       \
-             --docdir=/usr/share/doc/qemu-4.2.0 &&
+             --docdir=/usr/share/doc/qemu-5.2.0 &&
 
 unset QEMU_ARCH &&
 
@@ -127,7 +128,7 @@ qemu -enable-kvm                     \
      -boot order=c,once=d,menu=on    \
      -net nic,netdev=net0            \
      -netdev user,id=net0            \
-     -soundhw ac97                   \
+     -device ac97                    \
      -vga std                        \
      -serial mon:stdio               \
      -name "fedora-16"

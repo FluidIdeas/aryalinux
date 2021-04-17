@@ -11,6 +11,7 @@ set +h
 #REQ:gnupg
 #REQ:gpgme
 #REQ:itstool
+#REQ:libhandy1
 #REQ:libpwquality
 #REQ:libsecret
 #REQ:libsoup
@@ -23,13 +24,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/seahorse/3.36/seahorse-3.36.tar.xz
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/seahorse/3.36/seahorse-3.36.tar.xz
+wget -nc https://download.gnome.org/sources/seahorse/3.38/seahorse-3.38.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/seahorse/3.38/seahorse-3.38.1.tar.xz
 
 
 NAME=seahorse
-VERSION=3.36
-URL=http://ftp.acc.umu.se/pub/gnome/sources/seahorse/3.36/seahorse-3.36.tar.xz
+VERSION=3.38.1
+URL=https://download.gnome.org/sources/seahorse/3.38/seahorse-3.38.1.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="Seahorse is a graphical interface for managing and using encryption keys. Currently it supports PGP keys (using GPG/GPGME) and SSH keys."
 

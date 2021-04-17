@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/martinpitt/python-dbusmock/releases/download/0.19/python-dbusmock-0.19.tar.gz
+wget -nc https://github.com/martinpitt/python-dbusmock/releases/download/0.22.0/python-dbusmock-0.22.0.tar.gz
 
 
 NAME=python-modules#python-dbusmock
-VERSION=0.19
-URL=https://github.com/martinpitt/python-dbusmock/releases/download/0.19/python-dbusmock-0.19.tar.gz
+VERSION=0.22.0
+URL=https://github.com/martinpitt/python-dbusmock/releases/download/0.22.0/python-dbusmock-0.22.0.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

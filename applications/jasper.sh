@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.ece.uvic.ca/~frodo/jasper/software/jasper-2.0.14.tar.gz
+wget -nc https://github.com/jasper-software/jasper/archive/version-2.0.25/jasper-2.0.25.tar.gz
 
 
 NAME=jasper
-VERSION=2.0.14
-URL=http://www.ece.uvic.ca/~frodo/jasper/software/jasper-2.0.14.tar.gz
+VERSION=2.0.25
+URL=https://github.com/jasper-software/jasper/archive/version-2.0.25/jasper-2.0.25.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The JasPer Project is an open-source initiative to provide a free software-based reference implementation of the JPEG-2000 codec."
 
@@ -48,7 +48,7 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr    \
       -DCMAKE_BUILD_TYPE=Release     \
       -DCMAKE_SKIP_INSTALL_RPATH=YES \
       -DJAS_ENABLE_DOC=NO            \
-      -DCMAKE_INSTALL_DOCDIR=/usr/share/doc/jasper-2.0.14 \
+      -DCMAKE_INSTALL_DOCDIR=/usr/share/doc/jasper-2.0.25 \
       ..  &&
 make
 sudo rm -rf /tmp/rootscript.sh

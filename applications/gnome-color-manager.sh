@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:colord-gtk
 #REQ:colord
 #REQ:gtk3
 #REQ:itstool
@@ -15,19 +14,17 @@ set +h
 #REQ:libcanberra
 #REQ:libexif
 #REQ:desktop-file-utils
-#REQ:exiv2
-#REQ:vte
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-color-manager/3.35/gnome-color-manager-3.35.90.tar.xz
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-color-manager/3.35/gnome-color-manager-3.35.90.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-color-manager/3.36/gnome-color-manager-3.36.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-color-manager/3.36/gnome-color-manager-3.36.0.tar.xz
 
 
 NAME=gnome-color-manager
-VERSION=3.35.90
-URL=http://ftp.acc.umu.se/pub/gnome/sources/gnome-color-manager/3.35/gnome-color-manager-3.35.90.tar.xz
+VERSION=3.36.0
+URL=https://download.gnome.org/sources/gnome-color-manager/3.36/gnome-color-manager-3.36.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="GNOME Color Manager is a session framework for the GNOME desktop environment that makes it easy to manage, install and generate color profiles."
 

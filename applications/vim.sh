@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://anduin.linuxfromscratch.org/BLFS/vim/vim-8.2.0190.tar.gz
+wget -nc http://anduin.linuxfromscratch.org/BLFS/vim/vim-8.2.2433.tar.gz
 
 
 NAME=vim
-VERSION=8.2.0190
-URL=http://anduin.linuxfromscratch.org/BLFS/vim/vim-8.2.0190.tar.gz
+VERSION=8.2.2433
+URL=http://anduin.linuxfromscratch.org/BLFS/vim/vim-8.2.2433.tar.gz
 SECTION="Editors"
 DESCRIPTION="The Vim package, which is an abbreviation for VI IMproved, contains a vi clone with extra features as compared to the original vi."
 
@@ -59,7 +59,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ln -snfv ../vim/vim82/doc /usr/share/doc/vim-8.2.0190
+ln -snfv ../vim/vim82/doc /usr/share/doc/vim-8.2.2433
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -71,29 +71,7 @@ rsync -avzcP --exclude="/dos/" --exclude="/spell/" \
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make -C src installruntime &&
-vim -c ":helptags /usr/share/doc/vim-8.2.0190" -c ":q"
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cat > /usr/share/applications/gvim.desktop << "EOF"
-[Desktop Entry]
-Name=GVim Text Editor
-Comment=Edit text files
-Comment[pt_BR]=Edite arquivos de texto
-TryExec=gvim
-Exec=gvim -f %F
-Terminal=false
-Type=Application
-Icon=gvim.png
-Categories=Utility;TextEditor;
-StartupNotify=true
-MimeType=text/plain;
-EOF
+vim -c ":helptags /usr/share/doc/vim-8.2.2433" -c ":q"
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

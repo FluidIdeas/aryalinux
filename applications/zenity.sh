@@ -15,13 +15,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/zenity/3.32/zenity-3.32.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/zenity/3.32/zenity-3.32.0.tar.xz
+wget -nc https://download.gnome.org/sources/zenity/3.32/zenity-3.32.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/zenity/3.32/zenity-3.32.0.tar.xz
 
 
 NAME=zenity
 VERSION=3.32.0
-URL=http://ftp.gnome.org/pub/gnome/sources/zenity/3.32/zenity-3.32.0.tar.xz
+URL=https://download.gnome.org/sources/zenity/3.32/zenity-3.32.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Zenity is a rewrite of gdialog, the GNOME port of dialog which allows you to display GTK+ dialog boxes from the command line and shell scripts."
 

@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/pcmanfm/libfm-1.3.1.tar.xz
+wget -nc https://downloads.sourceforge.net/pcmanfm/libfm-1.3.2.tar.xz
 
 
 NAME=libfm-extra
-VERSION=1.3.1
-URL=https://downloads.sourceforge.net/pcmanfm/libfm-1.3.1.tar.xz
+VERSION=1.3.2
+URL=https://downloads.sourceforge.net/pcmanfm/libfm-1.3.2.tar.xz
 SECTION="LXDE Desktop"
 DESCRIPTION="The libfm-extra package contains a library and other files required by menu-cache-gen libexec of menu-cache-1.1.0."
 

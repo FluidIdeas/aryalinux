@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/apps/KDE4.x/admin/polkit-qt-1-0.112.0.tar.bz2
+wget -nc https://download.kde.org/stable/polkit-qt-1/polkit-qt-1-0.113.0.tar.xz
 
 
 NAME=polkit-qt
-VERSION=0.112.0
-URL=http://download.kde.org/stable/apps/KDE4.x/admin/polkit-qt-1-0.112.0.tar.bz2
+VERSION=0.113.0
+URL=https://download.kde.org/stable/polkit-qt-1/polkit-qt-1-0.113.0.tar.xz
 SECTION="KDE Plasma 5"
 DESCRIPTION="Polkit-Qt provides an API to PolicyKit in the Qt environment."
 

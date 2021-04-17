@@ -7,18 +7,23 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:krameworks5
+#REQ:frameworks5
 #REQ:libarchive
+#REQ:cpio
+#REQ:p7zip
+#REQ:unrar
+#REQ:unzip
+#REQ:zip
 
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/release-service/19.12.2/src/ark-19.12.2.tar.xz
+wget -nc https://download.kde.org/stable/release-service/20.12.2/src/ark-20.12.2.tar.xz
 
 
 NAME=ark5
-VERSION=19.12.2
-URL=http://download.kde.org/stable/release-service/19.12.2/src/ark-19.12.2.tar.xz
+VERSION=20.12.2
+URL=https://download.kde.org/stable/release-service/20.12.2/src/ark-20.12.2.tar.xz
 SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="The Ark package is a KF5 archive tool. It is a graphical front end to tar and similar tools."
 

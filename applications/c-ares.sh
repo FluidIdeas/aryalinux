@@ -7,16 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:cmake
 
 
 cd $SOURCE_DIR
 
-wget -nc https://c-ares.haxx.se/download/c-ares-1.15.0.tar.gz
+wget -nc https://c-ares.haxx.se/download/c-ares-1.17.1.tar.gz
 
 
 NAME=c-ares
-VERSION=1.15.0
-URL=https://c-ares.haxx.se/download/c-ares-1.15.0.tar.gz
+VERSION=1.17.1
+URL=https://c-ares.haxx.se/download/c-ares-1.17.1.tar.gz
 SECTION="Networking Libraries"
 DESCRIPTION="c-ares is a C library for asynchronous DNS requests."
 
@@ -39,7 +40,10 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr --disable-static &&
+mkdir build &&
+cd    build &&
+
+cmake  -DCMAKE_INSTALL_PREFIX=/usr .. &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://dri.freedesktop.org/libdrm/libdrm-2.4.100.tar.bz2
+wget -nc https://dri.freedesktop.org/libdrm/libdrm-2.4.104.tar.xz
 
 
 NAME=libdrm
-VERSION=2.4.100
-URL=https://dri.freedesktop.org/libdrm/libdrm-2.4.100.tar.bz2
+VERSION=2.4.104
+URL=https://dri.freedesktop.org/libdrm/libdrm-2.4.104.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="libdrm provides a user space library for accessing the DRM, direct rendering manager, on operating systems that support the ioctl interface. libdrm is a low-level library, typically used by graphics drivers such as the Mesa DRI drivers, the X drivers, libva and similar projects."
 

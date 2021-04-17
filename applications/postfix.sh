@@ -14,13 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.4.8.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/postfix-3.4.8-glibc230_fix-1.patch
+wget -nc ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.5.9.tar.gz
 
 
 NAME=postfix
-VERSION=3.4.8
-URL=ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.4.8.tar.gz
+VERSION=3.5.9
+URL=ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.5.9.tar.gz
 SECTION="Mail Server Software"
 DESCRIPTION="The Postfix package contains a Mail Transport Agent (MTA). This is useful for sending email to other users of your host machine. It can also be configured to be a central mail server for your domain, a mail relay agent or simply a mail delivery agent to your local Internet Service Provider."
 
@@ -57,7 +56,6 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 sed -i 's/.\x08//g' README_FILES/*
-patch -Np1 -i ../postfix-3.4.8-glibc230_fix-1.patch
 make CCARGS="-DUSE_TLS -I/usr/include/openssl/                     \
              -DUSE_SASL_AUTH -DUSE_CYRUS_SASL -I/usr/include/sasl" \
      AUXLIBS="-lssl -lcrypto -lsasl2"                              \
@@ -68,8 +66,8 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 sh postfix-install -non-interactive \
    daemon_directory=/usr/lib/postfix \
    manpage_directory=/usr/share/man \
-   html_directory=/usr/share/doc/postfix-3.4.8/html \
-   readme_directory=/usr/share/doc/postfix-3.4.8/readme
+   html_directory=/usr/share/doc/postfix-3.5.9/html \
+   readme_directory=/usr/share/doc/postfix-3.5.9/readme
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

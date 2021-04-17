@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/libpwquality/libpwquality/releases/download/libpwquality-1.4.2/libpwquality-1.4.2.tar.bz2
+wget -nc https://github.com/libpwquality/libpwquality/releases/download/libpwquality-1.4.4/libpwquality-1.4.4.tar.bz2
 
 
 NAME=libpwquality
-VERSION=1.4.2
-URL=https://github.com/libpwquality/libpwquality/releases/download/libpwquality-1.4.2/libpwquality-1.4.2.tar.bz2
+VERSION=1.4.4
+URL=https://github.com/libpwquality/libpwquality/releases/download/libpwquality-1.4.4/libpwquality-1.4.4.tar.bz2
 SECTION="Security"
 DESCRIPTION="The libpwquality package provides common functions for password quality checking and also scoring them based on their apparent randomness. The library also provides a function for generating random passwords with good pronounceability."
 
@@ -48,7 +48,10 @@ echo $USER > /tmp/currentuser
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+make install                          &&
+
+mv -v /usr/lib/libpwquality.so.* /lib &&
+ln -sfv ../../lib/$(readlink /usr/lib/libpwquality.so) /usr/lib/libpwquality.so
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

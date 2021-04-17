@@ -9,7 +9,6 @@ set +h
 
 #REQ:exo
 #REQ:libwnck
-#REQ:libxfce4ui
 #REQ:libnotify
 #REQ:startup-notification
 #REQ:thunar
@@ -17,12 +16,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/xfdesktop/4.14/xfdesktop-4.14.2.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/xfdesktop/4.16/xfdesktop-4.16.0.tar.bz2
 
 
 NAME=xfdesktop
-VERSION=4.14.2
-URL=http://archive.xfce.org/src/xfce/xfdesktop/4.14/xfdesktop-4.14.2.tar.bz2
+VERSION=4.16.0
+URL=http://archive.xfce.org/src/xfce/xfdesktop/4.16/xfdesktop-4.16.0.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="Xfdesktop is a desktop manager for the Xfce Desktop Environment. Xfdesktop sets the background image / color, creates the right click menu and window list and displays the file icons on the desktop using Thunar libraries."
 

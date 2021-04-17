@@ -15,13 +15,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://distfiles.audacious-media-player.org/audacious-3.10.1.tar.bz2
-wget -nc https://distfiles.audacious-media-player.org/audacious-plugins-3.10.1.tar.bz2
+wget -nc https://distfiles.audacious-media-player.org/audacious-4.1.tar.bz2
+wget -nc https://distfiles.audacious-media-player.org/audacious-plugins-4.1.tar.bz2
 
 
 NAME=audacious
-VERSION=3.10.1
-URL=https://distfiles.audacious-media-player.org/audacious-3.10.1.tar.bz2
+VERSION=4.1
+URL=https://distfiles.audacious-media-player.org/audacious-4.1.tar.bz2
 SECTION="Audio Utilities"
 DESCRIPTION="Audacious is an audio player."
 
@@ -56,8 +56,8 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-tar -xf ../audacious-plugins-3.10.1.tar.bz2                &&
-cd audacious-plugins-3.10.1                                &&
+tar -xf ../audacious-plugins-4.1.tar.bz2                &&
+cd audacious-plugins-4.1                                &&
 TPUT=/bin/true ./configure --prefix=/usr --disable-wavpack &&
 make
 sudo rm -rf /tmp/rootscript.sh

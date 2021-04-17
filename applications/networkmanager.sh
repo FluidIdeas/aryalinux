@@ -7,13 +7,11 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:dbus-glib
+#REQ:jansson
 #REQ:libndp
 #REQ:curl
-#REQ:dhcpcd
 #REQ:gobject-introspection
 #REQ:iptables
-#REQ:jansson
 #REQ:newt
 #REQ:nss
 #REQ:polkit
@@ -26,13 +24,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.22/NetworkManager-1.22.8.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.22/NetworkManager-1.22.8.tar.xz
+wget -nc https://download.gnome.org/sources/NetworkManager/1.30/NetworkManager-1.30.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/NetworkManager/1.30/NetworkManager-1.30.0.tar.xz
 
 
 NAME=networkmanager
-VERSION=1.22.8
-URL=http://ftp.gnome.org/pub/gnome/sources/NetworkManager/1.22/NetworkManager-1.22.8.tar.xz
+VERSION=1.30.0
+URL=https://download.gnome.org/sources/NetworkManager/1.30/NetworkManager-1.30.0.tar.xz
 SECTION="Networking Utilities"
 DESCRIPTION="NetworkManager is a set of co-operative tools that make networking simple and straightforward. Whether you use WiFi, wired, 3G, or Bluetooth, NetworkManager allows you to quickly move from one network to another: Once a network has been configured and joined once, it can be detected and re-joined automatically the next time it's available."
 
@@ -58,18 +56,16 @@ echo $USER > /tmp/currentuser
 sed -e 's/-qt4/-qt5/'              \
     -e 's/moc_location/host_bins/' \
     -i examples/C/qt/meson.build   &&
+
 sed -e 's/Qt/&5/'                  \
     -i meson.build
-sed '/initrd/d' -i src/meson.build
+sed '/initrd/d' -i src/core/meson.build
 grep -rl '^#!.*python$' | xargs sed -i '1s/python/&3/'
 mkdir build &&
 cd    build    &&
 
 CXXFLAGS+="-O2 -fPIC"            \
 meson --prefix /usr              \
-      --sysconfdir /etc          \
-      --localstatedir /var       \
-      -Djson_validation=false    \
       -Dlibaudit=no              \
       -Dlibpsl=false             \
       -Dnmtui=true               \
@@ -86,7 +82,7 @@ ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
-mv -v /usr/share/doc/NetworkManager{,-1.22.8}
+mv -v /usr/share/doc/NetworkManager{,-1.30.0}
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

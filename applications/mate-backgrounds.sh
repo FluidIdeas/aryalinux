@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://pub.mate-desktop.org/releases/1.24/mate-backgrounds-1.24.1.tar.xz
+wget -nc https://pub.mate-desktop.org/releases/1.25/mate-backgrounds-1.25.0.tar.xz
 
 
 NAME=mate-backgrounds
-VERSION=1.24.1
-URL=https://pub.mate-desktop.org/releases/1.24/mate-backgrounds-1.24.1.tar.xz
+VERSION=1.25.0
+URL=https://pub.mate-desktop.org/releases/1.25/mate-backgrounds-1.25.0.tar.xz
 SECTION="Mate Desktop"
 DESCRIPTION="This module contains a set of backgrounds packaged with the MATE desktop."
 

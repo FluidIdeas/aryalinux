@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/fetchmail/fetchmail-6.4.2.tar.xz
+wget -nc https://downloads.sourceforge.net/fetchmail/fetchmail-6.4.16.tar.xz
 
 
 NAME=fetchmail
-VERSION=6.4.2
-URL=https://downloads.sourceforge.net/fetchmail/fetchmail-6.4.2.tar.xz
+VERSION=6.4.16
+URL=https://downloads.sourceforge.net/fetchmail/fetchmail-6.4.16.tar.xz
 SECTION="Mail/News Clients"
 DESCRIPTION="The Fetchmail package contains a mail retrieval program. It retrieves mail from remote mail servers and forwards it to the local (client) machine's delivery system, so it can then be read by normal mail user agents."
 

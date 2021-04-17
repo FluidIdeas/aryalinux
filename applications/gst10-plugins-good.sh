@@ -10,26 +10,27 @@ set +h
 #REQ:gst10-plugins-base
 #REQ:cairo
 #REQ:flac
-#REQ:lame
-#REQ:mpg123
-#REQ:mesa
 #REQ:gdk-pixbuf
+#REQ:lame
 #REQ:libgudev
 #REQ:libjpeg
 #REQ:libpng
 #REQ:libsoup
 #REQ:libvpx
+#REQ:mesa
+#REQ:mpg123
+#REQ:nasm
 #REQ:x7lib
 
 
 cd $SOURCE_DIR
 
-wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.16.2.tar.xz
+wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.18.3.tar.xz
 
 
 NAME=gst10-plugins-good
-VERSION=1.16.2
-URL=https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.16.2.tar.xz
+VERSION=1.18.3
+URL=https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.18.3.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The GStreamer Good Plug-ins is a set of plug-ins considered by the GStreamer developers to have good quality code, correct functionality, and the preferred license (LGPL for the plug-in code, LGPL or LGPL-compatible for the supporting library). A wide range of video and audio decoders, encoders, and filters are included."
 
@@ -58,7 +59,7 @@ cd    build &&
 meson  --prefix=/usr       \
        -Dbuildtype=release \
        -Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
-       -Dpackage-name="GStreamer 1.16.2 BLFS" &&
+       -Dpackage-name="GStreamer 1.18.3 BLFS" &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

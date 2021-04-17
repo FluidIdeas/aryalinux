@@ -8,17 +8,16 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:python-modules#six
-#REQ:python2
 
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/scour-project/scour/archive/v0.37/scour-0.37.tar.gz
+wget -nc https://github.com/scour-project/scour/archive/v0.38.2/scour-0.38.2.tar.gz
 
 
 NAME=python-modules#scour
-VERSION=0.37
-URL=https://github.com/scour-project/scour/archive/v0.37/scour-0.37.tar.gz
+VERSION=0.38.2
+URL=https://github.com/scour-project/scour/archive/v0.38.2/scour-0.38.2.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]
@@ -40,11 +39,9 @@ fi
 
 echo $USER > /tmp/currentuser
 
-python2 setup.py build &&
 python3 setup.py build
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-python2 setup.py install --optimize=1 &&
 python3 setup.py install --optimize=1
 ENDOFROOTSCRIPT
 

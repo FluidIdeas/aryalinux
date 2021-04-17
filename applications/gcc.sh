@@ -7,18 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:dejagnu
 
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz
-wget -nc ftp://ftp.gnu.org/gnu/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz
+wget -nc https://ftp.gnu.org/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz
+wget -nc ftp://ftp.gnu.org/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz
 
 
 NAME=gcc
-VERSION=9.2.0
-URL=https://ftp.gnu.org/gnu/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz
+VERSION=10.2.0
+URL=https://ftp.gnu.org/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz
 SECTION="Programming"
 DESCRIPTION="The GCC package contains the GNU Compiler Collection. This page describes the installation of compilers for the following languages: C, C++, D, Fortran, Objective C, Objective C++, and Go."
 
@@ -43,13 +42,9 @@ echo $USER > /tmp/currentuser
 
 case $(uname -m) in
   x86_64)
-    sed -e '/m64=/s/lib64/lib/' \
-        -i.orig gcc/config/i386/t-linux64
+    sed -i.orig '/m64=/s/lib64/lib/' gcc/config/i386/t-linux64
   ;;
 esac
-
-sed -e '1161 s|^|//|' \
-    -i libsanitizer/sanitizer_common/sanitizer_platform_limits_posix.cc
 
 mkdir build                                            &&
 cd    build                                            &&
@@ -71,9 +66,9 @@ mkdir -pv /usr/share/gdb/auto-load/usr/lib              &&
 mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib &&
 
 chown -v -R root:root \
-    /usr/lib/gcc/*linux-gnu/9.2.0/include{,-fixed}
+    /usr/lib/gcc/*linux-gnu/10.2.0/include{,-fixed}
 
-rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/9.2.0/include-fixed/bits/
+rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/10.2.0/include-fixed/bits/
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -85,7 +80,7 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ln -v -sf ../usr/bin/cpp /lib          &&
 ln -v -sf gcc /usr/bin/cc              &&
 install -v -dm755 /usr/lib/bfd-plugins &&
-ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/9.2.0/liblto_plugin.so /usr/lib/bfd-plugins/
+ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/10.2.0/liblto_plugin.so /usr/lib/bfd-plugins/
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

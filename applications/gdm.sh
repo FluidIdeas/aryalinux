@@ -11,7 +11,6 @@ set +h
 #REQ:gtk3
 #REQ:iso-codes
 #REQ:itstool
-#REQ:keyutils
 #REQ:libcanberra
 #REQ:libdaemon
 #REQ:linux-pam
@@ -22,13 +21,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gdm/3.34/gdm-3.34.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gdm/3.34/gdm-3.34.1.tar.xz
+wget -nc https://download.gnome.org/sources/gdm/3.38/gdm-3.38.2.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gdm/3.38/gdm-3.38.2.1.tar.xz
 
 
 NAME=gdm
-VERSION=3.34.1
-URL=http://ftp.gnome.org/pub/gnome/sources/gdm/3.34/gdm-3.34.1.tar.xz
+VERSION=3.38.2.1
+URL=https://download.gnome.org/sources/gdm/3.38/gdm-3.38.2.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="GDM is a system service that is responsible for providing graphical logins and managing local and remote displays."
 
@@ -63,18 +62,17 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-./configure --prefix=/usr         \
-            --sysconfdir=/etc     \
-            --localstatedir=/var  \
-            --without-plymouth    \
-            --disable-static      \
-            --enable-gdm-xsession \
-            --with-pam-mod-dir=/lib/security &&
-make
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr               \
+      -Dplymouth=disabled         \
+      -Dgdm-xsession=true         \
+      -Dpam-mod-dir=/lib/security .. &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-install -v -m644 data/gdm.service /lib/systemd/system/gdm.service
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

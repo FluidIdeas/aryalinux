@@ -12,18 +12,20 @@ set +h
 #REQ:libxml2
 #REQ:sqlite
 #REQ:gobject-introspection
+#REQ:sysprof
 #REQ:vala
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libsoup/2.68/libsoup-2.68.4.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libsoup/2.68/libsoup-2.68.4.tar.xz
+wget -nc https://download.gnome.org/sources/libsoup/2.72/libsoup-2.72.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libsoup/2.72/libsoup-2.72.0.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/libsoup-2.72.0-testsuite_fix-1.patch
 
 
 NAME=libsoup
-VERSION=2.68.4
-URL=http://ftp.gnome.org/pub/gnome/sources/libsoup/2.68/libsoup-2.68.4.tar.xz
+VERSION=2.72.0
+URL=https://download.gnome.org/sources/libsoup/2.72/libsoup-2.72.0.tar.xz
 SECTION="Networking Libraries"
 DESCRIPTION="The libsoup is a HTTP client/server library for GNOME. It uses GObject and the GLib main loop to integrate with GNOME applications and it also has an asynchronous API for use in threaded applications."
 
@@ -46,6 +48,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../libsoup-2.72.0-testsuite_fix-1.patch
 mkdir build &&
 cd    build &&
 

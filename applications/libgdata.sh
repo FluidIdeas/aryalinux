@@ -19,13 +19,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.12.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.12.tar.xz
+wget -nc https://download.gnome.org/sources/libgdata/0.18/libgdata-0.18.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgdata/0.18/libgdata-0.18.0.tar.xz
 
 
 NAME=libgdata
-VERSION=0.17.12
-URL=http://ftp.gnome.org/pub/gnome/sources/libgdata/0.17/libgdata-0.17.12.tar.xz
+VERSION=0.18.0
+URL=https://download.gnome.org/sources/libgdata/0.18/libgdata-0.18.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libgdata package is a GLib-based library for accessing online service APIs using the GData protocol, most notably, Google's services. It provides APIs to access the common Google services and has full asynchronous support."
 

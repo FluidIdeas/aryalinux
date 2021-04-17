@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:alsa-lib
 
 
 cd $SOURCE_DIR
@@ -44,7 +45,7 @@ make -j1 INS_BASE=/usr DEFINSUSR=root DEFINSGRP=root
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 export GMAKE_NOWARN=true &&
-make INS_BASE=/usr DEFINSUSR=root DEFINSGRP=root install &&
+make INS_BASE=/usr MANSUFF_LIB=3cdr DEFINSUSR=root DEFINSGRP=root install &&
 install -v -m755 -d /usr/share/doc/cdrtools-3.02a09 &&
 install -v -m644 README* ABOUT doc/*.ps \
                     /usr/share/doc/cdrtools-3.02a09

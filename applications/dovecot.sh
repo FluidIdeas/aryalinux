@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.dovecot.org/releases/2.3/dovecot-2.3.10.tar.gz
+wget -nc https://www.dovecot.org/releases/2.3/dovecot-2.3.13.tar.gz
 
 
 NAME=dovecot
-VERSION=2.3.10
-URL=https://www.dovecot.org/releases/2.3/dovecot-2.3.10.tar.gz
+VERSION=2.3.13
+URL=https://www.dovecot.org/releases/2.3/dovecot-2.3.13.tar.gz
 SECTION="Mail Server Software"
 DESCRIPTION="Dovecot is an Internet Message Access Protocol (IMAP) and Post Office Protocol (POP) server, written primarily with security in mind. Dovecot aims to be lightweight, fast and easy to set up as well as highly configurable and easily extensible with plugins."
 
@@ -54,14 +54,13 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sed -e "s;#include <unistd.h>;&\n#include <crypt.h>;" \
-    -i src/auth/mycrypt.c
 CFLAGS+=" -I/usr/include/tirpc" \
 LDFLAGS+=" -ltirpc" \
 ./configure --prefix=/usr                          \
             --sysconfdir=/etc                      \
             --localstatedir=/var                   \
-            --docdir=/usr/share/doc/dovecot-2.3.10 \
+            --rundir=/run                          \
+            --docdir=/usr/share/doc/dovecot-2.3.13 \
             --disable-static                       \
             --with-systemdsystemunitdir=/lib/systemd/system &&
 make
@@ -76,7 +75,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cp -rv /usr/share/doc/dovecot-2.3.10/example-config/* /etc/dovecot
+cp -rv /usr/share/doc/dovecot-2.3.13/example-config/* /etc/dovecot
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

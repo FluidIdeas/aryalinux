@@ -14,13 +14,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-nettool/3.8/gnome-nettool-3.8.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-nettool/3.8/gnome-nettool-3.8.1.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-nettool/3.8/gnome-nettool-3.8.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-nettool/3.8/gnome-nettool-3.8.1.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/gnome-nettool-3.8.1-ping_and_netstat_fixes-1.patch
 
 
 NAME=gnome-nettool
 VERSION=3.8.1
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-nettool/3.8/gnome-nettool-3.8.1.tar.xz
+URL=https://download.gnome.org/sources/gnome-nettool/3.8/gnome-nettool-3.8.1.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Nettool package is a network information tool which provides GUI interface for some of the most common command line network tools."
 
@@ -43,8 +44,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i 's/%s ping/%s/' src/ping.h &&
-sed -i '27 s/%s6/%s /' src/ping.h &&
+patch -Np1 -i ../gnome-nettool-3.8.1-ping_and_netstat_fixes-1.patch
 ./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh

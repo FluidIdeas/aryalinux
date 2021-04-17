@@ -19,13 +19,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://poppler.freedesktop.org/poppler-0.85.0.tar.xz
-wget -nc https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz
+wget -nc https://poppler.freedesktop.org/poppler-21.02.0.tar.xz
+wget -nc https://poppler.freedesktop.org/poppler-data-0.4.10.tar.gz
 
 
 NAME=poppler
-VERSION=0.85.0
-URL=https://poppler.freedesktop.org/poppler-0.85.0.tar.xz
+VERSION=21.02.0
+URL=https://poppler.freedesktop.org/poppler-21.02.0.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The Poppler package contains a PDF rendering library and command line tools used to manipulate PDF files. This is useful for providing PDF rendering functionality as a shared library."
 
@@ -54,7 +54,7 @@ cd    build                         &&
 cmake  -DCMAKE_BUILD_TYPE=Release   \
        -DCMAKE_INSTALL_PREFIX=/usr  \
        -DTESTDATADIR=$PWD/testfiles \
-       -DENABLE_UNSTABLE_API_ABI_HEADERS=ON     \
+       -DENABLE_UNSTABLE_API_ABI_HEADERS=ON \
        ..                           &&
 make
 sudo rm -rf /tmp/rootscript.sh
@@ -68,16 +68,16 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m755 -d           /usr/share/doc/poppler-0.85.0 &&
-cp -vr ../glib/reference/html /usr/share/doc/poppler-0.85.0
+install -v -m755 -d           /usr/share/doc/poppler-21.02.0 &&
+cp -vr ../glib/reference/html /usr/share/doc/poppler-21.02.0
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-tar -xf ../../poppler-data-0.4.9.tar.gz &&
-cd poppler-data-0.4.9
+tar -xf ../../poppler-data-0.4.10.tar.gz &&
+cd poppler-data-0.4.10
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make prefix=/usr install

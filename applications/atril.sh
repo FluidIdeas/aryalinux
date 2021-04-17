@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://pub.mate-desktop.org/releases/1.24/atril-1.24.0.tar.xz
+wget -nc https://pub.mate-desktop.org/releases/1.25/atril-1.25.1.tar.xz
 
 
 NAME=atril
-VERSION=1.24.0
-URL=https://pub.mate-desktop.org/releases/1.24/atril-1.24.0.tar.xz
+VERSION=1.25.1
+URL=https://pub.mate-desktop.org/releases/1.25/atril-1.25.1.tar.xz
 SECTION="Mate Desktop Applications"
 DESCRIPTION="Atril is a document viewer capable of displaying multiple and single page document formats like PDF and Postscript."
 

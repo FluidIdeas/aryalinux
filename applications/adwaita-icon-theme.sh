@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/adwaita-icon-theme/3.34/adwaita-icon-theme-3.34.3.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/adwaita-icon-theme/3.34/adwaita-icon-theme-3.34.3.tar.xz
+wget -nc https://download.gnome.org/sources/adwaita-icon-theme/3.38/adwaita-icon-theme-3.38.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/adwaita-icon-theme/3.38/adwaita-icon-theme-3.38.0.tar.xz
 
 
 NAME=adwaita-icon-theme
-VERSION=3.34.3
-URL=http://ftp.gnome.org/pub/gnome/sources/adwaita-icon-theme/3.34/adwaita-icon-theme-3.34.3.tar.xz
+VERSION=3.38.0
+URL=https://download.gnome.org/sources/adwaita-icon-theme/3.38/adwaita-icon-theme-3.38.0.tar.xz
 SECTION="Icons"
 DESCRIPTION="The Adwaita Icon Theme package contains an icon theme for Gtk+ 3 applications."
 

@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/anholt/libepoxy/releases/download/1.5.4/libepoxy-1.5.4.tar.xz
+wget -nc https://github.com/anholt/libepoxy/releases/download/1.5.5/libepoxy-1.5.5.tar.xz
 
 
 NAME=libepoxy
-VERSION=1.5.4
-URL=https://github.com/anholt/libepoxy/releases/download/1.5.4/libepoxy-1.5.4.tar.xz
+VERSION=1.5.5
+URL=https://github.com/anholt/libepoxy/releases/download/1.5.5/libepoxy-1.5.5.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="libepoxy is a library for handling OpenGL function pointer management."
 

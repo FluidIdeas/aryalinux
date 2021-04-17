@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/lcms/lcms2-2.9.tar.gz
+wget -nc https://downloads.sourceforge.net/lcms/lcms2-2.12.tar.gz
 
 
 NAME=lcms2
-VERSION=2.9
-URL=https://downloads.sourceforge.net/lcms/lcms2-2.9.tar.gz
+VERSION=2.12
+URL=https://downloads.sourceforge.net/lcms/lcms2-2.12.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The Little Color Management System is a small-footprint color management engine, with special focus on accuracy and performance. It uses the International Color Consortium standard (ICC), which is the modern standard for color management."
 
@@ -39,8 +39,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i '/AX_APPEND/s/^/#/' configure.ac &&
-autoreconf
 ./configure --prefix=/usr --disable-static &&
 make
 sudo rm -rf /tmp/rootscript.sh

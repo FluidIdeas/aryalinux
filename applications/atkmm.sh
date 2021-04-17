@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/atkmm/2.28/atkmm-2.28.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/atkmm/2.28/atkmm-2.28.0.tar.xz
+wget -nc https://download.gnome.org/sources/atkmm/2.28/atkmm-2.28.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/atkmm/2.28/atkmm-2.28.1.tar.xz
 
 
 NAME=atkmm
-VERSION=2.28.0
-URL=http://ftp.gnome.org/pub/gnome/sources/atkmm/2.28/atkmm-2.28.0.tar.xz
+VERSION=2.28.1
+URL=https://download.gnome.org/sources/atkmm/2.28/atkmm-2.28.1.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="Atkmm is the official C++ interface for the ATK accessibility toolkit library."
 
@@ -42,13 +42,14 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -e '/^libdocdir =/ s/$(book_name)/atkmm-2.28.0/' \
-    -i doc/Makefile.in
-./configure --prefix=/usr &&
-make
+mkdir bld &&
+cd    bld &&
+
+meson --prefix=/usr .. &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

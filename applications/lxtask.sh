@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/lxde/lxtask-0.1.9.tar.xz
+wget -nc https://downloads.sourceforge.net/lxde/lxtask-0.1.10.tar.xz
 
 
 NAME=lxtask
-VERSION=0.1.9
-URL=https://downloads.sourceforge.net/lxde/lxtask-0.1.9.tar.xz
+VERSION=0.1.10
+URL=https://downloads.sourceforge.net/lxde/lxtask-0.1.10.tar.xz
 SECTION="LXDE Applications"
 DESCRIPTION="The LXTask package contains a lightweight and desktop-independent task manager."
 

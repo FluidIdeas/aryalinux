@@ -7,17 +7,19 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:boost
+#REQ:libxslt
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libsigc++/2.10/libsigc++-2.10.2.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libsigc++/2.10/libsigc++-2.10.2.tar.xz
+wget -nc https://download.gnome.org/sources/libsigc++/2.10/libsigc++-2.10.6.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libsigc++/2.10/libsigc++-2.10.6.tar.xz
 
 
 NAME=libsigc
-VERSION=2.10.2
-URL=http://ftp.gnome.org/pub/gnome/sources/libsigc++/2.10/libsigc++-2.10.2.tar.xz
+VERSION=2.10.6
+URL=https://download.gnome.org/sources/libsigc++/2.10/libsigc++-2.10.6.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libsigc++ package implements a typesafe callback system for standard C++."
 
@@ -40,12 +42,14 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -e '/^libdocdir =/ s/$(book_name)/libsigc++-2.10.2/' -i docs/Makefile.in
-./configure --prefix=/usr &&
-make
+mkdir bld &&
+cd    bld &&
+
+meson --prefix=/usr .. &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -18,7 +18,7 @@ NAME=graphene
 VERSION=1.9.6
 URL=ftp://ftp.gnome.org/pub/gnome/sources/graphene/1.9/graphene-1.9.6.tar.xz
 SECTION="Others"
-DESCRIPTION="A thin layer of types for graphic libraries"
+DESCRIPTION="The Graphene package provides a thin layer of types for graphics libraries."
 
 if [ ! -z $URL ]
 then

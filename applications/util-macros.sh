@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.x.org/pub/individual/util/util-macros-1.19.2.tar.bz2
-wget -nc ftp://ftp.x.org/pub/individual/util/util-macros-1.19.2.tar.bz2
+wget -nc https://www.x.org/pub/individual/util/util-macros-1.19.3.tar.bz2
+wget -nc ftp://ftp.x.org/pub/individual/util/util-macros-1.19.3.tar.bz2
 
 
 NAME=util-macros
-VERSION=1.19.2
-URL=https://www.x.org/pub/individual/util/util-macros-1.19.2.tar.bz2
+VERSION=1.19.3
+URL=https://www.x.org/pub/individual/util/util-macros-1.19.3.tar.bz2
 SECTION="X Window System Environment"
 DESCRIPTION="The util-macros package contains the m4 macros used by all of the Xorg packages."
 

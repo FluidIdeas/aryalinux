@@ -8,19 +8,19 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:glib2
-#REQ:js60
+#REQ:js78
 #REQ:linux-pam
 #REQ:systemd
 
 
 cd $SOURCE_DIR
 
-wget -nc https://www.freedesktop.org/software/polkit/releases/polkit-0.116.tar.gz
+wget -nc https://www.freedesktop.org/software/polkit/releases/polkit-0.118.tar.gz
 
 
 NAME=polkit
-VERSION=0.116
-URL=https://www.freedesktop.org/software/polkit/releases/polkit-0.116.tar.gz
+VERSION=0.118
+URL=https://www.freedesktop.org/software/polkit/releases/polkit-0.118.tar.gz
 SECTION="Security"
 DESCRIPTION="Polkit is a toolkit for defining and handling authorizations. It is used for allowing unprivileged processes to communicate with privileged processes."
 

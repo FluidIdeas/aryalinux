@@ -10,19 +10,21 @@ set +h
 #REQ:gtk3
 #REQ:libxml2
 #REQ:pcre2
-#REQ:gobject-introspection
+#REQ:icu
 #REQ:gnutls
+#REQ:gobject-introspection
 #REQ:vala
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/vte/0.58/vte-0.58.3.tar.xz
+wget -nc https://download.gnome.org/sources/vte/0.62/vte-0.62.3.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/vte/0.62/vte-0.62.3.tar.xz
 
 
 NAME=vte
-VERSION=0.58.3
-URL=http://ftp.acc.umu.se/pub/gnome/sources/vte/0.58/vte-0.58.3.tar.xz
+VERSION=0.62.3
+URL=https://download.gnome.org/sources/vte/0.62/vte-0.62.3.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The VTE package contains a termcap file implementation for terminal emulators."
 
@@ -48,11 +50,12 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson  --prefix=/usr --sysconfdir=/etc -Dfribidi=false &&
+meson  --prefix=/usr -Dfribidi=false .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install
+ninja install &&
+rm -v /etc/profile.d/vte.*
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

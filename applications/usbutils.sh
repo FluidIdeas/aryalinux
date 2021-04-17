@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-012.tar.xz
+wget -nc https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-013.tar.xz
 
 
 NAME=usbutils
-VERSION=012
-URL=https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-012.tar.xz
+VERSION=013
+URL=https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-013.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="The USB Utils package contains utilities used to display information about USB buses in the system and the devices connected to them."
 

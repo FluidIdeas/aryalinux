@@ -13,14 +13,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.16.2.tar.xz
+wget -nc https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.18.3.tar.xz
 
 
 NAME=gstreamer10
-VERSION=1.16.2
-URL=https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.16.2.tar.xz
+VERSION=1.18.3
+URL=https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.18.3.tar.xz
 SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="gstreamer is a streaming media framework that enables applications to share a common set of plugins for things like video encoding and decoding, audio encoding and decoding, audio and video filters, audio visualisation, web streaming and anything else that streams in real-time or otherwise. This package only provides base functionality and libraries. You may need at least gst-plugins-base-1.16.2 and one of Good, Bad, Ugly or Libav plugins."
+DESCRIPTION="gstreamer is a streaming media framework that enables applications to share a common set of plugins for tasks such as video encoding and decoding, audio encoding and decoding, audio and video filters, audio visualisation, web streaming and anything else that streams in real-time or otherwise. This package only provides base functionality and libraries. You may need at least gst-plugins-base-1.18.3 and one of Good, Bad, Ugly or Libav plugins."
 
 if [ ! -z $URL ]
 then
@@ -47,9 +47,8 @@ cd    build &&
 meson  --prefix=/usr       \
        -Dbuildtype=release \
        -Dgst_debug=false   \
-       -Dgtk_doc=disabled  \
        -Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ \
-       -Dpackage-name="GStreamer 1.16.2 BLFS" &&
+       -Dpackage-name="GStreamer 1.18.3 BLFS" &&
 ninja
 rm -rf /usr/bin/gst-* /usr/{lib,libexec}/gstreamer-1.0
 sudo rm -rf /tmp/rootscript.sh

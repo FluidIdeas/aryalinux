@@ -9,6 +9,7 @@ set +h
 
 #REQ:colord
 #REQ:fontconfig
+#REQ:gcr
 #REQ:geoclue2
 #REQ:geocode-glib
 #REQ:gnome-desktop
@@ -31,13 +32,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-settings-daemon/3.36/gnome-settings-daemon-3.36.0.tar.xz
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-settings-daemon/3.36/gnome-settings-daemon-3.36.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-settings-daemon/3.38/gnome-settings-daemon-3.38.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-settings-daemon/3.38/gnome-settings-daemon-3.38.1.tar.xz
 
 
 NAME=gnome-settings-daemon
-VERSION=3.36.0
-URL=http://ftp.acc.umu.se/pub/gnome/sources/gnome-settings-daemon/3.36/gnome-settings-daemon-3.36.0.tar.xz
+VERSION=3.38.1
+URL=https://download.gnome.org/sources/gnome-settings-daemon/3.38/gnome-settings-daemon-3.38.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Settings Daemon is responsible for setting various parameters of a GNOME Session and the applications that run under it."
 
@@ -60,10 +61,19 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+rm -v /usr/lib/systemd/user/gsd-*
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr --sysconfdir=/etc .. &&
+meson --prefix=/usr .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -15,13 +15,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.5.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.5.tar.xz
+wget -nc https://download.gnome.org/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.5.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.5.tar.xz
 
 
 NAME=totem-pl-parser
 VERSION=3.26.5
-URL=http://ftp.gnome.org/pub/gnome/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.5.tar.xz
+URL=https://download.gnome.org/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.5.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Totem PL Parser package contains a simple GObject-based library used to parse multiple playlist formats."
 

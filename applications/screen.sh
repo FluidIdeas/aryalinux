@@ -13,6 +13,7 @@ cd $SOURCE_DIR
 
 wget -nc https://ftp.gnu.org/gnu/screen/screen-4.8.0.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/screen/screen-4.8.0.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/screen-4.8.0-upstream_fixes-1.patch
 
 
 NAME=screen
@@ -40,6 +41,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../screen-4.8.0-upstream_fixes-1.patch
 ./configure --prefix=/usr                     \
             --infodir=/usr/share/info         \
             --mandir=/usr/share/man           \

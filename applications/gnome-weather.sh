@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnome-weather/3.34/gnome-weather-3.34.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnome-weather/3.34/gnome-weather-3.34.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-weather/3.36/gnome-weather-3.36.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-weather/3.36/gnome-weather-3.36.1.tar.xz
 
 
 NAME=gnome-weather
-VERSION=3.34.0
-URL=http://ftp.gnome.org/pub/gnome/sources/gnome-weather/3.34/gnome-weather-3.34.0.tar.xz
+VERSION=3.36.1
+URL=https://download.gnome.org/sources/gnome-weather/3.36/gnome-weather-3.36.1.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="GNOME Weather is a small application that allows you to monitor the current weather conditions for your city, or anywhere in the world, and to access updated forecasts provided by various internet services."
 

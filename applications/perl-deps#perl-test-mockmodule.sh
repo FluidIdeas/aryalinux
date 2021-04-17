@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/G/GF/GFRANKS/Test-MockModule-v0.170.0.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/G/GF/GFRANKS/Test-MockModule-v0.173.0.tar.gz
 
 
 NAME=perl-deps#perl-test-mockmodule
-VERSION=0.170.0
-URL=https://cpan.metacpan.org/authors/id/G/GF/GFRANKS/Test-MockModule-v0.170.0.tar.gz
+VERSION=0.173.0
+URL=https://cpan.metacpan.org/authors/id/G/GF/GFRANKS/Test-MockModule-v0.173.0.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

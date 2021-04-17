@@ -8,18 +8,19 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:gtk2
+#REQ:gtk-doc
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libunique/1.1/libunique-1.1.6.tar.bz2
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libunique/1.1/libunique-1.1.6.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/libunique-1.1.6-upstream_fixes-1.patch
+wget -nc https://download.gnome.org/sources/libunique/1.1/libunique-1.1.6.tar.bz2
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libunique/1.1/libunique-1.1.6.tar.bz2
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/libunique-1.1.6-upstream_fixes-1.patch
 
 
 NAME=libunique
 VERSION=1.1.6
-URL=http://ftp.gnome.org/pub/gnome/sources/libunique/1.1/libunique-1.1.6.tar.bz2
+URL=https://download.gnome.org/sources/libunique/1.1/libunique-1.1.6.tar.bz2
 SECTION="General Libraries"
 DESCRIPTION="The libunique package contains a library for writing single instance applications."
 

@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/libglade/2.6/libglade-2.6.4.tar.bz2
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libglade/2.6/libglade-2.6.4.tar.bz2
+wget -nc https://download.gnome.org/sources/libglade/2.6/libglade-2.6.4.tar.bz2
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libglade/2.6/libglade-2.6.4.tar.bz2
 
 
 NAME=libglade
 VERSION=2.6.4
-URL=http://ftp.gnome.org/pub/gnome/sources/libglade/2.6/libglade-2.6.4.tar.bz2
+URL=https://download.gnome.org/sources/libglade/2.6/libglade-2.6.4.tar.bz2
 SECTION="X Libraries"
 DESCRIPTION="The libglade package contains libglade libraries. These are useful for loading Glade interface files in a program at runtime."
 

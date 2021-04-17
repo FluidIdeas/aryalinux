@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p14.tar.gz
+wget -nc https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p15.tar.gz
 
 
 NAME=ntp
 VERSION=4.2.
-URL=https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p14.tar.gz
+URL=https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p15.tar.gz
 SECTION="Networking Programs"
 DESCRIPTION="The ntp package contains a client and server to keep the time synchronized between various computers over a network. This package is the official reference implementation of the NTP protocol."
 
@@ -53,13 +53,13 @@ sudo rm -rf /tmp/rootscript.sh
 
 sed -e 's/"(\\S+)"/"?([^\\s"]+)"?/' \
     -i scripts/update-leap/update-leap.in
-./configure CFLAGS="-O2 -g -fPIC" \
+./configure CFLAGS="-O2 -g -fPIC -fcommon $CFLAGS" \
             --prefix=/usr         \
             --bindir=/usr/sbin    \
             --sysconfdir=/etc     \
             --enable-linuxcaps    \
             --with-lineeditlibs=readline \
-            --docdir=/usr/share/doc/ntp-4.2.8p14 &&
+            --docdir=/usr/share/doc/ntp-4.2.8p15 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

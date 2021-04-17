@@ -13,21 +13,21 @@ set +h
 #REQ:gtksourceview4
 #REQ:itstool
 #REQ:libpeas
+#REQ:tepl
 #REQ:gvfs
 #REQ:iso-codes
-#REQ:libsoup
 #REQ:python-modules#pygobject3
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gedit/3.34/gedit-3.34.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gedit/3.34/gedit-3.34.1.tar.xz
+wget -nc https://download.gnome.org/sources/gedit/3.38/gedit-3.38.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gedit/3.38/gedit-3.38.1.tar.xz
 
 
 NAME=gedit
-VERSION=3.34.1
-URL=http://ftp.gnome.org/pub/gnome/sources/gedit/3.34/gedit-3.34.1.tar.xz
+VERSION=3.38.1
+URL=https://download.gnome.org/sources/gedit/3.38/gedit-3.38.1.tar.xz
 SECTION="Editors"
 DESCRIPTION="The Gedit package contains a lightweight UTF-8 text editor for the GNOME Desktop."
 

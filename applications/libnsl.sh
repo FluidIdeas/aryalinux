@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/thkukuk/libnsl/archive/v1.2.0/libnsl-1.2.0.tar.gz
+wget -nc https://github.com/thkukuk/libnsl/releases/download/v1.3.0/libnsl-1.3.0.tar.xz
 
 
 NAME=libnsl
-VERSION=1.2.0
-URL=https://github.com/thkukuk/libnsl/archive/v1.2.0/libnsl-1.2.0.tar.gz
+VERSION=1.3.0
+URL=https://github.com/thkukuk/libnsl/releases/download/v1.3.0/libnsl-1.3.0.tar.xz
 SECTION="Networking Libraries"
 DESCRIPTION="The libnsl package contains the public client interface for NIS(YP) and NIS+. It replaces the NIS library that used to be in glibc."
 
@@ -48,7 +48,7 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install                  &&
 mv /usr/lib/libnsl.so.2* /lib &&
-ln -sfv ../../lib/libnsl.so.2.0.0 /usr/lib/libnsl.so
+ln -sfv ../../lib/libnsl.so.2.0.1 /usr/lib/libnsl.so
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

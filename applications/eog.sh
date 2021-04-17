@@ -22,15 +22,15 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/eog/3.36/eog-3.36.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/eog/3.36/eog-3.36.0.tar.xz
+wget -nc https://download.gnome.org/sources/eog/3.38/eog-3.38.2.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/eog/3.38/eog-3.38.2.tar.xz
 
 
 NAME=eog
-VERSION=3.36.0
-URL=http://ftp.gnome.org/pub/gnome/sources/eog/3.36/eog-3.36.0.tar.xz
+VERSION=3.38.2
+URL=https://download.gnome.org/sources/eog/3.38/eog-3.38.2.tar.xz
 SECTION="GNOME Applications"
-DESCRIPTION="EOG is an application used for viewing and cataloging image files on the GNOME Desktop. It has basic editing capabilites."
+DESCRIPTION="EOG is an application used for viewing and cataloging image files on the GNOME Desktop. It also has basic editing capabilites."
 
 if [ ! -z $URL ]
 then
@@ -54,11 +54,19 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr -Dlibportal=false .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install &&
+ninja install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 update-desktop-database
 ENDOFROOTSCRIPT
 

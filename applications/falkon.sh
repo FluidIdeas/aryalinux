@@ -43,7 +43,9 @@ echo $USER > /tmp/currentuser
 
 rm -rf po/
 sed -i '/#include <QSettings>/a#include <QFile>' \
-  src/plugins/VerticalTabs/verticaltabsplugin.cpp
+   src/plugins/VerticalTabs/verticaltabsplugin.cpp
+sed -i '/#include <QPainter>/a #include <QPainterPath>' \
+   src/lib/tools/qztools.cpp
 mkdir build &&
 cd    build &&
 

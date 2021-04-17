@@ -10,7 +10,7 @@ set +h
 #REQ:audiofile
 #REQ:fftw
 #REQ:id3lib
-#REQ:krameworks5
+#REQ:frameworks5
 #REQ:alsa-lib
 #REQ:flac
 #REQ:libogg
@@ -19,12 +19,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/release-service/19.12.2/src/kwave-19.12.2.tar.xz
+wget -nc https://download.kde.org/stable/release-service/20.12.2/src/kwave-20.12.2.tar.xz
 
 
 NAME=kwave
-VERSION=19.12.2
-URL=http://download.kde.org/stable/release-service/19.12.2/src/kwave-19.12.2.tar.xz
+VERSION=20.12.2
+URL=https://download.kde.org/stable/release-service/20.12.2/src/kwave-20.12.2.tar.xz
 SECTION="Audio Utilities"
 DESCRIPTION="The KWave package contains a KF5 based Sound Editor application."
 

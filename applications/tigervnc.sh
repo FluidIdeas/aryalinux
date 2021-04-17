@@ -21,13 +21,17 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/TigerVNC/tigervnc/archive/v1.10.1/tigervnc-1.10.1.tar.gz
-wget -nc https://www.x.org/pub/individual/xserver/xorg-server-1.20.4.tar.bz2
+wget -nc https://github.com/TigerVNC/tigervnc/archive/v1.11.0/tigervnc-1.11.0.tar.gz
+wget -nc https://www.x.org/pub/individual/xserver/xorg-server-1.20.7.tar.bz2
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/tigervnc-1.11.0-configuration_fixes-1.patch
+wget -nc http://anduin.linuxfromscratch.org/BLFS/tigervnc/vncserver
+wget -nc http://anduin.linuxfromscratch.org/BLFS/tigervnc/vncserver.1
+wget -nc http://anduin.linuxfromscratch.org/BLFS/tigervnc/Xsession
 
 
 NAME=tigervnc
-VERSION=1.10.1
-URL=https://github.com/TigerVNC/tigervnc/archive/v1.10.1/tigervnc-1.10.1.tar.gz
+VERSION=1.11.0
+URL=https://github.com/TigerVNC/tigervnc/archive/v1.11.0/tigervnc-1.11.0.tar.gz
 SECTION="Other X-based Programs"
 DESCRIPTION="Tigervnc is an advanced VNC (Virtual Network Computing) implementation. It allows creation of an Xorg server not tied to a physical console and also provides a client for viewing of the remote graphical desktop."
 
@@ -52,8 +56,10 @@ echo $USER > /tmp/currentuser
 export XORG_PREFIX="/usr"
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
+patch -Np1 -i ../tigervnc-1.11.0-configuration_fixes-1.patch
 # Put code in place
-tar -xf ../xorg-server-1.20.4.tar.bz2 \
+mkdir -p unix/xserver &&
+tar -xf ../xorg-server-1.20.7.tar.bz2 \
     --strip-components=1              \
     -C unix/xserver                   &&
 ( cd unix/xserver &&
@@ -91,6 +97,53 @@ make install &&
 ( cd unix/xserver/hw/vnc && make install ) &&
 
 [ -e /usr/bin/Xvnc ] || ln -svf $XORG_PREFIX/bin/Xvnc /usr/bin/Xvnc
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+install -m755 --owner=root ../vncserver /usr/bin &&
+cp ../vncserver.1 /usr/share/man/man1
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+install -vdm755 /etc/X11/tigervnc &&
+install -v -m755 ../Xsession /etc/X11/tigervnc
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+echo ":1=$(whoami)" >> /etc/tigervnc/vncserver.users
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+cat > ~/.vnc/config << EOF
+# Begin ~/.vnc/config
+
+session=LXDE      # The session must match one listed in /usr/share/xsessions.
+geometry=1024x768
+
+# End ~/.vnc/config
+EOF
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+systemctl start vncserver@:1
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+systemctl enable vncserver@:1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://bitbucket.org/multicoreware/x265/downloads/x265_3.3.tar.gz
+wget -nc http://anduin.linuxfromscratch.org/BLFS/x265/x265_3.4.tar.gz
 
 
 NAME=x265
 VERSION=26
-URL=https://bitbucket.org/multicoreware/x265/downloads/x265_3.3.tar.gz
+URL=http://anduin.linuxfromscratch.org/BLFS/x265/x265_3.4.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="x265 package provides a library for encoding video streams into the H.265/HEVC format."
 

@@ -7,16 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:perl-deps#perl-b-cow
 
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/Clone-0.43.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/Clone-0.45.tar.gz
 
 
 NAME=perl-deps#perl-clone
-VERSION=0.43
-URL=https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/Clone-0.43.tar.gz
+VERSION=0.45
+URL=https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/Clone-0.45.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

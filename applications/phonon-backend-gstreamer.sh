@@ -18,12 +18,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.kde.org/stable/phonon/phonon-backend-gstreamer/4.10.0/phonon-backend-gstreamer-4.10.0.tar.xz
+wget -nc https://download.kde.org/stable/phonon/phonon-backend-gstreamer/4.10.0/phonon-backend-gstreamer-4.10.0.tar.xz
 
 
 NAME=phonon-backend-gstreamer
 VERSION=4.10.0
-URL=http://download.kde.org/stable/phonon/phonon-backend-gstreamer/4.10.0/phonon-backend-gstreamer-4.10.0.tar.xz
+URL=https://download.kde.org/stable/phonon/phonon-backend-gstreamer/4.10.0/phonon-backend-gstreamer-4.10.0.tar.xz
 SECTION="KDE Plasma 5"
 DESCRIPTION="This package provides a Phonon backend which utilizes the GStreamer media framework."
 

@@ -14,6 +14,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://download.librdf.org/source/raptor2-2.0.15.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/raptor-2.0.15-security_fixes-1.patch
 
 
 NAME=raptor
@@ -41,6 +42,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../raptor-2.0.15-security_fixes-1.patch
 ./configure --prefix=/usr --disable-static &&
 make
 sudo rm -rf /tmp/rootscript.sh

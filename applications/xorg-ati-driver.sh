@@ -41,6 +41,8 @@ export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disab
 
 echo $USER > /tmp/currentuser
 
+sed -e 's/miPointer/extern &/' \
+    -i src/drmmode_display.h
 ./configure $XORG_CONFIG &&
 make
 sudo rm -rf /tmp/rootscript.sh

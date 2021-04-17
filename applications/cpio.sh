@@ -40,6 +40,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -i '/The name/,+2 d' src/global.c
 ./configure --prefix=/usr \
             --bindir=/bin \
             --enable-mt   \

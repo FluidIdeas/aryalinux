@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.kernel.org/pub/linux/bluetooth/sbc-1.4.tar.xz
+wget -nc https://www.kernel.org/pub/linux/bluetooth/sbc-1.5.tar.xz
 
 
 NAME=sbc
-VERSION=1.4
-URL=https://www.kernel.org/pub/linux/bluetooth/sbc-1.4.tar.xz
+VERSION=1.5
+URL=https://www.kernel.org/pub/linux/bluetooth/sbc-1.5.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The SBC is a digital audio encoder and decoder used to transfer data to Bluetooth audio output devices like headphones or loudspeakers."
 

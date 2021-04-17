@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:dbus-glib
 #REQ:libgudev
 #REQ:libusb
 #REQ:polkit

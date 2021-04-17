@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.debian.org/debian/pool/main/a/at/at_3.1.23.orig.tar.gz
+wget -nc http://software.calhariz.com/at/at_3.2.1.orig.tar.gz
 
 
 NAME=at
-VERSION=3.1.23
-URL=http://ftp.debian.org/debian/pool/main/a/at/at_3.1.23.orig.tar.gz
+VERSION=3.2.1
+URL=http://software.calhariz.com/at/at_3.2.1.orig.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="The at package provide delayed job execution and batch processing. It is required for Linux Standards Base (LSB) conformance."
 
@@ -43,25 +43,42 @@ echo $USER > /tmp/currentuser
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 groupadd -g 17 atd                                                  &&
-useradd -d /dev/null -c "atd daemon" -g atd -s /bin/false -u 17 atd &&
-mkdir -p /var/spool/cron
+useradd -d /dev/null -c "atd daemon" -g atd -s /bin/false -u 17 atd
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sed -i '/docdir/s/=.*/= @docdir@/' Makefile.in
-autoreconf
 ./configure --with-daemon_username=atd        \
             --with-daemon_groupname=atd       \
             SENDMAIL=/usr/sbin/sendmail       \
+            --with-jobdir=/var/spool/atjobs   \
+            --with-atspool=/var/spool/atspool \
             --with-systemdsystemunitdir=/lib/systemd/system &&
 make -j1
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install docdir=/usr/share/doc/at-3.1.23 \
-             atdocdir=/usr/share/doc/at-3.1.23
+make install docdir=/usr/share/doc/at-3.2.1 \
+             atdocdir=/usr/share/doc/at-3.2.1
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+cat > /etc/pam.d/atd << "EOF"
+# Begin /etc/pam.d/atd
+
+auth required pam_unix.so
+account required pam_unix.so
+password required pam_unix.so
+session required pam_unix.so
+
+# End /etc/pam.d/atd
+EOF
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -18,15 +18,15 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://mesa.freedesktop.org/archive/mesa-20.0.1.tar.xz
-wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-20.0.1.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/mesa-20.0.1-add_xdemos-1.patch
+wget -nc https://mesa.freedesktop.org/archive/mesa-20.3.4.tar.xz
+wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-20.3.4.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/mesa-20.3.4-add_xdemos-1.patch
 wget -nc ftp://ftp.freedesktop.org/pub/mesa/demos/
 
 
 NAME=mesa
-VERSION=20.0.1
-URL=https://mesa.freedesktop.org/archive/mesa-20.0.1.tar.xz
+VERSION=20.3.4
+URL=https://mesa.freedesktop.org/archive/mesa-20.3.4.tar.xz
 SECTION="X Window System Environment"
 DESCRIPTION="Mesa is an OpenGL compatible 3D graphics library."
 
@@ -50,9 +50,9 @@ echo $USER > /tmp/currentuser
 
 export XORG_PREFIX="/usr"
 
-patch -Np1 -i ../mesa-20.0.1-add_xdemos-1.patch
+patch -Np1 -i ../mesa-20.3.4-add_xdemos-1.patch
 sed '1s/python/&3/' -i bin/symbols-check.py
-GALLIUM_DRV="i915,nouveau,r600,radeonsi,svga,swrast,virgl"
+GALLIUM_DRV="i915,iris,nouveau,r600,radeonsi,svga,swrast,virgl"
 DRI_DRIVERS="i965,nouveau"
 
 export XORG_PREFIX=/usr
@@ -99,8 +99,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -dm755 /usr/share/doc/mesa-20.0.1 &&
-cp -rfv ../docs/* /usr/share/doc/mesa-20.0.1
+install -v -dm755 /usr/share/doc/mesa-20.3.4 &&
+cp -rfv ../docs/* /usr/share/doc/mesa-20.3.4
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

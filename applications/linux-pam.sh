@@ -7,17 +7,18 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:libpwquality
 
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/linux-pam/linux-pam/releases/download/v1.3.1/Linux-PAM-1.3.1.tar.xz
-wget -nc https://github.com/linux-pam/linux-pam/releases/download/v1.3.1/Linux-PAM-1.3.1-docs.tar.xz
+wget -nc https://github.com/linux-pam/linux-pam/releases/download/v1.5.1/Linux-PAM-1.5.1.tar.xz
+wget -nc https://github.com/linux-pam/linux-pam/releases/download/v1.5.1/Linux-PAM-1.5.1-docs.tar.xz
 
 
 NAME=linux-pam
-VERSION=1.3.1
-URL=https://github.com/linux-pam/linux-pam/releases/download/v1.3.1/Linux-PAM-1.3.1.tar.xz
+VERSION=1.5.1
+URL=https://github.com/linux-pam/linux-pam/releases/download/v1.5.1/Linux-PAM-1.5.1.tar.xz
 SECTION="Security"
 DESCRIPTION="The Linux PAM package contains Pluggable Authentication Modules used to enable the local system administrator to choose how applications authenticate users."
 
@@ -40,15 +41,15 @@ fi
 echo $USER > /tmp/currentuser
 
 
-tar -xf ../Linux-PAM-1.3.1-docs.tar.xz --strip-components=1
-sed -e 's/dummy links/dummy lynx/'                                     \
+tar -xf ../Linux-PAM-1.5.1-docs.tar.xz --strip-components=1
+sed -e 's/dummy elinks/dummy lynx/'                                    \
     -e 's/-no-numbering -no-references/-force-html -nonumbers -stdin/' \
     -i configure
 ./configure --prefix=/usr                    \
             --sysconfdir=/etc                \
             --libdir=/usr/lib                \
             --enable-securedir=/lib/security \
-            --docdir=/usr/share/doc/Linux-PAM-1.3.1 &&
+            --docdir=/usr/share/doc/Linux-PAM-1.5.1 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -68,7 +69,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-rm -fv /etc/pam.d/*
+rm -fv /etc/pam.d/other
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -117,12 +118,6 @@ session   required    pam_unix.so
 
 # End /etc/pam.d/system-session
 EOF
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 sudo tee /etc/pam.d/system-password << "EOF"
 # Begin /etc/pam.d/system-password
 
@@ -132,6 +127,12 @@ password  required    pam_unix.so       sha512 shadow try_first_pass
 
 # End /etc/pam.d/system-password
 EOF
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/pam.d/other << "EOF"

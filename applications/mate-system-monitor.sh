@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://pub.mate-desktop.org/releases/1.24/mate-system-monitor-1.24.0.tar.xz
+wget -nc https://pub.mate-desktop.org/releases/1.25/mate-system-monitor-1.25.0.tar.xz
 
 
 NAME=mate-system-monitor
-VERSION=1.24.0
-URL=https://pub.mate-desktop.org/releases/1.24/mate-system-monitor-1.24.0.tar.xz
+VERSION=1.25.0
+URL=https://pub.mate-desktop.org/releases/1.25/mate-system-monitor-1.25.0.tar.xz
 SECTION="Mate Desktop"
 DESCRIPTION="Process viewer and system resource monitor for MATE"
 

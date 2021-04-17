@@ -7,8 +7,8 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:glu
 #REQ:x7lib
-#REQ:freeglut
 #REQ:harfbuzz
 #REQ:libjpeg
 #REQ:openjpeg2
@@ -17,13 +17,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.mupdf.com/downloads/archive/mupdf-1.16.1-source.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/mupdf-1.16.1-shared_libs-1.patch
+wget -nc http://www.mupdf.com/downloads/archive/mupdf-1.18.0-source.tar.gz
 
 
 NAME=mupdf
-VERSION=1.16.
-URL=http://www.mupdf.com/downloads/archive/mupdf-1.16.1-source.tar.gz
+VERSION=1.18.
+URL=http://www.mupdf.com/downloads/archive/mupdf-1.18.0-source.tar.gz
 SECTION="PostScript"
 DESCRIPTION="MuPDF is a lightweight PDF and XPS viewer."
 
@@ -46,19 +45,38 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../mupdf-1.16.1-shared_libs-1.patch &&
+sed -i '/MU.*_EXE. :/{
+        s/\(.(MUPDF_LIB)\)\(.*\)$/\2 | \1/
+        N
+        s/$/ -lmupdf -L$(OUT)/
+        }' Makefile
+cat > user.make << EOF &&
+USE_SYSTEM_FREETYPE := yes
+USE_SYSTEM_HARFBUZZ := yes
+USE_SYSTEM_JBIG2DEC := no
+USE_SYSTEM_JPEGXR := no # not used without HAVE_JPEGXR
+USE_SYSTEM_LCMS2 := no # need lcms2-art fork
+USE_SYSTEM_LIBJPEG := yes
+USE_SYSTEM_MUJS := no # build needs source anyways
+USE_SYSTEM_OPENJPEG := yes
+USE_SYSTEM_ZLIB := yes
+USE_SYSTEM_GLUT := no # need freeglut2-art fork
+USE_SYSTEM_CURL := yes
+USE_SYSTEM_GUMBO := no
+EOF
 
-USE_SYSTEM_LIBS=yes make
+export XCFLAGS=-fPIC          &&
+make build=release shared=yes &&
+unset XCFLAGS
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-USE_SYSTEM_LIBS=yes                     \
 make prefix=/usr                        \
-     build=release                      \
-     docdir=/usr/share/doc/mupdf-1.16.1 \
+     shared=yes                         \
+     docdir=/usr/share/doc/mupdf-1.18.0 \
      install                            &&
 
-ln -sfv mupdf-x11 /usr/bin/mupdf        &&
-ldconfig
+chmod 755 /usr/lib/libmupdf.so          &&
+ln -sfv mupdf-x11 /usr/bin/mupdf
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

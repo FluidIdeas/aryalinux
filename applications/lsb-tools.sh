@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/djlucas/LSB-Tools/releases/download/v0.6/LSB-Tools-0.6.tar.gz
+wget -nc https://github.com/djlucas/LSB-Tools/releases/download/v0.9/LSB-Tools-0.9.tar.gz
 
 
 NAME=lsb-tools
-VERSION=0.6
-URL=https://github.com/djlucas/LSB-Tools/releases/download/v0.6/LSB-Tools-0.6.tar.gz
+VERSION=0.9
+URL=https://github.com/djlucas/LSB-Tools/releases/download/v0.9/LSB-Tools-0.9.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="The LSB-Tools package includes tools for Linux Standards Base (LSB) conformance."
 

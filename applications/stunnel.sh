@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.56.tar.gz
+wget -nc ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.58.tar.gz
 
 
 NAME=stunnel
-VERSION=5.56
-URL=ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.56.tar.gz
+VERSION=5.58
+URL=ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.58.tar.gz
 SECTION="Security"
 DESCRIPTION="The stunnel package contains a program that allows you to encrypt arbitrary TCP connections inside SSL (Secure Sockets Layer) so you can easily communicate with clients over secure channels. stunnel can be used to add SSL functionality to commonly used Inetd daemons such as POP-2, POP-3, and IMAP servers, along with standalone daemons such as NNTP, SMTP, and HTTP. stunnel can also be used to tunnel PPP over network sockets without changes to the server package source code."
 
@@ -57,7 +57,7 @@ sed -i '/LDFLAGS.*static_flag/ s/^/#/' configure
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make docdir=/usr/share/doc/stunnel-5.56 install
+make docdir=/usr/share/doc/stunnel-5.58 install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -94,7 +94,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cat >/etc/stunnel/stunnel.conf << "EOF" 
+cat > /etc/stunnel/stunnel.conf << "EOF" 
 ; File: /etc/stunnel/stunnel.conf
 
 ; Note: The pid and output locations are relative to the chroot location.

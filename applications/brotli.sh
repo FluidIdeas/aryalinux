@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/google/brotli/archive/v1.0.7/brotli-v1.0.7.tar.gz
+wget -nc https://github.com/google/brotli/archive/v1.0.9/brotli-1.0.9.tar.gz
 
 
 NAME=brotli
-VERSION=1.0.7
-URL=https://github.com/google/brotli/archive/v1.0.7/brotli-v1.0.7.tar.gz
+VERSION=1.0.9
+URL=https://github.com/google/brotli/archive/v1.0.9/brotli-1.0.9.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="Brotli provides a general-purpose lossless compression algorithm that compresses data using a combination of a modern variant of the LZ77 algorithm, Huffman coding and 2nd order context modeling. Its libraries are particularly used for WOFF2 fonts on webpages."
 
@@ -40,6 +40,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -i 's@-R..libdir.@@' scripts/*.pc.in
 mkdir out &&
 cd    out &&
 

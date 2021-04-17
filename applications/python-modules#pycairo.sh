@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/pygobject/pycairo/releases/download/v1.19.1/pycairo-1.19.1.tar.gz
+wget -nc https://github.com/pygobject/pycairo/releases/download/v1.20.0/pycairo-1.20.0.tar.gz
 
 
 NAME=python-modules#pycairo
-VERSION=1.19.1
-URL=https://github.com/pygobject/pycairo/releases/download/v1.19.1/pycairo-1.19.1.tar.gz
+VERSION=1.20.0
+URL=https://github.com/pygobject/pycairo/releases/download/v1.20.0/pycairo-1.20.0.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

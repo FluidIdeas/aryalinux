@@ -16,12 +16,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/pcmanfm/pcmanfm-1.3.1.tar.xz
+wget -nc https://downloads.sourceforge.net/pcmanfm/pcmanfm-1.3.2.tar.xz
 
 
 NAME=pcmanfm
-VERSION=1.3.1
-URL=https://downloads.sourceforge.net/pcmanfm/pcmanfm-1.3.1.tar.xz
+VERSION=1.3.2
+URL=https://downloads.sourceforge.net/pcmanfm/pcmanfm-1.3.2.tar.xz
 SECTION="LXDE Desktop"
 DESCRIPTION="The PCManFM package contains an extremely fast, lightweight, yet feature-rich file manager with tabbed browsing."
 

@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://sourceware.org/ftp/lvm2/LVM2.2.03.08.tgz
-wget -nc ftp://sourceware.org/pub/lvm2/LVM2.2.03.08.tgz
+wget -nc https://sourceware.org/ftp/lvm2/LVM2.2.03.11.tgz
+wget -nc ftp://sourceware.org/pub/lvm2/LVM2.2.03.11.tgz
 
 
 NAME=lvm2
-VERSION=2.2.03.08
-URL=https://sourceware.org/ftp/lvm2/LVM2.2.03.08.tgz
+VERSION=2.2.03.11
+URL=https://sourceware.org/ftp/lvm2/LVM2.2.03.11.tgz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The LVM2 package is a set of tools that manage logical partitions. It allows spanning of file systems across multiple physical disks and disk partitions and provides for dynamic growing or shrinking of logical partitions, mirroring and low storage footprint snapshots."
 
@@ -64,7 +64,17 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make S=shell/thin-flags.sh check_local
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
+make install_systemd_units
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

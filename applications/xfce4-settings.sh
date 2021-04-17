@@ -9,7 +9,6 @@ set +h
 
 #REQ:exo
 #REQ:garcon
-#REQ:libxfce4ui
 #REQ:gnome-icon-theme
 #REQ:lxde-icon-theme
 #REQ:libcanberra
@@ -19,12 +18,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/xfce4-settings/4.14/xfce4-settings-4.14.2.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/xfce4-settings/4.16/xfce4-settings-4.16.0.tar.bz2
 
 
 NAME=xfce4-settings
-VERSION=4.14.2
-URL=http://archive.xfce.org/src/xfce/xfce4-settings/4.14/xfce4-settings-4.14.2.tar.bz2
+VERSION=4.16.0
+URL=http://archive.xfce.org/src/xfce/xfce4-settings/4.16/xfce4-settings-4.16.0.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="The Xfce4 Settings package contains a collection of programs that are useful for adjusting your Xfce preferences."
 

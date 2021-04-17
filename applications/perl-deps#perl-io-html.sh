@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/C/CJ/CJM/IO-HTML-1.001.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/C/CJ/CJM/IO-HTML-1.004.tar.gz
 
 
 NAME=perl-deps#perl-io-html
-VERSION=1.001
-URL=https://cpan.metacpan.org/authors/id/C/CJ/CJM/IO-HTML-1.001.tar.gz
+VERSION=1.004
+URL=https://cpan.metacpan.org/authors/id/C/CJ/CJM/IO-HTML-1.004.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

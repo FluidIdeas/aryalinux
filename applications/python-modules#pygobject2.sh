@@ -14,13 +14,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/pygobject/2.28/pygobject-2.28.7.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pygobject/2.28/pygobject-2.28.7.tar.xz
+wget -nc https://download.gnome.org/sources/pygobject/2.28/pygobject-2.28.7.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/pygobject/2.28/pygobject-2.28.7.tar.xz
 
 
 NAME=python-modules#pygobject2
 VERSION=2.28.7
-URL=http://ftp.gnome.org/pub/gnome/sources/pygobject/2.28/pygobject-2.28.7.tar.xz
+URL=https://download.gnome.org/sources/pygobject/2.28/pygobject-2.28.7.tar.xz
 SECTION="Others"
 
 if [ ! -z $URL ]

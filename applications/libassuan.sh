@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.3.tar.bz2
-wget -nc ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.5.3.tar.bz2
+wget -nc https://www.gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.4.tar.bz2
+wget -nc ftp://ftp.gnupg.org/gcrypt/libassuan/libassuan-2.5.4.tar.bz2
 
 
 NAME=libassuan
-VERSION=2.5.3
-URL=https://www.gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.3.tar.bz2
+VERSION=2.5.4
+URL=https://www.gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.4.tar.bz2
 SECTION="General Libraries"
 DESCRIPTION="The libassuan package contains an inter process communication library used by some of the other GnuPG related packages. libassuan's primary use is to allow a client to interact with a non-persistent server. libassuan is not, however, limited to use with GnuPG servers and clients. It was designed to be flexible enough to meet the demands of many transaction based environments with non-persistent servers."
 
@@ -51,13 +51,13 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
-install -v -dm755   /usr/share/doc/libassuan-2.5.3/html &&
+install -v -dm755   /usr/share/doc/libassuan-2.5.4/html &&
 install -v -m644 doc/assuan.html/* \
-                    /usr/share/doc/libassuan-2.5.3/html &&
+                    /usr/share/doc/libassuan-2.5.4/html &&
 install -v -m644 doc/assuan_nochunks.html \
-                    /usr/share/doc/libassuan-2.5.3      &&
+                    /usr/share/doc/libassuan-2.5.4      &&
 install -v -m644 doc/assuan.{txt,texi} \
-                    /usr/share/doc/libassuan-2.5.3
+                    /usr/share/doc/libassuan-2.5.4
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

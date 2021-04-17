@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://files.pythonhosted.org/packages/source/s/six/six-1.14.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/six/six-1.15.0.tar.gz
 
 
 NAME=python-modules#six
-VERSION=1.14.0
-URL=https://files.pythonhosted.org/packages/source/s/six/six-1.14.0.tar.gz
+VERSION=1.15.0
+URL=https://files.pythonhosted.org/packages/source/s/six/six-1.15.0.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

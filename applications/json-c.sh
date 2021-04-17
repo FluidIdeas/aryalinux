@@ -7,16 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:cmake
 
 
 cd $SOURCE_DIR
 
-wget -nc https://s3.amazonaws.com/json-c_releases/releases/json-c-0.13.1.tar.gz
+wget -nc https://s3.amazonaws.com/json-c_releases/releases/json-c-0.15.tar.gz
 
 
 NAME=json-c
-VERSION=0.13.1
-URL=https://s3.amazonaws.com/json-c_releases/releases/json-c-0.13.1.tar.gz
+VERSION=0.15
+URL=https://s3.amazonaws.com/json-c_releases/releases/json-c-0.15.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The JSON-C implements a reference counting object model that allows you to easily construct JSON objects in C, output them as JSON formatted strings and parse JSON formatted strings back into the C representation of JSON objects."
 
@@ -39,7 +40,13 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr --disable-static &&
+mkdir build &&
+cd    build &&
+
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DBUILD_STATIC_LIBS=OFF    \
+      .. &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

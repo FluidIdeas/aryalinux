@@ -10,16 +10,17 @@ set +h
 #REQ:glib2
 #REQ:itstool
 #REQ:libxml2
+#REQ:xmlto
 
 
 cd $SOURCE_DIR
 
-wget -nc https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/b27eb88e4155d8fccb8bb3cd12025d5b/shared-mime-info-1.15.tar.xz
+wget -nc https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/0ee50652091363ab0d17e335e5e74fbe/shared-mime-info-2.1.tar.xz
 
 
 NAME=shared-mime-info
-VERSION=1.15
-URL=https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/b27eb88e4155d8fccb8bb3cd12025d5b/shared-mime-info-1.15.tar.xz
+VERSION=2.1
+URL=https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/0ee50652091363ab0d17e335e5e74fbe/shared-mime-info-2.1.tar.xz
 SECTION="General Utilities"
 DESCRIPTION="The Shared Mime Info package contains a MIME database. This allows central updates of MIME information for all supporting applications."
 
@@ -42,11 +43,14 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr &&
-make
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr -Dupdate-mimedb=true .. &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

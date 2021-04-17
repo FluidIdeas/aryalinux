@@ -9,7 +9,6 @@ set +h
 
 #REQ:goffice010
 #REQ:itstool
-#REQ:rarian
 #REQ:adwaita-icon-theme
 #REQ:oxygen-icons5
 #REQ:gnome-icon-theme
@@ -18,13 +17,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/gnumeric/1.12/gnumeric-1.12.46.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/gnumeric/1.12/gnumeric-1.12.46.tar.xz
+wget -nc https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.48.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnumeric/1.12/gnumeric-1.12.48.tar.xz
 
 
 NAME=gnumeric
-VERSION=1.12.46
-URL=http://ftp.gnome.org/pub/gnome/sources/gnumeric/1.12/gnumeric-1.12.46.tar.xz
+VERSION=1.12.48
+URL=https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.48.tar.xz
 SECTION="Office Programs"
 DESCRIPTION="The Gnumeric package contains a spreadsheet program which is useful for mathematical analysis."
 
@@ -47,7 +46,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i 's/HELP_LINGUAS = cs de es/HELP_LINGUAS = de es/' doc/Makefile.in &&
 ./configure --prefix=/usr  &&
 make
 sudo rm -rf /tmp/rootscript.sh

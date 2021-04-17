@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://gitlab.com/soundtouch/soundtouch/-/archive/2.1.0/soundtouch-2.1.0.tar.bz2
+wget -nc https://gitlab.com/soundtouch/soundtouch/-/archive/2.2/soundtouch-2.2.tar.bz2
 
 
 NAME=soundtouch
-VERSION=2.1.0
-URL=https://gitlab.com/soundtouch/soundtouch/-/archive/2.1.0/soundtouch-2.1.0.tar.bz2
+VERSION=2.2
+URL=https://gitlab.com/soundtouch/soundtouch/-/archive/2.2/soundtouch-2.2.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The SoundTouch package contains an open-source audio processing library that allows changing the sound tempo, pitch and playback rate parameters independently from each other."
 
@@ -41,7 +41,7 @@ echo $USER > /tmp/currentuser
 
 ./bootstrap &&
 ./configure --prefix=/usr \
-            --docdir=/usr/share/doc/soundtouch-2.1.0 &&
+            --docdir=/usr/share/doc/soundtouch-2.2 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

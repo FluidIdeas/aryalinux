@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.112.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.114.tar.gz
 
 
 NAME=perl-deps#perl-path-tiny
-VERSION=0.112
-URL=https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.112.tar.gz
+VERSION=0.114
+URL=https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.114.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

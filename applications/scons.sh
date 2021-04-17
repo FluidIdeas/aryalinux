@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/scons/scons-3.1.2.tar.gz
+wget -nc https://downloads.sourceforge.net/scons/scons-4.1.0.tar.gz
 
 
 NAME=scons
-VERSION=3.1.2
-URL=https://downloads.sourceforge.net/scons/scons-3.1.2.tar.gz
+VERSION=4.1.0
+URL=https://downloads.sourceforge.net/scons/scons-4.1.0.tar.gz
 SECTION="Programming"
 DESCRIPTION="SCons is a tool for building software (and other files) implemented in Python."
 
@@ -41,12 +41,12 @@ echo $USER > /tmp/currentuser
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-sed -i 's/env python/&3/' script/scons*            &&
+sed -i 's/env python/&3/' SCons/Utilities/*.py              &&
+sed -i 's:build/doc/man/::' setup.cfg                       &&
 python3 setup.py install --prefix=/usr  \
-                         --standard-lib \
                          --optimize=1   \
-                         --install-data=/usr/share &&
-rm -v /usr/bin/scons*.bat
+                         --install-data=/usr/share/man/man1 &&
+cp scons{,ign}.1 /usr/share/man/man1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

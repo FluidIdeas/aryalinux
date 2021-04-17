@@ -9,18 +9,17 @@ set +h
 
 #REQ:libwnck
 #REQ:libxfce4ui
-#REQ:libxfce4util
 #REQ:startup-notification
 
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/xfwm4/4.14/xfwm4-4.14.0.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/xfwm4/4.16/xfwm4-4.16.1.tar.bz2
 
 
 NAME=xfwm4
-VERSION=4.14.0
-URL=http://archive.xfce.org/src/xfce/xfwm4/4.14/xfwm4-4.14.0.tar.bz2
+VERSION=4.16.1
+URL=http://archive.xfce.org/src/xfce/xfwm4/4.16/xfwm4-4.16.1.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="Xfwm4 is the window manager for Xfce."
 

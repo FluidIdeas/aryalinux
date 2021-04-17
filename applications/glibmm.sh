@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/glibmm/2.62/glibmm-2.62.0.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/glibmm/2.62/glibmm-2.62.0.tar.xz
+wget -nc https://download.gnome.org/sources/glibmm/2.66/glibmm-2.66.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/glibmm/2.66/glibmm-2.66.0.tar.xz
 
 
 NAME=glibmm
-VERSION=2.62.0
-URL=http://ftp.gnome.org/pub/gnome/sources/glibmm/2.62/glibmm-2.62.0.tar.xz
+VERSION=2.66.0
+URL=https://download.gnome.org/sources/glibmm/2.66/glibmm-2.66.0.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The GLibmm package is a set of C++ bindings for GLib."
 
@@ -42,13 +42,14 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -e '/^libdocdir =/ s/$(book_name)/glibmm-2.62.0/' \
-    -i docs/Makefile.in
-./configure --prefix=/usr &&
-make
+mkdir bld &&
+cd    bld &&
+
+meson --prefix=/usr .. &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

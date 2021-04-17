@@ -10,17 +10,16 @@ set +h
 #REQ:gtk3
 #REQ:libxfce4ui
 #REQ:libxfce4util
-#REQ:perl-modules#perl-uri
 
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/exo/0.12/exo-0.12.11.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/exo/4.16/exo-4.16.0.tar.bz2
 
 
 NAME=exo
-VERSION=0.12.11
-URL=http://archive.xfce.org/src/xfce/exo/0.12/exo-0.12.11.tar.bz2
+VERSION=4.16.0
+URL=http://archive.xfce.org/src/xfce/exo/4.16/exo-4.16.0.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="Exo is a support library used in the Xfce desktop. It also has some helper applications that are used throughout Xfce."
 

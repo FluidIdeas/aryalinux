@@ -7,17 +7,16 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:cpio
 
 
 cd $SOURCE_DIR
 
-wget -nc http://pub.allbsd.org/MirOS/dist/mir/cpio/paxmirabilis-20161104.cpio.gz
+wget -nc https://www.mirbsd.org/MirOS/dist/mir/cpio/paxmirabilis-20201030.tgz
 
 
 NAME=pax
-VERSION=20161104
-URL=http://pub.allbsd.org/MirOS/dist/mir/cpio/paxmirabilis-20161104.cpio.gz
+VERSION=20201030
+URL=https://www.mirbsd.org/MirOS/dist/mir/cpio/paxmirabilis-20201030.tgz
 SECTION="System Utilities"
 DESCRIPTION="pax is an archiving utility created by POSIX and defined by the POSIX.1-2001 standard. Rather than sort out the incompatible options that have crept up between tar and cpio, along with their implementations across various versions of UNIX, the IEEE designed a new archive utility. The name “pax” is an acronym for portable archive exchange. Furthermore, “pax” means “peace” in Latin, so its name implies that it shall create peace between the tar and cpio format supporters. The command invocation and command structure is somewhat a unification of both tar and cpio."
 
@@ -40,16 +39,11 @@ fi
 echo $USER > /tmp/currentuser
 
 
-gzip -dck paxmirabilis-20161104.cpio.gz | cpio -mid &&
-cd pax &&
-
-sed -i '/stat.h/a #include <sys/sysmacros.h>' cpio.c gen_subs.c tar.c &&
-
-cc -O2 -DLONG_OFF_T -o pax -DPAX_SAFE_PATH=\"/bin\" *.c
+bash Build.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v pax /bin &&
-install -v pax.1 /usr/share/man/man1
+install -v -m644 pax.1 /usr/share/man/man1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

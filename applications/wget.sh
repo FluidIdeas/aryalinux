@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/wget/wget-1.20.3.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/wget/wget-1.20.3.tar.gz
+wget -nc https://ftp.gnu.org/gnu/wget/wget-1.21.1.tar.gz
+wget -nc ftp://ftp.gnu.org/gnu/wget/wget-1.21.1.tar.gz
 
 
 NAME=wget
-VERSION=1.20.3
-URL=https://ftp.gnu.org/gnu/wget/wget-1.20.3.tar.gz
+VERSION=1.21.1
+URL=https://ftp.gnu.org/gnu/wget/wget-1.21.1.tar.gz
 SECTION="Networking Programs"
 DESCRIPTION="The Wget package contains a utility useful for non-interactive downloading of files from the Web."
 

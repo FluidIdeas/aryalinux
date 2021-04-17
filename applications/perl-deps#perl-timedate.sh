@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/TimeDate-2.31.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/TimeDate-2.33.tar.gz
 
 
 NAME=perl-deps#perl-timedate
-VERSION=2.31
-URL=https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/TimeDate-2.31.tar.gz
+VERSION=2.33
+URL=https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/TimeDate-2.33.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

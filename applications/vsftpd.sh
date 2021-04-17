@@ -8,6 +8,7 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:libnsl
+#REQ:linux-pam
 
 
 cd $SOURCE_DIR
@@ -55,6 +56,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+sed -e "s/kVSFSysStrOpenUnknown;/(enum EVSFSysUtilOpenMode)&/" -i sysstr.c
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

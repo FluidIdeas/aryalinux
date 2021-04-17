@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/M/MA/MARKF/Test-utf8-1.01.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/M/MA/MARKF/Test-utf8-1.02.tar.gz
 
 
 NAME=perl-deps#perl-test-utf8
-VERSION=1.01
-URL=https://cpan.metacpan.org/authors/id/M/MA/MARKF/Test-utf8-1.01.tar.gz
+VERSION=1.02
+URL=https://cpan.metacpan.org/authors/id/M/MA/MARKF/Test-utf8-1.02.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]
@@ -38,7 +38,7 @@ fi
 
 echo $USER > /tmp/currentuser
 
-PERL_USE_UNSAFE_INC=1 perl Makefile.PL &&
+perl Makefile.PL &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

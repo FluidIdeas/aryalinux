@@ -10,16 +10,17 @@ set +h
 #REQ:libuv
 #REQ:curl
 #REQ:libarchive
+#REQ:nghttp2
 
 
 cd $SOURCE_DIR
 
-wget -nc https://cmake.org/files/v3.16/cmake-3.16.5.tar.gz
+wget -nc https://cmake.org/files/v3.19/cmake-3.19.5.tar.gz
 
 
 NAME=cmake
-VERSION=3.16.5
-URL=https://cmake.org/files/v3.16/cmake-3.16.5.tar.gz
+VERSION=3.19.5
+URL=https://cmake.org/files/v3.19/cmake-3.19.5.tar.gz
 SECTION="Programming"
 DESCRIPTION="The CMake package contains a modern toolset used for generating Makefiles. It is a successor of the auto-generated configure script and aims to be platform- and compiler-independent. A significant user of CMake is KDE since version 4."
 
@@ -49,7 +50,7 @@ sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake &&
             --mandir=/share/man  \
             --no-system-jsoncpp  \
             --no-system-librhash \
-            --docdir=/share/doc/cmake-3.16.5 &&
+            --docdir=/share/doc/cmake-3.19.5 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:perl-deps#perl-capture-tiny
 #REQ:perl-modules#perl-file-which
 #REQ:perl-deps#perl-ffi-checklib
 #REQ:perl-deps#perl-file-chdir
@@ -14,12 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Build-2.00.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Build-2.37.tar.gz
 
 
 NAME=perl-deps#perl-alien-build
-VERSION=2.00
-URL=https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Build-2.00.tar.gz
+VERSION=2.37
+URL=https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Build-2.37.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Strptime-1.76.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Strptime-1.78.tar.gz
 
 
 NAME=perl-deps#perl-datetime-format-strptime
-VERSION=1.76
-URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Strptime-1.76.tar.gz
+VERSION=1.78
+URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Strptime-1.78.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

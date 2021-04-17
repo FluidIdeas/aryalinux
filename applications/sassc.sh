@@ -12,7 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://github.com/sass/sassc/archive/3.6.1/sassc-3.6.1.tar.gz
-wget -nc https://github.com/sass/libsass/archive/3.6.1/libsass-3.6.1.tar.gz
+wget -nc https://github.com/sass/libsass/archive/3.6.4/libsass-3.6.4.tar.gz
 
 
 NAME=sassc
@@ -40,8 +40,8 @@ fi
 echo $USER > /tmp/currentuser
 
 
-tar -xf ../libsass-3.6.1.tar.gz &&
-pushd libsass-3.6.1 &&
+tar -xf ../libsass-3.6.4.tar.gz &&
+pushd libsass-3.6.4 &&
 
 autoreconf -fi &&
 

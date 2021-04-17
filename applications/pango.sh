@@ -19,13 +19,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/pango/1.44/pango-1.44.7.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/pango/1.44/pango-1.44.7.tar.xz
+wget -nc https://download.gnome.org/sources/pango/1.48/pango-1.48.2.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/pango/1.48/pango-1.48.2.tar.xz
 
 
 NAME=pango
-VERSION=1.44.7
-URL=http://ftp.gnome.org/pub/gnome/sources/pango/1.44/pango-1.44.7.tar.xz
+VERSION=1.48.2
+URL=https://download.gnome.org/sources/pango/1.48/pango-1.48.2.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="Pango is a library for laying out and rendering text, with an emphasis on internationalization. It can be used anywhere that text layout is needed, though most of the work on Pango so far has been done in the context of the GTK+ widget toolkit."
 
@@ -51,7 +51,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr --sysconfdir=/etc .. &&
+meson --prefix=/usr .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

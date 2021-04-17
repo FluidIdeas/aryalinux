@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.mariadb.org/interstitial/mariadb-10.4.12/source/mariadb-10.4.12.tar.gz
-wget -nc ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.4.12/source/mariadb-10.4.12.tar.gz
+wget -nc https://downloads.mariadb.org/interstitial/mariadb-10.5.8/source/mariadb-10.5.8.tar.gz
+wget -nc ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.5.8/source/mariadb-10.5.8.tar.gz
 
 
 NAME=mariadb
-VERSION=10.4.12
-URL=https://downloads.mariadb.org/interstitial/mariadb-10.4.12/source/mariadb-10.4.12.tar.gz
+VERSION=10.5.8
+URL=https://downloads.mariadb.org/interstitial/mariadb-10.5.8/source/mariadb-10.5.8.tar.gz
 SECTION="Databases"
 DESCRIPTION="MariaDB is a community-developed fork and a drop-in replacement for the MySQL relational database management system."
 
@@ -52,15 +52,13 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sed -i "s@data/test@\${INSTALL_MYSQLTESTDIR}@g" sql/CMakeLists.txt &&
-
 mkdir build &&
 cd    build &&
 
 cmake -DCMAKE_BUILD_TYPE=Release                      \
       -DCMAKE_INSTALL_PREFIX=/usr                     \
-      -DINSTALL_DOCDIR=share/doc/mariadb-10.4.12       \
-      -DINSTALL_DOCREADMEDIR=share/doc/mariadb-10.4.12 \
+      -DINSTALL_DOCDIR=share/doc/mariadb-10.5.8       \
+      -DINSTALL_DOCREADMEDIR=share/doc/mariadb-10.5.8 \
       -DINSTALL_MANDIR=share/man                      \
       -DINSTALL_MYSQLSHAREDIR=share/mysql             \
       -DINSTALL_MYSQLTESTDIR=share/mysql/test         \

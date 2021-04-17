@@ -14,13 +14,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.gnome.org/pub/gnome/sources/rest/0.8/rest-0.8.1.tar.xz
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/rest/0.8/rest-0.8.1.tar.xz
+wget -nc https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/rest/0.8/rest-0.8.1.tar.xz
 
 
 NAME=rest
 VERSION=0.8.1
-URL=http://ftp.gnome.org/pub/gnome/sources/rest/0.8/rest-0.8.1.tar.xz
+URL=https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The rest package contains a library that was designed to make it easier to access web services that claim to be \"RESTful\". It includes convenience wrappers for libsoup and libxml to ease remote use of the RESTful API."
 

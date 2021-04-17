@@ -9,17 +9,18 @@ set +h
 
 #REQ:gtk3
 #REQ:libcanberra
+#REQ:libhandy1
 
 
 cd $SOURCE_DIR
 
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-screenshot/3.36/gnome-screenshot-3.36.0.tar.xz
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-screenshot/3.36/gnome-screenshot-3.36.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-screenshot/3.38/gnome-screenshot-3.38.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-screenshot/3.38/gnome-screenshot-3.38.0.tar.xz
 
 
 NAME=gnome-screenshot
-VERSION=3.36.0
-URL=http://ftp.acc.umu.se/pub/gnome/sources/gnome-screenshot/3.36/gnome-screenshot-3.36.0.tar.xz
+VERSION=3.38.0
+URL=https://download.gnome.org/sources/gnome-screenshot/3.38/gnome-screenshot-3.38.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Screenshot is a utility used for taking screenshots of the entire screen, a window or a user-defined area of the screen, with optional beautifying border effects."
 

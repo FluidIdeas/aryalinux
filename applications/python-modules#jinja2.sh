@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://files.pythonhosted.org/packages/source/J/Jinja2/Jinja2-2.11.1.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/J/Jinja2/Jinja2-2.11.3.tar.gz
 
 
 NAME=python-modules#jinja2
-VERSION=2.11.1
-URL=https://files.pythonhosted.org/packages/source/J/Jinja2/Jinja2-2.11.1.tar.gz
+VERSION=2.11.3
+URL=https://files.pythonhosted.org/packages/source/J/Jinja2/Jinja2-2.11.3.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]
@@ -38,15 +38,6 @@ fi
 
 
 echo $USER > /tmp/currentuser
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-python2 setup.py install --optimize=1
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
