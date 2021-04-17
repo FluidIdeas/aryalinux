@@ -14,7 +14,7 @@ if ! grep "$NAME" /sources/build-log; then
 cd /sources
 
 
-ln -s gthr-posix.h libgcc/gthr-default.h
+ln -svf gthr-posix.h libgcc/gthr-default.h
 mkdir -v build
 cd       build
 ../libstdc++-v3/configure            \
