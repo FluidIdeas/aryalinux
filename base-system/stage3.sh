@@ -41,9 +41,9 @@ mount -vt tmpfs tmpfs $LFS/dev/shm
 
 # Building Final System
 
-chroot "$LFS" /tools/bin/env -i \
+chroot "$LFS" /usr/bin/env -i \
     HOME=/root                  \
     TERM="$TERM"                \
     PS1='\u:\w\$ '              \
-    PATH=/bin:/usr/bin:/sbin:/usr/sbin:/tools/bin \
-    /tools/bin/bash --login +h /sources/stage4.sh
+    PATH=/bin:/usr/bin:/sbin:/usr/sbin \
+    /bin/bash --login +h /sources/stage4.sh
