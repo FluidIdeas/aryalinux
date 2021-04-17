@@ -159,7 +159,7 @@ def freshBuild(startFrom):
 		env['LC_ALL'] = LC_ALL
 		env['PATH'] = PATH
 		env['LFS_TGT'] = LFS_TGT
-    env['CONFIG_SITE'] = CONFIG_SITE
+		env['CONFIG_SITE'] = CONFIG_SITE
 
 		try:
 			runScriptWithEnvAs('lfs', 'stage2.sh', env, '/home/lfs')
