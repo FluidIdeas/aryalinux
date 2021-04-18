@@ -23,7 +23,6 @@ wget -nc https://cdn.kernel.org/pub/linux/kernel/firmware/linux-firmware-2021031
 wget -nc https://ftp.gnu.org/gnu/cpio/cpio-2.13.tar.bz2
 wget "https://705900.bugs.gentoo.org/attachment.cgi?id=603778" -O 0001-src-global.c-drop-duplicate-definition-of-program_na.patch
 wget -nc https://github.com/djlucas/LSB-Tools/releases/download/v0.9/LSB-Tools-0.9.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2.4/busybox-1.31.1-glibc.patch
 wget -nc https://busybox.net/downloads/busybox-1.32.1.tar.bz2
 wget -nc https://ftp.gnu.org/gnu/nettle/nettle-3.7.1.tar.gz
 wget -nc https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.16.0.tar.gz
