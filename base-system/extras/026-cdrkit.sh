@@ -29,6 +29,8 @@ then
 	cd $DIRECTORY
 fi
 
+patch -Np1 -i ../cdrkit-1.1.11-gcc10.patch
+
 mkdir build
 cd build
 

@@ -39,7 +39,7 @@ wget -nc http://www.kernel.org/pub/linux/utils/boot/syslinux/syslinux-4.06.tar.x
 wget -nc http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.11.3.tar.gz
 wget -nc https://curl.haxx.se/download/curl-7.75.0.tar.xz
 wget -c https://github.com/dracutdevs/dracut/releases/download/053/dracut-053.tar.xz
-
+wget -nc https://src.fedoraproject.org/rpms/cdrkit/raw/rawhide/f/cdrkit-1.1.11-gcc10.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/b09bd478061f93f986442bf654bb3fe8fadb59f7/efibootmgr-17-efidir.patch
 wget -nc https://sourceware.org/ftp/lvm2/releases/LVM2.2.02.171.tgz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/squashfs-tools-4.3-sysmacros.patch
