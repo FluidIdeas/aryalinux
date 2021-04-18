@@ -29,9 +29,8 @@ then
 	cd $DIRECTORY
 fi
 
-patch -Np1 -i ../b98ba8921010d03f46704a476c69861515deb1ca.patch &&
-patch -Np1 -i ../c3c553db85ff10890209d0fe48fb4856ad68e4e0.patch
-
+sed -i 's/CFLAGS ?= $(OPTIMIZE) -g3/CFLAGS       ?= $(OPTIMIZE) -g3 -flto -flto-partition=none/g' Make.defaults &&
+patch -Np1 -i ../efivar-37-gcc_9-1.patch &&
 make libdir="/usr/lib/" bindir="/usr/bin/" \
 	mandir="/usr/share/man/"     \
 	includedir="/usr/include/" V=1 -j1
