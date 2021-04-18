@@ -29,7 +29,7 @@ then
 	cd $DIRECTORY
 fi
 
-sed -i 's/CFLAGS ?= $(OPTIMIZE) -g3/CFLAGS       ?= $(OPTIMIZE) -g3 -flto -flto-partition=none/g' Make.defaults &&
+patch -Np1 -i ../efivar-37-linking.patch &&
 patch -Np1 -i ../efivar-37-gcc_9-1.patch &&
 make libdir="/usr/lib/" bindir="/usr/bin/" \
 	mandir="/usr/share/man/"     \
