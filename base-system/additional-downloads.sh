@@ -44,6 +44,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/b09bd478061f93f98644
 wget -nc https://sourceware.org/ftp/lvm2/releases/LVM2.2.02.171.tgz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/squashfs-tools-4.3-sysmacros.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/efivar-37-linking.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/0001-squashfs-tools-fix-build-failure-against-gcc-10.patch
 wget -nc https://sourceware.org/ftp/elfutils/0.170/elfutils-0.170.tar.bz2
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.1/0.21-nvme_ioctl.h.patch
 

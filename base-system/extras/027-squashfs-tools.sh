@@ -29,7 +29,7 @@ then
 	cd $DIRECTORY
 fi
 
-# patch -Np1 -i ../squashfs-tools-4.3-sysmacros.patch
+patch -Np1 -i ../0001-squashfs-tools-fix-build-failure-against-gcc-10.patch
 cd squashfs-tools
 sed 's@#XZ_SUPPORT@XZ_SUPPORT@g' -i Makefile
 sed 's@COMP_DEFAULT = gzip@COMP_DEFAULT = xz@g' -i Makefile
