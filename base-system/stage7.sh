@@ -199,7 +199,6 @@ then
 echo "Creating user with name $FULLNAME and username : $USERNAME"
 useradd -m -c "$FULLNAME" -s /bin/bash $USERNAME
 sed -i "s/# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/g" /etc/sudoers
-groupadd wheel
 usermod -a -G wheel $USERNAME
 
 echo "admin-user" >> /sources/build-log
