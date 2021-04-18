@@ -58,7 +58,7 @@ mv -f $CURRENT_DIR/../applications/alps-scripts-$VERSION.tar.gz .
 wget -nc https://sourceforge.net/projects/cdrtools/files/cdrtools-3.01.tar.bz2
 wget -nc https://launchpad.net/ubuntu/+archive/primary/+files/cdrkit_1.1.11.orig.tar.gz
 wget -nc https://cmake.org/files/v3.19/cmake-3.19.5.tar.gz
-wget -nc https://sourceforge.net/projects/squashfs/files/squashfs/squashfs4.3/squashfs4.3.tar.gz
+wget -nc https://sourceforge.net/projects/squashfs/files/squashfs/squashfs4.4/squashfs4.4.tar.gz
 wget -nc http://downloads.sourceforge.net/infozip/unzip60.tar.gz
 wget -nc http://www.linuxfromscratch.org/patches/blfs/10.1/unzip-6.0-consolidated_fixes-1.patch
 

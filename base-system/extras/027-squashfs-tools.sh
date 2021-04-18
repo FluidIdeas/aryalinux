@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="026-squashfs-tools.sh"
-TARBALL="squashfs4.3.tar.gz"
+TARBALL="squashfs4.4.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,7 +29,7 @@ then
 	cd $DIRECTORY
 fi
 
-patch -Np1 -i ../squashfs-tools-4.3-sysmacros.patch
+# patch -Np1 -i ../squashfs-tools-4.3-sysmacros.patch
 cd squashfs-tools
 sed 's@#XZ_SUPPORT@XZ_SUPPORT@g' -i Makefile
 sed 's@COMP_DEFAULT = gzip@COMP_DEFAULT = xz@g' -i Makefile
