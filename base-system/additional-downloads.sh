@@ -12,6 +12,8 @@ wget -nc https://github.com/dosfstools/dosfstools/releases/download/v4.2/dosfsto
 wget -nc http://ftp.gnu.org/gnu/which/which-2.21.tar.gz
 wget -nc http://deb.debian.org/debian/pool/main/o/os-prober/os-prober_1.78.tar.xz
 wget -nc https://github.com/rhboot/efivar/releases/download/37/efivar-37.tar.bz2
+wget -nc https://github.com/rhboot/efivar/commit/b98ba8921010d03f46704a476c69861515deb1ca.patch
+wget -nc https://github.com/rhboot/efivar/commit/c3c553db85ff10890209d0fe48fb4856ad68e4e0.patch
 
 wget -c https://github.com/rhboot/efibootmgr/archive/17.tar.gz -O efibootmgr-17.tar.gz
 wget -nc https://downloads.sourceforge.net/freetype/freetype-2.9.tar.bz2
