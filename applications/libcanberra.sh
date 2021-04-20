@@ -16,7 +16,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/libcanberra-0.30-wayland-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/libcanberra-0.30-wayland-1.patch
 
 
 NAME=libcanberra

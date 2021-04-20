@@ -13,7 +13,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://download.kde.org/stable/release-service/20.12.2/src/konsole-20.12.2.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/konsole-20.12.2-scrollbar-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/konsole-20.12.2-scrollbar-1.patch
 
 
 NAME=konsole5

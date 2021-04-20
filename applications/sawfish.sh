@@ -15,7 +15,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://download.tuxfamily.org/sawfish/sawfish_1.12.0.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/sawfish-1.12.0-gcc10_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/sawfish-1.12.0-gcc10_fixes-1.patch
 
 
 NAME=sawfish

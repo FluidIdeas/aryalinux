@@ -13,7 +13,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.6.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/gptfdisk-1.0.6-convenience-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/gptfdisk-1.0.6-convenience-1.patch
 
 
 NAME=gptfdisk

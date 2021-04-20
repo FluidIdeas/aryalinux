@@ -19,7 +19,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9533/ghostscript-9.53.3.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/ghostscript-9.53.3-freetype_fix-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/ghostscript-9.53.3-freetype_fix-1.patch
 wget -nc https://downloads.sourceforge.net/gs-fonts/ghostscript-fonts-std-8.11.tar.gz
 wget -nc https://downloads.sourceforge.net/gs-fonts/gnu-gs-fonts-other-6.0.tar.gz
 

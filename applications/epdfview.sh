@@ -14,7 +14,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/epdfview/epdfview-0.1.8.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/epdfview-0.1.8-fixes-2.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/epdfview-0.1.8-fixes-2.patch
 
 
 NAME=epdfview

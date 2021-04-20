@@ -15,7 +15,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://www.libsdl.org/release/SDL2-2.0.14.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/SDL2-2.0.14-opengl_include_fix-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/SDL2-2.0.14-opengl_include_fix-1.patch
 
 
 NAME=sdl2

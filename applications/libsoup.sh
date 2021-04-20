@@ -20,7 +20,7 @@ cd $SOURCE_DIR
 
 wget -nc https://download.gnome.org/sources/libsoup/2.72/libsoup-2.72.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libsoup/2.72/libsoup-2.72.0.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/libsoup-2.72.0-testsuite_fix-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/libsoup-2.72.0-testsuite_fix-1.patch
 
 
 NAME=libsoup

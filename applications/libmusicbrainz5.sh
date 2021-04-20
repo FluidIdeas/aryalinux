@@ -15,7 +15,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://github.com/metabrainz/libmusicbrainz/releases/download/release-5.1.0/libmusicbrainz-5.1.0.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/libmusicbrainz-5.1.0-cmake_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/libmusicbrainz-5.1.0-cmake_fixes-1.patch
 
 
 NAME=libmusicbrainz5

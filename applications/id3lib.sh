@@ -12,7 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://downloads.sourceforge.net/id3lib/id3lib-3.8.3.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/id3lib-3.8.3-consolidated_patches-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/id3lib-3.8.3-consolidated_patches-1.patch
 
 
 NAME=id3lib

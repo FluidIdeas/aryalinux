@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 
 wget -nc https://download.gnome.org/sources/glib/2.66/glib-2.66.7.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/glib/2.66/glib-2.66.7.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/glib-2.66.7-skip_warnings-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/glib-2.66.7-skip_warnings-1.patch
 
 
 NAME=glib2

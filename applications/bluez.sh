@@ -15,7 +15,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://www.kernel.org/pub/linux/bluetooth/bluez-5.55.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/bluez-5.55-upstream_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/bluez-5.55-upstream_fixes-1.patch
 
 
 NAME=bluez

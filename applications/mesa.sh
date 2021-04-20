@@ -20,7 +20,7 @@ cd $SOURCE_DIR
 
 wget -nc https://mesa.freedesktop.org/archive/mesa-20.3.4.tar.xz
 wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-20.3.4.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/mesa-20.3.4-add_xdemos-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/mesa-20.3.4-add_xdemos-1.patch
 wget -nc ftp://ftp.freedesktop.org/pub/mesa/demos/
 
 

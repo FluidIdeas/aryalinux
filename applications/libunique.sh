@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 
 wget -nc https://download.gnome.org/sources/libunique/1.1/libunique-1.1.6.tar.bz2
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libunique/1.1/libunique-1.1.6.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/libunique-1.1.6-upstream_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/libunique-1.1.6-upstream_fixes-1.patch
 
 
 NAME=libunique

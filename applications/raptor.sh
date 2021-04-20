@@ -14,7 +14,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://download.librdf.org/source/raptor2-2.0.15.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/raptor-2.0.15-security_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/raptor-2.0.15-security_fixes-1.patch
 
 
 NAME=raptor

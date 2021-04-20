@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 
 wget -nc https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.4.57.tgz
 wget -nc ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.57.tgz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/openldap-2.4.57-consolidated-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/openldap-2.4.57-consolidated-1.patch
 wget -nc http://www.openldap.org/doc/admin24/
 wget -nc http://www.openldap.org/pub/
 

@@ -22,8 +22,8 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://download.qt.io/archive/qt/5.15/5.15.2/submodules/qtwebengine-everywhere-src-5.15.2.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/qtwebengine-everywhere-src-5.15.2-ICU68-2.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/qtwebengine-everywhere-src-5.15.2-glibc233-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/qtwebengine-everywhere-src-5.15.2-ICU68-2.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/qtwebengine-everywhere-src-5.15.2-glibc233-1.patch
 
 
 NAME=qtwebengine

@@ -18,7 +18,7 @@ cd $SOURCE_DIR
 
 wget -nc https://download.gnome.org/sources/gnome-tweaks/3.34/gnome-tweaks-3.34.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-tweaks/3.34/gnome-tweaks-3.34.1.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/gnome-tweaks-3.34.1-port_to_libhandy1-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/gnome-tweaks-3.34.1-port_to_libhandy1-1.patch
 
 
 NAME=gnome-tweaks

@@ -23,7 +23,7 @@ cd $SOURCE_DIR
 
 wget -nc https://github.com/TigerVNC/tigervnc/archive/v1.11.0/tigervnc-1.11.0.tar.gz
 wget -nc https://www.x.org/pub/individual/xserver/xorg-server-1.20.7.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/fetch-kde-framework/tigervnc-1.11.0-configuration_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/tigervnc-1.11.0-configuration_fixes-1.patch
 wget -nc http://anduin.linuxfromscratch.org/BLFS/tigervnc/vncserver
 wget -nc http://anduin.linuxfromscratch.org/BLFS/tigervnc/vncserver.1
 wget -nc http://anduin.linuxfromscratch.org/BLFS/tigervnc/Xsession
