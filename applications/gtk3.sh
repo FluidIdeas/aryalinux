@@ -70,13 +70,13 @@ sudo rm -rf /tmp/rootscript.sh
 mkdir -pv ~/.config/gtk-3.0
 sudo mkdir -pv /etc/skel/.config/gtk-3.0
 
-cat > /etc/skel/.config/gtk-3.0/gtk.css << "EOF"
+sudo tee /etc/skel/.config/gtk-3.0/gtk.css << "EOF"
 *  {
    -GtkScrollbar-has-backward-stepper: 1;
    -GtkScrollbar-has-forward-stepper: 1;
 }
 EOF
-sudo tee ~/.config/gtk-3.0/gtk.css << "EOF"
+tee ~/.config/gtk-3.0/gtk.css << "EOF"
 *  {
    -GtkScrollbar-has-backward-stepper: 1;
    -GtkScrollbar-has-forward-stepper: 1;
