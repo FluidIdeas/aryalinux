@@ -13,14 +13,13 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=systemd-247.tar.gz
+TARBALL=systemd-248.tar.gz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-patch -Np1 -i ../systemd-247-upstream_fixes-2.patch
 sed '181,$ d' -i src/resolve/meson.build
 sed -i 's/GROUP="render"/GROUP="video"/' rules.d/50-udev-default.rules.in
 mkdir -p build
