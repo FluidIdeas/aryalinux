@@ -13,7 +13,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://github.com/01org/intel-hybrid-driver/archive/1.0.2.tar.gz
-
+wget -nc https://github.com/eclipseo/intel-hybrid-driver/commit/821f871296629ffab451faea5134abf6f2d1166f.patch
 
 NAME=intel-hybrid-driver
 VERSION=1.0.2
@@ -36,6 +36,7 @@ fi
 cd $DIRECTORY
 fi
 
+patch -Np1 -i ../821f871296629ffab451faea5134abf6f2d1166f.patch
 ./autogen.sh --prefix=/usr --sysconfdir=/etc &&
 make
 sudo make install
