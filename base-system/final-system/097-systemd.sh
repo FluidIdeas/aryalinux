@@ -20,7 +20,6 @@ tar xf $TARBALL
 cd $DIRECTORY
 
 
-patch -Np1 -i ../systemd-247-upstream_fixes-2.patch
 sed '181,$ d' -i src/resolve/meson.build
 sed -i 's/GROUP="render"/GROUP="video"/' rules.d/50-udev-default.rules.in
 mkdir -p build
