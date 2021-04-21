@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v5.10.1.tar.xz
+wget -nc https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v5.11.1.tar.xz
 
 
 NAME=btrfs-progs
-VERSION=5.10.1
-URL=https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v5.10.1.tar.xz
+VERSION=5.11.1
+URL=https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v5.11.1.tar.xz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The btrfs-progs package contains administration and debugging tools for the B-tree file system (btrfs)."
 
@@ -47,6 +47,16 @@ echo $USER > /tmp/currentuser
             --libdir=/lib \
             --with-pkgconfigdir=/usr/lib/pkgconfig &&
 make
+mv tests/fsck-tests/012-leaf-corruption/test.sh{,.broken}
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make -j1 -k test
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&

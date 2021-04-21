@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.digip.org/jansson/releases/jansson-2.13.1.tar.gz
+wget -nc https://digip.org/jansson/releases/jansson-2.13.1.tar.gz
 
 
 NAME=jansson
 VERSION=2.13.1
-URL=http://www.digip.org/jansson/releases/jansson-2.13.1.tar.gz
+URL=https://digip.org/jansson/releases/jansson-2.13.1.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The Jansson package contains a library used to encode, decode, and manipulate JSON data."
 

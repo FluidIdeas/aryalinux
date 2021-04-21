@@ -12,17 +12,18 @@ set +h
 #REQ:gobject-introspection
 #REQ:js78
 #REQ:gtk3
+#REQ:gtk4
 
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/gjs/1.66/gjs-1.66.2.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gjs/1.66/gjs-1.66.2.tar.xz
+wget -nc https://download.gnome.org/sources/gjs/1.68/gjs-1.68.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gjs/1.68/gjs-1.68.0.tar.xz
 
 
 NAME=gjs
-VERSION=1.66.2
-URL=https://download.gnome.org/sources/gjs/1.66/gjs-1.66.2.tar.xz
+VERSION=1.68.0
+URL=https://download.gnome.org/sources/gjs/1.68/gjs-1.68.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Gjs is a set of Javascript bindings for GNOME."
 

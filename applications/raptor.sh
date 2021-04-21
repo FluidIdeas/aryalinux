@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://download.librdf.org/source/raptor2-2.0.15.tar.gz
+wget -nc https://download.librdf.org/source/raptor2-2.0.15.tar.gz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/raptor-2.0.15-security_fixes-1.patch
 
 
 NAME=raptor
 VERSION=2.0.15
-URL=http://download.librdf.org/source/raptor2-2.0.15.tar.gz
+URL=https://download.librdf.org/source/raptor2-2.0.15.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="Raptor is a C library that provides a set of parsers and serializers that generate Resource Description Framework (RDF) triples."
 

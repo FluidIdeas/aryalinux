@@ -40,6 +40,7 @@ echo $USER > /tmp/currentuser
 
 
 sed '/^gzip/d' -i install.sh
+sed -i '160a if(_buffer == nullptr || _size == _pos) return E_FAIL;' CPP/7zip/Common/StreamObjects.cpp
 make all3
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

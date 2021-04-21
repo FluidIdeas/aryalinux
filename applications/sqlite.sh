@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://sqlite.org/2021/sqlite-autoconf-3340100.tar.gz
-wget -nc https://sqlite.org/2021/sqlite-doc-3340100.zip
+wget -nc https://sqlite.org/2021/sqlite-autoconf-3350400.tar.gz
+wget -nc https://sqlite.org/2021/sqlite-doc-3350400.zip
 
 
 NAME=sqlite
-VERSION=3340100
-URL=https://sqlite.org/2021/sqlite-autoconf-3340100.tar.gz
+VERSION=3350400
+URL=https://sqlite.org/2021/sqlite-autoconf-3350400.tar.gz
 SECTION="Databases"
 DESCRIPTION="The SQLite package is a software library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine."
 
@@ -40,12 +40,11 @@ fi
 echo $USER > /tmp/currentuser
 
 
-unzip -q ../sqlite-doc-3340100.zip
+unzip -q ../sqlite-doc-3350400.zip
 ./configure --prefix=/usr     \
             --disable-static  \
             --enable-fts5     \
-            CFLAGS="-g -O2                    \
-            -DSQLITE_ENABLE_FTS3=1            \
+            CPPFLAGS="-DSQLITE_ENABLE_FTS3=1  \
             -DSQLITE_ENABLE_FTS4=1            \
             -DSQLITE_ENABLE_COLUMN_METADATA=1 \
             -DSQLITE_ENABLE_UNLOCK_NOTIFY=1   \
@@ -64,8 +63,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m755 -d /usr/share/doc/sqlite-3.34.1 &&
-cp -v -R sqlite-doc-3340100/* /usr/share/doc/sqlite-3.34.1
+install -v -m755 -d /usr/share/doc/sqlite-3.35.4 &&
+cp -v -R sqlite-doc-3350400/* /usr/share/doc/sqlite-3.35.4
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

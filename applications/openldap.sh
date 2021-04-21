@@ -12,16 +12,16 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.4.57.tgz
-wget -nc ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.57.tgz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/openldap-2.4.57-consolidated-1.patch
+wget -nc https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.4.58.tgz
+wget -nc ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.4.58.tgz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/openldap-2.4.58-consolidated-1.patch
 wget -nc http://www.openldap.org/doc/admin24/
 wget -nc http://www.openldap.org/pub/
 
 
 NAME=openldap
-VERSION=2.4.57
-URL=https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.4.57.tgz
+VERSION=2.4.58
+URL=https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.4.58.tgz
 SECTION="Other Server Software"
 DESCRIPTION="The OpenLDAP package provides an open source implementation of the Lightweight Directory Access Protocol."
 
@@ -44,7 +44,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../openldap-2.4.57-consolidated-1.patch &&
+patch -Np1 -i ../openldap-2.4.58-consolidated-1.patch &&
 autoconf &&
 
 ./configure --prefix=/usr     \

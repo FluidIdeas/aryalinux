@@ -58,12 +58,6 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
-for f in gssapi_krb5 gssrpc k5crypto kadm5clnt kadm5srv \
-         kdb5 kdb_ldap krad krb5 krb5support verto ; do
-
-    find /usr/lib -type f -name "lib$f*.so*" -exec chmod -v 755 {} \;    
-done          &&
-
 mv -v /usr/lib/libkrb5.so.3*        /lib &&
 mv -v /usr/lib/libk5crypto.so.3*    /lib &&
 mv -v /usr/lib/libkrb5support.so.0* /lib &&

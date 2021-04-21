@@ -19,13 +19,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/gcr/3.38/gcr-3.38.1.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gcr/3.38/gcr-3.38.1.tar.xz
+wget -nc https://download.gnome.org/sources/gcr/3.40/gcr-3.40.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gcr/3.40/gcr-3.40.0.tar.xz
 
 
 NAME=gcr
-VERSION=3.38.1
-URL=https://download.gnome.org/sources/gcr/3.38/gcr-3.38.1.tar.xz
+VERSION=3.40.0
+URL=https://download.gnome.org/sources/gcr/3.40/gcr-3.40.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Gcr package contains libraries used for displaying certificates and accessing key stores. It also provides the viewer for crypto files on the GNOME Desktop."
 

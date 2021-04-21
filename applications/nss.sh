@@ -14,13 +14,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/security/nss/releases/NSS_3_61_RTM/src/nss-3.61.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/nss-3.61-standalone-1.patch
+wget -nc https://archive.mozilla.org/pub/security/nss/releases/NSS_3_63_RTM/src/nss-3.63.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/nss-3.63-standalone-1.patch
 
 
 NAME=nss
-VERSION=3.61
-URL=https://archive.mozilla.org/pub/security/nss/releases/NSS_3_61_RTM/src/nss-3.61.tar.gz
+VERSION=3.63
+URL=https://archive.mozilla.org/pub/security/nss/releases/NSS_3_63_RTM/src/nss-3.63.tar.gz
 SECTION="Security"
 DESCRIPTION="The Network Security Services (NSS) package is a set of libraries designed to support cross-platform development of security-enabled client and server applications. Applications built with NSS can support SSL v2 and v3, TLS, PKCS #5, PKCS #7, PKCS #11, PKCS #12, S/MIME, X.509 v3 certificates, and other security standards. This is useful for implementing SSL and S/MIME or other Internet security standards into an application."
 
@@ -43,11 +43,11 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../nss-3.61-standalone-1.patch &&
+patch -Np1 -i ../nss-3.63-standalone-1.patch &&
 
 cd nss &&
 
-make -j1 BUILD_OPT=1                  \
+make BUILD_OPT=1                  \
   NSPR_INCLUDE_DIR=/usr/include/nspr  \
   USE_SYSTEM_ZLIB=1                   \
   ZLIB_LIBS=-lz                       \

@@ -26,12 +26,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/seamonkey/releases/2.53.6/source/seamonkey-2.53.6.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/seamonkey/releases/2.53.7/source/seamonkey-2.53.7.source.tar.xz
 
 
 NAME=seamonkey
-VERSION=2.53.6
-URL=https://archive.mozilla.org/pub/seamonkey/releases/2.53.6/source/seamonkey-2.53.6.source.tar.xz
+VERSION=2.53.7
+URL=https://archive.mozilla.org/pub/seamonkey/releases/2.53.7/source/seamonkey-2.53.7.source.tar.xz
 SECTION="Graphical Web Browsers"
 DESCRIPTION="SeaMonkey is a browser suite, the Open Source sibling of Netscape. It includes the browser, composer, mail and news clients, and an IRC client. It is the follow-on to the Mozilla browser suite."
 
@@ -112,11 +112,7 @@ ac_add_options --disable-tests
 ac_add_options --enable-optimize="-O2"
 ac_add_options --enable-strip
 ac_add_options --enable-install-strip
-
-# not recognized since 2.53.1 - ac_add_options --enable-gio
 ac_add_options --enable-official-branding
-# not recognized since 2.53.1 - ac_add_options --enable-safe-browsing
-# not recognized since 2.53.1 - ac_add_options --enable-url-classifier
 
 # From firefox-40 (and the corresponding version of seamonkey),
 # using system cairo caused seamonkey to crash
@@ -125,8 +121,6 @@ ac_add_options --enable-official-branding
 ac_add_options --enable-system-cairo
 ac_add_options --enable-system-ffi
 ac_add_options --enable-system-pixman
-
-# not recognized since 2.53.6 - ac_add_options --with-pthreads
 
 ac_add_options --with-system-bz2
 ac_add_options --with-system-jpeg

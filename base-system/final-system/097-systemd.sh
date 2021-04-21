@@ -20,9 +20,7 @@ tar xf $TARBALL
 cd $DIRECTORY
 
 
-patch -Np1 -i ../systemd-247-upstream_fixes-1.patch
-ln -sf /bin/true /usr/bin/xsltproc
-tar -xf ../systemd-man-pages-247.tar.xz
+patch -Np1 -i ../systemd-247-upstream_fixes-2.patch
 sed '181,$ d' -i src/resolve/meson.build
 sed -i 's/GROUP="render"/GROUP="video"/' rules.d/50-udev-default.rules.in
 mkdir -p build
@@ -50,13 +48,13 @@ meson --prefix=/usr                 \
       -Drpmmacrosdir=no             \
       -Dhomed=false                 \
       -Duserdb=false                \
-      -Dman=true                    \
+      -Dman=false                   \
       -Dmode=release                \
       -Ddocdir=/usr/share/doc/systemd-247 \
       ..
 LANG=$LOCALE ninja
 LANG=$LOCALE ninja install
-rm -f /usr/bin/xsltproc
+tar -xf ../../systemd-man-pages-247-2.tar.xz --strip-components=1 -C /usr/share/man
 rm -rf /usr/lib/pam.d
 systemd-machine-id-setup
 systemctl preset-all

@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://files.libburnia-project.org/releases/libburn-1.5.4.tar.gz
+wget -nc https://files.libburnia-project.org/releases/libburn-1.5.4.tar.gz
 
 
 NAME=libburn
 VERSION=1.5.4
-URL=http://files.libburnia-project.org/releases/libburn-1.5.4.tar.gz
+URL=https://files.libburnia-project.org/releases/libburn-1.5.4.tar.gz
 SECTION="CD/DVD-Writing Utilities"
 DESCRIPTION="libburn is a library for writing preformatted data onto optical media: CD, DVD and BD (Blu-Ray)."
 

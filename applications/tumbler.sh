@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/tumbler/4.16/tumbler-4.16.0.tar.bz2
+wget -nc https://archive.xfce.org/src/xfce/tumbler/4.16/tumbler-4.16.0.tar.bz2
 
 
 NAME=tumbler
 VERSION=4.16.0
-URL=http://archive.xfce.org/src/xfce/tumbler/4.16/tumbler-4.16.0.tar.bz2
+URL=https://archive.xfce.org/src/xfce/tumbler/4.16/tumbler-4.16.0.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="The Tumbler package contains a D-Bus thumbnailing service based on the thumbnail management D-Bus specification. This is useful for generating thumbnail images of files."
 

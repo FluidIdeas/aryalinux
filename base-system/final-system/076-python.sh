@@ -20,6 +20,7 @@ tar xf $TARBALL
 cd $DIRECTORY
 
 
+sed 's|cpython/||' -i Include/cpython/pystate.h
 ./configure --prefix=/usr       \
             --enable-shared     \
             --with-system-expat \

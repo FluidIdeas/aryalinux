@@ -13,14 +13,14 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=bison-3.7.5.tar.xz
+TARBALL=bison-3.7.6.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-./configure --prefix=/usr --docdir=/usr/share/doc/bison-3.7.5
+./configure --prefix=/usr --docdir=/usr/share/doc/bison-3.7.6
 make
 make install
 

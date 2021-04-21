@@ -23,6 +23,8 @@ cd $DIRECTORY
 ./configure --prefix=/usr
 make
 make install
+mv -v /usr/lib/libmagic.so.* /lib
+ln -sfv ../../lib/$(readlink /usr/lib/libmagic.so) /usr/lib/libmagic.so
 
 fi
 

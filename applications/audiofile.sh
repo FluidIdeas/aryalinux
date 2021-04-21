@@ -42,7 +42,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-CXXFLAGS=-std=c++98 \
+CXXFLAGS="${CXXFLAGS:--O2 -g} -std=c++98" \
 ./configure --prefix=/usr --disable-static &&
 
 make

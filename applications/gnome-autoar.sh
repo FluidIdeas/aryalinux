@@ -14,13 +14,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/gnome-autoar/0.3/gnome-autoar-0.3.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-autoar/0.3/gnome-autoar-0.3.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-autoar/0.3/gnome-autoar-0.3.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-autoar/0.3/gnome-autoar-0.3.1.tar.xz
 
 
 NAME=gnome-autoar
-VERSION=0.3.0
-URL=https://download.gnome.org/sources/gnome-autoar/0.3/gnome-autoar-0.3.0.tar.xz
+VERSION=0.3.1
+URL=https://download.gnome.org/sources/gnome-autoar/0.3/gnome-autoar-0.3.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The gnome-autoar package provides a framework for automatic archive extraction, compression, and management."
 
@@ -43,7 +43,9 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr --disable-static &&
+./configure --prefix=/usr    \
+            --disable-debug  \
+            --disable-static &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

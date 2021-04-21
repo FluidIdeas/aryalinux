@@ -15,7 +15,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://www.cpan.org/authors/id/O/OA/OALDERS/LWP-Protocol-https-6.10.tar.gz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/10.1/LWP-Protocol-https-6.10-system_certs-2.patch
+wget -nc http://www.linuxfromscratch.org/patches/blfs/svn/LWP-Protocol-https-6.10-system_certs-2.patch
 
 
 NAME=perl-modules#perl-lwp-protocol-https

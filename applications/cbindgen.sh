@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/eqrion/cbindgen/archive/v0.17.0/cbindgen-0.17.0.tar.gz
+wget -nc https://github.com/eqrion/cbindgen/archive/v0.18.0/cbindgen-0.18.0.tar.gz
 
 
 NAME=cbindgen
-VERSION=0.17.0
-URL=https://github.com/eqrion/cbindgen/archive/v0.17.0/cbindgen-0.17.0.tar.gz
+VERSION=0.18.0
+URL=https://github.com/eqrion/cbindgen/archive/v0.18.0/cbindgen-0.18.0.tar.gz
 SECTION="Programming"
 DESCRIPTION="Cbindgen can be used to generate C bindings for Rust code."
 

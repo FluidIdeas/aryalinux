@@ -74,7 +74,7 @@ cp -v /usr/share/fluxbox/keys ~/.fluxbox/keys
 cd ~/.fluxbox &&
 fluxbox-generate_menu <user_options>
 cp -v /usr/share/fluxbox/menu ~/.fluxbox/menu
-cp /usr/share/fluxbox/styles/<theme> ~/.fluxbox/theme &&
+cp -r /usr/share/fluxbox/styles/<theme> ~/.fluxbox/theme &&
 
 sed -i 's,\(session.styleFile:\).*,\1 ~/.fluxbox/theme,' ~/.fluxbox/init &&
 
