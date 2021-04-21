@@ -8,7 +8,6 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:x7app
-#REQ:dejavu-fonts
 
 
 cd $SOURCE_DIR
