@@ -12,7 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://www.x.org/archive/individual/driver/xf86-video-openchrome-0.6.0.tar.gz
-
+wget -nc https://github.com/freedesktop/openchrome-xf86-video-openchrome/commit/edb46574d4686c59e80569ba236d537097dcdd0e.patch
+wget -nc https://github.com/freedesktop/openchrome-xf86-video-openchrome/commit/384cee8312dd9fa84f3f587f4f3a0d5d187d9ab8.patch
 
 NAME=xf86-video-openchrome
 VERSION=0.6.0
@@ -35,6 +36,8 @@ fi
 cd $DIRECTORY
 fi
 
+patch -Np1 -i ../edb46574d4686c59e80569ba236d537097dcdd0e.patch &&
+patch -Np1 -i ../384cee8312dd9fa84f3f587f4f3a0d5d187d9ab8.patch &&
 ./configure $XORG_CONFIG &&
 make -j$(nproc)
 sudo make install
