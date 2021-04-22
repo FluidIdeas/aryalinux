@@ -63,7 +63,7 @@ echo $USER > /tmp/currentuser
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-rm -v /usr/lib/systemd/user/gsd-*
+rm -vf /usr/lib/systemd/user/gsd-*
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
