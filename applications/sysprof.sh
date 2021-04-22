@@ -10,6 +10,7 @@ set +h
 #REQ:gtk3
 #REQ:libdazzle
 #REQ:polkit
+#REQ:json-glib
 
 
 cd $SOURCE_DIR
