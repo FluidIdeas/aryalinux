@@ -41,8 +41,8 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir /opt/rustc-1.47.0             &&
-ln -svfin rustc-1.47.0 /opt/rustc
+sudo mkdir /opt/rustc-1.47.0             &&
+sudo ln -svfin rustc-1.47.0 /opt/rustc
 
 cat << EOF > config.toml
 # see config.toml.example for more possible options
@@ -92,8 +92,8 @@ export LIBSSH2_SYS_USE_PKG_CONFIG=1 &&
 DESTDIR=${PWD}/install python3 ./x.py install &&
 unset LIBSSH2_SYS_USE_PKG_CONFIG
 
-chown -R root:root install &&
-cp -a install/* /
+sudo chown -R root:root install &&
+sudo cp -a install/* /
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
