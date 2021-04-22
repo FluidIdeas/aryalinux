@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/systemd/systemd/archive/v247/systemd-247.tar.gz
+wget -nc https://github.com/systemd/systemd/archive/v248/systemd-248.tar.gz
 wget -nc https://github.com/systemd/systemd/commit/ab1aa6368a883bce88e3162fee2bea14aacedf23.patch
 
 
 NAME=systemd
-VERSION=247
-URL=https://github.com/systemd/systemd/archive/v247/systemd-247.tar.gz
+VERSION=248
+URL=https://github.com/systemd/systemd/archive/v248/systemd-248.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="While systemd was installed when building LFS, there are many features provided by the package that were not included in the initial installation because Linux-PAM was not yet installed. The systemd package needs to be rebuilt to provide a working systemd-logind service, which provides many additional features for dependent packages."
 
@@ -64,7 +64,7 @@ meson --prefix=/usr                 \
       -Duserdb=false                \
       -Dmode=release                \
       -Dpamconfdir=/etc/pam.d       \
-      -Ddocdir=/usr/share/doc/systemd-247 \
+      -Ddocdir=/usr/share/doc/systemd-248 \
       ..                            &&
 
 ninja
