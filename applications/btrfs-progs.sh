@@ -47,15 +47,6 @@ echo $USER > /tmp/currentuser
             --libdir=/lib \
             --with-pkgconfigdir=/usr/lib/pkgconfig &&
 make
-mv tests/fsck-tests/012-leaf-corruption/test.sh{,.broken}
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make -j1 -k test
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
