@@ -95,6 +95,10 @@ unset LIBSSH2_SYS_USE_PKG_CONFIG
 sudo chown -R root:root install &&
 sudo cp -a install/* /
 
+sudo tee /etc/profile.d/rustc.sh << "EOF"
+export PATH=$PATH:/opt/rustc-1.47.0/bin/
+EOF
+
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
