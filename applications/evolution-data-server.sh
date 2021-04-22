@@ -64,7 +64,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-patch -Np1 -i evolution-data-server-3.40.0-cmake_fix-1.patch
+patch -Np1 -i ../evolution-data-server-3.40.0-cmake_fix-1.patch
 mkdir build &&
 cd    build &&
 
