@@ -93,7 +93,6 @@ set +h
 #REQ:plymouth
 #REQ:cups
 #REQ:cups-filters
-#REQ:vpn-libs
 
 
 cd $SOURCE_DIR
