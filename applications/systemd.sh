@@ -13,7 +13,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://github.com/systemd/systemd/archive/v247/systemd-247.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/systemd-247-upstream_fixes-2.patch
+wget -nc https://github.com/systemd/systemd/commit/ab1aa6368a883bce88e3162fee2bea14aacedf23.patch
 
 
 NAME=systemd
@@ -41,7 +41,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../systemd-247-upstream_fixes-2.patch
+patch -Np1 -i ../ab1aa6368a883bce88e3162fee2bea14aacedf23.patch
 sed -i 's/GROUP="render"/GROUP="video"/' rules.d/50-udev-default.rules.in
 mkdir build &&
 cd    build &&
