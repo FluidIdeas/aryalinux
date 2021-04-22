@@ -13,7 +13,8 @@ set +h
 #REQ:gobject-introspection
 #REQ:libxml2
 #REQ:vala
-
+#REQ:python-modules#pygobject3
+#REQ:python-modules#pygobject2
 
 cd $SOURCE_DIR
 
