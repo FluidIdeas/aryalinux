@@ -50,6 +50,8 @@ fi
 
 echo $USER > /tmp/currentuser
 
+sudo rm -f /var/lock
+sudo mkdir -pv /var/lock/
 
 python3 -m venv pyvenv &&
 ./pyvenv/bin/pip3 install cryptography pyasn1 iso8601
