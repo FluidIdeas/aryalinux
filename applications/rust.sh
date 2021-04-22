@@ -23,6 +23,8 @@ URL="https://static.rust-lang.org/dist/rustc-1.47.0-src.tar.gz"
 SECTION="Programming"
 DESCRIPTION="The Rust programming language is designed to be a safe, concurrent, practical language."
 
+wget -nc $URL
+
 if [ ! -z $URL ]
 then
 
