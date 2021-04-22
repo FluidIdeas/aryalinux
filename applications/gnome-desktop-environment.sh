@@ -90,11 +90,6 @@ set +h
 #REQ:xdg-user-dirs
 #REQ:gnome-tweaks
 #REQ:pavucontrol
-#REQ:aryalinux-wallpapers
-#REQ:aryalinux-google-fonts
-#REQ:aryalinux-icons
-#REQ:aryalinux-gtk-themes
-#REQ:aryalinux-gnome-settings
 #REQ:plymouth
 #REQ:cups
 #REQ:cups-filters
