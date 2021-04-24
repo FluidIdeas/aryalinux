@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://aryalinux.info/files/aryalinux-gnome-defaults-2.0.tar.xz
+wget -nc https://sourceforge.net/projects/aryalinux/files/releases/4.0/aryalinux-gnome-settings-4.0.tar.xz
 
 
 NAME=aryalinux-gnome-settings
-VERSION=2.0
+VERSION=4.0
 
 DESCRIPTION="Default settings for the AryaLinux Gnome desktop environment."
 
@@ -35,7 +35,7 @@ fi
 cd $DIRECTORY
 fi
 
-sudo tar xf aryalinux-gnome-defaults-2.0.tar.xz -C /
+sudo tar xf aryalinux-gnome-settings-4.0.tar.xz -C /
 sudo cp -r /etc/skel/{.config,.Xresources}* ~
 sudo chown -R $USER:$USER ~
 

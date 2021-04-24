@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://aryalinux.info/files/aryalinux-icons.tar.xz
+wget -nc https://sourceforge.net/projects/aryalinux/files/releases/4.0/aryaliunx-icons-4.0.tar.xz
 
 
 NAME=aryalinux-icons
-VERSION=1.4
+VERSION=4.0
 
 DESCRIPTION="Collections of icons for usage in AryaLinux."
 
@@ -35,7 +35,7 @@ fi
 cd $DIRECTORY
 fi
 
-sudo tar xf aryalinux-icons.tar.xz -C /
+sudo tar xf aryaliunx-icons-4.0.tar.xz -C /
 sudo chown -R root:root /usr/share/icons/
 
 

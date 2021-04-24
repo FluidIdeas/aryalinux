@@ -11,7 +11,7 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://aryalinux.info/files/aryalinux-google-fonts.tar.xz
+wget -nc https://sourceforge.net/projects/aryalinux/files/releases/4.0/aryalinux-google-fonts.tar.xz
 
 
 NAME=aryalinux-google-fonts
