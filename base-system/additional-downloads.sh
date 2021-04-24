@@ -61,7 +61,7 @@ wget -nc https://launchpad.net/ubuntu/+archive/primary/+files/cdrkit_1.1.11.orig
 wget -nc https://cmake.org/files/v3.19/cmake-3.19.5.tar.gz
 wget -nc https://sourceforge.net/projects/squashfs/files/squashfs/squashfs4.4/squashfs4.4.tar.gz
 wget -nc http://downloads.sourceforge.net/infozip/unzip60.tar.gz
-wget -nc http://www.linuxfromscratch.org/patches/blfs/10.1/unzip-6.0-consolidated_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/unzip-6.0-consolidated_fixes-1.patch
 
 set +e
 
