@@ -96,7 +96,7 @@ set +h
 #REQ:aryalinux-icons
 #REQ:aryalinux-gtk-themes
 #REQ:aryalinux-google-fonts
-#REQ:aryaliunx-gnome-settings
+#REQ:aryalinux-gnome-settings
 
 
 cd $SOURCE_DIR
