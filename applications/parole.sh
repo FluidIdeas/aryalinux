@@ -12,6 +12,7 @@ set +h
 #REQ:libxfce4ui
 #REQ:libnotify
 #REQ:taglib
+#REQ:dbus-glib
 
 
 cd $SOURCE_DIR
