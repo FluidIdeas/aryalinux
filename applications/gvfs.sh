@@ -23,13 +23,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/gvfs/1.48/gvfs-1.48.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gvfs/1.48/gvfs-1.48.0.tar.xz
+wget -nc https://download.gnome.org/sources/gvfs/1.46/gvfs-1.46.2.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gvfs/1.46/gvfs-1.46.2.tar.xz
 
 
 NAME=gvfs
-VERSION=1.48.0
-URL=https://download.gnome.org/sources/gvfs/1.48/gvfs-1.48.0.tar.xz
+VERSION=1.46.2
+URL=https://download.gnome.org/sources/gvfs/1.46/gvfs-1.46.2.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Gvfs package is a userspace virtual filesystem designed to work with the I/O abstractions of GLib's GIO library."
 

@@ -13,18 +13,17 @@ set +h
 #REQ:gobject-introspection
 #REQ:libxml2
 #REQ:vala
-#REQ:python-modules#pygobject3
-#REQ:python-modules#pygobject2
+
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/libgweather/40/libgweather-40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgweather/40/libgweather-40.0.tar.xz
+wget -nc https://download.gnome.org/sources/libgweather/3.36/libgweather-3.36.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgweather/3.36/libgweather-3.36.1.tar.xz
 
 
 NAME=libgweather
-VERSION=40.0
-URL=https://download.gnome.org/sources/libgweather/40/libgweather-40.0.tar.xz
+VERSION=3.36.1
+URL=https://download.gnome.org/sources/libgweather/3.36/libgweather-3.36.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libgweather package is a library used to access weather information from online services for numerous locations."
 

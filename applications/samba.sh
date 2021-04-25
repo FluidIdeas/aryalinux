@@ -18,17 +18,18 @@ set +h
 #REQ:libxslt
 #REQ:linux-pam
 #REQ:perl-modules#perl-parse-yapp
+#REQ:python-modules#pycryptodome
 #REQ:openldap
 
 
 cd $SOURCE_DIR
 
-wget -nc https://www.samba.org/ftp/samba/stable/samba-4.14.2.tar.gz
+wget -nc https://www.samba.org/ftp/samba/stable/samba-4.13.4.tar.gz
 
 
 NAME=samba
-VERSION=4.14.2
-URL=https://www.samba.org/ftp/samba/stable/samba-4.14.2.tar.gz
+VERSION=4.13.4
+URL=https://www.samba.org/ftp/samba/stable/samba-4.13.4.tar.gz
 SECTION="Networking Programs"
 DESCRIPTION="The Samba package provides file and print services to SMB/CIFS clients and Windows networking to Linux clients. Samba can also be configured as a Windows Domain Controller replacement, a file/print server acting as a member of a Windows Active Directory domain and a NetBIOS (rfc1001/1002) nameserver (which among other things provides LAN browsing support)."
 
@@ -50,14 +51,9 @@ fi
 
 echo $USER > /tmp/currentuser
 
-sudo rm -f /var/lock
-sudo mkdir -pv /var/lock/
 
-python3 -m venv pyvenv &&
-./pyvenv/bin/pip3 install cryptography pyasn1 iso8601
 echo "^samba4.rpc.echo.*on.*ncacn_np.*with.*object.*nt4_dc" >> selftest/knownfail
-PYTHON=$PWD/pyvenv/bin/python3         \
-CPPFLAGS="-I/usr/include/tirpc"        \
+CFLAGS="-I/usr/include/tirpc"          \
 LDFLAGS="-ltirpc"                      \
 ./configure                            \
     --prefix=/usr                      \
@@ -69,17 +65,6 @@ LDFLAGS="-ltirpc"                      \
     --without-ad-dc                    \
     --enable-selftest                  &&
 make
-sed '1s@^.*$@#!/usr/bin/python3@' \
-    -i ./bin/default/source4/scripting/bin/samba-gpupdate.inst
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-rm -rf /usr/lib/python3.9/site-packages/samba
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&

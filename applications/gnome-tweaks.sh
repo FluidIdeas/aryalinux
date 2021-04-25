@@ -16,13 +16,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/gnome-tweaks/40/gnome-tweaks-40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-tweaks/40/gnome-tweaks-40.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-tweaks/3.34/gnome-tweaks-3.34.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-tweaks/3.34/gnome-tweaks-3.34.1.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/gnome-tweaks-3.34.1-port_to_libhandy1-1.patch
 
 
 NAME=gnome-tweaks
-VERSION=40.0
-URL=https://download.gnome.org/sources/gnome-tweaks/40/gnome-tweaks-40.0.tar.xz
+VERSION=3.34.1
+URL=https://download.gnome.org/sources/gnome-tweaks/3.34/gnome-tweaks-3.34.1.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="GNOME Tweaks is a simple program used to tweak advanced GNOME settings."
 
@@ -45,15 +46,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-rm -rf /usr/lib/python3.9/site-packages/gtweak
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
+patch -Np1 -i ../gnome-tweaks-3.34.1-port_to_libhandy1-1.patch
 mkdir build &&
 cd    build &&
 

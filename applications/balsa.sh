@@ -19,12 +19,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://pawsa.fedorapeople.org/balsa/balsa-2.6.2.tar.bz2
+wget -nc http://pawsa.fedorapeople.org/balsa/balsa-2.6.2.tar.bz2
 
 
 NAME=balsa
 VERSION=2.6.2
-URL=https://pawsa.fedorapeople.org/balsa/balsa-2.6.2.tar.bz2
+URL=http://pawsa.fedorapeople.org/balsa/balsa-2.6.2.tar.bz2
 SECTION="Other X-based Programs"
 DESCRIPTION="The Balsa package contains a GNOME-2 based mail client."
 

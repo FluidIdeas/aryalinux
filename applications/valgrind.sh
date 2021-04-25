@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://sourceware.org/ftp/valgrind/valgrind-3.17.0.tar.bz2
-wget -nc ftp://sourceware.org/pub/valgrind/valgrind-3.17.0.tar.bz2
+wget -nc https://sourceware.org/ftp/valgrind/valgrind-3.16.1.tar.bz2
+wget -nc ftp://sourceware.org/pub/valgrind/valgrind-3.16.1.tar.bz2
 
 
 NAME=valgrind
-VERSION=3.17.0
-URL=https://sourceware.org/ftp/valgrind/valgrind-3.17.0.tar.bz2
+VERSION=3.16.1
+URL=https://sourceware.org/ftp/valgrind/valgrind-3.16.1.tar.bz2
 SECTION="Programming"
 DESCRIPTION="Valgrind is an instrumentation framework for building dynamic analysis tools. There are Valgrind tools that can automatically detect many memory management and threading bugs, and profile programs in detail. Valgrind can also be used to build new tools."
 
@@ -40,10 +40,11 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -i 's/arm64/amd64/' gdbserver_tests/nlcontrolc.vgtest
 sed -i 's|/doc/valgrind||' docs/Makefile.in &&
 
 ./configure --prefix=/usr \
-            --datadir=/usr/share/doc/valgrind-3.17.0 &&
+            --datadir=/usr/share/doc/valgrind-3.16.1 &&
 make
 sed -e 's@prereq:.*@prereq: false@' \
     -i {helgrind,drd}/tests/pth_cond_destroy_busy.vgtest

@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://ftp.gnu.org/gnu/nettle/nettle-3.7.2.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/nettle/nettle-3.7.2.tar.gz
+wget -nc https://ftp.gnu.org/gnu/nettle/nettle-3.7.1.tar.gz
+wget -nc ftp://ftp.gnu.org/gnu/nettle/nettle-3.7.1.tar.gz
 
 
 NAME=nettle
-VERSION=3.7.2
-URL=https://ftp.gnu.org/gnu/nettle/nettle-3.7.2.tar.gz
+VERSION=3.7.1
+URL=https://ftp.gnu.org/gnu/nettle/nettle-3.7.1.tar.gz
 SECTION="Security"
 DESCRIPTION="The Nettle package contains a low-level cryptographic library that is designed to fit easily in many contexts."
 
@@ -46,8 +46,8 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 chmod   -v   755 /usr/lib/lib{hogweed,nettle}.so &&
-install -v -m755 -d /usr/share/doc/nettle-3.7.2 &&
-install -v -m644 nettle.html /usr/share/doc/nettle-3.7.2
+install -v -m755 -d /usr/share/doc/nettle-3.7.1 &&
+install -v -m644 nettle.html /usr/share/doc/nettle-3.7.1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

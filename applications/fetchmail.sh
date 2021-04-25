@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/fetchmail/fetchmail-6.4.18.tar.xz
+wget -nc https://downloads.sourceforge.net/fetchmail/fetchmail-6.4.16.tar.xz
 
 
 NAME=fetchmail
-VERSION=6.4.18
-URL=https://downloads.sourceforge.net/fetchmail/fetchmail-6.4.18.tar.xz
+VERSION=6.4.16
+URL=https://downloads.sourceforge.net/fetchmail/fetchmail-6.4.16.tar.xz
 SECTION="Mail/News Clients"
 DESCRIPTION="The Fetchmail package contains a mail retrieval program. It retrieves mail from remote mail servers and forwards it to the local (client) machine's delivery system, so it can then be read by normal mail user agents."
 
@@ -52,7 +52,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 PYTHON=python3 \
 ./configure --prefix=/usr \
-            --enable-fallback=procmail &&
+ --enable-fallback=procmail &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

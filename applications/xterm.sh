@@ -8,16 +8,17 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:x7app
+#REQ:dejavu-fonts
 
 
 cd $SOURCE_DIR
 
-wget -nc https://invisible-mirror.net/archives/xterm/xterm-367.tgz
+wget -nc http://invisible-mirror.net/archives/xterm/xterm-366.tgz
 
 
 NAME=xterm
-VERSION=367
-URL=https://invisible-mirror.net/archives/xterm/xterm-367.tgz
+VERSION=366
+URL=http://invisible-mirror.net/archives/xterm/xterm-366.tgz
 SECTION="X Window System Environment"
 DESCRIPTION="xterm is a terminal emulator for the X Window System."
 

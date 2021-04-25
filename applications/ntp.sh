@@ -53,7 +53,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sed -e 's/"(\\S+)"/"?([^\\s"]+)"?/' \
     -i scripts/update-leap/update-leap.in
-./configure CFLAGS="${CFLAGS:--O2 -g} -fPIC -fcommon" \
+./configure CFLAGS="-O2 -g -fPIC -fcommon $CFLAGS" \
             --prefix=/usr         \
             --bindir=/usr/sbin    \
             --sysconfdir=/etc     \

@@ -17,13 +17,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.49.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnumeric/1.12/gnumeric-1.12.49.tar.xz
+wget -nc https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.48.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnumeric/1.12/gnumeric-1.12.48.tar.xz
 
 
 NAME=gnumeric
-VERSION=1.12.49
-URL=https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.49.tar.xz
+VERSION=1.12.48
+URL=https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.48.tar.xz
 SECTION="Office Programs"
 DESCRIPTION="The Gnumeric package contains a spreadsheet program which is useful for mathematical analysis."
 

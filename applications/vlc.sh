@@ -47,9 +47,9 @@ fi
 echo $USER > /tmp/currentuser
 
 
-export LUAC=/usr/bin/luac5.2                   &&
-export LUA_LIBS="$(pkg-config --libs lua52)"   &&
-export CPPFLAGS="$(pkg-config --cflags lua52)" &&
+export LUAC=/usr/bin/luac5.2                 &&
+export LUA_LIBS="$(pkg-config --libs lua52)" &&
+export CFLAGS="$(pkg-config --cflags lua52)" &&
 
 BUILDCC=gcc ./configure --prefix=/usr    \
                         --disable-opencv \

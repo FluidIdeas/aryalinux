@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/stable/phonon/phonon-backend-vlc/0.11.3/phonon-backend-vlc-0.11.3.tar.xz
+wget -nc https://download.kde.org/stable/phonon/phonon-backend-vlc/0.11.2/phonon-backend-vlc-0.11.2.tar.xz
 
 
 NAME=phonon-backend-vlc
-VERSION=0.11.3
-URL=https://download.kde.org/stable/phonon/phonon-backend-vlc/0.11.3/phonon-backend-vlc-0.11.3.tar.xz
+VERSION=0.11.2
+URL=https://download.kde.org/stable/phonon/phonon-backend-vlc/0.11.2/phonon-backend-vlc-0.11.2.tar.xz
 SECTION="KDE Plasma 5"
 DESCRIPTION="This package provides a Phonon backend which utilizes the VLC media framework."
 

@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://tecnocode.co.uk/downloads/uhttpmock/uhttpmock-0.5.3.tar.xz
+wget -nc http://tecnocode.co.uk/downloads/uhttpmock/uhttpmock-0.5.3.tar.xz
 
 
 NAME=uhttpmock
 VERSION=0.5.3
-URL=https://tecnocode.co.uk/downloads/uhttpmock/uhttpmock-0.5.3.tar.xz
+URL=http://tecnocode.co.uk/downloads/uhttpmock/uhttpmock-0.5.3.tar.xz
 SECTION="Networking Libraries"
 DESCRIPTION="The uhttpmock package contains a library for mocking web service APIs which use HTTP or HTTPS."
 

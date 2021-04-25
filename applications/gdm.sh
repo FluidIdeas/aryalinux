@@ -21,13 +21,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/gdm/40/gdm-40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gdm/40/gdm-40.0.tar.xz
+wget -nc https://download.gnome.org/sources/gdm/3.38/gdm-3.38.2.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gdm/3.38/gdm-3.38.2.1.tar.xz
 
 
 NAME=gdm
-VERSION=40.0
-URL=https://download.gnome.org/sources/gdm/40/gdm-40.0.tar.xz
+VERSION=3.38.2.1
+URL=https://download.gnome.org/sources/gdm/3.38/gdm-3.38.2.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="GDM is a system service that is responsible for providing graphical logins and managing local and remote displays."
 

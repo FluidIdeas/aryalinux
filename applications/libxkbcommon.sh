@@ -15,12 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://xkbcommon.org/download/libxkbcommon-1.2.1.tar.xz
+wget -nc https://xkbcommon.org/download/libxkbcommon-1.0.3.tar.xz
 
 
 NAME=libxkbcommon
-VERSION=1.2.1
-URL=https://xkbcommon.org/download/libxkbcommon-1.2.1.tar.xz
+VERSION=1.0.3
+URL=https://xkbcommon.org/download/libxkbcommon-1.0.3.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="libxkbcommon is a keymap compiler and support library which processes a reduced subset of keymaps as defined by the XKB specification."
 

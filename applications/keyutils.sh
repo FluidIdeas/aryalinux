@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://people.redhat.com/~dhowells/keyutils/keyutils-1.6.1.tar.bz2
+wget -nc http://people.redhat.com/~dhowells/keyutils/keyutils-1.6.1.tar.bz2
 
 
 NAME=keyutils
 VERSION=1.6.1
-URL=https://people.redhat.com/~dhowells/keyutils/keyutils-1.6.1.tar.bz2
+URL=http://people.redhat.com/~dhowells/keyutils/keyutils-1.6.1.tar.bz2
 SECTION="General Libraries"
 DESCRIPTION="Keyutils is a set of utilities for managing the key retention facility in the kernel, which can be used by filesystems, block devices and more to gain and retain the authorization and encryption keys required to perform secure operations."
 

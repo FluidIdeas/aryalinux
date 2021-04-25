@@ -30,12 +30,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/thunderbird/releases/78.9.1/source/thunderbird-78.9.1.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/thunderbird/releases/78.8.0/source/thunderbird-78.8.0.source.tar.xz
 
 
 NAME=thunderbird
-VERSION=78.9.1
-URL=https://archive.mozilla.org/pub/thunderbird/releases/78.9.1/source/thunderbird-78.9.1.source.tar.xz
+VERSION=78.8.0
+URL=https://archive.mozilla.org/pub/thunderbird/releases/78.8.0/source/thunderbird-78.8.0.source.tar.xz
 SECTION="Other X-based Programs"
 DESCRIPTION="Thunderbird is a stand-alone mail/news client based on the Mozilla codebase. It uses the Gecko rendering engine to enable it to display and compose HTML emails."
 
@@ -75,6 +75,7 @@ ac_add_options --with-system-libevent
 ac_add_options --with-system-nspr
 ac_add_options --with-system-nss
 ac_add_options --with-system-icu
+
 # The elf-hack causes failed installs on some machines.
 # It is supposed to improve startup time and it shrinks libxul.so
 # by a few MB - comment this if you know your machine is not affected.

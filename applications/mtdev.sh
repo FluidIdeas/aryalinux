@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://bitmath.org/code/mtdev/mtdev-1.1.6.tar.bz2
+wget -nc http://bitmath.org/code/mtdev/mtdev-1.1.6.tar.bz2
 
 
 NAME=mtdev
 VERSION=1.1.6
-URL=https://bitmath.org/code/mtdev/mtdev-1.1.6.tar.bz2
+URL=http://bitmath.org/code/mtdev/mtdev-1.1.6.tar.bz2
 SECTION="General Libraries"
 DESCRIPTION="The mtdev package contains Multitouch Protocol Translation Library which is used to transform all variants of kernel MT (Multitouch) events to the slotted type B protocol."
 

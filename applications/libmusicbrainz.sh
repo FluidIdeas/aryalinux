@@ -43,7 +43,7 @@ echo $USER > /tmp/currentuser
 
 patch -Np1 -i ../libmusicbrainz-2.1.5-missing-includes-1.patch &&
 
-CXXFLAGS="${CXXFLAGS:--O2 -g} -std=c++98" \
+CXXFLAGS=-std=c++98 \
 ./configure --prefix=/usr --disable-static &&
 make
 (cd python && python2 setup.py build)

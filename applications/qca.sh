@@ -15,12 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/stable/qca/2.3.2/qca-2.3.2.tar.xz
+wget -nc http://download.kde.org/stable/qca/2.3.2/qca-2.3.2.tar.xz
 
 
 NAME=qca
 VERSION=2.3.2
-URL=https://download.kde.org/stable/qca/2.3.2/qca-2.3.2.tar.xz
+URL=http://download.kde.org/stable/qca/2.3.2/qca-2.3.2.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="Qca aims to provide a straightforward and cross-platform crypto API, using Qt datatypes and conventions. Qca separates the API from the implementation, using plugins known as Providers."
 

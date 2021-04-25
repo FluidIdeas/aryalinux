@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/libhandy/1.2/libhandy-1.2.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libhandy/1.2/libhandy-1.2.0.tar.xz
+wget -nc https://download.gnome.org/sources/libhandy/1.0/libhandy-1.0.3.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libhandy/1.0/libhandy-1.0.3.tar.xz
 
 
 NAME=libhandy1
-VERSION=1.2.0
-URL=https://download.gnome.org/sources/libhandy/1.2/libhandy-1.2.0.tar.xz
+VERSION=1.0.3
+URL=https://download.gnome.org/sources/libhandy/1.0/libhandy-1.0.3.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The libhandy package provides additional GTK UI widgets for use in developing user interfaces."
 

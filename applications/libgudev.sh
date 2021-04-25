@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/libgudev/236/libgudev-236.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgudev/236/libgudev-236.tar.xz
+wget -nc https://download.gnome.org/sources/libgudev/234/libgudev-234.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgudev/234/libgudev-234.tar.xz
 
 
 NAME=libgudev
-VERSION=236
-URL=https://download.gnome.org/sources/libgudev/236/libgudev-236.tar.xz
+VERSION=234
+URL=https://download.gnome.org/sources/libgudev/234/libgudev-234.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libgudev package contains GObject bindings for libudev."
 
@@ -41,14 +41,11 @@ fi
 echo $USER > /tmp/currentuser
 
 
-mkdir build &&
-cd    build &&
-
-meson --prefix=/usr .. &&
-ninja
+./configure --prefix=/usr --disable-umockdev &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

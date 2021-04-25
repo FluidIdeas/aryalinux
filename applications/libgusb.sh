@@ -16,12 +16,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.6.tar.xz
+wget -nc https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.5.tar.xz
 
 
 NAME=libgusb
-VERSION=0.3.6
-URL=https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.6.tar.xz
+VERSION=0.3.5
+URL=https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.5.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libgusb package contains the GObject wrappers for libusb-1.0 that makes it easy to do asynchronous control, bulk and interrupt transfers with proper cancellation and integration into a mainloop."
 

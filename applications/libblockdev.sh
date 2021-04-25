@@ -44,9 +44,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed 's/g_memdup/&2/' -i             \
-    src/lib/plugin_apis/vdo.{c,api} \
-    src/plugins/vdo.c
 ./configure --prefix=/usr     \
             --sysconfdir=/etc \
             --with-python3    \

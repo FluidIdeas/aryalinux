@@ -47,8 +47,8 @@ mv tools/clang-11.1.0.src tools/clang
 tar -xf ../compiler-rt-11.1.0.src.tar.xz -C projects &&
 mv projects/compiler-rt-11.1.0.src projects/compiler-rt
 grep -rl '#!.*python' | xargs sed -i '1s/python$/python3/'
-mkdir -pv build &&
-cd        build &&
+mkdir -v build &&
+cd       build &&
 
 CC=gcc CXX=g++                                  \
 cmake -DCMAKE_INSTALL_PREFIX=/usr               \
@@ -62,7 +62,11 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr               \
       -DLLVM_BINUTILS_INCDIR=/usr/include       \
       -Wno-dev -G Ninja ..                      &&
 ninja
-
+cmake -DLLVM_BUILD_DOCS=ON            \
+      -DLLVM_ENABLE_SPHINX=ON         \
+      -DSPHINX_WARNINGS_AS_ERRORS=OFF \
+      -Wno-dev -G Ninja ..            &&
+ninja docs-llvm-html  docs-llvm-man
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install

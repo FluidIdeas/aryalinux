@@ -12,7 +12,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/Python-2.7.18-security_fixes-1.patch
 wget -nc https://docs.python.org/ftp/python/doc/2.7.18/python-2.7.18-docs-html.tar.bz2
 
 
@@ -42,12 +41,11 @@ echo $USER > /tmp/currentuser
 
 
 sed -i '/2to3/d' ./setup.py
-patch -Np1 -i ../Python-2.7.18-security_fixes-1.patch &&
-./configure --prefix=/usr                              \
-            --enable-shared                            \
-            --with-system-expat                        \
-            --with-system-ffi                          \
-            --enable-unicode=ucs4                     &&
+./configure --prefix=/usr       \
+            --enable-shared     \
+            --with-system-expat \
+            --with-system-ffi   \
+            --enable-unicode=ucs4 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -15,12 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://fltk.org/pub/fltk/1.3.5/fltk-1.3.5-source.tar.gz
+wget -nc http://fltk.org/pub/fltk/1.3.5/fltk-1.3.5-source.tar.gz
 
 
 NAME=fltk
 VERSION=1.3.
-URL=https://fltk.org/pub/fltk/1.3.5/fltk-1.3.5-source.tar.gz
+URL=http://fltk.org/pub/fltk/1.3.5/fltk-1.3.5-source.tar.gz
 SECTION="X Libraries"
 DESCRIPTION="FLTK (pronounced \"fulltick\") is a cross-platform C++ GUI toolkit. FLTK provides modern GUI functionality and supports 3D graphics via OpenGL and its built-in GLUT emulation libraries used for creating graphical user interfaces for applications."
 

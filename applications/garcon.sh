@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.xfce.org/src/xfce/garcon/4.16/garcon-4.16.1.tar.bz2
+wget -nc http://archive.xfce.org/src/xfce/garcon/4.16/garcon-4.16.1.tar.bz2
 
 
 NAME=garcon
 VERSION=4.16.1
-URL=https://archive.xfce.org/src/xfce/garcon/4.16/garcon-4.16.1.tar.bz2
+URL=http://archive.xfce.org/src/xfce/garcon/4.16/garcon-4.16.1.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="The Garcon package contains a freedesktop.org compliant menu implementation based on GLib and GIO."
 

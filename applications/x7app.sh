@@ -62,7 +62,7 @@ e1d7dc1afd3ddb8fab16d6a76f21a258  xev-1.2.4.tar.bz2
 90b4305157c2b966d5180e2ee61262be  xgamma-1.0.6.tar.bz2
 a48c72954ae6665e0616f6653636da8c  xhost-1.0.8.tar.bz2
 ac6b7432726008b2f50eba82b0e2dbe4  xinput-1.6.3.tar.bz2
-c45e9f7971a58b8f0faf10f6d8f298c0  xkbcomp-1.4.5.tar.bz2
+41d0b6d370f907615364a6330b8f42ff  xkbcomp-1.4.4.tar.bz2
 c747faf1f78f5a5962419f8bdd066501  xkbevd-1.1.4.tar.bz2
 502b14843f610af977dffc6cbf2102d5  xkbutils-1.0.4.tar.bz2
 938177e4472c346cf031c1aefd8934fc  xkill-1.0.5.tar.bz2

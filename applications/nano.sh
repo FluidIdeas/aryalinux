@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.nano-editor.org/dist/v5/nano-5.6.1.tar.xz
+wget -nc https://www.nano-editor.org/dist/v5/nano-5.6.tar.xz
 
 
 NAME=nano
-VERSION=5.6.1
-URL=https://www.nano-editor.org/dist/v5/nano-5.6.1.tar.xz
+VERSION=5.6
+URL=https://www.nano-editor.org/dist/v5/nano-5.6.tar.xz
 SECTION="Editors"
 DESCRIPTION="The Nano package contains a small, simple text editor which aims to replace Pico, the default editor in the Pine package."
 
@@ -42,12 +42,12 @@ echo $USER > /tmp/currentuser
 ./configure --prefix=/usr     \
             --sysconfdir=/etc \
             --enable-utf8     \
-            --docdir=/usr/share/doc/nano-5.6.1 &&
+            --docdir=/usr/share/doc/nano-5.6 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-install -v -m644 doc/{nano.html,sample.nanorc} /usr/share/doc/nano-5.6.1
+install -v -m644 doc/{nano.html,sample.nanorc} /usr/share/doc/nano-5.6
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

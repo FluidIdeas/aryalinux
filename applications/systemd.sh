@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/systemd/systemd/archive/v248/systemd-248.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/systemd-248-upstream-fixes.patch
+wget -nc https://github.com/systemd/systemd/archive/v247/systemd-247.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/systemd-247-upstream_fixes-1.patch
 
 
 NAME=systemd
-VERSION=248
-URL=https://github.com/systemd/systemd/archive/v248/systemd-248.tar.gz
+VERSION=247
+URL=https://github.com/systemd/systemd/archive/v247/systemd-247.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="While systemd was installed when building LFS, there are many features provided by the package that were not included in the initial installation because Linux-PAM was not yet installed. The systemd package needs to be rebuilt to provide a working systemd-logind service, which provides many additional features for dependent packages."
 
@@ -41,7 +41,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../systemd-248-upstream-fixes.patch
+patch -Np1 -i ../systemd-247-upstream_fixes-1.patch
 sed -i 's/GROUP="render"/GROUP="video"/' rules.d/50-udev-default.rules.in
 mkdir build &&
 cd    build &&
@@ -64,7 +64,7 @@ meson --prefix=/usr                 \
       -Duserdb=false                \
       -Dmode=release                \
       -Dpamconfdir=/etc/pam.d       \
-      -Ddocdir=/usr/share/doc/systemd-248 \
+      -Ddocdir=/usr/share/doc/systemd-247 \
       ..                            &&
 
 ninja

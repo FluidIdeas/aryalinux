@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.112.tar.gz
+wget -nc https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.110.tar.gz
 
 
 NAME=dbus-glib
-VERSION=0.112
-URL=https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.112.tar.gz
+VERSION=0.110
+URL=https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.110.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The D-Bus GLib package contains GLib interfaces to the D-Bus API."
 

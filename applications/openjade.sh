@@ -44,7 +44,7 @@ echo $USER > /tmp/currentuser
 patch -Np1 -i ../openjade-1.3.2-upstream-1.patch
 sed -i -e '/getopts/{N;s#&G#g#;s#do .getopts.pl.;##;}' \
        -e '/use POSIX/ause Getopt::Std;' msggen.pl
-export CXXFLAGS="${CXXFLAGS:--O2 -g} -fno-lifetime-dse"            &&
+export CXXFLAGS="$CXXFLAGS -fno-lifetime-dse"            &&
 ./configure --prefix=/usr                                \
             --mandir=/usr/share/man                      \
             --enable-http                                \

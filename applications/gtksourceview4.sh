@@ -14,14 +14,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/gtksourceview/4.8/gtksourceview-4.8.1.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtksourceview/4.8/gtksourceview-4.8.1.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/gtksourceview4-4.8.1-buildfix-1.patch
+wget -nc https://download.gnome.org/sources/gtksourceview/4.8/gtksourceview-4.8.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtksourceview/4.8/gtksourceview-4.8.0.tar.xz
 
 
 NAME=gtksourceview4
-VERSION=4.8.1
-URL=https://download.gnome.org/sources/gtksourceview/4.8/gtksourceview-4.8.1.tar.xz
+VERSION=4.8.0
+URL=https://download.gnome.org/sources/gtksourceview/4.8/gtksourceview-4.8.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The GtkSourceView package contains libraries used for extending the GTK+ text functions to include syntax highlighting."
 
@@ -44,7 +43,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../gtksourceview4-4.8.1-buildfix-1.patch
 mkdir build &&
 cd    build &&
 

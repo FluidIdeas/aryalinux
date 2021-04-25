@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.0.tar.xz
+wget -nc http://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.0.tar.xz
 
 
 NAME=ruby
 VERSION=3.0.0
-URL=https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.0.tar.xz
+URL=http://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.0.tar.xz
 SECTION="Programming"
 DESCRIPTION="The Ruby package contains the Ruby development environment. This is useful for object-oriented scripting."
 

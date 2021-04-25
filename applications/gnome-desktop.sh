@@ -20,13 +20,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/gnome-desktop/40/gnome-desktop-40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-desktop/40/gnome-desktop-40.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-desktop/3.38/gnome-desktop-3.38.4.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-desktop/3.38/gnome-desktop-3.38.4.tar.xz
 
 
 NAME=gnome-desktop
-VERSION=40.0
-URL=https://download.gnome.org/sources/gnome-desktop/40/gnome-desktop-40.0.tar.xz
+VERSION=3.38.4
+URL=https://download.gnome.org/sources/gnome-desktop/3.38/gnome-desktop-3.38.4.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Desktop package contains a library that provides an API shared by several applications on the GNOME Desktop."
 

@@ -45,8 +45,6 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make PREFIX=/usr install &&
 
-rm -fv /usr/lib/libgif.a &&
-
 find doc \( -name Makefile\* -o -name \*.1 \
          -o -name \*.xml \) -exec rm -v {} \; &&
 

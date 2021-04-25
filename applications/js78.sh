@@ -15,12 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/firefox/releases/78.10.0esr/source/firefox-78.10.0esr.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/firefox/releases/78.8.0esr/source/firefox-78.8.0esr.source.tar.xz
 
 
 NAME=js78
-VERSION=78.10.0
-URL=https://archive.mozilla.org/pub/firefox/releases/78.10.0esr/source/firefox-78.10.0esr.source.tar.xz
+VERSION=78.8.
+URL=https://archive.mozilla.org/pub/firefox/releases/78.8.0esr/source/firefox-78.8.0esr.source.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="JS is Mozilla's JavaScript engine written in C. JS78 is taken from Firefox."
 
@@ -31,9 +31,7 @@ TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
 	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
 	sudo rm -rf $DIRECTORY
-	set +e
 	tar --no-overwrite-dir -xf $TARBALL
-	set -e
 else
 	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
 	unzip_file $TARBALL $NAME
@@ -53,6 +51,7 @@ fi
 sudo ldconfig
 . /etc/profile.d/rustc.sh
 
+mountpoint -q /dev/shm || mount -t tmpfs devshm /dev/shm
 mkdir obj &&
 cd    obj &&
 
@@ -68,6 +67,14 @@ make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 rm -fv /usr/lib/libmozjs-78.so
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 rm -v /usr/lib/libjs_static.ajs &&
 sed -i '/@NSPR_CFLAGS@/d' /usr/bin/js78-config

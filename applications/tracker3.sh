@@ -20,13 +20,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/tracker/3.1/tracker-3.1.1.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/tracker/3.1/tracker-3.1.1.tar.xz
+wget -nc https://download.gnome.org/sources/tracker/3.0/tracker-3.0.3.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/tracker/3.0/tracker-3.0.3.tar.xz
 
 
 NAME=tracker3
-VERSION=3.1.1
-URL=https://download.gnome.org/sources/tracker/3.1/tracker-3.1.1.tar.xz
+VERSION=3.0.3
+URL=https://download.gnome.org/sources/tracker/3.0/tracker-3.0.3.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Tracker is the file indexing and search provider used in the GNOME desktop environment."
 

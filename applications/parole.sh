@@ -12,17 +12,16 @@ set +h
 #REQ:libxfce4ui
 #REQ:libnotify
 #REQ:taglib
-#REQ:dbus-glib
 
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.xfce.org/src/apps/parole/4.16/parole-4.16.0.tar.bz2
+wget -nc http://archive.xfce.org/src/apps/parole/4.16/parole-4.16.0.tar.bz2
 
 
 NAME=parole
 VERSION=4.16.0
-URL=https://archive.xfce.org/src/apps/parole/4.16/parole-4.16.0.tar.bz2
+URL=http://archive.xfce.org/src/apps/parole/4.16/parole-4.16.0.tar.bz2
 SECTION="Xfce Applications"
 DESCRIPTION="Parole is a DVD/CD/music player for Xfce that uses GStreamer."
 

@@ -7,11 +7,10 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:dbus-glib
 #REQ:glib2
-#REQ:libnotify
 #REQ:gtk2
 #REQ:libcanberra
+#REQ:lua
 
 
 cd $SOURCE_DIR
@@ -44,11 +43,10 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i "s/(python_opt/& + '-embed'/" plugins/python/meson.build
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr -Dwith-libproxy=false -Dwith-lua=false .. &&
+meson --prefix=/usr -Dwith-libproxy=false -Dwith-lua=lua .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

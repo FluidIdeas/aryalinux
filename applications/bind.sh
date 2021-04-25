@@ -14,15 +14,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.isc.org/isc/bind9/9.16.13/bind-9.16.13.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/bind-9.16.13-upstream_fixes-1.patch
+wget -nc ftp://ftp.isc.org/isc/bind9/9.16.11/bind-9.16.11.tar.xz
 
 
 NAME=bind
-VERSION=9.16.13
-URL=ftp://ftp.isc.org/isc/bind9/9.16.13/bind-9.16.13.tar.xz
+VERSION=9.16.11
+URL=ftp://ftp.isc.org/isc/bind9/9.16.11/bind-9.16.11.tar.xz
 SECTION="Major Servers"
-DESCRIPTION="The BIND package provides a DNS server and client utilities. If you are only interested in the utilities, refer to the BIND Utilities-9.16.13."
+DESCRIPTION="The BIND package provides a DNS server and client utilities. If you are only interested in the utilities, refer to the BIND Utilities-9.16.11."
 
 if [ ! -z $URL ]
 then
@@ -52,7 +51,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-patch -Np1 -i ../bind-9.16.13-upstream_fixes-1.patch
+sed -i '851 s/len/(len + 1)/' lib/dns/spnego.c
 ./configure --prefix=/usr           \
             --sysconfdir=/etc       \
             --localstatedir=/var    \

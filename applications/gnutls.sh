@@ -16,13 +16,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/gnutls-3.7.1.tar.xz
-wget -nc ftp://ftp.gnupg.org/gcrypt/gnutls/v3.7/gnutls-3.7.1.tar.xz
+wget -nc https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/gnutls-3.7.0.tar.xz
+wget -nc ftp://ftp.gnupg.org/gcrypt/gnutls/v3.7/gnutls-3.7.0.tar.xz
 
 
 NAME=gnutls
-VERSION=3.7.1
-URL=https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/gnutls-3.7.1.tar.xz
+VERSION=3.7.0
+URL=https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/gnutls-3.7.0.tar.xz
 SECTION="Security"
 DESCRIPTION="The GnuTLS package contains libraries and userspace tools which provide a secure layer over a reliable transport layer. Currently the GnuTLS library implements the proposed standards by the IETF's TLS working group. Quoting from the TLS protocol specification:"
 
@@ -46,9 +46,8 @@ echo $USER > /tmp/currentuser
 
 
 ./configure --prefix=/usr \
-            --docdir=/usr/share/doc/gnutls-3.7.1 \
+            --docdir=/usr/share/doc/gnutls-3.7.0 \
             --disable-guile \
-            --disable-rpath \
             --with-default-trust-store-pkcs11="pkcs11:" &&
 make
 sudo rm -rf /tmp/rootscript.sh

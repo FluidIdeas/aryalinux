@@ -16,12 +16,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.cairographics.org/snapshots/cairo-1.17.4.tar.xz
+wget -nc http://anduin.linuxfromscratch.org/BLFS/cairo/cairo-1.17.2+f93fc72c03e.tar.xz
 
 
 NAME=cairo
-VERSION=1.17.4
-URL=https://www.cairographics.org/snapshots/cairo-1.17.4.tar.xz
+VERSION=1.17.
+URL=http://anduin.linuxfromscratch.org/BLFS/cairo/cairo-1.17.2+f93fc72c03e.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="Cairo is a 2D graphics library with support for multiple output devices. Currently supported output targets include the X Window System, win32, image buffers, PostScript, PDF and SVG. Experimental backends include OpenGL, Quartz and XCB file output. Cairo is designed to produce consistent output on all output media while taking advantage of display hardware acceleration when available (e.g., through the X Render Extension). The Cairo API provides operations similar to the drawing operators of PostScript and PDF. Operations in Cairo include stroking and filling cubic Bézier splines, transforming and compositing translucent images, and antialiased text rendering. All drawing operations can be transformed by any affine transformation (scale, rotation, shear, etc.)."
 
@@ -44,6 +44,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+autoreconf -fv              &&
 ./configure --prefix=/usr    \
             --disable-static \
             --enable-tee &&

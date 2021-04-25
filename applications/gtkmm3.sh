@@ -14,13 +14,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/gtkmm/3.24/gtkmm-3.24.4.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtkmm/3.24/gtkmm-3.24.4.tar.xz
+wget -nc https://download.gnome.org/sources/gtkmm/3.24/gtkmm-3.24.3.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtkmm/3.24/gtkmm-3.24.3.tar.xz
 
 
 NAME=gtkmm3
-VERSION=3.24.4
-URL=https://download.gnome.org/sources/gtkmm/3.24/gtkmm-3.24.4.tar.xz
+VERSION=3.24.3
+URL=https://download.gnome.org/sources/gtkmm/3.24/gtkmm-3.24.3.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The Gtkmm package provides a C++ interface to GTK+ 3."
 
@@ -46,7 +46,9 @@ echo $USER > /tmp/currentuser
 mkdir gtkmm3-build &&
 cd    gtkmm3-build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr \
+      ..           &&
+
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -56,6 +58,8 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

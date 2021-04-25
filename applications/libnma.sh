@@ -7,22 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:gcr
-#REQ:gtk3
-#REQ:iso-codes
-#REQ:networkmanager
 #REQ:mobile-broadband-provider-info
-#REC:vala
 
 
 cd $SOURCE_DIR
 
-wget -nc https://gitlab.gnome.org/GNOME/libnma/-/archive/1.8.30/libnma-1.8.30.tar.bz2
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libnma/1.8/libnma-1.8.28.tar.xz
 
 
 NAME=libnma
-VERSION=1.8.30
-URL=https://gitlab.gnome.org/GNOME/libnma/-/archive/1.8.30/libnma-1.8.30.tar.bz2
+VERSION=1.8.28
+URL=ftp://ftp.gnome.org/pub/gnome/sources/libnma/1.8/libnma-1.8.28.tar.xz
 SECTION="Networking Utilities"
 DESCRIPTION="The libnma package contains an implementation of the NetworkManager GUI functions."
 
@@ -42,11 +37,10 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build &&
-cd    build &&
+mkdir build
+cd build
 
-meson --prefix=/usr                             \
-      -Dgtk_doc=false                        .. &&
+meson --prefix=/usr &&
 ninja
 
 sudo ninja install

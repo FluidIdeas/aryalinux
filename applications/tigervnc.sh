@@ -76,7 +76,7 @@ make &&
 pushd unix/xserver &&
   autoreconf -fiv  &&
 
-  CPPFLAGS="-I/usr/include/drm"       \
+  CFLAGS="$CFLAGS -I/usr/include/drm" \
   ./configure $XORG_CONFIG            \
       --disable-xwayland    --disable-dri        --disable-dmx         \
       --disable-xorg        --disable-xnest      --disable-xvfb        \

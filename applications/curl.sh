@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://curl.haxx.se/download/curl-7.76.0.tar.xz
+wget -nc https://curl.haxx.se/download/curl-7.75.0.tar.xz
 
 
 NAME=curl
-VERSION=7.76.0
-URL=https://curl.haxx.se/download/curl-7.76.0.tar.xz
+VERSION=7.75.0
+URL=https://curl.haxx.se/download/curl-7.75.0.tar.xz
 SECTION="Networking Libraries"
 DESCRIPTION="The cURL package contains an utility and a library used for transferring files with URL syntax to any of the following protocols: FTP, FTPS, HTTP, HTTPS, SCP, SFTP, TFTP, TELNET, DICT, LDAP, LDAPS and FILE. Its ability to both download and upload files can be incorporated into other programs to support functions like streaming media."
 
@@ -54,8 +54,8 @@ rm -rf docs/examples/.deps &&
 
 find docs \( -name Makefile\* -o -name \*.1 -o -name \*.3 \) -exec rm {} \; &&
 
-install -v -d -m755 /usr/share/doc/curl-7.76.0 &&
-cp -v -R docs/*     /usr/share/doc/curl-7.76.0
+install -v -d -m755 /usr/share/doc/curl-7.75.0 &&
+cp -v -R docs/*     /usr/share/doc/curl-7.75.0
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

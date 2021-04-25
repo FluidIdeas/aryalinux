@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://bitbucket.org/mutt/mutt/downloads/mutt-2.0.6.tar.gz
-wget -nc ftp://ftp.mutt.org/pub/mutt/mutt-2.0.6.tar.gz
+wget -nc https://bitbucket.org/mutt/mutt/downloads/mutt-2.0.5.tar.gz
+wget -nc ftp://ftp.mutt.org/pub/mutt/mutt-2.0.5.tar.gz
 
 
 NAME=mutt
-VERSION=2.0.6
-URL=https://bitbucket.org/mutt/mutt/downloads/mutt-2.0.6.tar.gz
+VERSION=2.0.5
+URL=https://bitbucket.org/mutt/mutt/downloads/mutt-2.0.5.tar.gz
 SECTION="Mail/News Clients"
 DESCRIPTION="The Mutt package contains a Mail User Agent. This is useful for reading, writing, replying to, saving, and deleting your email."
 
@@ -64,7 +64,7 @@ sed -i -e 's/ -with_backspaces//' -e 's/elinks/links/' \
   -e 's/-no-numbering -no-references//' doc/Makefile.in
 ./configure --prefix=/usr                           \
             --sysconfdir=/etc                       \
-            --with-docdir=/usr/share/doc/mutt-2.0.6 \
+            --with-docdir=/usr/share/doc/mutt-2.0.5 \
             --with-ssl                              \
             --enable-external-dotlock               \
             --enable-pop                            \
@@ -83,7 +83,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 chown root:mail /usr/bin/mutt_dotlock &&
 chmod -v 2755 /usr/bin/mutt_dotlock
-cat /usr/share/doc/mutt-2.0.6/samples/gpg.rc >> ~/.muttrc
+cat /usr/share/doc/mutt-2.0.5/samples/gpg.rc >> ~/.muttrc
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

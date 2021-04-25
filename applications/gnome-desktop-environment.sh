@@ -61,6 +61,7 @@ set +h
 #REQ:dash-to-panel
 #REQ:dash-to-dock
 #REQ:gnome-session
+#REQ:lightdm
 #REQ:gnome-user-docs
 #REQ:baobab
 #REQ:brasero
@@ -89,14 +90,15 @@ set +h
 #REQ:xdg-user-dirs
 #REQ:gnome-tweaks
 #REQ:pavucontrol
+#REQ:aryalinux-wallpapers
+#REQ:aryalinux-google-fonts
+#REQ:aryalinux-icons
+#REQ:aryalinux-gtk-themes
+#REQ:aryalinux-gnome-settings
 #REQ:plymouth
 #REQ:cups
 #REQ:cups-filters
-#REQ:aryalinux-wallpapers
-#REQ:aryalinux-icons
-#REQ:aryalinux-gtk-themes
-#REQ:aryalinux-google-fonts
-#REQ:aryalinux-gnome-settings
+#REQ:vpn-libs
 
 
 cd $SOURCE_DIR
@@ -104,7 +106,7 @@ cd $SOURCE_DIR
 
 
 NAME=gnome-desktop-environment
-VERSION=40
+VERSION=3.36.0
 
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="GNOME is a free and open-source desktop environment for Unix-like operating systems. GNOME was originally an acronym for GNU Network Object Model Environment, but the acronym was dropped because it no longer reflected the vision of the GNOME project."

@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.osgeo.org/libtiff/tiff-4.2.0.tar.gz
+wget -nc http://download.osgeo.org/libtiff/tiff-4.2.0.tar.gz
 
 
 NAME=libtiff
 VERSION=4.2.0
-URL=https://download.osgeo.org/libtiff/tiff-4.2.0.tar.gz
+URL=http://download.osgeo.org/libtiff/tiff-4.2.0.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The LibTIFF package contains the TIFF libraries and associated utilities. The libraries are used by many programs for reading and writing TIFF files and the utilities are used for general work with TIFF files."
 

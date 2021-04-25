@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.tcpdump.org/release/libpcap-1.10.0.tar.gz
+wget -nc http://www.tcpdump.org/release/libpcap-1.10.0.tar.gz
 
 
 NAME=libpcap
 VERSION=1.10.0
-URL=https://www.tcpdump.org/release/libpcap-1.10.0.tar.gz
+URL=http://www.tcpdump.org/release/libpcap-1.10.0.tar.gz
 SECTION="Networking Libraries"
 DESCRIPTION="libpcap provides functions for user-level packet capture, used in low-level network monitoring."
 

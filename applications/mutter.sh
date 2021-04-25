@@ -31,13 +31,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/mutter/40/mutter-40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/mutter/40/mutter-40.0.tar.xz
+wget -nc https://download.gnome.org/sources/mutter/3.38/mutter-3.38.3.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/mutter/3.38/mutter-3.38.3.tar.xz
 
 
 NAME=mutter
-VERSION=40.0
-URL=https://download.gnome.org/sources/mutter/40/mutter-40.0.tar.xz
+VERSION=3.38.3
+URL=https://download.gnome.org/sources/mutter/3.38/mutter-3.38.3.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Mutter is the window manager for GNOME. It is not invoked directly, but from GNOME Session (on a machine with a hardware accelerated video driver)."
 
@@ -60,7 +60,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i '/libmutter_dep = declare_dependency(/a sources: mutter_built_sources,' src/meson.build
 mkdir build &&
 cd    build &&
 

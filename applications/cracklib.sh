@@ -43,7 +43,6 @@ echo $USER > /tmp/currentuser
 
 sed -i '/skipping/d' util/packer.c &&
 
-PYTHON=python3               \
 ./configure --prefix=/usr    \
             --disable-static \
             --with-default-dict=/lib/cracklib/pw_dict &&

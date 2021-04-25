@@ -42,14 +42,12 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -e 's/^LIBNEWT =/#&/'                   \
+sed -e 's/^LIBNEWT =/#&/' \
     -e '/install -m 644 $(LIBNEWT)/ s/^/#/' \
-    -e 's/$(LIBNEWT)/$(LIBNEWTSONAME)/g'    \
-    -i Makefile.in                          &&
+    -e 's/$(LIBNEWT)/$(LIBNEWTSONAME)/g' \
+    -i Makefile.in                           &&
 
-./configure --prefix=/usr           \
-            --with-gpm-support      \
-            --with-python=python3.9 &&
+./configure --prefix=/usr --with-gpm-support &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

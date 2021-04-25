@@ -62,7 +62,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-url=https://download.kde.org/stable/plasma/5.21.1/
+url=http://download.kde.org/stable/plasma/5.21.1/
 cat > plasma-5.21.1.md5 << "EOF"
 6704f5b7e08ddef06aaae2329c83edd0  kdecoration-5.21.1.tar.xz
 6b7cc3ccf7881ea0d0bde07ead95860c  libkscreen-5.21.1.tar.xz

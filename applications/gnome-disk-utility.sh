@@ -10,7 +10,6 @@ set +h
 #REQ:gnome-settings-daemon
 #REQ:itstool
 #REQ:libdvdread
-#REQ:libhandy1
 #REQ:libpwquality
 #REQ:libsecret
 #REQ:udisks2
@@ -18,13 +17,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/gnome-disk-utility/40/gnome-disk-utility-40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-disk-utility/40/gnome-disk-utility-40.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-disk-utility/3.38/gnome-disk-utility-3.38.2.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-disk-utility/3.38/gnome-disk-utility-3.38.2.tar.xz
 
 
 NAME=gnome-disk-utility
-VERSION=40.0
-URL=https://download.gnome.org/sources/gnome-disk-utility/40/gnome-disk-utility-40.0.tar.xz
+VERSION=3.38.2
+URL=https://download.gnome.org/sources/gnome-disk-utility/3.38/gnome-disk-utility-3.38.2.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Disk Utility package provides applications used for dealing with storage devices."
 

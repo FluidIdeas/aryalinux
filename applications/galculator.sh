@@ -12,7 +12,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://galculator.mnim.org/downloads/galculator-2.1.4.tar.bz2
-wget -nc https://707170.bugs.gentoo.org/attachment.cgi?id=639500 -O galculator-gcc-10-no-common.patch
 
 
 NAME=galculator
@@ -36,7 +35,6 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../galculator-gcc-10-no-common.patch
 ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static &&
 make
 

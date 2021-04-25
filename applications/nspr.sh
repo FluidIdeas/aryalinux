@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/nspr/releases/v4.30/src/nspr-4.30.tar.gz
+wget -nc https://archive.mozilla.org/pub/nspr/releases/v4.29/src/nspr-4.29.tar.gz
 
 
 NAME=nspr
-VERSION=4.30
-URL=https://archive.mozilla.org/pub/nspr/releases/v4.30/src/nspr-4.30.tar.gz
+VERSION=4.29
+URL=https://archive.mozilla.org/pub/nspr/releases/v4.29/src/nspr-4.29.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="Netscape Portable Runtime (NSPR) provides a platform-neutral API for system level and libc like functions."
 

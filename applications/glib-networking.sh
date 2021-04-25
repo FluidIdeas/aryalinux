@@ -15,12 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/glib-networking/2.68/glib-networking-2.68.0.tar.xz
+wget -nc https://download.gnome.org/sources/glib-networking/2.66/glib-networking-2.66.0.tar.xz
 
 
 NAME=glib-networking
-VERSION=2.68.0
-URL=https://download.gnome.org/sources/glib-networking/2.68/glib-networking-2.68.0.tar.xz
+VERSION=2.66.0
+URL=https://download.gnome.org/sources/glib-networking/2.66/glib-networking-2.66.0.tar.xz
 SECTION="Networking Libraries"
 DESCRIPTION="The GLib Networking package contains Network related gio modules for GLib."
 

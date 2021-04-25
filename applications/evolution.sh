@@ -28,13 +28,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/evolution/3.40;/evolution-3.40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/evolution/3.40/evolution-3.40.0.tar.xz
+wget -nc https://download.gnome.org/sources/evolution/3.38/evolution-3.38.4.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/evolution/3.38/evolution-3.38.4.tar.xz
 
 
 NAME=evolution
-VERSION=3.40.0
-URL=https://download.gnome.org/sources/evolution/3.40;/evolution-3.40.0.tar.xz
+VERSION=3.38.4
+URL=https://download.gnome.org/sources/evolution/3.38/evolution-3.38.4.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The Evolution package contains an integrated mail, calendar and address book suite designed for the GNOME environment."
 

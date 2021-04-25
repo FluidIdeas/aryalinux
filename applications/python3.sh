@@ -40,7 +40,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed 's|cpython/||' -i Include/cpython/pystate.h
 CXX="/usr/bin/g++"              \
 ./configure --prefix=/usr       \
             --enable-shared     \

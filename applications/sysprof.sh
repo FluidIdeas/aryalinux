@@ -10,18 +10,17 @@ set +h
 #REQ:gtk3
 #REQ:libdazzle
 #REQ:polkit
-#REQ:json-glib
 
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/sysprof/3.40/sysprof-3.40.1.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/sysprof/3.40/sysprof-3.40.1.tar.xz
+wget -nc https://download.gnome.org/sources/sysprof/3.38/sysprof-3.38.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/sysprof/3.38/sysprof-3.38.1.tar.xz
 
 
 NAME=sysprof
-VERSION=3.40.1
-URL=https://download.gnome.org/sources/sysprof/3.40/sysprof-3.40.1.tar.xz
+VERSION=3.38.1
+URL=https://download.gnome.org/sources/sysprof/3.38/sysprof-3.38.1.tar.xz
 SECTION="Programming"
 DESCRIPTION="The sysprof package contains a statistical and system-wide profiler for Linux."
 

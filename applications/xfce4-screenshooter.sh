@@ -7,7 +7,7 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:exo
+
 
 cd $SOURCE_DIR
 
@@ -35,7 +35,6 @@ fi
 cd $DIRECTORY
 fi
 
-sed -i 's@exo-csource@xdt-csource@g' Makefile.am
 ./autogen.sh --prefix=/usr
 make
 sudo make install

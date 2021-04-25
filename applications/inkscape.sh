@@ -30,7 +30,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://media.inkscape.org/dl/resources/file/inkscape-1.0.2.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/inkscape-1.0.2-glib_2.68-1.patch
 
 
 NAME=inkscape
@@ -58,13 +57,12 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../inkscape-1.0.2-glib_2.68-1.patch &&
-mkdir build                                       &&
-cd    build                                       &&
+mkdir build &&
+cd    build &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr \
       -DCMAKE_BUILD_TYPE=Release  \
-      ..                                          &&
+      ..                          &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

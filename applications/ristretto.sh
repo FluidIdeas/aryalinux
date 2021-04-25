@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.xfce.org/src/apps/ristretto/0.10/ristretto-0.10.0.tar.bz2
+wget -nc http://archive.xfce.org/src/apps/ristretto/0.10/ristretto-0.10.0.tar.bz2
 
 
 NAME=ristretto
 VERSION=0.10.0
-URL=https://archive.xfce.org/src/apps/ristretto/0.10/ristretto-0.10.0.tar.bz2
+URL=http://archive.xfce.org/src/apps/ristretto/0.10/ristretto-0.10.0.tar.bz2
 SECTION="Xfce Applications"
 DESCRIPTION="Ristretto is a fast and lightweight image viewer for the Xfce desktop."
 

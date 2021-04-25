@@ -16,7 +16,6 @@ set +h
 #REQ:libgudev
 #REQ:libsecret
 #REQ:libsoup
-#REQ:libtasn1
 #REQ:libwebp
 #REQ:mesa
 #REQ:openjpeg2
@@ -32,14 +31,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://webkitgtk.org/releases/webkitgtk-2.32.0.tar.xz
+wget -nc https://webkitgtk.org/releases/webkitgtk-2.30.5.tar.xz
 
 
 NAME=webkitgtk
-VERSION=2.32.0
-URL=https://webkitgtk.org/releases/webkitgtk-2.32.0.tar.xz
+VERSION=2.30.5
+URL=https://webkitgtk.org/releases/webkitgtk-2.30.5.tar.xz
 SECTION="X Libraries"
-DESCRIPTION="The WebKitGTK package is a port of the portable web rendering engine WebKit to the GTK+ 3 and GTK+ 2 platforms."
+DESCRIPTION="The WebKitGTK+ package is a port of the portable web rendering engine WebKit to the GTK+ 3 and GTK+ 2 platforms."
 
 if [ ! -z $URL ]
 then
@@ -69,7 +68,6 @@ cmake -DCMAKE_BUILD_TYPE=Release  \
       -DPORT=GTK                  \
       -DLIB_INSTALL_DIR=/usr/lib  \
       -DUSE_LIBHYPHEN=OFF         \
-      -DENABLE_GAMEPAD=OFF        \
       -DENABLE_MINIBROWSER=ON     \
       -DUSE_WOFF2=OFF             \
       -DUSE_WPE_RENDERER=OFF      \
