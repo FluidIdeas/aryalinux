@@ -7,9 +7,12 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:gcr
+#REQ:gtk3
+#REQ:iso-codes
 #REQ:networkmanager
 #REQ:mobile-broadband-provider-info
-#REQ:gtk-doc
+#REC:vala
 
 
 cd $SOURCE_DIR
@@ -39,10 +42,11 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build
-cd build
+mkdir build &&
+cd    build &&
 
-meson --prefix=/usr gtk_doc=false .. &&
+meson --prefix=/usr                             \
+      -Dgtk_doc=false                        .. &&
 ninja
 
 sudo ninja install
