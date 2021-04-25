@@ -35,6 +35,7 @@ fi
 cd $DIRECTORY
 fi
 
+sed -i 's@exo-csource@xdt-csource@g' Makefile.am
 ./autogen.sh --prefix=/usr
 make
 sudo make install
