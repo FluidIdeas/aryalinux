@@ -9,6 +9,7 @@ set +h
 
 #REQ:networkmanager
 #REQ:mobile-broadband-provider-info
+#REQ:gtk-doc
 
 
 cd $SOURCE_DIR
