@@ -41,7 +41,7 @@ fi
 mkdir build
 cd build
 
-meson --prefix=/usr --disable-gtk-doc &&
+meson --prefix=/usr gtk_doc=false &&
 ninja
 
 sudo ninja install
