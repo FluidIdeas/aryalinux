@@ -32,6 +32,7 @@ fi
 make install &&
 install -vdm755 /etc/ssl/local
 /usr/sbin/make-ca -g
+/usr/sbin/make-ca -r
 
 cd $SOURCE_DIR
 if [ "$TARBALL" != "" ]
