@@ -11,12 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/intel/intel-vaapi-driver/releases/download/2.3.0/intel-vaapi-driver-2.3.0.tar.bz2
-
+wget -nc https://github.com/intel/intel-vaapi-driver/releases/download/2.4.1/intel-vaapi-driver-2.4.1.tar.bz2
+wget -nc https://github.com/rpmfusion/libva-intel-driver/commit/5c3490f30f0fe29e5499a2e7dafa7035813fbd65.patch
+wget -nc https://github.com/intel/intel-vaapi-driver/commit/b39e160d3974613328c570f46ecbcbcb70a5101b.patch
 
 NAME=intel-vaapi-driver
-VERSION=2.3.0
-URL=https://github.com/intel/intel-vaapi-driver/releases/download/2.3.0/intel-vaapi-driver-2.3.0.tar.bz2
+VERSION=2.4.1
+URL=https://github.com/intel/intel-vaapi-driver/releases/download/2.4.1/intel-vaapi-driver-2.4.1.tar.bz2
 DESCRIPTION="VA-API (Video Acceleration API) user mode driver for Intel GEN Graphics family."
 
 if [ ! -z $URL ]
@@ -35,6 +36,8 @@ fi
 cd $DIRECTORY
 fi
 
+patch -Np1 -i ../5c3490f30f0fe29e5499a2e7dafa7035813fbd65.patch &&
+patch -Np1 -i ../b39e160d3974613328c570f46ecbcbcb70a5101b.patch &&
 ./configure $XORG_CONFIG &&
 make -j$(nproc)
 sudo make install
