@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/libnma/1.8/libnma-1.8.28.tar.xz
+wget -nc https://gitlab.gnome.org/GNOME/libnma/-/archive/1.8.30/libnma-1.8.30.tar.bz2
 
 
 NAME=libnma
-VERSION=1.8.28
-URL=https://download.gnome.org/sources/libnma/1.8/libnma-1.8.28.tar.xz
+VERSION=1.8.30
+URL=https://gitlab.gnome.org/GNOME/libnma/-/archive/1.8.30/libnma-1.8.30.tar.bz2
 SECTION="Networking Utilities"
 DESCRIPTION="The libnma package contains an implementation of the NetworkManager GUI functions."
 
