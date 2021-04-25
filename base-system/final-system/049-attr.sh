@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=attr-2.5.1.tar.gz
+TARBALL=attr-2.4.48.tar.gz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -23,7 +23,7 @@ cd $DIRECTORY
 ./configure --prefix=/usr     \
             --disable-static  \
             --sysconfdir=/etc \
-            --docdir=/usr/share/doc/attr-2.5.1
+            --docdir=/usr/share/doc/attr-2.4.48
 make
 make install
 mv -v /usr/lib/libattr.so.* /lib

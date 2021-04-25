@@ -32,7 +32,7 @@ cd       build
              --enable-64-bit-bfd \
              --with-system-zlib
 make tooldir=/usr
-make tooldir=/usr install -j1
+make tooldir=/usr install
 rm -fv /usr/lib/lib{bfd,ctf,ctf-nobfd,opcodes}.a
 
 fi

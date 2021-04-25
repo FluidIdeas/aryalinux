@@ -13,14 +13,14 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=bc-3.3.4.tar.xz
+TARBALL=bc-3.3.0.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-CC=gcc ./configure --prefix=/usr -G -O3
+PREFIX=/usr CC=gcc ./configure.sh -G -O3
 make
 make install
 
