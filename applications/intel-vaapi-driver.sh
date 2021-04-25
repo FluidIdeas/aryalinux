@@ -12,7 +12,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://github.com/intel/intel-vaapi-driver/releases/download/2.4.1/intel-vaapi-driver-2.4.1.tar.bz2
-wget -nc https://github.com/intel/intel-vaapi-driver/commit/b39e160d3974613328c570f46ecbcbcb70a5101b.patch
 
 NAME=intel-vaapi-driver
 VERSION=2.4.1
@@ -35,7 +34,6 @@ fi
 cd $DIRECTORY
 fi
 
-patch -Np1 -i ../b39e160d3974613328c570f46ecbcbcb70a5101b.patch &&
 ./configure $XORG_CONFIG &&
 make -j$(nproc)
 sudo make install
