@@ -67,6 +67,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+mkdir -pv ~/.config/gtk-3.0/
 cat > ~/.config/gtk-3.0/gtk.css << "EOF"
 *  {
    -GtkScrollbar-has-backward-stepper: 1;
