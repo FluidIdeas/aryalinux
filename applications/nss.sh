@@ -54,9 +54,7 @@ make -j1 BUILD_OPT=1                  \
   NSS_ENABLE_WERROR=0                 \
   $([ $(uname -m) = x86_64 ] && echo USE_64=1) \
   $([ -f /usr/include/sqlite3.h ] && echo NSS_USE_SYSTEM_SQLITE=1)
-cd tests &&
-HOST=localhost DOMSUF=localdomain ./all.sh &&
-cd ../
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cd ../dist                                                          &&
