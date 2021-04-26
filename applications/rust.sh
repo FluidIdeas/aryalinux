@@ -17,9 +17,10 @@ cd $SOURCE_DIR
 
 wget -nc https://static.rust-lang.org/dist/rustc-1.47.0-src.tar.gz
 
-URL=https://static.rust-lang.org/dist/rustc-1.47.0-src.tar.gz
+
 NAME=rust
 VERSION=1.47.0
+URL=https://static.rust-lang.org/dist/rustc-1.47.0-src.tar.gz
 SECTION="Programming"
 DESCRIPTION="The Rust programming language is designed to be a safe, concurrent, practical language."
 
@@ -39,8 +40,18 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir -pv /opt/rustc-1.47.0             &&
+echo $USER > /tmp/currentuser
+
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+mkdir /opt/rustc-1.47.0             &&
 ln -svfin rustc-1.47.0 /opt/rustc
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 cat << EOF > config.toml
 # see config.toml.example for more possible options
@@ -84,14 +95,11 @@ llvm-config = "/usr/bin/llvm-config"
 
 
 EOF
-
 export RUSTFLAGS="$RUSTFLAGS -C link-args=-lffi" &&
 python3 ./x.py build --exclude src/tools/miri
-
 export LIBSSH2_SYS_USE_PKG_CONFIG=1 &&
 DESTDIR=${PWD}/install python3 ./x.py install &&
 unset LIBSSH2_SYS_USE_PKG_CONFIG
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 chown -R root:root install &&
@@ -102,7 +110,9 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sudo tee -a /etc/ld.so.conf << EOF
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+cat >> /etc/ld.so.conf << EOF
 # Begin rustc addition
 
 /opt/rustc/lib
@@ -110,16 +120,41 @@ sudo tee -a /etc/ld.so.conf << EOF
 # End rustc addition
 EOF
 
-sudo ldconfig
+ldconfig
+ENDOFROOTSCRIPT
 
-sudo tee /etc/profile.d/rustc.sh << "EOF"
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+cat > /etc/profile.d/rustc.sh << "EOF"
 # Begin /etc/profile.d/rustc.sh
 
 pathprepend /opt/rustc/bin           PATH
 
 # End /etc/profile.d/rustc.sh
 EOF
+ENDOFROOTSCRIPT
 
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+source /etc/profile.d/rustc.sh
+
+
+cat > /tmp/clearcargo.sh <<EOF
+if [ -d $HOME/.cargo ]; then
+	rm -rf $HOME/.cargo
+fi
+EOF
+chmod a+x /tmp/clearcargo.sh
+/tmp/clearcargo.sh
+sed -i "s@$HOME@/root@g" /tmp/clearcargo.sh
+sudo /tmp/clearcargo.sh
+sudo rm -f /tmp/clearcargo.sh
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
