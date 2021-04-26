@@ -15,11 +15,11 @@ set +h
 
 cd $SOURCE_DIR
 
+wget -nc https://static.rust-lang.org/dist/rustc-1.47.0-src.tar.gz
 
-
+URL=https://static.rust-lang.org/dist/rustc-1.47.0-src.tar.gz
 NAME=rust
-VERSION=1.37.0
-
+VERSION=1.47.0
 SECTION="Programming"
 DESCRIPTION="The Rust programming language is designed to be a safe, concurrent, practical language."
 
@@ -39,9 +39,68 @@ fi
 cd $DIRECTORY
 fi
 
-wget -nc http://aryalinux.info/files/2.4/rust-1.37.0-x86_64.tar.gz
+mkdir -pv /opt/rustc-1.47.0             &&
+ln -svfin rustc-1.47.0 /opt/rustc
 
-sudo tar xf rust-1.37.0-x86_64.tar.gz -C /
+cat << EOF > config.toml
+# see config.toml.example for more possible options
+# See the 8.4 book for an example using shipped LLVM
+# e.g. if not installing clang, or using a version before 10.0
+[llvm]
+# by default, rust will build for a myriad of architectures
+targets = "X86"
+
+# When using system llvm prefer shared libraries
+link-shared = true
+
+[build]
+# omit docs to save time and space (default is to build them)
+docs = false
+
+# install cargo as well as rust
+extended = true
+
+[install]
+prefix = "/opt/rustc-1.47.0"
+docdir = "share/doc/rustc-1.47.0"
+
+[rust]
+channel = "stable"
+rpath = false
+
+# BLFS does not install the FileCheck executable from llvm,
+# so disable codegen tests
+codegen-tests = false
+
+[target.x86_64-unknown-linux-gnu]
+# NB the output of llvm-config (i.e. help options) may be
+# dumped to the screen when config.toml is parsed.
+llvm-config = "/usr/bin/llvm-config"
+
+[target.i686-unknown-linux-gnu]
+# NB the output of llvm-config (i.e. help options) may be
+# dumped to the screen when config.toml is parsed.
+llvm-config = "/usr/bin/llvm-config"
+
+
+EOF
+
+export RUSTFLAGS="$RUSTFLAGS -C link-args=-lffi" &&
+python3 ./x.py build --exclude src/tools/miri
+
+export LIBSSH2_SYS_USE_PKG_CONFIG=1 &&
+DESTDIR=${PWD}/install python3 ./x.py install &&
+unset LIBSSH2_SYS_USE_PKG_CONFIG
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+chown -R root:root install &&
+cp -a install/* /
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 sudo tee -a /etc/ld.so.conf << EOF
 # Begin rustc addition
