@@ -11,7 +11,7 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://sourceforge.net/projects/aryalinux/files/releases/4.0/aryalinux-google-fonts-4.0.tar.xz
+wget -nc https://sourceforge.net/projects/aryalinux/files/releases/4.0/aryalinux-google-fonts.tar.xz
 
 
 NAME=aryalinux-google-fonts
@@ -35,7 +35,7 @@ fi
 cd $DIRECTORY
 fi
 
-sudo tar xf aryalinux-google-fonts-4.0.tar.xz -C /
+sudo tar xf aryalinux-google-fonts.tar.xz -C /
 sudo chown -R root:root /usr/share/fonts/aryalinux-google-fonts
 
 
