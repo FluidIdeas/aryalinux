@@ -53,7 +53,7 @@ echo $USER > /tmp/currentuser
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-rm -v /etc/xdg/autostart/tracker-miner-*
+rm -fv /etc/xdg/autostart/tracker-miner-*
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
