@@ -51,6 +51,7 @@ fi
 
 echo $USER > /tmp/currentuser
 
+sudo rm -r /var/lock
 
 echo "^samba4.rpc.echo.*on.*ncacn_np.*with.*object.*nt4_dc" >> selftest/knownfail
 CFLAGS="-I/usr/include/tirpc"          \
