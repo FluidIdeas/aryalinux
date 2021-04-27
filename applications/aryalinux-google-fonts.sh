@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://aryalinux.info/files/aryalinux-google-fonts.tar.xz
+wget -nc https://sourceforge.net/projects/aryalinux/files/releases/4.0/aryalinux-google-fonts-4.0.tar.xz
 
 
 NAME=aryalinux-google-fonts
-VERSION=1.4
+VERSION=4.0
 
 DESCRIPTION="Collection of TTF fonts, sourced from Google for AryaLinux"
 
@@ -35,7 +35,7 @@ fi
 cd $DIRECTORY
 fi
 
-sudo tar xf aryalinux-google-fonts.tar.xz -C /
+sudo tar xf aryalinux-google-fonts-4.0.tar.xz -C /
 sudo chown -R root:root /usr/share/fonts/aryalinux-google-fonts
 
 
