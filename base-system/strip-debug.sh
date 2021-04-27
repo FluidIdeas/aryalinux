@@ -12,16 +12,16 @@ mkdir -pv $LFS
 
 mount $ROOT_PART $LFS
 
-cat > $LFS/tools/bin/stripdebug <<"EOF"
+cat > $LFS/usr/bin/stripdebug <<"EOF"
 
-/tools/bin/find /usr/lib -type f -name \*.a \
--exec /tools/bin/strip --strip-debug {} ';'
+/bin/find /usr/lib -type f -name \*.a \
+-exec /usr/bin/strip --strip-debug {} ';'
 
-/tools/bin/find /lib /usr/lib -type f -name \*.so* \
--exec /tools/bin/strip --strip-unneeded {} ';'
+/bin/find /lib /usr/lib -type f -name \*.so* \
+-exec /usr/bin/strip --strip-unneeded {} ';'
 
-/tools/bin/find /{bin,sbin} /usr/{bin,sbin,libexec} -type f \
--exec /tools/bin/strip --strip-all {} ';'
+/bin/find /{bin,sbin} /usr/{bin,sbin,libexec} -type f \
+-exec /usr/bin/strip --strip-all {} ';'
 
 DIRS="/opt/x-server
 /opt/gnome
@@ -33,27 +33,27 @@ DIRS="/opt/x-server
 for DIR in $DIRS; do
 	if [ -d $DIR ]; then
 		echo "Stripping $DIR..."
-		/tools/bin/find $DIR/usr/lib -type f -name \*.a \
-		-exec /tools/bin/strip --strip-debug {} ';'
+		/bin/find $DIR/usr/lib -type f -name \*.a \
+		-exec /usr/bin/strip --strip-debug {} ';'
 
-		/tools/bin/find $DIR/lib $DIR/usr/lib -type f -name \*.so* \
-		-exec /tools/bin/strip --strip-unneeded {} ';'
+		/bin/find $DIR/lib $DIR/usr/lib -type f -name \*.so* \
+		-exec /usr/bin/strip --strip-unneeded {} ';'
 
-		/tools/bin/find $DIR/{bin,sbin} $DIR/usr/{bin,sbin,libexec} -type f \
-		-exec /tools/bin/strip --strip-all {} ';'
+		/bin/find $DIR/{bin,sbin} $DIR/usr/{bin,sbin,libexec} -type f \
+		-exec /usr/bin/strip --strip-all {} ';'
 	fi
 done
 
 EOF
 
-chmod a+x $LFS/tools/bin/stripdebug
+chmod a+x $LFS/usr/bin/stripdebug
 
 chroot $LFS /usr/bin/env -i            \
 HOME=/root TERM=$TERM PS1='\u:\w\$ ' \
 PATH=/bin:/usr/bin:/sbin:/usr/sbin   \
-/bin/bash --login /tools/bin/stripdebug
+/bin/bash --login /usr/bin/stripdebug
 
-rm $LFS/tools/bin/stripdebug
+rm $LFS/usr/bin/stripdebug
 
 mount -v --bind /dev $LFS/dev
 
