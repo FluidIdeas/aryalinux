@@ -48,7 +48,7 @@ EOF
 
 chmod a+x $LFS/tools/bin/stripdebug
 
-chroot $LFS /tools/bin/env -i            \
+chroot $LFS /usr/bin/env -i            \
 HOME=/root TERM=$TERM PS1='\u:\w\$ ' \
 PATH=/bin:/usr/bin:/sbin:/usr/sbin   \
 /tools/bin/bash --login /tools/bin/stripdebug
