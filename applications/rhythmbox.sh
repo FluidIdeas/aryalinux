@@ -30,12 +30,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/rhythmbox/3.4/rhythmbox-3.4.3.tar.xz
+wget -nc https://download-fallback.gnome.org/sources/rhythmbox/3.4/rhythmbox-3.4.4.tar.xz
 
 
 NAME=rhythmbox
-VERSION=3.4.3
-URL=https://download.gnome.org/sources/rhythmbox/3.4/rhythmbox-3.4.3.tar.xz
+VERSION=3.4.4
+URL=https://download-fallback.gnome.org/sources/rhythmbox/3.4/rhythmbox-3.4.4.tar.xz
 SECTION="Audio Utilities"
 DESCRIPTION="Rhythmbox is a free and open-source audio player that plays and organizes digital audio files. Rhythmbox is designed to work well under the GNOME desktop, however it can function on many desktop environments."
 

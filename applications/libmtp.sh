@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://sourceforge.net/projects/libmtp/files/libmtp/1.1.16/libmtp-1.1.16.tar.gz
+wget -nc https://github.com/libmtp/libmtp/releases/download/libmtp-1-1-18/libmtp-1.1.18.tar.gz
 
 
 NAME=libmtp
-VERSION=1.1.16
-URL=https://sourceforge.net/projects/libmtp/files/libmtp/1.1.16/libmtp-1.1.16.tar.gz
+VERSION=1.1.18
+URL=https://github.com/libmtp/libmtp/releases/download/libmtp-1-1-18/libmtp-1.1.18.tar.gz
 DESCRIPTION="A library to access MTP (Media Transfer Protocol) Devices."
 
 if [ ! -z $URL ]

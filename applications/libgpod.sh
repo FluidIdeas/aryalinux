@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://sourceforge.net/projects/gtkpod/files/libgpod/libgpod-0.8/libgpod-0.8.2.tar.bz2
+wget -nc https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/libgpod/0.8.3-16/libgpod_0.8.3.orig.tar.bz2
 
 
 NAME=libgpod
-VERSION=0.8.2
-URL=https://sourceforge.net/projects/gtkpod/files/libgpod/libgpod-0.8/libgpod-0.8.2.tar.bz2
+VERSION=0.8.3
+URL=https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/libgpod/0.8.3-16/libgpod_0.8.3.orig.tar.bz2
 DESCRIPTION="libgpod is a shared library to access the contents of an iPod. This library is based on code used in the gtkpod project."
 
 if [ ! -z $URL ]
