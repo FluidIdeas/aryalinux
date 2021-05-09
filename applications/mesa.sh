@@ -61,27 +61,14 @@ mkdir build &&
 cd    build &&
 
 meson --prefix=$XORG_PREFIX          \
-      --sysconfdir=/etc              \
-      -Dllvm=true                    \
-      -Dshared-llvm=true             \
-      -Degl=true                     \
-      -Dshared-glapi=true            \
-      -Dgallium-xa=true              \
-      -Dgallium-nine=true            \
-      -Dgallium-vdpau=true           \
-      -Dgallium-va=true              \
-      -Ddri3=true                    \
-      -Dglx=dri                      \
-      -Dosmesa=gallium               \
-      -Dgbm=true                     \
-      -Dglx-direct=true              \
-      -Dgles1=true                   \
-      -Dgles2=true                   \
-      -Dvalgrind=false               \
+      -Dbuildtype=release            \
       -Ddri-drivers=auto             \
       -Dgallium-drivers=auto         \
-      -Dplatforms=auto               \
-      -Dvulkan-drivers=auto          \
+      -Dgallium-nine=false           \
+      -Dglx=dri                      \
+      -Dosmesa=gallium               \
+      -Dvalgrind=false               \
+      -Dlibunwind=false              \
       ..                             &&
 
 unset GALLIUM_DRIVERS DRI_DRIVERS EGL_PLATFORMS &&
