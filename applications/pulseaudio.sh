@@ -46,6 +46,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed '/doxygen/d' -i meson.build
 mkdir build &&
 cd    build &&
 

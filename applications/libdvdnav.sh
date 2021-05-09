@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://get.videolan.org/libdvdnav/6.1.0/libdvdnav-6.1.0.tar.bz2
+wget -nc https://get.videolan.org/libdvdnav/6.1.1/libdvdnav-6.1.1.tar.bz2
 
 
 NAME=libdvdnav
-VERSION=6.1.0
-URL=https://get.videolan.org/libdvdnav/6.1.0/libdvdnav-6.1.0.tar.bz2
+VERSION=6.1.1
+URL=https://get.videolan.org/libdvdnav/6.1.1/libdvdnav-6.1.1.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="libdvdnav is a library that allows easy use of sophisticated DVD navigation features such as DVD menus, multiangle playback and even interactive DVD games."
 
@@ -42,7 +42,7 @@ echo $USER > /tmp/currentuser
 
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/libdvdnav-6.1.0 &&
+            --docdir=/usr/share/doc/libdvdnav-6.1.1 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

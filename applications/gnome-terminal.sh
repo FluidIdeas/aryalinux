@@ -13,19 +13,18 @@ set +h
 #REQ:itstool
 #REQ:pcre2
 #REQ:vte
-#REQ:gnome-shell
 #REQ:nautilus
 
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/gnome-terminal/3.38/gnome-terminal-3.38.3.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-terminal/3.38/gnome-terminal-3.38.3.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-terminal/3.40/gnome-terminal-3.40.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-terminal/3.40/gnome-terminal-3.40.0.tar.xz
 
 
 NAME=gnome-terminal
-VERSION=3.38.3
-URL=https://download.gnome.org/sources/gnome-terminal/3.38/gnome-terminal-3.38.3.tar.xz
+VERSION=3.40.0
+URL=https://download.gnome.org/sources/gnome-terminal/3.40/gnome-terminal-3.40.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Terminal package contains the terminal emulator for GNOME Desktop."
 

@@ -17,12 +17,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.mupdf.com/downloads/archive/mupdf-1.18.0-source.tar.gz
+wget -nc https://www.mupdf.com/downloads/archive/mupdf-1.18.0-source.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/mupdf-1.18.0-security_fix-1.patch
 
 
 NAME=mupdf
 VERSION=1.18.
-URL=http://www.mupdf.com/downloads/archive/mupdf-1.18.0-source.tar.gz
+URL=https://www.mupdf.com/downloads/archive/mupdf-1.18.0-source.tar.gz
 SECTION="PostScript"
 DESCRIPTION="MuPDF is a lightweight PDF and XPS viewer."
 
@@ -65,8 +66,9 @@ USE_SYSTEM_CURL := yes
 USE_SYSTEM_GUMBO := no
 EOF
 
-export XCFLAGS=-fPIC          &&
-make build=release shared=yes &&
+export XCFLAGS=-fPIC                               &&
+patch -Np1 -i ../mupdf-1.18.0-security_fix-1.patch &&
+make build=release shared=yes                      &&
 unset XCFLAGS
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

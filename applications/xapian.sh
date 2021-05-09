@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://oligarchy.co.uk/xapian/1.4.18/xapian-core-1.4.18.tar.xz
+wget -nc https://oligarchy.co.uk/xapian/1.4.18/xapian-core-1.4.18.tar.xz
 
 
 NAME=xapian
 VERSION=1.4.18
-URL=http://oligarchy.co.uk/xapian/1.4.18/xapian-core-1.4.18.tar.xz
+URL=https://oligarchy.co.uk/xapian/1.4.18/xapian-core-1.4.18.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="Xapian is an open source search engine library."
 

@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/jinfeihan57/p7zip/archive/v17.03/p7zip-17.03.tar.gz
+wget -nc https://github.com/jinfeihan57/p7zip/archive/v17.04/p7zip-17.04.tar.gz
 
 
 NAME=p7zip
-VERSION=17.03
-URL=https://github.com/jinfeihan57/p7zip/archive/v17.03/p7zip-17.03.tar.gz
+VERSION=17.04
+URL=https://github.com/jinfeihan57/p7zip/archive/v17.04/p7zip-17.04.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="p7zip is the Unix command-line port of 7-Zip, a file archiver that archives with high compression ratios. It handles 7z, ZIP, GZIP, Brotli, BZIP2, XZ, TAR, APM, ARJ, CAB, CHM, CPIO, CramFS, DEB, DMG, FAT, HFS, ISO, Lizard, LZ5, LZFSE, LZH, LZMA, LZMA2, MBR, MSI, MSLZ, NSIS, NTFS, RAR, RPM, SquashFS, UDF, VHD, WIM, XAR, Z, and Zstd formats."
 
@@ -40,12 +40,13 @@ echo $USER > /tmp/currentuser
 
 
 sed '/^gzip/d' -i install.sh
+sed -i '160a if(_buffer == nullptr || _size == _pos) return E_FAIL;' CPP/7zip/Common/StreamObjects.cpp
 make all3
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make DEST_HOME=/usr \
      DEST_MAN=/usr/share/man \
-     DEST_SHARE_DOC=/usr/share/doc/p7zip-17.03 install
+     DEST_SHARE_DOC=/usr/share/doc/p7zip-17.04 install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

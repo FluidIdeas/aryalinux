@@ -16,14 +16,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/pidgin/pidgin-2.14.1.tar.bz2
+wget -nc https://downloads.sourceforge.net/pidgin/pidgin-2.14.3.tar.bz2
 
 
 NAME=pidgin
-VERSION=2.14.1
-URL=https://downloads.sourceforge.net/pidgin/pidgin-2.14.1.tar.bz2
+VERSION=2.14.3
+URL=https://downloads.sourceforge.net/pidgin/pidgin-2.14.3.tar.bz2
 SECTION="Other X-based Programs"
-DESCRIPTION="Pidgin is a Gtk+ 2 instant messaging client that can connect with a wide range of networks including AIM, ICQ, GroupWise, MSN, Jabber, IRC, Napster, Gadu-Gadu, SILC, Zephyr and Yahoo!"
+DESCRIPTION="Pidgin is a Gtk+ 2 instant messaging client that can connect with a wide range of networks including Bonjour, ICQ, GroupWise, Jabber/XMPP, IRC, Gadu-Gadu, SILC, SIMPLE, and Zephyr."
 
 if [ ! -z $URL ]
 then
@@ -44,6 +44,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -i '/srunner_add_suite(sr, oscar_util_suite());/d' libpurple/tests/check_libpurple.c
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \
             --disable-gstreamer  \
@@ -58,8 +59,8 @@ make docs
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-mkdir -pv /usr/share/doc/pidgin-2.14.1 &&
-cp -v README doc/gtkrc-2.0 /usr/share/doc/pidgin-2.14.1
+mkdir -pv /usr/share/doc/pidgin-2.14.3 &&
+cp -v README doc/gtkrc-2.0 /usr/share/doc/pidgin-2.14.3
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -68,8 +69,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir -pv /usr/share/doc/pidgin-2.14.1/api &&
-cp -v doc/html/* /usr/share/doc/pidgin-2.14.1/api
+mkdir -pv /usr/share/doc/pidgin-2.14.3/api &&
+cp -v doc/html/* /usr/share/doc/pidgin-2.14.3/api
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

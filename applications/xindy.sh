@@ -14,7 +14,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://tug.ctan.org/support/xindy/base/xindy-2.5.1.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/xindy-2.5.1-upstream_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/xindy-2.5.1-upstream_fixes-2.patch
 
 
 NAME=xindy
@@ -48,14 +48,14 @@ sed -i "s/ grep -v '^;'/ awk NF/" make-rules/inputenc/Makefile.in &&
 
 sed -i 's%\(indexentry\)%\1\\%' make-rules/inputenc/make-inp-rules.pl &&
 
-patch -Np1 -i ../xindy-2.5.1-upstream_fixes-1.patch &&
+patch -Np1 -i ../xindy-2.5.1-upstream_fixes-2.patch &&
 
-./configure --prefix=/opt/texlive/2020              \
-            --bindir=/opt/texlive/2020/bin/$TEXARCH \
-            --datarootdir=/opt/texlive/2020         \
+./configure --prefix=/opt/texlive/2021              \
+            --bindir=/opt/texlive/2021/bin/$TEXARCH \
+            --datarootdir=/opt/texlive/2021         \
             --includedir=/usr/include               \
-            --libdir=/opt/texlive/2020/texmf-dist   \
-            --mandir=/opt/texlive/2020/texmf-dist/doc/man &&
+            --libdir=/opt/texlive/2021/texmf-dist   \
+            --mandir=/opt/texlive/2021/texmf-dist/doc/man &&
 
 make LC_ALL=POSIX
 sudo rm -rf /tmp/rootscript.sh

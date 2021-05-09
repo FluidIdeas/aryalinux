@@ -17,13 +17,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/gnome-session/3.38/gnome-session-3.38.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-session/3.38/gnome-session-3.38.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-session/40/gnome-session-40.1.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-session/40/gnome-session-40.1.1.tar.xz
 
 
 NAME=gnome-session
-VERSION=3.38.0
-URL=https://download.gnome.org/sources/gnome-session/3.38/gnome-session-3.38.0.tar.xz
+VERSION=40.1.1
+URL=https://download.gnome.org/sources/gnome-session/40/gnome-session-40.1.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Session package contains the GNOME session manager."
 
@@ -47,7 +47,6 @@ echo $USER > /tmp/currentuser
 
 
 sed 's@/bin/sh@/bin/sh -l@' -i gnome-session/gnome-session.in
-echo 'Slice=-.slice' >> data/gnome-session-restart-dbus.service.in
 mkdir build &&
 cd    build &&
 
@@ -56,6 +55,15 @@ ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+mv -v /usr/share/doc/gnome-session{,-40.1.1}
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

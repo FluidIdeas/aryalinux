@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=Python-3.9.2.tar.xz
+TARBALL=Python-3.9.4.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -27,13 +27,13 @@ cd $DIRECTORY
             --with-ensurepip=yes
 make
 make install
-install -v -dm755 /usr/share/doc/python-3.9.2/html 
+install -v -dm755 /usr/share/doc/python-3.9.4/html 
 
 tar --strip-components=1  \
     --no-same-owner       \
     --no-same-permissions \
-    -C /usr/share/doc/python-3.9.2/html \
-    -xvf ../python-3.9.2-docs-html.tar.bz2
+    -C /usr/share/doc/python-3.9.4/html \
+    -xvf ../python-3.9.4-docs-html.tar.bz2
 
 fi
 

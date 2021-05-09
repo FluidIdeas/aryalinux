@@ -43,6 +43,7 @@ echo $USER > /tmp/currentuser
 
 sed -i '/skipping/d' util/packer.c &&
 
+PYTHON=python3 CPPFLAGS=-I/usr/include/python3.9 \
 ./configure --prefix=/usr    \
             --disable-static \
             --with-default-dict=/lib/cracklib/pw_dict &&

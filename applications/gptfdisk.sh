@@ -12,13 +12,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.6.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/gptfdisk-1.0.6-convenience-1.patch
+wget -nc https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.7.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/gptfdisk-1.0.7-convenience-1.patch
 
 
 NAME=gptfdisk
-VERSION=1.0.6
-URL=https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.6.tar.gz
+VERSION=1.0.7
+URL=https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.7.tar.gz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The gptfdisk package is a set of programs for creation and maintenance of GUID Partition Table (GPT) disk drives. A GPT partitioned disk is required for drives greater than 2 TB and is a modern replacement for legacy PC-BIOS partitioned disk drives that use a Master Boot Record (MBR). The main program, gdisk, has an inteface similar to the classic fdisk program."
 
@@ -41,7 +41,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../gptfdisk-1.0.6-convenience-1.patch &&
+patch -Np1 -i ../gptfdisk-1.0.7-convenience-1.patch &&
 sed -i 's|ncursesw/||' gptcurses.cc &&
 
 make

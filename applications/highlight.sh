@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.andre-simon.de/zip/highlight-3.62.tar.bz2
+wget -nc http://www.andre-simon.de/zip/highlight-4.0.tar.bz2
 
 
 NAME=highlight
-VERSION=3.62
-URL=http://www.andre-simon.de/zip/highlight-3.62.tar.bz2
+VERSION=4.0
+URL=http://www.andre-simon.de/zip/highlight-4.0.tar.bz2
 SECTION="General Utilities"
 DESCRIPTION="Highlight is an utility that converts source code to formatted text with syntax highlighting."
 
@@ -43,10 +43,10 @@ echo $USER > /tmp/currentuser
 
 sed -i '/GZIP/s/^/#/' makefile
 make
-make doc_dir=/usr/share/doc/highlight-3.62/ gui
+make doc_dir=/usr/share/doc/highlight-4.0/ gui
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make doc_dir=/usr/share/doc/highlight-3.62/ install
+make doc_dir=/usr/share/doc/highlight-4.0/ install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

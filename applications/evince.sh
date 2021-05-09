@@ -11,6 +11,7 @@ set +h
 #REQ:gsettings-desktop-schemas
 #REQ:gtk3
 #REQ:itstool
+#REQ:libhandy1
 #REQ:libxml2
 #REQ:openjpeg2
 #REQ:gnome-keyring
@@ -23,13 +24,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/evince/3.38/evince-3.38.2.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/evince/3.38/evince-3.38.2.tar.xz
+wget -nc https://download.gnome.org/sources/evince/40/evince-40.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/evince/40/evince-40.1.tar.xz
 
 
 NAME=evince
-VERSION=3.38.2
-URL=https://download.gnome.org/sources/evince/3.38/evince-3.38.2.tar.xz
+VERSION=40.1
+URL=https://download.gnome.org/sources/evince/40/evince-40.1.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="Evince is a document viewer for multiple document formats. It supports PDF, Postscript, DjVu, TIFF and DVI. It is useful for viewing documents of various types using one simple application instead of the multiple document viewers that once existed on the GNOME Desktop."
 
@@ -52,9 +53,8 @@ fi
 echo $USER > /tmp/currentuser
 
 
-export CFLAGS="$CFLAGS -I/opt/texlive/2020/include" &&
-export CXXFLAGS="$CXXFLAGS -I/opt/texlive/2020/include" &&
-export LDFLAGS="$LDFLAGS -L/opt/texlive/2020/lib"
+export CPPFLAGS="-I/opt/texlive/2021/include" &&
+export LDFLAGS="$LDFLAGS -L/opt/texlive/2021/lib"
 mkdir build &&
 cd    build &&
 

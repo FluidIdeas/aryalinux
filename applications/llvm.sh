@@ -62,7 +62,11 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr               \
       -DLLVM_BINUTILS_INCDIR=/usr/include       \
       -Wno-dev -G Ninja ..                      &&
 ninja
-
+cmake -DLLVM_BUILD_DOCS=ON            \
+      -DLLVM_ENABLE_SPHINX=ON         \
+      -DSPHINX_WARNINGS_AS_ERRORS=OFF \
+      -Wno-dev -G Ninja ..            &&
+ninja docs-llvm-html  docs-llvm-man
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install

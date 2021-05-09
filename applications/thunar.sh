@@ -16,12 +16,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/thunar/4.16/thunar-4.16.3.tar.bz2
+wget -nc https://archive.xfce.org/src/xfce/thunar/4.16/thunar-4.16.8.tar.bz2
 
 
 NAME=thunar
-VERSION=4.16.3
-URL=http://archive.xfce.org/src/xfce/thunar/4.16/thunar-4.16.3.tar.bz2
+VERSION=4.16.8
+URL=https://archive.xfce.org/src/xfce/thunar/4.16/thunar-4.16.8.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="Thunar is the Xfce file manager, a GTK+ 3 GUI to organise the files on your computer."
 
@@ -46,7 +46,7 @@ echo $USER > /tmp/currentuser
 
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
-            --docdir=/usr/share/doc/Thunar-4.16.3 &&
+            --docdir=/usr/share/doc/Thunar-4.16.8 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

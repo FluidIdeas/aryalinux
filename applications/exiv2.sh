@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.exiv2.org/builds/exiv2-0.27.3-Source.tar.gz
+wget -nc https://www.exiv2.org/builds/exiv2-0.27.3-Source.tar.gz
 
 
 NAME=exiv2
 VERSION=0.27.
-URL=http://www.exiv2.org/builds/exiv2-0.27.3-Source.tar.gz
+URL=https://www.exiv2.org/builds/exiv2-0.27.3-Source.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="Exiv2 is a C++ library and a command line utility for managing image and video metadata."
 

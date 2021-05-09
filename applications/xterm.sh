@@ -8,15 +8,17 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:x7app
+#REQ:dejavu-fonts
+
 
 cd $SOURCE_DIR
 
-wget -nc http://invisible-mirror.net/archives/xterm/xterm-366.tgz
-wget -c "https://fonts.google.com/download?family=Fira%20Mono" -O FiraMono.zip
+wget -nc https://invisible-mirror.net/archives/xterm/xterm-367.tgz
+
 
 NAME=xterm
-VERSION=366
-URL=http://invisible-mirror.net/archives/xterm/xterm-366.tgz
+VERSION=367
+URL=https://invisible-mirror.net/archives/xterm/xterm-367.tgz
 SECTION="X Window System Environment"
 DESCRIPTION="xterm is a terminal emulator for the X Window System."
 
@@ -55,9 +57,6 @@ make install-ti &&
 
 mkdir -pv /usr/share/applications &&
 cp -v *.desktop /usr/share/applications/
-
-mkdir -pv /usr/share/fonts/google-fonts
-unzip ../FiraMono.zip -d /usr/share/fonts/google-fonts
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -68,7 +67,7 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat >> /etc/X11/app-defaults/XTerm << "EOF"
 *VT100*locale: true
-*VT100*faceName: Fira Mono
+*VT100*faceName: Monospace
 *VT100*faceSize: 10
 *backarrowKeyIsErase: true
 *ptyInitialErase: true

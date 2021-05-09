@@ -18,13 +18,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/vte/0.62/vte-0.62.3.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/vte/0.62/vte-0.62.3.tar.xz
+wget -nc https://gitlab.gnome.org/GNOME/vte/-/archive/0.64.0/vte-0.64.0.tar.gz
 
 
 NAME=vte
-VERSION=0.62.3
-URL=https://download.gnome.org/sources/vte/0.62/vte-0.62.3.tar.xz
+VERSION=0.64.0
+URL=https://gitlab.gnome.org/GNOME/vte/-/archive/0.64.0/vte-0.64.0.tar.gz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The VTE package contains a termcap file implementation for terminal emulators."
 

@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:clutter
 #REQ:clutter-gtk
 #REQ:gtk3
 #REQ:libsoup

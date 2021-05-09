@@ -16,12 +16,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.18.3.tar.xz
+wget -nc https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.18.4.tar.xz
 
 
 NAME=gstreamer10-vaapi
-VERSION=1.18.3
-URL=https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.18.3.tar.xz
+VERSION=1.18.4
+URL=https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.18.4.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The gstreamer-vaapi package contains a gstreamer plugin for hardware accelerated video decode/encode for the prevailing coding standards today (MPEG-2, MPEG-4 ASP/H.263, MPEG-4 AVC/H.264, and VC-1/VMW3)."
 
@@ -49,7 +49,7 @@ cd    build &&
 
 meson  --prefix=/usr       \
        -Dbuildtype=release \
-       -Dpackage-origin=http://www.linuxfromscratch.org/blfs/view/svn/ &&
+       -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/svn/ &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

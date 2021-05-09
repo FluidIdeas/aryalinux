@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://github.com/unicode-org/icu/releases/download/release-68-2/icu4c-68_2-src.tgz
+wget -nc https://github.com/unicode-org/icu/releases/download/release-69-1/icu4c-69_1-src.tgz
 
 
 NAME=icu
 VERSION=6
-URL=http://github.com/unicode-org/icu/releases/download/release-68-2/icu4c-68_2-src.tgz
+URL=https://github.com/unicode-org/icu/releases/download/release-69-1/icu4c-69_1-src.tgz
 SECTION="General Libraries"
 DESCRIPTION="The International Components for Unicode (ICU) package is a mature, widely used set of C/C++ libraries providing Unicode and Globalization support for software applications. ICU is widely portable and gives applications the same results on all platforms."
 

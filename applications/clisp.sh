@@ -43,7 +43,7 @@ echo $USER > /tmp/currentuser
 
 
 case $(uname -m) in
-    i?86) export CFLAGS+=-falign-functions=4 ;;
+    i?86) export CFLAGS="${CFLAGS:--O2 -g} -falign-functions=4" ;;
 esac
 sed -i -e '/socket/d' -e '/"streams"/d' tests/tests.lisp
 patch -Np1 -i ../clisp-2.49-readline7_fixes-1.patch

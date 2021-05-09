@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:nodejs
 #REQ:nss
 #REQ:python2
 #REQ:qt5
@@ -21,14 +22,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.qt.io/archive/qt/5.15/5.15.2/submodules/qtwebengine-everywhere-src-5.15.2.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/qtwebengine-everywhere-src-5.15.2-ICU68-2.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/qtwebengine-everywhere-src-5.15.2-glibc233-1.patch
+wget -nc http://anduin.linuxfromscratch.org/BLFS/qtwebengine/qtwebengine-20210401.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/qtwebengine-20210401-build_fixes-2.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/qtwebengine-20210401-upstream_fixes-1.patch
 
 
 NAME=qtwebengine
-VERSION=5.15.2
-URL=https://download.qt.io/archive/qt/5.15/5.15.2/submodules/qtwebengine-everywhere-src-5.15.2.tar.xz
+VERSION=20210401
+URL=http://anduin.linuxfromscratch.org/BLFS/qtwebengine/qtwebengine-20210401.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="QtWebEngine integrates chromium's web capabilities into Qt. It ships with its own copy of ninja which it uses for the build if it cannot find a system copy, and various copies of libraries from ffmpeg, icu, libvpx, and zlib (including libminizip) which have been forked by the chromium developers."
 
@@ -51,10 +52,21 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ln -svf /usr/bin/python{2,}
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+patch -Np1 -i ../qtwebengine-20210401-build_fixes-2.patch
+patch -Np1 -i ../qtwebengine-20210401-upstream_fixes-1.patch
+mkdir -pv .git src/3rdparty/chromium/.git
+sed -e '/^MODULE_VERSION/s/5.*/5.15.2/' -i .qmake.conf
 find -type f -name "*.pr[io]" |
   xargs sed -i -e 's|INCLUDEPATH += |&$$QTWEBENGINE_ROOT/include |'
-patch -Np1 -i ../qtwebengine-everywhere-src-5.15.2-ICU68-2.patch
-patch -Np1 -i ../qtwebengine-everywhere-src-5.15.2-glibc233-1.patch
 sed -e '/link_pulseaudio/s/false/true/' \
     -i src/3rdparty/chromium/media/media_options.gni
 sed -i 's/NINJAJOBS/NINJA_JOBS/' src/core/gn_run.pro
@@ -87,6 +99,15 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 find $QT5DIR/ -name \*.prl \
    -exec sed -i -e '/^QMAKE_PRL_BUILD_DIR/d' {} \;
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+rm -v /usr/bin/python
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -15,19 +15,17 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/firefox/releases/78.8.0esr/source/firefox-78.8.0esr.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/firefox/releases/78.10.0esr/source/firefox-78.10.0esr.source.tar.xz
 
 
 NAME=js78
-VERSION=78.8.
-URL=https://archive.mozilla.org/pub/firefox/releases/78.8.0esr/source/firefox-78.8.0esr.source.tar.xz
+VERSION=78.10.
+URL=https://archive.mozilla.org/pub/firefox/releases/78.10.0esr/source/firefox-78.10.0esr.source.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="JS is Mozilla's JavaScript engine written in C. JS78 is taken from Firefox."
 
 if [ ! -z $URL ]
 then
-
-set +e
 
 TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
@@ -38,8 +36,6 @@ else
 	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
 	unzip_file $TARBALL $NAME
 fi
-
-set -e
 
 cd $DIRECTORY
 fi

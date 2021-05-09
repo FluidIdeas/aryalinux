@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://files.pythonhosted.org/packages/source/d/decorator/decorator-5.0.7.tar.gz
+wget -nc http://aryalinux.info/files/aryalinux-xfce-defaults-2.0.tar.xz
 
 
-NAME=python-modules#decorator
-VERSION=5.0.7
-URL=https://files.pythonhosted.org/packages/source/d/decorator/decorator-5.0.7.tar.gz
-SECTION="Others"
+NAME=aryalinux-xfce-settings
+VERSION=2.0
+
+DESCRIPTION="Default settings of the XFCE desktop environment in AryaLinux. Includes commands for setting themes, icons and fonts for the defualt XFCE desktop."
 
 if [ ! -z $URL ]
 then
@@ -35,19 +35,9 @@ fi
 cd $DIRECTORY
 fi
 
-
-echo $USER > /tmp/currentuser
-
-python3 setup.py build
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-python3 setup.py install --optimize=1
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
+sudo tar xf aryalinux-xfce-defaults-2.0.tar.xz -C /
+sudo cp -r /etc/skel/{.config,.Xresources}* ~
+sudo chown -R $USER:$USER ~
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

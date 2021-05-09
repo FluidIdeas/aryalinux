@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www2.graphviz.org/Packages/stable/portable_source/graphviz-2.44.1.tar.gz
+wget -nc https://gitlab.com/graphviz/graphviz/-/archive/2.47.1/graphviz-2.47.1.tar.gz
 
 
 NAME=graphviz
-VERSION=2.44.1
-URL=https://www2.graphviz.org/Packages/stable/portable_source/graphviz-2.44.1.tar.gz
+VERSION=2.47.1
+URL=https://gitlab.com/graphviz/graphviz/-/archive/2.47.1/graphviz-2.47.1.tar.gz
 SECTION="General Utilities"
 DESCRIPTION="The Graphviz package contains graph visualization software. Graph visualization is a way of representing structural information as diagrams of abstract graphs and networks. Graphviz has several main graph layout programs. It also has web and interactive graphical interfaces, auxiliary tools, libraries, and language bindings."
 
@@ -41,7 +41,7 @@ echo $USER > /tmp/currentuser
 
 sed -i '/LIBPOSTFIX="64"/s/64//' configure.ac &&
 
-autoreconf                &&
+./autogen.sh              &&
 ./configure --prefix=/usr \
             --disable-php \
             PS2PDF=true   &&
@@ -57,7 +57,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ln -v -s /usr/share/graphviz/doc /usr/share/doc/graphviz-2.44.1
+ln -v -s /usr/share/graphviz/doc /usr/share/doc/graphviz-2.47.1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

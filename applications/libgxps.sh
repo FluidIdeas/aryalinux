@@ -17,13 +17,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/libgxps/0.3/libgxps-0.3.1.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgxps/0.3/libgxps-0.3.1.tar.xz
+wget -nc https://download.gnome.org/sources/libgxps/0.3/libgxps-0.3.2.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgxps/0.3/libgxps-0.3.2.tar.xz
 
 
 NAME=libgxps
-VERSION=0.3.1
-URL=https://download.gnome.org/sources/libgxps/0.3/libgxps-0.3.1.tar.xz
+VERSION=0.3.2
+URL=https://download.gnome.org/sources/libgxps/0.3/libgxps-0.3.2.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The libgxps package provides an interface to manipulate XPS documents."
 

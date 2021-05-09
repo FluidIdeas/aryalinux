@@ -16,13 +16,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.wireshark.org/download/src/all-versions/wireshark-3.4.3.tar.xz
+wget -nc https://www.wireshark.org/download/src/all-versions/wireshark-3.4.5.tar.xz
 wget -nc https://www.wireshark.org/download/docs/
 
 
 NAME=wireshark
-VERSION=3.4.3
-URL=https://www.wireshark.org/download/src/all-versions/wireshark-3.4.3.tar.xz
+VERSION=3.4.5
+URL=https://www.wireshark.org/download/src/all-versions/wireshark-3.4.5.tar.xz
 SECTION="Networking Utilities"
 DESCRIPTION="The Wireshark package contains a network protocol analyzer, also known as a “sniffer”. This is useful for analyzing data captured “off the wire” from a live network connection, or data read from a capture file."
 
@@ -59,7 +59,7 @@ cd    build &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr \
       -DCMAKE_BUILD_TYPE=Release  \
-      -DCMAKE_INSTALL_DOCDIR=/usr/share/doc/wireshark-3.4.3 \
+      -DCMAKE_INSTALL_DOCDIR=/usr/share/doc/wireshark-3.4.5 \
       -G Ninja \
       .. &&
 ninja
@@ -67,11 +67,11 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
 
-install -v -m755 -d /usr/share/doc/wireshark-3.4.3 &&
+install -v -m755 -d /usr/share/doc/wireshark-3.4.5 &&
 install -v -m644    ../README.linux ../doc/README.* ../doc/{*.pod,randpkt.txt} \
-                    /usr/share/doc/wireshark-3.4.3 &&
+                    /usr/share/doc/wireshark-3.4.5 &&
 
-pushd /usr/share/doc/wireshark-3.4.3 &&
+pushd /usr/share/doc/wireshark-3.4.5 &&
    for FILENAME in ../../wireshark/*.html; do
       ln -s -v -f $FILENAME .
    done &&
@@ -86,7 +86,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m644 <Downloaded_Files> \
-                 /usr/share/doc/wireshark-3.4.3
+                 /usr/share/doc/wireshark-3.4.5
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

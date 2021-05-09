@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://downloads.sourceforge.net/docutils/docutils-0.16.tar.gz
+wget -nc https://downloads.sourceforge.net/docutils/docutils-0.17.1.tar.gz
 
 
 NAME=python-modules#docutils
-VERSION=0.16
-URL=http://downloads.sourceforge.net/docutils/docutils-0.16.tar.gz
+VERSION=0.17.1
+URL=https://downloads.sourceforge.net/docutils/docutils-0.17.1.tar.gz
 SECTION="Others"
 
 if [ ! -z $URL ]

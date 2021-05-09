@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.python.org/ftp/python/3.9.2/Python-3.9.2.tar.xz
+wget -nc https://www.python.org/ftp/python/3.9.4/Python-3.9.4.tar.xz
 
 
 NAME=python3
-VERSION=3.9.2
-URL=https://www.python.org/ftp/python/3.9.2/Python-3.9.2.tar.xz
+VERSION=3.9.4
+URL=https://www.python.org/ftp/python/3.9.4/Python-3.9.4.tar.xz
 SECTION="Programming"
 DESCRIPTION="The Python 3 package contains the Python development environment. This is useful for object-oriented programming, writing scripts, prototyping large programs or developing entire applications."
 
@@ -58,7 +58,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ln -svfn python-3.9.2 /usr/share/doc/python-3
+ln -svfn python-3.9.4 /usr/share/doc/python-3
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

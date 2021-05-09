@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://sourceforge.net/projects/aryalinux/files/releases/4.0/aryalinux-gtk-themes-4.0.tar.xz
+wget -nc http://aryalinux.info/files/aryalinux-gtk-themes.tar.xz
 
 
 NAME=aryalinux-gtk-themes
-VERSION=4.0
+VERSION=1.4
 
 DESCRIPTION="Collection of GTK themes from various souces for usage within AryaLinux."
 
@@ -35,7 +35,7 @@ fi
 cd $DIRECTORY
 fi
 
-sudo tar xf aryalinux-gtk-themes-4.0.tar.xz -C /
+sudo tar xf aryalinux-gtk-themes.tar.xz -C /
 sudo chown -R root:root /usr/share/themes/
 
 

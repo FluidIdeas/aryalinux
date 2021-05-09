@@ -8,17 +8,16 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:glib2
-#REQ:gtk-doc
 
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/flatpak/libportal/releases/download/0.3/libportal-0.3.tar.xz
+wget -nc https://github.com/flatpak/libportal/releases/download/0.4/libportal-0.4.tar.xz
 
 
 NAME=libportal
-VERSION=0.3
-URL=https://github.com/flatpak/libportal/releases/download/0.3/libportal-0.3.tar.xz
+VERSION=0.4
+URL=https://github.com/flatpak/libportal/releases/download/0.4/libportal-0.4.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libportal package provides a library that contains GIO-style async APIs for most Flatpak portals."
 
@@ -44,7 +43,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr -Dgtk_doc=false .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

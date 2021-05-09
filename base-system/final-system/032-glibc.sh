@@ -40,6 +40,8 @@ mkdir -pv /var/cache/nscd
 install -v -Dm644 ../nscd/nscd.tmpfiles /usr/lib/tmpfiles.d/nscd.conf
 install -v -Dm644 ../nscd/nscd.service /lib/systemd/system/nscd.service
 make localedata/install-locales
+localedef -i POSIX -f UTF-8 C.UTF-8 2> /dev/null || true
+localedef -i ja_JP -f SHIFT_JIS ja_JP.SIJS 2> /dev/null || true
 cat > /etc/nsswitch.conf << "EOF"
 # Begin /etc/nsswitch.conf
 
