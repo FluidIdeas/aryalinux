@@ -19,9 +19,6 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://mesa.freedesktop.org/archive/mesa-21.1.0.tar.xz
-wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-21.1.0.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/mesa-21.1.0-add_xdemos-1.patch
-wget -nc ftp://ftp.freedesktop.org/pub/mesa/demos/
 
 
 NAME=mesa
@@ -50,10 +47,9 @@ echo $USER > /tmp/currentuser
 
 export XORG_PREFIX="/usr"
 
-patch -Np1 -i ../mesa-21.1.0-add_xdemos-1.patch
 sed '1s/python/&3/' -i bin/symbols-check.py
-GALLIUM_DRV="i915,iris,nouveau,r600,radeonsi,svga,swrast,virgl"
-DRI_DRIVERS="i965,nouveau"
+GALLIUM_DRV="auto"
+DRI_DRIVERS="auto"
 
 export XORG_PREFIX=/usr
 
@@ -62,6 +58,7 @@ cd    build &&
 
 meson --prefix=$XORG_PREFIX          \
       -Dbuildtype=release            \
+      -Dplatforms=auto               \
       -Ddri-drivers=$DRI_DRIVERS     \
       -Dgallium-drivers=$GALLIUM_DRV \
       -Dgallium-nine=false           \
