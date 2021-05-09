@@ -20,6 +20,7 @@ tar xf $TARBALL
 cd $DIRECTORY
 
 
+rm -rf build
 mkdir -v build
 cd       build
 ../configure --prefix=/usr           \
