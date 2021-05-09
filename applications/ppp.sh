@@ -7,15 +7,15 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
+#REQ:libpcap
 
 cd $SOURCE_DIR
 
-
+wget -nc https://download.samba.org/pub/ppp/ppp-2.4.9.tar.gz
 
 NAME=ppp
-VERSION=2.4
-
+VERSION=2.4.9
+URL=https://download.samba.org/pub/ppp/ppp-2.4.9.tar.gz
 DESCRIPTION="ppp (Paul's PPP Package) is an open source package which implements the Point-to-Point Protocol (PPP) on Linux and Solaris systems."
 
 if [ ! -z $URL ]
@@ -34,14 +34,9 @@ fi
 cd $DIRECTORY
 fi
 
-git clone https://github.com/paulusmack/ppp.git
-cd ppp
 ./configure --prefix=/usr
 make
 sudo make install
-cd ..
-
-rm -rf ppp
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

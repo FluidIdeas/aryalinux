@@ -41,7 +41,7 @@ set +h
 #REQ:cups-filters
 #REQ:vpn-libs
 #REQ:plymouth
-#REQ:aryalinux-xfce-settings
+#REQ:aryalinux-xfce-defaults
 #REQ:pnmixer
 #REQ:xdg-user-dirs
 #REQ:xdg-utils

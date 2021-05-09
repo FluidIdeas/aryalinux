@@ -61,7 +61,6 @@ set +h
 #REQ:dash-to-panel
 #REQ:dash-to-dock
 #REQ:gnome-session
-#REQ:lightdm
 #REQ:gnome-user-docs
 #REQ:baobab
 #REQ:brasero
@@ -94,7 +93,7 @@ set +h
 #REQ:aryalinux-google-fonts
 #REQ:aryalinux-icons
 #REQ:aryalinux-gtk-themes
-#REQ:aryalinux-gnome-settings
+#REQ:aryalinux-gnome-defaults
 #REQ:plymouth
 #REQ:cups
 #REQ:cups-filters

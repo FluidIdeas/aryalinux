@@ -51,6 +51,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sudo rm -r /var/lock
 python3 -m venv pyvenv &&
 ./pyvenv/bin/pip3 install cryptography pyasn1 iso8601
 echo "^samba4.rpc.echo.*on.*ncacn_np.*with.*object.*nt4_dc" >> selftest/knownfail

@@ -27,17 +27,17 @@ DESCRIPTION="JS is Mozilla's JavaScript engine written in C. JS78 is taken from 
 if [ ! -z $URL ]
 then
 
+set +e
 TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
-	+e
 	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
 	sudo rm -rf $DIRECTORY
 	tar --no-overwrite-dir -xf $TARBALL
-	-e
 else
 	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
 	unzip_file $TARBALL $NAME
 fi
+set -e
 
 cd $DIRECTORY
 fi
