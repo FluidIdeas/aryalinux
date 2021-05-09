@@ -62,8 +62,8 @@ cd    build &&
 
 meson --prefix=$XORG_PREFIX          \
       -Dbuildtype=release            \
-      -Ddri-drivers=auto             \
-      -Dgallium-drivers=auto         \
+      -Ddri-drivers=$DRI_DRIVERS     \
+      -Dgallium-drivers=$GALLIUM_DRV \
       -Dgallium-nine=false           \
       -Dglx=dri                      \
       -Dosmesa=gallium               \
@@ -71,23 +71,13 @@ meson --prefix=$XORG_PREFIX          \
       -Dlibunwind=false              \
       ..                             &&
 
-unset GALLIUM_DRIVERS DRI_DRIVERS EGL_PLATFORMS &&
+unset GALLIUM_DRV DRI_DRIVERS &&
 
 ninja
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -dm755 /usr/share/doc/mesa-21.1.0 &&
-cp -rfv ../docs/* /usr/share/doc/mesa-21.1.0
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
