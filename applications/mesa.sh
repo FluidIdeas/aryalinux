@@ -78,10 +78,10 @@ meson --prefix=$XORG_PREFIX          \
       -Dgles1=true                   \
       -Dgles2=true                   \
       -Dvalgrind=false               \
-      -Ddri-drivers=true             \
-      -Dgallium-drivers=true         \
-      -Dplatforms=true               \
-      -Dvulkan-drivers=true          \
+      -Ddri-drivers=auto             \
+      -Dgallium-drivers=auto         \
+      -Dplatforms=auto               \
+      -Dvulkan-drivers=auto          \
       ..                             &&
 
 unset GALLIUM_DRIVERS DRI_DRIVERS EGL_PLATFORMS &&
