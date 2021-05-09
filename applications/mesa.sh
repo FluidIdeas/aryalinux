@@ -61,6 +61,7 @@ meson --prefix=$XORG_PREFIX          \
       -Dplatforms=auto               \
       -Ddri-drivers=$DRI_DRIVERS     \
       -Dgallium-drivers=$GALLIUM_DRV \
+      -Dgallium-extra-hud=true       \
       -Dgallium-nine=false           \
       -Dglx=dri                      \
       -Dosmesa=gallium               \
