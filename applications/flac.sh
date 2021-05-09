@@ -12,6 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://downloads.xiph.org/releases/flac/flac-1.3.3.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/flac-1.3.3-security_fixes-1.patch
 
 
 NAME=flac
@@ -39,9 +40,10 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr \
-            --disable-thorough-tests \
-            --docdir=/usr/share/doc/flac-1.3.3 &&
+patch -Np1 -i ../flac-1.3.3-security_fixes-1.patch      &&
+./configure --prefix=/usr                                \
+            --disable-thorough-tests                     \
+            --docdir=/usr/share/doc/flac-1.3.3          &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

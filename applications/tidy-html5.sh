@@ -13,12 +13,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/htacg/tidy-html5/archive/5.6.0/tidy-html5-5.6.0.tar.gz
+wget -nc https://github.com/htacg/tidy-html5/archive/5.7.28/tidy-html5-5.7.28.tar.gz
 
 
 NAME=tidy-html5
-VERSION=5.6.0
-URL=https://github.com/htacg/tidy-html5/archive/5.6.0/tidy-html5-5.6.0.tar.gz
+VERSION=5.7.28
+URL=https://github.com/htacg/tidy-html5/archive/5.7.28/tidy-html5-5.7.28.tar.gz
 SECTION="General Utilities"
 DESCRIPTION="The Tidy HTML5 package contains a command line tool and libraries used to read HTML, XHTML and XML files and write cleaned up markup. It detects and corrects many common coding errors and strives to produce visually equivalent markup that is both W3C compliant and compatible with most browsers."
 

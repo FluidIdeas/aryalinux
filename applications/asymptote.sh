@@ -20,12 +20,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://downloads.sourceforge.net/asymptote/asymptote-2.69.src.tgz
+wget -nc https://downloads.sourceforge.net/asymptote/asymptote-2.70.src.tgz
 
 
 NAME=asymptote
-VERSION=2.69
-URL=https://downloads.sourceforge.net/asymptote/asymptote-2.69.src.tgz
+VERSION=2.70
+URL=https://downloads.sourceforge.net/asymptote/asymptote-2.70.src.tgz
 SECTION="Typesetting"
 DESCRIPTION="Asymptote is a powerful descriptive vector graphics language that provides a natural coordinate-based framework for technical drawing. Labels and equations can be typeset with LaTeX. As well as EPS, PDF and PNG output it can produce WebGL 3D HTML rendering and (using dvisvgm) SVG output."
 
@@ -50,15 +50,15 @@ echo $USER > /tmp/currentuser
 
 export TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/') &&
 
-./configure --prefix=/opt/texlive/2020                          \
-            --bindir=/opt/texlive/2020/bin/$TEXARCH             \
-            --datarootdir=/opt/texlive/2020/texmf-dist          \
-            --infodir=/opt/texlive/2020/texmf-dist/doc/info     \
-            --libdir=/opt/texlive/2020/texmf-dist               \
-            --mandir=/opt/texlive/2020/texmf-dist/doc/man       \
+./configure --prefix=/opt/texlive/2021                          \
+            --bindir=/opt/texlive/2021/bin/$TEXARCH             \
+            --datarootdir=/opt/texlive/2021/texmf-dist          \
+            --infodir=/opt/texlive/2021/texmf-dist/doc/info     \
+            --libdir=/opt/texlive/2021/texmf-dist               \
+            --mandir=/opt/texlive/2021/texmf-dist/doc/man       \
             --enable-gc=system                                  \
-            --with-latex=/opt/texlive/2020/texmf-dist/tex/latex \
-            --with-context=/opt/texlive/2020/texmf-dist/tex/context/third &&
+            --with-latex=/opt/texlive/2021/texmf-dist/tex/latex \
+            --with-context=/opt/texlive/2021/texmf-dist/tex/context/third &&
 
 make
 sudo rm -rf /tmp/rootscript.sh

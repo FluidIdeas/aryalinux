@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.samba.org/ftp/linux-cifs/cifs-utils/cifs-utils-6.12.tar.bz2
+wget -nc https://www.samba.org/ftp/linux-cifs/cifs-utils/cifs-utils-6.13.tar.bz2
 
 
 NAME=cifsutils
-VERSION=6.12
-URL=https://www.samba.org/ftp/linux-cifs/cifs-utils/cifs-utils-6.12.tar.bz2
+VERSION=6.13
+URL=https://www.samba.org/ftp/linux-cifs/cifs-utils/cifs-utils-6.13.tar.bz2
 SECTION="Networking Programs"
 DESCRIPTION="The cifs-utils package provides a means for mounting SMB/CIFS shares on a Linux system."
 

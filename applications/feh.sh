@@ -15,12 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://feh.finalrewind.org/feh-3.6.3.tar.bz2
+wget -nc https://feh.finalrewind.org/feh-3.6.3.tar.bz2
 
 
 NAME=feh
 VERSION=3.6.3
-URL=http://feh.finalrewind.org/feh-3.6.3.tar.bz2
+URL=https://feh.finalrewind.org/feh-3.6.3.tar.bz2
 SECTION="Other X-based Programs"
 DESCRIPTION="feh is a fast, lightweight image viewer which uses Imlib2. It is commandline-driven and supports multiple images through slideshows, thumbnail browsing or multiple windows, and montages or index prints (using TrueType fonts to display file info). Advanced features include fast dynamic zooming, progressive loading, loading via HTTP (with reload support for watching webcams), recursive file opening (slideshow of a directory hierarchy), and mouse wheel/keyboard control."
 

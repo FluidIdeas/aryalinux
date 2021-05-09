@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 
 wget -nc http://www.mplayerhq.hu/MPlayer/releases/MPlayer-1.4.tar.xz
 wget -nc ftp://ftp.mplayerhq.hu/MPlayer/releases/MPlayer-1.4.tar.xz
-wget -nc https://www.mplayerhq.hu/MPlayer/skins/Clearlooks-2.0.tar.bz2
+wget -nc http://www.mplayerhq.hu/MPlayer/skins/Clearlooks-2.0.tar.bz2
 wget -nc ftp://ftp.mplayerhq.hu/MPlayer/skins/Clearlooks-2.0.tar.bz2
 wget -nc https://www.mplayerhq.hu/MPlayer/skins/
 
@@ -46,11 +46,12 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr            \
-            --confdir=/etc/mplayer   \
-            --enable-dynamic-plugins \
-            --enable-menu            \
-            --enable-gui             &&
+./configure --prefix=/usr                 \
+            --confdir=/etc/mplayer        \
+            --enable-dynamic-plugins      \
+            --enable-menu                 \
+            --enable-runtime-cpudetection \
+            --enable-gui                  &&
 make
 make doc
 sudo rm -rf /tmp/rootscript.sh

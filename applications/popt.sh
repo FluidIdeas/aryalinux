@@ -44,7 +44,9 @@ echo $USER > /tmp/currentuser
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+make install &&
+mv /usr/lib/libpopt.so.* /lib &&
+ln -sfv ../../lib/$(readlink /usr/lib/libpopt.so) /usr/lib/libpopt.so
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

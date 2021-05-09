@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://anduin.linuxfromscratch.org/BLFS/gdk-pixbuf-xlib/gdk-pixbuf-xlib-3116b8ae.tar.xz
-wget -nc ftp://anduin.linuxfromscratch.org/BLFS/gdk-pixbuf-xlib/gdk-pixbuf-xlib-3116b8ae.tar.xz
+wget -nc https://download.gnome.org/sources/gdk-pixbuf-xlib/2.40/gdk-pixbuf-xlib-2.40.2.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gdk-pixbuf-xlib/2.40/gdk-pixbuf-xlib-2.40.2.tar.xz
 
 
 NAME=gdk-pixbuf-xlib
-VERSION=311
-URL=http://anduin.linuxfromscratch.org/BLFS/gdk-pixbuf-xlib/gdk-pixbuf-xlib-3116b8ae.tar.xz
+VERSION=2.40.2
+URL=https://download.gnome.org/sources/gdk-pixbuf-xlib/2.40/gdk-pixbuf-xlib-2.40.2.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The gdk-pixbuf-xlib package provides a deprecated Xlib interface to gdk-pixbuf, which is needed for some applications which have not been ported to use the new interfaces yet."
 

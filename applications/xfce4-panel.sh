@@ -15,12 +15,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.xfce.org/src/xfce/xfce4-panel/4.16/xfce4-panel-4.16.2.tar.bz2
+wget -nc https://archive.xfce.org/src/xfce/xfce4-panel/4.16/xfce4-panel-4.16.3.tar.bz2
 
 
 NAME=xfce4-panel
-VERSION=4.16.2
-URL=https://archive.xfce.org/src/xfce/xfce4-panel/4.16/xfce4-panel-4.16.2.tar.bz2
+VERSION=4.16.3
+URL=https://archive.xfce.org/src/xfce/xfce4-panel/4.16/xfce4-panel-4.16.3.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="The Xfce4 Panel package contains the Xfce4 Panel."
 

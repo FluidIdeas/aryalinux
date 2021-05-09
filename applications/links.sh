@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://links.twibright.com/download/links-2.21.tar.bz2
+wget -nc http://links.twibright.com/download/links-2.22.tar.bz2
 
 
 NAME=links
-VERSION=2.21
-URL=http://links.twibright.com/download/links-2.21.tar.bz2
+VERSION=2.22
+URL=http://links.twibright.com/download/links-2.22.tar.bz2
 SECTION="Text Web Browsers"
 DESCRIPTION="Links is a text and graphics mode WWW browser. It includes support for rendering tables and frames, features background downloads, can display colors and has many other features."
 
@@ -45,9 +45,9 @@ make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-install -v -d -m755 /usr/share/doc/links-2.21 &&
+install -v -d -m755 /usr/share/doc/links-2.22 &&
 install -v -m644 doc/links_cal/* KEYS BRAILLE_HOWTO \
-    /usr/share/doc/links-2.21
+    /usr/share/doc/links-2.22
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

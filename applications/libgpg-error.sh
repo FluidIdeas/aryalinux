@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.41.tar.bz2
-wget -nc ftp://ftp.gnupg.org/gcrypt/libgpg-error/libgpg-error-1.41.tar.bz2
+wget -nc https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.42.tar.bz2
+wget -nc ftp://ftp.gnupg.org/gcrypt/libgpg-error/libgpg-error-1.42.tar.bz2
 
 
 NAME=libgpg-error
-VERSION=1.41
-URL=https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.41.tar.bz2
+VERSION=1.42
+URL=https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.42.tar.bz2
 SECTION="General Libraries"
 DESCRIPTION="The libgpg-error package contains a library that defines common error values for all GnuPG components."
 
@@ -45,7 +45,7 @@ make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-install -v -m644 -D README /usr/share/doc/libgpg-error-1.41/README
+install -v -m644 -D README /usr/share/doc/libgpg-error-1.42/README
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

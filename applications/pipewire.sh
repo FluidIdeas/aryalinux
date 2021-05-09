@@ -21,12 +21,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/PipeWire/pipewire/archive/0.3.22/pipewire-0.3.22.tar.gz
+wget -nc https://github.com/PipeWire/pipewire/archive/0.3.26/pipewire-0.3.26.tar.gz
 
 
 NAME=pipewire
-VERSION=0.3.22
-URL=https://github.com/PipeWire/pipewire/archive/0.3.22/pipewire-0.3.22.tar.gz
+VERSION=0.3.26
+URL=https://github.com/PipeWire/pipewire/archive/0.3.26/pipewire-0.3.26.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The pipewire package contains a server and user-space API to handle multimedia pipelines. This includes a universal API to connect to multimedia devices, as well as sharing multimedia files between applications."
 
@@ -52,11 +52,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr           \
-      -Djack=false            \
-      -Dpipewire-jack=false   \
-      -Dvulkan=false          \
-      ..                      &&
+meson --prefix=/usr .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

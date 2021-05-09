@@ -11,6 +11,7 @@ set +h
 #REQ:gjs
 #REQ:gnome-autoar
 #REQ:gnome-control-center
+#REQ:gtk4
 #REQ:mutter
 #REQ:sassc
 #REQ:startup-notification
@@ -30,13 +31,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/gnome-shell/3.38/gnome-shell-3.38.3.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-shell/3.38/gnome-shell-3.38.3.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-shell/40/gnome-shell-40.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-shell/40/gnome-shell-40.0.tar.xz
 
 
 NAME=gnome-shell
-VERSION=3.38.3
-URL=https://download.gnome.org/sources/gnome-shell/3.38/gnome-shell-3.38.3.tar.xz
+VERSION=40.0
+URL=https://download.gnome.org/sources/gnome-shell/40/gnome-shell-40.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Shell is the core user interface of the GNOME Desktop environment."
 

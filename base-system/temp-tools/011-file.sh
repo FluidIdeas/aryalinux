@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=file-5.39.tar.gz
+TARBALL=file-5.40.tar.gz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -31,6 +31,8 @@ popd
 ./configure --prefix=/usr --host=$LFS_TGT --build=$(./config.guess)
 make FILE_COMPILE=$(pwd)/build/src/file
 make DESTDIR=$LFS install
+mv -v $LFS/usr/lib/libmagic.so.* $LFS/lib
+ln -sfv ../../lib/$(readlink /usr/lib/libmagic.so) $LFS/usr/lib/libmagic.so
 
 fi
 

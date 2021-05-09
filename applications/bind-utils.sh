@@ -13,14 +13,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.isc.org/isc/bind9/9.16.11/bind-9.16.11.tar.xz
+wget -nc ftp://ftp.isc.org/isc/bind9/9.16.15/bind-9.16.15.tar.xz
 
 
 NAME=bind-utils
-VERSION=9.16.11
-URL=ftp://ftp.isc.org/isc/bind9/9.16.11/bind-9.16.11.tar.xz
+VERSION=9.16.15
+URL=ftp://ftp.isc.org/isc/bind9/9.16.15/bind-9.16.15.tar.xz
 SECTION="Networking Utilities"
-DESCRIPTION="BIND Utilities is not a separate package, it is a collection of the client side programs that are included with BIND-9.16.11. The BIND package includes the client side programs nslookup, dig and host. If you install BIND server, these programs will be installed automatically. This section is for those users who don't need the complete BIND server, but need these client side applications."
+DESCRIPTION="BIND Utilities is not a separate package, it is a collection of the client side programs that are included with BIND-9.16.15. The BIND package includes the client side programs nslookup, dig and host. If you install BIND server, these programs will be installed automatically. This section is for those users who don't need the complete BIND server, but need these client side applications."
 
 if [ ! -z $URL ]
 then

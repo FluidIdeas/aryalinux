@@ -52,7 +52,6 @@ make                            &&
 PATH=$SAVEPATH                  &&
 unset SAVEPATH
 
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install

@@ -11,6 +11,7 @@ set +h
 #REQ:gexiv2
 #REQ:gnome-autoar
 #REQ:gnome-desktop
+#REQ:libhandy1
 #REQ:libnotify
 #REQ:libseccomp
 #REQ:tracker3-miners
@@ -19,19 +20,20 @@ set +h
 #REQ:gobject-introspection
 #REQ:gst10-plugins-base
 #REQ:libexif
+#REQ:libportal
 #REQ:adwaita-icon-theme
 #REQ:gvfs
 
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/nautilus/3.38/nautilus-3.38.2.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/nautilus/3.38/nautilus-3.38.2.tar.xz
+wget -nc https://download.gnome.org/sources/nautilus/40/nautilus-40.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/nautilus/40/nautilus-40.0.tar.xz
 
 
 NAME=nautilus
-VERSION=3.38.2
-URL=https://download.gnome.org/sources/nautilus/3.38/nautilus-3.38.2.tar.xz
+VERSION=40.0
+URL=https://download.gnome.org/sources/nautilus/40/nautilus-40.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Nautilus package contains the GNOME file manager."
 

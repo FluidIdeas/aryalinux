@@ -14,12 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.5.9.tar.gz
+wget -nc ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.6.0.tar.gz
 
 
 NAME=postfix
-VERSION=3.5.9
-URL=ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.5.9.tar.gz
+VERSION=3.6.0
+URL=ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.6.0.tar.gz
 SECTION="Mail Server Software"
 DESCRIPTION="The Postfix package contains a Mail Transport Agent (MTA). This is useful for sending email to other users of your host machine. It can also be configured to be a central mail server for your domain, a mail relay agent or simply a mail delivery agent to your local Internet Service Provider."
 
@@ -66,8 +66,8 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 sh postfix-install -non-interactive \
    daemon_directory=/usr/lib/postfix \
    manpage_directory=/usr/share/man \
-   html_directory=/usr/share/doc/postfix-3.5.9/html \
-   readme_directory=/usr/share/doc/postfix-3.5.9/readme
+   html_directory=/usr/share/doc/postfix-3.6.0/html \
+   readme_directory=/usr/share/doc/postfix-3.6.0/readme
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

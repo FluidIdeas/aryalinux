@@ -23,13 +23,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.25.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtk+/3.24/gtk+-3.24.25.tar.xz
+wget -nc https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.29.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtk+/3.24/gtk+-3.24.29.tar.xz
 
 
 NAME=gtk3
-VERSION=3.24.25
-URL=https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.25.tar.xz
+VERSION=3.24.29
+URL=https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.29.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The GTK+ 3 package contains libraries used for creating graphical user interfaces for applications."
 
@@ -67,7 +67,6 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-mkdir -pv ~/.config/gtk-3.0/
 cat > ~/.config/gtk-3.0/gtk.css << "EOF"
 *  {
    -GtkScrollbar-has-backward-stepper: 1;

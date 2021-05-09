@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.0.tar.xz
+wget -nc https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.1.tar.xz
 
 
 NAME=ruby
-VERSION=3.0.0
-URL=http://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.0.tar.xz
+VERSION=3.0.1
+URL=https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.1.tar.xz
 SECTION="Programming"
 DESCRIPTION="The Ruby package contains the Ruby development environment. This is useful for object-oriented scripting."
 
@@ -41,7 +41,7 @@ echo $USER > /tmp/currentuser
 
 ./configure --prefix=/usr   \
             --enable-shared \
-            --docdir=/usr/share/doc/ruby-3.0.0 &&
+            --docdir=/usr/share/doc/ruby-3.0.1 &&
 make
 make capi
 sudo rm -rf /tmp/rootscript.sh

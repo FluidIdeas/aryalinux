@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://www.zsh.org/pub/zsh-5.8.tar.xz
-wget -nc http://www.zsh.org/pub/zsh-5.8-doc.tar.xz
+wget -nc https://www.zsh.org/pub/zsh-5.8.tar.xz
+wget -nc https://www.zsh.org/pub/zsh-5.8-doc.tar.xz
 
 
 NAME=zsh
 VERSION=5.8
-URL=http://www.zsh.org/pub/zsh-5.8.tar.xz
+URL=https://www.zsh.org/pub/zsh-5.8.tar.xz
 SECTION="Shells"
 DESCRIPTION="The zsh package contains a command interpreter (shell) usable as an interactive login shell and as a shell script command processor. Of the standard shells, zsh most closely resembles ksh but includes many enhancements."
 

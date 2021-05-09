@@ -16,13 +16,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/gnome-keyring/3.36/gnome-keyring-3.36.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-keyring/3.36/gnome-keyring-3.36.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-keyring/40/gnome-keyring-40.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-keyring/40/gnome-keyring-40.0.tar.xz
 
 
 NAME=gnome-keyring
-VERSION=3.36.0
-URL=https://download.gnome.org/sources/gnome-keyring/3.36/gnome-keyring-3.36.0.tar.xz
+VERSION=40.0
+URL=https://download.gnome.org/sources/gnome-keyring/40/gnome-keyring-40.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Keyring package contains a daemon that keeps passwords and other secrets for users."
 

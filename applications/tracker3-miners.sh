@@ -22,13 +22,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/tracker-miners/3.0/tracker-miners-3.0.4.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/tracker-miners/3.0/tracker-miners-3.0.4.tar.xz
+wget -nc https://download.gnome.org/sources/tracker-miners/3.1/tracker-miners-3.1.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/tracker-miners/3.1/tracker-miners-3.1.1.tar.xz
 
 
 NAME=tracker3-miners
-VERSION=3.0.4
-URL=https://download.gnome.org/sources/tracker-miners/3.0/tracker-miners-3.0.4.tar.xz
+VERSION=3.1.1
+URL=https://download.gnome.org/sources/tracker-miners/3.1/tracker-miners-3.1.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Tracker-miners package contains a set of data extractors for Tracker."
 
@@ -53,7 +53,7 @@ echo $USER > /tmp/currentuser
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-rm -fv /etc/xdg/autostart/tracker-miner-*
+rm -v /etc/xdg/autostart/tracker-miner-*
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

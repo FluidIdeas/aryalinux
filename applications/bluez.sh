@@ -14,13 +14,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.kernel.org/pub/linux/bluetooth/bluez-5.55.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/bluez-5.55-upstream_fixes-1.patch
+wget -nc https://www.kernel.org/pub/linux/bluetooth/bluez-5.58.tar.xz
 
 
 NAME=bluez
-VERSION=5.55
-URL=https://www.kernel.org/pub/linux/bluetooth/bluez-5.55.tar.xz
+VERSION=5.58
+URL=https://www.kernel.org/pub/linux/bluetooth/bluez-5.58.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="The BlueZ package contains the Bluetooth protocol stack for Linux."
 
@@ -43,7 +42,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../bluez-5.55-upstream_fixes-1.patch
 ./configure --prefix=/usr         \
             --sysconfdir=/etc     \
             --localstatedir=/var  \
@@ -71,8 +69,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -dm755 /usr/share/doc/bluez-5.55 &&
-install -v -m644 doc/*.txt /usr/share/doc/bluez-5.55
+install -v -dm755 /usr/share/doc/bluez-5.58 &&
+install -v -m644 doc/*.txt /usr/share/doc/bluez-5.58
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

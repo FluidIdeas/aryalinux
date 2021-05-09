@@ -45,12 +45,7 @@ echo $USER > /tmp/currentuser
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install                                   &&
-rm -rf /usr/include/enchant                    &&
-ln -sfv enchant-2       /usr/include/enchant   &&
-ln -sfv enchant-2       /usr/bin/enchant       &&
-ln -sfv libenchant-2.so /usr/lib/libenchant.so &&
-ln -sfv enchant-2.pc    /usr/lib/pkgconfig/enchant.pc
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -62,8 +57,8 @@ Tel me more abot linux
 Ther ar so many commads
 EOF
 
-enchant -d en_GB -l /tmp/test-enchant.txt &&
-enchant -d en_GB -a /tmp/test-enchant.txt
+enchant-2 -d en_GB -l /tmp/test-enchant.txt &&
+enchant-2 -d en_GB -a /tmp/test-enchant.txt
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

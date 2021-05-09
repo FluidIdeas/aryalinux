@@ -12,6 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://www.libssh2.org/download/libssh2-1.9.0.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/libssh2-1.9.0-security_fixes-1.patch
 
 
 NAME=libssh2
@@ -39,7 +40,8 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr --disable-static &&
+patch -Np1 -i ../libssh2-1.9.0-security_fixes-1.patch &&
+./configure --prefix=/usr --disable-static            &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://sourceforge.net/projects/aryalinux/files/releases/4.0/aryalinux-wallpapers-4.0.tar.xz
+wget -nc http://aryalinux.info/files/aryalinux-wallpapers-2.4.tar.xz
 
 
 NAME=aryalinux-wallpapers
-VERSION=4.0
+VERSION=2.4
 
 DESCRIPTION="The wallpaper collection for AryaLinux desktop."
 
@@ -35,7 +35,7 @@ fi
 cd $DIRECTORY
 fi
 
-sudo tar xf aryalinux-wallpapers-4.0.tar.xz -C /
+sudo tar xf aryalinux-wallpapers-2.4.tar.xz -C /
 sudo chown -R root:root /usr/share/backgrounds/aryalinux
 
 

@@ -13,13 +13,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/gnome-user-docs/3.38/gnome-user-docs-3.38.2.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-user-docs/3.38/gnome-user-docs-3.38.2.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-user-docs/40/gnome-user-docs-40.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-user-docs/40/gnome-user-docs-40.0.tar.xz
 
 
 NAME=gnome-user-docs
-VERSION=3.38.2
-URL=https://download.gnome.org/sources/gnome-user-docs/3.38/gnome-user-docs-3.38.2.tar.xz
+VERSION=40.0
+URL=https://download.gnome.org/sources/gnome-user-docs/40/gnome-user-docs-40.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME User Docs package contains documentation for GNOME."
 

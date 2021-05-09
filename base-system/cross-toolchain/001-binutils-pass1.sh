@@ -28,7 +28,7 @@ cd       build
              --disable-nls              \
              --disable-werror
 make
-make install
+make install -j1
 
 fi
 

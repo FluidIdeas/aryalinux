@@ -62,7 +62,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-url=http://download.kde.org/stable/frameworks/5.79/
+url=https://download.kde.org/stable/frameworks/5.79/
 wget -r -nH -nd -np -A '*.xz' $url
 cat > frameworks-5.79.0.md5 << "EOF"
 2d37fbeda8a1863f49b4020094d27328  attica-5.79.0.tar.xz
@@ -162,7 +162,9 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mv -v /opt/kf5 /opt/kf5.old                         &&
 install -v -dm755           /usr/{etc,share} &&
 ln -sfv /etc/dbus-1         /usr/etc         &&
-ln -sfv /usr/share/dbus-1   /usr/share
+ln -sfv /usr/share/dbus-1   /usr/share       &&
+install -v -dm755           /usr/lib         &&
+ln -sfv /usr/lib/systemd    /usr/lib
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

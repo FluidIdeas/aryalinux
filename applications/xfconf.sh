@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://archive.xfce.org/src/xfce/xfconf/4.16/xfconf-4.16.0.tar.bz2
+wget -nc https://archive.xfce.org/src/xfce/xfconf/4.16/xfconf-4.16.0.tar.bz2
 
 
 NAME=xfconf
 VERSION=4.16.0
-URL=http://archive.xfce.org/src/xfce/xfconf/4.16/xfconf-4.16.0.tar.bz2
+URL=https://archive.xfce.org/src/xfce/xfconf/4.16/xfconf-4.16.0.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="Xfconf is the configuration storage system for Xfce."
 

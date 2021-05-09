@@ -22,12 +22,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://www.openprinting.org/download/cups-filters/cups-filters-1.28.7.tar.xz
+wget -nc https://www.openprinting.org/download/cups-filters/cups-filters-1.28.8.tar.xz
 
 
 NAME=cups-filters
-VERSION=1.28.7
-URL=https://www.openprinting.org/download/cups-filters/cups-filters-1.28.7.tar.xz
+VERSION=1.28.8
+URL=https://www.openprinting.org/download/cups-filters/cups-filters-1.28.8.tar.xz
 SECTION="Printing"
 DESCRIPTION="The CUPS Filters package contains backends, filters and other software that was once part of the core CUPS distribution but is no longer maintained by Apple Inc."
 
@@ -51,13 +51,14 @@ echo $USER > /tmp/currentuser
 
 
 sed -i "s:cups.service:org.cups.cupsd.service:g" utils/cups-browsed.service
+sed -i 's/ldap_connect/ldap_connect_loc/g' utils/cups-browsed.c &&
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \
             --localstatedir=/var \
             --without-rcdir      \
             --disable-static     \
             --disable-avahi      \
-            --docdir=/usr/share/doc/cups-filters-1.28.7 &&
+            --docdir=/usr/share/doc/cups-filters-1.28.8 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

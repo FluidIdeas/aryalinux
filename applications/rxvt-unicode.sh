@@ -39,6 +39,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -i '/if (perl)/,+5d' src/rxvtperl.xs      &&
 ./configure --prefix=/usr --enable-everything &&
 make
 sudo rm -rf /tmp/rootscript.sh

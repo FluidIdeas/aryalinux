@@ -24,13 +24,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/seahorse/3.38/seahorse-3.38.1.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/seahorse/3.38/seahorse-3.38.1.tar.xz
+wget -nc https://download.gnome.org/sources/seahorse/40/seahorse-40.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/seahorse/40/seahorse-40.0.tar.xz
 
 
 NAME=seahorse
-VERSION=3.38.1
-URL=https://download.gnome.org/sources/seahorse/3.38/seahorse-3.38.1.tar.xz
+VERSION=40.0
+URL=https://download.gnome.org/sources/seahorse/40/seahorse-40.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="Seahorse is a graphical interface for managing and using encryption keys. Currently it supports PGP keys (using GPG/GPGME) and SSH keys."
 
