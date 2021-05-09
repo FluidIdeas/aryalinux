@@ -48,8 +48,6 @@ echo $USER > /tmp/currentuser
 export XORG_PREFIX="/usr"
 
 sed '1s/python/&3/' -i bin/symbols-check.py
-GALLIUM_DRV="auto"
-DRI_DRIVERS="auto"
 
 export XORG_PREFIX=/usr
 
@@ -57,19 +55,28 @@ mkdir build &&
 cd    build &&
 
 meson --prefix=$XORG_PREFIX          \
-      -Dbuildtype=release            \
-      -Dplatforms=auto               \
-      -Ddri-drivers=$DRI_DRIVERS     \
-      -Dgallium-drivers=$GALLIUM_DRV \
-      -Dgallium-extra-hud=true       \
-      -Dgallium-nine=false           \
+      --sysconfdir=/etc              \
+      -Dllvm=true                    \
+      -Dshared-llvm=true             \
+      -Degl=true                     \
+      -Dshared-glapi=true            \
+      -Dgallium-xa=true              \
+      -Dgallium-nine=true            \
+      -Dgallium-vdpau=true           \
+      -Dgallium-va=true              \
+      -Ddri3=true                    \
       -Dglx=dri                      \
-      -Dosmesa=gallium               \
+      -Dosmesa=true                  \
+      -Dgbm=true                     \
+      -Dglx-direct=true              \
+      -Dgles1=true                   \
+      -Dgles2=true                   \
       -Dvalgrind=false               \
-      -Dlibunwind=false              \
+      -Ddri-drivers=auto             \
+      -Dgallium-drivers=auto         \
+      -Dplatforms=auto               \
+      -Dvulkan-drivers=auto          \
       ..                             &&
-
-unset GALLIUM_DRV DRI_DRIVERS &&
 
 ninja
 
