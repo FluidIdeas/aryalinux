@@ -7,17 +7,19 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:glib2
+#REQ:gobject-introspection
 
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/ebassi/graphene/releases/download/1.10.2/graphene-1.10.2.tar.xz
+wget -nc https://github.com/ebassi/graphene/releases/download/1.10.6/graphene-1.10.6.tar.xz
 
 
 NAME=graphene
-VERSION=1.10.2
-URL=https://github.com/ebassi/graphene/releases/download/1.10.2/graphene-1.10.2.tar.xz
-SECTION="Others"
+VERSION=1.10.6
+URL=https://github.com/ebassi/graphene/releases/download/1.10.6/graphene-1.10.6.tar.xz
+SECTION="X Libraries"
 DESCRIPTION="The Graphene package provides a thin layer of types for graphics libraries."
 
 if [ ! -z $URL ]
@@ -36,13 +38,23 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build
-cd build
+echo $USER > /tmp/currentuser
 
-meson --prefix=/usr &&
+
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr .. &&
 ninja
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ninja install
+ENDOFROOTSCRIPT
 
-sudo ninja install
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

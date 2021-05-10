@@ -18,7 +18,7 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/caribou/0.4/caribou-0.4.21.tar.xz
+wget -nc http://ftp.gnome.org/pub/gnome/sources/caribou/0.4/caribou-0.4.21.tar.xz
 
 
 NAME=caribou

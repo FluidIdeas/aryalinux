@@ -18,7 +18,9 @@ set +h
 #REQ:cups
 #REQ:curl
 #REQ:dbus-glib
+#REQ:libepoxy
 #REQ:libjpeg
+#REQ:llvm
 #REQ:glm
 #REQ:glu
 #REQ:gpgme
@@ -45,11 +47,15 @@ set +h
 
 cd $SOURCE_DIR
 
+wget -nc https://download.documentfoundation.org/libreoffice/src/7.1.2/libreoffice-7.1.2.2.tar.xz
+wget -nc https://download.documentfoundation.org/libreoffice/src/7.1.2/libreoffice-dictionaries-7.1.2.2.tar.xz
+wget -nc https://download.documentfoundation.org/libreoffice/src/7.1.2/libreoffice-help-7.1.2.2.tar.xz
+wget -nc https://download.documentfoundation.org/libreoffice/src/7.1.2/libreoffice-translations-7.1.2.2.tar.xz
 
 
 NAME=libreoffice
-VERSION=6.4.0.3
-
+VERSION=7.1.2.2
+URL=https://download.documentfoundation.org/libreoffice/src/7.1.2/libreoffice-7.1.2.2.tar.xz
 SECTION="Office Programs"
 DESCRIPTION="LibreOffice is a full-featured office suite. It is largely compatible with Microsoft Office and is descended from OpenOffice.org."
 
@@ -69,9 +75,78 @@ fi
 cd $DIRECTORY
 fi
 
-wget -nc http://aryalinux.info/files/2.4/libreoffice-6.4.0.3-x86_64.tar.gz
+echo $USER > /tmp/currentuser
 
-sudo tar xf libreoffice-6.4.0.3-x86_64.tar.gz -C /
+
+install -dm755 external/tarballs &&
+ln -sv ../../../libreoffice-dictionaries-7.1.2.2.tar.xz external/tarballs/ &&
+ln -sv ../../../libreoffice-help-7.1.2.2.tar.xz         external/tarballs/ &&
+ln -sv ../../../libreoffice-translations-7.1.2.2.tar.xz external/tarballs/
+export LO_PREFIX=/usr
+sed -e "/gzip -f/d"   \
+    -e "s|.1.gz|.1|g" \
+    -i bin/distro-install-desktop-integration &&
+
+sed -e "/distro-install-file-lists/d" -i Makefile.in &&
+
+./autogen.sh --prefix=$LO_PREFIX         \
+             --sysconfdir=/etc           \
+             --with-vendor=AryaLinux          \
+             --with-lang=ALL --without-java      \
+             --with-help                 \
+             --with-myspell-dicts        \
+             --without-junit             \
+             --without-system-dicts      \
+             --disable-dconf             \
+             --disable-odk               \
+             --enable-release-build=yes  \
+             --enable-python=system      \
+             --with-jdk-home=/opt/jdk    \
+             --with-system-apr           \
+             --with-system-boost         \
+             --with-system-clucene       \
+             --with-system-curl          \
+             --with-system-epoxy         \
+             --with-system-expat         \
+             --with-system-glm           \
+             --with-system-gpgmepp       \
+             --with-system-graphite      \
+             --with-system-harfbuzz      \
+             --with-system-icu           \
+             --with-system-jpeg          \
+             --with-system-lcms2         \
+             --with-system-libatomic_ops \
+             --with-system-libpng        \
+             --with-system-libxml        \
+             --with-system-neon          \
+             --with-system-nss           \
+             --with-system-odbc          \
+             --with-system-openldap      \
+             --with-system-openssl       \
+             --with-system-poppler       \
+             --disable-postgresql-sdbc    \
+             --with-system-redland       \
+             --with-system-serf          \
+             --with-system-zlib
+make build-nocheck
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make distro-pack-install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+update-desktop-database
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

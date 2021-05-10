@@ -13,7 +13,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://invisible-mirror.net/archives/xterm/xterm-367.tgz
-wget -c "https://fonts.google.com/download?family=Fira%20Mono" -O FiraMono.zip
+wget -nc https://sourceforge.net/projects/aryalinux/files/releases/4.0/FiraMono.zip
 
 
 NAME=xterm
@@ -57,8 +57,6 @@ make install-ti &&
 
 mkdir -pv /usr/share/applications &&
 cp -v *.desktop /usr/share/applications/
-mkdir -pv /usr/share/fonts/google-fonts
-unzip ../FiraMono.zip -d /usr/share/fonts/google-fonts
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -80,6 +78,8 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+sudo mkdir -pv /usr/share/fonts/google-fonts
+sudo unzip ../FiraMono.zip -d /usr/share/fonts/google-fonts
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

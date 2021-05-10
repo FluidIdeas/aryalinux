@@ -62,7 +62,6 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr               \
       -DLLVM_BINUTILS_INCDIR=/usr/include       \
       -Wno-dev -G Ninja ..                      &&
 ninja
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install

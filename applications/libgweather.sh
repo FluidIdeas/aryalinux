@@ -9,11 +9,11 @@ set +h
 
 #REQ:geocode-glib
 #REQ:gtk3
-#REQ:python-modules#pygobject3
 #REQ:libsoup
 #REQ:gobject-introspection
 #REQ:libxml2
 #REQ:vala
+#REQ:python-modules#pygobject3
 
 
 cd $SOURCE_DIR

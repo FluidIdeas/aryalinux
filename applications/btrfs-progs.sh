@@ -47,7 +47,6 @@ echo $USER > /tmp/currentuser
             --libdir=/lib \
             --with-pkgconfigdir=/usr/lib/pkgconfig &&
 make
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&

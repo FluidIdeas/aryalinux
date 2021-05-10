@@ -12,7 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc https://www.x.org/archive/individual/driver/xf86-video-openchrome-0.6.0.tar.gz
-wget "https://gitweb.gentoo.org/repo/gentoo.git/plain/x11-drivers/xf86-video-openchrome/files/xf86-video-openchrome-0.6.0-fno-common.patch?id=8c25bdd23f13c850c10330fc66c799a79c08f1e2" -O xf86-video-openchrome-0.6.0-fno-common.patch
+wget -nc https://gitweb.gentoo.org/repo/gentoo.git/plain/x11-drivers/xf86-video-openchrome/files/xf86-video-openchrome-0.6.0-fno-common.patch
 
 
 NAME=xf86-video-openchrome
