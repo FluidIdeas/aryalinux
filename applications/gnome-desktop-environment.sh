@@ -59,7 +59,6 @@ set +h
 #REQ:gnome-shell
 #REQ:gnome-shell-extensions
 #REQ:dash-to-panel
-#REQ:dash-to-dock
 #REQ:gnome-session
 #REQ:gnome-user-docs
 #REQ:baobab
@@ -98,6 +97,7 @@ set +h
 #REQ:cups
 #REQ:cups-filters
 #REQ:vpn-libs
+#REQ:neofetch
 
 
 cd $SOURCE_DIR
