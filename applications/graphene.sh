@@ -11,12 +11,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/graphene/1.9/graphene-1.9.6.tar.xz
+wget -nc https://github.com/ebassi/graphene/releases/download/1.10.2/graphene-1.10.2.tar.xz
 
 
 NAME=graphene
-VERSION=1.9.6
-URL=https://download.gnome.org/sources/graphene/1.9/graphene-1.9.6.tar.xz
+VERSION=1.10.2
+URL=https://github.com/ebassi/graphene/releases/download/1.10.2/graphene-1.10.2.tar.xz
 SECTION="Others"
 DESCRIPTION="The Graphene package provides a thin layer of types for graphics libraries."
 
