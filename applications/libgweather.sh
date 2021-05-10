@@ -9,6 +9,7 @@ set +h
 
 #REQ:geocode-glib
 #REQ:gtk3
+#REQ:python-modules#pygobject3
 #REQ:libsoup
 #REQ:gobject-introspection
 #REQ:libxml2
