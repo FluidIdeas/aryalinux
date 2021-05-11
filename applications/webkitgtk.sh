@@ -84,6 +84,7 @@ cmake -DCMAKE_BUILD_TYPE=Release  \
 	  -DENABLE_GLES2=ON           \
 	  -DENABLE_QUARTZ_TARGET=ON   \
 	  -DUSE_GTK4=ON               \
+	  -DUSE_SOUP2=OFF             \
       -Wno-dev -G Ninja ..        &&
 ninja
 
