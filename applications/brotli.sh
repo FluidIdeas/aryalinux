@@ -40,7 +40,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i 's@-R..libdir.@@' scripts/*.pc.in
+
 mkdir out &&
 cd    out &&
 
@@ -51,24 +51,9 @@ make
 pushd ..               &&
 python3 setup.py build &&
 popd
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
+sudo make install &&
 cd ..
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-python3 setup.py install --optimize=1
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
+sudo python3 setup.py install --optimize=1
 
 
 
