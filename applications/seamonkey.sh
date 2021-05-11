@@ -60,7 +60,7 @@ if ! grep -ri "/opt/rustc/lib" /etc/ld.so.conf &> /dev/null; then
 fi
 
 sudo ldconfig
-. /etc/profile.d/rustc.sh
+export PATH=/opt/rustc/bin:$PATH
 
 cat > mozconfig << "EOF"
 # If you have a multicore machine, all cores will be used by default.
