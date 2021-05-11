@@ -11,14 +11,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/flatpak/xdg-dbus-proxy/releases/download/0.1.2/xdg-dbus-proxy-0.1.2.tar.xz
+wget -nc https://github.com/Igalia/WPEBackend-fdo/releases/download/1.8.3/wpebackend-fdo-1.8.3.tar.xz
 
 
-NAME=xdg-dbus-proxy
-VERSION=0.1.2
-URL=https://github.com/flatpak/xdg-dbus-proxy/releases/download/0.1.2/xdg-dbus-proxy-0.1.2.tar.xz
+NAME=wpebackend-fdo
+VERSION=1.8.3
+URL=https://github.com/Igalia/WPEBackend-fdo/releases/download/1.8.3/wpebackend-fdo-1.8.3.tar.xz
 SECTION="Others"
-DESCRIPTION="xdg-dbus-proxy is a filtering proxy for D-Bus connections. It was originally part of the flatpak project, but it has been broken out as a standalone module to facilitate using it in other contexts."
+DESCRIPTION="This package provides a backend implementation for the WPE WebKit engine that uses Wayland for graphics output."
 
 if [ ! -z $URL ]
 then
@@ -36,10 +36,13 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr
-make
+mkdir build
+cd build
 
-sudo make install
+meson --prefix=/usr &&
+ninja
+
+sudo ninja install
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

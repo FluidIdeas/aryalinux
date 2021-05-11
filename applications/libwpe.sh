@@ -11,14 +11,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/flatpak/xdg-dbus-proxy/releases/download/0.1.2/xdg-dbus-proxy-0.1.2.tar.xz
+wget -nc https://github.com/WebPlatformForEmbedded/libwpe/releases/download/1.10.0/libwpe-1.10.0.tar.xz
 
 
-NAME=xdg-dbus-proxy
-VERSION=0.1.2
-URL=https://github.com/flatpak/xdg-dbus-proxy/releases/download/0.1.2/xdg-dbus-proxy-0.1.2.tar.xz
+NAME=libwpe
+VERSION=1.10.0
+URL=https://github.com/WebPlatformForEmbedded/libwpe/releases/download/1.10.0/libwpe-1.10.0.tar.xz
 SECTION="Others"
-DESCRIPTION="xdg-dbus-proxy is a filtering proxy for D-Bus connections. It was originally part of the flatpak project, but it has been broken out as a standalone module to facilitate using it in other contexts."
+DESCRIPTION="General-purpose library specifically developed for the WPE-flavored port of WebKit."
 
 if [ ! -z $URL ]
 then
@@ -36,10 +36,13 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr
-make
+mkdir build
+cd build
 
-sudo make install
+meson --prefix=/usr &&
+ninja
+
+sudo ninja install
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

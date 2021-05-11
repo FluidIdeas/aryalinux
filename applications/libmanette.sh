@@ -11,14 +11,14 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/flatpak/xdg-dbus-proxy/releases/download/0.1.2/xdg-dbus-proxy-0.1.2.tar.xz
+wget -nc https://gitlab.gnome.org/GNOME/libmanette/-/archive/0.2.6/libmanette-0.2.6.tar.bz2
 
 
-NAME=xdg-dbus-proxy
-VERSION=0.1.2
-URL=https://github.com/flatpak/xdg-dbus-proxy/releases/download/0.1.2/xdg-dbus-proxy-0.1.2.tar.xz
+NAME=libmanette
+VERSION=0.2.6
+URL=https://gitlab.gnome.org/GNOME/libmanette/-/archive/0.2.6/libmanette-0.2.6.tar.bz2
 SECTION="Others"
-DESCRIPTION="xdg-dbus-proxy is a filtering proxy for D-Bus connections. It was originally part of the flatpak project, but it has been broken out as a standalone module to facilitate using it in other contexts."
+DESCRIPTION="The simple GObject game controller library"
 
 if [ ! -z $URL ]
 then
@@ -36,10 +36,13 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr
-make
+mkdir build
+cd build
 
-sudo make install
+meson --prefix=/usr &&
+ninja
+
+sudo ninja install
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

@@ -28,6 +28,15 @@ set +h
 #REQ:gobject-introspection
 #REQ:hicolor-icon-theme
 #REQ:libnotify
+#REQ:hyphen
+#REQ:libmanette
+#REQ:libwpe
+#REQ:wpebackend-fdo
+#REQ:bubblewrap
+#REQ:xdg-dbus-proxy
+#REQ:geoclue2
+#REQ:gtk-doc
+#REQ:woff2
 
 
 cd $SOURCE_DIR
@@ -62,6 +71,7 @@ echo $USER > /tmp/currentuser
 
 
 patch -Np1 -i ../webkitgtk-2.32.0-icu_69-1.patch
+
 mkdir -vp build &&
 cd        build &&
 
@@ -70,14 +80,10 @@ cmake -DCMAKE_BUILD_TYPE=Release  \
       -DCMAKE_SKIP_RPATH=ON       \
       -DPORT=GTK                  \
       -DLIB_INSTALL_DIR=/usr/lib  \
-      -DUSE_LIBHYPHEN=OFF         \
-      -DENABLE_GAMEPAD=OFF        \
       -DENABLE_MINIBROWSER=ON     \
-      -DUSE_WOFF2=OFF             \
-      -DUSE_WPE_RENDERER=OFF      \
-      -DENABLE_BUBBLEWRAP_SANDBOX=OFF \
       -Wno-dev -G Ninja ..        &&
 ninja
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
