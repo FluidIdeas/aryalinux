@@ -29,12 +29,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/firefox/releases/69.0.3/source/firefox-69.0.3.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/firefox/releases/89.0b9/source/firefox-89.0b9.source.tar.xz
 
 
 NAME=firefox
-VERSION=69.0.3
-URL=https://archive.mozilla.org/pub/firefox/releases/69.0.3/source/firefox-69.0.3.source.tar.xz
+VERSION=89.0b9
+URL=https://archive.mozilla.org/pub/firefox/releases/89.0b9/source/firefox-89.0b9.source.tar.xz
 SECTION="Graphical Web Browsers"
 DESCRIPTION="Firefox is a stand-alone browser based on the Mozilla codebase."
 
@@ -57,13 +57,9 @@ fi
 cat > mozconfig << "EOF"
 # If you have a multicore machine, all cores will be used by default.
 
-# If you have installed dbus-glib, comment out this line:
-#ac_add_options --disable-dbus
-
-# If you have installed dbus-glib, and you have installed (or will install)
-# wireless-tools, and you wish to use geolocation web services, comment out
-# this line
-#ac_add_options --disable-necko-wifi
+# If you have installed (or will install) wireless-tools, and you wish
+# to use geolocation web services, comment out this line
+ac_add_options --disable-necko-wifi
 
 # API Keys for geolocation APIs - necko-wifi (above) is required for MLS
 # Uncomment the following line if you wish to use Mozilla Location Service
@@ -73,79 +69,73 @@ cat > mozconfig << "EOF"
 # (needed for use with saved maps with Google Maps)
 #ac_add_options --with-google-location-service-api-keyfile=$PWD/google-key
 
-# Uncomment this line if you have installed startup-notification:
-ac_add_options --enable-startup-notification
+# startup-notification is required since firefox-78
 
 # Uncomment the following option if you have not installed PulseAudio
 #ac_add_options --disable-pulseaudio
-# and uncomment this if you installed alsa-lib instead of PulseAudio
+# or uncomment this if you installed alsa-lib instead of PulseAudio
 #ac_add_options --enable-alsa
-
-# If you have installed GConf, comment out this line
-#ac_add_options --disable-gconf
-
-# From firefox-61, the stylo CSS code can no-longer be disabled
 
 # Comment out following options if you have not installed
 # recommended dependencies:
-ac_add_options --enable-system-sqlite
 ac_add_options --with-system-libevent
-# current firefox fails to build against libvpx-1.8.0
-#ac_add_options --with-system-libvpx
-# firefox-65 understands webp and ships with an included copy
 ac_add_options --with-system-webp
 ac_add_options --with-system-nspr
 ac_add_options --with-system-nss
 ac_add_options --with-system-icu
 
-# The gold linker is no-longer the default
-ac_add_options --enable-linker=gold
+# Do not specify the gold linker which is not the default. It will take
+# longer and use more disk space when debug symbols are disabled.
 
-# The shipped libdavid (av1 decoder) is not built by default,
-# at least on linux, but if nasm is not present libxul tries to
-# link to one of libdavid's objects and fails.  It is thought
-# libdavid will be enabled in firefox-67, at which point nasm
-# might be required.
-ac_add_options --disable-av1
+# libdavid (av1 decoder) requires nasm. Uncomment this if nasm
+# has not been installed.
+#ac_add_options --disable-av1
 
 # You cannot distribute the binary if you do this
-#ac_add_options --enable-official-branding
-
-# If you are going to apply the patch for system graphite
-# and system harfbuzz, uncomment these lines:
-#ac_add_options --with-system-graphite2
-#ac_add_options --with-system-harfbuzz
+ac_add_options --enable-official-branding
 
 # Stripping is now enabled by default.
 # Uncomment these lines if you need to run a debugger:
 #ac_add_options --disable-strip
 #ac_add_options --disable-install-strip
 
+# Disabling debug symbols makes the build much smaller and a little
+# faster. Comment this if you need to run a debugger. Note: This is
+# required for compilation on i686.
+ac_add_options --disable-debug-symbols
+
+# The elf-hack is reported to cause failed installs (after successful builds)
+# on some machines. It is supposed to improve startup time and it shrinks
+# libxul.so by a few MB - comment this if you know your machine is not affected.
+ac_add_options --disable-elf-hack
+
 # The BLFS editors recommend not changing anything below this line:
 ac_add_options --prefix=/usr
 ac_add_options --enable-application=browser
-
 ac_add_options --disable-crashreporter
 ac_add_options --disable-updater
 # enabling the tests will use a lot more space and significantly
 # increase the build time, for no obvious benefit.
 ac_add_options --disable-tests
 
-# With clang, unlike gcc-7 and later, the default level
-# of optimization produces a working build.
+# The default level of optimization again produces a working build with gcc.
 ac_add_options --enable-optimize
-
-# From firefox-61 system cairo is not supported
 
 ac_add_options --enable-system-ffi
 ac_add_options --enable-system-pixman
 
-# From firefox-62 --with-pthreads is not recognized
-
-ac_add_options --with-system-bz2
+# --with-system-bz2 was removed in firefox-78
 ac_add_options --with-system-jpeg
 ac_add_options --with-system-png
 ac_add_options --with-system-zlib
+
+# The following option unsets Telemetry Reporting. With the Addons Fiasco,
+# Mozilla was found to be collecting user's data, including saved passwords and
+# web form data, without users consent. Mozilla was also found shipping updates
+# to systems without the user's knowledge or permission.
+# As a result of this, use the following command to permanently disable
+# telemetry reporting in Firefox.
+unset MOZ_TELEMETRY_REPORTING
 
 mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/firefox-build-dir
 EOF
