@@ -80,7 +80,8 @@ cp -rf * /opt/firefox
 
 pushd /usr/share/applications/ &&
 sudo rm firefox.desktop &&
-wget https://raw.githubusercontent.com/archlinux/svntogit-packages/packages/firefox/trunk/firefox.desktop
+sudo wget https://raw.githubusercontent.com/archlinux/svntogit-packages/packages/firefox/trunk/firefox.desktop &&
+sudo sed -i "s@/usr/lib/firefox@/opt/firefox@g" firefox.desktop
 
 for s in 16 32 48 128
 do
