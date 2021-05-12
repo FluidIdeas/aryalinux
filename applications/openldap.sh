@@ -32,9 +32,7 @@ TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
 	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
 	sudo rm -rf $DIRECTORY
-	if [ $NAME == "firefox" ]; then set +e; fi;
 	tar --no-overwrite-dir -xf $TARBALL
-	set -e
 else
 	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
 	unzip_file $TARBALL $NAME

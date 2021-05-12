@@ -9,32 +9,35 @@ set +h
 
 #REQ:autoconf213
 #REQ:cbindgen
-#REQ:llvm
+#REQ:dbus-glib
 #REQ:gtk3
 #REQ:gtk2
 #REQ:libnotify
+#REQ:llvm
 #REQ:nodejs
 #REQ:nss
 #REQ:pulseaudio
 #REQ:alsa-lib
-#REQ:rust
+#REQ:python3
+#REQ:sqlite
+#REQ:startup-notification
 #REQ:unzip
 #REQ:yasm
 #REQ:zip
 #REQ:icu
 #REQ:libevent
 #REQ:libwebp
-#REQ:sqlite
+#REQ:nasm
 
 
 cd $SOURCE_DIR
 
-wget -nc https://archive.mozilla.org/pub/firefox/releases/89.0b9/source/firefox-89.0b9.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/firefox/releases/78.10.0esr/source/firefox-78.10.0esr.source.tar.xz
 
 
 NAME=firefox
-VERSION=89.0b9
-URL=https://archive.mozilla.org/pub/firefox/releases/89.0b9/source/firefox-89.0b9.source.tar.xz
+VERSION=78.10.
+URL=https://archive.mozilla.org/pub/firefox/releases/78.10.0esr/source/firefox-78.10.0esr.source.tar.xz
 SECTION="Graphical Web Browsers"
 DESCRIPTION="Firefox is a stand-alone browser based on the Mozilla codebase."
 
@@ -45,9 +48,7 @@ TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
 	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
 	sudo rm -rf $DIRECTORY
-	if [ $NAME == "firefox" ]; then set +e; fi;
 	tar --no-overwrite-dir -xf $TARBALL
-	set -e
 else
 	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
 	unzip_file $TARBALL $NAME
@@ -55,6 +56,9 @@ fi
 
 cd $DIRECTORY
 fi
+
+echo $USER > /tmp/currentuser
+
 
 cat > mozconfig << "EOF"
 # If you have a multicore machine, all cores will be used by default.
@@ -141,25 +145,32 @@ unset MOZ_TELEMETRY_REPORTING
 
 mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/firefox-build-dir
 EOF
-export SHELL=/bin/sh
-sed -e 's/checkImpl/checkFFImpl/g' -i js/src/vm/JSContext*.h &&
-export CC=clang CXX=clang++ AR=llvm-ar NM=llvm-nm RANLIB=llvm-ranlib &&
+sed -e 's/Disable/Enable/'            \
+    -e '/^MOZ_REQUIRE_SIGNING/s/0/1/' \
+    -i build/mozconfig.common
+echo "AIzaSyDxKL42zsPjbke5O8_rPVpVrLrJ8aeE9rQ" > google-key
+echo "613364a7-9418-4c86-bcee-57e32fd70c23" > mozilla-key
+mountpoint -q /dev/shm || mount -t tmpfs devshm /dev/shm
+export CC=gcc CXX=g++ &&
 export MOZBUILD_STATE_PATH=${PWD}/mozbuild &&
+./mach configure                           &&
 ./mach build
-if [ -f /sources/distro-build.sh ]; then
-	DESTDIR=$BINARY_DIR/$NAME-$VERSION-$(uname-m) ./mach install
-fi
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+./mach install
+ENDOFROOTSCRIPT
 
-sudo ./mach install                                                  &&
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
-sudo mkdir -pv  /usr/lib/mozilla/plugins                             &&
-sudo ln    -sfv ../../mozilla/plugins /usr/lib/firefox/browser/
-unset CC CXX AR NM RANLIB MOZBUILD_STATE_PATH
+unset CC CXX MOZBUILD_STATE_PATH
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+mkdir -pv /usr/share/applications &&
+mkdir -pv /usr/share/pixmaps &&
 
-sudo mkdir -pv /usr/share/applications &&
-sudo mkdir -pv /usr/share/pixmaps &&
-
-sudo tee /usr/share/applications/firefox.desktop << "EOF" &&
+cat > /usr/share/applications/firefox.desktop << "EOF" &&
 [Desktop Entry]
 Encoding=UTF-8
 Name=Firefox Web Browser
@@ -174,8 +185,14 @@ MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/vnd.mo
 StartupNotify=true
 EOF
 
-sudo ln -sfv /usr/lib/firefox/browser/chrome/icons/default/default128.png \
+ln -sfv /usr/lib/firefox/browser/chrome/icons/default/default128.png \
         /usr/share/pixmaps/firefox.png
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

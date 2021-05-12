@@ -37,9 +37,7 @@ TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
 if [ -z $(echo $TARBALL | grep ".zip$") ]; then
 	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
 	sudo rm -rf $DIRECTORY
-	if [ $NAME == "firefox" ]; then set +e; fi;
 	tar --no-overwrite-dir -xf $TARBALL
-	set -e
 else
 	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
 	unzip_file $TARBALL $NAME
@@ -80,20 +78,9 @@ cat > 1434987998846.sh << "ENDOFFILE"
 mkdir /opt/firefox
 cp -rf * /opt/firefox
 
-cat > /usr/share/applications/firefox.desktop << "EOF" &&
-[Desktop Entry]
-Encoding=UTF-8
-Name=Firefox Web Browser
-Comment=Browse the World Wide Web
-GenericName=Web Browser
-Exec=/opt/firefox/firefox %u
-Terminal=false
-Type=Application
-Icon=firefox
-Categories=GNOME;GTK;Network;WebBrowser;
-MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
-StartupNotify=true
-EOF
+pushd /usr/share/applications/ &&
+sudo rm firefox.desktop &&
+wget https://raw.githubusercontent.com/archlinux/svntogit-packages/packages/firefox/trunk/firefox.desktop
 
 for s in 16 32 48 128
 do
