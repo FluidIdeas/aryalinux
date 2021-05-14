@@ -12,6 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 wget -nc http://galculator.mnim.org/downloads/galculator-2.1.4.tar.bz2
+wget -nc https://github.com/galculator/galculator/commit/501a9e3feeb2e56889c0ff98ab6d0ab20348ccd6.diff
 
 
 NAME=galculator
@@ -35,6 +36,7 @@ fi
 cd $DIRECTORY
 fi
 
+patch -Np1 -i ../501a9e3feeb2e56889c0ff98ab6d0ab20348ccd6.diff &&
 ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static &&
 make
 
