@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/blueman-project/blueman/releases/download/2.1.1/blueman-2.1.1.tar.gz
+wget -nc https://github.com/blueman-project/blueman/releases/download/2.1.4/blueman-2.1.4.tar.xz
 
 
 NAME=blueman
-VERSION=2.1.1
-URL=https://github.com/blueman-project/blueman/releases/download/2.1.1/blueman-2.1.1.tar.gz
+VERSION=2.1.4
+URL=https://github.com/blueman-project/blueman/releases/download/2.1.4/blueman-2.1.4.tar.xz
 DESCRIPTION="Blueman is a GTK+ bluetooth management utility for GNOME using bluez D-Bus backend."
 
 if [ ! -z $URL ]
