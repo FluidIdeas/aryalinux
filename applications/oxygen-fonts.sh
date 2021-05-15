@@ -11,12 +11,9 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc http://aryalinux.info/files/oxygen-fonts-5.4.3-x86_64.tar.xz
-
 
 NAME=oxygen-fonts
-VERSION=5.4.3
-URL=http://aryalinux.info/files/oxygen-fonts-5.4.3-x86_64.tar.xz
+VERSION=current
 DESCRIPTION="The Oxygen typeface family is created as part of the KDE Project, a libre desktop for the GNU+Linux operating system. The design is optimised for the FreeType font rendering system and works well in all graphical user interfaces, desktops and devices."
 
 if [ ! -z $URL ]
@@ -35,9 +32,11 @@ fi
 cd $DIRECTORY
 fi
 
-sudo cp -rv share /usr/
-sudo cp -r lib64/* /usr/lib/
-
+sudo mkdir -pv /usr/share/fonts/aryalinux-google-fonts/sans/
+wget "https://fonts.google.com/download?family=Oxygen" -O Oxygen.zip
+wget "https://fonts.google.com/download?family=Oxygen%20Mono" -O Oxygen_Mono.zip
+sudo unzip Oxygen.zip -d /usr/share/fonts/aryalinux-google-fonts/sans/
+sudo unzip Oxygen_Mono.zip -d /usr/share/fonts/aryalinux-google-fonts/sans/
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

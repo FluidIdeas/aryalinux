@@ -17,7 +17,7 @@ set +h
 #REQ:phonon-backend-gstreamer
 #REQ:polkit-qt
 #REQ:libdbusmenu-qt
-#REQ:krameworks5
+#REQ:frameworks5
 #REQ:fftw
 #REQ:plasma-all
 #REQ:ark5

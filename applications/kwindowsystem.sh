@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/stable/frameworks/5.81/kwindowsystem-5.81.0.tar.xz
+wget -nc https://download.kde.org/stable/frameworks/5.82/kwindowsystem-5.82.0.tar.xz
 
 
 NAME=kwindowsystem
-VERSION=5.81.0
+VERSION=5.82.0
 
 
 if [ ! -z $URL ]

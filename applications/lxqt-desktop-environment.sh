@@ -8,7 +8,7 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:qt5
-#REQ:krameworks5
+#REQ:frameworks5
 #REQ:extra-cmake-modules
 #REQ:udisks2
 #REQ:upower
