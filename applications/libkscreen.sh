@@ -7,16 +7,18 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:cmake
+
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/KDE/libkscreen/archive/v5.18.7/libkscreen-5.18.7.tar.gz
+wget -nc https://download.kde.org/stable/plasma/5.16.3/libkscreen-5.16.3.tar.xz
+
 
 NAME=libkscreen
-VERSION=5.18.7
-URL=https://github.com/KDE/libkscreen/archive/v5.18.7/libkscreen-5.18.7.tar.gz
-SECTION="KDE Plasma 5"
+VERSION=5.16.3
+URL=https://download.kde.org/stable/plasma/5.16.3/libkscreen-5.16.3.tar.xz
+SECTION="LXQT Desktop"
+DESCRIPTION=""
 
 if [ ! -z $URL ]
 then
@@ -34,18 +36,15 @@ fi
 cd $DIRECTORY
 fi
 
-echo $USER > /tmp/currentuser
+mkdir build
+cd build
 
-
-mkdir build &&
-cd    build &&
-
-cmake -DCMAKE_INSTALL_PREFIX=/usr .. &&
+cmake -DCMAKE_INSTALL_PREFIX=/usr ..
 make
 sudo make install
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
-
 
