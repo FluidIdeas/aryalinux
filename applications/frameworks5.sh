@@ -118,7 +118,7 @@ set +h
 #REQ:kquickcharts
 #REQ:kdav
 
-NAME=kframeworks5
+NAME=frameworks5
 VERSION=5.82
 SECTION="KDE Plasma 5"
 
