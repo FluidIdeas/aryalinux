@@ -113,7 +113,7 @@ for pkg in $(echo $packages); do
             make
             sudo make install
         popd
-        rm -rf $directory
+        sudo rm -rf $directory
         echo $pkg | tee -a /tmp/framework-pkgs
     fi
 done
