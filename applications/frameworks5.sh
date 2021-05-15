@@ -41,6 +41,82 @@ set +h
 #REQ:upower
 #REQ:media-player-info
 
+#REQ:attica
+#REQ:kapidox
+#REQ:karchive
+#REQ:kcodecs
+#REQ:kconfig
+#REQ:kcoreaddons
+#REQ:kdbusaddons
+#REQ:kdnssd
+#REQ:kguiaddons
+#REQ:ki18n
+#REQ:kidletime
+#REQ:kimageformats
+#REQ:kitemmodels
+#REQ:kitemviews
+#REQ:kplotting
+#REQ:kwidgetsaddons
+#REQ:kwindowsystem
+#REQ:networkmanager-qt
+#REQ:solid
+#REQ:sonnet
+#REQ:threadweaver
+#REQ:kauth
+#REQ:kcompletion
+#REQ:kcrash
+#REQ:kdoctools
+#REQ:kpty
+#REQ:kunitconversion
+#REQ:kconfigwidgets
+#REQ:kservice
+#REQ:kglobalaccel
+#REQ:kpackage
+#REQ:kdesu
+#REQ:kemoticons
+#REQ:kiconthemes
+#REQ:kjobwidgets
+#REQ:knotifications
+#REQ:ktextwidgets
+#REQ:kxmlgui
+#REQ:kbookmarks
+#REQ:kwallet
+#REQ:kded
+#REQ:kio
+#REQ:kdeclarative
+#REQ:kcmutils
+#REQ:kirigami2
+#REQ:knewstuff
+#REQ:frameworkintegration
+#REQ:kinit
+#REQ:knotifyconfig
+#REQ:kparts
+#REQ:kactivities
+#REQ:syntax-highlighting
+#REQ:ktexteditor
+#REQ:kwayland
+#REQ:plasma-framework
+#REQ:kpeople
+#REQ:kxmlrpcclient
+#REQ:bluez-qt
+#REQ:kfilemetadata
+#REQ:baloo
+#REQ:kactivities-stats
+#REQ:krunner
+#REQ:prison
+#REQ:qqc2-desktop-style
+#REQ:kjs
+#REQ:kdelibs4support
+#REQ:khtml
+#REQ:kjsembed
+#REQ:kmediaplayer
+#REQ:kross
+#REQ:kholidays
+#REQ:purpose
+#REQ:kcalendarcore
+#REQ:kcontacts
+#REQ:kquickcharts
+#REQ:kdav
 
 NAME=kframeworks5
 VERSION=5.82
@@ -48,106 +124,5 @@ SECTION="KDE Plasma 5"
 
 cd $SOURCE_DIR
 
-packages="
-attica
-kapidox
-karchive
-kcodecs
-kconfig
-kcoreaddons
-kdbusaddons
-kdnssd
-kguiaddons
-ki18n
-kidletime
-kimageformats
-kitemmodels
-kitemviews
-kplotting
-kwidgetsaddons
-kwindowsystem
-networkmanager-qt
-solid
-sonnet
-threadweaver
-kauth
-kcompletion
-kcrash
-kdoctools
-kpty
-kunitconversion
-kconfigwidgets
-kservice
-kglobalaccel
-kpackage
-kdesu
-kemoticons
-kiconthemes
-kjobwidgets
-knotifications
-ktextwidgets
-kxmlgui
-kbookmarks
-kwallet
-kded
-kio
-kdeclarative
-kcmutils
-kirigami2
-knewstuff
-frameworkintegration
-kinit
-knotifyconfig
-kparts
-kactivities
-syntax-highlighting
-ktexteditor
-kwayland
-plasma-framework
-kpeople
-kxmlrpcclient
-bluez-qt
-kfilemetadata
-baloo
-kactivities-stats
-krunner
-prison
-qqc2-desktop-style
-kjs
-kdelibs4support
-khtml
-kjsembed
-kmediaplayer
-kross
-kholidays
-purpose
-kcalendarcore
-kcontacts
-kquickcharts
-kdav"
-
-base_url="https://download.kde.org/stable/frameworks/$VERSION/"
-
-for pkg in $(echo $packages); do
-    if ! grep $pkg /tmp/framework-pkgs &> /dev/null; then
-        wget -nc "$base_url$pkg-$VERSION.0.tar.xz"
-        tarball=$(echo "$base_url$pkg-$VERSION.0.tar.xz" | rev | cut -d/ -f1 | rev)
-        directory=$(tar tf $tarball | cut -d/ -f1 | uniq)
-
-        tar xf $tarball
-        pushd $directory
-            mkdir build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr      \
-                -DCMAKE_BUILD_TYPE=Release         \
-                -DBUILD_TESTING=OFF                \
-                -Wno-dev ..
-            make
-            sudo make install
-        popd
-        sudo rm -rf $directory
-        echo $pkg | tee -a /tmp/framework-pkgs
-    fi
-done
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"

@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/stable/plasma/5.18.7/libkscreen-5.18.7.tar.xz
+wget -nc https://download.kde.org/stable/frameworks/5.82/kauth-5.82.0.tar.xz
 
-NAME=libkscreen
-VERSION=5.18.7
-URL=https://download.kde.org/stable/plasma/5.18.7/libkscreen-5.18.7.tar.xz
+NAME=kauth
+VERSION=5.82.0
+URL=https://download.kde.org/stable/frameworks/5.82/kauth-5.82.0.tar.xz
 SECTION="KDE Plasma 5"
 
 if [ ! -z $URL ]

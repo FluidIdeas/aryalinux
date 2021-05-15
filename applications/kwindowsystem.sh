@@ -7,16 +7,16 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
+#REQ:cmake
 
 cd $SOURCE_DIR
 
 wget -nc https://download.kde.org/stable/frameworks/5.82/kwindowsystem-5.82.0.tar.xz
 
-
 NAME=kwindowsystem
 VERSION=5.82.0
-
+URL=https://download.kde.org/stable/frameworks/5.82/kwindowsystem-5.82.0.tar.xz
+SECTION="KDE Plasma 5"
 
 if [ ! -z $URL ]
 then
@@ -34,18 +34,18 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build
-cd build
+echo $USER > /tmp/currentuser
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
--DCMAKE_BUILD_TYPE=Release \
--DBUILD_TESTING=OFF \
--Wno-dev .. &&
-make -j$(nproc)
+
+mkdir build &&
+cd    build &&
+
+cmake -DCMAKE_INSTALL_PREFIX=/usr .. &&
+make
 sudo make install
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+
 

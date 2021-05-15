@@ -7,19 +7,16 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:frameworks5
-
+#REQ:cmake
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/stable/plasma/5.16.4/kwin-5.16.4.tar.xz
-
+wget -nc https://download.kde.org/stable/plasma/5.18.7/kwin-5.18.7.tar.xz
 
 NAME=kwin
-VERSION=5.16.4
-URL=https://download.kde.org/stable/plasma/5.16.4/kwin-5.16.4.tar.xz
-SECTION="LXQT Desktop"
-DESCRIPTION=""
+VERSION=5.18.7
+URL=https://download.kde.org/stable/plasma/5.18.7/kwin-5.18.7.tar.xz
+SECTION="KDE Plasma 5"
 
 if [ ! -z $URL ]
 then
@@ -37,15 +34,18 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build
-cd build
+echo $USER > /tmp/currentuser
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+
+mkdir build &&
+cd    build &&
+
+cmake -DCMAKE_INSTALL_PREFIX=/usr .. &&
 make
 sudo make install
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+
 

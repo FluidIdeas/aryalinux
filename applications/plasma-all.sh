@@ -33,10 +33,54 @@ set +h
 #REQ:pciutils
 #REQ:smartmontools
 
+#REQ:kdecoration
+#REQ:libkscreen
+#REQ:libksysguard
+#REQ:breeze
+#REQ:breeze-gtk
+#REQ:kscreenlocker
+#REQ:oxygen
+#REQ:kinfocenter
+#REQ:ksysguard
+#REQ:kwayland-server
+#REQ:kwin
+#REQ:plasma-workspace
+#REQ:plasma-disks
+#REQ:bluedevil
+#REQ:kde-gtk-config
+#REQ:khotkeys
+#REQ:kmenuedit
+#REQ:kscreen
+#REQ:kwallet-pam
+#REQ:kwayland-integration
+#REQ:kwrited
+#REQ:milou
+#REQ:plasma-nm
+#REQ:plasma-pa
+#REQ:plasma-workspace-wallpapers
+#REQ:polkit-kde-agent-1
+#REQ:powerdevil
+#REQ:plasma-desktop
+#REQ:kdeplasma-addons
+#REQ:kgamma5
+#REQ:ksshaskpass
+#REQ:sddm-kcm
+#REQ:discover
+#REQ:kactivitymanagerd
+#REQ:plasma-integration
+#REQ:plasma-tests
+#REQ:xdg-desktop-portal-kde
+#REQ:drkonqi
+#REQ:plasma-vault
+#REQ:plasma-browser-integration
+#REQ:kde-cli-tools
+#REQ:systemsettings
+#REQ:plasma-thunderbolt
+#REQ:plasma-firewall
+#REQ:plasma-systemmonitor
+#REQ:qqc2-breeze-style
 
 cd $SOURCE_DIR
-
-
 
 NAME=plasma-all
 VERSION=5.21.5
@@ -44,79 +88,6 @@ SECTION="KDE Plasma 5"
 
 
 cd $SOURCE_DIR
-
-packages="
-kdecoration
-libkscreen
-libksysguard
-breeze
-breeze-gtk
-kscreenlocker
-oxygen
-kinfocenter
-ksysguard
-kwayland-server
-kwin
-plasma-workspace
-plasma-disks
-bluedevil
-kde-gtk-config
-khotkeys
-kmenuedit
-kscreen
-kwallet-pam
-kwayland-integration
-kwrited
-milou
-plasma-nm
-plasma-pa
-plasma-workspace-wallpapers
-polkit-kde-agent-1
-powerdevil
-plasma-desktop
-kdeplasma-addons
-kgamma5
-ksshaskpass
-sddm-kcm
-discover
-kactivitymanagerd
-plasma-integration
-plasma-tests
-xdg-desktop-portal-kde
-drkonqi
-plasma-vault
-plasma-browser-integration
-kde-cli-tools
-systemsettings
-plasma-thunderbolt
-plasma-firewall
-plasma-systemmonitor
-qqc2-breeze-style
-"
-
-base_url="https://download.kde.org/stable/plasma/$VERSION/"
-
-for pkg in $(echo $packages); do
-    if ! grep $pkg /tmp/framework-pkgs &> /dev/null; then
-        wget -nc "$base_url$pkg-$VERSION.0.tar.xz"
-        tarball=$(echo "$base_url$pkg-$VERSION.0.tar.xz" | rev | cut -d/ -f1 | rev)
-        directory=$(tar tf $tarball | cut -d/ -f1 | uniq)
-
-        tar xf $tarball
-        pushd $directory
-            mkdir build
-            cd build
-            cmake -DCMAKE_INSTALL_PREFIX=/usr      \
-                -DCMAKE_BUILD_TYPE=Release         \
-                -DBUILD_TESTING=OFF                \
-                -Wno-dev ..
-            make
-            sudo make install
-        popd
-        sudo rm -rf $directory
-        echo $pkg | tee -a /tmp/framework-pkgs
-    fi
-done
 
 sudo tee /etc/pam.d/kde << "EOF"
 # Begin /etc/pam.d/kde

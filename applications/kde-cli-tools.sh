@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/stable/plasma/5.18.7/libkscreen-5.18.7.tar.xz
+wget -nc https://download.kde.org/stable/plasma/5.18.7/kde-cli-tools-5.18.7.tar.xz
 
-NAME=libkscreen
+NAME=kde-cli-tools
 VERSION=5.18.7
-URL=https://download.kde.org/stable/plasma/5.18.7/libkscreen-5.18.7.tar.xz
+URL=https://download.kde.org/stable/plasma/5.18.7/kde-cli-tools-5.18.7.tar.xz
 SECTION="KDE Plasma 5"
 
 if [ ! -z $URL ]
