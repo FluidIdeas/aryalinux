@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/KDE/kjs/archive/5.82.0/kjs-5.82.0.tar.gz
+wget -nc https://github.com/KDE/kjs/archive/v5.82.0/kjs-5.82.0.tar.gz
 
 NAME=kjs
 VERSION=5.82.0
-URL=https://github.com/KDE/kjs/archive/5.82.0/kjs-5.82.0.tar.gz
+URL=https://github.com/KDE/kjs/archive/v5.82.0/kjs-5.82.0.tar.gz
 SECTION="KDE Plasma 5"
 
 if [ ! -z $URL ]
