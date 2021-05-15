@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.6p1.tar.gz
 
@@ -19,9 +21,6 @@ VERSION=8.
 URL=https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.6p1.tar.gz
 SECTION="Security"
 DESCRIPTION="The OpenSSH package contains ssh clients and the sshd daemon. This is useful for encrypting authentication and subsequent traffic over a network. The ssh and scp commands are secure implementations of telnet and rcp respectively."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

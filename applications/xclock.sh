@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.x.org/pub/individual/app/xclock-1.0.9.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/app/xclock-1.0.9.tar.bz2
@@ -21,9 +23,6 @@ VERSION=1.0.9
 URL=https://www.x.org/pub/individual/app/xclock-1.0.9.tar.bz2
 SECTION="X Window System Environment"
 DESCRIPTION="The xclock package contains a simple clock application which is used in the default xinit configuration."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc ftp://ftp.ncftp.com/ncftp/ncftp-3.2.6-src.tar.xz
 
@@ -19,9 +21,6 @@ VERSION=3.2.
 URL=ftp://ftp.ncftp.com/ncftp/ncftp-3.2.6-src.tar.xz
 SECTION="Networking Programs"
 DESCRIPTION="The NcFTP package contains a powerful and flexible interface to the Internet standard File Transfer Protocol. It is intended to replace or supplement the stock ftp program."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

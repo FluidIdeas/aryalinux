@@ -13,6 +13,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/gnome-themes-extra/3.28/gnome-themes-extra-3.28.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-themes-extra/3.28/gnome-themes-extra-3.28.tar.xz
@@ -23,9 +25,6 @@ VERSION=3.28
 URL=https://download.gnome.org/sources/gnome-themes-extra/3.28/gnome-themes-extra-3.28.tar.xz
 SECTION="Icons"
 DESCRIPTION="The GNOME Themes Extra package, formerly known as GNOME Themes Standard, contains various components of the default GNOME theme."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -23,6 +23,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/NetworkManager/1.30/NetworkManager-1.30.2.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/NetworkManager/1.30/NetworkManager-1.30.2.tar.xz
@@ -33,9 +35,6 @@ VERSION=1.30.2
 URL=https://download.gnome.org/sources/NetworkManager/1.30/NetworkManager-1.30.2.tar.xz
 SECTION="Networking Utilities"
 DESCRIPTION="NetworkManager is a set of co-operative tools that make networking simple and straightforward. Whether you use WiFi, wired, 3G, or Bluetooth, NetworkManager allows you to quickly move from one network to another: Once a network has been configured and joined once, it can be detected and re-joined automatically the next time it's available."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/libmng/libmng-2.0.3.tar.xz
 
@@ -21,9 +23,6 @@ VERSION=2.0.3
 URL=https://downloads.sourceforge.net/libmng/libmng-2.0.3.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The libmng libraries are used by programs wanting to read and write Multiple-image Network Graphics (MNG) files which are the animation equivalents to PNG files."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

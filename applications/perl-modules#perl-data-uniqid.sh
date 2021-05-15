@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.cpan.org/authors/id/M/MW/MWX/Data-Uniqid-0.12.tar.gz
 
@@ -18,9 +20,6 @@ NAME=perl-modules#perl-data-uniqid
 VERSION=0.12
 URL=https://www.cpan.org/authors/id/M/MW/MWX/Data-Uniqid-0.12.tar.gz
 SECTION="Others"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

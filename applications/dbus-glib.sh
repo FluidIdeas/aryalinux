@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.112.tar.gz
 
@@ -21,9 +23,6 @@ VERSION=0.112
 URL=https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.112.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The D-Bus GLib package contains GLib interfaces to the D-Bus API."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

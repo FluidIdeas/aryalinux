@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/protocolbuffers/protobuf/releases/download/v3.11.2/protobuf-all-3.11.2.tar.gz
 
@@ -18,9 +20,6 @@ NAME=protobuf
 VERSION=3.11.2
 URL=https://github.com/protocolbuffers/protobuf/releases/download/v3.11.2/protobuf-all-3.11.2.tar.gz
 DESCRIPTION="An alternative protocol buffer support for the Go programming language, forked from golang-goprotobuf. It is backwards compatible with goprotobuf, but provides faster marshalling and unmarshalling and can generate extra helper code, tests and benchmarks."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

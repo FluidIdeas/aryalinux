@@ -18,6 +18,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://pawsa.fedorapeople.org/balsa/balsa-2.6.2.tar.bz2
 
@@ -27,9 +29,6 @@ VERSION=2.6.2
 URL=https://pawsa.fedorapeople.org/balsa/balsa-2.6.2.tar.bz2
 SECTION="Other X-based Programs"
 DESCRIPTION="The Balsa package contains a GNOME-2 based mail client."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

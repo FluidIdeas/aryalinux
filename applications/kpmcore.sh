@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.kde.org/stable/kpmcore/4.0.1/src/kpmcore-4.0.1.tar.xz
 
@@ -18,9 +20,6 @@ NAME=kpmcore
 VERSION=4.0.1
 URL=https://download.kde.org/stable/kpmcore/4.0.1/src/kpmcore-4.0.1.tar.xz
 DESCRIPTION="Library for managing partitions. Common code for KDE Partition Manager and other projects."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

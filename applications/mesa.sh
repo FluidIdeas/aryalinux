@@ -17,6 +17,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://mesa.freedesktop.org/archive/mesa-21.1.0.tar.xz
 wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-21.1.0.tar.xz
@@ -29,9 +31,6 @@ VERSION=21.1.0
 URL=https://mesa.freedesktop.org/archive/mesa-21.1.0.tar.xz
 SECTION="X Window System Environment"
 DESCRIPTION="Mesa is an OpenGL compatible 3D graphics library."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

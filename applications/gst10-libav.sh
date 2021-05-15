@@ -13,6 +13,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.18.4.tar.xz
 
@@ -22,9 +24,6 @@ VERSION=1.18.4
 URL=https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.18.4.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The GStreamer Libav package contains GStreamer plugins for Libav (a fork of FFmpeg)."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

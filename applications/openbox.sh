@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc http://openbox.org/dist/openbox/openbox-3.6.1.tar.gz
 
@@ -20,9 +22,6 @@ VERSION=3.6.1
 URL=http://openbox.org/dist/openbox/openbox-3.6.1.tar.gz
 SECTION="Window Managers"
 DESCRIPTION="Openbox is a highly configurable desktop window manager with extensive standards support. It allows you to control almost every aspect of how you interact with your desktop."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

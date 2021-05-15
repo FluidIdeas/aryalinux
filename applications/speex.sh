@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.xiph.org/releases/speex/speex-1.2.0.tar.gz
 wget -nc https://downloads.xiph.org/releases/speex/speexdsp-1.2.0.tar.gz
@@ -21,9 +23,6 @@ VERSION=1.2.0
 URL=https://downloads.xiph.org/releases/speex/speex-1.2.0.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="Speex is an audio compression format designed especially for speech. It is well-adapted to internet applications and provides useful features that are not present in most other CODECs."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

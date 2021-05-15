@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/mpg123/mpg123-1.26.5.tar.bz2
 
@@ -20,9 +22,6 @@ VERSION=1.26.5
 URL=https://downloads.sourceforge.net/mpg123/mpg123-1.26.5.tar.bz2
 SECTION="Audio Utilities"
 DESCRIPTION="The mpg123 package contains a console-based MP3 player. It claims to be the fastest MP3 decoder for Unix."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

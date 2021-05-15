@@ -23,6 +23,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/clementine-player/Clementine/releases/download/1.4.0rc1/clementine-1.4.0rc1.tar.xz
 
@@ -31,9 +33,6 @@ NAME=clementine
 VERSION=1.4.0rc1
 URL=https://github.com/clementine-player/Clementine/releases/download/1.4.0rc1/clementine-1.4.0rc1.tar.xz
 DESCRIPTION="Clementine is a multiplatform music player focusing on a fast and easy-to-use interface for searching and playing your music."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

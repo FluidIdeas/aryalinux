@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.14.1.tar.xz
 
@@ -19,9 +21,6 @@ VERSION=1.14.1
 URL=https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.14.1.tar.xz
 SECTION="X Window System Environment"
 DESCRIPTION="The xcb-proto package provides the XML-XCB protocol descriptions that libxcb uses to generate the majority of its code and API."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

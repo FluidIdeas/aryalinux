@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc http://tug.ctan.org/support/xindy/base/xindy-2.5.1.tar.gz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/xindy-2.5.1-upstream_fixes-2.patch
@@ -22,9 +24,6 @@ VERSION=2.5.1
 URL=http://tug.ctan.org/support/xindy/base/xindy-2.5.1.tar.gz
 SECTION="Typesetting"
 DESCRIPTION="Xindy is an index processor that can be used to generate book-like indexes for arbitrary document-preparation systems. This includes systems such as TeX and LaTeX, the roff-family, and SGML/XML-based systems (e.g., HTML) that process some kind of text and generate indexing information."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

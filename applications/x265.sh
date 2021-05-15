@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/x265/x265_3.4.tar.gz
 
@@ -21,9 +23,6 @@ VERSION=26
 URL=http://anduin.linuxfromscratch.org/BLFS/x265/x265_3.4.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="x265 package provides a library for encoding video streams into the H.265/HEVC format."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

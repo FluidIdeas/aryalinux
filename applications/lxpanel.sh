@@ -19,6 +19,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/lxde/lxpanel-0.10.1.tar.xz
 
@@ -28,9 +30,6 @@ VERSION=0.10.1
 URL=https://downloads.sourceforge.net/lxde/lxpanel-0.10.1.tar.xz
 SECTION="LXDE Desktop"
 DESCRIPTION="The LXPanel package contains a lightweight X11 desktop panel."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

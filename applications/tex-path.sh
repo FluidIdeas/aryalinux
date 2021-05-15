@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 
 
@@ -18,9 +20,6 @@ VERSION=2019
 
 SECTION="Others"
 DESCRIPTION="Package to configure installation of texlive"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

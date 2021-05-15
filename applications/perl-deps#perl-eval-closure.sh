@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DO/DOY/Eval-Closure-0.14.tar.gz
 
@@ -20,9 +22,6 @@ NAME=perl-deps#perl-eval-closure
 VERSION=0.14
 URL=https://cpan.metacpan.org/authors/id/D/DO/DOY/Eval-Closure-0.14.tar.gz
 SECTION="Others"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

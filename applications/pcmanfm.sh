@@ -15,6 +15,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/pcmanfm/pcmanfm-1.3.2.tar.xz
 
@@ -24,9 +26,6 @@ VERSION=1.3.2
 URL=https://downloads.sourceforge.net/pcmanfm/pcmanfm-1.3.2.tar.xz
 SECTION="LXDE Desktop"
 DESCRIPTION="The PCManFM package contains an extremely fast, lightweight, yet feature-rich file manager with tabbed browsing."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

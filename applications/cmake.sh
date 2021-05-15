@@ -14,6 +14,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://cmake.org/files/v3.20/cmake-3.20.2.tar.gz
 
@@ -23,9 +25,6 @@ VERSION=3.20.2
 URL=https://cmake.org/files/v3.20/cmake-3.20.2.tar.gz
 SECTION="Programming"
 DESCRIPTION="The CMake package contains a modern toolset used for generating Makefiles. It is a successor of the auto-generated configure script and aims to be platform- and compiler-independent. A significant user of CMake is KDE since version 4."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

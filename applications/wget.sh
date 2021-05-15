@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://ftp.gnu.org/gnu/wget/wget-1.21.1.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/wget/wget-1.21.1.tar.gz
@@ -21,9 +23,6 @@ VERSION=1.21.1
 URL=https://ftp.gnu.org/gnu/wget/wget-1.21.1.tar.gz
 SECTION="Networking Programs"
 DESCRIPTION="The Wget package contains a utility useful for non-interactive downloading of files from the Web."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

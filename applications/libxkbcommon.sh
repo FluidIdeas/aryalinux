@@ -14,6 +14,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://xkbcommon.org/download/libxkbcommon-1.3.0.tar.xz
 
@@ -23,9 +25,6 @@ VERSION=1.3.0
 URL=https://xkbcommon.org/download/libxkbcommon-1.3.0.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="libxkbcommon is a keymap compiler and support library which processes a reduced subset of keymaps as defined by the XKB specification."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

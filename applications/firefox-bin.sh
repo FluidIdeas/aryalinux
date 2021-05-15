@@ -22,6 +22,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 
 
@@ -29,9 +31,6 @@ NAME=firefox-bin
 VERSION=12-2019
 
 DESCRIPTION="The Firefox binary package. This package unlike firefox is not built from source. The latest online binaries are downloaded and extracted when this package is installed."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

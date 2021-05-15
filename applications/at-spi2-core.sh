@@ -13,6 +13,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/at-spi2-core/2.40/at-spi2-core-2.40.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/at-spi2-core/2.40/at-spi2-core-2.40.1.tar.xz
@@ -23,9 +25,6 @@ VERSION=2.40.1
 URL=https://download.gnome.org/sources/at-spi2-core/2.40/at-spi2-core-2.40.1.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The At-Spi2 Core package is a part of the GNOME Accessibility Project. It provides a Service Provider Interface for the Assistive Technologies available on the GNOME platform and a library against which applications can be linked."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

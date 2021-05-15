@@ -24,6 +24,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/gtk/4.2/gtk-4.2.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtk/4.2/gtk-4.2.0.tar.xz
@@ -34,9 +36,6 @@ VERSION=4.2.0
 URL=https://download.gnome.org/sources/gtk/4.2/gtk-4.2.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The GTK 4 package contains libraries used for creating graphical user interfaces for applications."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

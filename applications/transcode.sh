@@ -16,6 +16,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://sources.archlinux.org/other/community/transcode/transcode-1.1.7.tar.bz2
 wget -nc ftp://ftp.mirrorservice.org/sites/distfiles.gentoo.org/distfiles/transcode-1.1.7.tar.bz2
@@ -28,9 +30,6 @@ VERSION=1.1.7
 URL=https://sources.archlinux.org/other/community/transcode/transcode-1.1.7.tar.bz2
 SECTION="Video Utilities"
 DESCRIPTION="Transcode was a fast, versatile and command-line based audio/video everything to everything converter primarily focussed on producing AVI video files with MP3 audio, but also including a program to read all the video and audio streams from a DVD."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -15,6 +15,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/goffice/0.10/goffice-0.10.49.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/goffice/0.10/goffice-0.10.49.tar.xz
@@ -25,9 +27,6 @@ VERSION=0.10.49
 URL=https://download.gnome.org/sources/goffice/0.10/goffice-0.10.49.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The GOffice package contains a library of GLib/GTK document centric objects and utilities. This is useful for performing common operations for document centric applications that are conceptually simple, but complex to implement fully. Some of the operations provided by the GOffice library include support for plugins, load/save routines for application documents and undo/redo functions."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

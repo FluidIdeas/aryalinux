@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://files.pythonhosted.org/packages/source/s/six/six-1.15.0.tar.gz
 
@@ -19,9 +21,6 @@ NAME=python-modules#six
 VERSION=1.15.0
 URL=https://files.pythonhosted.org/packages/source/s/six/six-1.15.0.tar.gz
 SECTION="Others"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

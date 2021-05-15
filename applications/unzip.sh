@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/infozip/unzip60.tar.gz
 wget -nc ftp://ftp.info-zip.org/pub/infozip/src/unzip60.tgz
@@ -21,9 +23,6 @@ VERSION=60
 URL=https://downloads.sourceforge.net/infozip/unzip60.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="The UnZip package contains ZIP extraction utilities. These are useful for extracting files from ZIP archives. ZIP archives are created with PKZIP or Info-ZIP utilities, primarily in a DOS environment."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

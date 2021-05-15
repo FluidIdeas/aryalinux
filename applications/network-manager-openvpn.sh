@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/NetworkManager-openvpn/1.8/NetworkManager-openvpn-1.8.10.tar.xz
 
@@ -18,9 +20,6 @@ NAME=network-manager-openvpn
 VERSION=1.8.10
 URL=https://download.gnome.org/sources/NetworkManager-openvpn/1.8/NetworkManager-openvpn-1.8.10.tar.xz
 DESCRIPTION="Network Manager plugin for openvpn"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

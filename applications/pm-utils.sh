@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://pm-utils.freedesktop.org/releases/pm-utils-1.4.1.tar.gz
 
@@ -19,9 +21,6 @@ VERSION=1.4.1
 URL=https://pm-utils.freedesktop.org/releases/pm-utils-1.4.1.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="The Power Management Utilities provide simple shell command line tools to suspend and hibernate the computer. They can be used to run user supplied scripts on suspend and resume."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

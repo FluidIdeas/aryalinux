@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-013.tar.xz
 
@@ -21,9 +23,6 @@ VERSION=013
 URL=https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-013.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="The USB Utils package contains utilities used to display information about USB buses in the system and the devices connected to them."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

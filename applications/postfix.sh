@@ -13,6 +13,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.6.0.tar.gz
 
@@ -22,9 +24,6 @@ VERSION=3.6.0
 URL=ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.6.0.tar.gz
 SECTION="Mail Server Software"
 DESCRIPTION="The Postfix package contains a Mail Transport Agent (MTA). This is useful for sending email to other users of your host machine. It can also be configured to be a central mail server for your domain, a mail relay agent or simply a mail delivery agent to your local Internet Service Provider."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

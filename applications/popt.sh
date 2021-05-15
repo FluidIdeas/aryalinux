@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc http://ftp.rpm.org/popt/releases/popt-1.x/popt-1.18.tar.gz
 wget -nc ftp://ftp.rpm.org/pub/rpm/popt/releases/popt-1.x/popt-1.18.tar.gz
@@ -20,9 +22,6 @@ VERSION=1.18
 URL=http://ftp.rpm.org/popt/releases/popt-1.x/popt-1.18.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The popt package contains the popt libraries which are used by some programs to parse command-line options."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

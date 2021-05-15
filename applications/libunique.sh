@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/libunique/1.1/libunique-1.1.6.tar.bz2
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libunique/1.1/libunique-1.1.6.tar.bz2
@@ -23,9 +25,6 @@ VERSION=1.1.6
 URL=https://download.gnome.org/sources/libunique/1.1/libunique-1.1.6.tar.bz2
 SECTION="General Libraries"
 DESCRIPTION="The libunique package contains a library for writing single instance applications."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

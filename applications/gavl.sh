@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/gmerlin/gavl-1.4.0.tar.gz
 
@@ -19,9 +21,6 @@ VERSION=1.4.0
 URL=https://downloads.sourceforge.net/gmerlin/gavl-1.4.0.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="Gavl is short for Gmerlin Audio Video Library. It is a low level library that handles the details of audio and video formats like colorspaces, samplerates, multichannel configurations etc. It provides standardized definitions for those formats as well as container structures for carrying audio samples or video images inside an application."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

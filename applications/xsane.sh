@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/xsane/xsane-0.999.tar.gz
 wget -nc ftp://anduin.linuxfromscratch.org/BLFS/xsane/xsane-0.999.tar.gz
@@ -22,9 +24,6 @@ VERSION=0.999
 URL=http://anduin.linuxfromscratch.org/BLFS/xsane/xsane-0.999.tar.gz
 SECTION="Scanning"
 DESCRIPTION="XSane is another front end for SANE-1.0.29. It has additional features to improve the image quality and ease of use compared to xscanimage."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

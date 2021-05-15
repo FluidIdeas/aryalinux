@@ -21,6 +21,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/storaged-project/udisks/releases/download/udisks-2.9.2/udisks-2.9.2.tar.bz2
 
@@ -30,9 +32,6 @@ VERSION=2.9.2
 URL=https://github.com/storaged-project/udisks/releases/download/udisks-2.9.2/udisks-2.9.2.tar.bz2
 SECTION="System Utilities"
 DESCRIPTION="The UDisks package provides a daemon, tools and libraries to access and manipulate disks and storage devices."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

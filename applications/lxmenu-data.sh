@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/lxde/lxmenu-data-0.1.5.tar.xz
 
@@ -19,9 +21,6 @@ VERSION=0.1.5
 URL=https://downloads.sourceforge.net/lxde/lxmenu-data-0.1.5.tar.xz
 SECTION="LXDE Desktop"
 DESCRIPTION="The LXMenu Data package provides files required to build freedesktop.org menu spec-compliant desktop menus for LXDE."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/lxde/lxterminal-0.4.0.tar.xz
 
@@ -20,9 +22,6 @@ VERSION=0.4.0
 URL=https://downloads.sourceforge.net/lxde/lxterminal-0.4.0.tar.xz
 SECTION="LXDE Applications"
 DESCRIPTION="The LXTerminal package contains a VTE-based terminal emulator for LXDE with support for multiple tabs."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/amtk/5.2/amtk-5.2.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/amtk/5.2/amtk-5.2.0.tar.xz
@@ -21,9 +23,6 @@ VERSION=5.2.0
 URL=https://download.gnome.org/sources/amtk/5.2/amtk-5.2.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The Amtk package contains a basic GTKUIManager replacement based on GAction."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

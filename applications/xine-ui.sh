@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/xine/xine-ui-0.99.12.tar.xz
 
@@ -21,9 +23,6 @@ VERSION=0.99.12
 URL=https://downloads.sourceforge.net/xine/xine-ui-0.99.12.tar.xz
 SECTION="Video Utilities"
 DESCRIPTION="The xine User Interface package contains a multimedia player. It plays back CDs, DVDs and VCDs. It also decodes multimedia files like AVI, MOV, WMV, MPEG and MP3 from local disk drives, and displays multimedia streamed over the Internet."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

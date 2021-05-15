@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/libdv/libdv-1.0.0.tar.gz
 
@@ -19,9 +21,6 @@ VERSION=1.0.0
 URL=https://downloads.sourceforge.net/libdv/libdv-1.0.0.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The Quasar DV Codec (libdv) is a software CODEC for DV video, the encoding format used by most digital camcorders. It can be used to copy videos from camcorders using a firewire (IEEE 1394) connection."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://ftp.gnu.org/gnu/clisp/latest/clisp-2.49.tar.bz2
 wget -nc ftp://ftp.gnu.org/gnu/clisp/latest/clisp-2.49.tar.bz2
@@ -22,9 +24,6 @@ VERSION=2.49
 URL=https://ftp.gnu.org/gnu/clisp/latest/clisp-2.49.tar.bz2
 SECTION="Programming"
 DESCRIPTION="GNU Clisp is a Common Lisp implementation which includes an interpreter, compiler, debugger, and many extensions."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

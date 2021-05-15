@@ -15,6 +15,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.6.tar.xz
 
@@ -24,9 +26,6 @@ VERSION=0.3.6
 URL=https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.6.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libgusb package contains the GObject wrappers for libusb-1.0 that makes it easy to do asynchronous control, bulk and interrupt transfers with proper cancellation and integration into a mainloop."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

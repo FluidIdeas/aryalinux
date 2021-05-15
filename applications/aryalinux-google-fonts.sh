@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://sourceforge.net/projects/aryalinux/files/releases/4.0/aryalinux-google-fonts.tar.xz
 
@@ -18,9 +20,6 @@ NAME=aryalinux-google-fonts
 VERSION=4.0
 
 DESCRIPTION="Collection of TTF fonts, sourced from Google for AryaLinux"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

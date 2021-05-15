@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/fontforge/libspiro/releases/download/20200505/libspiro-dist-20200505.tar.gz
 
@@ -19,9 +21,6 @@ VERSION=20200505
 URL=https://github.com/fontforge/libspiro/releases/download/20200505/libspiro-dist-20200505.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="Libspiro will take an array of spiro control points and convert them into a series of bezier splines which can then be used in the myriad of ways the world has come to use beziers."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

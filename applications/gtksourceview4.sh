@@ -13,6 +13,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/gtksourceview/4.8/gtksourceview-4.8.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtksourceview/4.8/gtksourceview-4.8.1.tar.xz
@@ -24,9 +26,6 @@ VERSION=4.8.1
 URL=https://download.gnome.org/sources/gtksourceview/4.8/gtksourceview-4.8.1.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The GtkSourceView package contains libraries used for extending the GTK+ text functions to include syntax highlighting."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

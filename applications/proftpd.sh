@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.7a.tar.gz
 
@@ -19,9 +21,6 @@ VERSION=1.3.
 URL=ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.7a.tar.gz
 SECTION="Major Servers"
 DESCRIPTION="The ProFTPD package contains a secure and highly configurable FTP daemon. This is useful for serving large file archives over a network."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

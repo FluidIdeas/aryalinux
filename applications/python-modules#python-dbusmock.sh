@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/martinpitt/python-dbusmock/releases/download/0.23.0/python-dbusmock-0.23.0.tar.gz
 
@@ -20,9 +22,6 @@ NAME=python-modules#python-dbusmock
 VERSION=0.23.0
 URL=https://github.com/martinpitt/python-dbusmock/releases/download/0.23.0/python-dbusmock-0.23.0.tar.gz
 SECTION="Others"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

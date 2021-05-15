@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://files.pythonhosted.org/packages/source/l/lxml/lxml-4.6.3.tar.gz
 
@@ -20,9 +22,6 @@ NAME=python-modules#lxml
 VERSION=4.6.3
 URL=https://files.pythonhosted.org/packages/source/l/lxml/lxml-4.6.3.tar.gz
 SECTION="Others"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

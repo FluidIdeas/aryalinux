@@ -45,6 +45,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 
 
@@ -52,9 +54,6 @@ NAME=xserver-meta
 VERSION=1.20.3
 
 DESCRIPTION="A meta package to install the collection of packages needed to install x-server."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

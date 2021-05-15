@@ -10,6 +10,8 @@ set +h
 #REQ:cmake
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/KDE/plasma-disks/archive/v5.21.1/plasma-disks-5.21.1.tar.gz
 
@@ -17,9 +19,6 @@ NAME=plasma-disks
 VERSION=5.21.1
 URL=https://github.com/KDE/plasma-disks/archive/v5.21.1/plasma-disks-5.21.1.tar.gz
 SECTION="KDE Plasma 5"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

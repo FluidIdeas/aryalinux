@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://dbus.freedesktop.org/releases/dbus/dbus-1.12.20.tar.gz
 
@@ -21,9 +23,6 @@ VERSION=1.12.20
 URL=https://dbus.freedesktop.org/releases/dbus/dbus-1.12.20.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="Even though D-Bus was built in LFS, there are some features provided by the package that other BLFS packages need, but their dependencies didn't fit into LFS."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

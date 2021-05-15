@@ -13,6 +13,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc http://www.mplayerhq.hu/MPlayer/releases/MPlayer-1.4.tar.xz
 wget -nc ftp://ftp.mplayerhq.hu/MPlayer/releases/MPlayer-1.4.tar.xz
@@ -26,9 +28,6 @@ VERSION=1.4
 URL=http://www.mplayerhq.hu/MPlayer/releases/MPlayer-1.4.tar.xz
 SECTION="Video Utilities"
 DESCRIPTION="MPlayer is a powerful audio/video player controlled via the command line or a graphical interface that is able to play almost every popular audio and video file format. With supported video hardware and additional drivers, MPlayer can play video files without an X Window System installed."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

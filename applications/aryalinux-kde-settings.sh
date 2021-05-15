@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc http://aryalinux.info/files/aryalinux-kde-defaults-2.0.tar.xz
 
@@ -18,9 +20,6 @@ NAME=aryalinux-kde-settings
 VERSION=2.0
 
 DESCRIPTION="Default settings of the KDE plasma desktop environment in AryaLinux. Includes commands for setting themes, icons and fonts for the defualt KDE plasma desktop."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

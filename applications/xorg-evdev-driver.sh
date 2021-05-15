@@ -13,6 +13,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.x.org/pub/individual/driver/xf86-input-evdev-2.10.6.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-input-evdev-2.10.6.tar.bz2
@@ -22,9 +24,6 @@ NAME=xorg-evdev-driver
 VERSION=2.10.6
 URL=https://www.x.org/pub/individual/driver/xf86-input-evdev-2.10.6.tar.bz2
 SECTION="Others"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -18,6 +18,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/lxde/lxde-common-0.99.2.tar.xz
 
@@ -27,9 +29,6 @@ VERSION=0.99.2
 URL=https://downloads.sourceforge.net/lxde/lxde-common-0.99.2.tar.xz
 SECTION="LXDE Desktop"
 DESCRIPTION="The LXDE Common package provides a set of default configuration for LXDE."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

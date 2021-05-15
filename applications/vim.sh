@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/vim/vim-8.2.2433.tar.gz
 
@@ -20,9 +22,6 @@ VERSION=8.2.2433
 URL=http://anduin.linuxfromscratch.org/BLFS/vim/vim-8.2.2433.tar.gz
 SECTION="Editors"
 DESCRIPTION="The Vim package, which is an abbreviation for VI IMproved, contains a vi clone with extra features as compared to the original vi."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/mad/libmad-0.15.1b.tar.gz
 wget -nc ftp://ftp.mars.org/pub/mpeg/libmad-0.15.1b.tar.gz
@@ -21,9 +23,6 @@ VERSION=0.15.
 URL=https://downloads.sourceforge.net/mad/libmad-0.15.1b.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="libmad is a high-quality MPEG audio decoder capable of 24-bit output."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

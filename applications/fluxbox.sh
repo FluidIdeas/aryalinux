@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/fluxbox/fluxbox-1.3.7.tar.xz
 
@@ -19,9 +21,6 @@ VERSION=1.3.7
 URL=https://downloads.sourceforge.net/fluxbox/fluxbox-1.3.7.tar.xz
 SECTION="Window Managers"
 DESCRIPTION="The Fluxbox package contains a window manager."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

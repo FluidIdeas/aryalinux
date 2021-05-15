@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/jirka-h/haveged/archive/v1.9.14/haveged-1.9.14.tar.gz
 
@@ -19,9 +21,6 @@ VERSION=1.9.14
 URL=https://github.com/jirka-h/haveged/archive/v1.9.14/haveged-1.9.14.tar.gz
 SECTION="Security"
 DESCRIPTION="The Haveged package contains a daemon that generates an unpredictable stream of random numbers and feeds the /dev/random device."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

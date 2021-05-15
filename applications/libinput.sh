@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.freedesktop.org/software/libinput/libinput-1.17.1.tar.xz
 
@@ -20,9 +22,6 @@ NAME=libinput
 VERSION=1.17.1
 URL=https://www.freedesktop.org/software/libinput/libinput-1.17.1.tar.xz
 SECTION="Others"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

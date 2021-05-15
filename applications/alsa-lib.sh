@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.4.tar.bz2
 wget -nc ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.2.4.tar.bz2
@@ -20,9 +22,6 @@ VERSION=1.2.4
 URL=https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.4.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The ALSA Library package contains the ALSA library used by programs (including ALSA Utilities) requiring access to the ALSA sound interface."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

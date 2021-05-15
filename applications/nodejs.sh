@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 
 
@@ -18,9 +20,6 @@ VERSION=1.9.14
 
 SECTION="Programming"
 DESCRIPTION="Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

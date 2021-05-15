@@ -40,6 +40,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 
 
@@ -48,9 +50,6 @@ VERSION=5.53
 
 SECTION="KDE Plasma 5"
 DESCRIPTION="Plasma is KDE's desktop environment. Simple by default, powerful when needed."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

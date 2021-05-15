@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/flatpak/libportal/releases/download/0.4/libportal-0.4.tar.xz
 
@@ -20,9 +22,6 @@ VERSION=0.4
 URL=https://github.com/flatpak/libportal/releases/download/0.4/libportal-0.4.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libportal package provides a library that contains GIO-style async APIs for most Flatpak portals."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.cpan.org/authors/id/D/DC/DCANTRELL/Test-Differences-0.67.tar.gz
 
@@ -20,9 +22,6 @@ NAME=perl-modules#perl-test-differences
 VERSION=0.67
 URL=https://www.cpan.org/authors/id/D/DC/DCANTRELL/Test-Differences-0.67.tar.gz
 SECTION="Others"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

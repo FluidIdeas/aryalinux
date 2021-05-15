@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://alpha.gnu.org/gnu/grub/grub-2.06~rc1.tar.xz
 wget -nc https://unifoundry.com/pub/unifont/unifont-13.0.06/font-builds/unifont-13.0.06.pcf.gz
@@ -21,9 +23,6 @@ VERSION=2.0
 URL=https://alpha.gnu.org/gnu/grub/grub-2.06~rc1.tar.xz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The GRUB package provides GRand Unified Bootloader. In this page it will be built with UEFI support, which is not enabled for GRUB built in LFS."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

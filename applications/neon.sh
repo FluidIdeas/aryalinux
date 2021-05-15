@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://notroj.github.io/neon/neon-0.31.2.tar.gz
 
@@ -19,9 +21,6 @@ VERSION=0.31.2
 URL=https://notroj.github.io/neon/neon-0.31.2.tar.gz
 SECTION="Networking Libraries"
 DESCRIPTION="neon is an HTTP and WebDAV client library, with a C interface."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

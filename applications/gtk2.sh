@@ -14,6 +14,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.33.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtk+/2.24/gtk+-2.24.33.tar.xz
@@ -24,9 +26,6 @@ VERSION=2.24.33
 URL=https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.33.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The GTK+ 2 package contains libraries used for creating graphical user interfaces for applications."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

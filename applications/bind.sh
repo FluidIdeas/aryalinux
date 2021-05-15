@@ -13,6 +13,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc ftp://ftp.isc.org/isc/bind9/9.16.15/bind-9.16.15.tar.xz
 
@@ -22,9 +24,6 @@ VERSION=9.16.15
 URL=ftp://ftp.isc.org/isc/bind9/9.16.15/bind-9.16.15.tar.xz
 SECTION="Major Servers"
 DESCRIPTION="The BIND package provides a DNS server and client utilities. If you are only interested in the utilities, refer to the BIND Utilities-9.16.15."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -16,6 +16,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 
 
@@ -23,9 +25,6 @@ NAME=vpn-libs
 VERSION=2.1
 
 DESCRIPTION="Meta package to install vpn support - openvpn, openconnect, pptp"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

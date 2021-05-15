@@ -15,6 +15,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://people.freedesktop.org/~svu/libxklavier-5.4.tar.bz2
 
@@ -24,9 +26,6 @@ VERSION=5.4
 URL=https://people.freedesktop.org/~svu/libxklavier-5.4.tar.bz2
 SECTION="X Libraries"
 DESCRIPTION="The libxklavier package contains a utility library for X keyboard."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

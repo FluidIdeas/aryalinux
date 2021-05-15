@@ -14,6 +14,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.linuxtv.org/downloads/v4l-utils/v4l-utils-1.20.0.tar.bz2
 
@@ -23,9 +25,6 @@ VERSION=1.20.0
 URL=https://www.linuxtv.org/downloads/v4l-utils/v4l-utils-1.20.0.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="v4l-utils provides a series of utilities for media devices, allowing to handle the proprietary formats available at most webcams (libv4l), and providing tools to test V4L devices."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

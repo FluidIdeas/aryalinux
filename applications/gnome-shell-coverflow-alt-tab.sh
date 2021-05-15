@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc http://aryalinux.info/files/CoverflowAltTab-gnome-extension-36.tar.gz
 
@@ -19,9 +21,6 @@ NAME=gnome-shell-coverflow-alt-tab
 VERSION=36
 URL=http://aryalinux.info/files/CoverflowAltTab-gnome-extension-36.tar.gz
 DESCRIPTION="Replacement of Alt-Tab, iterates through windows in a cover-flow manner."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/lxde/menu-cache-1.1.0.tar.xz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/menu-cache-1.1.0-consolidated_fixes-1.patch
@@ -21,9 +23,6 @@ VERSION=1.1.0
 URL=https://downloads.sourceforge.net/lxde/menu-cache-1.1.0.tar.xz
 SECTION="LXDE Desktop"
 DESCRIPTION="The Menu Cache package contains a library for creating and utilizing caches to speed up the manipulation for freedesktop.org defined application menus."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

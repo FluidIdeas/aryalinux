@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/id3lib/id3lib-3.8.3.tar.gz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/id3lib-3.8.3-consolidated_patches-1.patch
@@ -20,9 +22,6 @@ VERSION=3.8.3
 URL=https://downloads.sourceforge.net/id3lib/id3lib-3.8.3.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="id3lib is a library for reading, writing and manipulating id3v1 and id3v2 multimedia data containers."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

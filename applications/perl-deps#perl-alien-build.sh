@@ -14,6 +14,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Build-2.37.tar.gz
 
@@ -22,9 +24,6 @@ NAME=perl-deps#perl-alien-build
 VERSION=2.37
 URL=https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Build-2.37.tar.gz
 SECTION="Others"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

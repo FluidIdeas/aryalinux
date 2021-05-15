@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 
 
@@ -20,9 +22,6 @@ VERSION=
 
 SECTION="X Window System Environment"
 DESCRIPTION="The Xorg libraries provide library routines that are used within all X Window applications."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

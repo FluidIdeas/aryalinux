@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://bitbucket.org/mutt/mutt/downloads/mutt-2.0.6.tar.gz
 wget -nc ftp://ftp.mutt.org/pub/mutt/mutt-2.0.6.tar.gz
@@ -22,9 +24,6 @@ VERSION=2.0.6
 URL=https://bitbucket.org/mutt/mutt/downloads/mutt-2.0.6.tar.gz
 SECTION="Mail/News Clients"
 DESCRIPTION="The Mutt package contains a Mail User Agent. This is useful for reading, writing, replying to, saving, and deleting your email."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://xcb.freedesktop.org/dist/xcb-util-wm-0.4.1.tar.bz2
 
@@ -20,9 +22,6 @@ VERSION=0.4.1
 URL=https://xcb.freedesktop.org/dist/xcb-util-wm-0.4.1.tar.bz2
 SECTION="X Window System Environment"
 DESCRIPTION="The xcb-util-wm package contains libraries which provide client and window-manager helpers for EWMH and ICCCM."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

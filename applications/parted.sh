@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://ftp.gnu.org/gnu/parted/parted-3.4.tar.xz
 wget -nc ftp://ftp.gnu.org/gnu/parted/parted-3.4.tar.xz
@@ -21,9 +23,6 @@ VERSION=3.4
 URL=https://ftp.gnu.org/gnu/parted/parted-3.4.tar.xz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The Parted package is a disk partitioning and partition resizing tool."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

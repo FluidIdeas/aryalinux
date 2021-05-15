@@ -13,6 +13,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-2.1.0.tar.gz
 
@@ -22,9 +24,6 @@ VERSION=2.1.0
 URL=https://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-2.1.0.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="libjpeg-turbo is a fork of the original IJG libjpeg which uses SIMD to accelerate baseline JPEG compression and decompression. libjpeg is a library that implements JPEG image encoding, decoding and transcoding."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

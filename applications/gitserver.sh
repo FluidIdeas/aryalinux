@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 
 
@@ -20,9 +22,6 @@ NAME=gitserver
 
 SECTION="Programming"
 DESCRIPTION="This section will describe how to set up, administer and secure a git server. Git has many options available. For more detailed documentation see https://git-scm.com/book/en/v2."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -10,6 +10,8 @@ set +h
 #REQ:cmake
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/KDE/bluez-qt/archive/v5.82.0/bluez-qt-5.82.0.tar.gz
 
@@ -17,9 +19,6 @@ NAME=bluez-qt
 VERSION=5.82.0.0
 URL=https://github.com/KDE/bluez-qt/archive/v5.82.0/bluez-qt-5.82.0.tar.gz
 SECTION="KDE Plasma 5"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

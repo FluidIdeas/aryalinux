@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.abisource.com/downloads/wv/1.2.9/wv-1.2.9.tar.gz
 
@@ -21,9 +23,6 @@ VERSION=1.2.9
 URL=https://www.abisource.com/downloads/wv/1.2.9/wv-1.2.9.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The wv package contains tools for reading information from an MS Word document."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -13,6 +13,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/libgsf/1.14/libgsf-1.14.47.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgsf/1.14/libgsf-1.14.47.tar.xz
@@ -23,9 +25,6 @@ VERSION=1.14.47
 URL=https://download.gnome.org/sources/libgsf/1.14/libgsf-1.14.47.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libgsf package contains a library used for providing an extensible input/output abstraction layer for structured file formats."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

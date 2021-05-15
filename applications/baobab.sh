@@ -15,6 +15,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/baobab/40/baobab-40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/baobab/40/baobab-40.0.tar.xz
@@ -25,9 +27,6 @@ VERSION=40.0
 URL=https://download.gnome.org/sources/baobab/40/baobab-40.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The Baobab package contains a graphical directory tree analyzer."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

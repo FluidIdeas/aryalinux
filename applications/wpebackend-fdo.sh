@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/Igalia/WPEBackend-fdo/releases/download/1.8.3/wpebackend-fdo-1.8.3.tar.xz
 
@@ -19,9 +21,6 @@ VERSION=1.8.3
 URL=https://github.com/Igalia/WPEBackend-fdo/releases/download/1.8.3/wpebackend-fdo-1.8.3.tar.xz
 SECTION="Others"
 DESCRIPTION="This package provides a backend implementation for the WPE WebKit engine that uses Wayland for graphics output."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

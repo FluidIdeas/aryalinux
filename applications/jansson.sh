@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://digip.org/jansson/releases/jansson-2.13.1.tar.gz
 
@@ -19,9 +21,6 @@ VERSION=2.13.1
 URL=https://digip.org/jansson/releases/jansson-2.13.1.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The Jansson package contains a library used to encode, decode, and manipulate JSON data."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

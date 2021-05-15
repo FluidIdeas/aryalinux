@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://swupdate.openvpn.org/community/releases/openvpn-2.4.8.tar.gz
 
@@ -19,9 +21,6 @@ NAME=openvpn
 VERSION=2.4.8
 URL=https://swupdate.openvpn.org/community/releases/openvpn-2.4.8.tar.gz
 DESCRIPTION="OpenVPN is an open-source commercial software that implements virtual private network techniques to create secure point-to-point or site-to-site connections in routed or bridged configurations and remote access facilities. It uses a custom security protocol that utilizes SSL/TLS for key exchange."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

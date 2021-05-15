@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 
 
@@ -17,9 +19,6 @@ NAME=kf5-intro
 VERSION=5
 
 DESCRIPTION="A meta package that sets the environment for building KDE Frameworks."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

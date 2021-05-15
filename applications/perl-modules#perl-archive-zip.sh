@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.cpan.org/authors/id/P/PH/PHRED/Archive-Zip-1.68.tar.gz
 
@@ -19,9 +21,6 @@ NAME=perl-modules#perl-archive-zip
 VERSION=1.68
 URL=https://www.cpan.org/authors/id/P/PH/PHRED/Archive-Zip-1.68.tar.gz
 SECTION="Others"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.samba.org/ftp/tdb/tdb-1.4.3.tar.gz
 
@@ -19,9 +21,6 @@ VERSION=1.4.3
 URL=https://www.samba.org/ftp/tdb/tdb-1.4.3.tar.gz
 SECTION="Others"
 DESCRIPTION="This is a simple database API. It is modelled after the structure of GDBM. TDB features, unlike GDBM, multiple writers support with appropriate locking and transactions."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

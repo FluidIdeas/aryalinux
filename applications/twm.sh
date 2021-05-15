@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.x.org/pub/individual/app/twm-1.0.11.tar.xz
 wget -nc ftp://ftp.x.org/pub/individual/app/twm-1.0.11.tar.xz
@@ -21,9 +23,6 @@ VERSION=1.0.11
 URL=https://www.x.org/pub/individual/app/twm-1.0.11.tar.xz
 SECTION="X Window System Environment"
 DESCRIPTION="The twm package contains a very minimal window manager."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

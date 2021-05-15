@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.cpan.org/authors/id/A/AM/AMBS/Text-BibTeX-0.88.tar.gz
 
@@ -20,9 +22,6 @@ NAME=perl-modules#perl-text-bibtex
 VERSION=0.88
 URL=https://www.cpan.org/authors/id/A/AM/AMBS/Text-BibTeX-0.88.tar.gz
 SECTION="Others"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

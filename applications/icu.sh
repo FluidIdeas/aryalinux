@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/unicode-org/icu/releases/download/release-69-1/icu4c-69_1-src.tgz
 
@@ -19,9 +21,6 @@ VERSION=6
 URL=https://github.com/unicode-org/icu/releases/download/release-69-1/icu4c-69_1-src.tgz
 SECTION="General Libraries"
 DESCRIPTION="The International Components for Unicode (ICU) package is a mature, widely used set of C/C++ libraries providing Unicode and Globalization support for software applications. ICU is widely portable and gives applications the same results on all platforms."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/libsigc++/2.10/libsigc++-2.10.6.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libsigc++/2.10/libsigc++-2.10.6.tar.xz
@@ -22,9 +24,6 @@ VERSION=2.10.6
 URL=https://download.gnome.org/sources/libsigc++/2.10/libsigc++-2.10.6.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libsigc++ package implements a typesafe callback system for standard C++."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -19,6 +19,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Specio-0.46.tar.gz
 
@@ -27,9 +29,6 @@ NAME=perl-deps#perl-specio
 VERSION=0.46
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Specio-0.46.tar.gz
 SECTION="Others"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

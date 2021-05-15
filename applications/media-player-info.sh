@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.freedesktop.org/software/media-player-info/media-player-info-24.tar.gz
 
@@ -18,9 +20,6 @@ NAME=media-player-info
 VERSION=24
 URL=https://www.freedesktop.org/software/media-player-info/media-player-info-24.tar.gz
 DESCRIPTION="media-player-info is a repository of data files describing media player capabilities, mostly of mass-storage devices. These files contain information about the directory layout to use to add music to these devices, the supported file formats and so on."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

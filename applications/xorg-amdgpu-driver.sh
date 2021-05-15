@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.x.org/pub/individual/driver/xf86-video-amdgpu-19.1.0.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-amdgpu-19.1.0.tar.bz2
@@ -20,9 +22,6 @@ NAME=xorg-amdgpu-driver
 VERSION=19.1.0
 URL=https://www.x.org/pub/individual/driver/xf86-video-amdgpu-19.1.0.tar.bz2
 SECTION="Others"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

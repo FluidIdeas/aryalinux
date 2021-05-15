@@ -57,6 +57,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 
 
@@ -65,9 +67,6 @@ VERSION=4.14
 
 SECTION="Xfce Desktop"
 DESCRIPTION="Xfce or XFCE is a free and open-source desktop environment for Unix-like operating systems such as Linux and BSD. Xfce aims to be fast and lightweight while still being visually appealing and easy to use. Xfce embodies the traditional Unix philosophy of modularity and re-usability."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

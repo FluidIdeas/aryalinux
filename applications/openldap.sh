@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.5.4.tgz
 wget -nc ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.5.4.tgz
@@ -24,9 +26,6 @@ VERSION=2.5.4
 URL=https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.5.4.tgz
 SECTION="Other Server Software"
 DESCRIPTION="The OpenLDAP package provides an open source implementation of the Lightweight Directory Access Protocol."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

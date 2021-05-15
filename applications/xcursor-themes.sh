@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.x.org/pub/individual/data/xcursor-themes-1.0.6.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/data/xcursor-themes-1.0.6.tar.bz2
@@ -21,9 +23,6 @@ VERSION=1.0.6
 URL=https://www.x.org/pub/individual/data/xcursor-themes-1.0.6.tar.bz2
 SECTION="X Window System Environment"
 DESCRIPTION="The xcursor-themes package contains the redglass and whiteglass animated cursor themes."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

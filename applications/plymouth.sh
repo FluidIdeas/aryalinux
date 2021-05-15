@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.freedesktop.org/software/plymouth/releases/plymouth-0.9.4.tar.xz
 
@@ -18,9 +20,6 @@ NAME=plymouth
 VERSION=0.9.4
 URL=https://www.freedesktop.org/software/plymouth/releases/plymouth-0.9.4.tar.xz
 DESCRIPTION="Plymouth provides a boot-time I/O multiplexing framework - the most obvious use for which is to provide an attractive graphical animation in place of the text messages that normally get shown during boot. (The messages are instead redirected to a logfile for later viewing.) However, in event-driven boot systems Plymouth can also usefully handle user interaction such as password prompts for encrypted file systems."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

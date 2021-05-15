@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/polkit-gnome/0.105/polkit-gnome-0.105.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/polkit-gnome/0.105/polkit-gnome-0.105.tar.xz
@@ -22,9 +24,6 @@ VERSION=0.105
 URL=https://download.gnome.org/sources/polkit-gnome/0.105/polkit-gnome-0.105.tar.xz
 SECTION="Security"
 DESCRIPTION="The Polkit GNOME package provides an Authentication Agent for Polkit that integrates well with the GNOME Desktop environment."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

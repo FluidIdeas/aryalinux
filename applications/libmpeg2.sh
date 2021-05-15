@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc http://libmpeg2.sourceforge.net/files/libmpeg2-0.5.1.tar.gz
 wget -nc ftp://ftp.mirrorservice.org/sites/distfiles.gentoo.org/distfiles/libmpeg2-0.5.1.tar.gz
@@ -20,9 +22,6 @@ VERSION=0.5.1
 URL=http://libmpeg2.sourceforge.net/files/libmpeg2-0.5.1.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The libmpeg2 package contains a library for decoding MPEG-2 and MPEG-1 video streams. The library is able to decode all MPEG streams that conform to certain restrictions: “constrained parameters” for MPEG-1, and “main profile” for MPEG-2. This is useful for programs and applications needing to decode MPEG-2 and MPEG-1 video streams."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

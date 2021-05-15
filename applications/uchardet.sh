@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.7.tar.xz
 
@@ -20,9 +22,6 @@ VERSION=0.0.7
 URL=https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.7.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The Uchardet package contains an encoding detectory library which takes a sequence of bytes in an unknown character encoding and attempts to determine the encoding of the text."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

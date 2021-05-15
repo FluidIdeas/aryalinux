@@ -17,6 +17,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/libgweather/40/libgweather-40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgweather/40/libgweather-40.0.tar.xz
@@ -27,9 +29,6 @@ VERSION=40.0
 URL=https://download.gnome.org/sources/libgweather/40/libgweather-40.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libgweather package is a library used to access weather information from online services for numerous locations."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

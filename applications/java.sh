@@ -14,6 +14,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-15.0.2/OpenJDK-15.0.2+7-i686-bin.tar.xz
 wget -nc https://download.java.net/java/GA/jdk15.0.2/0d1cfde4252546c6931946de8db48ee2/7/GPL/openjdk-15.0.2_linux-x64_bin.tar.gz
@@ -24,9 +26,6 @@ VERSION=15.0.
 URL=http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-15.0.2/OpenJDK-15.0.2+7-i686-bin.tar.xz
 SECTION="Programming"
 DESCRIPTION="Creating a JVM from source requires a set of circular dependencies. The first thing that's needed is a set of programs called a Java Development Kit (JDK). This set of programs includes java, javac, jar, and several others. It also includes several base jar files."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

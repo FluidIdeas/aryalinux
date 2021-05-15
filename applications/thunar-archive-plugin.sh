@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 
 
@@ -18,9 +20,6 @@ NAME=thunar-archive-plugin
 VERSION=master
 
 DESCRIPTION="This plugin allows one to extract and create archive from inside the Thunar file manager. At the moment it uses file-roller but will use xarchiver in the future."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

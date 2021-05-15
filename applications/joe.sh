@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/joe-editor/joe-4.6.tar.gz
 
@@ -19,9 +21,6 @@ VERSION=4.6
 URL=https://downloads.sourceforge.net/joe-editor/joe-4.6.tar.gz
 SECTION="Editors"
 DESCRIPTION="JOE (Joe's own editor) is a small text editor capable of emulating WordStar, Pico, and Emacs."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

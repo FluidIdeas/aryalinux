@@ -14,6 +14,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://portland.freedesktop.org/download/xdg-utils-1.1.3.tar.gz
 
@@ -23,9 +25,6 @@ VERSION=1.1.3
 URL=https://portland.freedesktop.org/download/xdg-utils-1.1.3.tar.gz
 SECTION="Other X-based Programs"
 DESCRIPTION="xdg-utils is a a set of command line tools that assist applications with a variety of desktop integration tasks. It is required for Linux Standards Base (LSB) conformance."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

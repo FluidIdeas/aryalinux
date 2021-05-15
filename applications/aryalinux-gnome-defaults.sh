@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://sourceforge.net/projects/aryalinux/files/releases/4.0/aryalinux-gnome-defaults-4.0.tar.xz
 
@@ -18,9 +20,6 @@ NAME=aryalinux-gnome-defaults
 VERSION=2.0
 
 DESCRIPTION="Default settings for the AryaLinux Gnome desktop environment."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

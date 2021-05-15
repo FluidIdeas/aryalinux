@@ -21,6 +21,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/qtwebengine/qtwebengine-20210401.tar.xz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/qtwebengine-20210401-build_fixes-2.patch
@@ -32,9 +34,6 @@ VERSION=20210401
 URL=http://anduin.linuxfromscratch.org/BLFS/qtwebengine/qtwebengine-20210401.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="QtWebEngine integrates chromium's web capabilities into Qt. It ships with its own copy of ninja which it uses for the build if it cannot find a system copy, and various copies of libraries from ffmpeg, icu, libvpx, and zlib (including libminizip) which have been forked by the chromium developers."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

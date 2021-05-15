@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://invisible-mirror.net/archives/xterm/xterm-367.tgz
 wget -nc https://sourceforge.net/projects/aryalinux/files/releases/4.0/FiraMono.zip
@@ -21,9 +23,6 @@ VERSION=367
 URL=https://invisible-mirror.net/archives/xterm/xterm-367.tgz
 SECTION="X Window System Environment"
 DESCRIPTION="xterm is a terminal emulator for the X Window System."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

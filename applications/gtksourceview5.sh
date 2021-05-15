@@ -14,6 +14,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/gtksourceview/5.0/gtksourceview-5.0.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtksourceview/5.0/gtksourceview-5.0.0.tar.xz
@@ -24,9 +26,6 @@ VERSION=5.0.0
 URL=https://download.gnome.org/sources/gtksourceview/5.0/gtksourceview-5.0.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The GtkSourceView package contains a library used for extending the GTK text functions to include syntax highlighting."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

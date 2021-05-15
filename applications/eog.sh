@@ -21,6 +21,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/eog/40/eog-40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/eog/40/eog-40.0.tar.xz
@@ -31,9 +33,6 @@ VERSION=40.0
 URL=https://download.gnome.org/sources/eog/40/eog-40.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="EOG is an application used for viewing and cataloging image files on the GNOME Desktop. It also has basic editing capabilites."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

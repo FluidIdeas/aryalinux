@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://ftp.gnu.org/gnu/screen/screen-4.8.0.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/screen/screen-4.8.0.tar.gz
@@ -21,9 +23,6 @@ VERSION=4.8.0
 URL=https://ftp.gnu.org/gnu/screen/screen-4.8.0.tar.gz
 SECTION="General Utilities"
 DESCRIPTION="Screen is a terminal multiplexor that runs several separate processes, typically interactive shells, on a single physical character-based terminal. Each virtual terminal emulates a DEC VT100 plus several ANSI X3.64 and ISO 2022 functions and also provides configurable input and output translation, serial port support, configurable logging, multi-user support, and many character encodings, including UTF-8. Screen sessions can be detached and resumed later on a different terminal."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

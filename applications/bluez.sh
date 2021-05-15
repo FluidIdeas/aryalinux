@@ -13,6 +13,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.kernel.org/pub/linux/bluetooth/bluez-5.58.tar.xz
 
@@ -22,9 +24,6 @@ VERSION=5.58
 URL=https://www.kernel.org/pub/linux/bluetooth/bluez-5.58.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="The BlueZ package contains the Bluetooth protocol stack for Linux."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

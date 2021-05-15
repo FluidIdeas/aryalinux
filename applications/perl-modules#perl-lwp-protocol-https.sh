@@ -13,6 +13,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.cpan.org/authors/id/O/OA/OALDERS/LWP-Protocol-https-6.10.tar.gz
 wget -nc https://www.linuxfromscratch.org/patches/blfs/svn/LWP-Protocol-https-6.10-system_certs-2.patch
@@ -22,9 +24,6 @@ NAME=perl-modules#perl-lwp-protocol-https
 VERSION=6.10
 URL=https://www.cpan.org/authors/id/O/OA/OALDERS/LWP-Protocol-https-6.10.tar.gz
 SECTION="Others"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

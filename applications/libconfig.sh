@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://hyperrealm.github.io/libconfig/dist/libconfig-1.7.2.tar.gz
 
@@ -19,9 +21,6 @@ VERSION=1.7.2
 URL=https://hyperrealm.github.io/libconfig/dist/libconfig-1.7.2.tar.gz
 SECTION="Others"
 DESCRIPTION=""
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

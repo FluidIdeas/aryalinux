@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.samba.org/ftp/linux-cifs/cifs-utils/cifs-utils-6.13.tar.bz2
 
@@ -20,9 +22,6 @@ VERSION=6.13
 URL=https://www.samba.org/ftp/linux-cifs/cifs-utils/cifs-utils-6.13.tar.bz2
 SECTION="Networking Programs"
 DESCRIPTION="The cifs-utils package provides a means for mounting SMB/CIFS shares on a Linux system."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

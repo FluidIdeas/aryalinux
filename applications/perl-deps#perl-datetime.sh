@@ -15,6 +15,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.54.tar.gz
 
@@ -23,9 +25,6 @@ NAME=perl-deps#perl-datetime
 VERSION=1.54
 URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-1.54.tar.gz
 SECTION="Others"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -30,6 +30,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.24.tar.bz2
 
@@ -39,9 +41,6 @@ VERSION=2.10.24
 URL=https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.24.tar.bz2
 SECTION="Other X-based Programs"
 DESCRIPTION="The Gimp package contains the GNU Image Manipulation Program which is useful for photo retouching, image composition and image authoring."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

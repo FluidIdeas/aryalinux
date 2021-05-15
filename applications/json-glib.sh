@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/json-glib/1.6/json-glib-1.6.2.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/json-glib/1.6/json-glib-1.6.2.tar.xz
@@ -21,9 +23,6 @@ VERSION=1.6.2
 URL=https://download.gnome.org/sources/json-glib/1.6/json-glib-1.6.2.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The JSON GLib package is a library providing serialization and deserialization support for the JavaScript Object Notation (JSON) format described by RFC 4627."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

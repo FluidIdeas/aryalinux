@@ -13,6 +13,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.docbook.org/xml/4.5/docbook-xml-4.5.zip
 
@@ -22,9 +24,6 @@ VERSION=4.5
 URL=https://www.docbook.org/xml/4.5/docbook-xml-4.5.zip
 SECTION="Extensible Markup Language (XML)"
 DESCRIPTION="The DocBook-4.5 XML DTD-4.5 package contains document type definitions for verification of XML data files against the DocBook rule set. These are useful for structuring books and software documentation to a standard allowing you to utilize transformations already written for that standard."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

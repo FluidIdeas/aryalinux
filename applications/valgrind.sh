@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://sourceware.org/ftp/valgrind/valgrind-3.17.0.tar.bz2
 wget -nc ftp://sourceware.org/pub/valgrind/valgrind-3.17.0.tar.bz2
@@ -20,9 +22,6 @@ VERSION=3.17.0
 URL=https://sourceware.org/ftp/valgrind/valgrind-3.17.0.tar.bz2
 SECTION="Programming"
 DESCRIPTION="Valgrind is an instrumentation framework for building dynamic analysis tools. There are Valgrind tools that can automatically detect many memory management and threading bugs, and profile programs in detail. Valgrind can also be used to build new tools."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

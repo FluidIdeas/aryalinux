@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/cdrtools/cdrtools-3.02a09.tar.bz2
 
@@ -20,9 +22,6 @@ VERSION=3.0
 URL=https://downloads.sourceforge.net/cdrtools/cdrtools-3.02a09.tar.bz2
 SECTION="CD/DVD-Writing Utilities"
 DESCRIPTION="The Cdrtools package contains CD recording utilities. These are useful for reading, creating or writing (burning) CDs, DVDs, and Blu-ray discs."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

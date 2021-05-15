@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://people.freedesktop.org/~mccann/dist/sound-theme-freedesktop-0.8.tar.bz2
 
@@ -19,9 +21,6 @@ VERSION=0.8
 URL=https://people.freedesktop.org/~mccann/dist/sound-theme-freedesktop-0.8.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The Sound Theme Freedesktop package contains sound themes for the desktop."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

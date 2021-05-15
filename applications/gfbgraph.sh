@@ -13,6 +13,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/gfbgraph/0.2/gfbgraph-0.2.4.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gfbgraph/0.2/gfbgraph-0.2.4.tar.xz
@@ -23,9 +25,6 @@ VERSION=0.2.4
 URL=https://download.gnome.org/sources/gfbgraph/0.2/gfbgraph-0.2.4.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The gfbgraph package contains a GObject wrapper for the Facebook Graph API."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

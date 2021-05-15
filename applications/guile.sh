@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://ftp.gnu.org/gnu/guile/guile-3.0.6.tar.xz
 wget -nc ftp://ftp.gnu.org/gnu/guile/guile-3.0.6.tar.xz
@@ -22,9 +24,6 @@ VERSION=3.0.6
 URL=https://ftp.gnu.org/gnu/guile/guile-3.0.6.tar.xz
 SECTION="Programming"
 DESCRIPTION="The Guile package contains the GNU Project's extension language library. Guile also contains a stand alone Scheme interpreter."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.imagemagick.org/download/releases/ImageMagick-7.0.11-0.tar.xz
 
@@ -20,9 +22,6 @@ VERSION=7.0.1
 URL=https://www.imagemagick.org/download/releases/ImageMagick-7.0.11-0.tar.xz
 SECTION="General Utilities"
 DESCRIPTION="ImageMagick is a collection of tools and libraries to read, write, and manipulate an image in various image formats. Image processing operations are available from the command line. Bindings for Perl and C++ are also available."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

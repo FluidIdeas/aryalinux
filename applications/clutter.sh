@@ -19,6 +19,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/clutter/1.26/clutter-1.26.4.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/clutter/1.26/clutter-1.26.4.tar.xz
@@ -29,9 +31,6 @@ VERSION=1.26.4
 URL=https://download.gnome.org/sources/clutter/1.26/clutter-1.26.4.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The Clutter package contains an open source software library used for creating fast, visually rich and animated graphical user interfaces."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

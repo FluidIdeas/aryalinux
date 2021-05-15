@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.samba.org/ftp/talloc/talloc-2.3.2.tar.gz
 
@@ -19,9 +21,6 @@ VERSION=2.3.2
 URL=https://www.samba.org/ftp/talloc/talloc-2.3.2.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="Talloc provides a hierarchical, reference counted memory pool system with destructors. It is the core memory allocator used in Samba."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

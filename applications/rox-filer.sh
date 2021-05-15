@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/rox/rox-filer-2.11.tar.bz2
 
@@ -21,9 +23,6 @@ VERSION=2.11
 URL=https://downloads.sourceforge.net/rox/rox-filer-2.11.tar.bz2
 SECTION="Other X-based Programs"
 DESCRIPTION="rox-filer is a fast, lightweight, gtk2 file manager."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -16,6 +16,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.abisource.com/downloads/abiword/3.0.4/source/abiword-3.0.4.tar.gz
 wget -nc https://www.abisource.com/downloads/abiword/3.0.2/source/abiword-docs-3.0.2.tar.gz
@@ -26,9 +28,6 @@ VERSION=3.0.4
 URL=https://www.abisource.com/downloads/abiword/3.0.4/source/abiword-3.0.4.tar.gz
 SECTION="Office Programs"
 DESCRIPTION="AbiWord is a word processor which is useful for writing reports, letters and other formatted documents."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

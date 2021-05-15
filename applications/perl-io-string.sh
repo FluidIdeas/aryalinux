@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://cpan.metacpan.org/authors/id/G/GA/GAAS/IO-String-1.08.tar.gz
 
@@ -19,9 +21,6 @@ VERSION=1.08
 URL=https://cpan.metacpan.org/authors/id/G/GA/GAAS/IO-String-1.08.tar.gz
 SECTION="Others"
 DESCRIPTION="The IO::String module provides the IO::File interface for in-core strings. An IO::String object can be attached to a string, and makes it possible to use the normal file operations for reading or writing data, as well as for seeking to various locations of the string. This is useful when you want to use a library module that only provides an interface to file handles on data that you have in a string variable."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

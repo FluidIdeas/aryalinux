@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/openjade/OpenSP-1.5.2.tar.gz
 
@@ -20,9 +22,6 @@ VERSION=1.5.2
 URL=https://downloads.sourceforge.net/openjade/OpenSP-1.5.2.tar.gz
 SECTION="Standard Generalized Markup Language (SGML)"
 DESCRIPTION="The OpenSP package contains a C++ library for using SGML/XML files. This is useful for validating, parsing and manipulating SGML and XML documents."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

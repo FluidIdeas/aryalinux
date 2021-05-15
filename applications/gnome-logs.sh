@@ -13,6 +13,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/gnome-logs/3.36/gnome-logs-3.36.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-logs/3.36/gnome-logs-3.36.0.tar.xz
@@ -23,9 +25,6 @@ VERSION=3.36.0
 URL=https://download.gnome.org/sources/gnome-logs/3.36/gnome-logs-3.36.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Logs package contains a log viewer for the systemd journal."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

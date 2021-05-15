@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://ftp.gnu.org/gnu/which/which-2.21.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/which/which-2.21.tar.gz
@@ -20,9 +22,6 @@ VERSION=2.21
 URL=https://ftp.gnu.org/gnu/which/which-2.21.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="The first option is to install the actual GNU which package."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/KDE/dolphin-plugins/archive/v21.04.1/dolphin-plugins-21.04.1.tar.gz
 
@@ -18,9 +20,6 @@ VERSION=21.04.1
 URL=https://github.com/KDE/dolphin-plugins/archive/v21.04.1/dolphin-plugins-21.04.1.tar.gz
 SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="Plugins for the dolphin file manager"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

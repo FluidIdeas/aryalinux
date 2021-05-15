@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/AbiWord/enchant/releases/download/v2.2.15/enchant-2.2.15.tar.gz
 
@@ -21,9 +23,6 @@ VERSION=2.2.15
 URL=https://github.com/AbiWord/enchant/releases/download/v2.2.15/enchant-2.2.15.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The enchant package provide a generic interface into various existing spell checking libraries."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

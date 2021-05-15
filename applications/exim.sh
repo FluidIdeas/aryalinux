@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://ftp.exim.org/pub/exim/exim4/exim-4.94.2.tar.xz
 wget -nc ftp://ftp.exim.org/pub/exim/exim4/exim-4.94.2.tar.xz
@@ -23,9 +25,6 @@ VERSION=4.94.2
 URL=https://ftp.exim.org/pub/exim/exim4/exim-4.94.2.tar.xz
 SECTION="Mail Server Software"
 DESCRIPTION="The Exim package contains a Mail Transport Agent written by the University of Cambridge, released under the GNU Public License."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

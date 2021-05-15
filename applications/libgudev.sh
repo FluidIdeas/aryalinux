@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/libgudev/236/libgudev-236.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgudev/236/libgudev-236.tar.xz
@@ -21,9 +23,6 @@ VERSION=236
 URL=https://download.gnome.org/sources/libgudev/236/libgudev-236.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libgudev package contains GObject bindings for libudev."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

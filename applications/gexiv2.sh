@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.2.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gexiv2/0.12/gexiv2-0.12.2.tar.xz
@@ -22,9 +24,6 @@ VERSION=0.12.2
 URL=https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.2.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="gexiv2 is a GObject-based wrapper around the Exiv2 library."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

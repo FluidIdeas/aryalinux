@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://files.pythonhosted.org/packages/source/J/Jinja2/Jinja2-2.11.3.tar.gz
 
@@ -19,9 +21,6 @@ NAME=python-modules#jinja2
 VERSION=2.11.3
 URL=https://files.pythonhosted.org/packages/source/J/Jinja2/Jinja2-2.11.3.tar.gz
 SECTION="Others"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

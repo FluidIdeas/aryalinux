@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/enlightenment/imlib2-1.7.1.tar.bz2
 
@@ -20,9 +22,6 @@ VERSION=1.7.1
 URL=https://downloads.sourceforge.net/enlightenment/imlib2-1.7.1.tar.bz2
 SECTION="X Libraries"
 DESCRIPTION="imlib2 is a graphics library for fast file loading, saving, rendering and manipulation."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

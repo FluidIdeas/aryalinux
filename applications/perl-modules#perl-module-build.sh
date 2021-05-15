@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4231.tar.gz
 
@@ -18,9 +20,6 @@ NAME=perl-modules#perl-module-build
 VERSION=0.4231
 URL=https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4231.tar.gz
 SECTION="Others"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.gnupg.org/ftp/gcrypt/npth/npth-1.6.tar.bz2
 wget -nc ftp://ftp.gnupg.org/gcrypt/npth/npth-1.6.tar.bz2
@@ -20,9 +22,6 @@ VERSION=1.6
 URL=https://www.gnupg.org/ftp/gcrypt/npth/npth-1.6.tar.bz2
 SECTION="General Libraries"
 DESCRIPTION="The NPth package contains a very portable POSIX/ANSI-C based library for Unix platforms which provides non-preemptive priority-based scheduling for multiple threads of execution (multithreading) inside event-driven applications. All threads run in the same address space of the server application, but each thread has its own individual program-counter, run-time stack, signal mask and errno variable."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

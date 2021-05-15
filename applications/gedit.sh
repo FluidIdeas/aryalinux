@@ -20,6 +20,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/gedit/40/gedit-40.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gedit/40/gedit-40.1.tar.xz
@@ -30,9 +32,6 @@ VERSION=40.1
 URL=https://download.gnome.org/sources/gedit/40/gedit-40.1.tar.xz
 SECTION="Editors"
 DESCRIPTION="The Gedit package contains a lightweight UTF-8 text editor for the GNOME Desktop."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

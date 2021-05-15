@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/beltoforion/muparser/archive/v2.2.6.1/muparser-2.2.6.1.tar.gz
 
@@ -19,9 +21,6 @@ VERSION=2.2.6.1
 URL=https://github.com/beltoforion/muparser/archive/v2.2.6.1/muparser-2.2.6.1.tar.gz
 SECTION="Programming"
 DESCRIPTION="Many applications require the parsing of mathematical expressions. The main objective of this library is to provide a fast and easy way of doing this. muParser is an extensible high performance math expression parser library written in C++. It works by transforming a mathematical expression into bytecode and precalculating constant parts of the expression."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://ftp.gnu.org/gnu/autoconf/autoconf-2.13.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/autoconf/autoconf-2.13.tar.gz
@@ -21,9 +23,6 @@ VERSION=2.13
 URL=https://ftp.gnu.org/gnu/autoconf/autoconf-2.13.tar.gz
 SECTION="Programming"
 DESCRIPTION="Autoconf2.13 is an old version of Autoconf . This old version accepts switches which are not valid in more recent versions. Now that firefox has started to use python2 for configuring, this old version is required even if configure files have not been changed."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

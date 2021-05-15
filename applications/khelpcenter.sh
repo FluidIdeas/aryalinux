@@ -14,6 +14,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.kde.org/stable/release-service/20.12.2/src/khelpcenter-20.12.2.tar.xz
 
@@ -23,9 +25,6 @@ VERSION=20.12.2
 URL=https://download.kde.org/stable/release-service/20.12.2/src/khelpcenter-20.12.2.tar.xz
 SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="Khelpcenter is an application to show KDE Applications' documentation."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

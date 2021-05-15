@@ -13,6 +13,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.qemu-project.org/qemu-5.2.0.tar.xz
 
@@ -22,9 +24,6 @@ VERSION=5.2.0
 URL=https://download.qemu-project.org/qemu-5.2.0.tar.xz
 SECTION="Virtualization"
 DESCRIPTION="qemu is a full virtualization solution for Linux on x86 hardware containing virtualization extensions (Intel VT or AMD-V)."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -18,6 +18,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gimp.org/pub/gegl/0.4/gegl-0.4.30.tar.xz
 
@@ -27,9 +29,6 @@ VERSION=0.4.30
 URL=https://download.gimp.org/pub/gegl/0.4/gegl-0.4.30.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="This package provides the GEneric Graphics Library, which is a graph based image processing format."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

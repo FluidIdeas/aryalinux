@@ -16,6 +16,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/dconf/0.40/dconf-0.40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/dconf/0.40/dconf-0.40.0.tar.xz
@@ -28,9 +30,6 @@ VERSION=0.40.0
 URL=https://download.gnome.org/sources/dconf/0.40/dconf-0.40.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The DConf package contains a low-level configuration system. Its main purpose is to provide a backend to GSettings on platforms that don't already have configuration storage systems."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

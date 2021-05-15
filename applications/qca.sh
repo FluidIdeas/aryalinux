@@ -14,6 +14,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.kde.org/stable/qca/2.3.2/qca-2.3.2.tar.xz
 
@@ -23,9 +25,6 @@ VERSION=2.3.2
 URL=https://download.kde.org/stable/qca/2.3.2/qca-2.3.2.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="Qca aims to provide a straightforward and cross-platform crypto API, using Qt datatypes and conventions. Qca separates the API from the implementation, using plugins known as Providers."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

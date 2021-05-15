@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://sourceforge.net/projects/aryalinux/files/releases/4.0/aryalinux-icons-4.0.tar.xz
 
@@ -18,9 +20,6 @@ NAME=aryalinux-icons
 VERSION=4.0
 
 DESCRIPTION="Collections of icons for usage in AryaLinux."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://c-ares.haxx.se/download/c-ares-1.17.1.tar.gz
 
@@ -20,9 +22,6 @@ VERSION=1.17.1
 URL=https://c-ares.haxx.se/download/c-ares-1.17.1.tar.gz
 SECTION="Networking Libraries"
 DESCRIPTION="c-ares is a C library for asynchronous DNS requests."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

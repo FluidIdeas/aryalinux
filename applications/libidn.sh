@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://ftp.gnu.org/gnu/libidn/libidn-1.36.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/libidn/libidn-1.36.tar.gz
@@ -20,9 +22,6 @@ VERSION=1.36
 URL=https://ftp.gnu.org/gnu/libidn/libidn-1.36.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="libidn is a package designed for internationalized string handling based on the Stringprep, Punycode and IDNA specifications defined by the Internet Engineering Task Force (IETF) Internationalized Domain Names (IDN) working group, used for internationalized domain names. This is useful for converting data from the system's native representation into UTF-8, transforming Unicode strings into ASCII strings, allowing applications to use certain ASCII name labels (beginning with a special prefix) to represent non-ASCII name labels, and converting entire domain names to and from the ASCII Compatible Encoding (ACE) form."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

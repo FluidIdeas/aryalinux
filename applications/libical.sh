@@ -13,6 +13,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/libical/libical/releases/download/v3.0.10/libical-3.0.10.tar.gz
 
@@ -22,9 +24,6 @@ VERSION=3.0.10
 URL=https://github.com/libical/libical/releases/download/v3.0.10/libical-3.0.10.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The libical package contains an implementation of the iCalendar protocols and data formats."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

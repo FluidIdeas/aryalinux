@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/freetype/freetype-2.10.4.tar.xz
 wget -nc https://downloads.sourceforge.net/freetype/freetype-doc-2.10.4.tar.xz
@@ -22,9 +24,6 @@ VERSION=2.10.4
 URL=https://downloads.sourceforge.net/freetype/freetype-2.10.4.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The FreeType2 package contains a library which allows applications to properly render TrueType fonts."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://archive.apache.org/dist/xmlgraphics/fop/source/fop-2.6-src.tar.gz
 wget -nc http://archive.apache.org/dist/pdfbox/2.0.23/pdfbox-2.0.23.jar
@@ -24,9 +26,6 @@ VERSION=2.
 URL=https://archive.apache.org/dist/xmlgraphics/fop/source/fop-2.6-src.tar.gz
 SECTION="PostScript"
 DESCRIPTION="The FOP (Formatting Objects Processor) package contains a print formatter driven by XSL formatting objects (XSL-FO). It is a Java application that reads a formatting object tree and renders the resulting pages to a specified output. Output formats currently supported include PDF, PCL, PostScript, SVG, XML (area tree representation), print, AWT, MIF and ASCII text. The primary output target is PDF."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

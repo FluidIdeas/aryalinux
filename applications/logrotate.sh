@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/logrotate/logrotate/releases/download/3.18.0/logrotate-3.18.0.tar.xz
 
@@ -20,9 +22,6 @@ VERSION=3.18.0
 URL=https://github.com/logrotate/logrotate/releases/download/3.18.0/logrotate-3.18.0.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="The logrotate package allows automatic rotation, compression, removal, and mailing of log files."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

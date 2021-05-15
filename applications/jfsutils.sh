@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc http://jfs.sourceforge.net/project/pub/jfsutils-1.1.15.tar.gz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/jfsutils-1.1.15-gcc10_fix-1.patch
@@ -20,9 +22,6 @@ VERSION=1.1.15
 URL=http://jfs.sourceforge.net/project/pub/jfsutils-1.1.15.tar.gz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The jfsutils package contains administration and debugging tools for the jfs file system."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

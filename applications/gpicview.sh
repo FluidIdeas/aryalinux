@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/lxde/gpicview-0.2.5.tar.xz
 
@@ -20,9 +22,6 @@ VERSION=0.2.5
 URL=https://downloads.sourceforge.net/lxde/gpicview-0.2.5.tar.xz
 SECTION="LXDE Applications"
 DESCRIPTION="The GPicView package contains a lightweight image viewer."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/mltframework/mlt/releases/download/v6.24.0/mlt-6.24.0.tar.gz
 
@@ -20,9 +22,6 @@ VERSION=6.24.0
 URL=https://github.com/mltframework/mlt/releases/download/v6.24.0/mlt-6.24.0.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="MLT package is the Media Lovin Toolkit. It is an open source multimedia framework, designed and developed for television broadcasting. It provides a toolkit for broadcasters, video editors, media players, transcoders, web streamers and many more types of applications."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

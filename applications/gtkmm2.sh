@@ -13,6 +13,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/gtkmm/2.24/gtkmm-2.24.5.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtkmm/2.24/gtkmm-2.24.5.tar.xz
@@ -23,9 +25,6 @@ VERSION=2.24.5
 URL=https://download.gnome.org/sources/gtkmm/2.24/gtkmm-2.24.5.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The Gtkmm package provides a C++ interface to GTK+ 2. It can be installed alongside Gtkmm-3.24.4 (the GTK+ 3 version) with no namespace conflicts."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/martinpitt/umockdev/releases/download/0.15.4/umockdev-0.15.4.tar.xz
 
@@ -21,9 +23,6 @@ VERSION=0.15.4
 URL=https://github.com/martinpitt/umockdev/releases/download/0.15.4/umockdev-0.15.4.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The Umockdev package contains a framework that allows a developer to mock devices for use in unit testing."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

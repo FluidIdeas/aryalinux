@@ -13,6 +13,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc http://download.tuxfamily.org/sawfish/sawfish_1.12.0.tar.xz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/sawfish-1.12.0-gcc10_fixes-1.patch
@@ -23,9 +25,6 @@ VERSION=1.12.0
 URL=http://download.tuxfamily.org/sawfish/sawfish_1.12.0.tar.xz
 SECTION="Window Managers"
 DESCRIPTION="The sawfish package contains a window manager. This is useful for organizing and displaying windows where all window decorations are configurable and all user-interface policy is controlled through the extension language."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

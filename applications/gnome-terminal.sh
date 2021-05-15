@@ -17,6 +17,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/gnome-terminal/3.40/gnome-terminal-3.40.1.tar.xz
 
@@ -26,9 +28,6 @@ VERSION=3.40.1
 URL=https://download.gnome.org/sources/gnome-terminal/3.40/gnome-terminal-3.40.1.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Terminal package contains the terminal emulator for GNOME Desktop."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

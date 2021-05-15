@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISMN-1.202.tar.gz
 
@@ -19,9 +21,6 @@ NAME=perl-modules#perl-business-ismn
 VERSION=1.202
 URL=https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISMN-1.202.tar.gz
 SECTION="Others"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

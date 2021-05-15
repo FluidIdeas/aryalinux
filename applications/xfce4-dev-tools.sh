@@ -11,7 +11,6 @@ DESCRIPTION="xfce4-dev-tools provide an easy way to handle the setup and mainten
 
 KDE_PREFIX=/usr
 cd $SOURCE_DIR
-
 mkdir -pv $NAME
 pushd $NAME
 

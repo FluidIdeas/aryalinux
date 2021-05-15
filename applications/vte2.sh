@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/vte/0.28/vte-0.28.2.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/vte/0.28/vte-0.28.2.tar.xz
@@ -21,9 +23,6 @@ VERSION=0.28.2
 URL=https://download.gnome.org/sources/vte/0.28/vte-0.28.2.tar.xz
 SECTION="LXDE Applications"
 DESCRIPTION="Vte is a library (libvte) implementing a terminal emulator widget for GTK+ 2, and a minimal demonstration application (vte) that uses libvte."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

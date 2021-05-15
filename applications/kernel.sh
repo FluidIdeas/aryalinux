@@ -14,7 +14,6 @@ URL="https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.5.2.tar.xz"
 SECTION="System"
 
 cd $SOURCE_DIR
-
 mkdir -pv $NAME
 pushd $NAME
 

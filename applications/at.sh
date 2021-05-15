@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc http://software.calhariz.com/at/at_3.2.1.orig.tar.gz
 
@@ -20,9 +22,6 @@ VERSION=3.2.1
 URL=http://software.calhariz.com/at/at_3.2.1.orig.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="The at package provide delayed job execution and batch processing. It is required for Linux Standards Base (LSB) conformance."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

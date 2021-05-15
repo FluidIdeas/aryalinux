@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.kde.org/stable/ktorrent/5.1.2/libktorrent-2.1.1.tar.xz
 
@@ -18,9 +20,6 @@ NAME=libktorrent
 VERSION=2.1.1
 URL=https://download.kde.org/stable/ktorrent/5.1.2/libktorrent-2.1.1.tar.xz
 DESCRIPTION="This package contains header files, CMake modules and other files needed for developing and compiling/linking which use the KTorrent library."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

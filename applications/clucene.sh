@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/clucene/clucene-core-2.3.3.4.tar.gz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/clucene-2.3.3.4-contribs_lib-1.patch
@@ -22,9 +24,6 @@ VERSION=2.3.3.4
 URL=https://downloads.sourceforge.net/clucene/clucene-core-2.3.3.4.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="CLucene is a C++ version of Lucene, a high performance text search engine."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

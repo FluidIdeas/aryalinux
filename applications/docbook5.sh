@@ -13,6 +13,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://docbook.org/xml/5.0/docbook-5.0.zip
 
@@ -22,9 +24,6 @@ VERSION=5.0
 URL=https://docbook.org/xml/5.0/docbook-5.0.zip
 SECTION="Extensible Markup Language (XML)"
 DESCRIPTION="The DocBook XML DTD and Schemas-5.0 package contains document type definitions and schemas for verification of XML data files against the DocBook rule set. These are useful for structuring books and software documentation to a standard allowing you to utilize transformations already written for that standard. In addition to providing a DTD, version 5 introduced the RelaxNG schema and Schematron rules, and is incompatible with previous versions of DocBook XML."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

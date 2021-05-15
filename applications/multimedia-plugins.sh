@@ -68,6 +68,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 
 
@@ -75,9 +77,6 @@ NAME=multimedia-plugins
 VERSION=1.4
 
 DESCRIPTION="A meta package which is a collection of audio and video codecs and plugins."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

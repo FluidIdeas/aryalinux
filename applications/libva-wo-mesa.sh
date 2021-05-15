@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/intel/libva/releases/download/2.11.0/libva-2.11.0.tar.bz2
 wget -nc https://github.com/intel/intel-vaapi-driver/releases/download/2.4.1/intel-vaapi-driver-2.4.1.tar.bz2
@@ -20,9 +22,6 @@ NAME=libva-wo-mesa
 VERSION=2.11.0
 URL=https://github.com/intel/libva/releases/download/2.11.0/libva-2.11.0.tar.bz2
 SECTION="Others"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

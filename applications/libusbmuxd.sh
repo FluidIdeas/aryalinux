@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/libimobiledevice/libusbmuxd/archive/2.0.1/libusbmuxd-2.0.1.tar.gz
 
@@ -18,9 +20,6 @@ NAME=libusbmuxd
 VERSION=2.0.1
 URL=https://github.com/libimobiledevice/libusbmuxd/archive/2.0.1/libusbmuxd-2.0.1.tar.gz
 DESCRIPTION="usbmuxd, the USB multiplexor daemon, is in charge of coordinating access to iPhone and iPod Touch services over USB. Synchronization and management applications for the iPhone and iPod Touch need this daemon to communicate with such devices concurrently."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

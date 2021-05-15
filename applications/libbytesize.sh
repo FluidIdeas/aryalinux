@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/storaged-project/libbytesize/releases/download/2.5/libbytesize-2.5.tar.gz
 
@@ -20,9 +22,6 @@ VERSION=2.5
 URL=https://github.com/storaged-project/libbytesize/releases/download/2.5/libbytesize-2.5.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The libbytesize package is a library which facilitates the common operations with sizes in bytes."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

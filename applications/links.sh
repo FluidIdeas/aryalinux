@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc http://links.twibright.com/download/links-2.22.tar.bz2
 
@@ -20,9 +22,6 @@ VERSION=2.22
 URL=http://links.twibright.com/download/links-2.22.tar.bz2
 SECTION="Text Web Browsers"
 DESCRIPTION="Links is a text and graphics mode WWW browser. It includes support for rendering tables and frames, features background downloads, can display colors and has many other features."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

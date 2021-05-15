@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.freedesktop.org/software/libevdev/libevdev-1.11.0.tar.xz
 
@@ -18,9 +20,6 @@ NAME=libevdev
 VERSION=1.11.0
 URL=https://www.freedesktop.org/software/libevdev/libevdev-1.11.0.tar.xz
 SECTION="Others"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

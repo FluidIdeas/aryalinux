@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://archive.xfce.org/src/xfce/garcon/4.16/garcon-4.16.1.tar.bz2
 
@@ -21,9 +23,6 @@ VERSION=4.16.1
 URL=https://archive.xfce.org/src/xfce/garcon/4.16/garcon-4.16.1.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="The Garcon package contains a freedesktop.org compliant menu implementation based on GLib and GIO."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

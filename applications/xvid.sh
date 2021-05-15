@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.xvid.com/downloads/xvidcore-1.3.7.tar.gz
 
@@ -19,9 +21,6 @@ VERSION=1.3.7
 URL=https://downloads.xvid.com/downloads/xvidcore-1.3.7.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="XviD is an MPEG-4 compliant video CODEC."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

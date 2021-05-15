@@ -15,6 +15,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://cpan.metacpan.org/authors/id/E/ET/ETHER/Package-Stash-0.39.tar.gz
 
@@ -23,9 +25,6 @@ NAME=perl-deps#perl-package-stash
 VERSION=0.39
 URL=https://cpan.metacpan.org/authors/id/E/ET/ETHER/Package-Stash-0.39.tar.gz
 SECTION="Others"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

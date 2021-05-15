@@ -10,6 +10,8 @@ set +h
 #REQ:cmake
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/KDE/ksysguard/archive/v5.21.1/ksysguard-5.21.1.tar.gz
 
@@ -17,9 +19,6 @@ NAME=ksysguard
 VERSION=5.21.1
 URL=https://github.com/KDE/ksysguard/archive/v5.21.1/ksysguard-5.21.1.tar.gz
 SECTION="KDE Plasma 5"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -21,6 +21,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/tracker-miners/3.1/tracker-miners-3.1.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/tracker-miners/3.1/tracker-miners-3.1.1.tar.xz
@@ -31,9 +33,6 @@ VERSION=3.1.1
 URL=https://download.gnome.org/sources/tracker-miners/3.1/tracker-miners-3.1.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Tracker-miners package contains a set of data extractors for Tracker."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/yelp-xsl/40/yelp-xsl-40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/yelp-xsl/40/yelp-xsl-40.0.tar.xz
@@ -22,9 +24,6 @@ VERSION=40.0
 URL=https://download.gnome.org/sources/yelp-xsl/40/yelp-xsl-40.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Yelp XSL package contains XSL stylesheets that are used by the Yelp help browser to format Docbook and Mallard documents."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

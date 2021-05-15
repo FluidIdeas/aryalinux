@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.alsa-project.org/files/pub/firmware/alsa-firmware-1.2.4.tar.bz2
 wget -nc ftp://ftp.alsa-project.org/pub/firmware/alsa-firmware-1.2.4.tar.bz2
@@ -21,9 +23,6 @@ VERSION=1.2.4
 URL=https://www.alsa-project.org/files/pub/firmware/alsa-firmware-1.2.4.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The ALSA Firmware package contains firmware for certain sound cards."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

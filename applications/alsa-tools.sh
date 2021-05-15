@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.alsa-project.org/files/pub/tools/alsa-tools-1.2.2.tar.bz2
 wget -nc ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.2.2.tar.bz2
@@ -22,9 +24,6 @@ VERSION=1.2.2
 URL=https://www.alsa-project.org/files/pub/tools/alsa-tools-1.2.2.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The ALSA Tools package contains advanced tools for certain sound cards."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

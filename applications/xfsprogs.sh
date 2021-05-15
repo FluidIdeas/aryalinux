@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.11.0.tar.xz
 
@@ -20,9 +22,6 @@ VERSION=5.11.0
 URL=https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.11.0.tar.xz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The xfsprogs package contains administration and debugging tools for the XFS file system."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

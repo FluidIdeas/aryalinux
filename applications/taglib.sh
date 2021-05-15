@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://taglib.github.io/releases/taglib-1.12.tar.gz
 
@@ -20,9 +22,6 @@ VERSION=1.12
 URL=https://taglib.github.io/releases/taglib-1.12.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="Taglib is a library used for reading, writing and manipulating audio file tags and is used by applications such as Amarok and VLC."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

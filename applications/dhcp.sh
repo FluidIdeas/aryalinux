@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc ftp://ftp.isc.org/isc/dhcp/4.4.2/dhcp-4.4.2.tar.gz
 
@@ -19,9 +21,6 @@ VERSION=4.4.2
 URL=ftp://ftp.isc.org/isc/dhcp/4.4.2/dhcp-4.4.2.tar.gz
 SECTION="Connecting to a Network"
 DESCRIPTION="The ISC DHCP package contains both the client and server programs for DHCP. dhclient (the client) is used for connecting to a network which uses DHCP to assign network addresses. dhcpd (the server) is used for assigning network addresses on private networks."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

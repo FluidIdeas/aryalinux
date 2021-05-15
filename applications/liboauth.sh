@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/liboauth/liboauth-1.0.3.tar.gz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/liboauth-1.0.3-openssl-1.1.0-3.patch
@@ -21,9 +23,6 @@ VERSION=1.0.3
 URL=https://downloads.sourceforge.net/liboauth/liboauth-1.0.3.tar.gz
 SECTION="Security"
 DESCRIPTION="liboauth is a collection of POSIX-C functions implementing the OAuth Core RFC 5849 standard. Liboauth provides functions to escape and encode parameters according to OAuth specification and offers high-level functionality to sign requests or verify OAuth signatures as well as perform HTTP requests."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

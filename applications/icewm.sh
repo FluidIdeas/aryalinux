@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/ice-wm/icewm/archive/2.3.1/icewm-2.3.1.tar.gz
 
@@ -21,9 +23,6 @@ VERSION=2.3.1
 URL=https://github.com/ice-wm/icewm/archive/2.3.1/icewm-2.3.1.tar.gz
 SECTION="Window Managers"
 DESCRIPTION="IceWM is a window manager with the goals of speed, simplicity, and not getting in the user's way."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

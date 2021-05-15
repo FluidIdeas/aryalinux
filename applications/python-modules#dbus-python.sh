@@ -13,6 +13,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://dbus.freedesktop.org/releases/dbus-python/dbus-python-1.2.16.tar.gz
 
@@ -21,9 +23,6 @@ NAME=python-modules#dbus-python
 VERSION=1.2.16
 URL=https://dbus.freedesktop.org/releases/dbus-python/dbus-python-1.2.16.tar.gz
 SECTION="Others"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.cpan.org/authors/id/D/DC/DCANTRELL/Data-Compare-1.27.tar.gz
 
@@ -20,9 +22,6 @@ NAME=perl-modules#perl-data-compare
 VERSION=1.27
 URL=https://www.cpan.org/authors/id/D/DC/DCANTRELL/Data-Compare-1.27.tar.gz
 SECTION="Others"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

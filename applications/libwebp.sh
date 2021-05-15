@@ -14,6 +14,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc http://downloads.webmproject.org/releases/webp/libwebp-1.2.0.tar.gz
 
@@ -23,9 +25,6 @@ VERSION=1.2.0
 URL=http://downloads.webmproject.org/releases/webp/libwebp-1.2.0.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The libwebp package contains a library and support programs to encode and decode images in WebP format."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

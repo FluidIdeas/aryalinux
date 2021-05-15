@@ -13,6 +13,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/pangomm/2.46/pangomm-2.46.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/pangomm/2.46/pangomm-2.46.0.tar.xz
@@ -23,9 +25,6 @@ VERSION=2.46.0
 URL=https://download.gnome.org/sources/pangomm/2.46/pangomm-2.46.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The Pangomm package provides a C++ interface to Pango."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

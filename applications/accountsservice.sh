@@ -14,6 +14,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.freedesktop.org/software/accountsservice/accountsservice-0.6.55.tar.xz
 
@@ -23,9 +25,6 @@ VERSION=0.6.55
 URL=https://www.freedesktop.org/software/accountsservice/accountsservice-0.6.55.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="The AccountsService package provides a set of D-Bus interfaces for querying and manipulating user account information and an implementation of those interfaces based on the usermod(8), useradd(8) and userdel(8) commands."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

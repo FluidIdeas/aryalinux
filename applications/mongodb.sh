@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://fastdl.mongodb.org/src/mongodb-src-r4.2.2.tar.gz
 
@@ -21,9 +23,6 @@ VERSION=4.2.2
 URL=https://fastdl.mongodb.org/src/mongodb-src-r4.2.2.tar.gz
 SECTION="Databases"
 DESCRIPTION="MongoDB is a general purpose, document-based, distributed database built for modern application developers and for the cloud era. No database makes you more productive."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

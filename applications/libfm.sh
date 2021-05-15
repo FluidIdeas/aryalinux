@@ -16,6 +16,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/pcmanfm/libfm-1.3.2.tar.xz
 
@@ -25,9 +27,6 @@ VERSION=1.3.2
 URL=https://downloads.sourceforge.net/pcmanfm/libfm-1.3.2.tar.xz
 SECTION="LXDE Desktop"
 DESCRIPTION="The libfm package contains a library used to develop file managers providing some file management utilities."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

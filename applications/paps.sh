@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/paps/paps-0.7.1.tar.gz
 
@@ -20,9 +22,6 @@ VERSION=0.7.1
 URL=https://downloads.sourceforge.net/paps/paps-0.7.1.tar.gz
 SECTION="PostScript"
 DESCRIPTION="paps is a text to PostScript converter that works through Pango. Its input is a UTF-8 encoded text file and it outputs vectorized PostScript. It may be used for printing any complex script supported by Pango."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

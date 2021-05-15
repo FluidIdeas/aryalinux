@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.rarlab.com/rar/unrarsrc-6.0.5.tar.gz
 
@@ -19,9 +21,6 @@ VERSION=6.0.5
 URL=https://www.rarlab.com/rar/unrarsrc-6.0.5.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="The UnRar package contains a RAR extraction utility used for extracting files from RAR archives. RAR archives are usually created with WinRAR, primarily in a Windows environment."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

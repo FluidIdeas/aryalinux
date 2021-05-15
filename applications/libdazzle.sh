@@ -12,6 +12,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.gnome.org/sources/libdazzle/3.40/libdazzle-3.40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libdazzle/3.40/libdazzle-3.40.0.tar.xz
@@ -22,9 +24,6 @@ VERSION=3.40.0
 URL=https://download.gnome.org/sources/libdazzle/3.40/libdazzle-3.40.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="libdazzle is a companion library to GObject and GTK+ that adds APIs for special graphical effects."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

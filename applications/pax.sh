@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.mirbsd.org/MirOS/dist/mir/cpio/paxmirabilis-20201030.tgz
 
@@ -19,9 +21,6 @@ VERSION=20201030
 URL=https://www.mirbsd.org/MirOS/dist/mir/cpio/paxmirabilis-20201030.tgz
 SECTION="System Utilities"
 DESCRIPTION="pax is an archiving utility created by POSIX and defined by the POSIX.1-2001 standard. Rather than sort out the incompatible options that have crept up between tar and cpio, along with their implementations across various versions of UNIX, the IEEE designed a new archive utility. The name “pax” is an acronym for portable archive exchange. Furthermore, “pax” means “peace” in Latin, so its name implies that it shall create peace between the tar and cpio format supporters. The command invocation and command structure is somewhat a unification of both tar and cpio."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

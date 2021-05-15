@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://downloads.sourceforge.net/pcmanfm/libfm-1.3.2.tar.xz
 
@@ -20,9 +22,6 @@ VERSION=1.3.2
 URL=https://downloads.sourceforge.net/pcmanfm/libfm-1.3.2.tar.xz
 SECTION="LXDE Desktop"
 DESCRIPTION="The libfm-extra package contains a library and other files required by menu-cache-gen libexec of menu-cache-1.1.0."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

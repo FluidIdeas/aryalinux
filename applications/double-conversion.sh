@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/google/double-conversion/archive/v3.1.5/double-conversion-3.1.5.tar.gz
 
@@ -20,9 +22,6 @@ VERSION=3.1.5
 URL=https://github.com/google/double-conversion/archive/v3.1.5/double-conversion-3.1.5.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The Double-conversion package contains a library that facilitates binary-to-decimal and decimal-to-binary routines for IEEE doubles."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

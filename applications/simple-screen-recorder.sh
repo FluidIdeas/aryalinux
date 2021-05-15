@@ -14,6 +14,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://github.com/MaartenBaert/ssr/archive/0.3.11.tar.gz
 
@@ -22,9 +24,6 @@ NAME=simple-screen-recorder
 VERSION=0.3.11
 URL=https://github.com/MaartenBaert/ssr/archive/0.3.11.tar.gz
 DESCRIPTION="DescriptionSimpleScreenRecorder is a Qt-based screencast software made for Linux operating systems, which was created as a simpler alternative to programs such as ffmpeg/avconv and VLC."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

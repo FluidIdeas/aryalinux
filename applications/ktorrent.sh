@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://download.kde.org/stable/ktorrent/5.1.2/ktorrent-5.1.2.tar.xz
 
@@ -19,9 +21,6 @@ NAME=ktorrent
 VERSION=5.1.2
 URL=https://download.kde.org/stable/ktorrent/5.1.2/ktorrent-5.1.2.tar.xz
 DESCRIPTION="The KTorrent library is a C++ / Qt 4 / KDE Platform based implementation of the BitTorrent protocol (mostly client side)."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

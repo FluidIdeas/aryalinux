@@ -10,6 +10,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.cpan.org/authors/id/S/SA/SALVA/Sort-Key-1.33.tar.gz
 
@@ -18,9 +20,6 @@ NAME=perl-modules#perl-sort-key
 VERSION=1.33
 URL=https://www.cpan.org/authors/id/S/SA/SALVA/Sort-Key-1.33.tar.gz
 SECTION="Others"
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

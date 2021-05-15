@@ -14,6 +14,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 
 
@@ -22,9 +24,6 @@ VERSION=
 
 SECTION="X Window System Environment"
 DESCRIPTION="The Xorg applications provide the expected applications available in previous X Window implementations."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

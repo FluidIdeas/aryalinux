@@ -11,6 +11,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://s3.amazonaws.com/json-c_releases/releases/json-c-0.15.tar.gz
 
@@ -20,9 +22,6 @@ VERSION=0.15
 URL=https://s3.amazonaws.com/json-c_releases/releases/json-c-0.15.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The JSON-C implements a reference counting object model that allows you to easily construct JSON objects in C, output them as JSON formatted strings and parse JSON formatted strings back into the C representation of JSON objects."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then

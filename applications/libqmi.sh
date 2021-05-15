@@ -13,6 +13,8 @@ set +h
 
 
 cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 wget -nc https://www.freedesktop.org/software/libqmi/libqmi-1.28.2.tar.xz
 
@@ -22,9 +24,6 @@ VERSION=1.28.2
 URL=https://www.freedesktop.org/software/libqmi/libqmi-1.28.2.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libqmi package contains a GLib-based library for talking to WWAN modems and devices which speak the Qualcomm MSM Interface (QMI) protocol."
-
-mkdir -pv $NAME
-pushd $NAME
 
 if [ ! -z $URL ]
 then
