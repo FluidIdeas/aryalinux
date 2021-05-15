@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/stable/frameworks/5.82/kemoticons-5.82.0.tar.xz
+wget -nc https://github.com/KDE/kemoticons/archive/v5.82.0/kemoticons-5.82.0.tar.gz
 
 NAME=kemoticons
-VERSION=5.82.0
-URL=https://download.kde.org/stable/frameworks/5.82/kemoticons-5.82.0.tar.xz
+VERSION=5.82.0.0
+URL=https://github.com/KDE/kemoticons/archive/v5.82.0/kemoticons-5.82.0.tar.gz
 SECTION="KDE Plasma 5"
 
 if [ ! -z $URL ]

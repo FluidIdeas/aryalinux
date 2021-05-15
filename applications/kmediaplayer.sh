@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 wget -nc https://github.com/KDE/kmediaplayer/archive/v5.82.0/kmediaplayer-5.82.0.tar.gz
 
 NAME=kmediaplayer
-VERSION=5.82.0
+VERSION=5.82.0.0
 URL=https://github.com/KDE/kmediaplayer/archive/v5.82.0/kmediaplayer-5.82.0.tar.gz
 SECTION="KDE Plasma 5"
 

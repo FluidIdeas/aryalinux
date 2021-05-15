@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/stable/frameworks/5.82/qqc2-desktop-style-5.82.0.tar.xz
+wget -nc https://github.com/KDE/qqc2-desktop-style/archive/v5.82.0/qqc2-desktop-style-5.82.0.tar.gz
 
 NAME=qqc2-desktop-style
-VERSION=5.82.0
-URL=https://download.kde.org/stable/frameworks/5.82/qqc2-desktop-style-5.82.0.tar.xz
+VERSION=5.82.0.0
+URL=https://github.com/KDE/qqc2-desktop-style/archive/v5.82.0/qqc2-desktop-style-5.82.0.tar.gz
 SECTION="KDE Plasma 5"
 
 if [ ! -z $URL ]

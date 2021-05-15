@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/stable/plasma/5.18.7/oxygen-5.18.7.tar.xz
+wget -nc https://github.com/KDE/oxygen/archive/v5.18.7/oxygen-5.18.7.tar.gz
 
 NAME=oxygen
 VERSION=5.18.7
-URL=https://download.kde.org/stable/plasma/5.18.7/oxygen-5.18.7.tar.xz
+URL=https://github.com/KDE/oxygen/archive/v5.18.7/oxygen-5.18.7.tar.gz
 SECTION="KDE Plasma 5"
 
 if [ ! -z $URL ]

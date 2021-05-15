@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/stable/plasma/5.18.7/plasma-workspace-wallpapers-5.18.7.tar.xz
+wget -nc https://github.com/KDE/plasma-workspace-wallpapers/archive/v5.18.7/plasma-workspace-wallpapers-5.18.7.tar.gz
 
 NAME=plasma-workspace-wallpapers
 VERSION=5.18.7
-URL=https://download.kde.org/stable/plasma/5.18.7/plasma-workspace-wallpapers-5.18.7.tar.xz
+URL=https://github.com/KDE/plasma-workspace-wallpapers/archive/v5.18.7/plasma-workspace-wallpapers-5.18.7.tar.gz
 SECTION="KDE Plasma 5"
 
 if [ ! -z $URL ]

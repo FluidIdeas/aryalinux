@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 wget -nc https://github.com/KDE/khtml/archive/v5.82.0/khtml-5.82.0.tar.gz
 
 NAME=khtml
-VERSION=5.82.0
+VERSION=5.82.0.0
 URL=https://github.com/KDE/khtml/archive/v5.82.0/khtml-5.82.0.tar.gz
 SECTION="KDE Plasma 5"
 

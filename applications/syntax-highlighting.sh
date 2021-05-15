@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/stable/frameworks/5.82/syntax-highlighting-5.82.0.tar.xz
+wget -nc https://github.com/KDE/syntax-highlighting/archive/v5.82.0/syntax-highlighting-5.82.0.tar.gz
 
 NAME=syntax-highlighting
-VERSION=5.82.0
-URL=https://download.kde.org/stable/frameworks/5.82/syntax-highlighting-5.82.0.tar.xz
+VERSION=5.82.0.0
+URL=https://github.com/KDE/syntax-highlighting/archive/v5.82.0/syntax-highlighting-5.82.0.tar.gz
 SECTION="KDE Plasma 5"
 
 if [ ! -z $URL ]

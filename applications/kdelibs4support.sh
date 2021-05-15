@@ -8,14 +8,13 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:cmake
-#REQ:kdesignerplugin
 
 cd $SOURCE_DIR
 
 wget -nc https://github.com/KDE/kdelibs4support/archive/v5.82.0/kdelibs4support-5.82.0.tar.gz
 
 NAME=kdelibs4support
-VERSION=5.82.0
+VERSION=5.82.0.0
 URL=https://github.com/KDE/kdelibs4support/archive/v5.82.0/kdelibs4support-5.82.0.tar.gz
 SECTION="KDE Plasma 5"
 

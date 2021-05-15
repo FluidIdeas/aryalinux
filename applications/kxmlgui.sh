@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/stable/frameworks/5.82/kxmlgui-5.82.0.tar.xz
+wget -nc https://github.com/KDE/kxmlgui/archive/v5.82.0/kxmlgui-5.82.0.tar.gz
 
 NAME=kxmlgui
-VERSION=5.82.0
-URL=https://download.kde.org/stable/frameworks/5.82/kxmlgui-5.82.0.tar.xz
+VERSION=5.82.0.0
+URL=https://github.com/KDE/kxmlgui/archive/v5.82.0/kxmlgui-5.82.0.tar.gz
 SECTION="KDE Plasma 5"
 
 if [ ! -z $URL ]

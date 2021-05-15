@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 wget -nc https://github.com/KDE/kjsembed/archive/v5.82.0/kjsembed-5.82.0.tar.gz
 
 NAME=kjsembed
-VERSION=5.82.0
+VERSION=5.82.0.0
 URL=https://github.com/KDE/kjsembed/archive/v5.82.0/kjsembed-5.82.0.tar.gz
 SECTION="KDE Plasma 5"
 
