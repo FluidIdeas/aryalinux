@@ -20,6 +20,9 @@ URL=https://www.samba.org/ftp/ccache/ccache-3.5.1a.tar.xz
 SECTION="Others"
 DESCRIPTION="ccache (or “Ccache”) is a compiler cache. It speeds up recompilation by caching previous compilations and detecting when the same compilation is being done again. Supported languages are C, C++, Objective-C and Objective-C++."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -45,3 +48,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

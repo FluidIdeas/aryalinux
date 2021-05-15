@@ -20,6 +20,9 @@ URL=https://github.com/LMDB/lmdb/archive/LMDB_0.9.28.tar.gz
 SECTION="Databases"
 DESCRIPTION="The lmdb package is a fast, compact, key-value embedded data store. It uses memory-mapped files, so it has the read performance of a pure in-memory database while still offering the persistence of standard disk-based databases, and is only limited to the size of the virtual address space"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -57,3 +60,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

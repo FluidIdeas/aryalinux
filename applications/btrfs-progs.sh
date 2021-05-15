@@ -23,6 +23,9 @@ URL=https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The btrfs-progs package contains administration and debugging tools for the B-tree file system (btrfs)."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -67,3 +70,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

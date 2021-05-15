@@ -21,6 +21,9 @@ URL=https://www.kernel.org/pub/software/network/iw/iw-5.9.tar.xz
 SECTION="Networking Programs"
 DESCRIPTION="iw is a new nl80211 based CLI configuration utility for wireless devices. It supports all new drivers that have been added to the kernel recently. The old tool iwconfig, which uses Wireless Extensions interface, is deprecated and it's strongly recommended to switch to iw and nl80211."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -57,3 +60,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

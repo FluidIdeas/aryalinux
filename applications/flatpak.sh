@@ -22,6 +22,9 @@ VERSION=1.5.0
 URL=https://github.com/flatpak/flatpak/releases/download/1.5.0/flatpak-1.5.0.tar.xz
 DESCRIPTION="DescriptionFlatpak is a software utility for software deployment and package management for Linux. It is advertised as offering a sandbox environment in which users can run application software in isolation from the rest of the system."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -51,3 +54,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

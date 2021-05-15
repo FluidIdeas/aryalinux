@@ -20,6 +20,9 @@ URL=https://gitlab.gnome.org/GNOME/libmanette/-/archive/0.2.6/libmanette-0.2.6.t
 SECTION="Others"
 DESCRIPTION="The simple GObject game controller library"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -49,3 +52,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

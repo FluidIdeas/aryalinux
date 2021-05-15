@@ -20,6 +20,9 @@ URL=https://hyperrealm.github.io/libconfig/dist/libconfig-1.7.2.tar.gz
 SECTION="Others"
 DESCRIPTION=""
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -45,3 +48,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

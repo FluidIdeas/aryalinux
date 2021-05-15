@@ -22,6 +22,9 @@ VERSION=0.31.0
 
 DESCRIPTION="GTK3 version of gparted partition editing tool."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -55,3 +58,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

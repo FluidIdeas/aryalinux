@@ -22,6 +22,9 @@ URL=http://anduin.linuxfromscratch.org/BLFS/x265/x265_3.4.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="x265 package provides a library for encoding video streams into the H.265/HEVC format."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -62,3 +65,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

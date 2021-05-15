@@ -25,6 +25,9 @@ URL=https://download.gnome.org/sources/gnome-nettool/3.8/gnome-nettool-3.8.1.tar
 SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Nettool package is a network information tool which provides GUI interface for some of the most common command line network tools."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -62,3 +65,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

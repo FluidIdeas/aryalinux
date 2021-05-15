@@ -23,6 +23,9 @@ URL=https://download.gnome.org/sources/audiofile/0.3/audiofile-0.3.6.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The AudioFile package contains the audio file libraries and two sound file support programs useful to support basic sound file formats."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -61,3 +64,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -25,6 +25,9 @@ URL=https://people.freedesktop.org/~svu/libxklavier-5.4.tar.bz2
 SECTION="X Libraries"
 DESCRIPTION="The libxklavier package contains a utility library for X keyboard."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -61,3 +64,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

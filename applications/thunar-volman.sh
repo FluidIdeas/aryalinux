@@ -24,6 +24,9 @@ URL=https://archive.xfce.org/src/xfce/thunar-volman/4.16/thunar-volman-4.16.0.ta
 SECTION="Xfce Desktop"
 DESCRIPTION="The Thunar Volume Manager is an extension for the Thunar file manager, which enables automatic management of removable drives and media."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -60,3 +63,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

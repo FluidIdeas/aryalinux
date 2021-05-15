@@ -22,6 +22,9 @@ URL=https://github.com/kupferlauncher/keybinder/releases/download/keybinder-3.0-
 SECTION="X Libraries"
 DESCRIPTION="The keybinder-3.0 package contains a utility library registering global X keyboard shortcuts for GTK+-3."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

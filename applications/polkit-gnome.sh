@@ -23,6 +23,9 @@ URL=https://download.gnome.org/sources/polkit-gnome/0.105/polkit-gnome-0.105.tar
 SECTION="Security"
 DESCRIPTION="The Polkit GNOME package provides an Authentication Agent for Polkit that integrates well with the GNOME Desktop environment."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -80,3 +83,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

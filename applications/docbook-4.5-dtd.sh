@@ -22,6 +22,9 @@ URL=https://www.docbook.org/sgml/4.5/docbook-4.5.zip
 SECTION="Standard Generalized Markup Language (SGML)"
 DESCRIPTION="The DocBook-4.5 SGML DTD package contains document type definitions for verification of SGML data files against the DocBook rule set. These are useful for structuring books and software documentation to a standard allowing you to utilize transformations already written for that standard."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -87,3 +90,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -21,6 +21,9 @@ URL=https://github.com/knik0/faad2/archive/2_10_0/faad2-2_10_0.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="FAAD2 is a decoder for a lossy sound compression scheme specified in MPEG-2 Part 7 and MPEG-4 Part 3 standards and known as Advanced Audio Coding (AAC)."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

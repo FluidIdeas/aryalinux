@@ -22,6 +22,9 @@ URL=https://www.x.org/pub/individual/data/xbitmaps-1.1.2.tar.bz2
 SECTION="X Window System Environment"
 DESCRIPTION="The xbitmaps package contains bitmap images used by multiple applications built in Xorg chapter."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

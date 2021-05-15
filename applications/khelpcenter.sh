@@ -24,6 +24,9 @@ URL=https://download.kde.org/stable/release-service/20.12.2/src/khelpcenter-20.1
 SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="Khelpcenter is an application to show KDE Applications' documentation."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -69,3 +72,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

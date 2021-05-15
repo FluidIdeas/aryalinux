@@ -22,6 +22,9 @@ URL=https://www.x.org/pub/individual/
 SECTION="X Window System Environment"
 DESCRIPTION="Xorg's ancestor (X11R1, in 1987) at first only provided bitmap fonts, with a tool (bdftopcf) to assist in their installation. With the introduction of xorg-server-1.19.0 and libXfont2 many people will not need them. There are still a few old packages which might require, or benefit from, these deprecated fonts and so the following packages are shown here."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -86,3 +89,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

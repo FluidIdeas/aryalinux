@@ -28,6 +28,9 @@ URL=https://download.gnome.org/sources/libgweather/40/libgweather-40.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libgweather package is a library used to access weather information from online services for numerous locations."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -67,3 +70,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

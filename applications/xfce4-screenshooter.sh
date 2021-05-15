@@ -19,6 +19,9 @@ VERSION=1.9.8
 URL=https://github.com/xfce-mirror/xfce4-screenshooter/archive/xfce4-screenshooter-1.9.8.tar.gz
 DESCRIPTION="Screenshooter is an utility for the Xfce Desktop Environment. It can take desktop, rectangles or selected window screenshots, and you can bind it to your 'Print Screen' key. A panel plugin is provided too."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -44,3 +47,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

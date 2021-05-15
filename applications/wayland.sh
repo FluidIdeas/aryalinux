@@ -21,6 +21,9 @@ URL=https://wayland.freedesktop.org/releases/wayland-1.19.0.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="Wayland is a project to define a protocol for a compositor to talk to its clients as well as a library implementation of the protocol."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -59,3 +62,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

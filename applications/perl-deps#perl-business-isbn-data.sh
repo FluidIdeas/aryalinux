@@ -19,6 +19,9 @@ VERSION=20210112.001
 URL=https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISBN-Data-20210112.001.tar.gz
 SECTION="Others"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -55,3 +58,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

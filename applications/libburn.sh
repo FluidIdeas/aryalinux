@@ -20,6 +20,9 @@ URL=https://files.libburnia-project.org/releases/libburn-1.5.4.tar.gz
 SECTION="CD/DVD-Writing Utilities"
 DESCRIPTION="libburn is a library for writing preformatted data onto optical media: CD, DVD and BD (Blu-Ray)."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -56,3 +59,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

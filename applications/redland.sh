@@ -21,6 +21,9 @@ URL=https://download.librdf.org/source/redland-1.0.17.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="Redland is a set of free software C libraries that provide support for the Resource Description Framework (RDF)."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -57,3 +60,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

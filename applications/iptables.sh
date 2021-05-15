@@ -21,6 +21,9 @@ URL=http://www.netfilter.org/projects/iptables/files/iptables-1.8.7.tar.bz2
 SECTION="Security"
 DESCRIPTION="iptables is a userspace command line program used to configure the Linux 2.4 and later kernel packet filtering ruleset."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -89,3 +92,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -20,6 +20,9 @@ URL=http://fcron.free.fr/archives/fcron-3.2.1.src.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="The Fcron package contains a periodical command scheduler which aims at replacing Vixie Cron."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -172,3 +175,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

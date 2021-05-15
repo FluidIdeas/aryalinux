@@ -20,6 +20,9 @@ URL=https://github.com/yaml/libyaml/archive/0.2.4/libyaml-0.2.4.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The libyaml package contains a C library for parsing and emitting YAML (YAML Ain't Markup Language) code."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -57,3 +60,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

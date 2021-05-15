@@ -25,6 +25,9 @@ URL=https://www.openldap.org/software/download/OpenLDAP/openldap-release/openlda
 SECTION="Other Server Software"
 DESCRIPTION="The OpenLDAP package provides an open source implementation of the Lightweight Directory Access Protocol."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -64,3 +67,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -23,6 +23,9 @@ URL=https://www.libraw.org/data/LibRaw-0.20.2.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="Libraw is a library for reading RAW files obtained from digital photo cameras (CRW/CR2, NEF, RAF, DNG, and others)."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -65,3 +68,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

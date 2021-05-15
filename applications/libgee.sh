@@ -24,6 +24,9 @@ URL=https://download.gnome.org/sources/libgee/0.20/libgee-0.20.4.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libgee package is a collection library providing GObject based interfaces and classes for commonly used data structures."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -60,3 +63,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

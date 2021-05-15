@@ -21,6 +21,9 @@ URL=https://github.com/sass/sassc/archive/3.6.1/sassc-3.6.1.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="SassC is a wrapper around libsass, a CSS pre-processor language."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -76,3 +79,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

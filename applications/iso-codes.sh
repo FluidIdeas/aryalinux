@@ -20,6 +20,9 @@ URL=http://anduin.linuxfromscratch.org/BLFS/iso-codes/iso-codes-4.6.0.tar.xz
 SECTION="General Utilities"
 DESCRIPTION="The ISO Codes package contains a list of country, language and currency names and it is used as a central database for accessing this data."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -57,3 +60,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

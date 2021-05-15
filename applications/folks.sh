@@ -28,6 +28,9 @@ URL=https://download.gnome.org/sources/folks/0.15/folks-0.15.2.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Folks is a library that aggregates people from multiple sources (e.g, Telepathy connection managers and Evolution Data Server, Facebook, etc.) to create metacontacts."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -67,3 +70,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

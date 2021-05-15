@@ -22,6 +22,9 @@ URL=https://archive.xfce.org/src/xfce/garcon/4.16/garcon-4.16.1.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="The Garcon package contains a freedesktop.org compliant menu implementation based on GLib and GIO."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

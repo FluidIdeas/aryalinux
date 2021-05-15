@@ -23,6 +23,9 @@ URL=https://download.gnome.org/sources/atkmm/2.28/atkmm-2.28.1.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="Atkmm is the official C++ interface for the ATK accessibility toolkit library."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -62,3 +65,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

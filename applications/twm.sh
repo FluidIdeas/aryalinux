@@ -22,6 +22,9 @@ URL=https://www.x.org/pub/individual/app/twm-1.0.11.tar.xz
 SECTION="X Window System Environment"
 DESCRIPTION="The twm package contains a very minimal window manager."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -60,3 +63,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

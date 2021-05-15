@@ -23,6 +23,9 @@ URL=https://github.com/mypaint/libmypaint/releases/download/v1.6.1/libmypaint-1.
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The libmypaint package, a.k.a. \"brushlib\", is a library for making brushstrokes which is used by MyPaint and other projects."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -59,3 +62,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

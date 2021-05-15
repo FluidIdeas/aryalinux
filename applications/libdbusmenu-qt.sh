@@ -21,6 +21,9 @@ URL=https://launchpad.net/ubuntu/+archive/primary/+files/libdbusmenu-qt_0.9.3+16
 SECTION="KDE Plasma 5"
 DESCRIPTION="This library provides a Qt implementation of the DBusMenu specification that exposes menus via DBus."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -63,3 +66,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

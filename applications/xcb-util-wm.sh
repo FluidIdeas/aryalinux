@@ -21,6 +21,9 @@ URL=https://xcb.freedesktop.org/dist/xcb-util-wm-0.4.1.tar.bz2
 SECTION="X Window System Environment"
 DESCRIPTION="The xcb-util-wm package contains libraries which provide client and window-manager helpers for EWMH and ICCCM."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

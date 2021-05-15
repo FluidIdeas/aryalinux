@@ -27,6 +27,9 @@ URL=https://download.gnome.org/sources/gnome-session/40/gnome-session-40.1.1.tar
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Session package contains the GNOME session manager."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -76,3 +79,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

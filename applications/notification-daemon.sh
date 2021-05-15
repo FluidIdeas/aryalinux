@@ -24,6 +24,9 @@ URL=https://download.gnome.org/sources/notification-daemon/3.20/notification-dae
 SECTION="System Utilities"
 DESCRIPTION="The Notification Daemon package contains a daemon that displays passive pop-up notifications."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -64,3 +67,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

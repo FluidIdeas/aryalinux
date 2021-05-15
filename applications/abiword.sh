@@ -27,6 +27,9 @@ URL=https://www.abisource.com/downloads/abiword/3.0.4/source/abiword-3.0.4.tar.g
 SECTION="Office Programs"
 DESCRIPTION="AbiWord is a word processor which is useful for writing reports, letters and other formatted documents."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -85,3 +88,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

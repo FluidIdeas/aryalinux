@@ -21,6 +21,9 @@ URL=https://downloads.sourceforge.net/lxde/gpicview-0.2.5.tar.xz
 SECTION="LXDE Applications"
 DESCRIPTION="The GPicView package contains a lightweight image viewer."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -28,6 +28,9 @@ URL=https://download.gnome.org/sources/grilo/0.3/grilo-0.3.13.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Grilo is a framework focused on making media discovery and browsing easy for applications and application developers."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -68,3 +71,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -23,6 +23,9 @@ URL=https://downloads.sourceforge.net/bogofilter/bogofilter-1.2.5.tar.xz
 SECTION="General Utilities"
 DESCRIPTION="The Bogofilter application is a mail filter that classifies mail as spam or ham (non-spam) by a statistical analysis of the message's header and content (body)."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -59,3 +62,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -21,6 +21,9 @@ URL=https://xcb.freedesktop.org/dist/xcb-util-0.4.0.tar.bz2
 SECTION="X Window System Environment"
 DESCRIPTION="The xcb-util package provides additional extensions to the XCB library, many that were previously found in Xlib, but are not part of core X protocol."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

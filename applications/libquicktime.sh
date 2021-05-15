@@ -21,6 +21,9 @@ URL=https://downloads.sourceforge.net/libquicktime/libquicktime-1.2.4.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The libquicktime package contains the libquicktime library, various plugins and codecs, along with graphical and command line utilities used for encoding and decoding QuickTime files. This is useful for reading and writing files in the QuickTime format. The goal of the project is to enhance, while providing compatibility with the Quicktime 4 Linux library."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -66,3 +69,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -23,6 +23,9 @@ VERSION=3.40.1
 URL=https://download.gnome.org/sources/pygobject/3.40/pygobject-3.40.1.tar.xz
 SECTION="Others"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -63,3 +66,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

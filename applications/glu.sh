@@ -21,6 +21,9 @@ URL=ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.1.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="This package provides the Mesa OpenGL Utility library."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

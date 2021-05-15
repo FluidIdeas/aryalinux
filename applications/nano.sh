@@ -20,6 +20,9 @@ URL=https://www.nano-editor.org/dist/v5/nano-5.7.tar.xz
 SECTION="Editors"
 DESCRIPTION="The Nano package contains a small, simple text editor which aims to replace Pico, the default editor in the Pine package."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -60,3 +63,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

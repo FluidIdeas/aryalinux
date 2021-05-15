@@ -27,6 +27,9 @@ URL=https://archive.xfce.org/src/xfce/xfce4-settings/4.16/xfce4-settings-4.16.1.
 SECTION="Xfce Desktop"
 DESCRIPTION="The Xfce4 Settings package contains a collection of programs that are useful for adjusting your Xfce preferences."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -63,3 +66,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

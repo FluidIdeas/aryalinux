@@ -22,6 +22,9 @@ VERSION=0.27
 URL=https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/FFI-CheckLib-0.27.tar.gz
 SECTION="Others"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

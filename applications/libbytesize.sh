@@ -21,6 +21,9 @@ URL=https://github.com/storaged-project/libbytesize/releases/download/2.5/libbyt
 SECTION="General Libraries"
 DESCRIPTION="The libbytesize package is a library which facilitates the common operations with sizes in bytes."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -57,3 +60,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -21,6 +21,9 @@ URL=https://sourceforge.net/projects/giflib/files/giflib-5.2.1.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The giflib package contains libraries for reading and writing GIFs as well as programs for converting and working with GIF files."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -64,3 +67,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

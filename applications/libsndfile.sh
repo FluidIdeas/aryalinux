@@ -23,6 +23,9 @@ URL=https://github.com/libsndfile/libsndfile/releases/download/1.0.31/libsndfile
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="Libsndfile is a library of C routines for reading and writing files containing sampled audio data."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -61,3 +64,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -27,6 +27,9 @@ URL=https://download.kde.org/stable/phonon/phonon-backend-gstreamer/4.10.0/phono
 SECTION="KDE Plasma 5"
 DESCRIPTION="This package provides a Phonon backend which utilizes the GStreamer media framework."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -68,3 +71,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

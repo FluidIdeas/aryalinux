@@ -20,6 +20,9 @@ URL=https://downloads.sourceforge.net/libdv/libdv-1.0.0.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The Quasar DV Codec (libdv) is a software CODEC for DV video, the encoding format used by most digital camcorders. It can be used to copy videos from camcorders using a firewire (IEEE 1394) connection."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -60,3 +63,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -34,6 +34,9 @@ URL=https://github.com/opencv/opencv/archive/4.5.2/opencv-4.5.2.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The opencv package contains graphics libraries mainly aimed at real-time computer vision."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -83,3 +86,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -20,6 +20,9 @@ URL=https://www.samba.org/ftp/talloc/talloc-2.3.2.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="Talloc provides a hierarchical, reference counted memory pool system with destructors. It is the core memory allocator used in Samba."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -56,3 +59,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

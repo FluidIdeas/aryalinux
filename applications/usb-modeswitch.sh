@@ -20,6 +20,9 @@ VERSION=2.2.5
 URL=http://www.draisberghof.de/usb_modeswitch/usb-modeswitch-2.2.5.tar.bz2
 DESCRIPTION="mode switching tool for controlling 'flip flop' USB devices"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -53,3 +56,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

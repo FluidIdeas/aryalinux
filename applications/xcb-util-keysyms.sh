@@ -21,6 +21,9 @@ URL=https://xcb.freedesktop.org/dist/xcb-util-keysyms-0.4.0.tar.bz2
 SECTION="X Window System Environment"
 DESCRIPTION="The xcb-util-keysyms package contains a library for handling standard X key constants and conversion to/from keycodes."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

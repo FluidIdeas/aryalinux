@@ -22,6 +22,9 @@ URL=https://downloads.sourceforge.net/mad/libmad-0.15.1b.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="libmad is a high-quality MPEG audio decoder capable of 24-bit output."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -84,3 +87,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

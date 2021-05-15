@@ -19,6 +19,9 @@ URL=https://download.kde.org/Attic/applications/19.11.90/src/kcalc-19.11.90.tar.
 SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="Calculator for the KDE plasma desktop"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -48,3 +51,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

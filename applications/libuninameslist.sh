@@ -20,6 +20,9 @@ URL=https://github.com/fontforge/libuninameslist/releases/download/20200413/libu
 SECTION="General Libraries"
 DESCRIPTION="Libuninameslist provides a Library of Unicode names and annotation data"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -56,3 +59,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

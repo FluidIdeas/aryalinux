@@ -20,6 +20,9 @@ VERSION=1.1.4
 URL=https://files.pythonhosted.org/packages/source/M/Mako/Mako-1.1.4.tar.gz
 SECTION="Others"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -54,3 +57,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

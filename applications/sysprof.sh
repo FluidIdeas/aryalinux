@@ -25,6 +25,9 @@ URL=https://download.gnome.org/sources/sysprof/3.40/sysprof-3.40.1.tar.xz
 SECTION="Programming"
 DESCRIPTION="The sysprof package contains a statistical and system-wide profiler for Linux."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -64,3 +67,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

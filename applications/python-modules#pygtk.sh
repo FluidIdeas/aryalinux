@@ -30,6 +30,9 @@ VERSION=2.24.0
 URL=https://download.gnome.org/sources/pygtk/2.24/pygtk-2.24.0.tar.bz2
 SECTION="Others"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -67,3 +70,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

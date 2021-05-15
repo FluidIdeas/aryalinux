@@ -20,6 +20,9 @@ URL=http://0pointer.de/lennart/projects/libdaemon/libdaemon-0.14.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The libdaemon package is a lightweight C library that eases the writing of UNIX daemons."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -56,3 +59,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

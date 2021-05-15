@@ -22,6 +22,9 @@ URL=https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.32
 SECTION="X Window System Environment"
 DESCRIPTION="The XKeyboardConfig package contains the keyboard configuration database for the X Window System."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -59,3 +62,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

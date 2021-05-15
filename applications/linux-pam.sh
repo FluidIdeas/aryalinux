@@ -21,6 +21,9 @@ URL=https://github.com/linux-pam/linux-pam/releases/download/v1.5.1/Linux-PAM-1.
 SECTION="Security"
 DESCRIPTION="The Linux PAM package contains Pluggable Authentication Modules used to enable the local system administrator to choose how applications authenticate users."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -160,3 +163,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

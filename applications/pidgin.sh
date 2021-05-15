@@ -25,6 +25,9 @@ URL=https://downloads.sourceforge.net/pidgin/pidgin-2.14.3.tar.bz2
 SECTION="Other X-based Programs"
 DESCRIPTION="Pidgin is a Gtk+ 2 instant messaging client that can connect with a wide range of networks including Bonjour, ICQ, GroupWise, Jabber/XMPP, IRC, Gadu-Gadu, SILC, SIMPLE, and Zephyr."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -85,3 +88,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

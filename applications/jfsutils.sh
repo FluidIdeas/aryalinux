@@ -21,6 +21,9 @@ URL=http://jfs.sourceforge.net/project/pub/jfsutils-1.1.15.tar.gz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The jfsutils package contains administration and debugging tools for the jfs file system."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -61,3 +64,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

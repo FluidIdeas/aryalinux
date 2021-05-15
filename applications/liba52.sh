@@ -20,6 +20,9 @@ URL=http://liba52.sourceforge.net/files/a52dec-0.7.4.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="liba52 is a free library for decoding ATSC A/52 (also known as AC-3) streams. The A/52 standard is used in a variety of applications, including digital television and DVD."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -63,3 +66,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -23,6 +23,9 @@ URL=https://download.gnome.org/sources/libsigc++/2.10/libsigc++-2.10.6.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libsigc++ package implements a typesafe callback system for standard C++."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -62,3 +65,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

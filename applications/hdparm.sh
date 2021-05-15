@@ -20,6 +20,9 @@ URL=https://downloads.sourceforge.net/hdparm/hdparm-9.61.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="The Hdparm package contains a utility that is useful for obtaining information about, and controlling ATA/IDE controllers and hard drives. It allows to increase performance and sometimes to increase stability."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -56,3 +59,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -22,6 +22,9 @@ URL=https://download.gnome.org/sources/gspell/1.8/gspell-1.8.4.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The gspell package provides a flexible API to add spell checking to a GTK+ application."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -21,6 +21,9 @@ URL=https://downloads.sourceforge.net/openjade/OpenSP-1.5.2.tar.gz
 SECTION="Standard Generalized Markup Language (SGML)"
 DESCRIPTION="The OpenSP package contains a C++ library for using SGML/XML files. This is useful for validating, parsing and manipulating SGML and XML documents."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -78,3 +81,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

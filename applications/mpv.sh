@@ -29,6 +29,9 @@ VERSION=0.33.1
 URL=https://github.com/mpv-player/mpv/archive/v0.33.1/mpv-0.33.1.tar.gz
 DESCRIPTION="mpv is a free (as in freedom) media player for the command line. It supports a wide variety of media file formats, audio and video codecs, and subtitle types."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -55,3 +58,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

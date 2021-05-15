@@ -23,6 +23,9 @@ URL=https://download.gnome.org/sources/gnome-menus/3.36/gnome-menus-3.36.0.tar.x
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Menus package contains an implementation of the draft Desktop Menu Specification from freedesktop.org. It also contains the GNOME menu layout configuration files and .directory files."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -61,3 +64,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

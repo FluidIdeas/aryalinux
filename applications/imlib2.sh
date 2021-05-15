@@ -21,6 +21,9 @@ URL=https://downloads.sourceforge.net/enlightenment/imlib2-1.7.1.tar.bz2
 SECTION="X Libraries"
 DESCRIPTION="imlib2 is a graphics library for fast file loading, saving, rendering and manipulation."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -59,3 +62,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

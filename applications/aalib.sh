@@ -20,6 +20,9 @@ URL=https://downloads.sourceforge.net/aa-project/aalib-1.4rc5.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="AAlib is a library to render any graphic into ASCII Art."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -60,3 +63,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

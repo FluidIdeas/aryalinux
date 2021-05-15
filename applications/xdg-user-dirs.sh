@@ -20,6 +20,9 @@ URL=https://user-dirs.freedesktop.org/releases/xdg-user-dirs-0.17.tar.gz
 SECTION="General Utilities"
 DESCRIPTION="Xdg-user-dirs is a tool to help manage “well known” user directories like the desktop folder and the music folder. It also handles localization (i.e. translation) of the filenames."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -56,3 +59,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

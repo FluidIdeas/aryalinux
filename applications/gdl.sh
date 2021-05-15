@@ -22,6 +22,9 @@ URL=https://download.gnome.org/sources/gdl/3.34/gdl-3.34.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The GDL package provides a library that is useful for docking objects in GTK+ applications."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

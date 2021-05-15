@@ -24,6 +24,9 @@ VERSION=2.1
 
 DESCRIPTION="Meta package to install vpn support - openvpn, openconnect, pptp"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -47,3 +50,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

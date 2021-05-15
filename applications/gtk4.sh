@@ -35,6 +35,9 @@ URL=https://download.gnome.org/sources/gtk/4.2/gtk-4.2.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The GTK 4 package contains libraries used for creating graphical user interfaces for applications."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -87,3 +90,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

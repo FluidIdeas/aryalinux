@@ -24,6 +24,9 @@ URL=https://download.gnome.org/sources/gnome-logs/3.36/gnome-logs-3.36.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Logs package contains a log viewer for the systemd journal."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -63,3 +66,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

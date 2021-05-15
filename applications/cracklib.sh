@@ -22,6 +22,9 @@ URL=https://github.com/cracklib/cracklib/releases/download/v2.9.7/cracklib-2.9.7
 SECTION="Security"
 DESCRIPTION="The CrackLib package contains a library used to enforce strong passwords by comparing user selected passwords to words in chosen word lists."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -84,3 +87,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

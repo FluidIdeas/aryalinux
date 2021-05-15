@@ -19,6 +19,9 @@ VERSION=1.3.1
 URL=https://github.com/encukou/py3c/archive/v1.3.1/py3c-1.3.1.tar.gz
 SECTION="Others"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -53,3 +56,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

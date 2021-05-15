@@ -21,6 +21,9 @@ URL=https://github.com/thom311/libnl/releases/download/libnl3_5_0/libnl-3.5.0.ta
 SECTION="Networking Libraries"
 DESCRIPTION="The libnl suite is a collection of libraries providing APIs to netlink protocol based Linux kernel interfaces."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -70,3 +73,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

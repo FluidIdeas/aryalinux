@@ -22,6 +22,9 @@ URL=https://archive.xfce.org/src/apps/xfce4-terminal/0.8/xfce4-terminal-0.8.10.t
 SECTION="Xfce Applications"
 DESCRIPTION="Xfce4 Terminal is a GTK+3 terminal emulator. This is useful for running commands or programs in the comfort of an Xorg window; you can drag and drop files into the Xfce4 Terminal or copy and paste text with your mouse."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

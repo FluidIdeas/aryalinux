@@ -24,6 +24,9 @@ URL=https://github.com/mgieseki/dvisvgm/releases/download/2.11.1/dvisvgm-2.11.1.
 SECTION="Typesetting"
 DESCRIPTION="The dvisvgm package converts DVI, EPS and PDF files to SVG format."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -74,3 +77,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

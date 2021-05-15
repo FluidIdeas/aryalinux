@@ -76,6 +76,9 @@ VERSION=1.4
 
 DESCRIPTION="A meta package which is a collection of audio and video codecs and plugins."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -99,3 +102,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

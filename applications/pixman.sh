@@ -20,6 +20,9 @@ URL=https://www.cairographics.org/releases/pixman-0.40.0.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The Pixman package contains a library that provides low-level pixel manipulation features such as image compositing and trapezoid rasterization."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -59,3 +62,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

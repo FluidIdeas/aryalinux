@@ -21,6 +21,9 @@ VERSION=0.21
 URL=https://github.com/celluloid-player/celluloid/releases/download/v0.21/celluloid-0.21.tar.xz
 DESCRIPTION="Celluloid (formerly GNOME MPV) is a simple GTK+ frontend for mpv. It aims to be easy to use while maintaining high level of configurability."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -46,3 +49,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

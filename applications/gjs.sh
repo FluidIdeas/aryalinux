@@ -27,6 +27,9 @@ URL=https://download.gnome.org/sources/gjs/1.68/gjs-1.68.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Gjs is a set of Javascript bindings for GNOME."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -67,3 +70,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

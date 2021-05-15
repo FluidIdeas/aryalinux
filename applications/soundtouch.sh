@@ -20,6 +20,9 @@ URL=https://gitlab.com/soundtouch/soundtouch/-/archive/2.2/soundtouch-2.2.tar.bz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The SoundTouch package contains an open-source audio processing library that allows changing the sound tempo, pitch and playback rate parameters independently from each other."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -32,6 +32,9 @@ VERSION=1.4.0rc1
 URL=https://github.com/clementine-player/Clementine/releases/download/1.4.0rc1/clementine-1.4.0rc1.tar.xz
 DESCRIPTION="Clementine is a multiplatform music player focusing on a fast and easy-to-use interface for searching and playing your music."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -59,3 +62,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

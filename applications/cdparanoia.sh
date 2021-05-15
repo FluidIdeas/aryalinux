@@ -21,6 +21,9 @@ URL=https://downloads.xiph.org/releases/cdparanoia/cdparanoia-III-10.2.src.tgz
 SECTION="Audio Utilities"
 DESCRIPTION="The CDParanoia package contains a CD audio extraction tool. This is useful for extracting .wav files from audio CDs. A CDDA capable CDROM drive is needed. Practically all drives supported by Linux can be used."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -59,3 +62,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

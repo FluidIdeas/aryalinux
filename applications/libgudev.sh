@@ -22,6 +22,9 @@ URL=https://download.gnome.org/sources/libgudev/236/libgudev-236.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libgudev package contains GObject bindings for libudev."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -61,3 +64,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

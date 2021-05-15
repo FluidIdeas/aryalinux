@@ -24,6 +24,9 @@ URL=https://download.kde.org/stable/release-service/20.12.2/src/okular-20.12.2.t
 SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="Okular is a document viewer for KDE. It can view documents of many types including PDF, PostScript, TIFF, Microsoft CHM, DjVu, DVI, XPS and ePub."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -66,3 +69,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

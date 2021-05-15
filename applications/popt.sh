@@ -21,6 +21,9 @@ URL=http://ftp.rpm.org/popt/releases/popt-1.x/popt-1.18.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The popt package contains the popt libraries which are used by some programs to parse command-line options."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -59,3 +62,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

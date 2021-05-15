@@ -23,6 +23,9 @@ URL=https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.18.4.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The GStreamer Libav package contains GStreamer plugins for Libav (a fork of FFmpeg)."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -65,3 +68,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

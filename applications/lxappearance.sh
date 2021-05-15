@@ -22,6 +22,9 @@ URL=https://downloads.sourceforge.net/lxde/lxappearance-0.6.3.tar.xz
 SECTION="LXDE Desktop"
 DESCRIPTION="The LXAppearance package contains a desktop-independent theme switcher for GTK+."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -60,3 +63,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

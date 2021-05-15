@@ -21,6 +21,9 @@ URL=https://taglib.github.io/releases/taglib-1.12.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="Taglib is a library used for reading, writing and manipulating audio file tags and is used by applications such as Amarok and VLC."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -63,3 +66,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -25,6 +25,9 @@ URL=http://anduin.linuxfromscratch.org/BLFS/OpenJDK/OpenJDK-15.0.2/OpenJDK-15.0.
 SECTION="Programming"
 DESCRIPTION="Creating a JVM from source requires a set of circular dependencies. The first thing that's needed is a set of programs called a Java Development Kit (JDK). This set of programs includes java, javac, jar, and several others. It also includes several base jar files."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -70,3 +73,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

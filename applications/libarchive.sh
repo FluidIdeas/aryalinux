@@ -20,6 +20,9 @@ URL=https://github.com/libarchive/libarchive/releases/download/3.5.1/libarchive-
 SECTION="General Libraries"
 DESCRIPTION="The libarchive library provides a single interface for reading/writing various compression formats."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -56,3 +59,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

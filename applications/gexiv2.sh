@@ -23,6 +23,9 @@ URL=https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.2.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="gexiv2 is a GObject-based wrapper around the Exiv2 library."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -62,3 +65,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

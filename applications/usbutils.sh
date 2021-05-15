@@ -22,6 +22,9 @@ URL=https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-013.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="The USB Utils package contains utilities used to display information about USB buses in the system and the devices connected to them."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -101,3 +104,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

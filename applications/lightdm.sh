@@ -29,6 +29,9 @@ URL=https://github.com/CanonicalLtd/lightdm/releases/download/1.30.0/lightdm-1.3
 SECTION="Display Managers"
 DESCRIPTION="The lightdm package contains a lightweight display manager based upon GTK."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -154,3 +157,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

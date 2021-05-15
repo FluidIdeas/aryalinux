@@ -22,6 +22,9 @@ URL=https://downloads.sourceforge.net/lxde/menu-cache-1.1.0.tar.xz
 SECTION="LXDE Desktop"
 DESCRIPTION="The Menu Cache package contains a library for creating and utilizing caches to speed up the manipulation for freedesktop.org defined application menus."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -60,3 +63,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

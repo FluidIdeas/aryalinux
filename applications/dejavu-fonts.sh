@@ -23,6 +23,9 @@ URL=https://sourceforge.net/projects/dejavu/files/dejavu/2.37/dejavu-fonts-2.37.
 SECTION="Others"
 DESCRIPTION="The DejaVu fonts are modifications of the Bitstream Vera fonts designed for greater coverage of Unicode, as well as providing more styles."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -48,3 +51,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

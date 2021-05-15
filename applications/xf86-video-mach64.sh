@@ -19,6 +19,9 @@ VERSION=6.9.6
 URL=https://www.x.org/archive/individual/driver/xf86-video-mach64-6.9.6.tar.gz
 DESCRIPTION="Userspace mach64 video graphics driver"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -44,3 +47,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

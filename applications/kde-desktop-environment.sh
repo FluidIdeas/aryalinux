@@ -49,6 +49,9 @@ VERSION=5.53
 SECTION="KDE Plasma 5"
 DESCRIPTION="Plasma is KDE's desktop environment. Simple by default, powerful when needed."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -72,3 +75,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

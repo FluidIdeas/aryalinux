@@ -33,6 +33,9 @@ URL=https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.29.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The GTK+ 3 package contains libraries used for creating graphical user interfaces for applications."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -80,3 +83,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

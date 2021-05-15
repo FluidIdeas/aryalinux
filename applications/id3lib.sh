@@ -21,6 +21,9 @@ URL=https://downloads.sourceforge.net/id3lib/id3lib-3.8.3.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="id3lib is a library for reading, writing and manipulating id3v1 and id3v2 multimedia data containers."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -69,3 +72,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

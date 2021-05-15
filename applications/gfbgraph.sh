@@ -24,6 +24,9 @@ URL=https://download.gnome.org/sources/gfbgraph/0.2/gfbgraph-0.2.4.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The gfbgraph package contains a GObject wrapper for the Facebook Graph API."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -60,3 +63,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -24,6 +24,9 @@ URL=https://download.gnome.org/sources/gtkmm/3.24/gtkmm-3.24.4.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The Gtkmm package provides a C++ interface to GTK+ 3."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -63,3 +66,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -26,6 +26,9 @@ URL=https://download.gnome.org/sources/baobab/40/baobab-40.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The Baobab package contains a graphical directory tree analyzer."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -65,3 +68,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

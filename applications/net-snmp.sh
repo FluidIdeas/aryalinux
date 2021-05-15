@@ -19,6 +19,9 @@ VERSION=5.8
 URL=https://sourceforge.net/projects/net-snmp/files/net-snmp/5.8/net-snmp-5.8.tar.gz
 DESCRIPTION="The module Net::SNMP implements an object oriented interface to the Simple Network Management Protocol. Perl applications can use the module to retrieve or update information on a remote host using the SNMP protocol. Net::SNMP is implemented completely in Perl, requires no compiling, and uses only standard Perl modules. SNMPv1 and SNMPv2c (Community-Based SNMPv2), as well as SNMPv3 with USM are supported by the module. SNMP over UDP as well as TCP with both IPv4 and IPv6 can be used. The Net::SNMP module assumes that the user has a basic understanding of the Simple Network Management Protocol and related network management concepts."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -46,3 +49,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

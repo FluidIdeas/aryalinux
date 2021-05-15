@@ -25,6 +25,9 @@ URL=https://github.com/felixonmars/volume_key/archive/volume_key-0.3.12.tar.gz
 SECTION="Security"
 DESCRIPTION="The volume_key package provides a library for manipulating storage volume encryption keys and storing them separately from volumes to handle forgotten passphrases."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -63,3 +66,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -22,6 +22,9 @@ URL=https://invisible-mirror.net/archives/xterm/xterm-367.tgz
 SECTION="X Window System Environment"
 DESCRIPTION="xterm is a terminal emulator for the X Window System."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -86,3 +89,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

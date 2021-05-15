@@ -23,6 +23,9 @@ URL=https://download.gnome.org/sources/libhandy/1.2/libhandy-1.2.2.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The libhandy package provides additional GTK UI widgets for use in developing user interfaces."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -62,3 +65,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

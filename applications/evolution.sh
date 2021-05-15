@@ -38,6 +38,9 @@ URL=https://download.gnome.org/sources/evolution/3.40;/evolution-3.40.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The Evolution package contains an integrated mail, calendar and address book suite designed for the GNOME environment."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -85,3 +88,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

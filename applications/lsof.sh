@@ -21,6 +21,9 @@ URL=https://www.mirrorservice.org/sites/lsof.itap.purdue.edu/pub/tools/unix/lsof
 SECTION="General Utilities"
 DESCRIPTION="The lsof package is useful to LiSt Open Files for a given running application or process."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -60,3 +63,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

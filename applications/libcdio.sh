@@ -22,6 +22,9 @@ URL=https://ftp.gnu.org/gnu/libcdio/libcdio-2.1.0.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The libcdio is a library for CD-ROM and CD image access. The associated libcdio-cdparanoia library reads audio from the CD-ROM directly as data, with no analog step between, and writes the data to a file or pipe as .wav, .aifc or as raw 16 bit linear PCM."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -72,3 +75,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

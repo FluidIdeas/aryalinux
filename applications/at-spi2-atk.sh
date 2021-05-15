@@ -23,6 +23,9 @@ URL=https://download.gnome.org/sources/at-spi2-atk/2.38/at-spi2-atk-2.38.0.tar.x
 SECTION="X Libraries"
 DESCRIPTION="The At-Spi2 Atk package contains a library that bridges ATK to At-Spi2 D-Bus service."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -62,3 +65,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

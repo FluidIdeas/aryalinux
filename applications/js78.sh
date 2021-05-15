@@ -24,6 +24,9 @@ URL=https://archive.mozilla.org/pub/firefox/releases/78.10.0esr/source/firefox-7
 SECTION="General Libraries"
 DESCRIPTION="JS is Mozilla's JavaScript engine written in C. JS78 is taken from Firefox."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -89,3 +92,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -34,6 +34,9 @@ URL=https://download.gnome.org/sources/seahorse/40/seahorse-40.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="Seahorse is a graphical interface for managing and using encryption keys. Currently it supports PGP keys (using GPG/GPGME) and SSH keys."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -75,3 +78,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

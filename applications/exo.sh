@@ -23,6 +23,9 @@ URL=https://archive.xfce.org/src/xfce/exo/4.16/exo-4.16.2.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="Exo is a support library used in the Xfce desktop. It also has some helper applications that are used throughout Xfce."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -59,3 +62,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

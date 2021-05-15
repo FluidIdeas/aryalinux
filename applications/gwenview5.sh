@@ -24,6 +24,9 @@ URL=https://download.kde.org/stable/release-service/20.12.2/src/gwenview-20.12.2
 SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="Gwenview is a fast and easy-to-use image viewer for KDE."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -66,3 +69,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

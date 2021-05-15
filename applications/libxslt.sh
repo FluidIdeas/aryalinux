@@ -24,6 +24,9 @@ URL=http://xmlsoft.org/sources/libxslt-1.1.34.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The libxslt package contains XSLT libraries used for extending libxml2 libraries to support XSLT files."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -64,3 +67,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

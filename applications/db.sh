@@ -20,6 +20,9 @@ URL=http://anduin.linuxfromscratch.org/BLFS/bdb/db-5.3.28.tar.gz
 SECTION="Databases"
 DESCRIPTION="The Berkeley DB package contains programs and utilities used by many other applications for database related functions."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -68,3 +71,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -21,6 +21,9 @@ URL=https://github.com/qpdf/qpdf/releases/download/release-qpdf-10.3.1/qpdf-10.3
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The Qpdf package contains command-line programs and a library that does structural, content-preserving transformations on PDF files."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -59,3 +62,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

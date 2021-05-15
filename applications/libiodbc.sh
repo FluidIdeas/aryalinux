@@ -21,6 +21,9 @@ URL=https://downloads.sourceforge.net/iodbc/libiodbc-3.52.14.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="libiodbc is an API to ODBC compatible databases."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -61,3 +64,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

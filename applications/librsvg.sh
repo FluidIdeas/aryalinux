@@ -27,6 +27,9 @@ URL=https://download.gnome.org/sources/librsvg/2.50/librsvg-2.50.5.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The librsvg package contains a library and tools used to manipulate, convert and view Scalable Vector Graphic (SVG) images."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -83,3 +86,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -23,6 +23,9 @@ URL=https://download.gnome.org/sources/gnome-power-manager/3.32/gnome-power-mana
 SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Power Manager package contains a tool used to report on power management on the system."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -62,3 +65,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

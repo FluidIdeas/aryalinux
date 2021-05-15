@@ -23,6 +23,9 @@ URL=https://github.com/webmproject/libvpx/archive/v1.10.0/libvpx-1.10.0.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="This package, from the WebM project, provides the reference implementations of the VP8 Codec, used in most current html5 video, and of the next-generation VP9 Codec."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -66,3 +69,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

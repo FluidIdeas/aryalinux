@@ -21,6 +21,9 @@ URL=http://mama.indstate.edu/users/ice/tree/src/tree-1.8.0.tgz
 SECTION="General Utilities"
 DESCRIPTION="The tree application, as the name suggests, is useful to display, in a terminal, directory contents, including directories, files, links."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -57,3 +60,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

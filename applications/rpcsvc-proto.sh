@@ -20,6 +20,9 @@ URL=https://github.com/thkukuk/rpcsvc-proto/releases/download/v1.4.2/rpcsvc-prot
 SECTION="Networking Libraries"
 DESCRIPTION="The rpcsvc-proto package contains the rcpsvc protocol files and headers, formerly included with glibc, that are not included in replacement libtirpc-1.3.1, along with the rpcgen program."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -56,3 +59,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

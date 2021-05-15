@@ -22,6 +22,9 @@ URL=https://download.gnome.org/sources/gtk-engines/2.20/gtk-engines-2.20.2.tar.b
 SECTION="X Libraries"
 DESCRIPTION="The GTK Engines package contains eight themes/engines and two additional engines for GTK2."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

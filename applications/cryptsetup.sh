@@ -23,6 +23,9 @@ URL=https://www.kernel.org/pub/linux/utils/cryptsetup/v2.3/cryptsetup-2.3.5.tar.
 SECTION="Security"
 DESCRIPTION="cryptsetup is used to set up transparent encryption of block devices using the kernel crypto API."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -59,3 +62,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -19,6 +19,9 @@ DESCRIPTION="Google Chrome is a cross-platform web browser developed by Google. 
 #REQ:cups
 #REQ:gconf
 
+mkdir -pv $NAME
+pushd $NAME
+
 cd $SOURCE_DIR
 wget -nc https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 
@@ -36,3 +39,5 @@ sudo update-desktop-database
 sudo update-mime-database /usr/share/mime
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+
+popd

@@ -87,7 +87,8 @@ VERSION=5.21.5
 SECTION="KDE Plasma 5"
 
 
-cd $SOURCE_DIR
+mkdir -pv $NAME
+pushd $NAME
 
 sudo tee /etc/pam.d/kde << "EOF"
 # Begin /etc/pam.d/kde
@@ -132,3 +133,5 @@ EOF
 
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+
+popd

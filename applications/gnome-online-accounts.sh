@@ -27,6 +27,9 @@ URL=https://download.gnome.org/sources/gnome-online-accounts/3.38/gnome-online-a
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Online Accounts package contains a framework used to access the user's online accounts."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -66,3 +69,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

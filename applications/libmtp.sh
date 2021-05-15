@@ -19,6 +19,9 @@ VERSION=1.1.18
 URL=https://github.com/libmtp/libmtp/releases/download/libmtp-1-1-18/libmtp-1.1.18.tar.gz
 DESCRIPTION="A library to access MTP (Media Transfer Protocol) Devices."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -44,3 +47,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

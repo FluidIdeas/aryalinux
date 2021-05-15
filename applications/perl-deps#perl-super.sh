@@ -20,6 +20,9 @@ VERSION=1.20190531
 URL=https://cpan.metacpan.org/authors/id/C/CH/CHROMATIC/SUPER-1.20190531.tar.gz
 SECTION="Others"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -56,3 +59,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -21,6 +21,9 @@ URL=https://downloads.xiph.org/releases/flac/flac-1.3.3.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="FLAC is an audio CODEC similar to MP3, but lossless, meaning that audio is compressed without losing any information."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -60,3 +63,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

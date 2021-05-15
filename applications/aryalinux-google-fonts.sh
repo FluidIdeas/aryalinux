@@ -19,6 +19,9 @@ VERSION=4.0
 
 DESCRIPTION="Collection of TTF fonts, sourced from Google for AryaLinux"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -43,3 +46,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

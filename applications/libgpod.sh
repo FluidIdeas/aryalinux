@@ -20,6 +20,9 @@ VERSION=0.8.3
 URL=https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/libgpod/0.8.3-16/libgpod_0.8.3.orig.tar.bz2
 DESCRIPTION="libgpod is a shared library to access the contents of an iPod. This library is based on code used in the gtkpod project."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -45,3 +48,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

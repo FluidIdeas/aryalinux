@@ -41,6 +41,9 @@ URL=https://archive.mozilla.org/pub/firefox/releases/78.10.0esr/source/firefox-7
 SECTION="Graphical Web Browsers"
 DESCRIPTION="Firefox is a stand-alone browser based on the Mozilla codebase."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -199,3 +202,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

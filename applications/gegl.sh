@@ -28,6 +28,9 @@ URL=https://download.gimp.org/pub/gegl/0.4/gegl-0.4.30.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="This package provides the GEneric Graphics Library, which is a graph based image processing format."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -67,3 +70,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

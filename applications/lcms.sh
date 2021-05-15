@@ -21,6 +21,9 @@ URL=https://downloads.sourceforge.net/lcms/lcms-1.19.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The Little CMS library is used by other programs to provide color management facilities."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -62,3 +65,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

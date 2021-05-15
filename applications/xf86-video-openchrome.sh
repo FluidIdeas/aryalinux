@@ -20,6 +20,9 @@ VERSION=0.6.0
 URL=https://www.x.org/archive/individual/driver/xf86-video-openchrome-0.6.0.tar.gz
 DESCRIPTION="Userspace openchrome video graphics driver"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -46,3 +49,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

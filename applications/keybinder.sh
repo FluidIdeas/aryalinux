@@ -23,6 +23,9 @@ URL=https://github.com/kupferlauncher/keybinder/releases/download/v0.3.1/keybind
 SECTION="X Libraries"
 DESCRIPTION="The keybinder package contains a utility library registering global X keyboard shortcuts."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -59,3 +62,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -23,6 +23,9 @@ URL=https://github.com/libical/libical/releases/download/v3.0.10/libical-3.0.10.
 SECTION="General Libraries"
 DESCRIPTION="The libical package contains an implementation of the iCalendar protocols and data formats."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -69,3 +72,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

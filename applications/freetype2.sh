@@ -24,6 +24,9 @@ URL=https://downloads.sourceforge.net/freetype/freetype-2.10.4.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The FreeType2 package contains a library which allows applications to properly render TrueType fonts."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -77,3 +80,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

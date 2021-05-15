@@ -22,6 +22,9 @@ URL=https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/sgml-common-0.6.
 SECTION="Standard Generalized Markup Language (SGML)"
 DESCRIPTION="The SGML Common package contains install-catalog. This is useful for creating and maintaining centralized SGML catalogs."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -71,3 +74,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

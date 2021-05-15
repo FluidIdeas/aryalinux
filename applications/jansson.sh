@@ -20,6 +20,9 @@ URL=https://digip.org/jansson/releases/jansson-2.13.1.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The Jansson package contains a library used to encode, decode, and manipulate JSON data."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -56,3 +59,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

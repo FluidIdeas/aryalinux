@@ -20,6 +20,9 @@ VERSION=36
 URL=http://aryalinux.info/files/CoverflowAltTab-gnome-extension-36.tar.gz
 DESCRIPTION="Replacement of Alt-Tab, iterates through windows in a cover-flow manner."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -45,3 +48,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

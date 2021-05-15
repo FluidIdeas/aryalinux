@@ -20,6 +20,9 @@ URL=ftp://ftp.gnome.org/pub/gnome/sources/mobile-broadband-provider-info/2019061
 SECTION="Networking Utilities"
 DESCRIPTION="A database of mobile broadband service providers"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -46,3 +49,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

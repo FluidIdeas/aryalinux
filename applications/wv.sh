@@ -22,6 +22,9 @@ URL=https://www.abisource.com/downloads/wv/1.2.9/wv-1.2.9.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The wv package contains tools for reading information from an MS Word document."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

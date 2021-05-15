@@ -23,6 +23,9 @@ URL=https://download.gnome.org/sources/libdazzle/3.40/libdazzle-3.40.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="libdazzle is a companion library to GObject and GTK+ that adds APIs for special graphical effects."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -62,3 +65,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

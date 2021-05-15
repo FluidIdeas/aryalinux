@@ -27,6 +27,9 @@ URL=https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.20.ta
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libchamplain package contains a Clutter-based widget that is used to display rich and interactive maps."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -66,3 +69,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

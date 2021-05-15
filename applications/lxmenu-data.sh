@@ -20,6 +20,9 @@ URL=https://downloads.sourceforge.net/lxde/lxmenu-data-0.1.5.tar.xz
 SECTION="LXDE Desktop"
 DESCRIPTION="The LXMenu Data package provides files required to build freedesktop.org menu spec-compliant desktop menus for LXDE."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -56,3 +59,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

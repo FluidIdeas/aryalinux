@@ -27,6 +27,9 @@ URL=https://download.gnome.org/sources/libgxps/0.3/libgxps-0.3.2.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The libgxps package provides an interface to manipulate XPS documents."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -66,3 +69,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

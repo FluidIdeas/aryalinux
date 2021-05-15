@@ -21,6 +21,9 @@ URL=https://ftp.gnome.org/pub/GNOME/sources/gnome-doc-utils/0.20/gnome-doc-utils
 SECTION="Others"
 DESCRIPTION="The GNOME Doc Utils package is a collection of documentation utilities for the GNOME project. Notably, it contains utilities for building documentation and all auxiliary files in your source tree, and it contains the DocBook XSLT stylesheets that were once distributed with Yelp. Starting with GNOME 2.8, Yelp requires GNOME Doc Utils for the XSLT. Starting with GNOME 2.12, many of the core GNOME packages require GNOME Doc Utils."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -46,3 +49,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

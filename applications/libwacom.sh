@@ -22,6 +22,9 @@ URL=https://github.com/linuxwacom/libwacom/releases/download/libwacom-1.10/libwa
 SECTION="General Libraries"
 DESCRIPTION="The libwacom package contains a library used to identify wacom tablets and their model-specific features."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -61,3 +64,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

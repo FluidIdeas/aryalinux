@@ -33,6 +33,9 @@ URL=https://download.gnome.org/sources/brasero/3.12/brasero-3.12.2.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="Brasero is an application used to burn CD/DVD on the GNOME Desktop. It is designed to be as simple as possible and has some unique features that enable users to create their discs easily and quickly."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -71,3 +74,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

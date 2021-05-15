@@ -21,6 +21,9 @@ URL=https://sqlite.org/2021/sqlite-autoconf-3350500.tar.gz
 SECTION="Databases"
 DESCRIPTION="The SQLite package is a software library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -77,3 +80,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

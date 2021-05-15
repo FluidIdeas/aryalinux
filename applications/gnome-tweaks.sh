@@ -26,6 +26,9 @@ URL=https://download.gnome.org/sources/gnome-tweaks/40/gnome-tweaks-40.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="GNOME Tweaks is a simple program used to tweak advanced GNOME settings."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -74,3 +77,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

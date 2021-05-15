@@ -21,6 +21,9 @@ URL=https://www.x.org/pub/individual/util/util-macros-1.19.3.tar.bz2
 SECTION="X Window System Environment"
 DESCRIPTION="The util-macros package contains the m4 macros used by all of the Xorg packages."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -57,3 +60,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -22,6 +22,9 @@ URL=https://github.com/ebassi/graphene/releases/download/1.10.6/graphene-1.10.6.
 SECTION="X Libraries"
 DESCRIPTION="The Graphene package provides a thin layer of types for graphics libraries."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -61,3 +64,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

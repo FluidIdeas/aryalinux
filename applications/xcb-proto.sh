@@ -20,6 +20,9 @@ URL=https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.14.1.tar.x
 SECTION="X Window System Environment"
 DESCRIPTION="The xcb-proto package provides the XML-XCB protocol descriptions that libxcb uses to generate the majority of its code and API."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -56,3 +59,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

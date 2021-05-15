@@ -26,6 +26,9 @@ URL=https://github.com/lathiat/avahi/releases/download/v0.8/avahi-0.8.tar.gz
 SECTION="Networking Utilities"
 DESCRIPTION="The Avahi package is a system which facilitates service discovery on a local network."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -72,3 +75,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

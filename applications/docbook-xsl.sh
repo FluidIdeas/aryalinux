@@ -23,6 +23,9 @@ URL=https://github.com/docbook/xslt10-stylesheets/releases/download/release/1.79
 SECTION="Extensible Markup Language (XML)"
 DESCRIPTION="The DocBook XSL Stylesheets package contains XSL stylesheets. These are useful for performing transformations on XML DocBook files."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -132,3 +135,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -20,6 +20,9 @@ URL=https://github.com/dosfstools/dosfstools/releases/download/v4.2/dosfstools-4
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The dosfstools package contains various utilities for use with the FAT family of file systems."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -59,3 +62,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -29,6 +29,9 @@ URL=https://sources.archlinux.org/other/community/transcode/transcode-1.1.7.tar.
 SECTION="Video Utilities"
 DESCRIPTION="Transcode was a fast, versatile and command-line based audio/video everything to everything converter primarily focussed on producing AVI video files with MP3 audio, but also including a program to read all the video and audio streams from a DVD."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -73,3 +76,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

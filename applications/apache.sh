@@ -23,6 +23,9 @@ URL=https://archive.apache.org/dist/httpd/httpd-2.4.47.tar.bz2
 SECTION="Major Servers"
 DESCRIPTION="The Apache HTTPD package contains an open-source HTTP server. It is useful for creating local intranet web sites or running huge web serving operations."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -113,3 +116,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -20,6 +20,9 @@ VERSION=2.11.3
 URL=https://files.pythonhosted.org/packages/source/J/Jinja2/Jinja2-2.11.3.tar.gz
 SECTION="Others"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -54,3 +57,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

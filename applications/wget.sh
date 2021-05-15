@@ -22,6 +22,9 @@ URL=https://ftp.gnu.org/gnu/wget/wget-1.21.1.tar.gz
 SECTION="Networking Programs"
 DESCRIPTION="The Wget package contains a utility useful for non-interactive downloading of files from the Web."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -60,3 +63,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -20,6 +20,9 @@ URL=https://get.videolan.org/libdvdread/6.1.2/libdvdread-6.1.2.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="libdvdread is a library which provides a simple foundation for reading DVDs."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

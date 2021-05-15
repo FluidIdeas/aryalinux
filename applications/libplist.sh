@@ -19,6 +19,9 @@ VERSION=2.1.0
 URL=https://github.com/libimobiledevice/libplist/archive/2.1.0.tar.gz
 DESCRIPTION="A library to handle Apple Property List format in binary or XML - libimobiledevice/libplist"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -44,3 +47,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

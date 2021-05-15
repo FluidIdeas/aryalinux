@@ -27,6 +27,9 @@ URL=http://www.mplayerhq.hu/MPlayer/releases/MPlayer-1.4.tar.xz
 SECTION="Video Utilities"
 DESCRIPTION="MPlayer is a powerful audio/video player controlled via the command line or a graphical interface that is able to play almost every popular audio and video file format. With supported video hardware and additional drivers, MPlayer can play video files without an X Window System installed."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -113,3 +116,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

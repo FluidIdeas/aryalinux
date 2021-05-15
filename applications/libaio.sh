@@ -20,6 +20,9 @@ URL=https://ftp.debian.org/debian/pool/main/liba/libaio/libaio_0.3.112.orig.tar.
 SECTION="General Libraries"
 DESCRIPTION="The libaio package is an asynchronous I/O facility (\"async I/O\", or \"aio\") that has a richer API and capability set than the simple POSIX async I/O facility. This library, libaio, provides the Linux-native API for async I/O. The POSIX async I/O facility requires this library in order to provide kernel-accelerated async I/O capabilities, as do applications which require the Linux-native async I/O API."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -56,3 +59,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

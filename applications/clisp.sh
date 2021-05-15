@@ -23,6 +23,9 @@ URL=https://ftp.gnu.org/gnu/clisp/latest/clisp-2.49.tar.bz2
 SECTION="Programming"
 DESCRIPTION="GNU Clisp is a Common Lisp implementation which includes an interpreter, compiler, debugger, and many extensions."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -72,3 +75,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

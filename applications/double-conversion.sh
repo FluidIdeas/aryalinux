@@ -21,6 +21,9 @@ URL=https://github.com/google/double-conversion/archive/v3.1.5/double-conversion
 SECTION="General Libraries"
 DESCRIPTION="The Double-conversion package contains a library that facilitates binary-to-decimal and decimal-to-binary routines for IEEE doubles."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -63,3 +66,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

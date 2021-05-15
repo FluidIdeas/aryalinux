@@ -20,6 +20,9 @@ URL=ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.59.tar.gz
 SECTION="Security"
 DESCRIPTION="The stunnel package contains a program that allows you to encrypt arbitrary TCP connections inside SSL (Secure Sockets Layer) so you can easily communicate with clients over secure channels. stunnel can be used to add SSL functionality to commonly used Inetd daemons such as POP-2, POP-3, and IMAP servers, along with standalone daemons such as NNTP, SMTP, and HTTP. stunnel can also be used to tunnel PPP over network sockets without changes to the server package source code."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -138,3 +141,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

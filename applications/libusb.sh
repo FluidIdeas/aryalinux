@@ -20,6 +20,9 @@ URL=https://github.com/libusb/libusb/releases/download/v1.0.24/libusb-1.0.24.tar
 SECTION="General Libraries"
 DESCRIPTION="The libusb package contains a library used by some applications for USB device access."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -56,3 +59,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

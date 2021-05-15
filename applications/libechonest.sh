@@ -19,6 +19,9 @@ VERSION=2.3.1
 URL=http://archive.ubuntu.com/ubuntu/pool/universe/libe/libechonest/libechonest_2.3.1.orig.tar.gz
 DESCRIPTION="Libechonest is a Qt library for communicating with 'The Echo Nest': an 'intelligent music application platform'. It currently supports all of the features of the Echo Nest API, including all the API functions."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -46,3 +49,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -21,6 +21,9 @@ URL=https://ftp.gnome.org/pub/GNOME/sources/gnome-common/3.18/gnome-common-3.18.
 SECTION="Others"
 DESCRIPTION="This module contains various files needed to bootstrap GNOME modules built from git."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -46,3 +49,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -19,6 +19,9 @@ VERSION=2.0.3
 URL=https://github.com/sparsehash/sparsehash/archive/sparsehash-2.0.3.tar.gz
 DESCRIPTION="The Google SparseHash project contains several C++ template hash-map implementations in use at Google, with different performance characteristics, including an implementation that optimizes for space and one that optimizes for speed."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -44,3 +47,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

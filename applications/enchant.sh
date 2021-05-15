@@ -22,6 +22,9 @@ URL=https://github.com/AbiWord/enchant/releases/download/v2.2.15/enchant-2.2.15.
 SECTION="General Libraries"
 DESCRIPTION="The enchant package provide a generic interface into various existing spell checking libraries."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -65,3 +68,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

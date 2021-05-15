@@ -22,6 +22,9 @@ URL=https://downloads.sourceforge.net/rox/rox-filer-2.11.tar.bz2
 SECTION="Other X-based Programs"
 DESCRIPTION="rox-filer is a fast, lightweight, gtk2 file manager."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -137,3 +140,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

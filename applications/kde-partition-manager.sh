@@ -21,6 +21,9 @@ VERSION=4.0.0
 URL=https://download.kde.org/stable/partitionmanager/4.0.0/src/partitionmanager-4.0.0.tar.xz
 DESCRIPTION="KDE Partition Manager is a disk partitioning application originally written by Volker Lanz for the KDE Platform. It was first released for KDE SC 4.1 and is released independently of the central KDE release cycle."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -49,3 +52,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -23,6 +23,9 @@ URL=https://tecnocode.co.uk/downloads/uhttpmock/uhttpmock-0.5.3.tar.xz
 SECTION="Networking Libraries"
 DESCRIPTION="The uhttpmock package contains a library for mocking web service APIs which use HTTP or HTTPS."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -59,3 +62,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

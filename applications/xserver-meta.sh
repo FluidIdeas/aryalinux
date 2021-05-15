@@ -53,6 +53,9 @@ VERSION=1.20.3
 
 DESCRIPTION="A meta package to install the collection of packages needed to install x-server."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -76,3 +79,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

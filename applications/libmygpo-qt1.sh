@@ -21,6 +21,9 @@ VERSION=1.0.9
 URL=https://github.com/gpodder/libmygpo-qt/archive/1.0.9/libmygpo-qt-1.0.9.tar.gz
 DESCRIPTION="C++/Qt Library wrapping the gpodder.net Webservice"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -48,3 +51,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

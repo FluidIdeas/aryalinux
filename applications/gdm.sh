@@ -31,6 +31,9 @@ URL=https://download.gnome.org/sources/gdm/40/gdm-40.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="GDM is a system service that is responsible for providing graphical logins and managing local and remote displays."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -94,3 +97,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

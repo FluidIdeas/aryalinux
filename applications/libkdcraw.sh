@@ -22,6 +22,9 @@ URL=https://download.kde.org/stable/release-service/20.12.2/src/libkdcraw-20.12.
 SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="Libkdcraw is a KDE wrapper around the libraw-0.20.2 library for manipulating image metadata."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -64,3 +67,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

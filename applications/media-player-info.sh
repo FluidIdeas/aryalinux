@@ -19,6 +19,9 @@ VERSION=24
 URL=https://www.freedesktop.org/software/media-player-info/media-player-info-24.tar.gz
 DESCRIPTION="media-player-info is a repository of data files describing media player capabilities, mostly of mass-storage devices. These files contain information about the directory layout to use to add music to these devices, the supported file formats and so on."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -44,3 +47,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -22,6 +22,9 @@ URL=https://github.com/jasper-software/jasper/archive/version-2.0.32/jasper-2.0.
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The JasPer Project is an open-source initiative to provide a free software-based reference implementation of the JPEG-2000 codec."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -66,3 +69,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

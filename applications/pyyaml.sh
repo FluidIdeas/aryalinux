@@ -19,6 +19,9 @@ VERSION=5.3
 URL=https://github.com/yaml/pyyaml/archive/5.3/pyyaml-5.3.tar.gz
 DESCRIPTION="PyYAML - The next generation YAML parser and emitter for Python."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -48,3 +51,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

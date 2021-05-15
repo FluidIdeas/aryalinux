@@ -22,6 +22,9 @@ URL=https://github.com/rhboot/efibootmgr/archive/17/efibootmgr-17.tar.gz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The efibootmgr package provides tools and libraries to manipulate EFI variables."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

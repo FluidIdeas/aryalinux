@@ -21,6 +21,9 @@ URL=https://github.com/anholt/libepoxy/releases/download/1.5.7/libepoxy-1.5.7.ta
 SECTION="X Libraries"
 DESCRIPTION="libepoxy is a library for handling OpenGL function pointer management."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -60,3 +63,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -21,6 +21,9 @@ URL=https://downloads.sourceforge.net/lxde/lxtask-0.1.10.tar.xz
 SECTION="LXDE Applications"
 DESCRIPTION="The LXTask package contains a lightweight and desktop-independent task manager."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -57,3 +60,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -28,6 +28,9 @@ URL=https://www.x.org/pub/individual/xserver/xorg-server-1.20.11.tar.bz2
 SECTION="X Window System Environment"
 DESCRIPTION="The Xorg Server is the core of the X Window system."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -69,3 +72,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

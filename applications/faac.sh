@@ -20,6 +20,9 @@ URL=https://github.com/knik0/faac/archive/1_30/faac-1_30.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="FAAC is an encoder for a lossy sound compression scheme specified in MPEG-2 Part 7 and MPEG-4 Part 3 standards and known as Advanced Audio Coding (AAC). This encoder is useful for producing files that can be played back on iPod. Moreover, iPod does not understand other sound compression schemes in video files."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -57,3 +60,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

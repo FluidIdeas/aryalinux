@@ -24,6 +24,9 @@ URL=https://download.gnome.org/sources/libgsf/1.14/libgsf-1.14.47.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libgsf package contains a library used for providing an extensible input/output abstraction layer for structured file formats."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -60,3 +63,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

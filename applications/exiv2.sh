@@ -22,6 +22,9 @@ URL=https://www.exiv2.org/builds/exiv2-0.27.3-Source.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="Exiv2 is a C++ library and a command line utility for managing image and video metadata."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -67,3 +70,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

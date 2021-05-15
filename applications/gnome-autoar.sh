@@ -24,6 +24,9 @@ URL=https://download.gnome.org/sources/gnome-autoar/0.3/gnome-autoar-0.3.1.tar.x
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The gnome-autoar package provides a framework for automatic archive extraction, compression, and management."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -62,3 +65,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

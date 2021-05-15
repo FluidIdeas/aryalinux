@@ -27,6 +27,9 @@ URL=https://downloads.sourceforge.net/docbook/docbook-dsssl-1.79.tar.bz2
 SECTION="Standard Generalized Markup Language (SGML)"
 DESCRIPTION="The DocBook DSSSL Stylesheets package contains DSSSL stylesheets. These are used by OpenJade or other tools to transform SGML and XML DocBook files."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -132,3 +135,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

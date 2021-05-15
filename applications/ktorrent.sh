@@ -20,6 +20,9 @@ VERSION=5.1.2
 URL=https://download.kde.org/stable/ktorrent/5.1.2/ktorrent-5.1.2.tar.xz
 DESCRIPTION="The KTorrent library is a C++ / Qt 4 / KDE Platform based implementation of the BitTorrent protocol (mostly client side)."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -49,3 +52,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

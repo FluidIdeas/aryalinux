@@ -20,6 +20,9 @@ URL=https://www.tcpdump.org/release/libpcap-1.10.0.tar.gz
 SECTION="Networking Libraries"
 DESCRIPTION="libpcap provides functions for user-level packet capture, used in low-level network monitoring."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -57,3 +60,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

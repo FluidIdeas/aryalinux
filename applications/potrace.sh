@@ -21,6 +21,9 @@ URL=https://downloads.sourceforge.net/potrace/potrace-1.16.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="Potrace™ is a tool for transforming a bitmap (PBM, PGM, PPM, or BMP format) into one of several vector file formats."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -62,3 +65,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

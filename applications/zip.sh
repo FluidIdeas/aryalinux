@@ -21,6 +21,9 @@ URL=https://downloads.sourceforge.net/infozip/zip30.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="The Zip package contains Zip utilities. These are useful for compressing files into ZIP archives."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -56,3 +59,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

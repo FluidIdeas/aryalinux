@@ -23,6 +23,9 @@ URL=https://download.gnome.org/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libgrss package contains a library designed to manipulate RSS and Atom feeds."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -61,3 +64,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

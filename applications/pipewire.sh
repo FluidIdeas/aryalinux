@@ -30,6 +30,9 @@ URL=https://github.com/PipeWire/pipewire/archive/0.3.26/pipewire-0.3.26.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The pipewire package contains a server and user-space API to handle multimedia pipelines. This includes a universal API to connect to multimedia devices, as well as sharing multimedia files between applications."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -69,3 +72,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -20,6 +20,9 @@ URL=https://sourceforge.net/projects/hunspell/files/Hyphen/2.8/hyphen-2.8.8.tar.
 SECTION="Others"
 DESCRIPTION="Hunspell is a spell checker and morphological analyzer library and program designed for languages with rich morphology and complex compounding or character encoding"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -46,3 +49,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

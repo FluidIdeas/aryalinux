@@ -20,6 +20,9 @@ URL=https://dist.libuv.org/dist/v1.41.0/libuv-v1.41.0.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The libuv package is a multi-platform support library with a focus on asynchronous I/O."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -57,3 +60,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

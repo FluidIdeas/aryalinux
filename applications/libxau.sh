@@ -22,6 +22,9 @@ URL=https://www.x.org/pub/individual/lib/libXau-1.0.9.tar.bz2
 SECTION="X Window System Environment"
 DESCRIPTION="The libXau package contains a library implementing the X11 Authorization Protocol. This is useful for restricting client access to the display."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -59,3 +62,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -23,6 +23,9 @@ URL=https://download.gimp.org/pub/babl/0.1/babl-0.1.86.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The Babl package is a dynamic, any to any, pixel format translation library."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -66,3 +69,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

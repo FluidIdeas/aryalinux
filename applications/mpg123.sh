@@ -21,6 +21,9 @@ URL=https://downloads.sourceforge.net/mpg123/mpg123-1.26.5.tar.bz2
 SECTION="Audio Utilities"
 DESCRIPTION="The mpg123 package contains a console-based MP3 player. It claims to be the fastest MP3 decoder for Unix."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -57,3 +60,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

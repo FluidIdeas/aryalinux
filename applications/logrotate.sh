@@ -21,6 +21,9 @@ URL=https://github.com/logrotate/logrotate/releases/download/3.18.0/logrotate-3.
 SECTION="System Utilities"
 DESCRIPTION="The logrotate package allows automatic rotation, compression, removal, and mailing of log files."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -176,3 +179,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

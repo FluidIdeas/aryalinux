@@ -20,6 +20,9 @@ URL=https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.1.tar.xz
 SECTION="Programming"
 DESCRIPTION="The Ruby package contains the Ruby development environment. This is useful for object-oriented scripting."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -59,3 +62,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

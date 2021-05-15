@@ -32,6 +32,9 @@ URL=https://download.gnome.org/sources/tracker-miners/3.1/tracker-miners-3.1.1.t
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Tracker-miners package contains a set of data extractors for Tracker."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -80,3 +83,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

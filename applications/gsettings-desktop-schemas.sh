@@ -23,6 +23,9 @@ URL=https://download.gnome.org/sources/gsettings-desktop-schemas/40/gsettings-de
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GSettings Desktop Schemas package contains a collection of GSettings schemas for settings shared by various components of a GNOME Desktop."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -73,3 +76,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

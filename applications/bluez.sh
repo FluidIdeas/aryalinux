@@ -23,6 +23,9 @@ URL=https://www.kernel.org/pub/linux/bluetooth/bluez-5.58.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="The BlueZ package contains the Bluetooth protocol stack for Linux."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -119,3 +122,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

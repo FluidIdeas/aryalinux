@@ -28,6 +28,9 @@ URL=https://download.gnome.org/sources/gnome-color-manager/3.36/gnome-color-mana
 SECTION="GNOME Applications"
 DESCRIPTION="GNOME Color Manager is a session framework for the GNOME desktop environment that makes it easy to manage, install and generate color profiles."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -68,3 +71,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

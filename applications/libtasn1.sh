@@ -21,6 +21,9 @@ URL=https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.16.0.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="libtasn1 is a highly portable C library that encodes and decodes DER/BER data following an ASN.1 schema."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -66,3 +69,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

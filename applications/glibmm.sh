@@ -23,6 +23,9 @@ URL=https://download.gnome.org/sources/glibmm/2.66/glibmm-2.66.0.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The GLibmm package is a set of C++ bindings for GLib."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -62,3 +65,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

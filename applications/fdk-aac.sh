@@ -20,6 +20,9 @@ URL=https://downloads.sourceforge.net/opencore-amr/fdk-aac-2.0.2.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="fdk-aac package provides the Fraunhofer FDK AAC library, which is purported to be a high quality Advanced Audio Coding implementation."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -56,3 +59,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

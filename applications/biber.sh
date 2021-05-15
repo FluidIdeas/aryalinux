@@ -59,6 +59,9 @@ URL=https://github.com/plk/biber/archive/v2.16/biber-2.16.tar.gz
 SECTION="Typesetting"
 DESCRIPTION="Biber is a BibTeX replacement for users of biblatex, written in Perl, with full Unicode support."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -97,3 +100,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -24,6 +24,9 @@ URL=https://download.gnome.org/sources/glib-networking/2.68/glib-networking-2.68
 SECTION="Networking Libraries"
 DESCRIPTION="The GLib Networking package contains Network related gio modules for GLib."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -64,3 +67,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

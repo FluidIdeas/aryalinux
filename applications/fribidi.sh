@@ -20,6 +20,9 @@ URL=https://github.com/fribidi/fribidi/releases/download/v1.0.9/fribidi-1.0.9.ta
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The FriBidi package is an implementation of the Unicode Bidirectional Algorithm (BIDI). This is useful for supporting Arabic and Hebrew alphabets in other packages."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -59,3 +62,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

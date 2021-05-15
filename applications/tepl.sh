@@ -25,6 +25,9 @@ URL=https://download.gnome.org/sources/tepl/6.00/tepl-6.00.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The Tepl package contains a library that eases the development of GtkSourceView-based text editors and IDEs."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -64,3 +67,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

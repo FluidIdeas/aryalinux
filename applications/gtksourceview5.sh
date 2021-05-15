@@ -25,6 +25,9 @@ URL=https://download.gnome.org/sources/gtksourceview/5.0/gtksourceview-5.0.0.tar
 SECTION="X Libraries"
 DESCRIPTION="The GtkSourceView package contains a library used for extending the GTK text functions to include syntax highlighting."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -64,3 +67,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

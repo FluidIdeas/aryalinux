@@ -22,6 +22,9 @@ VERSION=2.11.0
 URL=https://github.com/intel/libva/releases/download/2.11.0/libva-2.11.0.tar.bz2
 SECTION="Others"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -72,3 +75,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

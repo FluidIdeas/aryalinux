@@ -20,6 +20,9 @@ URL=https://github.com/rfc1036/whois/archive/v5.4.3/whois-5.4.3.tar.gz
 SECTION="Networking Utilities"
 DESCRIPTION="Whois is a client-side application which queries the whois directory service for information pertaining to a particular domain name. This package will install two programs by default: whois and mkpasswd. The mkpasswd command is also installed by the expect package in LFS."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -57,3 +60,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

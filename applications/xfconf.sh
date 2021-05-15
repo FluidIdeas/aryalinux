@@ -21,6 +21,9 @@ URL=https://archive.xfce.org/src/xfce/xfconf/4.16/xfconf-4.16.0.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="Xfconf is the configuration storage system for Xfce."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -57,3 +60,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

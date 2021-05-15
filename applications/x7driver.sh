@@ -35,6 +35,9 @@ VERSION=1.0
 
 DESCRIPTION="The Xorg Drivers page contains the instructions for building Xorg drivers that are necessary in order for Xorg Server to take advantage of the hardware that it is running on. At least one input and one video driver are required for Xorg Server to start."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -24,6 +24,9 @@ URL=https://telepathy.freedesktop.org/releases/telepathy-logger/telepathy-logger
 SECTION="General Utilities"
 DESCRIPTION="The Telepathy Logger package is a headless observer client that logs information received by the Telepathy framework. It features pluggable backends to log different sorts of messages in different formats."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -62,3 +65,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

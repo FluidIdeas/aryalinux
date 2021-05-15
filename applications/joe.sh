@@ -20,6 +20,9 @@ URL=https://downloads.sourceforge.net/joe-editor/joe-4.6.tar.gz
 SECTION="Editors"
 DESCRIPTION="JOE (Joe's own editor) is a small text editor capable of emulating WordStar, Pico, and Emacs."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -60,3 +63,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -27,6 +27,9 @@ URL=https://gitlab.gnome.org/GNOME/vte/-/archive/0.64.1/vte-0.64.1.tar.bz2
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The VTE package contains a termcap file implementation for terminal emulators."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -67,3 +70,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

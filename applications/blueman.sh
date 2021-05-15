@@ -20,6 +20,9 @@ VERSION=2.1.4
 URL=https://github.com/blueman-project/blueman/releases/download/2.1.4/blueman-2.1.4.tar.xz
 DESCRIPTION="Blueman is a GTK+ bluetooth management utility for GNOME using bluez D-Bus backend."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -47,3 +50,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

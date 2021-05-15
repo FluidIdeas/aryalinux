@@ -21,6 +21,9 @@ URL=https://github.com/nghttp2/nghttp2/releases/download/v1.43.0/nghttp2-1.43.0.
 SECTION="Networking Libraries"
 DESCRIPTION="nghttp2 is an implementation of HTTP/2 and its header compression algorithm, HPACK."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -60,3 +63,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

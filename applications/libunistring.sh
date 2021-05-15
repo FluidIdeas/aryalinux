@@ -21,6 +21,9 @@ URL=https://ftp.gnu.org/gnu/libunistring/libunistring-0.9.10.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="libunistring is a library that provides functions for manipulating Unicode strings and for manipulating C strings according to the Unicode standard."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -59,3 +62,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

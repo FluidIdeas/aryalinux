@@ -27,6 +27,9 @@ URL=https://www.mupdf.com/downloads/archive/mupdf-1.18.0-source.tar.gz
 SECTION="PostScript"
 DESCRIPTION="MuPDF is a lightweight PDF and XPS viewer."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -91,3 +94,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

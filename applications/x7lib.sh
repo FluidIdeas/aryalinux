@@ -21,6 +21,9 @@ VERSION=
 SECTION="X Window System Environment"
 DESCRIPTION="The Xorg libraries provide library routines that are used within all X Window applications."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -127,3 +130,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -22,6 +22,9 @@ URL=https://downloads.xiph.org/releases/speex/speex-1.2.0.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="Speex is an audio compression format designed especially for speech. It is well-adapted to internet applications and provides useful features that are not present in most other CODECs."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -77,3 +80,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

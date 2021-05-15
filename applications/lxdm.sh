@@ -25,6 +25,9 @@ URL=https://downloads.sourceforge.net/lxdm/lxdm-0.5.3.tar.xz
 SECTION="Display Managers"
 DESCRIPTION="The LXDM is a lightweight Display Manager for the LXDE desktop. It can also be used as an alternative to other Display Managers such as GNOME's GDM or LightDM."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -99,3 +102,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

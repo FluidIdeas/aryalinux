@@ -22,6 +22,9 @@ URL=https://www.freedesktop.org/software/cups-pk-helper/releases/cups-pk-helper-
 SECTION="System Utilities"
 DESCRIPTION="The cups-pk-helper package contains a PolicyKit helper used to configure Cups with fine-grained privileges."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

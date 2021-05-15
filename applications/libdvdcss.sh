@@ -20,6 +20,9 @@ URL=https://get.videolan.org/libdvdcss/1.4.3/libdvdcss-1.4.3.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="libdvdcss is a simple library designed for accessing DVDs as a block device without having to bother about the decryption."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

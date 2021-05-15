@@ -22,6 +22,9 @@ URL=ftp://ftp.sendmail.org/pub/sendmail/sendmail.8.16.1.tar.gz
 SECTION="Mail Server Software"
 DESCRIPTION="The sendmail package contains a Mail Transport Agent (MTA)."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -177,3 +180,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

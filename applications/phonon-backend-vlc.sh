@@ -22,6 +22,9 @@ URL=https://download.kde.org/stable/phonon/phonon-backend-vlc/0.11.3/phonon-back
 SECTION="KDE Plasma 5"
 DESCRIPTION="This package provides a Phonon backend which utilizes the VLC media framework."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -63,3 +66,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

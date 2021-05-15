@@ -20,6 +20,9 @@ URL=https://ftp.debian.org/debian/pool/main/libp/libpaper/libpaper_1.1.24+nmu5.t
 SECTION="General Libraries"
 DESCRIPTION="This package is intended to provide a simple way for applications to take actions based on a system or user-specified paper size."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -71,3 +74,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

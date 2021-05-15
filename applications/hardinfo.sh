@@ -18,6 +18,9 @@ VERSION=0.5.1
 
 DESCRIPTION="HardInfo is a small application that displays information about your hardware and operating system. Currently it knows about PCI, ISA PnP, USB, IDE, SCSI, Serial and parallel port devices."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -52,3 +55,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

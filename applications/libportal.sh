@@ -21,6 +21,9 @@ URL=https://github.com/flatpak/libportal/releases/download/0.4/libportal-0.4.tar
 SECTION="General Libraries"
 DESCRIPTION="The libportal package provides a library that contains GIO-style async APIs for most Flatpak portals."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -60,3 +63,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

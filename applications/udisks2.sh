@@ -31,6 +31,9 @@ URL=https://github.com/storaged-project/udisks/releases/download/udisks-2.9.2/ud
 SECTION="System Utilities"
 DESCRIPTION="The UDisks package provides a daemon, tools and libraries to access and manipulate disks and storage devices."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -70,3 +73,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

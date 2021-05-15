@@ -23,6 +23,9 @@ URL=https://download.librdf.org/source/raptor2-2.0.15.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="Raptor is a C library that provides a set of parsers and serializers that generate Resource Description Framework (RDF) triples."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -60,3 +63,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

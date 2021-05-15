@@ -22,6 +22,9 @@ URL=https://www.x.org/pub/individual/data/xcursor-themes-1.0.6.tar.bz2
 SECTION="X Window System Environment"
 DESCRIPTION="The xcursor-themes package contains the redglass and whiteglass animated cursor themes."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -59,3 +62,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

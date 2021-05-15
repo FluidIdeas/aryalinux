@@ -25,6 +25,9 @@ URL=https://download.gnome.org/sources/totem-pl-parser/3.26/totem-pl-parser-3.26
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Totem PL Parser package contains a simple GObject-based library used to parse multiple playlist formats."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -64,3 +67,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

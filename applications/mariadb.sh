@@ -23,6 +23,9 @@ URL=https://downloads.mariadb.org/interstitial/mariadb-10.5.9/source/mariadb-10.
 SECTION="Databases"
 DESCRIPTION="MariaDB is a community-developed fork and a drop-in replacement for the MySQL relational database management system."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -229,3 +232,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

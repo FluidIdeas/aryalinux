@@ -22,6 +22,9 @@ URL=https://www.freedesktop.org/software/startup-notification/releases/startup-n
 SECTION="X Libraries"
 DESCRIPTION="The startup-notification package contains startup-notification libraries. These are useful for building a consistent manner to notify the user through the cursor that the application is loading."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -60,3 +63,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

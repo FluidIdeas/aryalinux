@@ -22,6 +22,9 @@ URL=https://dbus.freedesktop.org/releases/dbus/dbus-1.12.20.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="Even though D-Bus was built in LFS, there are some features provided by the package that other BLFS packages need, but their dependencies didn't fit into LFS."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -97,3 +100,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

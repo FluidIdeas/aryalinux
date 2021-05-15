@@ -21,6 +21,9 @@ URL=https://archive.xfce.org/src/xfce/tumbler/4.16/tumbler-4.16.0.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="The Tumbler package contains a D-Bus thumbnailing service based on the thumbnail management D-Bus specification. This is useful for generating thumbnail images of files."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -57,3 +60,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

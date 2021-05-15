@@ -21,6 +21,9 @@ URL=https://download.kde.org/stable/release-service/20.12.2/src/kate-20.12.2.tar
 SECTION="Editors"
 DESCRIPTION="The Kate package contains an advanced KF5 based graphical text editor."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -63,3 +66,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

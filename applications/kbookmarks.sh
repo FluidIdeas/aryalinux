@@ -18,6 +18,9 @@ VERSION=5.82.0.0
 URL=https://github.com/KDE/kbookmarks/archive/v5.82.0/kbookmarks-5.82.0.tar.gz
 SECTION="KDE Plasma 5"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -48,4 +51,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
-
+popd

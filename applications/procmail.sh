@@ -22,6 +22,9 @@ URL=https://ftp.osuosl.org/pub/blfs/conglomeration/procmail/procmail-3.22.tar.gz
 SECTION="Mail/News Clients"
 DESCRIPTION="The Procmail package contains an autonomous mail processor. This is useful for filtering and sorting incoming mail."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -60,3 +63,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

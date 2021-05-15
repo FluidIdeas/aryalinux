@@ -122,6 +122,9 @@ VERSION=1.23.2
 SECTION="Mate Desktop"
 DESCRIPTION="MATE is a desktop environment composed of free and open-source software that runs on Linux and BSD operating systems. An Argentine user of Arch Linux started the MATE project to fork and continue GNOME 2 in response to the negative reception of GNOME 3, which had replaced its traditional taskbar with GNOME Shell."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -226,3 +229,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

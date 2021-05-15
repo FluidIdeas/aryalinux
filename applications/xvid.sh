@@ -20,6 +20,9 @@ URL=https://downloads.xvid.com/downloads/xvidcore-1.3.7.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="XviD is an MPEG-4 compliant video CODEC."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -65,3 +68,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

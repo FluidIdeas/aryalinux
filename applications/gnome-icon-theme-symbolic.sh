@@ -22,6 +22,9 @@ URL=https://download.gnome.org/sources/gnome-icon-theme-symbolic/3.12/gnome-icon
 SECTION="Icons"
 DESCRIPTION="The GNOME Icon Theme Symbolic package contains symbolic icons for the default GNOME icon theme."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

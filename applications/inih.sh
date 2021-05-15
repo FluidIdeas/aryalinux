@@ -20,6 +20,9 @@ URL=https://github.com/benhoyt/inih/archive/r53/inih-r53.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="This package is a simple .INI file parser written in C."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -59,3 +62,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -27,6 +27,9 @@ URL=https://download.gnome.org/sources/vinagre/3.22/vinagre-3.22.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="Vinagre is a VNC client for the GNOME Desktop."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -68,3 +71,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

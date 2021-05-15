@@ -22,6 +22,9 @@ URL=https://download.kde.org/stable/frameworks/5.79/oxygen-icons5-5.79.0.tar.xz
 SECTION="Icons"
 DESCRIPTION="The oxygen icons 5 theme is a photo-realistic icon style, with a high standard of graphics quality."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -61,3 +64,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

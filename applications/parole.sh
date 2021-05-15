@@ -25,6 +25,9 @@ URL=https://archive.xfce.org/src/apps/parole/4.16/parole-4.16.0.tar.bz2
 SECTION="Xfce Applications"
 DESCRIPTION="Parole is a DVD/CD/music player for Xfce that uses GStreamer."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -61,3 +64,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

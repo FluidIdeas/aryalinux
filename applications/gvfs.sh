@@ -33,6 +33,9 @@ URL=https://download.gnome.org/sources/gvfs/1.48/gvfs-1.48.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Gvfs package is a userspace virtual filesystem designed to work with the I/O abstractions of GLib's GIO library."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -91,3 +94,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -26,6 +26,9 @@ URL=https://download.gnome.org/sources/gnome-keyring/40/gnome-keyring-40.0.tar.x
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Keyring package contains a daemon that keeps passwords and other secrets for users."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -66,3 +69,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

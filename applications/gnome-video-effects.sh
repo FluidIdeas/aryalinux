@@ -21,6 +21,9 @@ URL=https://download.gnome.org/sources/gnome-video-effects/0.5/gnome-video-effec
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Video Effects package contains a collection of GStreamer effects."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -60,3 +63,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

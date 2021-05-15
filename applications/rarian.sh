@@ -23,6 +23,9 @@ URL=https://download.gnome.org/sources/rarian/0.8/rarian-0.8.1.tar.bz2
 SECTION="General Utilities"
 DESCRIPTION="The Rarian package is a documentation metadata library based on the proposed Freedesktop.org spec. Rarian is designed to be a replacement for ScrollKeeper."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -61,3 +64,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

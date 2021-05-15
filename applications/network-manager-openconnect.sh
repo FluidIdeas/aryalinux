@@ -19,6 +19,9 @@ VERSION=1.2.6
 URL=https://ftp.acc.umu.se/pub/gnome/sources/NetworkManager-openconnect/1.2/NetworkManager-openconnect-1.2.6.tar.xz
 DESCRIPTION="Network Manager plugin for openconnect"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -45,3 +48,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

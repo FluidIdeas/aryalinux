@@ -20,6 +20,9 @@ VERSION=2.4.1
 URL=https://github.com/seccomp/libseccomp/releases/download/v2.4.1/libseccomp-2.4.1.tar.gz
 DESCRIPTION="The libseccomp package provides an easy to use and platform independent interface to the Linux kernel's syscall filtering mechanism."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -54,3 +57,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

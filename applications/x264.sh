@@ -21,6 +21,9 @@ URL=http://anduin.linuxfromscratch.org/BLFS/x264/x264-20210211.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="x264 package provides a library for encoding video streams into the H.264/MPEG-4 AVC format."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -59,3 +62,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

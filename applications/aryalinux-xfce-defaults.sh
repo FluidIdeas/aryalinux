@@ -19,6 +19,9 @@ VERSION=4.0
 
 DESCRIPTION="Default settings of the XFCE desktop environment in AryaLinux. Includes commands for setting themes, icons and fonts for the defualt XFCE desktop."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -44,3 +47,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

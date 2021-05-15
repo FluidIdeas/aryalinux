@@ -20,6 +20,9 @@ VERSION=2.1.4
 URL=http://galculator.mnim.org/downloads/galculator-2.1.4.tar.bz2
 DESCRIPTION="galculator is a scientific calculator. It supports different number bases (DEC/HEX/OCT/BIN) and angles bases (DEG/RAD/GRAD) and features a wide range of mathematical (basic arithmetic operations, trigonometric functions, etc) and other useful functions (memory, etc) at the moment. galculator can be used in algebraic mode as well as in Reverse Polish Notation (RPN)."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -47,3 +50,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

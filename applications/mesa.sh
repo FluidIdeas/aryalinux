@@ -30,6 +30,9 @@ URL=https://mesa.freedesktop.org/archive/mesa-21.1.0.tar.xz
 SECTION="X Window System Environment"
 DESCRIPTION="Mesa is an OpenGL compatible 3D graphics library."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -113,3 +116,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

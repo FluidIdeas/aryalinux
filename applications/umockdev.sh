@@ -22,6 +22,9 @@ URL=https://github.com/martinpitt/umockdev/releases/download/0.15.4/umockdev-0.1
 SECTION="General Libraries"
 DESCRIPTION="The Umockdev package contains a framework that allows a developer to mock devices for use in unit testing."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -61,3 +64,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

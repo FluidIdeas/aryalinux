@@ -22,6 +22,9 @@ URL=https://download.gnome.org/sources/gnome-shell-extensions/40/gnome-shell-ext
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Shell Extensions package contains a collection of extensions providing additional and optional functionality to the GNOME Shell."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -60,3 +63,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

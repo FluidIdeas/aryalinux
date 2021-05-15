@@ -20,6 +20,9 @@ URL=https://www.kernel.org/pub/linux/bluetooth/sbc-1.5.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The SBC is a digital audio encoder and decoder used to transfer data to Bluetooth audio output devices like headphones or loudspeakers."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -56,3 +59,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

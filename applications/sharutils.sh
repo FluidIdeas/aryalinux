@@ -21,6 +21,9 @@ URL=https://ftp.gnu.org/gnu/sharutils/sharutils-4.15.2.tar.xz
 SECTION="General Utilities"
 DESCRIPTION="The Sharutils package contains utilities that can create 'shell' archives."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -62,3 +65,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

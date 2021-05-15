@@ -24,6 +24,9 @@ URL=https://download.gnome.org/sources/pangomm/2.46/pangomm-2.46.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The Pangomm package provides a C++ interface to Pango."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -63,3 +66,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

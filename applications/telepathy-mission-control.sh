@@ -22,6 +22,9 @@ URL=https://telepathy.freedesktop.org/releases/telepathy-mission-control/telepat
 SECTION="General Utilities"
 DESCRIPTION="Telepathy Mission Control is an account manager and channel dispatcher for the Telepathy framework, allowing user interfaces and other clients to share connections to real-time communication services without conflicting."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -59,3 +62,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

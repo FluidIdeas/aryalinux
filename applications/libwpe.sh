@@ -20,6 +20,9 @@ URL=https://github.com/WebPlatformForEmbedded/libwpe/releases/download/1.10.0/li
 SECTION="Others"
 DESCRIPTION="General-purpose library specifically developed for the WPE-flavored port of WebKit."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -49,3 +52,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

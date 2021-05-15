@@ -20,6 +20,9 @@ URL=https://github.com/Igalia/WPEBackend-fdo/releases/download/1.8.3/wpebackend-
 SECTION="Others"
 DESCRIPTION="This package provides a backend implementation for the WPE WebKit engine that uses Wayland for graphics output."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -49,3 +52,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

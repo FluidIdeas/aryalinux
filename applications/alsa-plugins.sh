@@ -22,6 +22,9 @@ URL=https://www.alsa-project.org/files/pub/plugins/alsa-plugins-1.2.2.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The ALSA Plugins package contains plugins for various audio libraries and sound servers."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

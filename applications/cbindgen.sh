@@ -21,6 +21,9 @@ URL=https://github.com/eqrion/cbindgen/archive/v0.19.0/cbindgen-0.19.0.tar.gz
 SECTION="Programming"
 DESCRIPTION="Cbindgen can be used to generate C bindings for Rust code."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -64,3 +67,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

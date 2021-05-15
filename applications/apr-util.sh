@@ -22,6 +22,9 @@ URL=https://archive.apache.org/dist/apr/apr-util-1.6.1.tar.bz2
 SECTION="General Libraries"
 DESCRIPTION="The Apache Portable Runtime Utility Library provides a predictable and consistent interface to underlying client library interfaces. This application programming interface assures predictable if not identical behaviour regardless of which libraries are available on a given platform."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -62,3 +65,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

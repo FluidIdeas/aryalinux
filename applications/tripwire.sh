@@ -20,6 +20,9 @@ URL=https://github.com/Tripwire/tripwire-open-source/releases/download/2.4.3.7/t
 SECTION="Security"
 DESCRIPTION="The Tripwire package contains programs used to verify the integrity of the files on a given system."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -95,3 +98,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

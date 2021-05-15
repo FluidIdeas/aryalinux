@@ -23,6 +23,9 @@ URL=https://github.com/shadow-maint/shadow/releases/download/4.8.1/shadow-4.8.1.
 SECTION="Security"
 DESCRIPTION="Shadow was indeed installed in LFS and there is no reason to reinstall it unless you installed CrackLib or Linux-PAM after your LFS system was completed. If you have installed CrackLib after LFS, then reinstalling Shadow will enable strong password support. If you have installed Linux-PAM, reinstalling Shadow will allow programs such as login and su to utilize PAM."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -270,3 +273,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

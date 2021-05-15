@@ -25,6 +25,9 @@ URL=https://download.gnome.org/sources/gnome-icon-theme/3.12/gnome-icon-theme-3.
 SECTION="Icons"
 DESCRIPTION="The GNOME Icon Theme package contains an assortment of non-scalable icons of different sizes and themes."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -61,3 +64,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

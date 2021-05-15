@@ -20,6 +20,9 @@ URL=https://downloads.sourceforge.net/lxde/lxde-icon-theme-0.5.1.tar.xz
 SECTION="Icons"
 DESCRIPTION="The LXDE Icon Theme package contains nuoveXT 2.2 Icon Theme for LXDE."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -55,3 +58,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

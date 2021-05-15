@@ -20,6 +20,9 @@ VERSION=1.10.0
 URL=https://sourceforge.net/projects/pptpclient/files/pptp/pptp-1.10.0/pptp-1.10.0.tar.gz
 DESCRIPTION="Linux and FreeBSD client for the proprietary Microsoft Point-to-Point tunneling protocol, PPTP"
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -44,3 +47,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -25,6 +25,9 @@ URL=https://downloads.sourceforge.net/pcmanfm/pcmanfm-1.3.2.tar.xz
 SECTION="LXDE Desktop"
 DESCRIPTION="The PCManFM package contains an extremely fast, lightweight, yet feature-rich file manager with tabbed browsing."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -62,3 +65,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -21,6 +21,9 @@ URL=https://download.gnome.org/sources/adwaita-icon-theme/40/adwaita-icon-theme-
 SECTION="Icons"
 DESCRIPTION="The Adwaita Icon Theme package contains an icon theme for Gtk+ 3 applications."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -57,3 +60,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

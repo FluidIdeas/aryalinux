@@ -21,6 +21,9 @@ URL=https://wayland.freedesktop.org/releases/wayland-protocols-1.21.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The Wayland-Protocols package contains additional Wayland protocols that add functionality outside of protocols already in the Wayland core."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -57,3 +60,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

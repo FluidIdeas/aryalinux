@@ -20,6 +20,9 @@ URL=https://github.com/libsndfile/libsamplerate/releases/download/0.2.1/libsampl
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="libsamplerate is a sample rate converter for audio."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

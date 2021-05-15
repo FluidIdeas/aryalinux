@@ -26,6 +26,9 @@ URL=https://download.gnome.org/sources/GConf/3.2/GConf-3.2.6.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GConf package contains a configuration database system used by many GNOME applications."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -66,3 +69,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

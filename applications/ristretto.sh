@@ -22,6 +22,9 @@ URL=https://archive.xfce.org/src/apps/ristretto/0.10/ristretto-0.10.0.tar.bz2
 SECTION="Xfce Applications"
 DESCRIPTION="Ristretto is a fast and lightweight image viewer for the Xfce desktop."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

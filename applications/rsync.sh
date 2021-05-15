@@ -21,6 +21,9 @@ URL=https://www.samba.org/ftp/rsync/src/rsync-3.2.3.tar.gz
 SECTION="Networking Programs"
 DESCRIPTION="The rsync package contains the rsync utility. This is useful for synchronizing large file archives over a network."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -131,3 +134,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -29,6 +29,9 @@ URL=https://downloads.sourceforge.net/lxde/lxpanel-0.10.1.tar.xz
 SECTION="LXDE Desktop"
 DESCRIPTION="The LXPanel package contains a lightweight X11 desktop panel."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -65,3 +68,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

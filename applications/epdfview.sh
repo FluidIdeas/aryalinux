@@ -23,6 +23,9 @@ URL=http://anduin.linuxfromscratch.org/BLFS/epdfview/epdfview-0.1.8.tar.bz2
 SECTION="PostScript"
 DESCRIPTION="ePDFView is a free standalone lightweight PDF document viewer using Poppler and GTK+ libraries. It is a good replacement for Evince as it does not rely upon GNOME libraries."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -76,3 +79,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

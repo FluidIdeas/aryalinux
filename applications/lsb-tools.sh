@@ -20,6 +20,9 @@ URL=https://github.com/djlucas/LSB-Tools/releases/download/v0.9/LSB-Tools-0.9.ta
 SECTION="System Utilities"
 DESCRIPTION="The LSB-Tools package includes tools for Linux Standards Base (LSB) conformance."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -55,3 +58,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

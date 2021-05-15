@@ -22,6 +22,9 @@ URL=https://downloads.sourceforge.net/openjade/openjade-1.3.2.tar.gz
 SECTION="Standard Generalized Markup Language (SGML)"
 DESCRIPTION="The OpenJade package contains a DSSSL engine. This is useful for SGML and XML transformations into RTF, TeX, SGML and XML."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -95,3 +98,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

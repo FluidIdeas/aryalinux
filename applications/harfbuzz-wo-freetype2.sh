@@ -23,6 +23,9 @@ URL=https://github.com/harfbuzz/harfbuzz/releases/download/2.8.1/harfbuzz-2.8.1.
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The HarfBuzz package contains an OpenType text shaping engine."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -62,3 +65,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

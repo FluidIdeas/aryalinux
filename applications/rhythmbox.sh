@@ -39,6 +39,9 @@ URL=https://download-fallback.gnome.org/sources/rhythmbox/3.4/rhythmbox-3.4.4.ta
 SECTION="Audio Utilities"
 DESCRIPTION="Rhythmbox is a free and open-source audio player that plays and organizes digital audio files. Rhythmbox is designed to work well under the GNOME desktop, however it can function on many desktop environments."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -64,3 +67,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

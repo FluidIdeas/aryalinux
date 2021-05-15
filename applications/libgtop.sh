@@ -24,6 +24,9 @@ URL=https://download.gnome.org/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libgtop package contains the GNOME top libraries."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -60,3 +63,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

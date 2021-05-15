@@ -50,6 +50,9 @@ VERSION=0.11.0
 SECTION="LXQT Desktop"
 DESCRIPTION="LXQt is a lightweight Qt desktop environment. Historically, LXQt is the product of the merge between LXDE-Qt, an initial Qt flavour of LXDE, and Razor-qt, a project aiming to develop a Qt based desktop environment with similar objectives as the current LXQt."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -79,3 +82,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

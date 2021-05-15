@@ -23,6 +23,9 @@ URL=https://download.gnome.org/sources/libwnck/2.30/libwnck-2.30.7.tar.xz
 SECTION="LXDE Desktop"
 DESCRIPTION="The libwnck package contains a Window Navigator Construction Kit."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -61,3 +64,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -20,6 +20,9 @@ URL=https://www.samba.org/ftp/tdb/tdb-1.4.3.tar.gz
 SECTION="Others"
 DESCRIPTION="This is a simple database API. It is modelled after the structure of GDBM. TDB features, unlike GDBM, multiple writers support with appropriate locking and transactions."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -46,3 +49,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

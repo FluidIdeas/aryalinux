@@ -20,6 +20,9 @@ URL=https://github.com/fontforge/libspiro/releases/download/20200505/libspiro-di
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="Libspiro will take an array of spiro control points and convert them into a series of bezier splines which can then be used in the myriad of ways the world has come to use beziers."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -56,3 +59,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

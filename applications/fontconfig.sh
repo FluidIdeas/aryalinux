@@ -21,6 +21,9 @@ URL=https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.13.1.ta
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The Fontconfig package contains a library and support programs used for configuring and customizing font access."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -78,3 +81,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

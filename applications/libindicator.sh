@@ -19,6 +19,9 @@ VERSION=12.10.1
 URL=https://launchpad.net/libindicator/12.10/12.10.1/+download/libindicator-12.10.1.tar.gz
 DESCRIPTION="This library contains information to build indicators to go into the indicator applet."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -45,3 +48,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

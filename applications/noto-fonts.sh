@@ -18,6 +18,9 @@ VERSION=1.4
 
 DESCRIPTION="Noto is a font family comprising over 100 individual fonts, which are together designed to cover all the scripts encoded in the Unicode standard."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -45,3 +48,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

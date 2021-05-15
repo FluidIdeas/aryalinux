@@ -24,6 +24,9 @@ URL=https://static.rust-lang.org/dist/rustc-1.47.0-src.tar.gz
 SECTION="Programming"
 DESCRIPTION="The Rust programming language is designed to be a safe, concurrent, practical language."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -161,3 +164,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

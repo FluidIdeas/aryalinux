@@ -20,6 +20,9 @@ VERSION=0.7.16
 URL=https://github.com/hughsie/appstream-glib/archive/appstream_glib_0_7_16.tar.gz
 DESCRIPTION="This library provides GObjects and helper methods to make it easy to read and write AppStream metadata. It also provides a simple DOM implementation that makes it easy to edit nodes and convert to and from the standardized XML representation."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -47,3 +50,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -28,6 +28,9 @@ URL=https://downloads.sourceforge.net/lxde/lxde-common-0.99.2.tar.xz
 SECTION="LXDE Desktop"
 DESCRIPTION="The LXDE Common package provides a set of default configuration for LXDE."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -82,3 +85,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

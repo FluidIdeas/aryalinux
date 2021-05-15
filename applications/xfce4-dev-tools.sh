@@ -12,6 +12,9 @@ DESCRIPTION="xfce4-dev-tools provide an easy way to handle the setup and mainten
 KDE_PREFIX=/usr
 cd $SOURCE_DIR
 
+mkdir -pv $NAME
+pushd $NAME
+
 URL=https://git.xfce.org/xfce/xfce4-dev-tools/snapshot/xfce4-dev-tools-xfce-4.14.0.tar.gz
 wget -nc $URL
 TARBALL=`echo $URL | rev | cut -d/ -f1 | rev`
@@ -30,3 +33,5 @@ cd $SOURCE_DIR
 cleanup "$NAME" "$DIRECTORY"
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
+
+popd

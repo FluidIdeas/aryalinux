@@ -21,6 +21,9 @@ URL=http://software.calhariz.com/at/at_3.2.1.orig.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="The at package provide delayed job execution and batch processing. It is required for Linux Standards Base (LSB) conformance."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -100,3 +103,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

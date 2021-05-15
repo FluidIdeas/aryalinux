@@ -23,6 +23,9 @@ URL=https://ftp.gnu.org/gnu/guile/guile-3.0.6.tar.xz
 SECTION="Programming"
 DESCRIPTION="The Guile package contains the GNU Project's extension language library. Guile also contains a stand alone Scheme interpreter."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -80,3 +83,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

@@ -21,6 +21,9 @@ URL=https://hany.sk/~hany/_data/hd2u/hd2u-1.0.4.tgz
 SECTION="General Utilities"
 DESCRIPTION="The hd2u package contains an any to any text format converter."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -57,3 +60,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

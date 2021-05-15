@@ -22,6 +22,9 @@ URL=https://archive.xfce.org/src/xfce/libxfce4util/4.16/libxfce4util-4.16.0.tar.
 SECTION="Xfce Desktop"
 DESCRIPTION="The libxfce4util package is a basic utility library for the Xfce desktop environment."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

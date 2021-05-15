@@ -24,6 +24,9 @@ URL=https://download.gnome.org/sources/gnome-themes-extra/3.28/gnome-themes-extr
 SECTION="Icons"
 DESCRIPTION="The GNOME Themes Extra package, formerly known as GNOME Themes Standard, contains various components of the default GNOME theme."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -60,3 +63,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

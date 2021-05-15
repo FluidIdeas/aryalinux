@@ -22,6 +22,9 @@ URL=https://download.gnome.org/sources/gnome-icon-theme-extras/3.12/gnome-icon-t
 SECTION="Icons"
 DESCRIPTION="The GNOME Icon Theme Extras package contains extra icons for the GNOME Desktop."
 
+mkdir -pv $NAME
+pushd $NAME
+
 if [ ! -z $URL ]
 then
 
@@ -58,3 +61,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd
