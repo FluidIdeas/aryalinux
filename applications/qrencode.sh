@@ -42,20 +42,9 @@ echo $USER > /tmp/currentuser
 
 ./configure --prefix=/usr &&
 make
-doxygen
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -vdm 755 /usr/share/doc/qrencode-4.1.1 &&
-mv html/* /usr/share/doc/qrencode-4.1.1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
