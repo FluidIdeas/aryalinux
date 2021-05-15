@@ -16,17 +16,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.5.7/geoclue-2.5.7.tar.bz2
-
 
 NAME=geoclue2
 VERSION=2.5.7
 URL=https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.5.7/geoclue-2.5.7.tar.bz2
 SECTION="Networking Libraries"
 DESCRIPTION="GeoClue is a modular geoinformation service built on top of the D-Bus messaging system. The goal of the GeoClue project is to make creating location-aware applications as simple as possible."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.5.7/geoclue-2.5.7.tar.bz2
+
 
 if [ ! -z $URL ]
 then

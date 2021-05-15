@@ -10,18 +10,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://ftp.gnu.org/gnu/gsl/gsl-2.6.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/gsl/gsl-2.6.tar.gz
-
 
 NAME=gsl
 VERSION=2.6
 URL=https://ftp.gnu.org/gnu/gsl/gsl-2.6.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The GNU Scientific Library (GSL) is a numerical library for C and C++ programmers. It provides a wide range of mathematical routines such as random number generators, special functions and least-squares fitting."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://ftp.gnu.org/gnu/gsl/gsl-2.6.tar.gz
+wget -nc ftp://ftp.gnu.org/gnu/gsl/gsl-2.6.tar.gz
+
 
 if [ ! -z $URL ]
 then

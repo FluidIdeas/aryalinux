@@ -17,17 +17,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://gitlab.gnome.org/GNOME/vte/-/archive/0.64.1/vte-0.64.1.tar.bz2
-
 
 NAME=vte
 VERSION=0.64.1
 URL=https://gitlab.gnome.org/GNOME/vte/-/archive/0.64.1/vte-0.64.1.tar.bz2
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The VTE package contains a termcap file implementation for terminal emulators."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://gitlab.gnome.org/GNOME/vte/-/archive/0.64.1/vte-0.64.1.tar.bz2
+
 
 if [ ! -z $URL ]
 then

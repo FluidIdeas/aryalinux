@@ -13,18 +13,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/clutter-gtk/1.8/clutter-gtk-1.8.4.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/clutter-gtk/1.8/clutter-gtk-1.8.4.tar.xz
-
 
 NAME=clutter-gtk
 VERSION=1.8.4
 URL=https://download.gnome.org/sources/clutter-gtk/1.8/clutter-gtk-1.8.4.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The Clutter Gtk package is a library providing facilities to integrate Clutter into GTK+ applications."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/clutter-gtk/1.8/clutter-gtk-1.8.4.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/clutter-gtk/1.8/clutter-gtk-1.8.4.tar.xz
+
 
 if [ ! -z $URL ]
 then

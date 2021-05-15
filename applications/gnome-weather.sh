@@ -13,18 +13,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/gnome-weather/40/gnome-weather-40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-weather/40/gnome-weather-40.0.tar.xz
-
 
 NAME=gnome-weather
 VERSION=40.0
 URL=https://download.gnome.org/sources/gnome-weather/40/gnome-weather-40.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="GNOME Weather is a small application that allows you to monitor the current weather conditions for your city, or anywhere in the world, and to access updated forecasts provided by various internet services."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/gnome-weather/40/gnome-weather-40.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-weather/40/gnome-weather-40.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

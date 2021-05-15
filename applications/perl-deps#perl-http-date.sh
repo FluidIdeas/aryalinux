@@ -11,16 +11,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Date-6.05.tar.gz
-
 
 NAME=perl-deps#perl-http-date
 VERSION=6.05
 URL=https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Date-6.05.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Date-6.05.tar.gz
+
 
 if [ ! -z $URL ]
 then

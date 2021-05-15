@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc http://dist.schmorp.de/rxvt-unicode/Attic/rxvt-unicode-9.22.tar.bz2
-
 
 NAME=rxvt-unicode
 VERSION=9.22
 URL=http://dist.schmorp.de/rxvt-unicode/Attic/rxvt-unicode-9.22.tar.bz2
 SECTION="Other X-based Programs"
 DESCRIPTION="rxvt-unicode is a clone of the terminal emulator rxvt, an X Window System terminal emulator which includes support for XFT and Unicode."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc http://dist.schmorp.de/rxvt-unicode/Attic/rxvt-unicode-9.22.tar.bz2
+
 
 if [ ! -z $URL ]
 then

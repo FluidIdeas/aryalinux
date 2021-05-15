@@ -16,18 +16,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.20.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libchamplain/0.12/libchamplain-0.12.20.tar.xz
-
 
 NAME=libchamplain
 VERSION=0.12.20
 URL=https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.20.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libchamplain package contains a Clutter-based widget that is used to display rich and interactive maps."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.20.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libchamplain/0.12/libchamplain-0.12.20.tar.xz
+
 
 if [ ! -z $URL ]
 then

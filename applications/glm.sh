@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/g-truc/glm/archive/0.9.9.8/glm-0.9.9.8.tar.gz
-
 
 NAME=glm
 VERSION=0.9.9.8
 URL=https://github.com/g-truc/glm/archive/0.9.9.8/glm-0.9.9.8.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="OpenGL Mathematics (GLM) is a header-only C++ mathematics library for graphics software based on the OpenGL Shading Language (GLSL) specifications. An extension system provides extended capabilities such as matrix transformations and quaternions."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/g-truc/glm/archive/0.9.9.8/glm-0.9.9.8.tar.gz
+
 
 if [ ! -z $URL ]
 then

@@ -10,18 +10,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://roy.marples.name/downloads/dhcpcd/dhcpcd-9.4.0.tar.xz
-wget -nc ftp://roy.marples.name/pub/dhcpcd/dhcpcd-9.4.0.tar.xz
-
 
 NAME=dhcpcd
 VERSION=9.4.0
 URL=https://roy.marples.name/downloads/dhcpcd/dhcpcd-9.4.0.tar.xz
 SECTION="Connecting to a Network"
 DESCRIPTION="dhcpcd is an implementation of the DHCP client specified in RFC2131. A DHCP client is useful for connecting your computer to a network which uses DHCP to assign network addresses. dhcpcd strives to be a fully featured, yet very lightweight DHCP client."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://roy.marples.name/downloads/dhcpcd/dhcpcd-9.4.0.tar.xz
+wget -nc ftp://roy.marples.name/pub/dhcpcd/dhcpcd-9.4.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

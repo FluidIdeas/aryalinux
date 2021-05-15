@@ -12,18 +12,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.mariadb.org/interstitial/mariadb-10.5.9/source/mariadb-10.5.9.tar.gz
-wget -nc ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.5.9/source/mariadb-10.5.9.tar.gz
-
 
 NAME=mariadb
 VERSION=10.5.9
 URL=https://downloads.mariadb.org/interstitial/mariadb-10.5.9/source/mariadb-10.5.9.tar.gz
 SECTION="Databases"
 DESCRIPTION="MariaDB is a community-developed fork and a drop-in replacement for the MySQL relational database management system."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.mariadb.org/interstitial/mariadb-10.5.9/source/mariadb-10.5.9.tar.gz
+wget -nc ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.5.9/source/mariadb-10.5.9.tar.gz
+
 
 if [ ! -z $URL ]
 then

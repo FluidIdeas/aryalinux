@@ -10,16 +10,16 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.kde.org/Attic/applications/19.11.90/src/kcalc-19.11.90.tar.xz
-
 NAME=kcalc
 VERSION=19.11.90
 URL=https://download.kde.org/Attic/applications/19.11.90/src/kcalc-19.11.90.tar.xz
 SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="Calculator for the KDE plasma desktop"
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.kde.org/Attic/applications/19.11.90/src/kcalc-19.11.90.tar.xz
 
 if [ ! -z $URL ]
 then

@@ -13,18 +13,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.sourceforge.net/freeglut/freeglut-3.2.1.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/freeglut-3.2.1-gcc10_fix-1.patch
-
 
 NAME=freeglut
 VERSION=3.2.1
 URL=https://downloads.sourceforge.net/freeglut/freeglut-3.2.1.tar.gz
 SECTION="X Libraries"
 DESCRIPTION="Freeglut is intended to be a 100% compatible, completely opensourced clone of the GLUT library. GLUT is a window system independent toolkit for writing OpenGL programs, implementing a simple windowing API, which makes learning about and exploring OpenGL programming very easy."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.sourceforge.net/freeglut/freeglut-3.2.1.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/freeglut-3.2.1-gcc10_fix-1.patch
+
 
 if [ ! -z $URL ]
 then

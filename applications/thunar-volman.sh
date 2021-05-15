@@ -14,17 +14,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://archive.xfce.org/src/xfce/thunar-volman/4.16/thunar-volman-4.16.0.tar.bz2
-
 
 NAME=thunar-volman
 VERSION=4.16.0
 URL=https://archive.xfce.org/src/xfce/thunar-volman/4.16/thunar-volman-4.16.0.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="The Thunar Volume Manager is an extension for the Thunar file manager, which enables automatic management of removable drives and media."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://archive.xfce.org/src/xfce/thunar-volman/4.16/thunar-volman-4.16.0.tar.bz2
+
 
 if [ ! -z $URL ]
 then

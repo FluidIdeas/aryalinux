@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/djlucas/LSB-Tools/releases/download/v0.9/LSB-Tools-0.9.tar.gz
-
 
 NAME=lsb-tools
 VERSION=0.9
 URL=https://github.com/djlucas/LSB-Tools/releases/download/v0.9/LSB-Tools-0.9.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="The LSB-Tools package includes tools for Linux Standards Base (LSB) conformance."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/djlucas/LSB-Tools/releases/download/v0.9/LSB-Tools-0.9.tar.gz
+
 
 if [ ! -z $URL ]
 then

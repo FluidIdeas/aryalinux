@@ -12,17 +12,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.sourceforge.net/gparted/gparted-1.3.0.tar.gz
-
 
 NAME=gparted
 VERSION=1.3.0
 URL=https://downloads.sourceforge.net/gparted/gparted-1.3.0.tar.gz
 SECTION="Other X-based Programs"
 DESCRIPTION="Gparted is the Gnome Partition Editor, a Gtk 3 GUI for other command line tools that can create, reorganise or delete disk partitions."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.sourceforge.net/gparted/gparted-1.3.0.tar.gz
+
 
 if [ ! -z $URL ]
 then

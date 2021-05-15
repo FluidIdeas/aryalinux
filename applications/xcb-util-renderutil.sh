@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://xcb.freedesktop.org/dist/xcb-util-renderutil-0.3.9.tar.bz2
-
 
 NAME=xcb-util-renderutil
 VERSION=0.3.9
 URL=https://xcb.freedesktop.org/dist/xcb-util-renderutil-0.3.9.tar.bz2
 SECTION="X Window System Environment"
 DESCRIPTION="The xcb-util-renderutil package provides additional extensions to the XCB library."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://xcb.freedesktop.org/dist/xcb-util-renderutil-0.3.9.tar.bz2
+
 
 if [ ! -z $URL ]
 then

@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://oligarchy.co.uk/xapian/1.4.18/xapian-core-1.4.18.tar.xz
-
 
 NAME=xapian
 VERSION=1.4.18
 URL=https://oligarchy.co.uk/xapian/1.4.18/xapian-core-1.4.18.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="Xapian is an open source search engine library."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://oligarchy.co.uk/xapian/1.4.18/xapian-core-1.4.18.tar.xz
+
 
 if [ ! -z $URL ]
 then

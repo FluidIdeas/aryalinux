@@ -16,18 +16,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/ibus/ibus/releases/download/1.5.24/ibus-1.5.24.tar.gz
-wget -nc https://www.unicode.org/Public/zipped/13.0.0/UCD.zip
-
 
 NAME=ibus
 VERSION=1.5.24
 URL=https://github.com/ibus/ibus/releases/download/1.5.24/ibus-1.5.24.tar.gz
 SECTION="General Utilities"
 DESCRIPTION="ibus is an Intelligent Input Bus. It is a new input framework for the Linux OS. It provides a fully featured and user friendly input method user interface."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/ibus/ibus/releases/download/1.5.24/ibus-1.5.24.tar.gz
+wget -nc https://www.unicode.org/Public/zipped/13.0.0/UCD.zip
+
 
 if [ ! -z $URL ]
 then

@@ -11,18 +11,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/gnome-icon-theme-symbolic/3.12/gnome-icon-theme-symbolic-3.12.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-icon-theme-symbolic/3.12/gnome-icon-theme-symbolic-3.12.0.tar.xz
-
 
 NAME=gnome-icon-theme-symbolic
 VERSION=3.12.0
 URL=https://download.gnome.org/sources/gnome-icon-theme-symbolic/3.12/gnome-icon-theme-symbolic-3.12.0.tar.xz
 SECTION="Icons"
 DESCRIPTION="The GNOME Icon Theme Symbolic package contains symbolic icons for the default GNOME icon theme."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/gnome-icon-theme-symbolic/3.12/gnome-icon-theme-symbolic-3.12.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-icon-theme-symbolic/3.12/gnome-icon-theme-symbolic-3.12.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

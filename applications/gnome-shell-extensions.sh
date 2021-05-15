@@ -11,18 +11,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/gnome-shell-extensions/40/gnome-shell-extensions-40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-shell-extensions/40/gnome-shell-extensions-40.0.tar.xz
-
 
 NAME=gnome-shell-extensions
 VERSION=40.0
 URL=https://download.gnome.org/sources/gnome-shell-extensions/40/gnome-shell-extensions-40.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Shell Extensions package contains a collection of extensions providing additional and optional functionality to the GNOME Shell."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/gnome-shell-extensions/40/gnome-shell-extensions-40.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-shell-extensions/40/gnome-shell-extensions-40.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

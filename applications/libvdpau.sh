@@ -11,16 +11,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://gitlab.freedesktop.org/vdpau/libvdpau/-/archive/1.4/libvdpau-1.4.tar.bz2
-
 
 NAME=libvdpau
 VERSION=1.4
 URL=https://gitlab.freedesktop.org/vdpau/libvdpau/-/archive/1.4/libvdpau-1.4.tar.bz2
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://gitlab.freedesktop.org/vdpau/libvdpau/-/archive/1.4/libvdpau-1.4.tar.bz2
+
 
 if [ ! -z $URL ]
 then

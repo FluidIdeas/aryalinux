@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.python.org/ftp/python/3.9.4/Python-3.9.4.tar.xz
-
 
 NAME=python3
 VERSION=3.9.4
 URL=https://www.python.org/ftp/python/3.9.4/Python-3.9.4.tar.xz
 SECTION="Programming"
 DESCRIPTION="The Python 3 package contains the Python development environment. This is useful for object-oriented programming, writing scripts, prototyping large programs or developing entire applications."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.python.org/ftp/python/3.9.4/Python-3.9.4.tar.xz
+
 
 if [ ! -z $URL ]
 then

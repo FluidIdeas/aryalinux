@@ -10,16 +10,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-
 
 NAME=neofetch
 VERSION=6.1.0
 
 SECTION="Others"
 DESCRIPTION="Neofetch is a command-line system information tool written in bash 3.2+. Neofetch displays information about your operating system, software and hardware in an aesthetic and visually pleasing way."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+
 
 if [ ! -z $URL ]
 then

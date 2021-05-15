@@ -14,17 +14,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://archive.xfce.org/src/xfce/xfce4-panel/4.16/xfce4-panel-4.16.3.tar.bz2
-
 
 NAME=xfce4-panel
 VERSION=4.16.3
 URL=https://archive.xfce.org/src/xfce/xfce4-panel/4.16/xfce4-panel-4.16.3.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="The Xfce4 Panel package contains the Xfce4 Panel."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://archive.xfce.org/src/xfce/xfce4-panel/4.16/xfce4-panel-4.16.3.tar.bz2
+
 
 if [ ! -z $URL ]
 then

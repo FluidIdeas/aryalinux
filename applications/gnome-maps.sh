@@ -21,18 +21,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/gnome-maps/40/gnome-maps-40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-maps/40/gnome-maps-40.0.tar.xz
-
 
 NAME=gnome-maps
 VERSION=40.0
 URL=https://download.gnome.org/sources/gnome-maps/40/gnome-maps-40.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="GNOME Maps is a map application for GNOME."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/gnome-maps/40/gnome-maps-40.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-maps/40/gnome-maps-40.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

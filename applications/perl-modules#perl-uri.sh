@@ -11,16 +11,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.cpan.org/authors/id/O/OA/OALDERS/URI-5.09.tar.gz
-
 
 NAME=perl-modules#perl-uri
 VERSION=5.09
 URL=https://www.cpan.org/authors/id/O/OA/OALDERS/URI-5.09.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.cpan.org/authors/id/O/OA/OALDERS/URI-5.09.tar.gz
+
 
 if [ ! -z $URL ]
 then

@@ -20,6 +20,14 @@ set +h
 
 
 cd $SOURCE_DIR
+
+NAME=tigervnc
+VERSION=1.11.0
+URL=https://github.com/TigerVNC/tigervnc/archive/v1.11.0/tigervnc-1.11.0.tar.gz
+SECTION="Other X-based Programs"
+DESCRIPTION="Tigervnc is an advanced VNC (Virtual Network Computing) implementation. It allows creation of an Xorg server not tied to a physical console and also provides a client for viewing of the remote graphical desktop."
+
+
 mkdir -pv $NAME
 pushd $NAME
 
@@ -30,12 +38,6 @@ wget -nc http://anduin.linuxfromscratch.org/BLFS/tigervnc/vncserver
 wget -nc http://anduin.linuxfromscratch.org/BLFS/tigervnc/vncserver.1
 wget -nc http://anduin.linuxfromscratch.org/BLFS/tigervnc/Xsession
 
-
-NAME=tigervnc
-VERSION=1.11.0
-URL=https://github.com/TigerVNC/tigervnc/archive/v1.11.0/tigervnc-1.11.0.tar.gz
-SECTION="Other X-based Programs"
-DESCRIPTION="Tigervnc is an advanced VNC (Virtual Network Computing) implementation. It allows creation of an Xorg server not tied to a physical console and also provides a client for viewing of the remote graphical desktop."
 
 if [ ! -z $URL ]
 then

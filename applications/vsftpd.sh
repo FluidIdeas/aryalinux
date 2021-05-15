@@ -12,17 +12,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://security.appspot.com/downloads/vsftpd-3.0.3.tar.gz
-
 
 NAME=vsftpd
 VERSION=3.0.3
 URL=https://security.appspot.com/downloads/vsftpd-3.0.3.tar.gz
 SECTION="Major Servers"
 DESCRIPTION="The vsftpd package contains a very secure and very small FTP daemon. This is useful for serving files over a network."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://security.appspot.com/downloads/vsftpd-3.0.3.tar.gz
+
 
 if [ ! -z $URL ]
 then

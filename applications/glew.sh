@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.sourceforge.net/glew/glew-2.2.0.tgz
-
 
 NAME=glew
 VERSION=2.2.0
 URL=https://downloads.sourceforge.net/glew/glew-2.2.0.tgz
 SECTION="X Libraries"
 DESCRIPTION="GLEW is the OpenGL Extension Wrangler Library."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.sourceforge.net/glew/glew-2.2.0.tgz
+
 
 if [ ! -z $URL ]
 then

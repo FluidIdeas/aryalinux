@@ -10,6 +10,14 @@ set +h
 
 
 cd $SOURCE_DIR
+
+NAME=net-tools
+VERSION=20101030
+URL=http://anduin.linuxfromscratch.org/BLFS/net-tools/net-tools-CVS_20101030.tar.gz
+SECTION="Networking Programs"
+DESCRIPTION="The Net-tools package is a collection of programs for controlling the network subsystem of the Linux kernel."
+
+
 mkdir -pv $NAME
 pushd $NAME
 
@@ -17,12 +25,6 @@ wget -nc http://anduin.linuxfromscratch.org/BLFS/net-tools/net-tools-CVS_2010103
 wget -nc ftp://anduin.linuxfromscratch.org/BLFS/net-tools/net-tools-CVS_20101030.tar.gz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/net-tools-CVS_20101030-remove_dups-1.patch
 
-
-NAME=net-tools
-VERSION=20101030
-URL=http://anduin.linuxfromscratch.org/BLFS/net-tools/net-tools-CVS_20101030.tar.gz
-SECTION="Networking Programs"
-DESCRIPTION="The Net-tools package is a collection of programs for controlling the network subsystem of the Linux kernel."
 
 if [ ! -z $URL ]
 then

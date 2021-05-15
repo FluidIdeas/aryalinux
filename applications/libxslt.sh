@@ -13,18 +13,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc http://xmlsoft.org/sources/libxslt-1.1.34.tar.gz
-wget -nc ftp://xmlsoft.org/libxslt/libxslt-1.1.34.tar.gz
-
 
 NAME=libxslt
 VERSION=1.1.34
 URL=http://xmlsoft.org/sources/libxslt-1.1.34.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The libxslt package contains XSLT libraries used for extending libxml2 libraries to support XSLT files."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc http://xmlsoft.org/sources/libxslt-1.1.34.tar.gz
+wget -nc ftp://xmlsoft.org/libxslt/libxslt-1.1.34.tar.gz
+
 
 if [ ! -z $URL ]
 then

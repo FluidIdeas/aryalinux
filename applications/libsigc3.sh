@@ -12,18 +12,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/libsigc++/3.0/libsigc++-3.0.6.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libsigc++/3.0/libsigc++-3.0.6.tar.xz
-
 
 NAME=libsigc3
 VERSION=3.0.6
 URL=https://download.gnome.org/sources/libsigc++/3.0/libsigc++-3.0.6.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libsigc++3 package implements a typesafe callback system for standard C++."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/libsigc++/3.0/libsigc++-3.0.6.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libsigc++/3.0/libsigc++-3.0.6.tar.xz
+
 
 if [ ! -z $URL ]
 then

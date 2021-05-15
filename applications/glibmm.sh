@@ -12,18 +12,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/glibmm/2.66/glibmm-2.66.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/glibmm/2.66/glibmm-2.66.0.tar.xz
-
 
 NAME=glibmm
 VERSION=2.66.0
 URL=https://download.gnome.org/sources/glibmm/2.66/glibmm-2.66.0.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The GLibmm package is a set of C++ bindings for GLib."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/glibmm/2.66/glibmm-2.66.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/glibmm/2.66/glibmm-2.66.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

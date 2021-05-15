@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.sourceforge.net/aa-project/aalib-1.4rc5.tar.gz
-
 
 NAME=aalib
 VERSION=1.
 URL=https://downloads.sourceforge.net/aa-project/aalib-1.4rc5.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="AAlib is a library to render any graphic into ASCII Art."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.sourceforge.net/aa-project/aalib-1.4rc5.tar.gz
+
 
 if [ ! -z $URL ]
 then

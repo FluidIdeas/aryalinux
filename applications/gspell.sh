@@ -12,17 +12,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/gspell/1.8/gspell-1.8.4.tar.xz
-
 
 NAME=gspell
 VERSION=1.8.4
 URL=https://download.gnome.org/sources/gspell/1.8/gspell-1.8.4.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The gspell package provides a flexible API to add spell checking to a GTK+ application."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/gspell/1.8/gspell-1.8.4.tar.xz
+
 
 if [ ! -z $URL ]
 then

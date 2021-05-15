@@ -11,18 +11,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.sourceforge.net/openjade/openjade-1.3.2.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/openjade-1.3.2-upstream-1.patch
-
 
 NAME=openjade
 VERSION=1.3.2
 URL=https://downloads.sourceforge.net/openjade/openjade-1.3.2.tar.gz
 SECTION="Standard Generalized Markup Language (SGML)"
 DESCRIPTION="The OpenJade package contains a DSSSL engine. This is useful for SGML and XML transformations into RTF, TeX, SGML and XML."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.sourceforge.net/openjade/openjade-1.3.2.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/openjade-1.3.2-upstream-1.patch
+
 
 if [ ! -z $URL ]
 then

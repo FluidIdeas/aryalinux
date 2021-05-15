@@ -13,18 +13,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/gnome-screenshot/40/gnome-screenshot-40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-screenshot/40/gnome-screenshot-40.0.tar.xz
-
 
 NAME=gnome-screenshot
 VERSION=40.0
 URL=https://download.gnome.org/sources/gnome-screenshot/40/gnome-screenshot-40.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Screenshot is a utility used for taking screenshots of the entire screen, a window or a user-defined area of the screen, with optional beautifying border effects."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/gnome-screenshot/40/gnome-screenshot-40.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-screenshot/40/gnome-screenshot-40.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

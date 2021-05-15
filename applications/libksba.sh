@@ -11,18 +11,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.gnupg.org/ftp/gcrypt/libksba/libksba-1.5.1.tar.bz2
-wget -nc ftp://ftp.gnupg.org/gcrypt/libksba/libksba-1.5.1.tar.bz2
-
 
 NAME=libksba
 VERSION=1.5.1
 URL=https://www.gnupg.org/ftp/gcrypt/libksba/libksba-1.5.1.tar.bz2
 SECTION="General Libraries"
 DESCRIPTION="The Libksba package contains a library used to make X.509 certificates as well as making the CMS (Cryptographic Message Syntax) easily accessible by other applications. Both specifications are building blocks of S/MIME and TLS. The library does not rely on another cryptographic library but provides hooks for easy integration with Libgcrypt."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.gnupg.org/ftp/gcrypt/libksba/libksba-1.5.1.tar.bz2
+wget -nc ftp://ftp.gnupg.org/gcrypt/libksba/libksba-1.5.1.tar.bz2
+
 
 if [ ! -z $URL ]
 then

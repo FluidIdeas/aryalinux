@@ -10,16 +10,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-themes-standard/3.27/gnome-themes-standard-3.27.90.tar.xz
-
 
 NAME=gnome-themes-standard
 VERSION=3.27.90
 URL=http://ftp.acc.umu.se/pub/gnome/sources/gnome-themes-standard/3.27/gnome-themes-standard-3.27.90.tar.xz
 DESCRIPTION="Adwaita GTK+ 2 theme — engine"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-themes-standard/3.27/gnome-themes-standard-3.27.90.tar.xz
+
 
 if [ ! -z $URL ]
 then

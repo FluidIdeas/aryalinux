@@ -12,18 +12,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/libhandy/1.2/libhandy-1.2.2.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libhandy/1.2/libhandy-1.2.2.tar.xz
-
 
 NAME=libhandy1
 VERSION=1.2.2
 URL=https://download.gnome.org/sources/libhandy/1.2/libhandy-1.2.2.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The libhandy package provides additional GTK UI widgets for use in developing user interfaces."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/libhandy/1.2/libhandy-1.2.2.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libhandy/1.2/libhandy-1.2.2.tar.xz
+
 
 if [ ! -z $URL ]
 then

@@ -11,17 +11,17 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.kde.org/stable/frameworks/5.82/extra-cmake-modules-5.82.0.tar.xz
-
 
 NAME=extra-cmake-modules
 VERSION=5.82.0
 URL=https://download.kde.org/stable/frameworks/5.82/extra-cmake-modules-5.82.0.tar.xz
 SECTION="KDE Plasma 5"
 DESCRIPTION="The Extra Cmake Modules package contains extra CMake modules used by KDE Frameworks 5 and other packages."
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.kde.org/stable/frameworks/5.82/extra-cmake-modules-5.82.0.tar.xz
 
 if [ ! -z $URL ]
 then

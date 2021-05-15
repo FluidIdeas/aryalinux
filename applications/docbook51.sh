@@ -13,17 +13,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://docbook.org/xml/5.1/docbook-v5.1-os.zip
-
 
 NAME=docbook51
 VERSION=5.
 URL=https://docbook.org/xml/5.1/docbook-v5.1-os.zip
 SECTION="Extensible Markup Language (XML)"
 DESCRIPTION="The DocBook XML Schemas-5.1 package contains schema files and Schematron rules for verification of XML data files against the DocBook rule set. These are useful for structuring books and software documentation to a standard allowing you to utilize transformations already written for that standard."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://docbook.org/xml/5.1/docbook-v5.1-os.zip
+
 
 if [ ! -z $URL ]
 then

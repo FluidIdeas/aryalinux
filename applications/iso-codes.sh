@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc http://anduin.linuxfromscratch.org/BLFS/iso-codes/iso-codes-4.6.0.tar.xz
-
 
 NAME=iso-codes
 VERSION=4.6.0
 URL=http://anduin.linuxfromscratch.org/BLFS/iso-codes/iso-codes-4.6.0.tar.xz
 SECTION="General Utilities"
 DESCRIPTION="The ISO Codes package contains a list of country, language and currency names and it is used as a central database for accessing this data."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc http://anduin.linuxfromscratch.org/BLFS/iso-codes/iso-codes-4.6.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

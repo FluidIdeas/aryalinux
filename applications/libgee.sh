@@ -13,18 +13,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/libgee/0.20/libgee-0.20.4.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgee/0.20/libgee-0.20.4.tar.xz
-
 
 NAME=libgee
 VERSION=0.20.4
 URL=https://download.gnome.org/sources/libgee/0.20/libgee-0.20.4.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libgee package is a collection library providing GObject based interfaces and classes for commonly used data structures."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/libgee/0.20/libgee-0.20.4.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgee/0.20/libgee-0.20.4.tar.xz
+
 
 if [ ! -z $URL ]
 then

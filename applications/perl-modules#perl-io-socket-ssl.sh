@@ -13,16 +13,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.070.tar.gz
-
 
 NAME=perl-modules#perl-io-socket-ssl
 VERSION=2.070
 URL=https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.070.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.070.tar.gz
+
 
 if [ ! -z $URL ]
 then

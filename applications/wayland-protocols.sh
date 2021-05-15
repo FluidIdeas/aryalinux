@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://wayland.freedesktop.org/releases/wayland-protocols-1.21.tar.xz
-
 
 NAME=wayland-protocols
 VERSION=1.21
 URL=https://wayland.freedesktop.org/releases/wayland-protocols-1.21.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The Wayland-Protocols package contains additional Wayland protocols that add functionality outside of protocols already in the Wayland core."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://wayland.freedesktop.org/releases/wayland-protocols-1.21.tar.xz
+
 
 if [ ! -z $URL ]
 then

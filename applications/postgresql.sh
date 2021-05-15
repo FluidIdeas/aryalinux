@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://ftp.postgresql.org/pub/source/v13.2/postgresql-13.2.tar.bz2
-
 
 NAME=postgresql
 VERSION=13.2
 URL=https://ftp.postgresql.org/pub/source/v13.2/postgresql-13.2.tar.bz2
 SECTION="Databases"
 DESCRIPTION="PostgreSQL is an advanced object-relational database management system (ORDBMS), derived from the Berkeley Postgres database management system."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://ftp.postgresql.org/pub/source/v13.2/postgresql-13.2.tar.bz2
+
 
 if [ ! -z $URL ]
 then

@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc http://fcron.free.fr/archives/fcron-3.2.1.src.tar.gz
-
 
 NAME=fcron
 VERSION=3.2.1
 URL=http://fcron.free.fr/archives/fcron-3.2.1.src.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="The Fcron package contains a periodical command scheduler which aims at replacing Vixie Cron."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc http://fcron.free.fr/archives/fcron-3.2.1.src.tar.gz
+
 
 if [ ! -z $URL ]
 then

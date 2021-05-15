@@ -12,17 +12,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.kde.org/stable/frameworks/5.79/oxygen-icons5-5.79.0.tar.xz
-
 
 NAME=oxygen-icons5
 VERSION=5.79.0
 URL=https://download.kde.org/stable/frameworks/5.79/oxygen-icons5-5.79.0.tar.xz
 SECTION="Icons"
 DESCRIPTION="The oxygen icons 5 theme is a photo-realistic icon style, with a high standard of graphics quality."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.kde.org/stable/frameworks/5.79/oxygen-icons5-5.79.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

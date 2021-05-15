@@ -13,18 +13,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/metabrainz/libmusicbrainz/releases/download/release-5.1.0/libmusicbrainz-5.1.0.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/libmusicbrainz-5.1.0-cmake_fixes-1.patch
-
 
 NAME=libmusicbrainz5
 VERSION=5.1.0
 URL=https://github.com/metabrainz/libmusicbrainz/releases/download/release-5.1.0/libmusicbrainz-5.1.0.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The libmusicbrainz package contains a library which allows you to access the data held on the MusicBrainz server."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/metabrainz/libmusicbrainz/releases/download/release-5.1.0/libmusicbrainz-5.1.0.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/libmusicbrainz-5.1.0-cmake_fixes-1.patch
+
 
 if [ ! -z $URL ]
 then

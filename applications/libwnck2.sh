@@ -12,18 +12,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/libwnck/2.30/libwnck-2.30.7.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libwnck/2.30/libwnck-2.30.7.tar.xz
-
 
 NAME=libwnck2
 VERSION=2.30.7
 URL=https://download.gnome.org/sources/libwnck/2.30/libwnck-2.30.7.tar.xz
 SECTION="LXDE Desktop"
 DESCRIPTION="The libwnck package contains a Window Navigator Construction Kit."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/libwnck/2.30/libwnck-2.30.7.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libwnck/2.30/libwnck-2.30.7.tar.xz
+
 
 if [ ! -z $URL ]
 then

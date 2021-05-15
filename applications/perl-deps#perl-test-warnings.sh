@@ -10,16 +10,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Warnings-0.030.tar.gz
-
 
 NAME=perl-deps#perl-test-warnings
 VERSION=0.030
 URL=https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Warnings-0.030.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Warnings-0.030.tar.gz
+
 
 if [ ! -z $URL ]
 then

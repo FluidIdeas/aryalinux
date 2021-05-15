@@ -10,18 +10,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/rhboot/efivar/releases/download/37/efivar-37.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/efivar-37-gcc_9-1.patch
-
 
 NAME=efivar
 VERSION=37
 URL=https://github.com/rhboot/efivar/releases/download/37/efivar-37.tar.bz2
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The efivar package provides tools and libraries to manipulate EFI variables."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/rhboot/efivar/releases/download/37/efivar-37.tar.bz2
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/efivar-37-gcc_9-1.patch
+
 
 if [ ! -z $URL ]
 then

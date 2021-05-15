@@ -10,16 +10,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://cpan.metacpan.org/authors/id/M/MA/MARKF/Test-utf8-1.02.tar.gz
-
 
 NAME=perl-deps#perl-test-utf8
 VERSION=1.02
 URL=https://cpan.metacpan.org/authors/id/M/MA/MARKF/Test-utf8-1.02.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://cpan.metacpan.org/authors/id/M/MA/MARKF/Test-utf8-1.02.tar.gz
+
 
 if [ ! -z $URL ]
 then

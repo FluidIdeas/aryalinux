@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc http://0pointer.de/lennart/projects/libdaemon/libdaemon-0.14.tar.gz
-
 
 NAME=libdaemon
 VERSION=0.14
 URL=http://0pointer.de/lennart/projects/libdaemon/libdaemon-0.14.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The libdaemon package is a lightweight C library that eases the writing of UNIX daemons."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc http://0pointer.de/lennart/projects/libdaemon/libdaemon-0.14.tar.gz
+
 
 if [ ! -z $URL ]
 then

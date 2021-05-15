@@ -13,17 +13,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.kernel.org/pub/linux/utils/nfs-utils/2.5.2/nfs-utils-2.5.2.tar.xz
-
 
 NAME=nfs-utils
 VERSION=2.5.2
 URL=https://www.kernel.org/pub/linux/utils/nfs-utils/2.5.2/nfs-utils-2.5.2.tar.xz
 SECTION="Networking Programs"
 DESCRIPTION="The NFS Utilities package contains the userspace server and client tools necessary to use the kernel's NFS abilities. NFS is a protocol that allows sharing file systems over the network."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.kernel.org/pub/linux/utils/nfs-utils/2.5.2/nfs-utils-2.5.2.tar.xz
+
 
 if [ ! -z $URL ]
 then

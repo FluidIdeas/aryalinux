@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.1.tar.xz
-
 
 NAME=ruby
 VERSION=3.0.1
 URL=https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.1.tar.xz
 SECTION="Programming"
 DESCRIPTION="The Ruby package contains the Ruby development environment. This is useful for object-oriented scripting."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.1.tar.xz
+
 
 if [ ! -z $URL ]
 then

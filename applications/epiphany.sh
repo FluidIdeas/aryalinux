@@ -20,18 +20,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/epiphany/40/epiphany-40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/epiphany/40/epiphany-40.0.tar.xz
-
 
 NAME=epiphany
 VERSION=40.0
 URL=https://download.gnome.org/sources/epiphany/40/epiphany-40.0.tar.xz
 SECTION="Graphical Web Browsers"
 DESCRIPTION="Epiphany is a simple yet powerful GNOME web browser targeted at non-technical users. Its principles are simplicity and standards compliance."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/epiphany/40/epiphany-40.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/epiphany/40/epiphany-40.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

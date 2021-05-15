@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/fontforge/libuninameslist/releases/download/20200413/libuninameslist-dist-20200413.tar.gz
-
 
 NAME=libuninameslist
 VERSION=20200413
 URL=https://github.com/fontforge/libuninameslist/releases/download/20200413/libuninameslist-dist-20200413.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="Libuninameslist provides a Library of Unicode names and annotation data"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/fontforge/libuninameslist/releases/download/20200413/libuninameslist-dist-20200413.tar.gz
+
 
 if [ ! -z $URL ]
 then

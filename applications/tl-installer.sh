@@ -19,17 +19,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
-
 
 NAME=tl-installer
 VERSION=
 URL=http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
 SECTION="Typesetting"
 DESCRIPTION="The TeX Live package is a comprehensive TeX document production system. It includes TeX, LaTeX2e, ConTeXt, Metafont, MetaPost, BibTeX and many other programs; an extensive collection of macros, fonts and documentation; and support for typesetting in many different scripts from around the world."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+
 
 if [ ! -z $URL ]
 then

@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.jedsoft.org/releases/slang/slang-2.3.2.tar.bz2
-
 
 NAME=slang
 VERSION=2.3.2
 URL=https://www.jedsoft.org/releases/slang/slang-2.3.2.tar.bz2
 SECTION="Programming"
 DESCRIPTION="S-Lang (slang) is an interpreted language that may be embedded into an application to make the application extensible. It provides facilities required by interactive applications such as display/screen management, keyboard input and keymaps."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.jedsoft.org/releases/slang/slang-2.3.2.tar.bz2
+
 
 if [ ! -z $URL ]
 then

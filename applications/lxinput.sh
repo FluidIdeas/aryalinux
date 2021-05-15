@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.sourceforge.net/lxde/lxinput-0.3.5.tar.xz
-
 
 NAME=lxinput
 VERSION=0.3.5
 URL=https://downloads.sourceforge.net/lxde/lxinput-0.3.5.tar.xz
 SECTION="LXDE Applications"
 DESCRIPTION="The LXInput package contains a small program used to configure keyboard and mouse for LXDE."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.sourceforge.net/lxde/lxinput-0.3.5.tar.xz
+
 
 if [ ! -z $URL ]
 then

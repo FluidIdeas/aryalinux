@@ -14,18 +14,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://distfiles.audacious-media-player.org/audacious-4.1.tar.bz2
-wget -nc https://distfiles.audacious-media-player.org/audacious-plugins-4.1.tar.bz2
-
 
 NAME=audacious
 VERSION=4.1
 URL=https://distfiles.audacious-media-player.org/audacious-4.1.tar.bz2
 SECTION="Audio Utilities"
 DESCRIPTION="Audacious is an audio player."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://distfiles.audacious-media-player.org/audacious-4.1.tar.bz2
+wget -nc https://distfiles.audacious-media-player.org/audacious-plugins-4.1.tar.bz2
+
 
 if [ ! -z $URL ]
 then

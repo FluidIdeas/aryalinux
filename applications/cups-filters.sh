@@ -21,17 +21,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.openprinting.org/download/cups-filters/cups-filters-1.28.8.tar.xz
-
 
 NAME=cups-filters
 VERSION=1.28.8
 URL=https://www.openprinting.org/download/cups-filters/cups-filters-1.28.8.tar.xz
 SECTION="Printing"
 DESCRIPTION="The CUPS Filters package contains backends, filters and other software that was once part of the core CUPS distribution but is no longer maintained by Apple Inc."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.openprinting.org/download/cups-filters/cups-filters-1.28.8.tar.xz
+
 
 if [ ! -z $URL ]
 then

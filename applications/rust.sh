@@ -14,17 +14,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://static.rust-lang.org/dist/rustc-1.47.0-src.tar.gz
-
 
 NAME=rust
 VERSION=1.47.0
 URL=https://static.rust-lang.org/dist/rustc-1.47.0-src.tar.gz
 SECTION="Programming"
 DESCRIPTION="The Rust programming language is designed to be a safe, concurrent, practical language."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://static.rust-lang.org/dist/rustc-1.47.0-src.tar.gz
+
 
 if [ ! -z $URL ]
 then

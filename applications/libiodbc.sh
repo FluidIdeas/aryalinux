@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.sourceforge.net/iodbc/libiodbc-3.52.14.tar.gz
-
 
 NAME=libiodbc
 VERSION=3.52.14
 URL=https://downloads.sourceforge.net/iodbc/libiodbc-3.52.14.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="libiodbc is an API to ODBC compatible databases."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.sourceforge.net/iodbc/libiodbc-3.52.14.tar.gz
+
 
 if [ ! -z $URL ]
 then

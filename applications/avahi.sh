@@ -16,17 +16,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/lathiat/avahi/releases/download/v0.8/avahi-0.8.tar.gz
-
 
 NAME=avahi
 VERSION=0.8
 URL=https://github.com/lathiat/avahi/releases/download/v0.8/avahi-0.8.tar.gz
 SECTION="Networking Utilities"
 DESCRIPTION="The Avahi package is a system which facilitates service discovery on a local network."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/lathiat/avahi/releases/download/v0.8/avahi-0.8.tar.gz
+
 
 if [ ! -z $URL ]
 then

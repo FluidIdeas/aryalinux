@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.xiph.org/releases/vorbis/libvorbis-1.3.7.tar.xz
-
 
 NAME=libvorbis
 VERSION=1.3.7
 URL=https://downloads.xiph.org/releases/vorbis/libvorbis-1.3.7.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The libvorbis package contains a general purpose audio and music encoding format. This is useful for creating (encoding) and playing (decoding) sound in an open (patent free) format."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.xiph.org/releases/vorbis/libvorbis-1.3.7.tar.xz
+
 
 if [ ! -z $URL ]
 then

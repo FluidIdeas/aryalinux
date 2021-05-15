@@ -12,17 +12,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc ftp://ftp.sendmail.org/pub/sendmail/sendmail.8.16.1.tar.gz
-
 
 NAME=sendmail
 VERSION=.8.16.1
 URL=ftp://ftp.sendmail.org/pub/sendmail/sendmail.8.16.1.tar.gz
 SECTION="Mail Server Software"
 DESCRIPTION="The sendmail package contains a Mail Transport Agent (MTA)."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc ftp://ftp.sendmail.org/pub/sendmail/sendmail.8.16.1.tar.gz
+
 
 if [ ! -z $URL ]
 then

@@ -13,17 +13,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/nicklan/pnmixer/releases/download/v0.7.2/pnmixer-v0.7.2.tar.gz
-
 
 NAME=pnmixer
 VERSION=0.7.2
 URL=https://github.com/nicklan/pnmixer/releases/download/v0.7.2/pnmixer-v0.7.2.tar.gz
 SECTION="Audio Utilities"
 DESCRIPTION="The Pnmixer package provides a lightweight volume control with a tray icon."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/nicklan/pnmixer/releases/download/v0.7.2/pnmixer-v0.7.2.tar.gz
+
 
 if [ ! -z $URL ]
 then

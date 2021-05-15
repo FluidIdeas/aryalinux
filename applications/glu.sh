@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.1.tar.xz
-
 
 NAME=glu
 VERSION=9.0.1
 URL=ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.1.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="This package provides the Mesa OpenGL Utility library."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.1.tar.xz
+
 
 if [ ! -z $URL ]
 then

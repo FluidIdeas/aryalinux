@@ -12,17 +12,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.sourceforge.net/lxde/lxrandr-0.3.2.tar.xz
-
 
 NAME=lxrandr
 VERSION=0.3.2
 URL=https://downloads.sourceforge.net/lxde/lxrandr-0.3.2.tar.xz
 SECTION="LXDE Applications"
 DESCRIPTION="The LXRandR package contains a monitor configuration tool for LXDE."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.sourceforge.net/lxde/lxrandr-0.3.2.tar.xz
+
 
 if [ ! -z $URL ]
 then

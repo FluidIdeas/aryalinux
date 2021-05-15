@@ -11,18 +11,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/Jehan/mypaint-brushes/archive/v1.3.0/mypaint-brushes-v1.3.0.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/mypaint-brushes-1.3.0-automake_1.16-1.patch
-
 
 NAME=mypaint-brushes
 VERSION=1.3.0
 URL=https://github.com/Jehan/mypaint-brushes/archive/v1.3.0/mypaint-brushes-v1.3.0.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The mypaint-brushes package contains brushes used by packages which use libmypaint."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/Jehan/mypaint-brushes/archive/v1.3.0/mypaint-brushes-v1.3.0.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/mypaint-brushes-1.3.0-automake_1.16-1.patch
+
 
 if [ ! -z $URL ]
 then

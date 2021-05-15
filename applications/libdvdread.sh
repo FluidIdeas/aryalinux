@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://get.videolan.org/libdvdread/6.1.2/libdvdread-6.1.2.tar.bz2
-
 
 NAME=libdvdread
 VERSION=6.1.2
 URL=https://get.videolan.org/libdvdread/6.1.2/libdvdread-6.1.2.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="libdvdread is a library which provides a simple foundation for reading DVDs."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://get.videolan.org/libdvdread/6.1.2/libdvdread-6.1.2.tar.bz2
+
 
 if [ ! -z $URL ]
 then

@@ -16,6 +16,14 @@ set +h
 
 
 cd $SOURCE_DIR
+
+NAME=transcode
+VERSION=1.1.7
+URL=https://sources.archlinux.org/other/community/transcode/transcode-1.1.7.tar.bz2
+SECTION="Video Utilities"
+DESCRIPTION="Transcode was a fast, versatile and command-line based audio/video everything to everything converter primarily focussed on producing AVI video files with MP3 audio, but also including a program to read all the video and audio streams from a DVD."
+
+
 mkdir -pv $NAME
 pushd $NAME
 
@@ -24,12 +32,6 @@ wget -nc ftp://ftp.mirrorservice.org/sites/distfiles.gentoo.org/distfiles/transc
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/transcode-1.1.7-ffmpeg4-1.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/transcode-1.1.7-gcc10_fix-1.patch
 
-
-NAME=transcode
-VERSION=1.1.7
-URL=https://sources.archlinux.org/other/community/transcode/transcode-1.1.7.tar.bz2
-SECTION="Video Utilities"
-DESCRIPTION="Transcode was a fast, versatile and command-line based audio/video everything to everything converter primarily focussed on producing AVI video files with MP3 audio, but also including a program to read all the video and audio streams from a DVD."
 
 if [ ! -z $URL ]
 then

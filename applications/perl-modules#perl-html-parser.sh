@@ -12,16 +12,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.cpan.org/authors/id/O/OA/OALDERS/HTML-Parser-3.76.tar.gz
-
 
 NAME=perl-modules#perl-html-parser
 VERSION=3.76
 URL=https://www.cpan.org/authors/id/O/OA/OALDERS/HTML-Parser-3.76.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.cpan.org/authors/id/O/OA/OALDERS/HTML-Parser-3.76.tar.gz
+
 
 if [ ! -z $URL ]
 then

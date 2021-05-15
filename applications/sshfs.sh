@@ -13,17 +13,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/libfuse/sshfs/releases/download/sshfs-3.7.1/sshfs-3.7.1.tar.xz
-
 
 NAME=sshfs
 VERSION=3.7.1
 URL=https://github.com/libfuse/sshfs/releases/download/sshfs-3.7.1/sshfs-3.7.1.tar.xz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The Sshfs package contains a filesystem client based on the SSH File Transfer Protocol. This is useful for mounting a remote computer that you have ssh access to as a local filesystem. This allows you to drag and drop files or run shell commands on the remote files as if they were on your local computer."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/libfuse/sshfs/releases/download/sshfs-3.7.1/sshfs-3.7.1.tar.xz
+
 
 if [ ! -z $URL ]
 then

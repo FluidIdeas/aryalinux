@@ -12,17 +12,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.sourceforge.net/lxde/lxappearance-0.6.3.tar.xz
-
 
 NAME=lxappearance
 VERSION=0.6.3
 URL=https://downloads.sourceforge.net/lxde/lxappearance-0.6.3.tar.xz
 SECTION="LXDE Desktop"
 DESCRIPTION="The LXAppearance package contains a desktop-independent theme switcher for GTK+."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.sourceforge.net/lxde/lxappearance-0.6.3.tar.xz
+
 
 if [ ! -z $URL ]
 then

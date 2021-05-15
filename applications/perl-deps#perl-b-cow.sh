@@ -10,16 +10,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/B-COW-0.004.tar.gz
-
 
 NAME=perl-deps#perl-b-cow
 VERSION=0.004
 URL=https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/B-COW-0.004.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/B-COW-0.004.tar.gz
+
 
 if [ ! -z $URL ]
 then

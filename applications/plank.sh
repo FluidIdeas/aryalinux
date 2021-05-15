@@ -12,16 +12,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://launchpad.net/plank/1.0/0.11.89/+download/plank-0.11.89.tar.xz
-
 
 NAME=plank
 VERSION=0.11.89
 URL=https://launchpad.net/plank/1.0/0.11.89/+download/plank-0.11.89.tar.xz
 DESCRIPTION="Plank is meant to be the simplest dock on the planet. The goal is to provide just what a dock needs and absolutely nothing more. It is, however, a library which can be extended to create other dock programs with more advanced features."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://launchpad.net/plank/1.0/0.11.89/+download/plank-0.11.89.tar.xz
+
 
 if [ ! -z $URL ]
 then

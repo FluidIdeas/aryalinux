@@ -10,16 +10,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Importer-0.026.tar.gz
-
 
 NAME=perl-deps#perl-importer
 VERSION=0.026
 URL=https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Importer-0.026.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Importer-0.026.tar.gz
+
 
 if [ ! -z $URL ]
 then

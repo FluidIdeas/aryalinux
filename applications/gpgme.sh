@@ -11,18 +11,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.15.1.tar.bz2
-wget -nc ftp://ftp.gnupg.org/gcrypt/gpgme/gpgme-1.15.1.tar.bz2
-
 
 NAME=gpgme
 VERSION=1.15.1
 URL=https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.15.1.tar.bz2
 SECTION="Security"
 DESCRIPTION="The GPGME package is a C library that allows cryptography support to be added to a program. It is designed to make access to public key crypto engines like GnuPG or GpgSM easier for applications. GPGME provides a high-level crypto API for encryption, decryption, signing, signature verification and key management."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.15.1.tar.bz2
+wget -nc ftp://ftp.gnupg.org/gcrypt/gpgme/gpgme-1.15.1.tar.bz2
+
 
 if [ ! -z $URL ]
 then

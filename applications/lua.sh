@@ -10,6 +10,14 @@ set +h
 
 
 cd $SOURCE_DIR
+
+NAME=lua
+VERSION=5.4.3
+URL=https://www.lua.org/ftp/lua-5.4.3.tar.gz
+SECTION="Programming"
+DESCRIPTION="Lua is a powerful light-weight programming language designed for extending applications. It is also frequently used as a general-purpose, stand-alone language. Lua is implemented as a small library of C functions, written in ANSI C, and compiles unmodified in all known platforms. The implementation goals are simplicity, efficiency, portability, and low embedding cost. The result is a fast language engine with small footprint, making it ideal in embedded systems too."
+
+
 mkdir -pv $NAME
 pushd $NAME
 
@@ -17,12 +25,6 @@ wget -nc https://www.lua.org/ftp/lua-5.4.3.tar.gz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/lua-5.4.3-shared_library-1.patch
 wget -nc https://www.lua.org/tests/lua-5.4.3-tests.tar.gz
 
-
-NAME=lua
-VERSION=5.4.3
-URL=https://www.lua.org/ftp/lua-5.4.3.tar.gz
-SECTION="Programming"
-DESCRIPTION="Lua is a powerful light-weight programming language designed for extending applications. It is also frequently used as a general-purpose, stand-alone language. Lua is implemented as a small library of C functions, written in ANSI C, and compiles unmodified in all known platforms. The implementation goals are simplicity, efficiency, portability, and low embedding cost. The result is a fast language engine with small footprint, making it ideal in embedded systems too."
 
 if [ ! -z $URL ]
 then

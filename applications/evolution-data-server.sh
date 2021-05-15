@@ -24,6 +24,14 @@ set +h
 
 
 cd $SOURCE_DIR
+
+NAME=evolution-data-server
+VERSION=3.40.0
+URL=https://download.gnome.org/sources/evolution-data-server/3.40/evolution-data-server-3.40.0.tar.xz
+SECTION="GNOME Libraries and Desktop"
+DESCRIPTION="The Evolution Data Server package provides a unified backend for programs that work with contacts, tasks, and calendar information. It was originally developed for Evolution (hence the name), but is now used by other packages as well."
+
+
 mkdir -pv $NAME
 pushd $NAME
 
@@ -31,12 +39,6 @@ wget -nc https://download.gnome.org/sources/evolution-data-server/3.40/evolution
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/evolution-data-server/3.40/evolution-data-server-3.40.0.tar.xz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/evolution-data-server-3.40.0-cmake_fix-1.patch
 
-
-NAME=evolution-data-server
-VERSION=3.40.0
-URL=https://download.gnome.org/sources/evolution-data-server/3.40/evolution-data-server-3.40.0.tar.xz
-SECTION="GNOME Libraries and Desktop"
-DESCRIPTION="The Evolution Data Server package provides a unified backend for programs that work with contacts, tasks, and calendar information. It was originally developed for Evolution (hence the name), but is now used by other packages as well."
 
 if [ ! -z $URL ]
 then

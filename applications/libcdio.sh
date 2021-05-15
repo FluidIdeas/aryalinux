@@ -10,6 +10,14 @@ set +h
 
 
 cd $SOURCE_DIR
+
+NAME=libcdio
+VERSION=2.1.0
+URL=https://ftp.gnu.org/gnu/libcdio/libcdio-2.1.0.tar.bz2
+SECTION="Multimedia Libraries and Drivers"
+DESCRIPTION="The libcdio is a library for CD-ROM and CD image access. The associated libcdio-cdparanoia library reads audio from the CD-ROM directly as data, with no analog step between, and writes the data to a file or pipe as .wav, .aifc or as raw 16 bit linear PCM."
+
+
 mkdir -pv $NAME
 pushd $NAME
 
@@ -17,12 +25,6 @@ wget -nc https://ftp.gnu.org/gnu/libcdio/libcdio-2.1.0.tar.bz2
 wget -nc ftp://ftp.gnu.org/gnu/libcdio/libcdio-2.1.0.tar.bz2
 wget -nc https://ftp.gnu.org/gnu/libcdio/libcdio-paranoia-10.2+2.0.1.tar.bz2
 
-
-NAME=libcdio
-VERSION=2.1.0
-URL=https://ftp.gnu.org/gnu/libcdio/libcdio-2.1.0.tar.bz2
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="The libcdio is a library for CD-ROM and CD image access. The associated libcdio-cdparanoia library reads audio from the CD-ROM directly as data, with no analog step between, and writes the data to a file or pipe as .wav, .aifc or as raw 16 bit linear PCM."
 
 if [ ! -z $URL ]
 then

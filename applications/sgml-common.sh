@@ -10,6 +10,14 @@ set +h
 
 
 cd $SOURCE_DIR
+
+NAME=sgml-common
+VERSION=0.6.3
+URL=https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/sgml-common-0.6.3.tgz
+SECTION="Standard Generalized Markup Language (SGML)"
+DESCRIPTION="The SGML Common package contains install-catalog. This is useful for creating and maintaining centralized SGML catalogs."
+
+
 mkdir -pv $NAME
 pushd $NAME
 
@@ -17,12 +25,6 @@ wget -nc https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/sgml-common
 wget -nc ftp://sourceware.org/pub/docbook-tools/new-trials/SOURCES/sgml-common-0.6.3.tgz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/sgml-common-0.6.3-manpage-1.patch
 
-
-NAME=sgml-common
-VERSION=0.6.3
-URL=https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/sgml-common-0.6.3.tgz
-SECTION="Standard Generalized Markup Language (SGML)"
-DESCRIPTION="The SGML Common package contains install-catalog. This is useful for creating and maintaining centralized SGML catalogs."
 
 if [ ! -z $URL ]
 then

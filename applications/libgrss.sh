@@ -11,6 +11,14 @@ set +h
 
 
 cd $SOURCE_DIR
+
+NAME=libgrss
+VERSION=0.7.0
+URL=https://download.gnome.org/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
+SECTION="General Libraries"
+DESCRIPTION="The libgrss package contains a library designed to manipulate RSS and Atom feeds."
+
+
 mkdir -pv $NAME
 pushd $NAME
 
@@ -18,12 +26,6 @@ wget -nc https://download.gnome.org/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/libgrss-0.7.0-bugfixes-1.patch
 
-
-NAME=libgrss
-VERSION=0.7.0
-URL=https://download.gnome.org/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
-SECTION="General Libraries"
-DESCRIPTION="The libgrss package contains a library designed to manipulate RSS and Atom feeds."
 
 if [ ! -z $URL ]
 then

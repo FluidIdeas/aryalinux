@@ -10,16 +10,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/flavio/qjson/archive/0.9.0/qjson-0.9.0.tar.gz
-
 
 NAME=gjson
 VERSION=0.9.0
 URL=https://github.com/flavio/qjson/archive/0.9.0/qjson-0.9.0.tar.gz
 DESCRIPTION="Go package that provides a fast and simple way to get values from a JSON document. It has features such as one line retrieval, dot notation paths, iteration, and parsing JSON lines."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/flavio/qjson/archive/0.9.0/qjson-0.9.0.tar.gz
+
 
 if [ ! -z $URL ]
 then

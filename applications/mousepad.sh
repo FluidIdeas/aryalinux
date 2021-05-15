@@ -12,17 +12,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://archive.xfce.org/src/apps/mousepad/0.5/mousepad-0.5.4.tar.bz2
-
 
 NAME=mousepad
 VERSION=0.5.4
 URL=https://archive.xfce.org/src/apps/mousepad/0.5/mousepad-0.5.4.tar.bz2
 SECTION="Editors"
 DESCRIPTION="Mousepad is a simple GTK+ 3 text editor for the Xfce desktop environment."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://archive.xfce.org/src/apps/mousepad/0.5/mousepad-0.5.4.tar.bz2
+
 
 if [ ! -z $URL ]
 then

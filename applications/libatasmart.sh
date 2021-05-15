@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc http://0pointer.de/public/libatasmart-0.19.tar.xz
-
 
 NAME=libatasmart
 VERSION=0.19
 URL=http://0pointer.de/public/libatasmart-0.19.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libatasmart package is a disk reporting library. It only supports a subset of the ATA S.M.A.R.T. functionality."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc http://0pointer.de/public/libatasmart-0.19.tar.xz
+
 
 if [ ! -z $URL ]
 then

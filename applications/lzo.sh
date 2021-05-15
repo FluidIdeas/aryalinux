@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz
-
 
 NAME=lzo
 VERSION=2.10
 URL=https://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="LZO is a data compression library which is suitable for data decompression and compression in real-time. This means it favors speed over compression ratio."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz
+
 
 if [ ! -z $URL ]
 then

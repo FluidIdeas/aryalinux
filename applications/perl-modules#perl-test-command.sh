@@ -10,16 +10,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.cpan.org/authors/id/D/DA/DANBOO/Test-Command-0.11.tar.gz
-
 
 NAME=perl-modules#perl-test-command
 VERSION=0.11
 URL=https://www.cpan.org/authors/id/D/DA/DANBOO/Test-Command-0.11.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.cpan.org/authors/id/D/DA/DANBOO/Test-Command-0.11.tar.gz
+
 
 if [ ! -z $URL ]
 then

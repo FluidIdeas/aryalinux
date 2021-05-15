@@ -14,17 +14,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.kde.org/stable/release-service/20.12.2/src/kdenlive-20.12.2.tar.xz
-
 
 NAME=kdenlive
 VERSION=20.12.2
 URL=https://download.kde.org/stable/release-service/20.12.2/src/kdenlive-20.12.2.tar.xz
 SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="The Kdenlive package is a KF5 based video editor."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.kde.org/stable/release-service/20.12.2/src/kdenlive-20.12.2.tar.xz
+
 
 if [ ! -z $URL ]
 then

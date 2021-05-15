@@ -17,17 +17,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.kde.org/stable/release-service/20.12.2/src/ark-20.12.2.tar.xz
-
 
 NAME=ark5
 VERSION=20.12.2
 URL=https://download.kde.org/stable/release-service/20.12.2/src/ark-20.12.2.tar.xz
 SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="The Ark package is a KF5 archive tool. It is a graphical front end to tar and similar tools."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.kde.org/stable/release-service/20.12.2/src/ark-20.12.2.tar.xz
+
 
 if [ ! -z $URL ]
 then

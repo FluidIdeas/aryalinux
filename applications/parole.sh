@@ -15,17 +15,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://archive.xfce.org/src/apps/parole/4.16/parole-4.16.0.tar.bz2
-
 
 NAME=parole
 VERSION=4.16.0
 URL=https://archive.xfce.org/src/apps/parole/4.16/parole-4.16.0.tar.bz2
 SECTION="Xfce Applications"
 DESCRIPTION="Parole is a DVD/CD/music player for Xfce that uses GStreamer."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://archive.xfce.org/src/apps/parole/4.16/parole-4.16.0.tar.bz2
+
 
 if [ ! -z $URL ]
 then

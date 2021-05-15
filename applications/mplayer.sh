@@ -13,6 +13,14 @@ set +h
 
 
 cd $SOURCE_DIR
+
+NAME=mplayer
+VERSION=1.4
+URL=http://www.mplayerhq.hu/MPlayer/releases/MPlayer-1.4.tar.xz
+SECTION="Video Utilities"
+DESCRIPTION="MPlayer is a powerful audio/video player controlled via the command line or a graphical interface that is able to play almost every popular audio and video file format. With supported video hardware and additional drivers, MPlayer can play video files without an X Window System installed."
+
+
 mkdir -pv $NAME
 pushd $NAME
 
@@ -22,12 +30,6 @@ wget -nc http://www.mplayerhq.hu/MPlayer/skins/Clearlooks-2.0.tar.bz2
 wget -nc ftp://ftp.mplayerhq.hu/MPlayer/skins/Clearlooks-2.0.tar.bz2
 wget -nc https://www.mplayerhq.hu/MPlayer/skins/
 
-
-NAME=mplayer
-VERSION=1.4
-URL=http://www.mplayerhq.hu/MPlayer/releases/MPlayer-1.4.tar.xz
-SECTION="Video Utilities"
-DESCRIPTION="MPlayer is a powerful audio/video player controlled via the command line or a graphical interface that is able to play almost every popular audio and video file format. With supported video hardware and additional drivers, MPlayer can play video files without an X Window System installed."
 
 if [ ! -z $URL ]
 then

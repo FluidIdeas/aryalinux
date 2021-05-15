@@ -10,16 +10,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.cpan.org/authors/id/E/ET/ETJ/Log-Log4perl-1.54.tar.gz
-
 
 NAME=perl-modules#perl-log-log4perl
 VERSION=
 URL=https://www.cpan.org/authors/id/E/ET/ETJ/Log-Log4perl-1.54.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.cpan.org/authors/id/E/ET/ETJ/Log-Log4perl-1.54.tar.gz
+
 
 if [ ! -z $URL ]
 then

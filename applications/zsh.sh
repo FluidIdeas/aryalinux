@@ -10,18 +10,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.zsh.org/pub/zsh-5.8.tar.xz
-wget -nc https://www.zsh.org/pub/zsh-5.8-doc.tar.xz
-
 
 NAME=zsh
 VERSION=5.8
 URL=https://www.zsh.org/pub/zsh-5.8.tar.xz
 SECTION="Shells"
 DESCRIPTION="The zsh package contains a command interpreter (shell) usable as an interactive login shell and as a shell script command processor. Of the standard shells, zsh most closely resembles ksh but includes many enhancements."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.zsh.org/pub/zsh-5.8.tar.xz
+wget -nc https://www.zsh.org/pub/zsh-5.8-doc.tar.xz
+
 
 if [ ! -z $URL ]
 then

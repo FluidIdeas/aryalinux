@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.kernel.org/pub/linux/bluetooth/sbc-1.5.tar.xz
-
 
 NAME=sbc
 VERSION=1.5
 URL=https://www.kernel.org/pub/linux/bluetooth/sbc-1.5.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The SBC is a digital audio encoder and decoder used to transfer data to Bluetooth audio output devices like headphones or loudspeakers."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.kernel.org/pub/linux/bluetooth/sbc-1.5.tar.xz
+
 
 if [ ! -z $URL ]
 then

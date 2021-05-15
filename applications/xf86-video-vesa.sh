@@ -10,16 +10,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.x.org/archive/individual/driver/xf86-video-vesa-2.5.0.tar.gz
-
 
 NAME=xf86-video-vesa
 VERSION=2.5.0
 URL=https://www.x.org/archive/individual/driver/xf86-video-vesa-2.5.0.tar.gz
 DESCRIPTION="Userspace VESA video graphics driver."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.x.org/archive/individual/driver/xf86-video-vesa-2.5.0.tar.gz
+
 
 if [ ! -z $URL ]
 then

@@ -30,17 +30,19 @@ set +h
 
 
 cd $SOURCE_DIR
+
+NAME=gimp-gtk3
+VERSION=2.99.1
+URL=https://gitlab.gnome.org/GNOME/gimp/-/archive/gtk3-port/gimp-gtk3-port.tar.bz2
+DESCRIPTION="The Gtk3 branch of the GNU Image Manipulation Program"
+
+
 mkdir -pv $NAME
 pushd $NAME
 
 wget -nc https://gitlab.gnome.org/GNOME/gimp/-/archive/gtk3-port/gimp-gtk3-port.tar.bz2
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/gimp-gtk3.patch
 
-
-NAME=gimp-gtk3
-VERSION=2.99.1
-URL=https://gitlab.gnome.org/GNOME/gimp/-/archive/gtk3-port/gimp-gtk3-port.tar.bz2
-DESCRIPTION="The Gtk3 branch of the GNU Image Manipulation Program"
 
 if [ ! -z $URL ]
 then

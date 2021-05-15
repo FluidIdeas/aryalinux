@@ -11,17 +11,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.kde.org/stable/plasma-wayland-protocols/plasma-wayland-protocols-1.3.0.tar.xz
-
 
 NAME=plasma-wayland-protocols
 VERSION=1.3.0
 URL=https://download.kde.org/stable/plasma-wayland-protocols/plasma-wayland-protocols-1.3.0.tar.xz
 SECTION="Introduction to KDE"
 DESCRIPTION="This package provides a custom set of protocol definitions for KDE."
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.kde.org/stable/plasma-wayland-protocols/plasma-wayland-protocols-1.3.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

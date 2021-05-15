@@ -11,16 +11,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/01org/intel-hybrid-driver/archive/1.0.2/intel-hybrid-driver-1.0.2.tar.gz
-
 
 NAME=intel-hybrid-driver
 VERSION=1.0.2
 URL=https://github.com/01org/intel-hybrid-driver/archive/1.0.2/intel-hybrid-driver-1.0.2.tar.gz
 DESCRIPTION="VA driver for Intel G45 & HD Graphics family."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/01org/intel-hybrid-driver/archive/1.0.2/intel-hybrid-driver-1.0.2.tar.gz
+
 
 if [ ! -z $URL ]
 then

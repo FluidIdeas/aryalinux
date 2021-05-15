@@ -10,16 +10,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/encukou/py3c/archive/v1.3.1/py3c-1.3.1.tar.gz
-
 
 NAME=python-modules#py3c
 VERSION=1.3.1
 URL=https://github.com/encukou/py3c/archive/v1.3.1/py3c-1.3.1.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/encukou/py3c/archive/v1.3.1/py3c-1.3.1.tar.gz
+
 
 if [ ! -z $URL ]
 then

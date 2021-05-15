@@ -16,18 +16,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.49.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnumeric/1.12/gnumeric-1.12.49.tar.xz
-
 
 NAME=gnumeric
 VERSION=1.12.49
 URL=https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.49.tar.xz
 SECTION="Office Programs"
 DESCRIPTION="The Gnumeric package contains a spreadsheet program which is useful for mathematical analysis."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.49.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnumeric/1.12/gnumeric-1.12.49.tar.xz
+
 
 if [ ! -z $URL ]
 then

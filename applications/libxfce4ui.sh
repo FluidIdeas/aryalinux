@@ -13,17 +13,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://archive.xfce.org/src/xfce/libxfce4ui/4.16/libxfce4ui-4.16.0.tar.bz2
-
 
 NAME=libxfce4ui
 VERSION=4.16.0
 URL=https://archive.xfce.org/src/xfce/libxfce4ui/4.16/libxfce4ui-4.16.0.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="The libxfce4ui package contains GTK+ 2 widgets that are used by other Xfce applications."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://archive.xfce.org/src/xfce/libxfce4ui/4.16/libxfce4ui-4.16.0.tar.bz2
+
 
 if [ ! -z $URL ]
 then

@@ -12,18 +12,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/audiofile/0.3/audiofile-0.3.6.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/audiofile/0.3/audiofile-0.3.6.tar.xz
-
 
 NAME=audiofile
 VERSION=0.3.6
 URL=https://download.gnome.org/sources/audiofile/0.3/audiofile-0.3.6.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The AudioFile package contains the audio file libraries and two sound file support programs useful to support basic sound file formats."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/audiofile/0.3/audiofile-0.3.6.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/audiofile/0.3/audiofile-0.3.6.tar.xz
+
 
 if [ ! -z $URL ]
 then

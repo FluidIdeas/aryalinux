@@ -13,17 +13,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/mypaint/libmypaint/releases/download/v1.6.1/libmypaint-1.6.1.tar.xz
-
 
 NAME=libmypaint
 VERSION=1.6.1
 URL=https://github.com/mypaint/libmypaint/releases/download/v1.6.1/libmypaint-1.6.1.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The libmypaint package, a.k.a. \"brushlib\", is a library for making brushstrokes which is used by MyPaint and other projects."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/mypaint/libmypaint/releases/download/v1.6.1/libmypaint-1.6.1.tar.xz
+
 
 if [ ! -z $URL ]
 then

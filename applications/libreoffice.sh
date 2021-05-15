@@ -46,6 +46,14 @@ set +h
 
 
 cd $SOURCE_DIR
+
+NAME=libreoffice
+VERSION=7.1.2.2
+URL=https://download.documentfoundation.org/libreoffice/src/7.1.2/libreoffice-7.1.2.2.tar.xz
+SECTION="Office Programs"
+DESCRIPTION="LibreOffice is a full-featured office suite. It is largely compatible with Microsoft Office and is descended from OpenOffice.org."
+
+
 mkdir -pv $NAME
 pushd $NAME
 
@@ -54,12 +62,6 @@ wget -nc https://download.documentfoundation.org/libreoffice/src/7.1.2/libreoffi
 wget -nc https://download.documentfoundation.org/libreoffice/src/7.1.2/libreoffice-help-7.1.2.2.tar.xz
 wget -nc https://download.documentfoundation.org/libreoffice/src/7.1.2/libreoffice-translations-7.1.2.2.tar.xz
 
-
-NAME=libreoffice
-VERSION=7.1.2.2
-URL=https://download.documentfoundation.org/libreoffice/src/7.1.2/libreoffice-7.1.2.2.tar.xz
-SECTION="Office Programs"
-DESCRIPTION="LibreOffice is a full-featured office suite. It is largely compatible with Microsoft Office and is descended from OpenOffice.org."
 
 if [ ! -z $URL ]
 then

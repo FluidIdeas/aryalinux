@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/cjlin1/liblinear/archive/v243/liblinear-243.tar.gz
-
 
 NAME=liblinear
 VERSION=243
 URL=https://github.com/cjlin1/liblinear/archive/v243/liblinear-243.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="This package provides a library for learning linear classifiers for large scale applications. It supports Support Vector Machines (SVM) with L2 and L1 loss, logistic regression, multi class classification and also Linear Programming Machines (L1-regularized SVMs). Its computational complexity scales linearly with the number of training examples making it one of the fastest SVM solvers around."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/cjlin1/liblinear/archive/v243/liblinear-243.tar.gz
+
 
 if [ ! -z $URL ]
 then

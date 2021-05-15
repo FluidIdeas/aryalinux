@@ -10,18 +10,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://ftp.gnu.org/gnu/cpio/cpio-2.13.tar.bz2
-wget -nc ftp://ftp.gnu.org/gnu/cpio/cpio-2.13.tar.bz2
-
 
 NAME=cpio
 VERSION=2.13
 URL=https://ftp.gnu.org/gnu/cpio/cpio-2.13.tar.bz2
 SECTION="System Utilities"
 DESCRIPTION="The cpio package contains tools for archiving."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://ftp.gnu.org/gnu/cpio/cpio-2.13.tar.bz2
+wget -nc ftp://ftp.gnu.org/gnu/cpio/cpio-2.13.tar.bz2
+
 
 if [ ! -z $URL ]
 then

@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.sourceforge.net/scons/scons-4.1.0.tar.gz
-
 
 NAME=scons
 VERSION=4.1.0
 URL=https://downloads.sourceforge.net/scons/scons-4.1.0.tar.gz
 SECTION="Programming"
 DESCRIPTION="SCons is a tool for building software (and other files) implemented in Python."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.sourceforge.net/scons/scons-4.1.0.tar.gz
+
 
 if [ ! -z $URL ]
 then

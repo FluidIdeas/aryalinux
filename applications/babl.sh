@@ -13,17 +13,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gimp.org/pub/babl/0.1/babl-0.1.86.tar.xz
-
 
 NAME=babl
 VERSION=0.1.86
 URL=https://download.gimp.org/pub/babl/0.1/babl-0.1.86.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The Babl package is a dynamic, any to any, pixel format translation library."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gimp.org/pub/babl/0.1/babl-0.1.86.tar.xz
+
 
 if [ ! -z $URL ]
 then

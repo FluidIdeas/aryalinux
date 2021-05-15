@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.sourceforge.net/tcl/tk8.6.11.1-src.tar.gz
-
 
 NAME=tk
 VERSION=
 URL=https://downloads.sourceforge.net/tcl/tk8.6.11.1-src.tar.gz
 SECTION="Programming"
 DESCRIPTION="The Tk package contains a TCL GUI Toolkit."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.sourceforge.net/tcl/tk8.6.11.1-src.tar.gz
+
 
 if [ ! -z $URL ]
 then

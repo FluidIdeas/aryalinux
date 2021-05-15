@@ -12,17 +12,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://doxygen.nl/files/doxygen-1.9.1.src.tar.gz
-
 
 NAME=doxygen
 VERSION=1.9.1
 URL=https://doxygen.nl/files/doxygen-1.9.1.src.tar.gz
 SECTION="Programming"
 DESCRIPTION="The Doxygen package contains a documentation system for C++, C, Java, Objective-C, Corba IDL and to some extent PHP, C# and D. It is useful for generating HTML documentation and/or an off-line reference manual from a set of documented source files. There is also support for generating output in RTF, PostScript, hyperlinked PDF, compressed HTML, and Unix man pages. The documentation is extracted directly from the sources, which makes it much easier to keep the documentation consistent with the source code."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://doxygen.nl/files/doxygen-1.9.1.src.tar.gz
+
 
 if [ ! -z $URL ]
 then

@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.nano-editor.org/dist/v5/nano-5.7.tar.xz
-
 
 NAME=nano
 VERSION=5.7
 URL=https://www.nano-editor.org/dist/v5/nano-5.7.tar.xz
 SECTION="Editors"
 DESCRIPTION="The Nano package contains a small, simple text editor which aims to replace Pico, the default editor in the Pine package."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.nano-editor.org/dist/v5/nano-5.7.tar.xz
+
 
 if [ ! -z $URL ]
 then

@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
+
+NAME=usb-modeswitch
+VERSION=2.2.5
+URL=http://www.draisberghof.de/usb_modeswitch/usb-modeswitch-2.2.5.tar.bz2
+DESCRIPTION="mode switching tool for controlling 'flip flop' USB devices"
+
+
 mkdir -pv $NAME
 pushd $NAME
 
 wget -nc http://www.draisberghof.de/usb_modeswitch/usb-modeswitch-2.2.5.tar.bz2
 wget -nc http://www.draisberghof.de/usb_modeswitch/usb-modeswitch-data-20150627.tar.bz2
 
-
-NAME=usb-modeswitch
-VERSION=2.2.5
-URL=http://www.draisberghof.de/usb_modeswitch/usb-modeswitch-2.2.5.tar.bz2
-DESCRIPTION="mode switching tool for controlling 'flip flop' USB devices"
 
 if [ ! -z $URL ]
 then

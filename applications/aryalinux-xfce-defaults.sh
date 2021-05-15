@@ -10,16 +10,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://sourceforge.net/projects/aryalinux/files/releases/4.0/aryalinux-xfce-defaults-4.0.tar.xz
-
 
 NAME=aryalinux-xfce-defaults
 VERSION=4.0
 
 DESCRIPTION="Default settings of the XFCE desktop environment in AryaLinux. Includes commands for setting themes, icons and fonts for the defualt XFCE desktop."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://sourceforge.net/projects/aryalinux/files/releases/4.0/aryalinux-xfce-defaults-4.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

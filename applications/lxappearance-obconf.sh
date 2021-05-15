@@ -12,17 +12,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.sourceforge.net/lxde/lxappearance-obconf-0.2.3.tar.xz
-
 
 NAME=lxappearance-obconf
 VERSION=0.2.3
 URL=https://downloads.sourceforge.net/lxde/lxappearance-obconf-0.2.3.tar.xz
 SECTION="LXDE Applications"
 DESCRIPTION="The LXAppearance OBconf package contains a plugin for LXAppearance to configure OpenBox."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.sourceforge.net/lxde/lxappearance-obconf-0.2.3.tar.xz
+
 
 if [ ! -z $URL ]
 then

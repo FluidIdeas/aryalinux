@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://cpan.metacpan.org/authors/id/B/BH/BHALLISSY/Font-TTF-1.06.tar.gz
-
 
 NAME=perl-font-ttf
 VERSION=1.06
 URL=https://cpan.metacpan.org/authors/id/B/BH/BHALLISSY/Font-TTF-1.06.tar.gz
 SECTION="Others"
 DESCRIPTION="This module allows you to do almost anything to a TrueType/OpenType Font including modify and inspect nearly all tables."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://cpan.metacpan.org/authors/id/B/BH/BHALLISSY/Font-TTF-1.06.tar.gz
+
 
 if [ ! -z $URL ]
 then

@@ -10,16 +10,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.cpan.org/authors/id/N/NL/NLNETLABS/Net-DNS-1.31.tar.gz
-
 
 NAME=perl-modules#perl-net-dns
 VERSION=1.31
 URL=https://www.cpan.org/authors/id/N/NL/NLNETLABS/Net-DNS-1.31.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.cpan.org/authors/id/N/NL/NLNETLABS/Net-DNS-1.31.tar.gz
+
 
 if [ ! -z $URL ]
 then

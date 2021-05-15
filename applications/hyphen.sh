@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://sourceforge.net/projects/hunspell/files/Hyphen/2.8/hyphen-2.8.8.tar.gz
-
 
 NAME=hyphen
 VERSION=2.8.8
 URL=https://sourceforge.net/projects/hunspell/files/Hyphen/2.8/hyphen-2.8.8.tar.gz
 SECTION="Others"
 DESCRIPTION="Hunspell is a spell checker and morphological analyzer library and program designed for languages with rich morphology and complex compounding or character encoding"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://sourceforge.net/projects/hunspell/files/Hyphen/2.8/hyphen-2.8.8.tar.gz
+
 
 if [ ! -z $URL ]
 then

@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.kernel.org/pub/linux/kernel/people/jeffm/reiserfsprogs/v3.6.27/reiserfsprogs-3.6.27.tar.xz
-
 
 NAME=reiserfs
 VERSION=3.6.27
 URL=https://www.kernel.org/pub/linux/kernel/people/jeffm/reiserfsprogs/v3.6.27/reiserfsprogs-3.6.27.tar.xz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The reiserfsprogs package contains various utilities for use with the Reiser file system."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.kernel.org/pub/linux/kernel/people/jeffm/reiserfsprogs/v3.6.27/reiserfsprogs-3.6.27.tar.xz
+
 
 if [ ! -z $URL ]
 then

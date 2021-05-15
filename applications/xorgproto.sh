@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2021.4.tar.bz2
-
 
 NAME=xorgproto
 VERSION=2021.4
 URL=https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2021.4.tar.bz2
 SECTION="X Window System Environment"
 DESCRIPTION="The xorgproto package provides the header files required to build the X Window system, and to allow other applications to build against the installed X Window system."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2021.4.tar.bz2
+
 
 if [ ! -z $URL ]
 then

@@ -11,18 +11,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://ftp.gnu.org/gnu/libidn/libidn2-2.3.0.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/libidn/libidn2-2.3.0.tar.gz
-
 
 NAME=libidn2
 VERSION=2.3.0
 URL=https://ftp.gnu.org/gnu/libidn/libidn2-2.3.0.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="libidn2 is a package designed for internationalized string handling based on standards from the Internet Engineering Task Force (IETF)'s IDN working group, designed for internationalized domain names."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://ftp.gnu.org/gnu/libidn/libidn2-2.3.0.tar.gz
+wget -nc ftp://ftp.gnu.org/gnu/libidn/libidn2-2.3.0.tar.gz
+
 
 if [ ! -z $URL ]
 then

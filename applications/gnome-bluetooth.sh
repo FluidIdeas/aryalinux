@@ -15,18 +15,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/gnome-bluetooth/3.34/gnome-bluetooth-3.34.5.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-bluetooth/3.34/gnome-bluetooth-3.34.5.tar.xz
-
 
 NAME=gnome-bluetooth
 VERSION=3.34.5
 URL=https://download.gnome.org/sources/gnome-bluetooth/3.34/gnome-bluetooth-3.34.5.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Bluetooth package contains tools for managing and manipulating Bluetooth devices using the GNOME Desktop."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/gnome-bluetooth/3.34/gnome-bluetooth-3.34.5.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-bluetooth/3.34/gnome-bluetooth-3.34.5.tar.xz
+
 
 if [ ! -z $URL ]
 then

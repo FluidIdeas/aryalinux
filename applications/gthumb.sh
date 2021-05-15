@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gthumb/3.8/gthumb-3.8.3.tar.xz
-
 
 NAME=gthumb
 VERSION=3.8.3
 URL=http://ftp.acc.umu.se/pub/gnome/sources/gthumb/3.8/gthumb-3.8.3.tar.xz
 SECTION="Others"
 DESCRIPTION="gThumb is an image viewer and browser for the GNOME Desktop. It also includes an importer tool for transferring photos from cameras."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gthumb/3.8/gthumb-3.8.3.tar.xz
+
 
 if [ ! -z $URL ]
 then

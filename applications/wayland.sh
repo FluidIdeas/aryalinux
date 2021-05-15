@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://wayland.freedesktop.org/releases/wayland-1.19.0.tar.xz
-
 
 NAME=wayland
 VERSION=1.19.0
 URL=https://wayland.freedesktop.org/releases/wayland-1.19.0.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="Wayland is a project to define a protocol for a compositor to talk to its clients as well as a library implementation of the protocol."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://wayland.freedesktop.org/releases/wayland-1.19.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

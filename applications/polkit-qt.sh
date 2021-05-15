@@ -13,17 +13,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.kde.org/stable/polkit-qt-1/polkit-qt-1-0.113.0.tar.xz
-
 
 NAME=polkit-qt
 VERSION=0.113.0
 URL=https://download.kde.org/stable/polkit-qt-1/polkit-qt-1-0.113.0.tar.xz
 SECTION="KDE Plasma 5"
 DESCRIPTION="Polkit-Qt provides an API to PolicyKit in the Qt environment."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.kde.org/stable/polkit-qt-1/polkit-qt-1-0.113.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

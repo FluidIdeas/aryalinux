@@ -13,17 +13,19 @@ set +h
 
 
 cd $SOURCE_DIR
+
+NAME=python-modules#pygobject3
+VERSION=3.40.1
+URL=https://download.gnome.org/sources/pygobject/3.40/pygobject-3.40.1.tar.xz
+SECTION="Others"
+
+
 mkdir -pv $NAME
 pushd $NAME
 
 wget -nc https://download.gnome.org/sources/pygobject/3.40/pygobject-3.40.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/pygobject/3.40/pygobject-3.40.1.tar.xz
 
-
-NAME=python-modules#pygobject3
-VERSION=3.40.1
-URL=https://download.gnome.org/sources/pygobject/3.40/pygobject-3.40.1.tar.xz
-SECTION="Others"
 
 if [ ! -z $URL ]
 then

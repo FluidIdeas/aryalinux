@@ -13,17 +13,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/kupferlauncher/keybinder/releases/download/v0.3.1/keybinder-0.3.1.tar.gz
-
 
 NAME=keybinder
 VERSION=0.3.1
 URL=https://github.com/kupferlauncher/keybinder/releases/download/v0.3.1/keybinder-0.3.1.tar.gz
 SECTION="X Libraries"
 DESCRIPTION="The keybinder package contains a utility library registering global X keyboard shortcuts."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/kupferlauncher/keybinder/releases/download/v0.3.1/keybinder-0.3.1.tar.gz
+
 
 if [ ! -z $URL ]
 then

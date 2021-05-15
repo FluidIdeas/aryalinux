@@ -10,18 +10,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.libssh2.org/download/libssh2-1.9.0.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/libssh2-1.9.0-security_fixes-1.patch
-
 
 NAME=libssh2
 VERSION=1.9.0
 URL=https://www.libssh2.org/download/libssh2-1.9.0.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="Libssh2 package is a client-side C library implementing the SSH2 protocol."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.libssh2.org/download/libssh2-1.9.0.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/libssh2-1.9.0-security_fixes-1.patch
+
 
 if [ ! -z $URL ]
 then

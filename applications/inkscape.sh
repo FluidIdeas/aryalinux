@@ -28,18 +28,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://media.inkscape.org/dl/resources/file/inkscape-1.0.2.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/inkscape-1.0.2-glib_2.68-1.patch
-
 
 NAME=inkscape
 VERSION=1.0.2
 URL=https://media.inkscape.org/dl/resources/file/inkscape-1.0.2.tar.xz
 SECTION="Other X-based Programs"
 DESCRIPTION="Inkscape is a what you see is what you get Scalable Vector Graphics editor. It is useful for creating, viewing and changing SVG images."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://media.inkscape.org/dl/resources/file/inkscape-1.0.2.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/inkscape-1.0.2-glib_2.68-1.patch
+
 
 if [ ! -z $URL ]
 then

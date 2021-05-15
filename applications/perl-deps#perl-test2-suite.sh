@@ -14,16 +14,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test2-Suite-0.000130.tar.gz
-
 
 NAME=perl-deps#perl-test2-suite
 VERSION=0.000130
 URL=https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test2-Suite-0.000130.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test2-Suite-0.000130.tar.gz
+
 
 if [ ! -z $URL ]
 then

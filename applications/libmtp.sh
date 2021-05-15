@@ -10,16 +10,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/libmtp/libmtp/releases/download/libmtp-1-1-18/libmtp-1.1.18.tar.gz
-
 
 NAME=libmtp
 VERSION=1.1.18
 URL=https://github.com/libmtp/libmtp/releases/download/libmtp-1-1-18/libmtp-1.1.18.tar.gz
 DESCRIPTION="A library to access MTP (Media Transfer Protocol) Devices."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/libmtp/libmtp/releases/download/libmtp-1-1-18/libmtp-1.1.18.tar.gz
+
 
 if [ ! -z $URL ]
 then

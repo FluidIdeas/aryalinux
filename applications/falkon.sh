@@ -12,17 +12,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.kde.org/stable/falkon/3.1/falkon-3.1.0.tar.xz
-
 
 NAME=falkon
 VERSION=3.1.0
 URL=https://download.kde.org/stable/falkon/3.1/falkon-3.1.0.tar.xz
 SECTION="Graphical Web Browsers"
 DESCRIPTION="Falkon is a KDE web browser using the QtWebEngine rendering engine. It was previously known as QupZilla. It aims to be a lightweight web browser available through all major platforms."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.kde.org/stable/falkon/3.1/falkon-3.1.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

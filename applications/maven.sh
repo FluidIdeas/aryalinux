@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www-us.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
-
 
 NAME=maven
 VERSION=3.6.3
 
 SECTION="Programming"
 DESCRIPTION="Build and automation tool for Java projects."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www-us.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+
 
 if [ ! -z $URL ]
 then

@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.sourceforge.net/acpid2/acpid-2.0.32.tar.xz
-
 
 NAME=acpid
 VERSION=2.0.32
 URL=https://downloads.sourceforge.net/acpid2/acpid-2.0.32.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="The acpid (Advanced Configuration and Power Interface event daemon) is a completely flexible, totally extensible daemon for delivering ACPI events. It listens on netlink interface and when an event occurs, executes programs to handle the event. The programs it executes are configured through a set of configuration files, which can be dropped into place by packages or by the user."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.sourceforge.net/acpid2/acpid-2.0.32.tar.xz
+
 
 if [ ! -z $URL ]
 then

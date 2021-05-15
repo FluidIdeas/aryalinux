@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libnma/1.8/libnma-1.8.28.tar.xz
-
 
 NAME=libnma
 VERSION=1.8.28
 URL=ftp://ftp.gnome.org/pub/gnome/sources/libnma/1.8/libnma-1.8.28.tar.xz
 SECTION="Networking Utilities"
 DESCRIPTION="The libnma package contains an implementation of the NetworkManager GUI functions."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libnma/1.8/libnma-1.8.28.tar.xz
+
 
 if [ ! -z $URL ]
 then

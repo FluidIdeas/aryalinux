@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.13.1.tar.bz2
-
 
 NAME=fontconfig
 VERSION=2.13.1
 URL=https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.13.1.tar.bz2
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The Fontconfig package contains a library and support programs used for configuring and customizing font access."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.13.1.tar.bz2
+
 
 if [ ! -z $URL ]
 then

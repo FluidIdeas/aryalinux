@@ -13,17 +13,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/libsndfile/libsndfile/releases/download/1.0.31/libsndfile-1.0.31.tar.bz2
-
 
 NAME=libsndfile
 VERSION=1.0.31
 URL=https://github.com/libsndfile/libsndfile/releases/download/1.0.31/libsndfile-1.0.31.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="Libsndfile is a library of C routines for reading and writing files containing sampled audio data."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/libsndfile/libsndfile/releases/download/1.0.31/libsndfile-1.0.31.tar.bz2
+
 
 if [ ! -z $URL ]
 then

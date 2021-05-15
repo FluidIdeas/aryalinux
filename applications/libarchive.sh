@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/libarchive/libarchive/releases/download/3.5.1/libarchive-3.5.1.tar.xz
-
 
 NAME=libarchive
 VERSION=3.5.1
 URL=https://github.com/libarchive/libarchive/releases/download/3.5.1/libarchive-3.5.1.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libarchive library provides a single interface for reading/writing various compression formats."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/libarchive/libarchive/releases/download/3.5.1/libarchive-3.5.1.tar.xz
+
 
 if [ ! -z $URL ]
 then

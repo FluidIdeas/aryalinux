@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc http://sebastien.godard.pagesperso-orange.fr/sysstat-12.5.3.tar.xz
-
 
 NAME=sysstat
 VERSION=12.5.3
 URL=http://sebastien.godard.pagesperso-orange.fr/sysstat-12.5.3.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="The Sysstat package contains utilities to monitor system performance and usage activity. Sysstat contains the sar utility, common to many commercial Unixes, and tools you can schedule via cron to collect and historize performance and activity data."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc http://sebastien.godard.pagesperso-orange.fr/sysstat-12.5.3.tar.xz
+
 
 if [ ! -z $URL ]
 then

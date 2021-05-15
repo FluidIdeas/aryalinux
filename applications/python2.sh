@@ -10,6 +10,14 @@ set +h
 
 
 cd $SOURCE_DIR
+
+NAME=python2
+VERSION=2.7.18
+URL=https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tar.xz
+SECTION="Programming"
+DESCRIPTION="The Python 2 package contains the Python development environment. It is useful for object-oriented programming, writing scripts, prototyping large programs or developing entire applications. This version is for backward compatibility with other dependent packages."
+
+
 mkdir -pv $NAME
 pushd $NAME
 
@@ -17,12 +25,6 @@ wget -nc https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tar.xz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/Python-2.7.18-security_fixes-1.patch
 wget -nc https://docs.python.org/ftp/python/doc/2.7.18/python-2.7.18-docs-html.tar.bz2
 
-
-NAME=python2
-VERSION=2.7.18
-URL=https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tar.xz
-SECTION="Programming"
-DESCRIPTION="The Python 2 package contains the Python development environment. It is useful for object-oriented programming, writing scripts, prototyping large programs or developing entire applications. This version is for backward compatibility with other dependent packages."
 
 if [ ! -z $URL ]
 then

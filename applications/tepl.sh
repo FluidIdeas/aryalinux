@@ -14,18 +14,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/tepl/6.00/tepl-6.00.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/tepl/6.00/tepl-6.00.0.tar.xz
-
 
 NAME=tepl
 VERSION=6.00.0
 URL=https://download.gnome.org/sources/tepl/6.00/tepl-6.00.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The Tepl package contains a library that eases the development of GtkSourceView-based text editors and IDEs."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/tepl/6.00/tepl-6.00.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/tepl/6.00/tepl-6.00.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

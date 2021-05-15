@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://dist.libuv.org/dist/v1.41.0/libuv-v1.41.0.tar.gz
-
 
 NAME=libuv
 VERSION=1.41.0
 URL=https://dist.libuv.org/dist/v1.41.0/libuv-v1.41.0.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The libuv package is a multi-platform support library with a focus on asynchronous I/O."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://dist.libuv.org/dist/v1.41.0/libuv-v1.41.0.tar.gz
+
 
 if [ ! -z $URL ]
 then

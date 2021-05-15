@@ -11,6 +11,14 @@ set +h
 
 
 cd $SOURCE_DIR
+
+NAME=fop
+VERSION=2.
+URL=https://archive.apache.org/dist/xmlgraphics/fop/source/fop-2.6-src.tar.gz
+SECTION="PostScript"
+DESCRIPTION="The FOP (Formatting Objects Processor) package contains a print formatter driven by XSL formatting objects (XSL-FO). It is a Java application that reads a formatting object tree and renders the resulting pages to a specified output. Output formats currently supported include PDF, PCL, PostScript, SVG, XML (area tree representation), print, AWT, MIF and ASCII text. The primary output target is PDF."
+
+
 mkdir -pv $NAME
 pushd $NAME
 
@@ -20,12 +28,6 @@ wget -nc http://archive.apache.org/dist/pdfbox/2.0.23/fontbox-2.0.23.jar
 wget -nc http://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
 wget -nc https://downloads.sourceforge.net/offo/2.2/offo-hyphenation.zip
 
-
-NAME=fop
-VERSION=2.
-URL=https://archive.apache.org/dist/xmlgraphics/fop/source/fop-2.6-src.tar.gz
-SECTION="PostScript"
-DESCRIPTION="The FOP (Formatting Objects Processor) package contains a print formatter driven by XSL formatting objects (XSL-FO). It is a Java application that reads a formatting object tree and renders the resulting pages to a specified output. Output formats currently supported include PDF, PCL, PostScript, SVG, XML (area tree representation), print, AWT, MIF and ASCII text. The primary output target is PDF."
 
 if [ ! -z $URL ]
 then

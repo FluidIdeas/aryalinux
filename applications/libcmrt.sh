@@ -11,15 +11,17 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-
 
 NAME=libcmrt
 VERSION=1.0.6
 
 DESCRIPTION="C bindings for Intel Media Runtime"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+
 
 if [ ! -z $URL ]
 then

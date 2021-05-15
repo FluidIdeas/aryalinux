@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.sourceforge.net/lcms/lcms2-2.12.tar.gz
-
 
 NAME=lcms2
 VERSION=2.12
 URL=https://downloads.sourceforge.net/lcms/lcms2-2.12.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The Little Color Management System is a small-footprint color management engine, with special focus on accuracy and performance. It uses the International Color Consortium standard (ICC), which is the modern standard for color management."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.sourceforge.net/lcms/lcms2-2.12.tar.gz
+
 
 if [ ! -z $URL ]
 then

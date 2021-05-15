@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://curl.haxx.se/download/curl-7.76.1.tar.xz
-
 
 NAME=curl
 VERSION=7.76.1
 URL=https://curl.haxx.se/download/curl-7.76.1.tar.xz
 SECTION="Networking Libraries"
 DESCRIPTION="The cURL package contains an utility and a library used for transferring files with URL syntax to any of the following protocols: FTP, FTPS, HTTP, HTTPS, SCP, SFTP, TFTP, TELNET, DICT, LDAP, LDAPS and FILE. Its ability to both download and upload files can be incorporated into other programs to support functions like streaming media."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://curl.haxx.se/download/curl-7.76.1.tar.xz
+
 
 if [ ! -z $URL ]
 then

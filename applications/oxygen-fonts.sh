@@ -10,12 +10,13 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
 
 NAME=oxygen-fonts
 VERSION=current
 DESCRIPTION="The Oxygen typeface family is created as part of the KDE Project, a libre desktop for the GNU+Linux operating system. The design is optimised for the FreeType font rendering system and works well in all graphical user interfaces, desktops and devices."
+
+mkdir -pv $NAME
+pushd $NAME
 
 if [ ! -z $URL ]
 then

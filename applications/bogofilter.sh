@@ -13,17 +13,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.sourceforge.net/bogofilter/bogofilter-1.2.5.tar.xz
-
 
 NAME=bogofilter
 VERSION=1.2.5
 URL=https://downloads.sourceforge.net/bogofilter/bogofilter-1.2.5.tar.xz
 SECTION="General Utilities"
 DESCRIPTION="The Bogofilter application is a mail filter that classifies mail as spam or ham (non-spam) by a statistical analysis of the message's header and content (body)."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.sourceforge.net/bogofilter/bogofilter-1.2.5.tar.xz
+
 
 if [ ! -z $URL ]
 then

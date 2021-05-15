@@ -12,17 +12,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc http://www.andre-simon.de/zip/highlight-4.0.tar.bz2
-
 
 NAME=highlight
 VERSION=4.0
 URL=http://www.andre-simon.de/zip/highlight-4.0.tar.bz2
 SECTION="General Utilities"
 DESCRIPTION="Highlight is an utility that converts source code to formatted text with syntax highlighting."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc http://www.andre-simon.de/zip/highlight-4.0.tar.bz2
+
 
 if [ ! -z $URL ]
 then

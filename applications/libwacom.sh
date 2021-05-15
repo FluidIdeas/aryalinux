@@ -12,17 +12,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/linuxwacom/libwacom/releases/download/libwacom-1.10/libwacom-1.10.tar.bz2
-
 
 NAME=libwacom
 VERSION=1.10
 URL=https://github.com/linuxwacom/libwacom/releases/download/libwacom-1.10/libwacom-1.10.tar.bz2
 SECTION="General Libraries"
 DESCRIPTION="The libwacom package contains a library used to identify wacom tablets and their model-specific features."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/linuxwacom/libwacom/releases/download/libwacom-1.10/libwacom-1.10.tar.bz2
+
 
 if [ ! -z $URL ]
 then

@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.2.tar.gz
-
 
 NAME=vorbistools
 VERSION=1.4.2
 URL=https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.2.tar.gz
 SECTION="Audio Utilities"
 DESCRIPTION="The Vorbis Tools package contains command-line tools useful for encoding, playing or editing files using the Ogg CODEC."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.2.tar.gz
+
 
 if [ ! -z $URL ]
 then

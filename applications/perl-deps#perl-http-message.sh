@@ -16,16 +16,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.27.tar.gz
-
 
 NAME=perl-deps#perl-http-message
 VERSION=6.27
 URL=https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.27.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.27.tar.gz
+
 
 if [ ! -z $URL ]
 then

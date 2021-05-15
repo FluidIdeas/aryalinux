@@ -10,16 +10,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://sourceforge.net/projects/aryalinux/files/releases/4.0/aryalinux-gtk-themes-4.0.tar.xz
-
 
 NAME=aryalinux-gtk-themes
 VERSION=4.0
 
 DESCRIPTION="Collection of GTK themes from various souces for usage within AryaLinux."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://sourceforge.net/projects/aryalinux/files/releases/4.0/aryalinux-gtk-themes-4.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

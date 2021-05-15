@@ -22,17 +22,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.18.4.tar.xz
-
 
 NAME=gst10-plugins-base
 VERSION=1.18.4
 URL=https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.18.4.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The GStreamer Base Plug-ins is a well-groomed and well-maintained collection of GStreamer plug-ins and elements, spanning the range of possible types of elements one would want to write for GStreamer. You will need at least one of Good, Bad, Ugly or Libav plugins for GStreamer applications to function properly."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.18.4.tar.xz
+
 
 if [ ! -z $URL ]
 then

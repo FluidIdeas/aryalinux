@@ -12,17 +12,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/ib/xarchiver/archive/0.5.4.17/xarchiver-0.5.4.17.tar.gz
-
 
 NAME=xarchiver
 VERSION=0.5.4.17
 URL=https://github.com/ib/xarchiver/archive/0.5.4.17/xarchiver-0.5.4.17.tar.gz
 SECTION="Other X-based Programs"
 DESCRIPTION="XArchiver is a GTK+ archive manager with support for tar, xz, bzip2, gzip, zip, 7z, rar, lzo and many other archive formats."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/ib/xarchiver/archive/0.5.4.17/xarchiver-0.5.4.17.tar.gz
+
 
 if [ ! -z $URL ]
 then

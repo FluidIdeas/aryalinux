@@ -11,16 +11,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/scour-project/scour/archive/v0.38.2/scour-0.38.2.tar.gz
-
 
 NAME=python-modules#scour
 VERSION=0.38.2
 URL=https://github.com/scour-project/scour/archive/v0.38.2/scour-0.38.2.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/scour-project/scour/archive/v0.38.2/scour-0.38.2.tar.gz
+
 
 if [ ! -z $URL ]
 then

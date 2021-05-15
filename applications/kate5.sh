@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.kde.org/stable/release-service/20.12.2/src/kate-20.12.2.tar.xz
-
 
 NAME=kate5
 VERSION=20.12.2
 URL=https://download.kde.org/stable/release-service/20.12.2/src/kate-20.12.2.tar.xz
 SECTION="Editors"
 DESCRIPTION="The Kate package contains an advanced KF5 based graphical text editor."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.kde.org/stable/release-service/20.12.2/src/kate-20.12.2.tar.xz
+
 
 if [ ! -z $URL ]
 then

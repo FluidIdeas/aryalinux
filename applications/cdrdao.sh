@@ -15,17 +15,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.sourceforge.net/cdrdao/cdrdao-1.2.4.tar.bz2
-
 
 NAME=cdrdao
 VERSION=1.2.4
 URL=https://downloads.sourceforge.net/cdrdao/cdrdao-1.2.4.tar.bz2
 SECTION="CD/DVD-Writing Utilities"
 DESCRIPTION="The Cdrdao package contains CD recording utilities. These are useful for burning a CD in disk-at-once mode."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.sourceforge.net/cdrdao/cdrdao-1.2.4.tar.bz2
+
 
 if [ ! -z $URL ]
 then

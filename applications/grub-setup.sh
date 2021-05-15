@@ -10,15 +10,17 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-
 
 NAME=grub-setup
 
 
 SECTION="File Systems and Disk Management"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+
 
 if [ ! -z $URL ]
 then

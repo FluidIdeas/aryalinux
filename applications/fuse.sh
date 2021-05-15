@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/libfuse/libfuse/releases/download/fuse-3.10.2/fuse-3.10.2.tar.xz
-
 
 NAME=fuse
 VERSION=3.10.2
 URL=https://github.com/libfuse/libfuse/releases/download/fuse-3.10.2/fuse-3.10.2.tar.xz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="FUSE (Filesystem in Userspace) is a simple interface for userspace programs to export a virtual filesystem to the Linux kernel. Fuse also aims to provide a secure method for non privileged users to create and mount their own filesystem implementations."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/libfuse/libfuse/releases/download/fuse-3.10.2/fuse-3.10.2.tar.xz
+
 
 if [ ! -z $URL ]
 then

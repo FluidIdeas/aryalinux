@@ -11,16 +11,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/blueman-project/blueman/releases/download/2.1.4/blueman-2.1.4.tar.xz
-
 
 NAME=blueman
 VERSION=2.1.4
 URL=https://github.com/blueman-project/blueman/releases/download/2.1.4/blueman-2.1.4.tar.xz
 DESCRIPTION="Blueman is a GTK+ bluetooth management utility for GNOME using bluez D-Bus backend."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/blueman-project/blueman/releases/download/2.1.4/blueman-2.1.4.tar.xz
+
 
 if [ ! -z $URL ]
 then

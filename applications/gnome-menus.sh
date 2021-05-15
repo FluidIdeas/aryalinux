@@ -12,18 +12,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/gnome-menus/3.36/gnome-menus-3.36.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-menus/3.36/gnome-menus-3.36.0.tar.xz
-
 
 NAME=gnome-menus
 VERSION=3.36.0
 URL=https://download.gnome.org/sources/gnome-menus/3.36/gnome-menus-3.36.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Menus package contains an implementation of the draft Desktop Menu Specification from freedesktop.org. It also contains the GNOME menu layout configuration files and .directory files."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/gnome-menus/3.36/gnome-menus-3.36.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-menus/3.36/gnome-menus-3.36.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

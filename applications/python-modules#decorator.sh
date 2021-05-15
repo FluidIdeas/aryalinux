@@ -10,16 +10,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://files.pythonhosted.org/packages/source/d/decorator/decorator-5.0.7.tar.gz
-
 
 NAME=python-modules#decorator
 VERSION=5.0.7
 URL=https://files.pythonhosted.org/packages/source/d/decorator/decorator-5.0.7.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://files.pythonhosted.org/packages/source/d/decorator/decorator-5.0.7.tar.gz
+
 
 if [ ! -z $URL ]
 then

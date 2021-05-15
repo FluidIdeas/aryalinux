@@ -12,17 +12,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://telepathy.freedesktop.org/releases/telepathy-mission-control/telepathy-mission-control-5.16.6.tar.gz
-
 
 NAME=telepathy-mission-control
 VERSION=5.16.6
 URL=https://telepathy.freedesktop.org/releases/telepathy-mission-control/telepathy-mission-control-5.16.6.tar.gz
 SECTION="General Utilities"
 DESCRIPTION="Telepathy Mission Control is an account manager and channel dispatcher for the Telepathy framework, allowing user interfaces and other clients to share connections to real-time communication services without conflicting."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://telepathy.freedesktop.org/releases/telepathy-mission-control/telepathy-mission-control-5.16.6.tar.gz
+
 
 if [ ! -z $URL ]
 then

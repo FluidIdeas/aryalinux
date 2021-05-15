@@ -20,17 +20,19 @@ set +h
 
 
 cd $SOURCE_DIR
+
+NAME=python-modules#pygtk
+VERSION=2.24.0
+URL=https://download.gnome.org/sources/pygtk/2.24/pygtk-2.24.0.tar.bz2
+SECTION="Others"
+
+
 mkdir -pv $NAME
 pushd $NAME
 
 wget -nc https://download.gnome.org/sources/pygtk/2.24/pygtk-2.24.0.tar.bz2
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/pygtk/2.24/pygtk-2.24.0.tar.bz2
 
-
-NAME=python-modules#pygtk
-VERSION=2.24.0
-URL=https://download.gnome.org/sources/pygtk/2.24/pygtk-2.24.0.tar.bz2
-SECTION="Others"
 
 if [ ! -z $URL ]
 then

@@ -17,18 +17,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/grilo/0.3/grilo-0.3.13.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/grilo/0.3/grilo-0.3.13.tar.xz
-
 
 NAME=grilo
 VERSION=0.3.13
 URL=https://download.gnome.org/sources/grilo/0.3/grilo-0.3.13.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Grilo is a framework focused on making media discovery and browsing easy for applications and application developers."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/grilo/0.3/grilo-0.3.13.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/grilo/0.3/grilo-0.3.13.tar.xz
+
 
 if [ ! -z $URL ]
 then

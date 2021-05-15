@@ -14,17 +14,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://archive.xfce.org/src/apps/xfburn/0.6/xfburn-0.6.2.tar.bz2
-
 
 NAME=xfburn
 VERSION=0.6.2
 URL=https://archive.xfce.org/src/apps/xfburn/0.6/xfburn-0.6.2.tar.bz2
 SECTION="Xfce Applications"
 DESCRIPTION="Xfburn is a GTK+ 3 GUI frontend for Libisoburn. This is useful for creating CDs and DVDs from files on your computer or ISO images downloaded from elsewhere."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://archive.xfce.org/src/apps/xfburn/0.6/xfburn-0.6.2.tar.bz2
+
 
 if [ ! -z $URL ]
 then

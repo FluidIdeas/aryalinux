@@ -13,18 +13,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
-
 
 NAME=libgtop
 VERSION=2.40.0
 URL=https://download.gnome.org/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libgtop package contains the GNOME top libraries."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

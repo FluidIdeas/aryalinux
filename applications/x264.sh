@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc http://anduin.linuxfromscratch.org/BLFS/x264/x264-20210211.tar.xz
-
 
 NAME=x264
 VERSION=20210211
 URL=http://anduin.linuxfromscratch.org/BLFS/x264/x264-20210211.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="x264 package provides a library for encoding video streams into the H.264/MPEG-4 AVC format."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc http://anduin.linuxfromscratch.org/BLFS/x264/x264-20210211.tar.xz
+
 
 if [ ! -z $URL ]
 then

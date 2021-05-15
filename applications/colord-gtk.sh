@@ -15,17 +15,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.freedesktop.org/software/colord/releases/colord-gtk-0.2.0.tar.xz
-
 
 NAME=colord-gtk
 VERSION=0.2.0
 URL=https://www.freedesktop.org/software/colord/releases/colord-gtk-0.2.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The Colord GTK package contains GTK+ bindings for Colord."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.freedesktop.org/software/colord/releases/colord-gtk-0.2.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

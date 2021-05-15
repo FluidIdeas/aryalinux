@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.sourceforge.net/smartmontools/smartmontools-7.2.tar.gz
-
 
 NAME=smartmontools
 VERSION=7.2
 URL=https://downloads.sourceforge.net/smartmontools/smartmontools-7.2.tar.gz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The smartmontools package contains utility programs (smartctl, smartd) to control/monitor storage systems using the Self-Monitoring, Analysis and Reporting Technology System (S.M.A.R.T.) built into most modern ATA and SCSI disks."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.sourceforge.net/smartmontools/smartmontools-7.2.tar.gz
+
 
 if [ ! -z $URL ]
 then

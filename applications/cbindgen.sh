@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/eqrion/cbindgen/archive/v0.19.0/cbindgen-0.19.0.tar.gz
-
 
 NAME=cbindgen
 VERSION=0.19.0
 URL=https://github.com/eqrion/cbindgen/archive/v0.19.0/cbindgen-0.19.0.tar.gz
 SECTION="Programming"
 DESCRIPTION="Cbindgen can be used to generate C bindings for Rust code."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/eqrion/cbindgen/archive/v0.19.0/cbindgen-0.19.0.tar.gz
+
 
 if [ ! -z $URL ]
 then

@@ -11,16 +11,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/ostreedev/ostree/releases/download/v2019.4/libostree-2019.4.tar.xz
-
 
 NAME=libostree
 VERSION=2019.4
 URL=https://github.com/ostreedev/ostree/releases/download/v2019.4/libostree-2019.4.tar.xz
 DESCRIPTION="libostree is a library for managing bootable, immutable, versioned filesystem trees. It is like git in that it checksums individual files and has a content-addressed object store; unlike git, it checks out the files using hardlinks into an immutable directory tree. This can be used to provide atomic upgrades with rollback, history and parallel-installation, particularly useful on fixed purpose systems such as embedded devices. It is also used by the Flatpak application runtime system."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/ostreedev/ostree/releases/download/v2019.4/libostree-2019.4.tar.xz
+
 
 if [ ! -z $URL ]
 then

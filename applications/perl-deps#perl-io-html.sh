@@ -10,16 +10,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://cpan.metacpan.org/authors/id/C/CJ/CJM/IO-HTML-1.004.tar.gz
-
 
 NAME=perl-deps#perl-io-html
 VERSION=1.004
 URL=https://cpan.metacpan.org/authors/id/C/CJ/CJM/IO-HTML-1.004.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://cpan.metacpan.org/authors/id/C/CJ/CJM/IO-HTML-1.004.tar.gz
+
 
 if [ ! -z $URL ]
 then

@@ -16,18 +16,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/gnome-online-accounts/3.38/gnome-online-accounts-3.38.1.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-online-accounts/3.38/gnome-online-accounts-3.38.1.tar.xz
-
 
 NAME=gnome-online-accounts
 VERSION=3.38.1
 URL=https://download.gnome.org/sources/gnome-online-accounts/3.38/gnome-online-accounts-3.38.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Online Accounts package contains a framework used to access the user's online accounts."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/gnome-online-accounts/3.38/gnome-online-accounts-3.38.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-online-accounts/3.38/gnome-online-accounts-3.38.1.tar.xz
+
 
 if [ ! -z $URL ]
 then

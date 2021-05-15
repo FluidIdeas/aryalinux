@@ -10,15 +10,16 @@ set +h
 #REQ:cmake
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/KDE/ktextwidgets/archive/v5.82.0/ktextwidgets-5.82.0.tar.gz
 
 NAME=ktextwidgets
 VERSION=5.82.0.0
 URL=https://github.com/KDE/ktextwidgets/archive/v5.82.0/ktextwidgets-5.82.0.tar.gz
 SECTION="KDE Plasma 5"
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/KDE/ktextwidgets/archive/v5.82.0/ktextwidgets-5.82.0.tar.gz
 
 if [ ! -z $URL ]
 then

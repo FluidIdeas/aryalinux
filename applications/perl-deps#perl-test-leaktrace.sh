@@ -10,16 +10,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://cpan.metacpan.org/authors/id/L/LE/LEEJO/Test-LeakTrace-0.16.tar.gz
-
 
 NAME=perl-deps#perl-test-leaktrace
 VERSION=0.16
 URL=https://cpan.metacpan.org/authors/id/L/LE/LEEJO/Test-LeakTrace-0.16.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://cpan.metacpan.org/authors/id/L/LE/LEEJO/Test-LeakTrace-0.16.tar.gz
+
 
 if [ ! -z $URL ]
 then

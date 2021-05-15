@@ -13,17 +13,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://releases.pagure.org/xmlto/xmlto-0.0.28.tar.bz2
-
 
 NAME=xmlto
 VERSION=0.0.28
 URL=https://releases.pagure.org/xmlto/xmlto-0.0.28.tar.bz2
 SECTION="Extensible Markup Language (XML)"
 DESCRIPTION="The xmlto package is a front-end to a XSL toolchain. It chooses an appropriate stylesheet for the conversion you want and applies it using an external XSLT processor. It also performs any necessary post-processing."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://releases.pagure.org/xmlto/xmlto-0.0.28.tar.bz2
+
 
 if [ ! -z $URL ]
 then

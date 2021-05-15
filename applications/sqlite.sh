@@ -10,18 +10,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://sqlite.org/2021/sqlite-autoconf-3350500.tar.gz
-wget -nc https://sqlite.org/2021/sqlite-doc-3350500.zip
-
 
 NAME=sqlite
 VERSION=3350500
 URL=https://sqlite.org/2021/sqlite-autoconf-3350500.tar.gz
 SECTION="Databases"
 DESCRIPTION="The SQLite package is a software library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://sqlite.org/2021/sqlite-autoconf-3350500.tar.gz
+wget -nc https://sqlite.org/2021/sqlite-doc-3350500.zip
+
 
 if [ ! -z $URL ]
 then

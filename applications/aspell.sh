@@ -11,6 +11,14 @@ set +h
 
 
 cd $SOURCE_DIR
+
+NAME=aspell
+VERSION=0.60.8
+URL=https://ftp.gnu.org/gnu/aspell/aspell-0.60.8.tar.gz
+SECTION="General Libraries"
+DESCRIPTION="The Aspell package contains an interactive spell checking program and the Aspell libraries. Aspell can either be used as a library or as an independent spell checker."
+
+
 mkdir -pv $NAME
 pushd $NAME
 
@@ -19,12 +27,6 @@ wget -nc ftp://ftp.gnu.org/gnu/aspell/aspell-0.60.8.tar.gz
 wget -nc https://ftp.gnu.org/gnu/aspell/dict
 wget -nc https://ftp.gnu.org/gnu/aspell/dict/en/aspell6-en-2019.10.06-0.tar.bz2
 
-
-NAME=aspell
-VERSION=0.60.8
-URL=https://ftp.gnu.org/gnu/aspell/aspell-0.60.8.tar.gz
-SECTION="General Libraries"
-DESCRIPTION="The Aspell package contains an interactive spell checking program and the Aspell libraries. Aspell can either be used as a library or as an independent spell checker."
 
 if [ ! -z $URL ]
 then

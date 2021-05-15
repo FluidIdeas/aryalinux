@@ -16,18 +16,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.mupdf.com/downloads/archive/mupdf-1.18.0-source.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/mupdf-1.18.0-security_fix-1.patch
-
 
 NAME=mupdf
 VERSION=1.18.
 URL=https://www.mupdf.com/downloads/archive/mupdf-1.18.0-source.tar.gz
 SECTION="PostScript"
 DESCRIPTION="MuPDF is a lightweight PDF and XPS viewer."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.mupdf.com/downloads/archive/mupdf-1.18.0-source.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/mupdf-1.18.0-security_fix-1.patch
+
 
 if [ ! -z $URL ]
 then

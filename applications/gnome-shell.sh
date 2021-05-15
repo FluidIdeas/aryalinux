@@ -30,18 +30,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/gnome-shell/40/gnome-shell-40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-shell/40/gnome-shell-40.0.tar.xz
-
 
 NAME=gnome-shell
 VERSION=40.0
 URL=https://download.gnome.org/sources/gnome-shell/40/gnome-shell-40.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Shell is the core user interface of the GNOME Desktop environment."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/gnome-shell/40/gnome-shell-40.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-shell/40/gnome-shell-40.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

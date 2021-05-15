@@ -13,17 +13,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v5.11.1.tar.xz
-
 
 NAME=btrfs-progs
 VERSION=5.11.1
 URL=https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v5.11.1.tar.xz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The btrfs-progs package contains administration and debugging tools for the B-tree file system (btrfs)."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v5.11.1.tar.xz
+
 
 if [ ! -z $URL ]
 then

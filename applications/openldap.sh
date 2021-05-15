@@ -11,6 +11,14 @@ set +h
 
 
 cd $SOURCE_DIR
+
+NAME=openldap
+VERSION=2.5.4
+URL=https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.5.4.tgz
+SECTION="Other Server Software"
+DESCRIPTION="The OpenLDAP package provides an open source implementation of the Lightweight Directory Access Protocol."
+
+
 mkdir -pv $NAME
 pushd $NAME
 
@@ -20,12 +28,6 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/openldap-2.5.4-c
 wget -nc http://www.openldap.org/doc/admin25/
 wget -nc http://www.openldap.org/pub/
 
-
-NAME=openldap
-VERSION=2.5.4
-URL=https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.5.4.tgz
-SECTION="Other Server Software"
-DESCRIPTION="The OpenLDAP package provides an open source implementation of the Lightweight Directory Access Protocol."
 
 if [ ! -z $URL ]
 then

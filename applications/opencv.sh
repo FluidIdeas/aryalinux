@@ -23,18 +23,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/opencv/opencv/archive/4.5.2/opencv-4.5.2.tar.gz
-wget -nc https://github.com/opencv/opencv_contrib/archive/4.5.2/opencv_contrib-4.5.2.tar.gz
-
 
 NAME=opencv
 VERSION=4.5.2
 URL=https://github.com/opencv/opencv/archive/4.5.2/opencv-4.5.2.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The opencv package contains graphics libraries mainly aimed at real-time computer vision."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/opencv/opencv/archive/4.5.2/opencv-4.5.2.tar.gz
+wget -nc https://github.com/opencv/opencv_contrib/archive/4.5.2/opencv_contrib-4.5.2.tar.gz
+
 
 if [ ! -z $URL ]
 then

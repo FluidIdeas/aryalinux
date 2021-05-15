@@ -14,18 +14,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.x.org/pub/individual/app/xinit-1.4.1.tar.bz2
-wget -nc ftp://ftp.x.org/pub/individual/app/xinit-1.4.1.tar.bz2
-
 
 NAME=xinit
 VERSION=1.4.1
 URL=https://www.x.org/pub/individual/app/xinit-1.4.1.tar.bz2
 SECTION="X Window System Environment"
 DESCRIPTION="The xinit package contains a usable script to start the xserver."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.x.org/pub/individual/app/xinit-1.4.1.tar.bz2
+wget -nc ftp://ftp.x.org/pub/individual/app/xinit-1.4.1.tar.bz2
+
 
 if [ ! -z $URL ]
 then

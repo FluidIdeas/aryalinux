@@ -10,16 +10,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-
 
 NAME=tex-path
 VERSION=2019
 
 SECTION="Others"
 DESCRIPTION="Package to configure installation of texlive"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+
 
 if [ ! -z $URL ]
 then

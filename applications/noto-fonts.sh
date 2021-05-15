@@ -10,15 +10,17 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-
 
 NAME=noto-fonts
 VERSION=1.4
 
 DESCRIPTION="Noto is a font family comprising over 100 individual fonts, which are together designed to cover all the scripts encoded in the Unicode standard."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+
 
 if [ ! -z $URL ]
 then

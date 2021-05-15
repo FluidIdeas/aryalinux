@@ -15,18 +15,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://ftp.gnu.org/gnu/emacs/emacs-27.2.tar.xz
-wget -nc ftp://ftp.gnu.org/gnu/emacs/emacs-27.2.tar.xz
-
 
 NAME=emacs
 VERSION=27.2
 URL=https://ftp.gnu.org/gnu/emacs/emacs-27.2.tar.xz
 SECTION="Editors"
 DESCRIPTION="The Emacs package contains an extensible, customizable, self-documenting real-time display editor."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://ftp.gnu.org/gnu/emacs/emacs-27.2.tar.xz
+wget -nc ftp://ftp.gnu.org/gnu/emacs/emacs-27.2.tar.xz
+
 
 if [ ! -z $URL ]
 then

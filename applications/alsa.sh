@@ -16,15 +16,17 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-
 
 NAME=alsa
 VERSION=1.1.9
 
 DESCRIPTION="ALSA is the Advanced Linux Sound Architecture."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+
 
 if [ ! -z $URL ]
 then

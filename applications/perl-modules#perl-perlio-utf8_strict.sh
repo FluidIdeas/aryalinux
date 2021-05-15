@@ -11,16 +11,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.cpan.org/authors/id/L/LE/LEONT/PerlIO-utf8_strict-0.008.tar.gz
-
 
 NAME=perl-modules#perl-perlio-utf8_strict
 VERSION=
 URL=https://www.cpan.org/authors/id/L/LE/LEONT/PerlIO-utf8_strict-0.008.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.cpan.org/authors/id/L/LE/LEONT/PerlIO-utf8_strict-0.008.tar.gz
+
 
 if [ ! -z $URL ]
 then

@@ -12,17 +12,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.kernel.org/pub/linux/daemons/autofs/v5/autofs-5.1.7.tar.xz
-
 
 NAME=autofs
 VERSION=5.1.7
 URL=https://www.kernel.org/pub/linux/daemons/autofs/v5/autofs-5.1.7.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="Autofs controls the operation of the automount daemons. The automount daemons automatically mount filesystems when they are accessed and unmount them after a period of inactivity. This is done based on a set of pre-configured maps."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.kernel.org/pub/linux/daemons/autofs/v5/autofs-5.1.7.tar.xz
+
 
 if [ ! -z $URL ]
 then

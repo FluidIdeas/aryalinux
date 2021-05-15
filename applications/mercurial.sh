@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.mercurial-scm.org/release/mercurial-5.7.1.tar.gz
-
 
 NAME=mercurial
 VERSION=5.7.1
 URL=https://www.mercurial-scm.org/release/mercurial-5.7.1.tar.gz
 SECTION="Programming"
 DESCRIPTION="Mercurial is a distributed source control management tool similar to Git and Bazaar. Mercurial is written in Python and is used by projects such as Mozilla and Vim."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.mercurial-scm.org/release/mercurial-5.7.1.tar.gz
+
 
 if [ ! -z $URL ]
 then

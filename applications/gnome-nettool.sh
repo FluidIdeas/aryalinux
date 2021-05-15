@@ -13,6 +13,14 @@ set +h
 
 
 cd $SOURCE_DIR
+
+NAME=gnome-nettool
+VERSION=3.8.1
+URL=https://download.gnome.org/sources/gnome-nettool/3.8/gnome-nettool-3.8.1.tar.xz
+SECTION="GNOME Applications"
+DESCRIPTION="The GNOME Nettool package is a network information tool which provides GUI interface for some of the most common command line network tools."
+
+
 mkdir -pv $NAME
 pushd $NAME
 
@@ -20,12 +28,6 @@ wget -nc https://download.gnome.org/sources/gnome-nettool/3.8/gnome-nettool-3.8.
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-nettool/3.8/gnome-nettool-3.8.1.tar.xz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/gnome-nettool-3.8.1-ping_and_netstat_fixes-1.patch
 
-
-NAME=gnome-nettool
-VERSION=3.8.1
-URL=https://download.gnome.org/sources/gnome-nettool/3.8/gnome-nettool-3.8.1.tar.xz
-SECTION="GNOME Applications"
-DESCRIPTION="The GNOME Nettool package is a network information tool which provides GUI interface for some of the most common command line network tools."
 
 if [ ! -z $URL ]
 then

@@ -12,18 +12,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/rarian/0.8/rarian-0.8.1.tar.bz2
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/rarian/0.8/rarian-0.8.1.tar.bz2
-
 
 NAME=rarian
 VERSION=0.8.1
 URL=https://download.gnome.org/sources/rarian/0.8/rarian-0.8.1.tar.bz2
 SECTION="General Utilities"
 DESCRIPTION="The Rarian package is a documentation metadata library based on the proposed Freedesktop.org spec. Rarian is designed to be a replacement for ScrollKeeper."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/rarian/0.8/rarian-0.8.1.tar.bz2
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/rarian/0.8/rarian-0.8.1.tar.bz2
+
 
 if [ ! -z $URL ]
 then

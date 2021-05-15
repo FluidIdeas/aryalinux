@@ -10,18 +10,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc http://www.fftw.org/fftw-3.3.9.tar.gz
-wget -nc ftp://ftp.fftw.org/pub/fftw/fftw-3.3.9.tar.gz
-
 
 NAME=fftw
 VERSION=3.3.9
 URL=http://www.fftw.org/fftw-3.3.9.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="FFTW is a C subroutine library for computing the discrete Fourier transform (DFT) in one or more dimensions, of arbitrary input size, and of both real and complex data (as well as of even/odd data, i.e. the discrete cosine/sine transforms or DCT/DST)."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc http://www.fftw.org/fftw-3.3.9.tar.gz
+wget -nc ftp://ftp.fftw.org/pub/fftw/fftw-3.3.9.tar.gz
+
 
 if [ ! -z $URL ]
 then

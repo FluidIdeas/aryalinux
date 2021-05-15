@@ -12,17 +12,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/ebassi/graphene/releases/download/1.10.6/graphene-1.10.6.tar.xz
-
 
 NAME=graphene
 VERSION=1.10.6
 URL=https://github.com/ebassi/graphene/releases/download/1.10.6/graphene-1.10.6.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The Graphene package provides a thin layer of types for graphics libraries."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/ebassi/graphene/releases/download/1.10.6/graphene-1.10.6.tar.xz
+
 
 if [ ! -z $URL ]
 then

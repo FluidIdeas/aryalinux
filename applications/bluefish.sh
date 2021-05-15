@@ -13,17 +13,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.bennewitz.com/bluefish/stable/source/bluefish-2.2.12.tar.bz2
-
 
 NAME=bluefish
 VERSION=2.2.12
 URL=https://www.bennewitz.com/bluefish/stable/source/bluefish-2.2.12.tar.bz2
 SECTION="Editors"
 DESCRIPTION="Bluefish is a GTK+ text editor targeted towards programmers and web designers, with many options to write websites, scripts and programming code. Bluefish supports many programming and markup languages, and it focuses on editing dynamic and interactive websites."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.bennewitz.com/bluefish/stable/source/bluefish-2.2.12.tar.bz2
+
 
 if [ ! -z $URL ]
 then

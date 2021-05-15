@@ -12,17 +12,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/rhboot/efibootmgr/archive/17/efibootmgr-17.tar.gz
-
 
 NAME=efibootmgr
 VERSION=17
 URL=https://github.com/rhboot/efibootmgr/archive/17/efibootmgr-17.tar.gz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The efibootmgr package provides tools and libraries to manipulate EFI variables."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/rhboot/efibootmgr/archive/17/efibootmgr-17.tar.gz
+
 
 if [ ! -z $URL ]
 then

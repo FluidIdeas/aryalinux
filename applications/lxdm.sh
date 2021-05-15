@@ -15,17 +15,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.sourceforge.net/lxdm/lxdm-0.5.3.tar.xz
-
 
 NAME=lxdm
 VERSION=0.5.3
 URL=https://downloads.sourceforge.net/lxdm/lxdm-0.5.3.tar.xz
 SECTION="Display Managers"
 DESCRIPTION="The LXDM is a lightweight Display Manager for the LXDE desktop. It can also be used as an alternative to other Display Managers such as GNOME's GDM or LightDM."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.sourceforge.net/lxdm/lxdm-0.5.3.tar.xz
+
 
 if [ ! -z $URL ]
 then

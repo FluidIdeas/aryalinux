@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.sourceforge.net/opencore-amr/fdk-aac-2.0.2.tar.gz
-
 
 NAME=fdk-aac
 VERSION=2.0.2
 URL=https://downloads.sourceforge.net/opencore-amr/fdk-aac-2.0.2.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="fdk-aac package provides the Fraunhofer FDK AAC library, which is purported to be a high quality Advanced Audio Coding implementation."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.sourceforge.net/opencore-amr/fdk-aac-2.0.2.tar.gz
+
 
 if [ ! -z $URL ]
 then

@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://xcb.freedesktop.org/dist/xcb-util-cursor-0.1.3.tar.bz2
-
 
 NAME=xcb-util-cursor
 VERSION=0.1.3
 URL=https://xcb.freedesktop.org/dist/xcb-util-cursor-0.1.3.tar.bz2
 SECTION="X Window System Environment"
 DESCRIPTION="The xcb-util-cursor package provides a module that implements the XCB cursor library. It is the XCB replacement for libXcursor."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://xcb.freedesktop.org/dist/xcb-util-cursor-0.1.3.tar.bz2
+
 
 if [ ! -z $URL ]
 then

@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.sourceforge.net/lxde/lxtask-0.1.10.tar.xz
-
 
 NAME=lxtask
 VERSION=0.1.10
 URL=https://downloads.sourceforge.net/lxde/lxtask-0.1.10.tar.xz
 SECTION="LXDE Applications"
 DESCRIPTION="The LXTask package contains a lightweight and desktop-independent task manager."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.sourceforge.net/lxde/lxtask-0.1.10.tar.xz
+
 
 if [ ! -z $URL ]
 then

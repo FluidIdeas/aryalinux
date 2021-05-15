@@ -10,16 +10,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://files.pythonhosted.org/packages/source/P/Pygments/Pygments-2.8.0.tar.gz
-
 
 NAME=python-modules#pygments
 VERSION=2.8.0
 URL=https://files.pythonhosted.org/packages/source/P/Pygments/Pygments-2.8.0.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://files.pythonhosted.org/packages/source/P/Pygments/Pygments-2.8.0.tar.gz
+
 
 if [ ! -z $URL ]
 then

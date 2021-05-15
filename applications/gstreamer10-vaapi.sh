@@ -15,17 +15,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.18.4.tar.xz
-
 
 NAME=gstreamer10-vaapi
 VERSION=1.18.4
 URL=https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.18.4.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The gstreamer-vaapi package contains a gstreamer plugin for hardware accelerated video decode/encode for the prevailing coding standards today (MPEG-2, MPEG-4 ASP/H.263, MPEG-4 AVC/H.264, and VC-1/VMW3)."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://gstreamer.freedesktop.org/src/gstreamer-vaapi/gstreamer-vaapi-1.18.4.tar.xz
+
 
 if [ ! -z $URL ]
 then

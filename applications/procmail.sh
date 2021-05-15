@@ -11,18 +11,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://ftp.osuosl.org/pub/blfs/conglomeration/procmail/procmail-3.22.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/procmail-3.22-consolidated_fixes-1.patch
-
 
 NAME=procmail
 VERSION=3.22
 URL=https://ftp.osuosl.org/pub/blfs/conglomeration/procmail/procmail-3.22.tar.gz
 SECTION="Mail/News Clients"
 DESCRIPTION="The Procmail package contains an autonomous mail processor. This is useful for filtering and sorting incoming mail."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://ftp.osuosl.org/pub/blfs/conglomeration/procmail/procmail-3.22.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/procmail-3.22-consolidated_fixes-1.patch
+
 
 if [ ! -z $URL ]
 then

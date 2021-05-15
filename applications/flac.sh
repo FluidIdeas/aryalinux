@@ -10,18 +10,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.xiph.org/releases/flac/flac-1.3.3.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/flac-1.3.3-security_fixes-1.patch
-
 
 NAME=flac
 VERSION=1.3.3
 URL=https://downloads.xiph.org/releases/flac/flac-1.3.3.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="FLAC is an audio CODEC similar to MP3, but lossless, meaning that audio is compressed without losing any information."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.xiph.org/releases/flac/flac-1.3.3.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/flac-1.3.3-security_fixes-1.patch
+
 
 if [ ! -z $URL ]
 then

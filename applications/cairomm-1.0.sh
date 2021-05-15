@@ -13,17 +13,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.cairographics.org/releases/cairomm-1.14.0.tar.xz
-
 
 NAME=cairomm-1.0
 VERSION=1.14.0
 URL=https://www.cairographics.org/releases/cairomm-1.14.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The libcairomm-1.0 package provides a C++ interface to Cairo."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.cairographics.org/releases/cairomm-1.14.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

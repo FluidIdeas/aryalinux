@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.librdf.org/source/redland-1.0.17.tar.gz
-
 
 NAME=redland
 VERSION=1.0.17
 URL=https://download.librdf.org/source/redland-1.0.17.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="Redland is a set of free software C libraries that provide support for the Resource Description Framework (RDF)."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.librdf.org/source/redland-1.0.17.tar.gz
+
 
 if [ ! -z $URL ]
 then

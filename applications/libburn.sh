@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://files.libburnia-project.org/releases/libburn-1.5.4.tar.gz
-
 
 NAME=libburn
 VERSION=1.5.4
 URL=https://files.libburnia-project.org/releases/libburn-1.5.4.tar.gz
 SECTION="CD/DVD-Writing Utilities"
 DESCRIPTION="libburn is a library for writing preformatted data onto optical media: CD, DVD and BD (Blu-Ray)."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://files.libburnia-project.org/releases/libburn-1.5.4.tar.gz
+
 
 if [ ! -z $URL ]
 then

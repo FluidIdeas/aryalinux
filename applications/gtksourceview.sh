@@ -12,18 +12,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.11.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtksourceview/3.24/gtksourceview-3.24.11.tar.xz
-
 
 NAME=gtksourceview
 VERSION=3.24.11
 URL=https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.11.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The GtkSourceView package contains libraries used for extending the GTK+ text functions to include syntax highlighting."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.11.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtksourceview/3.24/gtksourceview-3.24.11.tar.xz
+
 
 if [ ! -z $URL ]
 then

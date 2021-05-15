@@ -14,15 +14,17 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-
 
 NAME=gparted-gtk3
 VERSION=0.31.0
 
 DESCRIPTION="GTK3 version of gparted partition editing tool."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+
 
 if [ ! -z $URL ]
 then

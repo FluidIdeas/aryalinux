@@ -11,16 +11,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-
 
 NAME=x7font
 VERSION=
 
 SECTION="X Window System Environment"
 DESCRIPTION="The Xorg font packages provide some scalable fonts and supporting packages for Xorg applications. Many people will want to install other TTF or OTF fonts in addition to, or instead of, these. Some are listed at the section called “TTF and OTF fonts”."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+
 
 if [ ! -z $URL ]
 then

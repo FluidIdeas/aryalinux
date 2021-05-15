@@ -12,17 +12,19 @@ set +h
 
 
 cd $SOURCE_DIR
+
+NAME=libimobiledevice
+VERSION=1.2.0
+URL=http://www.libimobiledevice.org/downloads/libimobiledevice-1.2.0.tar.bz2
+DESCRIPTION="libimobiledevice is a library that talks the native Apple USB protocols that the iPhone, iPad and iPod Touch use. Unlike other projects, libimobiledevice does not depend on using any existing libraries from Apple."
+
+
 mkdir -pv $NAME
 pushd $NAME
 
 wget -nc http://www.libimobiledevice.org/downloads/libimobiledevice-1.2.0.tar.bz2
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.0/libimobiledevice-1.2.0-sslv3.patch
 
-
-NAME=libimobiledevice
-VERSION=1.2.0
-URL=http://www.libimobiledevice.org/downloads/libimobiledevice-1.2.0.tar.bz2
-DESCRIPTION="libimobiledevice is a library that talks the native Apple USB protocols that the iPhone, iPad and iPod Touch use. Unlike other projects, libimobiledevice does not depend on using any existing libraries from Apple."
 
 if [ ! -z $URL ]
 then

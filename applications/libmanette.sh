@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://gitlab.gnome.org/GNOME/libmanette/-/archive/0.2.6/libmanette-0.2.6.tar.bz2
-
 
 NAME=libmanette
 VERSION=0.2.6
 URL=https://gitlab.gnome.org/GNOME/libmanette/-/archive/0.2.6/libmanette-0.2.6.tar.bz2
 SECTION="Others"
 DESCRIPTION="The simple GObject game controller library"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://gitlab.gnome.org/GNOME/libmanette/-/archive/0.2.6/libmanette-0.2.6.tar.bz2
+
 
 if [ ! -z $URL ]
 then

@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://get.videolan.org/libdvdcss/1.4.3/libdvdcss-1.4.3.tar.bz2
-
 
 NAME=libdvdcss
 VERSION=1.4.3
 URL=https://get.videolan.org/libdvdcss/1.4.3/libdvdcss-1.4.3.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="libdvdcss is a simple library designed for accessing DVDs as a block device without having to bother about the decryption."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://get.videolan.org/libdvdcss/1.4.3/libdvdcss-1.4.3.tar.bz2
+
 
 if [ ! -z $URL ]
 then

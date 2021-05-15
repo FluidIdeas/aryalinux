@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/qpdf/qpdf/releases/download/release-qpdf-10.3.1/qpdf-10.3.1.tar.gz
-
 
 NAME=qpdf
 VERSION=10.3.1
 URL=https://github.com/qpdf/qpdf/releases/download/release-qpdf-10.3.1/qpdf-10.3.1.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The Qpdf package contains command-line programs and a library that does structural, content-preserving transformations on PDF files."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/qpdf/qpdf/releases/download/release-qpdf-10.3.1/qpdf-10.3.1.tar.gz
+
 
 if [ ! -z $URL ]
 then

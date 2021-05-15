@@ -15,17 +15,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/storaged-project/libblockdev/releases/download/2.25-1/libblockdev-2.25.tar.gz
-
 
 NAME=libblockdev
 VERSION=2.25
 URL=https://github.com/storaged-project/libblockdev/releases/download/2.25-1/libblockdev-2.25.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="libblockdev is a C library supporting GObject Introspection for manipulation of block devices. It has a plugin-based architecture where each technology (like LVM, Btrfs, MD RAID, Swap,...) is implemented in a separate plugin, possibly with multiple implementations (e.g. using LVM CLI or the new LVM DBus API)."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/storaged-project/libblockdev/releases/download/2.25-1/libblockdev-2.25.tar.gz
+
 
 if [ ! -z $URL ]
 then

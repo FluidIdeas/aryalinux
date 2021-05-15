@@ -14,18 +14,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/libpeas/1.30/libpeas-1.30.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libpeas/1.30/libpeas-1.30.0.tar.xz
-
 
 NAME=libpeas
 VERSION=1.30.0
 URL=https://download.gnome.org/sources/libpeas/1.30/libpeas-1.30.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="libpeas is a GObject based plugins engine, and is targeted at giving every application the chance to assume its own extensibility."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/libpeas/1.30/libpeas-1.30.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libpeas/1.30/libpeas-1.30.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

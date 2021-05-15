@@ -12,16 +12,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.cpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-0.430.tar.gz
-
 
 NAME=perl-modules#perl-list-moreutils
 VERSION=0.430
 URL=https://www.cpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-0.430.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.cpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-0.430.tar.gz
+
 
 if [ ! -z $URL ]
 then

@@ -11,18 +11,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/gdl/3.34/gdl-3.34.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gdl/3.34/gdl-3.34.0.tar.xz
-
 
 NAME=gdl
 VERSION=3.34.0
 URL=https://download.gnome.org/sources/gdl/3.34/gdl-3.34.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The GDL package provides a library that is useful for docking objects in GTK+ applications."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/gdl/3.34/gdl-3.34.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gdl/3.34/gdl-3.34.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

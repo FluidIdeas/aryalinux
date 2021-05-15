@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.49.tar.xz
-
 
 NAME=libcap
 VERSION=2.49
 URL=https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.49.tar.xz
 SECTION="Security"
 DESCRIPTION="The libcap package was installed in LFS, but if Linux-PAM support is desired, the PAM module must be built (after installation of Linux-PAM)."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.49.tar.xz
+
 
 if [ ! -z $URL ]
 then

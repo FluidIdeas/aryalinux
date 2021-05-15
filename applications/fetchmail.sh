@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.sourceforge.net/fetchmail/fetchmail-6.4.18.tar.xz
-
 
 NAME=fetchmail
 VERSION=6.4.18
 URL=https://downloads.sourceforge.net/fetchmail/fetchmail-6.4.18.tar.xz
 SECTION="Mail/News Clients"
 DESCRIPTION="The Fetchmail package contains a mail retrieval program. It retrieves mail from remote mail servers and forwards it to the local (client) machine's delivery system, so it can then be read by normal mail user agents."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.sourceforge.net/fetchmail/fetchmail-6.4.18.tar.xz
+
 
 if [ ! -z $URL ]
 then

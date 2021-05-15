@@ -18,18 +18,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://poppler.freedesktop.org/poppler-21.04.0.tar.xz
-wget -nc https://poppler.freedesktop.org/poppler-data-0.4.10.tar.gz
-
 
 NAME=poppler
 VERSION=21.04.0
 URL=https://poppler.freedesktop.org/poppler-21.04.0.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The Poppler package contains a PDF rendering library and command line tools used to manipulate PDF files. This is useful for providing PDF rendering functionality as a shared library."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://poppler.freedesktop.org/poppler-21.04.0.tar.xz
+wget -nc https://poppler.freedesktop.org/poppler-data-0.4.10.tar.gz
+
 
 if [ ! -z $URL ]
 then

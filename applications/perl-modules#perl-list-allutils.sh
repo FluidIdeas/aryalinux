@@ -12,16 +12,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.cpan.org/authors/id/D/DR/DROLSKY/List-AllUtils-0.19.tar.gz
-
 
 NAME=perl-modules#perl-list-allutils
 VERSION=0.19
 URL=https://www.cpan.org/authors/id/D/DR/DROLSKY/List-AllUtils-0.19.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.cpan.org/authors/id/D/DR/DROLSKY/List-AllUtils-0.19.tar.gz
+
 
 if [ ! -z $URL ]
 then

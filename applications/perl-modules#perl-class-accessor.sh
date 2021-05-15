@@ -10,16 +10,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.cpan.org/authors/id/K/KA/KASEI/Class-Accessor-0.51.tar.gz
-
 
 NAME=perl-modules#perl-class-accessor
 VERSION=0.51
 URL=https://www.cpan.org/authors/id/K/KA/KASEI/Class-Accessor-0.51.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.cpan.org/authors/id/K/KA/KASEI/Class-Accessor-0.51.tar.gz
+
 
 if [ ! -z $URL ]
 then

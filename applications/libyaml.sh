@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/yaml/libyaml/archive/0.2.4/libyaml-0.2.4.tar.gz
-
 
 NAME=libyaml
 VERSION=0.2.4
 URL=https://github.com/yaml/libyaml/archive/0.2.4/libyaml-0.2.4.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The libyaml package contains a C library for parsing and emitting YAML (YAML Ain't Markup Language) code."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/yaml/libyaml/archive/0.2.4/libyaml-0.2.4.tar.gz
+
 
 if [ ! -z $URL ]
 then

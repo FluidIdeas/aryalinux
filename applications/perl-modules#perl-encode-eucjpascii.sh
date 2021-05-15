@@ -10,16 +10,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.cpan.org/authors/id/N/NE/NEZUMI/Encode-EUCJPASCII-0.03.tar.gz
-
 
 NAME=perl-modules#perl-encode-eucjpascii
 VERSION=0.03
 URL=https://www.cpan.org/authors/id/N/NE/NEZUMI/Encode-EUCJPASCII-0.03.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.cpan.org/authors/id/N/NE/NEZUMI/Encode-EUCJPASCII-0.03.tar.gz
+
 
 if [ ! -z $URL ]
 then

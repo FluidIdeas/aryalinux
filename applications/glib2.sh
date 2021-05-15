@@ -13,6 +13,14 @@ set +h
 
 
 cd $SOURCE_DIR
+
+NAME=glib2
+VERSION=2.68.1
+URL=https://download.gnome.org/sources/glib/2.68/glib-2.68.1.tar.xz
+SECTION="General Libraries"
+DESCRIPTION="The GLib package contains low-level libraries useful for providing data structure handling for C, portability wrappers and interfaces for such runtime functionality as an event loop, threads, dynamic loading and an object system."
+
+
 mkdir -pv $NAME
 pushd $NAME
 
@@ -20,12 +28,6 @@ wget -nc https://download.gnome.org/sources/glib/2.68/glib-2.68.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/glib/2.68/glib-2.68.1.tar.xz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/glib-2.68.1-skip_warnings-1.patch
 
-
-NAME=glib2
-VERSION=2.68.1
-URL=https://download.gnome.org/sources/glib/2.68/glib-2.68.1.tar.xz
-SECTION="General Libraries"
-DESCRIPTION="The GLib package contains low-level libraries useful for providing data structure handling for C, portability wrappers and interfaces for such runtime functionality as an event loop, threads, dynamic loading and an object system."
 
 if [ ! -z $URL ]
 then

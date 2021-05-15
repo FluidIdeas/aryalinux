@@ -15,18 +15,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/GConf/3.2/GConf-3.2.6.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/GConf/3.2/GConf-3.2.6.tar.xz
-
 
 NAME=gconf
 VERSION=3.2.6
 URL=https://download.gnome.org/sources/GConf/3.2/GConf-3.2.6.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GConf package contains a configuration database system used by many GNOME applications."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/GConf/3.2/GConf-3.2.6.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/GConf/3.2/GConf-3.2.6.tar.xz
+
 
 if [ ! -z $URL ]
 then

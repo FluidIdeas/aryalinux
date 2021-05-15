@@ -11,17 +11,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/lm-sensors/lm-sensors/archive/V3-6-0/lm-sensors-3-6-0.tar.gz
-
 
 NAME=lm_sensors
 VERSION=0
 URL=https://github.com/lm-sensors/lm-sensors/archive/V3-6-0/lm-sensors-3-6-0.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="The lm_sensors package provides user-space support for the hardware monitoring drivers in the Linux kernel. This is useful for monitoring the temperature of the CPU and adjusting the performance of some hardware (such as cooling fans)."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/lm-sensors/lm-sensors/archive/V3-6-0/lm-sensors-3-6-0.tar.gz
+
 
 if [ ! -z $URL ]
 then

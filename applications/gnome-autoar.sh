@@ -13,18 +13,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/gnome-autoar/0.3/gnome-autoar-0.3.1.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-autoar/0.3/gnome-autoar-0.3.1.tar.xz
-
 
 NAME=gnome-autoar
 VERSION=0.3.1
 URL=https://download.gnome.org/sources/gnome-autoar/0.3/gnome-autoar-0.3.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The gnome-autoar package provides a framework for automatic archive extraction, compression, and management."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/gnome-autoar/0.3/gnome-autoar-0.3.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-autoar/0.3/gnome-autoar-0.3.1.tar.xz
+
 
 if [ ! -z $URL ]
 then

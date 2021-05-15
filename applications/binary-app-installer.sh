@@ -10,15 +10,17 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-
 
 NAME=binary-app-installer
 VERSION=1.0
 
 DESCRIPTION="Binary application installer. You can download popular binaries form the internet and pass them to the binary app installer to install without having to run commands to do so inside the terminal."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+
 
 if [ ! -z $URL ]
 then

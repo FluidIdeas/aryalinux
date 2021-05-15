@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.9rel.1.tar.bz2
-
 
 NAME=lynx
 VERSION=2.8.
 URL=https://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.9rel.1.tar.bz2
 SECTION="Text Web Browsers"
 DESCRIPTION="Lynx is a text based web browser."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.9rel.1.tar.bz2
+
 
 if [ ! -z $URL ]
 then

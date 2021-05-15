@@ -10,18 +10,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.sudo.ws/dist/sudo-1.9.6p1.tar.gz
-wget -nc ftp://ftp.sudo.ws/pub/sudo/sudo-1.9.6p1.tar.gz
-
 
 NAME=sudo
 VERSION=1.9.
 URL=https://www.sudo.ws/dist/sudo-1.9.6p1.tar.gz
 SECTION="Security"
 DESCRIPTION="The Sudo package allows a system administrator to give certain users (or groups of users) the ability to run some (or all) commands as root or another user while logging the commands and arguments."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.sudo.ws/dist/sudo-1.9.6p1.tar.gz
+wget -nc ftp://ftp.sudo.ws/pub/sudo/sudo-1.9.6p1.tar.gz
+
 
 if [ ! -z $URL ]
 then

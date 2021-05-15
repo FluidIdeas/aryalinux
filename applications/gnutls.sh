@@ -15,18 +15,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/gnutls-3.7.1.tar.xz
-wget -nc ftp://ftp.gnupg.org/gcrypt/gnutls/v3.7/gnutls-3.7.1.tar.xz
-
 
 NAME=gnutls
 VERSION=3.7.1
 URL=https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/gnutls-3.7.1.tar.xz
 SECTION="Security"
 DESCRIPTION="The GnuTLS package contains libraries and userspace tools which provide a secure layer over a reliable transport layer. Currently the GnuTLS library implements the proposed standards by the IETF's TLS working group. Quoting from the TLS protocol specification:"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/gnutls-3.7.1.tar.xz
+wget -nc ftp://ftp.gnupg.org/gcrypt/gnutls/v3.7/gnutls-3.7.1.tar.xz
+
 
 if [ ! -z $URL ]
 then

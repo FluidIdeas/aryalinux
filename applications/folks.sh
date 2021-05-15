@@ -17,18 +17,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/folks/0.15/folks-0.15.2.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/folks/0.15/folks-0.15.2.tar.xz
-
 
 NAME=folks
 VERSION=0.15.2
 URL=https://download.gnome.org/sources/folks/0.15/folks-0.15.2.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Folks is a library that aggregates people from multiple sources (e.g, Telepathy connection managers and Evolution Data Server, Facebook, etc.) to create metacontacts."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/folks/0.15/folks-0.15.2.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/folks/0.15/folks-0.15.2.tar.xz
+
 
 if [ ! -z $URL ]
 then

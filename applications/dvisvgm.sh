@@ -14,17 +14,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/mgieseki/dvisvgm/releases/download/2.11.1/dvisvgm-2.11.1.tar.gz
-
 
 NAME=dvisvgm
 VERSION=2.11.1
 URL=https://github.com/mgieseki/dvisvgm/releases/download/2.11.1/dvisvgm-2.11.1.tar.gz
 SECTION="Typesetting"
 DESCRIPTION="The dvisvgm package converts DVI, EPS and PDF files to SVG format."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/mgieseki/dvisvgm/releases/download/2.11.1/dvisvgm-2.11.1.tar.gz
+
 
 if [ ! -z $URL ]
 then

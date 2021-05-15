@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.sourceforge.net/libcddb/libcddb-1.3.2.tar.bz2
-
 
 NAME=libcddb
 VERSION=1.3.2
 URL=https://downloads.sourceforge.net/libcddb/libcddb-1.3.2.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The libcddb is a library that implements the different protocols (CDDBP, HTTP, SMTP) to access data on a CDDB server."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.sourceforge.net/libcddb/libcddb-1.3.2.tar.bz2
+
 
 if [ ! -z $URL ]
 then

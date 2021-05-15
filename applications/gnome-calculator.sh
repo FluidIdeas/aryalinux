@@ -17,18 +17,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/gnome-calculator/40/gnome-calculator-40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-calculator/40/gnome-calculator-40.0.tar.xz
-
 
 NAME=gnome-calculator
 VERSION=40.0
 URL=https://download.gnome.org/sources/gnome-calculator/40/gnome-calculator-40.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="GNOME Calculator is a powerful graphical calculator with financial, logical and scientific modes. It uses a multiple precision package to do its arithmetic to give a high degree of accuracy."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/gnome-calculator/40/gnome-calculator-40.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-calculator/40/gnome-calculator-40.0.tar.xz
+
 
 if [ ! -z $URL ]
 then

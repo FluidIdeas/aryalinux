@@ -12,6 +12,14 @@ set +h
 
 
 cd $SOURCE_DIR
+
+NAME=libunique
+VERSION=1.1.6
+URL=https://download.gnome.org/sources/libunique/1.1/libunique-1.1.6.tar.bz2
+SECTION="General Libraries"
+DESCRIPTION="The libunique package contains a library for writing single instance applications."
+
+
 mkdir -pv $NAME
 pushd $NAME
 
@@ -19,12 +27,6 @@ wget -nc https://download.gnome.org/sources/libunique/1.1/libunique-1.1.6.tar.bz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libunique/1.1/libunique-1.1.6.tar.bz2
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/libunique-1.1.6-upstream_fixes-1.patch
 
-
-NAME=libunique
-VERSION=1.1.6
-URL=https://download.gnome.org/sources/libunique/1.1/libunique-1.1.6.tar.bz2
-SECTION="General Libraries"
-DESCRIPTION="The libunique package contains a library for writing single instance applications."
 
 if [ ! -z $URL ]
 then

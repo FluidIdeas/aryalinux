@@ -13,6 +13,14 @@ set +h
 
 
 cd $SOURCE_DIR
+
+NAME=docbook-utils
+VERSION=0.6.14
+URL=https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/docbook-utils-0.6.14.tar.gz
+SECTION="Standard Generalized Markup Language (SGML)"
+DESCRIPTION="The DocBook-utils package is a collection of utility scripts used to convert and analyze SGML documents in general, and DocBook files in particular. The scripts are used to convert from DocBook or other SGML formats into “classical” file formats like HTML, man, info, RTF and many more. There's also a utility to compare two SGML files and only display the differences in markup. This is useful for comparing documents prepared for different languages."
+
+
 mkdir -pv $NAME
 pushd $NAME
 
@@ -20,12 +28,6 @@ wget -nc https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/docbook-uti
 wget -nc ftp://sourceware.org/pub/docbook-tools/new-trials/SOURCES/docbook-utils-0.6.14.tar.gz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/docbook-utils-0.6.14-grep_fix-1.patch
 
-
-NAME=docbook-utils
-VERSION=0.6.14
-URL=https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/docbook-utils-0.6.14.tar.gz
-SECTION="Standard Generalized Markup Language (SGML)"
-DESCRIPTION="The DocBook-utils package is a collection of utility scripts used to convert and analyze SGML documents in general, and DocBook files in particular. The scripts are used to convert from DocBook or other SGML formats into “classical” file formats like HTML, man, info, RTF and many more. There's also a utility to compare two SGML files and only display the differences in markup. This is useful for comparing documents prepared for different languages."
 
 if [ ! -z $URL ]
 then

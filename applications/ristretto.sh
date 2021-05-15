@@ -12,17 +12,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://archive.xfce.org/src/apps/ristretto/0.10/ristretto-0.10.0.tar.bz2
-
 
 NAME=ristretto
 VERSION=0.10.0
 URL=https://archive.xfce.org/src/apps/ristretto/0.10/ristretto-0.10.0.tar.bz2
 SECTION="Xfce Applications"
 DESCRIPTION="Ristretto is a fast and lightweight image viewer for the Xfce desktop."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://archive.xfce.org/src/apps/ristretto/0.10/ristretto-0.10.0.tar.bz2
+
 
 if [ ! -z $URL ]
 then

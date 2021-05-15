@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/benhoyt/inih/archive/r53/inih-r53.tar.gz
-
 
 NAME=inih
 VERSION=53
 URL=https://github.com/benhoyt/inih/archive/r53/inih-r53.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="This package is a simple .INI file parser written in C."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/benhoyt/inih/archive/r53/inih-r53.tar.gz
+
 
 if [ ! -z $URL ]
 then

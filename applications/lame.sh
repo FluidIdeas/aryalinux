@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.sourceforge.net/lame/lame-3.100.tar.gz
-
 
 NAME=lame
 VERSION=3.100
 URL=https://downloads.sourceforge.net/lame/lame-3.100.tar.gz
 SECTION="Audio Utilities"
 DESCRIPTION="The LAME package contains an MP3 encoder and optionally, an MP3 frame analyzer. This is useful for creating and analyzing compressed audio files."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.sourceforge.net/lame/lame-3.100.tar.gz
+
 
 if [ ! -z $URL ]
 then

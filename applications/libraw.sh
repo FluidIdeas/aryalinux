@@ -13,17 +13,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.libraw.org/data/LibRaw-0.20.2.tar.gz
-
 
 NAME=libraw
 VERSION=0.20.2
 URL=https://www.libraw.org/data/LibRaw-0.20.2.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="Libraw is a library for reading RAW files obtained from digital photo cameras (CRW/CR2, NEF, RAF, DNG, and others)."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.libraw.org/data/LibRaw-0.20.2.tar.gz
+
 
 if [ ! -z $URL ]
 then

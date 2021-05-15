@@ -14,17 +14,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/glib-networking/2.68/glib-networking-2.68.1.tar.xz
-
 
 NAME=glib-networking
 VERSION=2.68.1
 URL=https://download.gnome.org/sources/glib-networking/2.68/glib-networking-2.68.1.tar.xz
 SECTION="Networking Libraries"
 DESCRIPTION="The GLib Networking package contains Network related gio modules for GLib."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/glib-networking/2.68/glib-networking-2.68.1.tar.xz
+
 
 if [ ! -z $URL ]
 then

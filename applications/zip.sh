@@ -10,18 +10,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://downloads.sourceforge.net/infozip/zip30.tar.gz
-wget -nc ftp://ftp.info-zip.org/pub/infozip/src/zip30.tgz
-
 
 NAME=zip
 VERSION=30
 URL=https://downloads.sourceforge.net/infozip/zip30.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="The Zip package contains Zip utilities. These are useful for compressing files into ZIP archives."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://downloads.sourceforge.net/infozip/zip30.tar.gz
+wget -nc ftp://ftp.info-zip.org/pub/infozip/src/zip30.tgz
+
 
 if [ ! -z $URL ]
 then

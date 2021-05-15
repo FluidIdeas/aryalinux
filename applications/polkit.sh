@@ -14,17 +14,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.freedesktop.org/software/polkit/releases/polkit-0.118.tar.gz
-
 
 NAME=polkit
 VERSION=0.118
 URL=https://www.freedesktop.org/software/polkit/releases/polkit-0.118.tar.gz
 SECTION="Security"
 DESCRIPTION="Polkit is a toolkit for defining and handling authorizations. It is used for allowing unprivileged processes to communicate with privileged processes."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.freedesktop.org/software/polkit/releases/polkit-0.118.tar.gz
+
 
 if [ ! -z $URL ]
 then

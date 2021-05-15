@@ -11,16 +11,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://cpan.metacpan.org/authors/id/C/CH/CHROMATIC/SUPER-1.20190531.tar.gz
-
 
 NAME=perl-deps#perl-super
 VERSION=1.20190531
 URL=https://cpan.metacpan.org/authors/id/C/CH/CHROMATIC/SUPER-1.20190531.tar.gz
 SECTION="Others"
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://cpan.metacpan.org/authors/id/C/CH/CHROMATIC/SUPER-1.20190531.tar.gz
+
 
 if [ ! -z $URL ]
 then

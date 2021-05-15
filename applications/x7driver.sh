@@ -27,15 +27,17 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-
 
 NAME=x7driver
 VERSION=1.0
 
 DESCRIPTION="The Xorg Drivers page contains the instructions for building Xorg drivers that are necessary in order for Xorg Server to take advantage of the hardware that it is running on. At least one input and one video driver are required for Xorg Server to start."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+
 
 if [ ! -z $URL ]
 then

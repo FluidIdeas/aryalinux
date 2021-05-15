@@ -10,6 +10,14 @@ set +h
 
 
 cd $SOURCE_DIR
+
+NAME=libxml2
+VERSION=2.9.10
+URL=http://xmlsoft.org/sources/libxml2-2.9.10.tar.gz
+SECTION="General Libraries"
+DESCRIPTION="The libxml2 package contains libraries and utilities used for parsing XML files."
+
+
 mkdir -pv $NAME
 pushd $NAME
 
@@ -18,12 +26,6 @@ wget -nc ftp://xmlsoft.org/libxml2/libxml2-2.9.10.tar.gz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/libxml2-2.9.10-security_fixes-1.patch
 wget -nc https://www.w3.org/XML/Test/xmlts20130923.tar.gz
 
-
-NAME=libxml2
-VERSION=2.9.10
-URL=http://xmlsoft.org/sources/libxml2-2.9.10.tar.gz
-SECTION="General Libraries"
-DESCRIPTION="The libxml2 package contains libraries and utilities used for parsing XML files."
 
 if [ ! -z $URL ]
 then

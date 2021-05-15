@@ -10,16 +10,18 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://github.com/yaml/pyyaml/archive/5.3/pyyaml-5.3.tar.gz
-
 
 NAME=pyyaml
 VERSION=5.3
 URL=https://github.com/yaml/pyyaml/archive/5.3/pyyaml-5.3.tar.gz
 DESCRIPTION="PyYAML - The next generation YAML parser and emitter for Python."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://github.com/yaml/pyyaml/archive/5.3/pyyaml-5.3.tar.gz
+
 
 if [ ! -z $URL ]
 then

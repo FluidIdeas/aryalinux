@@ -10,17 +10,19 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://www.kernel.org/pub/linux/utils/raid/mdadm/mdadm-4.1.tar.xz
-
 
 NAME=mdadm
 VERSION=4.1
 URL=https://www.kernel.org/pub/linux/utils/raid/mdadm/mdadm-4.1.tar.xz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The mdadm package contains administration tools for software RAID."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://www.kernel.org/pub/linux/utils/raid/mdadm/mdadm-4.1.tar.xz
+
 
 if [ ! -z $URL ]
 then

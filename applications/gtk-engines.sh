@@ -11,18 +11,20 @@ set +h
 
 
 cd $SOURCE_DIR
-mkdir -pv $NAME
-pushd $NAME
-
-wget -nc https://download.gnome.org/sources/gtk-engines/2.20/gtk-engines-2.20.2.tar.bz2
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtk-engines/2.20/gtk-engines-2.20.2.tar.bz2
-
 
 NAME=gtk-engines
 VERSION=2.20.2
 URL=https://download.gnome.org/sources/gtk-engines/2.20/gtk-engines-2.20.2.tar.bz2
 SECTION="X Libraries"
 DESCRIPTION="The GTK Engines package contains eight themes/engines and two additional engines for GTK2."
+
+
+mkdir -pv $NAME
+pushd $NAME
+
+wget -nc https://download.gnome.org/sources/gtk-engines/2.20/gtk-engines-2.20.2.tar.bz2
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtk-engines/2.20/gtk-engines-2.20.2.tar.bz2
+
 
 if [ ! -z $URL ]
 then
