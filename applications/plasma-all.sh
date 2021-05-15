@@ -94,7 +94,7 @@ plasma-systemmonitor
 qqc2-breeze-style
 "
 
-base_url = "https://download.kde.org/stable/plasma/$VERSION/"
+base_url="https://download.kde.org/stable/plasma/$VERSION/"
 
 for pkg in $(echo $packages); do
     if ! grep pkg /tmp/framework-pkgs &> /dev/null; then

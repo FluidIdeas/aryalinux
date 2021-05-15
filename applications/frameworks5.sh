@@ -127,7 +127,7 @@ kcontacts
 kquickcharts
 kdav"
 
-base_url = "https://download.kde.org/stable/frameworks/$VERSION/"
+base_url="https://download.kde.org/stable/frameworks/$VERSION/"
 
 for pkg in $(echo $packages); do
     if ! grep pkg /tmp/framework-pkgs &> /dev/null; then
