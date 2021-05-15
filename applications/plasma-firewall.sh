@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/KDE/plasma-firewall/archive/v5.18.7/plasma-firewall-5.18.7.tar.gz
+wget -nc https://github.com/KDE/plasma-firewall/archive/v5.21.90/plasma-firewall-5.21.90.tar.gz
 
 NAME=plasma-firewall
-VERSION=5.18.7
-URL=https://github.com/KDE/plasma-firewall/archive/v5.18.7/plasma-firewall-5.18.7.tar.gz
+VERSION=5.21.90
+URL=https://github.com/KDE/plasma-firewall/archive/v5.21.90/plasma-firewall-5.21.90.tar.gz
 SECTION="KDE Plasma 5"
 
 if [ ! -z $URL ]
