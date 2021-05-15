@@ -102,7 +102,6 @@ kparts
 kactivities
 syntax-highlighting
 ktexteditor
-kdesignerplugin
 kwayland
 plasma-framework
 kpeople
@@ -130,7 +129,7 @@ kdav"
 base_url="https://download.kde.org/stable/frameworks/$VERSION/"
 
 for pkg in $(echo $packages); do
-    if ! grep pkg /tmp/framework-pkgs &> /dev/null; then
+    if ! grep $pkg /tmp/framework-pkgs &> /dev/null; then
         wget -nc "$base_url$pkg-$VERSION.0.tar.xz"
         tarball=$(echo "$base_url$pkg-$VERSION.0.tar.xz" | rev | cut -d/ -f1 | rev)
         directory=$(tar tf $tarball | cut -d/ -f1 | uniq)
