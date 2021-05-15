@@ -100,7 +100,7 @@ for pkg in $(echo $packages); do
     if ! grep pkg /tmp/framework-pkgs &> /dev/null; then
         wget "$base_url$pkg-$VERSION.0.tar.xz"
         tarball=$(echo "$base_url$pkg-$VERSION.0.tar.xz" | rev | cut -d/ -f1 | rev)
-        directory=$(tar tf $tarball)
+        directory=$(tar tf $tarball | cut -d/ -f1 | uniq)
 
         tar xf $tarball
         pushd $directory
