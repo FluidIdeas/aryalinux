@@ -8,6 +8,7 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:cmake
+#REQ:kdesignerplugin
 
 cd $SOURCE_DIR
 
