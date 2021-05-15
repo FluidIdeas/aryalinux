@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/KDE/plasma-systemmonitor/archive/v5.21.90/plasma-systemmonitor-5.21.90.tar.gz
+wget -nc https://github.com/KDE/plasma-systemmonitor/archive/v5.20.0/plasma-systemmonitor-5.20.0.tar.gz
 
 NAME=plasma-systemmonitor
-VERSION=5.21.90
-URL=https://github.com/KDE/plasma-systemmonitor/archive/v5.21.90/plasma-systemmonitor-5.21.90.tar.gz
+VERSION=5.20.0
+URL=https://github.com/KDE/plasma-systemmonitor/archive/v5.20.0/plasma-systemmonitor-5.20.0.tar.gz
 SECTION="KDE Plasma 5"
 
 if [ ! -z $URL ]
