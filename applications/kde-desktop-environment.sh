@@ -37,7 +37,6 @@ set +h
 #REQ:aryalinux-google-fonts
 #REQ:aryalinux-wallpapers
 #REQ:aryalinux-icons
-#REQ:aryalinux-kde-settings
 
 
 cd $SOURCE_DIR
