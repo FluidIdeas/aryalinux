@@ -11,13 +11,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/Attic/applications/19.11.90/src/dolphin-19.11.90.tar.xz
+wget -nc https://download.kde.org/Attic/applications/19.11.90/src/dolphin-plugins-19.11.90.tar.xz
 
-NAME=dolphin
+NAME=dolphin-plugins
 VERSION=19.11.90
-URL=https://download.kde.org/Attic/applications/19.11.90/src/dolphin-19.11.90.tar.xz
+URL=https://download.kde.org/Attic/applications/19.11.90/src/dolphin-plugins-19.11.90.tar.xz
 SECTION="KDE Frameworks 5 Based Applications"
-DESCRIPTION="Dolphin is a free and open source file manager included in the KDE Applications bundle. Dolphin became the default file manager of KDE Plasma desktop environments in the fourth iteration, termed KDE Software Compilation 4. It can also be optionally installed on K Desktop Environment 3."
+DESCRIPTION="Plugins for the dolphin file manager"
 
 if [ ! -z $URL ]
 then
