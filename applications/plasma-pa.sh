@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/KDE/plasma-pa/archive/v5.18.7/plasma-pa-5.18.7.tar.gz
+wget -nc https://github.com/KDE/plasma-pa/archive/v5.21.1/plasma-pa-5.21.1.tar.gz
 
 NAME=plasma-pa
-VERSION=5.18.7
-URL=https://github.com/KDE/plasma-pa/archive/v5.18.7/plasma-pa-5.18.7.tar.gz
+VERSION=5.21.1
+URL=https://github.com/KDE/plasma-pa/archive/v5.21.1/plasma-pa-5.21.1.tar.gz
 SECTION="KDE Plasma 5"
 
 if [ ! -z $URL ]

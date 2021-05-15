@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/KDE/ksysguard/archive/v5.18.7/ksysguard-5.18.7.tar.gz
+wget -nc https://github.com/KDE/ksysguard/archive/v5.21.1/ksysguard-5.21.1.tar.gz
 
 NAME=ksysguard
-VERSION=5.18.7
-URL=https://github.com/KDE/ksysguard/archive/v5.18.7/ksysguard-5.18.7.tar.gz
+VERSION=5.21.1
+URL=https://github.com/KDE/ksysguard/archive/v5.21.1/ksysguard-5.21.1.tar.gz
 SECTION="KDE Plasma 5"
 
 if [ ! -z $URL ]

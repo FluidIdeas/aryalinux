@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/KDE/kdeplasma-addons/archive/v5.18.7/kdeplasma-addons-5.18.7.tar.gz
+wget -nc https://github.com/KDE/kdeplasma-addons/archive/v5.21.1/kdeplasma-addons-5.21.1.tar.gz
 
 NAME=kdeplasma-addons
-VERSION=5.18.7
-URL=https://github.com/KDE/kdeplasma-addons/archive/v5.18.7/kdeplasma-addons-5.18.7.tar.gz
+VERSION=5.21.1
+URL=https://github.com/KDE/kdeplasma-addons/archive/v5.21.1/kdeplasma-addons-5.21.1.tar.gz
 SECTION="KDE Plasma 5"
 
 if [ ! -z $URL ]

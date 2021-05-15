@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/KDE/plasma-disks/archive/v5.21.90/plasma-disks-5.21.90.tar.gz
+wget -nc https://github.com/KDE/plasma-disks/archive/v5.21.1/plasma-disks-5.21.1.tar.gz
 
 NAME=plasma-disks
-VERSION=5.21.90
-URL=https://github.com/KDE/plasma-disks/archive/v5.21.90/plasma-disks-5.21.90.tar.gz
+VERSION=5.21.1
+URL=https://github.com/KDE/plasma-disks/archive/v5.21.1/plasma-disks-5.21.1.tar.gz
 SECTION="KDE Plasma 5"
 
 if [ ! -z $URL ]

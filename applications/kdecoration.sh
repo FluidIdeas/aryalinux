@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://github.com/KDE/kdecoration/archive/v5.18.7/kdecoration-5.18.7.tar.gz
+wget -nc https://github.com/KDE/kdecoration/archive/v5.21.1/kdecoration-5.21.1.tar.gz
 
 NAME=kdecoration
-VERSION=5.18.7
-URL=https://github.com/KDE/kdecoration/archive/v5.18.7/kdecoration-5.18.7.tar.gz
+VERSION=5.21.1
+URL=https://github.com/KDE/kdecoration/archive/v5.21.1/kdecoration-5.21.1.tar.gz
 SECTION="KDE Plasma 5"
 
 if [ ! -z $URL ]
