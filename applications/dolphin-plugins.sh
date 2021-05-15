@@ -11,11 +11,11 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/Attic/applications/19.11.90/src/dolphin-plugins-19.11.90.tar.xz
+wget -nc https://github.com/KDE/dolphin-plugins/archive/v21.04.1/dolphin-plugins-21.04.1.tar.gz
 
 NAME=dolphin-plugins
-VERSION=19.11.90
-URL=https://download.kde.org/Attic/applications/19.11.90/src/dolphin-plugins-19.11.90.tar.xz
+VERSION=21.04.1
+URL=https://github.com/KDE/dolphin-plugins/archive/v21.04.1/dolphin-plugins-21.04.1.tar.gz
 SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="Plugins for the dolphin file manager"
 
