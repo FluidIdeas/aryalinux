@@ -12,12 +12,12 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.kde.org/stable/plasma-wayland-protocols/plasma-wayland-protocols-1.1.1.tar.xz
+wget -nc https://download.kde.org/stable/plasma-wayland-protocols/plasma-wayland-protocols-1.3.0.tar.xz
 
 
 NAME=plasma-wayland-protocols
-VERSION=1.1.1
-URL=https://download.kde.org/stable/plasma-wayland-protocols/plasma-wayland-protocols-1.1.1.tar.xz
+VERSION=1.3.0
+URL=https://download.kde.org/stable/plasma-wayland-protocols/plasma-wayland-protocols-1.3.0.tar.xz
 SECTION="Introduction to KDE"
 DESCRIPTION="This package provides a custom set of protocol definitions for KDE."
 
