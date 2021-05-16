@@ -85,7 +85,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-cd $SOURCE_DIR
+cd ..
 TARBALL=$(ls aspell*.tar.bz2)
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
