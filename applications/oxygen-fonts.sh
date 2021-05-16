@@ -37,8 +37,8 @@ fi
 sudo mkdir -pv /usr/share/fonts/aryalinux-google-fonts/sans/
 wget "https://fonts.google.com/download?family=Oxygen" -O Oxygen.zip
 wget "https://fonts.google.com/download?family=Oxygen%20Mono" -O Oxygen_Mono.zip
-sudo unzip Oxygen.zip -d /usr/share/fonts/aryalinux-google-fonts/sans/
-sudo unzip Oxygen_Mono.zip -d /usr/share/fonts/aryalinux-google-fonts/sans/
+yes | sudo unzip Oxygen.zip -d /usr/share/fonts/aryalinux-google-fonts/sans/
+yes | sudo unzip Oxygen_Mono.zip -d /usr/share/fonts/aryalinux-google-fonts/sans/
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
