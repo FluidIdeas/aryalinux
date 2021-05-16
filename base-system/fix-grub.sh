@@ -9,7 +9,7 @@ export MAKEFLAGS="-j `nproc`"
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="091-grub.sh"
-TARBALL="grub-2.04.tar.xz"
+TARBALL="grub-2.06~rc1.tar.xz"
 
 cd $SOURCE_DIR
 
@@ -19,8 +19,6 @@ rm -rf $DIRECTORY
 tar xf $TARBALL
 cd $DIRECTORY
 
-#patch -Np1 -i ../grub-2.02-gcc.patch
-#patch -Np1 -i ../grub-2.02-relocation.patch
 sed -i "s@GNU GRUB  version %s@$OS_NAME $OS_VERSION $OS_CODENAME \- GNU GRUB@g" grub-core/normal/main.c
 
 if [ `uname -m` == "x86_64" ]
