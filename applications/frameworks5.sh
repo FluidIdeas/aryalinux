@@ -85,7 +85,7 @@ set +h
 #REQ:kio
 #REQ:kdeclarative
 #REQ:kcmutils
-#REQ:kirigami2
+#REQ:kirigami
 #REQ:knewstuff
 #REQ:frameworkintegration
 #REQ:kinit
