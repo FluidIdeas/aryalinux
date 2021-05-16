@@ -14,14 +14,18 @@ cd $SOURCE_DIR
 
 NAME=libgpod
 VERSION=0.8.3
-URL=https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/libgpod/0.8.3-16/libgpod_0.8.3.orig.tar.bz2
+URL=https://sourceforge.net/projects/gtkpod/files/libgpod/libgpod-0.8/libgpod-0.8.3.tar.bz2
 DESCRIPTION="libgpod is a shared library to access the contents of an iPod. This library is based on code used in the gtkpod project."
 
 
 mkdir -pv $NAME
 pushd $NAME
 
-wget -nc https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/libgpod/0.8.3-16/libgpod_0.8.3.orig.tar.bz2
+wget -nc https://sourceforge.net/projects/gtkpod/files/libgpod/libgpod-0.8/libgpod-0.8.3.tar.bz2
+wget -nc https://raw.githubusercontent.com/archlinux/svntogit-packages/packages/libgpod/trunk/0001-323-Segmentation-fault-when-opening-ipod.patch
+wget -nc https://raw.githubusercontent.com/archlinux/svntogit-packages/packages/libgpod/trunk/libgpod-0.8.2-pkgconfig_overlinking.patch
+wget -nc https://raw.githubusercontent.com/archlinux/svntogit-packages/packages/libgpod/trunk/libgpod-fixswig.patch
+wget -nc https://raw.githubusercontent.com/archlinux/svntogit-packages/packages/libgpod/trunk/libgpod-udev.patch
 
 
 if [ ! -z $URL ]
@@ -40,6 +44,10 @@ fi
 cd $DIRECTORY
 fi
 
+patch -Np1 -i ../0001-323-Segmentation-fault-when-opening-ipod.patch &&
+patch -Np1 -i ../libgpod-0.8.2-pkgconfig_overlinking.patch &&
+patch -Np1 -i ../libgpod-fixswig.patch &&
+patch -Np1 -i ../libgpod-udev.patch &&
 ./configure --prefix=/usr &&
 make
 sudo make install

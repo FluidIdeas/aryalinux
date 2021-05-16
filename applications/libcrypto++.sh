@@ -12,15 +12,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libcrypto++
-VERSION=8.2.0
-URL=https://github.com/weidai11/cryptopp/archive/CRYPTOPP_8_2_0.tar.gz
+VERSION=8.5.0
+URL=https://github.com/weidai11/cryptopp/archive/refs/tags/CRYPTOPP_8_5_0.tar.gz
 DESCRIPTION="Crypto++ is library for creating C++ programs which use cryptographic algorithms. The library uses a Pipes & Filters architecture with heavy use of templates and abstract base classes."
 
 
 mkdir -pv $NAME
 pushd $NAME
 
-wget -nc https://github.com/weidai11/cryptopp/archive/CRYPTOPP_8_2_0.tar.gz
+wget -nc https://github.com/weidai11/cryptopp/archive/refs/tags/CRYPTOPP_8_5_0.tar.gz
 
 
 if [ ! -z $URL ]

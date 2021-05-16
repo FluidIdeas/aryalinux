@@ -16,14 +16,14 @@ cd $SOURCE_DIR
 
 NAME=liblastfm
 VERSION=1.0.9
-URL=http://archive.ubuntu.com/ubuntu/pool/universe/libl/liblastfm/liblastfm_1.0.9.orig.tar.gz
+URL=https://github.com/lastfm/liblastfm/archive/1.0.9/liblastfm-1.0.9.tar.gz
 DESCRIPTION="liblastfm is a collection of C++/Qt4 libraries provided by Last.fm for use with their web services."
 
 
 mkdir -pv $NAME
 pushd $NAME
 
-wget -nc http://archive.ubuntu.com/ubuntu/pool/universe/libl/liblastfm/liblastfm_1.0.9.orig.tar.gz
+wget -nc https://github.com/lastfm/liblastfm/archive/1.0.9/liblastfm-1.0.9.tar.gz
 
 
 if [ ! -z $URL ]

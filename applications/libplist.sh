@@ -12,15 +12,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libplist
-VERSION=2.1.0
-URL=https://github.com/libimobiledevice/libplist/archive/2.1.0.tar.gz
+VERSION=2.2.0
+URL=https://github.com/libimobiledevice/libplist/releases/download/2.2.0/libplist-2.2.0.tar.bz2
 DESCRIPTION="A library to handle Apple Property List format in binary or XML - libimobiledevice/libplist"
 
 
 mkdir -pv $NAME
 pushd $NAME
 
-wget -nc https://github.com/libimobiledevice/libplist/archive/2.1.0.tar.gz
+wget -nc https://github.com/libimobiledevice/libplist/releases/download/2.2.0/libplist-2.2.0.tar.bz2
 
 
 if [ ! -z $URL ]

@@ -13,15 +13,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libchromaprint
-VERSION=1.4.3
-URL=https://github.com/acoustid/chromaprint/releases/download/v1.4.3/chromaprint-1.4.3.tar.gz
+VERSION=1.5.0
+URL=https://github.com/acoustid/chromaprint/releases/download/v1.5.0/chromaprint-1.5.0.tar.gz
 DESCRIPTION="Chromaprint is a library for calculating audio fingerprints which are used by the Acoustid service. Its main purpose is to provide an accurate identifier for record tracks"
 
 
 mkdir -pv $NAME
 pushd $NAME
 
-wget -nc https://github.com/acoustid/chromaprint/releases/download/v1.4.3/chromaprint-1.4.3.tar.gz
+wget -nc https://github.com/acoustid/chromaprint/releases/download/v1.5.0/chromaprint-1.5.0.tar.gz
 
 
 if [ ! -z $URL ]
