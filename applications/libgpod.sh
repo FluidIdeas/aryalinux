@@ -25,7 +25,6 @@ wget -nc https://sourceforge.net/projects/gtkpod/files/libgpod/libgpod-0.8/libgp
 wget -nc https://raw.githubusercontent.com/archlinux/svntogit-packages/packages/libgpod/trunk/0001-323-Segmentation-fault-when-opening-ipod.patch
 wget -nc https://raw.githubusercontent.com/archlinux/svntogit-packages/packages/libgpod/trunk/libgpod-0.8.2-pkgconfig_overlinking.patch
 wget -nc https://raw.githubusercontent.com/archlinux/svntogit-packages/packages/libgpod/trunk/libgpod-fixswig.patch
-wget -nc https://raw.githubusercontent.com/archlinux/svntogit-packages/packages/libgpod/trunk/libgpod-udev.patch
 
 
 if [ ! -z $URL ]
@@ -47,7 +46,6 @@ fi
 patch -Np1 -i ../0001-323-Segmentation-fault-when-opening-ipod.patch &&
 patch -Np1 -i ../libgpod-0.8.2-pkgconfig_overlinking.patch &&
 patch -Np1 -i ../libgpod-fixswig.patch &&
-patch -Np1 -i ../libgpod-udev.patch &&
 ./configure --prefix=/usr &&
 make
 sudo make install
