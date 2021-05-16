@@ -106,6 +106,7 @@ set +h
 #REQ:prison
 #REQ:qqc2-desktop-style
 #REQ:kjs
+#REQ:kdesignerplugin
 #REQ:kdelibs4support
 #REQ:khtml
 #REQ:kjsembed
