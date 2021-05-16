@@ -11,15 +11,15 @@ set +h
 
 cd $SOURCE_DIR
 
-NAME=kirigami2
+NAME=kirigami
 VERSION=5.82.0.0
-URL=https://github.com/KDE/kirigami2/archive/v5.82.0/kirigami2-5.82.0.tar.gz
+URL=https://github.com/KDE/kirigami/archive/v5.82.0/kirigami-5.82.0.tar.gz
 SECTION="KDE Plasma 5"
 
 mkdir -pv $NAME
 pushd $NAME
 
-wget -nc https://github.com/KDE/kirigami2/archive/v5.82.0/kirigami2-5.82.0.tar.gz
+wget -nc https://github.com/KDE/kirigami/archive/v5.82.0/kirigami-5.82.0.tar.gz
 
 if [ ! -z $URL ]
 then
