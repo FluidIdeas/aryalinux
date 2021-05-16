@@ -37,6 +37,7 @@ set +h
 #REQ:geoclue2
 #REQ:gtk-doc
 #REQ:woff2
+#REQ:libseccomp
 
 
 cd $SOURCE_DIR
