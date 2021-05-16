@@ -19,8 +19,8 @@ SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="x264 package provides a library for encoding video streams into the H.264/MPEG-4 AVC format."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/x264/x264-20210211.tar.xz
 

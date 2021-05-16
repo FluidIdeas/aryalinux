@@ -21,8 +21,8 @@ SECTION="GNOME Applications"
 DESCRIPTION="GNOME Weather is a small application that allows you to monitor the current weather conditions for your city, or anywhere in the world, and to access updated forecasts provided by various internet services."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gnome-weather/40/gnome-weather-40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-weather/40/gnome-weather-40.0.tar.xz

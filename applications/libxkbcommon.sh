@@ -22,8 +22,8 @@ SECTION="General Libraries"
 DESCRIPTION="libxkbcommon is a keymap compiler and support library which processes a reduced subset of keymaps as defined by the XKB specification."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://xkbcommon.org/download/libxkbcommon-1.3.0.tar.xz
 

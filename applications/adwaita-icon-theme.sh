@@ -18,8 +18,8 @@ SECTION="Icons"
 DESCRIPTION="The Adwaita Icon Theme package contains an icon theme for Gtk+ 3 applications."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/adwaita-icon-theme/40/adwaita-icon-theme-40.1.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/adwaita-icon-theme/40/adwaita-icon-theme-40.1.1.tar.xz

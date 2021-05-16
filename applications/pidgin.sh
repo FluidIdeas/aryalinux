@@ -23,8 +23,8 @@ SECTION="Other X-based Programs"
 DESCRIPTION="Pidgin is a Gtk+ 2 instant messaging client that can connect with a wide range of networks including Bonjour, ICQ, GroupWise, Jabber/XMPP, IRC, Gadu-Gadu, SILC, SIMPLE, and Zephyr."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/pidgin/pidgin-2.14.3.tar.bz2
 

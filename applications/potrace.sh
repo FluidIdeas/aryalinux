@@ -19,8 +19,8 @@ SECTION="Graphics and Font Libraries"
 DESCRIPTION="Potrace™ is a tool for transforming a bitmap (PBM, PGM, PPM, or BMP format) into one of several vector file formats."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/potrace/potrace-1.16.tar.gz
 

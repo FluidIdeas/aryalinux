@@ -19,8 +19,8 @@ SECTION="Graphics and Font Libraries"
 DESCRIPTION="The mypaint-brushes package contains brushes used by packages which use libmypaint."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/Jehan/mypaint-brushes/archive/v1.3.0/mypaint-brushes-v1.3.0.tar.gz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/mypaint-brushes-1.3.0-automake_1.16-1.patch

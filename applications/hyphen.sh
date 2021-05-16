@@ -18,8 +18,8 @@ SECTION="Others"
 DESCRIPTION="Hunspell is a spell checker and morphological analyzer library and program designed for languages with rich morphology and complex compounding or character encoding"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://sourceforge.net/projects/hunspell/files/Hyphen/2.8/hyphen-2.8.8.tar.gz
 

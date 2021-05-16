@@ -23,8 +23,8 @@ SECTION="Standard Generalized Markup Language (SGML)"
 DESCRIPTION="The DocBook DSSSL Stylesheets package contains DSSSL stylesheets. These are used by OpenJade or other tools to transform SGML and XML DocBook files."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/docbook/docbook-dsssl-1.79.tar.bz2
 wget -nc ftp://ftp.mirrorservice.org/sites/distfiles.gentoo.org/distfiles/docbook-dsssl-1.79.tar.bz2

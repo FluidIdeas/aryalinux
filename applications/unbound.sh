@@ -18,8 +18,8 @@ SECTION="Other Server Software"
 DESCRIPTION="Unbound is a validating, recursive, and caching DNS resolver. It is designed as a set of modular components that incorporate modern features, such as enhanced security (DNSSEC) validation, Internet Protocol Version 6 (IPv6), and a client resolver library API as an integral part of the architecture."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://nlnetlabs.nl/downloads/unbound/unbound-1.13.1.tar.gz
 

@@ -21,8 +21,8 @@ SECTION="General Utilities"
 DESCRIPTION="The Bogofilter application is a mail filter that classifies mail as spam or ham (non-spam) by a statistical analysis of the message's header and content (body)."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/bogofilter/bogofilter-1.2.5.tar.xz
 

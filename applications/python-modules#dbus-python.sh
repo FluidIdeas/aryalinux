@@ -20,8 +20,8 @@ URL=https://dbus.freedesktop.org/releases/dbus-python/dbus-python-1.2.16.tar.gz
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://dbus.freedesktop.org/releases/dbus-python/dbus-python-1.2.16.tar.gz
 

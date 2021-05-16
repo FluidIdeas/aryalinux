@@ -18,8 +18,8 @@ SECTION="Others"
 DESCRIPTION="General-purpose library specifically developed for the WPE-flavored port of WebKit."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/WebPlatformForEmbedded/libwpe/releases/download/1.10.0/libwpe-1.10.0.tar.xz
 

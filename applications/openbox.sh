@@ -19,8 +19,8 @@ SECTION="Window Managers"
 DESCRIPTION="Openbox is a highly configurable desktop window manager with extensive standards support. It allows you to control almost every aspect of how you interact with your desktop."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://openbox.org/dist/openbox/openbox-3.6.1.tar.gz
 

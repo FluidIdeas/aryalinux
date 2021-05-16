@@ -19,8 +19,8 @@ SECTION="Audio Utilities"
 DESCRIPTION="The Vorbis Tools package contains command-line tools useful for encoding, playing or editing files using the Ogg CODEC."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.2.tar.gz
 

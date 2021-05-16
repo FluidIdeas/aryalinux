@@ -19,8 +19,8 @@ SECTION="File Systems and Disk Management"
 DESCRIPTION="The LVM2 package is a set of tools that manage logical partitions. It allows spanning of file systems across multiple physical disks and disk partitions and provides for dynamic growing or shrinking of logical partitions, mirroring and low storage footprint snapshots."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://sourceware.org/ftp/lvm2/LVM2.2.03.11.tgz
 wget -nc ftp://sourceware.org/pub/lvm2/LVM2.2.03.11.tgz

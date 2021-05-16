@@ -22,8 +22,8 @@ SECTION="Typesetting"
 DESCRIPTION="The dvisvgm package converts DVI, EPS and PDF files to SVG format."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/mgieseki/dvisvgm/releases/download/2.11.1/dvisvgm-2.11.1.tar.gz
 

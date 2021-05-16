@@ -38,8 +38,8 @@ SECTION="Other X-based Programs"
 DESCRIPTION="The Gimp package contains the GNU Image Manipulation Program which is useful for photo retouching, image composition and image authoring."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.24.tar.bz2
 

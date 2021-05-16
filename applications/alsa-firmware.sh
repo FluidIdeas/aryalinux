@@ -19,8 +19,8 @@ SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The ALSA Firmware package contains firmware for certain sound cards."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.alsa-project.org/files/pub/firmware/alsa-firmware-1.2.4.tar.bz2
 wget -nc ftp://ftp.alsa-project.org/pub/firmware/alsa-firmware-1.2.4.tar.bz2

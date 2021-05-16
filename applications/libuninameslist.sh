@@ -18,8 +18,8 @@ SECTION="General Libraries"
 DESCRIPTION="Libuninameslist provides a Library of Unicode names and annotation data"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/fontforge/libuninameslist/releases/download/20200413/libuninameslist-dist-20200413.tar.gz
 

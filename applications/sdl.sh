@@ -19,8 +19,8 @@ SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The Simple DirectMedia Layer (SDL for short) is a cross-platform library designed to make it easy to write multimedia software, such as games and emulators."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.libsdl.org/release/SDL-1.2.15.tar.gz
 

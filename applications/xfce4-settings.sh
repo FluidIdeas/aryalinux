@@ -25,8 +25,8 @@ SECTION="Xfce Desktop"
 DESCRIPTION="The Xfce4 Settings package contains a collection of programs that are useful for adjusting your Xfce preferences."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.xfce.org/src/xfce/xfce4-settings/4.16/xfce4-settings-4.16.1.tar.bz2
 

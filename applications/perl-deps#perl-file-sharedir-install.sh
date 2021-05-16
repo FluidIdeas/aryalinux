@@ -17,8 +17,8 @@ URL=https://cpan.metacpan.org/authors/id/E/ET/ETHER/File-ShareDir-Install-0.13.t
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://cpan.metacpan.org/authors/id/E/ET/ETHER/File-ShareDir-Install-0.13.tar.gz
 

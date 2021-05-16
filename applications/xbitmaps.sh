@@ -19,8 +19,8 @@ SECTION="X Window System Environment"
 DESCRIPTION="The xbitmaps package contains bitmap images used by multiple applications built in Xorg chapter."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.x.org/pub/individual/data/xbitmaps-1.1.2.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/data/xbitmaps-1.1.2.tar.bz2

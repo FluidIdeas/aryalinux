@@ -27,8 +27,8 @@ SECTION="Networking Utilities"
 DESCRIPTION="The NetworkManager Applet provides a tool and a panel applet used to configure wired and wireless network connections through GUI. It's designed for use with any desktop environment that uses GTK+, such as Xfce and LXDE."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/network-manager-applet/1.20/network-manager-applet-1.20.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/network-manager-applet/1.20/network-manager-applet-1.20.0.tar.xz

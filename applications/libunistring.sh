@@ -18,8 +18,8 @@ SECTION="General Libraries"
 DESCRIPTION="libunistring is a library that provides functions for manipulating Unicode strings and for manipulating C strings according to the Unicode standard."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.gnu.org/gnu/libunistring/libunistring-0.9.10.tar.xz
 wget -nc ftp://ftp.gnu.org/gnu/libunistring/libunistring-0.9.10.tar.xz

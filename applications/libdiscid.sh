@@ -18,8 +18,8 @@ SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The libdiscid package contains a library for creating MusicBrainz DiscIDs from audio CDs. It reads a CD's table of contents (TOC) and generates an identifier which can be used to lookup the CD at MusicBrainz (http://musicbrainz.org). Additionally, it provides a submission URL for adding the DiscID to the database."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://ftp.musicbrainz.org/pub/musicbrainz/libdiscid/libdiscid-0.6.2.tar.gz
 wget -nc ftp://ftp.musicbrainz.org/pub/musicbrainz/libdiscid/libdiscid-0.6.2.tar.gz

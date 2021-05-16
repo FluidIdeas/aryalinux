@@ -20,8 +20,8 @@ SECTION="Icons"
 DESCRIPTION="The Breeze Icons package contains the default icons for KDE Plasma 5 applications, but it can be used for other window environments."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.kde.org/stable/frameworks/5.79/breeze-icons-5.79.0.tar.xz
 

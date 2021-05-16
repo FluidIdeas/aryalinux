@@ -17,8 +17,8 @@ URL=https://dl.google.com/go/go1.13.3.linux-amd64.tar.gz
 DESCRIPTION="DescriptionGo, also known as Golang, is a statically typed, compiled programming language designed at Google by Robert Griesemer, Rob Pike, and Ken Thompson. Go is syntactically similar to C, but with memory safety, garbage collection, structural typing, and CSP-style concurrency."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://dl.google.com/go/go1.13.3.linux-amd64.tar.gz
 

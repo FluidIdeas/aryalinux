@@ -31,8 +31,8 @@ SECTION="Typesetting"
 DESCRIPTION="Most of TeX Live can be built from source without a pre-existing installation, but xindy (for indexing) needs working versions of latex and pdflatex when configure is run, and the testsuite and install for asy (for vector graphics) will fail if TeX has not already been installed. Additionally, biber is not provided within the texlive source and the version of dvisvgm in the texlive tree cannot be built if shared system libraries are used."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc ftp://tug.org/texlive/historic/2021/texlive-20210325-source.tar.xz
 wget -nc ftp://tug.org/texlive/historic/2021/texlive-20210325-texmf.tar.xz

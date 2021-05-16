@@ -28,8 +28,8 @@ SECTION="Graphical Web Browsers"
 DESCRIPTION="Epiphany is a simple yet powerful GNOME web browser targeted at non-technical users. Its principles are simplicity and standards compliance."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/epiphany/40/epiphany-40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/epiphany/40/epiphany-40.0.tar.xz

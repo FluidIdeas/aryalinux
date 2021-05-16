@@ -20,8 +20,8 @@ SECTION="Xfce Applications"
 DESCRIPTION="Ristretto is a fast and lightweight image viewer for the Xfce desktop."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.xfce.org/src/apps/ristretto/0.10/ristretto-0.10.0.tar.bz2
 

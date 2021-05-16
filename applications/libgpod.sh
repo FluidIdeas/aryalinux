@@ -18,8 +18,8 @@ URL=https://sourceforge.net/projects/gtkpod/files/libgpod/libgpod-0.8/libgpod-0.
 DESCRIPTION="libgpod is a shared library to access the contents of an iPod. This library is based on code used in the gtkpod project."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://sourceforge.net/projects/gtkpod/files/libgpod/libgpod-0.8/libgpod-0.8.3.tar.bz2
 wget -nc https://raw.githubusercontent.com/archlinux/svntogit-packages/packages/libgpod/trunk/0001-323-Segmentation-fault-when-opening-ipod.patch

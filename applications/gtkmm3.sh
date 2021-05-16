@@ -21,8 +21,8 @@ SECTION="X Libraries"
 DESCRIPTION="The Gtkmm package provides a C++ interface to GTK+ 3."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gtkmm/3.24/gtkmm-3.24.4.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtkmm/3.24/gtkmm-3.24.4.tar.xz

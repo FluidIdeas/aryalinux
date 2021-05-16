@@ -18,8 +18,8 @@ SECTION="General Libraries"
 DESCRIPTION="The libusb package contains a library used by some applications for USB device access."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/libusb/libusb/releases/download/v1.0.24/libusb-1.0.24.tar.bz2
 

@@ -23,8 +23,8 @@ SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Bluetooth package contains tools for managing and manipulating Bluetooth devices using the GNOME Desktop."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gnome-bluetooth/3.34/gnome-bluetooth-3.34.5.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-bluetooth/3.34/gnome-bluetooth-3.34.5.tar.xz

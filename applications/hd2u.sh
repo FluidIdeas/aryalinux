@@ -19,8 +19,8 @@ SECTION="General Utilities"
 DESCRIPTION="The hd2u package contains an any to any text format converter."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://hany.sk/~hany/_data/hd2u/hd2u-1.0.4.tgz
 

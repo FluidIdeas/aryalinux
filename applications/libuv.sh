@@ -18,8 +18,8 @@ SECTION="General Libraries"
 DESCRIPTION="The libuv package is a multi-platform support library with a focus on asynchronous I/O."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://dist.libuv.org/dist/v1.41.0/libuv-v1.41.0.tar.gz
 

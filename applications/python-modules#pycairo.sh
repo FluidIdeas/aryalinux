@@ -18,8 +18,8 @@ URL=https://github.com/pygobject/pycairo/releases/download/v1.20.0/pycairo-1.20.
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/pygobject/pycairo/releases/download/v1.20.0/pycairo-1.20.0.tar.gz
 

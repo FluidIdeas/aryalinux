@@ -19,8 +19,8 @@ SECTION="File Systems and Disk Management"
 DESCRIPTION="The Parted package is a disk partitioning and partition resizing tool."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.gnu.org/gnu/parted/parted-3.4.tar.xz
 wget -nc ftp://ftp.gnu.org/gnu/parted/parted-3.4.tar.xz

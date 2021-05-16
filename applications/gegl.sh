@@ -26,8 +26,8 @@ SECTION="Graphics and Font Libraries"
 DESCRIPTION="This package provides the GEneric Graphics Library, which is a graph based image processing format."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gimp.org/pub/gegl/0.4/gegl-0.4.30.tar.xz
 

@@ -19,8 +19,8 @@ SECTION="Networking Libraries"
 DESCRIPTION="nghttp2 is an implementation of HTTP/2 and its header compression algorithm, HPACK."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/nghttp2/nghttp2/releases/download/v1.43.0/nghttp2-1.43.0.tar.xz
 

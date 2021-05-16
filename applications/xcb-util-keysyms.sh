@@ -19,8 +19,8 @@ SECTION="X Window System Environment"
 DESCRIPTION="The xcb-util-keysyms package contains a library for handling standard X key constants and conversion to/from keycodes."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://xcb.freedesktop.org/dist/xcb-util-keysyms-0.4.0.tar.bz2
 

@@ -19,8 +19,8 @@ SECTION="Programming"
 DESCRIPTION="GDB, the GNU Project debugger, allows you to see what is going on “inside” another program while it executes -- or what another program was doing at the moment it crashed. Note that GDB is most effective when tracing programs and libraries that were built with debugging symbols and not stripped."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.gnu.org/gnu/gdb/gdb-10.2.tar.xz
 wget -nc ftp://ftp.gnu.org/gnu/gdb/gdb-10.2.tar.xz

@@ -26,8 +26,8 @@ SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libgdata package is a GLib-based library for accessing online service APIs using the GData protocol, most notably, Google's services. It provides APIs to access the common Google services and has full asynchronous support."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/libgdata/0.18/libgdata-0.18.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgdata/0.18/libgdata-0.18.1.tar.xz

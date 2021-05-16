@@ -21,8 +21,8 @@ SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The GStreamer Libav package contains GStreamer plugins for Libav (a fork of FFmpeg)."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.18.4.tar.xz
 

@@ -19,8 +19,8 @@ SECTION="Graphics and Font Libraries"
 DESCRIPTION="The Fontconfig package contains a library and support programs used for configuring and customizing font access."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.13.1.tar.bz2
 

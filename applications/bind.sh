@@ -21,8 +21,8 @@ SECTION="Major Servers"
 DESCRIPTION="The BIND package provides a DNS server and client utilities. If you are only interested in the utilities, refer to the BIND Utilities-9.16.15."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc ftp://ftp.isc.org/isc/bind9/9.16.15/bind-9.16.15.tar.xz
 

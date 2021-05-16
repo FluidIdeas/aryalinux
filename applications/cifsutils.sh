@@ -19,8 +19,8 @@ SECTION="Networking Programs"
 DESCRIPTION="The cifs-utils package provides a means for mounting SMB/CIFS shares on a Linux system."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.samba.org/ftp/linux-cifs/cifs-utils/cifs-utils-6.13.tar.bz2
 

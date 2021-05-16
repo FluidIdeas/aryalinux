@@ -19,8 +19,8 @@ SECTION="X Window System Environment"
 DESCRIPTION="The xcb-util-renderutil package provides additional extensions to the XCB library."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://xcb.freedesktop.org/dist/xcb-util-renderutil-0.3.9.tar.bz2
 

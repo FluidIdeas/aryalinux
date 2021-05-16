@@ -22,8 +22,8 @@ SECTION="General Libraries"
 DESCRIPTION="JS is Mozilla's JavaScript engine written in C. JS78 is taken from Firefox."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.mozilla.org/pub/firefox/releases/78.10.0esr/source/firefox-78.10.0esr.source.tar.xz
 

@@ -22,8 +22,8 @@ SECTION="Other X-based Programs"
 DESCRIPTION="xdg-utils is a a set of command line tools that assist applications with a variety of desktop integration tasks. It is required for Linux Standards Base (LSB) conformance."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://portland.freedesktop.org/download/xdg-utils-1.1.3.tar.gz
 

@@ -20,8 +20,8 @@ SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="The libkcddb package contains a library used to retrieve audio CD meta data from the internet."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.kde.org/stable/release-service/20.12.2/src/libkcddb-20.12.2.tar.xz
 

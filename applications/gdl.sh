@@ -19,8 +19,8 @@ SECTION="X Libraries"
 DESCRIPTION="The GDL package provides a library that is useful for docking objects in GTK+ applications."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gdl/3.34/gdl-3.34.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gdl/3.34/gdl-3.34.0.tar.xz

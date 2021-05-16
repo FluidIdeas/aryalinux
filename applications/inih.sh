@@ -18,8 +18,8 @@ SECTION="General Libraries"
 DESCRIPTION="This package is a simple .INI file parser written in C."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/benhoyt/inih/archive/r53/inih-r53.tar.gz
 

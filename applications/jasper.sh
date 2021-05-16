@@ -20,8 +20,8 @@ SECTION="Graphics and Font Libraries"
 DESCRIPTION="The JasPer Project is an open-source initiative to provide a free software-based reference implementation of the JPEG-2000 codec."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/jasper-software/jasper/archive/version-2.0.32/jasper-2.0.32.tar.gz
 

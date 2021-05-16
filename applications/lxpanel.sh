@@ -27,8 +27,8 @@ SECTION="LXDE Desktop"
 DESCRIPTION="The LXPanel package contains a lightweight X11 desktop panel."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/lxde/lxpanel-0.10.1.tar.xz
 

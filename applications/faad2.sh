@@ -18,8 +18,8 @@ SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="FAAD2 is a decoder for a lossy sound compression scheme specified in MPEG-2 Part 7 and MPEG-4 Part 3 standards and known as Advanced Audio Coding (AAC)."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/knik0/faad2/archive/2_10_0/faad2-2_10_0.tar.gz
 wget -nc http://www.nch.com.au/acm/sample.aac

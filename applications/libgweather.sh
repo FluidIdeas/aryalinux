@@ -25,8 +25,8 @@ SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libgweather package is a library used to access weather information from online services for numerous locations."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/libgweather/40/libgweather-40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgweather/40/libgweather-40.0.tar.xz

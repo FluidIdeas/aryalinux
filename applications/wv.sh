@@ -20,8 +20,8 @@ SECTION="General Libraries"
 DESCRIPTION="The wv package contains tools for reading information from an MS Word document."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.abisource.com/downloads/wv/1.2.9/wv-1.2.9.tar.gz
 

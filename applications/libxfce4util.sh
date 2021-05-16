@@ -20,8 +20,8 @@ SECTION="Xfce Desktop"
 DESCRIPTION="The libxfce4util package is a basic utility library for the Xfce desktop environment."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.xfce.org/src/xfce/libxfce4util/4.16/libxfce4util-4.16.0.tar.bz2
 

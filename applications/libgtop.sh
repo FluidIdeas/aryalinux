@@ -21,8 +21,8 @@ SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libgtop package contains the GNOME top libraries."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgtop/2.40/libgtop-2.40.0.tar.xz

@@ -17,8 +17,8 @@ URL=https://github.com/KDE/libechonest/archive/2.3.1/libechonest-2.3.1.tar.gz
 DESCRIPTION="Libechonest is a Qt library for communicating with 'The Echo Nest': an 'intelligent music application platform'. It currently supports all of the features of the Echo Nest API, including all the API functions."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/KDE/libechonest/archive/2.3.1/libechonest-2.3.1.tar.gz
 

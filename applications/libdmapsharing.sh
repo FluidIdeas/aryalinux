@@ -17,8 +17,8 @@ URL=https://github.com/GNOME/libdmapsharing/archive/LIBDMAPSHARING_3_9_4.tar.gz
 DESCRIPTION="Libdmapsharing is a library which allows programs to access, share and control the playback of media content using DMAP (DAAP, DPAP & DACP). Libdmapsharing also detects audio AirPlay services; coupled with the AirPlay support in PulseAudio or GStreamer, this can allow an application to stream audio to an AirPlay device."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/GNOME/libdmapsharing/archive/LIBDMAPSHARING_3_9_4.tar.gz
 

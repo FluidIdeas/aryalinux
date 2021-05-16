@@ -20,8 +20,8 @@ SECTION="General Libraries"
 DESCRIPTION="CLucene is a C++ version of Lucene, a high performance text search engine."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/clucene/clucene-core-2.3.3.4.tar.gz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/clucene-2.3.3.4-contribs_lib-1.patch

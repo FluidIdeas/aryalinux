@@ -20,8 +20,8 @@ SECTION="General Libraries"
 DESCRIPTION="Exempi is an implementation of XMP (Adobe's Extensible Metadata Platform)."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://libopenraw.freedesktop.org/download/exempi-2.5.2.tar.bz2
 

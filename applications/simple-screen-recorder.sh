@@ -21,8 +21,8 @@ URL=https://github.com/MaartenBaert/ssr/archive/0.3.11.tar.gz
 DESCRIPTION="DescriptionSimpleScreenRecorder is a Qt-based screencast software made for Linux operating systems, which was created as a simpler alternative to programs such as ffmpeg/avconv and VLC."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/MaartenBaert/ssr/archive/0.3.11.tar.gz
 

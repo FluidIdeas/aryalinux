@@ -36,8 +36,8 @@ SECTION="Other X-based Programs"
 DESCRIPTION="Inkscape is a what you see is what you get Scalable Vector Graphics editor. It is useful for creating, viewing and changing SVG images."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://media.inkscape.org/dl/resources/file/inkscape-1.0.2.tar.xz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/inkscape-1.0.2-glib_2.68-1.patch

@@ -18,8 +18,8 @@ SECTION="Security"
 DESCRIPTION="The Linux PAM package contains Pluggable Authentication Modules used to enable the local system administrator to choose how applications authenticate users."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/linux-pam/linux-pam/releases/download/v1.5.1/Linux-PAM-1.5.1.tar.xz
 wget -nc https://github.com/linux-pam/linux-pam/releases/download/v1.5.1/Linux-PAM-1.5.1-docs.tar.xz

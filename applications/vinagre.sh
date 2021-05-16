@@ -24,8 +24,8 @@ SECTION="GNOME Applications"
 DESCRIPTION="Vinagre is a VNC client for the GNOME Desktop."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/vinagre/3.22/vinagre-3.22.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/vinagre/3.22/vinagre-3.22.0.tar.xz

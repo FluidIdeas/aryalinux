@@ -19,8 +19,8 @@ SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The libvorbis package contains a general purpose audio and music encoding format. This is useful for creating (encoding) and playing (decoding) sound in an open (patent free) format."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.xiph.org/releases/vorbis/libvorbis-1.3.7.tar.xz
 

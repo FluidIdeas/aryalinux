@@ -18,8 +18,8 @@ SECTION="Editors"
 DESCRIPTION="The Nano package contains a small, simple text editor which aims to replace Pico, the default editor in the Pine package."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.nano-editor.org/dist/v5/nano-5.7.tar.xz
 

@@ -17,8 +17,8 @@ URL=https://github.com/sparsehash/sparsehash/archive/refs/tags/sparsehash-2.0.4.
 DESCRIPTION="The Google SparseHash project contains several C++ template hash-map implementations in use at Google, with different performance characteristics, including an implementation that optimizes for space and one that optimizes for speed."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/sparsehash/sparsehash/archive/refs/tags/sparsehash-2.0.4.tar.gz
 

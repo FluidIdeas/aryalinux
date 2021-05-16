@@ -19,8 +19,8 @@ SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="The Konsole package is a KF5 based terminal emulator."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.kde.org/stable/release-service/20.12.2/src/konsole-20.12.2.tar.xz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/konsole-20.12.2-scrollbar-1.patch

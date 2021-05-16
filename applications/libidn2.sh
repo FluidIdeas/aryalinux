@@ -19,8 +19,8 @@ SECTION="General Libraries"
 DESCRIPTION="libidn2 is a package designed for internationalized string handling based on standards from the Internet Engineering Task Force (IETF)'s IDN working group, designed for internationalized domain names."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.gnu.org/gnu/libidn/libidn2-2.3.0.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/libidn/libidn2-2.3.0.tar.gz

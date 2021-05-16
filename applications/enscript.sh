@@ -18,8 +18,8 @@ SECTION="PostScript"
 DESCRIPTION="Enscript converts ASCII text files to PostScript, HTML, RTF, ANSI and overstrikes."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.gnu.org/gnu/enscript/enscript-1.6.6.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/enscript/enscript-1.6.6.tar.gz

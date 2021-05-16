@@ -35,8 +35,8 @@ SECTION="GNOME Applications"
 DESCRIPTION="The Evolution package contains an integrated mail, calendar and address book suite designed for the GNOME environment."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/evolution/3.40;/evolution-3.40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/evolution/3.40/evolution-3.40.0.tar.xz

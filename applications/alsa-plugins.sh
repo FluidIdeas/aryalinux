@@ -19,8 +19,8 @@ SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The ALSA Plugins package contains plugins for various audio libraries and sound servers."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.alsa-project.org/files/pub/plugins/alsa-plugins-1.2.2.tar.bz2
 wget -nc ftp://ftp.alsa-project.org/pub/plugins/alsa-plugins-1.2.2.tar.bz2

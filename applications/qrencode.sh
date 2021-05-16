@@ -19,8 +19,8 @@ SECTION="Graphics and Font Libraries"
 DESCRIPTION="Qrencode is a fast and compact library for encoding data in a QR Code symbol, a 2D symbology that can be scanned by handheld terminals such as a mobile phone with a CCD sensor."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://fukuchi.org/works/qrencode/qrencode-4.1.1.tar.bz2
 

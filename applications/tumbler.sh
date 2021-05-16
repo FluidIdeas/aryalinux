@@ -19,8 +19,8 @@ SECTION="Xfce Desktop"
 DESCRIPTION="The Tumbler package contains a D-Bus thumbnailing service based on the thumbnail management D-Bus specification. This is useful for generating thumbnail images of files."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.xfce.org/src/xfce/tumbler/4.16/tumbler-4.16.0.tar.bz2
 

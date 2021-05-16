@@ -37,8 +37,8 @@ SECTION="Other X-based Programs"
 DESCRIPTION="Thunderbird is a stand-alone mail/news client based on the Mozilla codebase. It uses the Gecko rendering engine to enable it to display and compose HTML emails."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.mozilla.org/pub/thunderbird/releases/78.10.1/source/thunderbird-78.10.1.source.tar.xz
 

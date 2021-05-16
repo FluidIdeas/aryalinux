@@ -25,8 +25,8 @@ SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The VTE package contains a termcap file implementation for terminal emulators."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://gitlab.gnome.org/GNOME/vte/-/archive/0.64.1/vte-0.64.1.tar.bz2
 

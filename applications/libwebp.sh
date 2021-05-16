@@ -22,8 +22,8 @@ SECTION="Graphics and Font Libraries"
 DESCRIPTION="The libwebp package contains a library and support programs to encode and decode images in WebP format."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://downloads.webmproject.org/releases/webp/libwebp-1.2.0.tar.gz
 

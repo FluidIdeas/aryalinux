@@ -18,8 +18,8 @@ SECTION="Shells"
 DESCRIPTION="The Tcsh package contains “an enhanced but completely compatible version of the Berkeley Unix C shell (csh)”. This is useful as an alternative shell for those who prefer C syntax to that of the bash shell, and also because some programs require the C shell in order to perform installation tasks."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc ftp://ftp.astron.com/pub/tcsh/tcsh-6.22.04.tar.gz
 

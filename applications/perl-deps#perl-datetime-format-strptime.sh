@@ -18,8 +18,8 @@ URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Strptime-1
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Strptime-1.78.tar.gz
 

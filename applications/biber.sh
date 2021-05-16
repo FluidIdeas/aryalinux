@@ -56,8 +56,8 @@ SECTION="Typesetting"
 DESCRIPTION="Biber is a BibTeX replacement for users of biblatex, written in Perl, with full Unicode support."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/plk/biber/archive/v2.16/biber-2.16.tar.gz
 wget -nc https://sourceforge.net/projects/biblatex/files/biblatex-3.16/biblatex-3.16.tds.tgz

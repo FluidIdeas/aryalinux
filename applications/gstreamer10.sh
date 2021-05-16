@@ -20,8 +20,8 @@ SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="gstreamer is a streaming media framework that enables applications to share a common set of plugins for tasks such as video encoding and decoding, audio encoding and decoding, audio and video filters, audio visualisation, web streaming and anything else that streams in real-time or otherwise. This package only provides base functionality and libraries. You may need at least gst-plugins-base-1.18.4 and one of Good, Bad, Ugly or Libav plugins."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.18.4.tar.xz
 

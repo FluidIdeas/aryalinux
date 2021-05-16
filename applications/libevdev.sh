@@ -17,8 +17,8 @@ URL=https://www.freedesktop.org/software/libevdev/libevdev-1.11.0.tar.xz
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.freedesktop.org/software/libevdev/libevdev-1.11.0.tar.xz
 

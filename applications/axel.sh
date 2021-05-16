@@ -17,8 +17,8 @@ URL=https://github.com/axel-download-accelerator/axel/releases/download/v2.17.6/
 DESCRIPTION="Lightweight CLI download accelerator"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/axel-download-accelerator/axel/releases/download/v2.17.6/axel-2.17.6.tar.xz
 

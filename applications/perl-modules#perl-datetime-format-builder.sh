@@ -19,8 +19,8 @@ URL=https://www.cpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Builder-0.83.ta
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.cpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Builder-0.83.tar.gz
 

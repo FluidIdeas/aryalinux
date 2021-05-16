@@ -17,8 +17,8 @@ URL=https://downloads.sourceforge.net/docutils/docutils-0.17.1.tar.gz
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/docutils/docutils-0.17.1.tar.gz
 

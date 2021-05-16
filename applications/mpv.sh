@@ -27,8 +27,8 @@ URL=https://github.com/mpv-player/mpv/archive/v0.33.1/mpv-0.33.1.tar.gz
 DESCRIPTION="mpv is a free (as in freedom) media player for the command line. It supports a wide variety of media file formats, audio and video codecs, and subtitle types."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/mpv-player/mpv/archive/v0.33.1/mpv-0.33.1.tar.gz
 

@@ -18,8 +18,8 @@ SECTION="Connecting to a Network"
 DESCRIPTION="The ISC DHCP package contains both the client and server programs for DHCP. dhclient (the client) is used for connecting to a network which uses DHCP to assign network addresses. dhcpd (the server) is used for assigning network addresses on private networks."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc ftp://ftp.isc.org/isc/dhcp/4.4.2/dhcp-4.4.2.tar.gz
 

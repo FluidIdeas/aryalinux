@@ -21,8 +21,8 @@ SECTION="Xfce Desktop"
 DESCRIPTION="The libxfce4ui package contains GTK+ 2 widgets that are used by other Xfce applications."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.xfce.org/src/xfce/libxfce4ui/4.16/libxfce4ui-4.16.0.tar.bz2
 

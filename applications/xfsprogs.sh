@@ -19,8 +19,8 @@ SECTION="File Systems and Disk Management"
 DESCRIPTION="The xfsprogs package contains administration and debugging tools for the XFS file system."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.11.0.tar.xz
 

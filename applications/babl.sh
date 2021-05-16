@@ -21,8 +21,8 @@ SECTION="Graphics and Font Libraries"
 DESCRIPTION="The Babl package is a dynamic, any to any, pixel format translation library."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gimp.org/pub/babl/0.1/babl-0.1.86.tar.xz
 

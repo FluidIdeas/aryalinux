@@ -24,8 +24,8 @@ SECTION="Graphics and Font Libraries"
 DESCRIPTION="The libgxps package provides an interface to manipulate XPS documents."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/libgxps/0.3/libgxps-0.3.2.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgxps/0.3/libgxps-0.3.2.tar.xz

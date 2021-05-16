@@ -20,8 +20,8 @@ SECTION="General Libraries"
 DESCRIPTION="The D-Bus GLib package contains GLib interfaces to the D-Bus API."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.112.tar.gz
 

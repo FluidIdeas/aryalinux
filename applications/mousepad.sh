@@ -20,8 +20,8 @@ SECTION="Editors"
 DESCRIPTION="Mousepad is a simple GTK+ 3 text editor for the Xfce desktop environment."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.xfce.org/src/apps/mousepad/0.5/mousepad-0.5.4.tar.bz2
 

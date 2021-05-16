@@ -26,8 +26,8 @@ SECTION="Other X-based Programs"
 DESCRIPTION="The Balsa package contains a GNOME-2 based mail client."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://pawsa.fedorapeople.org/balsa/balsa-2.6.2.tar.bz2
 

@@ -22,8 +22,8 @@ SECTION="General Libraries"
 DESCRIPTION="Qca aims to provide a straightforward and cross-platform crypto API, using Qt datatypes and conventions. Qca separates the API from the implementation, using plugins known as Providers."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.kde.org/stable/qca/2.3.2/qca-2.3.2.tar.xz
 

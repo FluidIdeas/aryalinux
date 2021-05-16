@@ -18,8 +18,8 @@ SECTION="Icons"
 DESCRIPTION="The LXDE Icon Theme package contains nuoveXT 2.2 Icon Theme for LXDE."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/lxde/lxde-icon-theme-0.5.1.tar.xz
 

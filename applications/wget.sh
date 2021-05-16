@@ -19,8 +19,8 @@ SECTION="Networking Programs"
 DESCRIPTION="The Wget package contains a utility useful for non-interactive downloading of files from the Web."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.gnu.org/gnu/wget/wget-1.21.1.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/wget/wget-1.21.1.tar.gz

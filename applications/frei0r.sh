@@ -18,8 +18,8 @@ SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="Frei0r is a minimalistic plugin API for video effects. Note that the 0 in the name is a zero, not a capital letter o."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://files.dyne.org/frei0r/releases/frei0r-plugins-1.7.0.tar.gz
 

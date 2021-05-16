@@ -20,8 +20,8 @@ SECTION="General Libraries"
 DESCRIPTION="The gspell package provides a flexible API to add spell checking to a GTK+ application."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gspell/1.8/gspell-1.8.4.tar.xz
 

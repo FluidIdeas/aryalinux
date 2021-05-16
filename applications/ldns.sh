@@ -18,8 +18,8 @@ SECTION="Networking Libraries"
 DESCRIPTION="ldns is a fast DNS library with the goal to simplify DNS programming and to allow developers to easily create software conforming to current RFCs and Internet drafts. This packages also includes the drill tool."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.nlnetlabs.nl/downloads/ldns/ldns-1.7.1.tar.gz
 

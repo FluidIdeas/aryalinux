@@ -21,8 +21,8 @@ SECTION="Xfce Applications"
 DESCRIPTION="The Xfce4 Notification Daemon is a small program that implements the \"server-side\" portion of the Freedesktop desktop notifications specification. Applications that wish to pop up a notification bubble in a standard way can use Xfce4-Notifyd to do so by sending standard messages over D-Bus using the org.freedesktop.Notifications interface."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.xfce.org/src/apps/xfce4-notifyd/0.6/xfce4-notifyd-0.6.2.tar.bz2
 

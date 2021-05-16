@@ -19,8 +19,8 @@ SECTION="Mail/News Clients"
 DESCRIPTION="The Procmail package contains an autonomous mail processor. This is useful for filtering and sorting incoming mail."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.osuosl.org/pub/blfs/conglomeration/procmail/procmail-3.22.tar.gz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/procmail-3.22-consolidated_fixes-1.patch

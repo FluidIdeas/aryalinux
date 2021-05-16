@@ -18,8 +18,8 @@ SECTION="General Libraries"
 DESCRIPTION="The PCRE2 package contains a new generation of the Perl Compatible Regular Expression libraries. These are useful for implementing regular expression pattern matching using the same syntax and semantics as Perl."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.pcre.org/pub/pcre/pcre2-10.36.tar.bz2
 wget -nc ftp://ftp.pcre.org/pub/pcre/pcre2-10.36.tar.bz2

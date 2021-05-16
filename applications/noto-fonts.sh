@@ -17,8 +17,8 @@ VERSION=1.4
 DESCRIPTION="Noto is a font family comprising over 100 individual fonts, which are together designed to cover all the scripts encoded in the Unicode standard."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 
 

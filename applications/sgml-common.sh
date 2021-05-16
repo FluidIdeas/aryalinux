@@ -18,8 +18,8 @@ SECTION="Standard Generalized Markup Language (SGML)"
 DESCRIPTION="The SGML Common package contains install-catalog. This is useful for creating and maintaining centralized SGML catalogs."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/sgml-common-0.6.3.tgz
 wget -nc ftp://sourceware.org/pub/docbook-tools/new-trials/SOURCES/sgml-common-0.6.3.tgz

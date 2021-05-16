@@ -18,8 +18,8 @@ URL=https://www.cpan.org/authors/id/M/MA/MARKOV/XML-LibXML-Simple-1.01.tar.gz
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.cpan.org/authors/id/M/MA/MARKOV/XML-LibXML-Simple-1.01.tar.gz
 

@@ -23,8 +23,8 @@ SECTION="Xfce Desktop"
 DESCRIPTION="Thunar is the Xfce file manager, a GTK+ 3 GUI to organise the files on your computer."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.xfce.org/src/xfce/thunar/4.16/thunar-4.16.8.tar.bz2
 

@@ -20,8 +20,8 @@ SECTION="General Utilities"
 DESCRIPTION="Highlight is an utility that converts source code to formatted text with syntax highlighting."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://www.andre-simon.de/zip/highlight-4.0.tar.bz2
 

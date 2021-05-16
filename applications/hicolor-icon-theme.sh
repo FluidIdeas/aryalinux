@@ -18,8 +18,8 @@ SECTION="Icons"
 DESCRIPTION="The hicolor-icon-theme package contains a default fallback theme for implementations of the icon theme specification."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.17.tar.xz
 

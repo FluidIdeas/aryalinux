@@ -18,8 +18,8 @@ SECTION="File Systems and Disk Management"
 DESCRIPTION="The Ntfs-3g package contains a stable, read-write open source driver for NTFS partitions. NTFS partitions are used by most Microsoft operating systems. Ntfs-3g allows you to mount NTFS partitions in read-write mode from your Linux system. It uses the FUSE kernel module to be able to implement NTFS support in user space. The package also contains various utilities useful for manipulating NTFS partitions."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2017.3.23.tgz
 

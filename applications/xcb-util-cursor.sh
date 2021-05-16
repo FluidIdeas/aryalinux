@@ -19,8 +19,8 @@ SECTION="X Window System Environment"
 DESCRIPTION="The xcb-util-cursor package provides a module that implements the XCB cursor library. It is the XCB replacement for libXcursor."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://xcb.freedesktop.org/dist/xcb-util-cursor-0.1.3.tar.bz2
 

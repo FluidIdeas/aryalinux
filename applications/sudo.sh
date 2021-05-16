@@ -18,8 +18,8 @@ SECTION="Security"
 DESCRIPTION="The Sudo package allows a system administrator to give certain users (or groups of users) the ability to run some (or all) commands as root or another user while logging the commands and arguments."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.sudo.ws/dist/sudo-1.9.6p1.tar.gz
 wget -nc ftp://ftp.sudo.ws/pub/sudo/sudo-1.9.6p1.tar.gz

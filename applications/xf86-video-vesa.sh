@@ -17,8 +17,8 @@ URL=https://www.x.org/archive/individual/driver/xf86-video-vesa-2.5.0.tar.gz
 DESCRIPTION="Userspace VESA video graphics driver."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.x.org/archive/individual/driver/xf86-video-vesa-2.5.0.tar.gz
 

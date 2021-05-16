@@ -19,8 +19,8 @@ SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="Speex is an audio compression format designed especially for speech. It is well-adapted to internet applications and provides useful features that are not present in most other CODECs."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.xiph.org/releases/speex/speex-1.2.0.tar.gz
 wget -nc https://downloads.xiph.org/releases/speex/speexdsp-1.2.0.tar.gz

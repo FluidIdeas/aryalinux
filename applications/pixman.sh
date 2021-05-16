@@ -18,8 +18,8 @@ SECTION="Graphics and Font Libraries"
 DESCRIPTION="The Pixman package contains a library that provides low-level pixel manipulation features such as image compositing and trapezoid rasterization."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.cairographics.org/releases/pixman-0.40.0.tar.gz
 

@@ -23,8 +23,8 @@ SECTION="LXDE Desktop"
 DESCRIPTION="The PCManFM package contains an extremely fast, lightweight, yet feature-rich file manager with tabbed browsing."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/pcmanfm/pcmanfm-1.3.2.tar.xz
 

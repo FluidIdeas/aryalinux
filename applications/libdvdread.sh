@@ -18,8 +18,8 @@ SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="libdvdread is a library which provides a simple foundation for reading DVDs."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://get.videolan.org/libdvdread/6.1.2/libdvdread-6.1.2.tar.bz2
 

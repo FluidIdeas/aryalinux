@@ -19,8 +19,8 @@ SECTION="X Libraries"
 DESCRIPTION="This package provides the Mesa OpenGL Utility library."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.1.tar.xz
 

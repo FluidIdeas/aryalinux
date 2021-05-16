@@ -20,8 +20,8 @@ SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GSettings Desktop Schemas package contains a collection of GSettings schemas for settings shared by various components of a GNOME Desktop."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gsettings-desktop-schemas/40/gsettings-desktop-schemas-40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gsettings-desktop-schemas/40/gsettings-desktop-schemas-40.0.tar.xz

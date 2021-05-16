@@ -18,8 +18,8 @@ SECTION="General Libraries"
 DESCRIPTION="LZO is a data compression library which is suitable for data decompression and compression in real-time. This means it favors speed over compression ratio."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz
 

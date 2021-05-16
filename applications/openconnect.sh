@@ -17,8 +17,8 @@ URL=ftp://ftp.infradead.org/pub/openconnect/openconnect-8.05.tar.gz
 DESCRIPTION="OpenConnect is an SSL VPN client initially created to support Cisco's AnyConnect SSL VPN. It has since been ported to support the Juniper SSL VPN (which is now known as Pulse Connect Secure), and to the Palo Alto Networks GlobalProtect SSL VPN."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc ftp://ftp.infradead.org/pub/openconnect/openconnect-8.05.tar.gz
 

@@ -18,8 +18,8 @@ SECTION="General Libraries"
 DESCRIPTION="This package is intended to provide a simple way for applications to take actions based on a system or user-specified paper size."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.debian.org/debian/pool/main/libp/libpaper/libpaper_1.1.24+nmu5.tar.gz
 

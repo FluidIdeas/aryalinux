@@ -21,8 +21,8 @@ SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The gnome-autoar package provides a framework for automatic archive extraction, compression, and management."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gnome-autoar/0.3/gnome-autoar-0.3.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-autoar/0.3/gnome-autoar-0.3.1.tar.xz

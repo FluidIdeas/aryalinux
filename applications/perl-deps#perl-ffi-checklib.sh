@@ -20,8 +20,8 @@ URL=https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/FFI-CheckLib-0.27.tar.gz
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/FFI-CheckLib-0.27.tar.gz
 

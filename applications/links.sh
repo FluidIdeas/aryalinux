@@ -19,8 +19,8 @@ SECTION="Text Web Browsers"
 DESCRIPTION="Links is a text and graphics mode WWW browser. It includes support for rendering tables and frames, features background downloads, can display colors and has many other features."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://links.twibright.com/download/links-2.22.tar.bz2
 

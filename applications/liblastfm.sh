@@ -20,8 +20,8 @@ URL=https://github.com/lastfm/liblastfm/archive/1.0.9/liblastfm-1.0.9.tar.gz
 DESCRIPTION="liblastfm is a collection of C++/Qt4 libraries provided by Last.fm for use with their web services."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/lastfm/liblastfm/archive/1.0.9/liblastfm-1.0.9.tar.gz
 

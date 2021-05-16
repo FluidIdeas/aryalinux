@@ -21,8 +21,8 @@ SECTION="Xfce Desktop"
 DESCRIPTION="Exo is a support library used in the Xfce desktop. It also has some helper applications that are used throughout Xfce."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.xfce.org/src/xfce/exo/4.16/exo-4.16.2.tar.bz2
 

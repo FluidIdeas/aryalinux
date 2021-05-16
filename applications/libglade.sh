@@ -20,8 +20,8 @@ SECTION="X Libraries"
 DESCRIPTION="The libglade package contains libglade libraries. These are useful for loading Glade interface files in a program at runtime."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/libglade/2.6/libglade-2.6.4.tar.bz2
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libglade/2.6/libglade-2.6.4.tar.bz2

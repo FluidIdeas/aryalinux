@@ -18,8 +18,8 @@ SECTION="Networking Libraries"
 DESCRIPTION="The libmnl library provides a minimalistic user-space library oriented to Netlink developers. There are a lot of common tasks in parsing, validating, constructing of both the Netlink header and TLVs that are repetitive and easy to get wrong. This library aims to provide simple helpers that allows you to re-use code and to avoid re-inventing the wheel."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://netfilter.org/projects/libmnl/files/libmnl-1.0.4.tar.bz2
 

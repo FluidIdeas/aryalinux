@@ -20,8 +20,8 @@ URL=https://cpan.metacpan.org/authors/id/G/GF/GFRANKS/Test-MockModule-v0.173.0.t
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://cpan.metacpan.org/authors/id/G/GF/GFRANKS/Test-MockModule-v0.173.0.tar.gz
 

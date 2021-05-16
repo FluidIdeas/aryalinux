@@ -18,8 +18,8 @@ SECTION="General Utilities"
 DESCRIPTION="The time utility is a program that measures many of the CPU resources, such as time and memory, that other programs use. The GNU version can format the output in arbitrary ways by using a printf-style format string to include various resource measurements."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.gnu.org/gnu/time/time-1.9.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/time/time-1.9.tar.gz

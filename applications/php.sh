@@ -25,8 +25,8 @@ SECTION="Programming"
 DESCRIPTION="PHP is the PHP Hypertext Preprocessor. Primarily used in dynamic web sites, it allows for programming code to be directly embedded into the HTML markup. It is also useful as a general purpose scripting language."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.php.net/distributions/php-8.0.5.tar.xz
 wget -nc https://www.php.net/distributions/manual/php_manual_en.html.gz

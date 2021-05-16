@@ -23,8 +23,8 @@ SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GConf package contains a configuration database system used by many GNOME applications."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/GConf/3.2/GConf-3.2.6.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/GConf/3.2/GConf-3.2.6.tar.xz

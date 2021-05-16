@@ -23,8 +23,8 @@ SECTION="X Libraries"
 DESCRIPTION="The Colord GTK package contains GTK+ bindings for Colord."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.freedesktop.org/software/colord/releases/colord-gtk-0.2.0.tar.xz
 

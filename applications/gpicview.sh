@@ -19,8 +19,8 @@ SECTION="LXDE Applications"
 DESCRIPTION="The GPicView package contains a lightweight image viewer."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/lxde/gpicview-0.2.5.tar.xz
 

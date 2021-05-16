@@ -21,8 +21,8 @@ SECTION="Graphics and Font Libraries"
 DESCRIPTION="libjpeg-turbo is a fork of the original IJG libjpeg which uses SIMD to accelerate baseline JPEG compression and decompression. libjpeg is a library that implements JPEG image encoding, decoding and transcoding."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-2.1.0.tar.gz
 

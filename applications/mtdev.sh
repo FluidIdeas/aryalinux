@@ -18,8 +18,8 @@ SECTION="General Libraries"
 DESCRIPTION="The mtdev package contains Multitouch Protocol Translation Library which is used to transform all variants of kernel MT (Multitouch) events to the slotted type B protocol."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://bitmath.org/code/mtdev/mtdev-1.1.6.tar.bz2
 

@@ -23,8 +23,8 @@ SECTION="General Libraries"
 DESCRIPTION="The libgusb package contains the GObject wrappers for libusb-1.0 that makes it easy to do asynchronous control, bulk and interrupt transfers with proper cancellation and integration into a mainloop."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.6.tar.xz
 

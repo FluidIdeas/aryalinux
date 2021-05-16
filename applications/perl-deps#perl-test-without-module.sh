@@ -17,8 +17,8 @@ URL=https://cpan.metacpan.org/authors/id/C/CO/CORION/Test-Without-Module-0.20.ta
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://cpan.metacpan.org/authors/id/C/CO/CORION/Test-Without-Module-0.20.tar.gz
 

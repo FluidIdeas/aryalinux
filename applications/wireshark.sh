@@ -23,8 +23,8 @@ SECTION="Networking Utilities"
 DESCRIPTION="The Wireshark package contains a network protocol analyzer, also known as a “sniffer”. This is useful for analyzing data captured “off the wire” from a live network connection, or data read from a capture file."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.wireshark.org/download/src/all-versions/wireshark-3.4.5.tar.xz
 wget -nc https://www.wireshark.org/download/docs/

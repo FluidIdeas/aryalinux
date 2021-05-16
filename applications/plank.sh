@@ -19,8 +19,8 @@ URL=https://launchpad.net/plank/1.0/0.11.89/+download/plank-0.11.89.tar.xz
 DESCRIPTION="Plank is meant to be the simplest dock on the planet. The goal is to provide just what a dock needs and absolutely nothing more. It is, however, a library which can be extended to create other dock programs with more advanced features."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://launchpad.net/plank/1.0/0.11.89/+download/plank-0.11.89.tar.xz
 

@@ -18,8 +18,8 @@ SECTION="Security"
 DESCRIPTION="The CrackLib package contains a library used to enforce strong passwords by comparing user selected passwords to words in chosen word lists."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/cracklib/cracklib/releases/download/v2.9.7/cracklib-2.9.7.tar.bz2
 wget -nc https://github.com/cracklib/cracklib/releases/download/v2.9.7/cracklib-words-2.9.7.bz2

@@ -29,8 +29,8 @@ SECTION="GNOME Applications"
 DESCRIPTION="EOG is an application used for viewing and cataloging image files on the GNOME Desktop. It also has basic editing capabilites."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/eog/40/eog-40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/eog/40/eog-40.0.tar.xz

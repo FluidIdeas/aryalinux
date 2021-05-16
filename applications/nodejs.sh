@@ -18,8 +18,8 @@ SECTION="Programming"
 DESCRIPTION="Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 
 

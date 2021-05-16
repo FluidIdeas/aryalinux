@@ -19,8 +19,8 @@ SECTION="General Libraries"
 DESCRIPTION="The libportal package provides a library that contains GIO-style async APIs for most Flatpak portals."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/flatpak/libportal/releases/download/0.4/libportal-0.4.tar.xz
 

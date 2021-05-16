@@ -17,8 +17,8 @@ URL=https://github.com/yaml/pyyaml/archive/5.3/pyyaml-5.3.tar.gz
 DESCRIPTION="PyYAML - The next generation YAML parser and emitter for Python."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/yaml/pyyaml/archive/5.3/pyyaml-5.3.tar.gz
 

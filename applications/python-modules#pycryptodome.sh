@@ -17,8 +17,8 @@ URL=https://github.com/Legrandin/pycryptodome/archive/v3.10.1/pycryptodome-3.10.
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/Legrandin/pycryptodome/archive/v3.10.1/pycryptodome-3.10.1.tar.gz
 

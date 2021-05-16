@@ -18,8 +18,8 @@ URL=https://github.com/libgd/libgd/releases/download/gd-2.2.5/libgd-2.2.5.tar.xz
 DESCRIPTION="Perl module to create barcode images"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/libgd/libgd/releases/download/gd-2.2.5/libgd-2.2.5.tar.xz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/2f08f4d7e5746ea6d66db0c22fa58ff9c18ca385/libgd-2.2.5-find-freetype2.patch

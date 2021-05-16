@@ -19,8 +19,8 @@ SECTION="Icons"
 DESCRIPTION="The icon-naming-utils package contains a Perl script used for maintaining backwards compatibility with current desktop icon themes, while migrating to the names specified in the Icon Naming Specification."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://tango.freedesktop.org/releases/icon-naming-utils-0.8.90.tar.bz2
 

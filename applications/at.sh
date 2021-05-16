@@ -19,8 +19,8 @@ SECTION="System Utilities"
 DESCRIPTION="The at package provide delayed job execution and batch processing. It is required for Linux Standards Base (LSB) conformance."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://software.calhariz.com/at/at_3.2.1.orig.tar.gz
 

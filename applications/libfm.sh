@@ -24,8 +24,8 @@ SECTION="LXDE Desktop"
 DESCRIPTION="The libfm package contains a library used to develop file managers providing some file management utilities."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/pcmanfm/libfm-1.3.2.tar.xz
 

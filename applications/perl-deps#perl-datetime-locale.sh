@@ -24,8 +24,8 @@ URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Locale-1.31.tar.g
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Locale-1.31.tar.gz
 

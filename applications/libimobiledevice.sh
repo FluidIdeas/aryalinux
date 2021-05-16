@@ -19,8 +19,8 @@ URL=https://github.com/libimobiledevice/libimobiledevice/releases/download/1.3.0
 DESCRIPTION="libimobiledevice is a library that talks the native Apple USB protocols that the iPhone, iPad and iPod Touch use. Unlike other projects, libimobiledevice does not depend on using any existing libraries from Apple."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/libimobiledevice/libimobiledevice/releases/download/1.3.0/libimobiledevice-1.3.0.tar.bz2
 

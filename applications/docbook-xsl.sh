@@ -19,8 +19,8 @@ SECTION="Extensible Markup Language (XML)"
 DESCRIPTION="The DocBook XSL Stylesheets package contains XSL stylesheets. These are useful for performing transformations on XML DocBook files."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/docbook/xslt10-stylesheets/releases/download/release/1.79.2/docbook-xsl-nons-1.79.2.tar.bz2
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/docbook-xsl-nons-1.79.2-stack_fix-1.patch

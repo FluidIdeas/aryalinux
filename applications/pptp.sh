@@ -18,8 +18,8 @@ URL=https://sourceforge.net/projects/pptpclient/files/pptp/pptp-1.10.0/pptp-1.10
 DESCRIPTION="Linux and FreeBSD client for the proprietary Microsoft Point-to-Point tunneling protocol, PPTP"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://sourceforge.net/projects/pptpclient/files/pptp/pptp-1.10.0/pptp-1.10.0.tar.gz
 

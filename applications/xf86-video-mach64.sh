@@ -17,8 +17,8 @@ URL=https://www.x.org/archive/individual/driver/xf86-video-mach64-6.9.6.tar.gz
 DESCRIPTION="Userspace mach64 video graphics driver"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.x.org/archive/individual/driver/xf86-video-mach64-6.9.6.tar.gz
 

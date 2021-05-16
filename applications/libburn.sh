@@ -18,8 +18,8 @@ SECTION="CD/DVD-Writing Utilities"
 DESCRIPTION="libburn is a library for writing preformatted data onto optical media: CD, DVD and BD (Blu-Ray)."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://files.libburnia-project.org/releases/libburn-1.5.4.tar.gz
 

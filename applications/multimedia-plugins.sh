@@ -75,8 +75,8 @@ VERSION=1.4
 DESCRIPTION="A meta package which is a collection of audio and video codecs and plugins."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 
 

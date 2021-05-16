@@ -22,8 +22,8 @@ SECTION="Audio Utilities"
 DESCRIPTION="Audacious is an audio player."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://distfiles.audacious-media-player.org/audacious-4.1.tar.bz2
 wget -nc https://distfiles.audacious-media-player.org/audacious-plugins-4.1.tar.bz2

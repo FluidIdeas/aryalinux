@@ -18,8 +18,8 @@ SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="libdvdcss is a simple library designed for accessing DVDs as a block device without having to bother about the decryption."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://get.videolan.org/libdvdcss/1.4.3/libdvdcss-1.4.3.tar.bz2
 

@@ -19,8 +19,8 @@ SECTION="Standard Generalized Markup Language (SGML)"
 DESCRIPTION="The OpenSP package contains a C++ library for using SGML/XML files. This is useful for validating, parsing and manipulating SGML and XML documents."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/openjade/OpenSP-1.5.2.tar.gz
 

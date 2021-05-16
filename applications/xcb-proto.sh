@@ -18,8 +18,8 @@ SECTION="X Window System Environment"
 DESCRIPTION="The xcb-proto package provides the XML-XCB protocol descriptions that libxcb uses to generate the majority of its code and API."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.14.1.tar.xz
 

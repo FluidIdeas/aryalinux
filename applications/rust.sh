@@ -22,8 +22,8 @@ SECTION="Programming"
 DESCRIPTION="The Rust programming language is designed to be a safe, concurrent, practical language."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://static.rust-lang.org/dist/rustc-1.47.0-src.tar.gz
 

@@ -18,8 +18,8 @@ SECTION="Programming"
 DESCRIPTION="The Python 2 package contains the Python development environment. It is useful for object-oriented programming, writing scripts, prototyping large programs or developing entire applications. This version is for backward compatibility with other dependent packages."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tar.xz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/Python-2.7.18-security_fixes-1.patch

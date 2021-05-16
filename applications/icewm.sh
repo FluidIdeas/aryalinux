@@ -20,8 +20,8 @@ SECTION="Window Managers"
 DESCRIPTION="IceWM is a window manager with the goals of speed, simplicity, and not getting in the user's way."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/ice-wm/icewm/archive/2.3.1/icewm-2.3.1.tar.gz
 

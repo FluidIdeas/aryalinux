@@ -19,8 +19,8 @@ SECTION="Security"
 DESCRIPTION="The libcap package was installed in LFS, but if Linux-PAM support is desired, the PAM module must be built (after installation of Linux-PAM)."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.49.tar.xz
 

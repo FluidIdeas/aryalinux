@@ -27,8 +27,8 @@ URL=https://download.gnome.org/sources/pygtk/2.24/pygtk-2.24.0.tar.bz2
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/pygtk/2.24/pygtk-2.24.0.tar.bz2
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/pygtk/2.24/pygtk-2.24.0.tar.bz2

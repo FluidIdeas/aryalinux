@@ -21,8 +21,8 @@ URL=https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test2-Suite-0.000130.tar.g
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test2-Suite-0.000130.tar.gz
 

@@ -20,8 +20,8 @@ SECTION="General Libraries"
 DESCRIPTION="The GLibmm package is a set of C++ bindings for GLib."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/glibmm/2.66/glibmm-2.66.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/glibmm/2.66/glibmm-2.66.0.tar.xz

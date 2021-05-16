@@ -19,8 +19,8 @@ SECTION="Xfce Desktop"
 DESCRIPTION="Xfconf is the configuration storage system for Xfce."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.xfce.org/src/xfce/xfconf/4.16/xfconf-4.16.0.tar.bz2
 

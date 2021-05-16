@@ -17,8 +17,8 @@ URL=http://ftp.acc.umu.se/pub/gnome/sources/gnome-themes-standard/3.27/gnome-the
 DESCRIPTION="Adwaita GTK+ 2 theme — engine"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gnome-themes-standard/3.27/gnome-themes-standard-3.27.90.tar.xz
 

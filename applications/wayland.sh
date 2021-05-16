@@ -19,8 +19,8 @@ SECTION="General Libraries"
 DESCRIPTION="Wayland is a project to define a protocol for a compositor to talk to its clients as well as a library implementation of the protocol."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://wayland.freedesktop.org/releases/wayland-1.19.0.tar.xz
 

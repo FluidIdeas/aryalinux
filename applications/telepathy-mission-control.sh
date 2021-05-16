@@ -20,8 +20,8 @@ SECTION="General Utilities"
 DESCRIPTION="Telepathy Mission Control is an account manager and channel dispatcher for the Telepathy framework, allowing user interfaces and other clients to share connections to real-time communication services without conflicting."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://telepathy.freedesktop.org/releases/telepathy-mission-control/telepathy-mission-control-5.16.6.tar.gz
 

@@ -20,8 +20,8 @@ SECTION="Databases"
 DESCRIPTION="MongoDB is a general purpose, document-based, distributed database built for modern application developers and for the cloud era. No database makes you more productive."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://fastdl.mongodb.org/src/mongodb-src-r4.2.2.tar.gz
 

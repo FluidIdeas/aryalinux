@@ -23,8 +23,8 @@ SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libsecret package contains a GObject based library for accessing the Secret Service API."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/libsecret/0.20/libsecret-0.20.4.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libsecret/0.20/libsecret-0.20.4.tar.xz

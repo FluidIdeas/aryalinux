@@ -21,8 +21,8 @@ SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="Libsndfile is a library of C routines for reading and writing files containing sampled audio data."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/libsndfile/libsndfile/releases/download/1.0.31/libsndfile-1.0.31.tar.bz2
 

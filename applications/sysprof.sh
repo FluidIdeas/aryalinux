@@ -22,8 +22,8 @@ SECTION="Programming"
 DESCRIPTION="The sysprof package contains a statistical and system-wide profiler for Linux."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/sysprof/3.40/sysprof-3.40.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/sysprof/3.40/sysprof-3.40.1.tar.xz

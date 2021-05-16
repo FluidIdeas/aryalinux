@@ -17,8 +17,8 @@ URL=https://files.pythonhosted.org/packages/source/M/MarkupSafe/MarkupSafe-1.1.1
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://files.pythonhosted.org/packages/source/M/MarkupSafe/MarkupSafe-1.1.1.tar.gz
 

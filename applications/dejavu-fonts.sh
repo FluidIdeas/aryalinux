@@ -21,8 +21,8 @@ SECTION="Others"
 DESCRIPTION="The DejaVu fonts are modifications of the Bitstream Vera fonts designed for greater coverage of Unicode, as well as providing more styles."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://sourceforge.net/projects/dejavu/files/dejavu/2.37/dejavu-fonts-2.37.tar.bz2
 

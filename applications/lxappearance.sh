@@ -20,8 +20,8 @@ SECTION="LXDE Desktop"
 DESCRIPTION="The LXAppearance package contains a desktop-independent theme switcher for GTK+."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/lxde/lxappearance-0.6.3.tar.xz
 

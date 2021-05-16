@@ -20,8 +20,8 @@ SECTION="Mail Server Software"
 DESCRIPTION="The sendmail package contains a Mail Transport Agent (MTA)."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc ftp://ftp.sendmail.org/pub/sendmail/sendmail.8.16.1.tar.gz
 

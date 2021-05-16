@@ -47,8 +47,8 @@ SECTION="KDE Plasma 5"
 DESCRIPTION="Plasma is KDE's desktop environment. Simple by default, powerful when needed."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 
 

@@ -19,8 +19,8 @@ SECTION="X Window System Environment"
 DESCRIPTION="The libXau package contains a library implementing the X11 Authorization Protocol. This is useful for restricting client access to the display."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.x.org/pub/individual/lib/libXau-1.0.9.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/lib/libXau-1.0.9.tar.bz2

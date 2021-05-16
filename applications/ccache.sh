@@ -18,8 +18,8 @@ SECTION="Others"
 DESCRIPTION="ccache (or “Ccache”) is a compiler cache. It speeds up recompilation by caching previous compilations and detecting when the same compilation is being done again. Supported languages are C, C++, Objective-C and Objective-C++."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.samba.org/ftp/ccache/ccache-3.5.1a.tar.xz
 

@@ -20,8 +20,8 @@ SECTION="X Libraries"
 DESCRIPTION="The startup-notification package contains startup-notification libraries. These are useful for building a consistent manner to notify the user through the cursor that the application is loading."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.freedesktop.org/software/startup-notification/releases/startup-notification-0.12.tar.gz
 

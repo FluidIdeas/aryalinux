@@ -20,8 +20,8 @@ SECTION="General Utilities"
 DESCRIPTION="The rep-gtk package contains a Lisp and GTK binding. This is useful for extending GTK-2 and GDK libraries with Lisp. Starting at rep-gtk-0.15, the package contains the bindings to GTK and uses the same instructions. Both can be installed, if needed."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://download.tuxfamily.org/librep/rep-gtk/rep-gtk_0.90.8.3.tar.xz
 

@@ -18,8 +18,8 @@ SECTION="Networking Libraries"
 DESCRIPTION="The libnl suite is a collection of libraries providing APIs to netlink protocol based Linux kernel interfaces."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/thom311/libnl/releases/download/libnl3_5_0/libnl-3.5.0.tar.gz
 wget -nc https://github.com/thom311/libnl/releases/download/libnl3_5_0/libnl-doc-3.5.0.tar.gz

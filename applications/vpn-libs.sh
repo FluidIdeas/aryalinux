@@ -23,8 +23,8 @@ VERSION=2.1
 DESCRIPTION="Meta package to install vpn support - openvpn, openconnect, pptp"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 
 

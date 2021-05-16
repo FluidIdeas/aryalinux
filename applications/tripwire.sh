@@ -18,8 +18,8 @@ SECTION="Security"
 DESCRIPTION="The Tripwire package contains programs used to verify the integrity of the files on a given system."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/Tripwire/tripwire-open-source/releases/download/2.4.3.7/tripwire-open-source-2.4.3.7.tar.gz
 

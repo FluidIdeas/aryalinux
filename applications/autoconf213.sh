@@ -18,8 +18,8 @@ SECTION="Programming"
 DESCRIPTION="Autoconf2.13 is an old version of Autoconf . This old version accepts switches which are not valid in more recent versions. Now that firefox has started to use python2 for configuring, this old version is required even if configure files have not been changed."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.gnu.org/gnu/autoconf/autoconf-2.13.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/autoconf/autoconf-2.13.tar.gz

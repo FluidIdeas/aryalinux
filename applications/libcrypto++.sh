@@ -17,8 +17,8 @@ URL=https://github.com/weidai11/cryptopp/archive/refs/tags/CRYPTOPP_8_5_0.tar.gz
 DESCRIPTION="Crypto++ is library for creating C++ programs which use cryptographic algorithms. The library uses a Pipes & Filters architecture with heavy use of templates and abstract base classes."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/weidai11/cryptopp/archive/refs/tags/CRYPTOPP_8_5_0.tar.gz
 

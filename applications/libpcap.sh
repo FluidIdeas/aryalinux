@@ -18,8 +18,8 @@ SECTION="Networking Libraries"
 DESCRIPTION="libpcap provides functions for user-level packet capture, used in low-level network monitoring."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.tcpdump.org/release/libpcap-1.10.0.tar.gz
 

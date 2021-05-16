@@ -20,8 +20,8 @@ SECTION="General Libraries"
 DESCRIPTION="The libunique package contains a library for writing single instance applications."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/libunique/1.1/libunique-1.1.6.tar.bz2
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libunique/1.1/libunique-1.1.6.tar.bz2

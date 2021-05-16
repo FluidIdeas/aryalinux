@@ -20,8 +20,8 @@ SECTION="LXDE Applications"
 DESCRIPTION="The LXRandR package contains a monitor configuration tool for LXDE."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/lxde/lxrandr-0.3.2.tar.xz
 

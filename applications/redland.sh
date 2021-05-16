@@ -19,8 +19,8 @@ SECTION="System Utilities"
 DESCRIPTION="Redland is a set of free software C libraries that provide support for the Resource Description Framework (RDF)."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.librdf.org/source/redland-1.0.17.tar.gz
 

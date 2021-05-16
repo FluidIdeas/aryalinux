@@ -19,8 +19,8 @@ SECTION="Networking Programs"
 DESCRIPTION="The rpcbind program is a replacement for portmap. It is required for import or export of Network File System (NFS) shared directories."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/rpcbind/rpcbind-1.2.5.tar.bz2
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/rpcbind-1.2.5-vulnerability_fixes-1.patch

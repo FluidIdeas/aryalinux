@@ -23,8 +23,8 @@ SECTION="Xfce Applications"
 DESCRIPTION="Parole is a DVD/CD/music player for Xfce that uses GStreamer."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.xfce.org/src/apps/parole/4.16/parole-4.16.0.tar.bz2
 

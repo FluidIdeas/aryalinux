@@ -18,8 +18,8 @@ SECTION="Others"
 DESCRIPTION=""
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://hyperrealm.github.io/libconfig/dist/libconfig-1.7.2.tar.gz
 

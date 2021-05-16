@@ -49,8 +49,8 @@ SECTION="LXQT Desktop"
 DESCRIPTION="LXQt is a lightweight Qt desktop environment. Historically, LXQt is the product of the merge between LXDE-Qt, an initial Qt flavour of LXDE, and Razor-qt, a project aiming to develop a Qt based desktop environment with similar objectives as the current LXQt."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 
 

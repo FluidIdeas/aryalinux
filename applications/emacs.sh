@@ -23,8 +23,8 @@ SECTION="Editors"
 DESCRIPTION="The Emacs package contains an extensible, customizable, self-documenting real-time display editor."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.gnu.org/gnu/emacs/emacs-27.2.tar.xz
 wget -nc ftp://ftp.gnu.org/gnu/emacs/emacs-27.2.tar.xz

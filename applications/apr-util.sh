@@ -19,8 +19,8 @@ SECTION="General Libraries"
 DESCRIPTION="The Apache Portable Runtime Utility Library provides a predictable and consistent interface to underlying client library interfaces. This application programming interface assures predictable if not identical behaviour regardless of which libraries are available on a given platform."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.apache.org/dist/apr/apr-util-1.6.1.tar.bz2
 wget -nc ftp://ftp.mirrorservice.org/sites/ftp.apache.org/apr/apr-util-1.6.1.tar.bz2

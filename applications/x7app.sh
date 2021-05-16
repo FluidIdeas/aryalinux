@@ -22,8 +22,8 @@ SECTION="X Window System Environment"
 DESCRIPTION="The Xorg applications provide the expected applications available in previous X Window implementations."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 
 

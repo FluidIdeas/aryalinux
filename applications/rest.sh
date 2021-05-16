@@ -21,8 +21,8 @@ SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The rest package contains a library that was designed to make it easier to access web services that claim to be \"RESTful\". It includes convenience wrappers for libsoup and libxml to ease remote use of the RESTful API."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/rest/0.8/rest-0.8.1.tar.xz

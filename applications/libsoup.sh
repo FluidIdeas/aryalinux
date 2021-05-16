@@ -25,8 +25,8 @@ SECTION="Networking Libraries"
 DESCRIPTION="The libsoup is a HTTP client/server library for GNOME. It uses GObject and the GLib main loop to integrate with GNOME applications and it also has an asynchronous API for use in threaded applications."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/libsoup/2.72/libsoup-2.72.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libsoup/2.72/libsoup-2.72.0.tar.xz

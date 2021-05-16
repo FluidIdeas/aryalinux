@@ -22,8 +22,8 @@ SECTION="KDE Plasma 5"
 DESCRIPTION="Phonon is the multimedia API for KDE. It replaces the old aRts package. Phonon needs either the GStreamer or VLC backend."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.kde.org/stable/phonon/4.11.1/phonon-4.11.1.tar.xz
 

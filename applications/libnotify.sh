@@ -19,8 +19,8 @@ SECTION="X Libraries"
 DESCRIPTION="The libnotify library is used to send desktop notifications to a notification daemon, as defined in the Desktop Notifications spec. These notifications can be used to inform the user about an event or display some form of information without getting in the user's way."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/libnotify/0.7/libnotify-0.7.9.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libnotify/0.7/libnotify-0.7.9.tar.xz

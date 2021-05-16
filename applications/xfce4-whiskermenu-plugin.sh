@@ -17,8 +17,8 @@ URL=https://archive.xfce.org/src/panel-plugins/xfce4-whiskermenu-plugin/2.3/xfce
 DESCRIPTION="Whisker Menu is an alternate application launcher for Xfce. When you open it you are shown a list of applications you have marked as favorites. You can browse through all of your installed applications by clicking on the category buttons on the side. Top level categories make browsing fast, and simple to switch between. Additionally, Whisker Menu keeps a list of the last ten applications that you've launched from it."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.xfce.org/src/panel-plugins/xfce4-whiskermenu-plugin/2.3/xfce4-whiskermenu-plugin-2.3.4.tar.bz2
 

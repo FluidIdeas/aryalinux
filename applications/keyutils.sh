@@ -19,8 +19,8 @@ SECTION="General Libraries"
 DESCRIPTION="Keyutils is a set of utilities for managing the key retention facility in the kernel, which can be used by filesystems, block devices and more to gain and retain the authorization and encryption keys required to perform secure operations."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://people.redhat.com/~dhowells/keyutils/keyutils-1.6.1.tar.bz2
 

@@ -17,8 +17,8 @@ URL=https://ftp.acc.umu.se/pub/gnome/sources/NetworkManager-openconnect/1.2/Netw
 DESCRIPTION="Network Manager plugin for openconnect"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.acc.umu.se/pub/gnome/sources/NetworkManager-openconnect/1.2/NetworkManager-openconnect-1.2.6.tar.xz
 

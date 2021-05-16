@@ -25,8 +25,8 @@ SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Grilo is a framework focused on making media discovery and browsing easy for applications and application developers."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/grilo/0.3/grilo-0.3.13.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/grilo/0.3/grilo-0.3.13.tar.xz

@@ -25,8 +25,8 @@ SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="The Ark package is a KF5 archive tool. It is a graphical front end to tar and similar tools."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.kde.org/stable/release-service/20.12.2/src/ark-20.12.2.tar.xz
 

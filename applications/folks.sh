@@ -25,8 +25,8 @@ SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Folks is a library that aggregates people from multiple sources (e.g, Telepathy connection managers and Evolution Data Server, Facebook, etc.) to create metacontacts."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/folks/0.15/folks-0.15.2.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/folks/0.15/folks-0.15.2.tar.xz

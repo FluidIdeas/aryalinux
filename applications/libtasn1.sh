@@ -18,8 +18,8 @@ SECTION="General Libraries"
 DESCRIPTION="libtasn1 is a highly portable C library that encodes and decodes DER/BER data following an ASN.1 schema."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.16.0.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/libtasn1/libtasn1-4.16.0.tar.gz

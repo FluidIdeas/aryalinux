@@ -18,8 +18,8 @@ URL=https://download.samba.org/pub/ppp/ppp-2.4.9.tar.gz
 DESCRIPTION="ppp (Paul's PPP Package) is an open source package which implements the Point-to-Point Protocol (PPP) on Linux and Solaris systems."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.samba.org/pub/ppp/ppp-2.4.9.tar.gz
 

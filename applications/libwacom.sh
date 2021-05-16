@@ -20,8 +20,8 @@ SECTION="General Libraries"
 DESCRIPTION="The libwacom package contains a library used to identify wacom tablets and their model-specific features."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/linuxwacom/libwacom/releases/download/libwacom-1.10/libwacom-1.10.tar.bz2
 

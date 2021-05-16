@@ -19,8 +19,8 @@ SECTION="LXDE Desktop"
 DESCRIPTION="The libfm-extra package contains a library and other files required by menu-cache-gen libexec of menu-cache-1.1.0."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/pcmanfm/libfm-1.3.2.tar.xz
 

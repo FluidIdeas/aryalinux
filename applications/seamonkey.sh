@@ -33,8 +33,8 @@ SECTION="Graphical Web Browsers"
 DESCRIPTION="SeaMonkey is a browser suite, the Open Source sibling of Netscape. It includes the browser, composer, mail and news clients, and an IRC client. It is the follow-on to the Mozilla browser suite."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.mozilla.org/pub/seamonkey/releases/2.53.7.1/source/seamonkey-2.53.7.1.source.tar.xz
 

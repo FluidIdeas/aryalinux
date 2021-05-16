@@ -19,8 +19,8 @@ URL=https://github.com/gpodder/libmygpo-qt/archive/1.1.0/libmygpo-qt-1.1.0.tar.g
 DESCRIPTION="C++/Qt Library wrapping the gpodder.net Webservice"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/gpodder/libmygpo-qt/archive/1.1.0/libmygpo-qt-1.1.0.tar.gz
 

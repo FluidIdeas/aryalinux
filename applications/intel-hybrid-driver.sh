@@ -18,8 +18,8 @@ URL=https://github.com/01org/intel-hybrid-driver/archive/1.0.2/intel-hybrid-driv
 DESCRIPTION="VA driver for Intel G45 & HD Graphics family."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/01org/intel-hybrid-driver/archive/1.0.2/intel-hybrid-driver-1.0.2.tar.gz
 

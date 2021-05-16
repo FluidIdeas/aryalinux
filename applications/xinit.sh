@@ -22,8 +22,8 @@ SECTION="X Window System Environment"
 DESCRIPTION="The xinit package contains a usable script to start the xserver."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.x.org/pub/individual/app/xinit-1.4.1.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/app/xinit-1.4.1.tar.bz2

@@ -20,8 +20,8 @@ SECTION="Icons"
 DESCRIPTION="The oxygen icons 5 theme is a photo-realistic icon style, with a high standard of graphics quality."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.kde.org/stable/frameworks/5.79/oxygen-icons5-5.79.0.tar.xz
 

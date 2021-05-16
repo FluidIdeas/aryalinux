@@ -25,8 +25,8 @@ SECTION="X Window System Environment"
 DESCRIPTION="The Xorg Server is the core of the X Window system."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.x.org/pub/individual/xserver/xorg-server-1.20.11.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/xserver/xorg-server-1.20.11.tar.bz2

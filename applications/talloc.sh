@@ -18,8 +18,8 @@ SECTION="General Libraries"
 DESCRIPTION="Talloc provides a hierarchical, reference counted memory pool system with destructors. It is the core memory allocator used in Samba."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.samba.org/ftp/talloc/talloc-2.3.2.tar.gz
 

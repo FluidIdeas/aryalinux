@@ -17,8 +17,8 @@ URL=https://download.gnome.org/sources/murrine/0.98/murrine-0.98.2.tar.xz
 DESCRIPTION=""Murrine" is an Italian word meaning the glass artworks done by Venicians glass blowers. The Engine is cairo-based, and it's very fast compared to clearlooks-cairo and ubuntulooks."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/murrine/0.98/murrine-0.98.2.tar.xz
 

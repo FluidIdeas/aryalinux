@@ -25,8 +25,8 @@ SECTION="Graphics and Font Libraries"
 DESCRIPTION="The HarfBuzz package contains an OpenType text shaping engine."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/harfbuzz/harfbuzz/releases/download/2.8.1/harfbuzz-2.8.1.tar.xz
 

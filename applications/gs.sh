@@ -25,8 +25,8 @@ SECTION="Printing"
 DESCRIPTION="Ghostscript is a versatile processor for PostScript data with the ability to render PostScript to different targets. It is a mandatory part of the cups printing stack."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9540/ghostscript-9.54.0.tar.xz
 wget -nc https://downloads.sourceforge.net/gs-fonts/ghostscript-fonts-std-8.11.tar.gz

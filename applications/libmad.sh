@@ -18,8 +18,8 @@ SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="libmad is a high-quality MPEG audio decoder capable of 24-bit output."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/mad/libmad-0.15.1b.tar.gz
 wget -nc ftp://ftp.mars.org/pub/mpeg/libmad-0.15.1b.tar.gz

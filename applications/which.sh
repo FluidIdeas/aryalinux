@@ -18,8 +18,8 @@ SECTION="System Utilities"
 DESCRIPTION="The first option is to install the actual GNU which package."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.gnu.org/gnu/which/which-2.21.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/which/which-2.21.tar.gz

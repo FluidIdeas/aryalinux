@@ -21,8 +21,8 @@ SECTION="Xfce Desktop"
 DESCRIPTION="Xfwm4 is the window manager for Xfce."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.xfce.org/src/xfce/xfwm4/4.16/xfwm4-4.16.1.tar.bz2
 

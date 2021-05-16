@@ -18,8 +18,8 @@ SECTION="Security"
 DESCRIPTION="The OpenSSH package contains ssh clients and the sshd daemon. This is useful for encrypting authentication and subsequent traffic over a network. The ssh and scp commands are secure implementations of telnet and rcp respectively."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-8.6p1.tar.gz
 

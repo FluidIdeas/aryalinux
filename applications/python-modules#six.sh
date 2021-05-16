@@ -18,8 +18,8 @@ URL=https://files.pythonhosted.org/packages/source/s/six/six-1.15.0.tar.gz
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://files.pythonhosted.org/packages/source/s/six/six-1.15.0.tar.gz
 

@@ -28,8 +28,8 @@ SECTION="Editors"
 DESCRIPTION="The Gedit package contains a lightweight UTF-8 text editor for the GNOME Desktop."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gedit/40/gedit-40.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gedit/40/gedit-40.1.tar.xz

@@ -19,8 +19,8 @@ SECTION="LXDE Applications"
 DESCRIPTION="The LXInput package contains a small program used to configure keyboard and mouse for LXDE."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/lxde/lxinput-0.3.5.tar.xz
 

@@ -21,8 +21,8 @@ SECTION="General Libraries"
 DESCRIPTION="The libgsf package contains a library used for providing an extensible input/output abstraction layer for structured file formats."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/libgsf/1.14/libgsf-1.14.47.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgsf/1.14/libgsf-1.14.47.tar.xz

@@ -17,8 +17,8 @@ VERSION=2.0
 DESCRIPTION="Default settings for the AryaLinux Gnome desktop environment."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://sourceforge.net/projects/aryalinux/files/releases/4.0/aryalinux-gnome-defaults-4.0.tar.xz
 

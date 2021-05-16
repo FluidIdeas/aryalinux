@@ -19,8 +19,8 @@ SECTION="General Libraries"
 DESCRIPTION="The libbytesize package is a library which facilitates the common operations with sizes in bytes."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/storaged-project/libbytesize/releases/download/2.5/libbytesize-2.5.tar.gz
 

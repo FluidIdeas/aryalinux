@@ -18,8 +18,8 @@ SECTION="General Libraries"
 DESCRIPTION="Netscape Portable Runtime (NSPR) provides a platform-neutral API for system level and libc like functions."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.mozilla.org/pub/nspr/releases/v4.30/src/nspr-4.30.tar.gz
 

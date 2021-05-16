@@ -20,8 +20,8 @@ SECTION="Other X-based Programs"
 DESCRIPTION="XArchiver is a GTK+ archive manager with support for tar, xz, bzip2, gzip, zip, 7z, rar, lzo and many other archive formats."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/ib/xarchiver/archive/0.5.4.17/xarchiver-0.5.4.17.tar.gz
 

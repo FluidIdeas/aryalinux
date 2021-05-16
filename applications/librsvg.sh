@@ -24,8 +24,8 @@ SECTION="Graphics and Font Libraries"
 DESCRIPTION="The librsvg package contains a library and tools used to manipulate, convert and view Scalable Vector Graphic (SVG) images."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/librsvg/2.50/librsvg-2.50.5.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/librsvg/2.50/librsvg-2.50.5.tar.xz

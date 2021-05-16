@@ -26,8 +26,8 @@ SECTION="Audio Utilities"
 DESCRIPTION="The KWave package contains a KF5 based Sound Editor application."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.kde.org/stable/release-service/20.12.2/src/kwave-20.12.2.tar.xz
 

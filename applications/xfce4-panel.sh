@@ -22,8 +22,8 @@ SECTION="Xfce Desktop"
 DESCRIPTION="The Xfce4 Panel package contains the Xfce4 Panel."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.xfce.org/src/xfce/xfce4-panel/4.16/xfce4-panel-4.16.3.tar.bz2
 

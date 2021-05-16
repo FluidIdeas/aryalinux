@@ -19,8 +19,8 @@ SECTION="Networking Programs"
 DESCRIPTION="The rsync package contains the rsync utility. This is useful for synchronizing large file archives over a network."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.samba.org/ftp/rsync/src/rsync-3.2.3.tar.gz
 

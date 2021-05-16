@@ -18,8 +18,8 @@ SECTION="Window Managers"
 DESCRIPTION="The Fluxbox package contains a window manager."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/fluxbox/fluxbox-1.3.7.tar.xz
 

@@ -18,8 +18,8 @@ SECTION="Programming"
 DESCRIPTION="The librep package contains a Lisp system. This is useful for scripting or for applications that may use the Lisp interpreter as an extension language."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://download.tuxfamily.org/librep/librep_0.92.7.tar.xz
 

@@ -20,8 +20,8 @@ URL=https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.070.tar.gz
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.070.tar.gz
 

@@ -22,8 +22,8 @@ SECTION="General Utilities"
 DESCRIPTION="The Telepathy Logger package is a headless observer client that logs information received by the Telepathy framework. It features pluggable backends to log different sorts of messages in different formats."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://telepathy.freedesktop.org/releases/telepathy-logger/telepathy-logger-0.8.2.tar.bz2
 

@@ -19,8 +19,8 @@ SECTION="X Window System Environment"
 DESCRIPTION="The libXdmcp package contains a library implementing the X Display Manager Control Protocol. This is useful for allowing clients to interact with the X Display Manager."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.x.org/pub/individual/lib/libXdmcp-1.1.3.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/lib/libXdmcp-1.1.3.tar.bz2

@@ -19,8 +19,8 @@ SECTION="X Window System Environment"
 DESCRIPTION="The xcb-util package provides additional extensions to the XCB library, many that were previously found in Xlib, but are not part of core X protocol."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://xcb.freedesktop.org/dist/xcb-util-0.4.0.tar.bz2
 

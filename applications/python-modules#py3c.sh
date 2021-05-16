@@ -17,8 +17,8 @@ URL=https://github.com/encukou/py3c/archive/v1.3.1/py3c-1.3.1.tar.gz
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/encukou/py3c/archive/v1.3.1/py3c-1.3.1.tar.gz
 

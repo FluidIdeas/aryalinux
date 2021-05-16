@@ -22,8 +22,8 @@ SECTION="X Libraries"
 DESCRIPTION="FLTK (pronounced \"fulltick\") is a cross-platform C++ GUI toolkit. FLTK provides modern GUI functionality and supports 3D graphics via OpenGL and its built-in GLUT emulation libraries used for creating graphical user interfaces for applications."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://fltk.org/pub/fltk/1.3.5/fltk-1.3.5-source.tar.gz
 

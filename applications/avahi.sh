@@ -24,8 +24,8 @@ SECTION="Networking Utilities"
 DESCRIPTION="The Avahi package is a system which facilitates service discovery on a local network."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/lathiat/avahi/releases/download/v0.8/avahi-0.8.tar.gz
 

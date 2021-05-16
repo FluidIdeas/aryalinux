@@ -18,8 +18,8 @@ SECTION="Others"
 DESCRIPTION="This is a simple database API. It is modelled after the structure of GDBM. TDB features, unlike GDBM, multiple writers support with appropriate locking and transactions."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.samba.org/ftp/tdb/tdb-1.4.3.tar.gz
 

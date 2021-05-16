@@ -17,8 +17,8 @@ URL=https://github.com/protocolbuffers/protobuf/releases/download/v3.17.0/protob
 DESCRIPTION="An alternative protocol buffer support for the Go programming language, forked from golang-goprotobuf. It is backwards compatible with goprotobuf, but provides faster marshalling and unmarshalling and can generate extra helper code, tests and benchmarks."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/protocolbuffers/protobuf/releases/download/v3.17.0/protobuf-all-3.17.0.tar.gz
 

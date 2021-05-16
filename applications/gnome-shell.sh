@@ -38,8 +38,8 @@ SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Shell is the core user interface of the GNOME Desktop environment."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gnome-shell/40/gnome-shell-40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-shell/40/gnome-shell-40.0.tar.xz

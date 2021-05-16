@@ -19,8 +19,8 @@ SECTION="Editors"
 DESCRIPTION="The Kate package contains an advanced KF5 based graphical text editor."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.kde.org/stable/release-service/20.12.2/src/kate-20.12.2.tar.xz
 

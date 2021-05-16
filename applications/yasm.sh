@@ -18,8 +18,8 @@ SECTION="Programming"
 DESCRIPTION="Yasm is a complete rewrite of the NASM-2.15.05 assembler. It supports the x86 and AMD64 instruction sets, accepts NASM and GAS assembler syntaxes and outputs binary, ELF32 and ELF64 object formats."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz
 

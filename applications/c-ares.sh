@@ -19,8 +19,8 @@ SECTION="Networking Libraries"
 DESCRIPTION="c-ares is a C library for asynchronous DNS requests."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://c-ares.haxx.se/download/c-ares-1.17.1.tar.gz
 

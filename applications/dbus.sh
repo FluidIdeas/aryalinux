@@ -20,8 +20,8 @@ SECTION="System Utilities"
 DESCRIPTION="Even though D-Bus was built in LFS, there are some features provided by the package that other BLFS packages need, but their dependencies didn't fit into LFS."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://dbus.freedesktop.org/releases/dbus/dbus-1.12.20.tar.gz
 

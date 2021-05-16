@@ -20,8 +20,8 @@ SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Power Manager package contains a tool used to report on power management on the system."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gnome-power-manager/3.32/gnome-power-manager-3.32.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-power-manager/3.32/gnome-power-manager-3.32.0.tar.xz

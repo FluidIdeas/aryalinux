@@ -21,8 +21,8 @@ SECTION="General Libraries"
 DESCRIPTION="The libxslt package contains XSLT libraries used for extending libxml2 libraries to support XSLT files."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://xmlsoft.org/sources/libxslt-1.1.34.tar.gz
 wget -nc ftp://xmlsoft.org/libxslt/libxslt-1.1.34.tar.gz

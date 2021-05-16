@@ -23,8 +23,8 @@ SECTION="CD/DVD-Writing Utilities"
 DESCRIPTION="The Cdrdao package contains CD recording utilities. These are useful for burning a CD in disk-at-once mode."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/cdrdao/cdrdao-1.2.4.tar.bz2
 

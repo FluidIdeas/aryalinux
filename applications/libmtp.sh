@@ -17,8 +17,8 @@ URL=https://github.com/libmtp/libmtp/releases/download/libmtp-1-1-18/libmtp-1.1.
 DESCRIPTION="A library to access MTP (Media Transfer Protocol) Devices."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/libmtp/libmtp/releases/download/libmtp-1-1-18/libmtp-1.1.18.tar.gz
 

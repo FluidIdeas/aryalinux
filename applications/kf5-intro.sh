@@ -17,8 +17,8 @@ VERSION=5
 DESCRIPTION="A meta package that sets the environment for building KDE Frameworks."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 
 

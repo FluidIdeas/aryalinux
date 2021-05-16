@@ -23,8 +23,8 @@ URL=https://cpan.metacpan.org/authors/id/K/KE/KENTNL/Test-File-ShareDir-1.001002
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://cpan.metacpan.org/authors/id/K/KE/KENTNL/Test-File-ShareDir-1.001002.tar.gz
 

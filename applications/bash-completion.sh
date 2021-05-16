@@ -18,8 +18,8 @@ SECTION="Others"
 DESCRIPTION="bash-completion is a collection of command line command completions for the Bash shell, collection of helper functions to assist in creating new completions, and set of facilities for loading completions on demand as well as installing them."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/scop/bash-completion/releases/download/2.8/bash-completion-2.8.tar.xz
 

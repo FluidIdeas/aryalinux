@@ -17,8 +17,8 @@ URL=https://www.cpan.org/authors/id/S/SA/SALVA/Sort-Key-1.33.tar.gz
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.cpan.org/authors/id/S/SA/SALVA/Sort-Key-1.33.tar.gz
 

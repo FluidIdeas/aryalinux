@@ -30,8 +30,8 @@ SECTION="X Libraries"
 DESCRIPTION="The GTK+ 3 package contains libraries used for creating graphical user interfaces for applications."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.29.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtk+/3.24/gtk+-3.24.29.tar.xz

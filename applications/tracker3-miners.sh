@@ -29,8 +29,8 @@ SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Tracker-miners package contains a set of data extractors for Tracker."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/tracker-miners/3.1/tracker-miners-3.1.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/tracker-miners/3.1/tracker-miners-3.1.1.tar.xz

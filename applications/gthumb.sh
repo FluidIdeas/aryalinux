@@ -18,8 +18,8 @@ SECTION="Others"
 DESCRIPTION="gThumb is an image viewer and browser for the GNOME Desktop. It also includes an importer tool for transferring photos from cameras."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://ftp.acc.umu.se/pub/gnome/sources/gthumb/3.8/gthumb-3.8.3.tar.xz
 

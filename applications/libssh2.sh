@@ -18,8 +18,8 @@ SECTION="General Libraries"
 DESCRIPTION="Libssh2 package is a client-side C library implementing the SSH2 protocol."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.libssh2.org/download/libssh2-1.9.0.tar.gz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/libssh2-1.9.0-security_fixes-1.patch

@@ -18,8 +18,8 @@ SECTION="Databases"
 DESCRIPTION="The Berkeley DB package contains programs and utilities used by many other applications for database related functions."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/bdb/db-5.3.28.tar.gz
 

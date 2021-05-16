@@ -20,8 +20,8 @@ SECTION="X Libraries"
 DESCRIPTION="libdazzle is a companion library to GObject and GTK+ that adds APIs for special graphical effects."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/libdazzle/3.40/libdazzle-3.40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libdazzle/3.40/libdazzle-3.40.0.tar.xz

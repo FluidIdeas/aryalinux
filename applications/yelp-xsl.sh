@@ -20,8 +20,8 @@ SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Yelp XSL package contains XSL stylesheets that are used by the Yelp help browser to format Docbook and Mallard documents."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/yelp-xsl/40/yelp-xsl-40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/yelp-xsl/40/yelp-xsl-40.0.tar.xz

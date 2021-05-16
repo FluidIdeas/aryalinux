@@ -21,8 +21,8 @@ SECTION="Audio Utilities"
 DESCRIPTION="The Pnmixer package provides a lightweight volume control with a tray icon."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/nicklan/pnmixer/releases/download/v0.7.2/pnmixer-v0.7.2.tar.gz
 

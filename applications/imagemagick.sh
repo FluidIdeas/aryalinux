@@ -19,8 +19,8 @@ SECTION="General Utilities"
 DESCRIPTION="ImageMagick is a collection of tools and libraries to read, write, and manipulate an image in various image formats. Image processing operations are available from the command line. Bindings for Perl and C++ are also available."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.imagemagick.org/download/releases/ImageMagick-7.0.11-0.tar.xz
 

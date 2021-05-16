@@ -18,8 +18,8 @@ SECTION="Others"
 DESCRIPTION="The simple GObject game controller library"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://gitlab.gnome.org/GNOME/libmanette/-/archive/0.2.6/libmanette-0.2.6.tar.bz2
 

@@ -19,8 +19,8 @@ SECTION="LXDE Applications"
 DESCRIPTION="The LXTask package contains a lightweight and desktop-independent task manager."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/lxde/lxtask-0.1.10.tar.xz
 

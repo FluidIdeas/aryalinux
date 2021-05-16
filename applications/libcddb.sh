@@ -18,8 +18,8 @@ SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The libcddb is a library that implements the different protocols (CDDBP, HTTP, SMTP) to access data on a CDDB server."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/libcddb/libcddb-1.3.2.tar.bz2
 

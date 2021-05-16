@@ -19,8 +19,8 @@ SECTION="Others"
 DESCRIPTION="This module contains various files needed to bootstrap GNOME modules built from git."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.gnome.org/pub/GNOME/sources/gnome-common/3.18/gnome-common-3.18.0.tar.xz
 

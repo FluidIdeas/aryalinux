@@ -19,8 +19,8 @@ SECTION="Editors"
 DESCRIPTION="The Vim package, which is an abbreviation for VI IMproved, contains a vi clone with extra features as compared to the original vi."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/vim/vim-8.2.2433.tar.gz
 

@@ -22,8 +22,8 @@ SECTION="Networking Utilities"
 DESCRIPTION="Nmap is a utility for network exploration and security auditing. It supports ping scanning, port scanning and TCP/IP fingerprinting."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://nmap.org/dist/nmap-7.91.tar.bz2
 

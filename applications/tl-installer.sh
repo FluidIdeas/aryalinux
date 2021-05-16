@@ -27,8 +27,8 @@ SECTION="Typesetting"
 DESCRIPTION="The TeX Live package is a comprehensive TeX document production system. It includes TeX, LaTeX2e, ConTeXt, Metafont, MetaPost, BibTeX and many other programs; an extensive collection of macros, fonts and documentation; and support for typesetting in many different scripts from around the world."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
 

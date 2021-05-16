@@ -20,8 +20,8 @@ URL=https://github.com/nphilipp/python-slip/releases/download/python-slip-0.6.5/
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/nphilipp/python-slip/releases/download/python-slip-0.6.5/python-slip-0.6.5.tar.bz2
 

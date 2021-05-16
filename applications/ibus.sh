@@ -24,8 +24,8 @@ SECTION="General Utilities"
 DESCRIPTION="ibus is an Intelligent Input Bus. It is a new input framework for the Linux OS. It provides a fully featured and user friendly input method user interface."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/ibus/ibus/releases/download/1.5.24/ibus-1.5.24.tar.gz
 wget -nc https://www.unicode.org/Public/zipped/13.0.0/UCD.zip

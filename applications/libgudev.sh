@@ -19,8 +19,8 @@ SECTION="General Libraries"
 DESCRIPTION="The libgudev package contains GObject bindings for libudev."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/libgudev/236/libgudev-236.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgudev/236/libgudev-236.tar.xz

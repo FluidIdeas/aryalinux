@@ -17,8 +17,8 @@ URL=https://launchpad.net/libindicator/12.10/12.10.1/+download/libindicator-12.1
 DESCRIPTION="This library contains information to build indicators to go into the indicator applet."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://launchpad.net/libindicator/12.10/12.10.1/+download/libindicator-12.10.1.tar.gz
 

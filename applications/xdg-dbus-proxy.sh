@@ -18,8 +18,8 @@ SECTION="Others"
 DESCRIPTION="xdg-dbus-proxy is a filtering proxy for D-Bus connections. It was originally part of the flatpak project, but it has been broken out as a standalone module to facilitate using it in other contexts."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/flatpak/xdg-dbus-proxy/releases/download/0.1.2/xdg-dbus-proxy-0.1.2.tar.xz
 

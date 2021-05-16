@@ -37,8 +37,8 @@ URL=https://gitlab.gnome.org/GNOME/gimp/-/archive/gtk3-port/gimp-gtk3-port.tar.b
 DESCRIPTION="The Gtk3 branch of the GNU Image Manipulation Program"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://gitlab.gnome.org/GNOME/gimp/-/archive/gtk3-port/gimp-gtk3-port.tar.bz2
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.5/gimp-gtk3.patch

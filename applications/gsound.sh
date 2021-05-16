@@ -20,8 +20,8 @@ SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The gsound package contains a small library for playing system sounds."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gsound/1.0/gsound-1.0.2.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gsound/1.0/gsound-1.0.2.tar.xz

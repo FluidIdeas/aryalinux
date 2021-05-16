@@ -17,8 +17,8 @@ URL=https://github.com/kkos/oniguruma/releases/download/v6.9.4/onig-6.9.4.tar.gz
 DESCRIPTION="Oniguruma is a library for working with regular expressions."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/kkos/oniguruma/releases/download/v6.9.4/onig-6.9.4.tar.gz
 

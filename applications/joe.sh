@@ -18,8 +18,8 @@ SECTION="Editors"
 DESCRIPTION="JOE (Joe's own editor) is a small text editor capable of emulating WordStar, Pico, and Emacs."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/joe-editor/joe-4.6.tar.gz
 

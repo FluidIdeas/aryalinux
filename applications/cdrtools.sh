@@ -19,8 +19,8 @@ SECTION="CD/DVD-Writing Utilities"
 DESCRIPTION="The Cdrtools package contains CD recording utilities. These are useful for reading, creating or writing (burning) CDs, DVDs, and Blu-ray discs."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/cdrtools/cdrtools-3.02a09.tar.bz2
 

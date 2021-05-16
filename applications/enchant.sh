@@ -20,8 +20,8 @@ SECTION="General Libraries"
 DESCRIPTION="The enchant package provide a generic interface into various existing spell checking libraries."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/AbiWord/enchant/releases/download/v2.2.15/enchant-2.2.15.tar.gz
 

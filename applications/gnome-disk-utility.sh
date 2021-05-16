@@ -25,8 +25,8 @@ SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Disk Utility package provides applications used for dealing with storage devices."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gnome-disk-utility/40/gnome-disk-utility-40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-disk-utility/40/gnome-disk-utility-40.0.tar.xz

@@ -18,8 +18,8 @@ SECTION="Shells"
 DESCRIPTION="The zsh package contains a command interpreter (shell) usable as an interactive login shell and as a shell script command processor. Of the standard shells, zsh most closely resembles ksh but includes many enhancements."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.zsh.org/pub/zsh-5.8.tar.xz
 wget -nc https://www.zsh.org/pub/zsh-5.8-doc.tar.xz

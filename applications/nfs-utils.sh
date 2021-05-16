@@ -21,8 +21,8 @@ SECTION="Networking Programs"
 DESCRIPTION="The NFS Utilities package contains the userspace server and client tools necessary to use the kernel's NFS abilities. NFS is a protocol that allows sharing file systems over the network."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.kernel.org/pub/linux/utils/nfs-utils/2.5.2/nfs-utils-2.5.2.tar.xz
 

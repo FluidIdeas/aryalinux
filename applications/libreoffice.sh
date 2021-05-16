@@ -54,8 +54,8 @@ SECTION="Office Programs"
 DESCRIPTION="LibreOffice is a full-featured office suite. It is largely compatible with Microsoft Office and is descended from OpenOffice.org."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.documentfoundation.org/libreoffice/src/7.1.2/libreoffice-7.1.2.2.tar.xz
 wget -nc https://download.documentfoundation.org/libreoffice/src/7.1.2/libreoffice-dictionaries-7.1.2.2.tar.xz

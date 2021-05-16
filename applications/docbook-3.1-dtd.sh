@@ -20,8 +20,8 @@ SECTION="Standard Generalized Markup Language (SGML)"
 DESCRIPTION="The DocBook SGML DTD package contains document type definitions for verification of SGML data files against the DocBook rule set. These are useful for structuring books and software documentation to a standard allowing you to utilize transformations already written for that standard."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.docbook.org/sgml/3.1/docbk31.zip
 

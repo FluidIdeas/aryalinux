@@ -20,8 +20,8 @@ URL=https://www.cpan.org/authors/id/O/OA/OALDERS/LWP-Protocol-https-6.10.tar.gz
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.cpan.org/authors/id/O/OA/OALDERS/LWP-Protocol-https-6.10.tar.gz
 wget -nc https://www.linuxfromscratch.org/patches/blfs/svn/LWP-Protocol-https-6.10-system_certs-2.patch

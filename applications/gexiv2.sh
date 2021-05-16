@@ -20,8 +20,8 @@ SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="gexiv2 is a GObject-based wrapper around the Exiv2 library."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.2.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gexiv2/0.12/gexiv2-0.12.2.tar.xz

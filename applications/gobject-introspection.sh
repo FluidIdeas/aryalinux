@@ -19,8 +19,8 @@ SECTION="General Libraries"
 DESCRIPTION="The GObject Introspection is used to describe the program APIs and collect them in a uniform, machine readable format."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gobject-introspection/1.68/gobject-introspection-1.68.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gobject-introspection/1.68/gobject-introspection-1.68.0.tar.xz

@@ -18,8 +18,8 @@ SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Backgrounds package contains a collection of graphics files which can be used as backgrounds in the GNOME Desktop environment. Additionally, the package creates the proper framework and directory structure so that you can add your own files to the collection."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gnome-backgrounds/40/gnome-backgrounds-40.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-backgrounds/40/gnome-backgrounds-40.1.tar.xz

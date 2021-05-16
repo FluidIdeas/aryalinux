@@ -21,8 +21,8 @@ SECTION="General Libraries"
 DESCRIPTION="The libical package contains an implementation of the iCalendar protocols and data formats."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/libical/libical/releases/download/v3.0.10/libical-3.0.10.tar.gz
 

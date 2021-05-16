@@ -20,8 +20,8 @@ SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="The KMix package contains a KF5 based Sound Mixer application."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.kde.org/stable/release-service/20.12.2/src/kmix-20.12.2.tar.xz
 

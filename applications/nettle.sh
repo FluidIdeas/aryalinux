@@ -18,8 +18,8 @@ SECTION="Security"
 DESCRIPTION="The Nettle package contains a low-level cryptographic library that is designed to fit easily in many contexts."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.gnu.org/gnu/nettle/nettle-3.7.2.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/nettle/nettle-3.7.2.tar.gz

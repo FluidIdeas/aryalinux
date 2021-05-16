@@ -24,8 +24,8 @@ SECTION="Office Programs"
 DESCRIPTION="AbiWord is a word processor which is useful for writing reports, letters and other formatted documents."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.abisource.com/downloads/abiword/3.0.4/source/abiword-3.0.4.tar.gz
 wget -nc https://www.abisource.com/downloads/abiword/3.0.2/source/abiword-docs-3.0.2.tar.gz

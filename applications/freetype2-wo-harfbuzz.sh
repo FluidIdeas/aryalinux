@@ -20,8 +20,8 @@ SECTION="Graphics and Font Libraries"
 DESCRIPTION="The FreeType2 package contains a library which allows applications to properly render TrueType fonts."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/freetype/freetype-2.10.4.tar.xz
 wget -nc https://downloads.sourceforge.net/freetype/freetype-doc-2.10.4.tar.xz

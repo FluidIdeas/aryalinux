@@ -18,8 +18,8 @@ URL=http://aryalinux.info/files/CoverflowAltTab-gnome-extension-36.tar.gz
 DESCRIPTION="Replacement of Alt-Tab, iterates through windows in a cover-flow manner."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://aryalinux.info/files/CoverflowAltTab-gnome-extension-36.tar.gz
 

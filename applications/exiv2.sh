@@ -20,8 +20,8 @@ SECTION="Graphics and Font Libraries"
 DESCRIPTION="Exiv2 is a C++ library and a command line utility for managing image and video metadata."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.exiv2.org/builds/exiv2-0.27.3-Source.tar.gz
 

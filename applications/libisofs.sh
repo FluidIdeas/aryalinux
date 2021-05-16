@@ -18,8 +18,8 @@ SECTION="CD/DVD-Writing Utilities"
 DESCRIPTION="libisofs is a library to create an ISO-9660 filesystem with extensions like RockRidge or Joliet."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://files.libburnia-project.org/releases/libisofs-1.5.4.tar.gz
 

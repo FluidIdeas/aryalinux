@@ -18,8 +18,8 @@ VERSION=1.0.6
 DESCRIPTION="C bindings for Intel Media Runtime"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 
 

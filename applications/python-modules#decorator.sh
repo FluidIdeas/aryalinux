@@ -17,8 +17,8 @@ URL=https://files.pythonhosted.org/packages/source/d/decorator/decorator-5.0.7.t
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://files.pythonhosted.org/packages/source/d/decorator/decorator-5.0.7.tar.gz
 

@@ -18,8 +18,8 @@ SECTION="System Utilities"
 DESCRIPTION="The cpio package contains tools for archiving."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.gnu.org/gnu/cpio/cpio-2.13.tar.bz2
 wget -nc ftp://ftp.gnu.org/gnu/cpio/cpio-2.13.tar.bz2

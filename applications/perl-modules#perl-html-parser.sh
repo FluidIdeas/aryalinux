@@ -19,8 +19,8 @@ URL=https://www.cpan.org/authors/id/O/OA/OALDERS/HTML-Parser-3.76.tar.gz
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.cpan.org/authors/id/O/OA/OALDERS/HTML-Parser-3.76.tar.gz
 

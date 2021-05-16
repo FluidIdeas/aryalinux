@@ -19,8 +19,8 @@ SECTION="System Utilities"
 DESCRIPTION="Rasqal is a C library that handles Resource Description Framework (RDF) query language syntaxes, query construction, and execution of queries returning results as bindings, boolean, RDF graphs/triples or syntaxes."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.librdf.org/source/rasqal-0.9.33.tar.gz
 

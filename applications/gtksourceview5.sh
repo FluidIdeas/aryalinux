@@ -22,8 +22,8 @@ SECTION="X Libraries"
 DESCRIPTION="The GtkSourceView package contains a library used for extending the GTK text functions to include syntax highlighting."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gtksourceview/5.0/gtksourceview-5.0.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtksourceview/5.0/gtksourceview-5.0.0.tar.xz

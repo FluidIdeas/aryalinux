@@ -21,8 +21,8 @@ SECTION="Graphics and Font Libraries"
 DESCRIPTION="Libraw is a library for reading RAW files obtained from digital photo cameras (CRW/CR2, NEF, RAF, DNG, and others)."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.libraw.org/data/LibRaw-0.20.2.tar.gz
 

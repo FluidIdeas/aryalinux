@@ -19,8 +19,8 @@ SECTION="Programming"
 DESCRIPTION="The Tk package contains a TCL GUI Toolkit."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/tcl/tk8.6.11.1-src.tar.gz
 

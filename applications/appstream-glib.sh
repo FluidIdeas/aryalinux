@@ -18,8 +18,8 @@ URL=https://github.com/hughsie/appstream-glib/archive/appstream_glib_0_7_16.tar.
 DESCRIPTION="This library provides GObjects and helper methods to make it easy to read and write AppStream metadata. It also provides a simple DOM implementation that makes it easy to edit nodes and convert to and from the standardized XML representation."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/hughsie/appstream-glib/archive/appstream_glib_0_7_16.tar.gz
 

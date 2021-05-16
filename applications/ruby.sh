@@ -18,8 +18,8 @@ SECTION="Programming"
 DESCRIPTION="The Ruby package contains the Ruby development environment. This is useful for object-oriented scripting."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.1.tar.xz
 

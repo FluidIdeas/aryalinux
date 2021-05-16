@@ -19,8 +19,8 @@ SECTION="X Window System Environment"
 DESCRIPTION="The xcursor-themes package contains the redglass and whiteglass animated cursor themes."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.x.org/pub/individual/data/xcursor-themes-1.0.6.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/data/xcursor-themes-1.0.6.tar.bz2

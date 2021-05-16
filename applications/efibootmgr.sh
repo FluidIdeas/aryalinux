@@ -20,8 +20,8 @@ SECTION="File Systems and Disk Management"
 DESCRIPTION="The efibootmgr package provides tools and libraries to manipulate EFI variables."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/rhboot/efibootmgr/archive/17/efibootmgr-17.tar.gz
 

@@ -17,8 +17,8 @@ URL=https://www.x.org/archive/individual/driver/xf86-video-openchrome-0.6.0.tar.
 DESCRIPTION="Userspace openchrome video graphics driver"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.x.org/archive/individual/driver/xf86-video-openchrome-0.6.0.tar.gz
 wget -nc https://gitweb.gentoo.org/repo/gentoo.git/plain/x11-drivers/xf86-video-openchrome/files/xf86-video-openchrome-0.6.0-fno-common.patch

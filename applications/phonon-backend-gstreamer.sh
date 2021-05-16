@@ -25,8 +25,8 @@ SECTION="KDE Plasma 5"
 DESCRIPTION="This package provides a Phonon backend which utilizes the GStreamer media framework."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.kde.org/stable/phonon/phonon-backend-gstreamer/4.10.0/phonon-backend-gstreamer-4.10.0.tar.xz
 

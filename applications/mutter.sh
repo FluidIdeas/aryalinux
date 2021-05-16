@@ -38,8 +38,8 @@ SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Mutter is the window manager for GNOME. It is not invoked directly, but from GNOME Session (on a machine with a hardware accelerated video driver)."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/mutter/40/mutter-40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/mutter/40/mutter-40.0.tar.xz

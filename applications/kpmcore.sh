@@ -17,8 +17,8 @@ URL=https://download.kde.org/stable/kpmcore/4.0.1/src/kpmcore-4.0.1.tar.xz
 DESCRIPTION="Library for managing partitions. Common code for KDE Partition Manager and other projects."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.kde.org/stable/kpmcore/4.0.1/src/kpmcore-4.0.1.tar.xz
 

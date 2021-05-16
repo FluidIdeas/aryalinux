@@ -19,8 +19,8 @@ SECTION="X Libraries"
 DESCRIPTION="imlib2 is a graphics library for fast file loading, saving, rendering and manipulation."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/enlightenment/imlib2-1.7.1.tar.bz2
 

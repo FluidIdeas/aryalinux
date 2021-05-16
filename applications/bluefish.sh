@@ -21,8 +21,8 @@ SECTION="Editors"
 DESCRIPTION="Bluefish is a GTK+ text editor targeted towards programmers and web designers, with many options to write websites, scripts and programming code. Bluefish supports many programming and markup languages, and it focuses on editing dynamic and interactive websites."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.bennewitz.com/bluefish/stable/source/bluefish-2.2.12.tar.bz2
 

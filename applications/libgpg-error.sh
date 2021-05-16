@@ -18,8 +18,8 @@ SECTION="General Libraries"
 DESCRIPTION="The libgpg-error package contains a library that defines common error values for all GnuPG components."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.42.tar.bz2
 wget -nc ftp://ftp.gnupg.org/gcrypt/libgpg-error/libgpg-error-1.42.tar.bz2

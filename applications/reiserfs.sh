@@ -18,8 +18,8 @@ SECTION="File Systems and Disk Management"
 DESCRIPTION="The reiserfsprogs package contains various utilities for use with the Reiser file system."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.kernel.org/pub/linux/kernel/people/jeffm/reiserfsprogs/v3.6.27/reiserfsprogs-3.6.27.tar.xz
 

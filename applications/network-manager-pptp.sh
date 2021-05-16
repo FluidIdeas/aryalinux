@@ -17,8 +17,8 @@ URL=https://ftp.gnome.org/pub/gnome/sources/NetworkManager-pptp/1.2/NetworkManag
 DESCRIPTION="Network Manager plugin for pptp"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.gnome.org/pub/gnome/sources/NetworkManager-pptp/1.2/NetworkManager-pptp-1.2.8.tar.xz
 

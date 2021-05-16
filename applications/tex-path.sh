@@ -18,8 +18,8 @@ SECTION="Others"
 DESCRIPTION="Package to configure installation of texlive"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 
 

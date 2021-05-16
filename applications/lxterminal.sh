@@ -19,8 +19,8 @@ SECTION="LXDE Applications"
 DESCRIPTION="The LXTerminal package contains a VTE-based terminal emulator for LXDE with support for multiple tabs."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/lxde/lxterminal-0.4.0.tar.xz
 

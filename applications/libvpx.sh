@@ -21,8 +21,8 @@ SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="This package, from the WebM project, provides the reference implementations of the VP8 Codec, used in most current html5 video, and of the next-generation VP9 Codec."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/webmproject/libvpx/archive/v1.10.0/libvpx-1.10.0.tar.gz
 

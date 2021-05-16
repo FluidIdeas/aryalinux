@@ -23,8 +23,8 @@ SECTION="Xfce Desktop"
 DESCRIPTION="Xfdesktop is a desktop manager for the Xfce Desktop Environment. Xfdesktop sets the background image / color, creates the right click menu and window list and displays the file icons on the desktop using Thunar libraries."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.xfce.org/src/xfce/xfdesktop/4.16/xfdesktop-4.16.0.tar.bz2
 

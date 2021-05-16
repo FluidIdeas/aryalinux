@@ -20,8 +20,8 @@ SECTION="X Libraries"
 DESCRIPTION="The gdk-pixbuf-xlib package provides a deprecated Xlib interface to gdk-pixbuf, which is needed for some applications which have not been ported to use the new interfaces yet."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gdk-pixbuf-xlib/2.40/gdk-pixbuf-xlib-2.40.2.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gdk-pixbuf-xlib/2.40/gdk-pixbuf-xlib-2.40.2.tar.xz

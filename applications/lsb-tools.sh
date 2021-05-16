@@ -18,8 +18,8 @@ SECTION="System Utilities"
 DESCRIPTION="The LSB-Tools package includes tools for Linux Standards Base (LSB) conformance."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/djlucas/LSB-Tools/releases/download/v0.9/LSB-Tools-0.9.tar.gz
 

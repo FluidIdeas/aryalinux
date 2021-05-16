@@ -18,8 +18,8 @@ URL=https://pyyaml.org/download/pyyaml/PyYAML-5.3.1.tar.gz
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://pyyaml.org/download/pyyaml/PyYAML-5.3.1.tar.gz
 

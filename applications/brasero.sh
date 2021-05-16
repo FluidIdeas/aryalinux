@@ -30,8 +30,8 @@ SECTION="GNOME Applications"
 DESCRIPTION="Brasero is an application used to burn CD/DVD on the GNOME Desktop. It is designed to be as simple as possible and has some unique features that enable users to create their discs easily and quickly."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/brasero/3.12/brasero-3.12.2.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/brasero/3.12/brasero-3.12.2.tar.xz

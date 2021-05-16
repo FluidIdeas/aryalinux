@@ -17,8 +17,8 @@ URL=https://github.com/libimobiledevice/libplist/releases/download/2.2.0/libplis
 DESCRIPTION="A library to handle Apple Property List format in binary or XML - libimobiledevice/libplist"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/libimobiledevice/libplist/releases/download/2.2.0/libplist-2.2.0.tar.bz2
 

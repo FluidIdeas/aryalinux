@@ -19,8 +19,8 @@ SECTION="Other Server Software"
 DESCRIPTION="The OpenLDAP package provides an open source implementation of the Lightweight Directory Access Protocol."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.5.4.tgz
 wget -nc ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.5.4.tgz

@@ -21,8 +21,8 @@ SECTION="KDE Plasma 5"
 DESCRIPTION="Polkit-Qt provides an API to PolicyKit in the Qt environment."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.kde.org/stable/polkit-qt-1/polkit-qt-1-0.113.0.tar.xz
 

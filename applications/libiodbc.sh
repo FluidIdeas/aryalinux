@@ -19,8 +19,8 @@ SECTION="General Libraries"
 DESCRIPTION="libiodbc is an API to ODBC compatible databases."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/iodbc/libiodbc-3.52.14.tar.gz
 

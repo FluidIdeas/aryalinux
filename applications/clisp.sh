@@ -19,8 +19,8 @@ SECTION="Programming"
 DESCRIPTION="GNU Clisp is a Common Lisp implementation which includes an interpreter, compiler, debugger, and many extensions."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.gnu.org/gnu/clisp/latest/clisp-2.49.tar.bz2
 wget -nc ftp://ftp.gnu.org/gnu/clisp/latest/clisp-2.49.tar.bz2

@@ -29,8 +29,8 @@ SECTION="GNOME Applications"
 DESCRIPTION="GNOME Maps is a map application for GNOME."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gnome-maps/40/gnome-maps-40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-maps/40/gnome-maps-40.0.tar.xz

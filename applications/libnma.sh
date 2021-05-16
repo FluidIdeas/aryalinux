@@ -19,8 +19,8 @@ SECTION="Networking Utilities"
 DESCRIPTION="The libnma package contains an implementation of the NetworkManager GUI functions."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libnma/1.8/libnma-1.8.28.tar.xz
 

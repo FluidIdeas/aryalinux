@@ -18,8 +18,8 @@ SECTION="General Libraries"
 DESCRIPTION="Xapian is an open source search engine library."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://oligarchy.co.uk/xapian/1.4.18/xapian-core-1.4.18.tar.xz
 

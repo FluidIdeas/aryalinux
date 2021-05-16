@@ -23,8 +23,8 @@ SECTION="X Libraries"
 DESCRIPTION="The libxklavier package contains a utility library for X keyboard."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://people.freedesktop.org/~svu/libxklavier-5.4.tar.bz2
 

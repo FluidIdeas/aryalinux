@@ -22,8 +22,8 @@ SECTION="LXDE Desktop"
 DESCRIPTION="The LXSession package contains the default session manager for LXDE."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/lxde/lxsession-0.5.5.tar.xz
 

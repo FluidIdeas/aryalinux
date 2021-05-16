@@ -19,8 +19,8 @@ SECTION="Standard Generalized Markup Language (SGML)"
 DESCRIPTION="The OpenJade package contains a DSSSL engine. This is useful for SGML and XML transformations into RTF, TeX, SGML and XML."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/openjade/openjade-1.3.2.tar.gz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/openjade-1.3.2-upstream-1.patch

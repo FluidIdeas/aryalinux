@@ -21,8 +21,8 @@ SECTION="Security"
 DESCRIPTION="cryptsetup is used to set up transparent encryption of block devices using the kernel crypto API."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.kernel.org/pub/linux/utils/cryptsetup/v2.3/cryptsetup-2.3.5.tar.xz
 

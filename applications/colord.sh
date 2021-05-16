@@ -28,8 +28,8 @@ SECTION="System Utilities"
 DESCRIPTION="Colord is a system service that makes it easy to manage, install, and generate color profiles. It is used mainly by GNOME Color Manager for system integration and use when no users are logged in."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.freedesktop.org/software/colord/releases/colord-1.4.5.tar.xz
 

@@ -18,8 +18,8 @@ SECTION="General Libraries"
 DESCRIPTION="The libxml2 package contains libraries and utilities used for parsing XML files."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://xmlsoft.org/sources/libxml2-2.9.10.tar.gz
 wget -nc ftp://xmlsoft.org/libxml2/libxml2-2.9.10.tar.gz

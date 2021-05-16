@@ -18,8 +18,8 @@ SECTION="Security"
 DESCRIPTION="The stunnel package contains a program that allows you to encrypt arbitrary TCP connections inside SSL (Secure Sockets Layer) so you can easily communicate with clients over secure channels. stunnel can be used to add SSL functionality to commonly used Inetd daemons such as POP-2, POP-3, and IMAP servers, along with standalone daemons such as NNTP, SMTP, and HTTP. stunnel can also be used to tunnel PPP over network sockets without changes to the server package source code."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.59.tar.gz
 

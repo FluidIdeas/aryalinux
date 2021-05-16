@@ -17,8 +17,8 @@ URL=https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/Text-CSV_XS-1.44.tgz
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/Text-CSV_XS-1.44.tgz
 

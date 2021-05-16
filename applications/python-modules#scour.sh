@@ -18,8 +18,8 @@ URL=https://github.com/scour-project/scour/archive/v0.38.2/scour-0.38.2.tar.gz
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/scour-project/scour/archive/v0.38.2/scour-0.38.2.tar.gz
 

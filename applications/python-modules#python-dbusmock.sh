@@ -19,8 +19,8 @@ URL=https://github.com/martinpitt/python-dbusmock/releases/download/0.23.0/pytho
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/martinpitt/python-dbusmock/releases/download/0.23.0/python-dbusmock-0.23.0.tar.gz
 

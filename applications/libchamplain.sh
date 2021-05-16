@@ -24,8 +24,8 @@ SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libchamplain package contains a Clutter-based widget that is used to display rich and interactive maps."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.20.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libchamplain/0.12/libchamplain-0.12.20.tar.xz

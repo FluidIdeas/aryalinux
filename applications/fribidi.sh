@@ -18,8 +18,8 @@ SECTION="Graphics and Font Libraries"
 DESCRIPTION="The FriBidi package is an implementation of the Unicode Bidirectional Algorithm (BIDI). This is useful for supporting Arabic and Hebrew alphabets in other packages."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/fribidi/fribidi/releases/download/v1.0.9/fribidi-1.0.9.tar.xz
 

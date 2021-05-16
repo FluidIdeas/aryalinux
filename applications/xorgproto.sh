@@ -19,8 +19,8 @@ SECTION="X Window System Environment"
 DESCRIPTION="The xorgproto package provides the header files required to build the X Window system, and to allow other applications to build against the installed X Window system."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2021.4.tar.bz2
 

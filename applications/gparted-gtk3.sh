@@ -21,8 +21,8 @@ VERSION=0.31.0
 DESCRIPTION="GTK3 version of gparted partition editing tool."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 
 

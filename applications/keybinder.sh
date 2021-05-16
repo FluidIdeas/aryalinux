@@ -21,8 +21,8 @@ SECTION="X Libraries"
 DESCRIPTION="The keybinder package contains a utility library registering global X keyboard shortcuts."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/kupferlauncher/keybinder/releases/download/v0.3.1/keybinder-0.3.1.tar.gz
 

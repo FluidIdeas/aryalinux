@@ -52,8 +52,8 @@ VERSION=1.20.3
 DESCRIPTION="A meta package to install the collection of packages needed to install x-server."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 
 

@@ -19,8 +19,8 @@ URL=https://cpan.metacpan.org/authors/id/R/RE/REHSACK/Config-AutoConf-0.319.tar.
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://cpan.metacpan.org/authors/id/R/RE/REHSACK/Config-AutoConf-0.319.tar.gz
 

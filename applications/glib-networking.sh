@@ -22,8 +22,8 @@ SECTION="Networking Libraries"
 DESCRIPTION="The GLib Networking package contains Network related gio modules for GLib."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/glib-networking/2.68/glib-networking-2.68.1.tar.xz
 

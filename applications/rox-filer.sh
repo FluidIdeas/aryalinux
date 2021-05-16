@@ -20,8 +20,8 @@ SECTION="Other X-based Programs"
 DESCRIPTION="rox-filer is a fast, lightweight, gtk2 file manager."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/rox/rox-filer-2.11.tar.bz2
 

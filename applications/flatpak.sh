@@ -20,8 +20,8 @@ URL=https://github.com/flatpak/flatpak/releases/download/1.5.0/flatpak-1.5.0.tar
 DESCRIPTION="DescriptionFlatpak is a software utility for software deployment and package management for Linux. It is advertised as offering a sandbox environment in which users can run application software in isolation from the rest of the system."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/flatpak/flatpak/releases/download/1.5.0/flatpak-1.5.0.tar.xz
 

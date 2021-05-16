@@ -21,8 +21,8 @@ SECTION="System Utilities"
 DESCRIPTION="The BlueZ package contains the Bluetooth protocol stack for Linux."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.kernel.org/pub/linux/bluetooth/bluez-5.58.tar.xz
 

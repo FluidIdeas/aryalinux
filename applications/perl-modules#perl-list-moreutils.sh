@@ -19,8 +19,8 @@ URL=https://www.cpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-0.430.tar.gz
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.cpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-0.430.tar.gz
 

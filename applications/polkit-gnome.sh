@@ -20,8 +20,8 @@ SECTION="Security"
 DESCRIPTION="The Polkit GNOME package provides an Authentication Agent for Polkit that integrates well with the GNOME Desktop environment."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/polkit-gnome/0.105/polkit-gnome-0.105.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/polkit-gnome/0.105/polkit-gnome-0.105.tar.xz

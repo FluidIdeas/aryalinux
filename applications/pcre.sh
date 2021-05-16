@@ -18,8 +18,8 @@ SECTION="General Libraries"
 DESCRIPTION="The PCRE package contains Perl Compatible Regular Expression libraries. These are useful for implementing regular expression pattern matching using the same syntax and semantics as Perl 5."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.pcre.org/pub/pcre/pcre-8.44.tar.bz2
 wget -nc ftp://ftp.pcre.org/pub/pcre/pcre-8.44.tar.bz2

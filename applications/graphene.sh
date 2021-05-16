@@ -20,8 +20,8 @@ SECTION="X Libraries"
 DESCRIPTION="The Graphene package provides a thin layer of types for graphics libraries."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/ebassi/graphene/releases/download/1.10.6/graphene-1.10.6.tar.xz
 

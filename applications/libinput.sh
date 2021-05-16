@@ -19,8 +19,8 @@ URL=https://www.freedesktop.org/software/libinput/libinput-1.17.1.tar.xz
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.freedesktop.org/software/libinput/libinput-1.17.1.tar.xz
 

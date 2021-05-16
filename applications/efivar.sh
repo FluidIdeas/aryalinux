@@ -18,8 +18,8 @@ SECTION="File Systems and Disk Management"
 DESCRIPTION="The efivar package provides tools and libraries to manipulate EFI variables."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/rhboot/efivar/releases/download/37/efivar-37.tar.bz2
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/efivar-37-gcc_9-1.patch

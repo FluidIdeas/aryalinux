@@ -31,8 +31,8 @@ SECTION="Graphics and Font Libraries"
 DESCRIPTION="The opencv package contains graphics libraries mainly aimed at real-time computer vision."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/opencv/opencv/archive/4.5.2/opencv-4.5.2.tar.gz
 wget -nc https://github.com/opencv/opencv_contrib/archive/4.5.2/opencv_contrib-4.5.2.tar.gz

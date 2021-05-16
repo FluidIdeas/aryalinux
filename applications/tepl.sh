@@ -22,8 +22,8 @@ SECTION="X Libraries"
 DESCRIPTION="The Tepl package contains a library that eases the development of GtkSourceView-based text editors and IDEs."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/tepl/6.00/tepl-6.00.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/tepl/6.00/tepl-6.00.0.tar.xz

@@ -20,8 +20,8 @@ URL=https://www.x.org/pub/individual/driver/xf86-input-evdev-2.10.6.tar.bz2
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.x.org/pub/individual/driver/xf86-input-evdev-2.10.6.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-input-evdev-2.10.6.tar.bz2

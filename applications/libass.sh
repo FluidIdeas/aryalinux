@@ -22,8 +22,8 @@ SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="libass is a portable subtitle renderer for the ASS/SSA (Advanced Substation Alpha/Substation Alpha) subtitle format that allows for more advanced subtitles than the conventional SRT and similar formats."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/libass/libass/releases/download/0.15.1/libass-0.15.1.tar.xz
 

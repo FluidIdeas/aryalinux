@@ -25,8 +25,8 @@ SECTION="X Window System Environment"
 DESCRIPTION="Mesa is an OpenGL compatible 3D graphics library."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://mesa.freedesktop.org/archive/mesa-21.1.0.tar.xz
 wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-21.1.0.tar.xz

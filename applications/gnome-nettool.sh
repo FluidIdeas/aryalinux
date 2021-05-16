@@ -21,8 +21,8 @@ SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Nettool package is a network information tool which provides GUI interface for some of the most common command line network tools."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gnome-nettool/3.8/gnome-nettool-3.8.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-nettool/3.8/gnome-nettool-3.8.1.tar.xz

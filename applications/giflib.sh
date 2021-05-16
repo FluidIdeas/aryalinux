@@ -19,8 +19,8 @@ SECTION="Graphics and Font Libraries"
 DESCRIPTION="The giflib package contains libraries for reading and writing GIFs as well as programs for converting and working with GIF files."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://sourceforge.net/projects/giflib/files/giflib-5.2.1.tar.gz
 

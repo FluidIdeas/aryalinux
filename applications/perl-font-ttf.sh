@@ -18,8 +18,8 @@ SECTION="Others"
 DESCRIPTION="This module allows you to do almost anything to a TrueType/OpenType Font including modify and inspect nearly all tables."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://cpan.metacpan.org/authors/id/B/BH/BHALLISSY/Font-TTF-1.06.tar.gz
 

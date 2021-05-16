@@ -20,8 +20,8 @@ SECTION="Major Servers"
 DESCRIPTION="The vsftpd package contains a very secure and very small FTP daemon. This is useful for serving files over a network."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://security.appspot.com/downloads/vsftpd-3.0.3.tar.gz
 

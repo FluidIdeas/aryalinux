@@ -22,8 +22,8 @@ SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="Gwenview is a fast and easy-to-use image viewer for KDE."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.kde.org/stable/release-service/20.12.2/src/gwenview-20.12.2.tar.xz
 

@@ -20,8 +20,8 @@ SECTION="General Libraries"
 DESCRIPTION="The Umockdev package contains a framework that allows a developer to mock devices for use in unit testing."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/martinpitt/umockdev/releases/download/0.15.4/umockdev-0.15.4.tar.xz
 

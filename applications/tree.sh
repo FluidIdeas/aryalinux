@@ -18,8 +18,8 @@ SECTION="General Utilities"
 DESCRIPTION="The tree application, as the name suggests, is useful to display, in a terminal, directory contents, including directories, files, links."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://mama.indstate.edu/users/ice/tree/src/tree-1.8.0.tgz
 wget -nc ftp://mama.indstate.edu/linux/tree/tree-1.8.0.tgz

@@ -19,8 +19,8 @@ SECTION="KDE Plasma 5"
 DESCRIPTION="This library provides a Qt implementation of the DBusMenu specification that exposes menus via DBus."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://launchpad.net/ubuntu/+archive/primary/+files/libdbusmenu-qt_0.9.3+16.04.20160218.orig.tar.gz
 

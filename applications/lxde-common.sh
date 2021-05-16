@@ -26,8 +26,8 @@ SECTION="LXDE Desktop"
 DESCRIPTION="The LXDE Common package provides a set of default configuration for LXDE."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/lxde/lxde-common-0.99.2.tar.xz
 

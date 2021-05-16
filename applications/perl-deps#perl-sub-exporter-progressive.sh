@@ -17,8 +17,8 @@ URL=https://cpan.metacpan.org/authors/id/F/FR/FREW/Sub-Exporter-Progressive-0.00
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://cpan.metacpan.org/authors/id/F/FR/FREW/Sub-Exporter-Progressive-0.001013.tar.gz
 

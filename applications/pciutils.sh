@@ -21,8 +21,8 @@ SECTION="System Utilities"
 DESCRIPTION="The PCI Utils package contains a set of programs for listing PCI devices, inspecting their status and setting their configuration registers."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.kernel.org/pub/software/utils/pciutils/pciutils-3.7.0.tar.xz
 

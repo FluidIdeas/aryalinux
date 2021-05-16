@@ -39,8 +39,8 @@ SECTION="Graphical Web Browsers"
 DESCRIPTION="Firefox is a stand-alone browser based on the Mozilla codebase."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.mozilla.org/pub/firefox/releases/78.10.0esr/source/firefox-78.10.0esr.source.tar.xz
 

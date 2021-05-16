@@ -18,8 +18,8 @@ SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Video Effects package contains a collection of GStreamer effects."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gnome-video-effects/0.5/gnome-video-effects-0.5.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-video-effects/0.5/gnome-video-effects-0.5.0.tar.xz

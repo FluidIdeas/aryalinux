@@ -19,8 +19,8 @@ SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="Taglib is a library used for reading, writing and manipulating audio file tags and is used by applications such as Amarok and VLC."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://taglib.github.io/releases/taglib-1.12.tar.gz
 

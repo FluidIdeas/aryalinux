@@ -37,8 +37,8 @@ SECTION="Audio Utilities"
 DESCRIPTION="Rhythmbox is a free and open-source audio player that plays and organizes digital audio files. Rhythmbox is designed to work well under the GNOME desktop, however it can function on many desktop environments."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download-fallback.gnome.org/sources/rhythmbox/3.4/rhythmbox-3.4.4.tar.xz
 

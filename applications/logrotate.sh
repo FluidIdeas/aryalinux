@@ -19,8 +19,8 @@ SECTION="System Utilities"
 DESCRIPTION="The logrotate package allows automatic rotation, compression, removal, and mailing of log files."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/logrotate/logrotate/releases/download/3.18.0/logrotate-3.18.0.tar.xz
 

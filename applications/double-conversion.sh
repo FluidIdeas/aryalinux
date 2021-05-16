@@ -19,8 +19,8 @@ SECTION="General Libraries"
 DESCRIPTION="The Double-conversion package contains a library that facilitates binary-to-decimal and decimal-to-binary routines for IEEE doubles."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/google/double-conversion/archive/v3.1.5/double-conversion-3.1.5.tar.gz
 

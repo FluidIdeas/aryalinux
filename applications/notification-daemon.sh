@@ -21,8 +21,8 @@ SECTION="System Utilities"
 DESCRIPTION="The Notification Daemon package contains a daemon that displays passive pop-up notifications."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/notification-daemon/3.20/notification-daemon-3.20.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/notification-daemon/3.20/notification-daemon-3.20.0.tar.xz

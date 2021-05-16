@@ -19,8 +19,8 @@ SECTION="Audio Utilities"
 DESCRIPTION="The mpg123 package contains a console-based MP3 player. It claims to be the fastest MP3 decoder for Unix."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/mpg123/mpg123-1.26.5.tar.bz2
 

@@ -18,8 +18,8 @@ SECTION="Graphics and Font Libraries"
 DESCRIPTION="SassC is a wrapper around libsass, a CSS pre-processor language."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/sass/sassc/archive/3.6.1/sassc-3.6.1.tar.gz
 wget -nc https://github.com/sass/libsass/archive/3.6.4/libsass-3.6.4.tar.gz

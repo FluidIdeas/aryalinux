@@ -19,8 +19,8 @@ SECTION="General Libraries"
 DESCRIPTION="The Aspell package contains an interactive spell checking program and the Aspell libraries. Aspell can either be used as a library or as an independent spell checker."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.gnu.org/gnu/aspell/aspell-0.60.8.tar.gz
 wget -nc ftp://ftp.gnu.org/gnu/aspell/aspell-0.60.8.tar.gz

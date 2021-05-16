@@ -23,8 +23,8 @@ SECTION="General Libraries"
 DESCRIPTION="The Telepathy GLib contains a library used by GLib based Telepathy components. Telepathy is a D-Bus framework for unifying real time communication, including instant messaging, voice calls and video calls. It abstracts differences between protocols to provide a unified interface for applications."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://telepathy.freedesktop.org/releases/telepathy-glib/telepathy-glib-0.24.2.tar.gz
 

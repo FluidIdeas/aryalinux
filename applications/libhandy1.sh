@@ -20,8 +20,8 @@ SECTION="X Libraries"
 DESCRIPTION="The libhandy package provides additional GTK UI widgets for use in developing user interfaces."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/libhandy/1.2/libhandy-1.2.2.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libhandy/1.2/libhandy-1.2.2.tar.xz

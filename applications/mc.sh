@@ -21,8 +21,8 @@ SECTION="System Utilities"
 DESCRIPTION="MC (Midnight Commander) is a text-mode full-screen file manager and visual shell. It provides a clear, user-friendly, and somewhat protected interface to a Unix system while making many frequent file operations more efficient and preserving the full power of the command prompt."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://ftp.midnight-commander.org/mc-4.8.26.tar.xz
 wget -nc ftp://ftp.osuosl.org/pub/midnightcommander/mc-4.8.26.tar.xz

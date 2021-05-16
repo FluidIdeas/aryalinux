@@ -21,8 +21,8 @@ SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Geocode GLib is a convenience library for the Yahoo! Place Finder APIs. The Place Finder web service allows to do geocoding (finding longitude and latitude from an address), and reverse geocoding (finding an address from coordinates)."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/geocode-glib/3.26/geocode-glib-3.26.2.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/geocode-glib/3.26/geocode-glib-3.26.2.tar.xz

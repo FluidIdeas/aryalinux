@@ -19,8 +19,8 @@ SECTION="General Libraries"
 DESCRIPTION="The JSON-C implements a reference counting object model that allows you to easily construct JSON objects in C, output them as JSON formatted strings and parse JSON formatted strings back into the C representation of JSON objects."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://s3.amazonaws.com/json-c_releases/releases/json-c-0.15.tar.gz
 

@@ -19,8 +19,8 @@ SECTION="X Libraries"
 DESCRIPTION="The Amtk package contains a basic GTKUIManager replacement based on GAction."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/amtk/5.2/amtk-5.2.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/amtk/5.2/amtk-5.2.0.tar.xz

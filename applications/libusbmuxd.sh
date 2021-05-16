@@ -17,8 +17,8 @@ URL=https://github.com/libimobiledevice/libusbmuxd/releases/download/2.0.2/libus
 DESCRIPTION="usbmuxd, the USB multiplexor daemon, is in charge of coordinating access to iPhone and iPod Touch services over USB. Synchronization and management applications for the iPhone and iPod Touch need this daemon to communicate with such devices concurrently."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/libimobiledevice/libusbmuxd/releases/download/2.0.2/libusbmuxd-2.0.2.tar.bz2
 

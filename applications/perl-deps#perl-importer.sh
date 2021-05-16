@@ -17,8 +17,8 @@ URL=https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Importer-0.026.tar.gz
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Importer-0.026.tar.gz
 

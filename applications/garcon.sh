@@ -20,8 +20,8 @@ SECTION="Xfce Desktop"
 DESCRIPTION="The Garcon package contains a freedesktop.org compliant menu implementation based on GLib and GIO."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.xfce.org/src/xfce/garcon/4.16/garcon-4.16.1.tar.bz2
 

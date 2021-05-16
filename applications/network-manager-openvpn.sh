@@ -17,8 +17,8 @@ URL=https://download.gnome.org/sources/NetworkManager-openvpn/1.8/NetworkManager
 DESCRIPTION="Network Manager plugin for openvpn"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/NetworkManager-openvpn/1.8/NetworkManager-openvpn-1.8.10.tar.xz
 

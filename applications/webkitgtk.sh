@@ -49,8 +49,8 @@ SECTION="X Libraries"
 DESCRIPTION="The WebKitGTK package is a port of the portable web rendering engine WebKit to the GTK+ 3 and GTK+ 2 platforms."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://webkitgtk.org/releases/webkitgtk-2.32.0.tar.xz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/webkitgtk-2.32.0-icu_69-1.patch

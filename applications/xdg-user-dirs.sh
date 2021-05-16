@@ -18,8 +18,8 @@ SECTION="General Utilities"
 DESCRIPTION="Xdg-user-dirs is a tool to help manage “well known” user directories like the desktop folder and the music folder. It also handles localization (i.e. translation) of the filenames."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://user-dirs.freedesktop.org/releases/xdg-user-dirs-0.17.tar.gz
 

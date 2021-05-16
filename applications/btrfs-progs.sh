@@ -21,8 +21,8 @@ SECTION="File Systems and Disk Management"
 DESCRIPTION="The btrfs-progs package contains administration and debugging tools for the B-tree file system (btrfs)."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v5.11.1.tar.xz
 

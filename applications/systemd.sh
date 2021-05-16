@@ -19,8 +19,8 @@ SECTION="System Utilities"
 DESCRIPTION="While systemd was installed when building LFS, there are many features provided by the package that were not included in the initial installation because Linux-PAM was not yet installed. The systemd package needs to be rebuilt to provide a working systemd-logind service, which provides many additional features for dependent packages."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/systemd/systemd/archive/v247/systemd-247.tar.gz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/systemd-247-upstream_fixes-3.patch

@@ -20,8 +20,8 @@ SECTION="X Libraries"
 DESCRIPTION="The keybinder-3.0 package contains a utility library registering global X keyboard shortcuts for GTK+-3."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/kupferlauncher/keybinder/releases/download/keybinder-3.0-v0.3.2/keybinder-3.0-0.3.2.tar.gz
 

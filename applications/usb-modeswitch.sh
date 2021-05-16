@@ -17,8 +17,8 @@ URL=http://www.draisberghof.de/usb_modeswitch/usb-modeswitch-2.2.5.tar.bz2
 DESCRIPTION="mode switching tool for controlling 'flip flop' USB devices"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://www.draisberghof.de/usb_modeswitch/usb-modeswitch-2.2.5.tar.bz2
 wget -nc http://www.draisberghof.de/usb_modeswitch/usb-modeswitch-data-20150627.tar.bz2

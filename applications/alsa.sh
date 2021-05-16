@@ -23,8 +23,8 @@ VERSION=1.1.9
 DESCRIPTION="ALSA is the Advanced Linux Sound Architecture."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 
 

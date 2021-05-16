@@ -20,8 +20,8 @@ SECTION="Scanning"
 DESCRIPTION="XSane is another front end for SANE-1.0.29. It has additional features to improve the image quality and ease of use compared to xscanimage."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://anduin.linuxfromscratch.org/BLFS/xsane/xsane-0.999.tar.gz
 wget -nc ftp://anduin.linuxfromscratch.org/BLFS/xsane/xsane-0.999.tar.gz

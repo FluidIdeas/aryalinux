@@ -18,8 +18,8 @@ SECTION="General Libraries"
 DESCRIPTION="The libdaemon package is a lightweight C library that eases the writing of UNIX daemons."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://0pointer.de/lennart/projects/libdaemon/libdaemon-0.14.tar.gz
 

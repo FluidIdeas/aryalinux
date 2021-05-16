@@ -19,8 +19,8 @@ SECTION="Programming"
 DESCRIPTION="Cbindgen can be used to generate C bindings for Rust code."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/eqrion/cbindgen/archive/v0.19.0/cbindgen-0.19.0.tar.gz
 

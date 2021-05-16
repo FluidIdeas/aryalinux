@@ -28,8 +28,8 @@ SECTION="Other X-based Programs"
 DESCRIPTION="Tigervnc is an advanced VNC (Virtual Network Computing) implementation. It allows creation of an Xorg server not tied to a physical console and also provides a client for viewing of the remote graphical desktop."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/TigerVNC/tigervnc/archive/v1.11.0/tigervnc-1.11.0.tar.gz
 wget -nc https://www.x.org/pub/individual/xserver/xorg-server-1.20.7.tar.bz2

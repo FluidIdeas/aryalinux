@@ -18,8 +18,8 @@ SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The Sound Theme Freedesktop package contains sound themes for the desktop."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://people.freedesktop.org/~mccann/dist/sound-theme-freedesktop-0.8.tar.bz2
 

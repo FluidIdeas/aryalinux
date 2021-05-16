@@ -23,8 +23,8 @@ SECTION="Security"
 DESCRIPTION="The volume_key package provides a library for manipulating storage volume encryption keys and storing them separately from volumes to handle forgotten passphrases."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/felixonmars/volume_key/archive/volume_key-0.3.12.tar.gz
 

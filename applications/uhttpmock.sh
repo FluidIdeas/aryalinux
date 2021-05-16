@@ -21,8 +21,8 @@ SECTION="Networking Libraries"
 DESCRIPTION="The uhttpmock package contains a library for mocking web service APIs which use HTTP or HTTPS."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://tecnocode.co.uk/downloads/uhttpmock/uhttpmock-0.5.3.tar.xz
 

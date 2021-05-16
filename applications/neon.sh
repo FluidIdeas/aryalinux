@@ -18,8 +18,8 @@ SECTION="Networking Libraries"
 DESCRIPTION="neon is an HTTP and WebDAV client library, with a C interface."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://notroj.github.io/neon/neon-0.31.2.tar.gz
 

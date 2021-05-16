@@ -19,8 +19,8 @@ URL=https://www.cpan.org/authors/id/I/IS/ISHIGAKI/Text-CSV-2.00.tar.gz
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.cpan.org/authors/id/I/IS/ISHIGAKI/Text-CSV-2.00.tar.gz
 

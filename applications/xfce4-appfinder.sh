@@ -19,8 +19,8 @@ SECTION="Xfce Desktop"
 DESCRIPTION="Xfce4 Appfinder is a tool to find and launch installed applications by searching the .desktop files installed on your system."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.xfce.org/src/xfce/xfce4-appfinder/4.16/xfce4-appfinder-4.16.1.tar.bz2
 

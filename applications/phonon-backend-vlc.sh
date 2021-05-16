@@ -20,8 +20,8 @@ SECTION="KDE Plasma 5"
 DESCRIPTION="This package provides a Phonon backend which utilizes the VLC media framework."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.kde.org/stable/phonon/phonon-backend-vlc/0.11.3/phonon-backend-vlc-0.11.3.tar.xz
 

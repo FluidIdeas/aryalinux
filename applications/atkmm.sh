@@ -20,8 +20,8 @@ SECTION="X Libraries"
 DESCRIPTION="Atkmm is the official C++ interface for the ATK accessibility toolkit library."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/atkmm/2.28/atkmm-2.28.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/atkmm/2.28/atkmm-2.28.1.tar.xz

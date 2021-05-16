@@ -18,8 +18,8 @@ SECTION="General Libraries"
 DESCRIPTION="The popt package contains the popt libraries which are used by some programs to parse command-line options."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://ftp.rpm.org/popt/releases/popt-1.x/popt-1.18.tar.gz
 wget -nc ftp://ftp.rpm.org/pub/rpm/popt/releases/popt-1.x/popt-1.18.tar.gz

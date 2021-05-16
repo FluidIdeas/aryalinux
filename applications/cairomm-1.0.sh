@@ -21,8 +21,8 @@ SECTION="X Libraries"
 DESCRIPTION="The libcairomm-1.0 package provides a C++ interface to Cairo."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.cairographics.org/releases/cairomm-1.14.0.tar.xz
 

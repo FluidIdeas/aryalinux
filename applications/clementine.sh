@@ -30,8 +30,8 @@ URL=https://github.com/clementine-player/Clementine/releases/download/1.4.0rc1-6
 DESCRIPTION="Clementine is a multiplatform music player focusing on a fast and easy-to-use interface for searching and playing your music."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/clementine-player/Clementine/releases/download/1.4.0rc1-603-g75de59703/clementine-1.4.0rc1-603-g75de59703.tar.xz
 

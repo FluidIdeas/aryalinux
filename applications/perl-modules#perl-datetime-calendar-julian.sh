@@ -18,8 +18,8 @@ URL=https://www.cpan.org/authors/id/W/WY/WYANT/DateTime-Calendar-Julian-0.104.ta
 SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.cpan.org/authors/id/W/WY/WYANT/DateTime-Calendar-Julian-0.104.tar.gz
 

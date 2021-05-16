@@ -19,8 +19,8 @@ SECTION="General Libraries"
 DESCRIPTION="The Wayland-Protocols package contains additional Wayland protocols that add functionality outside of protocols already in the Wayland core."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://wayland.freedesktop.org/releases/wayland-protocols-1.21.tar.xz
 

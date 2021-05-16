@@ -24,8 +24,8 @@ SECTION="System Utilities"
 DESCRIPTION="ModemManager provides a unified high level API for communicating with mobile broadband modems, regardless of the protocol used to communicate with the actual device."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.freedesktop.org/software/ModemManager/ModemManager-1.16.2.tar.xz
 

@@ -19,8 +19,8 @@ SECTION="X Libraries"
 DESCRIPTION="libepoxy is a library for handling OpenGL function pointer management."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/anholt/libepoxy/releases/download/1.5.7/libepoxy-1.5.7.tar.xz
 

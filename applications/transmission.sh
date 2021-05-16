@@ -21,8 +21,8 @@ SECTION="Other X-based Programs"
 DESCRIPTION="Transmission is a cross-platform, open source BitTorrent client. This is useful for downloading large files (such as Linux ISOs) and reduces the need for the distributors to provide server bandwidth."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://raw.githubusercontent.com/transmission/transmission-releases/master/transmission-3.00.tar.xz
 

@@ -19,8 +19,8 @@ SECTION="LXDE Applications"
 DESCRIPTION="Vte is a library (libvte) implementing a terminal emulator widget for GTK+ 2, and a minimal demonstration application (vte) that uses libvte."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/vte/0.28/vte-0.28.2.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/vte/0.28/vte-0.28.2.tar.xz

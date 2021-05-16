@@ -21,8 +21,8 @@ SECTION="Window Managers"
 DESCRIPTION="The sawfish package contains a window manager. This is useful for organizing and displaying windows where all window decorations are configurable and all user-interface policy is controlled through the extension language."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://download.tuxfamily.org/sawfish/sawfish_1.12.0.tar.xz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/sawfish-1.12.0-gcc10_fixes-1.patch

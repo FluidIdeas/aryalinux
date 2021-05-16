@@ -22,8 +22,8 @@ SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Zenity is a rewrite of gdialog, the GNOME port of dialog which allows you to display GTK+ dialog boxes from the command line and shell scripts."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/zenity/3.32/zenity-3.32.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/zenity/3.32/zenity-3.32.0.tar.xz

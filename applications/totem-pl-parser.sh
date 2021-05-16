@@ -22,8 +22,8 @@ SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Totem PL Parser package contains a simple GObject-based library used to parse multiple playlist formats."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.5.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.5.tar.xz

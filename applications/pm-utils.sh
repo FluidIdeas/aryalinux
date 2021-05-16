@@ -18,8 +18,8 @@ SECTION="System Utilities"
 DESCRIPTION="The Power Management Utilities provide simple shell command line tools to suspend and hibernate the computer. They can be used to run user supplied scripts on suspend and resume."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://pm-utils.freedesktop.org/releases/pm-utils-1.4.1.tar.gz
 

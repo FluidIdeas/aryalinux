@@ -20,8 +20,8 @@ SECTION="Programming"
 DESCRIPTION="Vala is a new programming language that aims to bring modern programming language features to GNOME developers without imposing any additional runtime requirements and without using a different ABI compared to applications and libraries written in C."
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/vala/0.52/vala-0.52.3.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/vala/0.52/vala-0.52.3.tar.xz
