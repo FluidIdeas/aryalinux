@@ -16,8 +16,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=fontforge
-VERSION=20200314
-URL=https://github.com/fontforge/fontforge/releases/download/20200314/fontforge-20200314.tar.xz
+VERSION=20201107
+URL=https://github.com/fontforge/fontforge/releases/download/20201107/fontforge-20201107.tar.xz
 SECTION="Other X-based Programs"
 DESCRIPTION="The FontForge package contains an outline font editor that lets you create your own postscript, truetype, opentype, cid-keyed, multi-master, cff, svg and bitmap (bdf, FON, NFNT) fonts, or edit existing ones."
 
@@ -25,7 +25,7 @@ DESCRIPTION="The FontForge package contains an outline font editor that lets you
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/fontforge/fontforge/releases/download/20200314/fontforge-20200314.tar.xz
+wget -nc https://github.com/fontforge/fontforge/releases/download/20201107/fontforge-20201107.tar.xz
 
 
 if [ ! -z $URL ]
