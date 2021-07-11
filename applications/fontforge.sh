@@ -53,6 +53,7 @@ cd build    &&
 cmake -DCMAKE_INSTALL_PREFIX=/usr \
       -DCMAKE_BUILD_TYPE=Release  \
       -Wno-dev .. &&
+sed -i "s@\-R/usr/lib@-Wl,-rpath=/usr/lib@g" fontforge/CMakeFiles/fontforge.dir/link.txt &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
