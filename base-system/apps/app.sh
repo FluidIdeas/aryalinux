@@ -6,7 +6,7 @@ set +h
 USERNAME="$1"
 PACKAGE="$2"
 
-alps selfupdate
+#alps selfupdate
 alps updatescripts
 
 su - $USERNAME -c "PKG_BUILDER=$1 alps -ni install $PACKAGE"
