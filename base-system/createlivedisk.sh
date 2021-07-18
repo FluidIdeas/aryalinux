@@ -260,10 +260,10 @@ echo "AryaLinux Live" > live/isolinux/id_label
 
 if [ `uname -m` == "x86_64" ]
 then
-mkisofs -o $LFS/sources/$OUTFILE -R -J -A "$LABEL" -hide-rr-moved -v -d -N -no-emul-boot -boot-load-size 4 -boot-info-table -b isolinux/isolinux.bin -c isolinux/isolinux.boot -eltorito-alt-boot -no-emul-boot -eltorito-platform 0xEF -eltorito-boot isolinux/efiboot.img -V "ARYALIVE" live
+xorriso -as mkisofs -o $LFS/sources/$OUTFILE -R -J -A "$LABEL" -hide-rr-moved -v -d -N -no-emul-boot -boot-load-size 4 -boot-info-table -b isolinux/isolinux.bin -c isolinux/isolinux.boot -eltorito-alt-boot -no-emul-boot -eltorito-platform 0xEF -eltorito-boot isolinux/efiboot.img -V "ARYALIVE" live
 isohybrid -u $LFS/sources/$OUTFILE
 else
-mkisofs -o $LFS/sources/$OUTFILE -R -J -A "$LABEL" -hide-rr-moved -v -d -N -no-emul-boot -boot-load-size 4 -boot-info-table -b isolinux/isolinux.bin -c isolinux/isolinux.boot -no-emul-boot -V "ARYALIVE" live
+xorriso -as mkisofs -o $LFS/sources/$OUTFILE -R -J -A "$LABEL" -hide-rr-moved -v -d -N -no-emul-boot -boot-load-size 4 -boot-info-table -b isolinux/isolinux.bin -c isolinux/isolinux.boot -no-emul-boot -V "ARYALIVE" live
 isohybrid $LFS/sources/$OUTFILE
 fi
 

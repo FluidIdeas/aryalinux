@@ -4,7 +4,7 @@ set -e
 
 # Installing requried packages
 
-sudo apt-get install bison g++ texinfo squashfs-tools gawk make syslinux-utils
+sudo apt-get install bison g++ texinfo squashfs-tools gawk make syslinux-utils xorriso
 
 if [ $(readlink /bin/sh) != "/bin/bash" ]; then
 	ln -svf /bin/bash /bin/sh
@@ -37,18 +37,6 @@ if [ ! -f /usr/lib/libmpc.la ]; then
 	./configure --prefix=/usr && make -j$(nproc) && sudo make install 
 	cd ..
 	rm -rf mpc-1.0.3/
-fi
-
-# Installing our version of cdrtools because ubuntu's version is an alias for geniosimage. This is needed to create ISO.
-
-if [ ! -e /usr/bin/mkisofs ]; then
-	wget https://sourceforge.net/projects/cdrtools/files/cdrtools-3.01.tar.bz2
-	tar xf cdrtools-3.01.tar.bz2
-	cd cdrtools-3.01/
-	make -j$(nproc)
-	cp -v ./mkisofs/OBJ/`uname -m`-linux-cc/mkisofs /usr/bin
-	cd ..
-	rm -r cdrtools-3.01/
 fi
 
 # Checking once again.

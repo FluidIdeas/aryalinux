@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="023-cdrtools.sh"
-TARBALL="cdrtools-3.01.tar.bz2"
+STEPNAME="025-xorriso.sh"
+TARBALL="xorriso-1.5.4.pl02.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -29,8 +29,9 @@ then
 	cd $DIRECTORY
 fi
 
-make -j1
-cp -v ./mkisofs/OBJ/`uname -m`-linux-cc/mkisofs /usr/bin
+./configure --prefix=/usr &&
+make "-j`nproc`"
+make install
 
 
 cd $SOURCE_DIR
