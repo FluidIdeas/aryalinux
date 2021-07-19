@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 
 NAME=libwnck2
 VERSION=2.30.7
-URL=https://download.gnome.org/sources/libwnck/2.30/libwnck-2.30.7.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/libwnck/2.30/libwnck-2.30.7.tar.xz
 SECTION="LXDE Desktop"
 DESCRIPTION="The libwnck package contains a Window Navigator Construction Kit."
 
@@ -23,7 +23,7 @@ DESCRIPTION="The libwnck package contains a Window Navigator Construction Kit."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/libwnck/2.30/libwnck-2.30.7.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/libwnck/2.30/libwnck-2.30.7.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libwnck/2.30/libwnck-2.30.7.tar.xz
 
 

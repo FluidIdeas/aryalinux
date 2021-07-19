@@ -18,7 +18,7 @@ cd $SOURCE_DIR
 
 NAME=gnome-keyring
 VERSION=40.0
-URL=https://download.gnome.org/sources/gnome-keyring/40/gnome-keyring-40.0.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/gnome-keyring/40/gnome-keyring-40.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Keyring package contains a daemon that keeps passwords and other secrets for users."
 
@@ -26,7 +26,7 @@ DESCRIPTION="The GNOME Keyring package contains a daemon that keeps passwords an
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gnome-keyring/40/gnome-keyring-40.0.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/gnome-keyring/40/gnome-keyring-40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-keyring/40/gnome-keyring-40.0.tar.xz
 
 

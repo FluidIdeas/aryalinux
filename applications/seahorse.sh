@@ -26,7 +26,7 @@ cd $SOURCE_DIR
 
 NAME=seahorse
 VERSION=40.0
-URL=https://download.gnome.org/sources/seahorse/40/seahorse-40.0.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/seahorse/40/seahorse-40.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="Seahorse is a graphical interface for managing and using encryption keys. Currently it supports PGP keys (using GPG/GPGME) and SSH keys."
 
@@ -34,7 +34,7 @@ DESCRIPTION="Seahorse is a graphical interface for managing and using encryption
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/seahorse/40/seahorse-40.0.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/seahorse/40/seahorse-40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/seahorse/40/seahorse-40.0.tar.xz
 
 

@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 
 NAME=clutter-gtk
 VERSION=1.8.4
-URL=https://download.gnome.org/sources/clutter-gtk/1.8/clutter-gtk-1.8.4.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/clutter-gtk/1.8/clutter-gtk-1.8.4.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The Clutter Gtk package is a library providing facilities to integrate Clutter into GTK+ applications."
 
@@ -24,7 +24,7 @@ DESCRIPTION="The Clutter Gtk package is a library providing facilities to integr
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/clutter-gtk/1.8/clutter-gtk-1.8.4.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/clutter-gtk/1.8/clutter-gtk-1.8.4.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/clutter-gtk/1.8/clutter-gtk-1.8.4.tar.xz
 
 

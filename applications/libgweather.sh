@@ -20,7 +20,7 @@ cd $SOURCE_DIR
 
 NAME=libgweather
 VERSION=40.0
-URL=https://download.gnome.org/sources/libgweather/40/libgweather-40.0.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/libgweather/40/libgweather-40.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libgweather package is a library used to access weather information from online services for numerous locations."
 
@@ -28,7 +28,7 @@ DESCRIPTION="The libgweather package is a library used to access weather informa
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/libgweather/40/libgweather-40.0.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/libgweather/40/libgweather-40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgweather/40/libgweather-40.0.tar.xz
 
 

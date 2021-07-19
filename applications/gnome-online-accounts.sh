@@ -19,7 +19,7 @@ cd $SOURCE_DIR
 
 NAME=gnome-online-accounts
 VERSION=3.38.1
-URL=https://download.gnome.org/sources/gnome-online-accounts/3.38/gnome-online-accounts-3.38.1.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/gnome-online-accounts/3.38/gnome-online-accounts-3.38.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Online Accounts package contains a framework used to access the user's online accounts."
 
@@ -27,7 +27,7 @@ DESCRIPTION="The GNOME Online Accounts package contains a framework used to acce
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gnome-online-accounts/3.38/gnome-online-accounts-3.38.1.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/gnome-online-accounts/3.38/gnome-online-accounts-3.38.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-online-accounts/3.38/gnome-online-accounts-3.38.1.tar.xz
 
 

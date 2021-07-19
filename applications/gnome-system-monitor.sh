@@ -18,7 +18,7 @@ cd $SOURCE_DIR
 
 NAME=gnome-system-monitor
 VERSION=40.0
-URL=https://download.gnome.org/sources/gnome-system-monitor/40/gnome-system-monitor-40.0.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/gnome-system-monitor/40/gnome-system-monitor-40.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The GNOME System Monitor package contains GNOME's replacement for gtop."
 
@@ -26,7 +26,7 @@ DESCRIPTION="The GNOME System Monitor package contains GNOME's replacement for g
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gnome-system-monitor/40/gnome-system-monitor-40.0.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/gnome-system-monitor/40/gnome-system-monitor-40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-system-monitor/40/gnome-system-monitor-40.0.tar.xz
 
 

@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 
 NAME=vala
 VERSION=0.52.3
-URL=https://download.gnome.org/sources/vala/0.52/vala-0.52.3.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/vala/0.52/vala-0.52.3.tar.xz
 SECTION="Programming"
 DESCRIPTION="Vala is a new programming language that aims to bring modern programming language features to GNOME developers without imposing any additional runtime requirements and without using a different ABI compared to applications and libraries written in C."
 
@@ -23,7 +23,7 @@ DESCRIPTION="Vala is a new programming language that aims to bring modern progra
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/vala/0.52/vala-0.52.3.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/vala/0.52/vala-0.52.3.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/vala/0.52/vala-0.52.3.tar.xz
 
 

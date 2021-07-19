@@ -19,7 +19,7 @@ cd $SOURCE_DIR
 
 NAME=libgxps
 VERSION=0.3.2
-URL=https://download.gnome.org/sources/libgxps/0.3/libgxps-0.3.2.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/libgxps/0.3/libgxps-0.3.2.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The libgxps package provides an interface to manipulate XPS documents."
 
@@ -27,7 +27,7 @@ DESCRIPTION="The libgxps package provides an interface to manipulate XPS documen
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/libgxps/0.3/libgxps-0.3.2.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/libgxps/0.3/libgxps-0.3.2.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgxps/0.3/libgxps-0.3.2.tar.xz
 
 

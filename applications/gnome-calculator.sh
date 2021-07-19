@@ -20,7 +20,7 @@ cd $SOURCE_DIR
 
 NAME=gnome-calculator
 VERSION=40.0
-URL=https://download.gnome.org/sources/gnome-calculator/40/gnome-calculator-40.0.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/gnome-calculator/40/gnome-calculator-40.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="GNOME Calculator is a powerful graphical calculator with financial, logical and scientific modes. It uses a multiple precision package to do its arithmetic to give a high degree of accuracy."
 
@@ -28,7 +28,7 @@ DESCRIPTION="GNOME Calculator is a powerful graphical calculator with financial,
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gnome-calculator/40/gnome-calculator-40.0.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/gnome-calculator/40/gnome-calculator-40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-calculator/40/gnome-calculator-40.0.tar.xz
 
 

@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 
 NAME=polkit-gnome
 VERSION=0.105
-URL=https://download.gnome.org/sources/polkit-gnome/0.105/polkit-gnome-0.105.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/polkit-gnome/0.105/polkit-gnome-0.105.tar.xz
 SECTION="Security"
 DESCRIPTION="The Polkit GNOME package provides an Authentication Agent for Polkit that integrates well with the GNOME Desktop environment."
 
@@ -23,7 +23,7 @@ DESCRIPTION="The Polkit GNOME package provides an Authentication Agent for Polki
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/polkit-gnome/0.105/polkit-gnome-0.105.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/polkit-gnome/0.105/polkit-gnome-0.105.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/polkit-gnome/0.105/polkit-gnome-0.105.tar.xz
 
 

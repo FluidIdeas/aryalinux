@@ -20,7 +20,7 @@ cd $SOURCE_DIR
 
 NAME=cogl
 VERSION=1.22.8
-URL=https://download.gnome.org/sources/cogl/1.22/cogl-1.22.8.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/cogl/1.22/cogl-1.22.8.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="Cogl is a modern 3D graphics API with associated utility APIs designed to expose the features of 3D graphics hardware using a direct state access API design, as opposed to the state-machine style of OpenGL."
 
@@ -28,7 +28,7 @@ DESCRIPTION="Cogl is a modern 3D graphics API with associated utility APIs desig
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/cogl/1.22/cogl-1.22.8.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/cogl/1.22/cogl-1.22.8.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/cogl/1.22/cogl-1.22.8.tar.xz
 
 

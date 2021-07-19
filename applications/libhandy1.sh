@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 
 NAME=libhandy1
 VERSION=1.2.2
-URL=https://download.gnome.org/sources/libhandy/1.2/libhandy-1.2.2.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/libhandy/1.2/libhandy-1.2.2.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The libhandy package provides additional GTK UI widgets for use in developing user interfaces."
 
@@ -23,7 +23,7 @@ DESCRIPTION="The libhandy package provides additional GTK UI widgets for use in 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/libhandy/1.2/libhandy-1.2.2.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/libhandy/1.2/libhandy-1.2.2.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libhandy/1.2/libhandy-1.2.2.tar.xz
 
 

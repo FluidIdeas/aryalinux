@@ -17,7 +17,7 @@ cd $SOURCE_DIR
 
 NAME=gtk2
 VERSION=2.24.33
-URL=https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.33.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/gtk+/2.24/gtk+-2.24.33.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The GTK+ 2 package contains libraries used for creating graphical user interfaces for applications."
 
@@ -25,7 +25,7 @@ DESCRIPTION="The GTK+ 2 package contains libraries used for creating graphical u
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.33.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/gtk+/2.24/gtk+-2.24.33.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtk+/2.24/gtk+-2.24.33.tar.xz
 
 

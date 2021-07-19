@@ -18,7 +18,7 @@ cd $SOURCE_DIR
 
 NAME=gtk-doc
 VERSION=1.33.2
-URL=https://download.gnome.org/sources/gtk-doc/1.33/gtk-doc-1.33.2.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/gtk-doc/1.33/gtk-doc-1.33.2.tar.xz
 SECTION="General Utilities"
 DESCRIPTION="The GTK-Doc package contains a code documenter. This is useful for extracting specially formatted comments from the code to create API documentation. This package is optional; if it is not installed, packages will not build the documentation. This does not mean that you will not have any documentation. If GTK-Doc is not available, the install process will copy any pre-built documentation to your system."
 
@@ -26,7 +26,7 @@ DESCRIPTION="The GTK-Doc package contains a code documenter. This is useful for 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gtk-doc/1.33/gtk-doc-1.33.2.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/gtk-doc/1.33/gtk-doc-1.33.2.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtk-doc/1.33/gtk-doc-1.33.2.tar.xz
 
 

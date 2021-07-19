@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 NAME=gnome-video-effects
 VERSION=0.5.0
-URL=https://download.gnome.org/sources/gnome-video-effects/0.5/gnome-video-effects-0.5.0.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/gnome-video-effects/0.5/gnome-video-effects-0.5.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Video Effects package contains a collection of GStreamer effects."
 
@@ -21,7 +21,7 @@ DESCRIPTION="The GNOME Video Effects package contains a collection of GStreamer 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gnome-video-effects/0.5/gnome-video-effects-0.5.0.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/gnome-video-effects/0.5/gnome-video-effects-0.5.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-video-effects/0.5/gnome-video-effects-0.5.0.tar.xz
 
 

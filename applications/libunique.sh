@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 
 NAME=libunique
 VERSION=1.1.6
-URL=https://download.gnome.org/sources/libunique/1.1/libunique-1.1.6.tar.bz2
+URL=https://mirror.umd.edu/gnome/sources/libunique/1.1/libunique-1.1.6.tar.bz2
 SECTION="General Libraries"
 DESCRIPTION="The libunique package contains a library for writing single instance applications."
 
@@ -23,7 +23,7 @@ DESCRIPTION="The libunique package contains a library for writing single instanc
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/libunique/1.1/libunique-1.1.6.tar.bz2
+wget -nc https://mirror.umd.edu/gnome/sources/libunique/1.1/libunique-1.1.6.tar.bz2
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libunique/1.1/libunique-1.1.6.tar.bz2
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/libunique-1.1.6-upstream_fixes-1.patch
 

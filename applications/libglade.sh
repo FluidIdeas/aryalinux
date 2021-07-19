@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 
 NAME=libglade
 VERSION=2.6.4
-URL=https://download.gnome.org/sources/libglade/2.6/libglade-2.6.4.tar.bz2
+URL=https://mirror.umd.edu/gnome/sources/libglade/2.6/libglade-2.6.4.tar.bz2
 SECTION="X Libraries"
 DESCRIPTION="The libglade package contains libglade libraries. These are useful for loading Glade interface files in a program at runtime."
 
@@ -23,7 +23,7 @@ DESCRIPTION="The libglade package contains libglade libraries. These are useful 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/libglade/2.6/libglade-2.6.4.tar.bz2
+wget -nc https://mirror.umd.edu/gnome/sources/libglade/2.6/libglade-2.6.4.tar.bz2
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libglade/2.6/libglade-2.6.4.tar.bz2
 
 

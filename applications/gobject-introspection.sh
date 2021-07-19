@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 
 NAME=gobject-introspection
 VERSION=1.68.0
-URL=https://download.gnome.org/sources/gobject-introspection/1.68/gobject-introspection-1.68.0.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/gobject-introspection/1.68/gobject-introspection-1.68.0.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The GObject Introspection is used to describe the program APIs and collect them in a uniform, machine readable format."
 
@@ -22,7 +22,7 @@ DESCRIPTION="The GObject Introspection is used to describe the program APIs and 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gobject-introspection/1.68/gobject-introspection-1.68.0.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/gobject-introspection/1.68/gobject-introspection-1.68.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gobject-introspection/1.68/gobject-introspection-1.68.0.tar.xz
 
 

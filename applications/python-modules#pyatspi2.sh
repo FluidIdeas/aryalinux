@@ -15,14 +15,14 @@ cd $SOURCE_DIR
 
 NAME=python-modules#pyatspi2
 VERSION=2.38.1
-URL=https://download.gnome.org/sources/pyatspi/2.38/pyatspi-2.38.1.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/pyatspi/2.38/pyatspi-2.38.1.tar.xz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/pyatspi/2.38/pyatspi-2.38.1.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/pyatspi/2.38/pyatspi-2.38.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/pyatspi/2.38/pyatspi-2.38.1.tar.xz
 
 

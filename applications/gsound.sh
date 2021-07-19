@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 
 NAME=gsound
 VERSION=1.0.2
-URL=https://download.gnome.org/sources/gsound/1.0/gsound-1.0.2.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/gsound/1.0/gsound-1.0.2.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The gsound package contains a small library for playing system sounds."
 
@@ -23,7 +23,7 @@ DESCRIPTION="The gsound package contains a small library for playing system soun
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gsound/1.0/gsound-1.0.2.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/gsound/1.0/gsound-1.0.2.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gsound/1.0/gsound-1.0.2.tar.xz
 
 

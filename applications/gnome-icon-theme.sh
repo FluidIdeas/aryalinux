@@ -17,7 +17,7 @@ cd $SOURCE_DIR
 
 NAME=gnome-icon-theme
 VERSION=3.12.0
-URL=https://download.gnome.org/sources/gnome-icon-theme/3.12/gnome-icon-theme-3.12.0.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/gnome-icon-theme/3.12/gnome-icon-theme-3.12.0.tar.xz
 SECTION="Icons"
 DESCRIPTION="The GNOME Icon Theme package contains an assortment of non-scalable icons of different sizes and themes."
 
@@ -25,7 +25,7 @@ DESCRIPTION="The GNOME Icon Theme package contains an assortment of non-scalable
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gnome-icon-theme/3.12/gnome-icon-theme-3.12.0.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/gnome-icon-theme/3.12/gnome-icon-theme-3.12.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-icon-theme/3.12/gnome-icon-theme-3.12.0.tar.xz
 
 

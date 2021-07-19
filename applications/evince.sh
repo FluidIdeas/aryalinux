@@ -26,7 +26,7 @@ cd $SOURCE_DIR
 
 NAME=evince
 VERSION=40.1
-URL=https://download.gnome.org/sources/evince/40/evince-40.1.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/evince/40/evince-40.1.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="Evince is a document viewer for multiple document formats. It supports PDF, Postscript, DjVu, TIFF and DVI. It is useful for viewing documents of various types using one simple application instead of the multiple document viewers that once existed on the GNOME Desktop."
 
@@ -34,7 +34,7 @@ DESCRIPTION="Evince is a document viewer for multiple document formats. It suppo
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/evince/40/evince-40.1.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/evince/40/evince-40.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/evince/40/evince-40.1.tar.xz
 
 

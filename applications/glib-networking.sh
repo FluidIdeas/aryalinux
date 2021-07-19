@@ -17,7 +17,7 @@ cd $SOURCE_DIR
 
 NAME=glib-networking
 VERSION=2.68.1
-URL=https://download.gnome.org/sources/glib-networking/2.68/glib-networking-2.68.1.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/glib-networking/2.68/glib-networking-2.68.1.tar.xz
 SECTION="Networking Libraries"
 DESCRIPTION="The GLib Networking package contains Network related gio modules for GLib."
 
@@ -25,7 +25,7 @@ DESCRIPTION="The GLib Networking package contains Network related gio modules fo
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/glib-networking/2.68/glib-networking-2.68.1.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/glib-networking/2.68/glib-networking-2.68.1.tar.xz
 
 
 if [ ! -z $URL ]

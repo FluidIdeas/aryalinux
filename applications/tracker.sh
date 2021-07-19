@@ -20,13 +20,13 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://download.gnome.org/sources/tracker/2.3/tracker-2.3.6.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/tracker/2.3/tracker-2.3.6.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/tracker/2.3/tracker-2.3.6.tar.xz
 
 
 NAME=tracker
 VERSION=2.3.6
-URL=https://download.gnome.org/sources/tracker/2.3/tracker-2.3.6.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/tracker/2.3/tracker-2.3.6.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Tracker is the file indexing and search provider used in the GNOME desktop environment."
 

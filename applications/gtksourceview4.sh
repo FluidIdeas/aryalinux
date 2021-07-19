@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 
 NAME=gtksourceview4
 VERSION=4.8.1
-URL=https://download.gnome.org/sources/gtksourceview/4.8/gtksourceview-4.8.1.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/gtksourceview/4.8/gtksourceview-4.8.1.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The GtkSourceView package contains libraries used for extending the GTK+ text functions to include syntax highlighting."
 
@@ -24,7 +24,7 @@ DESCRIPTION="The GtkSourceView package contains libraries used for extending the
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gtksourceview/4.8/gtksourceview-4.8.1.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/gtksourceview/4.8/gtksourceview-4.8.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtksourceview/4.8/gtksourceview-4.8.1.tar.xz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/gtksourceview4-4.8.1-buildfix-1.patch
 

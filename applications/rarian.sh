@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 
 NAME=rarian
 VERSION=0.8.1
-URL=https://download.gnome.org/sources/rarian/0.8/rarian-0.8.1.tar.bz2
+URL=https://mirror.umd.edu/gnome/sources/rarian/0.8/rarian-0.8.1.tar.bz2
 SECTION="General Utilities"
 DESCRIPTION="The Rarian package is a documentation metadata library based on the proposed Freedesktop.org spec. Rarian is designed to be a replacement for ScrollKeeper."
 
@@ -23,7 +23,7 @@ DESCRIPTION="The Rarian package is a documentation metadata library based on the
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/rarian/0.8/rarian-0.8.1.tar.bz2
+wget -nc https://mirror.umd.edu/gnome/sources/rarian/0.8/rarian-0.8.1.tar.bz2
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/rarian/0.8/rarian-0.8.1.tar.bz2
 
 

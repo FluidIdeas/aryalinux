@@ -22,7 +22,7 @@ cd $SOURCE_DIR
 
 NAME=tracker3
 VERSION=3.1.1
-URL=https://download.gnome.org/sources/tracker/3.1/tracker-3.1.1.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/tracker/3.1/tracker-3.1.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Tracker is the file indexing and search provider used in the GNOME desktop environment."
 
@@ -30,7 +30,7 @@ DESCRIPTION="Tracker is the file indexing and search provider used in the GNOME 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/tracker/3.1/tracker-3.1.1.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/tracker/3.1/tracker-3.1.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/tracker/3.1/tracker-3.1.1.tar.xz
 
 

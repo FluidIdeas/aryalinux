@@ -27,7 +27,7 @@ cd $SOURCE_DIR
 
 NAME=gtk4
 VERSION=4.2.0
-URL=https://download.gnome.org/sources/gtk/4.2/gtk-4.2.0.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/gtk/4.2/gtk-4.2.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The GTK 4 package contains libraries used for creating graphical user interfaces for applications."
 
@@ -35,7 +35,7 @@ DESCRIPTION="The GTK 4 package contains libraries used for creating graphical us
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gtk/4.2/gtk-4.2.0.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/gtk/4.2/gtk-4.2.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtk/4.2/gtk-4.2.0.tar.xz
 
 

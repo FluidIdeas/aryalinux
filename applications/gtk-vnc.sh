@@ -19,7 +19,7 @@ cd $SOURCE_DIR
 
 NAME=gtk-vnc
 VERSION=1.2.0
-URL=https://download.gnome.org/sources/gtk-vnc/1.2/gtk-vnc-1.2.0.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/gtk-vnc/1.2/gtk-vnc-1.2.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The Gtk VNC package contains a VNC viewer widget for GTK+. It is built using coroutines allowing it to be completely asynchronous while remaining single threaded."
 
@@ -27,7 +27,7 @@ DESCRIPTION="The Gtk VNC package contains a VNC viewer widget for GTK+. It is bu
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gtk-vnc/1.2/gtk-vnc-1.2.0.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/gtk-vnc/1.2/gtk-vnc-1.2.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtk-vnc/1.2/gtk-vnc-1.2.0.tar.xz
 
 

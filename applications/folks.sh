@@ -20,7 +20,7 @@ cd $SOURCE_DIR
 
 NAME=folks
 VERSION=0.15.2
-URL=https://download.gnome.org/sources/folks/0.15/folks-0.15.2.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/folks/0.15/folks-0.15.2.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Folks is a library that aggregates people from multiple sources (e.g, Telepathy connection managers and Evolution Data Server, Facebook, etc.) to create metacontacts."
 
@@ -28,7 +28,7 @@ DESCRIPTION="Folks is a library that aggregates people from multiple sources (e.
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/folks/0.15/folks-0.15.2.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/folks/0.15/folks-0.15.2.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/folks/0.15/folks-0.15.2.tar.xz
 
 

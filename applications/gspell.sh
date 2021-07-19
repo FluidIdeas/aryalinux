@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 
 NAME=gspell
 VERSION=1.8.4
-URL=https://download.gnome.org/sources/gspell/1.8/gspell-1.8.4.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/gspell/1.8/gspell-1.8.4.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The gspell package provides a flexible API to add spell checking to a GTK+ application."
 
@@ -23,7 +23,7 @@ DESCRIPTION="The gspell package provides a flexible API to add spell checking to
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gspell/1.8/gspell-1.8.4.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/gspell/1.8/gspell-1.8.4.tar.xz
 
 
 if [ ! -z $URL ]

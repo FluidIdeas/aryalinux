@@ -18,7 +18,7 @@ cd $SOURCE_DIR
 
 NAME=baobab
 VERSION=40.0
-URL=https://download.gnome.org/sources/baobab/40/baobab-40.0.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/baobab/40/baobab-40.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The Baobab package contains a graphical directory tree analyzer."
 
@@ -26,7 +26,7 @@ DESCRIPTION="The Baobab package contains a graphical directory tree analyzer."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/baobab/40/baobab-40.0.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/baobab/40/baobab-40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/baobab/40/baobab-40.0.tar.xz
 
 

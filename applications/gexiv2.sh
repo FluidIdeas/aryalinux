@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 
 NAME=gexiv2
 VERSION=0.12.2
-URL=https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.2.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/gexiv2/0.12/gexiv2-0.12.2.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="gexiv2 is a GObject-based wrapper around the Exiv2 library."
 
@@ -23,7 +23,7 @@ DESCRIPTION="gexiv2 is a GObject-based wrapper around the Exiv2 library."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gexiv2/0.12/gexiv2-0.12.2.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/gexiv2/0.12/gexiv2-0.12.2.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gexiv2/0.12/gexiv2-0.12.2.tar.xz
 
 

@@ -21,7 +21,7 @@ cd $SOURCE_DIR
 
 NAME=libgdata
 VERSION=0.18.1
-URL=https://download.gnome.org/sources/libgdata/0.18/libgdata-0.18.1.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/libgdata/0.18/libgdata-0.18.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libgdata package is a GLib-based library for accessing online service APIs using the GData protocol, most notably, Google's services. It provides APIs to access the common Google services and has full asynchronous support."
 
@@ -29,7 +29,7 @@ DESCRIPTION="The libgdata package is a GLib-based library for accessing online s
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/libgdata/0.18/libgdata-0.18.1.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/libgdata/0.18/libgdata-0.18.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgdata/0.18/libgdata-0.18.1.tar.xz
 
 

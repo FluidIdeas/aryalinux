@@ -25,7 +25,7 @@ cd $SOURCE_DIR
 
 NAME=gvfs
 VERSION=1.48.0
-URL=https://download.gnome.org/sources/gvfs/1.48/gvfs-1.48.0.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/gvfs/1.48/gvfs-1.48.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Gvfs package is a userspace virtual filesystem designed to work with the I/O abstractions of GLib's GIO library."
 
@@ -33,7 +33,7 @@ DESCRIPTION="The Gvfs package is a userspace virtual filesystem designed to work
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gvfs/1.48/gvfs-1.48.0.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/gvfs/1.48/gvfs-1.48.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gvfs/1.48/gvfs-1.48.0.tar.xz
 
 

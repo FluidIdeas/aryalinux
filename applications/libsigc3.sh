@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 
 NAME=libsigc3
 VERSION=3.0.6
-URL=https://download.gnome.org/sources/libsigc++/3.0/libsigc++-3.0.6.tar.xz
+URL=https://mirror.umd.edu/gnome/sources/libsigc++/3.0/libsigc++-3.0.6.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libsigc++3 package implements a typesafe callback system for standard C++."
 
@@ -23,7 +23,7 @@ DESCRIPTION="The libsigc++3 package implements a typesafe callback system for st
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/libsigc++/3.0/libsigc++-3.0.6.tar.xz
+wget -nc https://mirror.umd.edu/gnome/sources/libsigc++/3.0/libsigc++-3.0.6.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libsigc++/3.0/libsigc++-3.0.6.tar.xz
 
 
