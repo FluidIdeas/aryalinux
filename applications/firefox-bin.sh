@@ -66,9 +66,9 @@ fi
 
 if [ $(uname -m) == "x86_64" ]
 then
-	wget -O $SOURCE_DIR/firefox.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=$LANG"
+	wget -O firefox.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=$LANG"
 else
-	wget -O $SOURCE_DIR/firefox.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux&lang=$LANG"
+	wget -O firefox.tar.bz2 "https://download.mozilla.org/?product=firefox-latest&os=linux&lang=$LANG"
 fi
 
 TARBALL="firefox.tar.bz2"
