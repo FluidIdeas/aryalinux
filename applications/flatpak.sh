@@ -15,15 +15,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=flatpak
-VERSION=1.5.0
-URL=https://github.com/flatpak/flatpak/releases/download/1.5.0/flatpak-1.5.0.tar.xz
+VERSION=1.10.2
+URL=https://github.com/flatpak/flatpak/releases/download/1.10.2/flatpak-1.10.2.tar.xz
 DESCRIPTION="DescriptionFlatpak is a software utility for software deployment and package management for Linux. It is advertised as offering a sandbox environment in which users can run application software in isolation from the rest of the system."
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/flatpak/flatpak/releases/download/1.5.0/flatpak-1.5.0.tar.xz
+wget -nc $URL
 
 
 if [ ! -z $URL ]
