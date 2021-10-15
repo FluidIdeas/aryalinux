@@ -10,7 +10,7 @@ pushd ~/sources
 
 wget -nc https://github.com/dosfstools/dosfstools/releases/download/v4.2/dosfstools-4.2.tar.gz
 wget -nc http://ftp.gnu.org/gnu/which/which-2.21.tar.gz
-wget -nc http://deb.debian.org/debian/pool/main/o/os-prober/os-prober_1.78.tar.xz
+wget -nc https://deb.sipwise.com/debian/pool/main/o/os-prober/os-prober_1.79.tar.xz
 wget -nc https://github.com/rhboot/efivar/releases/download/37/efivar-37.tar.bz2
 wget -nc http://www.linuxfromscratch.org/patches/downloads/efivar/efivar-37-gcc_9-1.patch
 
