@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 NAME=soundtouch
 VERSION=2.2
-URL=https://gitlab.com/soundtouch/soundtouch/-/archive/2.2/soundtouch-2.2.tar.bz2
+URL=https://ftp.osuosl.org/pub/blfs/conglomeration/soundtouch/soundtouch-2.2.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The SoundTouch package contains an open-source audio processing library that allows changing the sound tempo, pitch and playback rate parameters independently from each other."
 
@@ -21,7 +21,7 @@ DESCRIPTION="The SoundTouch package contains an open-source audio processing lib
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://gitlab.com/soundtouch/soundtouch/-/archive/2.2/soundtouch-2.2.tar.bz2
+wget -nc https://ftp.osuosl.org/pub/blfs/conglomeration/soundtouch/soundtouch-2.2.tar.bz2
 
 
 if [ ! -z $URL ]
