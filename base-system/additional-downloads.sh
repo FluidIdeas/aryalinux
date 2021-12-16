@@ -22,7 +22,7 @@ wget -nc http://ftp.rpm.org/popt/releases/popt-1.x/popt-1.18.tar.gz
 wget -nc https://cdn.kernel.org/pub/linux/kernel/firmware/linux-firmware-20211027.tar.xz
 wget -nc https://ftp.gnu.org/gnu/cpio/cpio-2.13.tar.bz2
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/0001-src-global.c-drop-duplicate-definition-of-program_na.patch
-wget -nc https://github.com/djlucas/LSB-Tools/releases/download/v0.9/LSB-Tools-0.9.tar.gz
+wget -nc https://ftp.osuosl.org/pub/blfs/conglomeration/LSB-Tools/LSB-Tools-0.9.tar.gz
 wget -nc https://busybox.net/downloads/busybox-1.32.1.tar.bz2
 wget -nc https://ftp.gnu.org/gnu/nettle/nettle-3.7.1.tar.gz
 wget -nc https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.16.0.tar.gz
