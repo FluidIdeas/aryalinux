@@ -15,7 +15,7 @@ https://ftp.gnu.org/gnu/diffutils/diffutils-3.7.tar.xz
 https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.46.2/e2fsprogs-1.46.2.tar.gz
 https://sourceware.org/ftp/elfutils/0.183/elfutils-0.183.tar.bz2
 https://dev.gentoo.org/~blueness/eudev/eudev-3.2.10.tar.gz
-https://prdownloads.sourceforge.net/expat/expat-2.3.0.tar.xz
+https://github.com/libexpat/libexpat/releases/download/R_2_3_0/expat-2.3.0.tar.xz
 https://prdownloads.sourceforge.net/expect/expect5.45.4.tar.gz
 https://astron.com/pub/file/file-5.40.tar.gz
 https://ftp.gnu.org/gnu/findutils/findutils-4.8.0.tar.xz
@@ -81,8 +81,8 @@ https://tukaani.org/xz/xz-5.2.5.tar.xz
 https://zlib.net/zlib-1.2.11.tar.xz
 https://github.com/facebook/zstd/releases/download/v1.4.9/zstd-1.4.9.tar.gz
 https://www.linuxfromscratch.org/patches/lfs/development/bzip2-1.0.8-install_docs-1.patch
-https://www.linuxfromscratch.org/patches/lfs/development/coreutils-8.32-i18n-1.patch
-https://www.linuxfromscratch.org/patches/lfs/development/glibc-2.33-fhs-1.patch
+https://www.linuxfromscratch.org/patches/downloads/coreutils/coreutils-8.32-i18n-1.patch
+https://www.linuxfromscratch.org/patches/downloads/glibc/glibc-2.33-fhs-1.patch
 https://www.linuxfromscratch.org/patches/lfs/development/kbd-2.4.0-backspace-1.patch
-https://www.linuxfromscratch.org/patches/lfs/development/sysvinit-2.99-consolidated-1.patch
-https://www.linuxfromscratch.org/patches/lfs/development/systemd-247-upstream_fixes-3.patch
+https://www.linuxfromscratch.org/patches/downloads/sysvinit/sysvinit-2.99-consolidated-1.patch
+https://www.linuxfromscratch.org/patches/downloads/systemd/systemd-247-upstream_fixes-3.patch
