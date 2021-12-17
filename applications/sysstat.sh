@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=sysstat
-VERSION=12.5.3
-URL=http://sebastien.godard.pagesperso-orange.fr/sysstat-12.5.3.tar.xz
+VERSION=12.5.5
+URL=http://sebastien.godard.pagesperso-orange.fr/sysstat-12.5.5.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="The Sysstat package contains utilities to monitor system performance and usage activity. Sysstat contains the sar utility, common to many commercial Unixes, and tools you can schedule via cron to collect and historize performance and activity data."
 
@@ -22,7 +22,7 @@ DESCRIPTION="The Sysstat package contains utilities to monitor system performanc
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc http://sebastien.godard.pagesperso-orange.fr/sysstat-12.5.3.tar.xz
+wget -nc http://sebastien.godard.pagesperso-orange.fr/sysstat-12.5.5.tar.xz
 
 
 if [ ! -z $URL ]
@@ -61,7 +61,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m644 sysstat.service /lib/systemd/system/sysstat.service
+install -v -m644 sysstat.service /usr/lib/systemd/system/sysstat.service
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -70,7 +70,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-sed -i "/^Also=/d" /lib/systemd/system/sysstat.service
+sed -i "/^Also=/d" /usr/lib/systemd/system/sysstat.service
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

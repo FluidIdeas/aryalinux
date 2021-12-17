@@ -14,8 +14,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=apache
-VERSION=2.4.47
-URL=https://archive.apache.org/dist/httpd/httpd-2.4.47.tar.bz2
+VERSION=2.4.51
+URL=https://archive.apache.org/dist/httpd/httpd-2.4.51.tar.bz2
 SECTION="Major Servers"
 DESCRIPTION="The Apache HTTPD package contains an open-source HTTP server. It is useful for creating local intranet web sites or running huge web serving operations."
 
@@ -23,8 +23,8 @@ DESCRIPTION="The Apache HTTPD package contains an open-source HTTP server. It is
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.apache.org/dist/httpd/httpd-2.4.47.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/httpd-2.4.47-blfs_layout-1.patch
+wget -nc https://archive.apache.org/dist/httpd/httpd-2.4.51.tar.bz2
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/httpd-2.4.51-blfs_layout-1.patch
 
 
 if [ ! -z $URL ]
@@ -57,7 +57,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-patch -Np1 -i ../httpd-2.4.47-blfs_layout-1.patch             &&
+patch -Np1 -i ../httpd-2.4.51-blfs_layout-1.patch             &&
 
 sed '/dir.*CFG_PREFIX/s@^@#@' -i support/apxs.in              &&
 

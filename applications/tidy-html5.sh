@@ -14,8 +14,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=tidy-html5
-VERSION=5.7.28
-URL=https://github.com/htacg/tidy-html5/archive/5.7.28/tidy-html5-5.7.28.tar.gz
+VERSION=5.8.0
+URL=https://github.com/htacg/tidy-html5/archive/5.8.0/tidy-html5-5.8.0.tar.gz
 SECTION="General Utilities"
 DESCRIPTION="The Tidy HTML5 package contains a command line tool and libraries used to read HTML, XHTML and XML files and write cleaned up markup. It detects and corrects many common coding errors and strives to produce visually equivalent markup that is both W3C compliant and compatible with most browsers."
 
@@ -23,7 +23,7 @@ DESCRIPTION="The Tidy HTML5 package contains a command line tool and libraries u
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/htacg/tidy-html5/archive/5.7.28/tidy-html5-5.7.28.tar.gz
+wget -nc https://github.com/htacg/tidy-html5/archive/5.8.0/tidy-html5-5.8.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -56,6 +56,7 @@ make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
+rm -fv /usr/lib/libtidy.a &&
 install -v -m755 tab2space /usr/bin
 ENDOFROOTSCRIPT
 

@@ -15,15 +15,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=python-modules#dbus-python
-VERSION=1.2.16
-URL=https://dbus.freedesktop.org/releases/dbus-python/dbus-python-1.2.16.tar.gz
+VERSION=1.2.18
+URL=https://dbus.freedesktop.org/releases/dbus-python/dbus-python-1.2.18.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://dbus.freedesktop.org/releases/dbus-python/dbus-python-1.2.16.tar.gz
+wget -nc https://dbus.freedesktop.org/releases/dbus-python/dbus-python-1.2.18.tar.gz
 
 
 if [ ! -z $URL ]
@@ -54,7 +54,7 @@ popd
 mkdir python3 &&
 pushd python3 &&
 PYTHON=/usr/bin/python3    \
-../configure --prefix=/usr --docdir=/usr/share/doc/dbus-python-1.2.16 &&
+../configure --prefix=/usr --docdir=/usr/share/doc/dbus-python-1.2.18 &&
 make &&
 popd
 sudo rm -rf /tmp/rootscript.sh

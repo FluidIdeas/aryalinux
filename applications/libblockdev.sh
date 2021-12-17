@@ -17,8 +17,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libblockdev
-VERSION=2.25
-URL=https://github.com/storaged-project/libblockdev/releases/download/2.25-1/libblockdev-2.25.tar.gz
+VERSION=2.26
+URL=https://github.com/storaged-project/libblockdev/releases/download/2.26-1/libblockdev-2.26.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="libblockdev is a C library supporting GObject Introspection for manipulation of block devices. It has a plugin-based architecture where each technology (like LVM, Btrfs, MD RAID, Swap,...) is implemented in a separate plugin, possibly with multiple implementations (e.g. using LVM CLI or the new LVM DBus API)."
 
@@ -26,7 +26,7 @@ DESCRIPTION="libblockdev is a C library supporting GObject Introspection for man
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/storaged-project/libblockdev/releases/download/2.25-1/libblockdev-2.25.tar.gz
+wget -nc https://github.com/storaged-project/libblockdev/releases/download/2.26-1/libblockdev-2.26.tar.gz
 
 
 if [ ! -z $URL ]
@@ -48,9 +48,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed 's/g_memdup/&2/' -i             \
-    src/lib/plugin_apis/vdo.{c,api} \
-    src/plugins/vdo.c
 ./configure --prefix=/usr     \
             --sysconfdir=/etc \
             --with-python3    \

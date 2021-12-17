@@ -15,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libical
-VERSION=3.0.10
-URL=https://github.com/libical/libical/releases/download/v3.0.10/libical-3.0.10.tar.gz
+VERSION=3.0.12
+URL=https://github.com/libical/libical/releases/download/v3.0.12/libical-3.0.12.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The libical package contains an implementation of the iCalendar protocols and data formats."
 
@@ -24,7 +24,7 @@ DESCRIPTION="The libical package contains an implementation of the iCalendar pro
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/libical/libical/releases/download/v3.0.10/libical-3.0.10.tar.gz
+wget -nc https://github.com/libical/libical/releases/download/v3.0.12/libical-3.0.12.tar.gz
 
 
 if [ ! -z $URL ]

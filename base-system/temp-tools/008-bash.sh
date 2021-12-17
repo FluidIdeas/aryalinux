@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=bash-5.1.tar.gz
+TARBALL=bash-5.1.8.tar.gz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -26,7 +26,6 @@ cd $DIRECTORY
             --without-bash-malloc
 make
 make DESTDIR=$LFS install
-mv $LFS/usr/bin/bash $LFS/bin/bash
 ln -sv bash $LFS/bin/sh
 
 fi

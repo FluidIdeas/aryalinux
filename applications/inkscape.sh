@@ -30,8 +30,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=inkscape
-VERSION=1.0.2
-URL=https://media.inkscape.org/dl/resources/file/inkscape-1.0.2.tar.xz
+VERSION=1.1.1
+URL=https://inkscape.org/gallery/item/29255/inkscape-1.1.1.tar.xz
 SECTION="Other X-based Programs"
 DESCRIPTION="Inkscape is a what you see is what you get Scalable Vector Graphics editor. It is useful for creating, viewing and changing SVG images."
 
@@ -39,8 +39,8 @@ DESCRIPTION="Inkscape is a what you see is what you get Scalable Vector Graphics
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://media.inkscape.org/dl/resources/file/inkscape-1.0.2.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/inkscape-1.0.2-glib_2.68-1.patch
+wget -nc https://inkscape.org/gallery/item/29255/inkscape-1.1.1.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/inkscape-1.1.1-poppler_21.11.0-1.patch
 
 
 if [ ! -z $URL ]
@@ -62,13 +62,14 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../inkscape-1.0.2-glib_2.68-1.patch &&
-mkdir build                                       &&
-cd    build                                       &&
+patch -Np1 -i ../inkscape-1.1.1-poppler_21.11.0-1.patch &&
+
+mkdir build                       &&
+cd    build                       &&
 
 cmake -DCMAKE_INSTALL_PREFIX=/usr \
       -DCMAKE_BUILD_TYPE=Release  \
-      ..                                          &&
+      ..                          &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

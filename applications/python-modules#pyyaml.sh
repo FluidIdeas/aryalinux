@@ -43,11 +43,9 @@ fi
 
 echo $USER > /tmp/currentuser
 
-python2 setup.py build &&
 python3 setup.py build
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-python2 setup.py install --optimize=1 &&
 python3 setup.py install --optimize=1
 ENDOFROOTSCRIPT
 

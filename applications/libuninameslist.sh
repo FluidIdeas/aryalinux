@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libuninameslist
-VERSION=20200413
-URL=https://github.com/fontforge/libuninameslist/releases/download/20200413/libuninameslist-dist-20200413.tar.gz
+VERSION=20211114
+URL=https://github.com/fontforge/libuninameslist/releases/download/20211114/libuninameslist-dist-20211114.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="Libuninameslist provides a Library of Unicode names and annotation data"
 
@@ -21,7 +21,7 @@ DESCRIPTION="Libuninameslist provides a Library of Unicode names and annotation 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/fontforge/libuninameslist/releases/download/20200413/libuninameslist-dist-20200413.tar.gz
+wget -nc https://github.com/fontforge/libuninameslist/releases/download/20211114/libuninameslist-dist-20211114.tar.gz
 
 
 if [ ! -z $URL ]

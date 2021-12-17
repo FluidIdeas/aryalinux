@@ -18,15 +18,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=perl-deps#perl-http-message
-VERSION=6.27
-URL=https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.27.tar.gz
+VERSION=6.33
+URL=https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.33.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.27.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.33.tar.gz
 
 
 if [ ! -z $URL ]

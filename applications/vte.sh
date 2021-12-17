@@ -19,8 +19,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=vte
-VERSION=0.64.1
-URL=https://gitlab.gnome.org/GNOME/vte/-/archive/0.64.1/vte-0.64.1.tar.bz2
+VERSION=0.66.0
+URL=https://gitlab.gnome.org/GNOME/vte/-/archive/0.66.0/vte-0.66.0.tar.bz2
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The VTE package contains a termcap file implementation for terminal emulators."
 
@@ -28,7 +28,7 @@ DESCRIPTION="The VTE package contains a termcap file implementation for terminal
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://gitlab.gnome.org/GNOME/vte/-/archive/0.64.1/vte-0.64.1.tar.bz2
+wget -nc https://gitlab.gnome.org/GNOME/vte/-/archive/0.66.0/vte-0.66.0.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -53,7 +53,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson  --prefix=/usr -Dfribidi=false .. &&
+meson --prefix=/usr --buildtype=release -Dfribidi=false .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

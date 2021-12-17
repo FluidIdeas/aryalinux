@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=xorgproto
-VERSION=2021.4
-URL=https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2021.4.tar.bz2
+VERSION=2021.5
+URL=https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2021.5.tar.bz2
 SECTION="X Window System Environment"
 DESCRIPTION="The xorgproto package provides the header files required to build the X Window system, and to allow other applications to build against the installed X Window system."
 
@@ -22,7 +22,7 @@ DESCRIPTION="The xorgproto package provides the header files required to build t
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2021.4.tar.bz2
+wget -nc https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2021.5.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -54,8 +54,8 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
 
-install -vdm 755 $XORG_PREFIX/share/doc/xorgproto-2021.4 &&
-install -vm 644 ../[^m]*.txt ../PM_spec $XORG_PREFIX/share/doc/xorgproto-2021.4
+install -vdm 755 $XORG_PREFIX/share/doc/xorgproto-2021.5 &&
+install -vm 644 ../[^m]*.txt ../PM_spec $XORG_PREFIX/share/doc/xorgproto-2021.5
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

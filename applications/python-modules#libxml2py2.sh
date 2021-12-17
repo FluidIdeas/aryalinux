@@ -14,16 +14,16 @@ set +h
 cd $SOURCE_DIR
 
 NAME=python-modules#libxml2py2
-VERSION=2.9.10
-URL=http://xmlsoft.org/sources/libxml2-2.9.10.tar.gz
+VERSION=2.9.12
+URL=http://xmlsoft.org/sources/libxml2-2.9.12.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc http://xmlsoft.org/sources/libxml2-2.9.10.tar.gz
-wget -nc ftp://xmlsoft.org/libxml2/libxml2-2.9.10.tar.gz
+wget -nc http://xmlsoft.org/sources/libxml2-2.9.12.tar.gz
+wget -nc ftp://xmlsoft.org/libxml2/libxml2-2.9.12.tar.gz
 
 
 if [ ! -z $URL ]

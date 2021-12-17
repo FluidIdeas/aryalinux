@@ -45,6 +45,7 @@ echo $USER > /tmp/currentuser
 
 sed -i '/install.*libaio.a/s/^/#/' src/Makefile
 make
+sed 's/-Werror//' -i harness/Makefile
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install

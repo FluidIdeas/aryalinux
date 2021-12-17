@@ -8,6 +8,7 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:glib2
+#REQ:libgudev
 #REQ:gobject-introspection
 #REQ:libmbim
 
@@ -15,8 +16,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libqmi
-VERSION=1.28.2
-URL=https://www.freedesktop.org/software/libqmi/libqmi-1.28.2.tar.xz
+VERSION=1.30.2
+URL=https://www.freedesktop.org/software/libqmi/libqmi-1.30.2.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libqmi package contains a GLib-based library for talking to WWAN modems and devices which speak the Qualcomm MSM Interface (QMI) protocol."
 
@@ -24,7 +25,7 @@ DESCRIPTION="The libqmi package contains a GLib-based library for talking to WWA
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.freedesktop.org/software/libqmi/libqmi-1.28.2.tar.xz
+wget -nc https://www.freedesktop.org/software/libqmi/libqmi-1.30.2.tar.xz
 
 
 if [ ! -z $URL ]

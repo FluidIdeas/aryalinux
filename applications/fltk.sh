@@ -17,7 +17,7 @@ cd $SOURCE_DIR
 
 NAME=fltk
 VERSION=1.3.
-URL=https://fltk.org/pub/fltk/1.3.5/fltk-1.3.5-source.tar.gz
+URL=https://fltk.org/pub/fltk/1.3.8/fltk-1.3.8-source.tar.gz
 SECTION="X Libraries"
 DESCRIPTION="FLTK (pronounced \"fulltick\") is a cross-platform C++ GUI toolkit. FLTK provides modern GUI functionality and supports 3D graphics via OpenGL and its built-in GLUT emulation libraries used for creating graphical user interfaces for applications."
 
@@ -25,7 +25,7 @@ DESCRIPTION="FLTK (pronounced \"fulltick\") is a cross-platform C++ GUI toolkit.
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://fltk.org/pub/fltk/1.3.5/fltk-1.3.5-source.tar.gz
+wget -nc https://fltk.org/pub/fltk/1.3.8/fltk-1.3.8-source.tar.gz
 
 
 if [ ! -z $URL ]
@@ -55,7 +55,7 @@ make
 make -C documentation html
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make docdir=/usr/share/doc/fltk-1.3.5 install
+make docdir=/usr/share/doc/fltk-1.3.8 install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -64,8 +64,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make -C test          docdir=/usr/share/doc/fltk-1.3.5 install-linux &&
-make -C documentation docdir=/usr/share/doc/fltk-1.3.5 install-linux
+make -C test          docdir=/usr/share/doc/fltk-1.3.8 install-linux &&
+make -C documentation docdir=/usr/share/doc/fltk-1.3.8 install-linux
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

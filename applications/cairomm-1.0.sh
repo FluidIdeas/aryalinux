@@ -50,6 +50,7 @@ mkdir bld &&
 cd    bld &&
 
 meson --prefix=/usr       \
+      --buildtype=release \
       -Dbuild-tests=true  \
       -Dboost-shared=true \
       ..                  &&

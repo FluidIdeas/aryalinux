@@ -16,8 +16,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gtksourceview5
-VERSION=5.0.0
-URL=https://mirror.umd.edu/gnome/sources/gtksourceview/5.0/gtksourceview-5.0.0.tar.xz
+VERSION=5.2.0
+URL=https://download.gnome.org/sources/gtksourceview/5.2/gtksourceview-5.2.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The GtkSourceView package contains a library used for extending the GTK text functions to include syntax highlighting."
 
@@ -25,8 +25,8 @@ DESCRIPTION="The GtkSourceView package contains a library used for extending the
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/gtksourceview/5.0/gtksourceview-5.0.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtksourceview/5.0/gtksourceview-5.0.0.tar.xz
+wget -nc https://download.gnome.org/sources/gtksourceview/5.2/gtksourceview-5.2.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtksourceview/5.2/gtksourceview-5.2.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -51,7 +51,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

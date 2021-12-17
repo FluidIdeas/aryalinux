@@ -13,13 +13,16 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=gcc-10.2.0.tar.xz
+TARBALL=gcc-11.2.0.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
+sed -e '/static.*SIGSTKSZ/d' \
+    -e 's/return kAltStackSize/return SIGSTKSZ * 4/' \
+    -i libsanitizer/sanitizer_common/sanitizer_posix_libcdep.cpp
 case $(uname -m) in
   x86_64)
     sed -e '/m64=/s/lib64/lib/' \
@@ -36,11 +39,11 @@ cd       build
              --with-system-zlib
 make
 make install
-rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/10.2.0/include-fixed/bits/
+rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/11.2.0/include-fixed/bits/
 chown -v -R root:root \
-    /usr/lib/gcc/*linux-gnu/10.2.0/include{,-fixed}
-ln -sv ../usr/bin/cpp /lib
-ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/10.2.0/liblto_plugin.so \
+    /usr/lib/gcc/*linux-gnu/11.2.0/include{,-fixed}
+ln -svr /usr/bin/cpp /usr/lib
+ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/11.2.0/liblto_plugin.so \
         /usr/lib/bfd-plugins/
 echo 'int main(){}' > dummy.c
 cc dummy.c -v -Wl,--verbose &> dummy.log

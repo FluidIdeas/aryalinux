@@ -52,7 +52,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr -Dgtk-doc=false .. &&
+meson --prefix=/usr --buildtype=release -Dgtk-doc=false .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

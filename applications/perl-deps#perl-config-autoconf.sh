@@ -14,15 +14,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=perl-deps#perl-config-autoconf
-VERSION=0.319
-URL=https://cpan.metacpan.org/authors/id/R/RE/REHSACK/Config-AutoConf-0.319.tar.gz
+VERSION=0.320
+URL=https://cpan.metacpan.org/authors/id/A/AM/AMBS/Config-AutoConf-0.320.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://cpan.metacpan.org/authors/id/R/RE/REHSACK/Config-AutoConf-0.319.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/A/AM/AMBS/Config-AutoConf-0.320.tar.gz
 
 
 if [ ! -z $URL ]

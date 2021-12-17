@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=linux-pam
-VERSION=1.5.1
-URL=https://github.com/linux-pam/linux-pam/releases/download/v1.5.1/Linux-PAM-1.5.1.tar.xz
+VERSION=1.5.2
+URL=https://github.com/linux-pam/linux-pam/releases/download/v1.5.2/Linux-PAM-1.5.2.tar.xz
 SECTION="Security"
 DESCRIPTION="The Linux PAM package contains Pluggable Authentication Modules used to enable the local system administrator to choose how applications authenticate users."
 
@@ -21,8 +21,8 @@ DESCRIPTION="The Linux PAM package contains Pluggable Authentication Modules use
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/linux-pam/linux-pam/releases/download/v1.5.1/Linux-PAM-1.5.1.tar.xz
-wget -nc https://github.com/linux-pam/linux-pam/releases/download/v1.5.1/Linux-PAM-1.5.1-docs.tar.xz
+wget -nc https://github.com/linux-pam/linux-pam/releases/download/v1.5.2/Linux-PAM-1.5.2.tar.xz
+wget -nc https://github.com/linux-pam/linux-pam/releases/download/v1.5.2/Linux-PAM-1.5.2-docs.tar.xz
 
 
 if [ ! -z $URL ]
@@ -44,15 +44,16 @@ fi
 echo $USER > /tmp/currentuser
 
 
-tar -xf ../Linux-PAM-1.5.1-docs.tar.xz --strip-components=1
+tar -xf ../Linux-PAM-1.5.2-docs.tar.xz --strip-components=1
 sed -e 's/dummy elinks/dummy lynx/'                                    \
     -e 's/-no-numbering -no-references/-force-html -nonumbers -stdin/' \
     -i configure
-./configure --prefix=/usr                    \
-            --sysconfdir=/etc                \
-            --libdir=/usr/lib                \
-            --enable-securedir=/lib/security \
-            --docdir=/usr/share/doc/Linux-PAM-1.5.1 &&
+./configure --prefix=/usr                        \
+            --sbindir=/usr/sbin                  \
+            --sysconfdir=/etc                    \
+            --libdir=/usr/lib                    \
+            --enable-securedir=/usr/lib/security \
+            --docdir=/usr/share/doc/Linux-PAM-1.5.2 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -82,13 +83,7 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-chmod -v 4755 /sbin/unix_chkpwd &&
-
-for file in pam pam_misc pamc
-do
-  mv -v /usr/lib/lib${file}.so.* /lib &&
-  ln -sfv ../../lib/$(readlink /usr/lib/lib${file}.so) /usr/lib/lib${file}.so
-done
+chmod -v 4755 /usr/sbin/unix_chkpwd
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -23,8 +23,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=udisks2
-VERSION=2.9.2
-URL=https://github.com/storaged-project/udisks/releases/download/udisks-2.9.2/udisks-2.9.2.tar.bz2
+VERSION=2.9.4
+URL=https://github.com/storaged-project/udisks/releases/download/udisks-2.9.4/udisks-2.9.4.tar.bz2
 SECTION="System Utilities"
 DESCRIPTION="The UDisks package provides a daemon, tools and libraries to access and manipulate disks and storage devices."
 
@@ -32,7 +32,7 @@ DESCRIPTION="The UDisks package provides a daemon, tools and libraries to access
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/storaged-project/udisks/releases/download/udisks-2.9.2/udisks-2.9.2.tar.bz2
+wget -nc https://github.com/storaged-project/udisks/releases/download/udisks-2.9.4/udisks-2.9.4.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -62,6 +62,18 @@ make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+cat > /etc/udisks2/mount_options.conf << "EOF"
+[defaults]
+ntfs_defaults=uid=$UID,gid=$GID
+EOF
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

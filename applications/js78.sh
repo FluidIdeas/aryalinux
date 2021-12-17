@@ -16,8 +16,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=js78
-VERSION=78.10.
-URL=https://archive.mozilla.org/pub/firefox/releases/78.10.0esr/source/firefox-78.10.0esr.source.tar.xz
+VERSION=78.15.
+URL=https://archive.mozilla.org/pub/firefox/releases/78.15.0esr/source/firefox-78.15.0esr.source.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="JS is Mozilla's JavaScript engine written in C. JS78 is taken from Firefox."
 
@@ -25,7 +25,8 @@ DESCRIPTION="JS is Mozilla's JavaScript engine written in C. JS78 is taken from 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.mozilla.org/pub/firefox/releases/78.10.0esr/source/firefox-78.10.0esr.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/firefox/releases/78.15.0esr/source/firefox-78.15.0esr.source.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/js-78.15.0-python_3_10-1.patch
 
 
 if [ ! -z $URL ]
@@ -55,6 +56,7 @@ fi
 sudo ldconfig
 export PATH=/opt/rustc/bin:$PATH
 
+patch -Np1 -i ../js-78.15.0-python_3_10-1.patch
 mkdir obj &&
 cd    obj &&
 

@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libssh2
-VERSION=1.9.0
-URL=https://www.libssh2.org/download/libssh2-1.9.0.tar.gz
+VERSION=1.10.0
+URL=https://www.libssh2.org/download/libssh2-1.10.0.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="Libssh2 package is a client-side C library implementing the SSH2 protocol."
 
@@ -21,8 +21,7 @@ DESCRIPTION="Libssh2 package is a client-side C library implementing the SSH2 pr
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.libssh2.org/download/libssh2-1.9.0.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/libssh2-1.9.0-security_fixes-1.patch
+wget -nc https://www.libssh2.org/download/libssh2-1.10.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -44,8 +43,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../libssh2-1.9.0-security_fixes-1.patch &&
-./configure --prefix=/usr --disable-static            &&
+./configure --prefix=/usr --disable-static &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

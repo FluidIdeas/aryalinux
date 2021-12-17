@@ -15,7 +15,7 @@ NAME=wpebackend-fdo
 VERSION=1.8.3
 URL=https://github.com/Igalia/WPEBackend-fdo/releases/download/1.8.3/wpebackend-fdo-1.8.3.tar.xz
 SECTION="Others"
-DESCRIPTION="This package provides a backend implementation for the WPE WebKit engine that uses Wayland for graphics output."
+DESCRIPTION="The wpebackend-fdo package contains the Freedesktop.org backend for WPE WebKit and the WPE renderer."
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")

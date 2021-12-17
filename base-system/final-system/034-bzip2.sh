@@ -27,12 +27,12 @@ make -f Makefile-libbz2_so
 make clean
 make
 make PREFIX=/usr install
-cp -v bzip2-shared /bin/bzip2
-cp -av libbz2.so* /lib
-ln -sv ../../lib/libbz2.so.1.0 /usr/lib/libbz2.so
-rm -v /usr/bin/{bunzip2,bzcat,bzip2}
-ln -sv bzip2 /bin/bunzip2
-ln -sv bzip2 /bin/bzcat
+cp -av libbz2.so.* /usr/lib
+ln -sv libbz2.so.1.0.8 /usr/lib/libbz2.so
+cp -v bzip2-shared /usr/bin/bzip2
+for i in /usr/bin/{bzcat,bunzip2}; do
+  ln -sfv bzip2 $i
+done
 rm -fv /usr/lib/libbz2.a
 
 fi

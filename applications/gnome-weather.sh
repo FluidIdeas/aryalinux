@@ -15,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gnome-weather
-VERSION=40.0
-URL=https://mirror.umd.edu/gnome/sources/gnome-weather/40/gnome-weather-40.0.tar.xz
+VERSION=40.1
+URL=https://download.gnome.org/sources/gnome-weather/40/gnome-weather-40.1.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="GNOME Weather is a small application that allows you to monitor the current weather conditions for your city, or anywhere in the world, and to access updated forecasts provided by various internet services."
 
@@ -24,8 +24,8 @@ DESCRIPTION="GNOME Weather is a small application that allows you to monitor the
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/gnome-weather/40/gnome-weather-40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-weather/40/gnome-weather-40.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-weather/40/gnome-weather-40.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-weather/40/gnome-weather-40.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -50,7 +50,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

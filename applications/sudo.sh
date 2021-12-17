@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 NAME=sudo
 VERSION=1.9.
-URL=https://www.sudo.ws/dist/sudo-1.9.6p1.tar.gz
+URL=https://www.sudo.ws/dist/sudo-1.9.8p2.tar.gz
 SECTION="Security"
 DESCRIPTION="The Sudo package allows a system administrator to give certain users (or groups of users) the ability to run some (or all) commands as root or another user while logging the commands and arguments."
 
@@ -21,8 +21,8 @@ DESCRIPTION="The Sudo package allows a system administrator to give certain user
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.sudo.ws/dist/sudo-1.9.6p1.tar.gz
-wget -nc ftp://ftp.sudo.ws/pub/sudo/sudo-1.9.6p1.tar.gz
+wget -nc https://www.sudo.ws/dist/sudo-1.9.8p2.tar.gz
+wget -nc ftp://ftp.sudo.ws/pub/sudo/sudo-1.9.8p2.tar.gz
 
 
 if [ ! -z $URL ]
@@ -47,11 +47,15 @@ fi
             --with-secure-path         \
             --with-all-insults         \
             --with-env-editor          \
-            --docdir=/usr/share/doc/sudo-1.9.6p1 \
+            --docdir=/usr/share/doc/sudo-1.9.8p2 \
             --with-passprompt="[sudo] password for %p: " &&
 make
 make install &&
 ln -sfv libsudo_util.so.0.0.0 /usr/lib/sudo/libsudo_util.so.0
+cat > /etc/sudoers.d/00-sudo << "EOF"
+Defaults secure_path="/usr/sbin:/usr/bin"
+%wheel ALL=(ALL) ALL
+EOF
 cat > /etc/pam.d/sudo << "EOF"
 # Begin /etc/pam.d/sudo
 

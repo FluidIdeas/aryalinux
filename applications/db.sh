@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 NAME=db
 VERSION=5.3.28
-URL=http://anduin.linuxfromscratch.org/BLFS/bdb/db-5.3.28.tar.gz
+URL=https://anduin.linuxfromscratch.org/BLFS/bdb/db-5.3.28.tar.gz
 SECTION="Databases"
 DESCRIPTION="The Berkeley DB package contains programs and utilities used by many other applications for database related functions."
 
@@ -21,7 +21,7 @@ DESCRIPTION="The Berkeley DB package contains programs and utilities used by man
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc http://anduin.linuxfromscratch.org/BLFS/bdb/db-5.3.28.tar.gz
+wget -nc https://anduin.linuxfromscratch.org/BLFS/bdb/db-5.3.28.tar.gz
 
 
 if [ ! -z $URL ]

@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=binutils-2.36.1.tar.xz
+TARBALL=binutils-2.37-upstream_fix-1.patch
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -22,10 +22,10 @@ cd $DIRECTORY
 
 mkdir -v build
 cd       build
-../configure --prefix=$LFS/tools       \
-             --with-sysroot=$LFS        \
-             --target=$LFS_TGT          \
-             --disable-nls              \
+../configure --prefix=$LFS/tools \
+             --with-sysroot=$LFS \
+             --target=$LFS_TGT   \
+             --disable-nls       \
              --disable-werror
 make
 make install -j1

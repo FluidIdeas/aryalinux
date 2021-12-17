@@ -14,8 +14,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=p11-kit
-VERSION=0.23.22
-URL=https://github.com/p11-glue/p11-kit/releases/download/0.23.22/p11-kit-0.23.22.tar.xz
+VERSION=0.24.0
+URL=https://github.com/p11-glue/p11-kit/releases/download/0.24.0/p11-kit-0.24.0.tar.xz
 SECTION="Security"
 DESCRIPTION="The p11-kit package provides a way to load and enumerate PKCS #11 (a Cryptographic Token Interface Standard) modules."
 
@@ -23,7 +23,7 @@ DESCRIPTION="The p11-kit package provides a way to load and enumerate PKCS #11 (
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/p11-glue/p11-kit/releases/download/0.23.22/p11-kit-0.23.22.tar.xz
+wget -nc https://github.com/p11-glue/p11-kit/releases/download/0.24.0/p11-kit-0.24.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -50,16 +50,19 @@ cat >> trust/trust-extract-compat << "EOF"
 # Copy existing anchor modifications to /etc/ssl/local
 /usr/libexec/make-ca/copy-trust-modifications
 
-# Generate a new trust store
-/usr/sbin/make-ca -f -g
+# Update trust stores
+/usr/sbin/make-ca -r
 EOF
-./configure --prefix=/usr     \
-            --sysconfdir=/etc \
-            --with-trust-paths=/etc/pki/anchors &&
-make
+mkdir p11-build &&
+cd    p11-build &&
+
+meson --prefix=/usr       \
+      --buildtype=release \
+      -Dtrust_paths=/etc/pki/anchors &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
+ninja install &&
 ln -sfv /usr/libexec/p11-kit/trust-extract-compat \
         /usr/bin/update-ca-certificates
 ENDOFROOTSCRIPT

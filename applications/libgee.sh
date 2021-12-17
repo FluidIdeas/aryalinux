@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 
 NAME=libgee
 VERSION=0.20.4
-URL=https://mirror.umd.edu/gnome/sources/libgee/0.20/libgee-0.20.4.tar.xz
+URL=https://download.gnome.org/sources/libgee/0.20/libgee-0.20.4.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libgee package is a collection library providing GObject based interfaces and classes for commonly used data structures."
 
@@ -24,7 +24,7 @@ DESCRIPTION="The libgee package is a collection library providing GObject based 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/libgee/0.20/libgee-0.20.4.tar.xz
+wget -nc https://download.gnome.org/sources/libgee/0.20/libgee-0.20.4.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgee/0.20/libgee-0.20.4.tar.xz
 
 

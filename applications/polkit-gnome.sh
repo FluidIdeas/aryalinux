@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:accountsservice
 #REQ:gtk3
 #REQ:polkit
 
@@ -15,7 +16,7 @@ cd $SOURCE_DIR
 
 NAME=polkit-gnome
 VERSION=0.105
-URL=https://mirror.umd.edu/gnome/sources/polkit-gnome/0.105/polkit-gnome-0.105.tar.xz
+URL=https://download.gnome.org/sources/polkit-gnome/0.105/polkit-gnome-0.105.tar.xz
 SECTION="Security"
 DESCRIPTION="The Polkit GNOME package provides an Authentication Agent for Polkit that integrates well with the GNOME Desktop environment."
 
@@ -23,8 +24,9 @@ DESCRIPTION="The Polkit GNOME package provides an Authentication Agent for Polki
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/polkit-gnome/0.105/polkit-gnome-0.105.tar.xz
+wget -nc https://download.gnome.org/sources/polkit-gnome/0.105/polkit-gnome-0.105.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/polkit-gnome/0.105/polkit-gnome-0.105.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/polkit-gnome-0.105-consolidated_fixes-1.patch
 
 
 if [ ! -z $URL ]
@@ -46,6 +48,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../polkit-gnome-0.105-consolidated_fixes-1.patch
 ./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh

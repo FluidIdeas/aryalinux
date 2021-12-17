@@ -19,7 +19,7 @@ cd $SOURCE_DIR
 
 NAME=dconf
 VERSION=0.40.0
-URL=https://mirror.umd.edu/gnome/sources/dconf/0.40/dconf-0.40.0.tar.xz
+URL=https://download.gnome.org/sources/dconf/0.40/dconf-0.40.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The DConf package contains a low-level configuration system. Its main purpose is to provide a backend to GSettings on platforms that don't already have configuration storage systems."
 
@@ -27,9 +27,9 @@ DESCRIPTION="The DConf package contains a low-level configuration system. Its ma
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/dconf/0.40/dconf-0.40.0.tar.xz
+wget -nc https://download.gnome.org/sources/dconf/0.40/dconf-0.40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/dconf/0.40/dconf-0.40.0.tar.xz
-wget -nc https://mirror.umd.edu/gnome/sources/dconf-editor/3.38/dconf-editor-3.38.3.tar.xz
+wget -nc https://download.gnome.org/sources/dconf-editor/3.38/dconf-editor-3.38.3.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/dconf-editor/3.38/dconf-editor-3.38.3.tar.xz
 
 
@@ -55,7 +55,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr -Dbash_completion=false .. &&
+meson --prefix=/usr --buildtype=release -Dbash_completion=false .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -73,7 +73,7 @@ cd dconf-editor-3.38.3                &&
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

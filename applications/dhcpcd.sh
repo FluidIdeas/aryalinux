@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=dhcpcd
-VERSION=9.4.0
-URL=https://roy.marples.name/downloads/dhcpcd/dhcpcd-9.4.0.tar.xz
+VERSION=9.4.1
+URL=https://roy.marples.name/downloads/dhcpcd/dhcpcd-9.4.1.tar.xz
 SECTION="Connecting to a Network"
 DESCRIPTION="dhcpcd is an implementation of the DHCP client specified in RFC2131. A DHCP client is useful for connecting your computer to a network which uses DHCP to assign network addresses. dhcpcd strives to be a fully featured, yet very lightweight DHCP client."
 
@@ -21,8 +21,7 @@ DESCRIPTION="dhcpcd is an implementation of the DHCP client specified in RFC2131
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://roy.marples.name/downloads/dhcpcd/dhcpcd-9.4.0.tar.xz
-wget -nc ftp://roy.marples.name/pub/dhcpcd/dhcpcd-9.4.0.tar.xz
+wget -nc https://roy.marples.name/downloads/dhcpcd/dhcpcd-9.4.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -61,9 +60,12 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-./configure --libexecdir=/lib/dhcpcd \
-            --dbdir=/var/lib/dhcpcd  \
-            --privsepuser=dhcpcd     &&
+./configure --prefix=/usr                \
+            --sysconfdir=/etc            \
+            --libexecdir=/usr/lib/dhcpcd \
+            --dbdir=/var/lib/dhcpcd      \
+            --runstatedir=/run           \
+            --privsepuser=dhcpcd         &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

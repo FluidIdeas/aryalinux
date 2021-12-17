@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libsamplerate
-VERSION=0.2.1
-URL=https://github.com/libsndfile/libsamplerate/releases/download/0.2.1/libsamplerate-0.2.1.tar.bz2
+VERSION=0.2.2
+URL=https://github.com/libsndfile/libsamplerate/releases/download/0.2.2/libsamplerate-0.2.2.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="libsamplerate is a sample rate converter for audio."
 
@@ -21,7 +21,7 @@ DESCRIPTION="libsamplerate is a sample rate converter for audio."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/libsndfile/libsamplerate/releases/download/0.2.1/libsamplerate-0.2.1.tar.bz2
+wget -nc https://github.com/libsndfile/libsamplerate/releases/download/0.2.2/libsamplerate-0.2.2.tar.xz
 
 
 if [ ! -z $URL ]
@@ -45,7 +45,7 @@ echo $USER > /tmp/currentuser
 
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/libsamplerate-0.2.1 &&
+            --docdir=/usr/share/doc/libsamplerate-0.2.2 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -7,20 +7,20 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:libxcvt
 #REQ:pixman
 #REQ:x7font
 #REQ:xkeyboard-config
 #REQ:libepoxy
-#REQ:wayland
-#REQ:wayland-protocols
+#REQ:libtirpc
 #REQ:systemd
 
 
 cd $SOURCE_DIR
 
 NAME=xorg-server
-VERSION=1.20.11
-URL=https://www.x.org/pub/individual/xserver/xorg-server-1.20.11.tar.bz2
+VERSION=21.1.1
+URL=https://www.x.org/pub/individual/xserver/xorg-server-21.1.1.tar.xz
 SECTION="X Window System Environment"
 DESCRIPTION="The Xorg Server is the core of the X Window system."
 
@@ -28,8 +28,8 @@ DESCRIPTION="The Xorg Server is the core of the X Window system."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.x.org/pub/individual/xserver/xorg-server-1.20.11.tar.bz2
-wget -nc ftp://ftp.x.org/pub/individual/xserver/xorg-server-1.20.11.tar.bz2
+wget -nc https://www.x.org/pub/individual/xserver/xorg-server-21.1.1.tar.xz
+wget -nc ftp://ftp.x.org/pub/individual/xserver/xorg-server-21.1.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -50,16 +50,18 @@ fi
 
 echo $USER > /tmp/currentuser
 
-export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
+export XORG_PREFIX="/usr"
 
-./configure $XORG_CONFIG            \
-            --enable-glamor         \
-            --enable-suid-wrapper   \
-            --with-xkb-output=/var/lib/xkb &&
-make
+mkdir build &&
+cd    build &&
+
+meson --prefix=$XORG_PREFIX \
+      -Dsuid_wrapper=true   \
+      -Dxkb_output_dir=/var/lib/xkb &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
+ninja install &&
 mkdir -pv /etc/X11/xorg.conf.d
 ENDOFROOTSCRIPT
 

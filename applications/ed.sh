@@ -45,7 +45,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr --bindir=/bin &&
+./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -48,18 +48,7 @@ patch -Np1 -i ../efivar-37-gcc_9-1.patch
 make CFLAGS="-O2 -Wno-stringop-truncation"
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install LIBDIR=/usr/lib BINDIR=/bin
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mv /usr/lib/libefi{boot,var}.so.* /lib &&
-ln -sfv ../../lib/$(readlink /usr/lib/libefiboot.so) /usr/lib/libefiboot.so &&
-ln -sfv ../../lib/$(readlink /usr/lib/libefivar.so) /usr/lib/libefivar.so
+make install LIBDIR=/usr/lib
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

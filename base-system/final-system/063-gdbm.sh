@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=gdbm-1.19.tar.gz
+TARBALL=gdbm-1.22.tar.gz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL

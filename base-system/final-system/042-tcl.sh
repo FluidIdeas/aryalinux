@@ -49,6 +49,8 @@ chmod -v u+w /usr/lib/libtcl8.6.so
 make install-private-headers
 ln -sfv tclsh8.6 /usr/bin/tclsh
 mv /usr/share/man/man3/{Thread,Tcl_Thread}.3
+mkdir -v -p /usr/share/doc/tcl-8.6.11
+cp -v -r  ../html/* /usr/share/doc/tcl-8.6.11
 
 fi
 

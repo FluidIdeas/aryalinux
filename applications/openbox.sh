@@ -46,7 +46,7 @@ echo $USER > /tmp/currentuser
 export XORG_PREFIX="/usr"
 
 export LIBRARY_PATH=$XORG_PREFIX/lib
-2to3-3.9 -w data/autostart/openbox-xdg-autostart &&
+2to3-3.10 -w data/autostart/openbox-xdg-autostart &&
 sed 's/python/python3/' -i data/autostart/openbox-xdg-autostart
 ./configure --prefix=/usr     \
             --sysconfdir=/etc \

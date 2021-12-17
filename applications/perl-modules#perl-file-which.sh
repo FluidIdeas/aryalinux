@@ -12,15 +12,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=perl-modules#perl-file-which
-VERSION=1.24
-URL=https://www.cpan.org/authors/id/P/PL/PLICEASE/File-Which-1.24.tar.gz
+VERSION=1.27
+URL=https://www.cpan.org/authors/id/P/PL/PLICEASE/File-Which-1.27.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.cpan.org/authors/id/P/PL/PLICEASE/File-Which-1.24.tar.gz
+wget -nc https://www.cpan.org/authors/id/P/PL/PLICEASE/File-Which-1.27.tar.gz
 
 
 if [ ! -z $URL ]

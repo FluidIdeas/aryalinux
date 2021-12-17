@@ -15,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libxfce4ui
-VERSION=4.16.0
-URL=https://archive.xfce.org/src/xfce/libxfce4ui/4.16/libxfce4ui-4.16.0.tar.bz2
+VERSION=4.16.1
+URL=https://archive.xfce.org/src/xfce/libxfce4ui/4.16/libxfce4ui-4.16.1.tar.bz2
 SECTION="Xfce Desktop"
 DESCRIPTION="The libxfce4ui package contains GTK+ 2 widgets that are used by other Xfce applications."
 
@@ -24,7 +24,7 @@ DESCRIPTION="The libxfce4ui package contains GTK+ 2 widgets that are used by oth
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.xfce.org/src/xfce/libxfce4ui/4.16/libxfce4ui-4.16.0.tar.bz2
+wget -nc https://archive.xfce.org/src/xfce/libxfce4ui/4.16/libxfce4ui-4.16.1.tar.bz2
 
 
 if [ ! -z $URL ]

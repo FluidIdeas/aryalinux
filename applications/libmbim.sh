@@ -7,15 +7,14 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:libgudev
 #REQ:gobject-introspection
 
 
 cd $SOURCE_DIR
 
 NAME=libmbim
-VERSION=1.24.6
-URL=https://www.freedesktop.org/software/libmbim/libmbim-1.24.6.tar.xz
+VERSION=1.26.2
+URL=https://www.freedesktop.org/software/libmbim/libmbim-1.26.2.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libmbim package contains a GLib-based library for talking to WWAN modems and devices which speak the Mobile Interface Broadband Model (MBIM) protocol."
 
@@ -23,7 +22,7 @@ DESCRIPTION="The libmbim package contains a GLib-based library for talking to WW
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.freedesktop.org/software/libmbim/libmbim-1.24.6.tar.xz
+wget -nc https://www.freedesktop.org/software/libmbim/libmbim-1.26.2.tar.xz
 
 
 if [ ! -z $URL ]

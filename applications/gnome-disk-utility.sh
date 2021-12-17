@@ -19,8 +19,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gnome-disk-utility
-VERSION=40.0
-URL=https://mirror.umd.edu/gnome/sources/gnome-disk-utility/40/gnome-disk-utility-40.0.tar.xz
+VERSION=40.2
+URL=https://download.gnome.org/sources/gnome-disk-utility/40/gnome-disk-utility-40.2.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Disk Utility package provides applications used for dealing with storage devices."
 
@@ -28,8 +28,8 @@ DESCRIPTION="The GNOME Disk Utility package provides applications used for deali
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/gnome-disk-utility/40/gnome-disk-utility-40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-disk-utility/40/gnome-disk-utility-40.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-disk-utility/40/gnome-disk-utility-40.2.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-disk-utility/40/gnome-disk-utility-40.2.tar.xz
 
 
 if [ ! -z $URL ]
@@ -54,7 +54,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr &&
+meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

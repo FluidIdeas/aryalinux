@@ -22,7 +22,7 @@ cd $SOURCE_DIR
 
 NAME=clutter
 VERSION=1.26.4
-URL=https://mirror.umd.edu/gnome/sources/clutter/1.26/clutter-1.26.4.tar.xz
+URL=https://download.gnome.org/sources/clutter/1.26/clutter-1.26.4.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The Clutter package contains an open source software library used for creating fast, visually rich and animated graphical user interfaces."
 
@@ -30,7 +30,7 @@ DESCRIPTION="The Clutter package contains an open source software library used f
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/clutter/1.26/clutter-1.26.4.tar.xz
+wget -nc https://download.gnome.org/sources/clutter/1.26/clutter-1.26.4.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/clutter/1.26/clutter-1.26.4.tar.xz
 
 

@@ -70,6 +70,7 @@ mkdir build &&
 cd build &&
 
 meson --prefix=/usr            \
+      --buildtype=release      \
       -Ddaemon_user=colord     \
       -Dvapi=true              \
       -Dsystemd=true           \

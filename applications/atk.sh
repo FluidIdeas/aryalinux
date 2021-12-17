@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 
 NAME=atk
 VERSION=2.36.0
-URL=https://mirror.umd.edu/gnome/sources/atk/2.36/atk-2.36.0.tar.xz
+URL=https://download.gnome.org/sources/atk/2.36/atk-2.36.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="ATK provides the set of accessibility interfaces that are implemented by other toolkits and applications. Using the ATK interfaces, accessibility tools have full access to view and control running applications."
 
@@ -23,7 +23,7 @@ DESCRIPTION="ATK provides the set of accessibility interfaces that are implement
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/atk/2.36/atk-2.36.0.tar.xz
+wget -nc https://download.gnome.org/sources/atk/2.36/atk-2.36.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/atk/2.36/atk-2.36.0.tar.xz
 
 
@@ -49,7 +49,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

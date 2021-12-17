@@ -44,9 +44,7 @@ export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disab
 
 echo $USER > /tmp/currentuser
 
-./configure $XORG_CONFIG \
-            --with-udev-rules-dir=/lib/udev/rules.d \
-            --with-systemd-unit-dir=/lib/systemd/system &&
+./configure $XORG_CONFIG &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

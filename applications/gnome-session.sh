@@ -19,7 +19,7 @@ cd $SOURCE_DIR
 
 NAME=gnome-session
 VERSION=40.1.1
-URL=https://mirror.umd.edu/gnome/sources/gnome-session/40/gnome-session-40.1.1.tar.xz
+URL=https://download.gnome.org/sources/gnome-session/40/gnome-session-40.1.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Session package contains the GNOME session manager."
 
@@ -27,7 +27,7 @@ DESCRIPTION="The GNOME Session package contains the GNOME session manager."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/gnome-session/40/gnome-session-40.1.1.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-session/40/gnome-session-40.1.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-session/40/gnome-session-40.1.1.tar.xz
 
 
@@ -54,7 +54,7 @@ sed 's@/bin/sh@/bin/sh -l@' -i gnome-session/gnome-session.in
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

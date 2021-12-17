@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gnome-shell-extensions
-VERSION=40.0
-URL=https://mirror.umd.edu/gnome/sources/gnome-shell-extensions/40/gnome-shell-extensions-40.0.tar.xz
+VERSION=40.4
+URL=https://download.gnome.org/sources/gnome-shell-extensions/40/gnome-shell-extensions-40.4.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Shell Extensions package contains a collection of extensions providing additional and optional functionality to the GNOME Shell."
 
@@ -22,8 +22,8 @@ DESCRIPTION="The GNOME Shell Extensions package contains a collection of extensi
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/gnome-shell-extensions/40/gnome-shell-extensions-40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-shell-extensions/40/gnome-shell-extensions-40.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-shell-extensions/40/gnome-shell-extensions-40.4.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-shell-extensions/40/gnome-shell-extensions-40.4.tar.xz
 
 
 if [ ! -z $URL ]

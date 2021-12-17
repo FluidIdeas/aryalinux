@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=pcre
-VERSION=8.44
-URL=https://ftp.pcre.org/pub/pcre/pcre-8.44.tar.bz2
+VERSION=8.45
+URL=https://sourceforge.net/projects/pcre/files/pcre/8.45/pcre-8.45.tar.bz2
 SECTION="General Libraries"
 DESCRIPTION="The PCRE package contains Perl Compatible Regular Expression libraries. These are useful for implementing regular expression pattern matching using the same syntax and semantics as Perl 5."
 
@@ -21,8 +21,7 @@ DESCRIPTION="The PCRE package contains Perl Compatible Regular Expression librar
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ftp.pcre.org/pub/pcre/pcre-8.44.tar.bz2
-wget -nc ftp://ftp.pcre.org/pub/pcre/pcre-8.44.tar.bz2
+wget -nc https://sourceforge.net/projects/pcre/files/pcre/8.45/pcre-8.45.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -45,7 +44,7 @@ echo $USER > /tmp/currentuser
 
 
 ./configure --prefix=/usr                     \
-            --docdir=/usr/share/doc/pcre-8.44 \
+            --docdir=/usr/share/doc/pcre-8.45 \
             --enable-unicode-properties       \
             --enable-pcre16                   \
             --enable-pcre32                   \
@@ -56,9 +55,7 @@ echo $USER > /tmp/currentuser
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install                     &&
-mv -v /usr/lib/libpcre.so.* /lib &&
-ln -sfv ../../lib/$(readlink /usr/lib/libpcre.so) /usr/lib/libpcre.so
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

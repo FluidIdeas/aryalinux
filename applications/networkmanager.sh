@@ -25,8 +25,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=networkmanager
-VERSION=1.30.2
-URL=https://mirror.umd.edu/gnome/sources/NetworkManager/1.30/NetworkManager-1.30.2.tar.xz
+VERSION=1.32.12
+URL=https://download.gnome.org/sources/NetworkManager/1.32/NetworkManager-1.32.12.tar.xz
 SECTION="Networking Utilities"
 DESCRIPTION="NetworkManager is a set of co-operative tools that make networking simple and straightforward. Whether you use WiFi, wired, 3G, or Bluetooth, NetworkManager allows you to quickly move from one network to another: Once a network has been configured and joined once, it can be detected and re-joined automatically the next time it's available."
 
@@ -34,8 +34,8 @@ DESCRIPTION="NetworkManager is a set of co-operative tools that make networking 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/NetworkManager/1.30/NetworkManager-1.30.2.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/NetworkManager/1.30/NetworkManager-1.30.2.tar.xz
+wget -nc https://download.gnome.org/sources/NetworkManager/1.32/NetworkManager-1.32.12.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/NetworkManager/1.32/NetworkManager-1.32.12.tar.xz
 
 
 if [ ! -z $URL ]
@@ -63,14 +63,13 @@ sed -e 's/-qt4/-qt5/'              \
 
 sed -e 's/Qt/&5/'                  \
     -i meson.build
-sed '/initrd/d' -i src/core/meson.build
 grep -rl '^#!.*python$' | xargs sed -i '1s/python/&3/'
-sed -i 's/str, 0/str ?: "", 0/' src/core/nm-core-utils.c
 mkdir build &&
 cd    build    &&
 
 CXXFLAGS+="-O2 -fPIC"            \
-meson --prefix /usr              \
+meson --prefix=/usr              \
+      --buildtype=release        \
       -Dlibaudit=no              \
       -Dlibpsl=false             \
       -Dnmtui=true               \
@@ -78,16 +77,14 @@ meson --prefix /usr              \
       -Dppp=false                \
       -Dselinux=false            \
       -Dqt=false                 \
-      -Dudev_dir=/lib/udev       \
       -Dsession_tracking=systemd \
       -Dmodem_manager=false      \
-      -Dsystemdsystemunitdir=/lib/systemd/system \
       .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
-mv -v /usr/share/doc/NetworkManager{,-1.30.2}
+mv -v /usr/share/doc/NetworkManager{,-1.32.12}
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

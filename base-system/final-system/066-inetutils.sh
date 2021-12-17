@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=inetutils-2.0.tar.xz
+TARBALL=inetutils-2.2.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -21,6 +21,7 @@ cd $DIRECTORY
 
 
 ./configure --prefix=/usr        \
+            --bindir=/usr/bin    \
             --localstatedir=/var \
             --disable-logger     \
             --disable-whois      \
@@ -31,8 +32,7 @@ cd $DIRECTORY
             --disable-servers
 make
 make install
-mv -v /usr/bin/{hostname,ping,ping6,traceroute} /bin
-mv -v /usr/bin/ifconfig /sbin
+mv -v /usr/{,s}bin/ifconfig
 
 fi
 

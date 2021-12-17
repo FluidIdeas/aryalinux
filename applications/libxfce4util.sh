@@ -9,6 +9,7 @@ set +h
 
 #REQ:glib2
 #REQ:gobject-introspection
+#REQ:vala
 
 
 cd $SOURCE_DIR

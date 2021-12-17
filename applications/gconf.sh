@@ -18,7 +18,7 @@ cd $SOURCE_DIR
 
 NAME=gconf
 VERSION=3.2.6
-URL=https://mirror.umd.edu/gnome/sources/GConf/3.2/GConf-3.2.6.tar.xz
+URL=https://download.gnome.org/sources/GConf/3.2/GConf-3.2.6.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GConf package contains a configuration database system used by many GNOME applications."
 
@@ -26,7 +26,7 @@ DESCRIPTION="The GConf package contains a configuration database system used by 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/GConf/3.2/GConf-3.2.6.tar.xz
+wget -nc https://download.gnome.org/sources/GConf/3.2/GConf-3.2.6.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/GConf/3.2/GConf-3.2.6.tar.xz
 
 

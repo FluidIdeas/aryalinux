@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 
 NAME=exiv2
 VERSION=0.27.
-URL=https://www.exiv2.org/builds/exiv2-0.27.3-Source.tar.gz
+URL=https://www.exiv2.org/builds/exiv2-0.27.5-Source.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="Exiv2 is a C++ library and a command line utility for managing image and video metadata."
 
@@ -23,7 +23,7 @@ DESCRIPTION="Exiv2 is a C++ library and a command line utility for managing imag
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.exiv2.org/builds/exiv2-0.27.3-Source.tar.gz
+wget -nc https://www.exiv2.org/builds/exiv2-0.27.5-Source.tar.gz
 
 
 if [ ! -z $URL ]

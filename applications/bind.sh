@@ -15,16 +15,17 @@ set +h
 cd $SOURCE_DIR
 
 NAME=bind
-VERSION=9.16.15
-URL=ftp://ftp.isc.org/isc/bind9/9.16.15/bind-9.16.15.tar.xz
+VERSION=9.16.23
+URL=https://ftp.isc.org/isc/bind9/9.16.23/bind-9.16.23.tar.xz
 SECTION="Major Servers"
-DESCRIPTION="The BIND package provides a DNS server and client utilities. If you are only interested in the utilities, refer to the BIND Utilities-9.16.15."
+DESCRIPTION="The BIND package provides a DNS server and client utilities. If you are only interested in the utilities, refer to the BIND Utilities-9.16.23."
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc ftp://ftp.isc.org/isc/bind9/9.16.15/bind-9.16.15.tar.xz
+wget -nc https://ftp.isc.org/isc/bind9/9.16.23/bind-9.16.23.tar.xz
+wget -nc ftp://ftp.isc.org/isc/bind9/9.16.23/bind-9.16.23.tar.xz
 
 
 if [ ! -z $URL ]

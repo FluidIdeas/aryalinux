@@ -14,8 +14,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=autofs
-VERSION=5.1.7
-URL=https://www.kernel.org/pub/linux/daemons/autofs/v5/autofs-5.1.7.tar.xz
+VERSION=5.1.8
+URL=https://www.kernel.org/pub/linux/daemons/autofs/v5/autofs-5.1.8.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="Autofs controls the operation of the automount daemons. The automount daemons automatically mount filesystems when they are accessed and unmount them after a period of inactivity. This is done based on a set of pre-configured maps."
 
@@ -23,7 +23,7 @@ DESCRIPTION="Autofs controls the operation of the automount daemons. The automou
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.kernel.org/pub/linux/daemons/autofs/v5/autofs-5.1.7.tar.xz
+wget -nc https://www.kernel.org/pub/linux/daemons/autofs/v5/autofs-5.1.8.tar.xz
 
 
 if [ ! -z $URL ]
@@ -45,10 +45,11 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/         \
-            --with-libtirpc    \
-            --with-systemd     \
-            --without-openldap \
+./configure --prefix=/usr             \
+            --with-mapdir=/etc/autofs \
+            --with-libtirpc           \
+            --with-systemd            \
+            --without-openldap        \
             --mandir=/usr/share/man &&
 make
 sudo rm -rf /tmp/rootscript.sh
@@ -71,14 +72,14 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mv /etc/auto.master /etc/auto.master.bak &&
-cat > /etc/auto.master << "EOF"
-# Begin /etc/auto.master
+mv /etc/autofs/auto.master /etc/autofs/auto.master.bak &&
+cat > /etc/autofs/auto.master << "EOF"
+# Begin /etc/autofs/auto.master
 
-/media/auto  /etc/auto.misc  --ghost
-#/home        /etc/auto.home
+/media/auto  /etc/autofs/auto.misc  --ghost
+#/home        /etc/autofs/auto.home
 
-# End /etc/auto.master
+# End /etc/autofs/auto.master
 EOF
 ENDOFROOTSCRIPT
 

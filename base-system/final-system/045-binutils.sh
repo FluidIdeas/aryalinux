@@ -13,14 +13,16 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=binutils-2.36.1.tar.xz
+TARBALL=binutils-2.37.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-sed -i '/@\tincremental_copy/d' gold/testsuite/Makefile.in
+patch -Np1 -i ../binutils-2.37-upstream_fix-1.patch
+sed -i '63d' etc/texi2pod.pl
+find -name \*.1 -delete
 mkdir -v build
 cd       build
 ../configure --prefix=/usr       \

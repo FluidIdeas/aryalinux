@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=x264
-VERSION=20210211
-URL=http://anduin.linuxfromscratch.org/BLFS/x264/x264-20210211.tar.xz
+VERSION=20210814
+URL=https://anduin.linuxfromscratch.org/BLFS/x264/x264-20210814.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="x264 package provides a library for encoding video streams into the H.264/MPEG-4 AVC format."
 
@@ -22,7 +22,7 @@ DESCRIPTION="x264 package provides a library for encoding video streams into the
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc http://anduin.linuxfromscratch.org/BLFS/x264/x264-20210211.tar.xz
+wget -nc https://anduin.linuxfromscratch.org/BLFS/x264/x264-20210814.tar.xz
 
 
 if [ ! -z $URL ]

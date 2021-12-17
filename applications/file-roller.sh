@@ -21,7 +21,7 @@ cd $SOURCE_DIR
 
 NAME=file-roller
 VERSION=3.40.0
-URL=https://mirror.umd.edu/gnome/sources/file-roller/3.40/file-roller-3.40.0.tar.xz
+URL=https://download.gnome.org/sources/file-roller/3.40/file-roller-3.40.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="File Roller is an archive manager for GNOME with support for tar, bzip2, gzip, zip, jar, compress, lzop, zstd, and many other archive formats."
 
@@ -29,7 +29,7 @@ DESCRIPTION="File Roller is an archive manager for GNOME with support for tar, b
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/file-roller/3.40/file-roller-3.40.0.tar.xz
+wget -nc https://download.gnome.org/sources/file-roller/3.40/file-roller-3.40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/file-roller/3.40/file-roller-3.40.0.tar.xz
 
 
@@ -55,7 +55,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr -Dpackagekit=false .. &&
+meson --prefix=/usr --buildtype=release -Dpackagekit=false .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

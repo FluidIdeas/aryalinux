@@ -27,8 +27,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=seamonkey
-VERSION=2.53.7.1
-URL=https://archive.mozilla.org/pub/seamonkey/releases/2.53.7.1/source/seamonkey-2.53.7.1.source.tar.xz
+VERSION=2.53.9.1
+URL=https://archive.mozilla.org/pub/seamonkey/releases/2.53.9.1/source/seamonkey-2.53.9.1.source.tar.xz
 SECTION="Graphical Web Browsers"
 DESCRIPTION="SeaMonkey is a browser suite, the Open Source sibling of Netscape. It includes the browser, composer, mail and news clients, and an IRC client. It is the follow-on to the Mozilla browser suite."
 
@@ -36,7 +36,7 @@ DESCRIPTION="SeaMonkey is a browser suite, the Open Source sibling of Netscape. 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.mozilla.org/pub/seamonkey/releases/2.53.7.1/source/seamonkey-2.53.7.1.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/seamonkey/releases/2.53.9.1/source/seamonkey-2.53.9.1.source.tar.xz
 
 
 if [ ! -z $URL ]
@@ -67,10 +67,8 @@ sudo ldconfig
 export PATH=/opt/rustc/bin:$PATH
 
 cat > mozconfig << "EOF"
-# If you have a multicore machine, all cores will be used by default.
-# If desired, you can reduce the number of cores used, e.g. to 1, by
-# uncommenting the next line and setting a valid number of CPU cores.
-#mk_add_options MOZ_MAKE_FLAGS="-j1"
+# If you have a multicore machine, all cores will be used
+# unless you pass -jN to ./mach build
 
 # If you have installed DBus-Glib comment out this line:
 ac_add_options --disable-dbus
@@ -105,6 +103,14 @@ ac_add_options --with-system-webp
 # libxul.so by a few MB - comment this if you know your machine is not affected.
 ac_add_options --disable-elf-hack
 
+# Seamonkey has some additional features that are not turned on by default,
+# such as an IRC client, calendar, and DOM Inspector. The DOM Inspector
+# aids with designing web pages. Comment these options if you do not
+# desire these features.
+ac_add_options --enable-calendar
+ac_add_options --enable-dominspector
+ac_add_options --enable-irc
+
 # The BLFS editors recommend not changing anything below this line:
 ac_add_options --prefix=/usr
 ac_add_options --enable-application=comm/suite
@@ -113,16 +119,16 @@ ac_add_options --disable-crashreporter
 ac_add_options --disable-updater
 ac_add_options --disable-tests
 
+# rust-simd does not compile with recent versions of rust.
+# It is disabled in recent versions of firefox
+ac_add_options --disable-rust-simd
+
 ac_add_options --enable-optimize="-O2"
 ac_add_options --enable-strip
 ac_add_options --enable-install-strip
 ac_add_options --enable-official-branding
 
-# From firefox-40 (and the corresponding version of seamonkey),
-# using system cairo caused seamonkey to crash
-# frequently when it was doing background rendering in a tab.
-# This appears to again work in seamonkey-2.49.2
-ac_add_options --enable-system-cairo
+# The option to use system cairo was removed in 2.53.9.
 ac_add_options --enable-system-ffi
 ac_add_options --enable-system-pixman
 
@@ -132,11 +138,13 @@ ac_add_options --with-system-png
 ac_add_options --with-system-zlib
 EOF
 mountpoint -q /dev/shm || mount -t tmpfs devshm /dev/shm
-CC=gcc CXX=g++ make -f client.mk
+export CC=gcc CXX=g++ &&
+./mach configure      &&
+./mach build
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make  -f client.mk install INSTALL_SDK= &&
-chown -R 0:0 /usr/lib/seamonkey         &&
+./mach install                  &&
+chown -R 0:0 /usr/lib/seamonkey &&
 
 cp -v $(find -name seamonkey.1 | head -n1) /usr/share/man/man1
 ENDOFROOTSCRIPT

@@ -13,15 +13,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=perl-modules#perl-datetime-calendar-julian
-VERSION=0.104
-URL=https://www.cpan.org/authors/id/W/WY/WYANT/DateTime-Calendar-Julian-0.104.tar.gz
+VERSION=0.106
+URL=https://www.cpan.org/authors/id/W/WY/WYANT/DateTime-Calendar-Julian-0.106.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.cpan.org/authors/id/W/WY/WYANT/DateTime-Calendar-Julian-0.104.tar.gz
+wget -nc https://www.cpan.org/authors/id/W/WY/WYANT/DateTime-Calendar-Julian-0.106.tar.gz
 
 
 if [ ! -z $URL ]

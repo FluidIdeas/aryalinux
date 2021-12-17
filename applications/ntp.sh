@@ -57,8 +57,9 @@ sudo rm -rf /tmp/rootscript.sh
 
 sed -e 's/"(\\S+)"/"?([^\\s"]+)"?/' \
     -i scripts/update-leap/update-leap.in
-./configure CFLAGS="${CFLAGS:--O2 -g} -fPIC -fcommon" \
-            --prefix=/usr         \
+sed -e 's/#ifndef __sun/#if !defined(__sun) \&\& !defined(__GLIBC__)/' \
+    -i libntp/work_thread.c
+./configure --prefix=/usr         \
             --bindir=/usr/sbin    \
             --sysconfdir=/etc     \
             --enable-linuxcaps    \
@@ -94,7 +95,7 @@ server 0.north-america.pool.ntp.org
 server 2.south-america.pool.ntp.org
 
 driftfile /var/lib/ntp/ntp.drift
-pidfile   /var/run/ntpd.pid
+pidfile   /run/ntpd.pid
 
 leapfile  /var/lib/ntp/ntp.leapseconds
 EOF

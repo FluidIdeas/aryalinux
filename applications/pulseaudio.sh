@@ -50,11 +50,14 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed '/doxygen/d' -i meson.build
 mkdir build &&
 cd    build &&
 
-meson  --prefix=/usr --buildtype=release -Ddatabase=gdbm -Ddoxygen=false -Dbluez5=true &&
+meson --prefix=/usr       \
+      --buildtype=release \
+      -Ddatabase=gdbm     \
+      -Ddoxygen=false     \
+      -Dbluez5=disabled   &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

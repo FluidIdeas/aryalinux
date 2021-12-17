@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=sqlite
-VERSION=3350500
-URL=https://sqlite.org/2021/sqlite-autoconf-3350500.tar.gz
+VERSION=3370000
+URL=https://sqlite.org/2021/sqlite-autoconf-3370000.tar.gz
 SECTION="Databases"
 DESCRIPTION="The SQLite package is a software library that implements a self-contained, serverless, zero-configuration, transactional SQL database engine."
 
@@ -21,8 +21,8 @@ DESCRIPTION="The SQLite package is a software library that implements a self-con
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://sqlite.org/2021/sqlite-autoconf-3350500.tar.gz
-wget -nc https://sqlite.org/2021/sqlite-doc-3350500.zip
+wget -nc https://sqlite.org/2021/sqlite-autoconf-3370000.tar.gz
+wget -nc https://sqlite.org/2021/sqlite-doc-3370000.zip
 
 
 if [ ! -z $URL ]
@@ -44,17 +44,17 @@ fi
 echo $USER > /tmp/currentuser
 
 
-unzip -q ../sqlite-doc-3350500.zip
+unzip -q ../sqlite-doc-3370000.zip
 ./configure --prefix=/usr     \
             --disable-static  \
             --enable-fts5     \
-            CPPFLAGS="-DSQLITE_ENABLE_FTS3=1  \
-            -DSQLITE_ENABLE_FTS4=1            \
-            -DSQLITE_ENABLE_COLUMN_METADATA=1 \
-            -DSQLITE_ENABLE_UNLOCK_NOTIFY=1   \
-            -DSQLITE_ENABLE_DBSTAT_VTAB=1     \
-            -DSQLITE_SECURE_DELETE=1          \
-            -DSQLITE_ENABLE_FTS3_TOKENIZER=1" &&
+            CPPFLAGS="-DSQLITE_ENABLE_FTS3=1            \
+                      -DSQLITE_ENABLE_FTS4=1            \
+                      -DSQLITE_ENABLE_COLUMN_METADATA=1 \
+                      -DSQLITE_ENABLE_UNLOCK_NOTIFY=1   \
+                      -DSQLITE_ENABLE_DBSTAT_VTAB=1     \
+                      -DSQLITE_SECURE_DELETE=1          \
+                      -DSQLITE_ENABLE_FTS3_TOKENIZER=1" &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -67,8 +67,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m755 -d /usr/share/doc/sqlite-3.35.5 &&
-cp -v -R sqlite-doc-3350500/* /usr/share/doc/sqlite-3.35.5
+install -v -m755 -d /usr/share/doc/sqlite-3.37.0 &&
+cp -v -R sqlite-doc-3370000/* /usr/share/doc/sqlite-3.37.0
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

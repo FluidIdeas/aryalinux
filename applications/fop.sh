@@ -23,8 +23,8 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.apache.org/dist/xmlgraphics/fop/source/fop-2.6-src.tar.gz
-wget -nc http://archive.apache.org/dist/pdfbox/2.0.23/pdfbox-2.0.23.jar
-wget -nc http://archive.apache.org/dist/pdfbox/2.0.23/fontbox-2.0.23.jar
+wget -nc http://archive.apache.org/dist/pdfbox/2.0.24/pdfbox-2.0.24.jar
+wget -nc http://archive.apache.org/dist/pdfbox/2.0.24/fontbox-2.0.24.jar
 wget -nc http://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
 wget -nc https://downloads.sourceforge.net/offo/2.2/offo-hyphenation.zip
 
@@ -57,7 +57,8 @@ sed -i '\@</javad@i\
 <arg value="--allow-script-in-comments"/>\
 <arg value="--ignore-source-errors"/>' \
     fop/build.xml
-cp ../{pdf,font}box-2.0.23.jar fop/lib
+sed -i 's/<war.plugin.version>2.2/<war.plugin.version>3.3.1/' pom.xml
+cp ../{pdf,font}box-2.0.24.jar fop/lib
 cd fop &&
 
 LC_ALL=en_US.UTF-8                     \

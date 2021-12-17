@@ -13,32 +13,34 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=glibc-2.33.tar.xz
+TARBALL=glibc-2.34.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-patch -Np1 -i ../glibc-2.33-fhs-1.patch
-sed -e '402a\      *result = local->data.services[database_index];' \
-    -i nss/nss_database.c
+sed -e '/NOTIFY_REMOVED)/s/)/ \&\& data.attr != NULL)/' \
+    -i sysdeps/unix/sysv/linux/mq_notify.c
+patch -Np1 -i ../glibc-2.34-fhs-1.patch
 mkdir -v build
 cd       build
+echo "rootsbindir=/usr/sbin" > configparms
 ../configure --prefix=/usr                            \
              --disable-werror                         \
              --enable-kernel=3.2                      \
              --enable-stack-protector=strong          \
              --with-headers=/usr/include              \
-             libc_cv_slibdir=/lib
+             libc_cv_slibdir=/usr/lib
 make
 touch /etc/ld.so.conf
 sed '/test-installation/s@$(PERL)@echo not running@' -i ../Makefile
 make install
+sed '/RTLDLIST=/s@/usr@@g' -i /usr/bin/ldd
 cp -v ../nscd/nscd.conf /etc/nscd.conf
 mkdir -pv /var/cache/nscd
 install -v -Dm644 ../nscd/nscd.tmpfiles /usr/lib/tmpfiles.d/nscd.conf
-install -v -Dm644 ../nscd/nscd.service /lib/systemd/system/nscd.service
+install -v -Dm644 ../nscd/nscd.service /usr/lib/systemd/system/nscd.service
 make localedata/install-locales
 localedef -i POSIX -f UTF-8 C.UTF-8 2> /dev/null || true
 localedef -i ja_JP -f SHIFT_JIS ja_JP.SIJS 2> /dev/null || true
@@ -59,7 +61,7 @@ rpc: files
 
 # End /etc/nsswitch.conf
 EOF
-tar -xf ../../tzdata2021a.tar.gz
+tar -xf ../../tzdata2021e.tar.gz
 
 ZONEINFO=/usr/share/zoneinfo
 mkdir -pv $ZONEINFO/{posix,right}

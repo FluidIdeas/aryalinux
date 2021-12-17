@@ -12,15 +12,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=perl-deps#perl-business-isbn-data
-VERSION=20210112.001
-URL=https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISBN-Data-20210112.001.tar.gz
+VERSION=20210112.006
+URL=https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISBN-Data-20210112.006.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISBN-Data-20210112.001.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Business-ISBN-Data-20210112.006.tar.gz
 
 
 if [ ! -z $URL ]

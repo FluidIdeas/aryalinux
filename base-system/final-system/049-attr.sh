@@ -26,8 +26,6 @@ cd $DIRECTORY
             --docdir=/usr/share/doc/attr-2.5.1
 make
 make install
-mv -v /usr/lib/libattr.so.* /lib
-ln -sfv ../../lib/$(readlink /usr/lib/libattr.so) /usr/lib/libattr.so
 
 fi
 

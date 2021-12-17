@@ -17,8 +17,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libgusb
-VERSION=0.3.6
-URL=https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.6.tar.xz
+VERSION=0.3.9
+URL=https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.9.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libgusb package contains the GObject wrappers for libusb-1.0 that makes it easy to do asynchronous control, bulk and interrupt transfers with proper cancellation and integration into a mainloop."
 
@@ -26,7 +26,7 @@ DESCRIPTION="The libgusb package contains the GObject wrappers for libusb-1.0 th
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.6.tar.xz
+wget -nc https://people.freedesktop.org/~hughsient/releases/libgusb-0.3.9.tar.xz
 
 
 if [ ! -z $URL ]
@@ -51,7 +51,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr -Ddocs=false .. &&
+meson --prefix=/usr --buildtype=release -Ddocs=false .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

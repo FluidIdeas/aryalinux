@@ -11,14 +11,18 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://pub.mate-desktop.org/releases/1.25/mate-applets-1.25.3.tar.xz
-
-
 NAME=mate-applets
-VERSION=1.25.3
-URL=https://pub.mate-desktop.org/releases/1.25/mate-applets-1.25.3.tar.xz
+VERSION=1.26.0
+URL=https://pub.mate-desktop.org/releases/1.26/mate-applets-1.26.0.tar.xz
 SECTION="Mate Desktop"
 DESCRIPTION="Applets for use with the MATE panel"
+
+
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
+
+wget -nc https://pub.mate-desktop.org/releases/1.26/mate-applets-1.26.0.tar.xz
+
 
 if [ ! -z $URL ]
 then
@@ -46,3 +50,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

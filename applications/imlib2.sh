@@ -8,13 +8,14 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:x7lib
+#REQ:giflib
 
 
 cd $SOURCE_DIR
 
 NAME=imlib2
-VERSION=1.7.1
-URL=https://downloads.sourceforge.net/enlightenment/imlib2-1.7.1.tar.bz2
+VERSION=1.7.5
+URL=https://downloads.sourceforge.net/enlightenment/imlib2-1.7.5.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="imlib2 is a graphics library for fast file loading, saving, rendering and manipulation."
 
@@ -22,7 +23,7 @@ DESCRIPTION="imlib2 is a graphics library for fast file loading, saving, renderi
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.sourceforge.net/enlightenment/imlib2-1.7.1.tar.bz2
+wget -nc https://downloads.sourceforge.net/enlightenment/imlib2-1.7.5.tar.xz
 
 
 if [ ! -z $URL ]
@@ -49,8 +50,8 @@ make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-install -v -m755 -d                        /usr/share/doc/imlib2-1.7.1 &&
-install -v -m644    doc/{*.gif,index.html} /usr/share/doc/imlib2-1.7.1
+install -v -m755 -d                        /usr/share/doc/imlib2-1.7.5 &&
+install -v -m644    doc/{*.gif,index.html} /usr/share/doc/imlib2-1.7.5
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

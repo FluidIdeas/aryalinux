@@ -14,8 +14,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libwacom
-VERSION=1.10
-URL=https://github.com/linuxwacom/libwacom/releases/download/libwacom-1.10/libwacom-1.10.tar.bz2
+VERSION=1.12
+URL=https://github.com/linuxwacom/libwacom/releases/download/libwacom-1.12/libwacom-1.12.tar.bz2
 SECTION="General Libraries"
 DESCRIPTION="The libwacom package contains a library used to identify wacom tablets and their model-specific features."
 
@@ -23,7 +23,7 @@ DESCRIPTION="The libwacom package contains a library used to identify wacom tabl
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/linuxwacom/libwacom/releases/download/libwacom-1.10/libwacom-1.10.tar.bz2
+wget -nc https://github.com/linuxwacom/libwacom/releases/download/libwacom-1.12/libwacom-1.12.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -48,7 +48,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr -Dudev-dir=/lib/udev -Dtests=disabled .. &&
+meson --prefix=/usr --buildtype=release -Dtests=disabled .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

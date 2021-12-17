@@ -15,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=sdl2
-VERSION=2.0.14
-URL=https://www.libsdl.org/release/SDL2-2.0.14.tar.gz
+VERSION=2.0.18
+URL=https://www.libsdl.org/release/SDL2-2.0.18.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The Simple DirectMedia Layer Version 2 (SDL2 for short) is a cross-platform library designed to make it easy to write multimedia software, such as games and emulators."
 
@@ -24,8 +24,8 @@ DESCRIPTION="The Simple DirectMedia Layer Version 2 (SDL2 for short) is a cross-
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.libsdl.org/release/SDL2-2.0.14.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/SDL2-2.0.14-opengl_include_fix-1.patch
+wget -nc https://www.libsdl.org/release/SDL2-2.0.18.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/SDL2-2.0.18-opengl_include_fix-1.patch
 
 
 if [ ! -z $URL ]
@@ -48,7 +48,7 @@ echo $USER > /tmp/currentuser
 
 
 case $(uname -m) in
-   i?86) patch -Np1 -i ../SDL2-2.0.14-opengl_include_fix-1.patch ;;
+   i?86) patch -Np1 -i ../SDL2-2.0.18-opengl_include_fix-1.patch ;;
 esac
 ./configure --prefix=/usr &&
 make

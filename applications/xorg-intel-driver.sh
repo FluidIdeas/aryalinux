@@ -15,14 +15,14 @@ cd $SOURCE_DIR
 
 NAME=xorg-intel-driver
 VERSION=20210222
-URL=http://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20210222.tar.xz
+URL=https://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20210222.tar.xz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc http://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20210222.tar.xz
+wget -nc https://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20210222.tar.xz
 wget -nc ftp://anduin.linuxfromscratch.org/BLFS/xf86-video-intel/xf86-video-intel-20210222.tar.xz
 
 
@@ -54,10 +54,10 @@ make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-      
+
 mv -v /usr/share/man/man4/intel-virtual-output.4 \
       /usr/share/man/man1/intel-virtual-output.1 &&
-      
+
 sed -i '/\.TH/s/4/1/' /usr/share/man/man1/intel-virtual-output.1
 ENDOFROOTSCRIPT
 

@@ -8,21 +8,20 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:libxslt
-#REQ:python2
 
 
 cd $SOURCE_DIR
 
 NAME=python-modules#lxml
-VERSION=4.6.3
-URL=https://files.pythonhosted.org/packages/source/l/lxml/lxml-4.6.3.tar.gz
+VERSION=4.6.4
+URL=https://files.pythonhosted.org/packages/source/l/lxml/lxml-4.6.4.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://files.pythonhosted.org/packages/source/l/lxml/lxml-4.6.3.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/l/lxml/lxml-4.6.4.tar.gz
 
 
 if [ ! -z $URL ]
@@ -44,11 +43,9 @@ fi
 
 echo $USER > /tmp/currentuser
 
-python2 setup.py build &&
 python3 setup.py build
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-python2 setup.py install --optimize=1 &&
 python3 setup.py install --optimize=1
 ENDOFROOTSCRIPT
 

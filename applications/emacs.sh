@@ -49,6 +49,9 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -e '/SIGSTKSZ/ s|^.*$|static max_align_t sigsegv_stack[\
+   (64 * 1024 + sizeof (max_align_t) - 1) / sizeof (max_align_t)];|' \
+    -i src/sysdep.c
 ./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh

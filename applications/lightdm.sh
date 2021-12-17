@@ -11,7 +11,6 @@ set +h
 #REQ:libgcrypt
 #REQ:itstool
 #REQ:linux-pam
-#REQ:pcre
 #REQ:gobject-introspection
 #REQ:libxklavier
 #REQ:vala
@@ -119,6 +118,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+ln -sf /opt/xorg/bin/Xorg /usr/bin/X
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 #!/bin/bash

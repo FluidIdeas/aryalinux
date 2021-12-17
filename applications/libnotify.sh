@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 
 NAME=libnotify
 VERSION=0.7.9
-URL=https://mirror.umd.edu/gnome/sources/libnotify/0.7/libnotify-0.7.9.tar.xz
+URL=https://download.gnome.org/sources/libnotify/0.7/libnotify-0.7.9.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The libnotify library is used to send desktop notifications to a notification daemon, as defined in the Desktop Notifications spec. These notifications can be used to inform the user about an event or display some form of information without getting in the user's way."
 
@@ -22,7 +22,7 @@ DESCRIPTION="The libnotify library is used to send desktop notifications to a no
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/libnotify/0.7/libnotify-0.7.9.tar.xz
+wget -nc https://download.gnome.org/sources/libnotify/0.7/libnotify-0.7.9.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libnotify/0.7/libnotify-0.7.9.tar.xz
 
 
@@ -48,7 +48,10 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr -Dgtk_doc=false -Dman=false .. &&
+meson --prefix=/usr       \
+      --buildtype=release \
+      -Dgtk_doc=false     \
+      -Dman=false .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

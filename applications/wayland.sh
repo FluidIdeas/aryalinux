@@ -44,13 +44,16 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr    \
-            --disable-static \
-            --disable-documentation &&
-make
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr       \
+      --buildtype=release \
+      -Ddocumentation=false &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -20,8 +20,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gegl
-VERSION=0.4.30
-URL=https://download.gimp.org/pub/gegl/0.4/gegl-0.4.30.tar.xz
+VERSION=0.4.32
+URL=https://download.gimp.org/pub/gegl/0.4/gegl-0.4.32.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="This package provides the GEneric Graphics Library, which is a graph based image processing format."
 
@@ -29,7 +29,7 @@ DESCRIPTION="This package provides the GEneric Graphics Library, which is a grap
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gimp.org/pub/gegl/0.4/gegl-0.4.30.tar.xz
+wget -nc https://download.gimp.org/pub/gegl/0.4/gegl-0.4.32.tar.xz
 
 
 if [ ! -z $URL ]
@@ -54,7 +54,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

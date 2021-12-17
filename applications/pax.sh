@@ -46,7 +46,7 @@ echo $USER > /tmp/currentuser
 bash Build.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v pax /bin &&
+install -v pax /usr/bin &&
 install -v -m644 pax.1 /usr/share/man/man1
 ENDOFROOTSCRIPT
 

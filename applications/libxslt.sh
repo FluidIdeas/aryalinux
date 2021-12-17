@@ -48,6 +48,7 @@ echo $USER > /tmp/currentuser
 
 
 sed -i s/3000/5000/ libxslt/transform.c doc/xsltproc.{1,xml} &&
+sed -i -r '/max(Parser)?Depth/d' ./tests/fuzz/fuzz.c &&
 ./configure --prefix=/usr --disable-static --without-python  &&
 make
 sed -e 's@http://cdn.docbook.org/release/xsl@https://cdn.docbook.org/release/xsl-nons@' \

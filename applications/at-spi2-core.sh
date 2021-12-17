@@ -15,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=at-spi2-core
-VERSION=2.40.1
-URL=https://mirror.umd.edu/gnome/sources/at-spi2-core/2.40/at-spi2-core-2.40.1.tar.xz
+VERSION=2.40.3
+URL=https://download.gnome.org/sources/at-spi2-core/2.40/at-spi2-core-2.40.3.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The At-Spi2 Core package is a part of the GNOME Accessibility Project. It provides a Service Provider Interface for the Assistive Technologies available on the GNOME platform and a library against which applications can be linked."
 
@@ -24,8 +24,8 @@ DESCRIPTION="The At-Spi2 Core package is a part of the GNOME Accessibility Proje
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/at-spi2-core/2.40/at-spi2-core-2.40.1.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/at-spi2-core/2.40/at-spi2-core-2.40.1.tar.xz
+wget -nc https://download.gnome.org/sources/at-spi2-core/2.40/at-spi2-core-2.40.3.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/at-spi2-core/2.40/at-spi2-core-2.40.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -50,7 +50,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

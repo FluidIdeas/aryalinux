@@ -14,8 +14,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=atkmm
-VERSION=2.28.1
-URL=https://mirror.umd.edu/gnome/sources/atkmm/2.28/atkmm-2.28.1.tar.xz
+VERSION=2.28.2
+URL=https://download.gnome.org/sources/atkmm/2.28/atkmm-2.28.2.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="Atkmm is the official C++ interface for the ATK accessibility toolkit library."
 
@@ -23,8 +23,8 @@ DESCRIPTION="Atkmm is the official C++ interface for the ATK accessibility toolk
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/atkmm/2.28/atkmm-2.28.1.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/atkmm/2.28/atkmm-2.28.1.tar.xz
+wget -nc https://download.gnome.org/sources/atkmm/2.28/atkmm-2.28.2.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/atkmm/2.28/atkmm-2.28.2.tar.xz
 
 
 if [ ! -z $URL ]
@@ -46,10 +46,10 @@ fi
 echo $USER > /tmp/currentuser
 
 
-mkdir bld &&
-cd    bld &&
+mkdir build &&
+cd    build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

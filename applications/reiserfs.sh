@@ -44,10 +44,9 @@ echo $USER > /tmp/currentuser
 
 
 sed -i '/parse_time.h/i #define _GNU_SOURCE' lib/parse_time.c &&
-autoreconf -fiv             &&
-./configure --prefix=/usr   \
-            --sbindir=/sbin &&
+autoreconf -fiv           &&
 
+./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -24,7 +24,7 @@ cd $SOURCE_DIR
 
 NAME=cheese
 VERSION=3.38.0
-URL=https://mirror.umd.edu/gnome/sources/cheese/3.38/cheese-3.38.0.tar.xz
+URL=https://download.gnome.org/sources/cheese/3.38/cheese-3.38.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="Cheese is used to take photos and videos with fun graphical effects."
 
@@ -32,7 +32,7 @@ DESCRIPTION="Cheese is used to take photos and videos with fun graphical effects
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/cheese/3.38/cheese-3.38.0.tar.xz
+wget -nc https://download.gnome.org/sources/cheese/3.38/cheese-3.38.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/cheese/3.38/cheese-3.38.0.tar.xz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/cheese-3.38.0-upstream_fixes-1.patch
 
@@ -61,7 +61,7 @@ patch -Np1 -i ../cheese-3.38.0-upstream_fixes-1.patch
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr -Dgtk_doc=false .. &&
+meson --prefix=/usr --buildtype=release -Dgtk_doc=false .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

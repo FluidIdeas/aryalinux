@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 
 NAME=gsettings-desktop-schemas
 VERSION=40.0
-URL=https://mirror.umd.edu/gnome/sources/gsettings-desktop-schemas/40/gsettings-desktop-schemas-40.0.tar.xz
+URL=https://download.gnome.org/sources/gsettings-desktop-schemas/40/gsettings-desktop-schemas-40.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GSettings Desktop Schemas package contains a collection of GSettings schemas for settings shared by various components of a GNOME Desktop."
 
@@ -23,7 +23,7 @@ DESCRIPTION="The GSettings Desktop Schemas package contains a collection of GSet
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/gsettings-desktop-schemas/40/gsettings-desktop-schemas-40.0.tar.xz
+wget -nc https://download.gnome.org/sources/gsettings-desktop-schemas/40/gsettings-desktop-schemas-40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gsettings-desktop-schemas/40/gsettings-desktop-schemas-40.0.tar.xz
 
 
@@ -51,7 +51,7 @@ sed -i -r 's:"(/system):"/org/gnome\1:g' schemas/*.in &&
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

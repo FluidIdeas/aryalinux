@@ -15,15 +15,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=perl-deps#perl-ffi-checklib
-VERSION=0.27
-URL=https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/FFI-CheckLib-0.27.tar.gz
+VERSION=0.28
+URL=https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/FFI-CheckLib-0.28.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/FFI-CheckLib-0.27.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/FFI-CheckLib-0.28.tar.gz
 
 
 if [ ! -z $URL ]

@@ -15,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=qemu
-VERSION=5.2.0
-URL=https://download.qemu-project.org/qemu-5.2.0.tar.xz
+VERSION=6.1.0
+URL=https://download.qemu-project.org/qemu-6.1.0.tar.xz
 SECTION="Virtualization"
 DESCRIPTION="qemu is a full virtualization solution for Linux on x86 hardware containing virtualization extensions (Intel VT or AMD-V)."
 
@@ -24,7 +24,7 @@ DESCRIPTION="qemu is a full virtualization solution for Linux on x86 hardware co
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.qemu-project.org/qemu-5.2.0.tar.xz
+wget -nc https://download.qemu-project.org/qemu-6.1.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -56,7 +56,6 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sed -i "/LDFLAGS_NOPIE/d" configure pc-bios/optionrom/Makefile
 if [ $(uname -m) = i686 ]; then
    QEMU_ARCH=i386-softmmu
 else
@@ -69,9 +68,10 @@ cd        build &&
 
 ../configure --prefix=/usr               \
              --sysconfdir=/etc           \
+             --localstatedir=/var        \
              --target-list=$QEMU_ARCH    \
              --audio-drv-list=alsa       \
-             --docdir=/usr/share/doc/qemu-5.2.0 &&
+             --docdir=/usr/share/doc/qemu-6.1.0 &&
 
 unset QEMU_ARCH &&
 

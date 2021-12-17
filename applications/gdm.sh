@@ -22,8 +22,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gdm
-VERSION=40.0
-URL=https://mirror.umd.edu/gnome/sources/gdm/40/gdm-40.0.tar.xz
+VERSION=40.1
+URL=https://download.gnome.org/sources/gdm/40/gdm-40.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="GDM is a system service that is responsible for providing graphical logins and managing local and remote displays."
 
@@ -31,8 +31,8 @@ DESCRIPTION="GDM is a system service that is responsible for providing graphical
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/gdm/40/gdm-40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gdm/40/gdm-40.0.tar.xz
+wget -nc https://download.gnome.org/sources/gdm/40/gdm-40.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gdm/40/gdm-40.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -70,9 +70,8 @@ mkdir build &&
 cd    build &&
 
 meson --prefix=/usr               \
-      -Dplymouth=disabled         \
-      -Dgdm-xsession=true         \
-      -Dpam-mod-dir=/lib/security .. &&
+      --buildtype=release         \
+      -Dgdm-xsession=true ..      &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

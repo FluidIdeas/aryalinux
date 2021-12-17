@@ -12,22 +12,17 @@ set +h
 #REQ:flac
 #REQ:gdk-pixbuf
 #REQ:lame
-#REQ:libgudev
-#REQ:libjpeg
-#REQ:libpng
 #REQ:libsoup
 #REQ:libvpx
-#REQ:mesa
 #REQ:mpg123
 #REQ:nasm
-#REQ:x7lib
 
 
 cd $SOURCE_DIR
 
 NAME=gst10-plugins-good
-VERSION=1.18.4
-URL=https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.18.4.tar.xz
+VERSION=1.18.5
+URL=https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.18.5.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The GStreamer Good Plug-ins is a set of plug-ins considered by the GStreamer developers to have good quality code, correct functionality, and the preferred license (LGPL for the plug-in code, LGPL or LGPL-compatible for the supporting library). A wide range of video and audio decoders, encoders, and filters are included."
 
@@ -35,7 +30,7 @@ DESCRIPTION="The GStreamer Good Plug-ins is a set of plug-ins considered by the 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.18.4.tar.xz
+wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.18.5.tar.xz
 
 
 if [ ! -z $URL ]
@@ -61,9 +56,9 @@ mkdir build &&
 cd    build &&
 
 meson  --prefix=/usr       \
-       -Dbuildtype=release \
+       --buildtype=release \
        -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/svn/ \
-       -Dpackage-name="GStreamer 1.18.4 BLFS" &&
+       -Dpackage-name="GStreamer 1.18.5 BLFS" &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

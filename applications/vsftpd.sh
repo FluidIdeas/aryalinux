@@ -14,8 +14,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=vsftpd
-VERSION=3.0.3
-URL=https://security.appspot.com/downloads/vsftpd-3.0.3.tar.gz
+VERSION=3.0.5
+URL=https://security.appspot.com/downloads/vsftpd-3.0.5.tar.gz
 SECTION="Major Servers"
 DESCRIPTION="The vsftpd package contains a very secure and very small FTP daemon. This is useful for serving files over a network."
 
@@ -23,7 +23,7 @@ DESCRIPTION="The vsftpd package contains a very secure and very small FTP daemon
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://security.appspot.com/downloads/vsftpd-3.0.3.tar.gz
+wget -nc https://security.appspot.com/downloads/vsftpd-3.0.5.tar.gz
 
 
 if [ ! -z $URL ]
@@ -78,7 +78,6 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat >> /etc/vsftpd.conf << "EOF"
 background=YES
-listen=YES
 nopriv_user=vsftpd
 secure_chroot_dir=/usr/share/vsftpd/empty
 EOF

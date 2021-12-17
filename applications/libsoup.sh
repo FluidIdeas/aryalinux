@@ -12,15 +12,14 @@ set +h
 #REQ:libxml2
 #REQ:sqlite
 #REQ:gobject-introspection
-#REQ:sysprof
 #REQ:vala
 
 
 cd $SOURCE_DIR
 
 NAME=libsoup
-VERSION=2.72.0
-URL=https://mirror.umd.edu/gnome/sources/libsoup/2.72/libsoup-2.72.0.tar.xz
+VERSION=2.74.2
+URL=https://download.gnome.org/sources/libsoup/2.74/libsoup-2.74.2.tar.xz
 SECTION="Networking Libraries"
 DESCRIPTION="The libsoup is a HTTP client/server library for GNOME. It uses GObject and the GLib main loop to integrate with GNOME applications and it also has an asynchronous API for use in threaded applications."
 
@@ -28,9 +27,8 @@ DESCRIPTION="The libsoup is a HTTP client/server library for GNOME. It uses GObj
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/libsoup/2.72/libsoup-2.72.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libsoup/2.72/libsoup-2.72.0.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/libsoup-2.72.0-testsuite_fix-1.patch
+wget -nc https://download.gnome.org/sources/libsoup/2.74/libsoup-2.74.2.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libsoup/2.74/libsoup-2.74.2.tar.xz
 
 
 if [ ! -z $URL ]
@@ -52,11 +50,15 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../libsoup-2.72.0-testsuite_fix-1.patch
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr -Dvapi=enabled -Dgssapi=disabled .. &&
+meson --prefix=/usr       \
+      --buildtype=release \
+      -Dvapi=enabled      \
+      -Dgssapi=disabled   \
+      -Dsysprof=disabled  \
+      ..                  &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

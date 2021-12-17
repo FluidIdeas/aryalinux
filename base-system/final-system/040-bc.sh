@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=bc-4.0.1.tar.xz
+TARBALL=bc-5.2.1.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL

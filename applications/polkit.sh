@@ -9,6 +9,8 @@ set +h
 
 #REQ:glib2
 #REQ:js78
+#REQ:gobject-introspection
+#REQ:libxslt
 #REQ:linux-pam
 #REQ:systemd
 
@@ -16,8 +18,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=polkit
-VERSION=0.118
-URL=https://www.freedesktop.org/software/polkit/releases/polkit-0.118.tar.gz
+VERSION=0.120
+URL=https://www.freedesktop.org/software/polkit/releases/polkit-0.120.tar.gz
 SECTION="Security"
 DESCRIPTION="Polkit is a toolkit for defining and handling authorizations. It is used for allowing unprivileged processes to communicate with privileged processes."
 
@@ -25,7 +27,7 @@ DESCRIPTION="Polkit is a toolkit for defining and handling authorizations. It is
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.freedesktop.org/software/polkit/releases/polkit-0.118.tar.gz
+wget -nc https://www.freedesktop.org/software/polkit/releases/polkit-0.120.tar.gz
 
 
 if [ ! -z $URL ]
@@ -58,16 +60,21 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sed -i "s:/sys/fs/cgroup/systemd/:/sys:g" configure
-./configure --prefix=/usr        \
-            --sysconfdir=/etc    \
-            --localstatedir=/var \
-            --disable-static     \
-            --with-os-type=LFS   &&
-make
+sed '/0,/s/^/#/' -i meson_post_install.py &&
+sed '/policy,/d' -i actions/meson.build \
+                 -i src/examples/meson.build
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr                       \
+      -Dman=true                          \
+      -Dsession_tracking=libsystemd-login \
+      --buildtype=release                 \
+      ..                                  &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

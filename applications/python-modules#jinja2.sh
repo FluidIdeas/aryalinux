@@ -13,15 +13,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=python-modules#jinja2
-VERSION=2.11.3
-URL=https://files.pythonhosted.org/packages/source/J/Jinja2/Jinja2-2.11.3.tar.gz
+VERSION=3.0.3
+URL=https://files.pythonhosted.org/packages/source/J/Jinja2/Jinja2-3.0.3.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://files.pythonhosted.org/packages/source/J/Jinja2/Jinja2-2.11.3.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/J/Jinja2/Jinja2-3.0.3.tar.gz
 
 
 if [ ! -z $URL ]

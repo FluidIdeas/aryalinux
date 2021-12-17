@@ -16,8 +16,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=rust
-VERSION=1.47.0
-URL=https://static.rust-lang.org/dist/rustc-1.47.0-src.tar.gz
+VERSION=1.56.1
+URL=https://static.rust-lang.org/dist/rustc-1.56.1-src.tar.gz
 SECTION="Programming"
 DESCRIPTION="The Rust programming language is designed to be a safe, concurrent, practical language."
 
@@ -25,7 +25,7 @@ DESCRIPTION="The Rust programming language is designed to be a safe, concurrent,
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://static.rust-lang.org/dist/rustc-1.47.0-src.tar.gz
+wget -nc https://static.rust-lang.org/dist/rustc-1.56.1-src.tar.gz
 
 
 if [ ! -z $URL ]
@@ -49,8 +49,8 @@ echo $USER > /tmp/currentuser
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir /opt/rustc-1.47.0             &&
-ln -svfin rustc-1.47.0 /opt/rustc
+mkdir /opt/rustc-1.56.1             &&
+ln -svfin rustc-1.56.1 /opt/rustc
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -76,8 +76,8 @@ docs = false
 extended = true
 
 [install]
-prefix = "/opt/rustc-1.47.0"
-docdir = "share/doc/rustc-1.47.0"
+prefix = "/opt/rustc-1.56.1"
+docdir = "share/doc/rustc-1.56.1"
 
 [rust]
 channel = "stable"
@@ -99,6 +99,10 @@ llvm-config = "/usr/bin/llvm-config"
 
 
 EOF
+sed -i -e '/^curl /s/0.4.38/0.4.40/' \
+       -e '/^curl-sys /s/0.4.48/0.4.50/' \
+       src/tools/cargo/Cargo.toml &&
+
 export RUSTFLAGS="$RUSTFLAGS -C link-args=-lffi" &&
 python3 ./x.py build --exclude src/tools/miri
 export LIBSSH2_SYS_USE_PKG_CONFIG=1 &&

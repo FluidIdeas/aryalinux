@@ -20,8 +20,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=kwave
-VERSION=20.12.2
-URL=https://download.kde.org/stable/release-service/20.12.2/src/kwave-20.12.2.tar.xz
+VERSION=21.12.0
+URL=https://download.kde.org/stable/release-service/21.12.0/src/kwave-21.12.0.tar.xz
 SECTION="Audio Utilities"
 DESCRIPTION="The KWave package contains a KF5 based Sound Editor application."
 
@@ -29,7 +29,7 @@ DESCRIPTION="The KWave package contains a KF5 based Sound Editor application."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.kde.org/stable/release-service/20.12.2/src/kwave-20.12.2.tar.xz
+wget -nc https://download.kde.org/stable/release-service/21.12.0/src/kwave-21.12.0.tar.xz
 
 
 if [ ! -z $URL ]

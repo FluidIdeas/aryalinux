@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=nspr
-VERSION=4.30
-URL=https://archive.mozilla.org/pub/nspr/releases/v4.30/src/nspr-4.30.tar.gz
+VERSION=4.32
+URL=https://archive.mozilla.org/pub/nspr/releases/v4.32/src/nspr-4.32.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="Netscape Portable Runtime (NSPR) provides a platform-neutral API for system level and libc like functions."
 
@@ -21,7 +21,7 @@ DESCRIPTION="Netscape Portable Runtime (NSPR) provides a platform-neutral API fo
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.mozilla.org/pub/nspr/releases/v4.30/src/nspr-4.30.tar.gz
+wget -nc https://archive.mozilla.org/pub/nspr/releases/v4.32/src/nspr-4.32.tar.gz
 
 
 if [ ! -z $URL ]
@@ -44,8 +44,8 @@ echo $USER > /tmp/currentuser
 
 
 cd nspr                                                     &&
-sed -ri 's#^(RELEASE_BINS =).*#\1#' pr/src/misc/Makefile.in &&
-sed -i 's#$(LIBRARY) ##'            config/rules.mk         &&
+sed -ri '/^RELEASE/s/^/#/' pr/src/misc/Makefile.in &&
+sed -i 's#$(LIBRARY) ##'   config/rules.mk         &&
 
 ./configure --prefix=/usr \
             --with-mozilla \

@@ -13,15 +13,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libseccomp
-VERSION=2.5.1
-URL=https://github.com/seccomp/libseccomp/releases/download/v2.5.1/libseccomp-2.5.1.tar.gz
+VERSION=2.4.1
+URL=https://github.com/seccomp/libseccomp/releases/download/v2.4.1/libseccomp-2.4.1.tar.gz
 DESCRIPTION="The libseccomp package provides an easy to use and platform independent interface to the Linux kernel's syscall filtering mechanism."
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc $URL
+wget -nc https://github.com/seccomp/libseccomp/releases/download/v2.4.1/libseccomp-2.4.1.tar.gz
 
 
 if [ ! -z $URL ]

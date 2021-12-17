@@ -15,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=cryptsetup
-VERSION=2.3.5
-URL=https://www.kernel.org/pub/linux/utils/cryptsetup/v2.3/cryptsetup-2.3.5.tar.xz
+VERSION=2.3.6
+URL=https://www.kernel.org/pub/linux/utils/cryptsetup/v2.3/cryptsetup-2.3.6.tar.xz
 SECTION="Security"
 DESCRIPTION="cryptsetup is used to set up transparent encryption of block devices using the kernel crypto API."
 
@@ -24,7 +24,7 @@ DESCRIPTION="cryptsetup is used to set up transparent encryption of block device
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.kernel.org/pub/linux/utils/cryptsetup/v2.3/cryptsetup-2.3.5.tar.xz
+wget -nc https://www.kernel.org/pub/linux/utils/cryptsetup/v2.3/cryptsetup-2.3.6.tar.xz
 
 
 if [ ! -z $URL ]

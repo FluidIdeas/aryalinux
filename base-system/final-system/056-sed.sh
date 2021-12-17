@@ -20,7 +20,7 @@ tar xf $TARBALL
 cd $DIRECTORY
 
 
-./configure --prefix=/usr --bindir=/bin
+./configure --prefix=/usr
 make
 make html
 make install

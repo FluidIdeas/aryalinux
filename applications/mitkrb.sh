@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=mitkrb
-VERSION=1.19.1
-URL=https://kerberos.org/dist/krb5/1.19/krb5-1.19.1.tar.gz
+VERSION=1.19.2
+URL=https://kerberos.org/dist/krb5/1.19/krb5-1.19.2.tar.gz
 SECTION="Security"
 DESCRIPTION="MIT Kerberos V5 is a free implementation of Kerberos 5. Kerberos is a network authentication protocol. It centralizes the authentication database and uses kerberized applications to work with servers or services that support Kerberos allowing single logins and encrypted communication over internal networks or the Internet."
 
@@ -21,7 +21,7 @@ DESCRIPTION="MIT Kerberos V5 is a free implementation of Kerberos 5. Kerberos is
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://kerberos.org/dist/krb5/1.19/krb5-1.19.1.tar.gz
+wget -nc https://kerberos.org/dist/krb5/1.19/krb5-1.19.2.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,6 +43,11 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -i '210a if (sprinc == NULL) {\
+       status = "NULL_SERVER";\
+       errcode = KRB5KDC_ERR_S_PRINCIPAL_UNKNOWN;\
+       goto cleanup;\
+       }' src/kdc/do_tgs_req.c
 cd src &&
 
 sed -i -e 's@\^u}@^u cols 300}@' tests/dejagnu/config/default.exp     &&
@@ -62,19 +67,8 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
-mv -v /usr/lib/libkrb5.so.3*        /lib &&
-mv -v /usr/lib/libk5crypto.so.3*    /lib &&
-mv -v /usr/lib/libkrb5support.so.0* /lib &&
-
-ln -v -sf ../../lib/libkrb5.so.3.3        /usr/lib/libkrb5.so        &&
-ln -v -sf ../../lib/libk5crypto.so.3.1    /usr/lib/libk5crypto.so    &&
-ln -v -sf ../../lib/libkrb5support.so.0.1 /usr/lib/libkrb5support.so &&
-
-mv -v /usr/bin/ksu /bin &&
-chmod -v 755 /bin/ksu   &&
-
-install -v -dm755 /usr/share/doc/krb5-1.19.1 &&
-cp -vfr ../doc/*  /usr/share/doc/krb5-1.19.1
+install -v -dm755 /usr/share/doc/krb5-1.19.2 &&
+cp -vfr ../doc/*  /usr/share/doc/krb5-1.19.2
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

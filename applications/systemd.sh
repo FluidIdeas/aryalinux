@@ -7,14 +7,15 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:python-modules#jinja2
 #REQ:linux-pam
 
 
 cd $SOURCE_DIR
 
 NAME=systemd
-VERSION=247
-URL=https://github.com/systemd/systemd/archive/v247/systemd-247.tar.gz
+VERSION=249
+URL=https://github.com/systemd/systemd/archive/v249/systemd-249.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="While systemd was installed when building LFS, there are many features provided by the package that were not included in the initial installation because Linux-PAM was not yet installed. The systemd package needs to be rebuilt to provide a working systemd-logind service, which provides many additional features for dependent packages."
 
@@ -22,8 +23,8 @@ DESCRIPTION="While systemd was installed when building LFS, there are many featu
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/systemd/systemd/archive/v247/systemd-247.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/systemd-247-upstream_fixes-3.patch
+wget -nc https://github.com/systemd/systemd/archive/v249/systemd-249.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/systemd-249-upstream_fixes-1.patch
 
 
 if [ ! -z $URL ]
@@ -45,22 +46,22 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../systemd-247-upstream_fixes-3.patch
-sed -i 's/GROUP="render"/GROUP="video"/' rules.d/50-udev-default.rules.in
+patch -Np1 -i ../systemd-249-upstream_fixes-1.patch
+sed -i -e 's/GROUP="render"/GROUP="video"/' \
+       -e 's/GROUP="sgx", //' rules.d/50-udev-default.rules.in
+sed -i 's/+ want_libfuzzer.*$/and want_libfuzzer/' meson.build
+sed -i '/ARPHRD_CAN/a#define ARPHRD_MCTP        290' src/basic/linux/if_arp.h
 mkdir build &&
 cd    build &&
 
 meson --prefix=/usr                 \
+      --buildtype=release           \
       -Dblkid=true                  \
-      -Dbuildtype=release           \
       -Ddefault-dnssec=no           \
       -Dfirstboot=false             \
       -Dinstall-tests=false         \
       -Dldconfig=false              \
       -Dman=auto                    \
-      -Drootprefix=                 \
-      -Drootlibdir=/lib             \
-      -Dsplit-usr=true              \
       -Dsysusers=false              \
       -Drpmmacrosdir=no             \
       -Db_lto=false                 \
@@ -68,7 +69,7 @@ meson --prefix=/usr                 \
       -Duserdb=false                \
       -Dmode=release                \
       -Dpamconfdir=/etc/pam.d       \
-      -Ddocdir=/usr/share/doc/systemd-247 \
+      -Ddocdir=/usr/share/doc/systemd-249 \
       ..                            &&
 
 ninja
@@ -83,9 +84,10 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+grep 'pam_systemd' /etc/pam.d/system-session ||
 cat >> /etc/pam.d/system-session << "EOF"
 # Begin Systemd addition
-    
+
 session  required    pam_loginuid.so
 session  optional    pam_systemd.so
 

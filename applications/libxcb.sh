@@ -47,7 +47,9 @@ echo $USER > /tmp/currentuser
 
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
-CFLAGS="${CFLAGS:--O2 -g} -Wno-error=format-extra-args" ./configure $XORG_CONFIG      \
+CFLAGS="${CFLAGS:--O2 -g} -Wno-error=format-extra-args" \
+PYTHON=python3                \
+./configure $XORG_CONFIG      \
             --without-doxygen \
             --docdir='${datadir}'/doc/libxcb-1.14 &&
 make

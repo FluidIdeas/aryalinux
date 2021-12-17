@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=lsof
-VERSION=4.91
-URL=https://www.mirrorservice.org/sites/lsof.itap.purdue.edu/pub/tools/unix/lsof/lsof_4.91.tar.gz
+VERSION=4.94.0
+URL=https://github.com/lsof-org/lsof/releases/download/4.94.0/lsof_4.94.0.linux.tar.bz2
 SECTION="General Utilities"
 DESCRIPTION="The lsof package is useful to LiSt Open Files for a given running application or process."
 
@@ -22,7 +22,7 @@ DESCRIPTION="The lsof package is useful to LiSt Open Files for a given running a
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.mirrorservice.org/sites/lsof.itap.purdue.edu/pub/tools/unix/lsof/lsof_4.91.tar.gz
+wget -nc https://github.com/lsof-org/lsof/releases/download/4.94.0/lsof_4.94.0.linux.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -44,13 +44,20 @@ fi
 echo $USER > /tmp/currentuser
 
 
-tar -xf lsof_4.91_src.tar  &&
-cd lsof_4.91_src           &&
-./Configure -n linux       &&
-make CFGL="-L./lib -ltirpc"
+./Configure -n linux &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m0755 -o root -g root lsof /usr/bin &&
+make check
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+install -v -m4755 -o root -g root lsof /usr/bin &&
 install -v lsof.8 /usr/share/man/man8
 ENDOFROOTSCRIPT
 

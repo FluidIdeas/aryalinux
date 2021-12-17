@@ -51,11 +51,12 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr  \
-      -Dgtk2=true    \
-      -Dvapi=true    \
-      -Ddocs=false   \
-      -Dman=false .. &&
+meson --prefix=/usr       \
+      --buildtype=release \
+      -Dgtk2=true         \
+      -Dvapi=true         \
+      -Ddocs=false        \
+      -Dman=false ..      &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

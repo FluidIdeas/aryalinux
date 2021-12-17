@@ -23,7 +23,7 @@ cd $SOURCE_DIR
 
 NAME=gedit
 VERSION=40.1
-URL=https://mirror.umd.edu/gnome/sources/gedit/40/gedit-40.1.tar.xz
+URL=https://download.gnome.org/sources/gedit/40/gedit-40.1.tar.xz
 SECTION="Editors"
 DESCRIPTION="The Gedit package contains a lightweight UTF-8 text editor for the GNOME Desktop."
 
@@ -31,7 +31,7 @@ DESCRIPTION="The Gedit package contains a lightweight UTF-8 text editor for the 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/gedit/40/gedit-40.1.tar.xz
+wget -nc https://download.gnome.org/sources/gedit/40/gedit-40.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gedit/40/gedit-40.1.tar.xz
 
 
@@ -57,7 +57,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr -Dbuildtype=release .. &&
+meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

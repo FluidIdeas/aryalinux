@@ -19,7 +19,7 @@ cd $SOURCE_DIR
 
 NAME=libchamplain
 VERSION=0.12.20
-URL=https://mirror.umd.edu/gnome/sources/libchamplain/0.12/libchamplain-0.12.20.tar.xz
+URL=https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.20.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libchamplain package contains a Clutter-based widget that is used to display rich and interactive maps."
 
@@ -27,7 +27,7 @@ DESCRIPTION="The libchamplain package contains a Clutter-based widget that is us
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/libchamplain/0.12/libchamplain-0.12.20.tar.xz
+wget -nc https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.20.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libchamplain/0.12/libchamplain-0.12.20.tar.xz
 
 
@@ -53,7 +53,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

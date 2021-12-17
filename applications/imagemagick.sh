@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=imagemagick
-VERSION=7.0.1
-URL=https://www.imagemagick.org/download/releases/ImageMagick-7.0.11-0.tar.xz
+VERSION=7.1.
+URL=https://www.imagemagick.org/download/releases/ImageMagick-7.1.0-4.tar.xz
 SECTION="General Utilities"
 DESCRIPTION="ImageMagick is a collection of tools and libraries to read, write, and manipulate an image in various image formats. Image processing operations are available from the command line. Bindings for Perl and C++ are also available."
 
@@ -22,7 +22,7 @@ DESCRIPTION="ImageMagick is a collection of tools and libraries to read, write, 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.imagemagick.org/download/releases/ImageMagick-7.0.11-0.tar.xz
+wget -nc https://www.imagemagick.org/download/releases/ImageMagick-7.1.0-4.tar.xz
 
 
 if [ ! -z $URL ]
@@ -53,7 +53,7 @@ echo $USER > /tmp/currentuser
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make DOCUMENTATION_PATH=/usr/share/doc/imagemagick-7.0.11 install
+make DOCUMENTATION_PATH=/usr/share/doc/imagemagick-7.1.0 install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

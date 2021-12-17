@@ -16,8 +16,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=nmap
-VERSION=7.91
-URL=https://nmap.org/dist/nmap-7.91.tar.bz2
+VERSION=7.92
+URL=https://nmap.org/dist/nmap-7.92.tar.bz2
 SECTION="Networking Utilities"
 DESCRIPTION="Nmap is a utility for network exploration and security auditing. It supports ping scanning, port scanning and TCP/IP fingerprinting."
 
@@ -25,7 +25,7 @@ DESCRIPTION="Nmap is a utility for network exploration and security auditing. It
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://nmap.org/dist/nmap-7.91.tar.bz2
+wget -nc https://nmap.org/dist/nmap-7.92.tar.bz2
 
 
 if [ ! -z $URL ]

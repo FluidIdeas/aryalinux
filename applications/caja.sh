@@ -11,14 +11,18 @@ set +h
 
 cd $SOURCE_DIR
 
-wget -nc https://pub.mate-desktop.org/releases/1.25/caja-1.25.2.tar.xz
-
-
 NAME=caja
-VERSION=1.25.2
-URL=https://pub.mate-desktop.org/releases/1.25/caja-1.25.2.tar.xz
+VERSION=1.26.0
+URL=https://pub.mate-desktop.org/releases/1.26/caja-1.26.0.tar.xz
 SECTION="Mate Desktop Applications"
 DESCRIPTION="Caja, the file manager for the MATE desktop"
+
+
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
+
+wget -nc https://pub.mate-desktop.org/releases/1.26/caja-1.26.0.tar.xz
+
 
 if [ ! -z $URL ]
 then
@@ -46,3 +50,4 @@ if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
 register_installed "$NAME" "$VERSION" "$INSTALLED_LIST"
 
+popd

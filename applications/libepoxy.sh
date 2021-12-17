@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libepoxy
-VERSION=1.5.7
-URL=https://github.com/anholt/libepoxy/releases/download/1.5.7/libepoxy-1.5.7.tar.xz
+VERSION=1.5.9
+URL=https://github.com/anholt/libepoxy/releases/download/1.5.9/libepoxy-1.5.9.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="libepoxy is a library for handling OpenGL function pointer management."
 
@@ -22,7 +22,7 @@ DESCRIPTION="libepoxy is a library for handling OpenGL function pointer manageme
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/anholt/libepoxy/releases/download/1.5.7/libepoxy-1.5.7.tar.xz
+wget -nc https://github.com/anholt/libepoxy/releases/download/1.5.9/libepoxy-1.5.9.tar.xz
 
 
 if [ ! -z $URL ]
@@ -47,7 +47,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

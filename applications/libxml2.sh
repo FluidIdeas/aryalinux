@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libxml2
-VERSION=2.9.10
-URL=http://xmlsoft.org/sources/libxml2-2.9.10.tar.gz
+VERSION=2.9.12
+URL=http://xmlsoft.org/sources/libxml2-2.9.12.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The libxml2 package contains libraries and utilities used for parsing XML files."
 
@@ -21,9 +21,8 @@ DESCRIPTION="The libxml2 package contains libraries and utilities used for parsi
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc http://xmlsoft.org/sources/libxml2-2.9.10.tar.gz
-wget -nc ftp://xmlsoft.org/libxml2/libxml2-2.9.10.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/libxml2-2.9.10-security_fixes-1.patch
+wget -nc http://xmlsoft.org/sources/libxml2-2.9.12.tar.gz
+wget -nc ftp://xmlsoft.org/libxml2/libxml2-2.9.12.tar.gz
 wget -nc https://www.w3.org/XML/Test/xmlts20130923.tar.gz
 
 
@@ -46,10 +45,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -p1 -i ../libxml2-2.9.10-security_fixes-1.patch
-sed -i '/if Py/{s/Py/(Py/;s/)/))/}' python/{types.c,libxml.c}
-sed -i 's/test.test/#&/' python/tests/tstLastError.py
-sed -i 's/ TRUE/ true/' encoding.c
 ./configure --prefix=/usr    \
             --disable-static \
             --with-history   \

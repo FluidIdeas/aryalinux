@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=python3
-VERSION=3.9.4
-URL=https://www.python.org/ftp/python/3.9.4/Python-3.9.4.tar.xz
+VERSION=3.10.1
+URL=https://www.python.org/ftp/python/3.10.1/Python-3.10.1.tar.xz
 SECTION="Programming"
 DESCRIPTION="The Python 3 package contains the Python development environment. This is useful for object-oriented programming, writing scripts, prototyping large programs or developing entire applications."
 
@@ -22,7 +22,7 @@ DESCRIPTION="The Python 3 package contains the Python development environment. T
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.python.org/ftp/python/3.9.4/Python-3.9.4.tar.xz
+wget -nc https://www.python.org/ftp/python/3.10.1/Python-3.10.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -44,12 +44,13 @@ fi
 echo $USER > /tmp/currentuser
 
 
-CXX="/usr/bin/g++"              \
-./configure --prefix=/usr       \
-            --enable-shared     \
-            --with-system-expat \
-            --with-system-ffi   \
-            --with-ensurepip=yes &&
+CXX="/usr/bin/g++"               \
+./configure --prefix=/usr        \
+            --enable-shared      \
+            --with-system-expat  \
+            --with-system-ffi    \
+            --with-ensurepip=yes \
+            --enable-optimizations &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -62,7 +63,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ln -svfn python-3.9.4 /usr/share/doc/python-3
+ln -svfn python-3.10.1 /usr/share/doc/python-3
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

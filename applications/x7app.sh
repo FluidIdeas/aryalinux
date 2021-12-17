@@ -56,7 +56,7 @@ c4a3664e08e5a47c120ff9263ee2f20c  luit-1.1.1.tar.bz2
 93e736c98fb75856ee8227a0c49a128d  setxkbmap-1.3.2.tar.bz2
 3a93d9f0859de5d8b65a68a125d48f6a  smproxy-1.0.6.tar.bz2
 e96b56756990c56c24d2d02c2964456b  x11perf-1.6.1.tar.bz2
-e50587c1bb832aafd1a19d91a0890a0b  xauth-1.1.tar.bz2
+325c2321d159d5b93490700960005037  xauth-1.1.1.tar.bz2
 5b6405973db69c0443be2fba8e1a8ab7  xbacklight-1.2.3.tar.bz2
 9956d751ea3ae4538c3ebd07f70736a0  xcmsdb-1.0.5.tar.bz2
 25cc7ca1ce5dcbb61c2b471c55e686b5  xcursorgen-1.0.7.tar.bz2
@@ -77,12 +77,12 @@ e50ffae17eeb3943079620cb78f5ce0b  xmessage-1.0.5.tar.bz2
 eaac255076ea351fd08d76025788d9f9  xpr-1.0.5.tar.bz2
 2358e29133d183ff67d4ef8afd70b9d2  xprop-1.2.5.tar.bz2
 fe40f7a4fd39dd3a02248d3e0b1972e4  xrandr-1.5.1.tar.xz
-34ae801ef994d192c70fcce2bdb2a1b2  xrdb-1.2.0.tar.bz2
+85f04a810e2fb6b41ab872b421dce1b1  xrdb-1.2.1.tar.bz2
 c56fa4adbeed1ee5173f464a4c4a61a6  xrefresh-1.0.6.tar.bz2
 70ea7bc7bacf1a124b1692605883f620  xset-1.2.4.tar.bz2
 5fe769c8777a6e873ed1305e4ce2c353  xsetroot-1.1.2.tar.bz2
 b13afec137b9b331814a9824ab03ec80  xvinfo-1.1.4.tar.bz2
-11794a8eba6d295a192a8975287fd947  xwd-1.0.7.tar.bz2
+f783a209f2e3fa13253cedb65eaf9cdb  xwd-1.0.8.tar.bz2
 26d46f7ef0588d3392da3ad5802be420  xwininfo-1.1.5.tar.bz2
 79972093bb0766fcd0223b2bd6d11932  xwud-1.0.5.tar.bz2
 EOF

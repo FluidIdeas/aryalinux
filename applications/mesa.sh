@@ -19,8 +19,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=mesa
-VERSION=21.1.0
-URL=https://mesa.freedesktop.org/archive/mesa-21.1.0.tar.xz
+VERSION=21.3.1
+URL=https://mesa.freedesktop.org/archive/mesa-21.3.1.tar.xz
 SECTION="X Window System Environment"
 DESCRIPTION="Mesa is an OpenGL compatible 3D graphics library."
 
@@ -28,9 +28,9 @@ DESCRIPTION="Mesa is an OpenGL compatible 3D graphics library."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mesa.freedesktop.org/archive/mesa-21.1.0.tar.xz
-wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-21.1.0.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/mesa-21.1.0-add_xdemos-1.patch
+wget -nc https://mesa.freedesktop.org/archive/mesa-21.3.1.tar.xz
+wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-21.3.1.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/mesa-21.3.1-add_xdemos-1.patch
 wget -nc ftp://ftp.freedesktop.org/pub/mesa/demos/
 
 
@@ -54,9 +54,8 @@ echo $USER > /tmp/currentuser
 
 export XORG_PREFIX="/usr"
 
-patch -Np1 -i ../mesa-21.1.0-add_xdemos-1.patch
-sed '1s/python/&3/' -i bin/symbols-check.py
-GALLIUM_DRV="i915,iris,nouveau,r600,radeonsi,svga,swrast,virgl"
+patch -Np1 -i ../mesa-21.3.1-add_xdemos-1.patch
+GALLIUM_DRV="crocus,i915,iris,nouveau,r600,radeonsi,svga,swrast,virgl"
 DRI_DRIVERS="i965,nouveau"
 
 export XORG_PREFIX=/usr
@@ -103,8 +102,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -dm755 /usr/share/doc/mesa-21.1.0 &&
-cp -rfv ../docs/* /usr/share/doc/mesa-21.1.0
+install -v -dm755 /usr/share/doc/mesa-21.3.1 &&
+cp -rfv ../docs/* /usr/share/doc/mesa-21.3.1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

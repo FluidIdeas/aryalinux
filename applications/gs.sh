@@ -10,6 +10,7 @@ set +h
 #REQ:cups
 #REQ:fontconfig
 #REQ:freetype2
+#REQ:lcms2
 #REQ:libjpeg
 #REQ:libpng
 #REQ:libtiff
@@ -19,8 +20,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gs
-VERSION=9.54.0
-URL=https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9540/ghostscript-9.54.0.tar.xz
+VERSION=9.55.0
+URL=https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9550/ghostscript-9.55.0.tar.xz
 SECTION="Printing"
 DESCRIPTION="Ghostscript is a versatile processor for PostScript data with the ability to render PostScript to different targets. It is a mandatory part of the cups printing stack."
 
@@ -28,7 +29,7 @@ DESCRIPTION="Ghostscript is a versatile processor for PostScript data with the a
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9540/ghostscript-9.54.0.tar.xz
+wget -nc https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9550/ghostscript-9.55.0.tar.xz
 wget -nc https://downloads.sourceforge.net/gs-fonts/ghostscript-fonts-std-8.11.tar.gz
 wget -nc https://downloads.sourceforge.net/gs-fonts/gnu-gs-fonts-other-6.0.tar.gz
 
@@ -53,6 +54,7 @@ echo $USER > /tmp/currentuser
 
 
 rm -rf freetype lcms2mt jpeg libpng openjpeg
+sed -i 's/gscms_transformm_color_const/gscms_transform_color_const/' base/gsicc_lcms2.c
 rm -rf zlib &&
 
 ./configure --prefix=/usr           \
@@ -83,9 +85,9 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mv -v /usr/share/doc/ghostscript/9.54.0 /usr/share/doc/ghostscript-9.54.0  &&
+mv -v /usr/share/doc/ghostscript/9.55.0 /usr/share/doc/ghostscript-9.55.0  &&
 rm -rfv /usr/share/doc/ghostscript &&
-cp -r examples/ /usr/share/ghostscript/9.54.0/
+cp -r examples/ /usr/share/ghostscript/9.55.0/
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

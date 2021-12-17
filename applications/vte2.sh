@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 
 NAME=vte2
 VERSION=0.28.2
-URL=https://mirror.umd.edu/gnome/sources/vte/0.28/vte-0.28.2.tar.xz
+URL=https://download.gnome.org/sources/vte/0.28/vte-0.28.2.tar.xz
 SECTION="LXDE Applications"
 DESCRIPTION="Vte is a library (libvte) implementing a terminal emulator widget for GTK+ 2, and a minimal demonstration application (vte) that uses libvte."
 
@@ -22,7 +22,7 @@ DESCRIPTION="Vte is a library (libvte) implementing a terminal emulator widget f
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/vte/0.28/vte-0.28.2.tar.xz
+wget -nc https://download.gnome.org/sources/vte/0.28/vte-0.28.2.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/vte/0.28/vte-0.28.2.tar.xz
 
 

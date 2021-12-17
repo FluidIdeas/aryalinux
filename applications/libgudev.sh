@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libgudev
-VERSION=236
-URL=https://mirror.umd.edu/gnome/sources/libgudev/236/libgudev-236.tar.xz
+VERSION=237
+URL=https://download.gnome.org/sources/libgudev/237/libgudev-237.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libgudev package contains GObject bindings for libudev."
 
@@ -22,8 +22,8 @@ DESCRIPTION="The libgudev package contains GObject bindings for libudev."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/libgudev/236/libgudev-236.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgudev/236/libgudev-236.tar.xz
+wget -nc https://download.gnome.org/sources/libgudev/237/libgudev-237.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgudev/237/libgudev-237.tar.xz
 
 
 if [ ! -z $URL ]
@@ -48,7 +48,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=mypaint-brushes
-VERSION=1.3.0
-URL=https://github.com/Jehan/mypaint-brushes/archive/v1.3.0/mypaint-brushes-v1.3.0.tar.gz
+VERSION=1.3.1
+URL=https://github.com/mypaint/mypaint-brushes/releases/download/v1.3.1/mypaint-brushes-1.3.1.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The mypaint-brushes package contains brushes used by packages which use libmypaint."
 
@@ -22,8 +22,7 @@ DESCRIPTION="The mypaint-brushes package contains brushes used by packages which
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/Jehan/mypaint-brushes/archive/v1.3.0/mypaint-brushes-v1.3.0.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/mypaint-brushes-1.3.0-automake_1.16-1.patch
+wget -nc https://github.com/mypaint/mypaint-brushes/releases/download/v1.3.1/mypaint-brushes-1.3.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -45,9 +44,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../mypaint-brushes-1.3.0-automake_1.16-1.patch &&
-./autogen.sh                                                 &&
-./configure --prefix=/usr                                    &&
+./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

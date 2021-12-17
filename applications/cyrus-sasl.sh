@@ -50,6 +50,7 @@ patch -Np1 -i ../cyrus-sasl-2.1.27-doc_fixes-1.patch
             --sysconfdir=/etc    \
             --enable-auth-sasldb \
             --with-dbpath=/var/lib/sasl/sasldb2 \
+            --with-sphinx-build=no              \
             --with-saslauthd=/var/run/saslauthd &&
 make -j1
 sudo rm -rf /tmp/rootscript.sh

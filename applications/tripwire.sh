@@ -56,7 +56,7 @@ sed '/dist/d' -i man/man?/Makefile.am                      &&
 autoreconf -fi                                             &&
 
 ./configure --prefix=/usr --sysconfdir=/etc/tripwire       &&
-make
+make CPPFLAGS=-std=c++11
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&

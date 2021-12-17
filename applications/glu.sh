@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=glu
-VERSION=9.0.1
-URL=ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.1.tar.xz
+VERSION=9.0.2
+URL=ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.2.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="This package provides the Mesa OpenGL Utility library."
 
@@ -22,7 +22,7 @@ DESCRIPTION="This package provides the Mesa OpenGL Utility library."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.1.tar.xz
+wget -nc ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.2.tar.xz
 
 
 if [ ! -z $URL ]
@@ -45,11 +45,15 @@ echo $USER > /tmp/currentuser
 
 export XORG_PREFIX="/usr"
 
-./configure --prefix=$XORG_PREFIX --disable-static &&
-make
+mkdir build &&
+cd    build &&
+
+meson --prefix=$XORG_PREFIX -Dgl_provider=gl --buildtype=release .. &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install &&
+rm -vf /usr/lib/libGLU.a
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

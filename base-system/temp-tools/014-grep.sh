@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=grep-3.6.tar.xz
+TARBALL=grep-3.7.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -21,8 +21,7 @@ cd $DIRECTORY
 
 
 ./configure --prefix=/usr   \
-            --host=$LFS_TGT \
-            --bindir=/bin
+            --host=$LFS_TGT
 make
 make DESTDIR=$LFS install
 

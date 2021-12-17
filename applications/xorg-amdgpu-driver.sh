@@ -13,16 +13,16 @@ set +h
 cd $SOURCE_DIR
 
 NAME=xorg-amdgpu-driver
-VERSION=19.1.0
-URL=https://www.x.org/pub/individual/driver/xf86-video-amdgpu-19.1.0.tar.bz2
+VERSION=21.0.0
+URL=https://www.x.org/pub/individual/driver/xf86-video-amdgpu-21.0.0.tar.bz2
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.x.org/pub/individual/driver/xf86-video-amdgpu-19.1.0.tar.bz2
-wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-amdgpu-19.1.0.tar.bz2
+wget -nc https://www.x.org/pub/individual/driver/xf86-video-amdgpu-21.0.0.tar.bz2
+wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-amdgpu-21.0.0.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -45,7 +45,6 @@ export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disab
 
 echo $USER > /tmp/currentuser
 
-sed -i 's/^miPointerSpriteFuncRec/extern &/' src/drmmode_display.h
 ./configure $XORG_CONFIG &&
 make
 sudo rm -rf /tmp/rootscript.sh

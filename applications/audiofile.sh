@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 
 NAME=audiofile
 VERSION=0.3.6
-URL=https://mirror.umd.edu/gnome/sources/audiofile/0.3/audiofile-0.3.6.tar.xz
+URL=https://download.gnome.org/sources/audiofile/0.3/audiofile-0.3.6.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The AudioFile package contains the audio file libraries and two sound file support programs useful to support basic sound file formats."
 
@@ -23,8 +23,9 @@ DESCRIPTION="The AudioFile package contains the audio file libraries and two sou
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/audiofile/0.3/audiofile-0.3.6.tar.xz
+wget -nc https://download.gnome.org/sources/audiofile/0.3/audiofile-0.3.6.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/audiofile/0.3/audiofile-0.3.6.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/audiofile-0.3.6-consolidated_patches-1.patch
 
 
 if [ ! -z $URL ]
@@ -46,8 +47,10 @@ fi
 echo $USER > /tmp/currentuser
 
 
-CXXFLAGS="${CXXFLAGS:--O2 -g} -std=c++98" \
-./configure --prefix=/usr --disable-static &&
+patch -Np1 -i audiofile-0.3.6-consolidated_patches-1.patch &&
+autoreconf -fiv                             &&
+
+./configure --prefix=/usr --disable-static  &&
 
 make
 sudo rm -rf /tmp/rootscript.sh

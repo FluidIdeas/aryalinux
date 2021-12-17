@@ -82,10 +82,16 @@ fi
 echo $USER > /tmp/currentuser
 
 
+if bison --version|grep -q 3.8; then
+  sed -i 's/yyn/yyrule/' connectivity/source/parse/sqlbison.y
+fi
 install -dm755 external/tarballs &&
 ln -sv ../../../libreoffice-dictionaries-7.2.3.2.tar.xz external/tarballs/ &&
 ln -sv ../../../libreoffice-help-7.2.3.2.tar.xz         external/tarballs/ &&
 ln -sv ../../../libreoffice-translations-7.2.3.2.tar.xz external/tarballs/
+ln -sv src/libreoffice-help-7.2.3.2/helpcontent2/ &&
+ln -sv src/libreoffice-dictionaries-7.2.3.2/dictionaries/ &&
+ln -sv src/libreoffice-translations-7.2.3.2/translations/
 export LO_PREFIX=/usr
 sed -e "/gzip -f/d"   \
     -e "s|.1.gz|.1|g" \

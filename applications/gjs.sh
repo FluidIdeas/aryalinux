@@ -18,8 +18,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gjs
-VERSION=1.68.0
-URL=https://mirror.umd.edu/gnome/sources/gjs/1.68/gjs-1.68.0.tar.xz
+VERSION=1.68.3
+URL=https://download.gnome.org/sources/gjs/1.68/gjs-1.68.3.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Gjs is a set of Javascript bindings for GNOME."
 
@@ -27,8 +27,8 @@ DESCRIPTION="Gjs is a set of Javascript bindings for GNOME."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/gjs/1.68/gjs-1.68.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gjs/1.68/gjs-1.68.0.tar.xz
+wget -nc https://download.gnome.org/sources/gjs/1.68/gjs-1.68.3.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gjs/1.68/gjs-1.68.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -53,7 +53,7 @@ echo $USER > /tmp/currentuser
 mkdir gjs-build &&
 cd    gjs-build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

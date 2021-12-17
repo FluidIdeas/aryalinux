@@ -16,8 +16,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=totem-pl-parser
-VERSION=3.26.5
-URL=https://mirror.umd.edu/gnome/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.5.tar.xz
+VERSION=3.26.6
+URL=https://download.gnome.org/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.6.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Totem PL Parser package contains a simple GObject-based library used to parse multiple playlist formats."
 
@@ -25,8 +25,8 @@ DESCRIPTION="The Totem PL Parser package contains a simple GObject-based library
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.5.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.5.tar.xz
+wget -nc https://download.gnome.org/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.6.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.6.tar.xz
 
 
 if [ ! -z $URL ]
@@ -51,7 +51,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix /usr .. &&
+meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -53,7 +53,7 @@ sed -e 's/^LIBNEWT =/#&/'                   \
 
 ./configure --prefix=/usr           \
             --with-gpm-support      \
-            --with-python=python3.9 &&
+            --with-python=python3.10 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 
 NAME=gnome-nettool
 VERSION=3.8.1
-URL=https://mirror.umd.edu/gnome/sources/gnome-nettool/3.8/gnome-nettool-3.8.1.tar.xz
+URL=https://download.gnome.org/sources/gnome-nettool/3.8/gnome-nettool-3.8.1.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Nettool package is a network information tool which provides GUI interface for some of the most common command line network tools."
 
@@ -24,7 +24,7 @@ DESCRIPTION="The GNOME Nettool package is a network information tool which provi
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/gnome-nettool/3.8/gnome-nettool-3.8.1.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-nettool/3.8/gnome-nettool-3.8.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-nettool/3.8/gnome-nettool-3.8.1.tar.xz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/gnome-nettool-3.8.1-ping_and_netstat_fixes-1.patch
 

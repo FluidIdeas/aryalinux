@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 
 NAME=gnome-logs
 VERSION=3.36.0
-URL=https://mirror.umd.edu/gnome/sources/gnome-logs/3.36/gnome-logs-3.36.0.tar.xz
+URL=https://download.gnome.org/sources/gnome-logs/3.36/gnome-logs-3.36.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Logs package contains a log viewer for the systemd journal."
 
@@ -24,7 +24,7 @@ DESCRIPTION="The GNOME Logs package contains a log viewer for the systemd journa
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/gnome-logs/3.36/gnome-logs-3.36.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-logs/3.36/gnome-logs-3.36.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-logs/3.36/gnome-logs-3.36.0.tar.xz
 
 

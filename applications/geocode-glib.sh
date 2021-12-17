@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 
 NAME=geocode-glib
 VERSION=3.26.2
-URL=https://mirror.umd.edu/gnome/sources/geocode-glib/3.26/geocode-glib-3.26.2.tar.xz
+URL=https://download.gnome.org/sources/geocode-glib/3.26/geocode-glib-3.26.2.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Geocode GLib is a convenience library for the Yahoo! Place Finder APIs. The Place Finder web service allows to do geocoding (finding longitude and latitude from an address), and reverse geocoding (finding an address from coordinates)."
 
@@ -24,7 +24,7 @@ DESCRIPTION="The Geocode GLib is a convenience library for the Yahoo! Place Find
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/geocode-glib/3.26/geocode-glib-3.26.2.tar.xz
+wget -nc https://download.gnome.org/sources/geocode-glib/3.26/geocode-glib-3.26.2.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/geocode-glib/3.26/geocode-glib-3.26.2.tar.xz
 
 
@@ -49,7 +49,7 @@ echo $USER > /tmp/currentuser
 
 mkdir build                                   &&
 cd    build                                   &&
-meson --prefix /usr -Denable-gtk-doc=false .. &&
+meson --prefix /usr --buildtype=release -Denable-gtk-doc=false .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

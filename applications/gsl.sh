@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gsl
-VERSION=2.6
-URL=https://ftp.gnu.org/gnu/gsl/gsl-2.6.tar.gz
+VERSION=2.7.1
+URL=https://ftp.gnu.org/gnu/gsl/gsl-2.7.1.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The GNU Scientific Library (GSL) is a numerical library for C and C++ programmers. It provides a wide range of mathematical routines such as random number generators, special functions and least-squares fitting."
 
@@ -21,8 +21,8 @@ DESCRIPTION="The GNU Scientific Library (GSL) is a numerical library for C and C
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ftp.gnu.org/gnu/gsl/gsl-2.6.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/gsl/gsl-2.6.tar.gz
+wget -nc https://ftp.gnu.org/gnu/gsl/gsl-2.7.1.tar.gz
+wget -nc ftp://ftp.gnu.org/gnu/gsl/gsl-2.7.1.tar.gz
 
 
 if [ ! -z $URL ]
@@ -58,8 +58,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir                   /usr/share/doc/gsl-2.6 &&
-cp -R doc/_build/html/* /usr/share/doc/gsl-2.6
+mkdir                   /usr/share/doc/gsl-2.7.1 &&
+cp -R doc/_build/html/* /usr/share/doc/gsl-2.7.1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -19,7 +19,7 @@ cd $SOURCE_DIR
 
 NAME=vinagre
 VERSION=3.22.0
-URL=https://mirror.umd.edu/gnome/sources/vinagre/3.22/vinagre-3.22.0.tar.xz
+URL=https://download.gnome.org/sources/vinagre/3.22/vinagre-3.22.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="Vinagre is a VNC client for the GNOME Desktop."
 
@@ -27,7 +27,7 @@ DESCRIPTION="Vinagre is a VNC client for the GNOME Desktop."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/vinagre/3.22/vinagre-3.22.0.tar.xz
+wget -nc https://download.gnome.org/sources/vinagre/3.22/vinagre-3.22.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/vinagre/3.22/vinagre-3.22.0.tar.xz
 
 

@@ -7,14 +7,11 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:gnome-desktop
 #REQ:gnome-settings-daemon
 #REQ:graphene
-#REQ:libcanberra
-#REQ:libwacom
+#REQ:libxcvt
 #REQ:libxkbcommon
 #REQ:pipewire
-#REQ:upower
 #REQ:zenity
 #REQ:desktop-file-utils
 #REQ:gobject-introspection
@@ -23,7 +20,7 @@ set +h
 #REQ:libinput
 #REQ:wayland
 #REQ:wayland-protocols
-#REQ:xorg-server
+#REQ:xwayland
 #REQ:gtk3
 #REQ:graphene
 #REQ:pipewire
@@ -32,8 +29,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=mutter
-VERSION=40.0
-URL=https://mirror.umd.edu/gnome/sources/mutter/40/mutter-40.0.tar.xz
+VERSION=40.4
+URL=https://download.gnome.org/sources/mutter/40/mutter-40.4.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Mutter is the window manager for GNOME. It is not invoked directly, but from GNOME Session (on a machine with a hardware accelerated video driver)."
 
@@ -41,8 +38,8 @@ DESCRIPTION="Mutter is the window manager for GNOME. It is not invoked directly,
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/mutter/40/mutter-40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/mutter/40/mutter-40.0.tar.xz
+wget -nc https://download.gnome.org/sources/mutter/40/mutter-40.4.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/mutter/40/mutter-40.4.tar.xz
 
 
 if [ ! -z $URL ]
@@ -68,7 +65,7 @@ sed -i '/libmutter_dep = declare_dependency(/a sources: mutter_built_sources,' s
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr --buildtype=debugoptimized .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

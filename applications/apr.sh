@@ -44,6 +44,9 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -e "/shift/i \
+\    if (xt->tm_mon < 0 || xt->tm_mon >= 12) return APR_EBADDATE;" \
+    -i time/unix/time.c
 ./configure --prefix=/usr    \
             --disable-static \
             --with-installbuilddir=/usr/share/apr-1/build &&

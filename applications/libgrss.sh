@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 
 NAME=libgrss
 VERSION=0.7.0
-URL=https://mirror.umd.edu/gnome/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
+URL=https://download.gnome.org/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libgrss package contains a library designed to manipulate RSS and Atom feeds."
 
@@ -22,7 +22,7 @@ DESCRIPTION="The libgrss package contains a library designed to manipulate RSS a
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
+wget -nc https://download.gnome.org/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/libgrss-0.7.0-bugfixes-1.patch
 

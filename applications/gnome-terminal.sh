@@ -19,8 +19,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gnome-terminal
-VERSION=3.40.1
-URL=https://mirror.umd.edu/gnome/sources/gnome-terminal/3.40/gnome-terminal-3.40.1.tar.xz
+VERSION=3.40.3
+URL=https://download.gnome.org/sources/gnome-terminal/3.40/gnome-terminal-3.40.3.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Terminal package contains the terminal emulator for GNOME Desktop."
 
@@ -28,7 +28,8 @@ DESCRIPTION="The GNOME Terminal package contains the terminal emulator for GNOME
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/gnome-terminal/3.40/gnome-terminal-3.40.1.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-terminal/3.40/gnome-terminal-3.40.3.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-terminal/3.40/gnome-terminal-3.40.3.tar.xz
 
 
 if [ ! -z $URL ]

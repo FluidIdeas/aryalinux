@@ -8,13 +8,14 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:inih
+#REQ:liburcu
 
 
 cd $SOURCE_DIR
 
 NAME=xfsprogs
-VERSION=5.11.0
-URL=https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.11.0.tar.xz
+VERSION=5.14.2
+URL=https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.14.2.tar.xz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The xfsprogs package contains administration and debugging tools for the XFS file system."
 
@@ -22,7 +23,7 @@ DESCRIPTION="The xfsprogs package contains administration and debugging tools fo
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.11.0.tar.xz
+wget -nc https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-5.14.2.tar.xz
 
 
 if [ ! -z $URL ]
@@ -49,12 +50,10 @@ make DEBUG=-DNDEBUG     \
      INSTALL_GROUP=root
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make PKG_DOC_DIR=/usr/share/doc/xfsprogs-5.11.0 install     &&
-make PKG_DOC_DIR=/usr/share/doc/xfsprogs-5.11.0 install-dev &&
+make PKG_DOC_DIR=/usr/share/doc/xfsprogs-5.14.2 install     &&
+make PKG_DOC_DIR=/usr/share/doc/xfsprogs-5.14.2 install-dev &&
 
-rm -rfv /usr/lib/libhandle.a                                &&
-rm -rfv /lib/libhandle.{a,la,so}                            &&
-ln -sfv ../../lib/libhandle.so.1 /usr/lib/libhandle.so
+rm -rfv /usr/lib/libhandle.{a,la}
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

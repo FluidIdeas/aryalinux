@@ -45,17 +45,14 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr                  \
-            --disable-static               \
-            --with-securedir=/lib/security \
-            --with-python-binary=python3 &&
+./configure --prefix=/usr                      \
+            --disable-static                   \
+            --with-securedir=/usr/lib/security \
+            --with-python-binary=python3       &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install                          &&
-
-mv -v /usr/lib/libpwquality.so.* /lib &&
-ln -sfv ../../lib/$(readlink /usr/lib/libpwquality.so) /usr/lib/libpwquality.so
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -76,7 +73,7 @@ password  required    pam_pwquality.so   authtok_type=UNIX retry=1 difok=1 \
                                          maxclassrepeat=0 geoscheck=0 \
                                          dictcheck=1 usercheck=1 \
                                          enforcing=1 badwords="" \
-                                         dictpath=/lib/cracklib/pw_dict
+                                         dictpath=/usr/lib/cracklib/pw_dict
 # use sha512 hash for encryption, use shadow, and use the
 # authentication token (chosen password) set by pam_pwquality
 # above (or any previous modules)

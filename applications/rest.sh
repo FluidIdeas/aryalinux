@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 
 NAME=rest
 VERSION=0.8.1
-URL=https://mirror.umd.edu/gnome/sources/rest/0.8/rest-0.8.1.tar.xz
+URL=https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The rest package contains a library that was designed to make it easier to access web services that claim to be \"RESTful\". It includes convenience wrappers for libsoup and libxml to ease remote use of the RESTful API."
 
@@ -24,7 +24,7 @@ DESCRIPTION="The rest package contains a library that was designed to make it ea
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/rest/0.8/rest-0.8.1.tar.xz
+wget -nc https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/rest/0.8/rest-0.8.1.tar.xz
 
 
@@ -47,8 +47,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr \
-    --with-ca-certificates=/etc/pki/tls/certs/ca-bundle.crt &&
+./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

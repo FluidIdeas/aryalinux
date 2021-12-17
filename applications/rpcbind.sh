@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=rpcbind
-VERSION=1.2.5
-URL=https://downloads.sourceforge.net/rpcbind/rpcbind-1.2.5.tar.bz2
+VERSION=1.2.6
+URL=https://downloads.sourceforge.net/rpcbind/rpcbind-1.2.6.tar.bz2
 SECTION="Networking Programs"
 DESCRIPTION="The rpcbind program is a replacement for portmap. It is required for import or export of Network File System (NFS) shared directories."
 
@@ -22,8 +22,8 @@ DESCRIPTION="The rpcbind program is a replacement for portmap. It is required fo
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.sourceforge.net/rpcbind/rpcbind-1.2.5.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/rpcbind-1.2.5-vulnerability_fixes-1.patch
+wget -nc https://downloads.sourceforge.net/rpcbind/rpcbind-1.2.6.tar.bz2
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/rpcbind-1.2.6-vulnerability_fixes-1.patch
 
 
 if [ ! -z $URL ]
@@ -57,11 +57,10 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 sed -i "/servname/s:rpcbind:sunrpc:" src/rpcbind.c
-patch -Np1 -i ../rpcbind-1.2.5-vulnerability_fixes-1.patch &&
+patch -Np1 -i ../rpcbind-1.2.6-vulnerability_fixes-1.patch &&
 
 ./configure --prefix=/usr       \
-            --bindir=/sbin      \
-            --sbindir=/sbin     \
+            --bindir=/usr/sbin  \
             --enable-warmstarts \
             --with-rpcuser=rpc  &&
 make

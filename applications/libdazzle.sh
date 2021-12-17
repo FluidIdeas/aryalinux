@@ -14,8 +14,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libdazzle
-VERSION=3.40.0
-URL=https://mirror.umd.edu/gnome/sources/libdazzle/3.40/libdazzle-3.40.0.tar.xz
+VERSION=3.42.0
+URL=https://download.gnome.org/sources/libdazzle/3.42/libdazzle-3.42.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="libdazzle is a companion library to GObject and GTK+ that adds APIs for special graphical effects."
 
@@ -23,8 +23,8 @@ DESCRIPTION="libdazzle is a companion library to GObject and GTK+ that adds APIs
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/libdazzle/3.40/libdazzle-3.40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libdazzle/3.40/libdazzle-3.40.0.tar.xz
+wget -nc https://download.gnome.org/sources/libdazzle/3.42/libdazzle-3.42.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libdazzle/3.42/libdazzle-3.42.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -49,7 +49,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

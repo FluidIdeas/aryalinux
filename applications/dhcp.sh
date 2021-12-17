@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=dhcp
-VERSION=4.4.2
-URL=ftp://ftp.isc.org/isc/dhcp/4.4.2/dhcp-4.4.2.tar.gz
+VERSION=4.4.
+URL=https://ftp.isc.org/isc/dhcp/4.4.2-P1/dhcp-4.4.2-P1.tar.gz
 SECTION="Connecting to a Network"
 DESCRIPTION="The ISC DHCP package contains both the client and server programs for DHCP. dhclient (the client) is used for connecting to a network which uses DHCP to assign network addresses. dhcpd (the server) is used for assigning network addresses on private networks."
 
@@ -21,7 +21,8 @@ DESCRIPTION="The ISC DHCP package contains both the client and server programs f
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc ftp://ftp.isc.org/isc/dhcp/4.4.2/dhcp-4.4.2.tar.gz
+wget -nc https://ftp.isc.org/isc/dhcp/4.4.2-P1/dhcp-4.4.2-P1.tar.gz
+wget -nc ftp://ftp.isc.org/isc/dhcp/4.4.2-P1/dhcp-4.4.2-P1.tar.gz
 
 
 if [ ! -z $URL ]
@@ -48,7 +49,7 @@ sed -r '/u.*(local|remote)_port/d'    \
     -i client/dhclient.c              \
        relay/dhcrelay.c
 ( export CFLAGS="${CFLAGS:--g -O2} -Wall -fno-strict-aliasing                 \
-        -D_PATH_DHCLIENT_SCRIPT='\"/sbin/dhclient-script\"'         \
+        -D_PATH_DHCLIENT_SCRIPT='\"/usr/sbin/dhclient-script\"'     \
         -D_PATH_DHCPD_CONF='\"/etc/dhcp/dhcpd.conf\"'               \
         -D_PATH_DHCLIENT_CONF='\"/etc/dhcp/dhclient.conf\"'"        &&
 
@@ -63,9 +64,8 @@ sed -r '/u.*(local|remote)_port/d'    \
 make -j1
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make -C client install         &&
-mv -v /usr/sbin/dhclient /sbin &&
-install -v -m755 client/scripts/linux /sbin/dhclient-script
+make -C client install             &&
+install -v -m755 client/scripts/linux /usr/sbin/dhclient-script
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -83,9 +83,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install                   &&
-mv -v /usr/sbin/dhclient /sbin &&
-install -v -m755 client/scripts/linux /sbin/dhclient-script
+make install &&
+install -v -m755 client/scripts/linux /usr/sbin/dhclient-script
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

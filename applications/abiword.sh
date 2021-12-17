@@ -18,8 +18,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=abiword
-VERSION=3.0.4
-URL=https://www.abisource.com/downloads/abiword/3.0.4/source/abiword-3.0.4.tar.gz
+VERSION=3.0.5
+URL=https://www.abisource.com/downloads/abiword/3.0.5/source/abiword-3.0.5.tar.gz
 SECTION="Office Programs"
 DESCRIPTION="AbiWord is a word processor which is useful for writing reports, letters and other formatted documents."
 
@@ -27,7 +27,7 @@ DESCRIPTION="AbiWord is a word processor which is useful for writing reports, le
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.abisource.com/downloads/abiword/3.0.4/source/abiword-3.0.4.tar.gz
+wget -nc https://www.abisource.com/downloads/abiword/3.0.5/source/abiword-3.0.5.tar.gz
 wget -nc https://www.abisource.com/downloads/abiword/3.0.2/source/abiword-docs-3.0.2.tar.gz
 
 

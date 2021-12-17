@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 
 NAME=gnome-icon-theme-symbolic
 VERSION=3.12.0
-URL=https://mirror.umd.edu/gnome/sources/gnome-icon-theme-symbolic/3.12/gnome-icon-theme-symbolic-3.12.0.tar.xz
+URL=https://download.gnome.org/sources/gnome-icon-theme-symbolic/3.12/gnome-icon-theme-symbolic-3.12.0.tar.xz
 SECTION="Icons"
 DESCRIPTION="The GNOME Icon Theme Symbolic package contains symbolic icons for the default GNOME icon theme."
 
@@ -22,7 +22,7 @@ DESCRIPTION="The GNOME Icon Theme Symbolic package contains symbolic icons for t
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/gnome-icon-theme-symbolic/3.12/gnome-icon-theme-symbolic-3.12.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-icon-theme-symbolic/3.12/gnome-icon-theme-symbolic-3.12.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-icon-theme-symbolic/3.12/gnome-icon-theme-symbolic-3.12.0.tar.xz
 
 

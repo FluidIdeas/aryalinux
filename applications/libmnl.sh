@@ -47,9 +47,7 @@ echo $USER > /tmp/currentuser
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install                 &&
-mv /usr/lib/libmnl.so.* /lib &&
-ln -sfv ../../lib/$(readlink /usr/lib/libmnl.so) /usr/lib/libmnl.so
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

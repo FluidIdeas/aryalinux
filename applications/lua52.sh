@@ -63,7 +63,7 @@ Name: Lua
 Description: An Extensible Extension Language
 Version: ${R}
 Requires:
-Libs: -L${libdir} -llua -lm -ldl
+Libs: -L${libdir} -llua5.2 -lm -ldl
 Cflags: -I${includedir}
 EOF
 patch -Np1 -i ../lua-5.2.4-shared_library-1.patch &&

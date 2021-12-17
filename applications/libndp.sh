@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libndp
-VERSION=1.7
-URL=http://libndp.org/files/libndp-1.7.tar.gz
+VERSION=1.8
+URL=http://libndp.org/files/libndp-1.8.tar.gz
 SECTION="Networking Libraries"
 DESCRIPTION="The libndp package provides a wrapper for IPv6 Neighbor Discovery Protocol. It also provides a tool named ndptool for sending and receiving NDP messages."
 
@@ -21,7 +21,7 @@ DESCRIPTION="The libndp package provides a wrapper for IPv6 Neighbor Discovery P
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc http://libndp.org/files/libndp-1.7.tar.gz
+wget -nc http://libndp.org/files/libndp-1.8.tar.gz
 
 
 if [ ! -z $URL ]

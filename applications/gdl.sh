@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gdl
-VERSION=3.34.0
-URL=https://mirror.umd.edu/gnome/sources/gdl/3.34/gdl-3.34.0.tar.xz
+VERSION=3.40.0
+URL=https://download.gnome.org/sources/gdl/3.40/gdl-3.40.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The GDL package provides a library that is useful for docking objects in GTK+ applications."
 
@@ -22,8 +22,8 @@ DESCRIPTION="The GDL package provides a library that is useful for docking objec
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/gdl/3.34/gdl-3.34.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gdl/3.34/gdl-3.34.0.tar.xz
+wget -nc https://download.gnome.org/sources/gdl/3.40/gdl-3.40.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gdl/3.40/gdl-3.40.0.tar.xz
 
 
 if [ ! -z $URL ]

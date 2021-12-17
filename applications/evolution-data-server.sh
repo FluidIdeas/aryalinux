@@ -7,7 +7,6 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:db
 #REQ:gcr
 #REQ:libical
 #REQ:libsecret
@@ -26,8 +25,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=evolution-data-server
-VERSION=3.40.0
-URL=https://mirror.umd.edu/gnome/sources/evolution-data-server/3.40/evolution-data-server-3.40.0.tar.xz
+VERSION=3.40.4
+URL=https://download.gnome.org/sources/evolution-data-server/3.40/evolution-data-server-3.40.4.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Evolution Data Server package provides a unified backend for programs that work with contacts, tasks, and calendar information. It was originally developed for Evolution (hence the name), but is now used by other packages as well."
 
@@ -35,9 +34,8 @@ DESCRIPTION="The Evolution Data Server package provides a unified backend for pr
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/evolution-data-server/3.40/evolution-data-server-3.40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/evolution-data-server/3.40/evolution-data-server-3.40.0.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/evolution-data-server-3.40.0-cmake_fix-1.patch
+wget -nc https://download.gnome.org/sources/evolution-data-server/3.40/evolution-data-server-3.40.4.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/evolution-data-server/3.40/evolution-data-server-3.40.4.tar.xz
 
 
 if [ ! -z $URL ]
@@ -68,7 +66,6 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-patch -Np1 -i ../evolution-data-server-3.40.0-cmake_fix-1.patch
 mkdir build &&
 cd    build &&
 
@@ -81,6 +78,7 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr   \
       -DWITH_KRB5=OFF               \
       -DENABLE_INTROSPECTION=ON     \
       -DENABLE_GTK_DOC=OFF          \
+      -DWITH_LIBDB=OFF              \
       .. &&
 make
 sudo rm -rf /tmp/rootscript.sh

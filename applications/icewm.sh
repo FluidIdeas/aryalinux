@@ -14,8 +14,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=icewm
-VERSION=2.3.1
-URL=https://github.com/ice-wm/icewm/archive/2.3.1/icewm-2.3.1.tar.gz
+VERSION=2.8.0
+URL=https://github.com/ice-wm/icewm/archive/2.8.0/icewm-2.8.0.tar.gz
 SECTION="Window Managers"
 DESCRIPTION="IceWM is a window manager with the goals of speed, simplicity, and not getting in the user's way."
 
@@ -23,7 +23,7 @@ DESCRIPTION="IceWM is a window manager with the goals of speed, simplicity, and 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/ice-wm/icewm/archive/2.3.1/icewm-2.3.1.tar.gz
+wget -nc https://github.com/ice-wm/icewm/archive/2.8.0/icewm-2.8.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -54,7 +54,7 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr \
       -DENABLE_LTO=ON             \
       -DCONFIG_GDK_PIXBUF_XLIB=ON \
       -DCONFIG_IMLIB2=OFF         \
-      -DDOCDIR=/usr/share/doc/icewm-2.3.1  \
+      -DDOCDIR=/usr/share/doc/icewm-2.8.0  \
       .. &&
 make
 sudo rm -rf /tmp/rootscript.sh
@@ -67,7 +67,7 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 echo icewm-session > ~/.xinitrc
-mkdir -v ~/.icewm                                       &&
+mkdir -pv ~/.icewm                                      &&
 cp -v /usr/share/icewm/keys ~/.icewm/keys               &&
 cp -v /usr/share/icewm/menu ~/.icewm/menu               &&
 cp -v /usr/share/icewm/preferences ~/.icewm/preferences &&

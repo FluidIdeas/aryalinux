@@ -7,13 +7,14 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:libptytty
 
 
 cd $SOURCE_DIR
 
 NAME=rxvt-unicode
-VERSION=9.22
-URL=http://dist.schmorp.de/rxvt-unicode/Attic/rxvt-unicode-9.22.tar.bz2
+VERSION=9.30
+URL=http://dist.schmorp.de/rxvt-unicode/Attic/rxvt-unicode-9.30.tar.bz2
 SECTION="Other X-based Programs"
 DESCRIPTION="rxvt-unicode is a clone of the terminal emulator rxvt, an X Window System terminal emulator which includes support for XFT and Unicode."
 
@@ -21,7 +22,7 @@ DESCRIPTION="rxvt-unicode is a clone of the terminal emulator rxvt, an X Window 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc http://dist.schmorp.de/rxvt-unicode/Attic/rxvt-unicode-9.22.tar.bz2
+wget -nc http://dist.schmorp.de/rxvt-unicode/Attic/rxvt-unicode-9.30.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -43,7 +44,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i '/if (perl)/,+5d' src/rxvtperl.xs      &&
 ./configure --prefix=/usr --enable-everything &&
 make
 sudo rm -rf /tmp/rootscript.sh

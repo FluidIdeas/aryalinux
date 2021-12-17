@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:alsa-lib
 #REQ:colord
 #REQ:fontconfig
 #REQ:gcr
@@ -17,12 +18,10 @@ set +h
 #REQ:libcanberra
 #REQ:libgweather
 #REQ:libnotify
-#REQ:librsvg
 #REQ:libwacom
 #REQ:pulseaudio
 #REQ:systemd
 #REQ:upower
-#REQ:xorg-wacom-driver
 #REQ:alsa
 #REQ:cups
 #REQ:networkmanager
@@ -33,8 +32,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gnome-settings-daemon
-VERSION=40.0
-URL=https://mirror.umd.edu/gnome/sources/gnome-settings-daemon/40/gnome-settings-daemon-40.0.tar.xz
+VERSION=40.0.1
+URL=https://download.gnome.org/sources/gnome-settings-daemon/40/gnome-settings-daemon-40.0.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Settings Daemon is responsible for setting various parameters of a GNOME Session and the applications that run under it."
 
@@ -42,8 +41,8 @@ DESCRIPTION="The GNOME Settings Daemon is responsible for setting various parame
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/gnome-settings-daemon/40/gnome-settings-daemon-40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-settings-daemon/40/gnome-settings-daemon-40.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-settings-daemon/40/gnome-settings-daemon-40.0.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-settings-daemon/40/gnome-settings-daemon-40.0.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -74,10 +73,11 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+sed -i /b_ndebug/s/true/\'true\'/ meson.build
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

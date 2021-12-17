@@ -12,15 +12,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=python-modules#pygments
-VERSION=2.8.0
-URL=https://files.pythonhosted.org/packages/source/P/Pygments/Pygments-2.8.0.tar.gz
+VERSION=2.10.0
+URL=https://files.pythonhosted.org/packages/source/P/Pygments/Pygments-2.10.0.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://files.pythonhosted.org/packages/source/P/Pygments/Pygments-2.8.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/P/Pygments/Pygments-2.10.0.tar.gz
 
 
 if [ ! -z $URL ]

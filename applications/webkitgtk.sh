@@ -23,6 +23,7 @@ set +h
 #REQ:ruby
 #REQ:sqlite
 #REQ:which
+#REQ:wpebackend-fdo
 #REQ:enchant
 #REQ:geoclue2
 #REQ:gobject-introspection
@@ -43,8 +44,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=webkitgtk
-VERSION=2.32.0
-URL=https://webkitgtk.org/releases/webkitgtk-2.32.0.tar.xz
+VERSION=2.34.1
+URL=https://webkitgtk.org/releases/webkitgtk-2.34.1.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The WebKitGTK package is a port of the portable web rendering engine WebKit to the GTK+ 3 and GTK+ 2 platforms."
 
@@ -52,8 +53,7 @@ DESCRIPTION="The WebKitGTK package is a port of the portable web rendering engin
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://webkitgtk.org/releases/webkitgtk-2.32.0.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/webkitgtk-2.32.0-icu_69-1.patch
+wget -nc https://webkitgtk.org/releases/webkitgtk-2.34.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -75,7 +75,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../webkitgtk-2.32.0-icu_69-1.patch
 
 mkdir -vp build &&
 cd        build &&

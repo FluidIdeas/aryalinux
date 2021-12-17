@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=gcc-10.2.0.tar.xz
+TARBALL=gcc-11.2.0.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -29,7 +29,7 @@ cd       build
     --disable-multilib              \
     --disable-nls                   \
     --disable-libstdcxx-pch         \
-    --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/10.2.0
+    --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/11.2.0
 make
 make DESTDIR=$LFS install
 

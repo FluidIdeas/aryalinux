@@ -15,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=nfs-utils
-VERSION=2.5.2
-URL=https://www.kernel.org/pub/linux/utils/nfs-utils/2.5.2/nfs-utils-2.5.2.tar.xz
+VERSION=2.5.4
+URL=https://www.kernel.org/pub/linux/utils/nfs-utils/2.5.4/nfs-utils-2.5.4.tar.xz
 SECTION="Networking Programs"
 DESCRIPTION="The NFS Utilities package contains the userspace server and client tools necessary to use the kernel's NFS abilities. NFS is a protocol that allows sharing file systems over the network."
 
@@ -24,7 +24,7 @@ DESCRIPTION="The NFS Utilities package contains the userspace server and client 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.kernel.org/pub/linux/utils/nfs-utils/2.5.2/nfs-utils-2.5.2.tar.xz
+wget -nc https://www.kernel.org/pub/linux/utils/nfs-utils/2.5.4/nfs-utils-2.5.4.tar.xz
 
 
 if [ ! -z $URL ]
@@ -51,14 +51,14 @@ useradd -c "Unprivileged Nobody" -d /dev/null -g nogroup \
     -s /bin/false -u 99 nobody
 ./configure --prefix=/usr          \
             --sysconfdir=/etc      \
-            --sbindir=/sbin        \
+            --sbindir=/usr/sbin    \
             --disable-nfsv4        \
             --disable-gss &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install                      &&
-chmod u+w,go+r /sbin/mount.nfs    &&
+chmod u+w,go+r /usr/sbin/mount.nfs    &&
 chown nobody.nogroup /var/lib/nfs
 ENDOFROOTSCRIPT
 

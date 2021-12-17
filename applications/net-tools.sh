@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=net-tools
-VERSION=20101030
-URL=http://anduin.linuxfromscratch.org/BLFS/net-tools/net-tools-CVS_20101030.tar.gz
+VERSION=2.10
+URL=https://downloads.sourceforge.net/project/net-tools/net-tools-2.10.tar.xz
 SECTION="Networking Programs"
 DESCRIPTION="The Net-tools package is a collection of programs for controlling the network subsystem of the Linux kernel."
 
@@ -21,9 +21,7 @@ DESCRIPTION="The Net-tools package is a collection of programs for controlling t
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc http://anduin.linuxfromscratch.org/BLFS/net-tools/net-tools-CVS_20101030.tar.gz
-wget -nc ftp://anduin.linuxfromscratch.org/BLFS/net-tools/net-tools-CVS_20101030.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/net-tools-CVS_20101030-remove_dups-1.patch
+wget -nc https://downloads.sourceforge.net/project/net-tools/net-tools-2.10.tar.xz
 
 
 if [ ! -z $URL ]
@@ -45,14 +43,18 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../net-tools-CVS_20101030-remove_dups-1.patch &&
-sed -i '/#include <netinet\/ip.h>/d'  iptunnel.c &&
-
-yes "" | make config &&
-make
+export BINDIR='/usr/bin' SBINDIR='/usr/bin' &&
+yes "" | make -j1                           &&
+make DESTDIR=$PWD/install -j1 install       &&
+rm    install/usr/bin/{nis,yp}domainname    &&
+rm    install/usr/bin/{hostname,dnsdomainname,domainname,ifconfig} &&
+rm -r install/usr/share/man/man1            &&
+rm    install/usr/share/man/man8/ifconfig.8 &&
+unset BINDIR SBINDIR
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make update
+chown -R root:root install &&
+cp -a install/* /
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

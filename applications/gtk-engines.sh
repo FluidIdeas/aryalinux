@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 
 NAME=gtk-engines
 VERSION=2.20.2
-URL=https://mirror.umd.edu/gnome/sources/gtk-engines/2.20/gtk-engines-2.20.2.tar.bz2
+URL=https://download.gnome.org/sources/gtk-engines/2.20/gtk-engines-2.20.2.tar.bz2
 SECTION="X Libraries"
 DESCRIPTION="The GTK Engines package contains eight themes/engines and two additional engines for GTK2."
 
@@ -22,7 +22,7 @@ DESCRIPTION="The GTK Engines package contains eight themes/engines and two addit
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/gtk-engines/2.20/gtk-engines-2.20.2.tar.bz2
+wget -nc https://download.gnome.org/sources/gtk-engines/2.20/gtk-engines-2.20.2.tar.bz2
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtk-engines/2.20/gtk-engines-2.20.2.tar.bz2
 
 

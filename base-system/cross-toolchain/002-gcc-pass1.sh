@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=gcc-10.2.0.tar.xz
+TARBALL=gcc-11.2.0.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -34,25 +34,25 @@ case $(uname -m) in
 esac
 mkdir -v build
 cd       build
-../configure                                       \
-    --target=$LFS_TGT                              \
-    --prefix=$LFS/tools                            \
-    --with-glibc-version=2.11                      \
-    --with-sysroot=$LFS                            \
-    --with-newlib                                  \
-    --without-headers                              \
-    --enable-initfini-array                        \
-    --disable-nls                                  \
-    --disable-shared                               \
-    --disable-multilib                             \
-    --disable-decimal-float                        \
-    --disable-threads                              \
-    --disable-libatomic                            \
-    --disable-libgomp                              \
-    --disable-libquadmath                          \
-    --disable-libssp                               \
-    --disable-libvtv                               \
-    --disable-libstdcxx                            \
+../configure                  \
+    --target=$LFS_TGT         \
+    --prefix=$LFS/tools       \
+    --with-glibc-version=2.34 \
+    --with-sysroot=$LFS       \
+    --with-newlib             \
+    --without-headers         \
+    --enable-initfini-array   \
+    --disable-nls             \
+    --disable-shared          \
+    --disable-multilib        \
+    --disable-decimal-float   \
+    --disable-threads         \
+    --disable-libatomic       \
+    --disable-libgomp         \
+    --disable-libquadmath     \
+    --disable-libssp          \
+    --disable-libvtv          \
+    --disable-libstdcxx       \
     --enable-languages=c,c++
 make
 make install

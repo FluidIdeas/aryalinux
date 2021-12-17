@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=logrotate
-VERSION=3.18.0
-URL=https://github.com/logrotate/logrotate/releases/download/3.18.0/logrotate-3.18.0.tar.xz
+VERSION=3.18.1
+URL=https://github.com/logrotate/logrotate/releases/download/3.18.1/logrotate-3.18.1.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="The logrotate package allows automatic rotation, compression, removal, and mailing of log files."
 
@@ -22,7 +22,7 @@ DESCRIPTION="The logrotate package allows automatic rotation, compression, remov
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/logrotate/logrotate/releases/download/3.18.0/logrotate-3.18.0.tar.xz
+wget -nc https://github.com/logrotate/logrotate/releases/download/3.18.1/logrotate-3.18.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -143,7 +143,7 @@ EOF
 chmod -v 0644 /etc/logrotate.d/example.log
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cat > /lib/systemd/system/logrotate.service << "EOF" &&
+cat > /usr/lib/systemd/system/logrotate.service << "EOF" &&
 [Unit]
 Description=Runs the logrotate command
 Documentation=man:logrotate(8)
@@ -156,7 +156,7 @@ Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/sbin/logrotate /etc/logrotate.conf
 EOF
-cat > /lib/systemd/system/logrotate.timer << "EOF" &&
+cat > /usr/lib/systemd/system/logrotate.timer << "EOF" &&
 [Unit]
 Description=Runs the logrotate command daily at 3:00 AM
 

@@ -58,7 +58,7 @@ make install &&
 pushd ../doc &&
   for man in man/man?/* ; do
       install -v -D -m 644 $man /usr/share/$man
-  done 
+  done
 popd
 ENDOFROOTSCRIPT
 

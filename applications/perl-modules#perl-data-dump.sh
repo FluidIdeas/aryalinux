@@ -12,15 +12,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=perl-modules#perl-data-dump
-VERSION=1.23
-URL=https://www.cpan.org/authors/id/G/GA/GAAS/Data-Dump-1.23.tar.gz
+VERSION=1.25
+URL=https://www.cpan.org/authors/id/G/GA/GARU/Data-Dump-1.25.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.cpan.org/authors/id/G/GA/GAAS/Data-Dump-1.23.tar.gz
+wget -nc https://www.cpan.org/authors/id/G/GA/GARU/Data-Dump-1.25.tar.gz
 
 
 if [ ! -z $URL ]

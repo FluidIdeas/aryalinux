@@ -14,8 +14,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=mariadb
-VERSION=10.5.9
-URL=https://downloads.mariadb.org/interstitial/mariadb-10.5.9/source/mariadb-10.5.9.tar.gz
+VERSION=10.6.5
+URL=https://downloads.mariadb.org/interstitial/mariadb-10.6.5/source/mariadb-10.6.5.tar.gz
 SECTION="Databases"
 DESCRIPTION="MariaDB is a community-developed fork and a drop-in replacement for the MySQL relational database management system."
 
@@ -23,8 +23,8 @@ DESCRIPTION="MariaDB is a community-developed fork and a drop-in replacement for
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.mariadb.org/interstitial/mariadb-10.5.9/source/mariadb-10.5.9.tar.gz
-wget -nc ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.5.9/source/mariadb-10.5.9.tar.gz
+wget -nc https://downloads.mariadb.org/interstitial/mariadb-10.6.5/source/mariadb-10.6.5.tar.gz
+wget -nc ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.6.5/source/mariadb-10.6.5.tar.gz
 
 
 if [ ! -z $URL ]
@@ -56,14 +56,13 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sed -i 's/END()/ENDIF()/' libmariadb/cmake/ConnectorName.cmake
 mkdir build &&
 cd    build &&
 
 cmake -DCMAKE_BUILD_TYPE=Release                      \
       -DCMAKE_INSTALL_PREFIX=/usr                     \
-      -DINSTALL_DOCDIR=share/doc/mariadb-10.5.9       \
-      -DINSTALL_DOCREADMEDIR=share/doc/mariadb-10.5.9 \
+      -DINSTALL_DOCDIR=share/doc/mariadb-10.6.5       \
+      -DINSTALL_DOCREADMEDIR=share/doc/mariadb-10.6.5 \
       -DINSTALL_MANDIR=share/man                      \
       -DINSTALL_MYSQLSHAREDIR=share/mysql             \
       -DINSTALL_MYSQLTESTDIR=share/mysql/test         \
@@ -227,6 +226,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+mariadb-upgrade
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

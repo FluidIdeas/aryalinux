@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=llvm
-VERSION=11.1.0
-URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-11.1.0/llvm-11.1.0.src.tar.xz
+VERSION=13.0.0
+URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.0/llvm-13.0.0.src.tar.xz
 SECTION="Programming"
 DESCRIPTION="The LLVM package contains a collection of modular and reusable compiler and toolchain technologies. The Low Level Virtual Machine (LLVM) Core libraries provide a modern source and target-independent optimizer, along with code generation support for many popular CPUs (as well as some less common ones!). These libraries are built around a well specified code representation known as the LLVM intermediate representation (\"LLVM IR\")."
 
@@ -22,9 +22,9 @@ DESCRIPTION="The LLVM package contains a collection of modular and reusable comp
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/llvm/llvm-project/releases/download/llvmorg-11.1.0/llvm-11.1.0.src.tar.xz
-wget -nc https://github.com/llvm/llvm-project/releases/download/llvmorg-11.1.0/clang-11.1.0.src.tar.xz
-wget -nc https://github.com/llvm/llvm-project/releases/download/llvmorg-11.1.0/compiler-rt-11.1.0.src.tar.xz
+wget -nc https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.0/llvm-13.0.0.src.tar.xz
+wget -nc https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.0/clang-13.0.0.src.tar.xz
+wget -nc https://github.com/llvm/llvm-project/releases/download/llvmorg-13.0.0/compiler-rt-13.0.0.src.tar.xz
 
 
 if [ ! -z $URL ]
@@ -46,10 +46,10 @@ fi
 echo $USER > /tmp/currentuser
 
 
-tar -xf ../clang-11.1.0.src.tar.xz -C tools &&
-mv tools/clang-11.1.0.src tools/clang
-tar -xf ../compiler-rt-11.1.0.src.tar.xz -C projects &&
-mv projects/compiler-rt-11.1.0.src projects/compiler-rt
+tar -xf ../clang-13.0.0.src.tar.xz -C tools &&
+mv tools/clang-13.0.0.src tools/clang
+tar -xf ../compiler-rt-13.0.0.src.tar.xz -C projects &&
+mv projects/compiler-rt-13.0.0.src projects/compiler-rt
 grep -rl '#!.*python' | xargs sed -i '1s/python$/python3/'
 mkdir -v build &&
 cd       build &&
@@ -69,6 +69,28 @@ ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+install -v -d -m755 /usr/share/doc/llvm-13.0.0                        &&
+mv -v /usr/share/doc/llvm/html /usr/share/doc/llvm-13.0.0/llvm-html   &&
+rmdir -v /usr/share/doc/llvm
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+install -v -d -m755 /usr/share/doc/llvm-13.0.0                        &&
+mv -v /usr/share/doc/clang/html /usr/share/doc/llvm-13.0.0/clang-html &&
+rmdir -v /usr/share/doc/clang
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

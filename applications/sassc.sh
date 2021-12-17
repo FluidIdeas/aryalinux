@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=sassc
-VERSION=3.6.1
-URL=https://github.com/sass/sassc/archive/3.6.1/sassc-3.6.1.tar.gz
+VERSION=3.6.2
+URL=https://github.com/sass/sassc/archive/3.6.2/sassc-3.6.2.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="SassC is a wrapper around libsass, a CSS pre-processor language."
 
@@ -21,8 +21,8 @@ DESCRIPTION="SassC is a wrapper around libsass, a CSS pre-processor language."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/sass/sassc/archive/3.6.1/sassc-3.6.1.tar.gz
-wget -nc https://github.com/sass/libsass/archive/3.6.4/libsass-3.6.4.tar.gz
+wget -nc https://github.com/sass/sassc/archive/3.6.2/sassc-3.6.2.tar.gz
+wget -nc https://github.com/sass/libsass/archive/3.6.5/libsass-3.6.5.tar.gz
 
 
 if [ ! -z $URL ]
@@ -44,8 +44,8 @@ fi
 echo $USER > /tmp/currentuser
 
 
-tar -xf ../libsass-3.6.4.tar.gz &&
-pushd libsass-3.6.4 &&
+tar -xf ../libsass-3.6.5.tar.gz &&
+pushd libsass-3.6.5 &&
 
 autoreconf -fi &&
 

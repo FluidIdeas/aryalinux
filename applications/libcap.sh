@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libcap
-VERSION=2.49
-URL=https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.49.tar.xz
+VERSION=2.62
+URL=https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.62.tar.xz
 SECTION="Security"
 DESCRIPTION="The libcap package was installed in LFS, but if Linux-PAM support is desired, the PAM module must be built (after installation of Linux-PAM)."
 
@@ -22,7 +22,7 @@ DESCRIPTION="The libcap package was installed in LFS, but if Linux-PAM support i
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.49.tar.xz
+wget -nc https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.62.tar.xz
 
 
 if [ ! -z $URL ]
@@ -47,7 +47,7 @@ echo $USER > /tmp/currentuser
 make -C pam_cap
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m755 pam_cap/pam_cap.so /lib/security &&
+install -v -m755 pam_cap/pam_cap.so /usr/lib/security &&
 install -v -m644 pam_cap/capability.conf /etc/security
 ENDOFROOTSCRIPT
 

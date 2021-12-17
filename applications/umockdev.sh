@@ -8,14 +8,15 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:libgudev
+#REQ:libpcap
 #REQ:vala
 
 
 cd $SOURCE_DIR
 
 NAME=umockdev
-VERSION=0.15.4
-URL=https://github.com/martinpitt/umockdev/releases/download/0.15.4/umockdev-0.15.4.tar.xz
+VERSION=0.16.3
+URL=https://github.com/martinpitt/umockdev/releases/download/0.16.3/umockdev-0.16.3.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The Umockdev package contains a framework that allows a developer to mock devices for use in unit testing."
 
@@ -23,7 +24,7 @@ DESCRIPTION="The Umockdev package contains a framework that allows a developer t
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/martinpitt/umockdev/releases/download/0.15.4/umockdev-0.15.4.tar.xz
+wget -nc https://github.com/martinpitt/umockdev/releases/download/0.16.3/umockdev-0.16.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -45,10 +46,10 @@ fi
 echo $USER > /tmp/currentuser
 
 
-mkdir build && 
+mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

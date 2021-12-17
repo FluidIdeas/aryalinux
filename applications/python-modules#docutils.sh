@@ -12,15 +12,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=python-modules#docutils
-VERSION=0.17.1
-URL=https://downloads.sourceforge.net/docutils/docutils-0.17.1.tar.gz
+VERSION=0.18.1
+URL=https://downloads.sourceforge.net/docutils/docutils-0.18.1.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.sourceforge.net/docutils/docutils-0.17.1.tar.gz
+wget -nc https://downloads.sourceforge.net/docutils/docutils-0.18.1.tar.gz
 
 
 if [ ! -z $URL ]

@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=ncurses-6.2.tar.gz
+TARBALL=ncurses-6.3.tar.gz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -26,11 +26,13 @@ cd $DIRECTORY
             --without-debug         \
             --without-normal        \
             --enable-pc-files       \
-            --enable-widec
+            --enable-widec          \
+            --with-pkg-config-libdir=/usr/lib/pkgconfig
 make
-make install
-mv -v /usr/lib/libncursesw.so.6* /lib
-ln -sfv ../../lib/$(readlink /usr/lib/libncursesw.so) /usr/lib/libncursesw.so
+make DESTDIR=$PWD/dest install
+install -vm755 dest/usr/lib/libncursesw.so.6.3 /usr/lib
+rm -v  dest/usr/lib/{libncursesw.so.6.3,libncurses++w.a}
+cp -av dest/* /
 for lib in ncurses form panel menu ; do
     rm -vf                    /usr/lib/lib${lib}.so
     echo "INPUT(-l${lib}w)" > /usr/lib/lib${lib}.so
@@ -39,16 +41,15 @@ done
 rm -vf                     /usr/lib/libcursesw.so
 echo "INPUT(-lncursesw)" > /usr/lib/libcursesw.so
 ln -sfv libncurses.so      /usr/lib/libcurses.so
-rm -fv /usr/lib/libncurses++w.a
-mkdir -v       /usr/share/doc/ncurses-6.2
-cp -v -R doc/* /usr/share/doc/ncurses-6.2
+mkdir -pv      /usr/share/doc/ncurses-6.3
+cp -v -R doc/* /usr/share/doc/ncurses-6.3
 make distclean
 ./configure --prefix=/usr    \
             --with-shared    \
             --without-normal \
             --without-debug  \
             --without-cxx-binding \
-            --with-abi-version=5 
+            --with-abi-version=5
 make sources libs
 cp -av lib/lib*.so.5* /usr/lib
 

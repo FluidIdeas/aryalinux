@@ -23,6 +23,7 @@ pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.x.org/pub/individual/driver/xf86-video-ati-19.1.0.tar.bz2
 wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-ati-19.1.0.tar.bz2
+wget -nc https://www.linuxfromscratch.org/patches/blfs/svn/xf86-video-ati-19.1.0-upstream_fixes-1.patch
 
 
 if [ ! -z $URL ]
@@ -45,8 +46,7 @@ export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disab
 
 echo $USER > /tmp/currentuser
 
-sed -e 's/miPointer/extern &/' \
-    -i src/drmmode_display.h
+patch -Np1 -i ../xf86-video-ati-19.1.0-upstream_fixes-1.patch
 ./configure $XORG_CONFIG &&
 make
 sudo rm -rf /tmp/rootscript.sh

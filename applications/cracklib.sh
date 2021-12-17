@@ -47,16 +47,16 @@ echo $USER > /tmp/currentuser
 
 sed -i '/skipping/d' util/packer.c &&
 
-PYTHON=python3 CPPFLAGS=-I/usr/include/python3.9 \
+sed -i '15209 s/.*/am_cv_python_version=3.10/' configure &&
+
+PYTHON=python3 CPPFLAGS=-I/usr/include/python3.10 \
 ./configure --prefix=/usr    \
             --disable-static \
-            --with-default-dict=/lib/cracklib/pw_dict &&
+            --with-default-dict=/usr/lib/cracklib/pw_dict &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install                      &&
-mv -v /usr/lib/libcrack.so.* /lib &&
-ln -sfv ../../lib/$(readlink /usr/lib/libcrack.so) /usr/lib/libcrack.so
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -71,7 +71,7 @@ install -v -m644 -D    ../cracklib-words-2.9.7.bz2 \
 bunzip2 -v               /usr/share/dict/cracklib-words.bz2    &&
 ln -v -sf cracklib-words /usr/share/dict/words                 &&
 echo $(hostname) >>      /usr/share/dict/cracklib-extra-words  &&
-install -v -m755 -d      /lib/cracklib                         &&
+install -v -m755 -d      /usr/lib/cracklib                     &&
 
 create-cracklib-dict     /usr/share/dict/cracklib-words \
                          /usr/share/dict/cracklib-extra-words

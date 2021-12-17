@@ -23,8 +23,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=eog
-VERSION=40.0
-URL=https://mirror.umd.edu/gnome/sources/eog/40/eog-40.0.tar.xz
+VERSION=40.3
+URL=https://download.gnome.org/sources/eog/40/eog-40.3.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="EOG is an application used for viewing and cataloging image files on the GNOME Desktop. It also has basic editing capabilites."
 
@@ -32,8 +32,8 @@ DESCRIPTION="EOG is an application used for viewing and cataloging image files o
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/eog/40/eog-40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/eog/40/eog-40.0.tar.xz
+wget -nc https://download.gnome.org/sources/eog/40/eog-40.3.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/eog/40/eog-40.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -58,7 +58,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr -Dlibportal=false .. &&
+meson --prefix=/usr --buildtype=release -Dlibportal=false .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

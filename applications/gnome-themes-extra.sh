@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 
 NAME=gnome-themes-extra
 VERSION=3.28
-URL=https://mirror.umd.edu/gnome/sources/gnome-themes-extra/3.28/gnome-themes-extra-3.28.tar.xz
+URL=https://download.gnome.org/sources/gnome-themes-extra/3.28/gnome-themes-extra-3.28.tar.xz
 SECTION="Icons"
 DESCRIPTION="The GNOME Themes Extra package, formerly known as GNOME Themes Standard, contains various components of the default GNOME theme."
 
@@ -24,7 +24,7 @@ DESCRIPTION="The GNOME Themes Extra package, formerly known as GNOME Themes Stan
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/gnome-themes-extra/3.28/gnome-themes-extra-3.28.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-themes-extra/3.28/gnome-themes-extra-3.28.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-themes-extra/3.28/gnome-themes-extra-3.28.tar.xz
 
 

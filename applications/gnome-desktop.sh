@@ -21,8 +21,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gnome-desktop
-VERSION=40.0
-URL=https://mirror.umd.edu/gnome/sources/gnome-desktop/40/gnome-desktop-40.0.tar.xz
+VERSION=40.4
+URL=https://download.gnome.org/sources/gnome-desktop/40/gnome-desktop-40.4.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Desktop package contains a library that provides an API shared by several applications on the GNOME Desktop."
 
@@ -30,8 +30,8 @@ DESCRIPTION="The GNOME Desktop package contains a library that provides an API s
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/gnome-desktop/40/gnome-desktop-40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-desktop/40/gnome-desktop-40.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-desktop/40/gnome-desktop-40.4.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-desktop/40/gnome-desktop-40.4.tar.xz
 
 
 if [ ! -z $URL ]
@@ -54,9 +54,10 @@ echo $USER > /tmp/currentuser
 
 
 mkdir build &&
-cd build &&
+cd    build &&
 
 meson --prefix=/usr                 \
+      --buildtype=release           \
       -Dgnome_distributor="BLFS" .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh

@@ -14,8 +14,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=exim
-VERSION=4.94.2
-URL=https://ftp.exim.org/pub/exim/exim4/exim-4.94.2.tar.xz
+VERSION=4.95
+URL=https://ftp.exim.org/pub/exim/exim4/exim-4.95.tar.xz
 SECTION="Mail Server Software"
 DESCRIPTION="The Exim package contains a Mail Transport Agent written by the University of Cambridge, released under the GNU Public License."
 
@@ -23,9 +23,10 @@ DESCRIPTION="The Exim package contains a Mail Transport Agent written by the Uni
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ftp.exim.org/pub/exim/exim4/exim-4.94.2.tar.xz
-wget -nc ftp://ftp.exim.org/pub/exim/exim4/exim-4.94.2.tar.xz
+wget -nc https://ftp.exim.org/pub/exim/exim4/exim-4.95.tar.xz
+wget -nc ftp://ftp.exim.org/pub/exim/exim4/exim-4.95.tar.xz
 wget -nc http://exim.org/docs.html
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/exim-4.95-call_pam-1.patch
 
 
 if [ ! -z $URL ]
@@ -57,6 +58,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+patch -Np2 -i ../exim-4.95-call_pam-1-1.patch
 sed -e 's,^BIN_DIR.*$,BIN_DIRECTORY=/usr/sbin,'    \
     -e 's,^CONF.*$,CONFIGURE_FILE=/etc/exim.conf,' \
     -e 's,^EXIM_USER.*$,EXIM_USER=exim,'           \
@@ -65,14 +67,16 @@ sed -e 's,^BIN_DIR.*$,BIN_DIRECTORY=/usr/sbin,'    \
     -e 's,^EXIM_MONITOR,#EXIM_MONITOR,' src/EDITME > Local/Makefile &&
 
 printf "USE_GDBM = yes\nDBMLIB = -lgdbm\n" >> Local/Makefile &&
+sed -i '/# SUPPORT_PAM=yes/s,^#,,' Local/Makefile
+echo "EXTRALIBS=-lpam" >> Local/Makefile
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install                                    &&
 install -v -m644 doc/exim.8 /usr/share/man/man8 &&
 
-install -v -d -m755    /usr/share/doc/exim-4.94.2 &&
-install -v -m644 doc/* /usr/share/doc/exim-4.94.2 &&
+install -v -d -m755    /usr/share/doc/exim-4.95 &&
+install -v -m644 doc/* /usr/share/doc/exim-4.95 &&
 
 ln -sfv exim /usr/sbin/sendmail                 &&
 install -v -d -m750 -o exim -g exim /var/spool/exim
@@ -98,6 +102,23 @@ postmaster: root
 MAILER-DAEMON: root
 EOF
 /usr/sbin/exim -bd -q15m
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+cat > /etc/pam.d/exim << "EOF"
+# Begin /etc/pam.d/exim
+
+auth    include system-auth
+account include system-account
+session include system-session
+
+# End /etc/pam.d/exim
+EOF
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

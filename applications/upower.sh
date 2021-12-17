@@ -15,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=upower
-VERSION=0.99.11
-URL=https://gitlab.freedesktop.org/upower/upower/uploads/93cfe7c8d66ed486001c4f3f55399b7a/upower-0.99.11.tar.xz
+VERSION=0.99.13
+URL=https://gitlab.freedesktop.org/upower/upower/uploads/177df5b9f9b76f25a2ad9da41aa0c1fa/upower-0.99.13.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="The UPower package provides an interface to enumerating power devices, listening to device events and querying history and statistics. Any application or service on the system can access the org.freedesktop.UPower service via the system message bus."
 
@@ -24,7 +24,7 @@ DESCRIPTION="The UPower package provides an interface to enumerating power devic
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://gitlab.freedesktop.org/upower/upower/uploads/93cfe7c8d66ed486001c4f3f55399b7a/upower-0.99.11.tar.xz
+wget -nc https://gitlab.freedesktop.org/upower/upower/uploads/177df5b9f9b76f25a2ad9da41aa0c1fa/upower-0.99.13.tar.xz
 
 
 if [ ! -z $URL ]
@@ -46,11 +46,11 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr        \
-            --sysconfdir=/etc    \
-            --localstatedir=/var \
-            --enable-deprecated  \
-            --disable-static     &&
+./configure --prefix=/usr         \
+             --sysconfdir=/etc    \
+             --localstatedir=/var \
+             --enable-deprecated  \
+             --disable-static     &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

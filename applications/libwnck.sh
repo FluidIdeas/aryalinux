@@ -15,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libwnck
-VERSION=3.36.0
-URL=https://mirror.umd.edu/gnome/sources/libwnck/3.36/libwnck-3.36.0.tar.xz
+VERSION=40.0
+URL=https://download.gnome.org/sources/libwnck/40/libwnck-40.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libwnck package contains the Window Navigator Construction Kit."
 
@@ -24,8 +24,8 @@ DESCRIPTION="The libwnck package contains the Window Navigator Construction Kit.
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/libwnck/3.36/libwnck-3.36.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libwnck/3.36/libwnck-3.36.0.tar.xz
+wget -nc https://download.gnome.org/sources/libwnck/40/libwnck-40.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libwnck/40/libwnck-40.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -50,7 +50,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr -Dbuildtype=release .. &&
+meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

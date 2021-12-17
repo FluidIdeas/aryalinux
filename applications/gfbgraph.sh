@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 
 NAME=gfbgraph
 VERSION=0.2.4
-URL=https://mirror.umd.edu/gnome/sources/gfbgraph/0.2/gfbgraph-0.2.4.tar.xz
+URL=https://download.gnome.org/sources/gfbgraph/0.2/gfbgraph-0.2.4.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The gfbgraph package contains a GObject wrapper for the Facebook Graph API."
 
@@ -24,7 +24,7 @@ DESCRIPTION="The gfbgraph package contains a GObject wrapper for the Facebook Gr
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/gfbgraph/0.2/gfbgraph-0.2.4.tar.xz
+wget -nc https://download.gnome.org/sources/gfbgraph/0.2/gfbgraph-0.2.4.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gfbgraph/0.2/gfbgraph-0.2.4.tar.xz
 
 

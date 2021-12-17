@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libyaml
-VERSION=0.2.4
-URL=https://github.com/yaml/libyaml/archive/0.2.4/libyaml-0.2.4.tar.gz
+VERSION=0.2.5
+URL=https://github.com/yaml/libyaml/releases/download/0.2.5/yaml-0.2.5.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The libyaml package contains a C library for parsing and emitting YAML (YAML Ain't Markup Language) code."
 
@@ -21,7 +21,7 @@ DESCRIPTION="The libyaml package contains a C library for parsing and emitting Y
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/yaml/libyaml/archive/0.2.4/libyaml-0.2.4.tar.gz
+wget -nc https://github.com/yaml/libyaml/releases/download/0.2.5/yaml-0.2.5.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,7 +43,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./bootstrap                                &&
 ./configure --prefix=/usr --disable-static &&
 make
 sudo rm -rf /tmp/rootscript.sh

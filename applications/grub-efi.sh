@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=grub-efi
-VERSION=2.0
-URL=https://alpha.gnu.org/gnu/grub/grub-2.06~rc1.tar.xz
+VERSION=2.06
+URL=https://ftp.gnu.org/gnu/grub/grub-2.06.tar.xz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The GRUB package provides GRand Unified Bootloader. In this page it will be built with UEFI support, which is not enabled for GRUB built in LFS."
 
@@ -22,7 +22,7 @@ DESCRIPTION="The GRUB package provides GRand Unified Bootloader. In this page it
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://alpha.gnu.org/gnu/grub/grub-2.06~rc1.tar.xz
+wget -nc https://ftp.gnu.org/gnu/grub/grub-2.06.tar.xz
 wget -nc https://unifoundry.com/pub/unifont/unifont-13.0.06/font-builds/unifont-13.0.06.pcf.gz
 
 
@@ -48,7 +48,7 @@ echo $USER > /tmp/currentuser
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mkdir -pv /usr/share/fonts/unifont &&
-gunzip -c unifont-13.0.06.pcf.gz > /usr/share/fonts/unifont/unifont.pcf
+gunzip -c ../unifont-13.0.06.pcf.gz > /usr/share/fonts/unifont/unifont.pcf
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -57,7 +57,6 @@ sudo rm -rf /tmp/rootscript.sh
 
 unset {C,CPP,CXX,LD}FLAGS
 ./configure --prefix=/usr        \
-            --sbindir=/sbin      \
             --sysconfdir=/etc    \
             --disable-efiemu     \
             --enable-grub-mkfont \

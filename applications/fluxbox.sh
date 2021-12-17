@@ -43,6 +43,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -i '/text_prop.value > 0/s/>/!=/' util/fluxbox-remote.cc
 ./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh

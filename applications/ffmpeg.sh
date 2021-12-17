@@ -28,8 +28,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=ffmpeg
-VERSION=4.4
-URL=https://ffmpeg.org/releases/ffmpeg-4.4.tar.xz
+VERSION=4.4.1
+URL=https://ffmpeg.org/releases/ffmpeg-4.4.1.tar.xz
 SECTION="Video Utilities"
 DESCRIPTION="FFmpeg is a solution to record, convert and stream audio and video. It is a very fast video and audio converter and it can also acquire from a live audio/video source. Designed to be intuitive, the command-line interface (ffmpeg) tries to figure out all the parameters, when possible. FFmpeg can also convert from any sample rate to any other, and resize video on the fly with a high quality polyphase filter. FFmpeg can use a Video4Linux compatible video source and any Open Sound System audio source."
 
@@ -37,7 +37,7 @@ DESCRIPTION="FFmpeg is a solution to record, convert and stream audio and video.
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ffmpeg.org/releases/ffmpeg-4.4.tar.xz
+wget -nc https://ffmpeg.org/releases/ffmpeg-4.4.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -80,7 +80,7 @@ sed -i 's/-lflite"/-lflite -lasound"/' configure &&
             --enable-libx264     \
             --enable-libx265     \
             --enable-openssl     \
-            --docdir=/usr/share/doc/ffmpeg-4.4 &&
+            --docdir=/usr/share/doc/ffmpeg-4.4.1 &&
 
 make &&
 
@@ -90,8 +90,8 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
 install -v -m755    tools/qt-faststart /usr/bin &&
-install -v -m755 -d           /usr/share/doc/ffmpeg-4.4 &&
-install -v -m644    doc/*.txt /usr/share/doc/ffmpeg-4.4
+install -v -m755 -d           /usr/share/doc/ffmpeg-4.4.1 &&
+install -v -m644    doc/*.txt /usr/share/doc/ffmpeg-4.4.1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

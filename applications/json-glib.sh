@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=json-glib
-VERSION=1.6.2
-URL=https://mirror.umd.edu/gnome/sources/json-glib/1.6/json-glib-1.6.2.tar.xz
+VERSION=1.6.6
+URL=https://download.gnome.org/sources/json-glib/1.6/json-glib-1.6.6.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The JSON GLib package is a library providing serialization and deserialization support for the JavaScript Object Notation (JSON) format described by RFC 4627."
 
@@ -22,8 +22,8 @@ DESCRIPTION="The JSON GLib package is a library providing serialization and dese
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/json-glib/1.6/json-glib-1.6.2.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/json-glib/1.6/json-glib-1.6.2.tar.xz
+wget -nc https://download.gnome.org/sources/json-glib/1.6/json-glib-1.6.6.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/json-glib/1.6/json-glib-1.6.6.tar.xz
 
 
 if [ ! -z $URL ]
@@ -48,7 +48,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -46,7 +46,6 @@ echo $USER > /tmp/currentuser
 
 tar --strip-components=1 -xvf ../zsh-5.8-doc.tar.xz
 ./configure --prefix=/usr         \
-            --bindir=/bin         \
             --sysconfdir=/etc/zsh \
             --enable-etcdir=/etc/zsh                  &&
 make                                                  &&
@@ -82,19 +81,6 @@ sudo rm -rf /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m644 Doc/zsh.pdf /usr/share/doc/zsh-5.8
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mv -v /usr/lib/libpcre.so.* /lib &&
-ln -v -sf ../../lib/libpcre.so.0 /usr/lib/libpcre.so
-
-mv -v /usr/lib/libgdbm.so.* /lib &&
-ln -v -sf ../../lib/libgdbm.so.3 /usr/lib/libgdbm.so
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

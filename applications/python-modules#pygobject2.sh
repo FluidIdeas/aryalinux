@@ -16,14 +16,14 @@ cd $SOURCE_DIR
 
 NAME=python-modules#pygobject2
 VERSION=2.28.7
-URL=https://mirror.umd.edu/gnome/sources/pygobject/2.28/pygobject-2.28.7.tar.xz
+URL=https://download.gnome.org/sources/pygobject/2.28/pygobject-2.28.7.tar.xz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/pygobject/2.28/pygobject-2.28.7.tar.xz
+wget -nc https://download.gnome.org/sources/pygobject/2.28/pygobject-2.28.7.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/pygobject/2.28/pygobject-2.28.7.tar.xz
 
 

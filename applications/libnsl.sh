@@ -14,16 +14,16 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libnsl
-VERSION=1.3.0
-URL=https://github.com/thkukuk/libnsl/releases/download/v1.3.0/libnsl-1.3.0.tar.xz
+VERSION=2.0.0
+URL=https://github.com/thkukuk/libnsl/releases/download/v2.0.0/libnsl-2.0.0.tar.xz
 SECTION="Networking Libraries"
-DESCRIPTION="The libnsl package contains the public client interface for NIS(YP) and NIS+. It replaces the NIS library that used to be in glibc."
+DESCRIPTION="The libnsl package contains the public client interface for NIS(YP). It replaces the NIS library that used to be in glibc."
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/thkukuk/libnsl/releases/download/v1.3.0/libnsl-1.3.0.tar.xz
+wget -nc https://github.com/thkukuk/libnsl/releases/download/v2.0.0/libnsl-2.0.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -45,14 +45,11 @@ fi
 echo $USER > /tmp/currentuser
 
 
-autoreconf -fi                &&
-./configure --sysconfdir=/etc &&
+./configure --sysconfdir=/etc --disable-static &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install                  &&
-mv /usr/lib/libnsl.so.2* /lib &&
-ln -sfv ../../lib/libnsl.so.2.0.1 /usr/lib/libnsl.so
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

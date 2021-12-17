@@ -18,7 +18,7 @@ cd $SOURCE_DIR
 
 NAME=libsecret
 VERSION=0.20.4
-URL=https://mirror.umd.edu/gnome/sources/libsecret/0.20/libsecret-0.20.4.tar.xz
+URL=https://download.gnome.org/sources/libsecret/0.20/libsecret-0.20.4.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libsecret package contains a GObject based library for accessing the Secret Service API."
 
@@ -26,7 +26,7 @@ DESCRIPTION="The libsecret package contains a GObject based library for accessin
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/libsecret/0.20/libsecret-0.20.4.tar.xz
+wget -nc https://download.gnome.org/sources/libsecret/0.20/libsecret-0.20.4.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libsecret/0.20/libsecret-0.20.4.tar.xz
 
 
@@ -52,7 +52,7 @@ echo $USER > /tmp/currentuser
 mkdir bld &&
 cd bld &&
 
-meson --prefix=/usr -Dgtk_doc=false .. &&
+meson --prefix=/usr --buildtype=release -Dgtk_doc=false .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

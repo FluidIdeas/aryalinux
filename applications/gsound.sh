@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:libcanberra
 #REQ:gobject-introspection
 #REQ:vala
 
@@ -14,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gsound
-VERSION=1.0.2
-URL=https://mirror.umd.edu/gnome/sources/gsound/1.0/gsound-1.0.2.tar.xz
+VERSION=1.0.3
+URL=https://download.gnome.org/sources/gsound/1.0/gsound-1.0.3.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The gsound package contains a small library for playing system sounds."
 
@@ -23,8 +24,8 @@ DESCRIPTION="The gsound package contains a small library for playing system soun
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/gsound/1.0/gsound-1.0.2.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gsound/1.0/gsound-1.0.2.tar.xz
+wget -nc https://download.gnome.org/sources/gsound/1.0/gsound-1.0.3.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gsound/1.0/gsound-1.0.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -46,11 +47,14 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr --disable-static &&
-make
+mkdir build &&
+cd    build &&
+
+meson --prefix=/usr --buildtype=release .. &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

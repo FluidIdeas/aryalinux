@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=gzip-1.10.tar.xz
+TARBALL=gzip-1.11.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -23,7 +23,6 @@ cd $DIRECTORY
 ./configure --prefix=/usr --host=$LFS_TGT
 make
 make DESTDIR=$LFS install
-mv -v $LFS/usr/bin/gzip $LFS/bin
 
 fi
 

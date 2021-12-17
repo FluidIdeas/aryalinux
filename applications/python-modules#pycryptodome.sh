@@ -12,15 +12,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=python-modules#pycryptodome
-VERSION=3.10.1
-URL=https://github.com/Legrandin/pycryptodome/archive/v3.10.1/pycryptodome-3.10.1.tar.gz
+VERSION=3.12.0
+URL=https://github.com/Legrandin/pycryptodome/archive/v3.12.0/pycryptodome-3.12.0.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/Legrandin/pycryptodome/archive/v3.10.1/pycryptodome-3.10.1.tar.gz
+wget -nc https://github.com/Legrandin/pycryptodome/archive/v3.12.0/pycryptodome-3.12.0.tar.gz
 
 
 if [ ! -z $URL ]

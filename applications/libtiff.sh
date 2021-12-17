@@ -53,6 +53,7 @@ ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
+sed -i /Version/s/\$/$(cat ../VERSION)/ /usr/lib/pkgconfig/libtiff-4.pc
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

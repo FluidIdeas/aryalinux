@@ -8,10 +8,10 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:desktop-file-utils
+#REQ:gsettings-desktop-schemas
 #REQ:gtk3
 #REQ:itstool
 #REQ:unzip
-#REQ:wget
 #REQ:gobject-introspection
 #REQ:vala
 
@@ -19,8 +19,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gucharmap
-VERSION=12.0.1
-URL=https://mirror.umd.edu/gnome/sources/gucharmap/12.0/gucharmap-12.0.1.tar.xz
+VERSION=14.0.0
+URL=https://gitlab.gnome.org/GNOME/gucharmap/-/archive/14.0.0/gucharmap-14.0.0.tar.bz2
 SECTION="GNOME Applications"
 DESCRIPTION="Gucharmap is a Unicode character map and font viewer. It allows you to browse through all the available Unicode characters and categories for the installed fonts, and to examine their detailed properties. It is an easy way to find the character you might only know by its Unicode name or code point."
 
@@ -28,8 +28,9 @@ DESCRIPTION="Gucharmap is a Unicode character map and font viewer. It allows you
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/gucharmap/12.0/gucharmap-12.0.1.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gucharmap/12.0/gucharmap-12.0.1.tar.xz
+wget -nc https://gitlab.gnome.org/GNOME/gucharmap/-/archive/14.0.0/gucharmap-14.0.0.tar.bz2
+wget -nc https://www.unicode.org/Public/zipped/14.0.0/UCD.zip
+wget -nc https://www.unicode.org/Public/zipped/14.0.0/Unihan.zip
 
 
 if [ ! -z $URL ]
@@ -51,14 +52,24 @@ fi
 echo $USER > /tmp/currentuser
 
 
-LIBS="-ldl"               \
-./configure --prefix=/usr \
-            --enable-vala \
-            --with-unicode-data=download &&
-make
+mkdir build                   &&
+cd    build                   &&
+mkdir ucd                     &&
+pushd ucd                     &&
+  unzip ../../../UCD.zip      &&
+  cp -v ../../../Unihan.zip . &&
+popd                          &&
+
+meson --prefix=/usr         \
+      --strip               \
+      --buildtype=release   \
+      -Ducd_path=./ucd      \
+      -Ddocs=false ..       &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+rm  -fv /usr/share/glib-2.0/schemas/org.gnome.Charmap.enums.xml &&
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

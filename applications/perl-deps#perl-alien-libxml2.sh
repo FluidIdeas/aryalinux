@@ -9,6 +9,7 @@ set +h
 
 #REQ:perl-deps#perl-alien-build
 #REQ:libxml2
+#REQ:perl-deps#perl-path-tiny
 #REQ:perl-deps#perl-test2-suite
 
 

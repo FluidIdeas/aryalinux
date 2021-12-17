@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 NAME=gpm
 VERSION=1.20.7
-URL=http://anduin.linuxfromscratch.org/BLFS/gpm/gpm-1.20.7.tar.bz2
+URL=https://anduin.linuxfromscratch.org/BLFS/gpm/gpm-1.20.7.tar.bz2
 SECTION="System Utilities"
 DESCRIPTION="The GPM (General Purpose Mouse daemon) package contains a mouse server for the console and xterm. It not only provides cut and paste support generally, but its library component is used by various software such as Links to provide mouse support to the application. It is useful on desktops, especially if following (Beyond) Linux From Scratch instructions; it's often much easier (and less error prone) to cut and paste between two console windows than to type everything by hand!"
 
@@ -21,7 +21,7 @@ DESCRIPTION="The GPM (General Purpose Mouse daemon) package contains a mouse ser
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc http://anduin.linuxfromscratch.org/BLFS/gpm/gpm-1.20.7.tar.bz2
+wget -nc https://anduin.linuxfromscratch.org/BLFS/gpm/gpm-1.20.7.tar.bz2
 wget -nc ftp://anduin.linuxfromscratch.org/BLFS/gpm/gpm-1.20.7.tar.bz2
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/gpm-1.20.7-consolidated-1.patch
 
@@ -56,6 +56,7 @@ make install                                          &&
 install-info --dir-file=/usr/share/info/dir           \
              /usr/share/info/gpm.info                 &&
 
+rm -fv /usr/lib/libgpm.a                              &&
 ln -sfv libgpm.so.2.1.0 /usr/lib/libgpm.so            &&
 install -v -m644 conf/gpm-root.conf /etc              &&
 

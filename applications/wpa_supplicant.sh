@@ -78,10 +78,10 @@ CONFIG_CTRL_IFACE_DBUS_NEW=y
 CONFIG_CTRL_IFACE_DBUS_INTRO=y
 EOF
 cd wpa_supplicant &&
-make BINDIR=/sbin LIBDIR=/lib
+make BINDIR=/usr/sbin LIBDIR=/usr/lib
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m755 wpa_{cli,passphrase,supplicant} /sbin/ &&
+install -v -m755 wpa_{cli,passphrase,supplicant} /usr/sbin/ &&
 install -v -m644 doc/docbook/wpa_supplicant.conf.5 /usr/share/man/man5/ &&
 install -v -m644 doc/docbook/wpa_{cli,passphrase,supplicant}.8 /usr/share/man/man8/
 ENDOFROOTSCRIPT

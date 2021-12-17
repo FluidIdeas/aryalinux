@@ -14,8 +14,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=usbutils
-VERSION=013
-URL=https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-013.tar.xz
+VERSION=014
+URL=https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-014.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="The USB Utils package contains utilities used to display information about USB buses in the system and the devices connected to them."
 
@@ -23,7 +23,7 @@ DESCRIPTION="The USB Utils package contains utilities used to display informatio
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-013.tar.xz
+wget -nc https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-014.tar.xz
 
 
 if [ ! -z $URL ]
@@ -45,7 +45,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./autogen.sh --prefix=/usr --datadir=/usr/share/hwdata &&
+./configure --prefix=/usr --datadir=/usr/share/hwdata &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -68,7 +68,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cat > /lib/systemd/system/update-usbids.service << "EOF" &&
+cat > /usr/lib/systemd/system/update-usbids.service << "EOF" &&
 [Unit]
 Description=Update usb.ids file
 Documentation=man:lsusb(8)
@@ -81,7 +81,7 @@ Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/bin/wget http://www.linux-usb.org/usb.ids -O /usr/share/hwdata/usb.ids
 EOF
-cat > /lib/systemd/system/update-usbids.timer << "EOF" &&
+cat > /usr/lib/systemd/system/update-usbids.timer << "EOF" &&
 [Unit]
 Description=Update usb.ids file weekly
 

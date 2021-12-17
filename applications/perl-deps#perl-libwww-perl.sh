@@ -23,15 +23,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=perl-deps#perl-libwww-perl
-VERSION=6.52
-URL=https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.52.tar.gz
+VERSION=6.55
+URL=https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.55.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.52.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.55.tar.gz
 
 
 if [ ! -z $URL ]

@@ -16,7 +16,7 @@ set +h
 #REQ:sassc
 #REQ:startup-notification
 #REQ:systemd
-#REQ:asciidoc
+#REQ:python-modules#asciidoc
 #REQ:desktop-file-utils
 #REQ:gnome-bluetooth
 #REQ:gst10-plugins-base
@@ -32,8 +32,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gnome-shell
-VERSION=40.0
-URL=https://mirror.umd.edu/gnome/sources/gnome-shell/40/gnome-shell-40.0.tar.xz
+VERSION=40.4
+URL=https://download.gnome.org/sources/gnome-shell/40/gnome-shell-40.4.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Shell is the core user interface of the GNOME Desktop environment."
 
@@ -41,8 +41,8 @@ DESCRIPTION="The GNOME Shell is the core user interface of the GNOME Desktop env
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/gnome-shell/40/gnome-shell-40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-shell/40/gnome-shell-40.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-shell/40/gnome-shell-40.4.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-shell/40/gnome-shell-40.4.tar.xz
 
 
 if [ ! -z $URL ]
@@ -67,7 +67,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

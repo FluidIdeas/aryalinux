@@ -23,8 +23,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=tracker3-miners
-VERSION=3.1.1
-URL=https://mirror.umd.edu/gnome/sources/tracker-miners/3.1/tracker-miners-3.1.1.tar.xz
+VERSION=3.1.2
+URL=https://download.gnome.org/sources/tracker-miners/3.1/tracker-miners-3.1.2.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Tracker-miners package contains a set of data extractors for Tracker."
 
@@ -32,8 +32,8 @@ DESCRIPTION="The Tracker-miners package contains a set of data extractors for Tr
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/tracker-miners/3.1/tracker-miners-3.1.1.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/tracker-miners/3.1/tracker-miners-3.1.1.tar.xz
+wget -nc https://download.gnome.org/sources/tracker-miners/3.1/tracker-miners-3.1.2.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/tracker-miners/3.1/tracker-miners-3.1.2.tar.xz
 
 
 if [ ! -z $URL ]
@@ -67,7 +67,7 @@ sudo rm -rf /tmp/rootscript.sh
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr -Dman=false .. &&
+meson --prefix=/usr --buildtype=release -Dman=false .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

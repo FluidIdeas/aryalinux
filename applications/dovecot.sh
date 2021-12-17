@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=dovecot
-VERSION=2.3.14
-URL=https://www.dovecot.org/releases/2.3/dovecot-2.3.14.tar.gz
+VERSION=2.3.17
+URL=https://www.dovecot.org/releases/2.3/dovecot-2.3.17.tar.gz
 SECTION="Mail Server Software"
 DESCRIPTION="Dovecot is an Internet Message Access Protocol (IMAP) and Post Office Protocol (POP) server, written primarily with security in mind. Dovecot aims to be lightweight, fast and easy to set up as well as highly configurable and easily extensible with plugins."
 
@@ -22,7 +22,7 @@ DESCRIPTION="Dovecot is an Internet Message Access Protocol (IMAP) and Post Offi
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.dovecot.org/releases/2.3/dovecot-2.3.14.tar.gz
+wget -nc https://www.dovecot.org/releases/2.3/dovecot-2.3.17.tar.gz
 
 
 if [ ! -z $URL ]
@@ -58,16 +58,13 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sed -i 's/lua_newuserdata/lua_newuserdatauv/' src/lib-lua/dlua-dovecot.c
 CPPFLAGS="-I/usr/include/tirpc" \
 LDFLAGS+=" -ltirpc" \
 ./configure --prefix=/usr                          \
             --sysconfdir=/etc                      \
             --localstatedir=/var                   \
-            --rundir=/run                          \
-            --docdir=/usr/share/doc/dovecot-2.3.14 \
-            --disable-static                       \
-            --with-systemdsystemunitdir=/lib/systemd/system &&
+            --docdir=/usr/share/doc/dovecot-2.3.17 \
+            --disable-static                       &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -80,7 +77,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cp -rv /usr/share/doc/dovecot-2.3.14/example-config/* /etc/dovecot
+cp -rv /usr/share/doc/dovecot-2.3.17/example-config/* /etc/dovecot
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

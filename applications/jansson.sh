@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=jansson
-VERSION=2.13.1
-URL=https://digip.org/jansson/releases/jansson-2.13.1.tar.gz
+VERSION=2.14
+URL=https://github.com/akheron/jansson/releases/download/v2.14/jansson-2.14.tar.bz2
 SECTION="General Libraries"
 DESCRIPTION="The Jansson package contains a library used to encode, decode, and manipulate JSON data."
 
@@ -21,7 +21,7 @@ DESCRIPTION="The Jansson package contains a library used to encode, decode, and 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://digip.org/jansson/releases/jansson-2.13.1.tar.gz
+wget -nc https://github.com/akheron/jansson/releases/download/v2.14/jansson-2.14.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -43,6 +43,8 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -e "/DT/s;| sort;| sed 's/@@libjansson.*//' &;" \
+    -i test/suites/api/check-exports
 ./configure --prefix=/usr --disable-static &&
 make
 sudo rm -rf /tmp/rootscript.sh

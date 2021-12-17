@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=xkeyboard-config
-VERSION=2.32
-URL=https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.32.tar.bz2
+VERSION=2.34
+URL=https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.34.tar.bz2
 SECTION="X Window System Environment"
 DESCRIPTION="The XKeyboardConfig package contains the keyboard configuration database for the X Window System."
 
@@ -22,8 +22,8 @@ DESCRIPTION="The XKeyboardConfig package contains the keyboard configuration dat
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.32.tar.bz2
-wget -nc ftp://ftp.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.32.tar.bz2
+wget -nc https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.34.tar.bz2
+wget -nc ftp://ftp.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.34.tar.bz2
 
 
 if [ ! -z $URL ]

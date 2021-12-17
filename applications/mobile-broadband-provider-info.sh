@@ -13,7 +13,7 @@ cd $SOURCE_DIR
 
 NAME=mobile-broadband-provider-info
 VERSION=20190618
-URL=https://download.gnome.org/sources/mobile-broadband-provider-info/20190618/mobile-broadband-provider-info-20190618.tar.xz
+URL=ftp://ftp.gnome.org/pub/gnome/sources/mobile-broadband-provider-info/20190618/mobile-broadband-provider-info-20190618.tar.xz
 SECTION="Networking Utilities"
 DESCRIPTION="A database of mobile broadband service providers"
 
@@ -21,7 +21,7 @@ DESCRIPTION="A database of mobile broadband service providers"
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc $URL
+wget -nc ftp://ftp.gnome.org/pub/gnome/sources/mobile-broadband-provider-info/20190618/mobile-broadband-provider-info-20190618.tar.xz
 
 
 if [ ! -z $URL ]

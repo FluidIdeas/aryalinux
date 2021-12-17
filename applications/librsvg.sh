@@ -18,8 +18,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=librsvg
-VERSION=2.50.5
-URL=https://mirror.umd.edu/gnome/sources/librsvg/2.50/librsvg-2.50.5.tar.xz
+VERSION=2.52.4
+URL=https://download.gnome.org/sources/librsvg/2.52/librsvg-2.52.4.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The librsvg package contains a library and tools used to manipulate, convert and view Scalable Vector Graphic (SVG) images."
 
@@ -27,8 +27,8 @@ DESCRIPTION="The librsvg package contains a library and tools used to manipulate
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/librsvg/2.50/librsvg-2.50.5.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/librsvg/2.50/librsvg-2.50.5.tar.xz
+wget -nc https://download.gnome.org/sources/librsvg/2.52/librsvg-2.52.4.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/librsvg/2.52/librsvg-2.52.4.tar.xz
 
 
 if [ ! -z $URL ]
@@ -61,7 +61,7 @@ export PATH=/opt/rustc/bin:$PATH
 ./configure --prefix=/usr    \
             --enable-vala    \
             --disable-static \
-            --docdir=/usr/share/doc/librsvg-2.50.5 &&
+            --docdir=/usr/share/doc/librsvg-2.52.4 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

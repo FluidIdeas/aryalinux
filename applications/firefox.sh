@@ -15,7 +15,6 @@ set +h
 #REQ:libnotify
 #REQ:llvm
 #REQ:nodejs
-#REQ:nss
 #REQ:pulseaudio
 #REQ:alsa-lib
 #REQ:python3
@@ -26,15 +25,17 @@ set +h
 #REQ:zip
 #REQ:icu
 #REQ:libevent
+#REQ:libvpx
 #REQ:libwebp
 #REQ:nasm
+#REQ:nss
 
 
 cd $SOURCE_DIR
 
 NAME=firefox
-VERSION=78.10.
-URL=https://archive.mozilla.org/pub/firefox/releases/78.10.0esr/source/firefox-78.10.0esr.source.tar.xz
+VERSION=91.4.
+URL=https://archive.mozilla.org/pub/firefox/releases/91.4.0esr/source/firefox-91.4.0esr.source.tar.xz
 SECTION="Graphical Web Browsers"
 DESCRIPTION="Firefox is a stand-alone browser based on the Mozilla codebase."
 
@@ -42,7 +43,8 @@ DESCRIPTION="Firefox is a stand-alone browser based on the Mozilla codebase."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.mozilla.org/pub/firefox/releases/78.10.0esr/source/firefox-78.10.0esr.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/firefox/releases/91.4.0esr/source/firefox-91.4.0esr.source.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/firefox-91.4.0esr-disable_rust_test-1.patch
 
 
 if [ ! -z $URL ]
@@ -88,11 +90,12 @@ ac_add_options --disable-necko-wifi
 
 # Comment out following options if you have not installed
 # recommended dependencies:
+ac_add_options --with-system-icu
 ac_add_options --with-system-libevent
-ac_add_options --with-system-webp
+ac_add_options --with-system-libvpx
 ac_add_options --with-system-nspr
 ac_add_options --with-system-nss
-ac_add_options --with-system-icu
+ac_add_options --with-system-webp
 
 # Do not specify the gold linker which is not the default. It will take
 # longer and use more disk space when debug symbols are disabled.
@@ -134,7 +137,6 @@ ac_add_options --enable-optimize
 ac_add_options --enable-system-ffi
 ac_add_options --enable-system-pixman
 
-# --with-system-bz2 was removed in firefox-78
 ac_add_options --with-system-jpeg
 ac_add_options --with-system-png
 ac_add_options --with-system-zlib
@@ -149,32 +151,35 @@ unset MOZ_TELEMETRY_REPORTING
 
 mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/firefox-build-dir
 EOF
-sed -e 's/Disable/Enable/'            \
-    -e '/^MOZ_REQUIRE_SIGNING/s/0/1/' \
-    -i build/mozconfig.common
+patch -Np1 -i ../firefox-91.4.0esr-disable_rust_test-1.patch
 echo "AIzaSyDxKL42zsPjbke5O8_rPVpVrLrJ8aeE9rQ" > google-key
 echo "613364a7-9418-4c86-bcee-57e32fd70c23" > mozilla-key
 mountpoint -q /dev/shm || mount -t tmpfs devshm /dev/shm
 export CC=gcc CXX=g++ &&
+export MACH_USE_SYSTEM_PYTHON=1            &&
 export MOZBUILD_STATE_PATH=${PWD}/mozbuild &&
 ./mach configure                           &&
 ./mach build
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-./mach install
+MACH_USE_SYSTEM_PYTHON=1 ./mach install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-unset CC CXX MOZBUILD_STATE_PATH
+unset CC CXX MACH_USE_SYSTEM_PYTHON MOZBUILD_STATE_PATH
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mkdir -pv /usr/share/applications &&
-mkdir -pv /usr/share/pixmaps &&
+mkdir -pv /usr/share/pixmaps      &&
 
-cat > /usr/share/applications/firefox.desktop << "EOF" &&
+MIMETYPE="text/xml;text/mml;application/xhtml+xml"                                     &&
+MIMETYPE="$MIMETYPE;application/xhtml+xml;application/vnd.mozilla.xul+xml" &&
+MIMETYPE="$MIMETYPE;x-scheme-handler/http;x-scheme-handler/https"          &&
+
+cat > /usr/share/applications/firefox.desktop << EOF &&
 [Desktop Entry]
 Encoding=UTF-8
 Name=Firefox Web Browser
@@ -185,9 +190,11 @@ Terminal=false
 Type=Application
 Icon=firefox
 Categories=GNOME;GTK;Network;WebBrowser;
-MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
+MimeType=$MIMETYPE
 StartupNotify=true
 EOF
+
+unset MIMETYPE &&
 
 ln -sfv /usr/lib/firefox/browser/chrome/icons/default/default128.png \
         /usr/share/pixmaps/firefox.png

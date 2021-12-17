@@ -12,15 +12,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=python-modules#py3c
-VERSION=1.3.1
-URL=https://github.com/encukou/py3c/archive/v1.3.1/py3c-1.3.1.tar.gz
+VERSION=1.4
+URL=https://github.com/encukou/py3c/archive/v1.4/py3c-1.4.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/encukou/py3c/archive/v1.3.1/py3c-1.3.1.tar.gz
+wget -nc https://github.com/encukou/py3c/archive/v1.4/py3c-1.4.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,6 +42,7 @@ fi
 
 echo $USER > /tmp/currentuser
 
+-python3 -python3-cpp
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make prefix=/usr install

@@ -13,19 +13,21 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=dejagnu-1.6.2.tar.gz
+TARBALL=dejagnu-1.6.3.tar.gz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-./configure --prefix=/usr
-makeinfo --html --no-split -o doc/dejagnu.html doc/dejagnu.texi
-makeinfo --plaintext       -o doc/dejagnu.txt  doc/dejagnu.texi
+mkdir -v build
+cd       build
+../configure --prefix=/usr
+makeinfo --html --no-split -o doc/dejagnu.html ../doc/dejagnu.texi
+makeinfo --plaintext       -o doc/dejagnu.txt  ../doc/dejagnu.texi
 make install
-install -v -dm755  /usr/share/doc/dejagnu-1.6.2
-install -v -m644   doc/dejagnu.{html,txt} /usr/share/doc/dejagnu-1.6.2
+install -v -dm755  /usr/share/doc/dejagnu-1.6.3
+install -v -m644   doc/dejagnu.{html,txt} /usr/share/doc/dejagnu-1.6.3
 
 fi
 

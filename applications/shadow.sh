@@ -14,8 +14,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=shadow
-VERSION=4.8.1
-URL=https://github.com/shadow-maint/shadow/releases/download/4.8.1/shadow-4.8.1.tar.xz
+VERSION=4.9
+URL=https://github.com/shadow-maint/shadow/releases/download/v4.9/shadow-4.9.tar.xz
 SECTION="Security"
 DESCRIPTION="Shadow was indeed installed in LFS and there is no reason to reinstall it unless you installed CrackLib or Linux-PAM after your LFS system was completed. If you have installed CrackLib after LFS, then reinstalling Shadow will enable strong password support. If you have installed Linux-PAM, reinstalling Shadow will allow programs such as login and su to utilize PAM."
 
@@ -23,7 +23,7 @@ DESCRIPTION="Shadow was indeed installed in LFS and there is no reason to reinst
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/shadow-maint/shadow/releases/download/4.8.1/shadow-4.8.1.tar.xz
+wget -nc https://github.com/shadow-maint/shadow/releases/download/v4.9/shadow-4.9.tar.xz
 wget -nc http://www.deer-run.com/~hal/linux_passwords_pam.html
 
 
@@ -47,6 +47,11 @@ echo $USER > /tmp/currentuser
 
 
 sed -i 's@DICTPATH.*@DICTPATH\t/lib/cracklib/pw_dict@' etc/login.defs
+sed -i.orig '/$(LIBTCB)/i $(LIBPAM) \\' libsubid/Makefile.am &&
+sed -i "224s/rounds/min_rounds/"        libmisc/salt.c       &&
+
+autoreconf -fiv &&
+
 sed -i 's/groups$(EXEEXT) //' src/Makefile.in &&
 
 find man -name Makefile.in -exec sed -i 's/groups\.1 / /'   {} \; &&
@@ -55,15 +60,14 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \; &&
 
 sed -e 's@#ENCRYPT_METHOD DES@ENCRYPT_METHOD SHA512@' \
     -e 's@/var/spool/mail@/var/mail@'                 \
+    -e '/PATH=/{s@/sbin:@@;s@/bin:@@}'                \
     -i etc/login.defs                                 &&
-
-sed -i 's/1000/999/' etc/useradd                      &&
 
 ./configure --sysconfdir=/etc --with-group-name-max-length=32 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+make exec_prefix=/usr install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

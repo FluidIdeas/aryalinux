@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 
 NAME=libgtop
 VERSION=2.40.0
-URL=https://mirror.umd.edu/gnome/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
+URL=https://download.gnome.org/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The libgtop package contains the GNOME top libraries."
 
@@ -24,7 +24,7 @@ DESCRIPTION="The libgtop package contains the GNOME top libraries."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
+wget -nc https://download.gnome.org/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
 
 

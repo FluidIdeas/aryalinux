@@ -24,8 +24,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gvfs
-VERSION=1.48.0
-URL=https://mirror.umd.edu/gnome/sources/gvfs/1.48/gvfs-1.48.0.tar.xz
+VERSION=1.48.1
+URL=https://download.gnome.org/sources/gvfs/1.48/gvfs-1.48.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Gvfs package is a userspace virtual filesystem designed to work with the I/O abstractions of GLib's GIO library."
 
@@ -33,8 +33,8 @@ DESCRIPTION="The Gvfs package is a userspace virtual filesystem designed to work
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/gvfs/1.48/gvfs-1.48.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gvfs/1.48/gvfs-1.48.0.tar.xz
+wget -nc https://download.gnome.org/sources/gvfs/1.48/gvfs-1.48.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gvfs/1.48/gvfs-1.48.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -59,17 +59,18 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr     \
-      -Dfuse=false      \
-      -Dgphoto2=false   \
-      -Dafc=false       \
-      -Dbluray=false    \
-      -Dnfs=false       \
-      -Dmtp=false       \
-      -Dsmb=false       \
-      -Ddnssd=false     \
-      -Dgoa=false       \
-      -Dgoogle=false    .. &&
+meson --prefix=/usr       \
+      --buildtype=release \
+      -Dfuse=false        \
+      -Dgphoto2=false     \
+      -Dafc=false         \
+      -Dbluray=false      \
+      -Dnfs=false         \
+      -Dmtp=false         \
+      -Dsmb=false         \
+      -Ddnssd=false       \
+      -Dgoa=false         \
+      -Dgoogle=false      .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

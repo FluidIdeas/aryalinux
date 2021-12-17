@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=util-linux-2.36.2.tar.xz
+TARBALL=util-linux-2.37.2.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -22,7 +22,8 @@ cd $DIRECTORY
 
 mkdir -pv /var/lib/hwclock
 ./configure ADJTIME_PATH=/var/lib/hwclock/adjtime    \
-            --docdir=/usr/share/doc/util-linux-2.36.2 \
+            --libdir=/usr/lib    \
+            --docdir=/usr/share/doc/util-linux-2.37.2 \
             --disable-chfn-chsh  \
             --disable-login      \
             --disable-nologin    \

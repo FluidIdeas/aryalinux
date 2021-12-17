@@ -15,7 +15,7 @@ NAME=libwpe
 VERSION=1.10.0
 URL=https://github.com/WebPlatformForEmbedded/libwpe/releases/download/1.10.0/libwpe-1.10.0.tar.xz
 SECTION="Others"
-DESCRIPTION="General-purpose library specifically developed for the WPE-flavored port of WebKit."
+DESCRIPTION="The libwpe package contains a general purpose library for WPE WebKit and the WPE Renderer."
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")

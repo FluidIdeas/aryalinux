@@ -43,7 +43,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/               \
+./configure --prefix=/usr            \
             --enable-compat-symlinks \
             --mandir=/usr/share/man  \
             --docdir=/usr/share/doc/dosfstools-4.2 &&

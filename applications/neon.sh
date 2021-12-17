@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=neon
-VERSION=0.31.2
-URL=https://notroj.github.io/neon/neon-0.31.2.tar.gz
+VERSION=0.32.1
+URL=https://notroj.github.io/neon/neon-0.32.1.tar.gz
 SECTION="Networking Libraries"
 DESCRIPTION="neon is an HTTP and WebDAV client library, with a C interface."
 
@@ -21,7 +21,7 @@ DESCRIPTION="neon is an HTTP and WebDAV client library, with a C interface."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://notroj.github.io/neon/neon-0.31.2.tar.gz
+wget -nc https://notroj.github.io/neon/neon-0.32.1.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,6 +43,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed 's/\(install-\(html\|man\):\).*/\1/' -i Makefile.in
 ./configure --prefix=/usr    \
             --with-ssl       \
             --enable-shared  \

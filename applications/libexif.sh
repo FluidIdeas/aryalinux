@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libexif
-VERSION=0.6.22
-URL=https://github.com/libexif/libexif/releases/download/libexif-0_6_22-release/libexif-0.6.22.tar.xz
+VERSION=0.6.24
+URL=https://github.com/libexif/libexif/releases/download/v0.6.24/libexif-0.6.24.tar.bz2
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The libexif package contains a library for parsing, editing, and saving EXIF data. Most digital cameras produce EXIF files, which are JPEG files with extra tags that contain information about the image. All EXIF tags described in EXIF standard 2.1 are supported."
 
@@ -21,8 +21,7 @@ DESCRIPTION="The libexif package contains a library for parsing, editing, and sa
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/libexif/libexif/releases/download/libexif-0_6_22-release/libexif-0.6.22.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/libexif-0.6.22-security_fixes-1.patch
+wget -nc https://github.com/libexif/libexif/releases/download/v0.6.24/libexif-0.6.24.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -44,10 +43,9 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../libexif-0.6.22-security_fixes-1.patch
 ./configure --prefix=/usr    \
             --disable-static \
-            --with-doc-dir=/usr/share/doc/libexif-0.6.22 &&
+            --with-doc-dir=/usr/share/doc/libexif-0.6.24 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

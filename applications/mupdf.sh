@@ -18,8 +18,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=mupdf
-VERSION=1.18.
-URL=https://www.mupdf.com/downloads/archive/mupdf-1.18.0-source.tar.gz
+VERSION=1.19.
+URL=https://www.mupdf.com/downloads/archive/mupdf-1.19.0-source.tar.gz
 SECTION="PostScript"
 DESCRIPTION="MuPDF is a lightweight PDF and XPS viewer."
 
@@ -27,8 +27,7 @@ DESCRIPTION="MuPDF is a lightweight PDF and XPS viewer."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.mupdf.com/downloads/archive/mupdf-1.18.0-source.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/mupdf-1.18.0-security_fix-1.patch
+wget -nc https://www.mupdf.com/downloads/archive/mupdf-1.19.0-source.tar.gz
 
 
 if [ ! -z $URL ]
@@ -71,14 +70,13 @@ USE_SYSTEM_GUMBO := no
 EOF
 
 export XCFLAGS=-fPIC                               &&
-patch -Np1 -i ../mupdf-1.18.0-security_fix-1.patch &&
 make build=release shared=yes                      &&
 unset XCFLAGS
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make prefix=/usr                        \
      shared=yes                         \
-     docdir=/usr/share/doc/mupdf-1.18.0 \
+     docdir=/usr/share/doc/mupdf-1.19.0 \
      install                            &&
 
 chmod 755 /usr/lib/libmupdf.so          &&

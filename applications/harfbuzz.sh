@@ -19,8 +19,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=harfbuzz
-VERSION=2.8.1
-URL=https://github.com/harfbuzz/harfbuzz/releases/download/2.8.1/harfbuzz-2.8.1.tar.xz
+VERSION=3.1.2
+URL=https://github.com/harfbuzz/harfbuzz/releases/download/3.1.2/harfbuzz-3.1.2.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The HarfBuzz package contains an OpenType text shaping engine."
 
@@ -28,7 +28,7 @@ DESCRIPTION="The HarfBuzz package contains an OpenType text shaping engine."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/harfbuzz/harfbuzz/releases/download/2.8.1/harfbuzz-2.8.1.tar.xz
+wget -nc https://github.com/harfbuzz/harfbuzz/releases/download/3.1.2/harfbuzz-3.1.2.tar.xz
 
 
 if [ ! -z $URL ]
@@ -53,7 +53,9 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr -Dgraphite=enabled -Dbenchmark=disabled &&
+meson --prefix=/usr        \
+      --buildtype=release  \
+      -Dgraphite2=enabled  &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

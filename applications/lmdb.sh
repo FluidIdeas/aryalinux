@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=lmdb
-VERSION=0.9.28
-URL=https://github.com/LMDB/lmdb/archive/LMDB_0.9.28.tar.gz
+VERSION=0.9.29
+URL=https://github.com/LMDB/lmdb/archive/LMDB_0.9.29.tar.gz
 SECTION="Databases"
 DESCRIPTION="The lmdb package is a fast, compact, key-value embedded data store. It uses memory-mapped files, so it has the read performance of a pure in-memory database while still offering the persistence of standard disk-based databases, and is only limited to the size of the virtual address space"
 
@@ -21,7 +21,7 @@ DESCRIPTION="The lmdb package is a fast, compact, key-value embedded data store.
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/LMDB/lmdb/archive/LMDB_0.9.28.tar.gz
+wget -nc https://github.com/LMDB/lmdb/archive/LMDB_0.9.29.tar.gz
 
 
 if [ ! -z $URL ]

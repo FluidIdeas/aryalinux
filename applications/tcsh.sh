@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=tcsh
-VERSION=6.22.04
-URL=ftp://ftp.astron.com/pub/tcsh/tcsh-6.22.04.tar.gz
+VERSION=6.23.00
+URL=ftp://ftp.astron.com/pub/tcsh/tcsh-6.23.00.tar.gz
 SECTION="Shells"
 DESCRIPTION="The Tcsh package contains “an enhanced but completely compatible version of the Berkeley Unix C shell (csh)”. This is useful as an alternative shell for those who prefer C syntax to that of the bash shell, and also because some programs require the C shell in order to perform installation tasks."
 
@@ -21,7 +21,7 @@ DESCRIPTION="The Tcsh package contains “an enhanced but completely compatible 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc ftp://ftp.astron.com/pub/tcsh/tcsh-6.22.04.tar.gz
+wget -nc ftp://ftp.astron.com/pub/tcsh/tcsh-6.23.00.tar.gz
 
 
 if [ ! -z $URL ]
@@ -54,9 +54,9 @@ make install install.man &&
 ln -v -sf tcsh   /bin/csh &&
 ln -v -sf tcsh.1 /usr/share/man/man1/csh.1 &&
 
-install -v -m755 -d          /usr/share/doc/tcsh-6.22.04/html &&
-install -v -m644 tcsh.html/* /usr/share/doc/tcsh-6.22.04/html &&
-install -v -m644 FAQ         /usr/share/doc/tcsh-6.22.04
+install -v -m755 -d          /usr/share/doc/tcsh-6.23.00/html &&
+install -v -m644 tcsh.html/* /usr/share/doc/tcsh-6.23.00/html &&
+install -v -m644 FAQ         /usr/share/doc/tcsh-6.23.00
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

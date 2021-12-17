@@ -14,8 +14,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=alsa-tools
-VERSION=1.2.2
-URL=https://www.alsa-project.org/files/pub/tools/alsa-tools-1.2.2.tar.bz2
+VERSION=1.2.5
+URL=https://www.alsa-project.org/files/pub/tools/alsa-tools-1.2.5.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The ALSA Tools package contains advanced tools for certain sound cards."
 
@@ -23,8 +23,8 @@ DESCRIPTION="The ALSA Tools package contains advanced tools for certain sound ca
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.alsa-project.org/files/pub/tools/alsa-tools-1.2.2.tar.bz2
-wget -nc ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.2.2.tar.bz2
+wget -nc https://www.alsa-project.org/files/pub/tools/alsa-tools-1.2.5.tar.bz2
+wget -nc ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.2.5.tar.bz2
 
 
 if [ ! -z $URL ]

@@ -31,8 +31,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=thunderbird
-VERSION=78.10.1
-URL=https://archive.mozilla.org/pub/thunderbird/releases/78.10.1/source/thunderbird-78.10.1.source.tar.xz
+VERSION=91.2.1
+URL=https://archive.mozilla.org/pub/thunderbird/releases/91.2.1/source/thunderbird-91.2.1.source.tar.xz
 SECTION="Other X-based Programs"
 DESCRIPTION="Thunderbird is a stand-alone mail/news client based on the Mozilla codebase. It uses the Gecko rendering engine to enable it to display and compose HTML emails."
 
@@ -40,7 +40,7 @@ DESCRIPTION="Thunderbird is a stand-alone mail/news client based on the Mozilla 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.mozilla.org/pub/thunderbird/releases/78.10.1/source/thunderbird-78.10.1.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/thunderbird/releases/91.2.1/source/thunderbird-91.2.1.source.tar.xz
 
 
 if [ ! -z $URL ]
@@ -79,6 +79,7 @@ ac_add_options --with-system-libevent
 ac_add_options --with-system-nspr
 ac_add_options --with-system-nss
 ac_add_options --with-system-icu
+
 # The elf-hack causes failed installs on some machines.
 # It is supposed to improve startup time and it shrinks libxul.so
 # by a few MB - comment this if you know your machine is not affected.
@@ -110,17 +111,20 @@ ac_add_options --with-system-zlib
 EOF
 mountpoint -q /dev/shm || mount -t tmpfs devshm /dev/shm
 export CC=gcc CXX=g++ &&
+export MACH_USE_SYSTEM_PYTHON=1 &&
+./mach create-mach-environment &&
 ./mach configure      &&
 ./mach build
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-./mach install
+MACH_USE_SYSTEM_PYTHON=1 ./mach install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+unset CC CXX MACH_USE_SYSTEM_PYTHON
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mkdir -pv /usr/share/{applications,pixmaps} &&

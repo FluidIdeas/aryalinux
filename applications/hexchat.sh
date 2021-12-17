@@ -17,8 +17,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=hexchat
-VERSION=2.14.3
-URL=https://dl.hexchat.net/hexchat/hexchat-2.14.3.tar.xz
+VERSION=2.16.0
+URL=https://dl.hexchat.net/hexchat/hexchat-2.16.0.tar.xz
 SECTION="Other X-based Programs"
 DESCRIPTION="HexChat is an IRC chat program. It allows you to join multiple IRC channels (chat rooms) at the same time, talk publicly, have private one-on-one conversations, etc. File transfers are also possible."
 
@@ -26,7 +26,7 @@ DESCRIPTION="HexChat is an IRC chat program. It allows you to join multiple IRC 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://dl.hexchat.net/hexchat/hexchat-2.14.3.tar.xz
+wget -nc https://dl.hexchat.net/hexchat/hexchat-2.16.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -48,11 +48,15 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i "s/(python_opt/& + '-embed'/" plugins/python/meson.build
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr -Dwith-libproxy=false -Dwith-lua=false .. &&
+meson --prefix=/usr         \
+      --buildtype=release   \
+      -Dwith-libproxy=false \
+      -Dwith-lua=false      \
+      -Dwith-python=false   \
+      ..                    &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -16,14 +16,14 @@ cd $SOURCE_DIR
 
 NAME=python-modules#pygobject3
 VERSION=3.40.1
-URL=https://mirror.umd.edu/gnome/sources/pygobject/3.40/pygobject-3.40.1.tar.xz
+URL=https://download.gnome.org/sources/pygobject/3.40/pygobject-3.40.1.tar.xz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mirror.umd.edu/gnome/sources/pygobject/3.40/pygobject-3.40.1.tar.xz
+wget -nc https://download.gnome.org/sources/pygobject/3.40/pygobject-3.40.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/pygobject/3.40/pygobject-3.40.1.tar.xz
 
 
@@ -50,7 +50,7 @@ mv -v tests/test_gdbus.py{,.nouse}
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

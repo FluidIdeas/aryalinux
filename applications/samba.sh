@@ -15,6 +15,7 @@ set +h
 #REQ:fuse
 #REQ:gpgme
 #REQ:icu
+#REQ:libtasn1
 #REQ:libxslt
 #REQ:linux-pam
 #REQ:perl-modules#perl-parse-yapp
@@ -24,8 +25,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=samba
-VERSION=4.14.2
-URL=https://www.samba.org/ftp/samba/stable/samba-4.14.2.tar.gz
+VERSION=4.15.2
+URL=https://download.samba.org/pub/samba/stable/samba-4.15.2.tar.gz
 SECTION="Networking Programs"
 DESCRIPTION="The Samba package provides file and print services to SMB/CIFS clients and Windows networking to Linux clients. Samba can also be configured as a Windows Domain Controller replacement, a file/print server acting as a member of a Windows Active Directory domain and a NetBIOS (rfc1001/1002) nameserver (which among other things provides LAN browsing support)."
 
@@ -33,7 +34,7 @@ DESCRIPTION="The Samba package provides file and print services to SMB/CIFS clie
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.samba.org/ftp/samba/stable/samba-4.14.2.tar.gz
+wget -nc https://download.samba.org/pub/samba/stable/samba-4.15.2.tar.gz
 
 
 if [ ! -z $URL ]
@@ -59,24 +60,26 @@ sudo rm -r /var/lock
 python3 -m venv pyvenv &&
 ./pyvenv/bin/pip3 install cryptography pyasn1 iso8601
 echo "^samba4.rpc.echo.*on.*ncacn_np.*with.*object.*nt4_dc" >> selftest/knownfail
-PYTHON=$PWD/pyvenv/bin/python3         \
-CPPFLAGS="-I/usr/include/tirpc"        \
-LDFLAGS="-ltirpc"                      \
-./configure                            \
-    --prefix=/usr                      \
-    --sysconfdir=/etc                  \
-    --localstatedir=/var               \
-    --with-piddir=/run/samba           \
-    --with-pammodulesdir=/lib/security \
-    --enable-fhs                       \
-    --without-ad-dc                    \
-    --enable-selftest                  &&
+sed -e 's/!is_allowed/secure_channel_type == SEC_CHAN_NULL \&\& &/' \
+    -i source3/winbindd/winbindd_util.c
+PYTHON=$PWD/pyvenv/bin/python3             \
+CPPFLAGS="-I/usr/include/tirpc"            \
+LDFLAGS="-ltirpc"                          \
+./configure                                \
+    --prefix=/usr                          \
+    --sysconfdir=/etc                      \
+    --localstatedir=/var                   \
+    --with-piddir=/run/samba               \
+    --with-pammodulesdir=/usr/lib/security \
+    --enable-fhs                           \
+    --without-ad-dc                        \
+    --enable-selftest                      &&
 make
 sed '1s@^.*$@#!/usr/bin/python3@' \
     -i ./bin/default/source4/scripting/bin/samba-gpupdate.inst
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-rm -rf /usr/lib/python3.9/site-packages/samba
+rm -rf /usr/lib/python3.10/site-packages/samba
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -87,11 +90,11 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
 
-mv -v /usr/lib/libnss_win{s,bind}.so.*  /lib                       &&
-ln -v -sf ../../lib/libnss_winbind.so.2 /usr/lib/libnss_winbind.so &&
-ln -v -sf ../../lib/libnss_wins.so.2    /usr/lib/libnss_wins.so    &&
-
 install -v -m644    examples/smb.conf.default /etc/samba &&
+
+sed -e "s;log file =.*;log file = /var/log/samba/%m.log;" \
+    -e "s;path = /usr/spool/samba;path = /var/spool/samba;" \
+    -i /etc/samba/smb.conf.default &&
 
 mkdir -pv /etc/openldap/schema                        &&
 

@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=fuse
-VERSION=3.10.2
-URL=https://github.com/libfuse/libfuse/releases/download/fuse-3.10.2/fuse-3.10.2.tar.xz
+VERSION=3.10.5
+URL=https://github.com/libfuse/libfuse/releases/download/fuse-3.10.5/fuse-3.10.5.tar.xz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="FUSE (Filesystem in Userspace) is a simple interface for userspace programs to export a virtual filesystem to the Linux kernel. Fuse also aims to provide a secure method for non privileged users to create and mount their own filesystem implementations."
 
@@ -21,7 +21,7 @@ DESCRIPTION="FUSE (Filesystem in Userspace) is a simple interface for userspace 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/libfuse/libfuse/releases/download/fuse-3.10.2/fuse-3.10.2.tar.xz
+wget -nc https://github.com/libfuse/libfuse/releases/download/fuse-3.10.5/fuse-3.10.5.tar.xz
 
 
 if [ ! -z $URL ]
@@ -48,23 +48,18 @@ sed -i '/^udev/,$ s/^/#/' util/meson.build &&
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install                                             &&
 
-mv -vf   /usr/lib/libfuse3.so.3*     /lib                 &&
-ln -sfvn ../../lib/libfuse3.so.3.10.2 /usr/lib/libfuse3.so &&
+chmod u+s /usr/bin/fusermount3                &&
 
-mv -vf /usr/bin/fusermount3  /bin         &&
-mv -vf /usr/sbin/mount.fuse3 /sbin        &&
-chmod u+s /bin/fusermount3                &&
-
-install -v -m755 -d /usr/share/doc/fuse-3.10.2      &&
+install -v -m755 -d /usr/share/doc/fuse-3.10.5      &&
 install -v -m644    ../doc/{README.NFS,kernel.txt} \
-                    /usr/share/doc/fuse-3.10.2      &&
-cp -Rv ../doc/html  /usr/share/doc/fuse-3.10.2
+                    /usr/share/doc/fuse-3.10.5      &&
+cp -Rv ../doc/html  /usr/share/doc/fuse-3.10.5
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

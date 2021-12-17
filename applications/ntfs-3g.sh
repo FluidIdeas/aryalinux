@@ -13,15 +13,15 @@ cd $SOURCE_DIR
 
 NAME=ntfs-3g
 VERSION=
-URL=https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2017.3.23.tgz
+URL=https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2021.8.22.tgz
 SECTION="File Systems and Disk Management"
-DESCRIPTION="The Ntfs-3g package contains a stable, read-write open source driver for NTFS partitions. NTFS partitions are used by most Microsoft operating systems. Ntfs-3g allows you to mount NTFS partitions in read-write mode from your Linux system. It uses the FUSE kernel module to be able to implement NTFS support in user space. The package also contains various utilities useful for manipulating NTFS partitions."
+DESCRIPTION="A new read-write driver for NTFS, called NTFS3, has been added into the Linux kernel since the 5.15 release. The performance of NTFS3 is much better than ntfs-3g. To enable NTFS3, enable the following options in the kernel configuration and recompile the kernel if necessary:"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2017.3.23.tgz
+wget -nc https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2021.8.22.tgz
 
 
 if [ ! -z $URL ]
@@ -43,31 +43,27 @@ fi
 echo $USER > /tmp/currentuser
 
 
+cat >> /usr/sbin/mount.ntfs <<"EOF" &&
+#!/bin/sh
+exec mount -t ntfs3 "$@"
+EOF
+chmod -v 755 /usr/sbin/mount.ntfs
 ./configure --prefix=/usr        \
             --disable-static     \
             --with-fuse=internal \
-            --docdir=/usr/share/doc/ntfs-3g-2017.3.23 &&
+            --docdir=/usr/share/doc/ntfs-3g-2021.8.22 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-ln -sv ../bin/ntfs-3g /sbin/mount.ntfs &&
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+ln -sv ../bin/ntfs-3g /usr/sbin/mount.ntfs &&
 ln -sv ntfs-3g.8 /usr/share/man/man8/mount.ntfs.8
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-chmod -v 4755 /bin/ntfs-3g
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

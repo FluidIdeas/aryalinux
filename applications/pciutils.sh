@@ -65,7 +65,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cat > /lib/systemd/system/update-pciids.service << "EOF" &&
+cat > /usr/lib/systemd/system/update-pciids.service << "EOF" &&
 [Unit]
 Description=Update pci.ids file
 Documentation=man:update-pciids(8)
@@ -78,7 +78,7 @@ Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/sbin/update-pciids
 EOF
-cat > /lib/systemd/system/update-pciids.timer << "EOF" &&
+cat > /usr/lib/systemd/system/update-pciids.timer << "EOF" &&
 [Unit]
 Description=Update pci.ids file weekly
 

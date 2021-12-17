@@ -14,15 +14,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=perl-modules#perl-test-differences
-VERSION=0.67
-URL=https://www.cpan.org/authors/id/D/DC/DCANTRELL/Test-Differences-0.67.tar.gz
+VERSION=0.68
+URL=https://www.cpan.org/authors/id/D/DC/DCANTRELL/Test-Differences-0.68.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.cpan.org/authors/id/D/DC/DCANTRELL/Test-Differences-0.67.tar.gz
+wget -nc https://www.cpan.org/authors/id/D/DC/DCANTRELL/Test-Differences-0.68.tar.gz
 
 
 if [ ! -z $URL ]

@@ -18,8 +18,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=cups
-VERSION=2.3.
-URL=https://github.com/apple/cups/releases/download/v2.3.3/cups-2.3.3-source.tar.gz
+VERSION=2.4.
+URL=https://github.com/OpenPrinting/cups/releases/download/v2.4.0/cups-2.4.0-source.tar.gz
 SECTION="Printing"
 DESCRIPTION="The Common Unix Printing System (CUPS) is a print spooler and associated utilities. It is based on the \"Internet Printing Protocol\" and provides printing services to most PostScript and raster printers."
 
@@ -27,7 +27,7 @@ DESCRIPTION="The Common Unix Printing System (CUPS) is a print spooler and assoc
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/apple/cups/releases/download/v2.3.3/cups-2.3.3-source.tar.gz
+wget -nc https://github.com/OpenPrinting/cups/releases/download/v2.4.0/cups-2.4.0-source.tar.gz
 
 
 if [ ! -z $URL ]
@@ -77,19 +77,17 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 sed -i 's#@CUPS_HTMLVIEW@#firefox#' desktop/cups.desktop.in
-sed -i '/stat.h/a #include <asm-generic/ioctls.h>' tools/ipptool.c   &&
-
-CC=gcc CXX=g++ \
+sed -e "s/format-truncation//" \
+    -i configure \
+       config-scripts/cups-compiler.m4
 ./configure --libdir=/usr/lib            \
-            --with-rcdir=/tmp/cupsinit   \
             --with-system-groups=lpadmin \
-            --with-docdir=/usr/share/cups/doc-2.3.3 &&
+            --with-docdir=/usr/share/cups/doc-2.4.0 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-rm -rf /tmp/cupsinit &&
-ln -svnf ../cups/doc-2.3.3 /usr/share/doc/cups-2.3.3
+ln -svnf ../cups/doc-2.4.0 /usr/share/doc/cups-2.4.0
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -124,7 +122,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-systemctl enable org.cups.cupsd
+systemctl enable cups
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

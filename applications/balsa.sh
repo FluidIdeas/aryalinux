@@ -12,16 +12,15 @@ set +h
 #REQ:gmime3
 #REQ:gpgme
 #REQ:gtk3
-#REQ:rarian
+#REQ:libnotify
 #REQ:mail
-#REQ:pcre
 
 
 cd $SOURCE_DIR
 
 NAME=balsa
-VERSION=2.6.2
-URL=https://pawsa.fedorapeople.org/balsa/balsa-2.6.2.tar.bz2
+VERSION=2.6.3
+URL=https://pawsa.fedorapeople.org/balsa/balsa-2.6.3.tar.xz
 SECTION="Other X-based Programs"
 DESCRIPTION="The Balsa package contains a GNOME-2 based mail client."
 
@@ -29,7 +28,7 @@ DESCRIPTION="The Balsa package contains a GNOME-2 based mail client."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://pawsa.fedorapeople.org/balsa/balsa-2.6.2.tar.bz2
+wget -nc https://pawsa.fedorapeople.org/balsa/balsa-2.6.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -54,8 +53,7 @@ echo $USER > /tmp/currentuser
 ./configure --prefix=/usr            \
             --sysconfdir=/etc        \
             --localstatedir=/var/lib \
-            --without-html-widget    \
-            --without-libnotify      &&
+            --without-html-widget    &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

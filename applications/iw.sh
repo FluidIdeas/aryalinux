@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=iw
-VERSION=5.9
-URL=https://www.kernel.org/pub/software/network/iw/iw-5.9.tar.xz
+VERSION=5.16
+URL=https://www.kernel.org/pub/software/network/iw/iw-5.16.tar.xz
 SECTION="Networking Programs"
 DESCRIPTION="iw is a new nl80211 based CLI configuration utility for wireless devices. It supports all new drivers that have been added to the kernel recently. The old tool iwconfig, which uses Wireless Extensions interface, is deprecated and it's strongly recommended to switch to iw and nl80211."
 
@@ -22,7 +22,7 @@ DESCRIPTION="iw is a new nl80211 based CLI configuration utility for wireless de
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.kernel.org/pub/software/network/iw/iw-5.9.tar.xz
+wget -nc https://www.kernel.org/pub/software/network/iw/iw-5.16.tar.xz
 
 
 if [ ! -z $URL ]
@@ -48,7 +48,7 @@ sed -i "/INSTALL.*gz/s/.gz//" Makefile &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make SBINDIR=/sbin install
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -47,7 +47,7 @@ sed 's@-Werror@@' -i Makefile
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+make BINDIR=/usr/sbin install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -45,6 +45,7 @@ export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disab
 
 echo $USER > /tmp/currentuser
 
+grep -rl slave | xargs sed -i s/slave/secondary/
 ./configure $XORG_CONFIG &&
 make
 sudo rm -rf /tmp/rootscript.sh

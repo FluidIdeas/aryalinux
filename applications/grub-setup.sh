@@ -51,7 +51,7 @@ fdisk -l /dev/sda
 mkdir -pv /boot/efi &&
 mount -v -t vfat /dev/sda1 /boot/efi
 cat >> /etc/fstab << EOF
-mount -v -t efivarfs efivarfs /sys/firmware/efi/efivars
+mountpoint /sys/firmware/efi/efivars || mount -v -t efivarfs efivarfs /sys/firmware/efi/efivars
 grub-install --bootloader-id=LFS --recheck
 cat > /boot/grub/grub.cfg << EOF
 cat >> /boot/grub/grub.cfg << EOF
