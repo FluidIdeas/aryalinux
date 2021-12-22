@@ -1,7 +1,7 @@
 set -e
 set +h
 
-. /sources/build-properties
+. $LFS/sources/build-properties
 
 LFS=/mnt/lfs
 
@@ -46,4 +46,4 @@ chroot "$LFS" /usr/bin/env -i \
     TERM="$TERM"                \
     PS1='(lfs chroot) \u:\w\$ '              \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin \
-    /bin/bash --login +h /sources/stage4.sh
+    /bin/bash --login +h $LFS/sources/stage4.sh

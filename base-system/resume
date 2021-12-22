@@ -1,6 +1,6 @@
-. /sources/build-properties
+. $LFS/sources/build-properties
 
-cd /sources
+cd $LFS/sources
 
 mkdir -pv /{bin,boot,etc/{opt,sysconfig},home,lib/firmware,mnt,opt}
 mkdir -pv /{media/{floppy,cdrom},sbin,srv,var}
@@ -24,11 +24,11 @@ ln -sv /run /var/run
 mkdir -pv /var/lock
 mkdir -pv /var/{opt,cache,lib/{color,misc,locate},local}
 
-ln -sv /tools/bin/{bash,cat,echo,pwd,stty} /bin
-ln -sv /tools/bin/perl /usr/bin
-ln -sv /tools/lib/libgcc_s.so{,.1} /usr/lib
-ln -sv /tools/lib/libstdc++.so{,.6} /usr/lib
-sed 's/tools/usr/' /tools/lib/libstdc++.la > /usr/lib/libstdc++.la
+ln -sv $LFS/tools/bin/{bash,cat,echo,pwd,stty} /bin
+ln -sv $LFS/tools/bin/perl /usr/bin
+ln -sv $LFS/tools/lib/libgcc_s.so{,.1} /usr/lib
+ln -sv $LFS/tools/lib/libstdc++.so{,.6} /usr/lib
+sed 's$LFS/tools/usr/' $LFS/tools/lib/libstdc++.la > /usr/lib/libstdc++.la
 ln -sv bash /bin/sh
 
 ln -sv /proc/self/mounts /etc/mtab
@@ -87,4 +87,4 @@ clear
 echo "Please execute 3.sh by entering the following command below:"
 echo "./3.sh"
 
-exec /tools/bin/bash --login +h
+exec $LFS/tools/bin/bash --login +h

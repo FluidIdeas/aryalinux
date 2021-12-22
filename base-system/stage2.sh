@@ -2,10 +2,10 @@
 
 set -e
 
-. /sources/build-properties
+. $LFS/sources/build-properties
 
 # Compiling a Cross-Toolchain
-for script in /sources/cross-toolchain/*.sh
+for script in $LFS/sources/cross-toolchain/*.sh
 do
 
 bash $script
@@ -13,7 +13,7 @@ bash $script
 done
 
 # Cross Compiling Temporary Tools
-for script in /sources/temp-tools/*.sh
+for script in $LFS/sources/temp-tools/*.sh
 do
 
 bash $script
