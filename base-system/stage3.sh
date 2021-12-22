@@ -46,4 +46,4 @@ chroot "$LFS" /usr/bin/env -i \
     TERM="$TERM"                \
     PS1='(lfs chroot) \u:\w\$ '              \
     PATH=/bin:/usr/bin:/sbin:/usr/sbin \
-    /bin/bash --login +h $LFS/sources/stage4.sh
+    bash --login +h $LFS/sources/stage4.sh
