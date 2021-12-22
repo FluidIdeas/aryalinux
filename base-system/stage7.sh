@@ -93,7 +93,6 @@ set bell-style none
 "\e[H": beginning-of-line
 "\e[F": end-of-line
 
-
 # End /etc/inputrc
 EOF
 

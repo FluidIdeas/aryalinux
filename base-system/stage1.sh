@@ -83,20 +83,22 @@ fi
 mkdir -v $LFS/sources
 chmod -v a+wt $LFS/sources
 
-ln -svf $LFS/sources /sources
-
 cp -r ~/sources/* $LFS/sources
 touch $LFS/sources/currentstage
 
 # Creating a limited directory layout in LFS filesystem
-mkdir -pv $LFS/{bin,etc,lib,sbin,usr,var}
+mkdir -pv $LFS/{etc,var} $LFS/usr/{bin,lib,sbin}
+
+for i in bin lib sbin; do
+  ln -sv usr/$i $LFS/$i
+done
+
 case $(uname -m) in
   x86_64) mkdir -pv $LFS/lib64 ;;
 esac
 
 # Creating toolchain directory
-mkdir -v $LFS/tools
-ln -sv $LFS/tools /
+mkdir -pv $LFS/tools
 
 # Creating directory for source archives and copying sources
 mkdir -pv $LFS/var/cache/alps/sources
@@ -117,12 +119,11 @@ groupadd lfs
 useradd -s /bin/bash -g lfs -m -k /dev/null lfs
 
 # Changing ownership to lfs
-chown -v lfs $LFS/{usr,lib,var,etc,bin,sbin,tools}
+chown -v lfs $LFS/{usr{,/*},lib,var,etc,bin,sbin,tools}
 case $(uname -m) in
   x86_64) chown -v lfs $LFS/lib64 ;;
 esac
 
-chown -v lfs $LFS/tools
 chown -v lfs $LFS/sources
 
 cp -r * /home/lfs/

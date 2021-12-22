@@ -7,7 +7,8 @@ mkdir -pv /{boot,home,mnt,opt,srv}
 mkdir -pv /etc/{opt,sysconfig}
 mkdir -pv /lib/firmware
 mkdir -pv /media/{floppy,cdrom}
-mkdir -pv /usr/{,local/}{bin,include,lib,sbin,src}
+mkdir -pv /usr/{,local/}{include,src}
+mkdir -pv /usr/local/{bin,lib,sbin}
 mkdir -pv /usr/{,local/}share/{color,dict,doc,info,locale,man}
 mkdir -pv /usr/{,local/}share/{misc,terminfo,zoneinfo}
 mkdir -pv /usr/{,local/}share/man/man{1..8}
@@ -20,33 +21,28 @@ ln -sfv /run/lock /var/lock
 install -dv -m 0750 /root
 install -dv -m 1777 /tmp /var/tmp
 
-#ln -sv /tools/bin/{bash,cat,echo,pwd,stty} /bin
-#ln -sv /tools/bin/perl /usr/bin
-#ln -sv /tools/lib/libgcc_s.so{,.1} /usr/lib
-#ln -sv /tools/lib/libstdc++.so{,.6} /usr/lib
-#sed 's/tools/usr/' /tools/lib/libstdc++.la > /usr/lib/libstdc++.la
-#ln -sv bash /bin/sh
-
 # Creating Essential Files and Symlinks
 
-ln -svf /proc/self/mounts /etc/mtab
+ln -sv /proc/self/mounts /etc/mtab
+
 echo "127.0.0.1 localhost $(hostname)" > /etc/hosts
 
 cat > /etc/passwd << "EOF"
 root:x:0:0:root:/root:/bin/bash
-bin:x:1:1:bin:/dev/null:/bin/false
-daemon:x:6:6:Daemon User:/dev/null:/bin/false
-messagebus:x:18:18:D-Bus Message Daemon User:/run/dbus:/bin/false
-systemd-bus-proxy:x:72:72:systemd Bus Proxy:/:/bin/false
-systemd-journal-gateway:x:73:73:systemd Journal Gateway:/:/bin/false
-systemd-journal-remote:x:74:74:systemd Journal Remote:/:/bin/false
-systemd-journal-upload:x:75:75:systemd Journal Upload:/:/bin/false
-systemd-network:x:76:76:systemd Network Management:/:/bin/false
-systemd-resolve:x:77:77:systemd Resolver:/:/bin/false
-systemd-timesync:x:78:78:systemd Time Synchronization:/:/bin/false
-systemd-coredump:x:79:79:systemd Core Dumper:/:/bin/false
-uuidd:x:80:80:UUID Generation Daemon User:/dev/null:/bin/false
-nobody:x:99:99:Unprivileged User:/dev/null:/bin/false
+bin:x:1:1:bin:/dev/null:/usr/bin/false
+daemon:x:6:6:Daemon User:/dev/null:/usr/bin/false
+messagebus:x:18:18:D-Bus Message Daemon User:/run/dbus:/usr/bin/false
+systemd-bus-proxy:x:72:72:systemd Bus Proxy:/:/usr/bin/false
+systemd-journal-gateway:x:73:73:systemd Journal Gateway:/:/usr/bin/false
+systemd-journal-remote:x:74:74:systemd Journal Remote:/:/usr/bin/false
+systemd-journal-upload:x:75:75:systemd Journal Upload:/:/usr/bin/false
+systemd-network:x:76:76:systemd Network Management:/:/usr/bin/false
+systemd-resolve:x:77:77:systemd Resolver:/:/usr/bin/false
+systemd-timesync:x:78:78:systemd Time Synchronization:/:/usr/bin/false
+systemd-coredump:x:79:79:systemd Core Dumper:/:/usr/bin/false
+uuidd:x:80:80:UUID Generation Daemon User:/dev/null:/usr/bin/false
+systemd-oom:x:81:81:systemd Out Of Memory Daemon:/:/usr/bin/false
+nobody:x:99:99:Unprivileged User:/dev/null:/usr/bin/false
 EOF
 
 cat > /etc/group << "EOF"
@@ -81,6 +77,7 @@ systemd-resolve:x:77:
 systemd-timesync:x:78:
 systemd-coredump:x:79:
 uuidd:x:80:
+systemd-oom:x:81:81:
 wheel:x:97:
 nogroup:x:99:
 users:x:999:

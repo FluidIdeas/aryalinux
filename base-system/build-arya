@@ -152,7 +152,7 @@ def freshBuild(startFrom):
     LFS = '/mnt/lfs'
     LC_ALL = 'POSIX'
     LFS_TGT = check_output("echo $(uname -m)-lfs-linux-gnu", shell=True).strip()
-    PATH = '/tools/bin:/bin:/usr/bin'
+    PATH = LFS + '/tools/bin:/bin:/usr/bin'
     CONFIG_SITE = LFS + '/usr/share/config.site'
 
     env['LFS'] = LFS
