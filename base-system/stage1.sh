@@ -127,8 +127,8 @@ esac
 chown -v lfs $LFS/sources
 
 cp -r * /home/lfs/
-cp -r * /sources/
+cp -r * $LFS/sources/
 chown -R lfs:lfs /home/lfs/*
-chown -R lfs:lfs /sources/*
+chown -R lfs:lfs $LFS/sources/*
 
 chown -R lfs:lfs /home/lfs
