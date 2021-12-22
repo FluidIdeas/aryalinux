@@ -18,8 +18,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gjs
-VERSION=1.68.3
-URL=https://download.gnome.org/sources/gjs/1.68/gjs-1.68.3.tar.xz
+VERSION=1.70.0
+URL=https://download.gnome.org/sources/gjs/1.70/gjs-1.70.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Gjs is a set of Javascript bindings for GNOME."
 
@@ -27,8 +27,7 @@ DESCRIPTION="Gjs is a set of Javascript bindings for GNOME."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gjs/1.68/gjs-1.68.3.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gjs/1.68/gjs-1.68.3.tar.xz
+wget -nc https://download.gnome.org/sources/gjs/1.70/gjs-1.70.0.tar.xz
 
 
 if [ ! -z $URL ]
