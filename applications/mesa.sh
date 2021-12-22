@@ -52,7 +52,7 @@ echo $USER > /tmp/currentuser
 
 export XORG_PREFIX="/usr"
 
-patch -Np1 -i ../mesa-21.3.1-add_xdemos-1.patch
+patch -Np1 -i ../mesa-21.3.2-add_xdemos-1.patch
 GALLIUM_DRV="crocus,i915,iris,nouveau,r600,radeonsi,svga,swrast,virgl"
 DRI_DRIVERS="i965,nouveau"
 
