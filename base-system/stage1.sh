@@ -125,6 +125,7 @@ case $(uname -m) in
 esac
 
 chown -v lfs $LFS/sources
+sudo ln -svf $LFS/sources /
 
 cp -r * /home/lfs/
 cp -r * $LFS/sources/
