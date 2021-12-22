@@ -19,8 +19,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=mesa
-VERSION=21.3.1
-URL=https://mesa.freedesktop.org/archive/mesa-21.3.1.tar.xz
+VERSION=21.3.2
+URL=https://mesa.freedesktop.org/archive/mesa-21.3.2.tar.xz
 SECTION="X Window System Environment"
 DESCRIPTION="Mesa is an OpenGL compatible 3D graphics library."
 
@@ -28,10 +28,8 @@ DESCRIPTION="Mesa is an OpenGL compatible 3D graphics library."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mesa.freedesktop.org/archive/mesa-21.3.1.tar.xz
-wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-21.3.1.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/mesa-21.3.1-add_xdemos-1.patch
-wget -nc ftp://ftp.freedesktop.org/pub/mesa/demos/
+wget -nc https://mesa.freedesktop.org/archive/mesa-21.3.2.tar.xz
+wget -nc https://www.linuxfromscratch.org/patches/blfs/svn/mesa-21.3.2-add_xdemos-1.patch
 
 
 if [ ! -z $URL ]
@@ -99,18 +97,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -dm755 /usr/share/doc/mesa-21.3.1 &&
-cp -rfv ../docs/* /usr/share/doc/mesa-21.3.1
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
