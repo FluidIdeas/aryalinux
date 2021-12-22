@@ -89,4 +89,4 @@ chgrp -v utmp /var/log/lastlog
 chmod -v 664  /var/log/lastlog
 chmod -v 600  /var/log/btmp
 
-exec /bin/bash --login +h /sources/stage5.sh
+exec bash --login +h /sources/stage5.sh
