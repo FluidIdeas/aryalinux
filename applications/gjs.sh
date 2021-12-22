@@ -28,7 +28,7 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gjs/1.70/gjs-1.70.0.tar.xz
-
+wget -nc https://gitweb.gentoo.org/repo/gentoo.git/plain/dev-libs/gjs/files/gjs-1.70.0-meson-0.60.2.patch
 
 if [ ! -z $URL ]
 then
@@ -48,6 +48,7 @@ fi
 
 echo $USER > /tmp/currentuser
 
+patch -Np1 -i ../gjs-1.70.0-meson-0.60.2.patch
 
 mkdir gjs-build &&
 cd    gjs-build &&
