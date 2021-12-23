@@ -84,10 +84,14 @@ cmake -DCMAKE_BUILD_TYPE=Release  \
       -DCMAKE_SKIP_RPATH=ON       \
       -DPORT=GTK                  \
       -DLIB_INSTALL_DIR=/usr/lib  \
+      -DUSE_LIBHYPHEN=OFF         \
+      -DENABLE_GAMEPAD=OFF        \
       -DENABLE_MINIBROWSER=ON     \
-	  -DENABLE_GLES2=ON           \
-	  -DENABLE_QUARTZ_TARGET=ON   \
-	  -DUSE_GTK4=OFF              \
+      -DUSE_WOFF2=OFF             \
+      -DUSE_SOUP2=ON              \
+      -DUSE_WPE_RENDERER=ON       \
+      -DUSE_SYSTEMD=OFF           \
+      -DENABLE_BUBBLEWRAP_SANDBOX=OFF \
       -Wno-dev -G Ninja ..        &&
 ninja
 
