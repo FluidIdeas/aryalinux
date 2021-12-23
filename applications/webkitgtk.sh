@@ -92,6 +92,11 @@ cmake -DCMAKE_BUILD_TYPE=Release  \
       -DUSE_SOUP2=ON              \
       -DUSE_WPE_RENDERER=ON       \
       -DUSE_SYSTEMD=OFF           \
+      -DENABLE_GLES2=ON           \
+      -DUSE_GTK4=ON               \
+      -DUSE_SYSTEMD=ON            \
+      -DUSE_WOFF2=ON              \
+      -DUSE_LIBHYPHEN=ON          \
       -DENABLE_BUBBLEWRAP_SANDBOX=OFF \
       -Wno-dev -G Ninja ..        &&
 ninja
