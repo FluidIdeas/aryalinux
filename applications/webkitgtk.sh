@@ -39,6 +39,7 @@ set +h
 #REQ:gtk-doc
 #REQ:woff2
 #REQ:libseccomp
+#REQ:lcms2
 
 
 cd $SOURCE_DIR
