@@ -27,6 +27,7 @@ wget -nc https://ftp.exim.org/pub/exim/exim4/exim-4.95.tar.xz
 wget -nc ftp://ftp.exim.org/pub/exim/exim4/exim-4.95.tar.xz
 wget -nc http://exim.org/docs.html
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/exim-4.95-call_pam-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/exim-4.95-openssl3_fix-1.patch
 
 
 if [ ! -z $URL ]
@@ -58,7 +59,8 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-patch -Np2 -i ../exim-4.95-call_pam-1-1.patch
+patch -Np2 -i ../exim-4.95-call_pam-1.patch
+patch -Np2 -i ../exim-4.95-openssl3_fix-1.patch
 sed -e 's,^BIN_DIR.*$,BIN_DIRECTORY=/usr/sbin,'    \
     -e 's,^CONF.*$,CONFIGURE_FILE=/etc/exim.conf,' \
     -e 's,^EXIM_USER.*$,EXIM_USER=exim,'           \

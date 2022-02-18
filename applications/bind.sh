@@ -15,17 +15,17 @@ set +h
 cd $SOURCE_DIR
 
 NAME=bind
-VERSION=9.16.23
-URL=https://ftp.isc.org/isc/bind9/9.16.23/bind-9.16.23.tar.xz
+VERSION=9.18.0
+URL=https://ftp.isc.org/isc/bind9/9.18.0/bind-9.18.0.tar.xz
 SECTION="Major Servers"
-DESCRIPTION="The BIND package provides a DNS server and client utilities. If you are only interested in the utilities, refer to the BIND Utilities-9.16.23."
+DESCRIPTION="The BIND package provides a DNS server and client utilities. If you are only interested in the utilities, refer to the BIND Utilities-9.18.0."
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ftp.isc.org/isc/bind9/9.16.23/bind-9.16.23.tar.xz
-wget -nc ftp://ftp.isc.org/isc/bind9/9.16.23/bind-9.16.23.tar.xz
+wget -nc https://ftp.isc.org/isc/bind9/9.18.0/bind-9.18.0.tar.xz
+wget -nc ftp://ftp.isc.org/isc/bind9/9.18.0/bind-9.18.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -47,20 +47,10 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install ply
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 ./configure --prefix=/usr           \
             --sysconfdir=/etc       \
             --localstatedir=/var    \
             --mandir=/usr/share/man \
-            --with-libtool          \
             --disable-static        &&
 make
 sudo rm -rf /tmp/rootscript.sh

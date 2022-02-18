@@ -21,6 +21,7 @@ cd $DIRECTORY
 
 
 patch -Np1 -i ../coreutils-9.0-i18n-1.patch
+patch -Np1 -i ../coreutils-9.0-chmod_fix-1.patch
 autoreconf -fiv
 FORCE_UNSAFE_CONFIGURE=1 ./configure \
             --prefix=/usr            \

@@ -70,6 +70,10 @@ cd ..              &&
 tar -xf ../dconf-editor-3.38.3.tar.xz &&
 cd dconf-editor-3.38.3                &&
 
+sed -e '/  desktop,/d' \
+    -e '/  appdata,/d' \
+    -i editor/meson.build &&
+
 mkdir build &&
 cd    build &&
 

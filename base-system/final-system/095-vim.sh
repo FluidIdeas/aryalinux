@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=vim-8.2.3704.tar.gz
+TARBALL=vim-8.2.4383.tar.gz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -28,7 +28,7 @@ ln -sv vim /usr/bin/vi
 for L in  /usr/share/man/{,*/}man1/vim.1; do
     ln -sv vim.1 $(dirname $L)/vi.1
 done
-ln -sv ../vim/vim82/doc /usr/share/doc/vim-8.2.3704
+ln -sv ../vim/vim82/doc /usr/share/doc/vim-8.2.4383
 cat > /etc/vimrc << "EOF"
 " Begin /etc/vimrc
 

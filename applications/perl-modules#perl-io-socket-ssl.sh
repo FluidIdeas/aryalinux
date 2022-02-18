@@ -15,15 +15,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=perl-modules#perl-io-socket-ssl
-VERSION=2.072
-URL=https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.072.tar.gz
+VERSION=2.074
+URL=https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.074.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.072.tar.gz
+wget -nc https://www.cpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.074.tar.gz
 
 
 if [ ! -z $URL ]

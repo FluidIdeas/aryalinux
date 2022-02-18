@@ -8,6 +8,7 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:libsoup
+#REQ:gtk-doc
 
 
 cd $SOURCE_DIR
@@ -24,7 +25,7 @@ pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgrss/0.7/libgrss-0.7.0.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/libgrss-0.7.0-bugfixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/libgrss-0.7.0-bugfixes-2.patch
 
 
 if [ ! -z $URL ]
@@ -46,7 +47,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../libgrss-0.7.0-bugfixes-1.patch &&
+patch -Np1 -i ../libgrss-0.7.0-bugfixes-2.patch &&
 autoreconf -fv &&
 ./configure --prefix=/usr --disable-static &&
 make

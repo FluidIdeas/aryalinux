@@ -7,13 +7,14 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:mandoc
 
 
 cd $SOURCE_DIR
 
 NAME=efivar
-VERSION=37
-URL=https://github.com/rhboot/efivar/releases/download/37/efivar-37.tar.bz2
+VERSION=38
+URL=https://github.com/rhboot/efivar/releases/download/38/efivar-38.tar.bz2
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The efivar package provides tools and libraries to manipulate EFI variables."
 
@@ -21,8 +22,7 @@ DESCRIPTION="The efivar package provides tools and libraries to manipulate EFI v
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/rhboot/efivar/releases/download/37/efivar-37.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/efivar-37-gcc_9-1.patch
+wget -nc https://github.com/rhboot/efivar/releases/download/38/efivar-38.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -44,8 +44,8 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../efivar-37-gcc_9-1.patch
-make CFLAGS="-O2 -Wno-stringop-truncation"
+sed '/prep :/a\\ttouch prep' -i src/Makefile
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install LIBDIR=/usr/lib

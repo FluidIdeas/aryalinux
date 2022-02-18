@@ -14,15 +14,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libinput
-VERSION=1.19.2
-URL=https://www.freedesktop.org/software/libinput/libinput-1.19.2.tar.xz
+VERSION=1.19.3
+URL=https://www.freedesktop.org/software/libinput/libinput-1.19.3.tar.xz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.freedesktop.org/software/libinput/libinput-1.19.2.tar.xz
+wget -nc https://www.freedesktop.org/software/libinput/libinput-1.19.3.tar.xz
 
 
 if [ ! -z $URL ]

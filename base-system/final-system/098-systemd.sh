@@ -13,22 +13,19 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=systemd-249.tar.gz
+TARBALL=systemd-250.tar.gz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-patch -Np1 -i ../systemd-249-upstream_fixes-1.patch
+patch -Np1 -i ../systemd-250-upstream_fixes-1.patch
 sed -i -e 's/GROUP="render"/GROUP="video"/' \
         -e 's/GROUP="sgx", //' rules.d/50-udev-default.rules.in
-sed -i 's/+ want_libfuzzer.*$/and want_libfuzzer/' meson.build
-sed -i '/ARPHRD_CAN/a#define ARPHRD_MCTP        290' src/basic/linux/if_arp.h
 mkdir -p build
 cd       build
 
-LANG=$LOCALE                    \
 meson --prefix=/usr                 \
       --sysconfdir=/etc             \
       --localstatedir=/var          \
@@ -45,11 +42,11 @@ meson --prefix=/usr                 \
       -Duserdb=false                \
       -Dman=false                   \
       -Dmode=release                \
-      -Ddocdir=/usr/share/doc/systemd-249 \
+      -Ddocdir=/usr/share/doc/systemd-250 \
       ..
-LANG=$LOCALE ninja
-LANG=$LOCALE ninja install
-tar -xf ../../systemd-man-pages-249.tar.xz --strip-components=1 -C /usr/share/man
+ninja
+ninja install
+tar -xf ../../systemd-man-pages-250.tar.xz --strip-components=1 -C /usr/share/man
 rm -rf /usr/lib/pam.d
 systemd-machine-id-setup
 systemctl preset-all

@@ -24,6 +24,7 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.apache.org/dist/serf/serf-1.3.9.tar.bz2
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/serf-1.3.9-openssl3_fixes-1.patch
 
 
 if [ ! -z $URL ]
@@ -45,6 +46,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../serf-1.3.9-openssl3_fixes-1.patch
 sed -i "/Append/s:RPATH=libdir,::"          SConstruct &&
 sed -i "/Default/s:lib_static,::"           SConstruct &&
 sed -i "/Alias/s:install_static,::"         SConstruct &&

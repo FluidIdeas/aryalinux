@@ -7,14 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:glib2
+#REQ:gobject-introspection
+#REQ:gtk3
+#REQ:gtk4
+#REQ:qt5
 
 
 cd $SOURCE_DIR
 
 NAME=libportal
-VERSION=0.4
-URL=https://github.com/flatpak/libportal/releases/download/0.4/libportal-0.4.tar.xz
+VERSION=0.5
+URL=https://github.com/flatpak/libportal/releases/download/0.5/libportal-0.5.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libportal package provides a library that contains GIO-style async APIs for most Flatpak portals."
 
@@ -22,7 +25,7 @@ DESCRIPTION="The libportal package provides a library that contains GIO-style as
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/flatpak/libportal/releases/download/0.4/libportal-0.4.tar.xz
+wget -nc https://github.com/flatpak/libportal/releases/download/0.5/libportal-0.5.tar.xz
 
 
 if [ ! -z $URL ]
@@ -44,10 +47,14 @@ fi
 echo $USER > /tmp/currentuser
 
 
+if [ -e /usr/include/libportal ]; then
+    rm -rf /usr/include/libportal.old &&
+    mv -vf /usr/include/libportal{,.old}
+fi
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr --buildtype=release -Dgtk_doc=false .. &&
+meson --prefix=/usr --buildtype=release -Ddocs=false .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

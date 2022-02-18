@@ -23,8 +23,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=cheese
-VERSION=3.38.0
-URL=https://download.gnome.org/sources/cheese/3.38/cheese-3.38.0.tar.xz
+VERSION=41.1
+URL=https://download.gnome.org/sources/cheese/41/cheese-41.1.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="Cheese is used to take photos and videos with fun graphical effects."
 
@@ -32,9 +32,8 @@ DESCRIPTION="Cheese is used to take photos and videos with fun graphical effects
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/cheese/3.38/cheese-3.38.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/cheese/3.38/cheese-3.38.0.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/cheese-3.38.0-upstream_fixes-1.patch
+wget -nc https://download.gnome.org/sources/cheese/41/cheese-41.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/cheese/41/cheese-41.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -56,8 +55,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i "s/&version;/3.38.0/" docs/reference/cheese{,-docs}.xml
-patch -Np1 -i ../cheese-3.38.0-upstream_fixes-1.patch
 mkdir build &&
 cd    build &&
 

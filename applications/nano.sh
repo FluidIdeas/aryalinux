@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=nano
-VERSION=5.9
-URL=https://www.nano-editor.org/dist/v5/nano-5.9.tar.xz
+VERSION=6.1
+URL=https://www.nano-editor.org/dist/v6/nano-6.1.tar.xz
 SECTION="Editors"
 DESCRIPTION="The Nano package contains a small, simple text editor which aims to replace Pico, the default editor in the Pine package."
 
@@ -21,7 +21,7 @@ DESCRIPTION="The Nano package contains a small, simple text editor which aims to
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.nano-editor.org/dist/v5/nano-5.9.tar.xz
+wget -nc https://www.nano-editor.org/dist/v6/nano-6.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -46,12 +46,12 @@ echo $USER > /tmp/currentuser
 ./configure --prefix=/usr     \
             --sysconfdir=/etc \
             --enable-utf8     \
-            --docdir=/usr/share/doc/nano-5.9 &&
+            --docdir=/usr/share/doc/nano-6.1 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-install -v -m644 doc/{nano.html,sample.nanorc} /usr/share/doc/nano-5.9
+install -v -m644 doc/{nano.html,sample.nanorc} /usr/share/doc/nano-6.1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

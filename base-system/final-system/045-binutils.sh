@@ -13,16 +13,16 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=binutils-2.37.tar.xz
+TARBALL=binutils-2.38.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-patch -Np1 -i ../binutils-2.37-upstream_fix-1.patch
-sed -i '63d' etc/texi2pod.pl
-find -name \*.1 -delete
+patch -Np1 -i ../binutils-2.38-lto_fix-1.patch
+sed -e '/R_386_TLS_LE /i \   || (TYPE) == R_386_TLS_IE \\' \
+    -i ./bfd/elfxx-x86.h
 mkdir -v build
 cd       build
 ../configure --prefix=/usr       \
@@ -34,7 +34,7 @@ cd       build
              --enable-64-bit-bfd \
              --with-system-zlib
 make tooldir=/usr
-make tooldir=/usr install -j1
+make tooldir=/usr install
 rm -fv /usr/lib/lib{bfd,ctf,ctf-nobfd,opcodes}.a
 
 fi

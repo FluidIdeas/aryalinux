@@ -15,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=cryptsetup
-VERSION=2.3.6
-URL=https://www.kernel.org/pub/linux/utils/cryptsetup/v2.3/cryptsetup-2.3.6.tar.xz
+VERSION=2.4.3
+URL=https://www.kernel.org/pub/linux/utils/cryptsetup/v2.4/cryptsetup-2.4.3.tar.xz
 SECTION="Security"
 DESCRIPTION="cryptsetup is used to set up transparent encryption of block devices using the kernel crypto API."
 
@@ -24,7 +24,7 @@ DESCRIPTION="cryptsetup is used to set up transparent encryption of block device
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.kernel.org/pub/linux/utils/cryptsetup/v2.3/cryptsetup-2.3.6.tar.xz
+wget -nc https://www.kernel.org/pub/linux/utils/cryptsetup/v2.4/cryptsetup-2.4.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -46,7 +46,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr &&
+./configure --prefix=/usr --disable-ssh-token &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -49,6 +49,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -i "/  desktop,/d" sendto/meson.build
 mkdir build &&
 cd    build &&
 

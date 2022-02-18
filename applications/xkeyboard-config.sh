@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=xkeyboard-config
-VERSION=2.34
-URL=https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.34.tar.bz2
+VERSION=2.35.1
+URL=https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.35.1.tar.xz
 SECTION="X Window System Environment"
 DESCRIPTION="The XKeyboardConfig package contains the keyboard configuration database for the X Window System."
 
@@ -22,8 +22,8 @@ DESCRIPTION="The XKeyboardConfig package contains the keyboard configuration dat
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.34.tar.bz2
-wget -nc ftp://ftp.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.34.tar.bz2
+wget -nc https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.35.1.tar.xz
+wget -nc ftp://ftp.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.35.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -44,13 +44,18 @@ fi
 
 echo $USER > /tmp/currentuser
 
-export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
+export XORG_PREFIX="/usr"
 
-./configure $XORG_CONFIG --with-xkb-rules-symlink=xorg &&
-make
+sed -i -E 's/(ln -s)/\1f/' rules/meson.build &&
+
+mkdir build &&
+cd    build &&
+
+meson --prefix=$XORG_PREFIX --buildtype=release .. &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

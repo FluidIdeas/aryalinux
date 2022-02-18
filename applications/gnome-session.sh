@@ -18,8 +18,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gnome-session
-VERSION=40.1.1
-URL=https://download.gnome.org/sources/gnome-session/40/gnome-session-40.1.1.tar.xz
+VERSION=41.3
+URL=https://download.gnome.org/sources/gnome-session/41/gnome-session-41.3.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Session package contains the GNOME session manager."
 
@@ -27,8 +27,8 @@ DESCRIPTION="The GNOME Session package contains the GNOME session manager."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gnome-session/40/gnome-session-40.1.1.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-session/40/gnome-session-40.1.1.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-session/41/gnome-session-41.3.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-session/41/gnome-session-41.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -67,7 +67,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mv -v /usr/share/doc/gnome-session{,-40.1.1}
+mv -v /usr/share/doc/gnome-session{,-41.3}
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

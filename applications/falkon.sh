@@ -8,14 +8,15 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:extra-cmake-modules
+#REQ:frameworks5
 #REQ:qtwebengine
 
 
 cd $SOURCE_DIR
 
 NAME=falkon
-VERSION=3.1.0
-URL=https://download.kde.org/stable/falkon/3.1/falkon-3.1.0.tar.xz
+VERSION=3.2.0
+URL=https://download.kde.org/stable/falkon/3.2.0/falkon-3.2.0.tar.xz
 SECTION="Graphical Web Browsers"
 DESCRIPTION="Falkon is a KDE web browser using the QtWebEngine rendering engine. It was previously known as QupZilla. It aims to be a lightweight web browser available through all major platforms."
 
@@ -23,7 +24,7 @@ DESCRIPTION="Falkon is a KDE web browser using the QtWebEngine rendering engine.
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.kde.org/stable/falkon/3.1/falkon-3.1.0.tar.xz
+wget -nc https://download.kde.org/stable/falkon/3.2.0/falkon-3.2.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -46,10 +47,6 @@ echo $USER > /tmp/currentuser
 
 
 rm -rf po/
-sed -i '/#include <QSettings>/a#include <QFile>' \
-   src/plugins/VerticalTabs/verticaltabsplugin.cpp
-sed -i '/#include <QPainter>/a #include <QPainterPath>' \
-   src/lib/tools/qztools.cpp
 mkdir build &&
 cd    build &&
 

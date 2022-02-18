@@ -9,11 +9,10 @@ set +h
 
 #REQ:git
 #REQ:gsettings-desktop-schemas
-#REQ:gspell
 #REQ:gtksourceview4
 #REQ:itstool
 #REQ:libpeas
-#REQ:tepl
+#REQ:gspell
 #REQ:gvfs
 #REQ:iso-codes
 #REQ:python-modules#pygobject3
@@ -22,8 +21,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gedit
-VERSION=40.1
-URL=https://download.gnome.org/sources/gedit/40/gedit-40.1.tar.xz
+VERSION=41.0
+URL=https://download.gnome.org/sources/gedit/41/gedit-41.0.tar.xz
 SECTION="Editors"
 DESCRIPTION="The Gedit package contains a lightweight UTF-8 text editor for the GNOME Desktop."
 
@@ -31,8 +30,8 @@ DESCRIPTION="The Gedit package contains a lightweight UTF-8 text editor for the 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gedit/40/gedit-40.1.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gedit/40/gedit-40.1.tar.xz
+wget -nc https://download.gnome.org/sources/gedit/41/gedit-41.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gedit/41/gedit-41.0.tar.xz
 
 
 if [ ! -z $URL ]

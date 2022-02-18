@@ -28,6 +28,7 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.freedesktop.org/software/polkit/releases/polkit-0.120.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/polkit-0.120-security_fix-1.patch
 
 
 if [ ! -z $URL ]
@@ -63,6 +64,7 @@ sudo rm -rf /tmp/rootscript.sh
 sed '/0,/s/^/#/' -i meson_post_install.py &&
 sed '/policy,/d' -i actions/meson.build \
                  -i src/examples/meson.build
+patch -Np1 -i ../polkit-0.120-security_fix-1.patch
 mkdir build &&
 cd    build &&
 

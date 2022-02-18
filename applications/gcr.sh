@@ -13,6 +13,7 @@ set +h
 #REQ:gnupg
 #REQ:gobject-introspection
 #REQ:gtk3
+#REQ:libsecret
 #REQ:libxslt
 #REQ:vala
 
@@ -52,6 +53,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+find . -name meson.build | xargs sed -i /packages.\*deps/d
 sed -i 's:"/desktop:"/org:' schema/*.xml &&
 
 sed -e '208 s/@BASENAME@/gcr-viewer.desktop/'   \

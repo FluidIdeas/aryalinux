@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=util-linux-2.37.2.tar.xz
+TARBALL=util-linux-2.37.4.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -21,8 +21,10 @@ cd $DIRECTORY
 
 
 ./configure ADJTIME_PATH=/var/lib/hwclock/adjtime   \
+            --bindir=/usr/bin    \
             --libdir=/usr/lib    \
-            --docdir=/usr/share/doc/util-linux-2.37.2 \
+            --sbindir=/usr/sbin  \
+            --docdir=/usr/share/doc/util-linux-2.37.4 \
             --disable-chfn-chsh  \
             --disable-login      \
             --disable-nologin    \
@@ -31,8 +33,7 @@ cd $DIRECTORY
             --disable-runuser    \
             --disable-pylibmount \
             --disable-static     \
-            --without-python     \
-            runstatedir=/run
+            --without-python
 make
 rm tests/ts/lsns/ioctl_ns
 make install

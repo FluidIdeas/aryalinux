@@ -6,7 +6,7 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=073-kmod
+NAME=074-kmod
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
@@ -22,6 +22,7 @@ cd $DIRECTORY
 
 ./configure --prefix=/usr          \
             --sysconfdir=/etc      \
+            --with-openssl         \
             --with-xz              \
             --with-zstd            \
             --with-zlib

@@ -61,6 +61,8 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+mv -v /usr/share/doc/gtkmm-3.0 /usr/share/doc/gtkmm-3.24.5
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

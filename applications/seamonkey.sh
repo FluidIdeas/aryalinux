@@ -27,8 +27,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=seamonkey
-VERSION=2.53.9.1
-URL=https://archive.mozilla.org/pub/seamonkey/releases/2.53.9.1/source/seamonkey-2.53.9.1.source.tar.xz
+VERSION=2.53.10.2
+URL=https://archive.mozilla.org/pub/seamonkey/releases/2.53.10.2/source/seamonkey-2.53.10.2.source.tar.xz
 SECTION="Graphical Web Browsers"
 DESCRIPTION="SeaMonkey is a browser suite, the Open Source sibling of Netscape. It includes the browser, composer, mail and news clients, and an IRC client. It is the follow-on to the Mozilla browser suite."
 
@@ -36,7 +36,7 @@ DESCRIPTION="SeaMonkey is a browser suite, the Open Source sibling of Netscape. 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.mozilla.org/pub/seamonkey/releases/2.53.9.1/source/seamonkey-2.53.9.1.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/seamonkey/releases/2.53.10.2/source/seamonkey-2.53.10.2.source.tar.xz
 
 
 if [ ! -z $URL ]
@@ -68,7 +68,6 @@ export PATH=/opt/rustc/bin:$PATH
 
 cat > mozconfig << "EOF"
 # If you have a multicore machine, all cores will be used
-# unless you pass -jN to ./mach build
 
 # If you have installed DBus-Glib comment out this line:
 ac_add_options --disable-dbus

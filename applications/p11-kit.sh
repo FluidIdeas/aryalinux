@@ -14,8 +14,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=p11-kit
-VERSION=0.24.0
-URL=https://github.com/p11-glue/p11-kit/releases/download/0.24.0/p11-kit-0.24.0.tar.xz
+VERSION=0.24.1
+URL=https://github.com/p11-glue/p11-kit/releases/download/0.24.1/p11-kit-0.24.1.tar.xz
 SECTION="Security"
 DESCRIPTION="The p11-kit package provides a way to load and enumerate PKCS #11 (a Cryptographic Token Interface Standard) modules."
 
@@ -23,7 +23,7 @@ DESCRIPTION="The p11-kit package provides a way to load and enumerate PKCS #11 (
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/p11-glue/p11-kit/releases/download/0.24.0/p11-kit-0.24.0.tar.xz
+wget -nc https://github.com/p11-glue/p11-kit/releases/download/0.24.1/p11-kit-0.24.1.tar.xz
 
 
 if [ ! -z $URL ]

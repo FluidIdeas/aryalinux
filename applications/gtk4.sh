@@ -14,10 +14,12 @@ set +h
 #REQ:libepoxy
 #REQ:libxkbcommon
 #REQ:pango
+#REQ:python-modules#pygobject3
 #REQ:wayland-protocols
 #REQ:adwaita-icon-theme
-#REQ:ffmpeg
 #REQ:gst10-plugins-bad
+#REQ:gst10-plugins-good
+#REQ:libvpx
 #REQ:hicolor-icon-theme
 #REQ:librsvg
 #REQ:gobject-introspection
@@ -26,8 +28,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gtk4
-VERSION=4.4.0
-URL=https://download.gnome.org/sources/gtk/4.4/gtk-4.4.0.tar.xz
+VERSION=4.6.1
+URL=https://download.gnome.org/sources/gtk/4.6/gtk-4.6.1.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The GTK 4 package contains libraries used for creating graphical user interfaces for applications."
 
@@ -35,8 +37,8 @@ DESCRIPTION="The GTK 4 package contains libraries used for creating graphical us
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gtk/4.4/gtk-4.4.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtk/4.4/gtk-4.4.0.tar.xz
+wget -nc https://download.gnome.org/sources/gtk/4.6/gtk-4.6.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtk/4.6/gtk-4.6.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -78,7 +80,7 @@ cat > ~/.config/gtk-4.0/settings.ini << "EOF"
 gtk-theme-name = Adwaita
 gtk-icon-theme-name = oxygen
 gtk-font-name = DejaVu Sans 12
-gtk-cutsor-theme-size = 18
+gtk-cursor-theme-size = 18
 gtk-xft-antialias = 1
 gtk-xft-hinting = 1
 gtk-xft-hintstyle = hintslight

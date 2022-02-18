@@ -53,6 +53,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -i '/merge_file/{n;d}' meson.build
 mkdir build &&
 cd    build &&
 

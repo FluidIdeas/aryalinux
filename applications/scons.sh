@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=scons
-VERSION=4.2.0
-URL=https://downloads.sourceforge.net/scons/scons-4.2.0.tar.gz
+VERSION=4.3.0
+URL=https://downloads.sourceforge.net/scons/SCons-4.3.0.tar.gz
 SECTION="Programming"
 DESCRIPTION="SCons is a tool for building software (and other files) implemented in Python."
 
@@ -21,7 +21,7 @@ DESCRIPTION="SCons is a tool for building software (and other files) implemented
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.sourceforge.net/scons/scons-4.2.0.tar.gz
+wget -nc https://downloads.sourceforge.net/scons/SCons-4.3.0.tar.gz
 
 
 if [ ! -z $URL ]

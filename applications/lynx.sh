@@ -22,6 +22,7 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.9rel.1.tar.bz2
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/lynx-2.8.9rel.1-security_fix-1.patch
 
 
 if [ ! -z $URL ]
@@ -43,6 +44,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -p1 -i ../lynx-2.8.9rel.1-security_fix-1.patch
 ./configure --prefix=/usr          \
             --sysconfdir=/etc/lynx \
             --datadir=/usr/share/doc/lynx-2.8.9rel.1 \

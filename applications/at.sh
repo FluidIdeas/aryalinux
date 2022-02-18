@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=at
-VERSION=3.2.2
-URL=http://software.calhariz.com/at/at_3.2.2.orig.tar.gz
+VERSION=3.2.4
+URL=http://software.calhariz.com/at/at_3.2.4.orig.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="The at package provide delayed job execution and batch processing. It is required for Linux Standards Base (LSB) conformance."
 
@@ -22,7 +22,7 @@ DESCRIPTION="The at package provide delayed job execution and batch processing. 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc http://software.calhariz.com/at/at_3.2.2.orig.tar.gz
+wget -nc http://software.calhariz.com/at/at_3.2.4.orig.tar.gz
 
 
 if [ ! -z $URL ]
@@ -63,8 +63,8 @@ sudo rm -rf /tmp/rootscript.sh
 make -j1
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install docdir=/usr/share/doc/at-3.2.2 \
-             atdocdir=/usr/share/doc/at-3.2.2
+make install docdir=/usr/share/doc/at-3.2.4 \
+             atdocdir=/usr/share/doc/at-3.2.4
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

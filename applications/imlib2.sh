@@ -14,8 +14,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=imlib2
-VERSION=1.7.5
-URL=https://downloads.sourceforge.net/enlightenment/imlib2-1.7.5.tar.xz
+VERSION=1.8.0
+URL=https://downloads.sourceforge.net/enlightenment/imlib2-1.8.0.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="imlib2 is a graphics library for fast file loading, saving, rendering and manipulation."
 
@@ -23,7 +23,7 @@ DESCRIPTION="imlib2 is a graphics library for fast file loading, saving, renderi
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.sourceforge.net/enlightenment/imlib2-1.7.5.tar.xz
+wget -nc https://downloads.sourceforge.net/enlightenment/imlib2-1.8.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -50,8 +50,8 @@ make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-install -v -m755 -d                        /usr/share/doc/imlib2-1.7.5 &&
-install -v -m644    doc/{*.gif,index.html} /usr/share/doc/imlib2-1.7.5
+install -v -m755 -d                        /usr/share/doc/imlib2-1.8.0 &&
+install -v -m644    doc/{*.gif,index.html} /usr/share/doc/imlib2-1.8.0
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

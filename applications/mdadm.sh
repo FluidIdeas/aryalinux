@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=mdadm
-VERSION=4.1
-URL=https://www.kernel.org/pub/linux/utils/raid/mdadm/mdadm-4.1.tar.xz
+VERSION=4.2
+URL=https://www.kernel.org/pub/linux/utils/raid/mdadm/mdadm-4.2.tar.xz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The mdadm package contains administration tools for software RAID."
 
@@ -21,7 +21,7 @@ DESCRIPTION="The mdadm package contains administration tools for software RAID."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.kernel.org/pub/linux/utils/raid/mdadm/mdadm-4.1.tar.xz
+wget -nc https://www.kernel.org/pub/linux/utils/raid/mdadm/mdadm-4.2.tar.xz
 
 
 if [ ! -z $URL ]
@@ -43,7 +43,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed 's@-Werror@@' -i Makefile
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -11,13 +11,14 @@ set +h
 #REQ:frameworks5
 #REQ:libxml2
 #REQ:xapian
+#REQ:kio-extras
 
 
 cd $SOURCE_DIR
 
 NAME=khelpcenter
-VERSION=21.12.0
-URL=https://download.kde.org/stable/release-service/21.12.0/src/khelpcenter-21.12.0.tar.xz
+VERSION=21.12.2
+URL=https://download.kde.org/stable/release-service/21.12.2/src/khelpcenter-21.12.2.tar.xz
 SECTION="KDE Frameworks 5 Based Applications"
 DESCRIPTION="Khelpcenter is an application to show KDE Applications' documentation."
 
@@ -25,7 +26,7 @@ DESCRIPTION="Khelpcenter is an application to show KDE Applications' documentati
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.kde.org/stable/release-service/21.12.0/src/khelpcenter-21.12.0.tar.xz
+wget -nc https://download.kde.org/stable/release-service/21.12.2/src/khelpcenter-21.12.2.tar.xz
 
 
 if [ ! -z $URL ]

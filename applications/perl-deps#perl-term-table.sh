@@ -13,15 +13,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=perl-deps#perl-term-table
-VERSION=0.015
-URL=https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Term-Table-0.015.tar.gz
+VERSION=0.016
+URL=https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Term-Table-0.016.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Term-Table-0.015.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Term-Table-0.016.tar.gz
 
 
 if [ ! -z $URL ]

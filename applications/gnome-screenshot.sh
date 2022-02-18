@@ -15,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gnome-screenshot
-VERSION=40.0
-URL=https://download.gnome.org/sources/gnome-screenshot/40/gnome-screenshot-40.0.tar.xz
+VERSION=41.0
+URL=https://download.gnome.org/sources/gnome-screenshot/41/gnome-screenshot-41.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Screenshot is a utility used for taking screenshots of the entire screen, a window or a user-defined area of the screen, with optional beautifying border effects."
 
@@ -24,8 +24,8 @@ DESCRIPTION="The GNOME Screenshot is a utility used for taking screenshots of th
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gnome-screenshot/40/gnome-screenshot-40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-screenshot/40/gnome-screenshot-40.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-screenshot/41/gnome-screenshot-41.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-screenshot/41/gnome-screenshot-41.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -47,6 +47,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -i '/merge_file/{n;d}' data/meson.build
 mkdir build &&
 cd    build &&
 

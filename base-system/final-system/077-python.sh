@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=Python-3.10.1.tar.xz
+TARBALL=Python-3.10.2.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -28,13 +28,13 @@ cd $DIRECTORY
             --enable-optimizations
 make
 make install
-install -v -dm755 /usr/share/doc/python-3.10.1/html
+install -v -dm755 /usr/share/doc/python-3.10.2/html
 
 tar --strip-components=1  \
     --no-same-owner       \
     --no-same-permissions \
-    -C /usr/share/doc/python-3.10.1/html \
-    -xvf ../python-3.10.1-docs-html.tar.bz2
+    -C /usr/share/doc/python-3.10.2/html \
+    -xvf ../python-3.10.2-docs-html.tar.bz2
 
 fi
 

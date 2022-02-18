@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=screen
-VERSION=4.8.0
-URL=https://ftp.gnu.org/gnu/screen/screen-4.8.0.tar.gz
+VERSION=4.9.0
+URL=https://ftp.gnu.org/gnu/screen/screen-4.9.0.tar.gz
 SECTION="General Utilities"
 DESCRIPTION="Screen is a terminal multiplexor that runs several separate processes, typically interactive shells, on a single physical character-based terminal. Each virtual terminal emulates a DEC VT100 plus several ANSI X3.64 and ISO 2022 functions and also provides configurable input and output translation, serial port support, configurable logging, multi-user support, and many character encodings, including UTF-8. Screen sessions can be detached and resumed later on a different terminal."
 
@@ -21,9 +21,8 @@ DESCRIPTION="Screen is a terminal multiplexor that runs several separate process
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ftp.gnu.org/gnu/screen/screen-4.8.0.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/screen/screen-4.8.0.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/screen-4.8.0-upstream_fixes-1.patch
+wget -nc https://ftp.gnu.org/gnu/screen/screen-4.9.0.tar.gz
+wget -nc ftp://ftp.gnu.org/gnu/screen/screen-4.9.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -45,7 +44,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../screen-4.8.0-upstream_fixes-1.patch
+sh autogen.sh                                 &&
 ./configure --prefix=/usr                     \
             --infodir=/usr/share/info         \
             --mandir=/usr/share/man           \

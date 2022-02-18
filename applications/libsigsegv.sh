@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libsigsegv
-VERSION=2.13
-URL=https://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.13.tar.gz
+VERSION=2.14
+URL=https://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.14.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="libsigsegv is a library for handling page faults in user mode. A page fault occurs when a program tries to access to a region of memory that is currently not available. Catching and handling a page fault is a useful technique for implementing pageable virtual memory, memory-mapped access to persistent databases, generational garbage collectors, stack overflow handlers, and distributed shared memory."
 
@@ -21,8 +21,8 @@ DESCRIPTION="libsigsegv is a library for handling page faults in user mode. A pa
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.13.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.13.tar.gz
+wget -nc https://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.14.tar.gz
+wget -nc ftp://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.14.tar.gz
 
 
 if [ ! -z $URL ]

@@ -15,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=nfs-utils
-VERSION=2.5.4
-URL=https://www.kernel.org/pub/linux/utils/nfs-utils/2.5.4/nfs-utils-2.5.4.tar.xz
+VERSION=2.6.1
+URL=https://www.kernel.org/pub/linux/utils/nfs-utils/2.6.1/nfs-utils-2.6.1.tar.xz
 SECTION="Networking Programs"
 DESCRIPTION="The NFS Utilities package contains the userspace server and client tools necessary to use the kernel's NFS abilities. NFS is a protocol that allows sharing file systems over the network."
 
@@ -24,7 +24,7 @@ DESCRIPTION="The NFS Utilities package contains the userspace server and client 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.kernel.org/pub/linux/utils/nfs-utils/2.5.4/nfs-utils-2.5.4.tar.xz
+wget -nc https://www.kernel.org/pub/linux/utils/nfs-utils/2.6.1/nfs-utils-2.6.1.tar.xz
 
 
 if [ ! -z $URL ]

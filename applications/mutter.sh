@@ -29,8 +29,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=mutter
-VERSION=40.4
-URL=https://download.gnome.org/sources/mutter/40/mutter-40.4.tar.xz
+VERSION=41.3
+URL=https://download.gnome.org/sources/mutter/41/mutter-41.3.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Mutter is the window manager for GNOME. It is not invoked directly, but from GNOME Session (on a machine with a hardware accelerated video driver)."
 
@@ -38,8 +38,8 @@ DESCRIPTION="Mutter is the window manager for GNOME. It is not invoked directly,
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/mutter/40/mutter-40.4.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/mutter/40/mutter-40.4.tar.xz
+wget -nc https://download.gnome.org/sources/mutter/41/mutter-41.3.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/mutter/41/mutter-41.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -61,11 +61,10 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i '/libmutter_dep = declare_dependency(/a sources: mutter_built_sources,' src/meson.build
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr --buildtype=debugoptimized .. &&
+meson --prefix=/usr --buildtype=release -Dtests=false .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

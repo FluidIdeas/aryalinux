@@ -12,17 +12,17 @@ set +h
 cd $SOURCE_DIR
 
 NAME=tree
-VERSION=1.8.0
-URL=http://mama.indstate.edu/users/ice/tree/src/tree-1.8.0.tgz
+VERSION=2.0.2
+URL=http://mama.indstate.edu/users/ice/tree/src/tree-2.0.2.tgz
 SECTION="General Utilities"
-DESCRIPTION="The tree application, as the name suggests, is useful to display, in a terminal, directory contents, including directories, files, links."
+DESCRIPTION="The tree application is useful to display a dictionary tree's contents, including files, directories, and links."
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc http://mama.indstate.edu/users/ice/tree/src/tree-1.8.0.tgz
-wget -nc ftp://mama.indstate.edu/linux/tree/tree-1.8.0.tgz
+wget -nc http://mama.indstate.edu/users/ice/tree/src/tree-2.0.2.tgz
+wget -nc ftp://mama.indstate.edu/linux/tree/tree-2.0.2.tgz
 
 
 if [ ! -z $URL ]
@@ -47,7 +47,7 @@ echo $USER > /tmp/currentuser
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make MANDIR=/usr/share/man/man1 install &&
+make PREFIX=/usr MANDIR=/usr/share/man install &&
 chmod -v 644 /usr/share/man/man1/tree.1
 ENDOFROOTSCRIPT
 

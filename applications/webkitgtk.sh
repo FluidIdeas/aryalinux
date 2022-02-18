@@ -13,6 +13,7 @@ set +h
 #REQ:gst10-plugins-bad
 #REQ:gtk3
 #REQ:icu
+#REQ:lcms2
 #REQ:libgudev
 #REQ:libsecret
 #REQ:libsoup
@@ -39,14 +40,13 @@ set +h
 #REQ:gtk-doc
 #REQ:woff2
 #REQ:libseccomp
-#REQ:lcms2
 
 
 cd $SOURCE_DIR
 
 NAME=webkitgtk
-VERSION=2.34.1
-URL=https://webkitgtk.org/releases/webkitgtk-2.34.1.tar.xz
+VERSION=2.34.5
+URL=https://webkitgtk.org/releases/webkitgtk-2.34.5.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The WebKitGTK package is a port of the portable web rendering engine WebKit to the GTK+ 3 and GTK+ 2 platforms."
 
@@ -54,7 +54,7 @@ DESCRIPTION="The WebKitGTK package is a port of the portable web rendering engin
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://webkitgtk.org/releases/webkitgtk-2.34.1.tar.xz
+wget -nc https://webkitgtk.org/releases/webkitgtk-2.34.5.tar.xz
 
 
 if [ ! -z $URL ]
@@ -85,18 +85,10 @@ cmake -DCMAKE_BUILD_TYPE=Release  \
       -DCMAKE_SKIP_RPATH=ON       \
       -DPORT=GTK                  \
       -DLIB_INSTALL_DIR=/usr/lib  \
-      -DUSE_LIBHYPHEN=OFF         \
-      -DENABLE_GAMEPAD=OFF        \
       -DENABLE_MINIBROWSER=ON     \
-      -DUSE_WOFF2=OFF             \
-      -DUSE_SOUP2=ON              \
-      -DUSE_WPE_RENDERER=ON       \
-      -DUSE_SYSTEMD=OFF           \
-      -DENABLE_GLES2=ON           \
-      -DUSE_SYSTEMD=ON            \
-      -DUSE_WOFF2=ON              \
-      -DUSE_LIBHYPHEN=ON          \
-      -DENABLE_BUBBLEWRAP_SANDBOX=OFF \
+	  -DENABLE_GLES2=ON           \
+	  -DENABLE_QUARTZ_TARGET=ON   \
+	  -DUSE_GTK4=OFF              \
       -Wno-dev -G Ninja ..        &&
 ninja
 

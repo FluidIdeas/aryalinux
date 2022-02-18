@@ -58,6 +58,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+sed -i '/merge_file/s/(.*/(/' data/meson.build
 mkdir build &&
 cd    build &&
 

@@ -13,16 +13,14 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=glibc-2.34.tar.xz
+TARBALL=glibc-2.35.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-sed -e '/NOTIFY_REMOVED)/s/)/ \&\& data.attr != NULL)/' \
-    -i sysdeps/unix/sysv/linux/mq_notify.c
-patch -Np1 -i ../glibc-2.34-fhs-1.patch
+patch -Np1 -i ../glibc-2.35-fhs-1.patch
 mkdir -v build
 cd       build
 echo "rootsbindir=/usr/sbin" > configparms
@@ -43,7 +41,7 @@ install -v -Dm644 ../nscd/nscd.tmpfiles /usr/lib/tmpfiles.d/nscd.conf
 install -v -Dm644 ../nscd/nscd.service /usr/lib/systemd/system/nscd.service
 make localedata/install-locales
 localedef -i POSIX -f UTF-8 C.UTF-8 2> /dev/null || true
-localedef -i ja_JP -f SHIFT_JIS ja_JP.SIJS 2> /dev/null || true
+localedef -i ja_JP -f SHIFT_JIS ja_JP.SJIS 2> /dev/null || true
 cat > /etc/nsswitch.conf << "EOF"
 # Begin /etc/nsswitch.conf
 

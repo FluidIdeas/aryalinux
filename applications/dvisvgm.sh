@@ -16,8 +16,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=dvisvgm
-VERSION=2.12
-URL=https://github.com/mgieseki/dvisvgm/releases/download/2.12/dvisvgm-2.12.tar.gz
+VERSION=2.13.1
+URL=https://github.com/mgieseki/dvisvgm/releases/download/2.13.1/dvisvgm-2.13.1.tar.gz
 SECTION="Typesetting"
 DESCRIPTION="The dvisvgm package converts DVI, EPS and PDF files to SVG format."
 
@@ -25,7 +25,7 @@ DESCRIPTION="The dvisvgm package converts DVI, EPS and PDF files to SVG format."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/mgieseki/dvisvgm/releases/download/2.12/dvisvgm-2.12.tar.gz
+wget -nc https://github.com/mgieseki/dvisvgm/releases/download/2.13.1/dvisvgm-2.13.1.tar.gz
 
 
 if [ ! -z $URL ]
@@ -56,7 +56,6 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-autoreconf -fiv                               &&
 sed -i 's/python/&3/' tests/Makefile.in       &&
 ./configure                                    \
  --bindir=/opt/texlive/2021/bin/${TEXARCH}     \

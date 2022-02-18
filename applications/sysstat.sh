@@ -61,7 +61,11 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m644 sysstat.service /usr/lib/systemd/system/sysstat.service
+install -v -m644 sysstat.service /usr/lib/systemd/system/sysstat.service &&
+install -v -m644 cron/sysstat-collect.service /usr/lib/systemd/system/sysstat-collect.service &&
+install -v -m644 cron/sysstat-collect.timer /usr/lib/systemd/system/sysstat-collect.timer &&
+install -v -m644 cron/sysstat-summary.service /usr/lib/systemd/system/sysstat-summary.service &&
+install -v -m644 cron/sysstat-summary.timer /usr/lib/systemd/system/sysstat-summary.timer
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

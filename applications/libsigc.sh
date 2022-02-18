@@ -14,8 +14,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libsigc
-VERSION=2.10.7
-URL=https://download.gnome.org/sources/libsigc++/2.10/libsigc++-2.10.7.tar.xz
+VERSION=2.10.8
+URL=https://download.gnome.org/sources/libsigc++/2.10/libsigc++-2.10.8.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libsigc++ package implements a typesafe callback system for standard C++."
 
@@ -23,8 +23,8 @@ DESCRIPTION="The libsigc++ package implements a typesafe callback system for sta
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/libsigc++/2.10/libsigc++-2.10.7.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libsigc++/2.10/libsigc++-2.10.7.tar.xz
+wget -nc https://download.gnome.org/sources/libsigc++/2.10/libsigc++-2.10.8.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libsigc++/2.10/libsigc++-2.10.8.tar.xz
 
 
 if [ ! -z $URL ]

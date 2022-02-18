@@ -22,6 +22,7 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://kerberos.org/dist/krb5/1.19/krb5-1.19.2.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/mitkrb-1.19.2-openssl3_fixes-1.patch
 
 
 if [ ! -z $URL ]
@@ -48,11 +49,14 @@ sed -i '210a if (sprinc == NULL) {\
        errcode = KRB5KDC_ERR_S_PRINCIPAL_UNKNOWN;\
        goto cleanup;\
        }' src/kdc/do_tgs_req.c
+patch -Np1 -i ../mitkrb-1.19.2-openssl3_fixes-1.patch
 cd src &&
 
 sed -i -e 's@\^u}@^u cols 300}@' tests/dejagnu/config/default.exp     &&
 sed -i -e '/eq 0/{N;s/12 //}'    plugins/kdb/db2/libdb2/test/run.test &&
 sed -i '/t_iprop.py/d'           tests/Makefile.in                    &&
+
+autoreconf -fiv &&
 
 ./configure --prefix=/usr            \
             --sysconfdir=/etc        \

@@ -15,7 +15,7 @@ NAME=libyaml
 VERSION=0.2.5
 URL=https://github.com/yaml/libyaml/releases/download/0.2.5/yaml-0.2.5.tar.gz
 SECTION="General Libraries"
-DESCRIPTION="The libyaml package contains a C library for parsing and emitting YAML (YAML Ain't Markup Language) code."
+DESCRIPTION="The yaml package contains a C library for parsing and emitting YAML (YAML Ain't Markup Language) code."
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")

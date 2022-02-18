@@ -28,6 +28,8 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gjs/1.70/gjs-1.70.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gjs/1.70/gjs-1.70.1.tar.xz
+
 
 if [ ! -z $URL ]
 then
@@ -46,6 +48,7 @@ cd $DIRECTORY
 fi
 
 echo $USER > /tmp/currentuser
+
 
 mkdir gjs-build &&
 cd    gjs-build &&

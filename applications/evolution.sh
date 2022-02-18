@@ -29,8 +29,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=evolution
-VERSION=3.40.4
-URL=https://download.gnome.org/sources/evolution/3.40/evolution-3.40.4.tar.xz
+VERSION=3.42.4
+URL=https://download.gnome.org/sources/evolution/3.42/evolution-3.42.4.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The Evolution package contains an integrated mail, calendar and address book suite designed for the GNOME environment."
 
@@ -38,8 +38,8 @@ DESCRIPTION="The Evolution package contains an integrated mail, calendar and add
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/evolution/3.40/evolution-3.40.4.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/evolution/3.40/evolution-3.40.4.tar.xz
+wget -nc https://download.gnome.org/sources/evolution/3.42/evolution-3.42.4.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/evolution/3.42/evolution-3.42.4.tar.xz
 
 
 if [ ! -z $URL ]

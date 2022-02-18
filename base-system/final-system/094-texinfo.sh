@@ -20,7 +20,6 @@ tar xf $TARBALL
 cd $DIRECTORY
 
 
-patch -Np1 -i ../texinfo-6.8-end_line.patch
 ./configure --prefix=/usr
 sed -e 's/__attribute_nonnull__/__nonnull/' \
     -i gnulib/lib/malloc/dynarray-skeleton.c

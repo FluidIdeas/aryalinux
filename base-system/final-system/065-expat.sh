@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=expat-2.4.1.tar.xz
+TARBALL=expat-2.4.4.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -22,10 +22,10 @@ cd $DIRECTORY
 
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/expat-2.4.1
+            --docdir=/usr/share/doc/expat-2.4.4
 make
 make install
-install -v -m644 doc/*.{html,png,css} /usr/share/doc/expat-2.4.1
+install -v -m644 doc/*.{html,css} /usr/share/doc/expat-2.4.4
 
 fi
 

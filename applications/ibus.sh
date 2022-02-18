@@ -28,7 +28,7 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/ibus/ibus/releases/download/1.5.25/ibus-1.5.25.tar.gz
-wget -nc https://www.unicode.org/Public/zipped/13.0.0/UCD.zip
+wget -nc https://www.unicode.org/Public/zipped/14.0.0/UCD.zip
 
 
 if [ ! -z $URL ]

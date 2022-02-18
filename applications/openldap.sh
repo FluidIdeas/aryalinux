@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=openldap
-VERSION=2.6.0
-URL=https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.6.0.tgz
+VERSION=2.6.1
+URL=https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.6.1.tgz
 SECTION="Other Server Software"
 DESCRIPTION="The OpenLDAP package provides an open source implementation of the Lightweight Directory Access Protocol."
 
@@ -22,10 +22,10 @@ DESCRIPTION="The OpenLDAP package provides an open source implementation of the 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.6.0.tgz
-wget -nc ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.6.0.tgz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/openldap-2.6.0-consolidated-1.patch
-wget -nc http://www.openldap.org/doc/admin25/
+wget -nc https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.6.1.tgz
+wget -nc ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/openldap-2.6.1.tgz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/openldap-2.6.1-consolidated-2.patch
+wget -nc https://www.openldap.org/doc/admin26/
 wget -nc http://www.openldap.org/pub/
 
 
@@ -48,7 +48,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../openldap-2.6.0-consolidated-1.patch &&
+patch -Np1 -i ../openldap-2.6.1-consolidated-2.patch &&
 autoconf &&
 
 ./configure --prefix=/usr     \

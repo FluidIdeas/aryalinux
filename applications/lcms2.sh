@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=lcms2
-VERSION=2.12
-URL=https://downloads.sourceforge.net/lcms/lcms2-2.12.tar.gz
+VERSION=2.13.1
+URL=https://github.com/mm2/Little-CMS/releases/download/lcms2.13.1/lcms2-2.13.1.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The Little Color Management System is a small-footprint color management engine, with special focus on accuracy and performance. It uses the International Color Consortium standard (ICC), which is the modern standard for color management."
 
@@ -21,7 +21,7 @@ DESCRIPTION="The Little Color Management System is a small-footprint color manag
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.sourceforge.net/lcms/lcms2-2.12.tar.gz
+wget -nc https://github.com/mm2/Little-CMS/releases/download/lcms2.13.1/lcms2-2.13.1.tar.gz
 
 
 if [ ! -z $URL ]

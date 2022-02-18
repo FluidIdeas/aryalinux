@@ -17,8 +17,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=hexchat
-VERSION=2.16.0
-URL=https://dl.hexchat.net/hexchat/hexchat-2.16.0.tar.xz
+VERSION=2.16.1
+URL=https://dl.hexchat.net/hexchat/hexchat-2.16.1.tar.xz
 SECTION="Other X-based Programs"
 DESCRIPTION="HexChat is an IRC chat program. It allows you to join multiple IRC channels (chat rooms) at the same time, talk publicly, have private one-on-one conversations, etc. File transfers are also possible."
 
@@ -26,7 +26,7 @@ DESCRIPTION="HexChat is an IRC chat program. It allows you to join multiple IRC 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://dl.hexchat.net/hexchat/hexchat-2.16.0.tar.xz
+wget -nc https://dl.hexchat.net/hexchat/hexchat-2.16.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -53,7 +53,6 @@ cd    build &&
 
 meson --prefix=/usr         \
       --buildtype=release   \
-      -Dwith-libproxy=false \
       -Dwith-lua=false      \
       -Dwith-python=false   \
       ..                    &&

@@ -52,14 +52,14 @@ meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install                                             &&
+ninja install                  &&
+chmod u+s /usr/bin/fusermount3 &&
 
-chmod u+s /usr/bin/fusermount3                &&
-
-install -v -m755 -d /usr/share/doc/fuse-3.10.5      &&
-install -v -m644    ../doc/{README.NFS,kernel.txt} \
-                    /usr/share/doc/fuse-3.10.5      &&
-cp -Rv ../doc/html  /usr/share/doc/fuse-3.10.5
+cd ..                          &&
+install -v -m755 -d /usr/share/doc/fuse-3.10.5 &&
+install -v -m644    doc/{README.NFS,kernel.txt} \
+                    /usr/share/doc/fuse-3.10.5 &&
+cp -Rv doc/html     /usr/share/doc/fuse-3.10.5
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -24,8 +24,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gtk3
-VERSION=3.24.30
-URL=https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.30.tar.xz
+VERSION=3.24.31
+URL=https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.31.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="The GTK+ 3 package contains libraries used for creating graphical user interfaces for applications."
 
@@ -33,8 +33,8 @@ DESCRIPTION="The GTK+ 3 package contains libraries used for creating graphical u
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.30.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtk+/3.24/gtk+-3.24.30.tar.xz
+wget -nc https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.31.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtk+/3.24/gtk+-3.24.31.tar.xz
 
 
 if [ ! -z $URL ]

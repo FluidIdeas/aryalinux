@@ -15,16 +15,16 @@ set +h
 cd $SOURCE_DIR
 
 NAME=python-modules#pygobject3
-VERSION=3.40.1
-URL=https://download.gnome.org/sources/pygobject/3.40/pygobject-3.40.1.tar.xz
+VERSION=3.42.0
+URL=https://download.gnome.org/sources/pygobject/3.42/pygobject-3.42.0.tar.xz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/pygobject/3.40/pygobject-3.40.1.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/pygobject/3.40/pygobject-3.40.1.tar.xz
+wget -nc https://download.gnome.org/sources/pygobject/3.42/pygobject-3.42.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/pygobject/3.42/pygobject-3.42.0.tar.xz
 
 
 if [ ! -z $URL ]

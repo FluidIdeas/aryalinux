@@ -12,15 +12,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=perl-deps#perl-tie-cycle
-VERSION=1.226
-URL=https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Tie-Cycle-1.226.tar.gz
+VERSION=1.227
+URL=https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Tie-Cycle-1.227.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Tie-Cycle-1.226.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/B/BD/BDFOY/Tie-Cycle-1.227.tar.gz
 
 
 if [ ! -z $URL ]

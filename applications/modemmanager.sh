@@ -18,8 +18,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=modemmanager
-VERSION=1.18.2
-URL=https://www.freedesktop.org/software/ModemManager/ModemManager-1.18.2.tar.xz
+VERSION=1.18.6
+URL=https://www.freedesktop.org/software/ModemManager/ModemManager-1.18.6.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="ModemManager provides a unified high level API for communicating with mobile broadband modems, regardless of the protocol used to communicate with the actual device."
 
@@ -27,7 +27,7 @@ DESCRIPTION="ModemManager provides a unified high level API for communicating wi
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.freedesktop.org/software/ModemManager/ModemManager-1.18.2.tar.xz
+wget -nc https://www.freedesktop.org/software/ModemManager/ModemManager-1.18.6.tar.xz
 
 
 if [ ! -z $URL ]

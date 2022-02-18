@@ -8,7 +8,6 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:dbus-glib
-#REQ:gtk-doc
 #REQ:libxslt
 #REQ:gobject-introspection
 #REQ:vala

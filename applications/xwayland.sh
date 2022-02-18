@@ -18,8 +18,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=xwayland
-VERSION=21.1.3
-URL=https://www.x.org/pub/individual/xserver/xwayland-21.1.3.tar.xz
+VERSION=21.1.4
+URL=https://www.x.org/pub/individual/xserver/xwayland-21.1.4.tar.xz
 SECTION="X Window System Environment"
 DESCRIPTION="The Xwayland package is an Xorg server running on top of the wayland server. It has been separated from the main Xorg server package. It allows running X clients inside a wayland session."
 
@@ -27,8 +27,8 @@ DESCRIPTION="The Xwayland package is an Xorg server running on top of the waylan
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.x.org/pub/individual/xserver/xwayland-21.1.3.tar.xz
-wget -nc ftp://ftp.x.org/pub/individual/xserver/xwayland-21.1.3.tar.xz
+wget -nc https://www.x.org/pub/individual/xserver/xwayland-21.1.4.tar.xz
+wget -nc ftp://ftp.x.org/pub/individual/xserver/xwayland-21.1.4.tar.xz
 
 
 if [ ! -z $URL ]

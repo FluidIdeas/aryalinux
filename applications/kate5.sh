@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=kate5
-VERSION=21.12.0
-URL=https://download.kde.org/stable/release-service/21.12.0/src/kate-21.12.0.tar.xz
+VERSION=21.12.2
+URL=https://download.kde.org/stable/release-service/21.12.2/src/kate-21.12.2.tar.xz
 SECTION="Editors"
 DESCRIPTION="The Kate package contains an advanced KF5 based graphical text editor."
 
@@ -22,7 +22,7 @@ DESCRIPTION="The Kate package contains an advanced KF5 based graphical text edit
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.kde.org/stable/release-service/21.12.0/src/kate-21.12.0.tar.xz
+wget -nc https://download.kde.org/stable/release-service/21.12.2/src/kate-21.12.2.tar.xz
 
 
 if [ ! -z $URL ]

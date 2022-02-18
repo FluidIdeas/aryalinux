@@ -12,15 +12,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=perl-deps#perl-scalar-list-utils
-VERSION=1.56
-URL=https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.56.tar.gz
+VERSION=1.60
+URL=https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.60.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.56.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.60.tar.gz
 
 
 if [ ! -z $URL ]

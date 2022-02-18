@@ -14,16 +14,16 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gutenprint
-VERSION=5.3.3
-URL=https://downloads.sourceforge.net/gimp-print/gutenprint-5.3.3.tar.xz
+VERSION=5.3.4
+URL=https://downloads.sourceforge.net/gimp-print/gutenprint-5.3.4.tar.xz
 SECTION="Printing"
-DESCRIPTION="The Gutenprint (formerly Gimp-Print) package contains high quality drivers for many brands and models of printers for use with Cups-2.4.0 and the GIMP-2.0. See a list of supported printers at http://gutenprint.sourceforge.net/p_Supported_Printers.php."
+DESCRIPTION="The Gutenprint (formerly Gimp-Print) package contains high quality drivers for many brands and models of printers for use with Cups-2.4.1 and the GIMP-2.0. See a list of supported printers at http://gutenprint.sourceforge.net/p_Supported_Printers.php."
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.sourceforge.net/gimp-print/gutenprint-5.3.3.tar.xz
+wget -nc https://downloads.sourceforge.net/gimp-print/gutenprint-5.3.4.tar.xz
 
 
 if [ ! -z $URL ]
@@ -49,16 +49,15 @@ sed -i 's|$(PACKAGE)/doc|doc/$(PACKAGE)-$(VERSION)|' \
        {,doc/,doc/developer/}Makefile.in &&
 
 ./configure --prefix=/usr --disable-static &&
-
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-install -v -m755 -d /usr/share/doc/gutenprint-5.3.3/api/gutenprint{,ui2} &&
+install -v -m755 -d /usr/share/doc/gutenprint-5.3.4/api/gutenprint{,ui2} &&
 install -v -m644    doc/gutenprint/html/* \
-                    /usr/share/doc/gutenprint-5.3.3/api/gutenprint &&
+                    /usr/share/doc/gutenprint-5.3.4/api/gutenprint &&
 install -v -m644    doc/gutenprintui2/html/* \
-                    /usr/share/doc/gutenprint-5.3.3/api/gutenprintui2
+                    /usr/share/doc/gutenprint-5.3.4/api/gutenprintui2
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

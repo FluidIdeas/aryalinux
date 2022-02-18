@@ -16,8 +16,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=accountsservice
-VERSION=0.6.55
-URL=https://www.freedesktop.org/software/accountsservice/accountsservice-0.6.55.tar.xz
+VERSION=22.04.62
+URL=https://www.freedesktop.org/software/accountsservice/accountsservice-22.04.62.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="The AccountsService package provides a set of D-Bus interfaces for querying and manipulating user account information and an implementation of those interfaces based on the usermod(8), useradd(8) and userdel(8) commands."
 
@@ -25,7 +25,7 @@ DESCRIPTION="The AccountsService package provides a set of D-Bus interfaces for 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.freedesktop.org/software/accountsservice/accountsservice-0.6.55.tar.xz
+wget -nc https://www.freedesktop.org/software/accountsservice/accountsservice-22.04.62.tar.xz
 
 
 if [ ! -z $URL ]
@@ -47,13 +47,13 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -i '/PrivateTmp/d' data/accounts-daemon.service.in
 mkdir build &&
 cd build &&
 
 meson --prefix=/usr       \
       --buildtype=release \
       -Dadmin_group=adm   \
-      -Dsystemd=true      \
       .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh

@@ -8,15 +8,13 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:libxml2
-#REQ:docbook
-#REQ:docbook-xsl
 
 
 cd $SOURCE_DIR
 
 NAME=libxslt
-VERSION=1.1.34
-URL=http://xmlsoft.org/sources/libxslt-1.1.34.tar.gz
+VERSION=1.1.35
+URL=https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.35.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libxslt package contains XSLT libraries used for extending libxml2 libraries to support XSLT files."
 
@@ -24,8 +22,7 @@ DESCRIPTION="The libxslt package contains XSLT libraries used for extending libx
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc http://xmlsoft.org/sources/libxslt-1.1.34.tar.gz
-wget -nc ftp://xmlsoft.org/libxslt/libxslt-1.1.34.tar.gz
+wget -nc https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.35.tar.xz
 
 
 if [ ! -z $URL ]
@@ -48,12 +45,10 @@ echo $USER > /tmp/currentuser
 
 
 sed -i s/3000/5000/ libxslt/transform.c doc/xsltproc.{1,xml} &&
-sed -i -r '/max(Parser)?Depth/d' ./tests/fuzz/fuzz.c &&
+
 ./configure --prefix=/usr --disable-static --without-python  &&
 make
-sed -e 's@http://cdn.docbook.org/release/xsl@https://cdn.docbook.org/release/xsl-nons@' \
-    -e 's@\$Date\$@31 October 2019@' -i doc/xsltproc.xml &&
-xsltproc/xsltproc --nonet doc/xsltproc.xml -o doc/xsltproc.1
+sed -e 's@\$Date\$@16 Feburary 2022@' -i doc/xsltproc.1
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install

@@ -15,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=sawfish
-VERSION=1.12.0
-URL=https://download.tuxfamily.org/sawfish/sawfish_1.12.0.tar.xz
+VERSION=1.13.0
+URL=https://download.tuxfamily.org/sawfish/sawfish_1.13.0.tar.xz
 SECTION="Window Managers"
 DESCRIPTION="The sawfish package contains a window manager. This is useful for organizing and displaying windows where all window decorations are configurable and all user-interface policy is controlled through the extension language."
 
@@ -24,8 +24,7 @@ DESCRIPTION="The sawfish package contains a window manager. This is useful for o
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.tuxfamily.org/sawfish/sawfish_1.12.0.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/sawfish-1.12.0-gcc10_fixes-1.patch
+wget -nc https://download.tuxfamily.org/sawfish/sawfish_1.13.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -47,7 +46,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../sawfish-1.12.0-gcc10_fixes-1.patch
 ./configure --prefix=/usr --with-pango  &&
 make
 sudo rm -rf /tmp/rootscript.sh

@@ -50,8 +50,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=biber
-VERSION=2.16
-URL=https://github.com/plk/biber/archive/v2.16/biber-2.16.tar.gz
+VERSION=2.17
+URL=https://github.com/plk/biber/archive/v2.17/biber-2.17.tar.gz
 SECTION="Typesetting"
 DESCRIPTION="Biber is a BibTeX replacement for users of biblatex, written in Perl, with full Unicode support."
 
@@ -59,8 +59,8 @@ DESCRIPTION="Biber is a BibTeX replacement for users of biblatex, written in Per
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/plk/biber/archive/v2.16/biber-2.16.tar.gz
-wget -nc https://sourceforge.net/projects/biblatex/files/biblatex-3.16/biblatex-3.16.tds.tgz
+wget -nc https://github.com/plk/biber/archive/v2.17/biber-2.17.tar.gz
+wget -nc https://sourceforge.net/projects/biblatex/files/biblatex-3.17/biblatex-3.17.tds.tgz
 
 
 if [ ! -z $URL ]
@@ -86,7 +86,7 @@ perl ./Build.PL &&
 ./Build
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-tar -xf ../biblatex-3.16.tds.tgz -C /opt/texlive/2021/texmf-dist &&
+tar -xf ../biblatex-3.17.tds.tgz -C /opt/texlive/2021/texmf-dist &&
 texhash &&
 ./Build install
 ENDOFROOTSCRIPT

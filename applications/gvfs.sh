@@ -56,6 +56,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -i '/policy,/d' daemon/meson.build
 mkdir build &&
 cd    build &&
 

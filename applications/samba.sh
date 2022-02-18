@@ -25,8 +25,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=samba
-VERSION=4.15.2
-URL=https://download.samba.org/pub/samba/stable/samba-4.15.2.tar.gz
+VERSION=4.15.5
+URL=https://download.samba.org/pub/samba/stable/samba-4.15.5.tar.gz
 SECTION="Networking Programs"
 DESCRIPTION="The Samba package provides file and print services to SMB/CIFS clients and Windows networking to Linux clients. Samba can also be configured as a Windows Domain Controller replacement, a file/print server acting as a member of a Windows Active Directory domain and a NetBIOS (rfc1001/1002) nameserver (which among other things provides LAN browsing support)."
 
@@ -34,7 +34,7 @@ DESCRIPTION="The Samba package provides file and print services to SMB/CIFS clie
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.samba.org/pub/samba/stable/samba-4.15.2.tar.gz
+wget -nc https://download.samba.org/pub/samba/stable/samba-4.15.5.tar.gz
 
 
 if [ ! -z $URL ]
@@ -60,8 +60,6 @@ sudo rm -r /var/lock
 python3 -m venv pyvenv &&
 ./pyvenv/bin/pip3 install cryptography pyasn1 iso8601
 echo "^samba4.rpc.echo.*on.*ncacn_np.*with.*object.*nt4_dc" >> selftest/knownfail
-sed -e 's/!is_allowed/secure_channel_type == SEC_CHAN_NULL \&\& &/' \
-    -i source3/winbindd/winbindd_util.c
 PYTHON=$PWD/pyvenv/bin/python3             \
 CPPFLAGS="-I/usr/include/tirpc"            \
 LDFLAGS="-ltirpc"                          \

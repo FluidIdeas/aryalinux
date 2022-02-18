@@ -36,6 +36,7 @@ popd
             --without-debug              \
             --without-ada                \
             --without-normal             \
+            --disable-stripping          \
             --enable-widec
 make
 make DESTDIR=$LFS TIC_PATH=$(pwd)/build/progs/tic install

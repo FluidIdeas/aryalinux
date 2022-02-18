@@ -48,6 +48,15 @@ echo $USER > /tmp/currentuser
 ./b2 stage -j$(nproc) threading=multi link=shared
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+rm -rf /usr/lib/cmake/[Bb]oost*
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ./b2 install threading=multi link=shared
 ENDOFROOTSCRIPT
 

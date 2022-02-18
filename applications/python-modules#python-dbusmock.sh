@@ -14,15 +14,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=python-modules#python-dbusmock
-VERSION=0.24.1
-URL=https://github.com/martinpitt/python-dbusmock/releases/download/0.24.1/python-dbusmock-0.24.1.tar.gz
+VERSION=0.25.0
+URL=https://github.com/martinpitt/python-dbusmock/releases/download/0.25.0/python-dbusmock-0.25.0.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/martinpitt/python-dbusmock/releases/download/0.24.1/python-dbusmock-0.24.1.tar.gz
+wget -nc https://github.com/martinpitt/python-dbusmock/releases/download/0.25.0/python-dbusmock-0.25.0.tar.gz
 
 
 if [ ! -z $URL ]

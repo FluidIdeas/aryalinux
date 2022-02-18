@@ -23,17 +23,17 @@ set +h
 cd $SOURCE_DIR
 
 NAME=eog
-VERSION=40.3
-URL=https://download.gnome.org/sources/eog/40/eog-40.3.tar.xz
+VERSION=41.1
+URL=https://download.gnome.org/sources/eog/41/eog-41.1.tar.xz
 SECTION="GNOME Applications"
-DESCRIPTION="EOG is an application used for viewing and cataloging image files on the GNOME Desktop. It also has basic editing capabilites."
+DESCRIPTION="EOG is an application used for viewing and cataloging image files on the GNOME Desktop. It also has basic editing capabilities."
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/eog/40/eog-40.3.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/eog/40/eog-40.3.tar.xz
+wget -nc https://download.gnome.org/sources/eog/41/eog-41.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/eog/41/eog-41.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -55,6 +55,8 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed "/dependency/s@'libportal'@'libportal-gtk3'@" -i meson.build
+sed "/portal-gtk3/s@portal/@portal-gtk3/@" -i src/eog-util.c
 mkdir build &&
 cd    build &&
 

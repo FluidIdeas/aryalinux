@@ -9,6 +9,7 @@ set +h
 
 #REQ:nodejs
 #REQ:nss
+#REQ:pciutils
 #REQ:python2
 #REQ:qt5
 #REQ:alsa-lib
@@ -24,8 +25,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=qtwebengine
-VERSION=5.15.6
-URL=https://anduin.linuxfromscratch.org/BLFS/qtwebengine/qtwebengine-5.15.6.tar.xz
+VERSION=5.15.8
+URL=https://anduin.linuxfromscratch.org/BLFS/qtwebengine/qtwebengine-5.15.8.tar.xz
 SECTION="X Libraries"
 DESCRIPTION="QtWebEngine integrates chromium's web capabilities into Qt. It ships with its own copy of ninja which it uses for the build if it cannot find a system copy, and various copies of libraries from ffmpeg, icu, libvpx, and zlib (including libminizip) which have been forked by the chromium developers."
 
@@ -33,9 +34,8 @@ DESCRIPTION="QtWebEngine integrates chromium's web capabilities into Qt. It ship
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://anduin.linuxfromscratch.org/BLFS/qtwebengine/qtwebengine-5.15.6.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/qtwebengine-5.15.6-5.15.7-1.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/qtwebengine-5.15.7-build_fixes-1.patch
+wget -nc https://anduin.linuxfromscratch.org/BLFS/qtwebengine/qtwebengine-5.15.8.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/qtwebengine-5.15.8-build_fixes-1.patch
 
 
 if [ ! -z $URL ]
@@ -66,8 +66,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-patch -Np1 -i ../qtwebengine-5.15.6-5.15.7-1.patch
-patch -Np1 -i ../qtwebengine-5.15.7-build_fixes-1.patch
+patch -Np1 -i ../qtwebengine-5.15.8-build_fixes-1.patch
 mkdir -pv .git src/3rdparty/chromium/.git
 sed -e '/^MODULE_VERSION/s/5.*/5.15.2/' -i .qmake.conf
 find -type f -name "*.pr[io]" |

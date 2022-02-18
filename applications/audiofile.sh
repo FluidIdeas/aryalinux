@@ -47,7 +47,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i audiofile-0.3.6-consolidated_patches-1.patch &&
+patch -Np1 -i ../audiofile-0.3.6-consolidated_patches-1.patch &&
 autoreconf -fiv                             &&
 
 ./configure --prefix=/usr --disable-static  &&

@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=wayland-protocols
-VERSION=1.24
-URL=https://wayland.freedesktop.org/releases/wayland-protocols-1.24.tar.xz
+VERSION=1.25
+URL=https://wayland.freedesktop.org/releases/wayland-protocols-1.25.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The Wayland-Protocols package contains additional Wayland protocols that add functionality outside of protocols already in the Wayland core."
 
@@ -22,7 +22,7 @@ DESCRIPTION="The Wayland-Protocols package contains additional Wayland protocols
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://wayland.freedesktop.org/releases/wayland-protocols-1.24.tar.xz
+wget -nc https://wayland.freedesktop.org/releases/wayland-protocols-1.25.tar.xz
 
 
 if [ ! -z $URL ]
