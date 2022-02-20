@@ -21,8 +21,6 @@ cd $DIRECTORY
 
 
 patch -Np1 -i ../binutils-2.38-lto_fix-1.patch
-sed -e '/R_386_TLS_LE /i \   || (TYPE) == R_386_TLS_IE \\' \
-    -i ./bfd/elfxx-x86.h
 mkdir -v build
 cd       build
 ../configure --prefix=/usr       \
