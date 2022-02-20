@@ -201,8 +201,6 @@ def freshBuild(startFrom):
           found = True
           break
       if not found:
-        p = subprocess.Popen(['./strip-debug.sh'], shell=True)
-        p.wait()
         p = subprocess.Popen(['./backup.sh base-system y'], shell=True)
         p.wait()
       else:
@@ -229,8 +227,6 @@ def freshBuild(startFrom):
                 found = True
                 break
             if not found:
-              p = subprocess.Popen(['./strip-debug.sh'], shell=True)
-              p.wait()
               p = subprocess.Popen(['./backup.sh base-system-with-xserver n'], shell=True)
               p.wait()
             else:
@@ -279,8 +275,6 @@ def freshBuild(startFrom):
                 found = True
                 break
             if not found:
-              p = subprocess.Popen(['./strip-debug.sh'], shell=True)
-              p.wait()
               p = subprocess.Popen(['./backup.sh base-system-with-' + desktopEnv + ' n'], shell=True)
               p.wait()
             else:
