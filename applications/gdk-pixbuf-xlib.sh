@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 NAME=gdk-pixbuf-xlib
 VERSION=2.40.2
 URL=https://download.gnome.org/sources/gdk-pixbuf-xlib/2.40/gdk-pixbuf-xlib-2.40.2.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="The gdk-pixbuf-xlib package provides a deprecated Xlib interface to gdk-pixbuf, which is needed for some applications which have not been ported to use the new interfaces yet."
 
 

@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 NAME=libhandy1
 VERSION=1.4.0
 URL=https://download.gnome.org/sources/libhandy/1.4/libhandy-1.4.0.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="The libhandy package provides additional GTK UI widgets for use in developing user interfaces."
 
 

@@ -17,7 +17,7 @@ cd $SOURCE_DIR
 NAME=libxcb
 VERSION=1.14
 URL=https://xorg.freedesktop.org/archive/individual/lib/libxcb-1.14.tar.xz
-SECTION="X Window System Environment"
+SECTION="Graphical Environments"
 DESCRIPTION="The libxcb package provides an interface to the X Window System protocol, which replaces the current Xlib interface. Xlib can also use XCB as a transport layer, allowing software to make requests and receive responses with both."
 
 

@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 NAME=xkeyboard-config
 VERSION=2.35.1
 URL=https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.35.1.tar.xz
-SECTION="X Window System Environment"
+SECTION="Graphical Environments"
 DESCRIPTION="The XKeyboardConfig package contains the keyboard configuration database for the X Window System."
 
 

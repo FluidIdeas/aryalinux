@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=dhcp
-VERSION=4.4.
-URL=https://ftp.isc.org/isc/dhcp/4.4.2-P1/dhcp-4.4.2-P1.tar.gz
+VERSION=4.4.3
+URL=https://ftp.isc.org/isc/dhcp/4.4.3/dhcp-4.4.3.tar.gz
 SECTION="Connecting to a Network"
 DESCRIPTION="The ISC DHCP package contains both the client and server programs for DHCP. dhclient (the client) is used for connecting to a network which uses DHCP to assign network addresses. dhcpd (the server) is used for assigning network addresses on private networks."
 
@@ -21,8 +21,8 @@ DESCRIPTION="The ISC DHCP package contains both the client and server programs f
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ftp.isc.org/isc/dhcp/4.4.2-P1/dhcp-4.4.2-P1.tar.gz
-wget -nc ftp://ftp.isc.org/isc/dhcp/4.4.2-P1/dhcp-4.4.2-P1.tar.gz
+wget -nc https://ftp.isc.org/isc/dhcp/4.4.3/dhcp-4.4.3.tar.gz
+wget -nc ftp://ftp.isc.org/isc/dhcp/4.4.3/dhcp-4.4.3.tar.gz
 
 
 if [ ! -z $URL ]

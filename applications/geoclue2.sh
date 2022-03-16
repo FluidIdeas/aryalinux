@@ -18,8 +18,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=geoclue2
-VERSION=2.5.7
-URL=https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.5.7/geoclue-2.5.7.tar.bz2
+VERSION=2.6.0
+URL=https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.6.0/geoclue-2.6.0.tar.bz2
 SECTION="Networking Libraries"
 DESCRIPTION="GeoClue is a modular geoinformation service built on top of the D-Bus messaging system. The goal of the GeoClue project is to make creating location-aware applications as simple as possible."
 
@@ -27,7 +27,7 @@ DESCRIPTION="GeoClue is a modular geoinformation service built on top of the D-B
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.5.7/geoclue-2.5.7.tar.bz2
+wget -nc https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.6.0/geoclue-2.6.0.tar.bz2
 
 
 if [ ! -z $URL ]

@@ -17,7 +17,7 @@ cd $SOURCE_DIR
 NAME=cairomm-1.0
 VERSION=1.14.0
 URL=https://www.cairographics.org/releases/cairomm-1.14.0.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="The libcairomm-1.0 package provides a C++ interface to Cairo."
 
 

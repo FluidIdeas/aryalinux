@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 NAME=at-spi2-atk
 VERSION=2.38.0
 URL=https://download.gnome.org/sources/at-spi2-atk/2.38/at-spi2-atk-2.38.0.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="The At-Spi2 Atk package contains a library that bridges ATK to At-Spi2 D-Bus service."
 
 

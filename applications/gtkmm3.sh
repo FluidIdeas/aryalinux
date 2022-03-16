@@ -17,7 +17,7 @@ cd $SOURCE_DIR
 NAME=gtkmm3
 VERSION=3.24.5
 URL=https://download.gnome.org/sources/gtkmm/3.24/gtkmm-3.24.5.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="The Gtkmm package provides a C++ interface to GTK+ 3."
 
 

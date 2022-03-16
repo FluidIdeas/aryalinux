@@ -67,6 +67,7 @@ sg scanner -c "                  \
             --sysconfdir=/etc    \
             --localstatedir=/var \
             --with-group=scanner \
+            --with-lockdir=/run/lock \
             --docdir=/usr/share/doc/sane-backends-1.0.32" &&
 make
 sudo rm -rf /tmp/rootscript.sh
@@ -74,7 +75,8 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install                                         &&
 install -m 644 -v tools/udev/libsane.rules           \
                   /etc/udev/rules.d/65-scanner.rules &&
-chgrp -v scanner  /var/lock/sane
+mkdir -p          /run/lock/sane &&
+chgrp -v scanner  /run/lock/sane
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

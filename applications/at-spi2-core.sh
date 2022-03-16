@@ -17,7 +17,7 @@ cd $SOURCE_DIR
 NAME=at-spi2-core
 VERSION=2.42.0
 URL=https://download.gnome.org/sources/at-spi2-core/2.42/at-spi2-core-2.42.0.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="The At-Spi2 Core package is a part of the GNOME Accessibility Project. It provides a Service Provider Interface for the Assistive Technologies available on the GNOME platform and a library against which applications can be linked."
 
 

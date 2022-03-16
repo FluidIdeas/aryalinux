@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 NAME=util-macros
 VERSION=1.19.3
 URL=https://www.x.org/pub/individual/util/util-macros-1.19.3.tar.bz2
-SECTION="X Window System Environment"
+SECTION="Graphical Environments"
 DESCRIPTION="The util-macros package contains the m4 macros used by all of the Xorg packages."
 
 

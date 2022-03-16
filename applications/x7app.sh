@@ -18,7 +18,7 @@ cd $SOURCE_DIR
 NAME=x7app
 VERSION=
 
-SECTION="X Window System Environment"
+SECTION="Graphical Environments"
 DESCRIPTION="The Xorg applications provide the expected applications available in previous X Window implementations."
 
 

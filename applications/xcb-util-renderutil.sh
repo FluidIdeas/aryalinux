@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 NAME=xcb-util-renderutil
 VERSION=0.3.9
 URL=https://xcb.freedesktop.org/dist/xcb-util-renderutil-0.3.9.tar.bz2
-SECTION="X Window System Environment"
+SECTION="Graphical Environments"
 DESCRIPTION="The xcb-util-renderutil package provides additional extensions to the XCB library."
 
 

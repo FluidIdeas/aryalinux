@@ -18,7 +18,7 @@ cd $SOURCE_DIR
 NAME=gtk2
 VERSION=2.24.33
 URL=https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.33.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="The GTK+ 2 package contains libraries used for creating graphical user interfaces for applications."
 
 

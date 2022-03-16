@@ -30,7 +30,7 @@ cd $SOURCE_DIR
 NAME=gtk4
 VERSION=4.6.1
 URL=https://download.gnome.org/sources/gtk/4.6/gtk-4.6.1.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="The GTK 4 package contains libraries used for creating graphical user interfaces for applications."
 
 

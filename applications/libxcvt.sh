@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 NAME=libxcvt
 VERSION=0.1.1
 URL=https://www.x.org/pub/individual/lib/libxcvt-0.1.1.tar.xz
-SECTION="X Window System Environment"
+SECTION="Graphical Environments"
 DESCRIPTION="libxcvt is a library providing a standalone version of the X server implementation of the VESA CVT standard timing modelines generator. It is meant to be a direct replacement to the version formerly provided by the Xorg server."
 
 

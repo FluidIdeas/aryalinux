@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 NAME=atk
 VERSION=2.36.0
 URL=https://download.gnome.org/sources/atk/2.36/atk-2.36.0.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="ATK provides the set of accessibility interfaces that are implemented by other toolkits and applications. Using the ATK interfaces, accessibility tools have full access to view and control running applications."
 
 

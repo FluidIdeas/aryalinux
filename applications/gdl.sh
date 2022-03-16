@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 NAME=gdl
 VERSION=3.40.0
 URL=https://download.gnome.org/sources/gdl/3.40/gdl-3.40.0.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="The GDL package provides a library that is useful for docking objects in GTK+ applications."
 
 

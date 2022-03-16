@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 NAME=amtk
 VERSION=5.2.0
 URL=https://download.gnome.org/sources/amtk/5.2/amtk-5.2.0.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="The Amtk package contains a basic GTKUIManager replacement based on GAction."
 
 

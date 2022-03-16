@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=mate-panel
-VERSION=1.26.1
-URL=https://pub.mate-desktop.org/releases/1.26/mate-panel-1.26.1.tar.xz
+VERSION=1.27.0
+URL=https://pub.mate-desktop.org/releases/1.27/mate-panel-1.27.0.tar.xz
 SECTION="Mate Desktop"
 DESCRIPTION="MATE panel"
 
@@ -21,7 +21,7 @@ DESCRIPTION="MATE panel"
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://pub.mate-desktop.org/releases/1.26/mate-panel-1.26.1.tar.xz
+wget -nc https://pub.mate-desktop.org/releases/1.27/mate-panel-1.27.0.tar.xz
 
 
 if [ ! -z $URL ]

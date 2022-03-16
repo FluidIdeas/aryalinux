@@ -17,7 +17,7 @@ cd $SOURCE_DIR
 NAME=gtksourceview4
 VERSION=4.8.2
 URL=https://download.gnome.org/sources/gtksourceview/4.8/gtksourceview-4.8.2.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="The GtkSourceView package contains libraries used for extending the GTK+ text functions to include syntax highlighting."
 
 

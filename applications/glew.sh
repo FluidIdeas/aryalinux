@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 NAME=glew
 VERSION=2.2.0
 URL=https://downloads.sourceforge.net/glew/glew-2.2.0.tgz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="GLEW is the OpenGL Extension Wrangler Library."
 
 

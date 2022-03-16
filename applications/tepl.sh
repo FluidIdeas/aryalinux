@@ -18,7 +18,7 @@ cd $SOURCE_DIR
 NAME=tepl
 VERSION=6.00.0
 URL=https://download.gnome.org/sources/tepl/6.00/tepl-6.00.0.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="The Tepl package contains a library that eases the development of GtkSourceView-based text editors and IDEs."
 
 

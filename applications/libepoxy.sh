@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 NAME=libepoxy
 VERSION=1.5.9
 URL=https://github.com/anholt/libepoxy/releases/download/1.5.9/libepoxy-1.5.9.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="libepoxy is a library for handling OpenGL function pointer management."
 
 

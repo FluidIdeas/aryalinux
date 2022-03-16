@@ -18,7 +18,7 @@ cd $SOURCE_DIR
 NAME=gtksourceview5
 VERSION=5.2.0
 URL=https://download.gnome.org/sources/gtksourceview/5.2/gtksourceview-5.2.0.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="The GtkSourceView package contains a library used for extending the GTK text functions to include syntax highlighting."
 
 

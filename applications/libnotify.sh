@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 NAME=libnotify
 VERSION=0.7.9
 URL=https://download.gnome.org/sources/libnotify/0.7/libnotify-0.7.9.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="The libnotify library is used to send desktop notifications to a notification daemon, as defined in the Desktop Notifications spec. These notifications can be used to inform the user about an event or display some form of information without getting in the user's way."
 
 
@@ -55,7 +55,8 @@ meson --prefix=/usr       \
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install
+ninja install &&
+mv -v /usr/share/doc/libnotify{,-0.7.9}
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

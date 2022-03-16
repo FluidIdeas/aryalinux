@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 NAME=xcb-proto
 VERSION=1.14.1
 URL=https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.14.1.tar.xz
-SECTION="X Window System Environment"
+SECTION="Graphical Environments"
 DESCRIPTION="The xcb-proto package provides the XML-XCB protocol descriptions that libxcb uses to generate the majority of its code and API."
 
 

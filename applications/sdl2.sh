@@ -25,7 +25,6 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.libsdl.org/release/SDL2-2.0.20.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/SDL2-2.0.20-opengl_include_fix-1.patch
 
 
 if [ ! -z $URL ]
@@ -47,9 +46,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-case $(uname -m) in
-   i?86) patch -Np1 -i ../SDL2-2.0.20-opengl_include_fix-1.patch ;;
-esac
 ./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh

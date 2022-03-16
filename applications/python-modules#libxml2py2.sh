@@ -14,16 +14,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=python-modules#libxml2py2
-VERSION=2.9.12
-URL=http://xmlsoft.org/sources/libxml2-2.9.12.tar.gz
+VERSION=2.9.13
+URL=https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.13.tar.xz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc http://xmlsoft.org/sources/libxml2-2.9.12.tar.gz
-wget -nc ftp://xmlsoft.org/libxml2/libxml2-2.9.12.tar.gz
+wget -nc https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.13.tar.xz
 
 
 if [ ! -z $URL ]
@@ -45,7 +44,8 @@ fi
 
 echo $USER > /tmp/currentuser
 
-cd python             &&
+cd python                                            &&
+sed -i 's/ModuleNotFoundError/ImportError/' setup.py &&
 python2 setup.py build
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

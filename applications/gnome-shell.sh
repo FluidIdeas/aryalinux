@@ -32,8 +32,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gnome-shell
-VERSION=41.3
-URL=https://download.gnome.org/sources/gnome-shell/41/gnome-shell-41.3.tar.xz
+VERSION=41.4
+URL=https://download.gnome.org/sources/gnome-shell/41/gnome-shell-41.4.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Shell is the core user interface of the GNOME Desktop environment."
 
@@ -41,8 +41,8 @@ DESCRIPTION="The GNOME Shell is the core user interface of the GNOME Desktop env
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gnome-shell/41/gnome-shell-41.3.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-shell/41/gnome-shell-41.3.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-shell/41/gnome-shell-41.4.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-shell/41/gnome-shell-41.4.tar.xz
 
 
 if [ ! -z $URL ]

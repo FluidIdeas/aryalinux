@@ -13,16 +13,16 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libdrm
-VERSION=2.4.109
-URL=https://dri.freedesktop.org/libdrm/libdrm-2.4.109.tar.xz
-SECTION="X Libraries"
+VERSION=2.4.110
+URL=https://dri.freedesktop.org/libdrm/libdrm-2.4.110.tar.xz
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="libdrm provides a user space library for accessing the DRM, direct rendering manager, on operating systems that support the ioctl interface. libdrm is a low-level library, typically used by graphics drivers such as the Mesa DRI drivers, the X drivers, libva and similar projects."
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://dri.freedesktop.org/libdrm/libdrm-2.4.109.tar.xz
+wget -nc https://dri.freedesktop.org/libdrm/libdrm-2.4.110.tar.xz
 
 
 if [ ! -z $URL ]

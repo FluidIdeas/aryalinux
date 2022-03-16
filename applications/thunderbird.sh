@@ -31,8 +31,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=thunderbird
-VERSION=91.6.0
-URL=https://archive.mozilla.org/pub/thunderbird/releases/91.6.0/source/thunderbird-91.6.0.source.tar.xz
+VERSION=91.6.2
+URL=https://archive.mozilla.org/pub/thunderbird/releases/91.6.2/source/thunderbird-91.6.2.source.tar.xz
 SECTION="Other X-based Programs"
 DESCRIPTION="Thunderbird is a stand-alone mail/news client based on the Mozilla codebase. It uses the Gecko rendering engine to enable it to display and compose HTML emails."
 
@@ -40,7 +40,7 @@ DESCRIPTION="Thunderbird is a stand-alone mail/news client based on the Mozilla 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.mozilla.org/pub/thunderbird/releases/91.6.0/source/thunderbird-91.6.0.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/thunderbird/releases/91.6.2/source/thunderbird-91.6.2.source.tar.xz
 
 
 if [ ! -z $URL ]
@@ -109,6 +109,10 @@ ac_add_options --with-system-jpeg
 ac_add_options --with-system-png
 ac_add_options --with-system-zlib
 EOF
+case "$(uname -m)" in
+    i?86) sed -e '/typedef[ ]*double/s/double/long double/' \
+              -i modules/fdlibm/src/math_private.h ;;
+esac
 mountpoint -q /dev/shm || mount -t tmpfs devshm /dev/shm
 export CC=gcc CXX=g++ &&
 export MACH_USE_SYSTEM_PYTHON=1 &&
@@ -139,7 +143,7 @@ Terminal=false
 Type=Application
 Icon=thunderbird
 Categories=Network;Email;
-MimeType=application/xhtml+xml;text/xml;application/xhtml+xml;application/xml;application/rss+xml;x-scheme-handler/mailto;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/rss+xml;x-scheme-handler/mailto;
 StartupNotify=true
 EOF
 

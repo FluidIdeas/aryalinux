@@ -56,14 +56,14 @@ make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-ln -sv ../bin/ntfs-3g /usr/sbin/mount.ntfs &&
-ln -sv ntfs-3g.8 /usr/share/man/man8/mount.ntfs.8
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+ln -sv ../bin/ntfs-3g /usr/sbin/mount.ntfs &&
+ln -sv ntfs-3g.8 /usr/share/man/man8/mount.ntfs.8
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

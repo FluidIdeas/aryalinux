@@ -8,6 +8,8 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:libxml2
+#REQ:docbook
+#REQ:docbook-xsl
 
 
 cd $SOURCE_DIR
@@ -48,7 +50,7 @@ sed -i s/3000/5000/ libxslt/transform.c doc/xsltproc.{1,xml} &&
 
 ./configure --prefix=/usr --disable-static --without-python  &&
 make
-sed -e 's@\$Date\$@16 Feburary 2022@' -i doc/xsltproc.1
+sed -e 's@\$Date\$@16 February 2022@' -i doc/xsltproc.1
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install

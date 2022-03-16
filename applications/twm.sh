@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 NAME=twm
 VERSION=1.0.11
 URL=https://www.x.org/pub/individual/app/twm-1.0.11.tar.xz
-SECTION="X Window System Environment"
+SECTION="Graphical Environments"
 DESCRIPTION="The twm package contains a very minimal window manager."
 
 

@@ -19,7 +19,7 @@ cd $SOURCE_DIR
 NAME=libxklavier
 VERSION=5.4
 URL=https://people.freedesktop.org/~svu/libxklavier-5.4.tar.bz2
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="The libxklavier package contains a utility library for X keyboard."
 
 

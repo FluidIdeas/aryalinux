@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 NAME=x7legacy
 VERSION=
 URL=https://www.x.org/pub/individual/
-SECTION="X Window System Environment"
+SECTION="Graphical Environments"
 DESCRIPTION="Xorg's ancestor (X11R1, in 1987) at first only provided bitmap fonts, with a tool (bdftopcf) to assist in their installation. With the introduction of xorg-server-1.19.0 and libXfont2 many people will not need them. There are still a few old packages which might require, or benefit from, these deprecated fonts and so the following packages are shown here."
 
 

@@ -17,7 +17,7 @@ cd $SOURCE_DIR
 NAME=clutter-gtk
 VERSION=1.8.4
 URL=https://download.gnome.org/sources/clutter-gtk/1.8/clutter-gtk-1.8.4.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="The Clutter Gtk package is a library providing facilities to integrate Clutter into GTK+ applications."
 
 

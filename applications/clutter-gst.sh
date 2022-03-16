@@ -19,7 +19,7 @@ cd $SOURCE_DIR
 NAME=clutter-gst
 VERSION=3.0.27
 URL=https://download.gnome.org/sources/clutter-gst/3.0/clutter-gst-3.0.27.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="The Clutter Gst package contains an integration library for using GStreamer with Clutter. Its purpose is to implement the ClutterMedia interface using GStreamer."
 
 

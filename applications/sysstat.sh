@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=sysstat
-VERSION=12.5.5
-URL=http://sebastien.godard.pagesperso-orange.fr/sysstat-12.5.5.tar.xz
+VERSION=12.5.6
+URL=http://sebastien.godard.pagesperso-orange.fr/sysstat-12.5.6.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="The Sysstat package contains utilities to monitor system performance and usage activity. Sysstat contains the sar utility, common to many commercial Unixes, and tools you can schedule via cron to collect and historize performance and activity data."
 
@@ -22,7 +22,7 @@ DESCRIPTION="The Sysstat package contains utilities to monitor system performanc
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc http://sebastien.godard.pagesperso-orange.fr/sysstat-12.5.5.tar.xz
+wget -nc http://sebastien.godard.pagesperso-orange.fr/sysstat-12.5.6.tar.xz
 
 
 if [ ! -z $URL ]

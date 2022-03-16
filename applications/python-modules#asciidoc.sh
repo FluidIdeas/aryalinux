@@ -12,15 +12,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=python-modules#asciidoc
-VERSION=10.1.1
-URL=https://files.pythonhosted.org/packages/source/a/asciidoc/asciidoc-10.1.1.tar.gz
+VERSION=10.1.4
+URL=https://files.pythonhosted.org/packages/source/a/asciidoc/asciidoc-10.1.4.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://files.pythonhosted.org/packages/source/a/asciidoc/asciidoc-10.1.1.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/a/asciidoc/asciidoc-10.1.4.tar.gz
 
 
 if [ ! -z $URL ]

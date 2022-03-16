@@ -17,7 +17,7 @@ cd $SOURCE_DIR
 NAME=pangomm
 VERSION=2.46.2
 URL=https://download.gnome.org/sources/pangomm/2.46/pangomm-2.46.2.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="The Pangomm package provides a C++ interface to Pango."
 
 

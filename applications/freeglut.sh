@@ -17,7 +17,7 @@ cd $SOURCE_DIR
 NAME=freeglut
 VERSION=3.2.2
 URL=https://downloads.sourceforge.net/freeglut/freeglut-3.2.2.tar.gz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="Freeglut is intended to be a 100% compatible, completely opensourced clone of the GLUT library. GLUT is a window system independent toolkit for writing OpenGL programs, implementing a simple windowing API, which makes learning about and exploring OpenGL programming very easy."
 
 

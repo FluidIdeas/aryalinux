@@ -22,8 +22,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=pipewire
-VERSION=0.3.45
-URL=https://github.com/PipeWire/pipewire/archive/0.3.45/pipewire-0.3.45.tar.gz
+VERSION=0.3.48
+URL=https://github.com/PipeWire/pipewire/archive/0.3.48/pipewire-0.3.48.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The pipewire package contains a server and user-space API to handle multimedia pipelines. This includes a universal API to connect to multimedia devices, as well as sharing multimedia files between applications."
 
@@ -31,7 +31,7 @@ DESCRIPTION="The pipewire package contains a server and user-space API to handle
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/PipeWire/pipewire/archive/0.3.45/pipewire-0.3.45.tar.gz
+wget -nc https://github.com/PipeWire/pipewire/archive/0.3.48/pipewire-0.3.48.tar.gz
 
 
 if [ ! -z $URL ]

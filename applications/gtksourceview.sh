@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 NAME=gtksourceview
 VERSION=3.24.11
 URL=https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.11.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="The GtkSourceView package contains libraries used for extending the GTK+ text functions to include syntax highlighting."
 
 

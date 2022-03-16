@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 NAME=atkmm
 VERSION=2.28.2
 URL=https://download.gnome.org/sources/atkmm/2.28/atkmm-2.28.2.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="Atkmm is the official C++ interface for the ATK accessibility toolkit library."
 
 

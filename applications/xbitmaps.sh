@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 NAME=xbitmaps
 VERSION=1.1.2
 URL=https://www.x.org/pub/individual/data/xbitmaps-1.1.2.tar.bz2
-SECTION="X Window System Environment"
+SECTION="Graphical Environments"
 DESCRIPTION="The xbitmaps package contains bitmap images used by multiple applications built in Xorg chapter."
 
 

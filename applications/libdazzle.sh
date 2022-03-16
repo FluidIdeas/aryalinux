@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 NAME=libdazzle
 VERSION=3.42.0
 URL=https://download.gnome.org/sources/libdazzle/3.42/libdazzle-3.42.0.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="libdazzle is a companion library to GObject and GTK+ that adds APIs for special graphical effects."
 
 

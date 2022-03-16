@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 NAME=keybinder-3
 VERSION=3.
 URL=https://github.com/kupferlauncher/keybinder/releases/download/keybinder-3.0-v0.3.2/keybinder-3.0-0.3.2.tar.gz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="The keybinder-3.0 package contains a utility library registering global X keyboard shortcuts for GTK+-3."
 
 

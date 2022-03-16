@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 NAME=glu
 VERSION=9.0.2
 URL=ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.2.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="This package provides the Mesa OpenGL Utility library."
 
 

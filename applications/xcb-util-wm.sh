@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 NAME=xcb-util-wm
 VERSION=0.4.1
 URL=https://xcb.freedesktop.org/dist/xcb-util-wm-0.4.1.tar.bz2
-SECTION="X Window System Environment"
+SECTION="Graphical Environments"
 DESCRIPTION="The xcb-util-wm package contains libraries which provide client and window-manager helpers for EWMH and ICCCM."
 
 

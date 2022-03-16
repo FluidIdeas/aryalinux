@@ -47,6 +47,7 @@ sed -i -e '/AM_PATH_AALIB,/s/AM_PATH_AALIB/[&]/' aalib.m4
 ./configure --prefix=/usr             \
             --infodir=/usr/share/info \
             --mandir=/usr/share/man   \
+            --with-ncurses=/usr       \
             --disable-static          &&
 make
 sudo rm -rf /tmp/rootscript.sh

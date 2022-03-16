@@ -48,8 +48,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libreoffice
-VERSION=7.3.0.3
-URL=https://download.documentfoundation.org/libreoffice/src/7.3.0/libreoffice-7.3.0.3.tar.xz
+VERSION=7.3.1.3
+URL=https://download.documentfoundation.org/libreoffice/src/7.3.1/libreoffice-7.3.1.3.tar.xz
 SECTION="Office Programs"
 DESCRIPTION="LibreOffice is a full-featured office suite. It is largely compatible with Microsoft Office and is descended from OpenOffice.org."
 
@@ -57,10 +57,11 @@ DESCRIPTION="LibreOffice is a full-featured office suite. It is largely compatib
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.documentfoundation.org/libreoffice/src/7.3.0/libreoffice-7.3.0.3.tar.xz
-wget -nc https://download.documentfoundation.org/libreoffice/src/7.3.0/libreoffice-dictionaries-7.3.0.3.tar.xz
-wget -nc https://download.documentfoundation.org/libreoffice/src/7.3.0/libreoffice-help-7.3.0.3.tar.xz
-wget -nc https://download.documentfoundation.org/libreoffice/src/7.3.0/libreoffice-translations-7.3.0.3.tar.xz
+wget -nc https://download.documentfoundation.org/libreoffice/src/7.3.1/libreoffice-7.3.1.3.tar.xz
+wget -nc https://download.documentfoundation.org/libreoffice/src/7.3.1/libreoffice-dictionaries-7.3.1.3.tar.xz
+wget -nc https://download.documentfoundation.org/libreoffice/src/7.3.1/libreoffice-help-7.3.1.3.tar.xz
+wget -nc https://download.documentfoundation.org/libreoffice/src/7.3.1/libreoffice-translations-7.3.1.3.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/libreoffice-7.3.1.3-poppler_2203_fix-1.patch
 
 
 if [ ! -z $URL ]
@@ -85,14 +86,18 @@ echo $USER > /tmp/currentuser
 if bison --version|grep -q 3.8; then
   sed -i 's/yyn/yyrule/' connectivity/source/parse/sqlbison.y
 fi
+patch -Np1 -i ../libreoffice-7.3.1.3-poppler_2203_fix-1.patch
 install -dm755 external/tarballs &&
-ln -sv ../../../libreoffice-dictionaries-7.3.0.3.tar.xz external/tarballs/ &&
-ln -sv ../../../libreoffice-help-7.3.0.3.tar.xz         external/tarballs/ &&
-ln -sv ../../../libreoffice-translations-7.3.0.3.tar.xz external/tarballs/
-ln -sv src/libreoffice-help-7.3.0.3/helpcontent2/ &&
-ln -sv src/libreoffice-dictionaries-7.3.0.3/dictionaries/ &&
-ln -sv src/libreoffice-translations-7.3.0.3/translations/
+ln -sv ../../../libreoffice-dictionaries-7.3.1.3.tar.xz external/tarballs/ &&
+ln -sv ../../../libreoffice-help-7.3.1.3.tar.xz         external/tarballs/ &&
+ln -sv ../../../libreoffice-translations-7.3.1.3.tar.xz external/tarballs/
+ln -sv src/libreoffice-help-7.3.1.3/helpcontent2/ &&
+ln -sv src/libreoffice-dictionaries-7.3.1.3/dictionaries/ &&
+ln -sv src/libreoffice-translations-7.3.1.3/translations/
 export LO_PREFIX=/usr
+case $(uname -m) in
+   i?86) sed /-Os/d -i solenv/gbuild/platform/LINUX_INTEL_GCC.mk ;;
+esac
 sed -e "/gzip -f/d"   \
     -e "s|.1.gz|.1|g" \
     -i bin/distro-install-desktop-integration &&

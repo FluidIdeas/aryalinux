@@ -11,22 +11,23 @@ set +h
 #REQ:gtk3
 #REQ:gobject-introspection
 #REQ:gtk2
+#REQ:gtk4
 #REQ:vala
 
 
 cd $SOURCE_DIR
 
 NAME=colord-gtk
-VERSION=0.2.0
-URL=https://www.freedesktop.org/software/colord/releases/colord-gtk-0.2.0.tar.xz
-SECTION="X Libraries"
+VERSION=0.3.0
+URL=https://www.freedesktop.org/software/colord/releases/colord-gtk-0.3.0.tar.xz
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="The Colord GTK package contains GTK+ bindings for Colord."
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.freedesktop.org/software/colord/releases/colord-gtk-0.2.0.tar.xz
+wget -nc https://www.freedesktop.org/software/colord/releases/colord-gtk-0.3.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -54,6 +55,7 @@ cd    build &&
 meson --prefix=/usr       \
       --buildtype=release \
       -Dgtk2=true         \
+      -Dgtk4=true         \
       -Dvapi=true         \
       -Ddocs=false        \
       -Dman=false ..      &&

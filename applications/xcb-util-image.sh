@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 NAME=xcb-util-image
 VERSION=0.4.0
 URL=https://xcb.freedesktop.org/dist/xcb-util-image-0.4.0.tar.bz2
-SECTION="X Window System Environment"
+SECTION="Graphical Environments"
 DESCRIPTION="The xcb-util-image package provides additional extensions to the XCB library."
 
 

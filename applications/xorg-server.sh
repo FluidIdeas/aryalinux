@@ -21,7 +21,7 @@ cd $SOURCE_DIR
 NAME=xorg-server
 VERSION=21.1.3
 URL=https://www.x.org/pub/individual/xserver/xorg-server-21.1.3.tar.xz
-SECTION="X Window System Environment"
+SECTION="Graphical Environments"
 DESCRIPTION="The Xorg Server is the core of the X Window system."
 
 

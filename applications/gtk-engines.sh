@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 NAME=gtk-engines
 VERSION=2.20.2
 URL=https://download.gnome.org/sources/gtk-engines/2.20/gtk-engines-2.20.2.tar.bz2
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="The GTK Engines package contains eight themes/engines and two additional engines for GTK2."
 
 

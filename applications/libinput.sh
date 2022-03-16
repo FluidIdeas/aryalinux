@@ -14,15 +14,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libinput
-VERSION=1.19.3
-URL=https://www.freedesktop.org/software/libinput/libinput-1.19.3.tar.xz
+VERSION=1.20.0
+URL=https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.20.0/libinput-1.20.0.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.freedesktop.org/software/libinput/libinput-1.19.3.tar.xz
+wget -nc https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.20.0/libinput-1.20.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -57,7 +57,11 @@ meson --prefix=$XORG_PREFIX \
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install
+ninja install &&
+if [ "$XORG_PREFIX" != "/usr" ]; then
+      $SUDO mv $XORG_PREFIX/lib/udev/rules.d/* /usr/lib/udev/rules.d
+      $SUDO rm -rf $XORG_PREFIX/lib/udev/
+fi
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

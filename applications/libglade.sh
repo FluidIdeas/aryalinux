@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 NAME=libglade
 VERSION=2.6.4
 URL=https://download.gnome.org/sources/libglade/2.6/libglade-2.6.4.tar.bz2
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="The libglade package contains libglade libraries. These are useful for loading Glade interface files in a program at runtime."
 
 

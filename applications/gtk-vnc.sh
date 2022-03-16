@@ -19,7 +19,7 @@ cd $SOURCE_DIR
 NAME=gtk-vnc
 VERSION=1.3.0
 URL=https://download.gnome.org/sources/gtk-vnc/1.3/gtk-vnc-1.3.0.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="The Gtk VNC package contains a VNC viewer widget for GTK+. It is built using coroutines allowing it to be completely asynchronous while remaining single threaded."
 
 

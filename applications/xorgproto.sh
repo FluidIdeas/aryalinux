@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 NAME=xorgproto
 VERSION=2021.5
 URL=https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2021.5.tar.bz2
-SECTION="X Window System Environment"
+SECTION="Graphical Environments"
 DESCRIPTION="The xorgproto package provides the header files required to build the X Window system, and to allow other applications to build against the installed X Window system."
 
 
@@ -53,9 +53,7 @@ ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
-
-install -vdm 755 $XORG_PREFIX/share/doc/xorgproto-2021.5 &&
-install -vm 644 ../[^m]*.txt ../PM_spec $XORG_PREFIX/share/doc/xorgproto-2021.5
+mv -v $XORG_PREFIX/share/doc/xorgproto{,-2021.5}
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

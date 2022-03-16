@@ -16,7 +16,7 @@ cd $SOURCE_DIR
 NAME=imlib2
 VERSION=1.8.0
 URL=https://downloads.sourceforge.net/enlightenment/imlib2-1.8.0.tar.xz
-SECTION="X Libraries"
+SECTION="Graphical Environment Libraries"
 DESCRIPTION="imlib2 is a graphics library for fast file loading, saving, rendering and manipulation."
 
 

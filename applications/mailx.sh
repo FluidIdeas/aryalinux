@@ -49,8 +49,8 @@ patch -Np1 -i ../heirloom-mailx-12.5-fixes-1.patch &&
 sed 's@<openssl@<openssl-1.0/openssl@' \
     -i openssl.c fio.c makeconfig      &&
 
-make -j1 LDFLAGS+="-L /usr/lib/openssl-1.0/" \
-     SENDMAIL=/usr/sbin/sendmail
+make -j1 LDFLAGS+="-L /usr/lib/openssl/" \
+         SENDMAIL=/usr/sbin/sendmail
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make PREFIX=/usr UCBINSTALL=/usr/bin/install install &&

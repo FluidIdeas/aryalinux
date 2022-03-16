@@ -15,7 +15,7 @@ cd $SOURCE_DIR
 NAME=xcursor-themes
 VERSION=1.0.6
 URL=https://www.x.org/pub/individual/data/xcursor-themes-1.0.6.tar.bz2
-SECTION="X Window System Environment"
+SECTION="Graphical Environments"
 DESCRIPTION="The xcursor-themes package contains the redglass and whiteglass animated cursor themes."
 
 
