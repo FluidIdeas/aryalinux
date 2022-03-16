@@ -6,29 +6,26 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=001-binutils-pass1
+NAME=040-flex
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=binutils-2.38-lto_fix-1.patch
+TARBALL=flex-2.6.4.tar.gz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-mkdir -v build
-cd       build
-../configure --prefix=$LFS/tools \
-             --with-sysroot=$LFS \
-             --target=$LFS_TGT   \
-             --disable-nls       \
-             --disable-werror
+./configure --prefix=/usr \
+            --docdir=/usr/share/doc/flex-2.6.4 \
+            --disable-static
 make
 make install
+ln -sv flex /usr/bin/lex
 
 fi
 

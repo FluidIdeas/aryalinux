@@ -6,27 +6,23 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=001-binutils-pass1
+NAME=027-texinfo
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=binutils-2.38-lto_fix-1.patch
+TARBALL=texinfo-6.8.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-mkdir -v build
-cd       build
-../configure --prefix=$LFS/tools \
-             --with-sysroot=$LFS \
-             --target=$LFS_TGT   \
-             --disable-nls       \
-             --disable-werror
+sed -e 's/__attribute_nonnull__/__nonnull/' \
+    -i gnulib/lib/malloc/dynarray-skeleton.c
+./configure --prefix=/usr
 make
 make install
 

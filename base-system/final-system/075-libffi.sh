@@ -6,27 +6,24 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=001-binutils-pass1
+NAME=075-libffi
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=binutils-2.38-lto_fix-1.patch
+TARBALL=libffi-3.4.2.tar.gz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-mkdir -v build
-cd       build
-../configure --prefix=$LFS/tools \
-             --with-sysroot=$LFS \
-             --target=$LFS_TGT   \
-             --disable-nls       \
-             --disable-werror
+./configure --prefix=/usr          \
+            --disable-static       \
+            --with-gcc-arch=x86-64 \
+            --disable-exec-static-tramp
 make
 make install
 

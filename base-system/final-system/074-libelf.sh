@@ -6,29 +6,27 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=001-binutils-pass1
+NAME=074-libelf
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=binutils-2.38-lto_fix-1.patch
+TARBALL=elfutils-0.186.tar.bz2
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-mkdir -v build
-cd       build
-../configure --prefix=$LFS/tools \
-             --with-sysroot=$LFS \
-             --target=$LFS_TGT   \
-             --disable-nls       \
-             --disable-werror
+./configure --prefix=/usr                \
+            --disable-debuginfod         \
+            --enable-libdebuginfod=dummy
 make
-make install
+make -C libelf install
+install -vm644 config/libelf.pc /usr/lib/pkgconfig
+rm /usr/lib/libelf.a
 
 fi
 

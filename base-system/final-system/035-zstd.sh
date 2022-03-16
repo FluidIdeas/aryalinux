@@ -6,29 +6,24 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
-NAME=001-binutils-pass1
+NAME=035-zstd
 
 touch /sources/build-log
 if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=binutils-2.38-lto_fix-1.patch
+TARBALL=zstd-1.5.2.tar.gz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-mkdir -v build
-cd       build
-../configure --prefix=$LFS/tools \
-             --with-sysroot=$LFS \
-             --target=$LFS_TGT   \
-             --disable-nls       \
-             --disable-werror
+patch -Np1 -i ../zstd-1.5.2-upstream_fixes-1.patch
 make
-make install
+make prefix=/usr install
+rm -v /usr/lib/libzstd.a
 
 fi
 
