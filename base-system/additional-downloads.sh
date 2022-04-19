@@ -46,6 +46,7 @@ wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/0001-squash
 wget -nc https://sourceware.org/ftp/elfutils/0.170/elfutils-0.170.tar.bz2
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.1/0.21-nvme_ioctl.h.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/texinfo-6.8-end_line.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/systemd-250-kernel_5.17_fixes-1.patch
 
 pushd $CURRENT_DIR/../applications
 git checkout $VERSION

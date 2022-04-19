@@ -21,6 +21,7 @@ cd $DIRECTORY
 
 
 patch -Np1 -i ../systemd-250-upstream_fixes-1.patch
+patch -Np1 -i ../systemd-250-kernel_5.17_fixes-1.patch
 sed -i -e 's/GROUP="render"/GROUP="video"/' \
        -e 's/GROUP="sgx", //' rules.d/50-udev-default.rules.in
 mkdir -p build
