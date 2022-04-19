@@ -26,7 +26,6 @@ cd $DIRECTORY
             --with-installed-readline
 make
 make install
-exec /usr/bin/bash --login
 
 fi
 
