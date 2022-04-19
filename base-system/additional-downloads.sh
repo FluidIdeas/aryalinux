@@ -47,6 +47,7 @@ wget -nc https://sourceware.org/ftp/elfutils/0.170/elfutils-0.170.tar.bz2
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/1.1/0.21-nvme_ioctl.h.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/texinfo-6.8-end_line.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/$VERSION/systemd-250-kernel_5.17_fixes-1.patch
+wget -nc https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/mdocml/1.14.6-1/mdocml_1.14.6.orig.tar.gz
 
 pushd $CURRENT_DIR/../applications
 git checkout $VERSION
