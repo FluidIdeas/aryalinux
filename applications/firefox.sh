@@ -34,8 +34,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=firefox
-VERSION=91.7.
-URL=https://archive.mozilla.org/pub/firefox/releases/91.7.1esr/source/firefox-91.7.1esr.source.tar.xz
+VERSION=91.6.
+URL=https://archive.mozilla.org/pub/firefox/releases/91.6.0esr/source/firefox-91.6.0esr.source.tar.xz
 SECTION="Graphical Web Browsers"
 DESCRIPTION="Firefox is a stand-alone browser based on the Mozilla codebase."
 
@@ -43,8 +43,8 @@ DESCRIPTION="Firefox is a stand-alone browser based on the Mozilla codebase."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.mozilla.org/pub/firefox/releases/91.7.1esr/source/firefox-91.7.1esr.source.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/firefox-91.7.1esr-disable_rust_test-1.patch
+wget -nc https://archive.mozilla.org/pub/firefox/releases/91.6.0esr/source/firefox-91.6.0esr.source.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/firefox-91.6.0esr-disable_rust_test-1.patch
 
 
 if [ ! -z $URL ]
@@ -151,7 +151,7 @@ unset MOZ_TELEMETRY_REPORTING
 
 mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/firefox-build-dir
 EOF
-patch -Np1 -i ../firefox-91.7.1esr-disable_rust_test-1.patch
+patch -Np1 -i ../firefox-91.6.0esr-disable_rust_test-1.patch
 case "$(uname -m)" in
     i?86) sed -e '/typedef[ ]*double/s/double/long double/' \
               -i modules/fdlibm/src/math_private.h ;;

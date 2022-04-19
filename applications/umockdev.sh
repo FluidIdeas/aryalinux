@@ -15,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=umockdev
-VERSION=0.17.7
-URL=https://github.com/martinpitt/umockdev/releases/download/0.17.7/umockdev-0.17.7.tar.xz
+VERSION=0.17.6
+URL=https://github.com/martinpitt/umockdev/releases/download/0.17.6/umockdev-0.17.6.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The Umockdev package contains a framework that allows a developer to mock devices for use in unit testing."
 
@@ -24,7 +24,7 @@ DESCRIPTION="The Umockdev package contains a framework that allows a developer t
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/martinpitt/umockdev/releases/download/0.17.7/umockdev-0.17.7.tar.xz
+wget -nc https://github.com/martinpitt/umockdev/releases/download/0.17.6/umockdev-0.17.6.tar.xz
 
 
 if [ ! -z $URL ]

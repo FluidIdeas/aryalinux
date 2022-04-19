@@ -21,8 +21,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=poppler
-VERSION=22.03.0
-URL=https://poppler.freedesktop.org/poppler-22.03.0.tar.xz
+VERSION=22.02.0
+URL=https://poppler.freedesktop.org/poppler-22.02.0.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The Poppler package contains a PDF rendering library and command line tools used to manipulate PDF files. This is useful for providing PDF rendering functionality as a shared library."
 
@@ -30,7 +30,7 @@ DESCRIPTION="The Poppler package contains a PDF rendering library and command li
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://poppler.freedesktop.org/poppler-22.03.0.tar.xz
+wget -nc https://poppler.freedesktop.org/poppler-22.02.0.tar.xz
 wget -nc https://poppler.freedesktop.org/poppler-data-0.4.11.tar.gz
 
 
@@ -73,8 +73,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m755 -d           /usr/share/doc/poppler-22.03.0 &&
-cp -vr ../glib/reference/html /usr/share/doc/poppler-22.03.0
+install -v -m755 -d           /usr/share/doc/poppler-22.02.0 &&
+cp -vr ../glib/reference/html /usr/share/doc/poppler-22.02.0
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

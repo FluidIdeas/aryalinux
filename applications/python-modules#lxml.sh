@@ -13,15 +13,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=python-modules#lxml
-VERSION=4.8.0
-URL=https://files.pythonhosted.org/packages/source/l/lxml/lxml-4.8.0.tar.gz
+VERSION=4.7.1
+URL=https://files.pythonhosted.org/packages/source/l/lxml/lxml-4.7.1.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://files.pythonhosted.org/packages/source/l/lxml/lxml-4.8.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/l/lxml/lxml-4.7.1.tar.gz
 
 
 if [ ! -z $URL ]

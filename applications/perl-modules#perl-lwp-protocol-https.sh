@@ -24,7 +24,7 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.cpan.org/authors/id/O/OA/OALDERS/LWP-Protocol-https-6.10.tar.gz
-wget -nc https://www.linuxfromscratch.org/patches/blfs/svn/LWP-Protocol-https-6.10-system_certs-2.patch
+wget -nc https://www.linuxfromscratch.org/patches/blfs/11.1/LWP-Protocol-https-6.10-system_certs-2.patch
 
 
 if [ ! -z $URL ]

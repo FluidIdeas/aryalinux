@@ -12,15 +12,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=python-modules#markupsafe
-VERSION=2.1.0
-URL=https://files.pythonhosted.org/packages/source/M/MarkupSafe/MarkupSafe-2.1.0.tar.gz
+VERSION=2.0.1
+URL=https://files.pythonhosted.org/packages/source/M/MarkupSafe/MarkupSafe-2.0.1.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://files.pythonhosted.org/packages/source/M/MarkupSafe/MarkupSafe-2.1.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/M/MarkupSafe/MarkupSafe-2.0.1.tar.gz
 
 
 if [ ! -z $URL ]

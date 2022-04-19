@@ -31,18 +31,15 @@ case $(uname -m) in
     sed -e '/m64=/s/lib64/lib/' -i.orig gcc/config/i386/t-linux64
   ;;
 esac
-sed 's/gnu++17/& -nostdinc++/' \
-    -i libstdc++-v3/src/c++17/Makefile.in
-sed '/thread_header =/s/@.*@/gthr-posix.h/' \
-    -i libgcc/Makefile.in libstdc++-v3/include/Makefile.in
 mkdir -v build
 cd       build
+mkdir -pv $LFS_TGT/libgcc
+ln -s ../../../libgcc/gthr-posix.h $LFS_TGT/libgcc/gthr-default.h
 ../configure                                       \
     --build=$(../config.guess)                     \
     --host=$LFS_TGT                                \
-    --target=$LFS_TGT                              \
-    LDFLAGS_FOR_TARGET=-L$PWD/$LFS_TGT/libgcc      \
     --prefix=/usr                                  \
+    CC_FOR_TARGET=$LFS_TGT-gcc                     \
     --with-build-sysroot=$LFS                      \
     --enable-initfini-array                        \
     --disable-nls                                  \
@@ -53,6 +50,7 @@ cd       build
     --disable-libquadmath                          \
     --disable-libssp                               \
     --disable-libvtv                               \
+    --disable-libstdcxx                            \
     --enable-languages=c,c++
 make
 make DESTDIR=$LFS install

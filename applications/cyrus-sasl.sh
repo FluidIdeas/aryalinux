@@ -13,16 +13,17 @@ set +h
 cd $SOURCE_DIR
 
 NAME=cyrus-sasl
-VERSION=2.1.28
-URL=https://github.com/cyrusimap/cyrus-sasl/releases/download/cyrus-sasl-2.1.28/cyrus-sasl-2.1.28.tar.gz
+VERSION=2.1.27
+URL=https://github.com/cyrusimap/cyrus-sasl/releases/download/cyrus-sasl-2.1.27/cyrus-sasl-2.1.27.tar.gz
 SECTION="Security"
-DESCRIPTION="The Cyrus SASL package contains a Simple Authentication and Security Layer implementation, a method for adding authentication support to connection-based protocols. To use SASL, a protocol includes a command for identifying and authenticating a user to a server and for optionally negotiating protection of subsequent protocol interactions. If its use is negotiated, a security layer is inserted between the protocol and the connection."
+DESCRIPTION="The Cyrus SASL package contains a Simple Authentication and Security Layer, a method for adding authentication support to connection-based protocols. To use SASL, a protocol includes a command for identifying and authenticating a user to a server and for optionally negotiating protection of subsequent protocol interactions. If its use is negotiated, a security layer is inserted between the protocol and the connection."
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/cyrusimap/cyrus-sasl/releases/download/cyrus-sasl-2.1.28/cyrus-sasl-2.1.28.tar.gz
+wget -nc https://github.com/cyrusimap/cyrus-sasl/releases/download/cyrus-sasl-2.1.27/cyrus-sasl-2.1.27.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/cyrus-sasl-2.1.27-doc_fixes-1.patch
 
 
 if [ ! -z $URL ]
@@ -44,6 +45,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../cyrus-sasl-2.1.27-doc_fixes-1.patch
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \
             --enable-auth-sasldb \
@@ -54,9 +56,9 @@ make -j1
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-install -v -dm755                          /usr/share/doc/cyrus-sasl-2.1.28/html &&
-install -v -m644  saslauthd/LDAP_SASLAUTHD /usr/share/doc/cyrus-sasl-2.1.28      &&
-install -v -m644  doc/legacy/*.html        /usr/share/doc/cyrus-sasl-2.1.28/html &&
+install -v -dm755                          /usr/share/doc/cyrus-sasl-2.1.27/html &&
+install -v -m644  saslauthd/LDAP_SASLAUTHD /usr/share/doc/cyrus-sasl-2.1.27      &&
+install -v -m644  doc/legacy/*.html        /usr/share/doc/cyrus-sasl-2.1.27/html &&
 install -v -dm700 /var/lib/sasl
 ENDOFROOTSCRIPT
 

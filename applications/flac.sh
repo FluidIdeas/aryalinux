@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=flac
-VERSION=1.3.4
-URL=https://downloads.xiph.org/releases/flac/flac-1.3.4.tar.xz
+VERSION=1.3.3
+URL=https://downloads.xiph.org/releases/flac/flac-1.3.3.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="FLAC is an audio CODEC similar to MP3, but lossless, meaning that audio is compressed without losing any information."
 
@@ -21,7 +21,8 @@ DESCRIPTION="FLAC is an audio CODEC similar to MP3, but lossless, meaning that a
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.xiph.org/releases/flac/flac-1.3.4.tar.xz
+wget -nc https://downloads.xiph.org/releases/flac/flac-1.3.3.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/flac-1.3.3-security_fixes-1.patch
 
 
 if [ ! -z $URL ]
@@ -43,9 +44,10 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../flac-1.3.3-security_fixes-1.patch      &&
 ./configure --prefix=/usr                                \
             --disable-thorough-tests                     \
-            --docdir=/usr/share/doc/flac-1.3.4          &&
+            --docdir=/usr/share/doc/flac-1.3.3          &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

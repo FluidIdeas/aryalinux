@@ -8,7 +8,7 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:glib2
-#REQ:js91
+#REQ:js78
 #REQ:gobject-introspection
 #REQ:libxslt
 #REQ:linux-pam
@@ -19,7 +19,7 @@ cd $SOURCE_DIR
 
 NAME=polkit
 VERSION=0.120
-URL=https://gitlab.freedesktop.org/polkit/polkit/-/archive/0.120/polkit-0.120.tar.gz
+URL=https://www.freedesktop.org/software/polkit/releases/polkit-0.120.tar.gz
 SECTION="Security"
 DESCRIPTION="Polkit is a toolkit for defining and handling authorizations. It is used for allowing unprivileged processes to communicate with privileged processes."
 
@@ -27,9 +27,8 @@ DESCRIPTION="Polkit is a toolkit for defining and handling authorizations. It is
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://gitlab.freedesktop.org/polkit/polkit/-/archive/0.120/polkit-0.120.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/polkit-0.120-security_fixes-1.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/polkit-0.120-js91-1.patch
+wget -nc https://www.freedesktop.org/software/polkit/releases/polkit-0.120.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/polkit-0.120-security_fix-1.patch
 
 
 if [ ! -z $URL ]
@@ -65,16 +64,14 @@ sudo rm -rf /tmp/rootscript.sh
 sed '/0,/s/^/#/' -i meson_post_install.py &&
 sed '/policy,/d' -i actions/meson.build \
                  -i src/examples/meson.build
-patch -Np1 -i ../polkit-0.120-security_fixes-1.patch
-patch -Np1 -i ../polkit-0.120-js91-1.patch
+patch -Np1 -i ../polkit-0.120-security_fix-1.patch
 mkdir build &&
 cd    build &&
 
 meson --prefix=/usr                       \
-      --buildtype=release                 \
       -Dman=true                          \
       -Dsession_tracking=libsystemd-login \
-      -Dtests=true                        \
+      --buildtype=release                 \
       ..                                  &&
 ninja
 sudo rm -rf /tmp/rootscript.sh

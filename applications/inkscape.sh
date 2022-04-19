@@ -61,8 +61,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i '/filename_goo,/s/filename_goo.*/std::make_unique<GooString>(uri));/' \
-       src/extension/internal/pdfinput/pdf-input.cpp
 mkdir build                       &&
 cd    build                       &&
 

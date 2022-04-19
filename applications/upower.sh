@@ -15,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=upower
-VERSION=0.99.17
-URL=https://gitlab.freedesktop.org/upower/upower/-/archive/v0.99.17/upower-v0.99.17.tar.bz2
+VERSION=0.99.13
+URL=https://gitlab.freedesktop.org/upower/upower/uploads/177df5b9f9b76f25a2ad9da41aa0c1fa/upower-0.99.13.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="The UPower package provides an interface for enumerating power devices, listening to device events and querying history and statistics. Any application or service on the system can access the org.freedesktop.UPower service via the system message bus."
 
@@ -24,7 +24,7 @@ DESCRIPTION="The UPower package provides an interface for enumerating power devi
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://gitlab.freedesktop.org/upower/upower/-/archive/v0.99.17/upower-v0.99.17.tar.bz2
+wget -nc https://gitlab.freedesktop.org/upower/upower/uploads/177df5b9f9b76f25a2ad9da41aa0c1fa/upower-0.99.13.tar.xz
 
 
 if [ ! -z $URL ]
@@ -46,18 +46,15 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed '/subdir.*doc/d' -i meson.build &&
-mkdir build                         &&
-cd    build                         &&
-meson --prefix=/usr       \
-      --buildtype=release \
-      -Dgtk-doc=false     \
-      -Dman=false         \
-      ..                            &&
-ninja
+./configure --prefix=/usr         \
+             --sysconfdir=/etc    \
+             --localstatedir=/var \
+             --enable-deprecated  \
+             --disable-static     &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

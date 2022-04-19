@@ -13,16 +13,16 @@ set +h
 cd $SOURCE_DIR
 
 NAME=xorg-amdgpu-driver
-VERSION=22.0.0
-URL=https://www.x.org/pub/individual/driver/xf86-video-amdgpu-22.0.0.tar.xz
+VERSION=21.0.0
+URL=https://www.x.org/pub/individual/driver/xf86-video-amdgpu-21.0.0.tar.bz2
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.x.org/pub/individual/driver/xf86-video-amdgpu-22.0.0.tar.xz
-wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-amdgpu-22.0.0.tar.xz
+wget -nc https://www.x.org/pub/individual/driver/xf86-video-amdgpu-21.0.0.tar.bz2
+wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-video-amdgpu-21.0.0.tar.bz2
 
 
 if [ ! -z $URL ]
