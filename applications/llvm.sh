@@ -61,7 +61,6 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr               \
       -DLLVM_BUILD_LLVM_DYLIB=ON                \
       -DLLVM_LINK_LLVM_DYLIB=ON                 \
       -DLLVM_ENABLE_RTTI=ON                     \
-      -DLLVM_TARGETS_TO_BUILD="host;AMDGPU;BPF" \
       -DLLVM_BINUTILS_INCDIR=/usr/include       \
       -Wno-dev -G Ninja ..                      &&
 ninja
