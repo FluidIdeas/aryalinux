@@ -53,7 +53,7 @@ ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
-mv -v $XORG_PREFIX/share/doc/xorgproto{,-2021.5}
+XORG_PREFIX=/usr mv -v $XORG_PREFIX/share/doc/xorgproto{,-2021.5}
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
