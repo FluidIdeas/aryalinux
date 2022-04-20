@@ -22,6 +22,7 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/01org/intel-hybrid-driver/archive/1.0.2/intel-hybrid-driver-1.0.2.tar.gz
+wget -nc https://github.com/intel/intel-hybrid-driver/commit/821f871296629ffab451faea5134abf6f2d1166f.patch
 
 
 if [ ! -z $URL ]
@@ -40,6 +41,7 @@ fi
 cd $DIRECTORY
 fi
 
+patch -Np1 -i ../821f871296629ffab451faea5134abf6f2d1166f.patch &&
 ./autogen.sh --prefix=/usr --sysconfdir=/etc &&
 make
 sudo make install
