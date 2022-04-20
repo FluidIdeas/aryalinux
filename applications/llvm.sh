@@ -74,28 +74,6 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -d -m755 /usr/share/doc/llvm-13.0.1                        &&
-mv -v /usr/share/doc/llvm/html /usr/share/doc/llvm-13.0.1/llvm-html   &&
-rmdir -v /usr/share/doc/llvm
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -d -m755 /usr/share/doc/llvm-13.0.1                        &&
-mv -v /usr/share/doc/clang/html /usr/share/doc/llvm-13.0.1/clang-html &&
-rmdir -v /usr/share/doc/clang
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
