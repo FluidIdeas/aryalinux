@@ -60,7 +60,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-[ -e $XORG_PREFIX/share/doc/libvdpau ] && mv -v $XORG_PREFIX/share/doc/libvdpau{,1.4}
+[ -e /usr/share/doc/libvdpau ] && mv -v /usr/share/doc/libvdpau{,1.4}
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
