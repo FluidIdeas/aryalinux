@@ -31,7 +31,6 @@ set +h
 #REQ:xorg-server
 #REQ:x7driver
 #REQ:xf86-video-cirrus
-#REQ:xf86-video-mach64
 #REQ:xf86-video-openchrome
 #REQ:xf86-video-vesa
 #REQ:intel-vaapi-driver
