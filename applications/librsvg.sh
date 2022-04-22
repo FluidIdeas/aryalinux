@@ -65,6 +65,7 @@ export PATH=/opt/rustc/bin:$PATH
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+export PATH=/opt/rustc/bin:$PATH
 make install
 ENDOFROOTSCRIPT
 
