@@ -10,6 +10,7 @@ set +h
 #REQ:polkit
 #REQ:gobject-introspection
 #REQ:systemd
+#REQ:vala
 
 
 cd $SOURCE_DIR
