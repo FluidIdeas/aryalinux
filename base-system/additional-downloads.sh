@@ -3,7 +3,7 @@
 set -e
 set +h
 
-VERSION=4.0
+VERSION=5.0
 
 CURRENT_DIR=$(pwd)
 pushd ~/sources
