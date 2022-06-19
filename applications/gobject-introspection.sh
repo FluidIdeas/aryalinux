@@ -24,7 +24,7 @@ pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gobject-introspection/1.70/gobject-introspection-1.70.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gobject-introspection/1.70/gobject-introspection-1.70.0.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/gobject-introspection-1.70.0-build_fix-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/gobject-introspection-1.70.0-build_fix-1.patch
 
 
 if [ ! -z $URL ]

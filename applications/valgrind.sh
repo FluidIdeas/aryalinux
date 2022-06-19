@@ -23,7 +23,7 @@ pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://sourceware.org/pub/valgrind/valgrind-3.18.1.tar.bz2
 wget -nc ftp://sourceware.org/pub/valgrind/valgrind-3.18.1.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/valgrind-3.18.1-upstream_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/valgrind-3.18.1-upstream_fixes-1.patch
 
 
 if [ ! -z $URL ]

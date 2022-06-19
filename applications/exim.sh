@@ -26,8 +26,8 @@ pushd $(echo $NAME | sed "s@#@_@g")
 wget -nc https://ftp.exim.org/pub/exim/exim4/exim-4.95.tar.xz
 wget -nc ftp://ftp.exim.org/pub/exim/exim4/exim-4.95.tar.xz
 wget -nc http://exim.org/docs.html
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/exim-4.95-call_pam-1.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/exim-4.95-openssl3_fix-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/exim-4.95-call_pam-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/exim-4.95-openssl3_fix-1.patch
 
 
 if [ ! -z $URL ]

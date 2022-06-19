@@ -24,7 +24,7 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.apache.org/dist/httpd/httpd-2.4.52.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/httpd-2.4.52-blfs_layout-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/httpd-2.4.52-blfs_layout-1.patch
 
 
 if [ ! -z $URL ]

@@ -24,7 +24,7 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/systemd/systemd/archive/v250/systemd-250.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/systemd-250-upstream_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/systemd-250-upstream_fixes-1.patch
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/systemd-250-kernel_5.17_fixes-1.patch
 
 

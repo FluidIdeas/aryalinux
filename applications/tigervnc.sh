@@ -33,7 +33,7 @@ pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/TigerVNC/tigervnc/archive/v1.12.0/tigervnc-1.12.0.tar.gz
 wget -nc https://www.x.org/pub/individual/xserver/xorg-server-1.20.7.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/tigervnc-1.12.0-configuration_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/tigervnc-1.12.0-configuration_fixes-1.patch
 wget -nc https://anduin.linuxfromscratch.org/BLFS/tigervnc/Xsession
 
 

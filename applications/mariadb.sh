@@ -25,7 +25,7 @@ pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.mariadb.org/interstitial/mariadb-10.6.7/source/mariadb-10.6.7.tar.gz
 wget -nc ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.6.7/source/mariadb-10.6.7.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/mariadb-10.6.7-openssl3_fix-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/mariadb-10.6.7-openssl3_fix-1.patch
 
 
 if [ ! -z $URL ]

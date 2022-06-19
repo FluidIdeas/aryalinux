@@ -24,7 +24,7 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc http://tug.ctan.org/support/xindy/base/xindy-2.5.1.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/xindy-2.5.1-upstream_fixes-2.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/xindy-2.5.1-upstream_fixes-2.patch
 
 
 if [ ! -z $URL ]

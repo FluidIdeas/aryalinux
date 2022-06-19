@@ -22,7 +22,7 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.xiph.org/releases/flac/flac-1.3.3.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/flac-1.3.3-security_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/flac-1.3.3-security_fixes-1.patch
 
 
 if [ ! -z $URL ]

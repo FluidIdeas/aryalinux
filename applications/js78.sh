@@ -26,7 +26,7 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.mozilla.org/pub/firefox/releases/78.15.0esr/source/firefox-78.15.0esr.source.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/js-78.15.0-python_3_10-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/js-78.15.0-python_3_10-1.patch
 
 
 if [ ! -z $URL ]

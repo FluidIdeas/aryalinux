@@ -23,7 +23,7 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/cyrusimap/cyrus-sasl/releases/download/cyrus-sasl-2.1.27/cyrus-sasl-2.1.27.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/cyrus-sasl-2.1.27-doc_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/cyrus-sasl-2.1.27-doc_fixes-1.patch
 
 
 if [ ! -z $URL ]

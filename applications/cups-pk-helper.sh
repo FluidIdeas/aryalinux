@@ -24,7 +24,7 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.freedesktop.org/software/cups-pk-helper/releases/cups-pk-helper-0.2.6.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/cups-pk-helper-0.2.6-consolidated_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/cups-pk-helper-0.2.6-consolidated_fixes-1.patch
 
 
 if [ ! -z $URL ]

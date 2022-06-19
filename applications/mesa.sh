@@ -30,9 +30,9 @@ pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://mesa.freedesktop.org/archive/mesa-21.3.6.tar.xz
 wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-21.3.6.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/mesa-21.3.6-add_xdemos-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/mesa-21.3.6-add_xdemos-1.patch
 wget -nc ftp://ftp.freedesktop.org/pub/mesa/demos/
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/mesa-21.3.6-nouveau_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/mesa-21.3.6-nouveau_fixes-1.patch
 
 
 if [ ! -z $URL ]

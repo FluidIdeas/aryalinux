@@ -23,7 +23,7 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.dovecot.org/releases/2.3/dovecot-2.3.18.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/dovecot-2.3.18-openssl3_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/dovecot-2.3.18-openssl3_fixes-1.patch
 
 
 if [ ! -z $URL ]

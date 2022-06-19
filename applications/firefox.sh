@@ -44,7 +44,7 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://archive.mozilla.org/pub/firefox/releases/91.6.0esr/source/firefox-91.6.0esr.source.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/firefox-91.6.0esr-disable_rust_test-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/firefox-91.6.0esr-disable_rust_test-1.patch
 
 
 if [ ! -z $URL ]

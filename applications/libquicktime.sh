@@ -22,7 +22,7 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/libquicktime/libquicktime-1.2.4.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/libquicktime-1.2.4-ffmpeg4-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/libquicktime-1.2.4-ffmpeg4-1.patch
 
 
 if [ ! -z $URL ]

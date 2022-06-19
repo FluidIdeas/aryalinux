@@ -28,7 +28,7 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.freedesktop.org/software/polkit/releases/polkit-0.120.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/polkit-0.120-security_fix-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/polkit-0.120-security_fix-1.patch
 
 
 if [ ! -z $URL ]

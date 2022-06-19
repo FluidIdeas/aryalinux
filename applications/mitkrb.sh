@@ -22,7 +22,7 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://kerberos.org/dist/krb5/1.19/krb5-1.19.2.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/mitkrb-1.19.2-openssl3_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/mitkrb-1.19.2-openssl3_fixes-1.patch
 
 
 if [ ! -z $URL ]

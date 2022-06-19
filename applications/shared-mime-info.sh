@@ -26,7 +26,7 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://gitlab.freedesktop.org/xdg/shared-mime-info/-/archive/2.1/shared-mime-info-2.1.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/shared-mime-info-2.1-meson_0.60_fix-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/shared-mime-info-2.1-meson_0.60_fix-1.patch
 wget -nc https://anduin.linuxfromscratch.org/BLFS/xdgmime/xdgmime.tar.xz
 
 

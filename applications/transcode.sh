@@ -29,8 +29,8 @@ pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://sources.archlinux.org/other/community/transcode/transcode-1.1.7.tar.bz2
 wget -nc ftp://ftp.mirrorservice.org/sites/distfiles.gentoo.org/distfiles/transcode-1.1.7.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/transcode-1.1.7-ffmpeg4-1.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/transcode-1.1.7-gcc10_fix-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/transcode-1.1.7-ffmpeg4-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/transcode-1.1.7-gcc10_fix-1.patch
 
 
 if [ ! -z $URL ]

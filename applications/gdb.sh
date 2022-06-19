@@ -24,7 +24,7 @@ pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.gnu.org/gnu/gdb/gdb-11.2.tar.xz
 wget -nc ftp://ftp.gnu.org/gnu/gdb/gdb-11.2.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/gdb-11.2-upstream_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/gdb-11.2-upstream_fixes-1.patch
 
 
 if [ ! -z $URL ]

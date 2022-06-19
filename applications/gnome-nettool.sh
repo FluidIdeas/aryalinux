@@ -26,7 +26,7 @@ pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gnome-nettool/3.8/gnome-nettool-3.8.1.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-nettool/3.8/gnome-nettool-3.8.1.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/gnome-nettool-3.8.1-ping_and_netstat_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/gnome-nettool-3.8.1-ping_and_netstat_fixes-1.patch
 
 
 if [ ! -z $URL ]
