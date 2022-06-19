@@ -103,7 +103,7 @@ def inputBuildProperties():
     readInput('Format swap partition? (y/N): ', 'FORMAT_SWAP', propsFile, 'n')
   readInput("Locale: (e.g. en_IN.utf8) ", 'LOCALE', propsFile, 'en_IN.utf8')
   readInput("OS Name: ", 'OS_NAME', propsFile, 'AryaLinux')
-  readInput("OS Version: ", 'OS_VERSION', propsFile, '4.0')
+  readInput("OS Version: ", 'OS_VERSION', propsFile, '5.0')
   readInput("OS Codename: ", 'OS_CODENAME', propsFile, 'Kalam')
   readInput("Domain Name: ", 'DOMAIN_NAME', propsFile, 'aryalinux.com')
   readInput("Keyboard Layout: (e.g. us, fr) ", 'KEYBOARD', propsFile, 'us')
