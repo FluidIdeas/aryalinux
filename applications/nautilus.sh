@@ -14,7 +14,7 @@ set +h
 #REQ:libhandy1
 #REQ:libnotify
 #REQ:libseccomp
-#REQ:tracker3-miners
+#REQ:tracker3
 #REQ:desktop-file-utils
 #REQ:exempi
 #REQ:gobject-introspection
@@ -28,8 +28,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=nautilus
-VERSION=41.2
-URL=https://download.gnome.org/sources/nautilus/41/nautilus-41.2.tar.xz
+VERSION=42.2
+URL=https://download.gnome.org/sources/nautilus/42/nautilus-42.2.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Nautilus package contains the GNOME file manager."
 
@@ -37,8 +37,8 @@ DESCRIPTION="The Nautilus package contains the GNOME file manager."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/nautilus/41/nautilus-41.2.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/nautilus/41/nautilus-41.2.tar.xz
+wget -nc https://download.gnome.org/sources/nautilus/42/nautilus-42.2.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/nautilus/42/nautilus-42.2.tar.xz
 
 
 if [ ! -z $URL ]
@@ -60,8 +60,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed "/dependency/s@'libportal'@'libportal-gtk3'@" -i meson.build
-sed "/portal-gtk3/s@portal/@portal-gtk3/@" -i src/nautilus-files-view.c
 mkdir build &&
 cd    build &&
 

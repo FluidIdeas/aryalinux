@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=util-linux-2.37.4.tar.xz
+TARBALL=util-linux-2.38.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -24,7 +24,7 @@ cd $DIRECTORY
             --bindir=/usr/bin    \
             --libdir=/usr/lib    \
             --sbindir=/usr/sbin  \
-            --docdir=/usr/share/doc/util-linux-2.37.4 \
+            --docdir=/usr/share/doc/util-linux-2.38 \
             --disable-chfn-chsh  \
             --disable-login      \
             --disable-nologin    \
@@ -35,7 +35,6 @@ cd $DIRECTORY
             --disable-static     \
             --without-python
 make
-rm tests/ts/lsns/ioctl_ns
 make install
 
 fi

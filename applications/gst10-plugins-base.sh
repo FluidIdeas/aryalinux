@@ -27,8 +27,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gst10-plugins-base
-VERSION=1.20.0
-URL=https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.20.0.tar.xz
+VERSION=1.20.3
+URL=https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.20.3.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The GStreamer Base Plug-ins is a well-groomed and well-maintained collection of GStreamer plug-ins and elements, spanning the range of possible types of elements one would want to write for GStreamer. You will need at least one of Good, Bad, Ugly or Libav plugins for GStreamer applications to function properly."
 
@@ -36,7 +36,7 @@ DESCRIPTION="The GStreamer Base Plug-ins is a well-groomed and well-maintained c
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.20.0.tar.xz
+wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.20.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -63,8 +63,8 @@ cd    build &&
 
 meson  --prefix=/usr       \
        --buildtype=release \
-       -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/svn/ \
-       -Dpackage-name="GStreamer 1.20.0 BLFS"    \
+       -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/systemd/ \
+       -Dpackage-name="GStreamer 1.20.3 BLFS"    \
        --wrap-mode=nodownload &&
 ninja
 sudo rm -rf /tmp/rootscript.sh

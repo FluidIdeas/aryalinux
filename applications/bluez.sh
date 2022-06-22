@@ -15,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=bluez
-VERSION=5.63
-URL=https://www.kernel.org/pub/linux/bluetooth/bluez-5.63.tar.xz
+VERSION=5.64
+URL=https://www.kernel.org/pub/linux/bluetooth/bluez-5.64.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="The BlueZ package contains the Bluetooth protocol stack for Linux."
 
@@ -24,7 +24,7 @@ DESCRIPTION="The BlueZ package contains the Bluetooth protocol stack for Linux."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.kernel.org/pub/linux/bluetooth/bluez-5.63.tar.xz
+wget -nc https://www.kernel.org/pub/linux/bluetooth/bluez-5.64.tar.xz
 
 
 if [ ! -z $URL ]
@@ -74,8 +74,8 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -dm755 /usr/share/doc/bluez-5.63 &&
-install -v -m644 doc/*.txt /usr/share/doc/bluez-5.63
+install -v -dm755 /usr/share/doc/bluez-5.64 &&
+install -v -m644 doc/*.txt /usr/share/doc/bluez-5.64
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

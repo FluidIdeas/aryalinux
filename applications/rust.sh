@@ -16,8 +16,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=rust
-VERSION=1.58.1
-URL=https://static.rust-lang.org/dist/rustc-1.58.1-src.tar.gz
+VERSION=1.60.0-src.tar.xz
+URL=https://static.rust-lang.org/dist/rustc-1.60.0-src.tar.xz
 SECTION="Programming"
 DESCRIPTION="The Rust programming language is designed to be a safe, concurrent, practical language."
 
@@ -25,7 +25,7 @@ DESCRIPTION="The Rust programming language is designed to be a safe, concurrent,
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://static.rust-lang.org/dist/rustc-1.58.1-src.tar.gz
+wget -nc https://static.rust-lang.org/dist/rustc-1.60.0-src.tar.xz
 
 
 if [ ! -z $URL ]
@@ -49,8 +49,8 @@ echo $USER > /tmp/currentuser
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir /opt/rustc-1.58.1             &&
-ln -svfin rustc-1.58.1 /opt/rustc
+mkdir /opt/rustc-1.60.0             &&
+ln -svfn rustc-1.60.0 /opt/rustc
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -76,8 +76,8 @@ docs = false
 extended = true
 
 [install]
-prefix = "/opt/rustc-1.58.1"
-docdir = "share/doc/rustc-1.58.1"
+prefix = "/opt/rustc-1.60.0"
+docdir = "share/doc/rustc-1.60.0"
 
 [rust]
 channel = "stable"

@@ -11,6 +11,7 @@ set +h
 #REQ:alsa-lib
 #REQ:gstreamer10
 #REQ:gtk3
+#REQ:sound-theme-freedesktop
 
 
 cd $SOURCE_DIR

@@ -15,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=sdl2
-VERSION=2.0.20
-URL=https://www.libsdl.org/release/SDL2-2.0.20.tar.gz
+VERSION=2.0.22
+URL=https://www.libsdl.org/release/SDL2-2.0.22.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The Simple DirectMedia Layer Version 2 (SDL2 for short) is a cross-platform library designed to make it easy to write multimedia software, such as games and emulators."
 
@@ -24,7 +24,7 @@ DESCRIPTION="The Simple DirectMedia Layer Version 2 (SDL2 for short) is a cross-
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.libsdl.org/release/SDL2-2.0.20.tar.gz
+wget -nc https://www.libsdl.org/release/SDL2-2.0.22.tar.gz
 
 
 if [ ! -z $URL ]
@@ -46,6 +46,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -i "s/-Werror=declaration-after-statement//" configure
 ./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh

@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=alsa-utils
-VERSION=1.2.6
-URL=https://www.alsa-project.org/files/pub/utils/alsa-utils-1.2.6.tar.bz2
+VERSION=1.2.7
+URL=https://www.alsa-project.org/files/pub/utils/alsa-utils-1.2.7.tar.bz2
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The ALSA Utilities package contains various utilities which are useful for controlling your sound card."
 
@@ -22,8 +22,8 @@ DESCRIPTION="The ALSA Utilities package contains various utilities which are use
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.alsa-project.org/files/pub/utils/alsa-utils-1.2.6.tar.bz2
-wget -nc ftp://ftp.alsa-project.org/pub/utils/alsa-utils-1.2.6.tar.bz2
+wget -nc https://www.alsa-project.org/files/pub/utils/alsa-utils-1.2.7.tar.bz2
+wget -nc ftp://ftp.alsa-project.org/pub/utils/alsa-utils-1.2.7.tar.bz2
 
 
 if [ ! -z $URL ]

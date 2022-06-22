@@ -16,13 +16,14 @@ set +h
 #REQ:libvpx
 #REQ:mpg123
 #REQ:nasm
+#REQ:pulseaudio
 
 
 cd $SOURCE_DIR
 
 NAME=gst10-plugins-good
-VERSION=1.20.0
-URL=https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.20.0.tar.xz
+VERSION=1.20.3
+URL=https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.20.3.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The GStreamer Good Plug-ins is a set of plug-ins considered by the GStreamer developers to have good quality code, correct functionality, and the preferred license (LGPL for the plug-in code, LGPL or LGPL-compatible for the supporting library). A wide range of video and audio decoders, encoders, and filters are included."
 
@@ -30,7 +31,7 @@ DESCRIPTION="The GStreamer Good Plug-ins is a set of plug-ins considered by the 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.20.0.tar.xz
+wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.20.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -57,8 +58,8 @@ cd    build &&
 
 meson  --prefix=/usr       \
        --buildtype=release \
-       -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/svn/ \
-       -Dpackage-name="GStreamer 1.20.0 BLFS" &&
+       -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/systemd/ \
+       -Dpackage-name="GStreamer 1.20.3 BLFS" &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -48,7 +48,8 @@ echo $USER > /tmp/currentuser
 mkdir bld &&
 cd    bld &&
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr ../source &&
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+      -DGIT_ARCHETYPE=1 ../source &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -28,8 +28,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gtk4
-VERSION=4.6.1
-URL=https://download.gnome.org/sources/gtk/4.6/gtk-4.6.1.tar.xz
+VERSION=4.6.5
+URL=https://download.gnome.org/sources/gtk/4.6/gtk-4.6.5.tar.xz
 SECTION="Graphical Environment Libraries"
 DESCRIPTION="The GTK 4 package contains libraries used for creating graphical user interfaces for applications."
 
@@ -37,8 +37,8 @@ DESCRIPTION="The GTK 4 package contains libraries used for creating graphical us
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gtk/4.6/gtk-4.6.1.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtk/4.6/gtk-4.6.1.tar.xz
+wget -nc https://download.gnome.org/sources/gtk/4.6/gtk-4.6.5.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtk/4.6/gtk-4.6.5.tar.xz
 
 
 if [ ! -z $URL ]

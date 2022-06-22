@@ -8,6 +8,7 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:gnupg
+#REQ:perl-modules#perl-libwww-perl
 #REQ:gs
 #REQ:x7lib
 #REQ:libxcb
@@ -63,7 +64,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-for F in /opt/texlive/2021/texmf-dist/scripts/latex-make/*.py ; do
+for F in /opt/texlive/2022/texmf-dist/scripts/latex-make/*.py ; do
   test -f $F && sed -i 's%/usr/bin/env python%/usr/bin/python3%' $F || true
 done
 ENDOFROOTSCRIPT

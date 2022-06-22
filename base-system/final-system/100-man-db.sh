@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=man-db-2.10.1.tar.xz
+TARBALL=man-db-2.10.2.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -21,7 +21,7 @@ cd $DIRECTORY
 
 
 ./configure --prefix=/usr                         \
-            --docdir=/usr/share/doc/man-db-2.10.1 \
+            --docdir=/usr/share/doc/man-db-2.10.2 \
             --sysconfdir=/etc                     \
             --disable-setuid                      \
             --enable-cache-owner=bin              \

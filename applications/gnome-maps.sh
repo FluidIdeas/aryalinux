@@ -15,6 +15,7 @@ set +h
 #REQ:gfbgraph
 #REQ:gjs
 #REQ:libchamplain
+#REQ:libgweather
 #REQ:libgee
 #REQ:libhandy1
 #REQ:rest
@@ -23,8 +24,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gnome-maps
-VERSION=41.4
-URL=https://download.gnome.org/sources/gnome-maps/41/gnome-maps-41.4.tar.xz
+VERSION=42.2
+URL=https://download.gnome.org/sources/gnome-maps/42/gnome-maps-42.2.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="GNOME Maps is a map application for GNOME."
 
@@ -32,8 +33,8 @@ DESCRIPTION="GNOME Maps is a map application for GNOME."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gnome-maps/41/gnome-maps-41.4.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-maps/41/gnome-maps-41.4.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-maps/42/gnome-maps-42.2.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-maps/42/gnome-maps-42.2.tar.xz
 
 
 if [ ! -z $URL ]

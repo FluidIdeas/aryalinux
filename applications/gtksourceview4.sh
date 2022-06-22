@@ -15,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gtksourceview4
-VERSION=4.8.2
-URL=https://download.gnome.org/sources/gtksourceview/4.8/gtksourceview-4.8.2.tar.xz
+VERSION=4.8.3
+URL=https://download.gnome.org/sources/gtksourceview/4.8/gtksourceview-4.8.3.tar.xz
 SECTION="Graphical Environment Libraries"
 DESCRIPTION="The GtkSourceView package contains libraries used for extending the GTK+ text functions to include syntax highlighting."
 
@@ -24,8 +24,8 @@ DESCRIPTION="The GtkSourceView package contains libraries used for extending the
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gtksourceview/4.8/gtksourceview-4.8.2.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtksourceview/4.8/gtksourceview-4.8.2.tar.xz
+wget -nc https://download.gnome.org/sources/gtksourceview/4.8/gtksourceview-4.8.3.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtksourceview/4.8/gtksourceview-4.8.3.tar.xz
 
 
 if [ ! -z $URL ]

@@ -13,7 +13,7 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=gcc-11.2.0.tar.xz
+TARBALL=gcc-12.1.0.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
@@ -41,7 +41,6 @@ cd       build
     --with-sysroot=$LFS       \
     --with-newlib             \
     --without-headers         \
-    --enable-initfini-array   \
     --disable-nls             \
     --disable-shared          \
     --disable-multilib        \

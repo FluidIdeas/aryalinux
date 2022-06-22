@@ -13,15 +13,15 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=MarkupSafe-2.0.1.tar.gz
+TARBALL=MarkupSafe-2.1.1.tar.gz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
 
 
-python3 setup.py build
-python3 setup.py install --optimize=1
+pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+pip3 install --no-index --find-links dist Markupsafe
 
 fi
 

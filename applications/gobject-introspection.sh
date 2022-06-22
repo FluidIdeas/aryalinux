@@ -8,14 +8,13 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:glib2
-#REQ:git
 
 
 cd $SOURCE_DIR
 
 NAME=gobject-introspection
-VERSION=1.70.0
-URL=https://download.gnome.org/sources/gobject-introspection/1.70/gobject-introspection-1.70.0.tar.xz
+VERSION=1.72.0
+URL=https://download.gnome.org/sources/gobject-introspection/1.72/gobject-introspection-1.72.0.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The GObject Introspection is used to describe the program APIs and collect them in a uniform, machine readable format."
 
@@ -23,9 +22,8 @@ DESCRIPTION="The GObject Introspection is used to describe the program APIs and 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gobject-introspection/1.70/gobject-introspection-1.70.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gobject-introspection/1.70/gobject-introspection-1.70.0.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/gobject-introspection-1.70.0-build_fix-1.patch
+wget -nc https://download.gnome.org/sources/gobject-introspection/1.72/gobject-introspection-1.72.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gobject-introspection/1.72/gobject-introspection-1.72.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -47,7 +45,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../gobject-introspection-1.70.0-build_fix-1.patch
 mkdir build &&
 cd    build &&
 

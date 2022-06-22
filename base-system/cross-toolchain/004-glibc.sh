@@ -45,7 +45,7 @@ echo 'int main(){}' > dummy.c
 $LFS_TGT-gcc dummy.c
 readelf -l a.out | grep '/ld-linux'
 rm -v dummy.c a.out
-$LFS/tools/libexec/gcc/$LFS_TGT/11.2.0/install-tools/mkheaders
+$LFS/tools/libexec/gcc/$LFS_TGT/12.1.0/install-tools/mkheaders
 
 fi
 

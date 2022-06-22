@@ -9,18 +9,19 @@ set +h
 
 #REQ:json-glib
 #REQ:libseccomp
-#REQ:libsoup
 #REQ:vala
 #REQ:gobject-introspection
 #REQ:icu
+#REQ:libsoup
 #REQ:sqlite
+#REQ:tracker3-miners
 
 
 cd $SOURCE_DIR
 
 NAME=tracker3
-VERSION=3.2.1
-URL=https://download.gnome.org/sources/tracker/3.2/tracker-3.2.1.tar.xz
+VERSION=3.3.1
+URL=https://download.gnome.org/sources/tracker/3.3/tracker-3.3.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Tracker is the file indexing and search provider used in the GNOME desktop environment."
 
@@ -28,8 +29,8 @@ DESCRIPTION="Tracker is the file indexing and search provider used in the GNOME 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/tracker/3.2/tracker-3.2.1.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/tracker/3.2/tracker-3.2.1.tar.xz
+wget -nc https://download.gnome.org/sources/tracker/3.3/tracker-3.3.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/tracker/3.3/tracker-3.3.1.tar.xz
 
 
 if [ ! -z $URL ]

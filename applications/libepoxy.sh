@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libepoxy
-VERSION=1.5.9
-URL=https://github.com/anholt/libepoxy/releases/download/1.5.9/libepoxy-1.5.9.tar.xz
+VERSION=1.5.10
+URL=https://download.gnome.org/sources/libepoxy/1.5/libepoxy-1.5.10.tar.xz
 SECTION="Graphical Environment Libraries"
 DESCRIPTION="libepoxy is a library for handling OpenGL function pointer management."
 
@@ -22,7 +22,7 @@ DESCRIPTION="libepoxy is a library for handling OpenGL function pointer manageme
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/anholt/libepoxy/releases/download/1.5.9/libepoxy-1.5.9.tar.xz
+wget -nc https://download.gnome.org/sources/libepoxy/1.5/libepoxy-1.5.10.tar.xz
 
 
 if [ ! -z $URL ]

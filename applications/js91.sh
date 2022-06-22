@@ -15,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=js91
-VERSION=91.7.
-URL=https://archive.mozilla.org/pub/firefox/releases/91.7.1esr/source/firefox-91.7.1esr.source.tar.xz
+VERSION=91.10.
+URL=https://archive.mozilla.org/pub/firefox/releases/91.10.0esr/source/firefox-91.10.0esr.source.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="JS (also referred as SpiderMonkey) is Mozilla's JavaScript and WebAssembly Engine, written in C++ and Rust. In BLFS, the source code of JS is taken from Firefox."
 
@@ -24,7 +24,7 @@ DESCRIPTION="JS (also referred as SpiderMonkey) is Mozilla's JavaScript and WebA
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.mozilla.org/pub/firefox/releases/91.7.1esr/source/firefox-91.7.1esr.source.tar.xz
+wget -nc https://archive.mozilla.org/pub/firefox/releases/91.10.0esr/source/firefox-91.10.0esr.source.tar.xz
 
 
 if [ ! -z $URL ]
@@ -54,6 +54,10 @@ fi
 sudo ldconfig
 export PATH=/opt/rustc/bin:$PATH
 
+case "$(uname -m)" in
+    i?86) sed -e '/typedef[ ]*double/s/double/long double/' \
+              -i modules/fdlibm/src/math_private.h ;;
+esac
 mountpoint -q /dev/shm || mount -t tmpfs devshm /dev/shm
 mkdir obj &&
 cd    obj &&

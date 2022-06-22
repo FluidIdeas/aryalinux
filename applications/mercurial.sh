@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=mercurial
-VERSION=6.0.2
-URL=https://www.mercurial-scm.org/release/mercurial-6.0.2.tar.gz
+VERSION=6.1.4
+URL=https://www.mercurial-scm.org/release/mercurial-6.1.4.tar.gz
 SECTION="Programming"
 DESCRIPTION="Mercurial is a distributed source control management tool similar to Git and Bazaar. Mercurial is written in Python and is used by projects such as Mozilla for Firefox and Thunderbird."
 
@@ -21,7 +21,7 @@ DESCRIPTION="Mercurial is a distributed source control management tool similar t
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.mercurial-scm.org/release/mercurial-6.0.2.tar.gz
+wget -nc https://www.mercurial-scm.org/release/mercurial-6.1.4.tar.gz
 
 
 if [ ! -z $URL ]

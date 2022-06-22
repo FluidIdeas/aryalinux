@@ -19,8 +19,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=xwayland
-VERSION=22.1.0
-URL=https://www.x.org/pub/individual/xserver/xwayland-22.1.0.tar.xz
+VERSION=22.1.2
+URL=https://www.x.org/pub/individual/xserver/xwayland-22.1.2.tar.xz
 SECTION="Graphical Environments"
 DESCRIPTION="The Xwayland package is an Xorg server running on top of the wayland server. It has been separated from the main Xorg server package. It allows running X clients inside a wayland session."
 
@@ -28,8 +28,8 @@ DESCRIPTION="The Xwayland package is an Xorg server running on top of the waylan
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.x.org/pub/individual/xserver/xwayland-22.1.0.tar.xz
-wget -nc ftp://ftp.x.org/pub/individual/xserver/xwayland-22.1.0.tar.xz
+wget -nc https://www.x.org/pub/individual/xserver/xwayland-22.1.2.tar.xz
+wget -nc ftp://ftp.x.org/pub/individual/xserver/xwayland-22.1.2.tar.xz
 
 
 if [ ! -z $URL ]
@@ -58,7 +58,6 @@ mkdir build &&
 cd    build &&
 
 meson --prefix=$XORG_PREFIX         \
-      -Dxvfb=false                  \
       -Dxkb_output_dir=/var/lib/xkb \
       ..                            &&
 ninja
@@ -93,6 +92,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+install -vm755 hw/vfb/Xvfb /usr/bin
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

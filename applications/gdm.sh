@@ -22,8 +22,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gdm
-VERSION=41.3
-URL=https://download.gnome.org/sources/gdm/41/gdm-41.3.tar.xz
+VERSION=42.0
+URL=https://download.gnome.org/sources/gdm/42/gdm-42.0.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="GDM is a system service that is responsible for providing graphical logins and managing local and remote displays."
 
@@ -31,8 +31,8 @@ DESCRIPTION="GDM is a system service that is responsible for providing graphical
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gdm/41/gdm-41.3.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gdm/41/gdm-41.3.tar.xz
+wget -nc https://download.gnome.org/sources/gdm/42/gdm-42.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gdm/42/gdm-42.0.tar.xz
 
 
 if [ ! -z $URL ]

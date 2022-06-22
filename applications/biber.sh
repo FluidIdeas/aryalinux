@@ -41,8 +41,6 @@ set +h
 #REQ:perl-modules#perl-xml-libxml-simple
 #REQ:perl-modules#perl-xml-libxslt
 #REQ:perl-modules#perl-xml-writer
-#REQ:texlive
-#REQ:tl-installer
 #REQ:perl-modules#perl-file-which
 #REQ:perl-modules#perl-test-differences
 
@@ -60,7 +58,6 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/plk/biber/archive/v2.17/biber-2.17.tar.gz
-wget -nc https://sourceforge.net/projects/biblatex/files/biblatex-3.17/biblatex-3.17.tds.tgz
 
 
 if [ ! -z $URL ]
@@ -82,12 +79,11 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed 's/undef$/&;/' -i lib/Biber/Section.pm
 perl ./Build.PL &&
 ./Build
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-tar -xf ../biblatex-3.17.tds.tgz -C /opt/texlive/2021/texmf-dist &&
-texhash &&
 ./Build install
 ENDOFROOTSCRIPT
 

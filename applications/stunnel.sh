@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=stunnel
-VERSION=5.62
-URL=ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.62.tar.gz
+VERSION=5.64
+URL=ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.64.tar.gz
 SECTION="Security"
 DESCRIPTION="The stunnel package contains a program that allows you to encrypt arbitrary TCP connections inside SSL (Secure Sockets Layer) so you can easily communicate with clients over secure channels. stunnel can also be used to tunnel PPP over network sockets without changes to the server package source code."
 
@@ -21,7 +21,7 @@ DESCRIPTION="The stunnel package contains a program that allows you to encrypt a
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.62.tar.gz
+wget -nc ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.64.tar.gz
 
 
 if [ ! -z $URL ]
@@ -60,7 +60,7 @@ sudo rm -rf /tmp/rootscript.sh
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make docdir=/usr/share/doc/stunnel-5.62 install
+make docdir=/usr/share/doc/stunnel-5.64 install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

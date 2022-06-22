@@ -15,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gst10-libav
-VERSION=1.20.0
-URL=https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.20.0.tar.xz
+VERSION=1.20.3
+URL=https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.20.3.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The GStreamer Libav package contains GStreamer plugins for Libav (a fork of FFmpeg)."
 
@@ -24,7 +24,7 @@ DESCRIPTION="The GStreamer Libav package contains GStreamer plugins for Libav (a
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.20.0.tar.xz
+wget -nc https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.20.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -51,8 +51,8 @@ cd    build &&
 
 meson  --prefix=/usr       \
        --buildtype=release \
-       -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/svn/ \
-       -Dpackage-name="GStreamer 1.20.0 BLFS" &&
+       -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/systemd/ \
+       -Dpackage-name="GStreamer 1.20.3 BLFS" &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

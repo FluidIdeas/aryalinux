@@ -49,18 +49,18 @@ export XORG_PREFIX="/usr"
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
 cat > app-7.md5 << "EOF"
-3b9b79fa0f9928161f4bad94273de7ae  iceauth-1.0.8.tar.bz2
+5d3feaa898875484b6b340b3888d49d8  iceauth-1.0.9.tar.xz
 c4a3664e08e5a47c120ff9263ee2f20c  luit-1.1.1.tar.bz2
-215940de158b1a3d8b3f8b442c606e2f  mkfontscale-1.2.1.tar.bz2
+fd2e6e5a297ac2bf3d7d54799bf69de0  mkfontscale-1.2.2.tar.xz
 92be564d4be7d8aa7b5024057b715210  sessreg-1.1.2.tar.bz2
-93e736c98fb75856ee8227a0c49a128d  setxkbmap-1.3.2.tar.bz2
+2f72c7170cdbadc8ef786b2f9cfd4a69  setxkbmap-1.3.3.tar.xz
 3a93d9f0859de5d8b65a68a125d48f6a  smproxy-1.0.6.tar.bz2
 e96b56756990c56c24d2d02c2964456b  x11perf-1.6.1.tar.bz2
-325c2321d159d5b93490700960005037  xauth-1.1.1.tar.bz2
+dbcf944eb59343b84799b2cc70aace16  xauth-1.1.2.tar.xz
 5b6405973db69c0443be2fba8e1a8ab7  xbacklight-1.2.3.tar.bz2
 9956d751ea3ae4538c3ebd07f70736a0  xcmsdb-1.0.5.tar.bz2
 25cc7ca1ce5dcbb61c2b471c55e686b5  xcursorgen-1.0.7.tar.bz2
-8809037bd48599af55dad81c508b6b39  xdpyinfo-1.3.2.tar.bz2
+f67116760888f2e06486ee3d179875d2  xdpyinfo-1.3.3.tar.xz
 480e63cd365f03eb2515a6527d5f4ca6  xdriinfo-1.0.6.tar.bz2
 e1d7dc1afd3ddb8fab16d6a76f21a258  xev-1.2.4.tar.bz2
 90b4305157c2b966d5180e2ee61262be  xgamma-1.0.6.tar.bz2

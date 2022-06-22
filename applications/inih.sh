@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=inih
-VERSION=53
-URL=https://github.com/benhoyt/inih/archive/r53/inih-r53.tar.gz
+VERSION=55
+URL=https://github.com/benhoyt/inih/archive/r55/inih-r55.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="This package is a simple .INI file parser written in C."
 
@@ -21,7 +21,7 @@ DESCRIPTION="This package is a simple .INI file parser written in C."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/benhoyt/inih/archive/r53/inih-r53.tar.gz
+wget -nc https://github.com/benhoyt/inih/archive/r55/inih-r55.tar.gz
 
 
 if [ ! -z $URL ]

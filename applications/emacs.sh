@@ -17,8 +17,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=emacs
-VERSION=27.2
-URL=https://ftp.gnu.org/gnu/emacs/emacs-27.2.tar.xz
+VERSION=28.1
+URL=https://ftp.gnu.org/gnu/emacs/emacs-28.1.tar.xz
 SECTION="Editors"
 DESCRIPTION="The Emacs package contains an extensible, customizable, self-documenting real-time display editor."
 
@@ -26,8 +26,8 @@ DESCRIPTION="The Emacs package contains an extensible, customizable, self-docume
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ftp.gnu.org/gnu/emacs/emacs-27.2.tar.xz
-wget -nc ftp://ftp.gnu.org/gnu/emacs/emacs-27.2.tar.xz
+wget -nc https://ftp.gnu.org/gnu/emacs/emacs-28.1.tar.xz
+wget -nc ftp://ftp.gnu.org/gnu/emacs/emacs-28.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -49,15 +49,12 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -e '/SIGSTKSZ/ s|^.*$|static max_align_t sigsegv_stack[\
-   (64 * 1024 + sizeof (max_align_t) - 1) / sizeof (max_align_t)];|' \
-    -i src/sysdep.c
 ./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-chown -v -R root:root /usr/share/emacs/27.2
+chown -v -R root:root /usr/share/emacs/28.1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

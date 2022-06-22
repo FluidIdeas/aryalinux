@@ -14,15 +14,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=python-modules#libxml2py2
-VERSION=2.9.13
-URL=https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.13.tar.xz
+VERSION=2.9.14
+URL=https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.14.tar.xz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.13.tar.xz
+wget -nc https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.14.tar.xz
 
 
 if [ ! -z $URL ]

@@ -14,8 +14,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=mariadb
-VERSION=10.6.7
-URL=https://downloads.mariadb.org/interstitial/mariadb-10.6.7/source/mariadb-10.6.7.tar.gz
+VERSION=10.6.8
+URL=https://downloads.mariadb.org/interstitial/mariadb-10.6.8/source/mariadb-10.6.8.tar.gz
 SECTION="Databases"
 DESCRIPTION="MariaDB is a community-developed fork and a drop-in replacement for the MySQL relational database management system."
 
@@ -23,9 +23,9 @@ DESCRIPTION="MariaDB is a community-developed fork and a drop-in replacement for
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.mariadb.org/interstitial/mariadb-10.6.7/source/mariadb-10.6.7.tar.gz
-wget -nc ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.6.7/source/mariadb-10.6.7.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/mariadb-10.6.7-openssl3_fix-1.patch
+wget -nc https://downloads.mariadb.org/interstitial/mariadb-10.6.8/source/mariadb-10.6.8.tar.gz
+wget -nc ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.6.8/source/mariadb-10.6.8.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/mariadb-10.6.8-openssl3_fix-1.patch
 
 
 if [ ! -z $URL ]
@@ -57,14 +57,14 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-patch -Np1 -i ../mariadb-10.6.7-openssl3_fix-1.patch
+patch -Np1 -i ../mariadb-10.6.8-openssl3_fix-1.patch
 mkdir build &&
 cd    build &&
 
 cmake -DCMAKE_BUILD_TYPE=Release                      \
       -DCMAKE_INSTALL_PREFIX=/usr                     \
-      -DINSTALL_DOCDIR=share/doc/mariadb-10.6.7       \
-      -DINSTALL_DOCREADMEDIR=share/doc/mariadb-10.6.7 \
+      -DINSTALL_DOCDIR=share/doc/mariadb-10.6.8       \
+      -DINSTALL_DOCREADMEDIR=share/doc/mariadb-10.6.8 \
       -DINSTALL_MANDIR=share/man                      \
       -DINSTALL_MYSQLSHAREDIR=share/mysql             \
       -DINSTALL_MYSQLTESTDIR=share/mysql/test         \

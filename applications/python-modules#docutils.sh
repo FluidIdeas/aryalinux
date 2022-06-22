@@ -42,14 +42,23 @@ fi
 
 echo $USER > /tmp/currentuser
 
-python3 setup.py build
+pip3 wheel -w dist --no-build-isolation --no-deps $PWD
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-python3 setup.py install --optimize=1 &&
+pip3 install --no-index --find-links dist --no-cache-dir docutils &&
 
 for f in /usr/bin/rst*.py; do
   ln -svf $(basename $f) /usr/bin/$(basename $f .py)
 done
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+rm -rfv /usr/bin/__pycache__
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

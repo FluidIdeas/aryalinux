@@ -16,8 +16,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=zenity
-VERSION=3.32.0
-URL=https://download.gnome.org/sources/zenity/3.32/zenity-3.32.0.tar.xz
+VERSION=3.42.1
+URL=https://download.gnome.org/sources/zenity/3.42/zenity-3.42.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Zenity is a rewrite of gdialog, the GNOME port of dialog which allows you to display GTK+ dialog boxes from the command line and shell scripts."
 
@@ -25,8 +25,8 @@ DESCRIPTION="Zenity is a rewrite of gdialog, the GNOME port of dialog which allo
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/zenity/3.32/zenity-3.32.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/zenity/3.32/zenity-3.32.0.tar.xz
+wget -nc https://download.gnome.org/sources/zenity/3.42/zenity-3.42.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/zenity/3.42/zenity-3.42.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -48,11 +48,14 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr &&
-make
+mkdir build &&
+cd build    &&
+
+meson --prefix=/usr --buildtype=release -Dlibnotify=true .. &&
+ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
