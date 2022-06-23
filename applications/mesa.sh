@@ -10,7 +10,7 @@ set +h
 #REQ:x7lib
 #REQ:libdrm
 #REQ:python-modules#mako
-#REQ:libva
+#REQ:libva-wo-mesa
 #REQ:libvdpau
 #REQ:llvm
 #REQ:wayland-protocols
@@ -66,7 +66,7 @@ meson --prefix=$XORG_PREFIX          \
       -Dllvm=true                    \
       -Dshared-llvm=true             \
       -Degl=true                     \
-      -Dshared-glapi=true            \
+      -Dshared-glapi=enabled         \
       -Dgallium-xa=true              \
       -Dgallium-nine=true            \
       -Dgallium-vdpau=true           \
@@ -76,10 +76,9 @@ meson --prefix=$XORG_PREFIX          \
       -Dosmesa=true                  \
       -Dgbm=true                     \
       -Dglx-direct=true              \
-      -Dgles1=true                   \
-      -Dgles2=true                   \
+      -Dgles1=enabled                \
+      -Dgles2=enabled                \
       -Dvalgrind=false               \
-      -Ddri-drivers=auto             \
       -Dgallium-drivers=auto         \
       -Dplatforms=auto               \
       -Dvulkan-drivers=auto          \
