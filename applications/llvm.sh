@@ -40,7 +40,7 @@ else
 	unzip_file $TARBALL $NAME
 fi
 
-cd $DIRECTORY
+cd llvm-14.0.5.src
 fi
 
 echo $USER > /tmp/currentuser
