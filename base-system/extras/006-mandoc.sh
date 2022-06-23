@@ -29,9 +29,11 @@ then
 	cd $DIRECTORY
 fi
 
-./configure --prefix=/usr &&
+./configure
 make
 make install
+	PREFIX=/usr \
+	LIBDIR=/usr/lib
 
 
 cd $SOURCE_DIR
