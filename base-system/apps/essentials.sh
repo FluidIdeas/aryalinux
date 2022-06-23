@@ -20,7 +20,7 @@ then
         echo "Essentials incomplete (sudo). Aborting..."
         exit 1
 fi
-su - $USERNAME -c "PKG_BUILDER=$1 alps install -ni usbutils pciutils openssh gobject-introspection libxml2 desktop-file-utils shared-mime-info ccache"
+su - $USERNAME -c "PKG_BUILDER=$1 alps install -ni usbutils pciutils openssh glib2 gobject-introspection libxml2 desktop-file-utils shared-mime-info ccache"
 if ! grep "ccache=" /etc/alps/installed-list &> /dev/null
 then
         echo "Essentials incomplete (ccache). Aborting..."
