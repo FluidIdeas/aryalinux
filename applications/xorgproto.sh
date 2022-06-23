@@ -52,8 +52,7 @@ meson --prefix=$XORG_PREFIX -Dlegacy=true .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install &&
-mv -v $XORG_PREFIX/share/doc/xorgproto{,-2022.1}
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
