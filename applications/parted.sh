@@ -53,12 +53,7 @@ makeinfo --html      -o doc/html       doc/parted.texi &&
 makeinfo --plaintext -o doc/parted.txt doc/parted.texi
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-install -v -m755 -d /usr/share/doc/parted-3.5/html &&
-install -v -m644    doc/html/* \
-                    /usr/share/doc/parted-3.5/html &&
-install -v -m644    doc/{FAT,API,parted.{txt,html}} \
-                    /usr/share/doc/parted-3.5
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -50,8 +50,7 @@ echo $USER > /tmp/currentuser
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-install -v -m644 doc/{nano.html,sample.nanorc} /usr/share/doc/nano-6.3
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

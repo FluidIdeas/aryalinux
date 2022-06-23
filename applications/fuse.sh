@@ -53,13 +53,7 @@ ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install                  &&
-chmod u+s /usr/bin/fusermount3 &&
-
-cd ..                          &&
-install -v -m755 -d /usr/share/doc/fuse-3.11.0 &&
-install -v -m644    doc/{README.NFS,kernel.txt} \
-                    /usr/share/doc/fuse-3.11.0 &&
-cp -Rv doc/html     /usr/share/doc/fuse-3.11.0
+chmod u+s /usr/bin/fusermount3
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
