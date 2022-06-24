@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 
 NAME=libtiff
 VERSION=4.4.0
-URL=https://download.osgeo.org/libtiff/tiff-4.4.0.tar.gz
+URL=https://fossies.org/linux/misc/tiff-4.4.0.tar.gz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The libtiff package contains the TIFF libraries and associated utilities. The libraries are used by many programs for reading and writing TIFF files and the utilities are used for general work with TIFF files."
 
@@ -22,7 +22,7 @@ DESCRIPTION="The libtiff package contains the TIFF libraries and associated util
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.osgeo.org/libtiff/tiff-4.4.0.tar.gz
+wget -nc $URL
 
 
 if [ ! -z $URL ]
