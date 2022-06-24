@@ -23,7 +23,6 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://github.com/systemd/systemd/archive/v251/systemd-251.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/systemd-250-kernel_5.17_fixes-1.patch
 
 
 if [ ! -z $URL ]
@@ -45,7 +44,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../systemd-250-kernel_5.17_fixes-1.patch
 sed -i -e 's/GROUP="render"/GROUP="video"/' \
        -e 's/GROUP="sgx", //' rules.d/50-udev-default.rules.in
 mkdir build &&
