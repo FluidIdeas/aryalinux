@@ -55,8 +55,7 @@ meson --prefix=/usr       \
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install &&
-mv -v /usr/share/doc/libnotify{,-0.7.12}
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
