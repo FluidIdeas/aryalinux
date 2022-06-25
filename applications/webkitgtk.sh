@@ -17,6 +17,7 @@ set +h
 #REQ:libgudev
 #REQ:libsecret
 #REQ:libsoup
+#REQ:libsoup3
 #REQ:libtasn1
 #REQ:libwebp
 #REQ:mesa
