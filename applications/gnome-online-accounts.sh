@@ -49,11 +49,9 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
+sed -i "s@javascriptcoregtk-4.0@javascriptcoregtk-4.1@g" configure
 ./configure --prefix=/usr \
-            --disable-static \
-            --with-google-client-secret=5ntt6GbbkjnTVXx-MSxbmx5e \
-            --with-google-client-id=595013732528-llk8trb03f0ldpqq6nprjp1s79596646.apps.googleusercontent.com &&
+            --disable-static
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
