@@ -50,6 +50,7 @@ fi
 echo $USER > /tmp/currentuser
 
 sed -i "s@javascriptcoregtk-4.0@javascriptcoregtk-4.1@g" configure
+sed -i "s@webkit2gtk-4.0@webkit2gtk-4.1@g" configure
 ./configure --prefix=/usr \
             --disable-static
 make
