@@ -46,13 +46,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=webkitgtk
-<<<<<<< HEAD
 VERSION=2.36.3
 URL=https://webkitgtk.org/releases/webkitgtk-2.32.0.tar.xz
-=======
-VERSION=2.34.6
-URL=https://webkitgtk.org/releases/webkitgtk-2.34.6.tar.xz
->>>>>>> 755ea638e67851afa2d5a60d0a4219023745b469
 SECTION="Graphical Environment Libraries"
 DESCRIPTION="The WebKitGTK package is a port of the portable web rendering engine WebKit to the GTK+ 3 and GTK+ 2 platforms."
 
@@ -60,11 +55,7 @@ DESCRIPTION="The WebKitGTK package is a port of the portable web rendering engin
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-<<<<<<< HEAD
 wget -nc https://webkitgtk.org/releases/webkitgtk-2.32.0.tar.xz
-=======
-wget -nc https://webkitgtk.org/releases/webkitgtk-2.34.6.tar.xz
->>>>>>> 755ea638e67851afa2d5a60d0a4219023745b469
 
 
 if [ ! -z $URL ]
