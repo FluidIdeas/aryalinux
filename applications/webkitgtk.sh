@@ -17,6 +17,7 @@ set +h
 #REQ:libgudev
 #REQ:libsecret
 #REQ:libsoup
+#REQ:libsoup3
 #REQ:libtasn1
 #REQ:libwebp
 #REQ:mesa
@@ -45,8 +46,13 @@ set +h
 cd $SOURCE_DIR
 
 NAME=webkitgtk
+<<<<<<< HEAD
 VERSION=2.36.3
 URL=https://webkitgtk.org/releases/webkitgtk-2.32.0.tar.xz
+=======
+VERSION=2.34.6
+URL=https://webkitgtk.org/releases/webkitgtk-2.34.6.tar.xz
+>>>>>>> 755ea638e67851afa2d5a60d0a4219023745b469
 SECTION="Graphical Environment Libraries"
 DESCRIPTION="The WebKitGTK package is a port of the portable web rendering engine WebKit to the GTK+ 3 and GTK+ 2 platforms."
 
@@ -54,7 +60,11 @@ DESCRIPTION="The WebKitGTK package is a port of the portable web rendering engin
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
+<<<<<<< HEAD
 wget -nc https://webkitgtk.org/releases/webkitgtk-2.32.0.tar.xz
+=======
+wget -nc https://webkitgtk.org/releases/webkitgtk-2.34.6.tar.xz
+>>>>>>> 755ea638e67851afa2d5a60d0a4219023745b469
 
 
 if [ ! -z $URL ]
@@ -94,13 +104,7 @@ ninja
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install &&
-
-install -vdm755 /usr/share/gtk-doc/html/webkit{2,dom}gtk-4.0 &&
-install -vm644  ../Documentation/webkit2gtk-4.0/html/*   \
-                /usr/share/gtk-doc/html/webkit2gtk-4.0       &&
-install -vm644  ../Documentation/webkitdomgtk-4.0/html/* \
-                /usr/share/gtk-doc/html/webkitdomgtk-4.0
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
