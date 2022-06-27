@@ -8,18 +8,17 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:gtk3
-#REQ:gsound
 #REQ:itstool
+#REQ:libcanberra
 #REQ:libnotify
 #REQ:gobject-introspection
-#REQ:libadwaita
 
 
 cd $SOURCE_DIR
 
 NAME=gnome-bluetooth
-VERSION=42.1
-URL=https://download.gnome.org/sources/gnome-bluetooth/42/gnome-bluetooth-42.1.tar.xz
+VERSION=3.34.5
+URL=https://download.gnome.org/sources/gnome-bluetooth/3.34/gnome-bluetooth-3.34.5.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Bluetooth package contains tools for managing and manipulating Bluetooth devices using the GNOME Desktop."
 
@@ -27,8 +26,8 @@ DESCRIPTION="The GNOME Bluetooth package contains tools for managing and manipul
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gnome-bluetooth/42/gnome-bluetooth-42.1.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-bluetooth/42/gnome-bluetooth-42.1.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-bluetooth/3.34/gnome-bluetooth-3.34.5.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-bluetooth/3.34/gnome-bluetooth-3.34.5.tar.xz
 
 
 if [ ! -z $URL ]
@@ -50,6 +49,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+sed -i "/  desktop,/d" sendto/meson.build
 mkdir build &&
 cd    build &&
 

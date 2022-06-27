@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=dovecot
-VERSION=2.3.19.1
-URL=https://www.dovecot.org/releases/2.3/dovecot-2.3.19.1.tar.gz
+VERSION=2.3.18
+URL=https://www.dovecot.org/releases/2.3/dovecot-2.3.18.tar.gz
 SECTION="Mail Server Software"
 DESCRIPTION="Dovecot is an Internet Message Access Protocol (IMAP) and Post Office Protocol (POP) server, written primarily with security in mind. Dovecot aims to be lightweight, fast and easy to set up as well as highly configurable and easily extensible with plugins."
 
@@ -22,8 +22,8 @@ DESCRIPTION="Dovecot is an Internet Message Access Protocol (IMAP) and Post Offi
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.dovecot.org/releases/2.3/dovecot-2.3.19.1.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/dovecot-2.3.19.1-openssl3_fixes-1.patch
+wget -nc https://www.dovecot.org/releases/2.3/dovecot-2.3.18.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/dovecot-2.3.18-openssl3_fixes-1.patch
 
 
 if [ ! -z $URL ]
@@ -59,13 +59,13 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-patch -Np1 -i ../dovecot-2.3.19.1-openssl3_fixes-1.patch
+patch -Np1 -i ../dovecot-2.3.18-openssl3_fixes-1.patch
 CPPFLAGS="-I/usr/include/tirpc" \
 LDFLAGS+=" -ltirpc" \
 ./configure --prefix=/usr                          \
             --sysconfdir=/etc                      \
             --localstatedir=/var                   \
-            --docdir=/usr/share/doc/dovecot-2.3.19.1 \
+            --docdir=/usr/share/doc/dovecot-2.3.18 \
             --disable-static                       &&
 make
 sudo rm -rf /tmp/rootscript.sh
@@ -79,7 +79,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cp -rv /usr/share/doc/dovecot-2.3.19.1/example-config/* /etc/dovecot
+cp -rv /usr/share/doc/dovecot-2.3.18/example-config/* /etc/dovecot
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

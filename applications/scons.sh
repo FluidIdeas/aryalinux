@@ -45,13 +45,12 @@ echo $USER > /tmp/currentuser
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-sed -i 's/env python/&3/' SCons/Utilities/*.py &&
-
-python3 setup.py install --prefix=/usr \
-                         --optimize=1  &&
-
-mv /usr/lib/python3.10/site-packages/SCons-4.3.0-py3.10.egg/*.1 \
-   /usr/share/man/man1
+sed -i 's/env python/&3/' SCons/Utilities/*.py              &&
+sed -i 's:build/doc/man/::' setup.cfg                       &&
+python3 setup.py install --prefix=/usr  \
+                         --optimize=1   \
+                         --install-data=/usr/share/man/man1 &&
+cp scons{,ign}.1 /usr/share/man/man1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

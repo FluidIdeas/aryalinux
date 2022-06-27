@@ -54,12 +54,12 @@ sed -i 's%\(indexentry\)%\1\\%' make-rules/inputenc/make-inp-rules.pl &&
 
 patch -Np1 -i ../xindy-2.5.1-upstream_fixes-2.patch &&
 
-./configure --prefix=/opt/texlive/2022              \
-            --bindir=/opt/texlive/2022/bin/$TEXARCH \
-            --datarootdir=/opt/texlive/2022         \
+./configure --prefix=/opt/texlive/2021              \
+            --bindir=/opt/texlive/2021/bin/$TEXARCH \
+            --datarootdir=/opt/texlive/2021         \
             --includedir=/usr/include               \
-            --libdir=/opt/texlive/2022/texmf-dist   \
-            --mandir=/opt/texlive/2022/texmf-dist/doc/man &&
+            --libdir=/opt/texlive/2021/texmf-dist   \
+            --mandir=/opt/texlive/2021/texmf-dist/doc/man &&
 
 make LC_ALL=POSIX
 sudo rm -rf /tmp/rootscript.sh

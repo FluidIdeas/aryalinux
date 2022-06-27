@@ -30,8 +30,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=inkscape
-VERSION=1.
-URL=https://inkscape.org/gallery/item/33449/inkscape-1.2_2022-05-15_dc2aedaf03.tar.xz
+VERSION=1.1.2
+URL=https://inkscape.org/gallery/item/31668/inkscape-1.1.2.tar.xz
 SECTION="Other X-based Programs"
 DESCRIPTION="Inkscape is a what you see is what you get Scalable Vector Graphics editor. It is useful for creating, viewing and changing SVG images."
 
@@ -39,7 +39,7 @@ DESCRIPTION="Inkscape is a what you see is what you get Scalable Vector Graphics
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://inkscape.org/gallery/item/33449/inkscape-1.2_2022-05-15_dc2aedaf03.tar.xz
+wget -nc https://inkscape.org/gallery/item/31668/inkscape-1.1.2.tar.xz
 
 
 if [ ! -z $URL ]

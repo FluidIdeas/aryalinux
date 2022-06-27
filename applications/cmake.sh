@@ -16,8 +16,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=cmake
-VERSION=3.23.2
-URL=https://cmake.org/files/v3.23/cmake-3.23.2.tar.gz
+VERSION=3.22.2
+URL=https://cmake.org/files/v3.22/cmake-3.22.2.tar.gz
 SECTION="Programming"
 DESCRIPTION="The CMake package contains a modern toolset used for generating Makefiles. It is a successor of the auto-generated configure script and aims to be platform- and compiler-independent. A significant user of CMake is KDE since version 4."
 
@@ -25,7 +25,7 @@ DESCRIPTION="The CMake package contains a modern toolset used for generating Mak
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://cmake.org/files/v3.23/cmake-3.23.2.tar.gz
+wget -nc https://cmake.org/files/v3.22/cmake-3.22.2.tar.gz
 
 
 if [ ! -z $URL ]
@@ -54,7 +54,7 @@ sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake &&
             --mandir=/share/man  \
             --no-system-jsoncpp  \
             --no-system-librhash \
-            --docdir=/share/doc/cmake-3.23.2 &&
+            --docdir=/share/doc/cmake-3.22.2 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

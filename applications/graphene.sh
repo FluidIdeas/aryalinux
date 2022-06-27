@@ -14,8 +14,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=graphene
-VERSION=1.10.8
-URL=https://download.gnome.org/sources/graphene/1.10/graphene-1.10.8.tar.xz
+VERSION=1.10.6
+URL=https://github.com/ebassi/graphene/releases/download/1.10.6/graphene-1.10.6.tar.xz
 SECTION="Graphical Environment Libraries"
 DESCRIPTION="The Graphene package provides a thin layer of types for graphics libraries."
 
@@ -23,7 +23,7 @@ DESCRIPTION="The Graphene package provides a thin layer of types for graphics li
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/graphene/1.10/graphene-1.10.8.tar.xz
+wget -nc https://github.com/ebassi/graphene/releases/download/1.10.6/graphene-1.10.6.tar.xz
 
 
 if [ ! -z $URL ]

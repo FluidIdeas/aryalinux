@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=logrotate
-VERSION=3.20.1
-URL=https://github.com/logrotate/logrotate/releases/download/3.20.1/logrotate-3.20.1.tar.xz
+VERSION=3.19.0
+URL=https://github.com/logrotate/logrotate/releases/download/3.19.0/logrotate-3.19.0.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="The logrotate package allows automatic rotation, compression, removal, and mailing of log files."
 
@@ -22,7 +22,7 @@ DESCRIPTION="The logrotate package allows automatic rotation, compression, remov
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/logrotate/logrotate/releases/download/3.20.1/logrotate-3.20.1.tar.xz
+wget -nc https://github.com/logrotate/logrotate/releases/download/3.19.0/logrotate-3.19.0.tar.xz
 
 
 if [ ! -z $URL ]

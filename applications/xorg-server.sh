@@ -52,12 +52,10 @@ echo $USER > /tmp/currentuser
 
 export XORG_PREFIX="/usr"
 
-sed -i '/(SourcePictPtr)/s/sizeof([^)]*)/sizeof(SourcePict)/' render/picture.c
 mkdir build &&
 cd    build &&
 
 meson --prefix=$XORG_PREFIX \
-      --localstatedir=/var  \
       -Dsuid_wrapper=true   \
       -Dxkb_output_dir=/var/lib/xkb &&
 ninja

@@ -7,6 +7,7 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:libsoup
 #REQ:gobject-introspection
 #REQ:libarchive
 #REQ:libgcrypt

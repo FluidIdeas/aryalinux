@@ -25,8 +25,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=evolution-data-server
-VERSION=3.44.2
-URL=https://download.gnome.org/sources/evolution-data-server/3.44/evolution-data-server-3.44.2.tar.xz
+VERSION=3.42.4
+URL=https://download.gnome.org/sources/evolution-data-server/3.42/evolution-data-server-3.42.4.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The Evolution Data Server package provides a unified backend for programs that work with contacts, tasks, and calendar information. It was originally developed for Evolution (hence the name), but is now used by other packages as well."
 
@@ -34,8 +34,8 @@ DESCRIPTION="The Evolution Data Server package provides a unified backend for pr
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/evolution-data-server/3.44/evolution-data-server-3.44.2.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/evolution-data-server/3.44/evolution-data-server-3.44.2.tar.xz
+wget -nc https://download.gnome.org/sources/evolution-data-server/3.42/evolution-data-server-3.42.4.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/evolution-data-server/3.42/evolution-data-server-3.42.4.tar.xz
 
 
 if [ ! -z $URL ]
@@ -70,7 +70,6 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr   \
       -DENABLE_INTROSPECTION=ON     \
       -DENABLE_GTK_DOC=OFF          \
       -DWITH_LIBDB=OFF              \
-      -DWITH_GWEATHER4=ON           \
       .. &&
 make
 sudo rm -rf /tmp/rootscript.sh

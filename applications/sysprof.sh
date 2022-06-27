@@ -9,7 +9,6 @@ set +h
 
 #REQ:gtk3
 #REQ:json-glib
-#REQ:libunwind
 #REQ:libdazzle
 #REQ:polkit
 #REQ:json-glib
@@ -18,8 +17,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=sysprof
-VERSION=3.44.0
-URL=https://download.gnome.org/sources/sysprof/3.44/sysprof-3.44.0.tar.xz
+VERSION=3.42.1
+URL=https://download.gnome.org/sources/sysprof/3.42/sysprof-3.42.1.tar.xz
 SECTION="Programming"
 DESCRIPTION="The sysprof package contains a statistical and system-wide profiler for Linux."
 
@@ -27,8 +26,8 @@ DESCRIPTION="The sysprof package contains a statistical and system-wide profiler
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/sysprof/3.44/sysprof-3.44.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/sysprof/3.44/sysprof-3.44.0.tar.xz
+wget -nc https://download.gnome.org/sources/sysprof/3.42/sysprof-3.42.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/sysprof/3.42/sysprof-3.42.1.tar.xz
 
 
 if [ ! -z $URL ]

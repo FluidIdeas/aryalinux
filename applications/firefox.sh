@@ -11,6 +11,7 @@ set +h
 #REQ:cbindgen
 #REQ:dbus-glib
 #REQ:gtk3
+#REQ:gtk2
 #REQ:libnotify
 #REQ:llvm
 #REQ:nodejs
@@ -33,8 +34,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=firefox
-VERSION=91.10.
-URL=https://archive.mozilla.org/pub/firefox/releases/91.10.0esr/source/firefox-91.10.0esr.source.tar.xz
+VERSION=91.6.
+URL=https://archive.mozilla.org/pub/firefox/releases/91.6.0esr/source/firefox-91.6.0esr.source.tar.xz
 SECTION="Graphical Web Browsers"
 DESCRIPTION="Firefox is a stand-alone browser based on the Mozilla codebase."
 
@@ -42,9 +43,8 @@ DESCRIPTION="Firefox is a stand-alone browser based on the Mozilla codebase."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.mozilla.org/pub/firefox/releases/91.10.0esr/source/firefox-91.10.0esr.source.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/firefox-91.10.0esr-gcc12_fix-1.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/firefox-91.10.0esr-disable_rust_test-1.patch
+wget -nc https://archive.mozilla.org/pub/firefox/releases/91.6.0esr/source/firefox-91.6.0esr.source.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/firefox-91.6.0esr-disable_rust_test-1.patch
 
 
 if [ ! -z $URL ]
@@ -151,9 +151,7 @@ unset MOZ_TELEMETRY_REPORTING
 
 mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/firefox-build-dir
 EOF
-patch -Np1 -i ../firefox-91.10.0esr-disable_rust_test-1.patch
-patch -Np1 -i ../firefox-91.10.0esr-gcc12_fix-1.patch
-sed -i '/ROOT_CLIP_CHAIN/d' gfx/webrender_bindings/webrender_ffi.h
+patch -Np1 -i ../firefox-91.6.0esr-disable_rust_test-1.patch
 case "$(uname -m)" in
     i?86) sed -e '/typedef[ ]*double/s/double/long double/' \
               -i modules/fdlibm/src/math_private.h ;;
@@ -181,9 +179,9 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mkdir -pv /usr/share/applications &&
 mkdir -pv /usr/share/pixmaps      &&
 
-MIMETYPE="text/xml;text/mml;text/html;"                            &&
-MIMETYPE+="application/xhtml+xml;application/vnd.mozilla.xul+xml;" &&
-MIMETYPE+="x-scheme-handler/http;x-scheme-handler/https"           &&
+MIMETYPE="text/xml;text/mml;text/html"                                     &&
+MIMETYPE="$MIMETYPE;application/xhtml+xml;application/vnd.mozilla.xul+xml" &&
+MIMETYPE="$MIMETYPE;x-scheme-handler/http;x-scheme-handler/https"          &&
 
 cat > /usr/share/applications/firefox.desktop << EOF &&
 [Desktop Entry]

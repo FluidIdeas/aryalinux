@@ -21,8 +21,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=asymptote
-VERSION=2.81
-URL=https://downloads.sourceforge.net/asymptote/asymptote-2.81.src.tgz
+VERSION=2.78
+URL=https://downloads.sourceforge.net/asymptote/asymptote-2.78.src.tgz
 SECTION="Typesetting"
 DESCRIPTION="Asymptote is a powerful descriptive vector graphics language that provides a natural coordinate-based framework for technical drawing. Labels and equations can be typeset with LaTeX. As well as EPS, PDF and PNG output it can produce WebGL 3D HTML rendering and (using dvisvgm) SVG output."
 
@@ -30,7 +30,7 @@ DESCRIPTION="Asymptote is a powerful descriptive vector graphics language that p
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.sourceforge.net/asymptote/asymptote-2.81.src.tgz
+wget -nc https://downloads.sourceforge.net/asymptote/asymptote-2.78.src.tgz
 
 
 if [ ! -z $URL ]
@@ -54,16 +54,16 @@ echo $USER > /tmp/currentuser
 
 export TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/') &&
 
-./configure --prefix=/opt/texlive/2022                          \
-            --bindir=/opt/texlive/2022/bin/$TEXARCH             \
-            --datarootdir=/opt/texlive/2022/texmf-dist          \
-            --infodir=/opt/texlive/2022/texmf-dist/doc/info     \
-            --libdir=/opt/texlive/2022/texmf-dist               \
-            --mandir=/opt/texlive/2022/texmf-dist/doc/man       \
+./configure --prefix=/opt/texlive/2021                          \
+            --bindir=/opt/texlive/2021/bin/$TEXARCH             \
+            --datarootdir=/opt/texlive/2021/texmf-dist          \
+            --infodir=/opt/texlive/2021/texmf-dist/doc/info     \
+            --libdir=/opt/texlive/2021/texmf-dist               \
+            --mandir=/opt/texlive/2021/texmf-dist/doc/man       \
             --disable-lsp                                       \
             --enable-gc=system                                  \
-            --with-latex=/opt/texlive/2022/texmf-dist/tex/latex \
-            --with-context=/opt/texlive/2022/texmf-dist/tex/context/third &&
+            --with-latex=/opt/texlive/2021/texmf-dist/tex/latex \
+            --with-context=/opt/texlive/2021/texmf-dist/tex/context/third &&
 
 make
 sudo rm -rf /tmp/rootscript.sh

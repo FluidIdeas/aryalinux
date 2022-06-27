@@ -8,7 +8,6 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:gs
-#REQ:cairo
 #REQ:fontconfig
 #REQ:freetype2
 #REQ:gc
@@ -26,21 +25,19 @@ set +h
 cd $SOURCE_DIR
 
 NAME=texlive
-VERSION=2022032
-URL=https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2022/texlive-20220321-source.tar.xz
+VERSION=2021032
+URL=ftp://tug.org/texlive/historic/2021/texlive-20210325-source.tar.xz
 SECTION="Typesetting"
-DESCRIPTION="According to https://www.tug.org/historic/ the master site in France only supports ftp and rsync. Now that ftp is generally deprecated, that page has links to mirrors, some of which support https, e.g. in Utah and Chemntiz as well as in China. If you prefer to use a different mirror from the example links here, you will need to navigate to systems/historic/texlive/2022 or systems/texlive/2022 as the case may be."
+DESCRIPTION="Most of TeX Live can be built from source without a pre-existing installation, but xindy (for indexing) needs working versions of latex and pdflatex when configure is run, and the testsuite and install for asy (for vector graphics) will fail if TeX has not already been installed. Additionally, biber is not provided within the texlive source and the version of dvisvgm in the texlive tree cannot be built if shared system libraries are used."
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2022/texlive-20220321-source.tar.xz
-wget -nc ftp://tug.org/texlive/historic/2022/texlive-20220321-source.tar.xz
-wget -nc https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2022/texlive-20220321-texmf.tar.xz
-wget -nc ftp://tug.org/texlive/historic/2022/texlive-20220321-texmf.tar.xz
-wget -nc https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2022/texlive-20220325-tlpdb-full.tar.gz
-wget -nc ftp://tug.org/texlive/historic/2022/texlive-20220325-tlpdb-full.tar.gz
+wget -nc ftp://tug.org/texlive/historic/2021/texlive-20210325-source.tar.xz
+wget -nc ftp://tug.org/texlive/historic/2021/texlive-20210325-texmf.tar.xz
+wget -nc ftp://tug.org/texlive/historic/2021/texlive-20210325-tlpdb-full.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/texlive-20210325-upstream_fixes-1.patch
 
 
 if [ ! -z $URL ]
@@ -65,11 +62,11 @@ echo $USER > /tmp/currentuser
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat >> /etc/ld.so.conf << EOF
-# Begin texlive 2022 addition
+# Begin texlive 2021 addition
 
-/opt/texlive/2022/lib
+/opt/texlive/2021/lib
 
-# End texlive 2022 addition
+# End texlive 2021 addition
 EOF
 ENDOFROOTSCRIPT
 
@@ -79,18 +76,19 @@ sudo rm -rf /tmp/rootscript.sh
 
 export TEXARCH=$(uname -m |
  sed -e 's/i.86/i386/' -e 's/$/-linux/')                 &&
+patch -Np1 -i ../texlive-20210325-upstream_fixes-1.patch &&
 
 mkdir texlive-build &&
 cd texlive-build    &&
 
 ../configure                                        \
-    --prefix=/opt/texlive/2022                      \
-    --bindir=/opt/texlive/2022/bin/$TEXARCH         \
-    --datarootdir=/opt/texlive/2022                 \
-    --includedir=/opt/texlive/2022/include          \
-    --infodir=/opt/texlive/2022/texmf-dist/doc/info \
-    --libdir=/opt/texlive/2022/lib                  \
-    --mandir=/opt/texlive/2022/texmf-dist/doc/man   \
+    --prefix=/opt/texlive/2021                      \
+    --bindir=/opt/texlive/2021/bin/$TEXARCH         \
+    --datarootdir=/opt/texlive/2021                 \
+    --includedir=/opt/texlive/2021/include          \
+    --infodir=/opt/texlive/2021/texmf-dist/doc/info \
+    --libdir=/opt/texlive/2021/lib                  \
+    --mandir=/opt/texlive/2021/texmf-dist/doc/man   \
     --disable-native-texlive-build                  \
     --disable-static --enable-shared                \
     --disable-dvisvgm                               \
@@ -115,9 +113,9 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install-strip &&
 /sbin/ldconfig &&
 make texlinks &&
-mkdir -pv /opt/texlive/2022/tlpkg/TeXLive/ &&
-install -v -m644 ../texk/tests/TeXLive/* /opt/texlive/2022/tlpkg/TeXLive/ &&
-tar -xf ../../texlive-20220325-tlpdb-full.tar.gz -C /opt/texlive/2022/tlpkg
+mkdir -pv /opt/texlive/2021/tlpkg/TeXLive/ &&
+install -v -m644 ../texk/tests/TeXLive/* /opt/texlive/2021/tlpkg/TeXLive/ &&
+tar -xf ../../texlive-20210325-tlpdb-full.tar.gz -C /opt/texlive/2021/tlpkg
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -126,7 +124,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-tar -xf ../../texlive-20220321-texmf.tar.xz -C /opt/texlive/2022 --strip-components=1
+tar -xf ../../texlive-20210325-texmf.tar.xz -C /opt/texlive/2021 --strip-components=1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -135,7 +133,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-for F in /opt/texlive/2022/texmf-dist/scripts/latex-make/*.py ; do
+for F in /opt/texlive/2021/texmf-dist/scripts/latex-make/*.py ; do
   sed -i 's%/usr/bin/env python%/usr/bin/python3%' $F
 done
 ENDOFROOTSCRIPT

@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=ruby
-VERSION=3.1.2
-URL=https://cache.ruby-lang.org/pub/ruby/3.1/ruby-3.1.2.tar.xz
+VERSION=3.1.0
+URL=https://cache.ruby-lang.org/pub/ruby/3.1/ruby-3.1.0.tar.xz
 SECTION="Programming"
 DESCRIPTION="The Ruby package contains the Ruby development environment. This is useful for object-oriented scripting."
 
@@ -21,7 +21,7 @@ DESCRIPTION="The Ruby package contains the Ruby development environment. This is
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://cache.ruby-lang.org/pub/ruby/3.1/ruby-3.1.2.tar.xz
+wget -nc https://cache.ruby-lang.org/pub/ruby/3.1/ruby-3.1.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -45,7 +45,7 @@ echo $USER > /tmp/currentuser
 
 ./configure --prefix=/usr   \
             --enable-shared \
-            --docdir=/usr/share/doc/ruby-3.1.2 &&
+            --docdir=/usr/share/doc/ruby-3.1.0 &&
 make
 make capi
 sudo rm -rf /tmp/rootscript.sh

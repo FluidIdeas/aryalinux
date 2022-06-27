@@ -12,15 +12,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libevdev
-VERSION=1.12.1
-URL=https://www.freedesktop.org/software/libevdev/libevdev-1.12.1.tar.xz
+VERSION=1.12.0
+URL=https://www.freedesktop.org/software/libevdev/libevdev-1.12.0.tar.xz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.freedesktop.org/software/libevdev/libevdev-1.12.1.tar.xz
+wget -nc https://www.freedesktop.org/software/libevdev/libevdev-1.12.0.tar.xz
 
 
 if [ ! -z $URL ]

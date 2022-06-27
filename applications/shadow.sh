@@ -194,8 +194,7 @@ auth      sufficient  pam_rootok.so
 auth      include     system-auth
 
 # limit su to users in the wheel group
-# disabled by default
-#auth      required    pam_wheel.so use_uid
+auth      required    pam_wheel.so use_uid
 
 # include system account settings
 account   include     system-account

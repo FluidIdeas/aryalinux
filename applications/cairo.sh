@@ -18,7 +18,7 @@ cd $SOURCE_DIR
 
 NAME=cairo
 VERSION=1.17.4
-URL=https://gitlab.freedesktop.org/cairo/cairo/-/archive/1.17.4/cairo-1.17.4.tar.gz
+URL=https://www.cairographics.org/snapshots/cairo-1.17.4.tar.xz
 SECTION="Graphical Environment Libraries"
 DESCRIPTION="Cairo is a 2D graphics library with support for multiple output devices. Currently supported output targets include the X Window System, win32, image buffers, PostScript, PDF and SVG. Experimental backends include OpenGL, Quartz and XCB file output. Cairo is designed to produce consistent output on all output media while taking advantage of display hardware acceleration when available (e.g., through the X Render Extension). The Cairo API provides operations similar to the drawing operators of PostScript and PDF. Operations in Cairo include stroking and filling cubic Bézier splines, transforming and compositing translucent images, and antialiased text rendering. All drawing operations can be transformed by any affine transformation (scale, rotation, shear, etc.)."
 
@@ -26,7 +26,7 @@ DESCRIPTION="Cairo is a 2D graphics library with support for multiple output dev
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://gitlab.freedesktop.org/cairo/cairo/-/archive/1.17.4/cairo-1.17.4.tar.gz
+wget -nc https://www.cairographics.org/snapshots/cairo-1.17.4.tar.xz
 
 
 if [ ! -z $URL ]
@@ -47,16 +47,14 @@ fi
 
 echo $USER > /tmp/currentuser
 
-mkdir cairo-build
-cd cairo-build
 
-meson --prefix=/usr \
-	-Dtee=enabled \
-	--default-library shared &&
-ninja
+./configure --prefix=/usr    \
+            --disable-static \
+            --enable-tee &&
+make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

@@ -19,8 +19,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=pulseaudio
-VERSION=16.0
-URL=https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-16.0.tar.xz
+VERSION=15.0
+URL=https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-15.0.tar.xz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="PulseAudio is a sound system for POSIX OSes, meaning that it is a proxy for sound applications. It allows you to do advanced operations on your sound data as it passes between your application and your hardware. Things like transferring the audio to a different machine, changing the sample format or channel count and mixing several sounds into one are easily achieved using a sound server."
 
@@ -28,7 +28,7 @@ DESCRIPTION="PulseAudio is a sound system for POSIX OSes, meaning that it is a p
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-16.0.tar.xz
+wget -nc https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-15.0.tar.xz
 
 
 if [ ! -z $URL ]

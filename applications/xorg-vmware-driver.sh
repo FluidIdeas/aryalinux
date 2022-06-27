@@ -45,7 +45,6 @@ export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disab
 
 echo $USER > /tmp/currentuser
 
-sed -i 's/>yuv.i/>yuv[j][i/' vmwgfx/vmwgfx_tex_video.c
 ./configure $XORG_CONFIG &&
 make
 sudo rm -rf /tmp/rootscript.sh

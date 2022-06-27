@@ -10,15 +10,15 @@ set +h
 #REQ:adwaita-icon-theme
 #REQ:gtk3
 #REQ:itstool
-#REQ:libadwaita
+#REQ:libhandy1
 #REQ:vala
 
 
 cd $SOURCE_DIR
 
 NAME=baobab
-VERSION=42.0
-URL=https://download.gnome.org/sources/baobab/42/baobab-42.0.tar.xz
+VERSION=41.0
+URL=https://download.gnome.org/sources/baobab/41/baobab-41.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The Baobab package contains a graphical directory tree analyzer."
 
@@ -26,8 +26,8 @@ DESCRIPTION="The Baobab package contains a graphical directory tree analyzer."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/baobab/42/baobab-42.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/baobab/42/baobab-42.0.tar.xz
+wget -nc https://download.gnome.org/sources/baobab/41/baobab-41.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/baobab/41/baobab-41.0.tar.xz
 
 
 if [ ! -z $URL ]

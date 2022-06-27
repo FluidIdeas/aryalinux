@@ -31,8 +31,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=thunderbird
-VERSION=91.10.0
-URL=https://archive.mozilla.org/pub/thunderbird/releases/91.10.0/source/thunderbird-91.10.0.source.tar.xz
+VERSION=91.6.1
+URL=https://archive.mozilla.org/pub/thunderbird/releases/91.6.1/source/thunderbird-91.6.1.source.tar.xz
 SECTION="Other X-based Programs"
 DESCRIPTION="Thunderbird is a stand-alone mail/news client based on the Mozilla codebase. It uses the Gecko rendering engine to enable it to display and compose HTML emails."
 
@@ -40,8 +40,7 @@ DESCRIPTION="Thunderbird is a stand-alone mail/news client based on the Mozilla 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.mozilla.org/pub/thunderbird/releases/91.10.0/source/thunderbird-91.10.0.source.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/thunderbird-91.10.0-gcc12_fix-1.patch
+wget -nc https://archive.mozilla.org/pub/thunderbird/releases/91.6.1/source/thunderbird-91.6.1.source.tar.xz
 
 
 if [ ! -z $URL ]
@@ -110,8 +109,6 @@ ac_add_options --with-system-jpeg
 ac_add_options --with-system-png
 ac_add_options --with-system-zlib
 EOF
-patch -Np1 -i ../thunderbird-91.10.0-gcc12_fix-1.patch
-sed -i '/ROOT_CLIP_CHAIN/d' gfx/webrender_bindings/webrender_ffi.h
 case "$(uname -m)" in
     i?86) sed -e '/typedef[ ]*double/s/double/long double/' \
               -i modules/fdlibm/src/math_private.h ;;

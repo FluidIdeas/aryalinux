@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libxml2
-VERSION=2.9.14
-URL=https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.14.tar.xz
+VERSION=2.9.13
+URL=https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.13.tar.xz
 SECTION="General Libraries"
 DESCRIPTION="The libxml2 package contains libraries and utilities used for parsing XML files."
 
@@ -21,7 +21,7 @@ DESCRIPTION="The libxml2 package contains libraries and utilities used for parsi
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.14.tar.xz
+wget -nc https://download.gnome.org/sources/libxml2/2.9/libxml2-2.9.13.tar.xz
 wget -nc https://www.w3.org/XML/Test/xmlts20130923.tar.gz
 
 
@@ -48,7 +48,7 @@ echo $USER > /tmp/currentuser
             --disable-static \
             --with-history   \
             --with-python=/usr/bin/python3 \
-            --docdir=/usr/share/doc/libxml2-2.9.14 &&
+            --docdir=/usr/share/doc/libxml2-2.9.13 &&
 make
 tar xf ../xmlts20130923.tar.gz
 sudo rm -rf /tmp/rootscript.sh

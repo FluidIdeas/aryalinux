@@ -19,8 +19,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=vte
-VERSION=0.68.0
-URL=https://download.gnome.org/sources/vte/0.68/vte-0.68.0.tar.xz
+VERSION=0.66.2
+URL=https://gitlab.gnome.org/GNOME/vte/-/archive/0.66.2/vte-0.66.2.tar.bz2
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The VTE package contains a termcap file implementation for terminal emulators."
 
@@ -28,8 +28,7 @@ DESCRIPTION="The VTE package contains a termcap file implementation for terminal
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/vte/0.68/vte-0.68.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/vte/0.68/vte-0.68.0.tar.xz
+wget -nc https://gitlab.gnome.org/GNOME/vte/-/archive/0.66.2/vte-0.66.2.tar.bz2
 
 
 if [ ! -z $URL ]

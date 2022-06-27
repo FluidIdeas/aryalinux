@@ -25,7 +25,6 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://raw.githubusercontent.com/transmission/transmission-releases/master/transmission-3.00.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/transmission-3.00-pidfile_doc-1.patch
 
 
 if [ ! -z $URL ]
@@ -47,7 +46,6 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../transmission-3.00-pidfile_doc-1.patch
 ./configure --prefix=/usr --enable-cli &&
 make
 sudo rm -rf /tmp/rootscript.sh

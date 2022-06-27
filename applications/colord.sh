@@ -64,6 +64,8 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+mv po/fur.po po/ur.po &&
+sed -i 's/fur/ur/' po/LINGUAS
 mkdir build &&
 cd build &&
 

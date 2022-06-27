@@ -8,7 +8,6 @@ set +h
 . /etc/alps/directories.conf
 
 
-#REQ:libwpe
 
 cd $SOURCE_DIR
 

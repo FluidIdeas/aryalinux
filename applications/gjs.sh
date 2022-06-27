@@ -10,7 +10,7 @@ set +h
 #REQ:cairo
 #REQ:dbus
 #REQ:gobject-introspection
-#REQ:js91
+#REQ:js78
 #REQ:gtk3
 #REQ:gtk4
 
@@ -18,8 +18,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gjs
-VERSION=1.72.0
-URL=https://download.gnome.org/sources/gjs/1.72/gjs-1.72.0.tar.xz
+VERSION=1.70.1
+URL=https://download.gnome.org/sources/gjs/1.70/gjs-1.70.1.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="Gjs is a set of Javascript bindings for GNOME."
 
@@ -27,8 +27,8 @@ DESCRIPTION="Gjs is a set of Javascript bindings for GNOME."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gjs/1.72/gjs-1.72.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gjs/1.72/gjs-1.72.0.tar.xz
+wget -nc https://download.gnome.org/sources/gjs/1.70/gjs-1.70.1.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gjs/1.70/gjs-1.70.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -57,7 +57,8 @@ meson --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install
+ninja install &&
+ln -sfv gjs-console /usr/bin/gjs
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

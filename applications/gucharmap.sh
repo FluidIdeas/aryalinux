@@ -20,8 +20,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gucharmap
-VERSION=14.0.3
-URL=https://gitlab.gnome.org/GNOME/gucharmap/-/archive/14.0.3/gucharmap-14.0.3.tar.bz2
+VERSION=14.0.2
+URL=https://gitlab.gnome.org/GNOME/gucharmap/-/archive/14.0.2/gucharmap-14.0.2.tar.bz2
 SECTION="GNOME Applications"
 DESCRIPTION="Gucharmap is a Unicode character map and font viewer. It allows you to browse through all the available Unicode characters and categories for the installed fonts, and to examine their detailed properties. It is an easy way to find the character you might only know by its Unicode name or code point."
 
@@ -29,7 +29,7 @@ DESCRIPTION="Gucharmap is a Unicode character map and font viewer. It allows you
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://gitlab.gnome.org/GNOME/gucharmap/-/archive/14.0.3/gucharmap-14.0.3.tar.bz2
+wget -nc https://gitlab.gnome.org/GNOME/gucharmap/-/archive/14.0.2/gucharmap-14.0.2.tar.bz2
 wget -nc https://www.unicode.org/Public/zipped/14.0.0/UCD.zip
 wget -nc https://www.unicode.org/Public/zipped/14.0.0/Unihan.zip
 

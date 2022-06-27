@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=iptables
-VERSION=1.8.8
-URL=http://www.netfilter.org/projects/iptables/files/iptables-1.8.8.tar.bz2
+VERSION=1.8.7
+URL=http://www.netfilter.org/projects/iptables/files/iptables-1.8.7.tar.bz2
 SECTION="Security"
 DESCRIPTION="iptables is a userspace command line program used to configure the Linux 2.4 and later kernel packet filtering ruleset."
 
@@ -21,8 +21,8 @@ DESCRIPTION="iptables is a userspace command line program used to configure the 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc http://www.netfilter.org/projects/iptables/files/iptables-1.8.8.tar.bz2
-wget -nc ftp://ftp.netfilter.org/pub/iptables/iptables-1.8.8.tar.bz2
+wget -nc http://www.netfilter.org/projects/iptables/files/iptables-1.8.7.tar.bz2
+wget -nc ftp://ftp.netfilter.org/pub/iptables/iptables-1.8.7.tar.bz2
 
 
 if [ ! -z $URL ]

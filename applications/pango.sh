@@ -20,8 +20,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=pango
-VERSION=1.50.7
-URL=https://download.gnome.org/sources/pango/1.50/pango-1.50.7.tar.xz
+VERSION=1.50.4
+URL=https://download.gnome.org/sources/pango/1.50/pango-1.50.4.tar.xz
 SECTION="Graphical Environment Libraries"
 DESCRIPTION="Pango is a library for laying out and rendering text, with an emphasis on internationalization. It can be used anywhere that text layout is needed, though most of the work on Pango so far has been done in the context of the GTK+ widget toolkit."
 
@@ -29,8 +29,8 @@ DESCRIPTION="Pango is a library for laying out and rendering text, with an empha
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/pango/1.50/pango-1.50.7.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/pango/1.50/pango-1.50.7.tar.xz
+wget -nc https://download.gnome.org/sources/pango/1.50/pango-1.50.4.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/pango/1.50/pango-1.50.4.tar.xz
 
 
 if [ ! -z $URL ]

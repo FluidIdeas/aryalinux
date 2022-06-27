@@ -18,8 +18,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=ibus
-VERSION=1.5.26
-URL=https://github.com/ibus/ibus/releases/download/1.5.26/ibus-1.5.26.tar.gz
+VERSION=1.5.25
+URL=https://github.com/ibus/ibus/releases/download/1.5.25/ibus-1.5.25.tar.gz
 SECTION="General Utilities"
 DESCRIPTION="ibus is an Intelligent Input Bus. It is a new input framework for the Linux OS. It provides a fully featured and user friendly input method user interface."
 
@@ -27,7 +27,7 @@ DESCRIPTION="ibus is an Intelligent Input Bus. It is a new input framework for t
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/ibus/ibus/releases/download/1.5.26/ibus-1.5.26.tar.gz
+wget -nc https://github.com/ibus/ibus/releases/download/1.5.25/ibus-1.5.25.tar.gz
 wget -nc https://www.unicode.org/Public/zipped/14.0.0/UCD.zip
 
 
@@ -62,12 +62,11 @@ sudo rm -rf /tmp/rootscript.sh
 
 sed -i 's@/desktop/ibus@/org/freedesktop/ibus@g' \
     data/dconf/org.freedesktop.ibus.gschema.xml
-./configure --prefix=/usr          \
-            --sysconfdir=/etc      \
-            --disable-python2      \
-            --disable-emoji-dict   \
-            --disable-unicode-dict &&
-rm -f tools/main.c                 &&
+./configure --prefix=/usr             \
+            --sysconfdir=/etc         \
+            --disable-unicode-dict    \
+            --disable-emoji-dict      &&
+rm -f tools/main.c                    &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

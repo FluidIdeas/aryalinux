@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=mousepad
-VERSION=0.5.9
-URL=https://archive.xfce.org/src/apps/mousepad/0.5/mousepad-0.5.9.tar.bz2
+VERSION=0.5.8
+URL=https://archive.xfce.org/src/apps/mousepad/0.5/mousepad-0.5.8.tar.bz2
 SECTION="Editors"
 DESCRIPTION="Mousepad is a simple GTK+ 3 text editor for the Xfce desktop environment."
 
@@ -22,7 +22,7 @@ DESCRIPTION="Mousepad is a simple GTK+ 3 text editor for the Xfce desktop enviro
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.xfce.org/src/apps/mousepad/0.5/mousepad-0.5.9.tar.bz2
+wget -nc https://archive.xfce.org/src/apps/mousepad/0.5/mousepad-0.5.8.tar.bz2
 
 
 if [ ! -z $URL ]

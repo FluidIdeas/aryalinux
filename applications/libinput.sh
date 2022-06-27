@@ -14,15 +14,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libinput
-VERSION=1.21.0
-URL=https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.21.0/libinput-1.21.0.tar.gz
+VERSION=1.19.3
+URL=https://www.freedesktop.org/software/libinput/libinput-1.19.3.tar.xz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.21.0/libinput-1.21.0.tar.gz
+wget -nc https://www.freedesktop.org/software/libinput/libinput-1.19.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -48,12 +48,11 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=$XORG_PREFIX    \
-      --buildtype=release      \
-      -Ddebug-gui=false        \
-      -Dtests=false            \
-      -Dlibwacom=false         \
-      -Dudev-dir=/usr/lib/udev \
+meson --prefix=$XORG_PREFIX \
+      --buildtype=release   \
+      -Ddebug-gui=false     \
+      -Dtests=false         \
+      -Dlibwacom=false      \
       ..                    &&
 ninja
 sudo rm -rf /tmp/rootscript.sh

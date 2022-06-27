@@ -14,8 +14,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libqalculate
-VERSION=4.2.0
-URL=https://github.com/Qalculate/libqalculate/releases/download/v4.2.0/libqalculate-4.2.0.tar.gz
+VERSION=4.0.0
+URL=https://github.com/Qalculate/libqalculate/releases/download/v4.0.0/libqalculate-4.0.0.tar.gz
 SECTION="General Libraries"
 DESCRIPTION="The libqalculate package contains a library that provides functions for a multi-purpose calculator."
 
@@ -23,7 +23,7 @@ DESCRIPTION="The libqalculate package contains a library that provides functions
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/Qalculate/libqalculate/releases/download/v4.2.0/libqalculate-4.2.0.tar.gz
+wget -nc https://github.com/Qalculate/libqalculate/releases/download/v4.0.0/libqalculate-4.0.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -45,9 +45,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr \
-        --disable-static          \
-        --docdir=/usr/share/doc/libqalculate-4.2.0 &&
+./configure --prefix=/usr --disable-static &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

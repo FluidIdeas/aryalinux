@@ -25,8 +25,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=seahorse
-VERSION=42.0
-URL=https://download.gnome.org/sources/seahorse/42/seahorse-42.0.tar.xz
+VERSION=41.0
+URL=https://download.gnome.org/sources/seahorse/41/seahorse-41.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="Seahorse is a graphical interface for managing and using encryption keys. Currently it supports PGP keys (using GPG/GPGME) and SSH keys."
 
@@ -34,8 +34,8 @@ DESCRIPTION="Seahorse is a graphical interface for managing and using encryption
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/seahorse/42/seahorse-42.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/seahorse/42/seahorse-42.0.tar.xz
+wget -nc https://download.gnome.org/sources/seahorse/41/seahorse-41.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/seahorse/41/seahorse-41.0.tar.xz
 
 
 if [ ! -z $URL ]

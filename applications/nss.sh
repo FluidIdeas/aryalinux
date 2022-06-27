@@ -15,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=nss
-VERSION=3.79
-URL=https://archive.mozilla.org/pub/security/nss/releases/NSS_3_79_RTM/src/nss-3.79.tar.gz
+VERSION=3.75
+URL=https://archive.mozilla.org/pub/security/nss/releases/NSS_3_75_RTM/src/nss-3.75.tar.gz
 SECTION="Security"
 DESCRIPTION="The Network Security Services (NSS) package is a set of libraries designed to support cross-platform development of security-enabled client and server applications. Applications built with NSS can support SSL v2 and v3, TLS, PKCS #5, PKCS #7, PKCS #11, PKCS #12, S/MIME, X.509 v3 certificates, and other security standards. This is useful for implementing SSL and S/MIME or other Internet security standards into an application."
 
@@ -24,9 +24,8 @@ DESCRIPTION="The Network Security Services (NSS) package is a set of libraries d
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.mozilla.org/pub/security/nss/releases/NSS_3_79_RTM/src/nss-3.79.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/nss-3.79-standalone-1.patch
-wget -nc ../../../../lfs/view/systemd/chapter09/network.html#ch-config-hosts
+wget -nc https://archive.mozilla.org/pub/security/nss/releases/NSS_3_75_RTM/src/nss-3.75.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/nss-3.75-standalone-1.patch
 
 
 if [ ! -z $URL ]
@@ -48,7 +47,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-patch -Np1 -i ../nss-3.79-standalone-1.patch &&
+patch -Np1 -i ../nss-3.75-standalone-1.patch &&
 
 cd nss &&
 

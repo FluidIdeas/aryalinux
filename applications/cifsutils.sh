@@ -8,14 +8,13 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:talloc
-#REQ:mitkrb
 
 
 cd $SOURCE_DIR
 
 NAME=cifsutils
-VERSION=6.15
-URL=https://www.samba.org/ftp/linux-cifs/cifs-utils/cifs-utils-6.15.tar.bz2
+VERSION=6.14
+URL=https://www.samba.org/ftp/linux-cifs/cifs-utils/cifs-utils-6.14.tar.bz2
 SECTION="Networking Programs"
 DESCRIPTION="The cifs-utils package provides a means for mounting SMB/CIFS shares on a Linux system."
 
@@ -23,7 +22,7 @@ DESCRIPTION="The cifs-utils package provides a means for mounting SMB/CIFS share
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.samba.org/ftp/linux-cifs/cifs-utils/cifs-utils-6.15.tar.bz2
+wget -nc https://www.samba.org/ftp/linux-cifs/cifs-utils/cifs-utils-6.14.tar.bz2
 
 
 if [ ! -z $URL ]

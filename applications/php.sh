@@ -19,8 +19,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=php
-VERSION=8.1.7
-URL=https://www.php.net/distributions/php-8.1.7.tar.xz
+VERSION=8.1.3
+URL=https://www.php.net/distributions/php-8.1.3.tar.xz
 SECTION="Programming"
 DESCRIPTION="PHP is the PHP Hypertext Preprocessor. Primarily used in dynamic web sites, it allows for programming code to be directly embedded into the HTML markup. It is also useful as a general purpose scripting language."
 
@@ -28,7 +28,7 @@ DESCRIPTION="PHP is the PHP Hypertext Preprocessor. Primarily used in dynamic we
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.php.net/distributions/php-8.1.7.tar.xz
+wget -nc https://www.php.net/distributions/php-8.1.3.tar.xz
 wget -nc https://www.php.net/distributions/manual/php_manual_en.html.gz
 wget -nc https://www.php.net/distributions/manual/php_manual_en.tar.gz
 wget -nc http://www.php.net/download-docs.php
@@ -111,9 +111,9 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install                                     &&
 install -v -m644 php.ini-production /etc/php.ini &&
 
-install -v -m755 -d /usr/share/doc/php-8.1.7 &&
+install -v -m755 -d /usr/share/doc/php-8.1.3 &&
 install -v -m644    CODING_STANDARDS* EXTENSIONS NEWS README* UPGRADING* \
-                    /usr/share/doc/php-8.1.7
+                    /usr/share/doc/php-8.1.3
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

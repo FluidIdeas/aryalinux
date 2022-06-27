@@ -19,7 +19,7 @@ cd $SOURCE_DIR
 
 NAME=cups
 VERSION=2.4.
-URL=https://github.com/OpenPrinting/cups/releases/download/v2.4.2/cups-2.4.2-source.tar.gz
+URL=https://github.com/OpenPrinting/cups/releases/download/v2.4.1/cups-2.4.1-source.tar.gz
 SECTION="Printing"
 DESCRIPTION="The Common Unix Printing System (CUPS) is a print spooler and associated utilities. It is based on the \"Internet Printing Protocol\" and provides printing services to most PostScript and raster printers."
 
@@ -27,7 +27,7 @@ DESCRIPTION="The Common Unix Printing System (CUPS) is a print spooler and assoc
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/OpenPrinting/cups/releases/download/v2.4.2/cups-2.4.2-source.tar.gz
+wget -nc https://github.com/OpenPrinting/cups/releases/download/v2.4.1/cups-2.4.1-source.tar.gz
 
 
 if [ ! -z $URL ]
@@ -82,12 +82,12 @@ sed -e "s/format-truncation//" \
        config-scripts/cups-compiler.m4
 ./configure --libdir=/usr/lib            \
             --with-system-groups=lpadmin \
-            --with-docdir=/usr/share/cups/doc-2.4.2 &&
+            --with-docdir=/usr/share/cups/doc-2.4.1 &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install &&
-ln -svnf ../cups/doc-2.4.2 /usr/share/doc/cups-2.4.2
+ln -svnf ../cups/doc-2.4.1 /usr/share/doc/cups-2.4.1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

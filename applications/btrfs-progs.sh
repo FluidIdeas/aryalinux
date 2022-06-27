@@ -16,8 +16,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=btrfs-progs
-VERSION=5.18.1
-URL=https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v5.18.1.tar.xz
+VERSION=5.16.2
+URL=https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v5.16.2.tar.xz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The btrfs-progs package contains administration and debugging tools for the B-tree file system (btrfs)."
 
@@ -25,7 +25,7 @@ DESCRIPTION="The btrfs-progs package contains administration and debugging tools
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v5.18.1.tar.xz
+wget -nc https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v5.16.2.tar.xz
 
 
 if [ ! -z $URL ]
@@ -47,7 +47,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-./configure --prefix=/usr --disable-documentation &&
+./configure --prefix=/usr &&
 make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

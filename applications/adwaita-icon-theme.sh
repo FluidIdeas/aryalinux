@@ -12,8 +12,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=adwaita-icon-theme
-VERSION=42.0
-URL=https://download.gnome.org/sources/adwaita-icon-theme/42/adwaita-icon-theme-42.0.tar.xz
+VERSION=41.0
+URL=https://download.gnome.org/sources/adwaita-icon-theme/41/adwaita-icon-theme-41.0.tar.xz
 SECTION="Icons"
 DESCRIPTION="The Adwaita Icon Theme package contains an icon theme for Gtk+ 3 applications."
 
@@ -21,8 +21,8 @@ DESCRIPTION="The Adwaita Icon Theme package contains an icon theme for Gtk+ 3 ap
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/adwaita-icon-theme/42/adwaita-icon-theme-42.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/adwaita-icon-theme/42/adwaita-icon-theme-42.0.tar.xz
+wget -nc https://download.gnome.org/sources/adwaita-icon-theme/41/adwaita-icon-theme-41.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/adwaita-icon-theme/41/adwaita-icon-theme-41.0.tar.xz
 
 
 if [ ! -z $URL ]

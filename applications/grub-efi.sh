@@ -24,7 +24,7 @@ pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://ftp.gnu.org/gnu/grub/grub-2.06.tar.xz
 wget -nc https://unifoundry.com/pub/unifont/unifont-14.0.01/font-builds/unifont-14.0.01.pcf.gz
-wget -nc https://ftp.gnu.org/gnu/gcc/gcc-12.1.0/gcc-12.1.0.tar.xz
+wget -nc https://ftp.gnu.org/gnu/gcc/gcc-11.2.0/gcc-11.2.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -58,9 +58,9 @@ sudo rm -rf /tmp/rootscript.sh
 
 unset {C,CPP,CXX,LD}FLAGS
 case $(uname -m) in i?86 )
-    tar xf ../gcc-12.1.0.tar.xz
-    mkdir gcc-12.1.0/build
-    pushd gcc-12.1.0/build
+    tar xf ../gcc-11.2.0.tar.xz
+    mkdir gcc-11.2.0/build
+    pushd gcc-11.2.0/build
         ../configure --prefix=$PWD/../../x86_64-gcc \
                      --target=x86_64-linux-gnu      \
                      --with-system-zlib             \

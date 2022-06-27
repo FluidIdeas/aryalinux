@@ -31,8 +31,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gimp
-VERSION=2.10.32
-URL=https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.32.tar.bz2
+VERSION=2.10.30
+URL=https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.30.tar.bz2
 SECTION="Other X-based Programs"
 DESCRIPTION="The Gimp package contains the GNU Image Manipulation Program which is useful for photo retouching, image composition and image authoring."
 
@@ -40,7 +40,7 @@ DESCRIPTION="The Gimp package contains the GNU Image Manipulation Program which 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.32.tar.bz2
+wget -nc https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.30.tar.bz2
 
 
 if [ ! -z $URL ]

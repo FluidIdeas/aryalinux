@@ -15,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=harfbuzz-wo-freetype2
-VERSION=4.3.0
-URL=https://github.com/harfbuzz/harfbuzz/releases/download/4.3.0/harfbuzz-4.3.0.tar.xz
+VERSION=3.4.0
+URL=https://github.com/harfbuzz/harfbuzz/releases/download/3.4.0/harfbuzz-3.4.0.tar.xz
 SECTION="Graphics and Font Libraries"
 DESCRIPTION="The HarfBuzz package contains an OpenType text shaping engine."
 
@@ -24,7 +24,7 @@ DESCRIPTION="The HarfBuzz package contains an OpenType text shaping engine."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/harfbuzz/harfbuzz/releases/download/4.3.0/harfbuzz-4.3.0.tar.xz
+wget -nc https://github.com/harfbuzz/harfbuzz/releases/download/3.4.0/harfbuzz-3.4.0.tar.xz
 
 
 if [ ! -z $URL ]

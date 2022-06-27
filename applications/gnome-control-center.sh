@@ -8,15 +8,18 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:accountsservice
+#REQ:clutter-gtk
 #REQ:colord-gtk
 #REQ:gnome-online-accounts
 #REQ:gnome-settings-daemon
+#REQ:grilo
 #REQ:gsound
 #REQ:libgtop
 #REQ:libpwquality
 #REQ:mitkrb
 #REQ:shared-mime-info
 #REQ:udisks2
+#REQ:cheese
 #REQ:cups
 #REQ:samba
 #REQ:gnome-bluetooth
@@ -29,8 +32,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gnome-control-center
-VERSION=42.2
-URL=https://download.gnome.org/sources/gnome-control-center/42/gnome-control-center-42.2.tar.xz
+VERSION=41.4
+URL=https://download.gnome.org/sources/gnome-control-center/41/gnome-control-center-41.4.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Control Center package contains the GNOME settings manager."
 
@@ -38,8 +41,8 @@ DESCRIPTION="The GNOME Control Center package contains the GNOME settings manage
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gnome-control-center/42/gnome-control-center-42.2.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-control-center/42/gnome-control-center-42.2.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-control-center/41/gnome-control-center-41.4.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-control-center/41/gnome-control-center-41.4.tar.xz
 
 
 if [ ! -z $URL ]
@@ -60,15 +63,6 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-rm -f /usr/share/applications/gnome-control-center.desktop
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
 
 mkdir build &&
 cd    build &&

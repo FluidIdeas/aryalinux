@@ -18,8 +18,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=mupdf
-VERSION=1.20.
-URL=https://www.mupdf.com/downloads/archive/mupdf-1.20.0-source.tar.gz
+VERSION=1.19.
+URL=https://www.mupdf.com/downloads/archive/mupdf-1.19.0-source.tar.gz
 SECTION="PostScript"
 DESCRIPTION="MuPDF is a lightweight PDF and XPS viewer."
 
@@ -27,7 +27,7 @@ DESCRIPTION="MuPDF is a lightweight PDF and XPS viewer."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.mupdf.com/downloads/archive/mupdf-1.20.0-source.tar.gz
+wget -nc https://www.mupdf.com/downloads/archive/mupdf-1.19.0-source.tar.gz
 
 
 if [ ! -z $URL ]
@@ -76,7 +76,7 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make prefix=/usr                        \
      shared=yes                         \
-     docdir=/usr/share/doc/mupdf-1.20.0 \
+     docdir=/usr/share/doc/mupdf-1.19.0 \
      install                            &&
 
 chmod 755 /usr/lib/libmupdf.so          &&

@@ -7,14 +7,15 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
+#REQ:python-modules#jinja2
 #REQ:linux-pam
 
 
 cd $SOURCE_DIR
 
 NAME=systemd
-VERSION=251
-URL=https://github.com/systemd/systemd/archive/v251/systemd-251.tar.gz
+VERSION=250
+URL=https://github.com/systemd/systemd/archive/v250/systemd-250.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="While systemd was installed when building LFS, there are many features provided by the package that were not included in the initial installation because Linux-PAM was not yet installed. The systemd package needs to be rebuilt to provide a working systemd-logind service, which provides many additional features for dependent packages."
 
@@ -22,7 +23,9 @@ DESCRIPTION="While systemd was installed when building LFS, there are many featu
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/systemd/systemd/archive/v251/systemd-251.tar.gz
+wget -nc https://github.com/systemd/systemd/archive/v250/systemd-250.tar.gz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/systemd-250-upstream_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/4.0/systemd-250-kernel_5.17_fixes-1.patch
 
 
 if [ ! -z $URL ]
@@ -44,6 +47,8 @@ fi
 echo $USER > /tmp/currentuser
 
 
+patch -Np1 -i ../systemd-250-kernel_5.17_fixes-1.patch
+patch -Np1 -i ../systemd-250-upstream_fixes-1.patch
 sed -i -e 's/GROUP="render"/GROUP="video"/' \
        -e 's/GROUP="sgx", //' rules.d/50-udev-default.rules.in
 mkdir build &&
@@ -51,6 +56,7 @@ cd    build &&
 
 meson --prefix=/usr                 \
       --buildtype=release           \
+      -Dblkid=true                  \
       -Ddefault-dnssec=no           \
       -Dfirstboot=false             \
       -Dinstall-tests=false         \
@@ -58,11 +64,12 @@ meson --prefix=/usr                 \
       -Dman=auto                    \
       -Dsysusers=false              \
       -Drpmmacrosdir=no             \
+      -Db_lto=false                 \
       -Dhomed=false                 \
       -Duserdb=false                \
       -Dmode=release                \
       -Dpamconfdir=/etc/pam.d       \
-      -Ddocdir=/usr/share/doc/systemd-251 \
+      -Ddocdir=/usr/share/doc/systemd-250 \
       ..                            &&
 
 ninja

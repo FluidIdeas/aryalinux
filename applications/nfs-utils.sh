@@ -46,6 +46,9 @@ fi
 echo $USER > /tmp/currentuser
 
 
+groupadd -g 99 nogroup &&
+useradd -c "Unprivileged Nobody" -d /dev/null -g nogroup \
+    -s /bin/false -u 99 nobody
 ./configure --prefix=/usr          \
             --sysconfdir=/etc      \
             --sbindir=/usr/sbin    \
