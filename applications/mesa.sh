@@ -10,7 +10,7 @@ set +h
 #REQ:x7lib
 #REQ:libdrm
 #REQ:python-modules#mako
-#REQ:libva
+#REQ:libva-wo-mesa
 #REQ:libvdpau
 #REQ:llvm
 #REQ:wayland-protocols
