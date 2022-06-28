@@ -86,9 +86,10 @@ cmake -DCMAKE_BUILD_TYPE=Release  \
       -DPORT=GTK                  \
       -DLIB_INSTALL_DIR=/usr/lib  \
       -DENABLE_MINIBROWSER=ON     \
-	  -DENABLE_GLES2=ON           \
-	  -DENABLE_QUARTZ_TARGET=ON   \
-	  -DUSE_GTK4=OFF              \
+      -DENABLE_GLES2=ON           \
+      -DENABLE_QUARTZ_TARGET=ON   \
+      -DUSE_GTK4=OFF              \
+      -DUSE_SOUP2=ON              \
       -Wno-dev -G Ninja ..        &&
 ninja
 
