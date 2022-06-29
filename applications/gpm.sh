@@ -24,7 +24,7 @@ pushd $(echo $NAME | sed "s@#@_@g")
 wget -nc https://anduin.linuxfromscratch.org/BLFS/gpm/gpm-1.20.7.tar.bz2
 wget -nc ftp://anduin.linuxfromscratch.org/BLFS/gpm/gpm-1.20.7.tar.bz2
 wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/gpm-1.20.7-consolidated-1.patch
-
+wget -nc "https://git.savannah.gnu.org/cgit/texinfo.git/patch/?id=13a8894fe2faa45b04033d7122a8fe7939ce6aa2" -O gpm-1.20.7-missing-option-single.patch
 
 if [ ! -z $URL ]
 then
@@ -44,7 +44,7 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
+patch -Np1 -i ../gpm-1.20.7-missing-option-single.patch &&
 patch -Np1 -i ../gpm-1.20.7-consolidated-1.patch &&
 ./autogen.sh                                     &&
 ./configure --prefix=/usr --sysconfdir=/etc      &&
