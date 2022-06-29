@@ -53,7 +53,7 @@ fi
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr --buildtype=release -Ddocs=false .. &&
+meson --prefix=/usr --buildtype=release -Ddocs=false -Dbackends=gtk3,gtk4 .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
