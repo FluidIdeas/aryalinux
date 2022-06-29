@@ -20,6 +20,7 @@ set +h
 #REQ:gobject-introspection
 #REQ:gst10-plugins-base
 #REQ:libexif
+#REQ:libportal
 #REQ:adwaita-icon-theme
 #REQ:gvfs
 
