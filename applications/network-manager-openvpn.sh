@@ -12,15 +12,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=network-manager-openvpn
-VERSION=1.8.10
-URL=https://download.gnome.org/sources/NetworkManager-openvpn/1.8/NetworkManager-openvpn-1.8.10.tar.xz
+VERSION=1.8.14
+URL=https://gitlab.gnome.org/GNOME/NetworkManager-openvpn/-/archive/1.8.14/NetworkManager-openvpn-1.8.14.tar.gz
 DESCRIPTION="Network Manager plugin for openvpn"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/NetworkManager-openvpn/1.8/NetworkManager-openvpn-1.8.10.tar.xz
+wget -nc https://gitlab.gnome.org/GNOME/NetworkManager-openvpn/-/archive/1.8.14/NetworkManager-openvpn-1.8.14.tar.gz
 
 
 if [ ! -z $URL ]
