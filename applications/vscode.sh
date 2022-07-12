@@ -12,7 +12,6 @@ set +h
 cd $SOURCE_DIR
 
 NAME=vscode
-VERSION=1657183991
 
 SECTION="Programming"
 DESCRIPTION="Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications"
@@ -38,9 +37,9 @@ fi
 cd $DIRECTORY
 fi
 
-version="16.16.0"
-wget --content-disposition https://code.visualstudio.com/sha/download?build=stable&os=linux-x64
+wget --content-disposition "https://code.visualstudio.com/sha/download?build=stable&os=linux-x64"
 tarball=$(ls code-stable-x64*.tar.gz)
+VERSION=$(ls code-stable-x64*.tar.gz | sed "s@code-stable-x64@@g" | sed ".tar.gz@@g")
 dir=$(tar tf $tarball | cut -d/ -f1 | uniq)
 sudo tar xf $tarball -C /opt/
 
