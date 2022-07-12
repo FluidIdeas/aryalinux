@@ -54,6 +54,8 @@ Type=Application
 Categories=Programming;
 EOF
 
+rm -rf $tarball*
+
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
