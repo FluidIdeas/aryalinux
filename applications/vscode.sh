@@ -11,16 +11,15 @@ set +h
 
 cd $SOURCE_DIR
 
-NAME=nodejs
-VERSION=16.16.0
+NAME=vscode
+VERSION=1657183991
 
 SECTION="Programming"
-DESCRIPTION="Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine."
+DESCRIPTION="Visual Studio Code is a code editor redefined and optimized for building and debugging modern web and cloud applications"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
-
 
 
 if [ ! -z $URL ]
@@ -40,14 +39,20 @@ cd $DIRECTORY
 fi
 
 version="16.16.0"
-wget https://nodejs.org/dist/v$version/node-v$version-linux-x64.tar.xz
-dir=$(tar tf node-v$version-linux-x64.tar.xz | cut -d/ -f1 | uniq)
-sudo tar xf node-v$version-linux-x64.tar.xz -C /opt/
-sudo tee /etc/profile.d/nodejs.sh<<"EOF"
-export PATH=$PATH:/opt/node-dir/bin
-EOF
+wget https://az764295.vo.msecnd.net/stable/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9/code-stable-x64-$version.tar.gz
+dir=$(tar tf code-stable-x64-$version.tar.gz | cut -d/ -f1 | uniq)
+sudo tar xf code-stable-x64-$version.tar.gz -C /opt/
 
-sudo sed -i "s@node-dir@$dir@g" /etc/profile.d/nodejs.sh
+sudo tee /usr/share/applications/code.desktop <<"EOF"
+[Desktop Entry]
+Name=Visual Studio Code
+Comment=Programming Text Editor
+Exec=/opt/VSCode-linux-x64/code
+Icon=/opt/VSCode-linux-x64/resources/app/resources/linux/code.png
+Terminal=false
+Type=Application
+Categories=Programming;
+EOF
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
