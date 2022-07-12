@@ -39,7 +39,7 @@ fi
 
 wget --content-disposition "https://code.visualstudio.com/sha/download?build=stable&os=linux-x64"
 tarball=$(ls code-stable-x64*.tar.gz)
-VERSION=$(ls code-stable-x64*.tar.gz | sed "s@code-stable-x64@@g" | sed "\.tar\.gz@@g")
+VERSION=$(ls code-stable-x64*.tar.gz | sed "s@code-stable-x64@@g" | sed "s@\.tar\.gz@@g")
 dir=$(tar tf $tarball | cut -d/ -f1 | uniq)
 sudo tar xf $tarball -C /opt/
 
