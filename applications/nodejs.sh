@@ -12,7 +12,7 @@ set +h
 cd $SOURCE_DIR
 
 NAME=nodejs
-VERSION=16.16.0
+VERSION=1.9.14
 
 SECTION="Programming"
 DESCRIPTION="Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine."
@@ -39,7 +39,7 @@ fi
 cd $DIRECTORY
 fi
 
-version="16.16.0"
+version="12.14.1"
 wget https://nodejs.org/dist/v$version/node-v$version-linux-x64.tar.xz
 dir=$(tar tf node-v$version-linux-x64.tar.xz | cut -d/ -f1 | uniq)
 sudo tar xf node-v$version-linux-x64.tar.xz -C /opt/

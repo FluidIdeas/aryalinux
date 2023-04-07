@@ -22,17 +22,17 @@ set +h
 cd $SOURCE_DIR
 
 NAME=gdm
-VERSION=41.3
-URL=https://download.gnome.org/sources/gdm/41/gdm-41.3.tar.xz
-SECTION="GNOME Libraries and Desktop"
+VERSION=43.0
+URL=https://download.gnome.org/sources/gdm/43/gdm-43.0.tar.xz
+SECTION="Display Managers"
 DESCRIPTION="GDM is a system service that is responsible for providing graphical logins and managing local and remote displays."
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gdm/41/gdm-41.3.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gdm/41/gdm-41.3.tar.xz
+wget -nc https://download.gnome.org/sources/gdm/43/gdm-43.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gdm/43/gdm-43.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -69,9 +69,11 @@ sudo rm -rf /tmp/rootscript.sh
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr               \
-      --buildtype=release         \
-      -Dgdm-xsession=true ..      &&
+meson setup ..            \
+      --prefix=/usr       \
+      --buildtype=release \
+      -Dgdm-xsession=true \
+      -Drun-dir=/run/gdm  &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

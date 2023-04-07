@@ -23,7 +23,7 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/rpcbind/rpcbind-1.2.6.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/rpcbind-1.2.6-vulnerability_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/6.0/rpcbind-1.2.6-vulnerability_fixes-1.patch
 
 
 if [ ! -z $URL ]
@@ -75,19 +75,7 @@ sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-#!/bin/bash
-
-set -e
-set +h
-
-. /etc/alps/alps.conf
-
-pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/9.0-systemd/blfs-systemd-units-20180105.tar.bz2
-tar xf blfs-systemd-units-20180105.tar.bz2
-cd blfs-systemd-units-20180105
-sudo make install-rpcbind
-popd
+systemctl enable rpcbind
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

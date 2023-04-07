@@ -64,12 +64,12 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-mv po/fur.po po/ur.po &&
-sed -i 's/fur/ur/' po/LINGUAS
+sed '/cmsUnregisterPluginsTHR/d' -i lib/colord/cd-context-lcms.c
 mkdir build &&
 cd build &&
 
-meson --prefix=/usr            \
+meson setup ..                 \
+      --prefix=/usr            \
       --buildtype=release      \
       -Ddaemon_user=colord     \
       -Dvapi=true              \
@@ -78,7 +78,7 @@ meson --prefix=/usr            \
       -Dargyllcms_sensor=false \
       -Dbash_completion=false  \
       -Ddocs=false             \
-      -Dman=false ..           &&
+      -Dman=false              &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

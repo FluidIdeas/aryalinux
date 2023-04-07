@@ -13,15 +13,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=openvpn
-VERSION=2.5.7
-URL=https://swupdate.openvpn.org/community/releases/openvpn-2.5.7.tar.gz
+VERSION=2.4.8
+URL=https://swupdate.openvpn.org/community/releases/openvpn-2.4.8.tar.gz
 DESCRIPTION="OpenVPN is an open-source commercial software that implements virtual private network techniques to create secure point-to-point or site-to-site connections in routed or bridged configurations and remote access facilities. It uses a custom security protocol that utilizes SSL/TLS for key exchange."
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://swupdate.openvpn.org/community/releases/openvpn-2.5.7.tar.gz
+wget -nc https://swupdate.openvpn.org/community/releases/openvpn-2.4.8.tar.gz
 
 
 if [ ! -z $URL ]

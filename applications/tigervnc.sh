@@ -13,17 +13,19 @@ set +h
 #REQ:libgcrypt
 #REQ:libjpeg
 #REQ:pixman
+#REQ:systemd
+#REQ:linux-pam
 #REQ:x7app
+#REQ:xinit
 #REQ:x7legacy
 #REQ:imagemagick
-#REQ:linux-pam
 
 
 cd $SOURCE_DIR
 
 NAME=tigervnc
-VERSION=1.12.0
-URL=https://github.com/TigerVNC/tigervnc/archive/v1.12.0/tigervnc-1.12.0.tar.gz
+VERSION=1.13.1
+URL=https://github.com/TigerVNC/tigervnc/archive/v1.13.1/tigervnc-1.13.1.tar.gz
 SECTION="Other X-based Programs"
 DESCRIPTION="Tigervnc is an advanced VNC (Virtual Network Computing) implementation. It allows creation of an Xorg server not tied to a physical console and also provides a client for viewing of the remote graphical desktop."
 
@@ -31,9 +33,9 @@ DESCRIPTION="Tigervnc is an advanced VNC (Virtual Network Computing) implementat
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/TigerVNC/tigervnc/archive/v1.12.0/tigervnc-1.12.0.tar.gz
-wget -nc https://www.x.org/pub/individual/xserver/xorg-server-1.20.7.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/tigervnc-1.12.0-configuration_fixes-1.patch
+wget -nc https://github.com/TigerVNC/tigervnc/archive/v1.13.1/tigervnc-1.13.1.tar.gz
+wget -nc https://www.x.org/pub/individual/xserver/xorg-server-21.1.6.tar.xz
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/6.0/tigervnc-1.13.1-configuration_fixes-1.patch
 wget -nc https://anduin.linuxfromscratch.org/BLFS/tigervnc/Xsession
 
 
@@ -58,14 +60,14 @@ echo $USER > /tmp/currentuser
 export XORG_PREFIX="/usr"
 export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
 
-patch -Np1 -i ../tigervnc-1.12.0-configuration_fixes-1.patch
+patch -Np1 -i ../tigervnc-1.13.1-configuration_fixes-1.patch
 # Put code in place
 mkdir -p unix/xserver &&
-tar -xf ../xorg-server-1.20.7.tar.bz2 \
+tar -xf ../xorg-server-21.1.6.tar.xz \
     --strip-components=1              \
     -C unix/xserver                   &&
 ( cd unix/xserver &&
-  patch -Np1 -i ../xserver120.patch ) &&
+  patch -Np1 -i ../xserver21.1.1.patch ) &&
 
 # Build viewer
 cmake -G "Unix Makefiles"         \
@@ -124,10 +126,13 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+install -vdm 755 ~/.vnc &&
 cat > ~/.vnc/config << EOF
 # Begin ~/.vnc/config
+# The session must match one listed in /usr/share/xsessions.
+# Ensure that there are no spaces at the end of the lines.
 
-session=LXDE      # The session must match one listed in /usr/share/xsessions.
+session=LXDE
 geometry=1024x768
 
 # End ~/.vnc/config

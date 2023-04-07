@@ -45,6 +45,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
+grep -rl linux/fs modules | xargs sed -i "/linux\/fs/d"
 ./configure --prefix=/usr             \
             --with-mapdir=/etc/autofs \
             --with-libtirpc           \

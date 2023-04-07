@@ -16,8 +16,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=accountsservice
-VERSION=22.07.5
-URL=https://www.freedesktop.org/software/accountsservice/accountsservice-22.07.5.tar.xz
+VERSION=23.13.9
+URL=https://www.freedesktop.org/software/accountsservice/accountsservice-23.13.9.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="The AccountsService package provides a set of D-Bus interfaces for querying and manipulating user account information and an implementation of those interfaces based on the usermod(8), useradd(8) and userdel(8) commands."
 
@@ -25,7 +25,7 @@ DESCRIPTION="The AccountsService package provides a set of D-Bus interfaces for 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.freedesktop.org/software/accountsservice/accountsservice-22.07.5.tar.xz
+wget -nc https://www.freedesktop.org/software/accountsservice/accountsservice-23.13.9.tar.xz
 
 
 if [ ! -z $URL ]
@@ -47,14 +47,14 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i '/PrivateTmp/d' data/accounts-daemon.service.in
+sed -i '/^SIMULATED_SYSTEM_LOCALE/s/en_IE.UTF-8/en_HK.iso88591/' tests/test-daemon.py
 mkdir build &&
 cd build &&
 
-meson --prefix=/usr       \
+meson setup ..            \
+      --prefix=/usr       \
       --buildtype=release \
-      -Dadmin_group=adm   \
-      .. &&
+      -Dadmin_group=adm   &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

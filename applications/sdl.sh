@@ -14,7 +14,7 @@ cd $SOURCE_DIR
 
 NAME=sdl
 VERSION=1.2.15
-URL=https://www.libsdl.org/release/SDL-1.2.15.tar.gz
+URL=https://anduin.linuxfromscratch.org/BLFS/sdl/SDL-1.2.15.tar.gz
 SECTION="Multimedia Libraries and Drivers"
 DESCRIPTION="The Simple DirectMedia Layer (SDL for short) is a cross-platform library designed to make it easy to write multimedia software, such as games and emulators."
 
@@ -22,7 +22,7 @@ DESCRIPTION="The Simple DirectMedia Layer (SDL for short) is a cross-platform li
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.libsdl.org/release/SDL-1.2.15.tar.gz
+wget -nc https://anduin.linuxfromscratch.org/BLFS/sdl/SDL-1.2.15.tar.gz
 
 
 if [ ! -z $URL ]

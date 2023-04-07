@@ -13,15 +13,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=xorg-wacom-driver
-VERSION=1.0.0
-URL=https://github.com/linuxwacom/xf86-input-wacom/releases/download/xf86-input-wacom-1.0.0/xf86-input-wacom-1.0.0.tar.bz2
+VERSION=1.1.0
+URL=https://github.com/linuxwacom/xf86-input-wacom/releases/download/xf86-input-wacom-1.1.0/xf86-input-wacom-1.1.0.tar.bz2
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/linuxwacom/xf86-input-wacom/releases/download/xf86-input-wacom-1.0.0/xf86-input-wacom-1.0.0.tar.bz2
+wget -nc https://github.com/linuxwacom/xf86-input-wacom/releases/download/xf86-input-wacom-1.1.0/xf86-input-wacom-1.1.0.tar.bz2
 
 
 if [ ! -z $URL ]

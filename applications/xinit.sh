@@ -16,8 +16,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=xinit
-VERSION=1.4.1
-URL=https://www.x.org/pub/individual/app/xinit-1.4.1.tar.bz2
+VERSION=1.4.2
+URL=https://www.x.org/pub/individual/app/xinit-1.4.2.tar.xz
 SECTION="Graphical Environments"
 DESCRIPTION="The xinit package contains a usable script to start the xserver."
 
@@ -25,8 +25,8 @@ DESCRIPTION="The xinit package contains a usable script to start the xserver."
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.x.org/pub/individual/app/xinit-1.4.1.tar.bz2
-wget -nc ftp://ftp.x.org/pub/individual/app/xinit-1.4.1.tar.bz2
+wget -nc https://www.x.org/pub/individual/app/xinit-1.4.2.tar.xz
+wget -nc ftp://ftp.x.org/pub/individual/app/xinit-1.4.2.tar.xz
 
 
 if [ ! -z $URL ]

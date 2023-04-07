@@ -7,15 +7,14 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:systemd
 #REQ:x7lib
 
 
 cd $SOURCE_DIR
 
 NAME=dbus
-VERSION=1.12.20
-URL=https://dbus.freedesktop.org/releases/dbus/dbus-1.12.20.tar.gz
+VERSION=1.14.6
+URL=https://dbus.freedesktop.org/releases/dbus/dbus-1.14.6.tar.xz
 SECTION="System Utilities"
 DESCRIPTION="Even though D-Bus was built in LFS, there are some features provided by the package that other BLFS packages need, but their dependencies didn't fit into LFS."
 
@@ -23,7 +22,7 @@ DESCRIPTION="Even though D-Bus was built in LFS, there are some features provide
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://dbus.freedesktop.org/releases/dbus/dbus-1.12.20.tar.gz
+wget -nc https://dbus.freedesktop.org/releases/dbus/dbus-1.14.6.tar.xz
 
 
 if [ ! -z $URL ]
@@ -48,13 +47,12 @@ echo $USER > /tmp/currentuser
 ./configure --prefix=/usr                        \
             --sysconfdir=/etc                    \
             --localstatedir=/var                 \
+            --runstatedir=/run                   \
             --enable-user-session                \
             --disable-doxygen-docs               \
             --disable-xml-docs                   \
             --disable-static                     \
-            --docdir=/usr/share/doc/dbus-1.12.20 \
-            --with-console-auth-dir=/run/console \
-            --with-system-pid-file=/run/dbus/pid \
+            --docdir=/usr/share/doc/dbus-1.14.6  \
             --with-system-socket=/run/dbus/system_bus_socket &&
 make
 sudo rm -rf /tmp/rootscript.sh

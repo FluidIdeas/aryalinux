@@ -23,7 +23,8 @@ mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.python.org/ftp/python/2.7.18/Python-2.7.18.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/5.0/Python-2.7.18-security_fixes-1.patch
+wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/6.0/Python-2.7.18-security_fixes-1.patch
+wget -nc https://www.python.org/ftp/python/doc/2.7.18/python-2.7.18-docs-html.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -64,6 +65,33 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+install -v -dm755 /usr/share/doc/python-2.7.18 &&
+
+tar --strip-components=1                     \
+    --no-same-owner                          \
+    --directory /usr/share/doc/python-2.7.18 \
+    -xvf ../python-2.7.18-docs-html.tar.bz2 &&
+
+find /usr/share/doc/python-2.7.18 -type d -exec chmod 0755 {} \; &&
+find /usr/share/doc/python-2.7.18 -type f -exec chmod 0644 {} \;
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+export PYTHONDOCS=/usr/share/doc/python-2.7.18
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
 
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi

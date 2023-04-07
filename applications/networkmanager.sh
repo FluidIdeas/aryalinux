@@ -25,8 +25,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=networkmanager
-VERSION=1.34.0
-URL=https://download.gnome.org/sources/NetworkManager/1.34/NetworkManager-1.34.0.tar.xz
+VERSION=1.42.4
+URL=https://download.gnome.org/sources/NetworkManager/1.42/NetworkManager-1.42.4.tar.xz
 SECTION="Networking Utilities"
 DESCRIPTION="NetworkManager is a set of co-operative tools that make networking simple and straightforward. Whether you use WiFi, wired, 3G, or Bluetooth, NetworkManager allows you to quickly move from one network to another: Once a network has been configured and joined once, it can be detected and re-joined automatically the next time it's available."
 
@@ -34,8 +34,8 @@ DESCRIPTION="NetworkManager is a set of co-operative tools that make networking 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/NetworkManager/1.34/NetworkManager-1.34.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/NetworkManager/1.34/NetworkManager-1.34.0.tar.xz
+wget -nc https://download.gnome.org/sources/NetworkManager/1.42/NetworkManager-1.42.4.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/NetworkManager/1.42/NetworkManager-1.42.4.tar.xz
 
 
 if [ ! -z $URL ]
@@ -68,7 +68,8 @@ mkdir build &&
 cd    build    &&
 
 CXXFLAGS+="-O2 -fPIC"            \
-meson --prefix=/usr              \
+meson setup ..                   \
+      --prefix=/usr              \
       --buildtype=release        \
       -Dlibaudit=no              \
       -Dlibpsl=false             \
@@ -78,13 +79,34 @@ meson --prefix=/usr              \
       -Dselinux=false            \
       -Dqt=false                 \
       -Dsession_tracking=systemd \
-      -Dmodem_manager=false      \
-      .. &&
+      -Dmodem_manager=false      &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install &&
-mv -v /usr/share/doc/NetworkManager{,-1.34.0}
+mv -v /usr/share/doc/NetworkManager{,-1.42.4}
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+for file in $(echo ../man/*.[1578]); do
+    section=${file##*.} &&
+    install -vdm 755 /usr/share/man/man$section
+    install -vm 644 $file /usr/share/man/man$section/
+done
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+cp -Rv ../docs/{api,libnm} /usr/share/doc/NetworkManager-1.42.4
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

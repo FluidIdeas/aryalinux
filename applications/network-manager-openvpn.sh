@@ -12,15 +12,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=network-manager-openvpn
-VERSION=1.8.14
-URL=https://gitlab.gnome.org/GNOME/NetworkManager-openvpn/-/archive/1.8.14/NetworkManager-openvpn-1.8.14.tar.gz
+VERSION=1.8.10
+URL=https://download.gnome.org/sources/NetworkManager-openvpn/1.8/NetworkManager-openvpn-1.8.10.tar.xz
 DESCRIPTION="Network Manager plugin for openvpn"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://gitlab.gnome.org/GNOME/NetworkManager-openvpn/-/archive/1.8.14/NetworkManager-openvpn-1.8.14.tar.gz
+wget -nc https://download.gnome.org/sources/NetworkManager-openvpn/1.8/NetworkManager-openvpn-1.8.10.tar.xz
 
 
 if [ ! -z $URL ]
@@ -40,7 +40,7 @@ cd $DIRECTORY
 fi
 
 if grep "gnome-desktop-environment" /etc/alps/installed-list &> /dev/null; then WITH_GNOME="--with-gnome"; fi
-./autogen.sh --prefix=/usr --sysconfdir=/etc --localstatedir=/var --without-libnm-glib $WITH_GNOME &&
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --without-libnm-glib $WITH_GNOME &&
 make
 sudo make install
 

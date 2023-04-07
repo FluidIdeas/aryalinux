@@ -51,7 +51,7 @@ groupadd -g 52 dhcpcd        &&
 useradd  -c 'dhcpcd PrivSep' \
          -d /var/lib/dhcpcd  \
          -g dhcpcd           \
-         -s /bin/false     \
+         -s /bin/false       \
          -u 52 dhcpcd &&
 chown    -v dhcpcd:dhcpcd /var/lib/dhcpcd
 ENDOFROOTSCRIPT
@@ -60,6 +60,15 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+sed '/Deny everything else/i SECCOMP_ALLOW(__NR_getrandom),' \
+    -i src/privsep-linux.c
+./configure --prefix=/usr                \
+            --sysconfdir=/etc            \
+            --libexecdir=/usr/lib/dhcpcd \
+            --dbdir=/var/lib/dhcpcd      \
+            --runstatedir=/run           \
+            --disable-privsep         &&
+make
 ./configure --prefix=/usr                \
             --sysconfdir=/etc            \
             --libexecdir=/usr/lib/dhcpcd \

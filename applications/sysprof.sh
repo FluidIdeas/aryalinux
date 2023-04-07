@@ -7,9 +7,13 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:gtk3
+#REQ:desktop-file-utils
+#REQ:gtk4
+#REQ:itstool
 #REQ:json-glib
+#REQ:libadwaita
 #REQ:libdazzle
+#REQ:libunwind
 #REQ:polkit
 #REQ:json-glib
 
@@ -17,8 +21,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=sysprof
-VERSION=3.42.1
-URL=https://download.gnome.org/sources/sysprof/3.42/sysprof-3.42.1.tar.xz
+VERSION=3.46.0
+URL=https://download.gnome.org/sources/sysprof/3.46/sysprof-3.46.0.tar.xz
 SECTION="Programming"
 DESCRIPTION="The sysprof package contains a statistical and system-wide profiler for Linux."
 
@@ -26,8 +30,8 @@ DESCRIPTION="The sysprof package contains a statistical and system-wide profiler
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/sysprof/3.42/sysprof-3.42.1.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/sysprof/3.42/sysprof-3.42.1.tar.xz
+wget -nc https://download.gnome.org/sources/sysprof/3.46/sysprof-3.46.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/sysprof/3.46/sysprof-3.46.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -52,7 +56,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson setup --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

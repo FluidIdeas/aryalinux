@@ -23,15 +23,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=perl-modules#perl-libwww-perl
-VERSION=6.67
-URL=https://www.cpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.67.tar.gz
+VERSION=6.68
+URL=https://www.cpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.68.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.cpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.67.tar.gz
+wget -nc https://www.cpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.68.tar.gz
 
 
 if [ ! -z $URL ]

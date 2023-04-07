@@ -14,8 +14,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libadwaita
-VERSION=1.1.2
-URL=https://download.gnome.org/sources/libadwaita/1.1/libadwaita-1.1.2.tar.xz
+VERSION=1.2.3
+URL=https://download.gnome.org/sources/libadwaita/1.2/libadwaita-1.2.3.tar.xz
 SECTION="Graphical Environment Libraries"
 DESCRIPTION="The libadwaita package provides additional GTK4 UI widgets for use in developing user interfaces. It is used primarily for GNOME applications."
 
@@ -23,8 +23,8 @@ DESCRIPTION="The libadwaita package provides additional GTK4 UI widgets for use 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/libadwaita/1.1/libadwaita-1.1.2.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libadwaita/1.1/libadwaita-1.1.2.tar.xz
+wget -nc https://download.gnome.org/sources/libadwaita/1.2/libadwaita-1.2.3.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libadwaita/1.2/libadwaita-1.2.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -49,7 +49,10 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr --buildtype=release .. &&
+meson setup --prefix=/usr --buildtype=release .. &&
+ninja
+sed "s/apiversion/'1.2.3'/" -i ../doc/meson.build &&
+meson configure -Dgtk_doc=true                    &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

@@ -8,14 +8,15 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:libusb
+#REQ:git
 #REQ:wget
 
 
 cd $SOURCE_DIR
 
 NAME=usbutils
-VERSION=014
-URL=https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-014.tar.xz
+VERSION=015
+URL=https://github.com/gregkh/usbutils/archive/v015/usbutils-015.tar.gz
 SECTION="System Utilities"
 DESCRIPTION="The USB Utils package contains utilities used to display information about USB buses in the system and the devices connected to them."
 
@@ -23,7 +24,7 @@ DESCRIPTION="The USB Utils package contains utilities used to display informatio
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.kernel.org/pub/linux/utils/usb/usbutils/usbutils-014.tar.xz
+wget -nc https://github.com/gregkh/usbutils/archive/v015/usbutils-015.tar.gz
 
 
 if [ ! -z $URL ]
@@ -44,6 +45,8 @@ fi
 
 echo $USER > /tmp/currentuser
 
+
+autoreconf -fiv &&
 
 ./configure --prefix=/usr --datadir=/usr/share/hwdata &&
 make

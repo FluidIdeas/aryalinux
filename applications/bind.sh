@@ -15,17 +15,17 @@ set +h
 cd $SOURCE_DIR
 
 NAME=bind
-VERSION=9.18.0
-URL=https://ftp.isc.org/isc/bind9/9.18.0/bind-9.18.0.tar.xz
+VERSION=9.18.13
+URL=https://ftp.isc.org/isc/bind9/9.18.13/bind-9.18.13.tar.xz
 SECTION="Major Servers"
-DESCRIPTION="The BIND package provides a DNS server and client utilities. If you are only interested in the utilities, refer to the BIND Utilities-9.18.0."
+DESCRIPTION="The BIND package provides a DNS server and client utilities. If you are only interested in the utilities, refer to the BIND Utilities-9.18.13."
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ftp.isc.org/isc/bind9/9.18.0/bind-9.18.0.tar.xz
-wget -nc ftp://ftp.isc.org/isc/bind9/9.18.0/bind-9.18.0.tar.xz
+wget -nc https://ftp.isc.org/isc/bind9/9.18.13/bind-9.18.13.tar.xz
+wget -nc ftp://ftp.isc.org/isc/bind9/9.18.13/bind-9.18.13.tar.xz
 
 
 if [ ! -z $URL ]
@@ -214,7 +214,7 @@ cat > /srv/named/etc/named/root.hints << "EOF"
 .                       6D  IN      NS      M.ROOT-SERVERS.NET.
 A.ROOT-SERVERS.NET.     6D  IN      A       198.41.0.4
 A.ROOT-SERVERS.NET.     6D  IN      AAAA    2001:503:ba3e::2:30
-B.ROOT-SERVERS.NET.     6D  IN      A       192.228.79.201
+B.ROOT-SERVERS.NET.     6D  IN      A       199.9.14.201
 B.ROOT-SERVERS.NET.     6D  IN      AAAA    2001:500:200::b
 C.ROOT-SERVERS.NET.     6D  IN      A       192.33.4.12
 C.ROOT-SERVERS.NET.     6D  IN      AAAA    2001:500:2::c

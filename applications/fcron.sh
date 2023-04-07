@@ -53,6 +53,7 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
+find doc -type f -exec sed -i 's:/usr/local::g' {} \;
 ./configure --prefix=/usr          \
             --sysconfdir=/etc      \
             --localstatedir=/var   \

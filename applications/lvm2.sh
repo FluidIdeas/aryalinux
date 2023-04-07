@@ -13,8 +13,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=lvm2
-VERSION=2.2.03.15
-URL=https://sourceware.org/ftp/lvm2/LVM2.2.03.15.tgz
+VERSION=2.2.03.20
+URL=https://sourceware.org/ftp/lvm2/LVM2.2.03.20.tgz
 SECTION="File Systems and Disk Management"
 DESCRIPTION="The LVM2 package is a set of tools that manage logical partitions. It allows spanning of file systems across multiple physical disks and disk partitions and provides for dynamic growing or shrinking of logical partitions, mirroring and low storage footprint snapshots."
 
@@ -22,8 +22,8 @@ DESCRIPTION="The LVM2 package is a set of tools that manage logical partitions. 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://sourceware.org/ftp/lvm2/LVM2.2.03.15.tgz
-wget -nc ftp://sourceware.org/pub/lvm2/LVM2.2.03.15.tgz
+wget -nc https://sourceware.org/ftp/lvm2/LVM2.2.03.20.tgz
+wget -nc ftp://sourceware.org/pub/lvm2/LVM2.2.03.20.tgz
 
 
 if [ ! -z $URL ]
@@ -55,6 +55,16 @@ sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 make install_systemd_units
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+sed -e '/locking_dir =/{s/#//;s/var/run/}' \
+    -i /etc/lvm/lvm.conf
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh

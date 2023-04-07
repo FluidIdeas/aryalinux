@@ -9,14 +9,15 @@ set +h
 
 #REQ:glib2
 #REQ:alsa-lib
+#REQ:libslirp
 #REQ:sdl2
 
 
 cd $SOURCE_DIR
 
 NAME=qemu
-VERSION=6.2.0
-URL=https://download.qemu-project.org/qemu-6.2.0.tar.xz
+VERSION=7.2.0
+URL=https://download.qemu.org/qemu-7.2.0.tar.xz
 SECTION="Virtualization"
 DESCRIPTION="qemu is a full virtualization solution for Linux on x86 hardware containing virtualization extensions (Intel VT or AMD-V)."
 
@@ -24,7 +25,7 @@ DESCRIPTION="qemu is a full virtualization solution for Linux on x86 hardware co
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.qemu-project.org/qemu-6.2.0.tar.xz
+wget -nc https://download.qemu.org/qemu-7.2.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -46,7 +47,7 @@ fi
 echo $USER > /tmp/currentuser
 
 
-egrep '^flags.*(vmx|svm)' /proc/cpuinfo
+grep -E '^flags.*(vmx|svm)' /proc/cpuinfo
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 usermod -a -G kvm $(cat /tmp/currentuser)
@@ -71,7 +72,8 @@ cd        build &&
              --localstatedir=/var        \
              --target-list=$QEMU_ARCH    \
              --audio-drv-list=alsa       \
-             --docdir=/usr/share/doc/qemu-6.2.0 &&
+             --disable-pa                \
+             --docdir=/usr/share/doc/qemu-7.2.0 &&
 
 unset QEMU_ARCH &&
 

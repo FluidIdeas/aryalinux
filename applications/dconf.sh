@@ -10,6 +10,7 @@ set +h
 #REQ:dbus
 #REQ:glib2
 #REQ:gtk3
+#REQ:libhandy1
 #REQ:libxml2
 #REQ:libxslt
 #REQ:vala
@@ -29,8 +30,8 @@ pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/dconf/0.40/dconf-0.40.0.tar.xz
 wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/dconf/0.40/dconf-0.40.0.tar.xz
-wget -nc https://download.gnome.org/sources/dconf-editor/3.38/dconf-editor-3.38.3.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/dconf-editor/3.38/dconf-editor-3.38.3.tar.xz
+wget -nc https://download.gnome.org/sources/dconf-editor/43/dconf-editor-43.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/dconf-editor/43/dconf-editor-43.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -55,7 +56,10 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr --buildtype=release -Dbash_completion=false .. &&
+meson setup --prefix=/usr           \
+            --buildtype=release     \
+            -Dbash_completion=false \
+            ..                      &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -67,17 +71,13 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 cd ..              &&
-tar -xf ../dconf-editor-3.38.3.tar.xz &&
-cd dconf-editor-3.38.3                &&
-
-sed -e '/  desktop,/d' \
-    -e '/  appdata,/d' \
-    -i editor/meson.build &&
+tar -xf ../dconf-editor-43.0.tar.xz &&
+cd dconf-editor-43.0                &&
 
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr --buildtype=release .. &&
+meson setup --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

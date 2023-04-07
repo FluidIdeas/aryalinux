@@ -8,15 +8,16 @@ set +h
 . /etc/alps/directories.conf
 
 #REQ:evolution-data-server
+#REQ:gcr4
 #REQ:gjs
 #REQ:gnome-autoar
 #REQ:gnome-control-center
 #REQ:gtk4
+#REQ:libgweather
 #REQ:mutter
 #REQ:sassc
 #REQ:startup-notification
 #REQ:systemd
-#REQ:python-modules#asciidoc
 #REQ:desktop-file-utils
 #REQ:gnome-bluetooth
 #REQ:gst10-plugins-base
@@ -25,15 +26,14 @@ set +h
 #REQ:dconf
 #REQ:gdm
 #REQ:gnome-backgrounds
-#REQ:gnome-menus
 #REQ:telepathy-mission-control
 
 
 cd $SOURCE_DIR
 
 NAME=gnome-shell
-VERSION=41.4
-URL=https://download.gnome.org/sources/gnome-shell/41/gnome-shell-41.4.tar.xz
+VERSION=43.3
+URL=https://download.gnome.org/sources/gnome-shell/43/gnome-shell-43.3.tar.xz
 SECTION="GNOME Libraries and Desktop"
 DESCRIPTION="The GNOME Shell is the core user interface of the GNOME Desktop environment."
 
@@ -41,8 +41,8 @@ DESCRIPTION="The GNOME Shell is the core user interface of the GNOME Desktop env
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gnome-shell/41/gnome-shell-41.4.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-shell/41/gnome-shell-41.4.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-shell/43/gnome-shell-43.3.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-shell/43/gnome-shell-43.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -64,11 +64,13 @@ fi
 echo $USER > /tmp/currentuser
 
 
-sed -i '/i18n.merge_file/s/(.*/(/' $(find -name meson.build)
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr --buildtype=release -Dtests=false .. &&
+meson setup --prefix=/usr       \
+            --buildtype=release \
+            -Dtests=false       \
+            ..                  &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

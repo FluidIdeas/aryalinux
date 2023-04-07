@@ -15,8 +15,8 @@ set +h
 cd $SOURCE_DIR
 
 NAME=postfix
-VERSION=3.7.0
-URL=https://ghostarchive.org/postfix/postfix-release/official/postfix-3.7.0.tar.gz
+VERSION=3.7.4
+URL=https://ghostarchive.org/postfix/postfix-release/official/postfix-3.7.4.tar.gz
 SECTION="Mail Server Software"
 DESCRIPTION="The Postfix package contains a Mail Transport Agent (MTA). This is useful for sending email to other users of your host machine. It can also be configured to be a central mail server for your domain, a mail relay agent or simply a mail delivery agent to your local Internet Service Provider."
 
@@ -24,8 +24,8 @@ DESCRIPTION="The Postfix package contains a Mail Transport Agent (MTA). This is 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ghostarchive.org/postfix/postfix-release/official/postfix-3.7.0.tar.gz
-wget -nc ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.7.0.tar.gz
+wget -nc https://ghostarchive.org/postfix/postfix-release/official/postfix-3.7.4.tar.gz
+wget -nc ftp://ftp.porcupine.org/mirrors/postfix-release/official/postfix-3.7.4.tar.gz
 
 
 if [ ! -z $URL ]
@@ -61,6 +61,8 @@ sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
 sed -i 's/.\x08//g' README_FILES/*
+sed -i 's/Linux..345/&6/' makedefs &&
+sed -i 's/LINUX2/LINUX6/' src/util/sys_defs.h
 make CCARGS="-DNO_NIS -DUSE_TLS -I/usr/include/openssl/            \
              -DUSE_SASL_AUTH -DUSE_CYRUS_SASL -I/usr/include/sasl" \
      AUXLIBS="-lssl -lcrypto -lsasl2"                              \
@@ -71,8 +73,8 @@ cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 sh postfix-install -non-interactive \
    daemon_directory=/usr/lib/postfix \
    manpage_directory=/usr/share/man \
-   html_directory=/usr/share/doc/postfix-3.7.0/html \
-   readme_directory=/usr/share/doc/postfix-3.7.0/readme
+   html_directory=/usr/share/doc/postfix-3.7.4/html \
+   readme_directory=/usr/share/doc/postfix-3.7.4/readme
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
@@ -96,25 +98,9 @@ chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
 
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 /usr/sbin/postfix upgrade-configuration
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 /usr/sbin/postfix check &&
 /usr/sbin/postfix start
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 #!/bin/bash

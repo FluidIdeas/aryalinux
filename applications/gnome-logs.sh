@@ -7,16 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:gtk3
+#REQ:gtk4
 #REQ:gsettings-desktop-schemas
 #REQ:itstool
+#REQ:libadwaita
 
 
 cd $SOURCE_DIR
 
 NAME=gnome-logs
-VERSION=3.36.0
-URL=https://download.gnome.org/sources/gnome-logs/3.36/gnome-logs-3.36.0.tar.xz
+VERSION=43.0
+URL=https://download.gnome.org/sources/gnome-logs/43/gnome-logs-43.0.tar.xz
 SECTION="GNOME Applications"
 DESCRIPTION="The GNOME Logs package contains a log viewer for the systemd journal."
 
@@ -24,8 +25,8 @@ DESCRIPTION="The GNOME Logs package contains a log viewer for the systemd journa
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gnome-logs/3.36/gnome-logs-3.36.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-logs/3.36/gnome-logs-3.36.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-logs/43/gnome-logs-43.0.tar.xz
+wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-logs/43/gnome-logs-43.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -50,7 +51,7 @@ echo $USER > /tmp/currentuser
 mkdir build &&
 cd    build &&
 
-meson --prefix=/usr .. &&
+meson setup --prefix=/usr --buildtype=release .. &&
 ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"

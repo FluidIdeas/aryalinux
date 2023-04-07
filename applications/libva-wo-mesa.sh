@@ -13,16 +13,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=libva-wo-mesa
-VERSION=2.13.0
-URL=https://github.com/intel/libva/releases/download/2.13.0/libva-2.13.0.tar.bz2
+VERSION=2.17.0
+URL=https://github.com/intel/libva/releases/download/2.17.0/libva-2.17.0.tar.bz2
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/intel/libva/releases/download/2.13.0/libva-2.13.0.tar.bz2
-wget -nc https://github.com/intel/intel-vaapi-driver/releases/download/2.4.1/intel-vaapi-driver-2.4.1.tar.bz2
+wget -nc https://github.com/intel/libva/releases/download/2.17.0/libva-2.17.0.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -45,19 +44,6 @@ export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disab
 
 echo $USER > /tmp/currentuser
 
-./configure $XORG_CONFIG &&
-make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-tar -xvf ../intel-vaapi-driver-2.4.1.tar.bz2 &&
-cd intel-vaapi-driver-2.4.1
 ./configure $XORG_CONFIG &&
 make
 sudo rm -rf /tmp/rootscript.sh

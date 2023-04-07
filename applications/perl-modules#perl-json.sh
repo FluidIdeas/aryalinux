@@ -12,15 +12,15 @@ set +h
 cd $SOURCE_DIR
 
 NAME=perl-modules#perl-json
-VERSION=4.06
-URL=https://www.cpan.org/authors/id/I/IS/ISHIGAKI/JSON-4.06.tar.gz
+VERSION=4.10
+URL=https://www.cpan.org/authors/id/I/IS/ISHIGAKI/JSON-4.10.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.cpan.org/authors/id/I/IS/ISHIGAKI/JSON-4.06.tar.gz
+wget -nc https://www.cpan.org/authors/id/I/IS/ISHIGAKI/JSON-4.10.tar.gz
 
 
 if [ ! -z $URL ]
