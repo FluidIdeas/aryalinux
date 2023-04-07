@@ -15,7 +15,7 @@ then
 
 cd $SOURCE_DIR
 
-TARBALL="alps-master.tar.bz2"
+TARBALL="alps-new-$OS_VERSION.tar.gz"
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
