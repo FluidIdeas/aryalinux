@@ -40,6 +40,9 @@ DEFAULT_SKIP_PATTERNS = [
     r"^sed -e '/cpython/d'",
     r"^localedef\b",
     r"^grep '\^FAIL:'",
+    r"^ABI=32\b",
+    r"\./configure \.\.\.",
+    r"^awk .*check-log",
 ]
 
 

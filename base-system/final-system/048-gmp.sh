@@ -23,7 +23,6 @@ DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
-ABI=32 ./configure ...
 
 sed -i '/long long t1;/,+1s/()/(...)/' configure
 
@@ -34,8 +33,6 @@ sed -i '/long long t1;/,+1s/()/(...)/' configure
 
 make
 make html
-
-awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log
 
 make install
 make install-html
