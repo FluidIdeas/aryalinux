@@ -39,8 +39,6 @@ cd       build
 
 make tooldir=/usr
 
-grep '^FAIL:' $(find -name '*.log')
-
 make tooldir=/usr install
 
 rm -rfv /usr/lib/lib{bfd,ctf,ctf-nobfd,gprofng,opcodes,sframe}.a \

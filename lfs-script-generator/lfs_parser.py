@@ -39,6 +39,7 @@ DEFAULT_SKIP_PATTERNS = [
     r"^bash tests/run\.sh",
     r"^sed -e '/cpython/d'",
     r"^localedef\b",
+    r"^grep '\^FAIL:'",
 ]
 
 
