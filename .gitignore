@@ -11,6 +11,7 @@ __pycache__/
 base-system/build-properties
 base-system/build-log
 base-system/currentstage
+base-system/saved-kernel.config
 
 # Downloaded source archives and build backups
 *.tar

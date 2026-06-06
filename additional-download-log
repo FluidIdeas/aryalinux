@@ -1,0 +1,126 @@
+--2026-06-07 03:42:26--  https://github.com/dosfstools/dosfstools/releases/download/v4.2/dosfstools-4.2.tar.gz
+Resolving github.com (github.com)... 20.207.73.82
+Connecting to github.com (github.com)|20.207.73.82|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://release-assets.githubusercontent.com/github-production-release-asset/26462150/fdf37080-63cc-11eb-99b7-af9ddb6ae0b1?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-06-06T17%3A20%3A28Z&rscd=attachment%3B+filename%3Ddosfstools-4.2.tar.gz&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-06-06T16%3A19%3A43Z&ske=2026-06-06T17%3A20%3A28Z&sks=b&skv=2018-11-09&sig=Rlt%2BkhXCQekJIGQV24uj7Pw09sDKY0xvvwC6hcynSGw%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4MDc2NDQ0OCwibmJmIjoxNzgwNzY0MTQ4LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.vK4-p_7-avFEjyDOD3bl01Pu9dETj2i19Ga8GCfu7c0&response-content-disposition=attachment%3B%20filename%3Ddosfstools-4.2.tar.gz&response-content-type=application%2Foctet-stream [following]
+--2026-06-07 03:42:27--  https://release-assets.githubusercontent.com/github-production-release-asset/26462150/fdf37080-63cc-11eb-99b7-af9ddb6ae0b1?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-06-06T17%3A20%3A28Z&rscd=attachment%3B+filename%3Ddosfstools-4.2.tar.gz&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-06-06T16%3A19%3A43Z&ske=2026-06-06T17%3A20%3A28Z&sks=b&skv=2018-11-09&sig=Rlt%2BkhXCQekJIGQV24uj7Pw09sDKY0xvvwC6hcynSGw%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc4MDc2NDQ0OCwibmJmIjoxNzgwNzY0MTQ4LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.vK4-p_7-avFEjyDOD3bl01Pu9dETj2i19Ga8GCfu7c0&response-content-disposition=attachment%3B%20filename%3Ddosfstools-4.2.tar.gz&response-content-type=application%2Foctet-stream
+Resolving release-assets.githubusercontent.com (release-assets.githubusercontent.com)... 185.199.108.133, 185.199.109.133, 185.199.110.133, ...
+Connecting to release-assets.githubusercontent.com (release-assets.githubusercontent.com)|185.199.108.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 320917 (313K) [application/octet-stream]
+Saving to: ‘dosfstools-4.2.tar.gz’
+
+     0K .......... .......... .......... .......... .......... 15%  862K 0s
+    50K .......... .......... .......... .......... .......... 31% 1.42M 0s
+   100K .......... .......... .......... .......... .......... 47% 2.04M 0s
+   150K .......... .......... .......... .......... .......... 63% 1.44M 0s
+   200K .......... .......... .......... .......... .......... 79% 2.55M 0s
+   250K .......... .......... .......... .......... .......... 95% 2.39M 0s
+   300K .......... ...                                        100% 5.58M=0.2s
+
+2026-06-07 03:42:28 (1.59 MB/s) - ‘dosfstools-4.2.tar.gz’ saved [320917/320917]
+
+--2026-06-07 03:42:28--  https://ftpmirror.gnu.org/which/which-2.23.tar.gz
+Resolving ftpmirror.gnu.org (ftpmirror.gnu.org)... 2001:470:142:5::200, 209.51.188.200
+Connecting to ftpmirror.gnu.org (ftpmirror.gnu.org)|2001:470:142:5::200|:443... connected.
+HTTP request sent, awaiting response... 302 Moved Temporarily
+Location: https://mirrors.hopbox.net/gnu/which/which-2.23.tar.gz [following]
+--2026-06-07 03:42:31--  https://mirrors.hopbox.net/gnu/which/which-2.23.tar.gz
+Resolving mirrors.hopbox.net (mirrors.hopbox.net)... 180.151.236.94
+Connecting to mirrors.hopbox.net (mirrors.hopbox.net)|180.151.236.94|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 201930 (197K) [application/octet-stream]
+Saving to: ‘which-2.23.tar.gz’
+
+     0K .......... .......... .......... .......... .......... 25%  816K 0s
+    50K .......... .......... .......... .......... .......... 50% 1.11M 0s
+   100K .......... .......... .......... .......... .......... 76% 3.30M 0s
+   150K .......... .......... .......... .......... .......   100% 1.45M=0.2s
+
+2026-06-07 03:42:32 (1.27 MB/s) - ‘which-2.23.tar.gz’ saved [201930/201930]
+
+--2026-06-07 03:42:32--  http://deb.debian.org/debian/pool/main/o/os-prober/os-prober_1.84.tar.xz
+Resolving deb.debian.org (deb.debian.org)... 2a04:4e42:fea::644, 2a04:4e42:fe7::644, 167.82.58.132, ...
+Connecting to deb.debian.org (deb.debian.org)|2a04:4e42:fea::644|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 27772 (27K) [application/x-xz]
+Saving to: ‘os-prober_1.84.tar.xz’
+
+     0K .......... .......... .......                         100% 1.86M=0.01s
+
+2026-06-07 03:42:32 (1.86 MB/s) - ‘os-prober_1.84.tar.xz’ saved [27772/27772]
+
+--2026-06-07 03:42:32--  https://github.com/rhboot/efivar/archive/39/efivar-39.tar.gz
+Resolving github.com (github.com)... 20.207.73.82
+Connecting to github.com (github.com)|20.207.73.82|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://codeload.github.com/rhboot/efivar/tar.gz/refs/tags/39 [following]
+--2026-06-07 03:42:33--  https://codeload.github.com/rhboot/efivar/tar.gz/refs/tags/39
+Resolving codeload.github.com (codeload.github.com)... 20.207.73.88
+Connecting to codeload.github.com (codeload.github.com)|20.207.73.88|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [application/x-gzip]
+Saving to: ‘efivar-39.tar.gz’
+
+     0K .......... .......... .......... .......... ..........  287K
+    50K .......... .......... .......... .......... ..........  335K
+   100K .......... .......... .......... .......... .......... 42.1M
+   150K .......... .......... .......... .......... ..........  680K
+   200K .......... .......... .......... .......... .......... 8.57M
+   250K .......... .......... .......... .......... .......... 8.81M
+   300K .......... .......... .......... .......... ..........  859K
+   350K .......... .......... .......... .......... .......... 4.51M
+   400K .......... .......... .......... .......... .......... 8.53M
+   450K ..                                                     35.2M=0.5s
+
+2026-06-07 03:42:35 (935 KB/s) - ‘efivar-39.tar.gz’ saved [463349]
+
+--2026-06-07 03:42:35--  https://github.com/rhboot/efibootmgr/archive/18/efibootmgr-18.tar.gz
+Resolving github.com (github.com)... 20.207.73.82
+Connecting to github.com (github.com)|20.207.73.82|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://codeload.github.com/rhboot/efibootmgr/tar.gz/refs/tags/18 [following]
+--2026-06-07 03:42:36--  https://codeload.github.com/rhboot/efibootmgr/tar.gz/refs/tags/18
+Resolving codeload.github.com (codeload.github.com)... 20.207.73.88
+Connecting to codeload.github.com (codeload.github.com)|20.207.73.88|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [application/x-gzip]
+Saving to: ‘efibootmgr-18.tar.gz’
+
+     0K .......... .......... .......... .......... ....        283K=0.2s
+
+2026-06-07 03:42:37 (283 KB/s) - ‘efibootmgr-18.tar.gz’ saved [45220]
+
+--2026-06-07 03:42:37--  https://ftp.osuosl.org/pub/rpm/popt/releases/popt-1.x/popt-1.19.tar.gz
+Resolving ftp.osuosl.org (ftp.osuosl.org)... 2605:bc80:3010::134, 2600:3404:200:237::2, 2600:3402:200:227::2, ...
+Connecting to ftp.osuosl.org (ftp.osuosl.org)|2605:bc80:3010::134|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 596676 (583K) [application/x-gzip]
+Saving to: ‘popt-1.19.tar.gz’
+
+     0K .......... .......... .......... .......... ..........  8% 62.1K 9s
+    50K .......... .......... .......... .......... .......... 17% 78.6K 7s
+   100K .......... .......... .......... .......... .......... 25% 25.4K 10s
+   150K .......... .......... .......... .......... .......... 34% 24.6K 10s
+   200K .......... .......... .......... .......... .......... 42%  137K 8s
+   250K .......... .......... .......... .......... .......... 51% 55.4K 6s
+   300K .......... .......... .......... .......... .......... 60% 81.7M 4s
+   350K .......... .......... .......... .......... .......... 68% 64.8K 3s
+   400K .......... .......... .......... .......... .......... 77% 45.7K 3s
+   450K .......... .......... .......... .......... .......... 85% 41.1K 2s
+   500K .......... .......... .......... .......... .......... 94% 44.0K 1s
+   550K .......... .......... .......... ..                   100%  101K=11s
+
+2026-06-07 03:42:52 (51.8 KB/s) - ‘popt-1.19.tar.gz’ saved [596676/596676]
+
+--2026-06-07 03:42:52--  https://ftpmirror.gnu.org/nettle/nettle-3.10.2.tar.gz
+Resolving ftpmirror.gnu.org (ftpmirror.gnu.org)... 2001:470:142:5::200, 209.51.188.200
+Connecting to ftpmirror.gnu.org (ftpmirror.gnu.org)|2001:470:142:5::200|:443... connected.
+HTTP request sent, awaiting response... 302 Moved Temporarily
+Location: https://mirrors.ustc.edu.cn/gnu/nettle/nettle-3.10.2.tar.gz [following]
+--2026-06-07 03:42:54--  https://mirrors.ustc.edu.cn/gnu/nettle/nettle-3.10.2.tar.gz
+Resolving mirrors.ustc.edu.cn (mirrors.ustc.edu.cn)... 2001:da8:d800:95::110, 202.38.95.110
+Connecting to mirrors.ustc.edu.cn (mirrors.ustc.edu.cn)|2001:da8:d800:95::110|:443... connected.
+HTTP request sent, awaiting response... 403 Forbidden
+2026-06-07 03:42:57 ERROR 403: Forbidden.
+

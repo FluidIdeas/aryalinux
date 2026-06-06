@@ -92,4 +92,5 @@ Stage scripts (`stage4.sh`, `stage7.sh`, `ubuntu-pre.sh`, extras) are maintained
 
 - Host **Binutils** should be ≤ 2.46.0 per LFS 13.0; newer distros may need verification.
 - After renumbering final-system scripts, start a **fresh** build rather than resuming an old tree.
+- **Kernel config** is derived at build time from the running host (`/proc/config.gz`, then `make olddefconfig` and `make localmodconfig`), with LFS 13.0 and AryaLinux options applied in `kernel-config.sh`. Use `./configure-kernel.sh` on the host to review or tweak settings interactively.
 - `build-properties`, `build-log`, and downloaded tarballs under `~/sources` are local build artifacts (see repo `.gitignore`).
