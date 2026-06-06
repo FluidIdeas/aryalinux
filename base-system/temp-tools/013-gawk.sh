@@ -6,6 +6,11 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
+if [ "x$MULTICORE" == "xy" ] || [ "x$MULTICORE" == "xY" ]
+then
+	export MAKEFLAGS="-j `nproc`"
+fi
+
 NAME=013-gawk
 
 touch /sources/build-log
@@ -13,18 +18,19 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=gawk-5.2.1.tar.xz
+TARBALL=gawk-5.3.2.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
-
-
 sed -i 's/extras//' Makefile.in
+
 ./configure --prefix=/usr   \
             --host=$LFS_TGT \
             --build=$(build-aux/config.guess)
+
 make
+
 make DESTDIR=$LFS install
 
 fi

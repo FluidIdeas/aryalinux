@@ -1,0 +1,29 @@
+{
+  "lfs_book_version": "13.0",
+  "os": {
+    "name": "AryaLinux",
+    "version": "2026.06",
+    "codename": "Lazarus",
+    "domain": "aryalinux.com"
+  },
+  "locale": "en_IN.utf8",
+  "keyboard": "us",
+  "paper_size": "A4",
+  "user": {
+    "full_name": "AryaLinux",
+    "username": "aryalinux",
+    "hostname": "aryalinux",
+    "password": "aryalinux"
+  },
+  "build_options": {
+    "multicore": "y",
+    "create_backups": "n",
+    "install_xserver": "n",
+    "install_desktop_environment": "n",
+    "desktop_environment": "2",
+    "install_bootloader": "y",
+    "create_live_iso": "y",
+    "format_home": "n",
+    "format_swap": "n"
+  }
+}

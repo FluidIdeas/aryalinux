@@ -1,0 +1,46 @@
+#!/bin/bash
+
+set -e
+set +h
+
+. /sources/build-properties
+. /sources/build-functions
+
+if [ "x$MULTICORE" == "xy" ] || [ "x$MULTICORE" == "xY" ]
+then
+	export MAKEFLAGS="-j `nproc`"
+fi
+
+NAME=048-gmp
+
+touch /sources/build-log
+if ! grep "$NAME" /sources/build-log; then
+
+cd /sources
+
+TARBALL=gmp-6.3.0.tar.xz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
+
+tar xf $TARBALL
+cd $DIRECTORY
+ABI=32 ./configure ...
+
+sed -i '/long long t1;/,+1s/()/(...)/' configure
+
+./configure --prefix=/usr    \
+            --enable-cxx     \
+            --disable-static \
+            --docdir=/usr/share/doc/gmp-6.3.0
+
+make
+make html
+
+awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log
+
+make install
+make install-html
+
+fi
+
+cleanup $DIRECTORY
+log $NAME

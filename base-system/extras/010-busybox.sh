@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="010-busybox.sh"
-TARBALL="busybox-1.32.1.tar.bz2"
+TARBALL="busybox-1.36.1.tar.bz2"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -22,32 +22,20 @@ then
 
 cd $SOURCE_DIR
 
-if [ "$TARBALL" != "" ]
-then
-	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
-	tar xf $TARBALL
-	cd $DIRECTORY
-fi
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
+tar xf $TARBALL
+cd $DIRECTORY
 
 make defconfig
 sed 's/# CONFIG_STATIC is not set/CONFIG_STATIC=y/' -i .config
-
-sed 's/CONFIG_FEATURE_HAVE_RPC=y/# CONFIG_FEATURE_HAVE_RPC is not set/' \
-        -i .config
-sed 's/CONFIG_FEATURE_MOUNT_NFS=y/# CONFIG_FEATURE_MOUNT_NFS is not set/' \
-        -i .config
-sed 's/CONFIG_FEATURE_INETD_RPC=y/# CONFIG_FEATURE_INETD_RPC is not set/' \
-        -i .config
-make "-j`nproc`" || echo "..." >> $INSTALLED_LIST && make
+sed 's/CONFIG_FEATURE_HAVE_RPC=y/# CONFIG_FEATURE_HAVE_RPC is not set/' -i .config
+sed 's/CONFIG_FEATURE_MOUNT_NFS=y/# CONFIG_FEATURE_MOUNT_NFS is not set/' -i .config
+sed 's/CONFIG_FEATURE_INETD_RPC=y/# CONFIG_FEATURE_INETD_RPC is not set/' -i .config
+make
 cp -v busybox /bin
 
-
 cd $SOURCE_DIR
-if [ "$TARBALL" != "" ]
-then
-	rm -rf $DIRECTORY
-	rm -rf {gcc,glibc,binutils}-build
-fi
+rm -rf $DIRECTORY
 
 echo "$STEPNAME" | tee -a $LOGFILE
 

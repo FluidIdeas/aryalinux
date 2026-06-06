@@ -6,6 +6,11 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
+if [ "x$MULTICORE" == "xy" ] || [ "x$MULTICORE" == "xY" ]
+then
+	export MAKEFLAGS="-j `nproc`"
+fi
+
 NAME=018-sed
 
 touch /sources/build-log
@@ -18,11 +23,12 @@ DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
-
-
 ./configure --prefix=/usr   \
-            --host=$LFS_TGT
+            --host=$LFS_TGT \
+            --build=$(./build-aux/config.guess)
+
 make
+
 make DESTDIR=$LFS install
 
 fi

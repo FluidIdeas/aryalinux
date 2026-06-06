@@ -6,6 +6,11 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
+if [ "x$MULTICORE" == "xy" ] || [ "x$MULTICORE" == "xY" ]
+then
+	export MAKEFLAGS="-j `nproc`"
+fi
+
 NAME=021-binutils-pass2
 
 touch /sources/build-log
@@ -13,16 +18,16 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=binutils-2.40.tar.xz
+TARBALL=binutils-2.46.0.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
+sed '6031s/$add_dir//' -i ltmain.sh
 
-
-sed '6009s/$add_dir//' -i ltmain.sh
 mkdir -v build
 cd       build
+
 ../configure                   \
     --prefix=/usr              \
     --build=$(../config.guess) \
@@ -31,10 +36,15 @@ cd       build
     --enable-shared            \
     --enable-gprofng=no        \
     --disable-werror           \
-    --enable-64-bit-bfd
+    --enable-64-bit-bfd        \
+    --enable-new-dtags         \
+    --enable-default-hash-style=gnu
+
 make
+
 make DESTDIR=$LFS install
-rm -v $LFS/usr/lib/lib{bfd,ctf,ctf-nobfd,opcodes}.{a,la}
+
+rm -v $LFS/usr/lib/lib{bfd,ctf,ctf-nobfd,opcodes,sframe}.{a,la}
 
 fi
 

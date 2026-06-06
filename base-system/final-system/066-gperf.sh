@@ -1,0 +1,35 @@
+#!/bin/bash
+
+set -e
+set +h
+
+. /sources/build-properties
+. /sources/build-functions
+
+if [ "x$MULTICORE" == "xy" ] || [ "x$MULTICORE" == "xY" ]
+then
+	export MAKEFLAGS="-j `nproc`"
+fi
+
+NAME=066-gperf
+
+touch /sources/build-log
+if ! grep "$NAME" /sources/build-log; then
+
+cd /sources
+
+TARBALL=gperf-3.3.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
+
+tar xf $TARBALL
+cd $DIRECTORY
+./configure --prefix=/usr --docdir=/usr/share/doc/gperf-3.3
+
+make
+
+make install
+
+fi
+
+cleanup $DIRECTORY
+log $NAME

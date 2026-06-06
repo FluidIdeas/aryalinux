@@ -6,6 +6,11 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
+if [ "x$MULTICORE" == "xy" ] || [ "x$MULTICORE" == "xY" ]
+then
+	export MAKEFLAGS="-j `nproc`"
+fi
+
 NAME=010-diffutils
 
 touch /sources/build-log
@@ -13,15 +18,18 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=diffutils-3.9.tar.xz
+TARBALL=diffutils-3.12.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
+./configure --prefix=/usr   \
+            --host=$LFS_TGT \
+            gl_cv_func_strcasecmp_works=y \
+            --build=$(./build-aux/config.guess)
 
-
-./configure --prefix=/usr --host=$LFS_TGT
 make
+
 make DESTDIR=$LFS install
 
 fi

@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="003-os-prober.sh"
-TARBALL="os-prober_1.79.tar.xz"
+TARBALL="os-prober_1.84.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -22,12 +22,9 @@ then
 
 cd $SOURCE_DIR
 
-if [ "$TARBALL" != "" ]
-then
-	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
-	tar xf $TARBALL
-	cd $DIRECTORY
-fi
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
+tar xf $TARBALL
+cd $DIRECTORY
 
 make
 mkdir -pv /usr/{lib,share}/os-prober
@@ -49,13 +46,8 @@ cp -vR os-probes/mounted/x86/*    /usr/lib/os-probes/mounted
 
 mkdir -pv /var/lib/os-prober
 
-
 cd $SOURCE_DIR
-if [ "$TARBALL" != "" ]
-then
-	rm -rf $DIRECTORY
-	rm -rf {gcc,glibc,binutils}-build
-fi
+rm -rf $DIRECTORY
 
 echo "$STEPNAME" | tee -a $LOGFILE
 

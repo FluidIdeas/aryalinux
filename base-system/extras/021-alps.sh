@@ -5,7 +5,11 @@ set +h
 
 . /sources/build-properties
 
-export MAKEFLAGS="-j `nproc`"
+if [ "x$MULTICORE" == "xy" ] || [ "x$MULTICORE" == "xY" ]
+then
+	export MAKEFLAGS="-j `nproc`"
+fi
+
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="021-alps.sh"
@@ -13,25 +17,20 @@ STEPNAME="021-alps.sh"
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null
 then
 
-cd $SOURCE_DIR
+cd /sources
 
 TARBALL="alps-new-$OS_VERSION.tar.gz"
-DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
-tar xf $TARBALL
-cd $DIRECTORY
-
-rm -rf LICENSE
-rm -rf README.md
-cp -r * /
+mkdir -pv alps-extract
+tar xf $TARBALL -C alps-extract
+cp -r alps-extract/* /
 chmod a+x /var/lib/alps/*.sh
 chmod a+x /usr/bin/alps
 
-cd $SOURCE_DIR
-rm -rf $DIRECTORY
+rm -rf alps-extract
 
 mkdir -pv /var/cache/alps/{sources,scripts,binaries}
-tar xf alps-scripts*.tar.gz -C /var/cache/alps/scripts/
+tar xf alps-scripts-$OS_VERSION.tar.gz -C /var/cache/alps/scripts/
 chmod a+rw /var/cache/alps/{sources,binaries}
 
 echo "$STEPNAME" | tee -a $LOGFILE

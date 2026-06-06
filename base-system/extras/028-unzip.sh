@@ -22,25 +22,16 @@ then
 
 cd $SOURCE_DIR
 
-if [ "$TARBALL" != "" ]
-then
-	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
-	tar xf $TARBALL
-	cd $DIRECTORY
-fi
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
+tar xf $TARBALL
+cd $DIRECTORY
 
-patch -Np1 -i ../unzip-6.0-consolidated_fixes-1.patch
+patch -Np1 -i ../patches/unzip-6.0-consolidated_fixes-1.patch
 make -f unix/Makefile generic
-make prefix=/usr MANDIR=/usr/share/man/man1 \
- -f unix/Makefile install
-
+make prefix=/usr MANDIR=/usr/share/man/man1 -f unix/Makefile install
 
 cd $SOURCE_DIR
-if [ "$TARBALL" != "" ]
-then
-	rm -rf $DIRECTORY
-	rm -rf {gcc,glibc,binutils}-build
-fi
+rm -rf $DIRECTORY
 
 echo "$STEPNAME" | tee -a $LOGFILE
 

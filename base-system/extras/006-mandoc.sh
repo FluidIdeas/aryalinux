@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="006-mandoc.sh"
-TARBALL="mdocml_1.14.6.orig.tar.gz"
+TARBALL="mandoc-1.14.6.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -22,26 +22,16 @@ then
 
 cd $SOURCE_DIR
 
-if [ "$TARBALL" != "" ]
-then
-	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
-	tar xf $TARBALL
-	cd $DIRECTORY
-fi
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
+tar xf $TARBALL
+cd $DIRECTORY
 
 ./configure
 make
-make install
-	PREFIX=/usr \
-	LIBDIR=/usr/lib
-
+make install PREFIX=/usr LIBDIR=/usr/lib
 
 cd $SOURCE_DIR
-if [ "$TARBALL" != "" ]
-then
-	rm -rf $DIRECTORY
-	rm -rf {gcc,glibc,binutils}-build
-fi
+rm -rf $DIRECTORY
 
 echo "$STEPNAME" | tee -a $LOGFILE
 

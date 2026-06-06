@@ -7,56 +7,43 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
 
 NAME=grub-setup
-
-
 SECTION="File Systems and Disk Management"
-
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-
-
-if [ ! -z $URL ]
-then
-
-TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
-if [ -z $(echo $TARBALL | grep ".zip$") ]; then
-	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
-	sudo rm -rf $DIRECTORY
-	tar --no-overwrite-dir -xf $TARBALL
-else
-	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
-	unzip_file $TARBALL $NAME
+if [ -f /etc/aryalinux/build-settings ]; then
+	. /etc/aryalinux/build-settings
 fi
 
-cd $DIRECTORY
+if [ -z "$EFI_PART" ]; then
+	read -e -p "EFI System Partition [/dev/sda1]: " EFI_PART
+	EFI_PART=${EFI_PART:-/dev/sda1}
 fi
 
-echo $USER > /tmp/currentuser
+BOOTLOADER_ID="${OS_NAME:-AryaLinux} ${OS_VERSION:-} ${OS_CODENAME:-}"
 
+mkdir -pv /boot/efi
+if ! mountpoint -q /boot/efi; then
+	mount -v -t vfat "$EFI_PART" -o codepage=437,iocharset=iso8859-1 /boot/efi
+fi
 
-mkfs.vfat /dev/sdx1
-fdisk /dev/sdx
-mkdir -pv /mnt/rescue &&
-mount -v -t vfat /dev/sdx1 /mnt/rescue
-grub-install --target=x86_64-efi --removable --efi-directory=/mnt/rescue --boot-directory=/mnt/rescue
-umount /mnt/rescue
-fdisk -l /dev/sda
-mkdir -pv /boot/efi &&
-mount -v -t vfat /dev/sda1 /boot/efi
-cat >> /etc/fstab << EOF
-grub-install --target=x86_64-efi --removable
-mountpoint /sys/firmware/efi/efivars || mount -v -t efivarfs efivarfs /sys/firmware/efi/efivars
-grub-install --bootloader-id=LFS --recheck
-cat > /boot/grub/grub.cfg << EOF
-cat >> /boot/grub/grub.cfg << EOF
+if ! grep -q '/boot/efi' /etc/fstab; then
+	EFI_PART_UUID=$(blkid -s UUID -o value "$EFI_PART")
+	cat >> /etc/fstab << EOF
+UUID=$EFI_PART_UUID  /boot/efi  vfat  defaults  0  1
+efivarfs  /sys/firmware/efi/efivars  efivarfs  defaults  0  1
+EOF
+fi
 
+mountpoint /sys/firmware/efi/efivars || \
+	mount -v -t efivarfs efivarfs /sys/firmware/efi/efivars
+
+grub-install --bootloader-id="$BOOTLOADER_ID" --recheck
+grub-mkconfig -o /boot/grub/grub.cfg
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

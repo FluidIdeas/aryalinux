@@ -1,0 +1,36 @@
+#!/usr/bin/env python3
+
+import sys
+sys.path.append('/var/lib/alps')
+from config import load_config
+from deps import required_deps
+from deps import recommended_deps
+from deps import optional_deps
+from deps import all_deps
+from deps import dep_chain
+from deps import load_installed
+from deps import dep_chain_status
+from console import print_status
+from console import prompt_choice
+from console import menu
+import operations
+import misc
+
+try:
+	config_path = '/etc/alps/alps.conf'
+	config = load_config(config_path)
+
+	params_and_opts = misc.params_and_opts(sys.argv)
+
+	if len(sys.argv) < 2 or sys.argv[1] == '--help':
+		misc.print_help(config)
+		exit()
+
+	if len(params_and_opts[0]) < 2:
+		misc.print_help(config)
+		exit()
+	cmd = params_and_opts[0][1]
+	operations.run_cmd(cmd, params_and_opts, config)
+except KeyboardInterrupt:
+	misc.abnormal_exit()
+

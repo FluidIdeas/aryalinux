@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="006-efivar.sh"
-TARBALL="efivar-38.tar.bz2"
+TARBALL="efivar-39.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -22,28 +22,19 @@ then
 
 cd $SOURCE_DIR
 
-if [ "$TARBALL" != "" ]
-then
-	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
-	tar xf $TARBALL
-	cd $DIRECTORY
-fi
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
+tar xf $TARBALL
+cd $DIRECTORY
 
-make libdir="/usr/lib/" bindir="/usr/bin/" \
-	mandir="/usr/share/man/"     \
-	includedir="/usr/include/" V=1 -j1
-
-make -j1 V=1 DESTDIR="${pkgdir}/" libdir="/usr/lib/" \
-	bindir="/usr/bin/" mandir="/usr/share/man"   \
-	includedir="/usr/include/" install
-
+patch -Np1 -i ../patches/efivar-39-upstream_fixes-1.patch
+make ENABLE_DOCS=0
+make install ENABLE_DOCS=0 LIBDIR=/usr/lib
+install -vm644 docs/efivar.1 /usr/share/man/man1
+install -vm644 docs/efisecdb.1 /usr/share/man/man1
+install -vm644 docs/efisecdb.8 /usr/share/man/man8
 
 cd $SOURCE_DIR
-if [ "$TARBALL" != "" ]
-then
-	rm -rf $DIRECTORY
-	rm -rf {gcc,glibc,binutils}-build
-fi
+rm -rf $DIRECTORY
 
 echo "$STEPNAME" | tee -a $LOGFILE
 

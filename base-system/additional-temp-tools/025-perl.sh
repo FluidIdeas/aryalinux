@@ -6,6 +6,11 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
+if [ "x$MULTICORE" == "xy" ] || [ "x$MULTICORE" == "xY" ]
+then
+	export MAKEFLAGS="-j `nproc`"
+fi
+
 NAME=025-perl
 
 touch /sources/build-log
@@ -13,23 +18,24 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=perl-5.36.0.tar.xz
+TARBALL=perl-5.42.0.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
+sh Configure -des                                         \
+             -D prefix=/usr                               \
+             -D vendorprefix=/usr                         \
+             -D useshrplib                                \
+             -D privlib=/usr/lib/perl5/5.42/core_perl     \
+             -D archlib=/usr/lib/perl5/5.42/core_perl     \
+             -D sitelib=/usr/lib/perl5/5.42/site_perl     \
+             -D sitearch=/usr/lib/perl5/5.42/site_perl    \
+             -D vendorlib=/usr/lib/perl5/5.42/vendor_perl \
+             -D vendorarch=/usr/lib/perl5/5.42/vendor_perl
 
-
-sh Configure -des                                        \
-             -Dprefix=/usr                               \
-             -Dvendorprefix=/usr                         \
-             -Dprivlib=/usr/lib/perl5/5.36/core_perl     \
-             -Darchlib=/usr/lib/perl5/5.36/core_perl     \
-             -Dsitelib=/usr/lib/perl5/5.36/site_perl     \
-             -Dsitearch=/usr/lib/perl5/5.36/site_perl    \
-             -Dvendorlib=/usr/lib/perl5/5.36/vendor_perl \
-             -Dvendorarch=/usr/lib/perl5/5.36/vendor_perl
 make
+
 make install
 
 fi

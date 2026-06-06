@@ -22,27 +22,19 @@ then
 
 cd $SOURCE_DIR
 
-if [ "$TARBALL" != "" ]
-then
-	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
-	tar xf $TARBALL
-	cd $DIRECTORY
-fi
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
+tar xf $TARBALL
+cd $DIRECTORY
 
-./configure --prefix=/               \
+./configure --prefix=/usr            \
             --enable-compat-symlinks \
             --mandir=/usr/share/man  \
-            --docdir=/usr/share/doc/dosfstools-4.1 &&
+            --docdir=/usr/share/doc/dosfstools-4.2
 make
 make install
 
-
 cd $SOURCE_DIR
-if [ "$TARBALL" != "" ]
-then
-	rm -rf $DIRECTORY
-	rm -rf {gcc,glibc,binutils}-build
-fi
+rm -rf $DIRECTORY
 
 echo "$STEPNAME" | tee -a $LOGFILE
 

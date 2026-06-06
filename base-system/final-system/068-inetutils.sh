@@ -1,0 +1,48 @@
+#!/bin/bash
+
+set -e
+set +h
+
+. /sources/build-properties
+. /sources/build-functions
+
+if [ "x$MULTICORE" == "xy" ] || [ "x$MULTICORE" == "xY" ]
+then
+	export MAKEFLAGS="-j `nproc`"
+fi
+
+NAME=068-inetutils
+
+touch /sources/build-log
+if ! grep "$NAME" /sources/build-log; then
+
+cd /sources
+
+TARBALL=inetutils-2.7.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
+
+tar xf $TARBALL
+cd $DIRECTORY
+sed -i 's/def HAVE_TERMCAP_TGETENT/ 1/' telnet/telnet.c
+
+./configure --prefix=/usr        \
+            --bindir=/usr/bin    \
+            --localstatedir=/var \
+            --disable-logger     \
+            --disable-whois      \
+            --disable-rcp        \
+            --disable-rexec      \
+            --disable-rlogin     \
+            --disable-rsh        \
+            --disable-servers
+
+make
+
+make install
+
+mv -v /usr/{,s}bin/ifconfig
+
+fi
+
+cleanup $DIRECTORY
+log $NAME

@@ -186,7 +186,7 @@ then
     sed -i "s@user-session=$autologin_session@#user-session=default@g" $LFS/etc/lightdm/lightdm.conf
     sed -i "s@autologin-guest=false@#autologin-guest=false@g" $LFS/etc/lightdm/lightdm.conf
 else
-    rm -fv /etc/systemd/system/getty@tty1.service.d/override.conf
+    rm -fv $LFS/etc/systemd/system/getty@tty1.service.d/override.conf
 fi
 
 chroot "$LFS" /usr/bin/env -i              \

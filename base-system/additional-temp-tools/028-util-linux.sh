@@ -6,6 +6,11 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
+if [ "x$MULTICORE" == "xy" ] || [ "x$MULTICORE" == "xY" ]
+then
+	export MAKEFLAGS="-j `nproc`"
+fi
+
 NAME=028-util-linux
 
 touch /sources/build-log
@@ -13,28 +18,30 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=util-linux-2.38.1.tar.xz
+TARBALL=util-linux-2.41.3.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
-
-
 mkdir -pv /var/lib/hwclock
-./configure ADJTIME_PATH=/var/lib/hwclock/adjtime    \
-            --libdir=/usr/lib    \
-            --docdir=/usr/share/doc/util-linux-2.38.1 \
-            --disable-chfn-chsh  \
-            --disable-login      \
-            --disable-nologin    \
-            --disable-su         \
-            --disable-setpriv    \
-            --disable-runuser    \
-            --disable-pylibmount \
-            --disable-static     \
-            --without-python     \
-            runstatedir=/run
+
+./configure --libdir=/usr/lib     \
+            --runstatedir=/run    \
+            --disable-chfn-chsh   \
+            --disable-login       \
+            --disable-nologin     \
+            --disable-su          \
+            --disable-setpriv     \
+            --disable-runuser     \
+            --disable-pylibmount  \
+            --disable-static      \
+            --disable-liblastlog2 \
+            --without-python      \
+            ADJTIME_PATH=/var/lib/hwclock/adjtime \
+            --docdir=/usr/share/doc/util-linux-2.41.3
+
 make
+
 make install
 
 fi

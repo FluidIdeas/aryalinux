@@ -6,6 +6,11 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
+if [ "x$MULTICORE" == "xy" ] || [ "x$MULTICORE" == "xY" ]
+then
+	export MAKEFLAGS="-j `nproc`"
+fi
+
 NAME=023-gettext
 
 touch /sources/build-log
@@ -13,15 +18,15 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=gettext-0.21.1.tar.xz
+TARBALL=gettext-1.0.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
-
-
 ./configure --disable-shared
+
 make
+
 cp -v gettext-tools/src/{msgfmt,msgmerge,xgettext} /usr/bin
 
 fi

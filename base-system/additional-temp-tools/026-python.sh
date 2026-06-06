@@ -6,6 +6,11 @@ set +h
 . /sources/build-properties
 . /sources/build-functions
 
+if [ "x$MULTICORE" == "xy" ] || [ "x$MULTICORE" == "xY" ]
+then
+	export MAKEFLAGS="-j `nproc`"
+fi
+
 NAME=026-python
 
 touch /sources/build-log
@@ -13,17 +18,18 @@ if ! grep "$NAME" /sources/build-log; then
 
 cd /sources
 
-TARBALL=Python-3.11.2.tar.xz
+TARBALL=Python-3.14.3.tar.xz
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
+./configure --prefix=/usr       \
+            --enable-shared     \
+            --without-ensurepip \
+            --without-static-libpython
 
-
-./configure --prefix=/usr   \
-            --enable-shared \
-            --without-ensurepip
 make
+
 make install
 
 fi

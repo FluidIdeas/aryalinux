@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="024-cmake.sh"
-TARBALL="cmake-3.19.5.tar.gz"
+TARBALL="cmake-4.2.3.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -22,33 +22,24 @@ then
 
 cd $SOURCE_DIR
 
-if [ "$TARBALL" != "" ]
-then
-	DIRECTORY=`tar -tf $TARBALL | cut -d/ -f1 | uniq`
-	tar xf $TARBALL
-	cd $DIRECTORY
-fi
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
+tar xf $TARBALL
+cd $DIRECTORY
 
-sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake &&
+sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake
 
 ./bootstrap --prefix=/usr        \
             --system-libs        \
             --mandir=/share/man  \
             --no-system-jsoncpp  \
+            --no-system-cppdap  \
             --no-system-librhash \
-            --no-system-libarchive \
-            --no-system-libuv \
-            --docdir=/share/doc/cmake-3.19.5 &&
+            --docdir=/share/doc/cmake-4.2.3
 make
 make install
 
-
 cd $SOURCE_DIR
-if [ "$TARBALL" != "" ]
-then
-	rm -rf $DIRECTORY
-	rm -rf {gcc,glibc,binutils}-build
-fi
+rm -rf $DIRECTORY
 
 echo "$STEPNAME" | tee -a $LOGFILE
 

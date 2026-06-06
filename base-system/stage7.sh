@@ -10,6 +10,57 @@ SOURCE_DIR="/sources"
 if ! grep "config-files" /sources/build-log &> /dev/null
 then
 
+# LFS 9.2.3 - hostname
+echo "$HOST_NAME" > /etc/hostname
+
+# LFS 9.2.4 - /etc/hosts (DHCP / systemd-resolved setup)
+cat > /etc/hosts << "EOF"
+# Begin /etc/hosts
+
+127.0.0.1 localhost
+::1       ip6-localhost ip6-loopback
+ff02::1   ip6-allnodes
+ff02::2   ip6-allrouters
+
+# End /etc/hosts
+EOF
+
+# LFS 9.2.1 - systemd-networkd (DHCP on common interface name patterns)
+mkdir -pv /etc/systemd/network
+
+cat > /etc/systemd/network/10-ethernet-dhcp.network << "EOF"
+[Match]
+Name=en* eth*
+
+[Network]
+DHCP=ipv4
+
+[DHCPv4]
+UseDomains=true
+EOF
+
+cat > /etc/systemd/network/20-wireless-dhcp.network << "EOF"
+[Match]
+Name=wl*
+
+[Network]
+DHCP=ipv4
+
+[DHCPv4]
+UseDomains=true
+EOF
+
+# LFS 9.2.2.1 - systemd-resolved (static DNS fallback for installs without DHCP DNS)
+mkdir -pv /etc/systemd/resolved.conf.d
+
+cat > /etc/systemd/resolved.conf.d/aryalinux.conf << EOF
+[Resolve]
+DNS=8.8.8.8 8.8.4.4
+Domains=$DOMAIN_NAME
+EOF
+
+# LFS 9.2.2 - temporary resolv.conf for the chroot environment only.
+# Removed below so systemd-resolved can manage /etc/resolv.conf on first boot.
 cat > /etc/resolv.conf << EOF
 # Begin /etc/resolv.conf
 
@@ -21,37 +72,19 @@ nameserver 8.8.4.4
 # End /etc/resolv.conf
 EOF
 
-echo "$HOST_NAME" > /etc/hostname
-
-cat > /etc/hosts << "EOF"
-# Begin /etc/hosts (network card version)
-
-127.0.0.1 localhost
-::1       localhost
-
-# End /etc/hosts (network card version)
-EOF
-
-cat > /etc/udev/rules.d/83-duplicate_devs.rules << "EOF"
-
-# Persistent symlinks for webcam and tuner
-KERNEL=="video*", ATTRS{idProduct}=="1910", ATTRS{idVendor}=="0d81", \
-    SYMLINK+="webcam"
-KERNEL=="video*", ATTRS{device}=="0x036f", ATTRS{vendor}=="0x109e", \
-    SYMLINK+="tvtuner"
-
-EOF
-
+# LFS 9.5 - hardware clock assumed local time during automated install
 cat > /etc/adjtime << "EOF"
 0.0 0 0.0
 0
 LOCAL
 EOF
 
+# LFS 9.7 - locale
 cat > /etc/locale.conf << EOF
 LANG=$LOCALE
 EOF
 
+# LFS 9.8 - inputrc
 cat > /etc/inputrc << "EOF"
 # Begin /etc/inputrc
 # Modified by Chris Lynn <roryo@roryo.dynup.net>
@@ -96,10 +129,13 @@ set bell-style none
 # End /etc/inputrc
 EOF
 
+# LFS 9.6 - console keymap and font for systemd-vconsole-setup
 cat > /etc/vconsole.conf << EOF
 KEYMAP=$KEYBOARD
+FONT=Lat2-Terminus16
 EOF
 
+# LFS 9.9 - shells
 cat > /etc/shells << "EOF"
 # Begin /etc/shells
 
@@ -109,6 +145,7 @@ cat > /etc/shells << "EOF"
 # End /etc/shells
 EOF
 
+# AryaLinux - partition layout from build-properties (LFS chapter 10 / fstab)
 if [ "x$ROOT_PART" != "x" ]; then
 ROOT_PART_BY_UUID=$(blkid $ROOT_PART | cut -d\" -f2)
 fi
@@ -149,6 +186,14 @@ cat >> /etc/fstab <<EOF
 # End /etc/fstab
 EOF
 
+mkdir -pv /etc/aryalinux
+grep -E '^(DEV_NAME|EFI_PART|ROOT_PART|SWAP_PART|HOME_PART|OS_NAME|OS_VERSION|OS_CODENAME|USERNAME)=' /sources/build-properties > /etc/aryalinux/build-settings
+
+# LFS 9.2.2.1 - allow systemd-resolved to install its stub on first boot
+rm -f /etc/resolv.conf
+
+echo "config-files" >> /sources/build-log
+
 fi
 
 if ! grep initramfs /sources/build-log &> /dev/null
@@ -160,11 +205,6 @@ fi
 if ! grep lvm2 /sources/build-log &> /dev/null; then
 	/sources/lvm2.sh
 fi
-
-#if ! grep "026-elfutils" /sources/build-log &> /dev/null
-#then
-#	/sources/extras/026-elf-utils.sh
-#fi
 
 if ! grep kernel /sources/build-log &> /dev/null
 then
