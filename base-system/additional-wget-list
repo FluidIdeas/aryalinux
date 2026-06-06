@@ -21,10 +21,10 @@ http://downloads.sourceforge.net/infozip/unzip60.tar.gz
 https://www.gnu.org/software/xorriso/xorriso-1.5.6.pl02.tar.gz
 https://ftpmirror.gnu.org/cpio/cpio-2.15.tar.bz2
 http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.13.1.tar.gz
-https://github.com/dracut-ng/dracut-ng/releases/download/110/dracut-110.tar.xz
+https://github.com/dracut-ng/dracut-ng/archive/refs/tags/110.tar.gz
 https://sourceware.org/ftp/lvm2/LVM2.2.03.38.tgz
-https://cdn.kernel.org/pub/software/utils/pciutils/pciutils-3.13.0.tar.xz
-https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/snapshot/linux-firmware-20250221.tar.gz
+https://mirrors.edge.kernel.org/pub/software/utils/pciutils/pciutils-3.13.0.tar.xz
+https://mirrors.edge.kernel.org/pub/linux/kernel/firmware/linux-firmware-20250211.tar.xz
 https://downloads.sourceforge.net/freetype/freetype-2.13.3.tar.xz
 https://ftp.gnu.org/gnu/unifont/unifont-16.0.03/unifont-16.0.03.pcf.gz
-http://www.kernel.org/pub/linux/utils/boot/syslinux/syslinux-4.06.tar.xz
+https://mirrors.edge.kernel.org/pub/linux/utils/boot/syslinux/syslinux-4.06.tar.xz
