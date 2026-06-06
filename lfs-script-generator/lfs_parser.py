@@ -38,6 +38,7 @@ DEFAULT_SKIP_PATTERNS = [
     r"^\.\./contrib/test_summary",
     r"^bash tests/run\.sh",
     r"^sed -e '/cpython/d'",
+    r"^localedef\b",
 ]
 
 
