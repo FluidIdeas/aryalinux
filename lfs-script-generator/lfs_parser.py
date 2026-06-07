@@ -50,6 +50,7 @@ DEFAULT_SKIP_PATTERNS = [
     r"make test_harness",
     r"^TEST_JOBS=.*make test_harness",
     r"^HARNESS_JOBS=.*make test",
+    r"^vim -c ",
 ]
 
 
