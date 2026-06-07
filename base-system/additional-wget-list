@@ -20,6 +20,7 @@ https://github.com/plougher/squashfs-tools/releases/download/4.7.5/squashfs-tool
 http://downloads.sourceforge.net/infozip/unzip60.tar.gz
 https://www.gnu.org/software/xorriso/xorriso-1.5.6.pl02.tar.gz
 https://ftpmirror.gnu.org/cpio/cpio-2.15.tar.bz2
+https://gitlab.com/buildroot.org/buildroot/-/raw/e3cae9e1ca4765da825c9ee94760e12f5c6c142a/package/cpio/0001-Fix-c23-conformity.patch
 http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.13.1.tar.gz
 https://github.com/dracut-ng/dracut-ng/archive/refs/tags/110.tar.gz
 https://sourceware.org/ftp/lvm2/LVM2.2.03.38.tgz

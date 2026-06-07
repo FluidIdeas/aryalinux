@@ -12,6 +12,7 @@ cd /sources
 
 tar xf cpio-2.15.tar.bz2
 cd cpio-2.15
+patch -Np1 -i ../patches/cpio-2.15-gcc15-c23-conformity.patch
 ./configure --prefix=/usr \
             --bindir=/bin \
             --enable-mt   \
