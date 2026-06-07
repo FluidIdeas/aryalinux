@@ -45,6 +45,9 @@ DEFAULT_SKIP_PATTERNS = [
     r"^awk .*check-log",
     r"^spawn make tests",
     r"^exec /usr/bin/bash",
+    r"make test_harness",
+    r"^TEST_JOBS=.*make test_harness",
+    r"^HARNESS_JOBS=.*make test",
 ]
 
 

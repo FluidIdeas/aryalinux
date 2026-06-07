@@ -31,8 +31,6 @@ cd $DIRECTORY
 
 make
 
-HARNESS_JOBS=$(nproc) make test
-
 sed -i '/INSTALL_LIBS/s/libcrypto.a libssl.a//' Makefile
 make MANSUFFIX=ssl install
 

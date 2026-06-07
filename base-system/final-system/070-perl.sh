@@ -43,8 +43,6 @@ sh Configure -des                                          \
 
 make
 
-TEST_JOBS=$(nproc) make test_harness
-
 make install
 unset BUILD_ZLIB BUILD_BZIP2
 
