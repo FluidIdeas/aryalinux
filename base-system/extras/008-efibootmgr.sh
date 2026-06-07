@@ -12,7 +12,7 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="007-efibootmgr.sh"
+STEPNAME="008-efibootmgr.sh"
 TARBALL="efibootmgr-18.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track

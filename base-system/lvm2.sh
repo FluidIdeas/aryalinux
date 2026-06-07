@@ -27,20 +27,14 @@ cd $DIRECTORY
 SAVEPATH=$PATH
 PATH=$PATH:/sbin:/usr/sbin
 ./configure --prefix=/usr       \
-            --exec-prefix=      \
-            --with-confdir=/etc \
-            --enable-applib     \
             --enable-cmdlib     \
             --enable-pkgconfig  \
             --enable-udev_sync
 make
+make install
+rm -fv /usr/lib/udev/rules.d/69-dm-lvm.rules
 PATH=$SAVEPATH
 unset SAVEPATH
-
-make -C tools install_dmsetup_dynamic
-make -C udev install
-make -C libdm install
-make install
 
 cd $SOURCE_DIR
 rm -rf $DIRECTORY

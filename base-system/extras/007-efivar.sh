@@ -12,7 +12,7 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="006-efivar.sh"
+STEPNAME="007-efivar.sh"
 TARBALL="efivar-39.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
@@ -30,8 +30,7 @@ patch -Np1 -i ../patches/efivar-39-upstream_fixes-1.patch
 make ENABLE_DOCS=0
 make install ENABLE_DOCS=0 LIBDIR=/usr/lib
 install -vm644 docs/efivar.1 /usr/share/man/man1
-install -vm644 docs/efisecdb.1 /usr/share/man/man1
-install -vm644 docs/efisecdb.8 /usr/share/man/man8
+install -vm644 docs/*.3      /usr/share/man/man3
 
 cd $SOURCE_DIR
 rm -rf $DIRECTORY

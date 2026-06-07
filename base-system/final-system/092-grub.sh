@@ -27,6 +27,19 @@ unset {C,CPP,CXX,LD}FLAGS
 
 sed 's/--image-base/--nonexist-linker-option/' -i configure
 
+if [ "$(uname -m)" = "x86_64" ]; then
+./configure --prefix=/usr       \
+            --sysconfdir=/etc   \
+            --disable-efiemu    \
+            --with-platform=efi \
+            --target=x86_64     \
+            --disable-werror
+
+make
+make install
+make clean
+fi
+
 ./configure --prefix=/usr     \
             --sysconfdir=/etc \
             --disable-efiemu  \

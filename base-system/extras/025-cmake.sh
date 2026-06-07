@@ -12,7 +12,7 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="024-cmake.sh"
+STEPNAME="025-cmake.sh"
 TARBALL="cmake-4.2.3.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track

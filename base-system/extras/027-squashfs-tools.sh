@@ -12,7 +12,7 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="026-squashfs-tools.sh"
+STEPNAME="027-squashfs-tools.sh"
 TARBALL="squashfs-tools-4.7.5.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track

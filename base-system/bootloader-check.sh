@@ -8,26 +8,24 @@ else
 	. /sources/build-properties
 fi
 
-type=$(sudo fdisk -l $DEV_NAME | grep "Disklabel type" | tr -s ' ' | rev | cut -d ' ' -f1 | rev)
+type=$(fdisk -l "$DEV_NAME" 2>/dev/null | grep "Disklabel type" | tr -s ' ' | rev | cut -d ' ' -f1 | rev)
 
-status=0
-
-# Bail out if have boot in UEFI mode but no GPT partition table
-if [ -d /sys/lib/firmware ] && [ $type == "msdos" ]; then
+# Bail out if booted in UEFI mode but the disk has an MBR partition table
+if [ -d /sys/firmware/efi ] && [ "$type" = "msdos" ]; then
 	echo "Cannot install bootloader. Please boot in legacy mode."
 	exit 1
 fi
 
-# Bail out if have boot in legacy mode and no msdos partition table
-if [ ! -d /sys/lib/firmware ] && [ $type == "gpt" ]; then
+# Bail out if booted in legacy mode but the disk has a GPT partition table
+if [ ! -d /sys/firmware/efi ] && [ "$type" = "gpt" ]; then
 	echo "Cannot install bootloader. Please boot in EFI mode."
-fi
-
-efipart=$(sudo fdisk -l $DEV_NAME | grep "EFI System" | tr -s ' ' | cut -d ' ' -f1)
-
-# Bail out if have boot in UEFI mode and have GPT partition table but no EFI partition
-if [ -d /sys/lib/firmware ] && [ $type == "gpt" ] && [ "x$efipart" == "x" ]; then
-	echo "Cannot install bootloader. No EFI Partition found."
 	exit 1
 fi
 
+efipart=$(fdisk -l "$DEV_NAME" 2>/dev/null | grep "EFI System" | tr -s ' ' | cut -d ' ' -f1)
+
+# Bail out if booted in UEFI mode with GPT but no EFI System Partition
+if [ -d /sys/firmware/efi ] && [ "$type" = "gpt" ] && [ -z "$efipart" ]; then
+	echo "Cannot install bootloader. No EFI Partition found."
+	exit 1
+fi

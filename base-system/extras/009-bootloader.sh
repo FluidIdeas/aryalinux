@@ -8,15 +8,14 @@ set +h
 export MAKEFLAGS="-j `nproc`"
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="008-bootloader.sh"
+STEPNAME="009-bootloader.sh"
 
 if [ "$INSTALL_BOOTLOADER" == "n" ] || [ "$INSTALL_BOOTLOADER" == "N" ]; then
 	exit
 fi
 
 if [ "$INSTALL_BOOTLOADER" == "y" ] || [ "$INSTALL_BOOTLOADER" == "Y" ]; then
-  /sources/bootloader-check.sh &> $LOGFILE
-  if [ "$?" != "0" ]; then
+  if ! /sources/bootloader-check.sh; then
     exit
   fi
 fi
