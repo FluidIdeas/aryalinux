@@ -25,11 +25,9 @@ cd $SOURCE_DIR
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 tar xf $TARBALL
 cd $DIRECTORY
-
 sed '/mktemp/s/-t //' -i make-ca
 make install
 install -vdm755 /etc/ssl/local
-
 # NSS moved certdata.txt; the default URL in 1.16.1 is stale (make-ca #21682).
 # make-ca.conf replaces all defaults when present, so include the full template.
 cat > /etc/make-ca.conf << "EOF"

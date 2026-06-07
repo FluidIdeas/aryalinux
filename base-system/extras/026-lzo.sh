@@ -25,10 +25,9 @@ cd $SOURCE_DIR
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 tar xf $TARBALL
 cd $DIRECTORY
-
-./configure --prefix=/usr       \
-            --enable-shared     \
-            --disable-static    \
+./configure --prefix=/usr    \
+            --enable-shared  \
+            --disable-static \
             --docdir=/usr/share/doc/lzo-2.10
 make
 make install

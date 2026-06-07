@@ -25,7 +25,6 @@ cd $SOURCE_DIR
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 tar xf $TARBALL
 cd $DIRECTORY
-
 patch -Np1 -i ../patches/efivar-39-upstream_fixes-1.patch
 make ENABLE_DOCS=0
 make install ENABLE_DOCS=0 LIBDIR=/usr/lib

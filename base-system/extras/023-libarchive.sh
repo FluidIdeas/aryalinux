@@ -25,12 +25,11 @@ cd $SOURCE_DIR
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 tar xf $TARBALL
 cd $DIRECTORY
-
 ./configure --prefix=/usr --disable-static
 make
 make install
-sed -i 's/iconv //' /usr/lib/pkgconfig/libarchive.pc
 ln -sfv bsdunzip /usr/bin/unzip
+sed -i 's/iconv //' /usr/lib/pkgconfig/libarchive.pc
 
 cd $SOURCE_DIR
 rm -rf $DIRECTORY

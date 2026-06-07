@@ -25,7 +25,6 @@ cd $SOURCE_DIR
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 tar xf $TARBALL
 cd $DIRECTORY
-
 ./configure --prefix=/usr            \
             --enable-compat-symlinks \
             --mandir=/usr/share/man  \

@@ -25,7 +25,6 @@ cd $SOURCE_DIR
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 tar xf $TARBALL
 cd $DIRECTORY
-
 EFIDIR=$(echo "$OS_CODENAME" | tr '[:lower:]' '[:upper:]')
 make EFIDIR=$EFIDIR EFI_LOADER=grubx64.efi
 make install EFIDIR=$EFIDIR

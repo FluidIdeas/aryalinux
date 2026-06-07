@@ -25,11 +25,10 @@ cd $SOURCE_DIR
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 tar xf $TARBALL
 cd $DIRECTORY
-
-./configure --prefix=/usr              \
-            --libexecdir=/usr/lib      \
-            --with-secure-path         \
-            --with-env-editor          \
+./configure --prefix=/usr         \
+            --libexecdir=/usr/lib \
+            --with-secure-path    \
+            --with-env-editor     \
             --docdir=/usr/share/doc/sudo-1.9.17p2 \
             --with-passprompt="[sudo] password for %p: "
 make

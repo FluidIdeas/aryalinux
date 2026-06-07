@@ -25,9 +25,8 @@ cd $SOURCE_DIR
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 tar xf $TARBALL
 cd $DIRECTORY
-
 mkdir build
-cd build
+cd    build
 meson setup --prefix=/usr --buildtype=release ..
 ninja
 ninja install

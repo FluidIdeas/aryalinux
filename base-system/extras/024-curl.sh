@@ -25,10 +25,9 @@ cd $SOURCE_DIR
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 tar xf $TARBALL
 cd $DIRECTORY
-
-./configure --prefix=/usr \
+./configure --prefix=/usr    \
             --disable-static \
-            --with-openssl \
+            --with-openssl   \
             --with-ca-path=/etc/ssl/certs
 make
 make install

@@ -25,7 +25,6 @@ cd $SOURCE_DIR
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 tar xf $TARBALL
 cd $DIRECTORY
-
 ./configure --prefix=/usr --disable-static
 make
 make install

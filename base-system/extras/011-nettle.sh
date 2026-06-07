@@ -25,11 +25,10 @@ cd $SOURCE_DIR
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 tar xf $TARBALL
 cd $DIRECTORY
-
 ./configure --prefix=/usr --disable-static
 make
 make install
-chmod -v 755 /usr/lib/lib{hogweed,nettle}.so
+chmod   -v   755 /usr/lib/lib{hogweed,nettle}.so
 install -v -m755 -d /usr/share/doc/nettle-3.10.2
 install -v -m644 nettle.html /usr/share/doc/nettle-3.10.2
 
