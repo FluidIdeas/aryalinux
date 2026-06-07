@@ -22,9 +22,7 @@ tar xf $LINUX_TARBALL
 cd $LINUX_SRC_DIR
 
 make mrproper
-kernel_configure_from_host
-kernel_apply_lfs_requirements
-kernel_apply_aryalinux_requirements
+kernel_configure_aryalinux
 
 make "-j`nproc`"
 make modules_install

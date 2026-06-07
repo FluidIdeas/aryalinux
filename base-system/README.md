@@ -78,14 +78,20 @@ To add or bump a package version, update the appropriate list. Patches under `pa
 
 Resume an interrupted build with `./build-arya` → option 2.
 
-## Regenerating LFS package scripts
+## Regenerating from a new LFS book
 
-Package build scripts for cross-toolchain, temp-tools, and final-system can be regenerated from an LFS HTML book using the sibling tool:
+The parser lives in a separate repo at `../parser/` (sibling to this `aryalinux/`
+directory). Unpack LFS books under `parser/` (e.g. `parser/14.0-systemd/`), then:
 
 ```bash
-../lfs-script-generator/generate-base-system.py --dry-run
-../lfs-script-generator/generate-base-system.py
+cd ../parser/aryalinux-script-generator
+python3 aryalinux-generate.py --book ../14.0-systemd --refresh-map --dry-run
+python3 aryalinux-generate.py --book ../14.0-systemd --refresh-map
 ```
+
+`--refresh-map` regenerates `package-map.yaml` from the book (tarballs, order,
+script numbers) and merges existing AryaLinux hooks. Output is written to
+`base-system/` in this repository. See **`../parser/aryalinux-script-generator/README.md`**.
 
 Stage scripts (`stage4.sh`, `stage7.sh`, `ubuntu-pre.sh`, extras) are maintained by hand after generation.
 
@@ -93,5 +99,8 @@ Stage scripts (`stage4.sh`, `stage7.sh`, `ubuntu-pre.sh`, extras) are maintained
 
 - Host **Binutils** should be ≤ 2.46.0 per LFS 13.0; newer distros may need verification.
 - After renumbering final-system scripts, start a **fresh** build rather than resuming an old tree.
-- **Kernel config** is derived at build time from the running host (`/proc/config.gz`, then `make olddefconfig` and `make localmodconfig`), with LFS 13.0 and AryaLinux options applied in `kernel-config.sh`. Use `./configure-kernel.sh` on the host to review or tweak settings interactively.
+- **Kernel config** uses a checked-in generic amd64 config under `kernel-configs/`
+  (Debian amd64 fragment + LFS + AryaLinux overlays). Regenerate with
+  `parser/aryalinux-script-generator/upgrade-kernel-config.py` when the kernel version changes.
+  Use `./configure-kernel.sh` on the host to review or tweak settings interactively.
 - `build-properties`, `build-log`, and downloaded tarballs under `~/sources` are local build artifacts (see repo `.gitignore`).

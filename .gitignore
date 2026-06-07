@@ -1,6 +1,4 @@
-# LFS / BLFS HTML books (obtain separately for script generation)
-[0-9][0-9].[0-9]/
-blfs-book-13.0-systemd-html/
+# LFS/BLFS books and script generator live in ../parser/ (separate git repo)
 
 # Python
 __pycache__/

@@ -3,8 +3,9 @@
 set -e
 set +h
 
-echo "This helper builds a kernel .config from the running host, applies LFS"
-echo "and AryaLinux requirements, then opens menuconfig for manual tweaks."
+echo "This helper starts from the checked-in generic amd64 config (see"
+echo "kernel-configs/), applies LFS and AryaLinux requirements, then opens"
+echo "menuconfig for manual tweaks."
 echo ""
 echo "Press Enter to continue or Ctrl+C to abort..."
 read -r _
@@ -19,9 +20,7 @@ tar xf $LINUX_TARBALL
 cd $LINUX_DIR
 
 make mrproper
-kernel_configure_from_host
-kernel_apply_lfs_requirements
-kernel_apply_aryalinux_requirements
+kernel_configure_aryalinux
 
 make menuconfig
 

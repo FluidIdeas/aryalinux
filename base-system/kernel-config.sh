@@ -1,21 +1,57 @@
 # Shared kernel configuration helpers for AryaLinux.
 # Sourced from kernel.sh (chroot build) and configure-kernel.sh (host tuning).
+#
+# Generic amd64 configs live in kernel-configs/ (see parser/
+# aryalinux-script-generator/upgrade-kernel-config.py). Build uses the checked-in file for the kernel
+# version in wget-list, then re-applies LFS/AryaLinux fragments for safety.
+
+kernel_configs_dir() {
+	echo "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/kernel-configs"
+}
+
+kernel_version_from_tarball() {
+	local tarball=$1
+	echo "$tarball" | sed -n 's/.*linux-\([0-9]\+\.[0-9]\+\.[0-9]\+\).*/\1/p'
+}
+
+kernel_configure_from_distro() {
+	local configs dir version cfg tarball
+
+	configs=$(kernel_configs_dir)
+	tarball=${LINUX_TARBALL:-}
+	version=${KERNEL_VERSION:-}
+
+	if [ -z "$version" ] && [ -n "$tarball" ]; then
+		version=$(kernel_version_from_tarball "$tarball")
+	fi
+	if [ -z "$version" ]; then
+		version=$(make -s kernelversion 2>/dev/null || true)
+	fi
+
+	cfg="$configs/linux-${version}-amd64.config"
+	if [ ! -f "$cfg" ] && [ -L "$configs/current-amd64.config" ]; then
+		cfg=$(readlink -f "$configs/current-amd64.config")
+	fi
+	if [ ! -f "$cfg" ]; then
+		echo "No generic amd64 kernel config for linux-${version}." >&2
+		echo "Run: python3 ../parser/aryalinux-script-generator/upgrade-kernel-config.py" >&2
+		return 1
+	fi
+
+	echo "Using generic amd64 kernel config: $cfg"
+	cp -v "$cfg" .config
+	make olddefconfig
+}
 
 kernel_configure_from_host() {
-	# Derive a starting .config from the running host kernel, not from a
-	# checked-in file or a copy of /boot/config-*.
+	# Fallback when no checked-in distro config exists (developer machines).
 	if [ -r /proc/config.gz ]; then
 		zcat /proc/config.gz > .config
 		make olddefconfig
-		yes "" | make localmodconfig
 	else
-		echo "Note: /proc/config.gz unavailable on the build host."
-		echo "      Using defconfig plus localyesconfig (loaded modules from lsmod)."
-		echo "      For closer host parity, enable CONFIG_IKCONFIG_PROC on the host kernel."
-		make defconfig
-		yes "" | make localyesconfig
+		echo "Note: /proc/config.gz unavailable; using x86_64_defconfig." >&2
+		make x86_64_defconfig
 	fi
-
 	make olddefconfig
 }
 
@@ -62,24 +98,12 @@ kernel_apply_lfs_requirements() {
 		-d CONFIG_AUDIT \
 		-e CONFIG_SECCOMP \
 		-e CONFIG_FHANDLE \
-		--set-str CONFIG_DRM_PANIC_SCREEN kmsg
-
-	if [ "$(uname -m)" = "x86_64" ]; then
-		scripts/config \
-			-e CONFIG_X86_X2APIC \
-			-e CONFIG_PCI \
-			-e CONFIG_PCI_MSI \
-			-e CONFIG_IOMMU_SUPPORT \
-			-e CONFIG_IRQ_REMAP
-	else
-		scripts/config \
-			-d CONFIG_64BIT \
-			-e CONFIG_HIGHMEM4G
-	fi
-
-	if ls /dev/nvme* >/dev/null 2>&1; then
-		scripts/config -e CONFIG_BLK_DEV_NVME
-	fi
+		--set-str CONFIG_DRM_PANIC_SCREEN kmsg \
+		-e CONFIG_X86_X2APIC \
+		-e CONFIG_PCI \
+		-e CONFIG_PCI_MSI \
+		-e CONFIG_IOMMU_SUPPORT \
+		-e CONFIG_IRQ_REMAP
 
 	make olddefconfig
 }
@@ -150,8 +174,18 @@ kernel_apply_aryalinux_requirements() {
 		-e CONFIG_USB_UHCI_HCD \
 		-e CONFIG_USB_STORAGE \
 		-d CONFIG_CHARGER_ISP1704 \
+		-e CONFIG_BLK_DEV_NVME \
 		--set-val CONFIG_SQUASHFS_FRAGMENT_CACHE_SIZE 3 \
 		--set-val CONFIG_MESSAGE_LOGLEVEL_DEFAULT 7
 
 	make olddefconfig
+}
+
+kernel_configure_aryalinux() {
+	if ! kernel_configure_from_distro; then
+		echo "Falling back to host-derived kernel config." >&2
+		kernel_configure_from_host
+	fi
+	kernel_apply_lfs_requirements
+	kernel_apply_aryalinux_requirements
 }
