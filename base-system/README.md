@@ -50,7 +50,7 @@ To add or bump a package version, update the appropriate list. Patches under `pa
 
 ## Bundled ALPS
 
-`alps/` holds the AryaLinux package manager layout (from `alps-new`). `additional-downloads.py` creates `alps-new-<os.version>.tar.gz` and `alps-scripts-<os.version>.tar.gz` in `~/sources`; `extras/019-alps.sh` installs them during stage 7.
+`alps/` holds the AryaLinux package manager layout (from `alps-new`). `additional-downloads.py` creates `alps-new-<os.version>.tar.gz` in `~/sources`; `extras/019-alps.sh` installs it during stage 7. Application build scripts from `../applications/` are copied to `$LFS/var/cache/alps/scripts/` in stage 1.
 
 ## Directory layout
 

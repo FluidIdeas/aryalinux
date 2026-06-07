@@ -129,6 +129,16 @@ sudo ln -svf $LFS/sources /
 
 cp -r * /home/lfs/
 cp -r * $LFS/sources/
+
+if [ -d ../applications ]
+then
+	mkdir -pv $LFS/var/cache/alps/scripts
+	cp -v ../applications/*.sh $LFS/var/cache/alps/scripts/
+	chmod a+x $LFS/var/cache/alps/scripts/*.sh
+else
+	echo "warning: ../applications not found; ALPS build scripts will not be installed" >&2
+fi
+
 chown -R lfs:lfs /home/lfs/*
 chown -R lfs:lfs $LFS/sources/*
 

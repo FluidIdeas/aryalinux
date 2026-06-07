@@ -30,7 +30,6 @@ chmod a+x /usr/bin/alps
 rm -rf alps-extract
 
 mkdir -pv /var/cache/alps/{sources,scripts,binaries}
-tar xf alps-scripts-$OS_VERSION.tar.gz -C /var/cache/alps/scripts/
 chmod a+rw /var/cache/alps/{sources,binaries}
 
 echo "$STEPNAME" | tee -a $LOGFILE

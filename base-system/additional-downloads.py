@@ -71,7 +71,6 @@ def copy_patches(target: Path) -> None:
 def bundle_alps(defaults: dict) -> None:
     os_version = defaults["os"]["version"]
     alps_dir = SCRIPT_DIR / "alps"
-    apps_dir = REPO_ROOT / "applications"
 
     if alps_dir.is_dir():
         archive = SOURCES / f"alps-new-{os_version}.tar.gz"
@@ -81,19 +80,6 @@ def bundle_alps(defaults: dict) -> None:
         print(f"created {archive}")
     else:
         print(f"warning: {alps_dir} not found; skipping alps tarball", file=sys.stderr)
-
-    if apps_dir.is_dir():
-        scripts = sorted(apps_dir.glob("*.sh"))
-        if not scripts:
-            print(f"warning: no *.sh in {apps_dir}", file=sys.stderr)
-            return
-        archive = SOURCES / f"alps-scripts-{os_version}.tar.gz"
-        with tarfile.open(archive, "w:gz") as tar:
-            for script in scripts:
-                tar.add(script, arcname=script.name)
-        print(f"created {archive}")
-    else:
-        print(f"warning: {apps_dir} not found", file=sys.stderr)
 
 
 def main() -> None:
