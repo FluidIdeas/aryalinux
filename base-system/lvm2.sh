@@ -13,7 +13,7 @@ fi
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
 STEPNAME="lvm2"
-TARBALL="LVM2.2.03.38.tgz"
+TARBALL="LVM2.2.03.41.tgz"
 
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null
 then
