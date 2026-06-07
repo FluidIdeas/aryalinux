@@ -189,6 +189,25 @@ EOF
 mkdir -pv /etc/aryalinux
 grep -E '^(DEV_NAME|EFI_PART|ROOT_PART|SWAP_PART|HOME_PART|OS_NAME|OS_VERSION|OS_CODENAME|USERNAME)=' /sources/build-properties > /etc/aryalinux/build-settings
 
+# systemd expects os-release very early at boot; create it here rather than
+# in a later extras script so it is always present on first boot.
+cat > /etc/os-release << EOF
+NAME="$OS_NAME"
+VERSION="$OS_VERSION"
+ID="$OS_CODENAME"
+PRETTY_NAME="$OS_NAME $OS_VERSION ($OS_CODENAME)"
+EOF
+ln -sfv /etc/os-release /usr/lib/os-release
+
+echo ${OS_VERSION}-systemd > /etc/lfs-release
+
+cat > /etc/lsb-release <<EOF
+DISTRIB_ID="$OS_NAME"
+DISTRIB_RELEASE="$OS_VERSION"
+DISTRIB_CODENAME="$OS_CODENAME"
+DISTRIB_DESCRIPTION="$OS_NAME $OS_VERSION ($OS_CODENAME)"
+EOF
+
 # LFS 9.2.2.1 - allow systemd-resolved to install its stub on first boot
 rm -f /etc/resolv.conf
 
@@ -245,5 +264,34 @@ sed -i "s/# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/g" /et
 usermod -a -G wheel $USERNAME
 
 echo "admin-user" >> /sources/build-log
+
+fi
+
+if ! grep -qx systemd-finalize /sources/build-log &> /dev/null
+then
+
+# preset-all runs when systemd is built, long before stage-7 config is done.
+# Re-run it now and set an explicit default target so PID 1 can isolate cleanly.
+systemd-machine-id-setup
+systemctl preset-all
+systemctl set-default multi-user.target
+
+for unit in multi-user.target rescue.service rescue.target; do
+	if [ ! -e "/usr/lib/systemd/system/$unit" ]; then
+		echo "Missing systemd unit: /usr/lib/systemd/system/$unit" >&2
+		exit 1
+	fi
+done
+
+if [ -d /lib/modules ] && command -v dracut >/dev/null; then
+	LINUX_VERSION=$(ls /lib/modules/)
+	dracut -f "/boot/initrd.img-$LINUX_VERSION" "$LINUX_VERSION"
+fi
+
+if [ -x /usr/sbin/grub-mkconfig ] && [ -d /boot/grub ]; then
+	grub-mkconfig -o /boot/grub/grub.cfg
+fi
+
+echo systemd-finalize >> /sources/build-log
 
 fi

@@ -32,22 +32,6 @@ fi
 python3 setup.py build
 python3 setup.py install --optimize=1
 
-cat > /etc/os-release << EOF
-NAME="$OS_NAME"
-VERSION="$OS_VERSION"
-ID="$OS_CODENAME"
-PRETTY_NAME="$OS_NAME $OS_VERSION ($OS_CODENAME)"
-EOF
-
-echo ${OS_VERSION}-systemd > /etc/lfs-release
-
-cat > /etc/lsb-release <<EOF
-DISTRIB_ID="$OS_NAME"
-DISTRIB_RELEASE="$OS_VERSION"
-DISTRIB_CODENAME="$OS_CODENAME"
-DISTRIB_DESCRIPTION="$OS_NAME $OS_VERSION ($OS_CODENAME)"
-EOF
-
 cat > /etc/default/grub <<EOF
 GRUB_DISTRIBUTOR="$OS_NAME $OS_VERSION $OS_CODENAME"
 EOF

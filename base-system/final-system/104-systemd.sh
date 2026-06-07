@@ -60,6 +60,7 @@ tar -xf ../../systemd-man-pages-259.1.tar.xz \
 systemd-machine-id-setup
 
 systemctl preset-all
+systemctl set-default multi-user.target
 
 fi
 
