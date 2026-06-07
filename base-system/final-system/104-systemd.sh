@@ -60,7 +60,9 @@ tar -xf ../../systemd-man-pages-259.1.tar.xz \
 systemd-machine-id-setup
 
 systemctl preset-all
-systemctl set-default multi-user.target
+systemctl set-default multi-user.target || true
+mkdir -pv /etc/systemd/system
+ln -sfv /usr/lib/systemd/system/multi-user.target /etc/systemd/system/default.target
 
 fi
 
