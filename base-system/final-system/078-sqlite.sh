@@ -24,7 +24,6 @@ DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 tar xf $TARBALL
 cd $DIRECTORY
 tar -xf ../sqlite-doc-3510200.tar.xz
-
 tar -xf ../sqlite-doc-3510200.tar.xz
 
 ./configure --prefix=/usr     \

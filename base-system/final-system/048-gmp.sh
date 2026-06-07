@@ -23,7 +23,6 @@ DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
-
 sed -i '/long long t1;/,+1s/()/(...)/' configure
 
 ./configure --prefix=/usr    \
