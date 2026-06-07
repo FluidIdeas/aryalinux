@@ -127,6 +127,7 @@ final_system:
       tarball: groff-1.23.0.tar.gz
       html: groff.html
       replace:
+        PAGE=<paper_size>: PAGE=$PAPER_SIZE
         PAGE=letter: PAGE=$PAPER_SIZE
     - {script: 092-grub, tarball: grub-2.14.tar.xz, html: grub.html}
     - {script: 093-gzip, tarball: gzip-1.14.tar.xz, html: gzip.html}

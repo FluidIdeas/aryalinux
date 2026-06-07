@@ -23,7 +23,7 @@ DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 
 tar xf $TARBALL
 cd $DIRECTORY
-PAGE=<paper_size> ./configure --prefix=/usr
+PAGE=$PAPER_SIZE ./configure --prefix=/usr
 
 make
 

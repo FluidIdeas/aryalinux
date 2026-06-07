@@ -477,6 +477,7 @@
         "tarball": "groff-1.23.0.tar.gz",
         "html": "groff.html",
         "replace": {
+          "PAGE=<paper_size>": "PAGE=$PAPER_SIZE",
           "PAGE=letter": "PAGE=$PAPER_SIZE"
         }
       },
