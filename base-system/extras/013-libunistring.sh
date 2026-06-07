@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="019-sudo.sh"
-TARBALL="sudo-1.9.17p2.tar.gz"
+STEPNAME="013-libunistring.sh"
+TARBALL="libunistring-1.4.2.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -26,12 +26,9 @@ DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 tar xf $TARBALL
 cd $DIRECTORY
 
-./configure --prefix=/usr              \
-            --libexecdir=/usr/lib      \
-            --with-secure-path         \
-            --with-env-editor          \
-            --docdir=/usr/share/doc/sudo-1.9.17p2 \
-            --with-passprompt="[sudo] password for %p: "
+./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/libunistring-1.4.2
 make
 make install
 

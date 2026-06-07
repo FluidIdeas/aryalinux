@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="025-cmake.sh"
-TARBALL="cmake-4.2.3.tar.gz"
+STEPNAME="027-xorriso.sh"
+TARBALL="xorriso-1.5.6.pl02.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -26,17 +26,7 @@ DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 tar xf $TARBALL
 cd $DIRECTORY
 
-sed -i '/"lib64"/s/64//' Modules/GNUInstallDirs.cmake
-
-./bootstrap --prefix=/usr        \
-            --system-libs        \
-            --mandir=/share/man  \
-            --no-system-jsoncpp  \
-            --no-system-cppdap   \
-            --no-system-librhash \
-            --no-system-libuv    \
-            --no-system-nghttp2  \
-            --docdir=/share/doc/cmake-4.2.3
+./configure --prefix=/usr
 make
 make install
 

@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="028-unzip.sh"
-TARBALL="unzip60.tar.gz"
+STEPNAME="017-wget.sh"
+TARBALL="wget-1.25.0.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -26,9 +26,11 @@ DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 tar xf $TARBALL
 cd $DIRECTORY
 
-patch -Np1 -i ../patches/unzip-6.0-consolidated_fixes-1.patch
-make -f unix/Makefile generic
-make prefix=/usr MANDIR=/usr/share/man/man1 -f unix/Makefile install
+./configure --prefix=/usr \
+            --sysconfdir=/etc \
+            --with-ssl=openssl
+make
+make install
 
 cd $SOURCE_DIR
 rm -rf $DIRECTORY

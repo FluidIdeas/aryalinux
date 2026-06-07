@@ -6,11 +6,17 @@ https://github.com/rhboot/efibootmgr/archive/18/efibootmgr-18.tar.gz
 https://ftp.osuosl.org/pub/rpm/popt/releases/popt-1.x/popt-1.19.tar.gz
 https://ftpmirror.gnu.org/nettle/nettle-3.10.2.tar.gz
 https://ftpmirror.gnu.org/libtasn1/libtasn1-4.21.0.tar.gz
+https://ftpmirror.gnu.org/libunistring/libunistring-1.4.2.tar.xz
 https://github.com/p11-glue/p11-kit/releases/download/0.26.2/p11-kit-0.26.2.tar.xz
 https://www.gnupg.org/ftp/gcrypt/gnutls/v3.8/gnutls-3.8.12.tar.xz
 https://ftpmirror.gnu.org/wget/wget-1.25.0.tar.gz
 https://www.sudo.ws/dist/sudo-1.9.17p2.tar.gz
 https://github.com/lfs-book/make-ca/archive/v1.16.1/make-ca-1.16.1.tar.gz
+# Mozilla CA bundle source for make-ca (015-p11kit.sh)
+https://hg-edge.mozilla.org/mozilla-central/raw-file/tip/security/nss/lib/ckfw/builtins/certdata.txt
+https://ftpmirror.gnu.org/libidn/libidn2-2.3.8.tar.gz
+https://github.com/rockdaboot/libpsl/releases/download/0.21.5/libpsl-0.21.5.tar.gz
+https://github.com/libarchive/libarchive/releases/download/v3.8.7/libarchive-3.8.7.tar.xz
 https://curl.se/download/curl-8.18.0.tar.xz
 https://mandoc.bsd.lv/snapshots/mandoc-1.14.6.tar.gz
 https://ftp.osuosl.org/pub/blfs/conglomeration/LSB-Tools/LSB-Tools-0.9.tar.gz
@@ -18,6 +24,7 @@ https://busybox.net/downloads/busybox-1.37.0.tar.bz2
 https://cmake.org/files/v4.2/cmake-4.2.3.tar.gz
 https://github.com/plougher/squashfs-tools/releases/download/4.7.5/squashfs-tools-4.7.5.tar.gz
 http://downloads.sourceforge.net/infozip/unzip60.tar.gz
+https://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz
 https://www.gnu.org/software/xorriso/xorriso-1.5.6.pl02.tar.gz
 https://ftpmirror.gnu.org/cpio/cpio-2.15.tar.bz2
 http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.13.1.tar.gz

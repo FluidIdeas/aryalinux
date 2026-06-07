@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="017-gnutls.sh"
-TARBALL="gnutls-3.8.12.tar.xz"
+STEPNAME="021-libidn2.sh"
+TARBALL="libidn2-2.3.8.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -26,9 +26,7 @@ DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 tar xf $TARBALL
 cd $DIRECTORY
 
-./configure --prefix=/usr \
-            --docdir=/usr/share/doc/gnutls-3.8.12 \
-            --with-default-trust-store-pkcs11="pkcs11:"
+./configure --prefix=/usr --disable-static
 make
 make install
 

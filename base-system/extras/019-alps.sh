@@ -12,7 +12,7 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="021-alps.sh"
+STEPNAME="019-alps.sh"
 
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null
 then

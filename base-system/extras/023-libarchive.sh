@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="026-xorriso.sh"
-TARBALL="xorriso-1.5.6.pl02.tar.gz"
+STEPNAME="023-libarchive.sh"
+TARBALL="libarchive-3.8.7.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -26,9 +26,11 @@ DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 tar xf $TARBALL
 cd $DIRECTORY
 
-./configure --prefix=/usr
+./configure --prefix=/usr --disable-static
 make
 make install
+sed -i 's/iconv //' /usr/lib/pkgconfig/libarchive.pc
+ln -sfv bsdunzip /usr/bin/unzip
 
 cd $SOURCE_DIR
 rm -rf $DIRECTORY

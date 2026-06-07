@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="018-wget.sh"
-TARBALL="wget-1.25.0.tar.gz"
+STEPNAME="016-gnutls.sh"
+TARBALL="gnutls-3.8.12.tar.xz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -27,8 +27,8 @@ tar xf $TARBALL
 cd $DIRECTORY
 
 ./configure --prefix=/usr \
-            --sysconfdir=/etc \
-            --with-ssl=openssl
+            --docdir=/usr/share/doc/gnutls-3.8.12 \
+            --with-default-trust-store-pkcs11="pkcs11:"
 make
 make install
 

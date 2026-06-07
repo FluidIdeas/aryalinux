@@ -29,7 +29,31 @@ cd $DIRECTORY
 sed '/mktemp/s/-t //' -i make-ca
 make install
 install -vdm755 /etc/ssl/local
-/usr/sbin/make-ca -g
+
+# NSS moved certdata.txt; the default URL in 1.16.1 is stale (make-ca #21682).
+# make-ca.conf replaces all defaults when present, so include the full template.
+cat > /etc/make-ca.conf << "EOF"
+CERTDATA="certdata.txt"
+PKIDIR="/etc/pki"
+SSLDIR="/etc/ssl"
+CERTUTIL="/usr/bin/certutil"
+KEYTOOL="${JAVA_HOME}/bin/keytool"
+MD5SUM="/usr/bin/md5sum"
+OPENSSL="/usr/bin/openssl"
+TRUST="/usr/bin/trust"
+ANCHORDIR="${PKIDIR}/anchors"
+ANCHORLIST="${PKIDIR}/anchors.md5sums"
+BUNDLEDIR="${PKIDIR}/tls/certs"
+CABUNDLE="${BUNDLEDIR}/ca-bundle.crt"
+SMBUNDLE="${BUNDLEDIR}/email-ca-bundle.crt"
+CSBUNDLE="${BUNDLEDIR}/objsign-ca-bundle.crt"
+CERTDIR="${SSLDIR}/certs"
+KEYSTORE="${PKIDIR}/tls/java"
+NSSDB="${PKIDIR}/nssdb"
+LOCALDIR="${SSLDIR}/local"
+DESTDIR=""
+URL="https://hg-edge.mozilla.org/mozilla-central/raw-file/tip/security/nss/lib/ckfw/builtins/certdata.txt"
+EOF
 
 cd $SOURCE_DIR
 rm -rf $DIRECTORY

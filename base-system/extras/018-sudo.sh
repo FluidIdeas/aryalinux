@@ -12,8 +12,8 @@ fi
 
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="027-squashfs-tools.sh"
-TARBALL="squashfs-tools-4.7.5.tar.gz"
+STEPNAME="018-sudo.sh"
+TARBALL="sudo-1.9.17p2.tar.gz"
 
 echo "$LOGLENGTH" > /sources/lines2track
 
@@ -24,10 +24,16 @@ cd $SOURCE_DIR
 
 DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
 tar xf $TARBALL
-cd $DIRECTORY/squashfs-tools
+cd $DIRECTORY
 
+./configure --prefix=/usr              \
+            --libexecdir=/usr/lib      \
+            --with-secure-path         \
+            --with-env-editor          \
+            --docdir=/usr/share/doc/sudo-1.9.17p2 \
+            --with-passprompt="[sudo] password for %p: "
 make
-make INSTALL_DIR=/usr/bin install
+make install
 
 cd $SOURCE_DIR
 rm -rf $DIRECTORY

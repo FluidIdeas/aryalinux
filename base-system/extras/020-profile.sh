@@ -8,7 +8,7 @@ set +h
 export MAKEFLAGS="-j `nproc`"
 SOURCE_DIR="/sources"
 LOGFILE="/sources/build-log"
-STEPNAME="022-profile.sh"
+STEPNAME="020-profile.sh"
 
 if ! grep "$STEPNAME" $LOGFILE &> /dev/null
 then
