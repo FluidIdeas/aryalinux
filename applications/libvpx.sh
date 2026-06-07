@@ -6,25 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:yasm
-#REQ:nasm
 #REQ:which
 
-
 cd $SOURCE_DIR
-
 NAME=libvpx
-VERSION=1.13.0
-URL=https://github.com/webmproject/libvpx/archive/v1.13.0/libvpx-1.13.0.tar.gz
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="This package, from the WebM project, provides the reference implementations of the VP8 Codec, used in most current html5 video, and of the next-generation VP9 Codec."
+VERSION=1.16.0
+URL=https://github.com/webmproject/libvpx/archive/v1.16.0/libvpx-1.16.0.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/webmproject/libvpx/archive/v1.13.0/libvpx-1.13.0.tar.gz
+wget -nc https://github.com/webmproject/libvpx/archive/v1.16.0/libvpx-1.16.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -45,16 +40,17 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sed -i 's/cp -p/cp/' build/make/Makefile &&
-
-mkdir libvpx-build            &&
-cd    libvpx-build            &&
-
+find -type f | xargs touch
+patch -Np1 -i ../libvpx-1.16.0-security_fix-1.patch
+sed -i 's/cp -p/cp/' build/make/Makefile
+mkdir libvpx-build
+cd    libvpx-build
 ../configure --prefix=/usr    \
              --enable-shared  \
-             --disable-static &&
+             --disable-static
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -63,8 +59,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

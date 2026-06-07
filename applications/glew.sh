@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:mesa
 
-
 cd $SOURCE_DIR
-
 NAME=glew
-VERSION=2.2.0
-URL=https://downloads.sourceforge.net/glew/glew-2.2.0.tgz
-SECTION="Graphical Environment Libraries"
-DESCRIPTION="GLEW is the OpenGL Extension Wrangler Library."
+VERSION=2.3.1
+URL=https://downloads.sourceforge.net/glew/glew-2.3.1.tgz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.sourceforge.net/glew/glew-2.2.0.tgz
+wget -nc https://downloads.sourceforge.net/glew/glew-2.3.1.tgz
 
 
 if [ ! -z $URL ]
@@ -43,12 +39,15 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sed -i 's%lib64%lib%g' config/Makefile.linux &&
-sed -i -e '/glew.lib.static:/d' \
-       -e '/0644 .*STATIC/d'    \
-       -e 's/glew.lib.static//' Makefile     &&
+sed -i 's%lib64%lib%g' config/Makefile.linux
+sed -e '/glew.lib.static:/d' \
+    -e '/0644 .*STATIC/d'    \
+    -e 's/glew.lib.static//' \
+    -e 's|/local||'          \
+    -i Makefile
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install.all
@@ -57,8 +56,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

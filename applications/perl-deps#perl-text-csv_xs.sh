@@ -7,20 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=perl-deps#perl-text-csv_xs
-VERSION=1.49
-URL=https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/Text-CSV_XS-1.49.tgz
+VERSION=1.61
+URL=https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/Text-CSV_XS-1.61.tgz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/Text-CSV_XS-1.49.tgz
+wget -nc https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/Text-CSV_XS-1.61.tgz
 
 
 if [ ! -z $URL ]
@@ -39,11 +36,9 @@ fi
 cd $DIRECTORY
 fi
 
-
 echo $USER > /tmp/currentuser
 
-perl Makefile.PL &&
-make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -52,8 +47,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

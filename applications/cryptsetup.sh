@@ -6,25 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:json-c
 #REQ:lvm2
-#REQ:popt
-
 
 cd $SOURCE_DIR
-
 NAME=cryptsetup
-VERSION=2.4.3
-URL=https://www.kernel.org/pub/linux/utils/cryptsetup/v2.4/cryptsetup-2.4.3.tar.xz
-SECTION="Security"
-DESCRIPTION="cryptsetup is used to set up transparent encryption of block devices using the kernel crypto API."
+VERSION=2.8.4
+URL=https://www.kernel.org/pub/linux/utils/cryptsetup/v2.8/cryptsetup-2.8.4.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.kernel.org/pub/linux/utils/cryptsetup/v2.4/cryptsetup-2.4.3.tar.xz
+wget -nc https://www.kernel.org/pub/linux/utils/cryptsetup/v2.8/cryptsetup-2.8.4.tar.xz
 
 
 if [ ! -z $URL ]
@@ -45,9 +40,12 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --disable-ssh-token &&
+./configure --prefix=/usr       \
+            --disable-ssh-token \
+            --disable-asciidoc
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -56,8 +54,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

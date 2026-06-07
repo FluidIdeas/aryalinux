@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=libndp
-VERSION=1.8
-URL=http://libndp.org/files/libndp-1.8.tar.gz
-SECTION="Networking Libraries"
-DESCRIPTION="The libndp package provides a wrapper for IPv6 Neighbor Discovery Protocol. It also provides a tool named ndptool for sending and receiving NDP messages."
+VERSION=1.9
+URL=http://libndp.org/files/libndp-1.9.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc http://libndp.org/files/libndp-1.8.tar.gz
+wget -nc http://libndp.org/files/libndp-1.9.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,12 +38,13 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \
             --localstatedir=/var \
-            --disable-static     &&
+            --disable-static
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -56,8 +53,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

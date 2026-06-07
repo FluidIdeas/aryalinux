@@ -6,24 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:cmake
-#REQ:gdk-pixbuf-xlib
-
+#REQ:imlib2
 
 cd $SOURCE_DIR
-
 NAME=icewm
-VERSION=3.3.2
-URL=https://github.com/ice-wm/icewm/archive/3.3.2/icewm-3.3.2.tar.gz
-SECTION="Window Managers"
-DESCRIPTION="IceWM is a window manager with the goals of speed, simplicity, and not getting in the user's way."
+VERSION=4.0.0
+URL=https://github.com/ice-wm/icewm/archive/4.0.0/icewm-4.0.0.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/ice-wm/icewm/archive/3.3.2/icewm-3.3.2.tar.gz
+wget -nc https://github.com/ice-wm/icewm/archive/4.0.0/icewm-4.0.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -44,19 +40,30 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DCMAKE_BUILD_TYPE=Release  \
-      -DCFGDIR=/etc               \
-      -DENABLE_LTO=ON             \
-      -DCONFIG_GDK_PIXBUF_XLIB=ON \
-      -DCONFIG_IMLIB2=OFF         \
-      -DDOCDIR=/usr/share/doc/icewm-3.3.2  \
-      .. &&
+mkdir build
+cd    build
+cmake -D CMAKE_INSTALL_PREFIX=/usr \
+      -D CMAKE_BUILD_TYPE=Release  \
+      -D CFGDIR=/etc               \
+      -D ENABLE_LTO=ON             \
+      -D DOCDIR=/usr/share/doc/icewm-4.0.0  \
+      ..
 make
+echo icewm-session > ~/.xinitrc
+mkdir -pv ~/.icewm
+cp -v /usr/share/icewm/keys ~/.icewm/keys
+cp -v /usr/share/icewm/menu ~/.icewm/menu
+cp -v /usr/share/icewm/preferences ~/.icewm/preferences
+cp -v /usr/share/icewm/toolbar ~/.icewm/toolbar
+cp -v /usr/share/icewm/winoptions ~/.icewm/winoptions
+icewm-menu-fdo >~/.icewm/menu
+cat > ~/.icewm/startup << "EOF"
+rox -p Default &
+EOF
+chmod +x ~/.icewm/startup
+rm -v /usr/share/xsessions/icewm.desktop
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -65,29 +72,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-rm -v /usr/share/xsessions/icewm.desktop
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-echo icewm-session > ~/.xinitrc
-mkdir -pv ~/.icewm                                      &&
-cp -v /usr/share/icewm/keys ~/.icewm/keys               &&
-cp -v /usr/share/icewm/menu ~/.icewm/menu               &&
-cp -v /usr/share/icewm/preferences ~/.icewm/preferences &&
-cp -v /usr/share/icewm/toolbar ~/.icewm/toolbar         &&
-cp -v /usr/share/icewm/winoptions ~/.icewm/winoptions
-icewm-menu-fdo >~/.icewm/menu
-cat > ~/.icewm/startup << "EOF"
-rox -p Default &
-EOF &&
-chmod +x ~/.icewm/startup
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -6,7 +6,6 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:perl-deps#perl-class-singleton
 #REQ:perl-deps#perl-module-runtime
 #REQ:perl-deps#perl-params-validationcompiler
@@ -14,19 +13,17 @@ set +h
 #REQ:perl-deps#perl-test-requires
 #REQ:perl-deps#perl-datetime
 
-
 cd $SOURCE_DIR
-
 NAME=perl-deps#perl-datetime-timezone
-VERSION=2.57
-URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.57.tar.gz
+VERSION=2.66
+URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.66.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.57.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-TimeZone-2.66.tar.gz
 
 
 if [ ! -z $URL ]
@@ -45,11 +42,9 @@ fi
 cd $DIRECTORY
 fi
 
-
 echo $USER > /tmp/currentuser
 
-perl Makefile.PL &&
-make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -58,8 +53,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

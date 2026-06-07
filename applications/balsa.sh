@@ -6,30 +6,23 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:aspell
 #REQ:enchant
-#REQ:gmime3
 #REQ:gpgme
-#REQ:gtk3
-#REQ:libnotify
+#REQ:libical
+#REQ:libsecret
 #REQ:mail
 
-
 cd $SOURCE_DIR
-
 NAME=balsa
-VERSION=2.6.4
-URL=https://pawsa.fedorapeople.org/balsa/balsa-2.6.4.tar.xz
-SECTION="Other X-based Programs"
-DESCRIPTION="The Balsa package contains a GNOME-2 based mail client."
+VERSION=2.6.5
+URL=https://gitlab.gnome.org/GNOME/balsa/-/archive/2.6.5/balsa-2.6.5.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://pawsa.fedorapeople.org/balsa/balsa-2.6.4.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/6.0/balsa-2.6.4-upstream_fixes-2.patch
+wget -nc https://gitlab.gnome.org/GNOME/balsa/-/archive/2.6.5/balsa-2.6.5.tar.gz
 
 
 if [ ! -z $URL ]
@@ -50,23 +43,22 @@ fi
 
 echo $USER > /tmp/currentuser
 
+mkdir build
+cd    build
+meson setup .. --prefix=/usr       \
+               --buildtype=release \
+               -D html-widget=no
+ninja
 
-patch -Np1 -i ../balsa-2.6.4-upstream_fixes-2.patch
-./configure --prefix=/usr            \
-            --sysconfdir=/etc        \
-            --localstatedir=/var/lib \
-            --without-html-widget    &&
-make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

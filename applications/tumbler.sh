@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:glib2
 
-
 cd $SOURCE_DIR
-
 NAME=tumbler
-VERSION=4.18.0
-URL=https://archive.xfce.org/src/xfce/tumbler/4.18/tumbler-4.18.0.tar.bz2
-SECTION="Xfce Desktop"
-DESCRIPTION="The Tumbler package contains a D-Bus thumbnailing service based on the thumbnail management D-Bus specification. This is useful for generating thumbnail images of files."
+VERSION=4.20.1
+URL=https://archive.xfce.org/src/xfce/tumbler/4.20/tumbler-4.20.1.tar.bz2
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.xfce.org/src/xfce/tumbler/4.18/tumbler-4.18.0.tar.bz2
+wget -nc https://archive.xfce.org/src/xfce/tumbler/4.20/tumbler-4.20.1.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -43,9 +39,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --sysconfdir=/etc &&
+./configure --prefix=/usr --sysconfdir=/etc
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -54,8 +51,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

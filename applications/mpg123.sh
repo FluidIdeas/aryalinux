@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:alsa-lib
 
-
 cd $SOURCE_DIR
-
 NAME=mpg123
-VERSION=1.31.3
-URL=https://downloads.sourceforge.net/mpg123/mpg123-1.31.3.tar.bz2
-SECTION="Audio Utilities"
-DESCRIPTION="The mpg123 package contains a console-based MP3 player. It claims to be the fastest MP3 decoder for Unix."
+VERSION=1.33.4
+URL=https://downloads.sourceforge.net/mpg123/mpg123-1.33.4.tar.bz2
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.sourceforge.net/mpg123/mpg123-1.31.3.tar.bz2
+wget -nc https://downloads.sourceforge.net/mpg123/mpg123-1.33.4.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -43,9 +39,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr &&
+./configure --prefix=/usr
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -54,8 +51,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

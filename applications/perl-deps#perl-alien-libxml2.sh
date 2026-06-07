@@ -6,25 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:perl-deps#perl-alien-build-plugin-download-gitlab
 #REQ:libxml2
-#REQ:perl-deps#perl-path-tiny
-#REQ:perl-deps#perl-test2-suite
-
+#REQ:perl-deps#perl-test-simple
 
 cd $SOURCE_DIR
-
 NAME=perl-deps#perl-alien-libxml2
-VERSION=0.19
-URL=https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Libxml2-0.19.tar.gz
+VERSION=0.20
+URL=https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Libxml2-0.20.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Libxml2-0.19.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Libxml2-0.20.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,11 +38,9 @@ fi
 cd $DIRECTORY
 fi
 
-
 echo $USER > /tmp/currentuser
 
-perl Makefile.PL &&
-make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -56,8 +49,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

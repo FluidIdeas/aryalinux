@@ -7,10 +7,7 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=perl-deps#perl-ipc-system-simple
 VERSION=1.30
 URL=https://cpan.metacpan.org/authors/id/J/JK/JKEENAN/IPC-System-Simple-1.30.tar.gz
@@ -39,11 +36,9 @@ fi
 cd $DIRECTORY
 fi
 
-
 echo $USER > /tmp/currentuser
 
-perl Makefile.PL &&
-make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -52,8 +47,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

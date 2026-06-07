@@ -6,17 +6,13 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:glib2
 
-
 cd $SOURCE_DIR
-
 NAME=libfm-extra
 VERSION=1.3.2
 URL=https://downloads.sourceforge.net/pcmanfm/libfm-1.3.2.tar.xz
-SECTION="LXDE Desktop"
-DESCRIPTION="The libfm-extra package contains a library and other files required by menu-cache-gen libexec of menu-cache-1.1.0."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -43,13 +39,14 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 ./configure --prefix=/usr     \
             --sysconfdir=/etc \
             --with-extra-only \
             --with-gtk=no     \
-            --disable-static  &&
+            --disable-static
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -58,8 +55,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

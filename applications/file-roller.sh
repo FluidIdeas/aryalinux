@@ -6,32 +6,21 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:gtk3
-#REQ:itstool
+#REQ:gtk4
 #REQ:cpio
-#REQ:desktop-file-utils
 #REQ:json-glib
-#REQ:libarchive
-#REQ:libhandy1
-#REQ:libportal
-#REQ:nautilus
-
 
 cd $SOURCE_DIR
-
 NAME=file-roller
-VERSION=43.0
-URL=https://download.gnome.org/sources/file-roller/43/file-roller-43.0.tar.xz
-SECTION="GNOME Applications"
-DESCRIPTION="File Roller is an archive manager for GNOME with support for tar, bzip2, gzip, zip, jar, compress, lzop, zstd, dmg, and many other archive formats."
+VERSION=44.6
+URL=https://download.gnome.org/sources/file-roller/44/file-roller-44.6.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/file-roller/43/file-roller-43.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/file-roller/43/file-roller-43.0.tar.xz
+wget -nc https://download.gnome.org/sources/file-roller/44/file-roller-44.6.tar.xz
 
 
 if [ ! -z $URL ]
@@ -52,37 +41,27 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
+mkdir build
+cd    build
 meson setup --prefix=/usr       \
             --buildtype=release \
-            -Dpackagekit=false  \
-            ..                  &&
+            -D packagekit=false \
+            ..
 ninja
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install &&
-chmod -v 0755 /usr/libexec/file-roller/isoinfo.sh
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-glib-compile-schemas /usr/share/glib-2.0/schemas
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
+gtk-update-icon-cache -qtf /usr/share/icons/hicolor
 update-desktop-database -q
+chmod -v 0755 /usr/libexec/file-roller/isoinfo.sh
+glib-compile-schemas /usr/share/glib-2.0/schemas
 
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ninja install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

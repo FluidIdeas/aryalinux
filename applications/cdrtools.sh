@@ -6,17 +6,13 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:alsa-lib
 
-
 cd $SOURCE_DIR
-
 NAME=cdrtools
-VERSION=3.0
+VERSION=3.02a09
 URL=https://downloads.sourceforge.net/cdrtools/cdrtools-3.02a09.tar.bz2
-SECTION="CD/DVD-Writing Utilities"
-DESCRIPTION="The Cdrtools package contains CD recording utilities. These are useful for reading, creating or writing (burning) CDs, DVDs, and Blu-ray discs."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -43,14 +39,26 @@ fi
 
 echo $USER > /tmp/currentuser
 
+sed -i 's|/opt/schily|/usr|g'           DEFAULTS/Defaults.linux
+sed -i 's|DEFINSGRP=.*|DEFINSGRP=root|' DEFAULTS/Defaults.linux
+sed -i 's|INSDIR=\s*sbin|INSDIR=bin|'   rscsi/Makefile
+export GMAKE_NOWARN=true
+export CFLAGS="$CFLAGS -std=gnu89 -fno-strict-aliasing"
+make -j1 INS_BASE=/usr  \
+         DEFINSUSR=root \
+         DEFINSGRP=root \
+         VERSION_OS="LinuxFromScratch"
+GMAKE_NOWARN=true
+make INS_BASE=/usr    \
+     DEFINSUSR=root   \
+     DEFINSGRP=root   \
+     MANSUFF_LIB=3cdr \
+     install
 
-export GMAKE_NOWARN=true &&
-make -j1 INS_BASE=/usr DEFINSUSR=root DEFINSGRP=root
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-export GMAKE_NOWARN=true &&
-make INS_BASE=/usr MANSUFF_LIB=3cdr DEFINSUSR=root DEFINSGRP=root install &&
-install -v -m755 -d /usr/share/doc/cdrtools-3.02a09 &&
+install -v -m755 -d /usr/share/doc/cdrtools-3.02a09
 install -v -m644 README.* READMEs/* ABOUT doc/*.ps \
                     /usr/share/doc/cdrtools-3.02a09
 ENDOFROOTSCRIPT
@@ -58,8 +66,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

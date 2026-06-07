@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:gobject-introspection
-
+#REQ:glib2
 
 cd $SOURCE_DIR
-
 NAME=libmbim
-VERSION=1.26.4
-URL=https://www.freedesktop.org/software/libmbim/libmbim-1.26.4.tar.xz
-SECTION="General Libraries"
-DESCRIPTION="The libmbim package contains a GLib-based library for talking to WWAN modems and devices which speak the Mobile Interface Broadband Model (MBIM) protocol."
+VERSION=1.34.0
+URL=https://gitlab.freedesktop.org/mobile-broadband/libmbim/-/archive/1.34.0/libmbim-1.34.0.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.freedesktop.org/software/libmbim/libmbim-1.26.4.tar.xz
+wget -nc https://gitlab.freedesktop.org/mobile-broadband/libmbim/-/archive/1.34.0/libmbim-1.34.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,19 +39,24 @@ fi
 
 echo $USER > /tmp/currentuser
 
+mkdir build
+cd    build
+meson setup ..                 \
+      --prefix=/usr            \
+      --buildtype=release      \
+      -D bash_completion=false \
+      -D man=false
+ninja
 
-./configure --prefix=/usr --disable-static &&
-make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

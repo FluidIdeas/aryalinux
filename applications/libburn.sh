@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=libburn
-VERSION=1.5.4
-URL=https://files.libburnia-project.org/releases/libburn-1.5.4.tar.gz
-SECTION="CD/DVD-Writing Utilities"
-DESCRIPTION="libburn is a library for writing preformatted data onto optical media: CD, DVD and BD (Blu-Ray)."
+VERSION=1.5.6
+URL=https://files.libburnia-project.org/releases/libburn-1.5.6.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://files.libburnia-project.org/releases/libburn-1.5.4.tar.gz
+wget -nc https://files.libburnia-project.org/releases/libburn-1.5.6.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,19 +38,22 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --disable-static &&
+sed -i 's/catch_int ()/catch_int (int signum)/' test/poll.c
+./configure --prefix=/usr --disable-static
 make
+doxygen doc/doxygen.conf
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
+install -v -dm755 /usr/share/doc/libburn-1.5.6
+install -v -m644 doc/html/* /usr/share/doc/libburn-1.5.6
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -7,23 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=cracklib
-VERSION=2.9.11
-URL=https://github.com/cracklib/cracklib/releases/download/v2.9.11/cracklib-2.9.11.tar.xz
-SECTION="Security"
-DESCRIPTION="The CrackLib package contains a library used to enforce strong passwords by comparing user selected passwords to words in chosen word lists."
+VERSION=2.10.3
+URL=https://github.com/cracklib/cracklib/releases/download/v2.10.3/cracklib-2.10.3.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/cracklib/cracklib/releases/download/v2.9.11/cracklib-2.9.11.tar.xz
-wget -nc https://github.com/cracklib/cracklib/releases/download/v2.9.11/cracklib-words-2.9.11.xz
-wget -nc https://github.com/cracklib/cracklib/releases/download/v2.9.7/cracklib-words-2.9.7.bz2
+wget -nc https://github.com/cracklib/cracklib/releases/download/v2.10.3/cracklib-2.10.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -44,43 +38,28 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-autoreconf -fiv &&
-
-PYTHON=python3               \
-./configure --prefix=/usr    \
-            --disable-static \
-            --with-default-dict=/usr/lib/cracklib/pw_dict &&
+./configure --prefix=/usr               \
+            --disable-static            \
+            --with-default-dict=/usr/lib/cracklib/pw_dict
 make
+python3 -c 'import cracklib; cracklib.test()'
+xzcat ../cracklib-words-2.10.3.xz \
+                       > /usr/share/dict/cracklib-words
+ln -v -sf cracklib-words /usr/share/dict/words
+echo $(hostname) >>      /usr/share/dict/cracklib-extra-words
+create-cracklib-dict     /usr/share/dict/cracklib-words \
+                         /usr/share/dict/cracklib-extra-words
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
+install -v -m755 -d      /usr/lib/cracklib
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m644 -D    ../cracklib-words-2.9.11.xz \
-                         /usr/share/dict/cracklib-words.xz    &&
-
-unxz -v                  /usr/share/dict/cracklib-words.xz    &&
-ln -v -sf cracklib-words /usr/share/dict/words                &&
-echo $(hostname) >>      /usr/share/dict/cracklib-extra-words &&
-install -v -m755 -d      /usr/lib/cracklib                    &&
-
-create-cracklib-dict     /usr/share/dict/cracklib-words \
-                         /usr/share/dict/cracklib-extra-words
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

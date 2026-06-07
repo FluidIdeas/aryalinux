@@ -6,25 +6,21 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:cmake
 #REQ:nasm
 #REQ:yasm
 
-
 cd $SOURCE_DIR
-
 NAME=libjpeg
-VERSION=2.1.5.1
-URL=https://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-2.1.5.1.tar.gz
-SECTION="Graphics and Font Libraries"
-DESCRIPTION="libjpeg-turbo is a fork of the original IJG libjpeg which uses SIMD to accelerate baseline JPEG compression and decompression. libjpeg is a library that implements JPEG image encoding, decoding and transcoding."
+VERSION=3.1.3
+URL=https://github.com/libjpeg-turbo/libjpeg-turbo/releases/download/3.1.3/libjpeg-turbo-3.1.3.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.sourceforge.net/libjpeg-turbo/libjpeg-turbo-2.1.5.1.tar.gz
+wget -nc https://github.com/libjpeg-turbo/libjpeg-turbo/releases/download/3.1.3/libjpeg-turbo-3.1.3.tar.gz
 
 
 if [ ! -z $URL ]
@@ -45,17 +41,18 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DCMAKE_BUILD_TYPE=RELEASE  \
-      -DENABLE_STATIC=FALSE       \
-      -DCMAKE_INSTALL_DOCDIR=/usr/share/doc/libjpeg-turbo-2.1.5.1 \
-      -DCMAKE_INSTALL_DEFAULT_LIBDIR=lib  \
-      .. &&
+mkdir build
+cd    build
+cmake -D CMAKE_INSTALL_PREFIX=/usr        \
+      -D CMAKE_BUILD_TYPE=RELEASE         \
+      -D ENABLE_STATIC=FALSE              \
+      -D CMAKE_INSTALL_DEFAULT_LIBDIR=lib \
+      -D CMAKE_SKIP_INSTALL_RPATH=ON      \
+      -D CMAKE_INSTALL_DOCDIR=/usr/share/doc/libjpeg-turbo-3.1.3 \
+      ..
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -64,8 +61,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

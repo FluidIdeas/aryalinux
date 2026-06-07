@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:which
 
-
 cd $SOURCE_DIR
-
 NAME=boost
-VERSION=
-URL=https://boostorg.jfrog.io/artifactory/main/release/1.81.0/source/boost_1_81_0.tar.bz2
-SECTION="General Libraries"
-DESCRIPTION="Boost provides a set of free peer-reviewed portable C++ source libraries. It includes libraries for linear algebra, pseudorandom number generation, multithreading, image processing, regular expressions and unit testing."
+VERSION=1.90.0
+URL=https://github.com/boostorg/boost/releases/download/boost-1.90.0/boost-1.90.0-b2-nodocs.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://boostorg.jfrog.io/artifactory/main/release/1.81.0/source/boost_1_81_0.tar.bz2
+wget -nc https://github.com/boostorg/boost/releases/download/boost-1.90.0/boost-1.90.0-b2-nodocs.tar.xz
 
 
 if [ ! -z $URL ]
@@ -43,30 +39,15 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sed -i '/#include.*phoenix.*tuple.hpp.*/d' \
-  boost/phoenix/stl.hpp
-./bootstrap.sh --prefix=/usr --with-python=python3 &&
+case $(uname -m) in
+   i?86)
+      sed -e "s/defined(__MINGW32__)/& || defined(__i386__)/" \
+          -i ./libs/stacktrace/src/exception_headers.h ;;
+esac
+./bootstrap.sh --prefix=/usr --with-python=python3
 ./b2 stage -j$(nproc) threading=multi link=shared
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 rm -rf /usr/lib/cmake/[Bb]oost*
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ./b2 install threading=multi link=shared
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

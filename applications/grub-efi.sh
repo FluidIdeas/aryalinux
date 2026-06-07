@@ -6,27 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:efibootmgr
-#REQ:freetype2
-
 
 cd $SOURCE_DIR
-
 NAME=grub-efi
-VERSION=2.06
-URL=https://ftp.gnu.org/gnu/grub/grub-2.06.tar.xz
-SECTION="File Systems and Disk Management"
-DESCRIPTION="The GRUB package provides GRand Unified Bootloader. In this page it will be built with UEFI support, which is not enabled for GRUB built in LFS."
+VERSION=2.14
+URL=https://ftpmirror.gnu.org/grub/grub-2.14.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ftp.gnu.org/gnu/grub/grub-2.06.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/6.0/grub-2.06-upstream_fixes-1.patch
-wget -nc https://unifoundry.com/pub/unifont/unifont-15.0.01/font-builds/unifont-15.0.01.pcf.gz
-wget -nc https://ftp.gnu.org/gnu/gcc/gcc-12.2.0/gcc-12.2.0.tar.xz
+wget -nc https://ftpmirror.gnu.org/grub/grub-2.14.tar.xz
 
 
 if [ ! -z $URL ]
@@ -47,53 +39,31 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir -pv /usr/share/fonts/unifont &&
-gunzip -c ../unifont-15.0.01.pcf.gz > /usr/share/fonts/unifont/unifont.pcf
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 unset {C,CPP,CXX,LD}FLAGS
-patch -Np1 -i ../grub-2.06-upstream_fixes-1.patch
-case $(uname -m) in i?86 )
-    tar xf ../gcc-12.2.0.tar.xz
-    mkdir gcc-12.2.0/build
-    pushd gcc-12.2.0/build
-        ../configure --prefix=$PWD/../../x86_64-gcc \
-                     --target=x86_64-linux-gnu      \
-                     --with-system-zlib             \
-                     --enable-languages=c,c++       \
-                     --with-ld=/usr/bin/ld
-        make all-gcc
-        make install-gcc
-    popd
-    export TARGET_CC=$PWD/x86_64-gcc/bin/x86_64-linux-gnu-gcc
-esac
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \
             --disable-efiemu     \
-            --enable-grub-mkfont \
             --with-platform=efi  \
             --target=x86_64      \
-            --disable-werror     &&
-unset TARGET_CC &&
+            --disable-werror
 make
+mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions
+mkdir -pv /usr/share/fonts/unifont
+zcat ../unifont-17.0.03.pcf.gz > /usr/share/fonts/unifont/unifont.pcf
+make -C grub-core install
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions
+make install
+install -vm755 grub-mkfont /usr/bin/
+install -vm644 ascii.h widthspec.h *.pf2 /usr/share/grub/
+install -vm755 grub-mount /usr/bin/
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

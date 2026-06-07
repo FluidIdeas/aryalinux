@@ -6,25 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:linux-pam
-#REQ:cracklib
-
 
 cd $SOURCE_DIR
-
 NAME=shadow
-VERSION=4.13
-URL=https://github.com/shadow-maint/shadow/releases/download/4.13/shadow-4.13.tar.xz
-SECTION="Security"
-DESCRIPTION="Shadow was indeed installed in LFS and there is no reason to reinstall it unless you installed CrackLib or Linux-PAM after your LFS system was completed. If you have installed CrackLib after LFS, then reinstalling Shadow will enable strong password support. If you have installed Linux-PAM, reinstalling Shadow will allow programs such as login and su to utilize PAM."
+VERSION=4.19.3
+URL=https://github.com/shadow-maint/shadow/releases/download/4.19.3/shadow-4.19.3.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/shadow-maint/shadow/releases/download/4.13/shadow-4.13.tar.xz
-wget -nc https://deer-run.com/users/hal/linux_passwords_pam.html
+wget -nc https://github.com/shadow-maint/shadow/releases/download/4.19.3/shadow-4.19.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -45,45 +39,21 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sed -i 's@DICTPATH.*@DICTPATH\t/lib/cracklib/pw_dict@' etc/login.defs
-sed -i 's/groups$(EXEEXT) //' src/Makefile.in          &&
-
-find man -name Makefile.in -exec sed -i 's/groups\.1 / /'   {} \; &&
-find man -name Makefile.in -exec sed -i 's/getspnam\.3 / /' {} \; &&
-find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \; &&
-
-sed -e 's@#ENCRYPT_METHOD DES@ENCRYPT_METHOD SHA512@' \
-    -e 's@#\(SHA_CRYPT_..._ROUNDS 5000\)@\100@'       \
-    -e 's@/var/spool/mail@/var/mail@'                 \
-    -e '/PATH=/{s@/sbin:@@;s@/bin:@@}'                \
-    -i etc/login.defs                                 &&
-
-./configure --sysconfdir=/etc               \
-            --disable-static                \
-            --with-group-name-max-length=32 &&
+sed -i 's/groups$(EXEEXT) //' src/Makefile.in
+find man -name Makefile.in -exec sed -i 's/groups\.1 / /'   {} \;
+find man -name Makefile.in -exec sed -i 's/getspnam\.3 / /' {} \;
+find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;
+sed -e 's@#ENCRYPT_METHOD DES@ENCRYPT_METHOD YESCRYPT@' \
+    -e 's@/var/spool/mail@/var/mail@'                   \
+    -e '/PATH=/{s@/sbin:@@;s@/bin:@@}'                  \
+    -i etc/login.defs
+./configure --sysconfdir=/etc   \
+            --disable-static    \
+            --without-libbsd    \
+            --with-{b,yes}crypt
 make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make exec_prefix=/usr install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make exec_prefix=/usr pamddir= install
 make -C man install-man
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m644 /etc/login.defs /etc/login.defs.orig &&
 for FUNCTION in FAIL_DELAY               \
                 FAILLOG_ENAB             \
                 LASTLOG_ENAB             \
@@ -95,7 +65,6 @@ for FUNCTION in FAIL_DELAY               \
                 FTMP_FILE NOLOGINS_FILE  \
                 ENV_HZ PASS_MIN_LEN      \
                 SU_WHEEL_ONLY            \
-                CRACKLIB_DICTPATH        \
                 PASS_CHANGE_TRIES        \
                 PASS_ALWAYS_WARN         \
                 CHFN_AUTH ENCRYPT_METHOD \
@@ -103,14 +72,6 @@ for FUNCTION in FAIL_DELAY               \
 do
     sed -i "s/^${FUNCTION}/# &/" /etc/login.defs
 done
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/pam.d/login << "EOF"
 # Begin /etc/pam.d/login
 
@@ -143,9 +104,6 @@ session   required    pam_env.so
 # Set resource limits for the user
 session   required    pam_limits.so
 
-# Display date of last login - Disabled by default
-#session   optional    pam_lastlog.so
-
 # Display the message of the day - Disabled by default
 #session   optional    pam_motd.so
 
@@ -158,14 +116,6 @@ password  include     system-password
 
 # End /etc/pam.d/login
 EOF
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/pam.d/passwd << "EOF"
 # Begin /etc/pam.d/passwd
 
@@ -173,14 +123,6 @@ password  include     system-password
 
 # End /etc/pam.d/passwd
 EOF
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/pam.d/su << "EOF"
 # Begin /etc/pam.d/su
 
@@ -209,14 +151,6 @@ session   include     system-session
 
 # End /etc/pam.d/su
 EOF
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/pam.d/chpasswd << "EOF"
 # Begin /etc/pam.d/chpasswd
 
@@ -232,14 +166,6 @@ password  include     system-password
 EOF
 
 sed -e s/chpasswd/newusers/ /etc/pam.d/chpasswd >/etc/pam.d/newusers
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/pam.d/chage << "EOF"
 # Begin /etc/pam.d/chage
 
@@ -252,45 +178,24 @@ account   include     system-account
 
 # End /etc/pam.d/chage
 EOF
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 for PROGRAM in chfn chgpasswd chsh groupadd groupdel \
                groupmems groupmod useradd userdel usermod
 do
     install -v -m644 /etc/pam.d/chage /etc/pam.d/${PROGRAM}
     sed -i "s/chage/$PROGRAM/" /etc/pam.d/${PROGRAM}
 done
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 if [ -f /etc/login.access ]; then mv -v /etc/login.access{,.NOUSE}; fi
-ENDOFROOTSCRIPT
+if [ -f /etc/limits ]; then mv -v /etc/limits{,.NOUSE}; fi
 
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-if [ -f /etc/limits ]; then mv -v /etc/limits{,.NOUSE}; fi
+install -v -m644 /etc/login.defs /etc/login.defs.orig
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -6,43 +6,27 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:boost
-#REQ:double-conversion
 #REQ:gc
 #REQ:gsl
 #REQ:gtkmm3
-#REQ:libsoup
-#REQ:libxslt
-#REQ:poppler
-#REQ:popt
-#REQ:wget
 #REQ:imagemagick
 #REQ:lcms2
-#REQ:lcms
-#REQ:libcanberra
 #REQ:potrace
 #REQ:python-modules#cachecontrol
 #REQ:python-modules#cssselect
-#REQ:python-modules#lxml
-#REQ:python-modules#numpy
-#REQ:python-modules#pyserial
-#REQ:python-modules#scour
-
 
 cd $SOURCE_DIR
-
 NAME=inkscape
-VERSION=1.2.2
-URL=https://inkscape.org/gallery/item/37360/inkscape-1.2.2.tar.xz
-SECTION="Other X-based Programs"
-DESCRIPTION="Inkscape is a what you see is what you get Scalable Vector Graphics editor. It is useful for creating, viewing and changing SVG images."
+VERSION=1.4.3
+URL=https://inkscape.org/gallery/item/58914/inkscape-1.4.3.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://inkscape.org/gallery/item/37360/inkscape-1.2.2.tar.xz
+wget -nc https://inkscape.org/gallery/item/58914/inkscape-1.4.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -63,14 +47,22 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build                       &&
-cd    build                       &&
-
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DCMAKE_BUILD_TYPE=Release  \
-      ..                          &&
+patch -Np1 -i inkscape-1.4.3-poppler_26.02-1.patch
+sed -i 's/gfree/g_free/' src/extension/internal/pdfinput/pdf-input.cpp
+sed -e '/Stream.h/a#include <poppler/goo/gmem.h>' \
+    -e 's/reset/rewind/'                          \
+    -i src/extension/internal/pdfinput/svg-builder.cpp
+mkdir build
+cd    build
+cmake -D CMAKE_INSTALL_PREFIX=/usr        \
+      -D CMAKE_BUILD_TYPE=Release         \
+      -W no-dev                           \
+      ..
 make
+gtk-update-icon-cache -qtf /usr/share/icons/hicolor
+update-desktop-database -q
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -79,10 +71,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
-update-desktop-database -q
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

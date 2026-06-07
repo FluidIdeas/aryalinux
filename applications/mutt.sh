@@ -6,25 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:lynx
 #REQ:links
 
-
 cd $SOURCE_DIR
-
 NAME=mutt
-VERSION=2.2.10
-URL=https://bitbucket.org/mutt/mutt/downloads/mutt-2.2.10.tar.gz
-SECTION="Mail/News Clients"
-DESCRIPTION="The Mutt package contains a Mail User Agent. This is useful for reading, writing, replying to, saving, and deleting your email."
+VERSION=2.3.0
+URL=http://ftp.mutt.org/pub/mutt/mutt-2.3.0.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://bitbucket.org/mutt/mutt/downloads/mutt-2.2.10.tar.gz
-wget -nc ftp://ftp.mutt.org/pub/mutt/mutt-2.2.10.tar.gz
+wget -nc http://ftp.mutt.org/pub/mutt/mutt-2.3.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -45,39 +40,27 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 groupadd -g 34 mail
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-chgrp -v mail /var/mail
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 sed  -e 's/ -with_backspaces//' \
      -e 's/elinks/links/'       \
      -e 's/-no-numbering -no-references//' \
      -i doc/Makefile.in
 ./configure --prefix=/usr                            \
             --sysconfdir=/etc                        \
-            --with-docdir=/usr/share/doc/mutt-2.2.10 \
+            --with-docdir=/usr/share/doc/mutt-2.3.0 \
             --with-ssl                               \
             --enable-external-dotlock                \
             --enable-pop                             \
             --enable-imap                            \
             --enable-hcache                          \
-            --enable-sidebar                         &&
+            --enable-sidebar
 make
+chown root:mail /usr/bin/mutt_dotlock
+chmod -v 2755 /usr/bin/mutt_dotlock
+cat /usr/share/doc/mutt-2.3.0/samples/gpg.rc >> ~/.muttrc
+chgrp -v mail /var/mail
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -86,11 +69,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-chown root:mail /usr/bin/mutt_dotlock &&
-chmod -v 2755 /usr/bin/mutt_dotlock
-cat /usr/share/doc/mutt-2.2.10/samples/gpg.rc >> ~/.muttrc
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -7,15 +7,11 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=libdaemon
 VERSION=0.14
 URL=https://0pointer.de/lennart/projects/libdaemon/libdaemon-0.14.tar.gz
-SECTION="General Libraries"
-DESCRIPTION="The libdaemon package is a lightweight C library that eases the writing of UNIX daemons."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -42,19 +38,22 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --disable-static &&
+./configure --prefix=/usr --disable-static
 make
+make -C doc doxygen
+make docdir=/usr/share/doc/libdaemon-0.14 install
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make docdir=/usr/share/doc/libdaemon-0.14 install
+install -v -m755 -d /usr/share/doc/libdaemon-0.14/reference/html
+install -v -m644 doc/reference/html/* /usr/share/doc/libdaemon-0.14/reference/html
+install -v -m644 doc/reference/man/man3/* /usr/share/man/man3
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

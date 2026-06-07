@@ -7,22 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=mailx
 VERSION=12.5
-URL=https://ftp.debian.org/debian/pool/main/h/heirloom-mailx/heirloom-mailx_12.5.orig.tar.gz
-SECTION="Mail/News Clients"
-DESCRIPTION="The Heirloom mailx package (formerly known as the Nail package) contains mailx, a command-line Mail User Agent derived from Berkeley Mail. It is intended to provide the functionality of the POSIX mailx command with additional support for MIME messages, IMAP (including caching), POP3, SMTP, S/MIME, message threading/sorting, scoring, and filtering. Heirloom mailx is especially useful for writing scripts and batch processing."
+URL=https://anduin.linuxfromscratch.org/BLFS/mailx/heirloom-mailx_12.5.orig.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ftp.debian.org/debian/pool/main/h/heirloom-mailx/heirloom-mailx_12.5.orig.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/6.0/heirloom-mailx-12.5-fixes-1.patch
+wget -nc https://anduin.linuxfromscratch.org/BLFS/mailx/heirloom-mailx_12.5.orig.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,34 +38,29 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-patch -Np1 -i ../heirloom-mailx-12.5-fixes-1.patch &&
-
+patch -Np1 -i ../heirloom-mailx-12.5-fixes-1.patch
 sed 's@<openssl@<openssl-1.0/openssl@' \
-    -i openssl.c fio.c makeconfig      &&
-
+    -i openssl.c fio.c makeconfig
 make -j1 LDFLAGS+="-L /usr/lib/openssl/" \
          SENDMAIL=/usr/sbin/sendmail
+echo "set PAGER=<more|less>" >> /etc/nail.rc
+echo "set PAGER=<more|less>" >> ~/.mailrc
+echo "set EDITOR=<vim|nano|...>" >> /etc/nail.rc
+echo "set MAILDIR=Maildir" >> /etc/nail.rc
+make PREFIX=/usr UCBINSTALL=/usr/bin/install install
+ln -v -sf mailx /usr/bin/mail
+ln -v -sf mailx /usr/bin/nail
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make PREFIX=/usr UCBINSTALL=/usr/bin/install install &&
-
-ln -v -sf mailx /usr/bin/mail &&
-ln -v -sf mailx /usr/bin/nail &&
-
-install -v -m755 -d     /usr/share/doc/heirloom-mailx-12.5 &&
+install -v -m755 -d     /usr/share/doc/heirloom-mailx-12.5
 install -v -m644 README /usr/share/doc/heirloom-mailx-12.5
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-echo "set PAGER=<more|less>" >> /etc/nail.rc
-echo "set PAGER=<more|less>" >> ~/.mailrc
-echo "set EDITOR=<vim|nano|...>" >> /etc/nail.rc
-echo "set MAILDIR=Maildir" >> /etc/nail.rc
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

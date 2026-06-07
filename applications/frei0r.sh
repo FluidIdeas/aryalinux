@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=frei0r
-VERSION=1.8.0
-URL=https://files.dyne.org/frei0r/releases/frei0r-plugins-1.8.0.tar.gz
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="Frei0r is a minimalistic plugin API for video effects. Note that the 0 in the name is a zero, not a capital letter o."
+VERSION=2.5.1
+URL=https://github.com/dyne/frei0r/archive/v2.5.1/frei0r-v2.5.1.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://files.dyne.org/frei0r/releases/frei0r-plugins-1.8.0.tar.gz
+wget -nc https://github.com/dyne/frei0r/archive/v2.5.1/frei0r-v2.5.1.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,15 +38,14 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir -vp build &&
-cd        build &&
-
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DCMAKE_BUILD_TYPE=Release  \
-      -Wno-dev ..                 &&
-
+mkdir -vp build
+cd        build
+cmake -D CMAKE_INSTALL_PREFIX=/usr \
+      -D CMAKE_BUILD_TYPE=Release  \
+      -W no-dev ..
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -59,8 +54,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

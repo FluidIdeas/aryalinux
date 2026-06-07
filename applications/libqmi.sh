@@ -6,26 +6,21 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:glib2
 #REQ:libgudev
-#REQ:gobject-introspection
 #REQ:libmbim
 
-
 cd $SOURCE_DIR
-
 NAME=libqmi
-VERSION=1.30.8
-URL=https://www.freedesktop.org/software/libqmi/libqmi-1.30.8.tar.xz
-SECTION="General Libraries"
-DESCRIPTION="The libqmi package contains a GLib-based library for talking to WWAN modems and devices which speak the Qualcomm MSM Interface (QMI) protocol."
+VERSION=1.38.0
+URL=https://gitlab.freedesktop.org/mobile-broadband/libqmi/-/archive/1.38.0/libqmi-1.38.0.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.freedesktop.org/software/libqmi/libqmi-1.30.8.tar.xz
+wget -nc https://gitlab.freedesktop.org/mobile-broadband/libqmi/-/archive/1.38.0/libqmi-1.38.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -46,19 +41,25 @@ fi
 
 echo $USER > /tmp/currentuser
 
+mkdir build
+cd    build
+meson setup ..                 \
+      --prefix=/usr            \
+      --buildtype=release      \
+      -D bash_completion=false \
+      -D qrtr=false            \
+      -D man=false
+ninja
 
-PYTHON=python3 ./configure --prefix=/usr --disable-static &&
-make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=unrar
-VERSION=6.2.6
-URL=https://www.rarlab.com/rar/unrarsrc-6.2.6.tar.gz
-SECTION="System Utilities"
-DESCRIPTION="The UnRar package contains a RAR extraction utility used for extracting files from RAR archives. RAR archives are usually created with WinRAR, primarily in a Windows environment."
+VERSION=7.2.4
+URL=https://www.rarlab.com/rar/unrarsrc-7.2.4.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.rarlab.com/rar/unrarsrc-6.2.6.tar.gz
+wget -nc https://www.rarlab.com/rar/unrarsrc-7.2.4.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,8 +38,9 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 make -f makefile
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m755 unrar /usr/bin
@@ -52,8 +49,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

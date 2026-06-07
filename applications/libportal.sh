@@ -6,26 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:gobject-introspection
+#REQ:glib2
 #REQ:gtk3
-#REQ:gtk4
-#REQ:qt5
-
 
 cd $SOURCE_DIR
-
 NAME=libportal
-VERSION=0.6
-URL=https://github.com/flatpak/libportal/releases/download/0.6/libportal-0.6.tar.xz
-SECTION="General Libraries"
-DESCRIPTION="The libportal package provides a library that contains GIO-style async APIs for most Flatpak portals."
+VERSION=0.9.1
+URL=https://github.com/flatpak/libportal/releases/download/0.9.1/libportal-0.9.1.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/flatpak/libportal/releases/download/0.6/libportal-0.6.tar.xz
+wget -nc https://github.com/flatpak/libportal/releases/download/0.9.1/libportal-0.9.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -46,27 +40,24 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+patch -Np1 -i ../libportal-0.9.1-qt6.9_fixes-1.patch
+mkdir build
+cd    build
+meson setup --prefix=/usr       \
+            --buildtype=release \
+            -D vapi=false       \
+            -D docs=false       \
+            ..
+ninja
+sed -i "/output/s/-1/-0.9.1/" ../doc/meson.build
+meson configure -D docs=true
+ninja
 if [ -e /usr/include/libportal ]; then
-    rm -rf /usr/include/libportal.old &&
-    mv -vf /usr/include/libportal{,.old}
+    rm -rf /usr/include/libportal.old
+mv -vf /usr/include/libportal{,.old}
 fi
-ENDOFROOTSCRIPT
 
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
 
-mkdir build &&
-cd    build &&
-
-meson setup --prefix=/usr --buildtype=release -Ddocs=false .. &&
-ninja
-sed "/output/s/-1/-0.6/" -i ../doc/meson.build &&
-meson configure -Ddocs=true                    &&
-ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -75,8 +66,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

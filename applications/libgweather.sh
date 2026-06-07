@@ -6,31 +6,22 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:geocode-glib
-#REQ:gtk3
 #REQ:libsoup3
-#REQ:python-modules#pygobject3
-#REQ:gobject-introspection
+#REQ:glib2
 #REQ:libxml2
-#REQ:vala
-#REQ:python-modules#pygobject3
-
 
 cd $SOURCE_DIR
-
 NAME=libgweather
-VERSION=4.2.0
-URL=https://download.gnome.org/sources/libgweather/4.2/libgweather-4.2.0.tar.xz
-SECTION="GNOME Libraries and Desktop"
-DESCRIPTION="The libgweather package is a library used to access weather information from online services for numerous locations."
+VERSION=4.4.4
+URL=https://download.gnome.org/sources/libgweather/4.4/libgweather-4.4.4.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/libgweather/4.2/libgweather-4.2.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgweather/4.2/libgweather-4.2.0.tar.xz
+wget -nc https://download.gnome.org/sources/libgweather/4.4/libgweather-4.4.4.tar.xz
 
 
 if [ ! -z $URL ]
@@ -51,19 +42,20 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
+patch -Np1 -i ../libgweather-4.4.4-upstream_fix-1.patch
+mkdir build
+cd    build
 meson setup --prefix=/usr       \
             --buildtype=release \
-            -Dgtk_doc=false     \
-            ..                  &&
+            -D gtk_doc=false    \
+            ..
 ninja
-sed "s/libgweather_full_version/'libgweather-4.2.0'/" \
-    -i ../doc/meson.build                             &&
-meson configure -Dgtk_doc=true                        &&
+sed "s/libgweather_full_version/'libgweather-4.4.4'/" \
+    -i ../doc/meson.build
+meson configure -D gtk_doc=true
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -72,8 +64,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

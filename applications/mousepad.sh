@@ -6,23 +6,21 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:gtksourceview4
-
+#REQ:libxfce4ui
+#REQ:gspell
 
 cd $SOURCE_DIR
-
 NAME=mousepad
-VERSION=0.5.10
-URL=https://archive.xfce.org/src/apps/mousepad/0.5/mousepad-0.5.10.tar.bz2
-SECTION="Editors"
-DESCRIPTION="Mousepad is a simple GTK+ 3 text editor for the Xfce desktop environment."
+VERSION=0.6.5
+URL=https://archive.xfce.org/src/apps/mousepad/0.6/mousepad-0.6.5.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.xfce.org/src/apps/mousepad/0.5/mousepad-0.5.10.tar.bz2
+wget -nc https://archive.xfce.org/src/apps/mousepad/0.6/mousepad-0.6.5.tar.xz
 
 
 if [ ! -z $URL ]
@@ -43,19 +41,22 @@ fi
 
 echo $USER > /tmp/currentuser
 
+mkdir build
+cd    build
+meson setup ..            \
+      --prefix=/usr       \
+      --buildtype=release
+ninja
 
-./configure --prefix=/usr --enable-keyfile-settings &&
-make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

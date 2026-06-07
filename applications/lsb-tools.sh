@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=lsb-tools
-VERSION=0.10
-URL=https://github.com/lfs-book/LSB-Tools/releases/download/v0.10/LSB-Tools-0.10.tar.gz
-SECTION="System Utilities"
-DESCRIPTION="The LSB-Tools package includes tools for Linux Standards Base (LSB) conformance."
+VERSION=0.12
+URL=https://github.com/lfs-book/LSB-Tools/releases/download/v0.12/LSB-Tools-0.12.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/lfs-book/LSB-Tools/releases/download/v0.10/LSB-Tools-0.10.tar.gz
+wget -nc https://github.com/lfs-book/LSB-Tools/releases/download/v0.12/LSB-Tools-0.12.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,18 +38,19 @@ fi
 
 echo $USER > /tmp/currentuser
 
+make
+rm /usr/sbin/lsbinstall
+rm /usr/sbin/{install,remove}_initd
 
-python3 setup.py build
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-python3 setup.py install --optimize=1
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

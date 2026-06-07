@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=mitkrb
-VERSION=1.20.1
-URL=https://kerberos.org/dist/krb5/1.20/krb5-1.20.1.tar.gz
-SECTION="Security"
-DESCRIPTION="MIT Kerberos V5 is a free implementation of Kerberos 5. Kerberos is a network authentication protocol. It centralizes the authentication database and uses kerberized applications to work with servers or services that support Kerberos allowing single logins and encrypted communication over internal networks or the Internet."
+VERSION=1.22.2
+URL=https://kerberos.org/dist/krb5/1.22/krb5-1.22.2.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://kerberos.org/dist/krb5/1.20/krb5-1.20.1.tar.gz
+wget -nc https://kerberos.org/dist/krb5/1.22/krb5-1.22.2.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,12 +38,9 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-cd src &&
-
-sed -i -e '/eq 0/{N;s/12 //}'    plugins/kdb/db2/libdb2/test/run.test &&
-sed -i '/t_kadm5.py/d'           lib/kadm5/Makefile.in                &&
-
+patch -Np1 -i ../mitkrb-1.22.2-upstream_fix-1.patch
+cd src
+sed -i -e '/eq 0/{N;s/12 //}' plugins/kdb/db2/libdb2/test/run.test
 ./configure --prefix=/usr            \
             --sysconfdir=/etc        \
             --localstatedir=/var/lib \
@@ -55,30 +48,58 @@ sed -i '/t_kadm5.py/d'           lib/kadm5/Makefile.in                &&
             --with-system-et         \
             --with-system-ss         \
             --with-system-verto=no   \
-            --enable-dns-for-realm &&
+            --enable-dns-for-realm   \
+            --disable-rpath
 make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
+kinit <loginname>
+klist
+cp -vfr ../doc -T /usr/share/doc/krb5-1.22.2
+cat > /etc/krb5.conf << "EOF"
+# Begin /etc/krb5.conf
 
-install -v -dm755 /usr/share/doc/krb5-1.20.1 &&
-cp -vfr ../doc/*  /usr/share/doc/krb5-1.20.1
-ENDOFROOTSCRIPT
+[libdefaults]
+    default_realm = <EXAMPLE.ORG>
+    encrypt = true
 
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
+[realms]
+    <EXAMPLE.ORG> = {
+        kdc = <belgarath.example.org>
+        admin_server = <belgarath.example.org>
+        dict_file = /usr/share/dict/words
+    }
 
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+[domain_realm]
+    .<example.org> = <EXAMPLE.ORG>
+
+[logging]
+    kdc = SYSLOG:INFO:AUTH
+    admin_server = SYSLOG:INFO:AUTH
+    default = SYSLOG:DEBUG:DAEMON
+
+# End /etc/krb5.conf
+EOF
+kdb5_util create -r <EXAMPLE.ORG> -s
+kadmin.local
+kadmin.local: add_policy dict-only
+kadmin.local: addprinc -policy dict-only <loginname>
+kadmin.local: addprinc -randkey host/<belgarath.example.org>
+kadmin.local: ktadd host/<belgarath.example.org>
+/usr/sbin/krb5kdc
+ktutil
+ktutil: rkt /etc/krb5.keytab
+ktutil: l
 touch /var/lib/krb5kdc/kadm5.acl
+
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+make install-krb5
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -6,21 +6,21 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-
+#REQ:frameworks6
+#REQ:phonon
 
 cd $SOURCE_DIR
-
 NAME=dolphin
-VERSION=21.04.1
-URL=https://github.com/KDE/dolphin/archive/v21.04.1/dolphin-21.04.1.tar.gz
-SECTION="KDE Frameworks 5 Based Applications"
-DESCRIPTION="Dolphin is a free and open source file manager included in the KDE Applications bundle. Dolphin became the default file manager of KDE Plasma desktop environments in the fourth iteration, termed KDE Software Compilation 4. It can also be optionally installed on K Desktop Environment 3."
+VERSION=25.12.2
+URL=https://download.kde.org/stable/release-service/25.12.2/src/dolphin-25.12.2.tar.xz
+SECTION="Others"
 
-mkdir -pv $NAME
-pushd $NAME
 
-wget -nc https://github.com/KDE/dolphin/archive/v21.04.1/dolphin-21.04.1.tar.gz
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
+
+wget -nc https://download.kde.org/stable/release-service/25.12.2/src/dolphin-25.12.2.tar.xz
+
 
 if [ ! -z $URL ]
 then
@@ -38,14 +38,25 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 mkdir build
-cd build
+cd    build
+cmake -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX \
+      -D CMAKE_BUILD_TYPE=Release         \
+      -D BUILD_TESTING=OFF                \
+      -W no-dev ..
+make
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-make -j$(nproc)
 
-sudo make install
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+ENDOFROOTSCRIPT
 
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

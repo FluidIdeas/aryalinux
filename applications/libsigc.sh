@@ -6,25 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:boost
-#REQ:libxslt
-
 
 cd $SOURCE_DIR
-
 NAME=libsigc
-VERSION=2.12.0
-URL=https://download.gnome.org/sources/libsigc++/2.12/libsigc++-2.12.0.tar.xz
-SECTION="General Libraries"
-DESCRIPTION="The libsigc++ package implements a typesafe callback system for standard C++."
+VERSION=2.12.1
+URL=https://download.gnome.org/sources/libsigc++/2.12/libsigc++-2.12.1.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/libsigc++/2.12/libsigc++-2.12.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libsigc++/2.12/libsigc++-2.12.0.tar.xz
+wget -nc https://download.gnome.org/sources/libsigc++/2.12/libsigc++-2.12.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -45,12 +39,13 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir bld &&
-cd    bld &&
-
-meson setup --prefix=/usr --buildtype=release .. &&
+sed -i "s/'system',//" meson.build
+mkdir bld
+cd    bld
+meson setup --prefix=/usr --buildtype=release ..
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -59,8 +54,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

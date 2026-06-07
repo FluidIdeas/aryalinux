@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=liba52
-VERSION=0.7.4
-URL=https://liba52.sourceforge.net/files/a52dec-0.7.4.tar.gz
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="liba52 is a free library for decoding ATSC A/52 (also known as AC-3) streams. The A/52 standard is used in a variety of applications, including digital television and DVD."
+VERSION=0.8.0
+URL=https://distfiles.adelielinux.org/source/a52dec/a52dec-0.8.0.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://liba52.sourceforge.net/files/a52dec-0.7.4.tar.gz
+wget -nc https://distfiles.adelielinux.org/source/a52dec/a52dec-0.8.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,26 +38,25 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr \
+./configure --prefix=/usr           \
             --mandir=/usr/share/man \
-            --enable-shared \
-            --disable-static \
-            CFLAGS="${CFLAGS:--g -O2} $([ $(uname -m) = x86_64 ] && echo -fPIC)" &&
+            --enable-shared         \
+            --disable-static        \
+            CFLAGS="${CFLAGS:--g -O3} -fPIC"
 make
+cp liba52/a52_internal.h /usr/include/a52dec
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-cp liba52/a52_internal.h /usr/include/a52dec &&
+make install
 install -v -m644 -D doc/liba52.txt \
-    /usr/share/doc/liba52-0.7.4/liba52.txt
+    /usr/share/doc/liba52-0.8.0/liba52.txt
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

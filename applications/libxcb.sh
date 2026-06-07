@@ -6,25 +6,21 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:libxau
-#REQ:xcb-proto
-#REQ:libxdmcp
-
+#REQ:libXau
+#REQ:libXdmcp
+#REQ:mesa
 
 cd $SOURCE_DIR
-
 NAME=libxcb
-VERSION=1.15
-URL=https://xorg.freedesktop.org/archive/individual/lib/libxcb-1.15.tar.xz
-SECTION="Graphical Environments"
-DESCRIPTION="The libxcb package provides an interface to the X Window System protocol, which replaces the current Xlib interface. Xlib can also use XCB as a transport layer, allowing software to make requests and receive responses with both."
+VERSION=1.17.0
+URL=https://xorg.freedesktop.org/archive/individual/lib/libxcb-1.17.0.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://xorg.freedesktop.org/archive/individual/lib/libxcb-1.15.tar.xz
+wget -nc https://xorg.freedesktop.org/archive/individual/lib/libxcb-1.17.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -45,13 +41,13 @@ fi
 
 echo $USER > /tmp/currentuser
 
-export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
-
-PYTHON=python3                \
 ./configure $XORG_CONFIG      \
             --without-doxygen \
-            --docdir='${datadir}'/doc/libxcb-1.15 &&
-make
+            --docdir='${datadir}'/doc/libxcb-1.17.0
+LC_ALL=en_US.UTF-8 make
+chown -Rv root:root $XORG_PREFIX/share/doc/libxcb-1.17.0
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -60,8 +56,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

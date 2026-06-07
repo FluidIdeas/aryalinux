@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=libisofs
-VERSION=1.5.4
-URL=https://files.libburnia-project.org/releases/libisofs-1.5.4.tar.gz
-SECTION="CD/DVD-Writing Utilities"
-DESCRIPTION="libisofs is a library to create an ISO-9660 filesystem with extensions like RockRidge or Joliet."
+VERSION=1.5.6
+URL=https://files.libburnia-project.org/releases/libisofs-1.5.6.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://files.libburnia-project.org/releases/libisofs-1.5.4.tar.gz
+wget -nc https://files.libburnia-project.org/releases/libisofs-1.5.6.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,19 +38,21 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --disable-static &&
+./configure --prefix=/usr --disable-static
 make
+doxygen doc/doxygen.conf
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
+install -v -dm755 /usr/share/doc/libisofs-1.5.6
+install -v -m644 doc/html/* /usr/share/doc/libisofs-1.5.6
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

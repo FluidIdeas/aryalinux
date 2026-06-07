@@ -6,25 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:ffmpeg
-#REQ:gst10-plugins-base
 #REQ:yasm
 
-
 cd $SOURCE_DIR
-
 NAME=gst10-libav
-VERSION=1.22.1
-URL=https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.22.1.tar.xz
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="The GStreamer Libav package contains GStreamer plugins for Libav (a fork of FFmpeg)."
+VERSION=1.28.1
+URL=https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.28.1.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.22.1.tar.xz
+wget -nc https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.28.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -45,16 +40,14 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-meson  setup ..            \
-       --prefix=/usr       \
-       --buildtype=release \
-       -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/systemd/ \
-       -Dpackage-name="GStreamer 1.22.1 BLFS" &&
+mkdir build
+cd    build
+meson setup ..            \
+      --prefix=/usr       \
+      --buildtype=release
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -63,8 +56,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

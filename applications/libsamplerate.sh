@@ -7,15 +7,11 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=libsamplerate
 VERSION=0.2.2
 URL=https://github.com/libsndfile/libsamplerate/releases/download/0.2.2/libsamplerate-0.2.2.tar.xz
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="libsamplerate is a sample rate converter for audio."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -42,11 +38,12 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/libsamplerate-0.2.2 &&
+            --docdir=/usr/share/doc/libsamplerate-0.2.2
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -55,8 +52,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -6,22 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-
+#REQ:cmake
 
 cd $SOURCE_DIR
-
 NAME=muparser
-VERSION=2.2.6.1
-URL=https://github.com/beltoforion/muparser/archive/v2.2.6.1/muparser-2.2.6.1.tar.gz
-SECTION="Programming"
-DESCRIPTION="Many applications require the parsing of mathematical expressions. The main objective of this library is to provide a fast and easy way of doing this. muParser is an extensible high performance math expression parser library written in C++. It works by transforming a mathematical expression into bytecode and precalculating constant parts of the expression."
+VERSION=2.3.5
+URL=https://github.com/beltoforion/muparser/archive/v2.3.5/muparser-2.3.5.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/beltoforion/muparser/archive/v2.2.6.1/muparser-2.2.6.1.tar.gz
+wget -nc https://github.com/beltoforion/muparser/archive/v2.3.5/muparser-2.3.5.tar.gz
 
 
 if [ ! -z $URL ]
@@ -40,13 +37,24 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build-dir
-cd build-dir
+echo $USER > /tmp/currentuser
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+mkdir -v build
+cd       build
+cmake -D CMAKE_INSTALL_PREFIX=/usr \
+      -D CMAKE_BUILD_TYPE=Release  \
+      ..
 make
-sudo make install
 
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

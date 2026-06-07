@@ -6,31 +6,22 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:gtk3
 #REQ:libnma
-#REQ:libsecret
-#REQ:gobject-introspection
-#REQ:modemmanager
-#REQ:polkit
-#REQ:polkit-gnome
-#REQ:libnma
-
+#REQ:glib2
+#REQ:ModemManager
 
 cd $SOURCE_DIR
-
 NAME=network-manager-applet
-VERSION=1.30.0
-URL=https://download.gnome.org/sources/network-manager-applet/1.30/network-manager-applet-1.30.0.tar.xz
-SECTION="Networking Utilities"
-DESCRIPTION="The NetworkManager Applet provides a tool and a panel applet used to configure wired and wireless network connections through GUI. It's designed for use with any desktop environment that uses GTK+, such as Xfce and LXDE."
+VERSION=1.34.0
+URL=https://download.gnome.org/sources/network-manager-applet/1.34/network-manager-applet-1.34.0.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/network-manager-applet/1.30/network-manager-applet-1.30.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/network-manager-applet/1.30/network-manager-applet-1.30.0.tar.xz
+wget -nc https://download.gnome.org/sources/network-manager-applet/1.34/network-manager-applet-1.34.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -51,16 +42,17 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
+mkdir build
+cd    build
 meson setup ..            \
       --prefix=/usr       \
       --buildtype=release \
-      -Dappindicator=no   \
-      -Dselinux=false     &&
+      -D appindicator=no  \
+      -D selinux=false    \
+      -D team=false
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -69,8 +61,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

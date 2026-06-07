@@ -7,22 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=libsigsegv
-VERSION=2.14
-URL=https://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.14.tar.gz
-SECTION="General Libraries"
-DESCRIPTION="libsigsegv is a library for handling page faults in user mode. A page fault occurs when a program tries to access to a region of memory that is currently not available. Catching and handling a page fault is a useful technique for implementing pageable virtual memory, memory-mapped access to persistent databases, generational garbage collectors, stack overflow handlers, and distributed shared memory."
+VERSION=2.15
+URL=https://ftpmirror.gnu.org/libsigsegv/libsigsegv-2.15.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.14.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/libsigsegv/libsigsegv-2.14.tar.gz
+wget -nc https://ftpmirror.gnu.org/libsigsegv/libsigsegv-2.15.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,11 +38,12 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr   \
-            --enable-shared \
-            --disable-static &&
+./configure --prefix=/usr    \
+            --enable-shared  \
+            --disable-static
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -56,8 +52,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -6,27 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:gtk3
-#REQ:gtk2
-#REQ:hicolor-icon-theme
 #REQ:icon-naming-utils
 
-
 cd $SOURCE_DIR
-
 NAME=gnome-icon-theme
 VERSION=3.12.0
 URL=https://download.gnome.org/sources/gnome-icon-theme/3.12/gnome-icon-theme-3.12.0.tar.xz
-SECTION="Icons"
-DESCRIPTION="The GNOME Icon Theme package contains an assortment of non-scalable icons of different sizes and themes."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://download.gnome.org/sources/gnome-icon-theme/3.12/gnome-icon-theme-3.12.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-icon-theme/3.12/gnome-icon-theme-3.12.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -47,9 +40,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr &&
+./configure --prefix=/usr
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -58,8 +52,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

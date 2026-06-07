@@ -6,24 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:desktop-file-utils
 #REQ:libnl
 
-
 cd $SOURCE_DIR
-
 NAME=wpa_supplicant
-VERSION=2.10
-URL=https://w1.fi/releases/wpa_supplicant-2.10.tar.gz
-SECTION="Networking Programs"
-DESCRIPTION="WPA Supplicant is a Wi-Fi Protected Access (WPA) client and IEEE 802.1X supplicant. It implements WPA key negotiation with a WPA Authenticator and Extensible Authentication Protocol (EAP) authentication with an Authentication Server. In addition, it controls the roaming and IEEE 802.11 authentication/association of the wireless LAN driver. This is useful for connecting to a password protected wireless access point."
+VERSION=2.11
+URL=https://w1.fi/releases/wpa_supplicant-2.11.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://w1.fi/releases/wpa_supplicant-2.10.tar.gz
+wget -nc https://w1.fi/releases/wpa_supplicant-2.11.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,7 +38,6 @@ cd $DIRECTORY
 fi
 
 echo $USER > /tmp/currentuser
-
 
 cat > wpa_supplicant/.config << "EOF"
 CONFIG_BACKEND=file
@@ -77,33 +71,23 @@ CONFIG_CTRL_IFACE_DBUS=y
 CONFIG_CTRL_IFACE_DBUS_NEW=y
 CONFIG_CTRL_IFACE_DBUS_INTRO=y
 EOF
-cd wpa_supplicant &&
+cd wpa_supplicant
 make BINDIR=/usr/sbin LIBDIR=/usr/lib
+wpa_passphrase SSID | sed '/^\t#/d' > /etc/wpa_supplicant/wpa_supplicant-wifi0.conf
+systemctl start wpa_supplicant@wlan0
+systemctl enable wpa_supplicant@wlan0
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m755 wpa_{cli,passphrase,supplicant} /usr/sbin/ &&
-install -v -m644 doc/docbook/wpa_supplicant.conf.5 /usr/share/man/man5/ &&
+install -v -dm755 /etc/wpa_supplicant
+install -v -m755 wpa_{cli,passphrase,supplicant} /usr/sbin/
+install -v -m644 doc/docbook/wpa_supplicant.conf.5 /usr/share/man/man5/
 install -v -m644 doc/docbook/wpa_{cli,passphrase,supplicant}.8 /usr/share/man/man8/
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m644 systemd/*.service /usr/lib/systemd/system/
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m644 dbus/fi.w1.wpa_supplicant1.service \
-                 /usr/share/dbus-1/system-services/ &&
-install -v -d -m755 /etc/dbus-1/system.d &&
+                 /usr/share/dbus-1/system-services/
+install -v -d -m755 /etc/dbus-1/system.d
 install -v -m644 dbus/dbus-wpa_supplicant.conf \
                  /etc/dbus-1/system.d/wpa_supplicant.conf
 ENDOFROOTSCRIPT
@@ -111,26 +95,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-systemctl enable wpa_supplicant
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-update-desktop-database -q
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

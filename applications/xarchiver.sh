@@ -6,24 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:gtk2
 #REQ:gtk3
 
-
 cd $SOURCE_DIR
-
 NAME=xarchiver
-VERSION=0.5.4.20
-URL=https://github.com/ib/xarchiver/archive/0.5.4.20/xarchiver-0.5.4.20.tar.gz
-SECTION="Other X-based Programs"
-DESCRIPTION="XArchiver is a GTK+ archive manager with support for tar, xz, bzip2, gzip, zip, 7z, rar, lzo and many other archive formats."
+VERSION=0.5.4.26
+URL=https://github.com/ib/xarchiver/archive/0.5.4.26/xarchiver-0.5.4.26.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/ib/xarchiver/archive/0.5.4.20/xarchiver-0.5.4.20.tar.gz
+wget -nc https://github.com/ib/xarchiver/archive/0.5.4.26/xarchiver-0.5.4.26.tar.gz
 
 
 if [ ! -z $URL ]
@@ -44,11 +39,15 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
+sed '/TOGGLE.*prefer_unzip/s/TRUE/FALSE/' -i src/pref_dialog.c
 ./configure  --prefix=/usr               \
              --libexecdir=/usr/lib/xfce4 \
-             --docdir=/usr/share/doc/xarchiver-0.5.4.20 &&
+             --docdir=/usr/share/doc/xarchiver-0.5.4.26
 make
+gtk-update-icon-cache -qtf /usr/share/icons/hicolor
+update-desktop-database -q
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -57,10 +56,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
-update-desktop-database -q
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

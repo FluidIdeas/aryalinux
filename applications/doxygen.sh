@@ -6,24 +6,21 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:cmake
 #REQ:git
-
+#REQ:qt6
 
 cd $SOURCE_DIR
-
 NAME=doxygen
-VERSION=1.9.6
-URL=https://doxygen.nl/files/doxygen-1.9.6.src.tar.gz
-SECTION="Programming"
-DESCRIPTION="The Doxygen package contains a documentation system for C++, C, Java, Objective-C, Corba IDL and to some extent PHP, C# and D. It is useful for generating HTML documentation and/or an off-line reference manual from a set of documented source files. There is also support for generating output in RTF, PostScript, hyperlinked PDF, compressed HTML, and Unix man pages. The documentation is extracted directly from the sources, which makes it much easier to keep the documentation consistent with the source code."
+VERSION=1.16.1
+URL=https://doxygen.nl/files/doxygen-1.16.1.src.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://doxygen.nl/files/doxygen-1.9.6.src.tar.gz
+wget -nc https://doxygen.nl/files/doxygen-1.16.1.src.tar.gz
 
 
 if [ ! -z $URL ]
@@ -44,30 +41,31 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir -v build &&
-cd       build &&
-
-cmake -G "Unix Makefiles"         \
-      -DCMAKE_BUILD_TYPE=Release  \
-      -DCMAKE_INSTALL_PREFIX=/usr \
-      -Wno-dev .. &&
-
+grep -rl '^#!.*python$' | xargs sed -i '1s/python/&3/'
+mkdir -v build
+cd       build
+cmake -G "Unix Makefiles"          \
+      -D CMAKE_BUILD_TYPE=Release  \
+      -D CMAKE_INSTALL_PREFIX=/usr \
+      -D build_wizard=ON           \
+      -D force_qt=Qt6              \
+      -W no-dev ..
 make
-cmake -DDOC_INSTALL_DIR=share/doc/doxygen-1.9.6 -Dbuild_doc=ON .. &&
-
+cmake  -D build_doc=ON \
+       -D DOC_INSTALL_DIR=share/doc/doxygen-1.16.1 \
+       ..
 make docs
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
+make install
 install -vm644 ../doc/*.1 /usr/share/man/man1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

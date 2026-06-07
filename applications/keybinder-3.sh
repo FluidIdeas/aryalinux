@@ -6,18 +6,14 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:gtk3
-#REQ:gobject-introspection
-
+#REQ:glib2
 
 cd $SOURCE_DIR
-
 NAME=keybinder-3
-VERSION=3.
+VERSION=0.3.2
 URL=https://github.com/kupferlauncher/keybinder/releases/download/keybinder-3.0-v0.3.2/keybinder-3.0-0.3.2.tar.gz
-SECTION="Graphical Environment Libraries"
-DESCRIPTION="The keybinder-3.0 package contains a utility library registering global X keyboard shortcuts for GTK+-3."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -44,9 +40,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr &&
+./configure --prefix=/usr
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -55,8 +52,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

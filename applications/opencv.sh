@@ -6,36 +6,26 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:cmake
-#REQ:unzip
 #REQ:ffmpeg
-#REQ:gst10-plugins-base
 #REQ:gtk3
 #REQ:jasper
 #REQ:libexif
-#REQ:libjpeg
 #REQ:libpng
-#REQ:libtiff
 #REQ:libwebp
-#REQ:v4l-utils
-#REQ:xine-lib
-
+#REQ:openjpeg2
 
 cd $SOURCE_DIR
-
 NAME=opencv
-VERSION=4.7.0
-URL=https://github.com/opencv/opencv/archive/4.7.0/opencv-4.7.0.tar.gz
-SECTION="Graphics and Font Libraries"
-DESCRIPTION="The opencv package contains graphics libraries mainly aimed at real-time computer vision."
+VERSION=4.13.0
+URL=https://github.com/opencv/opencv/archive/4.13.0/opencv-4.13.0.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/opencv/opencv/archive/4.7.0/opencv-4.7.0.tar.gz
-wget -nc https://github.com/opencv/opencv_contrib/archive/4.7.0/opencv_contrib-4.7.0.tar.gz
+wget -nc https://github.com/opencv/opencv/archive/4.13.0/opencv-4.13.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -56,22 +46,23 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-tar -xf ../opencv_contrib-4.7.0.tar.gz
-mkdir build &&
-cd    build &&
-
-cmake -DCMAKE_INSTALL_PREFIX=/usr      \
-      -DCMAKE_BUILD_TYPE=Release       \
-      -DENABLE_CXX11=ON                \
-      -DBUILD_PERF_TESTS=OFF           \
-      -DWITH_XINE=ON                   \
-      -DBUILD_TESTS=OFF                \
-      -DENABLE_PRECOMPILED_HEADERS=OFF \
-      -DCMAKE_SKIP_RPATH=ON            \
-      -DBUILD_WITH_DEBUG_INFO=OFF      \
-      -Wno-dev  ..                     &&
+tar -xf ../opencv_contrib-4.13.0.tar.gz
+mkdir build
+cd    build
+cmake -D CMAKE_INSTALL_PREFIX=/usr      \
+      -D CMAKE_BUILD_TYPE=Release       \
+      -D ENABLE_CXX11=ON                \
+      -D BUILD_PERF_TESTS=OFF           \
+      -D WITH_XINE=ON                   \
+      -D BUILD_TESTS=OFF                \
+      -D ENABLE_PRECOMPILED_HEADERS=OFF \
+      -D CMAKE_SKIP_INSTALL_RPATH=ON    \
+      -D BUILD_WITH_DEBUG_INFO=OFF      \
+      -D OPENCV_GENERATE_PKGCONFIG=ON   \
+      -W no-dev  ..
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -80,8 +71,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

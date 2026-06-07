@@ -6,25 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:cmake
 #REQ:libevent
 
-
 cd $SOURCE_DIR
-
 NAME=mariadb
-VERSION=10.6.12
-URL=https://downloads.mariadb.org/interstitial/mariadb-10.6.12/source/mariadb-10.6.12.tar.gz
-SECTION="Databases"
-DESCRIPTION="MariaDB is a community-developed fork and a drop-in replacement for the MySQL relational database management system."
+VERSION=11.8.6
+URL=https://downloads.mariadb.org/interstitial/mariadb-11.8.6/source/mariadb-11.8.6.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.mariadb.org/interstitial/mariadb-10.6.12/source/mariadb-10.6.12.tar.gz
-wget -nc ftp://mirrors.fe.up.pt/pub/mariadb/mariadb-10.6.12/source/mariadb-10.6.12.tar.gz
+wget -nc https://downloads.mariadb.org/interstitial/mariadb-11.8.6/source/mariadb-11.8.6.tar.gz
 
 
 if [ ! -z $URL ]
@@ -45,69 +40,51 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-groupadd -g 40 mysql &&
-useradd -c "MySQL Server" -d /srv/mysql -g mysql -s /bin/false -u 40 mysql
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-mkdir build &&
-cd    build &&
-
-cmake -DCMAKE_BUILD_TYPE=Release                      \
-      -DCMAKE_INSTALL_PREFIX=/usr                     \
-      -DGRN_LOG_PATH=/var/log/groonga.log             \
-      -DINSTALL_DOCDIR=share/doc/mariadb-10.6.12       \
-      -DINSTALL_DOCREADMEDIR=share/doc/mariadb-10.6.12 \
-      -DINSTALL_MANDIR=share/man                      \
-      -DINSTALL_MYSQLSHAREDIR=share/mysql             \
-      -DINSTALL_MYSQLTESTDIR=share/mysql/test         \
-      -DINSTALL_PAMDIR=lib/security                   \
-      -DINSTALL_PAMDATADIR=/etc/security              \
-      -DINSTALL_PLUGINDIR=lib/mysql/plugin            \
-      -DINSTALL_SBINDIR=sbin                          \
-      -DINSTALL_SCRIPTDIR=bin                         \
-      -DINSTALL_SQLBENCHDIR=share/mysql/bench         \
-      -DINSTALL_SUPPORTFILESDIR=share/mysql           \
-      -DMYSQL_DATADIR=/srv/mysql                      \
-      -DMYSQL_UNIX_ADDR=/run/mysqld/mysqld.sock       \
-      -DWITH_EXTRA_CHARSETS=complex                   \
-      -DWITH_EMBEDDED_SERVER=ON                       \
-      -DSKIP_TESTS=ON                                 \
-      -DTOKUDB_OK=0                                   \
-      .. &&
+sed -i 's/regex system/regex/' \
+       storage/columnstore/columnstore/cmake/boost.cmake
+mkdir build
+cd    build
+cmake -D CMAKE_BUILD_TYPE=Release                       \
+      -D CMAKE_INSTALL_PREFIX=/usr                      \
+      -D GRN_LOG_PATH=/var/log/groonga.log              \
+      -D INSTALL_DOCDIR=share/doc/mariadb-11.8.6        \
+      -D INSTALL_DOCREADMEDIR=share/doc/mariadb-11.8.6  \
+      -D INSTALL_MANDIR=share/man                       \
+      -D INSTALL_MYSQLSHAREDIR=share/mariadb            \
+      -D INSTALL_MYSQLTESTDIR=share/mariadb/test        \
+      -D INSTALL_PAMDIR=lib/security                    \
+      -D INSTALL_PAMDATADIR=/etc/security               \
+      -D INSTALL_PLUGINDIR=lib/mariadb/plugin           \
+      -D INSTALL_SBINDIR=sbin                           \
+      -D INSTALL_SCRIPTDIR=bin                          \
+      -D INSTALL_SQLBENCHDIR=share/mariadb/bench        \
+      -D INSTALL_SUPPORTFILESDIR=share/mariadb          \
+      -D MYSQL_DATADIR=/srv/mariadb                     \
+      -D MYSQL_UNIX_ADDR=/run/mariadb/mariadb.sock      \
+      -D WITH_EXTRA_CHARSETS=complex                    \
+      -D WITH_EMBEDDED_SERVER=ON                        \
+      -D SKIP_TESTS=ON                                  \
+      -D TOKUDB_OK=0                                    \
+      -W no-dev                                         \
+      ..
 make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -dm 755 /etc/mysql &&
-cat > /etc/mysql/my.cnf << "EOF"
-# Begin /etc/mysql/my.cnf
+mariadb-upgrade
+groupadd -g 40 mariadb
+useradd -c "MariaDB Server" -d /srv/mariadb -g mariadb -s /bin/false -u 40 mariadb
+cat > /etc/my.cnf << "EOF"
+# Begin /etc/my.cnf
 
 # The following options will be passed to all MySQL clients
 [client]
 #password       = your_password
 port            = 3306
-socket          = /run/mysqld/mysqld.sock
+socket          = /run/mariadb/mariadb.sock
 
 # The MySQL server
-[mysqld]
+[server]
 port            = 3306
-socket          = /run/mysqld/mysqld.sock
-datadir         = /srv/mysql
+socket          = /run/mariadb/mariadb.sock
+datadir         = /srv/mariadb
 skip-external-locking
 key_buffer_size = 16M
 max_allowed_packet = 1M
@@ -126,8 +103,8 @@ server-id       = 1
 #bdb_max_lock = 10000
 
 # InnoDB tables are now used by default
-innodb_data_home_dir = /srv/mysql
-innodb_log_group_home_dir = /srv/mysql
+innodb_data_home_dir = /srv/mariadb
+innodb_log_group_home_dir = /srv/mariadb
 # All the innodb_xxx values below are the default ones:
 innodb_data_file_path = ibdata1:12M:autoextend
 # You can set .._buffer_pool_size up to 50 - 80 %
@@ -138,7 +115,7 @@ innodb_log_buffer_size = 16M
 innodb_flush_log_at_trx_commit = 1
 innodb_lock_wait_timeout = 50
 
-[mysqldump]
+[mariadbdump]
 quick
 max_allowed_packet = 16M
 
@@ -159,78 +136,28 @@ sort_buffer_size = 20M
 read_buffer = 2M
 write_buffer = 2M
 
-[mysqlhotcopy]
+[mariadbhotcopy]
 interactive-timeout
 
-# End /etc/mysql/my.cnf
+# End /etc/my.cnf
 EOF
-ENDOFROOTSCRIPT
+mariadb-install-db --basedir=/usr --datadir=/srv/mariadb --user=mariadb
+chown -R mariadb:mariadb /srv/mariadb
+mariadbd-safe --user=mariadb 2>&1 >/dev/null &
+mariadb-admin -u root password
+mariadb-admin -p shutdown
 
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mysql_install_db --basedir=/usr --datadir=/srv/mysql --user=mysql &&
-chown -R mysql:mysql /srv/mysql
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m755 -o mysql -g mysql -d /run/mysqld &&
-mysqld_safe --user=mysql 2>&1 >/dev/null & sleep 10
+make install
+install -v -m755 -o mariadb -g mariadb -d /run/mariadb
+make install-mariadb
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mysqladmin -u root password
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mysqladmin -p shutdown
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-#!/bin/bash
-
-set -e
-set +h
-
-. /etc/alps/alps.conf
-
-pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/9.0-systemd/blfs-systemd-units-20180105.tar.bz2
-tar xf blfs-systemd-units-20180105.tar.bz2
-cd blfs-systemd-units-20180105
-sudo make install-mysqld
-popd
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-mariadb-upgrade
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

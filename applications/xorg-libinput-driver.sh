@@ -6,24 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:libinput
-#REQ:xorg-server
-
+#REQ:x7driver
 
 cd $SOURCE_DIR
-
 NAME=xorg-libinput-driver
-VERSION=1.3.0
-URL=https://www.x.org/pub/individual/driver/xf86-input-libinput-1.3.0.tar.xz
+VERSION=1.5.0
+URL=https://www.x.org/pub/individual/driver/xf86-input-libinput-1.5.0.tar.xz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.x.org/pub/individual/driver/xf86-input-libinput-1.3.0.tar.xz
-wget -nc ftp://ftp.x.org/pub/individual/driver/xf86-input-libinput-1.3.0.tar.xz
+wget -nc https://www.x.org/pub/individual/driver/xf86-input-libinput-1.5.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -42,12 +37,12 @@ fi
 cd $DIRECTORY
 fi
 
-export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
-
 echo $USER > /tmp/currentuser
 
-./configure $XORG_CONFIG &&
+./configure $XORG_CONFIG
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -56,8 +51,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

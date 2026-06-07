@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:cmake
 
-
 cd $SOURCE_DIR
-
 NAME=brotli
-VERSION=1.0.9
-URL=https://github.com/google/brotli/archive/v1.0.9/brotli-1.0.9.tar.gz
-SECTION="General Libraries"
-DESCRIPTION="Brotli provides a general-purpose lossless compression algorithm that compresses data using a combination of a modern variant of the LZ77 algorithm, Huffman coding and 2nd order context modeling. Its libraries are particularly used for WOFF2 fonts on webpages."
+VERSION=1.2.0
+URL=https://github.com/google/brotli/archive/v1.2.0/brotli-1.2.0.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/google/brotli/archive/v1.0.9/brotli-1.0.9.tar.gz
+wget -nc https://github.com/google/brotli/archive/v1.2.0/brotli-1.2.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,23 +39,30 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-
-mkdir out &&
-cd    out &&
-
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DCMAKE_BUILD_TYPE=Release  \
-      ..  &&
-make
-pushd ..               &&
-python3 setup.py build &&
-popd
-sudo make install &&
+mkdir build
+cd    build
+cmake -D CMAKE_INSTALL_PREFIX=/usr \
+      -D CMAKE_BUILD_TYPE=Release  \
+      -G Ninja ..
+ninja
 cd ..
-sudo python3 setup.py install --optimize=1
+sed -e '/libraries +=/s/=.*/= [required_system_library[3:]]/' \
+    -e '/package_configuration/d'                             \
+    -e '/pkgconfig/d'                                         \
+    -i setup.py
+USE_SYSTEM_BROTLI=1 \
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
 
 
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ninja install
+pip3 install --no-index --find-links dist --no-user Brotli
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -6,42 +6,30 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
+#REQ:appstream
 #REQ:gegl
 #REQ:gexiv2
-#REQ:glib-networking
-#REQ:gtk2
+#REQ:gtk3
 #REQ:harfbuzz
-#REQ:libjpeg
-#REQ:libmypaint
-#REQ:librsvg
-#REQ:libtiff
-#REQ:python-modules#libxml2py2
+#REQ:libxml2
 #REQ:lcms2
-#REQ:mypaint-brushes
 #REQ:poppler
-#REQ:dbus-glib
 #REQ:graphviz
-#REQ:gs
 #REQ:iso-codes
-#REQ:libgudev
-#REQ:python-modules#pygtk
+#REQ:python-modules#pygobject3
 #REQ:xdg-utils
 
-
 cd $SOURCE_DIR
-
 NAME=gimp
-VERSION=2.10.34
-URL=https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.34.tar.bz2
-SECTION="Other X-based Programs"
-DESCRIPTION="The Gimp package contains the GNU Image Manipulation Program which is useful for photo retouching, image composition and image authoring."
+VERSION=3.0.6
+URL=https://download.gimp.org/gimp/v3.0/gimp-3.0.6.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gimp.org/pub/gimp/v2.10/gimp-2.10.34.tar.bz2
+wget -nc https://download.gimp.org/gimp/v3.0/gimp-3.0.6.tar.xz
 
 
 if [ ! -z $URL ]
@@ -62,21 +50,39 @@ fi
 
 echo $USER > /tmp/currentuser
 
+patch -Np1 -i ../gimp-3.0.6-security_fixes-1.patch
+mkdir gimp-build
+cd    gimp-build
+meson setup ..            \
+      --prefix=/usr       \
+      --buildtype=release \
+      -D headless-tests=disabled
+ninja
+gtk-update-icon-cache -qtf /usr/share/icons/hicolor
+update-desktop-database -q
+tar -xf ../../gimp-help-3.0.2.tar.bz2
+cd gimp-help-3.0.2
 
-./configure --prefix=/usr --sysconfdir=/etc &&
+sed -i 's/import libxml2//' configure
+ALL_LINGUAS="en" \
+./configure --prefix=/usr
 make
+rm -rf /usr/{lib,share}/gimp/3.0
+rm -f  /usr/share/gir-1.0/Gimp-3.0.gir
+rm -f  /usr/lib/girepository-1.0/Gimp-3.0.typelib
+rm -f  /usr/lib/libgimp*-3.0.so*
+chown -R root:root /usr/share/gimp/3.0/help
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ninja install
 make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-gtk-update-icon-cache -qtf /usr/share/icons/hicolor &&
-update-desktop-database -q
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

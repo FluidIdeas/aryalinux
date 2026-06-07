@@ -6,24 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:libarchive
 
-
 cd $SOURCE_DIR
-
 NAME=ed
-VERSION=1.19
-URL=https://ftp.gnu.org/gnu/ed/ed-1.19.tar.lz
-SECTION="Editors"
-DESCRIPTION="Ed is a line-oriented text editor. It is used to create, display, modify and otherwise manipulate text files, both interactively and via shell scripts. Ed isn't something which many people use. It's described here because it can be used by the patch program if you encounter an ed-based patch file. This happens rarely because diff-based patches are preferred these days."
+VERSION=1.22.5
+URL=https://ftpmirror.gnu.org/ed/ed-1.22.5.tar.lz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ftp.gnu.org/gnu/ed/ed-1.19.tar.lz
-wget -nc ftp://ftp.gnu.org/gnu/ed/ed-1.19.tar.lz
+wget -nc https://ftpmirror.gnu.org/ed/ed-1.22.5.tar.lz
 
 
 if [ ! -z $URL ]
@@ -44,9 +39,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr &&
+./configure --prefix=/usr
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -55,8 +51,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

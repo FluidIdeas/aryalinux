@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:pango
-
+#REQ:fmt
 
 cd $SOURCE_DIR
-
 NAME=paps
-VERSION=0.7.1
-URL=https://downloads.sourceforge.net/paps/paps-0.7.1.tar.gz
-SECTION="PostScript"
-DESCRIPTION="paps is a text to PostScript converter that works through Pango. Its input is a UTF-8 encoded text file and it outputs vectorized PostScript. It may be used for printing any complex script supported by Pango."
+VERSION=0.8.0
+URL=https://github.com/dov/paps/releases/download/v0.8.0/paps-0.8.0.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.sourceforge.net/paps/paps-0.7.1.tar.gz
+wget -nc https://github.com/dov/paps/releases/download/v0.8.0/paps-0.8.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,9 +39,14 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --mandir=/usr/share/man &&
+sed -i -r 's/g_utf8_(next|offset)/(char*) &/' src/paps.cc
+patch -Np1 -i ../paps-0.8.0-fmt_fix-1.patch
+./configure --prefix=/usr    \
+            --disable-Werror \
+            --mandir=/usr/share/man
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -54,8 +55,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

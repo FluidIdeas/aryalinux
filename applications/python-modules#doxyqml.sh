@@ -6,22 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:doxygen
 
-
 cd $SOURCE_DIR
-
 NAME=python-modules#doxyqml
-VERSION=0.5.2
-URL=https://files.pythonhosted.org/packages/source/d/doxyqml/doxyqml-0.5.2.tar.gz
+VERSION=0.5.3
+URL=https://files.pythonhosted.org/packages/source/d/doxyqml/doxyqml-0.5.3.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://files.pythonhosted.org/packages/source/d/doxyqml/doxyqml-0.5.2.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/d/doxyqml/doxyqml-0.5.3.tar.gz
 
 
 if [ ! -z $URL ]
@@ -40,21 +37,21 @@ fi
 cd $DIRECTORY
 fi
 
-
 echo $USER > /tmp/currentuser
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+python3 tests/functional/tests.py
+python3 tests/unit/tests.py
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user doxyqml
+pip3 install --no-index --find-links dist --no-user doxyqml
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-pytest
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -7,474 +7,939 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:python-dependencies#pytz
-#REQ:python-dependencies#editables
-#REQ:python-modules#packaging
-#REQ:python-dependencies#pathspec
-#REQ:python-dependencies#pluggy
-#REQ:python-dependencies#hatchling
-#REQ:python-dependencies#setuptools_scm
-#REQ:python-dependencies#hatch-vcs
-#REQ:python-dependencies#pyproject-metadata
-#REQ:python-modules#cython
-#REQ:python-dependencies#setuptools_scm
-#REQ:python-dependencies#setuptools_scm
-#REQ:python-dependencies#setuptools_scm
-#REQ:python-modules#packaging
-#REQ:python-modules#packaging
-#REQ:python-dependencies#typing_extensions
-#REQ:python-dependencies#smartypants
-
-
 cd $SOURCE_DIR
-
 NAME=python-dependencies
-VERSION=0.7.13
-URL=https://files.pythonhosted.org/packages/source/a/alabaster/alabaster-0.7.13.tar.gz
+VERSION=1.0.0
+URL=https://files.pythonhosted.org/packages/source/a/alabaster/alabaster-1.0.0.tar.gz
 SECTION="Programming"
-DESCRIPTION="Python modules listed in Python Modules have dependencies that are not referenced by other packages in BLFS. These dependencies are listed here. They will not get updated on regular basis, unless a more recent version is needed."
+DESCRIPTION="Python modules listed in Python Modules have dependencies that are not referenced by other packages in BLFS. These dependencies are listed here."
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://files.pythonhosted.org/packages/source/a/alabaster/alabaster-0.7.13.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/a/attrs/attrs-22.2.0.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/B/Babel/Babel-2.11.0.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/c/chardet/chardet-5.1.0.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/c/charset-normalizer/charset-normalizer-3.0.1.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/a/alabaster/alabaster-1.0.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/a/attrs/attrs-25.4.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/B/Babel/babel-2.18.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/c/certifi/certifi-2026.1.4.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/c/chardet/chardet-5.2.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/c/charset-normalizer/charset_normalizer-3.4.4.tar.gz
 wget -nc https://files.pythonhosted.org/packages/source/c/commonmark/commonmark-0.9.1.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/e/editables/editables-0.3.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/h/hatchling/hatchling-1.12.2.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/h/hatch-vcs/hatch_vcs-0.3.0.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/i/idna/idna-3.4.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/e/editables/editables-0.5.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/h/hatch-fancy-pypi-readme/hatch_fancy_pypi_readme-25.1.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/h/hatch-vcs/hatch_vcs-0.5.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/h/hatchling/hatchling-1.28.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/i/idna/idna-3.11.tar.gz
 wget -nc https://files.pythonhosted.org/packages/source/i/imagesize/imagesize-1.4.1.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/i/iniconfig/iniconfig-2.0.0.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/M/Markdown/Markdown-3.4.1.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/m/meson_python/meson_python-0.12.0.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/m/msgpack/msgpack-1.0.4.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/p/pathspec/pathspec-0.10.3.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/p/pluggy/pluggy-1.0.0.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/p/py/py-1.11.0.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/p/pyproject-metadata/pyproject-metadata-0.7.0.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/p/pytz/pytz-2022.7.1.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/s/setuptools_scm/setuptools_scm-7.1.0.tar.gz
-wget -nc https://github.com/leohemsted/smartypants.py/archive/v2.0.1/smartypants-2.0.1.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/s/snowballstemmer/snowballstemmer-2.2.0.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/s/sphinxcontrib-applehelp/sphinxcontrib.applehelp-1.0.3.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/s/sphinxcontrib-devhelp/sphinxcontrib-devhelp-1.0.2.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/s/sphinxcontrib-htmlhelp/sphinxcontrib-htmlhelp-2.0.0.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/s/sphinxcontrib-jquery/sphinxcontrib-jquery-2.0.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/i/iniconfig/iniconfig-2.3.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/M/Markdown/markdown-3.10.2.tar.gz
+wget -nc https://github.com/PyO3/maturin/archive/v1.12.3/maturin-1.12.3.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/m/meson_python/meson_python-0.19.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/m/msgpack/msgpack-1.1.2.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/p/pathspec/pathspec-1.0.4.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/p/pluggy/pluggy-1.6.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/p/pyproject-hooks/pyproject_hooks-1.2.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/p/pyproject-metadata/pyproject_metadata-0.11.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/p/pytz/pytz-2025.2.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/r/roman-numerals/roman_numerals-4.1.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/sphinxcontrib-applehelp/sphinxcontrib_applehelp-2.0.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/sphinxcontrib-devhelp/sphinxcontrib_devhelp-2.0.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/sphinxcontrib-htmlhelp/sphinxcontrib_htmlhelp-2.1.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/sphinxcontrib-jquery/sphinxcontrib-jquery-4.1.tar.gz
 wget -nc https://files.pythonhosted.org/packages/source/s/sphinxcontrib-jsmath/sphinxcontrib-jsmath-1.0.1.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/s/sphinxcontrib-qthelp/sphinxcontrib-qthelp-1.0.3.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/s/sphinxcontrib-serializinghtml/sphinxcontrib-serializinghtml-1.1.5.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/t/typing_extensions/typing_extensions-4.4.0.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/t/typogrify/typogrify-2.0.7.tar.gz
-wget -nc https://files.pythonhosted.org/packages/source/u/urllib3/urllib3-1.26.14.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/sphinxcontrib-qthelp/sphinxcontrib_qthelp-2.0.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/sphinxcontrib_serializinghtml/sphinxcontrib_serializinghtml-2.0.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/semantic_version/semantic_version-2.10.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/setuptools_rust/setuptools_rust-1.12.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/setuptools_scm/setuptools_scm-9.2.2.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/smartypants/smartypants-2.0.2.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/snowballstemmer/snowballstemmer-3.0.1.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/t/trove_classifiers/trove_classifiers-2026.1.14.14.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/t/typogrify/typogrify-2.1.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/u/urllib3/urllib3-2.6.3.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/u/uv_build/uv_build-0.10.2.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/w/webencodings/webencodings-0.5.1.tar.gz
 
-
-if [ ! -z $URL ]
-then
-
-TARBALL=$(echo $URL | rev | cut -d/ -f1 | rev)
-if [ -z $(echo $TARBALL | grep ".zip$") ]; then
-	DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
-	sudo rm -rf $DIRECTORY
-	tar --no-overwrite-dir -xf $TARBALL
-else
-	DIRECTORY=$(unzip_dirname $TARBALL $NAME)
-	unzip_file $TARBALL $NAME
-fi
-
-cd $DIRECTORY
-fi
+wget -nc https://files.pythonhosted.org/packages/source/a/alabaster/alabaster-1.0.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/a/attrs/attrs-25.4.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/B/Babel/babel-2.18.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/c/certifi/certifi-2026.1.4.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/c/chardet/chardet-5.2.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/c/charset-normalizer/charset_normalizer-3.4.4.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/c/commonmark/commonmark-0.9.1.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/e/editables/editables-0.5.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/h/hatch-fancy-pypi-readme/hatch_fancy_pypi_readme-25.1.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/h/hatch-vcs/hatch_vcs-0.5.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/h/hatchling/hatchling-1.28.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/i/idna/idna-3.11.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/i/imagesize/imagesize-1.4.1.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/i/iniconfig/iniconfig-2.3.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/M/Markdown/markdown-3.10.2.tar.gz
+wget -nc https://github.com/PyO3/maturin/archive/v1.12.3/maturin-1.12.3.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/m/meson_python/meson_python-0.19.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/m/msgpack/msgpack-1.1.2.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/p/pathspec/pathspec-1.0.4.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/p/pluggy/pluggy-1.6.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/p/pyproject-hooks/pyproject_hooks-1.2.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/p/pyproject-metadata/pyproject_metadata-0.11.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/p/pytz/pytz-2025.2.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/r/roman-numerals/roman_numerals-4.1.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/sphinxcontrib-applehelp/sphinxcontrib_applehelp-2.0.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/sphinxcontrib-devhelp/sphinxcontrib_devhelp-2.0.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/sphinxcontrib-htmlhelp/sphinxcontrib_htmlhelp-2.1.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/sphinxcontrib-jquery/sphinxcontrib-jquery-4.1.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/sphinxcontrib-jsmath/sphinxcontrib-jsmath-1.0.1.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/sphinxcontrib-qthelp/sphinxcontrib_qthelp-2.0.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/sphinxcontrib_serializinghtml/sphinxcontrib_serializinghtml-2.0.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/semantic_version/semantic_version-2.10.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/setuptools_rust/setuptools_rust-1.12.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/setuptools_scm/setuptools_scm-9.2.2.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/smartypants/smartypants-2.0.2.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/snowballstemmer/snowballstemmer-3.0.1.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/t/trove_classifiers/trove_classifiers-2026.1.14.14.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/t/typogrify/typogrify-2.1.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/u/urllib3/urllib3-2.6.3.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/u/uv_build/uv_build-0.10.2.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/w/webencodings/webencodings-0.5.1.tar.gz
 
 echo $USER > /tmp/currentuser
 
+echo $USER > /tmp/currentuser
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+# --- alabaster ---
+TARBALL=alabaster-1.0.0.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user alabaster
+pip3 install --no-index --find-links dist --no-user alabaster
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+# --- attrs ---
+TARBALL=attrs-25.4.0.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+python3 -m venv --system-site-packages testenv
+testenv/bin/pip3 install --group mypy
+PATH=$PWD/testenv/bin:$PATH testenv/bin/python -m pytest
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user attrs
+pip3 install --no-index --find-links dist --no-user attrs
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-python3 -m venv --system-site-packages testenv &&
-source testenv/bin/activate                    &&
-pip3 install attrs[tests]                      &&
-python3 /usr/bin/pytest                        &&
-deactivate
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user Babel
-ENDOFROOTSCRIPT
+# --- babel ---
+TARBALL=babel-2.18.0.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
 
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-python3 -m venv --system-site-packages testenv &&
-source testenv/bin/activate                    &&
-pip3 install pytest-cov freezegun==0.3.12      &&
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+python3 -m venv --system-site-packages testenv
+source testenv/bin/activate
+pip3 install pytest-cov freezegun
 python3 /usr/bin/pytest
 deactivate
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user chardet
+pip3 install --no-index --find-links dist --no-user Babel
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+# --- certifi ---
+TARBALL=certifi-2026.1.4.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user charset-normalizer
+pip3 install --no-index --find-links dist --no-user certifi
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-python3 -m venv --system-site-packages testenv &&
-source testenv/bin/activate                    &&
-pip3 install pytest-cov                        &&
+# --- chardet ---
+TARBALL=chardet-5.2.0.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+pip3 install --no-index --find-links dist --no-user chardet
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
+
+# --- charset-normalizer ---
+TARBALL=charset_normalizer-3.4.4.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+python3 -m venv --system-site-packages testenv
+source testenv/bin/activate
+pip3 install pytest-cov
 python3 /usr/bin/pytest
 deactivate
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user commonmark
+pip3 install --no-index --find-links dist --no-user charset-normalizer
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-python3 -m venv --system-site-packages testenv &&
-source testenv/bin/activate                    &&
-pip3 install hypothesis                        &&
+# --- commonmark ---
+TARBALL=commonmark-0.9.1.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+python3 -m venv --system-site-packages testenv
+source testenv/bin/activate
+pip3 install hypothesis
 python3 /usr/bin/pytest commonmark/tests/unit_tests.py
 python3 commonmark/tests/run_spec_tests.py
 deactivate
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user editables
+pip3 install --no-index --find-links dist --no-user commonmark
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+# --- editables ---
+TARBALL=editables-0.5.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user hatchling
+pip3 install --no-index --find-links dist --no-user editables
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+# --- hatch-fancy-pypi-readme ---
+TARBALL=hatch_fancy_pypi_readme-25.1.0.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user hatch_vcs
+pip3 install --no-index --find-links dist --no-user hatch-fancy-pypi-readme
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+# --- hatch-vcs ---
+TARBALL=hatch_vcs-0.5.0.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user idna
+pip3 install --no-index --find-links dist --no-user hatch_vcs
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+# --- hatchling ---
+TARBALL=hatchling-1.28.0.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user imagesize
+pip3 install --no-index --find-links dist --no-user hatchling
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+# --- idna ---
+TARBALL=idna-3.11.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user iniconfig
+pip3 install --no-index --find-links dist --no-user idna
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+# --- imagesize ---
+TARBALL=imagesize-1.4.1.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user Markdown
+pip3 install --no-index --find-links dist --no-user imagesize
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-python3 -m venv --system-site-packages testenv &&
-source testenv/bin/activate                    &&
-pip3 install coverage                          &&
+# --- iniconfig ---
+TARBALL=iniconfig-2.3.0.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+pip3 install --no-index --find-links dist --no-user iniconfig
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
+
+# --- markdown ---
+TARBALL=markdown-3.10.2.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+python3 -m venv --system-site-packages testenv
+source testenv/bin/activate
+pip3 install coverage
 python3 /usr/bin/pytest --ignore=tests/test_syntax/extensions/test_md_in_html.py
 deactivate
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user meson_python
+pip3 install --no-index --find-links dist --no-user Markdown
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+# --- maturin ---
+TARBALL=maturin-1.12.3.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+python3 -m venv --system-site-packages testenv
+testenv/bin/pip3 install cffi pycparser virtualenv
+PATH=$PWD/testenv/bin:$PATH cargo test
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user msgpack
+pip3 install --no-index --find-links dist --no-user maturin
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+# --- meson_python ---
+TARBALL=meson_python-0.19.0.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+python3 -m venv --system-site-packages testenv
+testenv/bin/pip3 install --group=test
+HOME= testenv/bin/python -m pytest
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user pathspec
+pip3 install --no-index --find-links dist --no-user meson_python
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+# --- msgpack ---
+TARBALL=msgpack-1.1.2.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user pluggy
+pip3 install --no-index --find-links dist --no-user msgpack
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-python3 -m venv --system-site-packages testenv &&
-source testenv/bin/activate                    &&
-pip3 install pytest-benchmark                  &&
-python3 /usr/bin/pytest
+# --- pathspec ---
+TARBALL=pathspec-1.0.4.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+pip3 install --no-index --find-links dist --no-user pathspec
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
+
+# --- pluggy ---
+TARBALL=pluggy-1.6.0.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+pip3 install --no-index --find-links dist --no-user pluggy
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
+
+# --- pyproject-hooks ---
+TARBALL=pyproject_hooks-1.2.0.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+python3 -m venv --system-site-packages testenv
+source testenv/bin/activate
+pip3 install testpath
+python3 -m pytest
 deactivate
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user py
+pip3 install --no-index --find-links dist --no-user pyproject_hooks
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+# --- pyproject-metadata ---
+TARBALL=pyproject_metadata-0.11.0.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+python3 -m venv --system-site-packages testenv
+testenv/bin/pip3 install exceptiongroup
+testenv/bin/python3 -m pytest
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user pyproject-metadata
+pip3 install --no-index --find-links dist --no-user pyproject-metadata
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+# --- pytz ---
+TARBALL=pytz-2025.2.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user pytz
+pip3 install --no-index --find-links dist --no-user pytz
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+# --- roman-numerals ---
+TARBALL=roman_numerals-4.1.0.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user setuptools_scm
+pip3 install --no-index --find-links dist --no-user roman-numerals
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+# --- sc-applehelp ---
+TARBALL=sphinxcontrib_applehelp-2.0.0.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user smartypants
+pip3 install --no-index --find-links dist --no-user sphinxcontrib-applehelp
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+# --- sc-devhelp ---
+TARBALL=sphinxcontrib_devhelp-2.0.0.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user snowballstemmer
+pip3 install --no-index --find-links dist --no-user sphinxcontrib-devhelp
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user sphinxcontrib-applehelp
-ENDOFROOTSCRIPT
+# --- sc-htmlhelp ---
+TARBALL=sphinxcontrib_htmlhelp-2.1.0.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
 
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user sphinxcontrib-devhelp
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user sphinxcontrib-htmlhelp
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-python3 -m venv --system-site-packages testenv   &&
-source testenv/bin/activate                      &&
-pip3 install html5lib                            &&
-sed -i 's/text()/read_&/' tests/test_htmlhelp.py &&
-python3 /usr/bin/pytest
-deactivate
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user sphinxcontrib-jquery
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user sphinxcontrib-jsmath
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sed -i 's/text()/read_&/' tests/test_jsmath.py &&
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+sed -i 's/keyword/pair: keyword;/' tests/roots/test-chm/index.rst
 pytest
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user sphinxcontrib-qthelp
+pip3 install --no-index --find-links dist --no-user sphinxcontrib-htmlhelp
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-sed -i 's/text()/read_&/' tests/test_qthelp.py &&
+# --- sc-jquery ---
+TARBALL=sphinxcontrib-jquery-4.1.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+pip3 install --no-index --find-links dist --no-user sphinxcontrib-jquery
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
+
+# --- sc-jsmath ---
+TARBALL=sphinxcontrib-jsmath-1.0.1.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+patch -Np1 -i ../sphinxcontrib-jsmath-1.0.1-sphinx9_fixes-1.patch
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
 pytest
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user sphinxcontrib-serializinghtml
+pip3 install --no-index --find-links dist --no-user sphinxcontrib-jsmath
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+# --- sc-qthelp ---
+TARBALL=sphinxcontrib_qthelp-2.0.0.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+python3 -m venv --system-site-packages testenv
+testenv/bin/pip3 install defusedxml
+testenv/bin/python -m pytest
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user typing_extensions
+pip3 install --no-index --find-links dist --no-user sphinxcontrib-qthelp
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+# --- sc-serializinghtml ---
+TARBALL=sphinxcontrib_serializinghtml-2.0.0.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user typogrify
+pip3 install --no-index --find-links dist --no-user sphinxcontrib-serializinghtml
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+# --- semantic_version ---
+TARBALL=semantic_version-2.10.0.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user urllib3
+pip3 install --no-index --find-links dist --no-user semantic_version
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
-python3 -m venv --system-site-packages testenv &&
-source testenv/bin/activate                    &&
-pip3 install trustme         \
-             tornado         \
-             python-dateutil \
-             mock            \
-             pysocks         \
-             pytest-timeout  \
-             pytest-freezegun                  &&
-python3 /usr/bin/pytest
+# --- setuptools_rust ---
+TARBALL=setuptools_rust-1.12.0.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+pip3 install --no-index --find-links dist --no-user setuptools_rust
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
+
+# --- setuptools_scm ---
+TARBALL=setuptools_scm-9.2.2.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+python3 -m venv --system-site-packages testenv
+testenv/bin/pip3 install --group test
+TZ=UTC HOME= testenv/bin/python3 -m pytest
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+pip3 install --no-index --find-links dist --no-user setuptools_scm
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
+
+# --- smartypants ---
+TARBALL=smartypants-2.0.2.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+cp /usr/bin/smartypants .
+pytest
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+pip3 install --no-index --find-links dist --no-user smartypants
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
+
+# --- snowballstemmer ---
+TARBALL=snowballstemmer-3.0.1.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+pip3 install --no-index --find-links dist --no-user snowballstemmer
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
+
+# --- trove-classifiers ---
+TARBALL=trove_classifiers-2026.1.14.14.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+sed -i '/calver/s/^/#/;$iversion="2026.1.14.14"' setup.py
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+pip3 install --no-index --find-links dist --no-user trove-classifiers
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
+
+# --- typogrify ---
+TARBALL=typogrify-2.1.0.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+pip3 install --no-index --find-links dist --no-user typogrify
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
+
+# --- urllib3 ---
+TARBALL=urllib3-2.6.3.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+python3 -m venv --system-site-packages testenv
+source testenv/bin/activate
+pip3 install --group dev
+python3 /usr/bin/pytest --timeout 10
 deactivate
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+pip3 install --no-index --find-links dist --no-user urllib3
+ENDOFROOTSCRIPT
 
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
+
+# --- uv_build ---
+TARBALL=uv_build-0.10.2.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+pip3 install --no-index --find-links dist --no-user uv_build
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
+
+# --- webencodings ---
+TARBALL=webencodings-0.5.1.tar.gz
+DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq | grep -v "^\.$")
+sudo rm -rf $DIRECTORY
+tar --no-overwrite-dir -xf $TARBALL
+cd $DIRECTORY
+
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+pip3 install --no-index --find-links dist --no-user webencodings
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
+cd $SOURCE_DIR
+sudo rm -rf $DIRECTORY
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

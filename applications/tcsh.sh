@@ -7,22 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=tcsh
-VERSION=6.24.07
-URL=https://astron.com/pub/tcsh/tcsh-6.24.07.tar.gz
-SECTION="Shells"
-DESCRIPTION="The Tcsh package contains “an enhanced but completely compatible version of the Berkeley Unix C shell (csh)”. This is useful as an alternative shell for those who prefer C syntax to that of the bash shell, and also because some programs require the C shell in order to perform installation tasks."
+VERSION=6.24.16
+URL=https://astron.com/pub/tcsh/tcsh-6.24.16.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://astron.com/pub/tcsh/tcsh-6.24.07.tar.gz
-wget -nc ftp://ftp.astron.com/pub/tcsh/tcsh-6.24.07.tar.gz
+wget -nc https://astron.com/pub/tcsh/tcsh-6.24.16.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,33 +38,8 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr &&
+./configure --prefix=/usr
 make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install install.man &&
-
-ln -v -sf tcsh   /bin/csh &&
-ln -v -sf tcsh.1 /usr/share/man/man1/csh.1
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cat >> /etc/shells << "EOF"
-/bin/tcsh
-/bin/csh
-EOF
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 cat > ~/.cshrc << "EOF"
 # Original at:
 # https://www.cs.umd.edu/~srhuang/teaching/code_snippets/prompt_color.tcsh.html
@@ -103,7 +73,22 @@ alias ls ls --color=always
 # Clean up after ourselves...
 unset red green yellow blue magenta cyan yellow white end
 EOF
+ln -v -sf tcsh   /bin/csh
+ln -v -sf tcsh.1 /usr/share/man/man1/csh.1
+cat >> /etc/shells << "EOF"
+/bin/tcsh
+/bin/csh
+EOF
 
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install install.man
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

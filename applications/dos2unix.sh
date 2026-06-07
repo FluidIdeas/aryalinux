@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=dos2unix
-VERSION=7.4.4
-URL=https://downloads.sourceforge.net/dos2unix/dos2unix-7.4.4.tar.gz
-SECTION="General Utilities"
-DESCRIPTION="The dos2unix package contains an any to any text format converter."
+VERSION=7.5.4
+URL=https://downloads.sourceforge.net/dos2unix/dos2unix-7.5.4.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.sourceforge.net/dos2unix/dos2unix-7.4.4.tar.gz
+wget -nc https://downloads.sourceforge.net/dos2unix/dos2unix-7.5.4.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,8 +38,9 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -52,8 +49,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

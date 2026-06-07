@@ -6,28 +6,22 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:libvorbis
 #REQ:alsa-lib
-#REQ:gstreamer10
 #REQ:gtk3
 #REQ:sound-theme-freedesktop
 
-
 cd $SOURCE_DIR
-
 NAME=libcanberra
 VERSION=0.30
 URL=https://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="libcanberra is an implementation of the XDG Sound Theme and Name Specifications, for generating event sounds on free desktops, such as GNOME."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/6.0/libcanberra-0.30-wayland-1.patch
 
 
 if [ ! -z $URL ]
@@ -48,20 +42,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 patch -Np1 -i ../libcanberra-0.30-wayland-1.patch
-./configure --prefix=/usr --disable-oss &&
+./configure --prefix=/usr --disable-oss
 make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make docdir=/usr/share/doc/libcanberra-0.30 install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

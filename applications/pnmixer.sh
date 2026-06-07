@@ -6,19 +6,15 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:alsa-utils
 #REQ:gtk3
 #REQ:libnotify
 
-
 cd $SOURCE_DIR
-
 NAME=pnmixer
 VERSION=0.7.2
 URL=https://github.com/nicklan/pnmixer/releases/download/v0.7.2/pnmixer-v0.7.2.tar.gz
-SECTION="Audio Utilities"
-DESCRIPTION="The Pnmixer package provides a lightweight volume control with a tray icon."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -45,12 +41,14 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-cmake -DCMAKE_INSTALL_PREFIX=/usr ..  &&
+mkdir build
+cd    build
+cmake -D CMAKE_INSTALL_PREFIX=/usr        \
+      -D CMAKE_POLICY_VERSION_MINIMUM=3.5 \
+      ..
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -59,8 +57,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

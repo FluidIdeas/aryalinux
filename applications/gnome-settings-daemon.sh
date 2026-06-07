@@ -6,42 +6,27 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:alsa-lib
-#REQ:colord
-#REQ:fontconfig
-#REQ:gcr4
 #REQ:geoclue2
-#REQ:geocode-glib
 #REQ:gnome-desktop
-#REQ:lcms2
-#REQ:libcanberra
-#REQ:libgweather
 #REQ:libnotify
-#REQ:libwacom
-#REQ:pulseaudio
-#REQ:upower
-#REQ:alsa
-#REQ:cups
+#REQ:colord
 #REQ:networkmanager
+#REQ:ModemManager
 #REQ:nss
 #REQ:wayland
 
-
 cd $SOURCE_DIR
-
 NAME=gnome-settings-daemon
-VERSION=43.0
-URL=https://download.gnome.org/sources/gnome-settings-daemon/43/gnome-settings-daemon-43.0.tar.xz
-SECTION="GNOME Libraries and Desktop"
-DESCRIPTION="The GNOME Settings Daemon is responsible for setting various parameters of a GNOME Session and the applications that run under it."
+VERSION=49.1
+URL=https://download.gnome.org/sources/gnome-settings-daemon/49/gnome-settings-daemon-49.1.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gnome-settings-daemon/43/gnome-settings-daemon-43.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-settings-daemon/43/gnome-settings-daemon-43.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-settings-daemon/49/gnome-settings-daemon-49.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -62,12 +47,12 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-meson setup --prefix=/usr --buildtype=release .. &&
+mkdir build
+cd    build
+meson setup --prefix=/usr --buildtype=release ..
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -76,8 +61,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -6,28 +6,22 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:gnutls
 #REQ:gtk3
-#REQ:libgcrypt
-#REQ:gobject-introspection
+#REQ:glib2
 #REQ:vala
 
-
 cd $SOURCE_DIR
-
 NAME=gtk-vnc
-VERSION=1.3.1
-URL=https://download.gnome.org/sources/gtk-vnc/1.3/gtk-vnc-1.3.1.tar.xz
-SECTION="Graphical Environment Libraries"
-DESCRIPTION="The Gtk VNC package contains a VNC viewer widget for GTK+. It is built using coroutines allowing it to be completely asynchronous while remaining single threaded."
+VERSION=1.5.0
+URL=https://download.gnome.org/sources/gtk-vnc/1.5/gtk-vnc-1.5.0.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gtk-vnc/1.3/gtk-vnc-1.3.1.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtk-vnc/1.3/gtk-vnc-1.3.1.tar.xz
+wget -nc https://download.gnome.org/sources/gtk-vnc/1.5/gtk-vnc-1.5.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -48,12 +42,12 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-meson setup --prefix=/usr --buildtype=release .. &&
+mkdir build
+cd    build
+meson setup --prefix=/usr --buildtype=release ..
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -62,8 +56,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

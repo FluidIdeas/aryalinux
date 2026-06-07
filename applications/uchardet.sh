@@ -6,17 +6,13 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:cmake
 
-
 cd $SOURCE_DIR
-
 NAME=uchardet
 VERSION=0.0.8
 URL=https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.8.tar.xz
-SECTION="General Libraries"
-DESCRIPTION="The Uchardet package contains an encoding detectory library which takes a sequence of bytes in an unknown character encoding and attempts to determine the encoding of the text."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -43,14 +39,15 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DBUILD_STATIC=OFF          \
-      -Wno-dev ..                 &&
+mkdir build
+cd    build
+cmake -D CMAKE_INSTALL_PREFIX=/usr        \
+      -D BUILD_STATIC=OFF                 \
+      -D CMAKE_POLICY_VERSION_MINIMUM=3.5 \
+      -W no-dev ..
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -59,8 +56,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -7,22 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=alsa-lib
-VERSION=1.2.8
-URL=https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.8.tar.bz2
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="The ALSA Library package contains the ALSA library used by programs (including ALSA Utilities) requiring access to the ALSA sound interface."
+VERSION=1.2.15.3
+URL=https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.15.3.tar.bz2
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.8.tar.bz2
-wget -nc ftp://ftp.alsa-project.org/pub/lib/alsa-lib-1.2.8.tar.bz2
+wget -nc https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.15.3.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -43,19 +38,25 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure &&
+./configure
 make
+make doc
+tar -C /usr/share/alsa --strip-components=1 -xf ../alsa-ucm-conf-1.2.15.3.tar.bz2
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
+install -v -d -m755 /usr/share/doc/alsa-lib-1.2.15.3/html/search
+install -v -m644 doc/doxygen/html/*.* \
+                /usr/share/doc/alsa-lib-1.2.15.3/html
+install -v -m644 doc/doxygen/html/search/* \
+                /usr/share/doc/alsa-lib-1.2.15.3/html/search
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

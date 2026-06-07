@@ -7,22 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=libunistring
-VERSION=1.1
-URL=https://ftp.gnu.org/gnu/libunistring/libunistring-1.1.tar.xz
-SECTION="General Libraries"
-DESCRIPTION="libunistring is a library that provides functions for manipulating Unicode strings and for manipulating C strings according to the Unicode standard."
+VERSION=1.4.1
+URL=https://ftpmirror.gnu.org/libunistring/libunistring-1.4.1.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ftp.gnu.org/gnu/libunistring/libunistring-1.1.tar.xz
-wget -nc ftp://ftp.gnu.org/gnu/libunistring/libunistring-1.1.tar.xz
+wget -nc https://ftpmirror.gnu.org/libunistring/libunistring-1.4.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -43,11 +38,14 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
+sed -r '/_GL_EXTERN_C/s/w?memchr|bsearch/(&)/' \
+    -i $(find -name \*.in.h)
 ./configure --prefix=/usr    \
             --disable-static \
-            --docdir=/usr/share/doc/libunistring-1.1 &&
+            --docdir=/usr/share/doc/libunistring-1.4.1
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -56,8 +54,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

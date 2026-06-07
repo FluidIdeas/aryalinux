@@ -6,24 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:glib2
 #REQ:aspell
-
+#REQ:vala
 
 cd $SOURCE_DIR
-
 NAME=enchant
-VERSION=2.3.4
-URL=https://github.com/AbiWord/enchant/releases/download/v2.3.4/enchant-2.3.4.tar.gz
-SECTION="General Libraries"
-DESCRIPTION="The enchant package provides a generic interface into various existing spell checking libraries."
+VERSION=2.8.15
+URL=https://github.com/rrthomas/enchant/releases/download/v2.8.15/enchant-2.8.15.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/AbiWord/enchant/releases/download/v2.3.4/enchant-2.3.4.tar.gz
+wget -nc https://github.com/rrthomas/enchant/releases/download/v2.8.15/enchant-2.8.15.tar.gz
 
 
 if [ ! -z $URL ]
@@ -44,9 +40,20 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --disable-static &&
+./configure --prefix=/usr     \
+            --sysconfdir=/etc \
+            --disable-static  \
+            --docdir=/usr/share/doc/enchant-2.8.15
 make
+cat > /tmp/test-enchant.txt << "EOF"
+Tel me more abot linux
+Ther ar so many commads
+EOF
+
+enchant-2 -d en_GB -l /tmp/test-enchant.txt
+enchant-2 -d en_GB -a /tmp/test-enchant.txt
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -55,15 +62,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-cat > /tmp/test-enchant.txt << "EOF"
-Tel me more abot linux
-Ther ar so many commads
-EOF
-
-enchant-2 -d en_GB -l /tmp/test-enchant.txt &&
-enchant-2 -d en_GB -a /tmp/test-enchant.txt
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

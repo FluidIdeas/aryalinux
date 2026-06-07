@@ -6,18 +6,14 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:cmake
 #REQ:libxslt
 
-
 cd $SOURCE_DIR
-
 NAME=tidy-html5
 VERSION=5.8.0
 URL=https://github.com/htacg/tidy-html5/archive/5.8.0/tidy-html5-5.8.0.tar.gz
-SECTION="General Utilities"
-DESCRIPTION="The Tidy HTML5 package contains a command line tool and libraries used to read HTML, XHTML and XML files and write cleaned up markup. It detects and corrects many common coding errors and strives to produce visually equivalent markup that is both W3C compliant and compatible with most browsers."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -44,27 +40,25 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-cd build/cmake &&
-
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DCMAKE_BUILD_TYPE=Release  \
-      -DBUILD_TAB2SPACE=ON        \
-      ../..    &&
-
+patch -Np1 -i ../tidy-html5-5.8.0-cmake4_fixes-1.patch
+cd build/cmake
+cmake -D CMAKE_INSTALL_PREFIX=/usr \
+      -D CMAKE_BUILD_TYPE=Release  \
+      -D BUILD_TAB2SPACE=ON        \
+      ../..
 make
+rm -fv /usr/lib/libtidy.a
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-rm -fv /usr/lib/libtidy.a &&
+make install
 install -v -m755 tab2space /usr/bin
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

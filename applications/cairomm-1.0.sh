@@ -6,25 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:cairo
-#REQ:libsigc
 #REQ:boost
 
-
 cd $SOURCE_DIR
-
 NAME=cairomm-1.0
-VERSION=1.14.0
-URL=https://www.cairographics.org/releases/cairomm-1.14.0.tar.xz
-SECTION="Graphical Environment Libraries"
-DESCRIPTION="The libcairomm-1.0 package provides a C++ interface to Cairo."
+VERSION=1.14.5
+URL=https://www.cairographics.org/releases/cairomm-1.14.5.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.cairographics.org/releases/cairomm-1.14.0.tar.xz
+wget -nc https://www.cairographics.org/releases/cairomm-1.14.5.tar.xz
 
 
 if [ ! -z $URL ]
@@ -45,16 +40,16 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir bld &&
-cd    bld &&
-
-meson setup ..            \
-      --prefix=/usr       \
-      --buildtype=release \
-      -Dbuild-tests=true  \
-      -Dboost-shared=true &&
+mkdir bld
+cd    bld
+meson setup ..             \
+      --prefix=/usr        \
+      --buildtype=release  \
+      -D build-tests=true  \
+      -D boost-shared=true
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -63,8 +58,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

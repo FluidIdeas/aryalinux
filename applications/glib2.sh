@@ -6,27 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:libxslt
-#REQ:pcre2
-#REQ:gobject-introspection
-
+#REQ:python-modules#docutils
 
 cd $SOURCE_DIR
-
 NAME=glib2
-VERSION=2.76.1
-URL=https://download.gnome.org/sources/glib/2.76/glib-2.76.1.tar.xz
-SECTION="General Libraries"
-DESCRIPTION="The GLib package contains low-level libraries useful for providing data structure handling for C, portability wrappers and interfaces for such runtime functionality as an event loop, threads, dynamic loading and an object system."
+VERSION=2.86.4
+URL=https://download.gnome.org/sources/glib/2.86/glib-2.86.4.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/glib/2.76/glib-2.76.1.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/glib/2.76/glib-2.76.1.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/6.0/glib-2.76.1-skip_warnings-1.patch
+wget -nc https://download.gnome.org/sources/glib/2.86/glib-2.86.4.tar.xz
 
 
 if [ ! -z $URL ]
@@ -47,41 +39,44 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-patch -Np1 -i ../glib-2.76.1-skip_warnings-1.patch
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-if [ -e /usr/include/glib-2.0 ]; then
-    rm -rf /usr/include/glib-2.0.old &&
-    mv -vf /usr/include/glib-2.0{,.old}
-fi
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-mkdir build &&
-cd    build &&
-
-meson setup ..            \
-      --prefix=/usr       \
-      --buildtype=release \
-      -Dman=true          &&
+patch -Np1 -i ../glib-skip_warnings-1.patch
+patch -Np1 -i ../glib-2.86.4-upstream_fixes-1.patch
+mkdir build
+cd    build
+meson setup ..                  \
+      --prefix=/usr             \
+      --buildtype=release       \
+      -D introspection=disabled \
+      -D glib_debug=disabled    \
+      -D man-pages=enabled      \
+      -D sysprof=disabled
 ninja
+tar xf ../../gobject-introspection-1.86.0.tar.xz
+meson setup gobject-introspection-1.86.0 gi-build \
+            --prefix=/usr --buildtype=release
+ninja -C gi-build
+meson configure -D introspection=enabled
+ninja
+sed "/docs_dir =/s|$| / 'glib-' + meson.project_version()|" \
+    -i ../docs/reference/meson.build
+meson configure -D documentation=true
+ninja
+if [ -e /usr/include/glib-2.0 ]; then
+    rm -rf /usr/include/glib-2.0.old
+mv -vf /usr/include/glib-2.0{,.old}
+fi
+ninja -C gi-build install
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install &&
-
-mkdir -p /usr/share/doc/glib-2.76.1 &&
-cp -r ../docs/reference/{gio,glib,gobject} /usr/share/doc/glib-2.76.1
+ninja install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

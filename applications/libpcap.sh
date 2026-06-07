@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=libpcap
-VERSION=1.10.3
-URL=https://www.tcpdump.org/release/libpcap-1.10.3.tar.gz
-SECTION="Networking Libraries"
-DESCRIPTION="libpcap provides functions for user-level packet capture, used in low-level network monitoring."
+VERSION=1.10.6
+URL=https://www.tcpdump.org/release/libpcap-1.10.6.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.tcpdump.org/release/libpcap-1.10.3.tar.gz
+wget -nc https://www.tcpdump.org/release/libpcap-1.10.6.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,10 +38,11 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr &&
+./configure --prefix=/usr
 make
 sed -i '/INSTALL_DATA.*libpcap.a\|RANLIB.*libpcap.a/ s/^/#/' Makefile
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -54,8 +51,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

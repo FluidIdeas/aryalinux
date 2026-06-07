@@ -6,26 +6,23 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:gst10-plugins-base
+#REQ:libaom
 #REQ:libdvdread
-#REQ:libdvdnav
+#REQ:libva
 #REQ:soundtouch
 
-
 cd $SOURCE_DIR
-
 NAME=gst10-plugins-bad
-VERSION=1.22.1
-URL=https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.22.1.tar.xz
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="The GStreamer Bad Plug-ins package contains a set of plug-ins that aren't up to par compared to the rest. They might be close to being good quality, but they're missing something - be it a good code review, some documentation, a set of tests, a real live maintainer, or some actual wide use."
+VERSION=1.28.1
+URL=https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.28.1.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.22.1.tar.xz
+wget -nc https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.28.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -46,17 +43,15 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-meson  setup ..            \
-       --prefix=/usr       \
-       --buildtype=release \
-       -Dgpl=enabled       \
-       -Dpackage-origin=https://www.linuxfromscratch.org/blfs/view/systemd/ \
-       -Dpackage-name="GStreamer 1.22.1 BLFS" &&
+mkdir build
+cd    build
+meson setup ..            \
+      --prefix=/usr       \
+      --buildtype=release \
+      -D gpl=enabled
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -65,8 +60,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

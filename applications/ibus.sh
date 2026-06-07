@@ -6,29 +6,25 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:dconf
 #REQ:iso-codes
+#REQ:libarchive
 #REQ:vala
-#REQ:gobject-introspection
-#REQ:gtk2
+#REQ:dconf
+#REQ:glib2
+#REQ:gtk3
 #REQ:libnotify
 
-
 cd $SOURCE_DIR
-
 NAME=ibus
-VERSION=1.5.28
-URL=https://github.com/ibus/ibus/releases/download/1.5.28/ibus-1.5.28.tar.gz
-SECTION="General Utilities"
-DESCRIPTION="ibus is an Intelligent Input Bus. It is a new input framework for the Linux OS. It provides a fully featured and user friendly input method user interface."
+VERSION=1.5.33
+URL=https://github.com/ibus/ibus/archive/1.5.33/ibus-1.5.33.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/ibus/ibus/releases/download/1.5.28/ibus-1.5.28.tar.gz
-wget -nc https://www.unicode.org/Public/zipped/15.0.0/UCD.zip
+wget -nc https://github.com/ibus/ibus/archive/1.5.33/ibus-1.5.33.tar.gz
 
 
 if [ ! -z $URL ]
@@ -49,38 +45,32 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir -p                /usr/share/unicode/ucd &&
-unzip -uo ../UCD.zip -d /usr/share/unicode/ucd
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sed -i 's@/desktop/ibus@/org/freedesktop/ibus@g' \
-    data/dconf/org.freedesktop.ibus.gschema.xml
+sed -e 's@/desktop/ibus@/org/freedesktop/ibus@g' \
+    -i data/dconf/org.freedesktop.ibus.gschema.xml
+if ! [ -e /usr/bin/gtkdocize ]; then
+  sed '/docs/d;/GTK_DOC/d' -i Makefile.am configure.ac
+fi
+SAVE_DIST_FILES=1 NOCONFIGURE=1 ./autogen.sh
 ./configure --prefix=/usr          \
             --sysconfdir=/etc      \
             --disable-python2      \
-            --disable-emoji-dict   \
-            --disable-unicode-dict &&
-rm -f tools/main.c                 &&
+            --disable-appindicator \
+            --disable-gtk2         \
+            --disable-emoji-dict
 make
+gtk-query-immodules-3.0 --update-cache
+mkdir -p               /usr/share/unicode/ucd
+unzip -o ../UCD.zip -d /usr/share/unicode/ucd
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-gzip -dfv /usr/share/man/man{{1,5}/ibus*.gz,5/00-upstream-settings.5.gz}
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-gtk-query-immodules-3.0 --update-cache
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

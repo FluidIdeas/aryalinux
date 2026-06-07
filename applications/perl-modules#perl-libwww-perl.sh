@@ -6,32 +6,23 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:perl-deps#perl-file-listing
 #REQ:perl-deps#perl-http-cookies
-#REQ:perl-modules#perl-http-daemon
-#REQ:perl-deps#perl-http-negotiate
 #REQ:perl-modules#perl-html-parser
-#REQ:perl-deps#perl-net-http
-#REQ:perl-deps#perl-try-tiny
-#REQ:perl-deps#perl-www-robotrules
 #REQ:perl-deps#perl-test-fatal
-#REQ:perl-deps#perl-test-needs
 #REQ:perl-deps#perl-test-requiresinternet
 
-
 cd $SOURCE_DIR
-
 NAME=perl-modules#perl-libwww-perl
-VERSION=6.68
-URL=https://www.cpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.68.tar.gz
+VERSION=6.81
+URL=https://www.cpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.81.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.cpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.68.tar.gz
+wget -nc https://www.cpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.81.tar.gz
 
 
 if [ ! -z $URL ]
@@ -50,11 +41,9 @@ fi
 cd $DIRECTORY
 fi
 
-
 echo $USER > /tmp/currentuser
 
-perl Makefile.PL &&
-make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -63,8 +52,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

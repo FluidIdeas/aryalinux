@@ -6,24 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:popt
 
-
 cd $SOURCE_DIR
-
 NAME=gptfdisk
-VERSION=1.0.9
-URL=https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.9.tar.gz
-SECTION="File Systems and Disk Management"
-DESCRIPTION="The gptfdisk package is a set of programs for creation and maintenance of GUID Partition Table (GPT) disk drives. A GPT partitioned disk is required for drives greater than 2 TB and is a modern replacement for legacy PC-BIOS partitioned disk drives that use a Master Boot Record (MBR). The main program, gdisk, has an interface similar to the classic fdisk program."
+VERSION=1.0.10
+URL=https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.10.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.9.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/6.0/gptfdisk-1.0.9-convenience-1.patch
+wget -nc https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.10.tar.gz
 
 
 if [ ! -z $URL ]
@@ -44,14 +39,12 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-patch -Np1 -i ../gptfdisk-1.0.9-convenience-1.patch &&
-sed -i 's|ncursesw/||' gptcurses.cc &&
-sed -i 's|sbin|usr/sbin|' Makefile &&
-sed -i '/UUID_H/s/^.*$/#if defined (_UUID_UUID_H) || defined (_UL_LIBUUID_UUID_H)/' guid.cc &&
-sed -i "/device =/s/= \(.*\);/= strdup(\1);/" gptcl.cc &&
-
+patch -Np1 -i ../gptfdisk-1.0.10-convenience-1.patch
+sed -i 's|ncursesw/||' gptcurses.cc
+sed -i 's|sbin|usr/sbin|' Makefile
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -60,8 +53,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

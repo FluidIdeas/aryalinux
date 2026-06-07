@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=libdvdcss
-VERSION=1.4.3
-URL=https://get.videolan.org/libdvdcss/1.4.3/libdvdcss-1.4.3.tar.bz2
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="libdvdcss is a simple library designed for accessing DVDs as a block device without having to bother about the decryption."
+VERSION=1.5.0
+URL=https://get.videolan.org/libdvdcss/1.5.0/libdvdcss-1.5.0.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://get.videolan.org/libdvdcss/1.4.3/libdvdcss-1.4.3.tar.bz2
+wget -nc https://get.videolan.org/libdvdcss/1.5.0/libdvdcss-1.5.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -42,21 +38,21 @@ fi
 
 echo $USER > /tmp/currentuser
 
+mkdir build
+cd    build
+meson setup --prefix=/usr --buildtype=release ..
+ninja
+rm -fv /usr/lib/libdvdcss.a
 
-./configure --prefix=/usr    \
-            --disable-static \
-            --docdir=/usr/share/doc/libdvdcss-1.4.3 &&
-make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

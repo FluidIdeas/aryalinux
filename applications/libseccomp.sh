@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:valgrind
-
-
 cd $SOURCE_DIR
-
 NAME=libseccomp
-VERSION=2.4.1
-URL=https://github.com/seccomp/libseccomp/releases/download/v2.4.1/libseccomp-2.4.1.tar.gz
-DESCRIPTION="The libseccomp package provides an easy to use and platform independent interface to the Linux kernel's syscall filtering mechanism."
+VERSION=2.6.0
+URL=https://github.com/seccomp/libseccomp/releases/download/v2.6.0/libseccomp-2.6.0.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/seccomp/libseccomp/releases/download/v2.4.1/libseccomp-2.4.1.tar.gz
+wget -nc https://github.com/seccomp/libseccomp/releases/download/v2.6.0/libseccomp-2.6.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -40,19 +36,20 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr --disable-static &&
-make "-j`nproc`" || make
+echo $USER > /tmp/currentuser
+
+./configure --prefix=/usr --disable-static
+make
 
 
-
-sudo tee rootscript.sh << "ENDOFROOTSCRIPT"
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
-
 ENDOFROOTSCRIPT
-sudo chmod 755 rootscript.sh
-sudo bash -e ./rootscript.sh
-sudo rm rootscript.sh
 
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

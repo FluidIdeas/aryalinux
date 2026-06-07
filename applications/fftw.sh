@@ -7,22 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=fftw
 VERSION=3.3.10
 URL=https://www.fftw.org/fftw-3.3.10.tar.gz
-SECTION="General Libraries"
-DESCRIPTION="FFTW is a C subroutine library for computing the discrete Fourier transform (DFT) in one or more dimensions, of arbitrary input size, and of both real and complex data (as well as of even/odd data, i.e. the discrete cosine/sine transforms or DCT/DST)."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.fftw.org/fftw-3.3.10.tar.gz
-wget -nc ftp://ftp.fftw.org/pub/fftw/fftw-3.3.10.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,26 +38,15 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 ./configure --prefix=/usr    \
             --enable-shared  \
             --disable-static \
             --enable-threads \
             --enable-sse2    \
             --enable-avx     \
-            --enable-avx2    &&
+            --enable-avx2
 make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-make clean &&
-
+make clean
 ./configure --prefix=/usr    \
             --enable-shared  \
             --disable-static \
@@ -70,35 +54,27 @@ make clean &&
             --enable-sse2    \
             --enable-avx     \
             --enable-avx2    \
-            --enable-float   &&
+            --enable-float
 make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-make clean &&
-
+make clean
 ./configure --prefix=/usr    \
             --enable-shared  \
             --disable-static \
             --enable-threads \
-            --enable-long-double &&
+            --enable-long-double
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+make install
 make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

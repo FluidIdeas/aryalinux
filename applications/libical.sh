@@ -6,25 +6,21 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:cmake
-#REQ:gobject-introspection
-#REQ:vala
-
+#REQ:glib2
+#REQ:libxml2
 
 cd $SOURCE_DIR
-
 NAME=libical
-VERSION=3.0.16
-URL=https://github.com/libical/libical/releases/download/v3.0.16/libical-3.0.16.tar.gz
-SECTION="General Libraries"
-DESCRIPTION="The libical package contains an implementation of the iCalendar protocols and data formats."
+VERSION=3.0.20
+URL=https://github.com/libical/libical/releases/download/v3.0.20/libical-3.0.20.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/libical/libical/releases/download/v3.0.16/libical-3.0.16.tar.gz
+wget -nc https://github.com/libical/libical/releases/download/v3.0.20/libical-3.0.20.tar.gz
 
 
 if [ ! -z $URL ]
@@ -45,29 +41,29 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-cmake -DCMAKE_INSTALL_PREFIX=/usr  \
-      -DCMAKE_BUILD_TYPE=Release   \
-      -DSHARED_ONLY=yes            \
-      -DICAL_BUILD_DOCS=false      \
-      -DGOBJECT_INTROSPECTION=true \
-      -DICAL_GLIB_VAPI=true        \
-      .. &&
+mkdir build
+cd    build
+cmake -D CMAKE_INSTALL_PREFIX=/usr  \
+      -D CMAKE_BUILD_TYPE=Release   \
+      -D SHARED_ONLY=yes            \
+      -D ICAL_BUILD_DOCS=false      \
+      -D GOBJECT_INTROSPECTION=true \
+      -D ICAL_GLIB_VAPI=true        \
+      ..
 make -j1
-export MAKEFLAGS="j 1"
+make docs
+cp -vr apidocs/html/* /usr/share/doc/libical-3.0.20/html
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
+install -vdm755 /usr/share/doc/libical-3.0.20/html
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -6,26 +6,21 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:libao
+#REQ:gtkmm3
 #REQ:libvorbis
 #REQ:libmad
-#REQ:lame
-
 
 cd $SOURCE_DIR
-
 NAME=cdrdao
-VERSION=1.2.4
-URL=https://downloads.sourceforge.net/cdrdao/cdrdao-1.2.4.tar.bz2
-SECTION="CD/DVD-Writing Utilities"
-DESCRIPTION="The Cdrdao package contains CD recording utilities. These are useful for burning a CD in disk-at-once mode."
+VERSION=1.2.6
+URL=https://downloads.sourceforge.net/cdrdao/cdrdao-1.2.6.tar.bz2
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.sourceforge.net/cdrdao/cdrdao-1.2.4.tar.bz2
+wget -nc https://downloads.sourceforge.net/cdrdao/cdrdao-1.2.6.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -46,21 +41,20 @@ fi
 
 echo $USER > /tmp/currentuser
 
+./configure --prefix=/usr --mandir=/usr/share/man
+make CC="gcc -std=gnu17"
 
-./configure --prefix=/usr --mandir=/usr/share/man &&
-make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-install -v -m755 -d /usr/share/doc/cdrdao-1.2.4 &&
-install -v -m644 README /usr/share/doc/cdrdao-1.2.4
+make install
+install -v -m755 -d /usr/share/doc/cdrdao-1.2.6
+install -v -m644 README /usr/share/doc/cdrdao-1.2.6
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

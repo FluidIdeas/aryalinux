@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:libevent
 
-
 cd $SOURCE_DIR
-
 NAME=links
-VERSION=2.29
-URL=http://links.twibright.com/download/links-2.29.tar.bz2
-SECTION="Text Web Browsers"
-DESCRIPTION="Links is a text and graphics mode WWW browser. It includes support for rendering tables and frames, features background downloads, can display colors and has many other features."
+VERSION=2.30
+URL=http://links.twibright.com/download/links-2.30.tar.bz2
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc http://links.twibright.com/download/links-2.29.tar.bz2
+wget -nc http://links.twibright.com/download/links-2.30.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -43,22 +39,22 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --mandir=/usr/share/man &&
+sed '/*strchr/s/cast_const_char //g' -i ftp.c
+./configure --prefix=/usr --mandir=/usr/share/man
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-install -v -d -m755 /usr/share/doc/links-2.29 &&
+make install
+install -v -d -m755 /usr/share/doc/links-2.30
 install -v -m644 doc/links_cal/* KEYS BRAILLE_HOWTO \
-    /usr/share/doc/links-2.29
+    /usr/share/doc/links-2.30
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

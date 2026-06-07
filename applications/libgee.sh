@@ -6,26 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:glib2
-#REQ:gobject-introspection
 #REQ:vala
 
-
 cd $SOURCE_DIR
-
 NAME=libgee
-VERSION=0.20.6
-URL=https://download.gnome.org/sources/libgee/0.20/libgee-0.20.6.tar.xz
-SECTION="GNOME Libraries and Desktop"
-DESCRIPTION="The libgee package is a collection library providing GObject based interfaces and classes for commonly used data structures."
+VERSION=0.20.8
+URL=https://download.gnome.org/sources/libgee/0.20/libgee-0.20.8.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/libgee/0.20/libgee-0.20.6.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgee/0.20/libgee-0.20.6.tar.xz
+wget -nc https://download.gnome.org/sources/libgee/0.20/libgee-0.20.8.tar.xz
 
 
 if [ ! -z $URL ]
@@ -46,9 +40,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr &&
+./configure --prefix=/usr --enable-vala
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -57,8 +52,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

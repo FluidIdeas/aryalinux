@@ -6,30 +6,23 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:glib-networking
 #REQ:libpsl
 #REQ:libxml2
-#REQ:nghttp2
-#REQ:sqlite
-#REQ:gobject-introspection
+#REQ:glib2
 #REQ:vala
 
-
 cd $SOURCE_DIR
-
 NAME=libsoup3
-VERSION=3.2.2
-URL=https://download.gnome.org/sources/libsoup/3.2/libsoup-3.2.2.tar.xz
-SECTION="Networking Libraries"
-DESCRIPTION="The libsoup3 is a HTTP client/server library for GNOME. It uses GObject and the GLib main loop to integrate with GNOME applications and it also has an asynchronous API for use in threaded applications."
+VERSION=3.6.6
+URL=https://download.gnome.org/sources/libsoup/3.6/libsoup-3.6.6.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/libsoup/3.2/libsoup-3.2.2.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libsoup/3.2/libsoup-3.2.2.tar.xz
+wget -nc https://download.gnome.org/sources/libsoup/3.6/libsoup-3.6.6.tar.xz
 
 
 if [ ! -z $URL ]
@@ -50,19 +43,17 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
+patch -Np1 -i ../libsoup-3.6.6-upstream_fixes-1.patch
 sed 's/apiversion/soup_version/' -i docs/reference/meson.build
-mkdir build &&
-cd    build &&
-
+mkdir build
+cd    build
 meson setup --prefix=/usr          \
             --buildtype=release    \
-            -Dvapi=enabled         \
-            -Dgssapi=disabled      \
-            -Dsysprof=disabled     \
             --wrap-mode=nofallback \
-            ..                     &&
+            ..
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -71,8 +62,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

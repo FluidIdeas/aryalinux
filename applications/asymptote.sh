@@ -6,31 +6,25 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:gs
 #REQ:texlive
 #REQ:curl
-#REQ:freeglut
 #REQ:gc
 #REQ:glew
-#REQ:glm
 #REQ:libtirpc
 #REQ:dvisvgm
 
-
 cd $SOURCE_DIR
-
 NAME=asymptote
-VERSION=2.85
-URL=https://downloads.sourceforge.net/asymptote/asymptote-2.85.src.tgz
-SECTION="Typesetting"
-DESCRIPTION="Asymptote is a powerful descriptive vector graphics language that provides a natural coordinate-based framework for technical drawing. Labels and equations can be typeset with LaTeX. As well as EPS, PDF and PNG output it can produce WebGL 3D HTML rendering and (using dvisvgm) SVG output."
+VERSION=3.09
+URL=https://downloads.sourceforge.net/asymptote/asymptote-3.09.src.tgz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.sourceforge.net/asymptote/asymptote-2.85.src.tgz
+wget -nc https://downloads.sourceforge.net/asymptote/asymptote-3.09.src.tgz
 
 
 if [ ! -z $URL ]
@@ -51,9 +45,7 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-export TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/') &&
-
+export TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/')
 ./configure --prefix=$TEXLIVE_PREFIX                          \
             --bindir=$TEXLIVE_PREFIX/bin/$TEXARCH             \
             --datarootdir=$TEXLIVE_PREFIX/texmf-dist          \
@@ -63,9 +55,10 @@ export TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/') &&
             --disable-lsp                                     \
             --enable-gc=system                                \
             --with-latex=$TEXLIVE_PREFIX/texmf-dist/tex/latex \
-            --with-context=$TEXLIVE_PREFIX/texmf-dist/tex/context/third &&
-
+            --with-context=$TEXLIVE_PREFIX/texmf-dist/tex/context/third
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -74,8 +67,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

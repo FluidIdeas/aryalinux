@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=inih
-VERSION=56
-URL=https://github.com/benhoyt/inih/archive/r56/inih-r56.tar.gz
-SECTION="General Libraries"
-DESCRIPTION="This package is a simple .INI file parser written in C."
+VERSION=0
+URL=https://github.com/benhoyt/inih/archive/r62/inih-r62.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/benhoyt/inih/archive/r56/inih-r56.tar.gz
+wget -nc https://github.com/benhoyt/inih/archive/r62/inih-r62.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,12 +38,12 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-meson setup --prefix=/usr --buildtype=release .. &&
+mkdir build
+cd    build
+meson setup --prefix=/usr --buildtype=release ..
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -56,8 +52,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

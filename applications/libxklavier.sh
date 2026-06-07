@@ -6,21 +6,15 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:glib2
 #REQ:iso-codes
-#REQ:libxml2
 #REQ:x7lib
-#REQ:gobject-introspection
-
 
 cd $SOURCE_DIR
-
 NAME=libxklavier
 VERSION=5.4
 URL=https://people.freedesktop.org/~svu/libxklavier-5.4.tar.bz2
-SECTION="Graphical Environment Libraries"
-DESCRIPTION="The libxklavier package contains a utility library for X keyboard."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -47,9 +41,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --disable-static &&
+./configure --prefix=/usr --disable-static
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -58,8 +53,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

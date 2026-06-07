@@ -6,18 +6,14 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:x7lib
 #REQ:xcb-util
 
-
 cd $SOURCE_DIR
-
 NAME=startup-notification
 VERSION=0.12
 URL=https://www.freedesktop.org/software/startup-notification/releases/startup-notification-0.12.tar.gz
-SECTION="Graphical Environment Libraries"
-DESCRIPTION="The startup-notification package contains startup-notification libraries. These are useful for building a consistent manner to notify the user through the cursor that the application is loading."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -44,12 +40,13 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --disable-static &&
+./configure --prefix=/usr --disable-static
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
+make install
 install -v -m644 -D doc/startup-notification.txt \
     /usr/share/doc/startup-notification-0.12/startup-notification.txt
 ENDOFROOTSCRIPT
@@ -57,8 +54,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

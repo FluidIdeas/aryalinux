@@ -6,30 +6,22 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:gtk4
 #REQ:gsound
-#REQ:itstool
 #REQ:libnotify
-#REQ:upower
-#REQ:gobject-introspection
+#REQ:glib2
 #REQ:libadwaita
 
-
 cd $SOURCE_DIR
-
 NAME=gnome-bluetooth
-VERSION=42.5
-URL=https://download.gnome.org/sources/gnome-bluetooth/42/gnome-bluetooth-42.5.tar.xz
-SECTION="GNOME Libraries and Desktop"
-DESCRIPTION="The GNOME Bluetooth package contains tools for managing and manipulating Bluetooth devices using the GNOME Desktop."
+VERSION=47.1
+URL=https://download.gnome.org/sources/gnome-bluetooth/47/gnome-bluetooth-47.1.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gnome-bluetooth/42/gnome-bluetooth-42.5.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-bluetooth/42/gnome-bluetooth-42.5.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-bluetooth/47/gnome-bluetooth-47.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -50,12 +42,13 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-meson setup --prefix=/usr --buildtype=release .. &&
+patch -Np1 -i ../gnome-bluetooth-47.1-build_fix-1.patch
+mkdir build
+cd    build
+meson setup --prefix=/usr --buildtype=release ..
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -64,8 +57,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

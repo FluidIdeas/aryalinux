@@ -6,22 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-
+#REQ:glib2
 
 cd $SOURCE_DIR
-
 NAME=xdg-dbus-proxy
-VERSION=0.1.2
-URL=https://github.com/flatpak/xdg-dbus-proxy/releases/download/0.1.2/xdg-dbus-proxy-0.1.2.tar.xz
+VERSION=0.1.6
+URL=https://github.com/flatpak/xdg-dbus-proxy/releases/download/0.1.6/xdg-dbus-proxy-0.1.6.tar.xz
 SECTION="Others"
-DESCRIPTION="xdg-dbus-proxy is a filtering proxy for D-Bus connections. It was originally part of the flatpak project, but it has been broken out as a standalone module to facilitate using it in other contexts."
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/flatpak/xdg-dbus-proxy/releases/download/0.1.2/xdg-dbus-proxy-0.1.2.tar.xz
+wget -nc https://github.com/flatpak/xdg-dbus-proxy/releases/download/0.1.6/xdg-dbus-proxy-0.1.6.tar.xz
 
 
 if [ ! -z $URL ]
@@ -40,11 +37,22 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr
-make
+echo $USER > /tmp/currentuser
 
-sudo make install
+mkdir build
+cd    build
+meson setup --prefix=/usr --buildtype=release ..
+ninja
 
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ninja install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

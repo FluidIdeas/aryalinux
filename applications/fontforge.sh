@@ -6,25 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:libspiro
+#REQ:gtkmm3
 #REQ:libxml2
-#REQ:gtk3
-
 
 cd $SOURCE_DIR
-
 NAME=fontforge
-VERSION=20230101
-URL=https://github.com/fontforge/fontforge/releases/download/20230101/fontforge-20230101.tar.xz
-SECTION="Other X-based Programs"
-DESCRIPTION="The FontForge package contains an outline font editor that lets you create your own postscript, truetype, opentype, cid-keyed, multi-master, cff, svg and bitmap (bdf, FON, NFNT) fonts, or edit existing ones."
+VERSION=0
+URL=https://github.com/fontforge/fontforge/releases/download/20251009/fontforge-20251009.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/fontforge/fontforge/releases/download/20230101/fontforge-20230101.tar.xz
+wget -nc https://github.com/fontforge/fontforge/releases/download/20251009/fontforge-20251009.tar.xz
 
 
 if [ ! -z $URL ]
@@ -45,14 +40,15 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DCMAKE_BUILD_TYPE=Release  \
-      -Wno-dev .. &&
+mkdir build
+cd    build
+cmake -D CMAKE_INSTALL_PREFIX=/usr \
+      -D CMAKE_BUILD_TYPE=Release  \
+      -W no-dev ..
 make
+ln -sv fontforge /usr/share/doc/fontforge-20251009
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -61,17 +57,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ln -sv fontforge /usr/share/doc/fontforge-20230101
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

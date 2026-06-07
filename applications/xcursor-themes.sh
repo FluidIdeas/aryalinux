@@ -6,24 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:x7app
 
-
 cd $SOURCE_DIR
-
 NAME=xcursor-themes
 VERSION=1.0.7
 URL=https://www.x.org/pub/individual/data/xcursor-themes-1.0.7.tar.xz
-SECTION="Graphical Environments"
-DESCRIPTION="The xcursor-themes package contains the redglass and whiteglass animated cursor themes."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://www.x.org/pub/individual/data/xcursor-themes-1.0.7.tar.xz
-wget -nc ftp://ftp.x.org/pub/individual/data/xcursor-themes-1.0.7.tar.xz
 
 
 if [ ! -z $URL ]
@@ -44,9 +39,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr &&
+./configure --prefix=/usr
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -55,8 +51,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

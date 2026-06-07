@@ -6,23 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:perl-deps#perl-text-diff
 #REQ:perl-deps#perl-capture-tiny
 
-
 cd $SOURCE_DIR
-
 NAME=perl-modules#perl-test-differences
-VERSION=0.69
-URL=https://www.cpan.org/authors/id/D/DC/DCANTRELL/Test-Differences-0.69.tar.gz
+VERSION=0.72
+URL=https://www.cpan.org/authors/id/D/DC/DCANTRELL/Test-Differences-0.72.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.cpan.org/authors/id/D/DC/DCANTRELL/Test-Differences-0.69.tar.gz
+wget -nc https://www.cpan.org/authors/id/D/DC/DCANTRELL/Test-Differences-0.72.tar.gz
 
 
 if [ ! -z $URL ]
@@ -41,11 +38,9 @@ fi
 cd $DIRECTORY
 fi
 
-
 echo $USER > /tmp/currentuser
 
-perl Makefile.PL &&
-make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -54,8 +49,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

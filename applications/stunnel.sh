@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=stunnel
-VERSION=5.69
-URL=ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.69.tar.gz
-SECTION="Security"
-DESCRIPTION="The stunnel package contains a program that allows you to encrypt arbitrary TCP connections inside SSL (Secure Sockets Layer) so you can easily communicate with clients over secure channels. stunnel can also be used to tunnel PPP over network sockets without changes to the server package source code."
+VERSION=5.77
+URL=https://www.stunnel.org/downloads/archive/5.x/stunnel-5.77.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc ftp://ftp.stunnel.org/stunnel/archive/5.x/stunnel-5.69.tar.gz
+wget -nc https://www.stunnel.org/downloads/archive/5.x/stunnel-5.77.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,61 +38,16 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-groupadd -g 51 stunnel &&
-useradd -c "stunnel Daemon" -d /var/lib/stunnel \
-        -g stunnel -s /bin/false -u 51 stunnel
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 ./configure --prefix=/usr        \
             --sysconfdir=/etc    \
-            --localstatedir=/var &&
+            --localstatedir=/var
 make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make docdir=/usr/share/doc/stunnel-5.69 install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m644 tools/stunnel.service /usr/lib/systemd/system
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+groupadd -g 51 stunnel
+useradd -c "stunnel Daemon" -d /var/lib/stunnel \
+        -g stunnel -s /bin/false -u 51 stunnel
+make docdir=/usr/share/doc/stunnel-5.77 install
 make cert
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m750 -o stunnel -g stunnel -d /var/lib/stunnel/run &&
 chown stunnel:stunnel /var/lib/stunnel
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/stunnel/stunnel.conf << "EOF"
 ; File: /etc/stunnel/stunnel.conf
 
@@ -121,22 +72,18 @@ cert   = /etc/stunnel/stunnel.pem
 ;TIMEOUTclose = 0
 
 EOF
-ENDOFROOTSCRIPT
+systemctl enable stunnel
 
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-systemctl enable stunnel
+install -v -m644 tools/stunnel.service /usr/lib/systemd/system
+install -v -m750 -o stunnel -g stunnel -d /var/lib/stunnel/run
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

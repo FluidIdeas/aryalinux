@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=libusb
-VERSION=1.0.26
-URL=https://github.com/libusb/libusb/releases/download/v1.0.26/libusb-1.0.26.tar.bz2
-SECTION="General Libraries"
-DESCRIPTION="The libusb package contains a library used by some applications for USB device access."
+VERSION=1.0.29
+URL=https://github.com/libusb/libusb/releases/download/v1.0.29/libusb-1.0.29.tar.bz2
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/libusb/libusb/releases/download/v1.0.26/libusb-1.0.26.tar.bz2
+wget -nc https://github.com/libusb/libusb/releases/download/v1.0.29/libusb-1.0.29.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -42,23 +38,25 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --disable-static &&
+./configure --prefix=/usr --disable-static
 make
-pushd doc                &&
-  doxygen -u doxygen.cfg &&
-  make docs              &&
+pushd doc
+doxygen -u doxygen.cfg
+make docs
 popd
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
+install -v -d -m755 /usr/share/doc/libusb-1.0.29/apidocs
+install -v -m644    doc/api-1.0/* \
+                    /usr/share/doc/libusb-1.0.29/apidocs
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

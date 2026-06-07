@@ -7,22 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=enscript
 VERSION=1.6.6
-URL=https://ftp.gnu.org/gnu/enscript/enscript-1.6.6.tar.gz
-SECTION="PostScript"
-DESCRIPTION="Enscript converts ASCII text files to PostScript, HTML, RTF, ANSI and overstrikes."
+URL=https://ftpmirror.gnu.org/enscript/enscript-1.6.6.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ftp.gnu.org/gnu/enscript/enscript-1.6.6.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/enscript/enscript-1.6.6.tar.gz
+wget -nc https://ftpmirror.gnu.org/enscript/enscript-1.6.6.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,32 +38,23 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 ./configure --prefix=/usr              \
             --sysconfdir=/etc/enscript \
             --localstatedir=/var       \
-            --with-media=Letter &&
-make &&
-
-pushd docs &&
-  makeinfo --plaintext -o enscript.txt enscript.texi &&
+            --with-media=Letter
+make CC="gcc -std=gnu17"
+pushd docs
+makeinfo --plaintext -o enscript.txt enscript.texi
 popd
 make -j1 -C docs ps pdf
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-
-install -v -m755 -d /usr/share/doc/enscript-1.6.6 &&
+make install
+install -v -m755 -d /usr/share/doc/enscript-1.6.6
 install -v -m644    README* *.txt docs/*.txt \
                     /usr/share/doc/enscript-1.6.6
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m644 docs/*.{dvi,pdf,ps} \
                  /usr/share/doc/enscript-1.6.6
 ENDOFROOTSCRIPT
@@ -76,8 +62,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

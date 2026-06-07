@@ -6,28 +6,22 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:glib2
 #REQ:duktape
-#REQ:gobject-introspection
 #REQ:libxslt
 #REQ:linux-pam
 #REQ:systemd
 
-
 cd $SOURCE_DIR
-
 NAME=polkit
-VERSION=122
-URL=https://gitlab.freedesktop.org/polkit/polkit/-/archive/122/polkit-122.tar.gz
-SECTION="Security"
-DESCRIPTION="Polkit is a toolkit for defining and handling authorizations. It is used for allowing unprivileged processes to communicate with privileged processes."
+VERSION=0
+URL=https://github.com/polkit-org/polkit/archive/127/polkit-127.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://gitlab.freedesktop.org/polkit/polkit/-/archive/122/polkit-122.tar.gz
+wget -nc https://github.com/polkit-org/polkit/archive/127/polkit-127.tar.gz
 
 
 if [ ! -z $URL ]
@@ -48,28 +42,20 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-groupadd -fg 27 polkitd &&
+mkdir build
+cd    build
+meson setup ..                   \
+      --prefix=/usr              \
+      --buildtype=release        \
+      -D man=true                \
+      -D session_tracking=logind \
+      -D tests=true
+ninja
+groupadd -fg 27 polkitd
 useradd -c "PolicyKit Daemon Owner" -d /etc/polkit-1 -u 27 \
         -g polkitd -s /bin/false polkitd
-ENDOFROOTSCRIPT
 
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
 
-mkdir build &&
-cd    build &&
-
-meson setup ..                            \
-      --prefix=/usr                       \
-      --buildtype=release                 \
-      -Dman=true                          \
-      -Dsession_tracking=libsystemd-login \
-      -Dtests=true                        &&
-ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -78,8 +64,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

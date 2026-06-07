@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=libtirpc
-VERSION=1.3.3
-URL=https://downloads.sourceforge.net/libtirpc/libtirpc-1.3.3.tar.bz2
-SECTION="Networking Libraries"
-DESCRIPTION="The libtirpc package contains libraries that support programs that use the Remote Procedure Call (RPC) API. It replaces the RPC, but not the NIS library entries that used to be in glibc."
+VERSION=1.3.7
+URL=https://downloads.sourceforge.net/libtirpc/libtirpc-1.3.7.tar.bz2
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.sourceforge.net/libtirpc/libtirpc-1.3.3.tar.bz2
+wget -nc https://downloads.sourceforge.net/libtirpc/libtirpc-1.3.7.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -42,12 +38,13 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr                                   \
-            --sysconfdir=/etc                               \
-            --disable-static                                \
-            --disable-gssapi                                &&
+./configure --prefix=/usr     \
+            --sysconfdir=/etc \
+            --disable-static  \
+            --disable-gssapi
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -56,8 +53,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:nasm
 
-
 cd $SOURCE_DIR
-
 NAME=x264
-VERSION=20230215
-URL=https://anduin.linuxfromscratch.org/BLFS/x264/x264-20230215.tar.xz
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="x264 package provides a library for encoding video streams into the H.264/MPEG-4 AVC format."
+VERSION=0
+URL=https://anduin.linuxfromscratch.org/BLFS/x264/x264-20250815.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://anduin.linuxfromscratch.org/BLFS/x264/x264-20230215.tar.xz
+wget -nc https://anduin.linuxfromscratch.org/BLFS/x264/x264-20250815.tar.xz
 
 
 if [ ! -z $URL ]
@@ -43,11 +39,12 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr \
+./configure --prefix=/usr   \
             --enable-shared \
-            --disable-cli &&
+            --disable-cli
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -56,8 +53,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

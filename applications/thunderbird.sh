@@ -6,41 +6,25 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:autoconf213
 #REQ:cbindgen
-#REQ:dbus-glib
-#REQ:gtk3
-#REQ:llvm
+#REQ:libarchive
 #REQ:nodejs
-#REQ:pulseaudio
-#REQ:alsa-lib
-#REQ:python3
 #REQ:startup-notification
-#REQ:zip
-#REQ:unzip
-#REQ:icu
-#REQ:libevent
-#REQ:libvpx
+#REQ:dav1d
 #REQ:nasm
-#REQ:nspr
 #REQ:nss
 
-
 cd $SOURCE_DIR
-
 NAME=thunderbird
-VERSION=102.9.1
-URL=https://archive.mozilla.org/pub/thunderbird/releases/102.9.1/source/thunderbird-102.9.1.source.tar.xz
-SECTION="Other X-based Programs"
-DESCRIPTION="Thunderbird is a stand-alone mail/news client based on the Mozilla codebase. It uses the Gecko rendering engine to enable it to display and compose HTML emails."
+VERSION=140.8.0esr
+URL=https://archive.mozilla.org/pub/thunderbird/releases/140.8.0esr/source/thunderbird-140.8.0esr.source.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.mozilla.org/pub/thunderbird/releases/102.9.1/source/thunderbird-102.9.1.source.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/6.0/thunderbird-102.9.1-upstream_fixes-1.patch
+wget -nc https://archive.mozilla.org/pub/thunderbird/releases/140.8.0esr/source/thunderbird-140.8.0esr.source.tar.xz
 
 
 if [ ! -z $URL ]
@@ -61,28 +45,43 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
+patch -Np1 -i ../thunderbird-140.8.0esr-python_3.14_fixes-1.patch
+for crate in {minimal-lexical,lmdb-rkv,cubeb-sys,wasi,glslopt,sfv}; do
+  sed -e 's|,"[^"]*.gitmodules[^,]*[^,]||' \
+      -e '$a\'                             \
+      -i comm/third_party/rust/$crate/.cargo-checksum.json
+done
+GLSL_PTHREAD="comm/third_party/rust/glslopt/glsl-optimizer/include/c11/threads_posix.h"
+OLDSHA=`sha256sum $GLSL_PTHREAD | awk '{ print $1 }'`
+patch -Np1 -i ../thunderbird-140.8.0esr-glibc-2.43.patch
+NEWSHA=`sha256sum $GLSL_PTHREAD | awk '{ print $1 }'`
+sed "s/$OLDSHA/$NEWSHA/" \
+  -i comm/third_party/rust/glslopt/.cargo-checksum.json
 cat > mozconfig << "EOF"
 # If you have a multicore machine, all cores will be used.
 
 # If you have installed wireless-tools comment out this line:
 ac_add_options --disable-necko-wifi
 
+# If you wish to use libproxy to determine proxy server information, you will
+# need to install the libproxy package and then uncomment the option below:
+#ac_add_options --enable-libproxy
+
 # Uncomment the following option if you have not installed PulseAudio
 #ac_add_options --enable-audio-backends=alsa
 
 # Comment out following options if you have not installed
 # recommended dependencies:
+ac_add_options --with-system-av1
 ac_add_options --with-system-libevent
 ac_add_options --with-system-libvpx
 ac_add_options --with-system-nspr
 ac_add_options --with-system-nss
-ac_add_options --with-system-icu
+ac_add_options --with-system-webp
 
-# The elf-hack causes failed installs on some machines.
-# It is supposed to improve startup time and it shrinks libxul.so
-# by a few MB - comment this if you know your machine is not affected.
-ac_add_options --disable-elf-hack
+# Thunderbird provides a copy of dav1d if it has not been installed. If you
+# have not installed nasm and ffmpeg, uncomment the following line:
+#ac_add_options --disable-av1
 
 # The BLFS editors recommend not changing anything below this line:
 ac_add_options --prefix=/usr
@@ -94,11 +93,13 @@ ac_add_options --disable-debug
 ac_add_options --disable-debug-symbols
 ac_add_options --disable-tests
 
-ac_add_options --enable-optimize=-O2
-ac_add_options --enable-linker=gold
+# This enables SIMD optimization in the shipped encoding_rs crate.
+ac_add_options --enable-rust-simd
+
 ac_add_options --enable-strip
 ac_add_options --enable-install-strip
 
+# You cannot distribute the binary if you do this.
 ac_add_options --enable-official-branding
 
 ac_add_options --enable-system-ffi
@@ -113,27 +114,15 @@ ac_add_options --with-system-zlib
 # and was reported to seriously slow the build. Disable it.
 ac_add_options --without-wasm-sandboxed-libraries
 EOF
-patch -Np1 -i ../thunderbird-102.9.1-upstream_fixes-1.patch
 mountpoint -q /dev/shm || mount -t tmpfs devshm /dev/shm
-export MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE=none &&
-export MOZBUILD_STATE_PATH=./mozbuild               &&
-./mach configure                                    &&
+export MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE=none
+export MOZBUILD_STATE_PATH=$(pwd)/mozbuild
 ./mach build
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+unset MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE
+unset MOZBUILD_STATE_PATH
 MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE=none ./mach install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-unset MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE MOZBUILD_STATE_PATH
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir -pv /usr/share/{applications,pixmaps} &&
-
-cat > /usr/share/applications/thunderbird.desktop << "EOF" &&
+mkdir -pv /usr/share/{applications,pixmaps}
+cat > /usr/share/applications/thunderbird.desktop << "EOF"
 [Desktop Entry]
 Name=Thunderbird Mail
 Comment=Send and receive mail with Thunderbird
@@ -149,13 +138,6 @@ EOF
 
 ln -sfv /usr/lib/thunderbird/chrome/icons/default/default256.png \
         /usr/share/pixmaps/thunderbird.png
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

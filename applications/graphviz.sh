@@ -6,22 +6,23 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-
+#REQ:cmake
+#REQ:pango
+#REQ:x7lib
+#REQ:fontconfig
+#REQ:gegl
 
 cd $SOURCE_DIR
-
 NAME=graphviz
-VERSION=7.1.0
-URL=https://gitlab.com/graphviz/graphviz/-/archive/7.1.0/graphviz-7.1.0.tar.bz2
-SECTION="General Utilities"
-DESCRIPTION="The Graphviz package contains graph visualization software. Graph visualization is a way of representing structural information as diagrams of abstract graphs and networks. Graphviz has several main graph layout programs. It also has web and interactive graphical interfaces, auxiliary tools, libraries, and language bindings."
+VERSION=14.1.2
+URL=https://gitlab.com/graphviz/graphviz/-/archive/14.1.2/graphviz-14.1.2.tar.bz2
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://gitlab.com/graphviz/graphviz/-/archive/7.1.0/graphviz-7.1.0.tar.bz2
+wget -nc https://gitlab.com/graphviz/graphviz/-/archive/14.1.2/graphviz-14.1.2.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -42,14 +43,16 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sed -i '/LIBPOSTFIX="64"/s/64//' configure.ac &&
-
-./autogen.sh              &&
-./configure --prefix=/usr \
-            --docdir=/usr/share/doc/graphviz-7.1.0
-sed -i "s/0/$(date +%Y%m%d)/" builddate.h
+sed '/ORIGIN/d' -i lib/CMakeLists.txt
+mkdir build
+cd    build
+cmake -D CMAKE_INSTALL_PREFIX=/usr \
+      -D CMAKE_BUILD_TYPE=Release  \
+      ..
+sed -i '/GZIP/s/:.*$/=/' CMakeCache.txt
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -58,8 +61,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

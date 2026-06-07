@@ -6,28 +6,23 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:cmake
-#REQ:glib2
+#REQ:c-ares
 #REQ:libgcrypt
-#REQ:qt5
+#REQ:speex
 #REQ:libpcap
 
-
 cd $SOURCE_DIR
-
 NAME=wireshark
-VERSION=4.0.4
-URL=https://www.wireshark.org/download/src/all-versions/wireshark-4.0.4.tar.xz
-SECTION="Networking Utilities"
-DESCRIPTION="The Wireshark package contains a network protocol analyzer, also known as a “sniffer”. This is useful for analyzing data captured “off the wire” from a live network connection, or data read from a capture file."
+VERSION=4.6.3
+URL=https://www.wireshark.org/download/src/all-versions/wireshark-4.6.3.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.wireshark.org/download/src/all-versions/wireshark-4.0.4.tar.xz
-wget -nc https://www.wireshark.org/download/docs/
+wget -nc https://www.wireshark.org/download/src/all-versions/wireshark-4.6.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -48,75 +43,39 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-groupadd -g 62 wireshark
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-mkdir build &&
-cd    build &&
-
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DCMAKE_BUILD_TYPE=Release  \
-      -DCMAKE_INSTALL_DOCDIR=/usr/share/doc/wireshark-4.0.4 \
+mkdir build
+cd    build
+cmake -D CMAKE_INSTALL_PREFIX=/usr \
+      -D CMAKE_BUILD_TYPE=Release  \
+      -D CMAKE_INSTALL_DOCDIR=/usr/share/doc/wireshark-4.6.3 \
       -G Ninja \
-      .. &&
+      ..
 ninja
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install &&
-
-install -v -m755 -d /usr/share/doc/wireshark-4.0.4 &&
-install -v -m644    ../README.linux ../doc/README.* ../doc/randpkt.txt \
-                    /usr/share/doc/wireshark-4.0.4 &&
-
-pushd /usr/share/doc/wireshark-4.0.4 &&
-   for FILENAME in ../../wireshark/*.html; do
+groupadd -g 62 wireshark
+pushd /usr/share/doc/wireshark-4.6.3
+for FILENAME in ../../wireshark/*.html; do
       ln -s -v -f $FILENAME .
-   done &&
+   done
 popd
 unset FILENAME
-ENDOFROOTSCRIPT
+chown -v root:wireshark /usr/bin/tshark
+chmod -v 6550 /usr/bin/tshark
+usermod -a -G wireshark <username>
 
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ninja install
+install -v -m755 -d /usr/share/doc/wireshark-4.6.3
+install -v -m644    ../README.linux ../doc/README.* ../doc/randpkt.txt \
+                    /usr/share/doc/wireshark-4.6.3
 install -v -m644 <Downloaded_Files> \
-                 /usr/share/doc/wireshark-4.0.4
+                 /usr/share/doc/wireshark-4.6.3
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-chown -v root:wireshark /usr/bin/{tshark,dumpcap} &&
-chmod -v 6550 /usr/bin/{tshark,dumpcap}
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-usermod -a -G wireshark $(cat /tmp/currentuser)
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

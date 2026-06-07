@@ -6,25 +6,21 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:apr-util
-#REQ:sqlite
 #REQ:serf
-
+#REQ:swig
 
 cd $SOURCE_DIR
-
 NAME=subversion
-VERSION=1.12.2
-URL=https://archive.apache.org/dist/subversion/subversion-1.12.2.tar.bz2
-SECTION="Programming"
-DESCRIPTION="Subversion is a version control system that is designed to be a compelling replacement for CVS in the open source community. It extends and enhances CVS' feature set, while maintaining a similar interface for those already familiar with CVS. These instructions install the client and server software used to manipulate a Subversion repository. Creation of a repository is covered at Running a Subversion Server."
+VERSION=1.14.5
+URL=https://archive.apache.org/dist/subversion/subversion-1.14.5.tar.bz2
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.apache.org/dist/subversion/subversion-1.12.2.tar.bz2
+wget -nc https://archive.apache.org/dist/subversion/subversion-1.14.5.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -43,15 +39,27 @@ fi
 cd $DIRECTORY
 fi
 
-sed -i 's/classic/nofastunpack/' build.conf
-./configure --prefix=/usr             \
-            --disable-static          \
-            --with-apache-libexecdir  \
-            --with-lz4=internal       \
-            --with-utf8proc=internal &&
-make
-sudo make install
+echo $USER > /tmp/currentuser
 
+patch -Np1 -i ../subversion-1.14.5-upstream_fixes-1.patch
+./configure --prefix=/usr            \
+            --disable-static         \
+            --with-apache-libexecdir \
+            --with-utf8proc=internal
+make
+doxygen doc/doxygen.conf
+cp      -v -R doc/* /usr/share/doc/subversion-1.14.5
+
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+install -v -m755 -d /usr/share/doc/subversion-1.14.5
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

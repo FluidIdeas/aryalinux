@@ -7,20 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=perl-modules#perl-business-issn
-VERSION=1.005
-URL=https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.005.tar.gz
+VERSION=1.008
+URL=https://www.cpan.org/authors/id/B/BR/BRIANDFOY/Business-ISSN-1.008.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.cpan.org/authors/id/B/BD/BDFOY/Business-ISSN-1.005.tar.gz
+wget -nc https://www.cpan.org/authors/id/B/BR/BRIANDFOY/Business-ISSN-1.008.tar.gz
 
 
 if [ ! -z $URL ]
@@ -39,11 +36,9 @@ fi
 cd $DIRECTORY
 fi
 
-
 echo $USER > /tmp/currentuser
 
-perl Makefile.PL &&
-make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -52,8 +47,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

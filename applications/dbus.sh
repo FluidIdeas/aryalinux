@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:x7lib
 
-
 cd $SOURCE_DIR
-
 NAME=dbus
-VERSION=1.14.6
-URL=https://dbus.freedesktop.org/releases/dbus/dbus-1.14.6.tar.xz
-SECTION="System Utilities"
-DESCRIPTION="Even though D-Bus was built in LFS, there are some features provided by the package that other BLFS packages need, but their dependencies didn't fit into LFS."
+VERSION=1.16.2
+URL=https://dbus.freedesktop.org/releases/dbus/dbus-1.16.2.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://dbus.freedesktop.org/releases/dbus/dbus-1.14.6.tar.xz
+wget -nc https://dbus.freedesktop.org/releases/dbus/dbus-1.16.2.tar.xz
 
 
 if [ ! -z $URL ]
@@ -43,29 +39,24 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr                        \
-            --sysconfdir=/etc                    \
-            --localstatedir=/var                 \
-            --runstatedir=/run                   \
-            --enable-user-session                \
-            --disable-doxygen-docs               \
-            --disable-xml-docs                   \
-            --disable-static                     \
-            --docdir=/usr/share/doc/dbus-1.14.6  \
-            --with-system-socket=/run/dbus/system_bus_socket &&
-make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+mkdir build
+cd    build
+meson setup --prefix=/usr          \
+            --buildtype=release    \
+            --wrap-mode=nofallback \
+            ..
+ninja
+# Start the D-Bus session daemon
+eval `dbus-launch`
+export DBUS_SESSION_BUS_ADDRESS
+# Kill the D-Bus session daemon
+kill $DBUS_SESSION_BUS_PID
+chown -v root:messagebus /usr/libexec/dbus-daemon-launch-helper
+chmod -v      4750       /usr/libexec/dbus-daemon-launch-helper
+if [ -e /usr/share/doc/dbus ]; then
+  rm -rf /usr/share/doc/dbus-1.16.2
+mv -v  /usr/share/doc/dbus{,-1.16.2}
+fi
 cat > /etc/dbus-1/session-local.conf << "EOF"
 <!DOCTYPE busconfig PUBLIC
  "-//freedesktop//DTD D-BUS Bus Configuration 1.0//EN"
@@ -77,13 +68,16 @@ cat > /etc/dbus-1/session-local.conf << "EOF"
 
 </busconfig>
 EOF
+
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

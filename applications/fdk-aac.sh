@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=fdk-aac
-VERSION=2.0.2
-URL=https://downloads.sourceforge.net/opencore-amr/fdk-aac-2.0.2.tar.gz
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="fdk-aac package provides the Fraunhofer FDK AAC library, which is purported to be a high quality Advanced Audio Coding implementation."
+VERSION=2.0.3
+URL=https://downloads.sourceforge.net/opencore-amr/fdk-aac-2.0.3.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.sourceforge.net/opencore-amr/fdk-aac-2.0.2.tar.gz
+wget -nc https://downloads.sourceforge.net/opencore-amr/fdk-aac-2.0.3.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,9 +38,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --disable-static &&
+./configure --prefix=/usr --disable-static
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -53,8 +50,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

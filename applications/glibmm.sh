@@ -6,25 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:glib2
-#REQ:libsigc
-
 
 cd $SOURCE_DIR
-
 NAME=glibmm
-VERSION=2.66.5
-URL=https://download.gnome.org/sources/glibmm/2.66/glibmm-2.66.5.tar.xz
-SECTION="General Libraries"
-DESCRIPTION="The GLibmm package is a set of C++ bindings for GLib."
+VERSION=2.66.8
+URL=https://download.gnome.org/sources/glibmm/2.66/glibmm-2.66.8.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/glibmm/2.66/glibmm-2.66.5.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/glibmm/2.66/glibmm-2.66.5.tar.xz
+wget -nc https://download.gnome.org/sources/glibmm/2.66/glibmm-2.66.8.tar.xz
 
 
 if [ ! -z $URL ]
@@ -45,12 +39,12 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir bld &&
-cd    bld &&
-
-meson setup --prefix=/usr --buildtype=release .. &&
+mkdir bld
+cd    bld
+meson setup --prefix=/usr --buildtype=release ..
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -59,8 +53,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

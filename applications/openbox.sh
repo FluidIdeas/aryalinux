@@ -6,17 +6,14 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
+#REQ:installing
 #REQ:pango
 
-
 cd $SOURCE_DIR
-
 NAME=openbox
 VERSION=3.6.1
 URL=http://openbox.org/dist/openbox/openbox-3.6.1.tar.gz
-SECTION="Window Managers"
-DESCRIPTION="Openbox is a highly configurable desktop window manager with extensive standards support. It allows you to control almost every aspect of how you interact with your desktop."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -43,34 +40,14 @@ fi
 
 echo $USER > /tmp/currentuser
 
-export XORG_PREFIX="/usr"
-
 export LIBRARY_PATH=$XORG_PREFIX/lib
-2to3-3.11 -w data/autostart/openbox-xdg-autostart &&
-sed 's/python/python3/' -i data/autostart/openbox-xdg-autostart
+patch -Np1 -i ../openbox-3.6.1-py3-1.patch
+autoreconf -fi
 ./configure --prefix=/usr     \
             --sysconfdir=/etc \
             --disable-static  \
-            --docdir=/usr/share/doc/openbox-3.6.1 &&
+            --docdir=/usr/share/doc/openbox-3.6.1
 make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-rm -v /usr/share/xsessions/openbox-{gnome,kde}.desktop
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 cp -rf /etc/xdg/openbox ~/.config
 ls -d /usr/share/themes/*/openbox-3 | sed 's#.*es/##;s#/o.*##'
 echo openbox > ~/.xinitrc
@@ -97,7 +74,17 @@ eval $(dbus-launch --auto-syntax --exit-with-session)
 lxpanel &
 exec openbox
 EOF
+rm -v /usr/share/xsessions/openbox-{gnome,kde}.desktop
 
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

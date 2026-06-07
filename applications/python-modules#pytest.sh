@@ -6,27 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:python-dependencies#attrs
 #REQ:python-dependencies#iniconfig
-#REQ:python-modules#packaging
-#REQ:python-dependencies#pluggy
-#REQ:python-dependencies#py
 #REQ:python-dependencies#setuptools_scm
 
-
 cd $SOURCE_DIR
-
 NAME=python-modules#pytest
-VERSION=7.2.2
-URL=https://files.pythonhosted.org/packages/source/p/pytest/pytest-7.2.2.tar.gz
+VERSION=9.0.2
+URL=https://files.pythonhosted.org/packages/source/p/pytest/pytest-9.0.2.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://files.pythonhosted.org/packages/source/p/pytest/pytest-7.2.2.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/p/pytest/pytest-9.0.2.tar.gz
 
 
 if [ ! -z $URL ]
@@ -45,25 +38,24 @@ fi
 cd $DIRECTORY
 fi
 
-
 echo $USER > /tmp/currentuser
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+python3 -m venv --system-site-packages testenv
+source testenv/bin/activate
+pip3 install pytest[dev]
+python3 /usr/bin/pytest
+deactivate
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user pytest
+pip3 install --no-index --find-links dist --no-user pytest
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-python3 -m venv --system-site-packages testenv &&
-source testenv/bin/activate                    &&
-pip3 install pytest[testing]                   &&
-python3 /usr/bin/pytest
-deactivate
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

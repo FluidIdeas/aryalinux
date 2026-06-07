@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=ncftp
-VERSION=3.2.
-URL=ftp://ftp.ncftp.com/ncftp/ncftp-3.2.6-src.tar.xz
-SECTION="Networking Programs"
-DESCRIPTION="The NcFTP package contains a powerful and flexible interface to the Internet standard File Transfer Protocol. It is intended to replace or supplement the stock ftp program."
+VERSION=3.3.0
+URL=https://www.ncftp.com/public_ftp/ncftp/ncftp-3.3.0-src.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc ftp://ftp.ncftp.com/ncftp/ncftp-3.2.6-src.tar.xz
+wget -nc https://www.ncftp.com/public_ftp/ncftp/ncftp-3.3.0-src.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,25 +38,21 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sed -i 's/^Bookmark/extern Bookmark/' sh_util/gpshare.c
-./configure --prefix=/usr --sysconfdir=/etc &&
-make -C libncftp shared &&
+CC=/usr/bin/gcc \
+./configure --prefix=/usr --sysconfdir=/etc
+make -C libncftp shared
 make
+make -C libncftp soinstall
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make -C libncftp soinstall &&
 make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-./configure --prefix=/usr --sysconfdir=/etc &&
-make
-make install
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

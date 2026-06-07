@@ -6,24 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:rpcsvc-proto
 #REQ:libtirpc
 
-
 cd $SOURCE_DIR
-
 NAME=libnsl
-VERSION=2.0.0
-URL=https://github.com/thkukuk/libnsl/releases/download/v2.0.0/libnsl-2.0.0.tar.xz
-SECTION="Networking Libraries"
-DESCRIPTION="The libnsl package contains the public client interface for NIS(YP). It replaces the NIS library that used to be in glibc."
+VERSION=2.0.1
+URL=https://github.com/thkukuk/libnsl/releases/download/v2.0.1/libnsl-2.0.1.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/thkukuk/libnsl/releases/download/v2.0.0/libnsl-2.0.0.tar.xz
+wget -nc https://github.com/thkukuk/libnsl/releases/download/v2.0.1/libnsl-2.0.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -44,9 +39,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --sysconfdir=/etc --disable-static &&
+./configure --sysconfdir=/etc --disable-static
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -55,8 +51,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:perl-deps#perl-clone
-#REQ:perl-deps#perl-file-find-rule
-
 
 cd $SOURCE_DIR
-
 NAME=perl-modules#perl-data-compare
-VERSION=1.28
-URL=https://www.cpan.org/authors/id/D/DC/DCANTRELL/Data-Compare-1.28.tar.gz
+VERSION=1.29
+URL=https://www.cpan.org/authors/id/D/DC/DCANTRELL/Data-Compare-1.29.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.cpan.org/authors/id/D/DC/DCANTRELL/Data-Compare-1.28.tar.gz
+wget -nc https://www.cpan.org/authors/id/D/DC/DCANTRELL/Data-Compare-1.29.tar.gz
 
 
 if [ ! -z $URL ]
@@ -41,11 +37,9 @@ fi
 cd $DIRECTORY
 fi
 
-
 echo $USER > /tmp/currentuser
 
-perl Makefile.PL &&
-make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -54,8 +48,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

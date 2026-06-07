@@ -6,22 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:cairo
 
-
 cd $SOURCE_DIR
-
 NAME=python-modules#pycairo
-VERSION=1.23.0
-URL=https://github.com/pygobject/pycairo/releases/download/v1.23.0/pycairo-1.23.0.tar.gz
+VERSION=1.29.0
+URL=https://github.com/pygobject/pycairo/releases/download/v1.29.0/pycairo-1.29.0.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/pygobject/pycairo/releases/download/v1.23.0/pycairo-1.23.0.tar.gz
+wget -nc https://github.com/pygobject/pycairo/releases/download/v1.29.0/pycairo-1.29.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -40,14 +37,14 @@ fi
 cd $DIRECTORY
 fi
 
-
 echo $USER > /tmp/currentuser
 
-mkdir build &&
-cd    build &&
-
-meson setup --prefix=/usr --buildtype=release .. &&
+mkdir build
+cd    build
+meson setup --prefix=/usr --buildtype=release ..
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -56,8 +53,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

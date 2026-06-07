@@ -6,22 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:perl-deps#perl-importer
-
+#REQ:perl-deps#perl-test-simple
 
 cd $SOURCE_DIR
-
 NAME=perl-deps#perl-term-table
-VERSION=0.016
-URL=https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Term-Table-0.016.tar.gz
+VERSION=0.028
+URL=https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Term-Table-0.028.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Term-Table-0.016.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Term-Table-0.028.tar.gz
 
 
 if [ ! -z $URL ]
@@ -40,11 +37,9 @@ fi
 cd $DIRECTORY
 fi
 
-
 echo $USER > /tmp/currentuser
 
-perl Makefile.PL &&
-make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -53,8 +48,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

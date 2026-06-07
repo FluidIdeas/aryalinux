@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:libevdev
-#REQ:mtdev
-
+#REQ:x7driver
 
 cd $SOURCE_DIR
-
 NAME=libinput
-VERSION=1.23.0
-URL=https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.23.0/libinput-1.23.0.tar.gz
+VERSION=1.31.0
+URL=https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.31.0/libinput-1.31.0.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.23.0/libinput-1.23.0.tar.gz
+wget -nc https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.31.0/libinput-1.31.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -41,31 +37,30 @@ fi
 cd $DIRECTORY
 fi
 
-export XORG_PREFIX="/usr"
-
 echo $USER > /tmp/currentuser
 
-mkdir build &&
-cd    build &&
-
-meson setup --prefix=$XORG_PREFIX    \
-            --buildtype=release      \
-            -Ddebug-gui=false        \
-            -Dtests=false            \
-            -Dlibwacom=false         \
-            -Dudev-dir=/usr/lib/udev \
-            ..                      &&
+mkdir build
+cd    build
+meson setup ..              \
+      --prefix=$XORG_PREFIX \
+      --buildtype=release   \
+      -D debug-gui=false    \
+      -D tests=false        \
+      -D libwacom=false     \
+      -D udev-dir=/usr/lib/udev
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
+install -v -dm755      /usr/share/doc/libinput-1.31.0/html
+cp -rv Documentation/* /usr/share/doc/libinput-1.31.0/html
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

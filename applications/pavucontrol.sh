@@ -6,24 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:pulseaudio
-#REQ:gtkmm3
-#REQ:libsigc
-
+#REQ:gtkmm4
 
 cd $SOURCE_DIR
-
 NAME=pavucontrol
-VERSION=3.0
-URL=http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-3.0.tar.gz
-DESCRIPTION="PulseAudio Volume Control (pavucontrol) is a simple GTK based volume control tool (\"mixer\") for the PulseAudio sound server. In contrast to classic mixer tools, this one allows you to control both the volume of hardware devices and of each playback stream separately."
+VERSION=6.2
+URL=https://www.freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-6.2.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc http://freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-3.0.tar.gz
+wget -nc https://www.freedesktop.org/software/pulseaudio/pavucontrol/pavucontrol-6.2.tar.xz
 
 
 if [ ! -z $URL ]
@@ -42,10 +37,23 @@ fi
 cd $DIRECTORY
 fi
 
-./configure --prefix=/usr
-make
-sudo make install
+echo $USER > /tmp/currentuser
 
+mkdir build
+cd    build
+meson setup --prefix=/usr --buildtype=release -D lynx=disabled ..
+ninja
+mv /usr/share/doc/pavucontrol /usr/share/doc/pavucontrol-6.2
+
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ninja install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

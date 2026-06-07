@@ -6,28 +6,22 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:glu
 #REQ:x7lib
-#REQ:harfbuzz
-#REQ:libjpeg
+#REQ:freeglut
 #REQ:openjpeg2
-#REQ:curl
-
+#REQ:installing
 
 cd $SOURCE_DIR
-
 NAME=mupdf
-VERSION=1.21.
-URL=https://www.mupdf.com/downloads/archive/mupdf-1.21.1-source.tar.gz
-SECTION="PostScript"
-DESCRIPTION="MuPDF is a lightweight PDF and XPS viewer."
+VERSION=1.26.12
+URL=https://www.mupdf.com/downloads/archive/mupdf-1.26.12-source.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.mupdf.com/downloads/archive/mupdf-1.21.1-source.tar.gz
+wget -nc https://www.mupdf.com/downloads/archive/mupdf-1.26.12-source.tar.gz
 
 
 if [ ! -z $URL ]
@@ -48,46 +42,32 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sed -i '/MU.*_EXE. :/{
-        s/\(.(MUPDF_LIB)\)\(.*\)$/\2 | \1/
-        N
-        s/$/ -lmupdf -L$(OUT)/
-        }' Makefile
-cat > user.make << EOF &&
+cat > user.make << EOF
 USE_SYSTEM_FREETYPE := yes
 USE_SYSTEM_HARFBUZZ := yes
 USE_SYSTEM_JBIG2DEC := no
 USE_SYSTEM_JPEGXR := no # not used without HAVE_JPEGXR
-USE_SYSTEM_LCMS2 := no # need lcms2-art fork
+USE_SYSTEM_LCMS2 := no # lcms2mt is strongly preferred
 USE_SYSTEM_LIBJPEG := yes
 USE_SYSTEM_MUJS := no # build needs source anyway
 USE_SYSTEM_OPENJPEG := yes
 USE_SYSTEM_ZLIB := yes
-USE_SYSTEM_GLUT := no # need freeglut2-art fork
+USE_SYSTEM_GLUT := yes
 USE_SYSTEM_CURL := yes
 USE_SYSTEM_GUMBO := no
 EOF
 
-export XCFLAGS=-fPIC                               &&
-make build=release shared=yes                      &&
+export XCFLAGS=-fPIC
+make build=release shared=yes verbose=yes
 unset XCFLAGS
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make prefix=/usr                        \
-     shared=yes                         \
-     docdir=/usr/share/doc/mupdf-1.21.1 \
-     install                            &&
-
-chmod 755 /usr/lib/libmupdf.so          &&
+make prefix=/usr                         \
+     shared=yes                          \
+     docdir=/usr/share/doc/mupdf-1.26.12 \
+     install
+ln -sfv libmupdf.so.26.12 /usr/lib/libmupdf.so.26
+ln -sfv libmupdf.so.26   /usr/lib/libmupdf.so
+chmod 755 /usr/lib/libmupdf.so.26.12
 ln -sfv mupdf-x11 /usr/bin/mupdf
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

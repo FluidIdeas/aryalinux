@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:cmake
 
-
 cd $SOURCE_DIR
-
 NAME=taglib
-VERSION=1.13
-URL=https://taglib.org/releases/taglib-1.13.tar.gz
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="Taglib is a library used for reading, writing and manipulating audio file tags and is used by applications such as Amarok and VLC."
+VERSION=2.2
+URL=https://taglib.org/releases/taglib-2.2.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://taglib.org/releases/taglib-1.13.tar.gz
+wget -nc https://taglib.org/releases/taglib-2.2.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,15 +39,15 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DCMAKE_BUILD_TYPE=Release  \
-      -DBUILD_SHARED_LIBS=ON \
-      .. &&
+mkdir build
+cd    build
+cmake -D CMAKE_INSTALL_PREFIX=/usr \
+      -D CMAKE_BUILD_TYPE=Release  \
+      -D BUILD_SHARED_LIBS=ON \
+      ..
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -60,8 +56,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

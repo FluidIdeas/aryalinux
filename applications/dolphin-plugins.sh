@@ -6,22 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-
+#REQ:dolphin
 
 cd $SOURCE_DIR
-
 NAME=dolphin-plugins
-VERSION=21.04.1
-URL=https://github.com/KDE/dolphin-plugins/archive/v21.04.1/dolphin-plugins-21.04.1.tar.gz
-SECTION="KDE Frameworks 5 Based Applications"
-DESCRIPTION="Plugins for the dolphin file manager"
+VERSION=25.12.2
+URL=https://download.kde.org/stable/release-service/25.12.2/src/dolphin-plugins-25.12.2.tar.xz
+SECTION="Others"
 
 
-mkdir -pv $NAME
-pushd $NAME
+mkdir -pv $(echo $NAME | sed "s@#@_@g")
+pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/KDE/dolphin-plugins/archive/v21.04.1/dolphin-plugins-21.04.1.tar.gz
+wget -nc https://download.kde.org/stable/release-service/25.12.2/src/dolphin-plugins-25.12.2.tar.xz
+
 
 if [ ! -z $URL ]
 then
@@ -39,14 +37,25 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
+
 mkdir build
-cd build
+cd    build
+cmake -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX \
+      -D CMAKE_BUILD_TYPE=Release         \
+      -D BUILD_TESTING=OFF                \
+      -W no-dev ..
+make
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-make -j$(nproc)
 
-sudo make install
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+ENDOFROOTSCRIPT
 
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

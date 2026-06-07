@@ -6,29 +6,22 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:bluez
-#REQ:gstreamer10
 #REQ:gst10-plugins-base
 #REQ:pulseaudio
-#REQ:sbc
-#REQ:v4l-utils
-#REQ:jack2
-
+#REQ:wireplumber
 
 cd $SOURCE_DIR
-
 NAME=pipewire
-VERSION=0.3.67
-URL=https://github.com/PipeWire/pipewire/archive/0.3.67/pipewire-0.3.67.tar.gz
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="The pipewire package contains a server and userspace API to handle multimedia pipelines. This includes a universal API to connect to multimedia devices, as well as sharing multimedia files between applications."
+VERSION=1.6.0
+URL=https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/1.6.0/pipewire-1.6.0.tar.bz2
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/PipeWire/pipewire/archive/0.3.67/pipewire-0.3.67.tar.gz
+wget -nc https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/1.6.0/pipewire-1.6.0.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -49,15 +42,15 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-meson setup --prefix=/usr       \
-            --buildtype=release \
-            -Dsession-managers= \
-            ..                  &&
+mkdir build
+cd    build
+meson setup ..                 \
+      --prefix=/usr            \
+      --buildtype=release      \
+      -D session-managers="[]"
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -66,8 +59,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

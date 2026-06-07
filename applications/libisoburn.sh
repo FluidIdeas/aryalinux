@@ -6,24 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:libburn
-#REQ:libisofs
-
 
 cd $SOURCE_DIR
-
 NAME=libisoburn
-VERSION=1.5.4
-URL=https://files.libburnia-project.org/releases/libisoburn-1.5.4.tar.gz
-SECTION="CD/DVD-Writing Utilities"
-DESCRIPTION="libisoburn is a frontend for libraries libburn and libisofs which enables creation and expansion of ISO-9660 filesystems on all CD/DVD/BD media supported by libburn. This includes media like DVD+RW, which do not support multi-session management on media level and even plain disk files or block devices."
+VERSION=1.5.6
+URL=https://files.libburnia-project.org/releases/libisoburn-1.5.6.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://files.libburnia-project.org/releases/libisoburn-1.5.4.tar.gz
+wget -nc https://files.libburnia-project.org/releases/libisoburn-1.5.6.tar.gz
 
 
 if [ ! -z $URL ]
@@ -44,21 +39,23 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 ./configure --prefix=/usr              \
             --disable-static           \
-            --enable-pkg-check-modules &&
+            --enable-pkg-check-modules
 make
+doxygen doc/doxygen.conf
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
+install -v -dm755 /usr/share/doc/libisoburn-1.5.6
+install -v -m644 doc/html/* /usr/share/doc/libisoburn-1.5.6
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

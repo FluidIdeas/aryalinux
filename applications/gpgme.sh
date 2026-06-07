@@ -6,24 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:libassuan
-
+#REQ:gnupg
 
 cd $SOURCE_DIR
-
 NAME=gpgme
-VERSION=1.19.0
-URL=https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.19.0.tar.bz2
-SECTION="Security"
-DESCRIPTION="The GPGME package is a C library that allows cryptography support to be added to a program. It is designed to make access to public key crypto engines like GnuPG or GpgSM easier for applications. GPGME provides a high-level crypto API for encryption, decryption, signing, signature verification and key management."
+VERSION=2.0.1
+URL=https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-2.0.1.tar.bz2
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.19.0.tar.bz2
-wget -nc ftp://ftp.gnupg.org/gcrypt/gpgme/gpgme-1.19.0.tar.bz2
+wget -nc https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-2.0.1.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -44,9 +40,12 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --disable-gpg-test &&
+mkdir build
+cd    build
+../configure --prefix=/usr --disable-static
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -55,8 +54,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

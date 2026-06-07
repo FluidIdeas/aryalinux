@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=smartmontools
-VERSION=7.3
-URL=https://downloads.sourceforge.net/smartmontools/smartmontools-7.3.tar.gz
-SECTION="File Systems and Disk Management"
-DESCRIPTION="The smartmontools package contains utility programs (smartctl, smartd) to control/monitor storage systems using the Self-Monitoring, Analysis and Reporting Technology System (S.M.A.R.T.) built into most modern ATA and SCSI disks."
+VERSION=7.5
+URL=https://downloads.sourceforge.net/smartmontools/smartmontools-7.5.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.sourceforge.net/smartmontools/smartmontools-7.3.tar.gz
+wget -nc https://downloads.sourceforge.net/smartmontools/smartmontools-7.5.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,11 +38,13 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr           \
-            --sysconfdir=/etc       \
-            --docdir=/usr/share/doc/smartmontools-7.3 &&
+./configure --prefix=/usr     \
+            --sysconfdir=/etc \
+            --docdir=/usr/share/doc/smartmontools-7.5
 make
+systemctl enable smartd
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -55,17 +53,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-systemctl enable smartd
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

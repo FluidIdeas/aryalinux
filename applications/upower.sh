@@ -6,25 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:libgudev
-#REQ:libusb
-#REQ:polkit
-
 
 cd $SOURCE_DIR
-
 NAME=upower
-VERSION=1.90.0
-URL=https://gitlab.freedesktop.org/upower/upower/-/archive/v1.90.0/upower-v1.90.0.tar.bz2
-SECTION="System Utilities"
-DESCRIPTION="The UPower package provides an interface for enumerating power devices, listening to device events and querying history and statistics. Any application or service on the system can access the org.freedesktop.UPower service via the system message bus."
+VERSION=1.91.1
+URL=https://gitlab.freedesktop.org/upower/upower/-/archive/v1.91.1/upower-v1.91.1.tar.bz2
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://gitlab.freedesktop.org/upower/upower/-/archive/v1.90.0/upower-v1.90.0.tar.bz2
+wget -nc https://gitlab.freedesktop.org/upower/upower/-/archive/v1.91.1/upower-v1.91.1.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -45,16 +39,16 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sed '/parse_version/d' -i src/linux/integration-test.py
-mkdir build                         &&
-cd    build                         &&
+mkdir build
+cd    build
 meson setup ..            \
       --prefix=/usr       \
       --buildtype=release \
-      -Dgtk-doc=false     \
-      -Dman=false         &&
+      -D gtk-doc=false    \
+      -D man=false
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -63,17 +57,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-systemctl enable upower
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

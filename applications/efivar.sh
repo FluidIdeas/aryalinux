@@ -7,23 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:mandoc
-
-
 cd $SOURCE_DIR
-
 NAME=efivar
-VERSION=38
-URL=https://github.com/rhboot/efivar/releases/download/38/efivar-38.tar.bz2
-SECTION="File Systems and Disk Management"
-DESCRIPTION="The efivar package provides tools and libraries to manipulate EFI variables."
+VERSION=0
+URL=https://github.com/rhboot/efivar/archive/39/efivar-39.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/rhboot/efivar/releases/download/38/efivar-38.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/6.0/efivar-38-i686-1.patch
+wget -nc https://github.com/rhboot/efivar/archive/39/efivar-39.tar.gz
 
 
 if [ ! -z $URL ]
@@ -44,20 +38,20 @@ fi
 
 echo $USER > /tmp/currentuser
 
+patch -Np1 -i ../efivar-39-upstream_fixes-1.patch
+make ENABLE_DOCS=0
 
-sed '/prep :/a\\ttouch prep' -i src/Makefile
-[ $(getconf LONG_BIT) = 64 ] || patch -Np1 -i ../efivar-38-i686-1.patch
-make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install LIBDIR=/usr/lib
+make install ENABLE_DOCS=0 LIBDIR=/usr/lib
+install -vm644 docs/efivar.1 /usr/share/man/man1
+install -vm644 docs/*.3      /usr/share/man/man3
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

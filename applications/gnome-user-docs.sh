@@ -6,25 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:itstool
-#REQ:libxml2
-
 
 cd $SOURCE_DIR
-
 NAME=gnome-user-docs
-VERSION=43.0
-URL=https://download.gnome.org/sources/gnome-user-docs/43/gnome-user-docs-43.0.tar.xz
-SECTION="GNOME Libraries and Desktop"
-DESCRIPTION="The GNOME User Docs package contains documentation for GNOME."
+VERSION=49.4
+URL=https://download.gnome.org/sources/gnome-user-docs/49/gnome-user-docs-49.4.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gnome-user-docs/43/gnome-user-docs-43.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-user-docs/43/gnome-user-docs-43.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-user-docs/49/gnome-user-docs-49.4.tar.xz
 
 
 if [ ! -z $URL ]
@@ -45,9 +39,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr &&
+./configure --prefix=/usr
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -56,8 +51,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

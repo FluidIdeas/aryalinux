@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:x7lib
 
-
 cd $SOURCE_DIR
-
 NAME=tk
-VERSION=
-URL=https://downloads.sourceforge.net/tcl/tk8.6.13-src.tar.gz
-SECTION="Programming"
-DESCRIPTION="The Tk package contains a TCL GUI Toolkit."
+VERSION=8.6.17
+URL=https://downloads.sourceforge.net/tcl/tk8.6.17-src.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.sourceforge.net/tcl/tk8.6.13-src.tar.gz
+wget -nc https://downloads.sourceforge.net/tcl/tk8.6.17-src.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,30 +39,28 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-cd unix &&
+cd unix
 ./configure --prefix=/usr \
             --mandir=/usr/share/man \
-            $([ $(uname -m) = x86_64 ] && echo --enable-64bit) &&
-
-make &&
-
+            $([ $(uname -m) = x86_64 ]
+echo --enable-64bit)
+make
 sed -e "s@^\(TK_SRC_DIR='\).*@\1/usr/include'@" \
     -e "/TK_B/s@='\(-L\)\?.*unix@='\1/usr/lib@" \
     -i tkConfig.sh
+ln -v -sf wish8.6 /usr/bin/wish
+chmod -v 755 /usr/lib/libtk8.6.so
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-make install-private-headers &&
-ln -v -sf wish8.6 /usr/bin/wish &&
-chmod -v 755 /usr/lib/libtk8.6.so
+make install
+make install-private-headers
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

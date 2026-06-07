@@ -6,31 +6,25 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:xserver-meta
-#REQ:mesa
 #REQ:alsa-lib
-#REQ:pulseaudio
 #REQ:libass
+#REQ:libplacebo
+#REQ:pulseaudio
 #REQ:libjpeg
-#REQ:gnutls
-#REQ:x264
-#REQ:lame
-#REQ:fdk-aac
-
+#REQ:libva
+#REQ:luajit
 
 cd $SOURCE_DIR
-
 NAME=mpv
-VERSION=0.33.1
-URL=https://github.com/mpv-player/mpv/archive/v0.33.1/mpv-0.33.1.tar.gz
-DESCRIPTION="mpv is a free (as in freedom) media player for the command line. It supports a wide variety of media file formats, audio and video codecs, and subtitle types."
+VERSION=0.41.0
+URL=https://github.com/mpv-player/mpv/archive/v0.41.0/mpv-0.41.0.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/mpv-player/mpv/archive/v0.33.1/mpv-0.33.1.tar.gz
+wget -nc https://github.com/mpv-player/mpv/archive/v0.41.0/mpv-0.41.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -49,11 +43,27 @@ fi
 cd $DIRECTORY
 fi
 
-./bootstrap.py &&
-./waf configure --enable-libmpv-shared --enable-vaapi --enable-vdpau --prefix=/usr &&
-./waf build &&
-sudo ./waf install --prefix=/usr
+echo $USER > /tmp/currentuser
 
+mkdir build
+cd    build
+meson setup --prefix=/usr       \
+            --buildtype=release \
+            -D x11=enabled      \
+            ..
+ninja
+gtk-update-icon-cache -qtf /usr/share/icons/hicolor
+update-desktop-database -q
+
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ninja install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

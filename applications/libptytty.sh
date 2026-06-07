@@ -6,17 +6,13 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:cmake
 
-
 cd $SOURCE_DIR
-
 NAME=libptytty
 VERSION=2.0
 URL=http://dist.schmorp.de/libptytty/libptytty-2.0.tar.gz
-SECTION="General Libraries"
-DESCRIPTION="The libptytty package provides a library that allows for OS independent and secure pty/tty and utmp/wtmp/lastlog handling."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -43,15 +39,15 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-cmake -DCMAKE_INSTALL_PREFIX=/usr     \
-      -DCMAKE_BUILD_TYPE=Release      \
-      -DPT_UTMP_FILE:STRING=/run/utmp \
-      .. &&
+mkdir build
+cd    build
+cmake -D CMAKE_INSTALL_PREFIX=/usr     \
+      -D CMAKE_BUILD_TYPE=Release      \
+      -D PT_UTMP_FILE=/run/utmp        \
+      ..
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -60,8 +56,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

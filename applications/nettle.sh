@@ -7,22 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=nettle
-VERSION=3.8.1
-URL=https://ftp.gnu.org/gnu/nettle/nettle-3.8.1.tar.gz
-SECTION="Security"
-DESCRIPTION="The Nettle package contains a low-level cryptographic library that is designed to fit easily in many contexts."
+VERSION=3.10.2
+URL=https://ftpmirror.gnu.org/nettle/nettle-3.10.2.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ftp.gnu.org/gnu/nettle/nettle-3.8.1.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/nettle/nettle-3.8.1.tar.gz
+wget -nc https://ftpmirror.gnu.org/nettle/nettle-3.10.2.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,22 +38,21 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --disable-static &&
+./configure --prefix=/usr --disable-static
 make
+chmod   -v   755 /usr/lib/lib{hogweed,nettle}.so
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-chmod   -v   755 /usr/lib/lib{hogweed,nettle}.so &&
-install -v -m755 -d /usr/share/doc/nettle-3.8.1 &&
-install -v -m644 nettle.html /usr/share/doc/nettle-3.8.1
+make install
+install -v -m755 -d /usr/share/doc/nettle-3.10.2
+install -v -m644 nettle.{html,pdf} /usr/share/doc/nettle-3.10.2
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

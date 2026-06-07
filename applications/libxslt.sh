@@ -6,25 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:libxml2
 #REQ:docbook
-#REQ:docbook-xsl
-
 
 cd $SOURCE_DIR
-
 NAME=libxslt
-VERSION=1.1.37
-URL=https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.37.tar.xz
-SECTION="General Libraries"
-DESCRIPTION="The libxslt package contains XSLT libraries used for extending libxml2 libraries to support XSLT files."
+VERSION=1.1.45
+URL=https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.45.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.37.tar.xz
+wget -nc https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.45.tar.xz
 
 
 if [ ! -z $URL ]
@@ -45,12 +40,13 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr                          \
-            --disable-static                       \
-            --docdir=/usr/share/doc/libxslt-1.1.37 \
-            PYTHON=/usr/bin/python3 &&
+./configure --prefix=/usr    \
+            --disable-static \
+            --without-python \
+            --docdir=/usr/share/doc/libxslt-1.1.45
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -59,8 +55,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

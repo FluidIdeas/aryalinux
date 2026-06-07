@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:libxslt
-#REQ:perl-deps#perl-xml-libxml
-
 
 cd $SOURCE_DIR
-
 NAME=perl-modules#perl-xml-libxslt
-VERSION=2.002001
-URL=https://www.cpan.org/authors/id/S/SH/SHLOMIF/XML-LibXSLT-2.002001.tar.gz
+VERSION=2.003000
+URL=https://www.cpan.org/authors/id/S/SH/SHLOMIF/XML-LibXSLT-2.003000.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.cpan.org/authors/id/S/SH/SHLOMIF/XML-LibXSLT-2.002001.tar.gz
+wget -nc https://www.cpan.org/authors/id/S/SH/SHLOMIF/XML-LibXSLT-2.003000.tar.gz
 
 
 if [ ! -z $URL ]
@@ -41,11 +37,9 @@ fi
 cd $DIRECTORY
 fi
 
-
 echo $USER > /tmp/currentuser
 
-perl Makefile.PL &&
-make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -54,8 +48,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

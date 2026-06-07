@@ -6,24 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:libgsf
-#REQ:libpng
-
 
 cd $SOURCE_DIR
-
 NAME=wv
 VERSION=1.2.9
-URL=https://www.abisource.com/downloads/wv/1.2.9/wv-1.2.9.tar.gz
-SECTION="General Libraries"
-DESCRIPTION="The wv package contains tools for reading information from an MS Word document."
+URL=https://anduin.linuxfromscratch.org/BLFS/wv/wv-1.2.9.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.abisource.com/downloads/wv/1.2.9/wv-1.2.9.tar.gz
+wget -nc https://anduin.linuxfromscratch.org/BLFS/wv/wv-1.2.9.tar.gz
 
 
 if [ ! -z $URL ]
@@ -44,9 +39,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --disable-static &&
+./configure --prefix=/usr --disable-static
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -55,8 +51,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

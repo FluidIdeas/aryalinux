@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-
+#REQ:icu
 
 cd $SOURCE_DIR
-
 NAME=libxml2
-VERSION=2.10.3
-URL=https://download.gnome.org/sources/libxml2/2.10/libxml2-2.10.3.tar.xz
-SECTION="General Libraries"
-DESCRIPTION="The libxml2 package contains libraries and utilities used for parsing XML files."
+VERSION=2.15.1
+URL=https://download.gnome.org/sources/libxml2/2.15/libxml2-2.15.1.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/libxml2/2.10/libxml2-2.10.3.tar.xz
-wget -nc https://www.w3.org/XML/Test/xmlts20130923.tar.gz
+wget -nc https://download.gnome.org/sources/libxml2/2.15/libxml2-2.15.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -43,25 +39,31 @@ fi
 
 echo $USER > /tmp/currentuser
 
+sed -i "/'git'/,+3d" meson.build
+mkdir build
+cd    build
+meson setup ..           \
+      --prefix=/usr      \
+      -D history=enabled \
+      -D icu=enabled
+ninja
+sed -e "/^dir_doc/s/\$/ + '-' + meson.project_version()/" \
+    -i ../meson.build
+meson configure -D docs=enabled
+ninja
+tar xf ../../xmlts20130923.tar.gz -C ..
+systemctl stop httpd.service
+sed "s/--static/--shared/" -i /usr/bin/xml2-config
 
-./configure --prefix=/usr           \
-            --sysconfdir=/etc       \
-            --disable-static        \
-            --with-history          \
-            PYTHON=/usr/bin/python3 \
-            --docdir=/usr/share/doc/libxml2-2.10.3 &&
-make
-tar xf ../xmlts20130923.tar.gz
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

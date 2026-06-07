@@ -6,27 +6,22 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
+#REQ:installing
 #REQ:ffmpeg
-#REQ:alsa
-#REQ:pulseaudio
+#REQ:alsa-lib
 #REQ:libdvdnav
 
-
 cd $SOURCE_DIR
-
 NAME=xine-lib
 VERSION=1.2.13
 URL=https://downloads.sourceforge.net/xine/xine-lib-1.2.13.tar.xz
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="The Xine Libraries package contains xine libraries. These are useful for interfacing with external plug-ins that allow the flow of information from the source to the audio and video hardware."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/xine/xine-lib-1.2.13.tar.xz
-wget -nc ftp://ftp.mirrorservice.org/sites/distfiles.gentoo.org/distfiles/xine-lib-1.2.13.tar.xz
 
 
 if [ ! -z $URL ]
@@ -47,22 +42,29 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
+patch -Np1 -i ../xine-lib-1.2.13-upstream_fixes-1.patch
+patch -Np1 -i ../xine-lib-1.2.13-gcc15_fixes-1.patch
+patch -Np1 -i ../xine-lib-1.2.13-ffmpeg8.patch
 ./configure --prefix=/usr          \
             --disable-vcd          \
+            --disable-w32dll       \
             --with-external-dvdnav \
-            --docdir=/usr/share/doc/xine-lib-1.2.13 &&
+            --docdir=/usr/share/doc/xine-lib-1.2.13
 make
+doxygen doc/Doxyfile
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
+install -v -m755 -d /usr/share/doc/xine-lib-1.2.13/api
+install -v -m644    doc/api/* \
+                    /usr/share/doc/xine-lib-1.2.13/api
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

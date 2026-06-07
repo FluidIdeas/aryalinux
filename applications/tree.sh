@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=tree
-VERSION=2.1.0
-URL=https://mama.indstate.edu/users/ice/tree/src/tree-2.1.0.tgz
-SECTION="General Utilities"
-DESCRIPTION="The tree application is useful to display a dictionary tree's contents, including files, directories, and links."
+VERSION=2.3.1
+URL=https://gitlab.com/OldManProgrammer/unix-tree/-/archive/2.3.1/unix-tree-2.3.1.tar.bz2
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mama.indstate.edu/users/ice/tree/src/tree-2.1.0.tgz
+wget -nc https://gitlab.com/OldManProgrammer/unix-tree/-/archive/2.3.1/unix-tree-2.3.1.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -42,19 +38,8 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make PREFIX=/usr MANDIR=/usr/share/man install &&
-chmod -v 644 /usr/share/man/man1/tree.1
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
+make PREFIX=/usr MANDIR=/usr/share/man install
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

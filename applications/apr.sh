@@ -7,22 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=apr
-VERSION=1.7.3
-URL=https://archive.apache.org/dist/apr/apr-1.7.3.tar.bz2
-SECTION="General Libraries"
-DESCRIPTION="The Apache Portable Runtime (APR) is a supporting library for the Apache web server. It provides a set of application programming interfaces (APIs) that map to the underlying Operating System (OS). Where the OS doesn't support a particular function, APR will provide an emulation. Thus programmers can use the APR to make a program portable across different platforms."
+VERSION=1.7.6
+URL=https://archive.apache.org/dist/apr/apr-1.7.6.tar.bz2
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.apache.org/dist/apr/apr-1.7.3.tar.bz2
-wget -nc ftp://ftp.mirrorservice.org/sites/ftp.apache.org/apr/apr-1.7.3.tar.bz2
+wget -nc https://archive.apache.org/dist/apr/apr-1.7.6.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -43,13 +38,12 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sed -e '/^case "$0"/s;$0;$(readlink -f $0);' \
-    -i apr-config.in
 ./configure --prefix=/usr    \
             --disable-static \
-            --with-installbuilddir=/usr/share/apr-1/build &&
+            --with-installbuilddir=/usr/share/apr-1/build
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -58,8 +52,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

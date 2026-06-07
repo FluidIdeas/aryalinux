@@ -6,24 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:libfm-extra
-
+#REQ:gtk-doc
 
 cd $SOURCE_DIR
-
 NAME=menu-cache
-VERSION=1.1.0
-URL=https://downloads.sourceforge.net/lxde/menu-cache-1.1.0.tar.xz
-SECTION="LXDE Desktop"
-DESCRIPTION="The Menu Cache package contains a library for creating and utilizing caches to speed up the manipulation for freedesktop.org defined application menus."
+VERSION=1.1.1
+URL=https://github.com/lxde/menu-cache/archive/1.1.1/menu-cache-1.1.1.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.sourceforge.net/lxde/menu-cache-1.1.0.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/6.0/menu-cache-1.1.0-consolidated_fixes-1.patch
+wget -nc https://github.com/lxde/menu-cache/archive/1.1.1/menu-cache-1.1.1.tar.gz
 
 
 if [ ! -z $URL ]
@@ -44,11 +39,11 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-patch -Np1 -i ../menu-cache-1.1.0-consolidated_fixes-1.patch
-./configure --prefix=/usr    \
-            --disable-static &&
+sh autogen.sh
+./configure --prefix=/usr --disable-static
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -57,8 +52,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

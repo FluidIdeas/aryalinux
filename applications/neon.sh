@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=neon
-VERSION=0.32.5
-URL=https://notroj.github.io/neon/neon-0.32.5.tar.gz
-SECTION="Networking Libraries"
-DESCRIPTION="neon is an HTTP and WebDAV client library, with a C interface."
+VERSION=0.36.0
+URL=https://notroj.github.io/neon/neon-0.36.0.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://notroj.github.io/neon/neon-0.32.5.tar.gz
+wget -nc https://notroj.github.io/neon/neon-0.36.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,13 +38,14 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 ./configure --prefix=/usr    \
             --with-ssl       \
             --enable-shared  \
-            --disable-static &&
+            --disable-static
 make
 make docs
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -57,8 +54,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

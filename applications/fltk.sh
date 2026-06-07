@@ -6,26 +6,22 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:x7lib
 #REQ:hicolor-icon-theme
 #REQ:libjpeg
 #REQ:libpng
 
-
 cd $SOURCE_DIR
-
 NAME=fltk
-VERSION=1.3.
-URL=https://fltk.org/pub/fltk/1.3.8/fltk-1.3.8-source.tar.gz
-SECTION="Graphical Environment Libraries"
-DESCRIPTION="FLTK (pronounced \"fulltick\") is a cross-platform C++ GUI toolkit. FLTK provides modern GUI functionality and supports 3D graphics via OpenGL and its built-in GLUT emulation libraries used for creating graphical user interfaces for applications."
+VERSION=1.4.4
+URL=https://github.com/fltk/fltk/releases/download/release-1.4.4/fltk-1.4.4-source.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://fltk.org/pub/fltk/1.3.8/fltk-1.3.8-source.tar.gz
+wget -nc https://github.com/fltk/fltk/releases/download/release-1.4.4/fltk-1.4.4-source.tar.gz
 
 
 if [ ! -z $URL ]
@@ -46,33 +42,13 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sed -i -e '/cat./d' documentation/Makefile       &&
-
-./configure --prefix=/usr    \
-            --enable-shared  &&
+sed -i -e '/cat./d' documentation/Makefile
+./configure --prefix=/usr --enable-shared
 make
 make -C documentation html
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make docdir=/usr/share/doc/fltk-1.3.8 install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make -C test          docdir=/usr/share/doc/fltk-1.3.8 install-linux &&
-make -C documentation docdir=/usr/share/doc/fltk-1.3.8 install-linux
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
+make docdir=/usr/share/doc/fltk-1.4.4 install
+rm -vf /usr/lib/libfltk*.a
+tar -C /usr/share/doc/fltk-1.4.4 --strip-components=4 -xf ../fltk-1.4.4-docs-html.tar.gz
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

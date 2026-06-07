@@ -6,24 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:libxfce4ui
-#REQ:gtk3
-
 
 cd $SOURCE_DIR
-
 NAME=garcon
-VERSION=4.18.1
-URL=https://archive.xfce.org/src/xfce/garcon/4.18/garcon-4.18.1.tar.bz2
-SECTION="Xfce Desktop"
-DESCRIPTION="The Garcon package contains a freedesktop.org compliant menu implementation based on GLib and GIO."
+VERSION=4.20.0
+URL=https://archive.xfce.org/src/xfce/garcon/4.20/garcon-4.20.0.tar.bz2
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.xfce.org/src/xfce/garcon/4.18/garcon-4.18.1.tar.bz2
+wget -nc https://archive.xfce.org/src/xfce/garcon/4.20/garcon-4.20.0.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -44,9 +39,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --sysconfdir=/etc &&
+./configure --prefix=/usr --sysconfdir=/etc
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -55,8 +51,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

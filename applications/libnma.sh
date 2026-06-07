@@ -6,23 +6,22 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:mobile-broadband-provider-info
-
+#REQ:gcr
+#REQ:gtk3
+#REQ:networkmanager
+#REQ:gtk4
 
 cd $SOURCE_DIR
-
 NAME=libnma
-VERSION=1.8.28
-URL=ftp://ftp.gnome.org/pub/gnome/sources/libnma/1.8/libnma-1.8.28.tar.xz
-SECTION="Networking Utilities"
-DESCRIPTION="The libnma package contains an implementation of the NetworkManager GUI functions."
+VERSION=1.10.6
+URL=https://download.gnome.org/sources/libnma/1.10/libnma-1.10.6.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc ftp://ftp.gnome.org/pub/gnome/sources/libnma/1.8/libnma-1.8.28.tar.xz
+wget -nc https://download.gnome.org/sources/libnma/1.10/libnma-1.10.6.tar.xz
 
 
 if [ ! -z $URL ]
@@ -41,14 +40,27 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build
-cd build
+echo $USER > /tmp/currentuser
 
-meson --prefix=/usr &&
+mkdir build
+cd    build
+meson setup ..            \
+      --prefix=/usr       \
+      --buildtype=release \
+      -D gtk_doc=false    \
+      -D libnma_gtk4=true \
+      -D mobile_broadband_provider_info=false
 ninja
 
-sudo ninja install
 
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ninja install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

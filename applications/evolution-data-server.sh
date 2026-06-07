@@ -6,35 +6,26 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:libical
-#REQ:libsecret
 #REQ:nss
-#REQ:sqlite
 #REQ:gnome-online-accounts
-#REQ:gobject-introspection
+#REQ:glib2
 #REQ:gtk3
 #REQ:icu
 #REQ:libcanberra
-#REQ:libgweather
 #REQ:vala
-#REQ:webkitgtk
-
 
 cd $SOURCE_DIR
-
 NAME=evolution-data-server
-VERSION=3.46.4
-URL=https://download.gnome.org/sources/evolution-data-server/3.46/evolution-data-server-3.46.4.tar.xz
-SECTION="GNOME Libraries and Desktop"
-DESCRIPTION="The Evolution Data Server package provides a unified backend for programs that work with contacts, tasks, and calendar information. It was originally developed for Evolution (hence the name), but is now used by other packages as well."
+VERSION=3.58.3
+URL=https://download.gnome.org/sources/evolution-data-server/3.58/evolution-data-server-3.58.3.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/evolution-data-server/3.46/evolution-data-server-3.46.4.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/evolution-data-server/3.46/evolution-data-server-3.46.4.tar.xz
+wget -nc https://download.gnome.org/sources/evolution-data-server/3.58/evolution-data-server-3.58.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -55,32 +46,30 @@ fi
 
 echo $USER > /tmp/currentuser
 
+patch -Np1 -i ../evolution-data-server-3.58.3-security_fixes-1.patch
+mkdir build
+cd    build
+cmake -D CMAKE_INSTALL_PREFIX=/usr \
+      -D SYSCONF_INSTALL_DIR=/etc  \
+      -D ENABLE_VALA_BINDINGS=ON   \
+      -D ENABLE_INSTALLED_TESTS=ON \
+      -D WITH_OPENLDAP=OFF         \
+      -D WITH_KRB5=OFF             \
+      -D ENABLE_INTROSPECTION=ON   \
+      -D ENABLE_GTK_DOC=OFF        \
+      -D WITH_LIBDB=OFF            \
+      -W no-dev -G Ninja ..
+ninja
 
-mkdir build &&
-cd    build &&
 
-cmake -DCMAKE_INSTALL_PREFIX=/usr    \
-      -DSYSCONF_INSTALL_DIR=/etc     \
-      -DENABLE_VALA_BINDINGS=ON      \
-      -DENABLE_INSTALLED_TESTS=ON    \
-      -DWITH_OPENLDAP=OFF            \
-      -DWITH_KRB5=OFF                \
-      -DENABLE_INTROSPECTION=ON      \
-      -DENABLE_GTK_DOC=OFF           \
-      -DWITH_LIBDB=OFF               \
-      -DENABLE_OAUTH2_WEBKITGTK4=OFF \
-      .. &&
-make
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

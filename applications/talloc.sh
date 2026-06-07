@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=talloc
-VERSION=2.4.0
-URL=https://www.samba.org/ftp/talloc/talloc-2.4.0.tar.gz
-SECTION="General Libraries"
-DESCRIPTION="Talloc provides a hierarchical, reference counted memory pool system with destructors. It is the core memory allocator used in Samba."
+VERSION=2.4.4
+URL=https://www.samba.org/ftp/talloc/talloc-2.4.4.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.samba.org/ftp/talloc/talloc-2.4.0.tar.gz
+wget -nc https://www.samba.org/ftp/talloc/talloc-2.4.4.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,9 +38,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr &&
+./configure --prefix=/usr
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -53,8 +50,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

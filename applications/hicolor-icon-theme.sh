@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=hicolor-icon-theme
-VERSION=0.17
-URL=https://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.17.tar.xz
-SECTION="Icons"
-DESCRIPTION="The hicolor-icon-theme package contains a default fallback theme for implementations of the icon theme specification."
+VERSION=0.18
+URL=https://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.18.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.17.tar.xz
+wget -nc https://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.18.tar.xz
 
 
 if [ ! -z $URL ]
@@ -42,18 +38,20 @@ fi
 
 echo $USER > /tmp/currentuser
 
+mkdir build
+cd    build
+meson setup --prefix=/usr --buildtype=release ..
+ninja
 
-./configure --prefix=/usr
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

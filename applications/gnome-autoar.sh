@@ -6,26 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:libarchive
-#REQ:gtk3
 #REQ:vala
 
-
 cd $SOURCE_DIR
-
 NAME=gnome-autoar
-VERSION=0.4.3
-URL=https://download.gnome.org/sources/gnome-autoar/0.4/gnome-autoar-0.4.3.tar.xz
-SECTION="GNOME Libraries and Desktop"
-DESCRIPTION="The gnome-autoar package provides a framework for automatic archive extraction, compression, and management."
+VERSION=0.4.5
+URL=https://download.gnome.org/sources/gnome-autoar/0.4/gnome-autoar-0.4.5.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gnome-autoar/0.4/gnome-autoar-0.4.3.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-autoar/0.4/gnome-autoar-0.4.3.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-autoar/0.4/gnome-autoar-0.4.5.tar.xz
 
 
 if [ ! -z $URL ]
@@ -46,16 +40,16 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
+mkdir build
+cd    build
 meson setup --prefix=/usr       \
             --buildtype=release \
-            -Dvapi=true         \
-            -Dtests=true        \
-            ..                  &&
+            -D vapi=true        \
+            -D tests=true       \
+            ..
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -64,8 +58,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

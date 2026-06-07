@@ -6,24 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:cmake
-#REQ:intel-gmmlib
 #REQ:libva
 
-
 cd $SOURCE_DIR
-
 NAME=intel-media-driver
-VERSION=23.1.5
-URL=https://github.com/intel/media-driver/archive/refs/tags/intel-media-23.1.5.tar.gz
+VERSION=25.3.4
+URL=https://github.com/lfs-book/intel-media-driver/archive/v25.3.4/intel-media-driver-25.3.4.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/intel/media-driver/archive/refs/tags/intel-media-23.1.5.tar.gz
+wget -nc https://github.com/lfs-book/intel-media-driver/archive/v25.3.4/intel-media-driver-25.3.4.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,28 +38,29 @@ fi
 cd $DIRECTORY
 fi
 
-export XORG_PREFIX="/usr"
-
 echo $USER > /tmp/currentuser
 
-mkdir build &&
-cd    build &&
+grep -ri 'RegisterDevice(0x9a49'
+mkdir build
+cd    build
+cmake -D CMAKE_INSTALL_PREFIX=$XORG_PREFIX \
+      -D CMAKE_POLICY_VERSION_MINIMUM=3.5  \
+      -D INSTALL_DRIVER_SYSCONF=OFF        \
+      -D BUILD_TYPE=Release                \
+      -D MEDIA_BUILD_FATAL_WARNINGS=OFF    \
+      -G Ninja                             \
+      -W no-dev ..
+ninja
 
-cmake -DCMAKE_INSTALL_PREFIX=$XORG_PREFIX \
-      -DINSTALL_DRIVER_SYSCONF=OFF        \
-      -DBUILD_TYPE=Release                \
-      -Wno-dev ..                   &&
-make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -6,28 +6,22 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:gnutls
 #REQ:colord
-#REQ:dbus
 #REQ:libusb
-#REQ:linux-pam
-#REQ:xdg-utils
-
+#REQ:cups-filters
 
 cd $SOURCE_DIR
-
 NAME=cups
-VERSION=2.4.
-URL=https://github.com/OpenPrinting/cups/releases/download/v2.4.2/cups-2.4.2-source.tar.gz
-SECTION="Printing"
-DESCRIPTION="The Common Unix Printing System (CUPS) is a print spooler and associated utilities. It is based on the \"Internet Printing Protocol\" and provides printing services to most PostScript and raster printers."
+VERSION=2.4.16
+URL=https://github.com/OpenPrinting/cups/releases/download/v2.4.16/cups-2.4.16-source.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/OpenPrinting/cups/releases/download/v2.4.2/cups-2.4.2-source.tar.gz
+wget -nc https://github.com/OpenPrinting/cups/releases/download/v2.4.16/cups-2.4.16-source.tar.gz
 
 
 if [ ! -z $URL ]
@@ -48,60 +42,19 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-useradd -c "Print Service User" -d /var/spool/cups -g lp -s /bin/false -u 9 lp
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-groupadd -g 19 lpadmin
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-usermod -a -G lpadmin $(cat /tmp/currentuser)
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 sed -i 's#@CUPS_HTMLVIEW@#firefox#' desktop/cups.desktop.in
+sed -i '/& ipp->prev)/s/prev/& \&\& ipp->prev->next == *attr/' cups/ipp.c
 ./configure --libdir=/usr/lib            \
+            --with-rundir=/run/cups      \
             --with-system-groups=lpadmin \
-            --with-docdir=/usr/share/cups/doc-2.4.2 &&
+            --with-docdir=/usr/share/cups/doc-2.4.16
 make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-ln -svnf ../cups/doc-2.4.2 /usr/share/doc/cups-2.4.2
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+gtk-update-icon-cache -qtf /usr/share/icons/hicolor
+useradd -c "Print Service User" -d /var/spool/cups -g lp -s /bin/false -u 9 lp
+groupadd -g 19 lpadmin
+usermod -a -G lpadmin <username>
+ln -svnf ../cups/doc-2.4.16 /usr/share/doc/cups-2.4.16
 echo "ServerName /run/cups/cups.sock" > /etc/cups/client.conf
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /etc/pam.d/cups << "EOF"
 # Begin /etc/pam.d/cups
 
@@ -111,22 +64,17 @@ session include system-session
 
 # End /etc/pam.d/cups
 EOF
-ENDOFROOTSCRIPT
+systemctl enable cups
 
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-systemctl enable cups
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

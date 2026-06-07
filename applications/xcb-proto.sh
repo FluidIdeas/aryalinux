@@ -6,22 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-
+#REQ:xorg7
 
 cd $SOURCE_DIR
-
 NAME=xcb-proto
-VERSION=1.15.2
-URL=https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.15.2.tar.xz
-SECTION="Graphical Environments"
-DESCRIPTION="The xcb-proto package provides the XML-XCB protocol descriptions that libxcb uses to generate the majority of its code and API."
+VERSION=1.17.0
+URL=https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.17.0.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.15.2.tar.xz
+wget -nc https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.17.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -42,10 +39,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
-export XORG_PREFIX="/usr"
-export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
-
 PYTHON=python3 ./configure $XORG_CONFIG
+rm -f $XORG_PREFIX/lib/pkgconfig/xcb-proto.pc
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -54,9 +51,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-rm -f $XORG_PREFIX/lib/pkgconfig/xcb-proto.pc
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

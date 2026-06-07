@@ -6,22 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-
+#REQ:python-dependencies#setuptools_scm
 
 cd $SOURCE_DIR
-
 NAME=mercurial
-VERSION=6.4
-URL=https://www.mercurial-scm.org/release/mercurial-6.4.tar.gz
-SECTION="Programming"
-DESCRIPTION="Mercurial is a distributed source control management tool similar to Git and Bazaar. Mercurial is written in Python and is used by projects such as Mozilla for Firefox and Thunderbird."
+VERSION=7.2
+URL=https://www.mercurial-scm.org/release/mercurial-7.2.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.mercurial-scm.org/release/mercurial-6.4.tar.gz
+wget -nc https://www.mercurial-scm.org/release/mercurial-7.2.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,51 +39,32 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-make build
-make doc
-sed -i '138,142d' Makefile
-TESTFLAGS="-j<N> --tmpdir tmp --blacklist blacklists/fsmonitor --blacklist blacklists/linux-vfat" make check
-pushd tests  &&
-  rm -rf tmp &&
-  ./run-tests.py --tmpdir tmp test-gpg.t
+sed -i '178,181d' Makefile
+pushd tests
+./run-tests.py --with-hg /usr/bin/hg --retest
 popd
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make PREFIX=/usr install-bin
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make PREFIX=/usr install-doc
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 cat >> ~/.hgrc << "EOF"
 [ui]
 username = <user_name> <user@mail>
 EOF
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -d -m755 /etc/mercurial &&
+make PREFIX=/usr install
+mkdir /usr/share/doc/mercurial-7.2
+cp -R doc/html /usr/share/doc/mercurial-7.2
+chown -Rv username .
 cat > /etc/mercurial/hgrc << "EOF"
 [web]
 cacerts = /etc/pki/tls/certs/ca-bundle.crt
 EOF
+
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+install -v -d -m755 /etc/mercurial
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

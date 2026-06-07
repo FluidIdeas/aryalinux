@@ -6,26 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:cairomm-1.0
 #REQ:glibmm
-#REQ:pango
-
 
 cd $SOURCE_DIR
-
 NAME=pangomm
-VERSION=2.46.3
-URL=https://download.gnome.org/sources/pangomm/2.46/pangomm-2.46.3.tar.xz
-SECTION="Graphical Environment Libraries"
-DESCRIPTION="The Pangomm package provides a C++ interface to Pango."
+VERSION=2.46.4
+URL=https://download.gnome.org/sources/pangomm/2.46/pangomm-2.46.4.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/pangomm/2.46/pangomm-2.46.3.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/pangomm/2.46/pangomm-2.46.3.tar.xz
+wget -nc https://download.gnome.org/sources/pangomm/2.46/pangomm-2.46.4.tar.xz
 
 
 if [ ! -z $URL ]
@@ -46,12 +40,12 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-meson setup --prefix=/usr --buildtype=release .. &&
+mkdir build
+cd    build
+meson setup --prefix=/usr --buildtype=release ..
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -60,8 +54,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

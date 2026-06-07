@@ -6,25 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:gtk2
 #REQ:gtk3
 #REQ:desktop-file-utils
 
-
 cd $SOURCE_DIR
-
 NAME=bluefish
-VERSION=2.2.13
-URL=https://www.bennewitz.com/bluefish/stable/source/bluefish-2.2.13.tar.bz2
-SECTION="Editors"
-DESCRIPTION="Bluefish is a GTK+ text editor targeted towards programmers and web designers, with many options to write websites, scripts and programming code. Bluefish supports many programming and markup languages, and it focuses on editing dynamic and interactive websites."
+VERSION=2.4.0
+URL=https://www.bennewitz.com/bluefish/stable/source/bluefish-2.4.0.tar.bz2
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.bennewitz.com/bluefish/stable/source/bluefish-2.2.13.tar.bz2
+wget -nc https://www.bennewitz.com/bluefish/stable/source/bluefish-2.4.0.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -45,9 +40,12 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --docdir=/usr/share/doc/bluefish-2.2.13 &&
+./configure --prefix=/usr --docdir=/usr/share/doc/bluefish-2.4.0
 make
+gtk-update-icon-cache -t -f --include-image-data /usr/share/icons/hicolor
+update-desktop-database
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -56,18 +54,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-gtk-update-icon-cache -t -f --include-image-data /usr/share/icons/hicolor &&
-update-desktop-database
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

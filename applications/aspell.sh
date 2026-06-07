@@ -6,26 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:which
 
-
 cd $SOURCE_DIR
-
 NAME=aspell
-VERSION=0.60.8
-URL=https://ftp.gnu.org/gnu/aspell/aspell-0.60.8.tar.gz
-SECTION="General Libraries"
-DESCRIPTION="The Aspell package contains an interactive spell checking program and the Aspell libraries. Aspell can either be used as a library or as an independent spell checker."
+VERSION=0.60.8.2
+URL=https://ftpmirror.gnu.org/aspell/aspell-0.60.8.2.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ftp.gnu.org/gnu/aspell/aspell-0.60.8.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/aspell/aspell-0.60.8.tar.gz
-wget -nc https://ftp.gnu.org/gnu/aspell/dict/en/aspell6-en-2020.12.07-0.tar.bz2
-wget -nc https://ftp.gnu.org/gnu/aspell/dict/en/aspell6-en-2019.10.06-0.tar.bz2
+wget -nc https://ftpmirror.gnu.org/aspell/aspell-0.60.8.2.tar.gz
 
 
 if [ ! -z $URL ]
@@ -46,66 +39,31 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr &&
+./configure --prefix=/usr
 make
+tar xf ../aspell6-en-2020.12.07-0.tar.bz2
+cd aspell6-en-2020.12.07-0
+./configure
+make
+ln -svfn aspell-0.60 /usr/lib/aspell
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-ln -svfn aspell-0.60 /usr/lib/aspell &&
-
-install -v -m755 -d /usr/share/doc/aspell-0.60.8/aspell{,-dev}.html &&
-
+make install
+install -v -m755 -d /usr/share/doc/aspell-0.60.8.2/aspell{,-dev}.html
 install -v -m644 manual/aspell.html/* \
-    /usr/share/doc/aspell-0.60.8/aspell.html &&
-
+    /usr/share/doc/aspell-0.60.8.2/aspell.html
 install -v -m644 manual/aspell-dev.html/* \
-    /usr/share/doc/aspell-0.60.8/aspell-dev.html
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+    /usr/share/doc/aspell-0.60.8.2/aspell-dev.html
 install -v -m 755 scripts/ispell /usr/bin/
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 install -v -m 755 scripts/spell /usr/bin/
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-cd ..
-TARBALL=$(ls aspell*.tar.bz2)
-DIRECTORY=$(tar tf $TARBALL | cut -d/ -f1 | uniq)
-
-tar xf $TARBALL
-cd $DIRECTORY
-tar xf ../aspell6-en-2020.12.07-0.tar.bz2 &&
-cd aspell6-en-2020.12.07-0                &&
-
-./configure &&
-make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

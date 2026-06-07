@@ -7,22 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=zip
-VERSION=30
+VERSION=3.0
 URL=https://downloads.sourceforge.net/infozip/zip30.tar.gz
-SECTION="System Utilities"
-DESCRIPTION="The Zip package contains Zip utilities. These are useful for compressing files into ZIP archives."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/infozip/zip30.tar.gz
-wget -nc ftp://ftp.info-zip.org/pub/infozip/src/zip30.tgz
 
 
 if [ ! -z $URL ]
@@ -43,18 +38,8 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-make -f unix/Makefile generic_gcc
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make -f unix/Makefile generic CC="gcc -std=gnu89"
 make prefix=/usr MANDIR=/usr/share/man/man1 -f unix/Makefile install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

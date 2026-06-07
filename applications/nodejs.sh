@@ -6,21 +6,22 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-
+#REQ:which
+#REQ:brotli
+#REQ:icu
+#REQ:libuv
 
 cd $SOURCE_DIR
-
 NAME=nodejs
-VERSION=1.9.14
-
-SECTION="Programming"
-DESCRIPTION="Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine."
+VERSION=22.22.0
+URL=https://nodejs.org/dist/v22.22.0/node-v22.22.0.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
+wget -nc https://nodejs.org/dist/v22.22.0/node-v22.22.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -39,16 +40,29 @@ fi
 cd $DIRECTORY
 fi
 
-version="12.14.1"
-wget https://nodejs.org/dist/v$version/node-v$version-linux-x64.tar.xz
-dir=$(tar tf node-v$version-linux-x64.tar.xz | cut -d/ -f1 | uniq)
-sudo tar xf node-v$version-linux-x64.tar.xz -C /opt/
-sudo tee /etc/profile.d/nodejs.sh<<"EOF"
-export PATH=$PATH:/opt/node-dir/bin
-EOF
+echo $USER > /tmp/currentuser
 
-sudo sed -i "s@node-dir@$dir@g" /etc/profile.d/nodejs.sh
+patch -Np1 -i ../node-v22.22.0-python_build_fix-1.patch
+./configure --prefix=/usr          \
+            --shared-brotli        \
+            --shared-cares         \
+            --shared-libuv         \
+            --shared-openssl       \
+            --shared-nghttp2       \
+            --shared-zlib          \
+            --with-intl=system-icu
+make
+ln -sf node /usr/share/doc/node-22.22.0
 
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

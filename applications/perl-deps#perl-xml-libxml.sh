@@ -6,23 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:perl-deps#perl-alien-libxml2
 #REQ:perl-deps#perl-xml-sax
 
-
 cd $SOURCE_DIR
-
 NAME=perl-deps#perl-xml-libxml
-VERSION=2.0208
-URL=https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0208.tar.gz
+VERSION=2.0210
+URL=https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0210.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0208.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0210.tar.gz
 
 
 if [ ! -z $URL ]
@@ -41,11 +38,11 @@ fi
 cd $DIRECTORY
 fi
 
-
 echo $USER > /tmp/currentuser
 
-perl Makefile.PL &&
-make
+patch -Np1 -i ../XML-LibXML-2.0210-testsuite_fixes-2.patch
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -54,8 +51,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

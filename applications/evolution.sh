@@ -6,40 +6,26 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:adwaita-icon-theme
 #REQ:evolution-data-server
 #REQ:gcr4
-#REQ:gnome-autoar
-#REQ:itstool
-#REQ:shared-mime-info
 #REQ:webkitgtk
 #REQ:bogofilter
-#REQ:enchant
-#REQ:gnome-desktop
-#REQ:gspell
 #REQ:highlight
 #REQ:libcanberra
-#REQ:libgweather
 #REQ:libnotify
-#REQ:openldap
-#REQ:seahorse
-
 
 cd $SOURCE_DIR
-
 NAME=evolution
-VERSION=3.46.4
-URL=https://download.gnome.org/sources/evolution/3.46/evolution-3.46.4.tar.xz
-SECTION="GNOME Applications"
-DESCRIPTION="The Evolution package contains an integrated mail, calendar and address book suite designed for the GNOME environment."
+VERSION=3.58.3
+URL=https://download.gnome.org/sources/evolution/3.58/evolution-3.58.3.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/evolution/3.46/evolution-3.46.4.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/evolution/3.46/evolution-3.46.4.tar.xz
+wget -nc https://download.gnome.org/sources/evolution/3.58/evolution-3.58.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -60,20 +46,20 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DSYSCONF_INSTALL_DIR=/etc  \
-      -DENABLE_INSTALLED_TESTS=ON \
-      -DENABLE_PST_IMPORT=OFF     \
-      -DENABLE_YTNEF=OFF          \
-      -DENABLE_CONTACT_MAPS=OFF   \
-      -DENABLE_MARKDOWN=OFF       \
-      -DENABLE_WEATHER=ON         \
-      -G Ninja .. &&
+mkdir build
+cd    build
+cmake -D CMAKE_INSTALL_PREFIX=/usr \
+      -D SYSCONF_INSTALL_DIR=/etc  \
+      -D ENABLE_INSTALLED_TESTS=ON \
+      -D ENABLE_PST_IMPORT=OFF     \
+      -D ENABLE_YTNEF=OFF          \
+      -D ENABLE_CONTACT_MAPS=OFF   \
+      -D ENABLE_MARKDOWN=OFF       \
+      -D ENABLE_WEATHER=ON         \
+      -G Ninja ..
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -82,8 +68,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -7,20 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=libevdev
-VERSION=1.13.0
-URL=https://www.freedesktop.org/software/libevdev/libevdev-1.13.0.tar.xz
+VERSION=1.13.6
+URL=https://www.freedesktop.org/software/libevdev/libevdev-1.13.6.tar.xz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.freedesktop.org/software/libevdev/libevdev-1.13.0.tar.xz
+wget -nc https://www.freedesktop.org/software/libevdev/libevdev-1.13.6.tar.xz
 
 
 if [ ! -z $URL ]
@@ -38,19 +35,20 @@ fi
 
 cd $DIRECTORY
 fi
-
 export XORG_PREFIX="/usr"
 
 echo $USER > /tmp/currentuser
 
-mkdir build &&
-cd    build &&
-
-meson setup ..                 \
-      --prefix=$XORG_PREFIX    \
-      --buildtype=release      \
-      -Ddocumentation=disabled &&
+mkdir build
+cd    build
+meson setup ..                  \
+      --prefix=$XORG_PREFIX     \
+      --buildtype=release       \
+      -D documentation=disabled \
+      -D tests=disabled
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -59,8 +57,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

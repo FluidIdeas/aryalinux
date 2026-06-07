@@ -6,25 +6,21 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:extra-cmake-modules
-#REQ:frameworks5
+#REQ:frameworks6
 #REQ:qtwebengine
 
-
 cd $SOURCE_DIR
-
 NAME=falkon
-VERSION=22.12.2
-URL=https://download.kde.org/stable/release-service/22.12.2/src/falkon-22.12.2.tar.xz
-SECTION="Graphical Web Browsers"
-DESCRIPTION="Falkon is a KDE web browser using the QtWebEngine rendering engine. It was previously known as QupZilla. It aims to be a lightweight web browser available through all major platforms."
+VERSION=25.12.2
+URL=https://download.kde.org/stable/release-service/25.12.2/src/falkon-25.12.2.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.kde.org/stable/release-service/22.12.2/src/falkon-22.12.2.tar.xz
+wget -nc https://download.kde.org/stable/release-service/25.12.2/src/falkon-25.12.2.tar.xz
 
 
 if [ ! -z $URL ]
@@ -45,15 +41,15 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DCMAKE_BUILD_TYPE=Release  \
-      .. &&
-
+mkdir build
+cd    build
+cmake -D CMAKE_INSTALL_PREFIX=/usr \
+      -D CMAKE_BUILD_TYPE=Release  \
+      ..
 make
+ldconfig
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -62,8 +58,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

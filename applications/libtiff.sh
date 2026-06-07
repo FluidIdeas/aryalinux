@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:cmake
 
-
 cd $SOURCE_DIR
-
 NAME=libtiff
-VERSION=4.5.0
-URL=https://download.osgeo.org/libtiff/tiff-4.5.0.tar.gz
-SECTION="Graphics and Font Libraries"
-DESCRIPTION="The libtiff package contains the TIFF libraries and associated utilities. The libraries are used by many programs for reading and writing TIFF files and the utilities are used for general work with TIFF files."
+VERSION=4.7.1
+URL=https://download.osgeo.org/libtiff/tiff-4.7.1.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.osgeo.org/libtiff/tiff-4.5.0.tar.gz
+wget -nc https://download.osgeo.org/libtiff/tiff-4.7.1.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,13 +39,15 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir -p libtiff-build &&
-cd       libtiff-build &&
-
-cmake -DCMAKE_INSTALL_DOCDIR=/usr/share/doc/libtiff-4.5.0 \
-      -DCMAKE_INSTALL_PREFIX=/usr -G Ninja .. &&
+mkdir -p libtiff-build
+cd       libtiff-build
+cmake -D CMAKE_INSTALL_PREFIX=/usr \
+      -D CMAKE_BUILD_TYPE=Release  \
+      -W no-dev -G Ninja ..
 ninja
+mv -v /usr/share/doc/{tiff,libtiff-4.7.1}
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -58,8 +56,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

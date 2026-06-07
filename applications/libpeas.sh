@@ -6,27 +6,21 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:gobject-introspection
+#REQ:glib2
 #REQ:gtk3
 #REQ:libxml2
-#REQ:python-modules#pygobject3
-
 
 cd $SOURCE_DIR
-
 NAME=libpeas
-VERSION=1.34.0
-URL=https://download.gnome.org/sources/libpeas/1.34/libpeas-1.34.0.tar.xz
-SECTION="GNOME Libraries and Desktop"
-DESCRIPTION="libpeas is a GObject based plugins engine, and is targeted at giving every application the chance to assume its own extensibility."
+VERSION=1.36.0
+URL=https://download.gnome.org/sources/libpeas/1.36/libpeas-1.36.0.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/libpeas/1.34/libpeas-1.34.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libpeas/1.34/libpeas-1.34.0.tar.xz
+wget -nc https://download.gnome.org/sources/libpeas/1.36/libpeas-1.36.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -47,19 +41,20 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
+mkdir build
+cd    build
 meson setup --prefix=/usr          \
             --buildtype=release    \
             --wrap-mode=nofallback \
-            ..                     &&
+            -D python3=false       \
+            ..
 ninja
-sed "/docs_dir =/s@\$@/ 'libpeas-1.34.0'@" \
-    -i ../docs/reference/meson.build       &&
-meson configure -Dgtk_doc=true             &&
+sed "/docs_dir =/s@\$@/ 'libpeas-1.36.0'@" \
+    -i ../docs/reference/meson.build
+meson configure -D gtk_doc=true
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -68,8 +63,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

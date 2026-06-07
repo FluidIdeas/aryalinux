@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:libvorbis
 
-
 cd $SOURCE_DIR
-
 NAME=vorbistools
-VERSION=1.4.2
-URL=https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.2.tar.gz
-SECTION="Audio Utilities"
-DESCRIPTION="The Vorbis Tools package contains command-line tools useful for encoding, playing or editing files using the Ogg CODEC."
+VERSION=1.4.3
+URL=https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.3.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.2.tar.gz
+wget -nc https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.3.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,11 +39,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr \
-            --enable-vcut \
-            --without-curl &&
+./configure --prefix=/usr --enable-vcut
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -56,8 +51,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

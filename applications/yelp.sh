@@ -6,27 +6,21 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:gsettings-desktop-schemas
-#REQ:webkitgtk
-#REQ:yelp-xsl
+#REQ:libadwaita
 #REQ:desktop-file-utils
 
-
 cd $SOURCE_DIR
-
 NAME=yelp
-VERSION=42.2
-URL=https://download.gnome.org/sources/yelp/42/yelp-42.2.tar.xz
-SECTION="GNOME Libraries and Desktop"
-DESCRIPTION="The Yelp package contains a help browser used for viewing help files."
+VERSION=49.0
+URL=https://download.gnome.org/sources/yelp/49/yelp-49.0.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/yelp/42/yelp-42.2.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/yelp/42/yelp-42.2.tar.xz
+wget -nc https://download.gnome.org/sources/yelp/49/yelp-49.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -47,28 +41,21 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --disable-static &&
-make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+mkdir build
+cd    build
+meson setup --prefix=/usr --buildtype=release ..
+ninja
 update-desktop-database
+
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -6,33 +6,23 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:accountsservice
-#REQ:gtk3
-#REQ:iso-codes
-#REQ:itstool
+#REQ:dconf
 #REQ:libcanberra
-#REQ:libdaemon
+#REQ:gtk3
 #REQ:linux-pam
-#REQ:gnome-session
-#REQ:gnome-shell
-#REQ:systemd
-
 
 cd $SOURCE_DIR
-
 NAME=gdm
-VERSION=43.0
-URL=https://download.gnome.org/sources/gdm/43/gdm-43.0.tar.xz
-SECTION="Display Managers"
-DESCRIPTION="GDM is a system service that is responsible for providing graphical logins and managing local and remote displays."
+VERSION=49.2
+URL=https://download.gnome.org/sources/gdm/49/gdm-49.2.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gdm/43/gdm-43.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gdm/43/gdm-43.0.tar.xz
+wget -nc https://download.gnome.org/sources/gdm/49/gdm-49.2.tar.xz
 
 
 if [ ! -z $URL ]
@@ -53,28 +43,27 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-groupadd -g 21 gdm &&
-useradd -c "GDM Daemon Owner" -d /var/lib/gdm -u 21 \
-        -g gdm -s /bin/false gdm &&
-passwd -ql gdm
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-mkdir build &&
-cd    build &&
-
-meson setup ..            \
-      --prefix=/usr       \
-      --buildtype=release \
-      -Dgdm-xsession=true \
-      -Drun-dir=/run/gdm  &&
+mkdir build
+cd    build
+meson setup ..             \
+      --prefix=/usr        \
+      --buildtype=release  \
+      -D gdm-xsession=true \
+      -D run-dir=/run/gdm
 ninja
+ln -s /dev/null /etc/udev/rules.d/61-gdm.rules
+su gdm -s /bin/bash                                                \
+       -c "dbus-run-session                                        \
+             gsettings set org.gnome.settings-daemon.plugins.power \
+                           sleep-inactive-ac-type                  \
+                           nothing"
+groupadd -g 21 gdm
+useradd -c "GDM Daemon Owner" -d /var/lib/gdm -u 21 \
+        -g gdm -s /bin/false gdm
+passwd -ql gdm
+systemctl enable gdm
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -83,17 +72,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-systemctl enable gdm
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

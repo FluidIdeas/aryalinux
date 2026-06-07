@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:cmake
 
-
 cd $SOURCE_DIR
-
 NAME=double-conversion
-VERSION=3.2.1
-URL=https://github.com/google/double-conversion/archive/v3.2.1/double-conversion-3.2.1.tar.gz
-SECTION="General Libraries"
-DESCRIPTION="The Double-conversion package contains a library that facilitates binary-to-decimal and decimal-to-binary routines for IEEE doubles."
+VERSION=3.4.0
+URL=https://github.com/google/double-conversion/archive/v3.4.0/double-conversion-3.4.0.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/google/double-conversion/archive/v3.2.1/double-conversion-3.2.1.tar.gz
+wget -nc https://github.com/google/double-conversion/archive/v3.4.0/double-conversion-3.4.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,15 +39,16 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DBUILD_SHARED_LIBS=ON      \
-      -DBUILD_TESTING=ON          \
-      ..                          &&
+mkdir build
+cd    build
+cmake -D CMAKE_INSTALL_PREFIX=/usr        \
+      -D CMAKE_POLICY_VERSION_MINIMUM=3.5 \
+      -D BUILD_SHARED_LIBS=ON             \
+      -D BUILD_TESTING=ON                 \
+      ..
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -60,8 +57,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

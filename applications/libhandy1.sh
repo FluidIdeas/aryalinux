@@ -6,25 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:gtk3
 #REQ:vala
 
-
 cd $SOURCE_DIR
-
 NAME=libhandy1
-VERSION=1.8.2
-URL=https://download.gnome.org/sources/libhandy/1.8/libhandy-1.8.2.tar.xz
-SECTION="Graphical Environment Libraries"
-DESCRIPTION="The libhandy package provides additional GTK UI widgets for use in developing user interfaces."
+VERSION=1.8.3
+URL=https://download.gnome.org/sources/libhandy/1.8/libhandy-1.8.3.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/libhandy/1.8/libhandy-1.8.2.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libhandy/1.8/libhandy-1.8.2.tar.xz
+wget -nc https://download.gnome.org/sources/libhandy/1.8/libhandy-1.8.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -45,12 +40,12 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-meson setup --prefix=/usr --buildtype=release .. &&
+mkdir build
+cd    build
+meson setup --prefix=/usr --buildtype=release ..
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -59,8 +54,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

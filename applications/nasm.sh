@@ -7,22 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=nasm
-VERSION=2.16.01
-URL=https://www.nasm.us/pub/nasm/releasebuilds/2.16.01/nasm-2.16.01.tar.xz
-SECTION="Programming"
-DESCRIPTION="NASM (Netwide Assembler) is an 80x86 assembler designed for portability and modularity. It includes a disassembler as well."
+VERSION=3.01
+URL=https://www.nasm.us/pub/nasm/releasebuilds/3.01/nasm-3.01.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.nasm.us/pub/nasm/releasebuilds/2.16.01/nasm-2.16.01.tar.xz
-wget -nc https://www.nasm.us/pub/nasm/releasebuilds/2.16.01/nasm-2.16.01-xdoc.tar.xz
+wget -nc https://www.nasm.us/pub/nasm/releasebuilds/3.01/nasm-3.01.tar.xz
 
 
 if [ ! -z $URL ]
@@ -43,31 +38,22 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-tar -xf ../nasm-2.16.01-xdoc.tar.xz --strip-components=1
-./configure --prefix=/usr &&
+tar -xf ../nasm-3.01-xdoc.tar.xz --strip-components=1
+./configure --prefix=/usr
 make
+cp -v doc/html/*.html    /usr/share/doc/nasm-3.01/html
+cp -v doc/*.{txt,ps,pdf} /usr/share/doc/nasm-3.01
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
+install -m755 -d         /usr/share/doc/nasm-3.01/html
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -m755 -d         /usr/share/doc/nasm-2.16.01/html  &&
-cp -v doc/html/*.html    /usr/share/doc/nasm-2.16.01/html  &&
-cp -v doc/*.{txt,ps,pdf} /usr/share/doc/nasm-2.16.01
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

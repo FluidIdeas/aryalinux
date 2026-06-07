@@ -6,20 +6,16 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:polkit
-#REQ:gobject-introspection
+#REQ:glib2
 #REQ:systemd
 #REQ:vala
 
-
 cd $SOURCE_DIR
-
 NAME=accountsservice
 VERSION=23.13.9
 URL=https://www.freedesktop.org/software/accountsservice/accountsservice-23.13.9.tar.xz
-SECTION="System Utilities"
-DESCRIPTION="The AccountsService package provides a set of D-Bus interfaces for querying and manipulating user account information and an implementation of those interfaces based on the usermod(8), useradd(8) and userdel(8) commands."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -46,16 +42,29 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
+mv tests/dbusmock{,-tests}
+sed -e '/accounts_service\.py/s/dbusmock/dbusmock-tests/' \
+    -e 's/assertEquals/assertEqual/'                      \
+    -i tests/test-libaccountsservice.py
 sed -i '/^SIMULATED_SYSTEM_LOCALE/s/en_IE.UTF-8/en_HK.iso88591/' tests/test-daemon.py
-mkdir build &&
-cd build &&
-
+mkdir build
+cd    build
 meson setup ..            \
       --prefix=/usr       \
       --buildtype=release \
-      -Dadmin_group=adm   &&
+      -D admin_group=adm
+grep 'print_indent'     ../subprojects/mocklibc-1.0/src/netgroup.c \
+     | sed 's/ {/;/' >> ../subprojects/mocklibc-1.0/src/netgroup.h
+sed -i '1i#include <stdio.h>'                                      \
+    ../subprojects/mocklibc-1.0/src/netgroup.h
 ninja
+cat > /etc/polkit-1/rules.d/40-adm.rules << "EOF"
+polkit.addAdminRule(function(action, subject) {
+   return ["unix-group:adm"];
+   });
+EOF
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -64,30 +73,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cat > /etc/polkit-1/rules.d/40-adm.rules << "EOF"
-polkit.addAdminRule(function(action, subject) {
-   return ["unix-group:adm"];
-   });
-EOF
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-systemctl enable accounts-daemon
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

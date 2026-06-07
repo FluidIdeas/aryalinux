@@ -6,25 +6,22 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:alsa-lib
+#REQ:gtk3
+#REQ:gtk4
 #REQ:fltk
 
-
 cd $SOURCE_DIR
-
 NAME=alsa-tools
-VERSION=1.2.5
-URL=https://www.alsa-project.org/files/pub/tools/alsa-tools-1.2.5.tar.bz2
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="The ALSA Tools package contains advanced tools for certain sound cards."
+VERSION=1.2.15
+URL=https://www.alsa-project.org/files/pub/tools/alsa-tools-1.2.15.tar.bz2
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.alsa-project.org/files/pub/tools/alsa-tools-1.2.5.tar.bz2
-wget -nc ftp://ftp.alsa-project.org/pub/tools/alsa-tools-1.2.5.tar.bz2
+wget -nc https://www.alsa-project.org/files/pub/tools/alsa-tools-1.2.15.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -45,7 +42,6 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 as_root()
 {
   if   [ $EUID = 0 ];        then $*
@@ -55,7 +51,8 @@ as_root()
 }
 
 export -f as_root
-rm -rf qlo10k1 Makefile gitcompile
+bash -e
+rm -rf qlo10k1 echomixer rmedigicontrol Makefile gitcompile
 for tool in *
 do
   case $tool in
@@ -76,7 +73,7 @@ do
 
 done
 unset tool tool_dir
-
+exit
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

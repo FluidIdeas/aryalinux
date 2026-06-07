@@ -6,24 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:dbus
 #REQ:glib2
 
-
 cd $SOURCE_DIR
-
 NAME=dbus-glib
-VERSION=0.112
-URL=https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.112.tar.gz
-SECTION="General Libraries"
-DESCRIPTION="The D-Bus GLib package contains GLib interfaces to the D-Bus API."
+VERSION=0.114
+URL=https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.114.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.112.tar.gz
+wget -nc https://dbus.freedesktop.org/releases/dbus-glib/dbus-glib-0.114.tar.gz
 
 
 if [ ! -z $URL ]
@@ -44,11 +40,12 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 ./configure --prefix=/usr     \
             --sysconfdir=/etc \
-            --disable-static &&
+            --disable-static
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -57,8 +54,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

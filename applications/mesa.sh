@@ -6,32 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:x7lib
 #REQ:libdrm
-#REQ:python-modules#mako
-#REQ:libva
-#REQ:libvdpau
-#REQ:llvm
-#REQ:wayland-protocols
-
 
 cd $SOURCE_DIR
-
 NAME=mesa
-VERSION=23.0.1
-URL=https://mesa.freedesktop.org/archive/mesa-23.0.1.tar.xz
-SECTION="Graphical Environments"
-DESCRIPTION="Mesa is an OpenGL compatible 3D graphics library."
+VERSION=25.3.5
+URL=https://mesa.freedesktop.org/archive/mesa-25.3.5.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://mesa.freedesktop.org/archive/mesa-23.0.1.tar.xz
-wget -nc ftp://ftp.freedesktop.org/pub/mesa/mesa-23.0.1.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/6.0/mesa-23.0.1-add_xdemos-1.patch
-wget -nc https://archive.mesa3d.org/demos/
+wget -nc https://mesa.freedesktop.org/archive/mesa-25.3.5.tar.xz
 
 
 if [ ! -z $URL ]
@@ -52,42 +40,21 @@ fi
 
 echo $USER > /tmp/currentuser
 
-export XORG_PREFIX="/usr"
-
-patch -Np1 -i ../mesa-23.0.1-add_xdemos-1.patch
-
-export XORG_PREFIX=/usr
-
-mkdir build &&
-cd    build &&
-
-meson --prefix=$XORG_PREFIX          \
-      --sysconfdir=/etc              \
-      -Dllvm=true                    \
-      -Dshared-llvm=true             \
-      -Degl=true                     \
-      -Dshared-glapi=true            \
-      -Dgallium-xa=true              \
-      -Dgallium-nine=true            \
-      -Dgallium-vdpau=true           \
-      -Dgallium-va=true              \
-      -Ddri3=true                    \
-      -Dglx=dri                      \
-      -Dosmesa=true                  \
-      -Dgbm=true                     \
-      -Dglx-direct=true              \
-      -Dgles1=true                   \
-      -Dgles2=true                   \
-      -Dvalgrind=false               \
-      -Ddri-drivers=auto             \
-      -Dgallium-drivers=auto         \
-      -Dplatforms=auto               \
-      -Dvulkan-drivers=auto          \
-      ..                             &&
-
-unset GALLIUM_DRIVERS DRI_DRIVERS EGL_PLATFORMS &&
-
+patch -Np1 -i ../mesa-add_xdemos-4.patch
+mkdir build
+cd    build
+meson setup ..                 \
+      --prefix=$XORG_PREFIX    \
+      --buildtype=release      \
+      -D platforms=x11,wayland \
+      -D gallium-drivers=auto  \
+      -D vulkan-drivers=auto   \
+      -D valgrind=disabled     \
+      -D video-codecs=all      \
+      -D libunwind=disabled
 ninja
+cp -rv ../docs -T /usr/share/doc/mesa-25.3.5
+
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
@@ -97,18 +64,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -dm755 /usr/share/doc/mesa-23.0.1 &&
-cp -rfv ../docs/* /usr/share/doc/mesa-23.0.1
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

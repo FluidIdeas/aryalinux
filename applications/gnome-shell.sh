@@ -6,43 +6,34 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:evolution-data-server
 #REQ:gcr4
 #REQ:gjs
-#REQ:gnome-autoar
-#REQ:gnome-control-center
-#REQ:gtk4
-#REQ:libgweather
 #REQ:mutter
-#REQ:sassc
 #REQ:startup-notification
-#REQ:systemd
 #REQ:desktop-file-utils
-#REQ:gnome-bluetooth
+#REQ:gnome-autoar
 #REQ:gst10-plugins-base
 #REQ:networkmanager
+#REQ:power-profiles-daemon
 #REQ:adwaita-icon-theme
 #REQ:dconf
 #REQ:gdm
-#REQ:gnome-backgrounds
-#REQ:telepathy-mission-control
-
+#REQ:gnome-control-center
+#REQ:libgweather
+#REQ:gnome-menus
 
 cd $SOURCE_DIR
-
 NAME=gnome-shell
-VERSION=43.3
-URL=https://download.gnome.org/sources/gnome-shell/43/gnome-shell-43.3.tar.xz
-SECTION="GNOME Libraries and Desktop"
-DESCRIPTION="The GNOME Shell is the core user interface of the GNOME Desktop environment."
+VERSION=49.4
+URL=https://download.gnome.org/sources/gnome-shell/49/gnome-shell-49.4.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gnome-shell/43/gnome-shell-43.3.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-shell/43/gnome-shell-43.3.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-shell/49/gnome-shell-49.4.tar.xz
 
 
 if [ ! -z $URL ]
@@ -63,15 +54,15 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
+mkdir build
+cd    build
 meson setup --prefix=/usr       \
             --buildtype=release \
-            -Dtests=false       \
-            ..                  &&
+            -D tests=false      \
+            ..
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -80,8 +71,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

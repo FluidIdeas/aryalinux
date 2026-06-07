@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=icu
-VERSION=7
-URL=https://github.com/unicode-org/icu/releases/download/release-72-1/icu4c-72_1-src.tgz
-SECTION="General Libraries"
-DESCRIPTION="The International Components for Unicode (ICU) package is a mature, widely used set of C/C++ libraries providing Unicode and Globalization support for software applications. ICU is widely portable and gives applications the same results on all platforms."
+VERSION=78.2
+URL=https://github.com/unicode-org/icu/releases/download/release-78.2/icu4c-78.2-sources.tgz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/unicode-org/icu/releases/download/release-72-1/icu4c-72_1-src.tgz
+wget -nc https://github.com/unicode-org/icu/releases/download/release-78.2/icu4c-78.2-sources.tgz
 
 
 if [ ! -z $URL ]
@@ -42,11 +38,15 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-cd source                                    &&
-
-./configure --prefix=/usr                    &&
+case $(uname -m) in
+  i?86) sed -e "s/U_PLATFORM_IS_LINUX_BASED/__X86_64__ \&\& &/" \
+            -i source/test/intltest/ustrtest.cpp ;;
+esac
+cd source
+./configure --prefix=/usr
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -55,8 +55,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

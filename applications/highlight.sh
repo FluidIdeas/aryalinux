@@ -6,24 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:boost
 #REQ:lua
 
-
 cd $SOURCE_DIR
-
 NAME=highlight
-VERSION=4.5
-URL=http://www.andre-simon.de/zip/highlight-4.5.tar.bz2
-SECTION="General Utilities"
-DESCRIPTION="Highlight is an utility that converts source code to formatted text with syntax highlighting."
+VERSION=4.18
+URL=http://www.andre-simon.de/zip/highlight-4.18.tar.bz2
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc http://www.andre-simon.de/zip/highlight-4.5.tar.bz2
+wget -nc http://www.andre-simon.de/zip/highlight-4.18.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -44,20 +40,20 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 sed -i '/GZIP/s/^/#/' makefile
 make
-make doc_dir=/usr/share/doc/highlight-4.5/ gui
+make doc_dir=/usr/share/doc/highlight-4.18/ gui
+make doc_dir=/usr/share/doc/highlight-4.18/ install
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make doc_dir=/usr/share/doc/highlight-4.5/ install
+make install-gui
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

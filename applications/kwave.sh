@@ -6,30 +6,23 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:audiofile
-#REQ:fftw
 #REQ:id3lib
-#REQ:frameworks5
 #REQ:alsa-lib
-#REQ:flac
 #REQ:libogg
 #REQ:pulseaudio
 
-
 cd $SOURCE_DIR
-
 NAME=kwave
-VERSION=22.12.2
-URL=https://download.kde.org/stable/release-service/22.12.2/src/kwave-22.12.2.tar.xz
-SECTION="Audio Utilities"
-DESCRIPTION="The KWave package contains a KF5 based Sound Editor application."
+VERSION=25.12.2
+URL=https://download.kde.org/stable/release-service/25.12.2/src/kwave-25.12.2.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.kde.org/stable/release-service/22.12.2/src/kwave-22.12.2.tar.xz
+wget -nc https://download.kde.org/stable/release-service/25.12.2/src/kwave-25.12.2.tar.xz
 
 
 if [ ! -z $URL ]
@@ -50,15 +43,15 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DCMAKE_BUILD_TYPE=Release         \
-      -DBUILD_TESTING=OFF                \
-      -Wno-dev .. &&
+mkdir build
+cd    build
+cmake -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX \
+      -D CMAKE_BUILD_TYPE=Release         \
+      -D BUILD_TESTING=OFF                \
+      -W no-dev ..
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -67,8 +60,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

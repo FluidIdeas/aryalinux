@@ -6,24 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:alsa-lib
 
-
 cd $SOURCE_DIR
-
 NAME=alsa-plugins
-VERSION=1.2.7.1
-URL=https://www.alsa-project.org/files/pub/plugins/alsa-plugins-1.2.7.1.tar.bz2
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="The ALSA Plugins package contains plugins for various audio libraries and sound servers."
+VERSION=1.2.12
+URL=https://www.alsa-project.org/files/pub/plugins/alsa-plugins-1.2.12.tar.bz2
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.alsa-project.org/files/pub/plugins/alsa-plugins-1.2.7.1.tar.bz2
-wget -nc ftp://ftp.alsa-project.org/pub/plugins/alsa-plugins-1.2.7.1.tar.bz2
+wget -nc https://www.alsa-project.org/files/pub/plugins/alsa-plugins-1.2.12.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -44,9 +39,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --sysconfdir=/etc &&
+./configure --sysconfdir=/etc
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -55,8 +51,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

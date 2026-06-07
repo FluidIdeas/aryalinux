@@ -6,26 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:freetype2
-#REQ:fribidi
-#REQ:nasm
 #REQ:fontconfig
 
-
 cd $SOURCE_DIR
-
 NAME=libass
-VERSION=0.17.1
-URL=https://github.com/libass/libass/releases/download/0.17.1/libass-0.17.1.tar.xz
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="libass is a portable subtitle renderer for the ASS/SSA (Advanced Substation Alpha/Substation Alpha) subtitle format that allows for more advanced subtitles than the conventional SRT and similar formats."
+VERSION=0.17.4
+URL=https://github.com/libass/libass/releases/download/0.17.4/libass-0.17.4.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/libass/libass/releases/download/0.17.1/libass-0.17.1.tar.xz
+wget -nc https://github.com/libass/libass/releases/download/0.17.4/libass-0.17.4.tar.xz
 
 
 if [ ! -z $URL ]
@@ -46,9 +40,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --disable-static &&
+./configure --prefix=/usr --disable-static
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -57,8 +52,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

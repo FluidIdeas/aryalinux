@@ -6,23 +6,21 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:pulseaudio
-
+#REQ:ffmpeg
+#REQ:frei0r
+#REQ:qt6
 
 cd $SOURCE_DIR
-
 NAME=mlt
-VERSION=7.14.0
-URL=https://github.com/mltframework/mlt/releases/download/v7.14.0/mlt-7.14.0.tar.gz
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="MLT package is the Media Lovin Toolkit. It is an open source multimedia framework, designed and developed for television broadcasting. It provides a toolkit for broadcasters, video editors, media players, transcoders, web streamers and many more types of applications."
+VERSION=7.36.1
+URL=https://github.com/mltframework/mlt/releases/download/v7.36.1/mlt-7.36.1.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/mltframework/mlt/releases/download/v7.14.0/mlt-7.14.0.tar.gz
+wget -nc https://github.com/mltframework/mlt/releases/download/v7.36.1/mlt-7.36.1.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,15 +41,19 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DCMAKE_BUILD_TYPE=Release  \
-      -Wno-dev .. &&
-
+mkdir build
+cd    build
+cmake -D CMAKE_INSTALL_PREFIX=/usr \
+      -D CMAKE_BUILD_TYPE=Release  \
+      -D MOD_SOX=OFF               \
+      -D MOD_MOVIT=OFF             \
+      -D MOD_VIDSTAB=OFF           \
+      -D MOD_JACKRACK=OFF          \
+      -D MOD_RUBBERBAND=OFF        \
+      -W no-dev ..
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -60,8 +62,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

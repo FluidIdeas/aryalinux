@@ -7,15 +7,11 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=libdv
 VERSION=1.0.0
 URL=https://downloads.sourceforge.net/libdv/libdv-1.0.0.tar.gz
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="The Quasar DV Codec (libdv) is a software CODEC for DV video, the encoding format used by most digital camcorders. It can be used to copy videos from camcorders using a firewire (IEEE 1394) connection."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -42,23 +38,22 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr \
-            --disable-xv \
-            --disable-static &&
+./configure --prefix=/usr    \
+            --disable-xv     \
+            --disable-static
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-install -v -m755 -d      /usr/share/doc/libdv-1.0.0 &&
+make install
+install -v -m755 -d      /usr/share/doc/libdv-1.0.0
 install -v -m644 README* /usr/share/doc/libdv-1.0.0
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

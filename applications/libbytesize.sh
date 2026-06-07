@@ -6,25 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:pcre2
 #REQ:python-modules#pygments
-#REQ:python-modules#six
-
 
 cd $SOURCE_DIR
-
 NAME=libbytesize
-VERSION=2.8
-URL=https://github.com/storaged-project/libbytesize/releases/download/2.8/libbytesize-2.8.tar.gz
-SECTION="General Libraries"
-DESCRIPTION="The libbytesize package is a library which facilitates the common operations with sizes in bytes."
+VERSION=2.12
+URL=https://github.com/storaged-project/libbytesize/releases/download/2.12/libbytesize-2.12.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/storaged-project/libbytesize/releases/download/2.8/libbytesize-2.8.tar.gz
+wget -nc https://github.com/storaged-project/libbytesize/releases/download/2.12/libbytesize-2.12.tar.gz
 
 
 if [ ! -z $URL ]
@@ -45,9 +39,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr &&
+./configure --prefix=/usr
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -56,8 +51,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

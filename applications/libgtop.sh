@@ -6,26 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:glib2
 #REQ:x7lib
-#REQ:gobject-introspection
-
 
 cd $SOURCE_DIR
-
 NAME=libgtop
-VERSION=2.40.0
-URL=https://download.gnome.org/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
-SECTION="GNOME Libraries and Desktop"
-DESCRIPTION="The libgtop package contains the GNOME top libraries."
+VERSION=2.41.3
+URL=https://download.gnome.org/sources/libgtop/2.41/libgtop-2.41.3.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/libgtop/2.40/libgtop-2.40.0.tar.xz
+wget -nc https://download.gnome.org/sources/libgtop/2.41/libgtop-2.41.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -46,9 +40,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --disable-static &&
+./configure --prefix=/usr --disable-static
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -57,8 +52,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -7,23 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=libmad
-VERSION=0.15.
+VERSION=0.15.1b
 URL=https://downloads.sourceforge.net/mad/libmad-0.15.1b.tar.gz
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="libmad is a high-quality MPEG audio decoder capable of 24-bit output."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
 wget -nc https://downloads.sourceforge.net/mad/libmad-0.15.1b.tar.gz
-wget -nc ftp://ftp.mars.org/pub/mpeg/libmad-0.15.1b.tar.gz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/6.0/libmad-0.15.1b-fixes-1.patch
 
 
 if [ ! -z $URL ]
@@ -44,25 +38,12 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-patch -Np1 -i ../libmad-0.15.1b-fixes-1.patch                &&
-sed "s@AM_CONFIG_HEADER@AC_CONFIG_HEADERS@g" -i configure.ac &&
-touch NEWS AUTHORS ChangeLog                                 &&
-autoreconf -fi                                               &&
-
-./configure --prefix=/usr --disable-static &&
+patch -Np1 -i ../libmad-0.15.1b-fixes-1.patch
+sed "s@AM_CONFIG_HEADER@AC_CONFIG_HEADERS@g" -i configure.ac
+touch NEWS AUTHORS ChangeLog
+autoreconf -fi
+./configure --prefix=/usr --disable-static
 make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /usr/lib/pkgconfig/mad.pc << "EOF"
 prefix=/usr
 exec_prefix=${prefix}
@@ -76,13 +57,16 @@ Version: 0.15.1b
 Libs: -L${libdir} -lmad
 Cflags: -I${includedir}
 EOF
+
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

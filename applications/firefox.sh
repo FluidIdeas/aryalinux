@@ -6,45 +6,23 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:autoconf213
 #REQ:cbindgen
-#REQ:dbus-glib
-#REQ:gtk3
 #REQ:libnotify
-#REQ:llvm
-#REQ:nodejs
-#REQ:pulseaudio
-#REQ:alsa-lib
-#REQ:python3
-#REQ:sqlite
-#REQ:startup-notification
-#REQ:unzip
-#REQ:yasm
-#REQ:zip
-#REQ:icu
-#REQ:libevent
-#REQ:libvpx
-#REQ:libwebp
+#REQ:dav1d
+#REQ:libaom
 #REQ:nasm
-#REQ:nss
-
 
 cd $SOURCE_DIR
-
 NAME=firefox
-VERSION=102.9.
-URL=https://archive.mozilla.org/pub/firefox/releases/102.9.0esr/source/firefox-102.9.0esr.source.tar.xz
-SECTION="Graphical Web Browsers"
-DESCRIPTION="Firefox is a stand-alone browser based on the Mozilla codebase."
+VERSION=140.8.0esr
+URL=https://archive.mozilla.org/pub/firefox/releases/140.8.0esr/source/firefox-140.8.0esr.source.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.mozilla.org/pub/firefox/releases/102.9.0esr/source/firefox-102.9.0esr.source.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/6.0/firefox-102.9.0-upstream_fixes-1.patch
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/6.0/firefox-102.9.0-ffmpeg_6-2.patch
+wget -nc https://archive.mozilla.org/pub/firefox/releases/140.8.0esr/source/firefox-140.8.0esr.source.tar.xz
 
 
 if [ ! -z $URL ]
@@ -65,7 +43,14 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
+patch -Np1 -i ../firefox-140.8.0esr-ffmpeg-8.0.patch
+GLSL_PTHREAD="third_party/rust/glslopt/glsl-optimizer/include/c11/threads_posix.h"
+OLDSHA=`sha256sum $GLSL_PTHREAD | awk '{ print $1 }'`
+patch -Np1 -i ../firefox-140.8.0esr-glibc-2.43.patch
+NEWSHA=`sha256sum $GLSL_PTHREAD | awk '{ print $1 }'`
+sed "s/$OLDSHA/$NEWSHA/" \
+  -i third_party/rust/glslopt/.cargo-checksum.json
+patch -Np1 -i ../firefox-140.8.0esr-python_3.14_fixes-1.patch
 cat > mozconfig << "EOF"
 # If you have a multicore machine, all cores will be used by default.
 
@@ -73,15 +58,17 @@ cat > mozconfig << "EOF"
 # to use geolocation web services, comment out this line
 ac_add_options --disable-necko-wifi
 
-# API Keys for geolocation APIs - necko-wifi (above) is required for MLS
-# Uncomment the following line if you wish to use Mozilla Location Service
-#ac_add_options --with-mozilla-api-keyfile=$PWD/mozilla-key
+# Comment out the following line if you wish not to use Google's Location
+# Service (GLS).  Note that if Geoclue is installed and configured to use
+# GLS (as the BLFS instruction does), Firefox can access GLS via Geoclue
+# anyway.  On the other hand if Geoclue is not installed (or not properly
+# configured) and this line is commented out, the website requiring a
+# location service will not function properly.
+ac_add_options --with-google-location-service-api-keyfile=$PWD/google-key
 
-# Uncomment the following line if you wish to use Google's geolocation API
-# (needed for use with saved maps with Google Maps)
-#ac_add_options --with-google-location-service-api-keyfile=$PWD/google-key
-
-# startup-notification is required since firefox-78
+# If you wish to use libproxy to determine proxy server information, you will
+# need to install the libproxy package and then uncomment the option below:
+#ac_add_options --enable-libproxy
 
 # Uncomment the following option if you have not installed PulseAudio and
 # want to use alsa instead
@@ -89,6 +76,7 @@ ac_add_options --disable-necko-wifi
 
 # Comment out following options if you have not installed
 # recommended dependencies:
+ac_add_options --with-system-av1
 ac_add_options --with-system-icu
 ac_add_options --with-system-libevent
 ac_add_options --with-system-libvpx
@@ -96,16 +84,11 @@ ac_add_options --with-system-nspr
 ac_add_options --with-system-nss
 ac_add_options --with-system-webp
 
-# Unlike with thunderbird, although using the gold linker can
-# save four megabytes in the installed file it does not make
-# the build faster.
-
-# libdavid (av1 decoder) requires nasm. Uncomment this if nasm
-# has not been installed. Do not uncomment this if you have
-# ffmpeg-5 installed.
+# Firefox provides a copy of dav1d if it has not been installed. If you have
+# not installed nasm and ffmpeg, uncomment the following line:
 #ac_add_options --disable-av1
 
-# You cannot distribute the binary if you do this
+# You cannot distribute the binary if you do this.
 ac_add_options --enable-official-branding
 
 # Stripping is now enabled by default.
@@ -114,26 +97,21 @@ ac_add_options --enable-official-branding
 #ac_add_options --disable-install-strip
 
 # Disabling debug symbols makes the build much smaller and a little
-# faster. Comment this if you need to run a debugger. Note: This is
-# required for compilation on i686.
+# faster. Comment this if you need to run a debugger.
 ac_add_options --disable-debug-symbols
-
-# The elf-hack is reported to cause failed installs (after successful builds)
-# on some machines. It is supposed to improve startup time and it shrinks
-# libxul.so by a few MB - comment this if you know your machine is not affected.
-ac_add_options --disable-elf-hack
 
 # The BLFS editors recommend not changing anything below this line:
 ac_add_options --prefix=/usr
 ac_add_options --enable-application=browser
 ac_add_options --disable-crashreporter
 ac_add_options --disable-updater
-# enabling the tests will use a lot more space and significantly
+
+# Enabling the tests will use a lot more space and significantly
 # increase the build time, for no obvious benefit.
 ac_add_options --disable-tests
 
-# The default level of optimization again produces a working build with gcc.
-ac_add_options --enable-optimize
+# This enables SIMD optimization in the shipped encoding_rs crate.
+ac_add_options --enable-rust-simd
 
 ac_add_options --enable-system-ffi
 ac_add_options --enable-system-pixman
@@ -141,6 +119,11 @@ ac_add_options --enable-system-pixman
 ac_add_options --with-system-jpeg
 ac_add_options --with-system-png
 ac_add_options --with-system-zlib
+
+# Sandboxing works well on x86_64 but might cause issues on other
+# platforms, e.g. i686.
+[ $(uname -m) != x86_64 ]
+ac_add_options --disable-sandbox
 
 # Using sandboxed wasm libraries has been moved to all builds instead
 # of only mozilla automation builds. It requires extra llvm packages
@@ -156,36 +139,30 @@ ac_add_options --without-wasm-sandboxed-libraries
 unset MOZ_TELEMETRY_REPORTING
 
 mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/firefox-build-dir
+
+# By default firefox will attempt to use the window class firefox-default on
+# launch. This makes the icon not work properly because wayland does not
+# support the X11 property  class header. Change the remoting name to fix this.
+# This is also reflected in the .desktop file where StartupWMClass is set to
+# firefox.
+MOZ_APP_REMOTINGNAME=firefox
 EOF
+sed -i '/VIRAMA = 47/a CLASS_CHARACTER,' intl/lwbrk/LineBreaker.cpp
 echo "AIzaSyDxKL42zsPjbke5O8_rPVpVrLrJ8aeE9rQ" > google-key
-echo "613364a7-9418-4c86-bcee-57e32fd70c23" > mozilla-key
 mountpoint -q /dev/shm || mount -t tmpfs devshm /dev/shm
-patch -Np1 -i ../firefox-102.9.0-upstream_fixes-1.patch
-patch -Np1 -i ../firefox-102.9.0-ffmpeg_6-2.patch
-export MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE=none &&
-export MOZBUILD_STATE_PATH=${PWD}/mozbuild          &&
-./mach configure                                    &&
+export MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE=none
+export MOZBUILD_STATE_PATH=${PWD}/mozbuild
 ./mach build
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE=none ./mach install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-unset MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE MOZBUILD_STATE_PATH
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir -pv /usr/share/applications &&
-mkdir -pv /usr/share/pixmaps      &&
-
-MIMETYPE="text/xml;text/mml;text/html;"                            &&
-MIMETYPE+="application/xhtml+xml;application/vnd.mozilla.xul+xml;" &&
-MIMETYPE+="x-scheme-handler/http;x-scheme-handler/https"           &&
-
-cat > /usr/share/applications/firefox.desktop << EOF &&
+unset MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE
+unset MOZBUILD_STATE_PATH
+export MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE=none
+./mach install
+mkdir -pv /usr/share/applications
+mkdir -pv /usr/share/pixmaps
+MIMETYPE="text/xml;text/mml;text/html;"
+MIMETYPE+="application/xhtml+xml;application/vnd.mozilla.xul+xml;"
+MIMETYPE+="x-scheme-handler/http;x-scheme-handler/https"
+cat > /usr/share/applications/firefox.desktop << EOF
 [Desktop Entry]
 Encoding=UTF-8
 Name=Firefox Web Browser
@@ -198,19 +175,12 @@ Icon=firefox
 Categories=GNOME;GTK;Network;WebBrowser;
 MimeType=$MIMETYPE
 StartupNotify=true
+StartupWMClass=firefox
 EOF
 
-unset MIMETYPE &&
-
+unset MIMETYPE
 ln -sfv /usr/lib/firefox/browser/chrome/icons/default/default128.png \
         /usr/share/pixmaps/firefox.png
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

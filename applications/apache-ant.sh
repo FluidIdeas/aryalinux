@@ -6,22 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:openjdk
-
+#REQ:java
+#REQ:glib2
 
 cd $SOURCE_DIR
-
 NAME=apache-ant
-VERSION=1.9.14
-
-SECTION="Programming"
-DESCRIPTION="The Apache Ant package is a Java-based build tool. In theory, it is like the make command, but without make's wrinkles. Ant is different. Instead of a model that is extended with shell-based commands, Ant is extended using Java classes. Instead of writing shell commands, the configuration files are XML-based, calling out a target tree that executes various tasks. Each task is run by an object that implements a particular task interface."
+VERSION=1.10.15
+URL=https://archive.apache.org/dist/ant/source/apache-ant-1.10.15-src.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
+wget -nc https://archive.apache.org/dist/ant/source/apache-ant-1.10.15-src.tar.xz
 
 
 if [ ! -z $URL ]
@@ -40,17 +38,22 @@ fi
 cd $DIRECTORY
 fi
 
-version=1.9.14
-wget https://www-us.apache.org/dist//ant/binaries/apache-ant-$version-bin.tar.bz2
-dir=$(tar tf apache-ant-$version-bin.tar.bz2 | cut -d/ -f1 | uniq)
-sudo tar xf apache-ant-$version-bin.tar.bz2 -C /opt/
-sudo tee /etc/profile.d/ant.sh<<"EOF"
-export PATH=$PATH:/opt/ant-dir/bin
+echo $USER > /tmp/currentuser
+
+./bootstrap.sh
+bootstrap/bin/ant -f fetch.xml -Ddest=optional
+./build.sh -Ddist.dir=$PWD/ant-1.10.15 dist
+cp -rv ant-1.10.15 /opt/
+chown -R root:root /opt/ant-1.10.15
+ln -sfv ant-1.10.15 /opt/ant
+cat > /etc/profile.d/ant.sh << EOF
+# Begin /etc/profile.d/ant.sh
+
+pathappend /opt/ant/bin
+export ANT_HOME=/opt/ant
+
+# End /etc/profile.d/ant.sh
 EOF
-
-sudo sed -i "s@ant-dir@$dir@g" /etc/profile.d/ant.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

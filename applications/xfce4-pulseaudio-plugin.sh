@@ -6,28 +6,22 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:dbus-glib
 #REQ:libnotify
-#REQ:pulseaudio
-#REQ:xfce4-panel
 #REQ:keybinder-3
+#REQ:libcanberra
 #REQ:pavucontrol
 
-
 cd $SOURCE_DIR
-
 NAME=xfce4-pulseaudio-plugin
-VERSION=0.4.6
-URL=https://archive.xfce.org/src/panel-plugins/xfce4-pulseaudio-plugin/0.4/xfce4-pulseaudio-plugin-0.4.6.tar.bz2
-SECTION="Xfce Applications"
-DESCRIPTION="The Xfce4 Pulseaudio Plugin is a plugin for the Xfce panel which provides a convenient way to adjust the audio volume of the PulseAudio sound system and to an auto mixer tool like pavucontrol. It can optionally handle multimedia keys for controlling the audio volume."
+VERSION=0.5.1
+URL=https://archive.xfce.org/src/panel-plugins/xfce4-pulseaudio-plugin/0.5/xfce4-pulseaudio-plugin-0.5.1.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.xfce.org/src/panel-plugins/xfce4-pulseaudio-plugin/0.4/xfce4-pulseaudio-plugin-0.4.6.tar.bz2
+wget -nc https://archive.xfce.org/src/panel-plugins/xfce4-pulseaudio-plugin/0.5/xfce4-pulseaudio-plugin-0.5.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -48,19 +42,20 @@ fi
 
 echo $USER > /tmp/currentuser
 
+mkdir build
+cd    build
+meson setup  --prefix=/usr --buildtype=release ..
+ninja
 
-./configure --prefix=/usr &&
-make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:procmail
 
-
 cd $SOURCE_DIR
-
 NAME=fetchmail
-VERSION=6.4.37
-URL=https://downloads.sourceforge.net/fetchmail/fetchmail-6.4.37.tar.xz
-SECTION="Mail/News Clients"
-DESCRIPTION="The Fetchmail package contains a mail retrieval program. It retrieves mail from remote mail servers and forwards it to the local (client) machine's delivery system, so it can then be read by normal mail user agents."
+VERSION=6.6.2
+URL=https://downloads.sourceforge.net/fetchmail/fetchmail-6.6.2.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.sourceforge.net/fetchmail/fetchmail-6.4.37.tar.xz
+wget -nc https://downloads.sourceforge.net/fetchmail/fetchmail-6.6.2.tar.xz
 
 
 if [ ! -z $URL ]
@@ -43,31 +39,8 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-useradd -c "Fetchmail User" -d /dev/null -g nogroup \
-        -s /bin/false -u 38 fetchmail
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-PYTHON=python3 \
-./configure --prefix=/usr \
-            --enable-fallback=procmail &&
+./configure --prefix=/usr
 make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install                                  &&
-chown -v fetchmail:nogroup /usr/bin/fetchmail
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 cat > ~/.fetchmailrc << "EOF"
 
 # The logfile needs to exist when fetchmail is invoked, otherwise it will
@@ -76,16 +49,28 @@ cat > ~/.fetchmailrc << "EOF"
 set logfile fetchmail.log
 set no bouncemail
 # You probably want to set your local username as the postmaster
-set postmaster $(cat /tmp/currentuser)
+set postmaster <username>
 
 poll SERVERNAME :
     user <isp_username> pass <password>;
     mda "/usr/bin/procmail -f %F -d %T";
 EOF
 
-touch ~/fetchmail.log       &&
+touch ~/fetchmail.log
 chmod -v 0600 ~/.fetchmailrc
+useradd -c "Fetchmail User" -d /dev/null -g nogroup \
+        -s /bin/false -u 38 fetchmail
+chown -v fetchmail:nogroup /usr/bin/fetchmail
 
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

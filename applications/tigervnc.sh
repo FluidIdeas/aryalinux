@@ -6,37 +6,25 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:cmake
-#REQ:fltk
 #REQ:gnutls
-#REQ:libgcrypt
-#REQ:libjpeg
 #REQ:pixman
 #REQ:systemd
-#REQ:linux-pam
 #REQ:x7app
 #REQ:xinit
-#REQ:x7legacy
 #REQ:imagemagick
 
-
 cd $SOURCE_DIR
-
 NAME=tigervnc
-VERSION=1.13.1
-URL=https://github.com/TigerVNC/tigervnc/archive/v1.13.1/tigervnc-1.13.1.tar.gz
-SECTION="Other X-based Programs"
-DESCRIPTION="Tigervnc is an advanced VNC (Virtual Network Computing) implementation. It allows creation of an Xorg server not tied to a physical console and also provides a client for viewing of the remote graphical desktop."
+VERSION=1.16.0
+URL=https://github.com/TigerVNC/tigervnc/archive/v1.16.0/tigervnc-1.16.0.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/TigerVNC/tigervnc/archive/v1.13.1/tigervnc-1.13.1.tar.gz
-wget -nc https://www.x.org/pub/individual/xserver/xorg-server-21.1.6.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/6.0/tigervnc-1.13.1-configuration_fixes-1.patch
-wget -nc https://anduin.linuxfromscratch.org/BLFS/tigervnc/Xsession
+wget -nc https://github.com/TigerVNC/tigervnc/archive/v1.16.0/tigervnc-1.16.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -57,30 +45,25 @@ fi
 
 echo $USER > /tmp/currentuser
 
-export XORG_PREFIX="/usr"
-export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
-
-patch -Np1 -i ../tigervnc-1.13.1-configuration_fixes-1.patch
+patch -Np1 -i ../tigervnc-1.16.0-configuration_fixes-1.patch
+sed -i "/FL_MINOR_VERSION/s/3/4/" CMakeLists.txt
 # Put code in place
-mkdir -p unix/xserver &&
-tar -xf ../xorg-server-21.1.6.tar.xz \
+mkdir -p unix/xserver
+tar -xf ../xorg-server-21.1.21.tar.xz \
     --strip-components=1              \
-    -C unix/xserver                   &&
-( cd unix/xserver &&
-  patch -Np1 -i ../xserver21.1.1.patch ) &&
-
+    -C unix/xserver
+( cd unix/xserver
+patch -Np1 -i ../xserver21.patch )
 # Build viewer
-cmake -G "Unix Makefiles"         \
-      -DCMAKE_INSTALL_PREFIX=/usr \
-      -DCMAKE_BUILD_TYPE=Release  \
-      -Wno-dev . &&
-make &&
-
+cmake -G "Unix Makefiles"          \
+      -D CMAKE_INSTALL_PREFIX=/usr \
+      -D CMAKE_BUILD_TYPE=Release  \
+      -W no-dev .
+make
 # Build server
-pushd unix/xserver &&
-  autoreconf -fiv  &&
-
-  CPPFLAGS="-I/usr/include/drm"       \
+pushd unix/xserver
+autoreconf -fiv
+CPPFLAGS="-I/usr/include/drm"       \
   ./configure $XORG_CONFIG            \
       --disable-xwayland    --disable-dri        --disable-dmx         \
       --disable-xorg        --disable-xnest      --disable-xvfb        \
@@ -89,73 +72,42 @@ pushd unix/xserver &&
       --disable-unit-tests  --disable-selective-werror                 \
       --disable-static      --enable-dri3                              \
       --without-dtrace      --enable-dri2        --enable-glx          \
-      --with-pic &&
-  make  &&
+      --with-pic
+make
 popd
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+cat > ~/.config/tigervnc/config << EOF
+# Begin ~/.config/tigervnc/config
+# The session must match one listed in /usr/share/xsessions.
+# Ensure that there are no spaces at the end of the lines.
+
+session=lxqt
+geometry=1024x768
+
+# End ~/.config/tigervnc/config
+EOF
 #Install viewer
-make install &&
+make install
+mv  /usr/share/doc/tigervnc /usr/share/doc/tigervnc-1.16.0
 
 #Install server
-( cd unix/xserver/hw/vnc && make install ) &&
-
+( cd unix/xserver/hw/vnc
 [ -e /usr/bin/Xvnc ] || ln -svf $XORG_PREFIX/bin/Xvnc /usr/bin/Xvnc
-ENDOFROOTSCRIPT
+echo ":1=$(whoami)" >> /etc/tigervnc/vncserver.users
+systemctl start vncserver@:1
+systemctl enable vncserver@:1
 
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -vdm755 /etc/X11/tigervnc &&
+install -vdm 755 ~/.config/tigervnc
+make install )
+install -vdm755 /etc/X11/tigervnc
 install -v -m755 ../Xsession /etc/X11/tigervnc
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-echo ":1=$(whoami)" >> /etc/tigervnc/vncserver.users
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-install -vdm 755 ~/.vnc &&
-cat > ~/.vnc/config << EOF
-# Begin ~/.vnc/config
-# The session must match one listed in /usr/share/xsessions.
-# Ensure that there are no spaces at the end of the lines.
-
-session=LXDE
-geometry=1024x768
-
-# End ~/.vnc/config
-EOF
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-systemctl start vncserver@:1
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-systemctl enable vncserver@:1
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

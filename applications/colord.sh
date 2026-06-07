@@ -6,32 +6,25 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:dbus
 #REQ:glib2
 #REQ:lcms2
-#REQ:polkit
-#REQ:sqlite
-#REQ:gobject-introspection
-#REQ:libgudev
 #REQ:libgusb
+#REQ:polkit
 #REQ:systemd
 #REQ:vala
 
-
 cd $SOURCE_DIR
-
 NAME=colord
-VERSION=1.4.6
-URL=https://www.freedesktop.org/software/colord/releases/colord-1.4.6.tar.xz
-SECTION="System Utilities"
-DESCRIPTION="Colord is a system service that makes it easy to manage, install, and generate color profiles. It is used mainly by GNOME Color Manager for system integration and use when no users are logged in."
+VERSION=1.4.8
+URL=https://www.freedesktop.org/software/colord/releases/colord-1.4.8.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.freedesktop.org/software/colord/releases/colord-1.4.6.tar.xz
+wget -nc https://www.freedesktop.org/software/colord/releases/colord-1.4.8.tar.xz
 
 
 if [ ! -z $URL ]
@@ -52,34 +45,29 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-groupadd -g 71 colord &&
+mkdir build
+cd    build
+meson setup ..                  \
+      --prefix=/usr             \
+      --buildtype=release       \
+      -D daemon_user=colord     \
+      -D vapi=true              \
+      -D systemd=true           \
+      -D libcolordcompat=true   \
+      -D argyllcms_sensor=false \
+      -D bash_completion=false  \
+      -D docs=false             \
+      -D man=false
+ninja
+sed -e '/class="manual"/i<refmiscinfo class="source">colord</refmiscinfo>' \
+    -i ../man/*.xml
+meson configure -D man=true
+ninja
+groupadd -g 71 colord
 useradd -c "Color Daemon Owner" -d /var/lib/colord -u 71 \
         -g colord -s /bin/false colord
-ENDOFROOTSCRIPT
 
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
 
-sed '/cmsUnregisterPluginsTHR/d' -i lib/colord/cd-context-lcms.c
-mkdir build &&
-cd build &&
-
-meson setup ..                 \
-      --prefix=/usr            \
-      --buildtype=release      \
-      -Ddaemon_user=colord     \
-      -Dvapi=true              \
-      -Dsystemd=true           \
-      -Dlibcolordcompat=true   \
-      -Dargyllcms_sensor=false \
-      -Dbash_completion=false  \
-      -Ddocs=false             \
-      -Dman=false              &&
-ninja
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -88,8 +76,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

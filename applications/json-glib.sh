@@ -6,24 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:glib2
 
-
 cd $SOURCE_DIR
-
 NAME=json-glib
-VERSION=1.6.6
-URL=https://download.gnome.org/sources/json-glib/1.6/json-glib-1.6.6.tar.xz
-SECTION="General Libraries"
-DESCRIPTION="The JSON GLib package is a library providing serialization and deserialization support for the JavaScript Object Notation (JSON) format described by RFC 4627."
+VERSION=1.10.8
+URL=https://download.gnome.org/sources/json-glib/1.10/json-glib-1.10.8.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/json-glib/1.6/json-glib-1.6.6.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/json-glib/1.6/json-glib-1.6.6.tar.xz
+wget -nc https://download.gnome.org/sources/json-glib/1.10/json-glib-1.10.8.tar.xz
 
 
 if [ ! -z $URL ]
@@ -44,12 +39,17 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-meson setup --prefix=/usr --buildtype=release .. &&
+mkdir build
+cd    build
+meson setup --prefix=/usr --buildtype=release ..
 ninja
+meson configure -D man=true
+ninja
+sed "/json_docdir =/s|$| / 'json-glib-1.10.8'|" -i ../doc/meson.build
+meson configure -D documentation=enabled
+ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -58,8 +58,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

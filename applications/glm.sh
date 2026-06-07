@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=glm
-VERSION=0.9.9.8
-URL=https://github.com/g-truc/glm/archive/0.9.9.8/glm-0.9.9.8.tar.gz
-SECTION="Graphics and Font Libraries"
-DESCRIPTION="OpenGL Mathematics (GLM) is a header-only C++ mathematics library for graphics software based on the OpenGL Shading Language (GLSL) specifications. An extension system provides extended capabilities such as matrix transformations and quaternions."
+VERSION=1.0.3
+URL=https://github.com/g-truc/glm/archive/1.0.3/glm-1.0.3.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/g-truc/glm/archive/0.9.9.8/glm-0.9.9.8.tar.gz
+wget -nc https://github.com/g-truc/glm/archive/1.0.3/glm-1.0.3.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,18 +38,8 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cp -r glm /usr/include/ &&
-cp -r doc /usr/share/doc/glm-0.9.9.8
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
+cp -r glm /usr/include/
+cp -r doc /usr/share/doc/glm-1.0.3
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

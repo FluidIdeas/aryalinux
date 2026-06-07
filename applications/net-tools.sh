@@ -7,15 +7,11 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=net-tools
 VERSION=2.10
 URL=https://downloads.sourceforge.net/project/net-tools/net-tools-2.10.tar.xz
-SECTION="Networking Programs"
-DESCRIPTION="The Net-tools package is a collection of programs for controlling the network subsystem of the Linux kernel."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -42,26 +38,16 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-export BINDIR='/usr/bin' SBINDIR='/usr/bin' &&
-yes "" | make -j1                           &&
-make DESTDIR=$PWD/install -j1 install       &&
-rm    install/usr/bin/{nis,yp}domainname    &&
-rm    install/usr/bin/{hostname,dnsdomainname,domainname,ifconfig} &&
-rm -r install/usr/share/man/man1            &&
-rm    install/usr/share/man/man8/ifconfig.8 &&
+export BINDIR='/usr/bin' SBINDIR='/usr/bin'
+yes "" | make -j1
+make DESTDIR=$PWD/install -j1 install
+rm    install/usr/bin/{nis,yp}domainname
+rm    install/usr/bin/{hostname,dnsdomainname,domainname,ifconfig}
+rm -r install/usr/share/man/man1
+rm    install/usr/share/man/man8/ifconfig.8
 unset BINDIR SBINDIR
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-chown -R root:root install &&
+chown -R root:root install
 cp -a install/* /
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

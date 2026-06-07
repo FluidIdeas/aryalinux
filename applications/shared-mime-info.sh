@@ -6,25 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:glib2
-#REQ:libxml2
-
 
 cd $SOURCE_DIR
-
 NAME=shared-mime-info
-VERSION=2.2
-URL=https://gitlab.freedesktop.org/xdg/shared-mime-info/-/archive/2.2/shared-mime-info-2.2.tar.gz
-SECTION="General Utilities"
-DESCRIPTION="The Shared Mime Info package contains a MIME database. This allows central updates of MIME information for all supporting applications."
+VERSION=2.4
+URL=https://gitlab.freedesktop.org/xdg/shared-mime-info/-/archive/2.4/shared-mime-info-2.4.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://gitlab.freedesktop.org/xdg/shared-mime-info/-/archive/2.2/shared-mime-info-2.2.tar.gz
-wget -nc https://anduin.linuxfromscratch.org/BLFS/xdgmime/xdgmime.tar.xz
+wget -nc https://gitlab.freedesktop.org/xdg/shared-mime-info/-/archive/2.4/shared-mime-info-2.4.tar.gz
 
 
 if [ ! -z $URL ]
@@ -45,14 +39,14 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-tar -xf ../xdgmime.tar.xz &&
+tar -xf ../xdgmime.tar.xz
 make -C xdgmime
-mkdir build &&
-cd    build &&
-
-meson setup --prefix=/usr --buildtype=release -Dupdate-mimedb=true .. &&
+mkdir build
+cd    build
+meson setup --prefix=/usr --buildtype=release -D update-mimedb=true ..
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -61,8 +55,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

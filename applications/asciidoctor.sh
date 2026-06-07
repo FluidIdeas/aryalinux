@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:ruby
 
-
 cd $SOURCE_DIR
-
 NAME=asciidoctor
-VERSION=2.0.18
-URL=https://github.com/asciidoctor/asciidoctor/archive/v2.0.18/asciidoctor-2.0.18.tar.gz
-SECTION="General Utilities"
-DESCRIPTION="Asciidoctor is a fast, open source text processor and publishing toolchain for converting AsciiDoc content to HTML5, DocBook, PDF, and other formats."
+VERSION=2.0.26
+URL=https://github.com/asciidoctor/asciidoctor/archive/v2.0.26/asciidoctor-2.0.26.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/asciidoctor/asciidoctor/archive/v2.0.18/asciidoctor-2.0.18.tar.gz
+wget -nc https://github.com/asciidoctor/asciidoctor/archive/v2.0.26/asciidoctor-2.0.26.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,19 +39,18 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 gem build asciidoctor.gemspec
+gem install asciidoctor-2.0.26.gem
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-gem install asciidoctor-2.0.18.gem &&
 install -vm644 man/asciidoctor.1 /usr/share/man/man1
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

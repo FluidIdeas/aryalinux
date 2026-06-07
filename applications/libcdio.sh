@@ -7,23 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=libcdio
 VERSION=2.1.0
-URL=https://ftp.gnu.org/gnu/libcdio/libcdio-2.1.0.tar.bz2
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="The libcdio is a library for CD-ROM and CD image access. The associated libcdio-cdparanoia library reads audio from the CD-ROM directly as data, with no analog step between, and writes the data to a file or pipe as .wav, .aifc or as raw 16 bit linear PCM."
+URL=https://ftpmirror.gnu.org/libcdio/libcdio-2.1.0.tar.bz2
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ftp.gnu.org/gnu/libcdio/libcdio-2.1.0.tar.bz2
-wget -nc ftp://ftp.gnu.org/gnu/libcdio/libcdio-2.1.0.tar.bz2
-wget -nc https://ftp.gnu.org/gnu/libcdio/libcdio-paranoia-10.2+2.0.1.tar.bz2
+wget -nc https://ftpmirror.gnu.org/libcdio/libcdio-2.1.0.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -44,33 +38,28 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --disable-static &&
+case $(uname -m) in
+   i?86)
+      sed '/CDIO_LSEEK/s/lseek64/lseek/'  -i lib/driver/_cdio_generic.c
+sed '/CDIO_FSEEK/s/fseeko64/fseek/' -i lib/driver/_cdio_stdio.c   ;;
+esac
+./configure --prefix=/usr --disable-static
 make
+tar -xf ../libcdio-paranoia-10.2+2.0.2.tar.bz2
+cd libcdio-paranoia-10.2+2.0.2
+./configure --prefix=/usr --disable-static
+make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
 make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-tar -xf ../libcdio-paranoia-10.2+2.0.1.tar.bz2 &&
-cd libcdio-paranoia-10.2+2.0.1 &&
-
-./configure --prefix=/usr --disable-static &&
-make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -6,24 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:libunistring
 
-
 cd $SOURCE_DIR
-
 NAME=libidn2
-VERSION=2.3.4
-URL=https://ftp.gnu.org/gnu/libidn/libidn2-2.3.4.tar.gz
-SECTION="General Libraries"
-DESCRIPTION="libidn2 is a package designed for internationalized string handling based on standards from the Internet Engineering Task Force (IETF)'s IDN working group, designed for internationalized domain names."
+VERSION=2.3.8
+URL=https://ftpmirror.gnu.org/libidn/libidn2-2.3.8.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ftp.gnu.org/gnu/libidn/libidn2-2.3.4.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/libidn/libidn2-2.3.4.tar.gz
+wget -nc https://ftpmirror.gnu.org/libidn/libidn2-2.3.8.tar.gz
 
 
 if [ ! -z $URL ]
@@ -44,9 +39,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --disable-static &&
+./configure --prefix=/usr --disable-static
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -55,8 +51,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

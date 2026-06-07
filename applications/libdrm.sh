@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:x7lib
 
-
 cd $SOURCE_DIR
-
 NAME=libdrm
-VERSION=2.4.115
-URL=https://dri.freedesktop.org/libdrm/libdrm-2.4.115.tar.xz
-SECTION="Graphical Environment Libraries"
-DESCRIPTION="Libdrm provides a userspace library for accessing the direct rendering manager (DRM) on operating systems that support the ioctl interface. Libdrm is a low-level library, typically used by graphics drivers such as the Mesa DRI drivers, the X drivers, libva and similar projects."
+VERSION=2.4.131
+URL=https://dri.freedesktop.org/libdrm/libdrm-2.4.131.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://dri.freedesktop.org/libdrm/libdrm-2.4.115.tar.xz
+wget -nc https://dri.freedesktop.org/libdrm/libdrm-2.4.131.tar.xz
 
 
 if [ ! -z $URL ]
@@ -43,17 +39,16 @@ fi
 
 echo $USER > /tmp/currentuser
 
-export XORG_PREFIX="/usr"
-
-mkdir build &&
-cd    build &&
-
+mkdir build
+cd    build
 meson setup --prefix=$XORG_PREFIX \
             --buildtype=release   \
-            -Dudev=true           \
-            -Dvalgrind=disabled   \
-            ..                    &&
+            -D udev=true          \
+            -D valgrind=disabled  \
+            ..
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -62,8 +57,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

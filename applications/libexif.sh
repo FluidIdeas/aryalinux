@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=libexif
-VERSION=0.6.24
-URL=https://github.com/libexif/libexif/releases/download/v0.6.24/libexif-0.6.24.tar.bz2
-SECTION="Graphics and Font Libraries"
-DESCRIPTION="The libexif package contains a library for parsing, editing, and saving EXIF data. Most digital cameras produce EXIF files, which are JPEG files with extra tags that contain information about the image. All EXIF tags described in EXIF standard 2.1 are supported."
+VERSION=0.6.25
+URL=https://github.com/libexif/libexif/releases/download/v0.6.25/libexif-0.6.25.tar.bz2
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/libexif/libexif/releases/download/v0.6.24/libexif-0.6.24.tar.bz2
+wget -nc https://github.com/libexif/libexif/releases/download/v0.6.25/libexif-0.6.25.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -42,11 +38,12 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 ./configure --prefix=/usr    \
             --disable-static \
-            --with-doc-dir=/usr/share/doc/libexif-0.6.24 &&
+            --with-doc-dir=/usr/share/doc/libexif-0.6.25
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -55,8 +52,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

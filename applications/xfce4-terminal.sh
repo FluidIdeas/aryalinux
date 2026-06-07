@@ -6,24 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:libxfce4ui
-#REQ:vte
-
 
 cd $SOURCE_DIR
-
 NAME=xfce4-terminal
-VERSION=1.0.4
-URL=https://archive.xfce.org/src/apps/xfce4-terminal/1.0/xfce4-terminal-1.0.4.tar.bz2
-SECTION="Xfce Applications"
-DESCRIPTION="Xfce4 Terminal is a GTK+3 terminal emulator. This is useful for running commands or programs in the comfort of an Xorg window; you can drag and drop files into the Xfce4 Terminal or copy and paste text with your mouse."
+VERSION=1.1.5
+URL=https://archive.xfce.org/src/apps/xfce4-terminal/1.1/xfce4-terminal-1.1.5.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.xfce.org/src/apps/xfce4-terminal/1.0/xfce4-terminal-1.0.4.tar.bz2
+wget -nc https://archive.xfce.org/src/apps/xfce4-terminal/1.1/xfce4-terminal-1.1.5.tar.xz
 
 
 if [ ! -z $URL ]
@@ -44,19 +39,22 @@ fi
 
 echo $USER > /tmp/currentuser
 
+mkdir build
+cd    build
+meson setup ..      \
+      --prefix=/usr \
+      --buildtype=release
+ninja
 
-./configure --prefix=/usr &&
-make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

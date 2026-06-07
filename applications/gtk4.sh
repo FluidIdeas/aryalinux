@@ -6,39 +6,28 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:fribidi
 #REQ:gdk-pixbuf
-#REQ:graphene
 #REQ:iso-codes
-#REQ:libepoxy
-#REQ:libxkbcommon
+#REQ:librsvg
 #REQ:pango
 #REQ:python-modules#pygobject3
-#REQ:wayland-protocols
 #REQ:adwaita-icon-theme
-#REQ:gst10-plugins-bad
+#REQ:glslc
 #REQ:gst10-plugins-good
 #REQ:libvpx
-#REQ:hicolor-icon-theme
-#REQ:librsvg
-#REQ:gobject-introspection
-
+#REQ:glib2
 
 cd $SOURCE_DIR
-
 NAME=gtk4
-VERSION=4.10.1
-URL=https://download.gnome.org/sources/gtk/4.10/gtk-4.10.1.tar.xz
-SECTION="Graphical Environment Libraries"
-DESCRIPTION="The GTK 4 package contains libraries used for creating graphical user interfaces for applications."
+VERSION=4.20.3
+URL=https://download.gnome.org/sources/gtk/4.20/gtk-4.20.3.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gtk/4.10/gtk-4.10.1.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtk/4.10/gtk-4.10.1.tar.xz
+wget -nc https://download.gnome.org/sources/gtk/4.20/gtk-4.20.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -59,28 +48,22 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-meson setup --prefix=/usr           \
-            --buildtype=release     \
-            -Dbroadway-backend=true \
-            -Dintrospection=enabled \
-            .. &&
+mkdir build
+cd    build
+meson setup --prefix=/usr            \
+            --buildtype=release      \
+            -D broadway-backend=true \
+            -D introspection=enabled \
+            -D vulkan=enabled        \
+            ..
 ninja
-sed "s@'doc'@& / 'gtk-4.10.1'@" -i ../docs/reference/meson.build &&
-meson configure -Dgtk_doc=true                                   &&
+sed "s@'doc'@& / 'gtk-4.20.3'@" -i ../docs/reference/meson.build
+meson configure -D documentation=true
 ninja
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
+env -u{GALLIUM_DRIVER,MESA_LOADER_DRIVER_OVERRIDE}          \
+    LIBGL_ALWAYS_SOFTWARE=1 VK_LOADER_DRIVERS_SELECT='lvp*' \
+    dbus-run-session meson test --setup x11                 \
+                                --no-suite=headless
 mkdir -pv ~/.config/gtk-4.0
 cat > ~/.config/gtk-4.0/settings.ini << "EOF"
 [Settings]
@@ -95,6 +78,15 @@ gtk-xft-rgba = rgb
 gtk-cursor-theme-name = Adwaita
 EOF
 
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ninja install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

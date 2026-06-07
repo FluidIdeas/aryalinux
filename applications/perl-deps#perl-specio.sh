@@ -6,30 +6,25 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:perl-deps#perl-devel-stacktrace
 #REQ:perl-deps#perl-eval-closure
-#REQ:perl-deps#perl-module-runtime
 #REQ:perl-deps#perl-role-tiny
 #REQ:perl-deps#perl-sub-quote
 #REQ:perl-deps#perl-try-tiny
 #REQ:perl-deps#perl-mro-compat
-#REQ:perl-deps#perl-test-fatal
 #REQ:perl-deps#perl-test-needs
 
-
 cd $SOURCE_DIR
-
 NAME=perl-deps#perl-specio
-VERSION=0.48
-URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Specio-0.48.tar.gz
+VERSION=0.53
+URL=https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Specio-0.53.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Specio-0.48.tar.gz
+wget -nc https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Specio-0.53.tar.gz
 
 
 if [ ! -z $URL ]
@@ -48,11 +43,9 @@ fi
 cd $DIRECTORY
 fi
 
-
 echo $USER > /tmp/currentuser
 
-perl Makefile.PL &&
-make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -61,8 +54,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

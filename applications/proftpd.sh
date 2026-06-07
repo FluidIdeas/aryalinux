@@ -7,22 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=proftpd
-VERSION=1.3.8
-URL=https://github.com/proftpd/proftpd/archive/v1.3.8/proftpd-1.3.8.tar.gz
-SECTION="Major Servers"
-DESCRIPTION="The ProFTPD package contains a secure and highly configurable FTP daemon. This is useful for serving large file archives over a network."
+VERSION=1.3.9
+URL=https://github.com/proftpd/proftpd/archive/v1.3.9/proftpd-1.3.9.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/proftpd/proftpd/archive/v1.3.8/proftpd-1.3.8.tar.gz
-wget -nc ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.8.tar.gz
+wget -nc https://github.com/proftpd/proftpd/archive/v1.3.9/proftpd-1.3.9.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,37 +38,14 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-groupadd -g 46 proftpd                             &&
-useradd -c proftpd -d /srv/ftp -g proftpd \
-        -s /usr/bin/proftpdshell -u 46 proftpd     &&
-
-install -v -d -m775 -o proftpd -g proftpd /srv/ftp &&
-ln -v -s /usr/bin/false /usr/bin/proftpdshell      &&
-echo /usr/bin/proftpdshell >> /etc/shells
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/run &&
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/run
 make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install                                   &&
-install -d -m755 /usr/share/doc/proftpd-1.3.8 &&
-cp -Rv doc/*     /usr/share/doc/proftpd-1.3.8
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+groupadd -g 46 proftpd
+useradd -c proftpd -d /srv/ftp -g proftpd \
+        -s /usr/bin/proftpdshell -u 46 proftpd
+ln -v -s /usr/bin/false /usr/bin/proftpdshell
+echo /usr/bin/proftpdshell >> /etc/shells
+cp -Rv doc/*     /usr/share/doc/proftpd-1.3.9
 cat > /etc/proftpd.conf << "EOF"
 # This is a basic ProFTPD configuration file
 # It establishes a single server and a single anonymous login.
@@ -131,34 +103,19 @@ Group                           proftpd
   </Limit>
 </Anonymous>
 EOF
-ENDOFROOTSCRIPT
 
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-#!/bin/bash
-
-set -e
-set +h
-
-. /etc/alps/alps.conf
-
-pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/9.0-systemd/blfs-systemd-units-20180105.tar.bz2
-tar xf blfs-systemd-units-20180105.tar.bz2
-cd blfs-systemd-units-20180105
-sudo make install-proftpd
-popd
+install -v -d -m775 -o proftpd -g proftpd /srv/ftp
+make install
+install -d -m755 /usr/share/doc/proftpd-1.3.9
+make install-proftpd
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

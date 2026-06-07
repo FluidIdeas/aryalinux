@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:lzo
 
-
 cd $SOURCE_DIR
-
 NAME=btrfs-progs
-VERSION=6.2.2
-URL=https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.2.2.tar.xz
-SECTION="File Systems and Disk Management"
-DESCRIPTION="The btrfs-progs package contains administration and debugging tools for the B-tree file system (btrfs)."
+VERSION=6.17.1
+URL=https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.17.1.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.2.2.tar.xz
+wget -nc https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.17.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -43,11 +39,27 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 ./configure --prefix=/usr           \
             --disable-static        \
-            --disable-documentation &&
+            --disable-documentation
 make
+make fssum
+rm -rf tests/convert-tests/024-ntfs-basic
+rm -rf tests/misc-tests/041-subvolume-delete-during-send
+rm -rf tests/fuzz-tests/010-simple-sb
+pushd tests
+   ./fsck-tests.sh
+   ./mkfs-tests.sh
+   ./cli-tests.sh
+   ./convert-tests.sh
+   ./misc-tests.sh
+   ./fuzz-tests.sh
+popd
+for i in 5 8; do
+   install Documentation/*.$i /usr/share/man/man$i
+done
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -56,20 +68,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-for i in 5 8; do
-   install Documentation/*.$i /usr/share/man/man$i
-done
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-tune2fs -O ^orphan_file /dev/sdxx
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

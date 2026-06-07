@@ -6,25 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:apr-util
-#REQ:pcre2
-
 
 cd $SOURCE_DIR
-
 NAME=apache
-VERSION=2.4.56
-URL=https://archive.apache.org/dist/httpd/httpd-2.4.56.tar.bz2
-SECTION="Major Servers"
-DESCRIPTION="The Apache HTTPD package contains an open-source HTTP server. It is useful for creating local intranet web sites or running huge web serving operations."
+VERSION=2.4.66
+URL=https://archive.apache.org/dist/httpd/httpd-2.4.66.tar.bz2
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.apache.org/dist/httpd/httpd-2.4.56.tar.bz2
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/6.0/httpd-2.4.56-blfs_layout-1.patch
+wget -nc https://archive.apache.org/dist/httpd/httpd-2.4.66.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -45,78 +39,44 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-groupadd -g 25 apache &&
-useradd -c "Apache Server" -d /srv/www -g apache \
-        -s /bin/false -u 25 apache
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-patch -Np1 -i ../httpd-2.4.56-blfs_layout-1.patch             &&
-
-sed '/dir.*CFG_PREFIX/s@^@#@' -i support/apxs.in              &&
-
+patch -Np1 -i ../httpd-blfs_layout-1.patch
+sed '/dir.*CFG_PREFIX/s@^@#@' -i support/apxs.in
 sed -e '/HTTPD_ROOT/s:${ap_prefix}:/etc/httpd:'       \
     -e '/SERVER_CONFIG_FILE/s:${rel_sysconfdir}/::'   \
     -e '/AP_TYPES_CONFIG_FILE/s:${rel_sysconfdir}/::' \
-    -i configure  &&
-
-./configure --enable-authnz-fcgi                              \
-            --enable-layout=BLFS                              \
-            --enable-mods-shared="all cgi"                    \
-            --enable-mpms-shared=all                          \
-            --enable-suexec=shared                            \
-            --with-apr=/usr/bin/apr-1-config                  \
-            --with-apr-util=/usr/bin/apu-1-config             \
-            --with-suexec-bin=/usr/lib/httpd/suexec           \
-            --with-suexec-caller=apache                       \
-            --with-suexec-docroot=/srv/www                    \
-            --with-suexec-logfile=/var/log/httpd/suexec.log   \
-            --with-suexec-uidmin=100                          \
-            --with-suexec-userdir=public_html                 &&
+    -i configure
+./configure --enable-authnz-fcgi                    \
+            --enable-layout=BLFS                    \
+            --enable-mods-shared="all cgi"          \
+            --enable-mpms-shared=all                \
+            --enable-suexec=shared                  \
+            --with-apr=/usr/bin/apr-1-config        \
+            --with-apr-util=/usr/bin/apu-1-config   \
+            --with-suexec-bin=/usr/lib/httpd/suexec \
+            --with-suexec-caller=apache             \
+            --with-suexec-docroot=/srv/www          \
+            --with-suexec-uidmin=100                \
+            --with-suexec-userdir=public_html       \
+            --with-suexec-logfile=/var/log/httpd/suexec.log
 make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install  &&
-
-mv -v /usr/sbin/suexec /usr/lib/httpd/suexec &&
-chgrp apache           /usr/lib/httpd/suexec &&
-chmod 4754             /usr/lib/httpd/suexec &&
-
+groupadd -g 25 apache
+useradd -c "Apache Server" -d /srv/www -g apache \
+        -s /bin/false -u 25 apache
+mv -v /usr/sbin/suexec /usr/lib/httpd/suexec
+chgrp apache           /usr/lib/httpd/suexec
+chmod 4754             /usr/lib/httpd/suexec
 chown -v -R apache:apache /srv/www
-ENDOFROOTSCRIPT
 
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-#!/bin/bash
-
-set -e
-set +h
-
-. /etc/alps/alps.conf
-
-pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/9.0-systemd/blfs-systemd-units-20180105.tar.bz2
-tar xf blfs-systemd-units-20180105.tar.bz2
-cd blfs-systemd-units-20180105
-sudo make install-httpd
-popd
+make install
+make install-httpd
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

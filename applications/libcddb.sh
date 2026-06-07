@@ -7,15 +7,11 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=libcddb
 VERSION=1.3.2
 URL=https://downloads.sourceforge.net/libcddb/libcddb-1.3.2.tar.bz2
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="The libcddb is a library that implements the different protocols (CDDBP, HTTP, SMTP) to access data on a CDDB server."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -42,14 +38,16 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 sed -e '/DEFAULT_SERVER/s/freedb.org/gnudb.gnudb.org/' \
     -e '/DEFAULT_PORT/s/888/&0/'                       \
-    -i include/cddb/cddb_ni.h                          &&
-sed '/^Genre:/s/Trip-Hop/Electronic/' -i tests/testdata/920ef00b.txt &&
+    -i include/cddb/cddb_ni.h
+sed '/^Genre:/s/Trip-Hop/Electronic/' -i tests/testdata/920ef00b.txt
 sed '/DISCID/i# Revision: 42'         -i tests/testcache/misc/12340000
-./configure --prefix=/usr --disable-static &&
+sed -i 's/size_t l;/socklen_t l;/' lib/cddb_net.c
+./configure --prefix=/usr --disable-static
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -58,8 +56,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

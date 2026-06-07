@@ -6,18 +6,13 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:brotli
-#REQ:cmake
-
 
 cd $SOURCE_DIR
-
 NAME=woff2
 VERSION=1.0.2
 URL=https://github.com/google/woff2/archive/v1.0.2/woff2-1.0.2.tar.gz
-SECTION="Graphics and Font Libraries"
-DESCRIPTION="WOFF2 is a library for converting fonts from the TTF format to the WOFF 2.0 format. It also allows decompression from WOFF 2.0 to TTF. The WOFF 2.0 format uses the Brotli compression algorithm to compress fonts suitable for downloading in CSS @font-face rules."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -44,12 +39,16 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir out                           &&
-cd    out                           &&
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DCMAKE_BUILD_TYPE=Release .. &&
+sed -i '/output.h/i #include <cstdint>' src/woff2_out.cc
+mkdir out
+cd    out
+cmake -D CMAKE_INSTALL_PREFIX=/usr        \
+      -D CMAKE_BUILD_TYPE=Release         \
+      -D CMAKE_POLICY_VERSION_MINIMUM=3.5 \
+      -D CMAKE_SKIP_INSTALL_RPATH=ON ..
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -58,8 +57,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

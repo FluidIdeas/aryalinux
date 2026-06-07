@@ -6,26 +6,21 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:libjpeg
 #REQ:libpng
 #REQ:libtiff
-#REQ:sdl
-
 
 cd $SOURCE_DIR
-
 NAME=libwebp
-VERSION=1.3.0
-URL=http://downloads.webmproject.org/releases/webp/libwebp-1.3.0.tar.gz
-SECTION="Graphics and Font Libraries"
-DESCRIPTION="The libwebp package contains a library and support programs to encode and decode images in WebP format."
+VERSION=1.6.0
+URL=https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.6.0.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc http://downloads.webmproject.org/releases/webp/libwebp-1.3.0.tar.gz
+wget -nc https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.6.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -46,15 +41,16 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 ./configure --prefix=/usr           \
             --enable-libwebpmux     \
             --enable-libwebpdemux   \
             --enable-libwebpdecoder \
             --enable-libwebpextras  \
             --enable-swap-16bit-csp \
-            --disable-static        &&
+            --disable-static
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -63,8 +59,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

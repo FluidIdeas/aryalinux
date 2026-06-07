@@ -7,22 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=gsl
-VERSION=2.7.1
-URL=https://ftp.gnu.org/gnu/gsl/gsl-2.7.1.tar.gz
-SECTION="General Libraries"
-DESCRIPTION="The GNU Scientific Library (GSL) is a numerical library for C and C++ programmers. It provides a wide range of mathematical routines such as random number generators, special functions and least-squares fitting."
+VERSION=2.8
+URL=https://ftpmirror.gnu.org/gsl/gsl-2.8.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ftp.gnu.org/gnu/gsl/gsl-2.7.1.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/gsl/gsl-2.7.1.tar.gz
+wget -nc https://ftpmirror.gnu.org/gsl/gsl-2.8.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,10 +38,13 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --disable-static &&
+./configure --prefix=/usr --disable-static
 make
 make html
+mkdir                   /usr/share/doc/gsl-2.8
+cp -R doc/_build/html/* /usr/share/doc/gsl-2.8
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -55,18 +53,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir                   /usr/share/doc/gsl-2.7.1 &&
-cp -R doc/_build/html/* /usr/share/doc/gsl-2.7.1
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=libpaper
-VERSION=2.0.10
-URL=https://github.com/rrthomas/libpaper/releases/download/v2.0.10/libpaper-2.0.10.tar.gz
-SECTION="General Libraries"
-DESCRIPTION="This package is intended to provide a simple way for applications to take actions based on a system or user-specified paper size."
+VERSION=2.2.7
+URL=https://github.com/rrthomas/libpaper/releases/download/v2.2.7/libpaper-2.2.7.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/rrthomas/libpaper/releases/download/v2.0.10/libpaper-2.0.10.tar.gz
+wget -nc https://github.com/rrthomas/libpaper/releases/download/v2.2.7/libpaper-2.2.7.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,13 +38,16 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr        \
-            --sysconfdir=/etc    \
-            --disable-static     \
-            --enable-relocatable \
-            --docdir=/usr/share/doc/paper-2.0.10 &&
+./configure --prefix=/usr     \
+            --sysconfdir=/etc \
+            --disable-static  \
+            --docdir=/usr/share/doc/libpaper-2.2.7
 make
+mkdir -pv ~/.config
+echo "a4" > ~/.config/papersize
+echo "PAPERSIZE=a4" > /etc/profile.d/libpaper.sh
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -57,11 +56,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-mkdir -pv ~/.config &&
-echo "a4" > ~/.config/papersize
-echo "PAPERSIZE=a4" > /etc/profile.d/libpaper.sh
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

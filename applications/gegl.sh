@@ -6,30 +6,22 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:babl
-#REQ:json-glib
-#REQ:libjpeg
-#REQ:libpng
-#REQ:gobject-introspection
+#REQ:glib2
 #REQ:graphviz
 #REQ:python-modules#pygments
-#REQ:python-modules#pygobject3
-
 
 cd $SOURCE_DIR
-
 NAME=gegl
-VERSION=0.4.44
-URL=https://download.gimp.org/pub/gegl/0.4/gegl-0.4.44.tar.xz
-SECTION="Graphics and Font Libraries"
-DESCRIPTION="This package provides the GEneric Graphics Library, which is a graph based image processing format."
+VERSION=0.4.66
+URL=https://download.gimp.org/pub/gegl/0.4/gegl-0.4.66.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gimp.org/pub/gegl/0.4/gegl-0.4.44.tar.xz
+wget -nc https://download.gimp.org/pub/gegl/0.4/gegl-0.4.66.tar.xz
 
 
 if [ ! -z $URL ]
@@ -50,13 +42,13 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-rm -f /usr/lib/gegl-0.4/vector-fill.so
-mkdir build &&
-cd    build &&
-
-meson setup --prefix=/usr --buildtype=release .. &&
+mkdir build
+cd    build
+meson setup --prefix=/usr --buildtype=release ..
 ninja
+rm -f /usr/lib/gegl-0.4/vector-fill.so
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -65,8 +57,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

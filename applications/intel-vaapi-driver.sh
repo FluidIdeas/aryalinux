@@ -6,15 +6,13 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-
+#REQ:libva
 
 cd $SOURCE_DIR
-
 NAME=intel-vaapi-driver
 VERSION=2.4.1
 URL=https://github.com/intel/intel-vaapi-driver/releases/download/2.4.1/intel-vaapi-driver-2.4.1.tar.bz2
-DESCRIPTION="VA-API (Video Acceleration API) user mode driver for Intel GEN Graphics family."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -39,10 +37,20 @@ fi
 cd $DIRECTORY
 fi
 
-./configure $XORG_CONFIG &&
-make -j$(nproc)
-sudo make install
+echo $USER > /tmp/currentuser
 
+./configure $XORG_CONFIG
+make
+
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

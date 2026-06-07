@@ -6,18 +6,13 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:curl
-#REQ:libxslt
-
 
 cd $SOURCE_DIR
-
 NAME=raptor
 VERSION=2.0.16
 URL=https://download.librdf.org/source/raptor2-2.0.16.tar.gz
-SECTION="System Utilities"
-DESCRIPTION="Raptor is a C library that provides a set of parsers and serializers that generate Resource Description Framework (RDF) triples."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -44,9 +39,11 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --disable-static &&
+sed -i 's/20627/20627 \&\& LIBXML_VERSION < 21100/' src/raptor_libxml.c
+./configure --prefix=/usr --disable-static
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -55,8 +52,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

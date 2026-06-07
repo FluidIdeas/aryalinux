@@ -6,24 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:x7lib
 #REQ:giflib
 
-
 cd $SOURCE_DIR
-
 NAME=imlib2
-VERSION=1.11.0
-URL=https://downloads.sourceforge.net/enlightenment/imlib2-1.11.0.tar.xz
-SECTION="Graphical Environment Libraries"
-DESCRIPTION="imlib2 is a graphics library for fast file loading, saving, rendering and manipulation."
+VERSION=1.12.6
+URL=https://downloads.sourceforge.net/enlightenment/imlib2-1.12.6.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.sourceforge.net/enlightenment/imlib2-1.11.0.tar.xz
+wget -nc https://downloads.sourceforge.net/enlightenment/imlib2-1.12.6.tar.xz
 
 
 if [ ! -z $URL ]
@@ -44,29 +40,20 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --disable-static &&
+./configure --prefix=/usr --disable-static
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
+install -v -m755 -d            /usr/share/doc/imlib2-1.12.6/html
+install -v -m644    doc/html/* /usr/share/doc/imlib2-1.12.6/html
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m755 -d            /usr/share/doc/imlib2-1.11.0/html &&
-install -v -m644    doc/html/* /usr/share/doc/imlib2-1.11.0/html
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

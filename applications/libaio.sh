@@ -7,15 +7,11 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=libaio
 VERSION=0.3.113
 URL=https://pagure.io/libaio/archive/libaio-0.3.113/libaio-0.3.113.tar.gz
-SECTION="General Libraries"
-DESCRIPTION="The libaio package is an asynchronous I/O facility (\"async I/O\", or \"aio\") that has a richer API and capability set than the simple POSIX async I/O facility. This library, libaio, provides the Linux-native API for async I/O. The POSIX async I/O facility requires this library in order to provide kernel-accelerated async I/O capabilities, as do applications which require the Linux-native async I/O API."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -42,10 +38,13 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 sed -i '/install.*libaio.a/s/^/#/' src/Makefile
+case "$(uname -m)" in
+  i?86) sed -e "s/off_t/off64_t/" -i harness/cases/23.t ;;
+esac
 make
-sed 's/-Werror//' -i harness/Makefile
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -54,8 +53,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

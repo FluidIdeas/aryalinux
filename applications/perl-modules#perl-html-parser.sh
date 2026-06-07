@@ -6,23 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:perl-deps#perl-html-tagset
 #REQ:perl-deps#perl-http-message
 
-
 cd $SOURCE_DIR
-
 NAME=perl-modules#perl-html-parser
-VERSION=3.81
-URL=https://www.cpan.org/authors/id/O/OA/OALDERS/HTML-Parser-3.81.tar.gz
+VERSION=3.83
+URL=https://www.cpan.org/authors/id/O/OA/OALDERS/HTML-Parser-3.83.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.cpan.org/authors/id/O/OA/OALDERS/HTML-Parser-3.81.tar.gz
+wget -nc https://www.cpan.org/authors/id/O/OA/OALDERS/HTML-Parser-3.83.tar.gz
 
 
 if [ ! -z $URL ]
@@ -41,11 +38,9 @@ fi
 cd $DIRECTORY
 fi
 
-
 echo $USER > /tmp/currentuser
 
-perl Makefile.PL &&
-make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -54,8 +49,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -7,15 +7,11 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=slang
 VERSION=2.3.3
 URL=https://www.jedsoft.org/releases/slang/slang-2.3.3.tar.bz2
-SECTION="Programming"
-DESCRIPTION="S-Lang (slang) is an interpreted language that may be embedded into an application to make the application extensible. It provides facilities required by interactive applications such as display/screen management, keyboard input and keymaps."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -42,25 +38,22 @@ fi
 
 echo $USER > /tmp/currentuser
 
+./configure --prefix=/usr       \
+            --sysconfdir=/etc   \
+            --with-readline=gnu
+make -j1 RPATH=
 
-./configure --prefix=/usr \
-            --sysconfdir=/etc \
-            --with-readline=gnu &&
-make -j1
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install_doc_dir=/usr/share/doc/slang-2.3.3   \
      SLSH_DOC_DIR=/usr/share/doc/slang-2.3.3/slsh \
-     install &&
-
-chmod -v 755 /usr/lib/slang/v2/modules/*.so
+     RPATH= install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

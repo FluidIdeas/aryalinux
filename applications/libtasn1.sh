@@ -7,22 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=libtasn1
-VERSION=4.19.0
-URL=https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.19.0.tar.gz
-SECTION="General Libraries"
-DESCRIPTION="libtasn1 is a highly portable C library that encodes and decodes DER/BER data following an ASN.1 schema."
+VERSION=4.21.0
+URL=https://ftpmirror.gnu.org/libtasn1/libtasn1-4.21.0.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.19.0.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/libtasn1/libtasn1-4.19.0.tar.gz
+wget -nc https://ftpmirror.gnu.org/libtasn1/libtasn1-4.21.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,9 +38,11 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --disable-static &&
+./configure --prefix=/usr --disable-static
 make
+make -C doc/reference install-data-local
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -54,17 +51,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make -C doc/reference install-data-local
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

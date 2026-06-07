@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=liblinear
-VERSION=246
-URL=https://github.com/cjlin1/liblinear/archive/v246/liblinear-246.tar.gz
-SECTION="General Libraries"
-DESCRIPTION="This package provides a library for learning linear classifiers for large scale applications. It supports Support Vector Machines (SVM) with L2 and L1 loss, logistic regression, multi class classification and also Linear Programming Machines (L1-regularized SVMs). Its computational complexity scales linearly with the number of training examples making it one of the fastest SVM solvers around."
+VERSION=0
+URL=https://github.com/cjlin1/liblinear/archive/v250/liblinear-250.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/cjlin1/liblinear/archive/v246/liblinear-246.tar.gz
+wget -nc https://github.com/cjlin1/liblinear/archive/v250/liblinear-250.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,20 +38,19 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 make lib
+ln -sfv liblinear.so.6 /usr/lib/liblinear.so
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -vm644 linear.h /usr/include &&
-install -vm755 liblinear.so.5 /usr/lib &&
-ln -sfv liblinear.so.5 /usr/lib/liblinear.so
+install -vm644 linear.h /usr/include
+install -vm755 liblinear.so.6 /usr/lib
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

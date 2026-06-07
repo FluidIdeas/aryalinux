@@ -6,26 +6,21 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:libuv
+#REQ:liburcu
 #REQ:json-c
-#REQ:libcap
-
+#REQ:nghttp2
 
 cd $SOURCE_DIR
-
 NAME=bind
-VERSION=9.18.13
-URL=https://ftp.isc.org/isc/bind9/9.18.13/bind-9.18.13.tar.xz
-SECTION="Major Servers"
-DESCRIPTION="The BIND package provides a DNS server and client utilities. If you are only interested in the utilities, refer to the BIND Utilities-9.18.13."
+VERSION=9.20.19
+URL=https://ftp.isc.org/isc/bind9/9.20.19/bind-9.20.19.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ftp.isc.org/isc/bind9/9.18.13/bind-9.18.13.tar.xz
-wget -nc ftp://ftp.isc.org/isc/bind9/9.18.13/bind-9.18.13.tar.xz
+wget -nc https://ftp.isc.org/isc/bind9/9.20.19/bind-9.20.19.tar.xz
 
 
 if [ ! -z $URL ]
@@ -46,78 +41,27 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 ./configure --prefix=/usr           \
             --sysconfdir=/etc       \
             --localstatedir=/var    \
             --mandir=/usr/share/man \
-            --disable-static        &&
+            --disable-static
 make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+dig -x 127.0.0.1
+dig www.linuxfromscratch.org
+dig www.linuxfromscratch.org
 bin/tests/system/ifconfig.sh up
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-make -k check
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 bin/tests/system/ifconfig.sh down
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-groupadd -g 20 named &&
-useradd -c "BIND Owner" -g named -s /bin/false -u 20 named &&
-install -d -m770 -o named -g named /srv/named
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-mkdir -p /srv/named &&
-cd       /srv/named &&
-mkdir -p dev etc/named/{slave,pz} usr/lib/engines var/run/named &&
-mknod /srv/named/dev/null c 1 3 &&
-mknod /srv/named/dev/urandom c 1 9 &&
-chmod 666 /srv/named/dev/{null,urandom} &&
+groupadd -g 20 named
+useradd -c "BIND Owner" -g named -s /bin/false -u 20 named
+mkdir -p /srv/named
+cd       /srv/named
+mkdir -p dev etc/named/{slave,pz} usr/lib/engines var/run/named
+mknod /srv/named/dev/null c 1 3
+mknod /srv/named/dev/urandom c 1 9
+chmod 666 /srv/named/dev/{null,urandom}
 cp /etc/localtime etc
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 rndc-confgen -a -b 512 -t /srv/named
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat >> /srv/named/etc/named.conf << "EOF"
 options {
     directory "/etc/named";
@@ -171,14 +115,6 @@ logging {
   };
 };
 EOF
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /srv/named/etc/named/pz/127.0.0 << "EOF"
 $TTL 3D
 @      IN      SOA     ns.local.domain. hostmaster.local.domain. (
@@ -190,14 +126,6 @@ $TTL 3D
                 NS      ns.local.domain.
 1               PTR     localhost.
 EOF
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /srv/named/etc/named/root.hints << "EOF"
 .                       6D  IN      NS      A.ROOT-SERVERS.NET.
 .                       6D  IN      NS      B.ROOT-SERVERS.NET.
@@ -214,8 +142,8 @@ cat > /srv/named/etc/named/root.hints << "EOF"
 .                       6D  IN      NS      M.ROOT-SERVERS.NET.
 A.ROOT-SERVERS.NET.     6D  IN      A       198.41.0.4
 A.ROOT-SERVERS.NET.     6D  IN      AAAA    2001:503:ba3e::2:30
-B.ROOT-SERVERS.NET.     6D  IN      A       199.9.14.201
-B.ROOT-SERVERS.NET.     6D  IN      AAAA    2001:500:200::b
+B.ROOT-SERVERS.NET.     6D  IN      A       170.247.170.2
+B.ROOT-SERVERS.NET.     6D  IN      AAAA    2801:1b8:10::b
 C.ROOT-SERVERS.NET.     6D  IN      A       192.33.4.12
 C.ROOT-SERVERS.NET.     6D  IN      AAAA    2001:500:2::c
 D.ROOT-SERVERS.NET.     6D  IN      A       199.7.91.13
@@ -239,68 +167,25 @@ L.ROOT-SERVERS.NET.     6D  IN      AAAA    2001:500:9f::42
 M.ROOT-SERVERS.NET.     6D  IN      A       202.12.27.33
 M.ROOT-SERVERS.NET.     6D  IN      AAAA    2001:dc3::35
 EOF
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cp /etc/resolv.conf /etc/resolv.conf.bak &&
+cp /etc/resolv.conf /etc/resolv.conf.bak
 cat > /etc/resolv.conf << "EOF"
 search <yourdomain.com>
 nameserver 127.0.0.1
 EOF
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 chown -R named:named /srv/named
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-#!/bin/bash
-
-set -e
-set +h
-
-. /etc/alps/alps.conf
-
-pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/9.0-systemd/blfs-systemd-units-20180105.tar.bz2
-tar xf blfs-systemd-units-20180105.tar.bz2
-cd blfs-systemd-units-20180105
-sudo make install-named
-popd
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 systemctl start named
+
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+install -d -m770 -o named -g named /srv/named
+make install-named
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-dig -x 127.0.0.1
-dig www.linuxfromscratch.org &&
-dig www.linuxfromscratch.org
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

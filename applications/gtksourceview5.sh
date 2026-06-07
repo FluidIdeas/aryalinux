@@ -6,27 +6,21 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:gtk4
-#REQ:pcre2
-#REQ:gobject-introspection
+#REQ:glib2
 #REQ:libxml2
 
-
 cd $SOURCE_DIR
-
 NAME=gtksourceview5
-VERSION=5.6.2
-URL=https://download.gnome.org/sources/gtksourceview/5.6/gtksourceview-5.6.2.tar.xz
-SECTION="Graphical Environment Libraries"
-DESCRIPTION="The GtkSourceView package contains a library used for extending the GTK text functions to include syntax highlighting."
+VERSION=5.18.0
+URL=https://download.gnome.org/sources/gtksourceview/5.18/gtksourceview-5.18.0.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gtksourceview/5.6/gtksourceview-5.6.2.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gtksourceview/5.6/gtksourceview-5.6.2.tar.xz
+wget -nc https://download.gnome.org/sources/gtksourceview/5.18/gtksourceview-5.18.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -47,12 +41,12 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-meson setup --prefix=/usr --buildtype=release .. &&
+mkdir build
+cd    build
+meson setup --prefix=/usr --buildtype=release ..
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -61,8 +55,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

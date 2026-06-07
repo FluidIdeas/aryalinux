@@ -6,17 +6,13 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:libxcb
 
-
 cd $SOURCE_DIR
-
 NAME=xcb-util
 VERSION=0.4.1
 URL=https://xcb.freedesktop.org/dist/xcb-util-0.4.1.tar.xz
-SECTION="Graphical Environments"
-DESCRIPTION="The xcb-util package provides additional extensions to the XCB library, many that were previously found in Xlib, but are not part of core X protocol."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -43,10 +39,10 @@ fi
 
 echo $USER > /tmp/currentuser
 
-export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
-
-./configure $XORG_CONFIG &&
+./configure $XORG_CONFIG
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -55,8 +51,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -6,18 +6,14 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:efivar
 #REQ:popt
 
-
 cd $SOURCE_DIR
-
 NAME=efibootmgr
-VERSION=18
+VERSION=0
 URL=https://github.com/rhboot/efibootmgr/archive/18/efibootmgr-18.tar.gz
-SECTION="File Systems and Disk Management"
-DESCRIPTION="The efibootmgr package provides tools and libraries to manipulate EFI variables."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -44,8 +40,9 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 make EFIDIR=LFS EFI_LOADER=grubx64.efi
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install EFIDIR=LFS
@@ -54,8 +51,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

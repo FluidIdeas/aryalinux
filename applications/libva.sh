@@ -6,23 +6,21 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
+#REQ:xorg7
 #REQ:libdrm
 #REQ:mesa
 
-
 cd $SOURCE_DIR
-
 NAME=libva
-VERSION=2.17.0
-URL=https://github.com/intel/libva/releases/download/2.17.0/libva-2.17.0.tar.bz2
+VERSION=2.23.0
+URL=https://github.com/intel/libva/archive/2.23.0/libva-2.23.0.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/intel/libva/releases/download/2.17.0/libva-2.17.0.tar.bz2
+wget -nc https://github.com/intel/libva/archive/2.23.0/libva-2.23.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -41,22 +39,21 @@ fi
 cd $DIRECTORY
 fi
 
-export XORG_CONFIG="--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
-
 echo $USER > /tmp/currentuser
 
-./configure $XORG_CONFIG &&
-make
+cd build
+meson setup --prefix=$XORG_PREFIX --buildtype=release
+ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

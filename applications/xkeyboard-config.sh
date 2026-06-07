@@ -6,24 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:x7lib
 
-
 cd $SOURCE_DIR
-
 NAME=xkeyboard-config
-VERSION=2.38
-URL=https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.38.tar.xz
-SECTION="Graphical Environments"
-DESCRIPTION="The XKeyboardConfig package contains the keyboard configuration database for the X Window System."
+VERSION=2.46
+URL=https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.46.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.38.tar.xz
-wget -nc ftp://ftp.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.38.tar.xz
+wget -nc https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.46.tar.xz
 
 
 if [ ! -z $URL ]
@@ -44,13 +39,17 @@ fi
 
 echo $USER > /tmp/currentuser
 
-export XORG_PREFIX="/usr"
-
-mkdir build &&
-cd    build &&
-
-meson setup --prefix=$XORG_PREFIX --buildtype=release .. &&
+mkdir build
+cd    build
+meson setup --prefix=$XORG_PREFIX --buildtype=release ..
 ninja
+if [ -d $XORG_PREFIX/share/X11/xkb ]; then
+  rm -rf $XORG_PREFIX/share/X11/xkb
+  rm -f  $XORG_PREFIX/share/man/man7/xkeyboard-config.7
+  rm -f  $XORG_PREFIX/share/pkgconfig/xkeyboard-config.pc
+fi
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -59,8 +58,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

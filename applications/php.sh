@@ -6,32 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:apache
-#REQ:libxml2
-#REQ:libgd
-#REQ:postgresql
-#REQ:net-snmp
-#REQ:tidy-html5
-#REQ:onig
-
 
 cd $SOURCE_DIR
-
 NAME=php
-VERSION=8.2.4
-URL=https://www.php.net/distributions/php-8.2.4.tar.xz
-SECTION="Programming"
-DESCRIPTION="PHP is the PHP Hypertext Preprocessor. Primarily used in dynamic web sites, it allows for programming code to be directly embedded into the HTML markup. It is also useful as a general purpose scripting language."
+VERSION=8.5.3
+URL=https://www.php.net/distributions/php-8.5.3.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.php.net/distributions/php-8.2.4.tar.xz
-wget -nc https://www.php.net/distributions/manual/php_manual_en.html.gz
-wget -nc https://www.php.net/distributions/manual/php_manual_en.tar.gz
-wget -nc https://www.php.net/download-docs.php
+wget -nc https://www.php.net/distributions/php-8.5.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -52,143 +39,64 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr                    \
-            --datadir=/usr/share/php         \
-            --sysconfdir=/etc                \
-            --enable-libxml                  \
-            --with-pear                      \
-            --with-apxs2                     \
-            --with-config-file-path=/etc     \
-            --disable-ipv6                   \
-            --with-openssl                   \
-            --with-kerberos                  \
-            --with-pcre-regex=/usr           \
-            --with-zlib                      \
-            --enable-bcmath                  \
-            --with-bz2                       \
-            --enable-calendar                \
-            --with-curl                      \
-            --enable-dba=shared              \
-            --with-gdbm                      \
-            --enable-exif                    \
-            --enable-ftp                     \
-            --with-openssl-dir=/usr          \
-            --with-gd=/usr                   \
-            --with-jpeg-dir=/usr             \
-            --with-png-dir=/usr              \
-            --with-zlib-dir=/usr             \
-            --with-xpm-dir=/usr/X11R6/lib    \
-            --with-freetype-dir=/usr         \
-            --with-gettext                   \
-            --with-gmp                       \
-            --with-ldap                      \
-            --with-ldap-sasl                 \
-            --enable-mbstring                \
-            --with-mysqli=shared            \
-            --with-mysql-sock=/run/mysqld/mysqld.sock \
-            --with-unixODBC=/usr             \
-            --with-pdo-mysql=shared          \
-            --with-pdo-odbc=unixODBC,/usr    \
-            --with-pdo-pgsql                 \
-            --without-pdo-sqlite             \
-            --with-pgsql                     \
-            --with-pspell                    \
-            --with-readline                  \
-            --with-snmp                      \
-            --enable-sockets                 \
-            --with-tidy=shared               \
-            --with-xsl                       \
-            --enable-fpm                     \
-            --with-fpm-user=apache           \
-            --with-fpm-group=apache          \
-            --with-fpm-systemd               \
-            --with-iconv                     &&
+./configure --prefix=/usr                \
+            --sysconfdir=/etc            \
+            --localstatedir=/var         \
+            --datadir=/usr/share/php     \
+            --mandir=/usr/share/man      \
+            --enable-fpm                 \
+            --without-pear               \
+            --with-fpm-user=apache       \
+            --with-fpm-group=apache      \
+            --with-fpm-systemd           \
+            --with-config-file-path=/etc \
+            --with-zlib                  \
+            --enable-bcmath              \
+            --with-bz2                   \
+            --enable-calendar            \
+            --enable-dba=shared          \
+            --with-gdbm                  \
+            --with-gmp                   \
+            --enable-ftp                 \
+            --with-gettext               \
+            --enable-mbstring            \
+            --disable-mbregex            \
+            --with-readline
 make
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install                                     &&
-install -v -m644 php.ini-production /etc/php.ini &&
-
-install -v -m755 -d /usr/share/doc/php-8.2.4 &&
-install -v -m644    CODING_STANDARDS* EXTENSIONS NEWS README* UPGRADING* \
-                    /usr/share/doc/php-8.2.4
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-if [ -f /etc/php-fpm.conf.default ]; then
-  mv -v /etc/php-fpm.conf{.default,} &&
-  mv -v /etc/php-fpm.d/www.conf{.default,}
-fi
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 wget https://pear.php.net/go-pear.phar
 php ./go-pear.phar
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+if [ -f /etc/php-fpm.conf.default ]; then
+  mv -v /etc/php-fpm.conf{.default,}
+mv -v /etc/php-fpm.d/www.conf{.default,}
+fi
+gunzip -v /usr/share/doc/php-8.5.3/php_manual_en.html.gz
+tar -xvf ../php_manual_en.tar.gz \
+    -C /usr/share/doc/php-8.5.3 --no-same-owner
 sed -i 's@php/includes"@&\ninclude_path = ".:/usr/lib/php"@' \
     /etc/php.ini
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 sed -i -e '/proxy_module/s/^#//'      \
        -e '/proxy_fcgi_module/s/^#//' \
        /etc/httpd/httpd.conf
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 echo \
 'ProxyPassMatch ^/(.*\.php)$ fcgi://127.0.0.1:9000/srv/www/$1' >> \
 /etc/httpd/httpd.conf
-ENDOFROOTSCRIPT
 
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-#!/bin/bash
-
-set -e
-set +h
-
-. /etc/alps/alps.conf
-
-pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/9.0-systemd/blfs-systemd-units-20180105.tar.bz2
-tar xf blfs-systemd-units-20180105.tar.bz2
-cd blfs-systemd-units-20180105
-sudo make install-php-fpm
-popd
+make install
+install -v -m644 php.ini-production /etc/php.ini
+install -v -m755 -d /usr/share/doc/php-8.5.3
+install -v -m644    CODING_STANDARDS* EXTENSIONS NEWS README* UPGRADING* \
+                    /usr/share/doc/php-8.5.3
+install -v -m644 ../php_manual_en.html.gz \
+    /usr/share/doc/php-8.5.3
+make install-php-fpm
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo systemctl enable php-fpm && sudo systemctl start php-fpm && sudo systemctl restart httpd
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

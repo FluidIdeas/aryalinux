@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:libyaml
 
-
 cd $SOURCE_DIR
-
 NAME=ruby
-VERSION=3.2.2
-URL=https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.2.tar.xz
-SECTION="Programming"
-DESCRIPTION="The Ruby package contains the Ruby development environment. This is useful for object-oriented scripting."
+VERSION=4.0.1
+URL=https://cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.1.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.2.tar.xz
+wget -nc https://cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -43,14 +39,19 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr      \
-            --enable-shared    \
-            --without-valgrind \
-            --without-baseruby \
-            --docdir=/usr/share/doc/ruby-3.2.2 &&
+./configure --prefix=/usr         \
+            --disable-rpath       \
+            --enable-shared       \
+            --without-valgrind    \
+            --without-baseruby    \
+            ac_cv_func_qsort_r=no \
+            --docdir=/usr/share/doc/ruby-4.0.1
 make
 make capi
+cd /path/to/web/app
+bundle update rake
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -59,10 +60,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-cd /path/to/web/app
-bundle update rake
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -7,22 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:fcron
-
-
 cd $SOURCE_DIR
-
 NAME=sysstat
-VERSION=12.7.2
-URL=http://sebastien.godard.pagesperso-orange.fr/sysstat-12.7.2.tar.xz
-SECTION="System Utilities"
-DESCRIPTION="The Sysstat package contains utilities to monitor system performance and usage activity. Sysstat contains the sar utility, common to many commercial Unixes, and tools you can schedule via cron to collect and historize performance and activity data."
+VERSION=12.7.9
+URL=https://sysstat.github.io/sysstat-packages/sysstat-12.7.9.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc http://sebastien.godard.pagesperso-orange.fr/sysstat-12.7.2.tar.xz
+wget -nc https://sysstat.github.io/sysstat-packages/sysstat-12.7.9.tar.xz
 
 
 if [ ! -z $URL ]
@@ -43,54 +38,31 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
 sa_lib_dir=/usr/lib/sa    \
 sa_dir=/var/log/sa        \
-conf_dir=/etc/sysconfig   \
+conf_dir=/etc/sysstat     \
 ./configure --prefix=/usr \
-            --disable-file-attr &&
+            --disable-file-attr
 make
+sed -i "/^Also=/d" /usr/lib/systemd/system/sysstat.service
+systemctl enable sysstat
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m644 sysstat.service /usr/lib/systemd/system/sysstat.service &&
-install -v -m644 cron/sysstat-collect.service /usr/lib/systemd/system/sysstat-collect.service &&
-install -v -m644 cron/sysstat-collect.timer /usr/lib/systemd/system/sysstat-collect.timer &&
-install -v -m644 cron/sysstat-summary.service /usr/lib/systemd/system/sysstat-summary.service &&
+install -v -m644 sysstat.service /usr/lib/systemd/system/sysstat.service
+install -v -m644 cron/sysstat-collect.service /usr/lib/systemd/system/sysstat-collect.service
+install -v -m644 cron/sysstat-collect.timer /usr/lib/systemd/system/sysstat-collect.timer
+install -v -m644 cron/sysstat-rotate.service /usr/lib/systemd/system/sysstat-rotate.service
+install -v -m644 cron/sysstat-rotate.timer /usr/lib/systemd/system/sysstat-rotate.timer
+install -v -m644 cron/sysstat-summary.service /usr/lib/systemd/system/sysstat-summary.service
 install -v -m644 cron/sysstat-summary.timer /usr/lib/systemd/system/sysstat-summary.timer
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-sed -i "/^Also=/d" /usr/lib/systemd/system/sysstat.service
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-systemctl enable sysstat
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

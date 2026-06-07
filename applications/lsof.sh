@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:libtirpc
 
-
 cd $SOURCE_DIR
-
 NAME=lsof
-VERSION=4.95.0
-URL=https://github.com/lsof-org/lsof/releases/download/4.95.0/lsof_4.95.0.linux.tar.bz2
-SECTION="General Utilities"
-DESCRIPTION="The lsof package is useful to LiSt Open Files for a given running application or process."
+VERSION=4.99.5
+URL=https://github.com/lsof-org/lsof/releases/download/4.99.5/lsof-4.99.5.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/lsof-org/lsof/releases/download/4.95.0/lsof_4.95.0.linux.tar.bz2
+wget -nc https://github.com/lsof-org/lsof/releases/download/4.99.5/lsof-4.99.5.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,29 +39,18 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./Configure -n linux &&
+./configure --prefix=/usr --disable-static
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make check
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m4755 -o root -g root lsof /usr/bin &&
-install -v lsof.8 /usr/share/man/man8
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

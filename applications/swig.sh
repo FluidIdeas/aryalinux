@@ -7,22 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-#REQ:pcre2
-
-
 cd $SOURCE_DIR
-
 NAME=swig
-VERSION=4.1.1
-URL=https://downloads.sourceforge.net/swig/swig-4.1.1.tar.gz
-SECTION="Programming"
-DESCRIPTION="SWIG (Simplified Wrapper and Interface Generator) is a compiler that integrates C and C++ with languages including Perl, Python, Tcl, Ruby, PHP, Java, C#, D, Go, Lua, Octave, R, Scheme, and Ocaml. SWIG can also export its parse tree into Lisp s-expressions and XML."
+VERSION=4.4.1
+URL=https://downloads.sourceforge.net/swig/swig-4.4.1.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://downloads.sourceforge.net/swig/swig-4.1.1.tar.gz
+wget -nc https://downloads.sourceforge.net/swig/swig-4.4.1.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,23 +38,19 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr                      \
-            --without-javascript               \
-            --without-maximum-compile-warnings &&
+./configure --prefix=/usr
 make
+cp -v -R Doc -T /usr/share/doc/swig-4.4.1
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-install -v -m755 -d /usr/share/doc/swig-4.1.1 &&
-cp -v -R Doc/* /usr/share/doc/swig-4.1.1
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

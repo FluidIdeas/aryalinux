@@ -6,27 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:cmake
 
-
 cd $SOURCE_DIR
-
 NAME=llvm
-VERSION=15.0.7
-URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.7/llvm-15.0.7.src.tar.xz
-SECTION="Programming"
-DESCRIPTION="The LLVM package contains a collection of modular and reusable compiler and toolchain technologies. The Low Level Virtual Machine (LLVM) Core libraries provide a modern source and target-independent optimizer, along with code generation support for many popular CPUs (as well as some less common ones!). These libraries are built around a well specified code representation known as the LLVM intermediate representation (\"LLVM IR\")."
+VERSION=21.1.8
+URL=https://github.com/llvm/llvm-project/releases/download/llvmorg-21.1.8/llvm-21.1.8.src.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.7/llvm-15.0.7.src.tar.xz
-wget -nc https://anduin.linuxfromscratch.org/BLFS/llvm/llvm-cmake-15.0.7.src.tar.xz
-wget -nc https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.7/clang-15.0.7.src.tar.xz
-wget -nc https://bitbucket.org/chandrakantsingh/patches/raw/6.0/clang-15.0.7-enable_default_ssp-1.patch
-wget -nc https://github.com/llvm/llvm-project/releases/download/llvmorg-15.0.7/compiler-rt-15.0.7.src.tar.xz
+wget -nc https://github.com/llvm/llvm-project/releases/download/llvmorg-21.1.8/llvm-21.1.8.src.tar.xz
 
 
 if [ ! -z $URL ]
@@ -47,42 +39,54 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-tar -xf ../llvm-cmake-15.0.7.src.tar.xz &&
-sed '/LLVM_COMMON_CMAKE_UTILS/s@../cmake@cmake-15.0.7.src@' \
+tar -xf ../llvm-cmake-21.1.8.src.tar.xz
+tar -xf ../llvm-third-party-21.1.8.src.tar.xz
+sed '/LLVM_COMMON_CMAKE_UTILS/s@../cmake@cmake-21.1.8.src@'          \
     -i CMakeLists.txt
-tar -xf ../clang-15.0.7.src.tar.xz -C tools &&
-mv tools/clang-15.0.7.src tools/clang
-tar -xf ../compiler-rt-15.0.7.src.tar.xz -C projects &&
-mv projects/compiler-rt-15.0.7.src projects/compiler-rt
+sed '/LLVM_THIRD_PARTY_DIR/s@../third-party@third-party-21.1.8.src@' \
+    -i cmake/modules/HandleLLVMOptions.cmake
+tar -xf ../clang-21.1.8.src.tar.xz -C tools
+mv tools/clang-21.1.8.src tools/clang
+tar -xf ../compiler-rt-21.1.8.src.tar.xz -C projects
+mv projects/compiler-rt-21.1.8.src projects/compiler-rt
 grep -rl '#!.*python' | xargs sed -i '1s/python$/python3/'
-patch -Np2 -d tools/clang <../clang-15.0.7-enable_default_ssp-1.patch
-mkdir -v build &&
-cd       build &&
-
-CC=gcc CXX=g++                                  \
-cmake -DCMAKE_INSTALL_PREFIX=/usr               \
-      -DLLVM_ENABLE_FFI=ON                      \
-      -DCMAKE_BUILD_TYPE=Release                \
-      -DLLVM_BUILD_LLVM_DYLIB=ON                \
-      -DLLVM_LINK_LLVM_DYLIB=ON                 \
-      -DLLVM_ENABLE_RTTI=ON                     \
-      -DLLVM_BINUTILS_INCDIR=/usr/include       \
-      -DLLVM_INCLUDE_BENCHMARKS=OFF             \
-      -DCLANG_DEFAULT_PIE_ON_LINUX=ON           \
-      -Wno-dev -G Ninja ..                      &&
+sed 's/utility/tool/' -i utils/FileCheck/CMakeLists.txt
+mkdir -v build
+cd       build
+CC=gcc CXX=g++                               \
+cmake -D CMAKE_INSTALL_PREFIX=/usr           \
+      -D CMAKE_SKIP_INSTALL_RPATH=ON         \
+      -D LLVM_ENABLE_FFI=ON                  \
+      -D CMAKE_BUILD_TYPE=Release            \
+      -D LLVM_BUILD_LLVM_DYLIB=ON            \
+      -D LLVM_LINK_LLVM_DYLIB=ON             \
+      -D LLVM_ENABLE_RTTI=ON                 \
+      -D LLVM_TARGETS_TO_BUILD="host;AMDGPU" \
+      -D LLVM_BINUTILS_INCDIR=/usr/include   \
+      -D LLVM_INCLUDE_BENCHMARKS=OFF         \
+      -D CLANG_DEFAULT_PIE_ON_LINUX=ON       \
+      -D CLANG_CONFIG_FILE_SYSTEM_DIR=/etc/clang \
+      -W no-dev -G Ninja ..
 ninja
+sed -e 's/config.has_no_default_config_flag/True/' \
+    -e 's/"-fuse-ld=gold"//'                       \
+    -i ../projects/compiler-rt/test/lit.common.cfg.py
+systemctl   --user start dbus
+systemd-run --user --pty -d -G -p LimitCORE=0 ninja check-all
+mkdir -pv /etc/clang
+for i in clang clang++; do
+  echo -fstack-protector-strong > /etc/clang/$i.cfg
+done
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install &&
-cp bin/FileCheck /usr/bin
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

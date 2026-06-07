@@ -6,21 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-
+#REQ:python-dependencies#hatchling
 
 cd $SOURCE_DIR
-
 NAME=python-modules#pygments
-VERSION=2.14.0
-URL=https://files.pythonhosted.org/packages/source/P/Pygments/Pygments-2.14.0.tar.gz
+VERSION=2.19.2
+URL=https://files.pythonhosted.org/packages/source/P/Pygments/pygments-2.19.2.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://files.pythonhosted.org/packages/source/P/Pygments/Pygments-2.14.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/P/Pygments/pygments-2.19.2.tar.gz
 
 
 if [ ! -z $URL ]
@@ -39,20 +37,22 @@ fi
 cd $DIRECTORY
 fi
 
-
 echo $USER > /tmp/currentuser
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+python3 -m venv --system-site-packages testenv
+testenv/bin/pip3 install wcag-contrast-ratio
+testenv/bin/python -m pytest
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user Pygments
+pip3 install --no-index --find-links dist --no-user Pygments
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

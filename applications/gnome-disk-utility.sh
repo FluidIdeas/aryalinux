@@ -6,30 +6,22 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:gnome-settings-daemon
 #REQ:itstool
-#REQ:libdvdread
-#REQ:libhandy1
 #REQ:libpwquality
-#REQ:libsecret
 #REQ:udisks2
 
-
 cd $SOURCE_DIR
-
 NAME=gnome-disk-utility
-VERSION=43.0
-URL=https://download.gnome.org/sources/gnome-disk-utility/43/gnome-disk-utility-43.0.tar.xz
-SECTION="GNOME Applications"
-DESCRIPTION="The GNOME Disk Utility package provides applications used for dealing with storage devices."
+VERSION=46.1
+URL=https://download.gnome.org/sources/gnome-disk-utility/46/gnome-disk-utility-46.1.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gnome-disk-utility/43/gnome-disk-utility-43.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gnome-disk-utility/43/gnome-disk-utility-43.0.tar.xz
+wget -nc https://download.gnome.org/sources/gnome-disk-utility/46/gnome-disk-utility-46.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -50,12 +42,12 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-meson setup --prefix=/usr --buildtype=release .. &&
+mkdir build
+cd    build
+meson setup --prefix=/usr --buildtype=release ..
 ninja
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -64,8 +56,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

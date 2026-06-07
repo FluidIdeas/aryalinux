@@ -7,20 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=python-modules#six
-VERSION=1.16.0
-URL=https://files.pythonhosted.org/packages/source/s/six/six-1.16.0.tar.gz
+VERSION=1.17.0
+URL=https://files.pythonhosted.org/packages/source/s/six/six-1.17.0.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://files.pythonhosted.org/packages/source/s/six/six-1.16.0.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/s/six/six-1.17.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -39,20 +36,19 @@ fi
 cd $DIRECTORY
 fi
 
-
 echo $USER > /tmp/currentuser
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user six
+pip3 install --no-index --find-links dist --no-user six
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

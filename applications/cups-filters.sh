@@ -6,34 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:cups
-#REQ:glib2
-#REQ:gs
-#REQ:lcms2
-#REQ:poppler
-#REQ:qpdf
-#REQ:libexif
-#REQ:libjpeg
-#REQ:libpng
-#REQ:libtiff
-#REQ:mupdf
-#REQ:dejavu-fonts
-
+#REQ:libcupsfilters
+#REQ:libppd
 
 cd $SOURCE_DIR
-
 NAME=cups-filters
-VERSION=1.28.16
-URL=https://www.openprinting.org/download/cups-filters/cups-filters-1.28.16.tar.xz
-SECTION="Printing"
-DESCRIPTION="The CUPS Filters package contains backends, filters and other software that was once part of the core CUPS distribution but is no longer maintained by Apple Inc."
+VERSION=2.0.1
+URL=https://github.com/OpenPrinting/cups-filters/releases/download/2.0.1/cups-filters-2.0.1.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.openprinting.org/download/cups-filters/cups-filters-1.28.16.tar.xz
+wget -nc https://github.com/OpenPrinting/cups-filters/releases/download/2.0.1/cups-filters-2.0.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -54,16 +40,14 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-CXXFLAGS="$CXXFLAGS -std=c++17"  \
-./configure --prefix=/usr        \
-            --sysconfdir=/etc    \
-            --localstatedir=/var \
-            --without-rcdir      \
-            --disable-static     \
-            --disable-avahi      \
-            --docdir=/usr/share/doc/cups-filters-1.28.16 &&
+sed -i '/proc_func)()/s/()/(FILE*, FILE*, void*)/' filter/foomatic-rip/process.h
+patch -Np1 -i ../cups-filters-2.0.1-security_fix-1.patch
+./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/cups-filters-2.0.1
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -72,26 +56,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -v -m644 utils/cups-browsed.service /lib/systemd/system/cups-browsed.service
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-systemctl enable cups-browsed
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

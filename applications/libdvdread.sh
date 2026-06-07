@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=libdvdread
-VERSION=6.1.3
-URL=https://get.videolan.org/libdvdread/6.1.3/libdvdread-6.1.3.tar.bz2
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="libdvdread is a library which provides a simple foundation for reading DVDs."
+VERSION=7.0.1
+URL=https://get.videolan.org/libdvdread/7.0.1/libdvdread-7.0.1.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://get.videolan.org/libdvdread/6.1.3/libdvdread-6.1.3.tar.bz2
+wget -nc https://get.videolan.org/libdvdread/7.0.1/libdvdread-7.0.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -42,21 +38,22 @@ fi
 
 echo $USER > /tmp/currentuser
 
+sed -i "/get_option/s/libdvdread/&-7.0.1/" meson.build
+mkdir build
+cd    build
+meson setup --prefix=/usr --buildtype=release ..
+ninja
+rm -fv /usr/lib/libdvdread.a
 
-./configure --prefix=/usr    \
-            --disable-static \
-            --docdir=/usr/share/doc/libdvdread-6.1.3 &&
-make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

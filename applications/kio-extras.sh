@@ -6,24 +6,23 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:kdsoap
-#REQ:frameworks5
-
+#REQ:frameworks6
+#REQ:kdsoap-ws-discovery-client
+#REQ:libproxy
+#REQ:qcoro
+#REQ:libkexiv2
 
 cd $SOURCE_DIR
-
 NAME=kio-extras
-VERSION=22.12.2
-URL=https://download.kde.org/stable/release-service/22.12.2/src/kio-extras-22.12.2.tar.xz
-SECTION="KDE Frameworks 5 Based Applications"
-DESCRIPTION="The kio-extras package contains additional components to increase the functionality of the KDE resource and network access abstractions."
+VERSION=25.12.2
+URL=https://download.kde.org/stable/release-service/25.12.2/src/kio-extras-25.12.2.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.kde.org/stable/release-service/22.12.2/src/kio-extras-22.12.2.tar.xz
+wget -nc https://download.kde.org/stable/release-service/25.12.2/src/kio-extras-25.12.2.tar.xz
 
 
 if [ ! -z $URL ]
@@ -44,15 +43,15 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DCMAKE_BUILD_TYPE=Release         \
-      -DBUILD_TESTING=OFF                \
-      -Wno-dev .. &&
+mkdir build
+cd    build
+cmake -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX \
+      -D CMAKE_BUILD_TYPE=Release         \
+      -D BUILD_TESTING=OFF                \
+      -W no-dev ..
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -61,8 +60,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

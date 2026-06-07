@@ -7,22 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=sudo
-VERSION=1.9.1
-URL=https://www.sudo.ws/dist/sudo-1.9.13p3.tar.gz
-SECTION="Security"
-DESCRIPTION="The Sudo package allows a system administrator to give certain users (or groups of users) the ability to run some (or all) commands as root or another user while logging the commands and arguments."
+VERSION=1.9.17p2
+URL=https://www.sudo.ws/dist/sudo-1.9.17p2.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.sudo.ws/dist/sudo-1.9.13p3.tar.gz
-wget -nc ftp://ftp.sudo.ws/pub/sudo/sudo-1.9.13p3.tar.gz
+wget -nc https://www.sudo.ws/dist/sudo-1.9.17p2.tar.gz
 
 
 if [ ! -z $URL ]
@@ -41,20 +36,18 @@ fi
 cd $DIRECTORY
 fi
 
+echo $USER > /tmp/currentuser
 
-./configure --prefix=/usr              \
-            --libexecdir=/usr/lib      \
-            --with-secure-path         \
-            --with-all-insults         \
-            --with-env-editor          \
-            --docdir=/usr/share/doc/sudo-1.9.13p3 \
-            --with-passprompt="[sudo] password for %p: " &&
+./configure --prefix=/usr         \
+            --libexecdir=/usr/lib \
+            --with-secure-path    \
+            --with-env-editor     \
+            --docdir=/usr/share/doc/sudo-1.9.17p2 \
+            --with-passprompt="[sudo] password for %p: "
 make
-make install &&
-ln -sfv libsudo_util.so.0.0.0 /usr/lib/sudo/libsudo_util.so.0
 cat > /etc/sudoers.d/00-sudo << "EOF"
 Defaults secure_path="/usr/sbin:/usr/bin"
-%wheel ALL=(ALL) NOPASSWD: ALL
+%wheel ALL=(ALL) ALL
 EOF
 cat > /etc/pam.d/sudo << "EOF"
 # Begin /etc/pam.d/sudo
@@ -75,6 +68,15 @@ session   include     system-session
 EOF
 chmod 644 /etc/pam.d/sudo
 
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

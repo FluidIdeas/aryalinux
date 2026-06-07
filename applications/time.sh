@@ -7,22 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=time
 VERSION=1.9
-URL=https://ftp.gnu.org/gnu/time/time-1.9.tar.gz
-SECTION="General Utilities"
-DESCRIPTION="The time utility is a program that measures many of the CPU resources, such as time and memory, that other programs use. The GNU version can format the output in arbitrary ways by using a printf-style format string to include various resource measurements."
+URL=https://ftpmirror.gnu.org/time/time-1.9.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://ftp.gnu.org/gnu/time/time-1.9.tar.gz
-wget -nc ftp://ftp.gnu.org/gnu/time/time-1.9.tar.gz
+wget -nc https://ftpmirror.gnu.org/time/time-1.9.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,9 +38,11 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr &&
+sed -i 's/sighandler interrupt_signal/__sighandler_t interrupt_signal/' src/time.c
+./configure --prefix=/usr
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -54,8 +51,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

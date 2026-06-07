@@ -6,25 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:glib2
-#REQ:gobject-introspection
-
 
 cd $SOURCE_DIR
-
 NAME=gsettings-desktop-schemas
-VERSION=43.0
-URL=https://download.gnome.org/sources/gsettings-desktop-schemas/43/gsettings-desktop-schemas-43.0.tar.xz
-SECTION="GNOME Libraries and Desktop"
-DESCRIPTION="The GSettings Desktop Schemas package contains a collection of GSettings schemas for settings shared by various components of a GNOME Desktop."
+VERSION=49.1
+URL=https://download.gnome.org/sources/gsettings-desktop-schemas/49/gsettings-desktop-schemas-49.1.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gsettings-desktop-schemas/43/gsettings-desktop-schemas-43.0.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gsettings-desktop-schemas/43/gsettings-desktop-schemas-43.0.tar.xz
+wget -nc https://download.gnome.org/sources/gsettings-desktop-schemas/49/gsettings-desktop-schemas-49.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -45,14 +39,14 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sed -i -r 's:"(/system):"/org/gnome\1:g' schemas/*.in &&
-
-mkdir build &&
-cd    build &&
-
-meson setup --prefix=/usr --buildtype=release .. &&
+sed -i -r 's:"(/system):"/org/gnome\1:g' schemas/*.in
+mkdir build
+cd    build
+meson setup --prefix=/usr --buildtype=release ..
 ninja
+glib-compile-schemas /usr/share/glib-2.0/schemas
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -61,17 +55,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-glib-compile-schemas /usr/share/glib-2.0/schemas
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

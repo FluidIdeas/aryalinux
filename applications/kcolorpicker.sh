@@ -6,24 +6,20 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:cmake
-#REQ:qt5
-
+#REQ:qt6
 
 cd $SOURCE_DIR
-
 NAME=kcolorpicker
-VERSION=0.2.0
-URL=https://github.com/ksnip/kColorPicker/archive/refs/tags/v0.2.0/kColorPicker-0.2.0.tar.gz
-SECTION="Graphical Environment Libraries"
-DESCRIPTION="kColorPicker is a QToolButton library with a color popup menu, which lets you select colors. The popup menu features a color dialog button which can be used to add custom colors to the popup menu."
+VERSION=0.3.1
+URL=https://github.com/ksnip/kColorPicker/archive/v0.3.1/kColorPicker-0.3.1.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/ksnip/kColorPicker/archive/refs/tags/v0.2.0/kColorPicker-0.2.0.tar.gz
+wget -nc https://github.com/ksnip/kColorPicker/archive/v0.3.1/kColorPicker-0.3.1.tar.gz
 
 
 if [ ! -z $URL ]
@@ -44,14 +40,16 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-mkdir build &&
-cd    build &&
-
-cmake -DCMAKE_INSTALL_PREFIX=/usr \
-      -DCMAKE_BUILD_TYPE=Release  \
-      .. &&
+mkdir build
+cd    build
+cmake -D CMAKE_INSTALL_PREFIX=/usr \
+      -D CMAKE_BUILD_TYPE=Release  \
+      -D BUILD_SHARED_LIBS=ON      \
+      -D BUILD_WITH_QT6=ON         \
+      ..
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -60,8 +58,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

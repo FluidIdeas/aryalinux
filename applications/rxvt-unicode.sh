@@ -6,17 +6,13 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:libptytty
 
-
 cd $SOURCE_DIR
-
 NAME=rxvt-unicode
 VERSION=9.31
 URL=http://dist.schmorp.de/rxvt-unicode/Attic/rxvt-unicode-9.31.tar.bz2
-SECTION="Other X-based Programs"
-DESCRIPTION="rxvt-unicode is a clone of the terminal emulator rxvt, an X Window System terminal emulator which includes support for XFT and Unicode."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -43,20 +39,12 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --enable-everything &&
+./configure --prefix=/usr --enable-everything
 make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+xrdb -query
+xrdb -merge ~/.Xresources
+# Start the urxvtd daemon
+urxvtd -q -f -o &
 cat >> /etc/X11/app-defaults/URxvt << "EOF"
 ! Use the specified colour as the windows background colour [default white]
 URxvt*background: black
@@ -80,19 +68,7 @@ URxvt*url-launcher: firefox
 ! Below, default modified to mouse left button.
 URxvt*matcher.button:     1
 EOF
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-xrdb -query
-xrdb -merge ~/.Xresources
-# Start the urxvtd daemon
-urxvtd -q -f -o &
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cat > /usr/share/applications/urxvt.desktop << "EOF" &&
+cat > /usr/share/applications/urxvt.desktop << "EOF"
 [Desktop Entry]
 Encoding=UTF-8
 Name=Rxvt-Unicode Terminal
@@ -108,13 +84,16 @@ Keywords=console;command line;execute;
 EOF
 
 update-desktop-database -q
+
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

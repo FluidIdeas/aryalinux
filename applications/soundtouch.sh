@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=soundtouch
-VERSION=2.3.2
-URL=https://www.surina.net/soundtouch/soundtouch-2.3.2.tar.gz
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="The SoundTouch package contains an open-source audio processing library that allows changing the sound tempo, pitch and playback rate parameters independently from each other."
+VERSION=2.4.0
+URL=https://www.surina.net/soundtouch/soundtouch-2.4.0.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.surina.net/soundtouch/soundtouch-2.3.2.tar.gz
+wget -nc https://www.surina.net/soundtouch/soundtouch-2.4.0.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,11 +38,12 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./bootstrap &&
+./bootstrap
 ./configure --prefix=/usr \
-            --docdir=/usr/share/doc/soundtouch-2.3.2 &&
+            --docdir=/usr/share/doc/soundtouch-2.4.0
 make
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -55,8 +52,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

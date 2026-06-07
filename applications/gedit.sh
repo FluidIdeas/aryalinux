@@ -6,33 +6,24 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:git
 #REQ:gsettings-desktop-schemas
-#REQ:gtksourceview4
-#REQ:itstool
-#REQ:libpeas
-#REQ:tepl
+#REQ:gtk3
+#REQ:libhandy1
+#REQ:libxml2
 #REQ:gspell
-#REQ:gvfs
 #REQ:iso-codes
-#REQ:python-modules#pygobject3
-
 
 cd $SOURCE_DIR
-
 NAME=gedit
-VERSION=44.2
-URL=https://download.gnome.org/sources/gedit/44/gedit-44.2.tar.xz
-SECTION="Editors"
-DESCRIPTION="The Gedit package contains a lightweight UTF-8 text editor for the GNOME Desktop."
+VERSION=48.1
+URL=https://download.gnome.org/sources/gedit/48/gedit-48.1.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://download.gnome.org/sources/gedit/44/gedit-44.2.tar.xz
-wget -nc ftp://ftp.acc.umu.se/pub/gnome/sources/gedit/44/gedit-44.2.tar.xz
+wget -nc https://download.gnome.org/sources/gedit/48/gedit-48.1.tar.xz
 
 
 if [ ! -z $URL ]
@@ -53,15 +44,53 @@ fi
 
 echo $USER > /tmp/currentuser
 
+as_root()
+{
+  if   [ $EUID = 0 ];        then $*
+  elif [ -x /usr/bin/sudo ]; then sudo $*
+  else                            su -c \\"$*\\"
+  fi
+}
 
-mkdir gedit-build &&
-cd    gedit-build &&
+export -f as_root
+grep -A5 Ok: *test.log
+bash -e
+for package in \
+   libgedit-amtk-5.9.2.tar.bz2            \
+   libgedit-gtksourceview-299.5.0.tar.bz2 \
+   libgedit-gfls-0.3.1.tar.bz2            \
+   libgedit-tepl-6.13.0.tar.bz2
+do
+  packagedir=${package%.tar*}
 
-meson setup --prefix=/usr       \
-            --buildtype=release \
-            -Dgtk_doc=false     \
-            .. &&
+  echo "Building $packagedir"
+  tar -xf ../$package
+  pushd $packagedir
+    cd build
+
+    meson setup ..            \
+          --prefix=/usr       \
+          --buildtype=release \
+          -D gtk_doc=false
+    ninja
+
+    #ninja test 2>&1 | tee ../../$packagedir-test.log
+
+    as_root ninja install
+  popd
+
+  rm -rf $packagedir
+done
+exit
+cd build
+meson setup ..            \
+      --prefix=/usr       \
+      --buildtype=release \
+      -D gtk_doc=false
 ninja
+glib-compile-schemas /usr/share/glib-2.0/schemas
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 ninja install
@@ -70,17 +99,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-glib-compile-schemas /usr/share/glib-2.0/schemas
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

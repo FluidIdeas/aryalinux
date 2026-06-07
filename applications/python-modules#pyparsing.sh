@@ -7,20 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=python-modules#pyparsing
-VERSION=3.0.9
-URL=https://files.pythonhosted.org/packages/source/p/pyparsing/pyparsing-3.0.9.tar.gz
+VERSION=3.3.2
+URL=https://files.pythonhosted.org/packages/source/p/pyparsing/pyparsing-3.3.2.tar.gz
 SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://files.pythonhosted.org/packages/source/p/pyparsing/pyparsing-3.0.9.tar.gz
+wget -nc https://files.pythonhosted.org/packages/source/p/pyparsing/pyparsing-3.3.2.tar.gz
 
 
 if [ ! -z $URL ]
@@ -39,25 +36,24 @@ fi
 cd $DIRECTORY
 fi
 
-
 echo $USER > /tmp/currentuser
 
-pip3 wheel -w dist --no-build-isolation --no-deps $PWD
+pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD
+python3 -m venv --system-site-packages testenv
+source testenv/bin/activate
+pip3 install railroad-diagrams matplotlib
+python3 /usr/bin/pytest
+deactivate
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-pip3 install --no-index --find-links dist --no-cache-dir --no-user pyparsing
+pip3 install --no-index --find-links dist --no-user pyparsing
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-python3 -m venv --system-site-packages testenv &&
-source testenv/bin/activate                    &&
-pip3 install railroad-diagrams                 &&
-python3 /usr/bin/pytest
-deactivate
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -6,17 +6,13 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:db
-
+#REQ:lmdb
 
 cd $SOURCE_DIR
-
 NAME=cyrus-sasl
 VERSION=2.1.28
 URL=https://github.com/cyrusimap/cyrus-sasl/releases/download/cyrus-sasl-2.1.28/cyrus-sasl-2.1.28.tar.gz
-SECTION="Security"
-DESCRIPTION="The Cyrus SASL package contains a Simple Authentication and Security Layer implementation, a method for adding authentication support to connection-based protocols. To use SASL, a protocol includes a command for identifying and authenticating a user to a server and for optionally negotiating protection of subsequent protocol interactions. If its use is negotiated, a security layer is inserted between the protocol and the connection."
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
@@ -43,49 +39,33 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr        \
-            --sysconfdir=/etc    \
-            --enable-auth-sasldb \
+patch -Np1 -i ../cyrus-sasl-2.1.28-gcc15_fixes-1.patch
+autoreconf -fiv
+sed '/saslint/a #include <time.h>'       -i lib/saslutil.c
+sed '/plugin_common/a #include <time.h>' -i plugins/cram.c
+./configure --prefix=/usr                       \
+            --sysconfdir=/etc                   \
+            --enable-auth-sasldb                \
+            --with-dblib=lmdb                   \
             --with-dbpath=/var/lib/sasl/sasldb2 \
             --with-sphinx-build=no              \
-            --with-saslauthd=/var/run/saslauthd &&
+            --with-saslauthd=/var/run/saslauthd
 make -j1
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install &&
-install -v -dm755                          /usr/share/doc/cyrus-sasl-2.1.28/html &&
-install -v -m644  saslauthd/LDAP_SASLAUTHD /usr/share/doc/cyrus-sasl-2.1.28      &&
-install -v -m644  doc/legacy/*.html        /usr/share/doc/cyrus-sasl-2.1.28/html &&
+make install
+install -v -dm755                          /usr/share/doc/cyrus-sasl-2.1.28/html
+install -v -m644  saslauthd/LDAP_SASLAUTHD /usr/share/doc/cyrus-sasl-2.1.28
+install -v -m644  doc/legacy/*.html        /usr/share/doc/cyrus-sasl-2.1.28/html
 install -v -dm700 /var/lib/sasl
+make install-saslauthd
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-#!/bin/bash
-
-set -e
-set +h
-
-. /etc/alps/alps.conf
-
-pushd $SOURCE_DIR
-wget -nc http://www.linuxfromscratch.org/blfs/downloads/9.0-systemd/blfs-systemd-units-20180105.tar.bz2
-tar xf blfs-systemd-units-20180105.tar.bz2
-cd blfs-systemd-units-20180105
-sudo make install-saslauthd
-popd
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

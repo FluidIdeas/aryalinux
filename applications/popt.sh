@@ -7,22 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=popt
 VERSION=1.19
-URL=http://ftp.rpm.org/popt/releases/popt-1.x/popt-1.19.tar.gz
-SECTION="General Libraries"
-DESCRIPTION="The popt package contains the popt libraries which are used by some programs to parse command-line options."
+URL=https://ftp.osuosl.org/pub/rpm/popt/releases/popt-1.x/popt-1.19.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc http://ftp.rpm.org/popt/releases/popt-1.x/popt-1.19.tar.gz
-wget -nc ftp://ftp.rpm.org/pub/rpm/popt/releases/popt-1.x/popt-1.19.tar.gz
+wget -nc https://ftp.osuosl.org/pub/rpm/popt/releases/popt-1.x/popt-1.19.tar.gz
 
 
 if [ ! -z $URL ]
@@ -43,19 +38,22 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr --disable-static &&
+./configure --prefix=/usr --disable-static
 make
+sed -i 's@\./@src/@' Doxyfile
+doxygen
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
+install -v -m755 -d /usr/share/doc/popt-1.19
+install -v -m644 doxygen/html/* /usr/share/doc/popt-1.19
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

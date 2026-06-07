@@ -6,31 +6,24 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:libxcvt
-#REQ:pixman
 #REQ:x7font
-#REQ:xkeyboard-config
 #REQ:libepoxy
 #REQ:libtirpc
 #REQ:systemd
-#REQ:xorg-libinput-driver
-
+#REQ:x7driver
 
 cd $SOURCE_DIR
-
 NAME=xorg-server
-VERSION=21.1.8
-URL=https://www.x.org/pub/individual/xserver/xorg-server-21.1.8.tar.xz
-SECTION="Graphical Environments"
-DESCRIPTION="The Xorg Server is the core of the X Window system."
+VERSION=21.1.21
+URL=https://www.x.org/pub/individual/xserver/xorg-server-21.1.21.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://www.x.org/pub/individual/xserver/xorg-server-21.1.8.tar.xz
-wget -nc ftp://ftp.x.org/pub/individual/xserver/xorg-server-21.1.8.tar.xz
+wget -nc https://www.x.org/pub/individual/xserver/xorg-server-21.1.21.tar.xz
 
 
 if [ ! -z $URL ]
@@ -51,28 +44,26 @@ fi
 
 echo $USER > /tmp/currentuser
 
-export XORG_PREFIX="/usr"
-
-mkdir build &&
-cd    build &&
-
+patch -Np1 -i ../xorg-server-21.1.21-tearfree_backport-1.patch
+mkdir build
+cd    build
 meson setup ..              \
       --prefix=$XORG_PREFIX \
       --localstatedir=/var  \
-      -Dsuid_wrapper=true   \
-      -Dxkb_output_dir=/var/lib/xkb &&
+      -D glamor=true        \
+      -D xkb_output_dir=/var/lib/xkb
 ninja
+mkdir -pv /etc/X11/xorg.conf.d
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-ninja install &&
-mkdir -pv /etc/X11/xorg.conf.d
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

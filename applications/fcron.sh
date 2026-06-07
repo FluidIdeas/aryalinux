@@ -7,21 +7,17 @@ set +h
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
 
-
-
 cd $SOURCE_DIR
-
 NAME=fcron
-VERSION=3.2.1
-URL=http://fcron.free.fr/archives/fcron-3.2.1.src.tar.gz
-SECTION="System Utilities"
-DESCRIPTION="The Fcron package contains a periodical command scheduler which aims at replacing Vixie Cron."
+VERSION=3.4.0
+URL=http://fcron.free.fr/archives/fcron-3.4.0.src.tar.gz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc http://fcron.free.fr/archives/fcron-3.2.1.src.tar.gz
+wget -nc http://fcron.free.fr/archives/fcron-3.4.0.src.tar.gz
 
 
 if [ ! -z $URL ]
@@ -42,37 +38,17 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-groupadd -g 22 fcron &&
-useradd -d /dev/null -c "Fcron User" -g fcron -s /bin/false -u 22 fcron
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
 find doc -type f -exec sed -i 's:/usr/local::g' {} \;
-./configure --prefix=/usr          \
-            --sysconfdir=/etc      \
-            --localstatedir=/var   \
-            --without-sendmail     \
-            --with-piddir=/run     \
-            --with-boot-install=no &&
+./configure --prefix=/usr        \
+            --sysconfdir=/etc    \
+            --localstatedir=/var \
+            --without-sendmail   \
+            --with-piddir=/run   \
+            --with-boot-install=no
 make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cat > /usr/bin/run-parts << "EOF" &&
+groupadd -g 22 fcron
+useradd -d /dev/null -c "Fcron User" -g fcron -s /bin/false -u 22 fcron
+cat > /usr/bin/run-parts << "EOF"
 #!/bin/sh
 # run-parts:  Runs all the scripts found in a directory.
 # from Slackware, by Patrick J. Volkerding with ideas borrowed
@@ -123,55 +99,26 @@ done
 exit 0
 EOF
 chmod -v 755 /usr/bin/run-parts
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-install -vdm754 /etc/cron.{hourly,daily,weekly,monthly}
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 cat > /var/spool/fcron/systab.orig << "EOF"
 &bootrun 01 * * * * root run-parts /etc/cron.hourly
 &bootrun 02 4 * * * root run-parts /etc/cron.daily
 &bootrun 22 4 * * 0 root run-parts /etc/cron.weekly
 &bootrun 42 4 1 * * root run-parts /etc/cron.monthly
 EOF
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 systemctl enable fcron
-ENDOFROOTSCRIPT
+systemctl start fcron
+fcrontab -z -u systab
 
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
 
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-systemctl start fcron &&
-fcrontab -z -u systab
+make install
+install -vdm754 /etc/cron.{hourly,daily,weekly,monthly}
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

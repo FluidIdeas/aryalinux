@@ -6,22 +6,21 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
-#REQ:valgrind
-
+#REQ:curl
+#REQ:json-glib
+#REQ:libyaml
 
 cd $SOURCE_DIR
-
 NAME=appstream-glib
-VERSION=0.7.16
-URL=https://github.com/hughsie/appstream-glib/archive/appstream_glib_0_7_16.tar.gz
-DESCRIPTION="This library provides GObjects and helper methods to make it easy to read and write AppStream metadata. It also provides a simple DOM implementation that makes it easy to edit nodes and convert to and from the standardized XML representation."
+VERSION=0.8.3
+URL=http://people.freedesktop.org/~hughsient/appstream-glib/releases/appstream-glib-0.8.3.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/hughsie/appstream-glib/archive/appstream_glib_0_7_16.tar.gz
+wget -nc http://people.freedesktop.org/~hughsient/appstream-glib/releases/appstream-glib-0.8.3.tar.xz
 
 
 if [ ! -z $URL ]
@@ -40,12 +39,25 @@ fi
 cd $DIRECTORY
 fi
 
-mkdir build
-cd build/
-meson --prefix=/usr --libdir=/usr/lib --sysconfdir=/etc --mandir=/usr/man -Dgtk-doc=false -Dstemmer=false -Drpm=false ..
-ninja
-sudo ninja install
+echo $USER > /tmp/currentuser
 
+mkdir build
+cd    build
+meson setup ..            \
+      --prefix=/usr       \
+      --buildtype=release \
+      -D rpm=false
+ninja
+
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+ninja install
+ENDOFROOTSCRIPT
+
+chmod a+x /tmp/rootscript.sh
+sudo /tmp/rootscript.sh
+sudo rm -rf /tmp/rootscript.sh
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

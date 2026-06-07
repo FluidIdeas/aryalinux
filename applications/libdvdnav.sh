@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:libdvdread
 
-
 cd $SOURCE_DIR
-
 NAME=libdvdnav
-VERSION=6.1.1
-URL=https://get.videolan.org/libdvdnav/6.1.1/libdvdnav-6.1.1.tar.bz2
-SECTION="Multimedia Libraries and Drivers"
-DESCRIPTION="libdvdnav is a library that allows easy use of sophisticated DVD navigation features such as DVD menus, multiangle playback and even interactive DVD games."
+VERSION=7.0.0
+URL=https://get.videolan.org/libdvdnav/7.0.0/libdvdnav-7.0.0.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://get.videolan.org/libdvdnav/6.1.1/libdvdnav-6.1.1.tar.bz2
+wget -nc https://get.videolan.org/libdvdnav/7.0.0/libdvdnav-7.0.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -43,21 +39,22 @@ fi
 
 echo $USER > /tmp/currentuser
 
+sed -i "/get_option/s/libdvdnav/&-7.0.0/" meson.build
+mkdir build
+cd    build
+meson setup --prefix=/usr --buildtype=release ..
+ninja
+rm -fv /usr/lib/libdvdnav.a
 
-./configure --prefix=/usr    \
-            --disable-static \
-            --docdir=/usr/share/doc/libdvdnav-6.1.1 &&
-make
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
+ninja install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

@@ -6,29 +6,24 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:libwnck
 #REQ:libxfce4ui
 #REQ:desktop-file-utils
 #REQ:xscreensaver
-#REQ:shared-mime-info
 #REQ:polkit-gnome
 #REQ:xfdesktop
 
-
 cd $SOURCE_DIR
-
 NAME=xfce4-session
-VERSION=4.18.2
-URL=https://archive.xfce.org/src/xfce/xfce4-session/4.18/xfce4-session-4.18.2.tar.bz2
-SECTION="Xfce Desktop"
-DESCRIPTION="Xfce4 Session is a session manager for Xfce. Its task is to save the state of your desktop (opened applications and their location) and restore it during a next startup. You can create several different sessions and choose one of them on startup."
+VERSION=4.20.3
+URL=https://archive.xfce.org/src/xfce/xfce4-session/4.20/xfce4-session-4.20.3.tar.bz2
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://archive.xfce.org/src/xfce/xfce4-session/4.18/xfce4-session-4.18.2.tar.bz2
+wget -nc https://archive.xfce.org/src/xfce/xfce4-session/4.20/xfce4-session-4.20.3.tar.bz2
 
 
 if [ ! -z $URL ]
@@ -49,11 +44,20 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr \
-            --sysconfdir=/etc \
-            --disable-legacy-sm &&
+./configure --prefix=/usr       \
+            --sysconfdir=/etc   \
+            --disable-legacy-sm
 make
+cat > ~/.xinitrc << "EOF"
+dbus-launch --exit-with-x11 startxfce4
+EOF
+
+startx
+startx &> ~/.x-session-errors
+update-desktop-database
+update-mime-database /usr/share/mime
+
+
 sudo rm -rf /tmp/rootscript.sh
 cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 make install
@@ -62,18 +66,6 @@ ENDOFROOTSCRIPT
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-update-desktop-database &&
-update-mime-database /usr/share/mime
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 

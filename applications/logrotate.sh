@@ -6,23 +6,19 @@ set +h
 . /etc/alps/alps.conf
 . /var/lib/alps/functions
 . /etc/alps/directories.conf
-
 #REQ:popt
 
-
 cd $SOURCE_DIR
-
 NAME=logrotate
-VERSION=3.21.0
-URL=https://github.com/logrotate/logrotate/releases/download/3.21.0/logrotate-3.21.0.tar.xz
-SECTION="System Utilities"
-DESCRIPTION="The logrotate package allows automatic rotation, compression, removal, and mailing of log files."
+VERSION=3.22.0
+URL=https://github.com/logrotate/logrotate/releases/download/3.22.0/logrotate-3.22.0.tar.xz
+SECTION="Others"
 
 
 mkdir -pv $(echo $NAME | sed "s@#@_@g")
 pushd $(echo $NAME | sed "s@#@_@g")
 
-wget -nc https://github.com/logrotate/logrotate/releases/download/3.21.0/logrotate-3.21.0.tar.xz
+wget -nc https://github.com/logrotate/logrotate/releases/download/3.22.0/logrotate-3.22.0.tar.xz
 
 
 if [ ! -z $URL ]
@@ -43,20 +39,33 @@ fi
 
 echo $USER > /tmp/currentuser
 
-
-./configure --prefix=/usr &&
+./configure --prefix=/usr
 make
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-make install
-ENDOFROOTSCRIPT
+cat > /etc/logrotate.d/sys.log << EOF
+/var/log/sys.log {
+   # If the log file is larger than 100kb, rotate it
+   size   100k
+   rotate 5
+   weekly
+   postrotate
+      /bin/killall -HUP syslogd
+   endscript
+}
+EOF
 
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
+chmod -v 0644 /etc/logrotate.d/sys.log
+cat > /etc/logrotate.d/example.log << EOF
+file1
+file2
+file3 {
+   ...
+   postrotate
+    ...
+   endscript
+}
+EOF
 
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+chmod -v 0644 /etc/logrotate.d/example.log
 cat > /etc/logrotate.conf << EOF
 # Begin /etc/logrotate.conf
 
@@ -101,49 +110,8 @@ include /etc/logrotate.d
 EOF
 
 chmod -v 0644 /etc/logrotate.conf
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
 mkdir -p /etc/logrotate.d
-ENDOFROOTSCRIPT
-
-chmod a+x /tmp/rootscript.sh
-sudo /tmp/rootscript.sh
-sudo rm -rf /tmp/rootscript.sh
-
-cat > /etc/logrotate.d/sys.log << EOF
-/var/log/sys.log {
-   # If the log file is larger than 100kb, rotate it
-   size   100k
-   rotate 5
-   weekly
-   postrotate
-      /bin/killall -HUP syslogd
-   endscript
-}
-EOF
-
-chmod -v 0644 /etc/logrotate.d/sys.log
-cat > /etc/logrotate.d/example.log << EOF
-file1
-file2
-file3 {
-   ...
-   postrotate
-    ...
-   endscript
-}
-EOF
-
-chmod -v 0644 /etc/logrotate.d/example.log
-sudo rm -rf /tmp/rootscript.sh
-cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
-cat > /usr/lib/systemd/system/logrotate.service << "EOF" &&
+cat > /usr/lib/systemd/system/logrotate.service << "EOF"
 [Unit]
 Description=Runs the logrotate command
 Documentation=man:logrotate(8)
@@ -156,7 +124,7 @@ Type=oneshot
 RemainAfterExit=yes
 ExecStart=/usr/sbin/logrotate /etc/logrotate.conf
 EOF
-cat > /usr/lib/systemd/system/logrotate.timer << "EOF" &&
+cat > /usr/lib/systemd/system/logrotate.timer << "EOF"
 [Unit]
 Description=Runs the logrotate command daily at 3:00 AM
 
@@ -168,13 +136,16 @@ Persistent=true
 WantedBy=timers.target
 EOF
 systemctl enable logrotate.timer
+
+
+sudo rm -rf /tmp/rootscript.sh
+cat > /tmp/rootscript.sh <<"ENDOFROOTSCRIPT"
+make install
 ENDOFROOTSCRIPT
 
 chmod a+x /tmp/rootscript.sh
 sudo /tmp/rootscript.sh
 sudo rm -rf /tmp/rootscript.sh
-
-
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
 
