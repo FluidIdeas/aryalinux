@@ -202,7 +202,11 @@ then
 fi
 
 
-if ! grep lvm2 /sources/build-log &> /dev/null; then
+if ! grep -qx libaio /sources/build-log &> /dev/null; then
+	/sources/libaio.sh
+fi
+
+if ! grep -qx lvm2 /sources/build-log &> /dev/null; then
 	/sources/lvm2.sh
 fi
 
