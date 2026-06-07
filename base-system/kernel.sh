@@ -11,7 +11,7 @@ LOGFILE="/sources/build-log"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 . "$SCRIPT_DIR/kernel-config.sh"
 
-if ! grep "$STEPNAME" $LOGFILE &> /dev/null
+if ! grep -qx "$STEPNAME" $LOGFILE &> /dev/null
 then
 
 cd /sources
@@ -29,10 +29,13 @@ kernel_apply_aryalinux_requirements
 make "-j`nproc`"
 make modules_install
 
-LINUX_VERSION=$(ls /lib/modules/)
+LINUX_VERSION=$(ls /lib/modules/ | head -1)
 cp -v arch/x86/boot/bzImage "/boot/vmlinuz-$LINUX_VERSION"
 cp -v System.map "/boot/System.map-$LINUX_VERSION"
 cp -v .config "/boot/config-$LINUX_VERSION"
+
+echo "$STEPNAME" | tee -a $LOGFILE
+
 install -d "/usr/share/doc/linux-$LINUX_VERSION"
 cp -r Documentation/* "/usr/share/doc/linux-$LINUX_VERSION"
 
@@ -48,8 +51,8 @@ EOF
 
 cd /sources
 mv $LINUX_SRC_DIR /usr/src/
-ln -svf /usr/src/$LINUX_SRC_DIR /lib/modules/$(ls /lib/modules)/build
-ln -svf /usr/src/$LINUX_SRC_DIR /lib/modules/$(ls /lib/modules)/source
+ln -svf /usr/src/$LINUX_SRC_DIR "/lib/modules/$LINUX_VERSION/build"
+ln -svf /usr/src/$LINUX_SRC_DIR "/lib/modules/$LINUX_VERSION/source"
 
 FIRMWARE_TAR=`ls linux-firmware*`
 FIRMWARE_DIR=`tar tf $FIRMWARE_TAR | cut -d/ -f1 | uniq`
@@ -60,8 +63,8 @@ make install
 cd /sources
 rm -rf $FIRMWARE_DIR
 
-dracut -f /boot/initrd.img-$LINUX_VERSION `ls /lib/modules`
-
-echo "$STEPNAME" | tee -a $LOGFILE
+# LFS builds systemd with -D sysusers=false; use a non-systemd initramfs.
+DRACUT_OMIT="systemd dracut-systemd systemd-initrd systemd-udevd systemd-battery-check"
+dracut -f --omit "$DRACUT_OMIT" "/boot/initrd.img-$LINUX_VERSION" "$LINUX_VERSION"
 
 fi

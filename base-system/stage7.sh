@@ -229,7 +229,7 @@ if ! grep -qx lvm2 /sources/build-log &> /dev/null; then
 	/sources/lvm2.sh
 fi
 
-if ! grep kernel /sources/build-log &> /dev/null
+if ! grep -qx kernel /sources/build-log &> /dev/null
 then
 	/sources/kernel.sh
 fi
@@ -286,8 +286,10 @@ for unit in multi-user.target rescue.service rescue.target; do
 done
 
 if [ -d /lib/modules ] && command -v dracut >/dev/null; then
-	LINUX_VERSION=$(ls /lib/modules/)
-	dracut -f "/boot/initrd.img-$LINUX_VERSION" "$LINUX_VERSION"
+	LINUX_VERSION=$(ls /lib/modules/ | head -1)
+	# Keep in sync with kernel.sh (systemd built with -D sysusers=false per LFS).
+	DRACUT_OMIT="systemd dracut-systemd systemd-initrd systemd-udevd systemd-battery-check"
+	dracut -f --omit "$DRACUT_OMIT" "/boot/initrd.img-$LINUX_VERSION" "$LINUX_VERSION"
 fi
 
 if [ -x /usr/sbin/grub-mkconfig ] && [ -d /boot/grub ]; then
