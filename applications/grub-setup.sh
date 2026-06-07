@@ -24,7 +24,8 @@ if [ -z "$EFI_PART" ]; then
 	EFI_PART=${EFI_PART:-/dev/sda1}
 fi
 
-BOOTLOADER_ID="${OS_NAME:-AryaLinux} ${OS_VERSION:-} ${OS_CODENAME:-}"
+BOOTLOADER_ID="${OS_NAME:-AryaLinux}"
+BOOTLOADER_ID="${BOOTLOADER_ID// /}"
 
 mkdir -pv /boot/efi
 if ! mountpoint -q /boot/efi; then
@@ -40,9 +41,10 @@ EOF
 fi
 
 mountpoint /sys/firmware/efi/efivars || \
-	mount -v -t efivarfs efivarfs /sys/firmware/efi/efivars
+	mount -v -t efivarfs efivars /sys/firmware/efi/efivars
 
 grub-install --bootloader-id="$BOOTLOADER_ID" --recheck
+grub-install --removable --recheck
 grub-mkconfig -o /boot/grub/grub.cfg
 
 if [ ! -z $URL ]; then cd $SOURCE_DIR && cleanup "$NAME" "$DIRECTORY"; fi
