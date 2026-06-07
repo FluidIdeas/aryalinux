@@ -12,7 +12,15 @@ cd /sources
 
 tar xf cpio-2.15.tar.bz2
 cd cpio-2.15
-patch -Np1 -i ../patches/cpio-2.15-gcc15-c23-conformity.patch
+# GCC 15 / C23: give function pointers explicit prototypes (cpio 2.15)
+sed -i \
+  -e 's/^extern int (\*xstat) ();$/extern int (*xstat) (const char *, struct stat *);/' \
+  -e 's/^extern void (\*copy_function) ();$/extern void (*copy_function) (void);/' \
+  src/extern.h
+sed -i \
+  -e 's/^int (\*xstat) ();$/int (*xstat) (const char *, struct stat *);/' \
+  -e 's/^void (\*copy_function) () = 0;$/void (*copy_function) (void) = 0;/' \
+  src/global.c
 ./configure --prefix=/usr \
             --bindir=/bin \
             --enable-mt   \

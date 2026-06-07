@@ -22,7 +22,6 @@ EXTERNAL_PATCHES = PARENT_ROOT / "patches"
 PATCH_NAMES = (
     "efivar-39-upstream_fixes-1.patch",
     "unzip-6.0-consolidated_fixes-1.patch",
-    "cpio-2.15-gcc15-c23-conformity.patch",
 )
 
 
