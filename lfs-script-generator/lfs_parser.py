@@ -43,6 +43,8 @@ DEFAULT_SKIP_PATTERNS = [
     r"^ABI=32\b",
     r"\./configure \.\.\.",
     r"^awk .*check-log",
+    r"^spawn make tests",
+    r"^exec /usr/bin/bash",
 ]
 
 
