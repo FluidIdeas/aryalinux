@@ -196,7 +196,7 @@ echo "config-files" >> /sources/build-log
 
 fi
 
-if ! grep initramfs /sources/build-log &> /dev/null
+if ! grep -qx initramfs /sources/build-log &> /dev/null
 then
 	/sources/initramfs.sh
 fi

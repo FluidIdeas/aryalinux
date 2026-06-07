@@ -60,6 +60,7 @@ To add or bump a package version, update the appropriate list. Patches under `pa
 | `temp-tools/` | LFS chapter 6 — temporary tools |
 | `additional-temp-tools/` | LFS chapter 7 |
 | `final-system/` | LFS chapter 8 — final system packages |
+| `initramfs-tools/` | cpio, dash, dracut (stage 7 initramfs stack) |
 | `extras/` | BLFS and AryaLinux add-ons (bootloader, CA certs, ALPS, …) |
 | `apps/` | Hooks for optional desktop/application layers |
 | `build-arya` | Interactive build driver (Python) |
