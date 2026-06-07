@@ -15,6 +15,8 @@ COMMAND_BLOCK = re.compile(
 DEFAULT_SKIP_PATTERNS = [
     r"^make\s+-k?\s*check",
     r"^make\s+check\b",
+    r"^make\s+-j\d+\s+check\b",
+    r"\bmake\b.*\bcheck\b",
     r"^make\s+test\b",
     r"^make\s+-j1\s+check",
     r"^ninja\s+test",
