@@ -134,6 +134,7 @@ if [ -d ../applications ]
 then
 	mkdir -pv $LFS/var/cache/alps/ports
 	cp -v ../applications/*.json $LFS/var/cache/alps/ports/
+	chmod a+rwX $LFS/var/cache/alps/ports
 else
 	echo "warning: ../applications not found; ALPS ports will not be installed" >&2
 fi

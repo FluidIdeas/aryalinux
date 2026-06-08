@@ -31,7 +31,9 @@ rm -rf alps-extract
 
 mkdir -pv /var/cache/alps/{sources,packages,staging,ports}
 mkdir -pv /var/lib/alps/installed
-chmod a+rw /var/cache/alps/{sources,packages,staging}
+# Build user runs alps (see apps/essentials.sh); cache and registry must be writable.
+chmod a+rwX /var/cache/alps/{sources,packages,staging,ports}
+chmod a+rwX /var/lib/alps/installed
 
 echo "$STEPNAME" | tee -a $LOGFILE
 

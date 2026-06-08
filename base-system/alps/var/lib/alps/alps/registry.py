@@ -7,6 +7,8 @@ from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
 
+from .util import ensure_state_dir, remove_state_file, write_state_file
+
 
 @dataclass
 class InstalledPackage:
@@ -57,15 +59,13 @@ def load_installed(installed_dir: Path, name: str) -> InstalledPackage:
 
 
 def save_installed(installed_dir: Path, record: InstalledPackage) -> None:
-    installed_dir.mkdir(parents=True, exist_ok=True)
+    ensure_state_dir(installed_dir)
     path = record_path(installed_dir, record.name)
-    path.write_text(json.dumps(asdict(record), indent=2) + "\n", encoding="utf-8")
+    write_state_file(path, json.dumps(asdict(record), indent=2) + "\n")
 
 
 def remove_record(installed_dir: Path, name: str) -> None:
-    path = record_path(installed_dir, name)
-    if path.is_file():
-        path.unlink()
+    remove_state_file(record_path(installed_dir, name))
 
 
 def list_installed(installed_dir: Path) -> list[InstalledPackage]:

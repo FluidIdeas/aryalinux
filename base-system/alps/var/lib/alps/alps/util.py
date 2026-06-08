@@ -7,11 +7,59 @@ import platform
 import re
 import shutil
 import subprocess
+import tempfile
 from pathlib import Path
 
 
 def arch_tag() -> str:
     return platform.machine()
+
+
+def ensure_state_dir(path: Path) -> None:
+    """Ensure an ALPS state directory exists and is writable by the build user."""
+    if os.geteuid() == 0:
+        path.mkdir(parents=True, exist_ok=True)
+        path.chmod(0o1777)
+        return
+    path.mkdir(parents=True, exist_ok=True)
+    if os.access(path, os.W_OK | os.X_OK):
+        return
+    run_cmd(f'mkdir -p "{path}" && chmod 1777 "{path}"', as_root=True)
+
+
+def write_state_file(path: Path, content: str, *, mode: str = "644") -> None:
+    if os.geteuid() == 0:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(content, encoding="utf-8")
+        path.chmod(int(mode, 8))
+        return
+    try:
+        path.write_text(content, encoding="utf-8")
+        return
+    except OSError as exc:
+        if exc.errno != 13:
+            raise
+    with tempfile.NamedTemporaryFile("w", encoding="utf-8", delete=False) as tmp:
+        tmp.write(content)
+        tmp_path = tmp.name
+    try:
+        run_cmd(f'install -m {mode} "{tmp_path}" "{path}"', as_root=True)
+    finally:
+        os.unlink(tmp_path)
+
+
+def remove_state_file(path: Path) -> None:
+    if not path.is_file():
+        return
+    if os.geteuid() == 0:
+        path.unlink()
+        return
+    try:
+        path.unlink()
+    except OSError as exc:
+        if exc.errno != 13:
+            raise
+        run_cmd(f'rm -f "{path}"', as_root=True)
 
 
 def run_cmd(

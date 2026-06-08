@@ -54,6 +54,11 @@ def build_port(
         _build_single(port, source_root=source_root, staging=staging)
 
     files = collect_files(staging)
+    if not files:
+        raise BuildError(
+            f"{port.name}: staging directory is empty after build.package "
+            f"(check DESTDIR handling)"
+        )
     package_path = packages_dir / package_filename(port.name, port.version)
     create_package_archive(staging, package_path)
     return package_path, files
@@ -65,6 +70,11 @@ def _env_with_staging(staging: Path, extra: dict[str, str]) -> dict[str, str]:
     return env
 
 
+def _expand_destdir(cmd: str, staging: Path) -> str:
+    """Inline staging path — sudo does not preserve DESTDIR in the environment."""
+    return cmd.replace("$DESTDIR", str(staging))
+
+
 def _run_package_commands(
     commands: list[str],
     *,
@@ -74,7 +84,7 @@ def _run_package_commands(
 ) -> None:
     merged = _env_with_staging(staging, env)
     for cmd in commands:
-        run_cmd(cmd, cwd=cwd, env=merged, as_root=True)
+        run_cmd(_expand_destdir(cmd, staging), cwd=cwd, env=merged, as_root=True)
 
 
 def _download_patches(port: Port, source_root: Path) -> None:

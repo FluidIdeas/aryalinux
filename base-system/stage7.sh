@@ -59,8 +59,7 @@ DNS=8.8.8.8 8.8.4.4
 Domains=$DOMAIN_NAME
 EOF
 
-# LFS 9.2.2 - temporary resolv.conf for the chroot environment only.
-# Removed below so systemd-resolved can manage /etc/resolv.conf on first boot.
+# LFS 9.2.2 - static resolv.conf (chroot builds and fallback when DHCP has no DNS).
 cat > /etc/resolv.conf << EOF
 # Begin /etc/resolv.conf
 
@@ -208,9 +207,6 @@ DISTRIB_CODENAME="$OS_CODENAME"
 DISTRIB_DESCRIPTION="$OS_NAME $OS_VERSION ($OS_CODENAME)"
 EOF
 
-# LFS 9.2.2.1 - allow systemd-resolved to install its stub on first boot
-rm -f /etc/resolv.conf
-
 echo "config-files" >> /sources/build-log
 
 fi
@@ -260,8 +256,11 @@ then
 
 echo "Creating user with name $FULLNAME and username : $USERNAME"
 useradd -m -c "$FULLNAME" -s /bin/bash $USERNAME
-sed -i "s/# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/g" /etc/sudoers
 usermod -a -G wheel $USERNAME
+cat > /etc/sudoers.d/10-admin-user << EOF
+$USERNAME ALL=(ALL) NOPASSWD: ALL
+EOF
+chmod 440 /etc/sudoers.d/10-admin-user
 
 echo "admin-user" >> /sources/build-log
 

@@ -7,7 +7,7 @@ USERNAME="$1"
 
 make-ca -g -f
 
-su - $USERNAME -c "alps -ni install bash-completion python2 python3 nano which wget make-ca ntfs-3g fuse lvm2 parted gptfdisk shadow libpwquality"
+su - $USERNAME -c "alps -ni install bash-completion python3 nano which wget make-ca ntfs-3g fuse lvm2 parted gptfdisk shadow libpwquality"
 if [ ! -f /var/lib/alps/installed/shadow.json ]
 then
 	echo "Essentials incomplete (shadow). Aborting..."

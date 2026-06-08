@@ -13,7 +13,7 @@ from .installer import install_packages, packages_needing_update, remove_package
 from .orphans import find_orphans, prompt_remove_orphans
 from .port import list_ports, load_port
 from .registry import list_installed
-from .util import clear_directory
+from .util import clear_directory, ensure_state_dir
 
 
 HELP = f"""alps {__version__} — AryaLinux Package System
@@ -61,8 +61,11 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     paths = _config_paths(config)
-    for path in paths.values():
-        path.mkdir(parents=True, exist_ok=True)
+    for key, path in paths.items():
+        if key in ("SOURCES_DIR", "PACKAGES_DIR", "STAGING_DIR", "INSTALLED_DIR", "PORTS_DIR"):
+            ensure_state_dir(path)
+        else:
+            path.mkdir(parents=True, exist_ok=True)
 
     cmd = args.command
     pkgs = args.packages
