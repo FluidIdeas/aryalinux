@@ -1,0 +1,35 @@
+{
+  "name": "librest",
+  "version": "0.10.2",
+  "description": "The librest package contains a library designed to make it easier to access web services that claim to be RESTful.",
+  "url": "https://download.gnome.org/sources/librest/0.10/librest-0.10.2.tar.xz",
+  "dependencies": {
+    "required": [
+      "json-glib",
+      "libsoup3",
+      "make-ca"
+    ],
+    "recommended": [
+      "glib2"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr       \\\n            --buildtype=release \\\n            -D examples=false   \\\n            -D gtk_doc=false    \\\n            ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/librest.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

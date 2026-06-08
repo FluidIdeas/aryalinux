@@ -10,7 +10,7 @@
       "gcr",
       "gsettings-desktop-schemas",
       "libsecret",
-      "rest",
+      "librest",
       "totem-pl-parser",
       "vte",
       "yelp-xsl",

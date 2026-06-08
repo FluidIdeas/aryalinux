@@ -1,0 +1,24 @@
+{
+  "name": "bash-completion",
+  "version": "2.17.0",
+  "description": "bash-completion is a collection of command line command completions for the Bash shell.",
+  "url": "https://github.com/scop/bash-completion/releases/download/2.17.0/bash-completion-2.17.0.tar.xz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "",
+  "category": "system",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

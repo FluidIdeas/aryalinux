@@ -9,6 +9,7 @@
       "./configure --prefix=/usr         \\\n            --libexecdir=/usr/lib \\\n            --with-secure-path    \\\n            --with-env-editor     \\\n            --docdir=/usr/share/doc/sudo-1.9.17p2 \\\n            --with-passprompt=\"[sudo] password for %p: \"",
       "make",
       "cat > /etc/sudoers.d/00-sudo << \"EOF\"\nDefaults secure_path=\"/usr/sbin:/usr/bin\"\n%wheel ALL=(ALL) ALL\nEOF",
+      "chmod 440 /etc/sudoers.d/00-sudo",
       "cat > /etc/pam.d/sudo << \"EOF\"\n# Begin /etc/pam.d/sudo\n\n# include the default auth settings\nauth      include     system-auth\n\n# include the default account settings\naccount   include     system-account\n\n# Set default environment variables for the service user\nsession   required    pam_env.so\n\n# include system session defaults\nsession   include     system-session\n\n# End /etc/pam.d/sudo\nEOF\nchmod 644 /etc/pam.d/sudo"
     ],
     "package": [
