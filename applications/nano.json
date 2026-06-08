@@ -6,14 +6,14 @@
   "dependencies": {},
   "build": {
     "user": [
-      "./configure --prefix=/usr     \\\n            --sysconfdir=/etc \\\n            --enable-utf8     \\\n            --docdir=/usr/share/doc/nano-8.7.1",
+      "./configure --prefix=/usr     \\\n            --sysconfdir=/etc \\\n            --enable-utf8",
       "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -v -m644 doc/{nano.html,sample.nanorc} $DESTDIR/usr/share/doc/nano-8.7.1"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "postlfs/nano.html",
   "category": "system",

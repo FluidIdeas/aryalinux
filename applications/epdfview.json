@@ -10,17 +10,17 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr           \\\n            --buildtype=release     \\\n            -D enable-printing=true \\\n            ..",
-      "ninja",
-      "gtk-update-icon-cache -qtf /usr/share/icons/hicolor",
-      "update-desktop-database -q"
+      "meson setup build --prefix=/usr           \\\n            --buildtype=release     \\\n            -D enable-printing=true \\\n            .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [
+    "gtk-update-icon-cache -qtf /usr/share/icons/hicolor",
+    "update-desktop-database -q"
+  ],
   "meta": false,
   "book": "pst/epdfview.html",
   "category": "printing",

@@ -3,6 +3,9 @@
   "version": "0",
   "description": "Sets up a Git daemon for serving repositories over the network.",
   "url": "",
+  "urls": [
+    "https://www.linuxfromscratch.org/blfs/downloads/13.0-systemd/blfs-systemd-units-20251204.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "git",
@@ -10,33 +13,29 @@
     ]
   },
   "build": {
-    "user": [
-      "echo -n \"no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty \" >> /home/git/.ssh/authorized_keys",
-      "cat <user-ssh-key> >> /home/git/.ssh/authorized_keys",
-      "git config --system init.defaultBranch trunk",
-      "cat > ~/.gitconfig <<EOF\n[user]\n        name = <users-name>\n        email = <users-email-address>\nEOF",
-      "mkdir myproject\ncd myproject\ngit init --initial-branch=trunk\ngit remote add origin git@gitserver:/srv/git/project1.git\ncat >README <<EOF\nThis is the README file\nEOF\ngit add README\ngit commit -m 'Initial creation of README'\ngit push --set-upstream origin trunk",
-      "git push",
-      "git clone git@gitserver:/srv/git/project1.git\ncd project1\nvi README\ngit commit -am 'Fix for README file'\ngit push",
-      "ln -svf /srv/git/project1.git /home/git/",
-      "git clone git@gitserver:project1.git",
-      "git clone git://gitserver/project1.git",
-      "groupadd -g 58 git",
-      "useradd -c \"git Owner\" -d /home/git -m -g git -s /usr/bin/git-shell -u 58 git",
-      "sed -i '/^git:/s/^git:[^:]:/git:NP:/' /etc/shadow",
-      "echo \"/usr/bin/git-shell\" >> /etc/shells",
-      "cd /srv/git/project1.git",
-      "git init --bare",
-      "chown -R git:git .",
-      "touch /srv/git/project1.git/git-daemon-export-ok"
-    ],
+    "user": [],
     "package": [
-      "install -o git -g git -dm0700 /home/git/.ssh",
-      "install -o git -g git -m0600 /dev/null /home/git/.ssh/authorized_keys",
-      "install -o git -g git -m755 -d /srv/git/project1.git",
-      "make install-git-daemon DESTDIR=$DESTDIR"
+      "tar -xf ../blfs-systemd-units-20251204.tar.xz",
+      "(cd blfs-systemd-units-20251204 && make install-git-daemon DESTDIR=$DESTDIR)",
+      "install -d -m700 $DESTDIR/home/git/.ssh",
+      "install -m600 /dev/null $DESTDIR/home/git/.ssh/authorized_keys",
+      "install -d -m755 $DESTDIR/srv/git/project1.git"
     ]
   },
+  "post_install": [
+    "getent group git >/dev/null || groupadd -g 58 git",
+    "id -u git >/dev/null 2>&1 || useradd -c \"git Owner\" -d /home/git -m -g git -s /usr/bin/git-shell -u 58 git",
+    "sed -i '/^git:/s/^git:[^:]:/git:NP:/' /etc/shadow",
+    "grep -q '^/usr/bin/git-shell$' /etc/shells || echo \"/usr/bin/git-shell\" >> /etc/shells",
+    "git config --system init.defaultBranch trunk",
+    "chown -R git:git /home/git /srv/git",
+    "chmod 700 /home/git/.ssh",
+    "chmod 600 /home/git/.ssh/authorized_keys",
+    "(cd /srv/git/project1.git && git init --bare && chown -R git:git .)",
+    "touch /srv/git/project1.git/git-daemon-export-ok",
+    "chown git:git /srv/git/project1.git/git-daemon-export-ok",
+    "systemctl enable git-daemon"
+  ],
   "meta": false,
   "book": "general/gitserver.html",
   "category": "programming",

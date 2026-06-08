@@ -8,19 +8,22 @@
     "user": [
       "./configure --prefix=/usr        \\\n            --sysconfdir=/etc    \\\n            --localstatedir=/var",
       "make",
-      "groupadd -g 51 stunnel",
-      "useradd -c \"stunnel Daemon\" -d /var/lib/stunnel \\\n        -g stunnel -s /bin/false -u 51 stunnel",
-      "make docdir=/usr/share/doc/stunnel-5.77 install",
-      "make cert",
-      "chown stunnel:stunnel /var/lib/stunnel",
-      "cat > /etc/stunnel/stunnel.conf << \"EOF\"\n; File: /etc/stunnel/stunnel.conf\n\n; Note: The pid and output locations are relative to the chroot location.\n\npid    = /run/stunnel.pid\nchroot = /var/lib/stunnel\nclient = no\nsetuid = stunnel\nsetgid = stunnel\ncert   = /etc/stunnel/stunnel.pem\n\n;debug = 7\n;output = stunnel.log\n\n;[https]\n;accept  = 443\n;connect = 80\n;; \"TIMEOUTclose = 0\" is a workaround for a design flaw in Microsoft SSL\n;; Microsoft implementations do not use SSL close-notify alert and thus\n;; they are vulnerable to truncation attacks\n;TIMEOUTclose = 0\n\nEOF",
-      "systemctl enable stunnel"
+      "make cert"
     ],
     "package": [
-      "install -v -m644 tools/stunnel.service $DESTDIR/usr$DESTDIR/lib/systemd/system",
-      "install -v -m750 -o stunnel -g stunnel -d $DESTDIR/var$DESTDIR/lib/stunnel/run"
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m644 tools/stunnel.service $DESTDIR/usr/lib/systemd/system",
+      "install -v -dm750 $DESTDIR/var/lib/stunnel $DESTDIR/etc/stunnel",
+      "install -v -m600 stunnel.pem $DESTDIR/etc/stunnel/stunnel.pem",
+      "cat > $DESTDIR/etc/stunnel/stunnel.conf << \"EOF\"\n; File: /etc/stunnel/stunnel.conf\n\n; Note: The pid and output locations are relative to the chroot location.\n\npid    = /run/stunnel.pid\nchroot = /var/lib/stunnel\nclient = no\nsetuid = stunnel\nsetgid = stunnel\ncert   = /etc/stunnel/stunnel.pem\n\n;debug = 7\n;output = stunnel.log\n\n;[https]\n;accept  = 443\n;connect = 80\n;; \"TIMEOUTclose = 0\" is a workaround for a design flaw in Microsoft SSL\n;; Microsoft implementations do not use SSL close-notify alert and thus\n;; they are vulnerable to truncation attacks\n;TIMEOUTclose = 0\n\nEOF"
     ]
   },
+  "post_install": [
+    "getent group stunnel >/dev/null || groupadd -g 51 stunnel",
+    "id -u stunnel >/dev/null 2>&1 || useradd -c \"stunnel Daemon\" -d /var/lib/stunnel \\\n        -g stunnel -s /bin/false -u 51 stunnel",
+    "chown stunnel:stunnel /var/lib/stunnel",
+    "systemctl enable stunnel"
+  ],
   "meta": false,
   "book": "postlfs/stunnel.html",
   "category": "security",

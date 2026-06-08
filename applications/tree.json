@@ -12,6 +12,7 @@
       "make PREFIX=$DESTDIR/usr MANDIR=$DESTDIR/usr/share/man install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/tree.html",
   "category": "libraries",

@@ -12,6 +12,7 @@
       "make binprefix=$DESTDIR/usr install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/hdparm.html",
   "category": "libraries",

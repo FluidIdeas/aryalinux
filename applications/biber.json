@@ -34,6 +34,7 @@
       "./Build install --destdir $DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "pst/biber.html",
   "category": "printing",

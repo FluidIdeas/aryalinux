@@ -11,16 +11,16 @@
   "build": {
     "user": [
       "./configure --prefix=/usr",
-      "make",
-      "cat > ~/.fetchmailrc << \"EOF\"\n\n# The logfile needs to exist when fetchmail is invoked, otherwise it will\n# dump the details to the screen. As with all logs, you will need to rotate\n# or clear it from time to time.\nset logfile fetchmail.log\nset no bouncemail\n# You probably want to set your local username as the postmaster\nset postmaster <username>\n\npoll SERVERNAME :\n    user <isp_username> pass <password>;\n    mda \"/usr/bin/procmail -f %F -d %T\";\nEOF\n\ntouch ~/fetchmail.log",
-      "chmod -v 0600 ~/.fetchmailrc",
-      "useradd -c \"Fetchmail User\" -d /dev/null -g nogroup \\\n        -s /bin/false -u 38 fetchmail",
-      "chown -v fetchmail:nogroup /usr/bin/fetchmail"
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [
+    "id -u fetchmail >/dev/null 2>&1 || useradd -c \"Fetchmail User\" -d /dev/null -g nogroup -s /bin/false -u 38 fetchmail",
+    "chown fetchmail:nogroup /usr/bin/fetchmail"
+  ],
   "meta": false,
   "book": "basicnet/fetchmail.html",
   "category": "networking",

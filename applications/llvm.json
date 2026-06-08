@@ -20,20 +20,16 @@
       "mv projects/compiler-rt-21.1.8.src projects/compiler-rt",
       "grep -rl '#!.*python' | xargs sed -i '1s/python$/python3/'",
       "sed 's/utility/tool/' -i utils/FileCheck/CMakeLists.txt",
-      "mkdir -v build",
-      "cd       build",
-      "CC=gcc CXX=g++                               \\\ncmake -D CMAKE_INSTALL_PREFIX=/usr           \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON         \\\n      -D LLVM_ENABLE_FFI=ON                  \\\n      -D CMAKE_BUILD_TYPE=Release            \\\n      -D LLVM_BUILD_LLVM_DYLIB=ON            \\\n      -D LLVM_LINK_LLVM_DYLIB=ON             \\\n      -D LLVM_ENABLE_RTTI=ON                 \\\n      -D LLVM_TARGETS_TO_BUILD=\"host;AMDGPU\" \\\n      -D LLVM_BINUTILS_INCDIR=/usr/include   \\\n      -D LLVM_INCLUDE_BENCHMARKS=OFF         \\\n      -D CLANG_DEFAULT_PIE_ON_LINUX=ON       \\\n      -D CLANG_CONFIG_FILE_SYSTEM_DIR=/etc/clang \\\n      -W no-dev -G Ninja ..",
-      "ninja",
-      "sed -e 's/config.has_no_default_config_flag/True/' \\\n    -e 's/\"-fuse-ld=gold\"//'                       \\\n    -i ../projects/compiler-rt/test/lit.common.cfg.py",
-      "systemctl   --user start dbus",
-      "systemd-run --user --pty -d -G -p LimitCORE=0 ninja check-all",
-      "mkdir -pv /etc/clang",
-      "for i in clang clang++; do\n  echo -fstack-protector-strong > /etc/clang/$i.cfg\ndone"
+      "CC=gcc CXX=g++                               \\\ncmake -B build -D CMAKE_INSTALL_PREFIX=/usr           \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON         \\\n      -D LLVM_ENABLE_FFI=ON                  \\\n      -D CMAKE_BUILD_TYPE=Release            \\\n      -D LLVM_BUILD_LLVM_DYLIB=ON            \\\n      -D LLVM_LINK_LLVM_DYLIB=ON             \\\n      -D LLVM_ENABLE_RTTI=ON                 \\\n      -D LLVM_TARGETS_TO_BUILD=\"host;AMDGPU\" \\\n      -D LLVM_BINUTILS_INCDIR=/usr/include   \\\n      -D LLVM_INCLUDE_BENCHMARKS=OFF         \\\n      -D CLANG_DEFAULT_PIE_ON_LINUX=ON       \\\n      -D CLANG_CONFIG_FILE_SYSTEM_DIR=/etc/clang \\\n      -W no-dev -G Ninja .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "mkdir -pv $DESTDIR/etc/clang",
+      "for i in clang clang++; do\n  echo -fstack-protector-strong > $DESTDIR/etc/clang/$i.cfg\ndone"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/llvm.html",
   "category": "programming",

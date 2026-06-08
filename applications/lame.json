@@ -11,9 +11,10 @@
       "make"
     ],
     "package": [
-      "make pkghtmldir=$DESTDIR/usr/share/doc/lame-3.100 install DESTDIR=$DESTDIR"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "multimedia/lame.html",
   "category": "multimedia",

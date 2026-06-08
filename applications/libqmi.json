@@ -12,15 +12,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup ..                 \\\n      --prefix=/usr            \\\n      --buildtype=release      \\\n      -D bash_completion=false \\\n      -D qrtr=false            \\\n      -D man=false",
-      "ninja"
+      "meson setup build --prefix=/usr            \\\n      --buildtype=release      \\\n      -D bash_completion=false \\\n      -D qrtr=false            \\\n      -D man=false .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/libqmi.html",
   "category": "libraries",

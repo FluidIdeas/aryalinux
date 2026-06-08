@@ -18,6 +18,7 @@
       "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user doxyqml"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/python-modules.html",
   "category": "python-module",

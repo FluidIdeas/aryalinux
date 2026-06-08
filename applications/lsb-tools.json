@@ -6,14 +6,15 @@
   "dependencies": {},
   "build": {
     "user": [
-      "make",
-      "rm /usr/sbin/lsbinstall",
-      "rm /usr/sbin/{install,remove}_initd"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make install DESTDIR=$DESTDIR",
+      "rm $DESTDIR/usr/sbin/lsbinstall",
+      "rm $DESTDIR/usr/sbin/{install,remove}_initd"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/lsb-tools.html",
   "category": "libraries",

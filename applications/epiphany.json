@@ -13,17 +13,16 @@
   },
   "build": {
     "user": [
-      "rm -rf /usr/lib/epiphany",
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr --buildtype=release ..",
-      "ninja",
-      "glib-compile-schemas /usr/share/glib-2.0/schemas"
+      "meson setup build --prefix=/usr --buildtype=release .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [
+    "glib-compile-schemas /usr/share/glib-2.0/schemas"
+  ],
   "meta": false,
   "book": "xsoft/epiphany.html",
   "category": "applications",

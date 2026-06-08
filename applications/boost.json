@@ -19,6 +19,7 @@
       "./b2 install threading=multi link=shared --prefix=$DESTDIR/usr"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/boost.html",
   "category": "libraries",

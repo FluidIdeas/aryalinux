@@ -8,20 +8,15 @@
     "user": [
       "patch -Np1 -i ../heirloom-mailx-12.5-fixes-1.patch",
       "sed 's@<openssl@<openssl-1.0/openssl@' \\\n    -i openssl.c fio.c makeconfig",
-      "make -j1 LDFLAGS+=\"-L /usr/lib/openssl/\" \\\n         SENDMAIL=/usr/sbin/sendmail",
-      "echo \"set PAGER=<more|less>\" >> /etc/nail.rc",
-      "echo \"set PAGER=<more|less>\" >> ~/.mailrc",
-      "echo \"set EDITOR=<vim|nano|...>\" >> /etc/nail.rc",
-      "echo \"set MAILDIR=Maildir\" >> /etc/nail.rc",
-      "make PREFIX=/usr UCBINSTALL=/usr/bin/install install",
-      "ln -v -sf mailx /usr/bin/mail",
-      "ln -v -sf mailx /usr/bin/nail"
+      "make -j1 LDFLAGS+=\"-L /usr/lib/openssl/\" \\\n         SENDMAIL=/usr/sbin/sendmail"
     ],
     "package": [
-      "install -v -m755 -d     $DESTDIR/usr/share/doc/heirloom-mailx-12.5",
-      "install -v -m644 README $DESTDIR/usr/share/doc/heirloom-mailx-12.5"
+      "make PREFIX=/usr UCBINSTALL=/usr/bin/install DESTDIR=$DESTDIR install",
+      "ln -v -sf mailx $DESTDIR/usr/bin/mail",
+      "ln -v -sf mailx $DESTDIR/usr/bin/nail"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "basicnet/mailx.html",
   "category": "networking",

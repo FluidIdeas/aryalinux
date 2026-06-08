@@ -11,15 +11,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr           \\\n            --buildtype=release     \\\n            -D enable-gtk-doc=false \\\n            -D soup2=false          \\\n            ..",
-      "ninja"
+      "meson setup build --prefix=/usr           \\\n            --buildtype=release     \\\n            -D enable-gtk-doc=false \\\n            -D soup2=false          \\\n            .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "gnome/geocode-glib.html",
   "category": "desktop-gnome",

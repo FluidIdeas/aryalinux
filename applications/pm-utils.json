@@ -7,18 +7,19 @@
   "build": {
     "user": [
       "patch -Np1 -i ../pm-utils-1.4.1-bugfixes-1.patch",
-      "./configure --prefix=/usr     \\\n            --sysconfdir=/etc \\\n            --docdir=/usr/share/doc/pm-utils-1.4.1",
-      "make",
-      "ln -sv pm-action.8 /usr/share/man/man8/pm-suspend.8",
-      "ln -sv pm-action.8 /usr/share/man/man8/pm-hibernate.8",
-      "ln -sv pm-action.8 /usr/share/man/man8/pm-suspend-hybrid.8"
+      "./configure --prefix=/usr     \\\n            --sysconfdir=/etc",
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
       "install -v -m644 man/*.1 $DESTDIR/usr/share/man/man1",
-      "install -v -m644 man/*.8 $DESTDIR/usr/share/man/man8"
+      "install -v -m644 man/*.8 $DESTDIR/usr/share/man/man8",
+      "ln -svf pm-action.8 $DESTDIR/usr/share/man/man8/pm-suspend.8",
+      "ln -svf pm-action.8 $DESTDIR/usr/share/man/man8/pm-hibernate.8",
+      "ln -svf pm-action.8 $DESTDIR/usr/share/man/man8/pm-suspend-hybrid.8"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/pm-utils.html",
   "category": "libraries",

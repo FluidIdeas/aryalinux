@@ -3,6 +3,9 @@
   "version": "3.12.3",
   "description": "Brasero is an application used to burn CDs and DVDs on the GNOME Desktop. It is designed to be as simple as possible and has some unique features that enable users to create their discs easily and quickly.",
   "url": "https://download.gnome.org/sources/brasero/3.12/brasero-3.12.3.tar.xz",
+  "patches": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/brasero-3.12.3-upstream_fixes-1.patch"
+  ],
   "dependencies": {
     "required": [
       "gst10-plugins-base",
@@ -16,7 +19,7 @@
   },
   "build": {
     "user": [
-      "patch -Np1 -i ../brasero-3.12.3-upstream_fixes-1.patch",
+      "patch -Np1 -i ../../brasero-3.12.3-upstream_fixes-1.patch",
       "./configure --prefix=/usr                \\\n            --enable-compile-warnings=no \\\n            --enable-cxx-warnings=no     \\\n            --disable-nautilus",
       "make"
     ],
@@ -24,6 +27,7 @@
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "gnome/brasero.html",
   "category": "desktop-gnome",

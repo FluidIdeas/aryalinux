@@ -7,15 +7,13 @@
   "build": {
     "user": [
       "./configure --prefix=/usr --disable-static",
-      "make",
-      "make html",
-      "mkdir                   /usr/share/doc/gsl-2.8",
-      "cp -R doc/_build/html/* /usr/share/doc/gsl-2.8"
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/gsl.html",
   "category": "libraries",

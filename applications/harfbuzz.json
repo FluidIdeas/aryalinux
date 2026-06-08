@@ -14,15 +14,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup ..             \\\n      --prefix=/usr        \\\n      --buildtype=release  \\\n      -D graphite2=enabled",
-      "ninja"
+      "meson setup build --prefix=/usr --buildtype=release -D graphite2=enabled .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/harfbuzz.html",
   "category": "graphics",

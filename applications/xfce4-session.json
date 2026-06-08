@@ -16,16 +16,17 @@
   "build": {
     "user": [
       "./configure --prefix=/usr       \\\n            --sysconfdir=/etc   \\\n            --disable-legacy-sm",
-      "make",
-      "cat > ~/.xinitrc << \"EOF\"\ndbus-launch --exit-with-x11 startxfce4\nEOF\n\nstartx",
-      "startx &> ~/.x-session-errors",
-      "update-desktop-database",
-      "update-mime-database /usr/share/mime"
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [
+    "gtk-update-icon-cache -qtf /usr/share/icons/hicolor",
+    "update-desktop-database -q",
+    "update-mime-database /usr/share/mime"
+  ],
   "meta": false,
   "book": "xfce/xfce4-session.html",
   "category": "desktop-xfce",

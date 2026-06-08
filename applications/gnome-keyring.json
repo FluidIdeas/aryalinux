@@ -13,15 +13,16 @@
   "build": {
     "user": [
       "sed -i 's:\"/desktop:\"/org:' schema/*.xml",
-      "mkdir build-gkr",
-      "cd    build-gkr",
-      "meson setup --prefix=/usr --buildtype=release ..",
-      "ninja"
+      "meson setup build-gkr --prefix=/usr --buildtype=release .",
+      "ninja -C build-gkr"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build-gkr install"
     ]
   },
+  "post_install": [
+    "glib-compile-schemas /usr/share/glib-2.0/schemas"
+  ],
   "meta": false,
   "book": "gnome/gnome-keyring.html",
   "category": "desktop-gnome",

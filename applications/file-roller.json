@@ -12,19 +12,19 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr       \\\n            --buildtype=release \\\n            -D packagekit=false \\\n            ..",
-      "ninja",
-      "gtk-update-icon-cache -qtf /usr/share/icons/hicolor",
-      "update-desktop-database -q",
-      "chmod -v 0755 /usr/libexec/file-roller/isoinfo.sh",
-      "glib-compile-schemas /usr/share/glib-2.0/schemas"
+      "meson setup build --prefix=/usr       \\\n            --buildtype=release \\\n            -D packagekit=false \\\n            .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [
+    "gtk-update-icon-cache -qtf /usr/share/icons/hicolor",
+    "update-desktop-database -q",
+    "chmod -v 0755 /usr/libexec/file-roller/isoinfo.sh",
+    "glib-compile-schemas /usr/share/glib-2.0/schemas"
+  ],
   "meta": false,
   "book": "gnome/file-roller.html",
   "category": "desktop-gnome",

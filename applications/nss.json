@@ -12,23 +12,13 @@
   "build": {
     "user": [
       "patch -Np1 -i ../nss-standalone-1.patch",
-      "cd nss",
-      "make BUILD_OPT=1                      \\\n  NSPR_INCLUDE_DIR=/usr/include/nspr  \\\n  USE_SYSTEM_ZLIB=1                   \\\n  ZLIB_LIBS=-lz                       \\\n  NSS_ENABLE_WERROR=0                 \\\n  NSS_USE_SYSTEM_SQLITE=1             \\\n  $([ $(uname -m) = x86_64 ]",
-      "echo USE_64=1)",
-      "cd tests",
-      "HOST=localhost DOMSUF=localdomain ./all.sh\ncd ../",
-      "cd ../dist",
-      "cp -v -RL {public,private}/nss/*              /usr/include/nss",
-      "ln -sfv ./pkcs11/p11-kit-trust.so /usr/lib/libnssckbi.so"
+      "(cd nss && make BUILD_OPT=1                      \\\n  NSPR_INCLUDE_DIR=/usr/include/nspr  \\\n  USE_SYSTEM_ZLIB=1                   \\\n  ZLIB_LIBS=-lz                       \\\n  NSS_ENABLE_WERROR=0                 \\\n  NSS_USE_SYSTEM_SQLITE=1             \\\n  $([ $(uname -m) = x86_64 ] && echo USE_64=1))"
     ],
     "package": [
-      "install -v -m755 Linux*$DESTDIR/lib/*.so              $DESTDIR/usr$DESTDIR/lib",
-      "install -v -m644 Linux*$DESTDIR/lib/{*.chk,libcrmf.a} $DESTDIR/usr$DESTDIR/lib",
-      "install -v -m755 -d                           $DESTDIR/usr/include/nss",
-      "install -v -m755 Linux*/bin/{certutil,nss-config,pk12util} $DESTDIR/usr/bin",
-      "install -v -m644 Linux*$DESTDIR/lib/pkgconfig/nss.pc  $DESTDIR/usr$DESTDIR/lib/pkgconfig"
+      "(cd dist && install -v -m755 Linux*/lib/*.so              $DESTDIR/usr/lib && \\\n install -v -m644 Linux*/lib/{*.chk,libcrmf.a} $DESTDIR/usr/lib && \\\n install -v -m755 -d                           $DESTDIR/usr/include/nss && \\\n cp -v -RL {public,private}/nss/*              $DESTDIR/usr/include/nss && \\\n install -v -m755 Linux*/bin/{certutil,nss-config,pk12util} $DESTDIR/usr/bin && \\\n install -v -m644 Linux*/lib/pkgconfig/nss.pc  $DESTDIR/usr/lib/pkgconfig && \\\n ln -sfv ./pkcs11/p11-kit-trust.so $DESTDIR/usr/lib/libnssckbi.so)"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "postlfs/nss.html",
   "category": "security",

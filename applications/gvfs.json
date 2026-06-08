@@ -16,16 +16,16 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup               \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D onedrive=false   \\\n      -D fuse=false       \\\n      -D gphoto2=false    \\\n      -D afc=false        \\\n      -D bluray=false     \\\n      -D nfs=false        \\\n      -D mtp=false        \\\n      -D smb=false        \\\n      -D dnssd=false      \\\n      -D goa=false        \\\n      -D google=false     ..",
-      "ninja",
-      "glib-compile-schemas /usr/share/glib-2.0/schemas"
+      "meson setup build --prefix=/usr --buildtype=release \\\n      -D onedrive=false -D fuse=false -D gphoto2=false \\\n      -D afc=false -D bluray=false -D nfs=false \\\n      -D mtp=false -D smb=false -D dnssd=false \\\n      -D goa=false -D google=false .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [
+    "glib-compile-schemas /usr/share/glib-2.0/schemas"
+  ],
   "meta": false,
   "book": "gnome/gvfs.html",
   "category": "desktop-gnome",

@@ -14,7 +14,7 @@
       "make CC=\"gcc -std=gnu17\""
     ],
     "package": [
-      "make docsdir=$DESTDIR/usr/share/doc/xine-ui-0.99.14 install DESTDIR=$DESTDIR"
+      "make docsdir=/usr/share/doc/xine-ui-0.99.14 install DESTDIR=$DESTDIR"
     ]
   },
   "post_install": [

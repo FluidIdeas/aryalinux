@@ -21,15 +21,14 @@
       "mkdir app && cd app && grep -v '^#' ../app-7.md5 | awk '{print $2}' | wget -i- -c -B https://www.x.org/pub/individual/app/ && md5sum -c ../app-7.md5"
     ],
     "user": [
-      "cd app",
-      "for package in $(grep -v '^#' ../app-7.md5 | awk '{print $2}'); do\n  packagedir=${package%.tar.?z*}\n  tar -xf $package\n  pushd $packagedir\n    ./configure $XORG_CONFIG\n    make\n  popd\ndone"
+      "cd app && for package in $(grep -v '^#' ../app-7.md5 | awk '{print $2}'); do\n  packagedir=${package%.tar.?z*}\n  tar -xf $package\n  pushd $packagedir\n    ./configure $XORG_CONFIG\n    make\n  popd\ndone"
     ],
     "package": [
-      "cd app",
-      "for package in $(grep -v '^#' ../app-7.md5 | awk '{print $2}'); do\n  packagedir=${package%.tar.?z*}\n  pushd $packagedir\n    make install DESTDIR=$DESTDIR\n  popd\n  rm -rf $packagedir\ndone",
+      "cd app && for package in $(grep -v '^#' ../app-7.md5 | awk '{print $2}'); do\n  packagedir=${package%.tar.?z*}\n  pushd $packagedir\n    make install DESTDIR=$DESTDIR\n  popd\n  rm -rf $packagedir\ndone",
       "rm -f $DESTDIR/usr/bin/xkeystone"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/x7app.html",
   "category": "x11",

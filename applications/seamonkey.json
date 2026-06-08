@@ -37,6 +37,7 @@
       "ln -sfv /usr/lib/seamonkey/chrome/icons/default/default128.png \\\n        $DESTDIR/usr/share/pixmaps/seamonkey.png"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "xsoft/seamonkey.html",
   "category": "applications",

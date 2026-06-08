@@ -15,6 +15,7 @@
     ]
   },
   "build": {},
+  "post_install": [],
   "meta": true,
   "book": "multimedia/alsa.html",
   "category": "multimedia"

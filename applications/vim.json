@@ -14,14 +14,14 @@
       "echo '#define SYS_VIMRC_FILE  \"/etc/vimrc\"' >>  src/feature.h",
       "echo '#define SYS_GVIMRC_FILE \"/etc/gvimrc\"' >> src/feature.h",
       "./configure --prefix=/usr        \\\n            --with-features=huge \\\n            --enable-gui=gtk3    \\\n            --with-tlib=ncursesw",
-      "make",
-      "rsync -avzcP --exclude=\"/dos/\" --exclude=\"/spell/\" \\\n    ftp.nluug.nl::Vim/runtime/ ./runtime/",
-      "ln -snfv ../vim/vim92/doc /usr/share/doc/vim-9.2.0078"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make install DESTDIR=$DESTDIR",
+      "ln -snfv ../vim/vim92/doc $DESTDIR/usr/share/doc/vim-9.2.0078"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "postlfs/vim.html",
   "category": "system",

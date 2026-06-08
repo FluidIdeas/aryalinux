@@ -13,11 +13,12 @@
       "make DEBUG=-DNDEBUG     \\\n     INSTALL_USER=root  \\\n     INSTALL_GROUP=root \\\n     LOCAL_CONFIGURE_OPTIONS=\"--localstatedir=/var\""
     ],
     "package": [
-      "make PKG_DOC_DIR=$DESTDIR/usr/share/doc/xfsprogs-6.18.0 install DESTDIR=$DESTDIR",
-      "make PKG_DOC_DIR=$DESTDIR/usr/share/doc/xfsprogs-6.18.0 install-dev DESTDIR=$DESTDIR",
+      "make install DESTDIR=$DESTDIR",
+      "make install-dev DESTDIR=$DESTDIR",
       "rm -rfv $DESTDIR/usr/lib/libhandle.{a,la}"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "postlfs/xfsprogs.html",
   "category": "system",

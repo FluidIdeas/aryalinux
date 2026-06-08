@@ -15,6 +15,7 @@
       "rm -fv $DESTDIR/usr/share/man/man1/traceroute.1"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "basicnet/traceroute.html",
   "category": "networking",

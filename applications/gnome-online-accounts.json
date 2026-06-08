@@ -12,18 +12,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup                                            \\\n      --prefix=/usr                                    \\\n      --buildtype=release                              \\\n      -D documentation=false                           \\\n      -D kerberos=false                                \\\n      -D google_client_secret=5ntt6GbbkjnTVXx-MSxbmx5e \\\n      -D google_client_id=595013732528-llk8trb03f0ldpqq6nprjp1s79596646.apps.googleusercontent.com \\\n      ..",
-      "ninja",
-      "meson configure -D documentation=true",
-      "sed \"s/project_name()/& + '-' + meson.project_version()/\" \\\n    -i ../doc/meson.build",
-      "ninja"
+      "meson setup build                                            \\\n      --prefix=/usr                                    \\\n      --buildtype=release                              \\\n      -D documentation=false                           \\\n      -D kerberos=false                                \\\n      -D google_client_secret=5ntt6GbbkjnTVXx-MSxbmx5e \\\n      -D google_client_id=595013732528-llk8trb03f0ldpqq6nprjp1s79596646.apps.googleusercontent.com \\\n      .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "gnome/gnome-online-accounts.html",
   "category": "desktop-gnome",

@@ -14,10 +14,10 @@
       "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -v -m644 doc/Vorbis* $DESTDIR/usr/share/doc$DESTDIR/libvorbis-1.3.7"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "multimedia/libvorbis.html",
   "category": "multimedia",

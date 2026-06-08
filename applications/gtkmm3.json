@@ -11,16 +11,14 @@
   },
   "build": {
     "user": [
-      "mkdir gtkmm3-build",
-      "cd    gtkmm3-build",
-      "meson setup --prefix=/usr --buildtype=release ..",
-      "ninja",
-      "mv -v /usr/share/doc/gtkmm-3.0 /usr/share/doc/gtkmm-3.24.10"
+      "meson setup gtkmm3-build --prefix=/usr --buildtype=release .",
+      "ninja -C gtkmm3-build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C gtkmm3-build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/gtkmm3.html",
   "category": "x11",

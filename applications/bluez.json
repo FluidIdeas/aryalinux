@@ -14,19 +14,21 @@
     "user": [
       "sed -i '4967,4968d' src/adapter.c",
       "./configure --prefix=/usr         \\\n            --sysconfdir=/etc     \\\n            --localstatedir=/var  \\\n            --enable-library",
-      "make",
-      "ln -svf ../libexec/bluetooth/bluetoothd /usr/sbin",
-      "cat > /etc/bluetooth/rfcomm.conf << \"EOF\"\n# Start rfcomm.conf\n# Set up the RFCOMM configuration of the Bluetooth subsystem in the Linux kernel.\n# Use one line per command\n# See the rfcomm man page for options\n\n\n# End of rfcomm.conf\nEOF\n          cat > /etc/bluetooth/uart.conf << \"EOF\"\n# Start uart.conf\n# Attach serial devices via UART HCI to BlueZ stack\n# Use one line per device\n# See the hciattach man page for options\n\n# End of uart.conf\nEOF\n        \n        \n          \n             Systemd Bluez Services\n          \n          \n            To start the bluetoothd daemon at boot,\n            enable the previously installed systemd unit by running the\n            following command as the root\n            user:\n          \n          systemctl enable bluetooth",
-      "systemctl enable --global obex"
+      "make ICAL_LIBS=\"-lical -licalvcal\""
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
-      "install -v -dm555 $DESTDIR/etc/bluetooth",
-      "install -v -m644 src/main.conf $DESTDIR/etc/bluetooth/main.conf",
-      "install -v -dm755 $DESTDIR/usr/share/doc/bluez-5.86",
-      "install -v -m644 doc/*.txt $DESTDIR/usr/share/doc/bluez-5.86"
+      "ln -sfv ../libexec/bluetooth/bluetoothd $DESTDIR/usr/sbin/bluetoothd",
+      "install -d $DESTDIR/etc/bluetooth",
+      "install -m644 src/main.conf $DESTDIR/etc/bluetooth/main.conf",
+      "cat > $DESTDIR/etc/bluetooth/rfcomm.conf << \"EOF\"\n# Start rfcomm.conf\n# Set up the RFCOMM configuration of the Bluetooth subsystem in the Linux kernel.\n# Use one line per command\n# See the rfcomm man page for options\n\n\n# End of rfcomm.conf\nEOF",
+      "cat > $DESTDIR/etc/bluetooth/uart.conf << \"EOF\"\n# Start uart.conf\n# Attach serial devices via UART HCI to BlueZ stack\n# Use one line per device\n# See the hciattach man page for options\n\n# End of uart.conf\nEOF"
     ]
   },
+  "post_install": [
+    "systemctl enable bluetooth",
+    "systemctl enable --global obex"
+  ],
   "meta": false,
   "book": "general/bluez.html",
   "category": "libraries",

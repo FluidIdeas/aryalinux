@@ -10,15 +10,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "cmake -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -G Ninja ..",
-      "ninja"
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -G Ninja .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/fast_float.html",
   "category": "libraries",

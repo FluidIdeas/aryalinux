@@ -8,14 +8,13 @@
     "user": [
       "sh autogen.sh",
       "./configure --prefix=/usr --disable-static",
-      "make",
-      "make man -C docs"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -Dm644 docs/build/man$DESTDIR/libuv.1 $DESTDIR/usr/share/man/man1"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/libuv.html",
   "category": "libraries",

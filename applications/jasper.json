@@ -11,15 +11,14 @@
   },
   "build": {
     "user": [
-      "mkdir BUILD",
-      "cd    BUILD",
-      "cmake -D CMAKE_INSTALL_PREFIX=/usr    \\\n      -D CMAKE_BUILD_TYPE=Release     \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON  \\\n      -D JAS_ENABLE_DOC=NO            \\\n      -D ALLOW_IN_SOURCE_BUILD=YES    \\\n      -D CMAKE_INSTALL_DOCDIR=/usr/share/doc/jasper-4.2.8 \\\n      ..",
-      "make"
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr    \\\n      -D CMAKE_BUILD_TYPE=Release     \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON  \\\n      -D JAS_ENABLE_DOC=NO            \\\n      -D ALLOW_IN_SOURCE_BUILD=YES    \\\n      .",
+      "make -C build"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make -C build install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/jasper.html",
   "category": "graphics",

@@ -15,11 +15,10 @@
       "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -v -m755 -d            $DESTDIR/usr/share/doc/imlib2-1.12.6/html",
-      "install -v -m644    doc/html/* $DESTDIR/usr/share/doc/imlib2-1.12.6/html"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/imlib2.html",
   "category": "x11",

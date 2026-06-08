@@ -11,15 +11,14 @@
   },
   "build": {
     "user": [
-      "mkdir bld",
-      "cd    bld",
-      "meson setup ..             \\\n      --prefix=/usr        \\\n      --buildtype=release  \\\n      -D build-tests=true  \\\n      -D boost-shared=true",
-      "ninja"
+      "meson setup bld             \\\n      --prefix=/usr        \\\n      --buildtype=release  \\\n      -D build-tests=true  \\\n      -D boost-shared=true \\\n      .",
+      "ninja -C bld"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C bld install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/cairomm-1.0.html",
   "category": "x11",

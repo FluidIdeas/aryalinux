@@ -16,7 +16,7 @@
   },
   "build": {
     "pre": [
-      "patch -Np1 -i ../docbook-utils-0.6.14-grep_fix-1.patch"
+      "patch -Np1 -i ../../docbook-utils-0.6.14-grep_fix-1.patch"
     ],
     "user": [
       "sed -i 's:/html::' doc/HTML/Makefile.in",
@@ -28,6 +28,7 @@
       "for doctype in html ps dvi man pdf rtf tex texi txt; do\n    ln -svf docbook2$doctype $DESTDIR/usr/bin/db2$doctype\ndone"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "pst/docbook-utils.html",
   "category": "printing",

@@ -7,15 +7,14 @@
   "build": {
     "user": [
       "./configure --prefix=/usr --disable-static",
-      "make",
-      "chmod   -v   755 /usr/lib/lib{hogweed,nettle}.so"
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
-      "install -v -m755 -d $DESTDIR/usr/share/doc/nettle-3.10.2",
-      "install -v -m644 nettle.{html,pdf} $DESTDIR/usr/share/doc/nettle-3.10.2"
+      "chmod -v 755 $DESTDIR/usr/lib/lib{hogweed,nettle}.so"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "postlfs/nettle.html",
   "category": "security",

@@ -3,6 +3,9 @@
   "version": "4.5.1",
   "description": "Audacious is an audio player.",
   "url": "https://distfiles.audacious-media-player.org/audacious-4.5.1.tar.bz2",
+  "urls": [
+    "https://distfiles.audacious-media-player.org/audacious-plugins-4.5.1.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "gtk3",
@@ -12,22 +15,18 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup ..            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D gtk=true         \\\n      -D qt=true          \\\n      -D buildstamp=BLFS  \\\n      -D libarchive=true",
-      "ninja",
+      "meson setup build            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D gtk=true         \\\n      -D qt=true          \\\n      -D buildstamp=BLFS  \\\n      -D libarchive=true  \\\n      .",
+      "ninja -C build",
       "tar -xf ../../audacious-plugins-4.5.1.tar.bz2",
-      "cd audacious-plugins-4.5.1",
-      "mkdir build",
-      "cd    build",
-      "meson setup ..            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D gtk=true         \\\n      -D qt=true          \\\n      -D opus=false       \\\n      -D wavpack=false",
-      "ninja"
+      "meson setup audacious-plugins-4.5.1/build            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D gtk=true         \\\n      -D qt=true          \\\n      -D opus=false       \\\n      -D wavpack=false    \\\n      audacious-plugins-4.5.1",
+      "ninja -C audacious-plugins-4.5.1/build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install",
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "DESTDIR=$DESTDIR ninja -C audacious-plugins-4.5.1/build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "multimedia/audacious.html",
   "category": "multimedia",

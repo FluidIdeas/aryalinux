@@ -18,6 +18,7 @@
       "make PREFIX=$DESTDIR/usr INSTALL_MAN=$DESTDIR/usr/share/man install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "basicnet/wireless_tools.html",
   "category": "networking",

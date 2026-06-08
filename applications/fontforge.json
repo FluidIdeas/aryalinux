@@ -11,16 +11,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "cmake -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -W no-dev ..",
-      "make",
-      "ln -sv fontforge /usr/share/doc/fontforge-20251009"
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -W no-dev .",
+      "cmake --build build"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "cmake --install build --prefix=/usr --DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "xsoft/fontforge.html",
   "category": "applications",

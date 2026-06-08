@@ -12,6 +12,7 @@
       "make NO_ARLIB=1 LIBDIR=$DESTDIR/usr/lib BINDIR=$DESTDIR/usr/bin SBINDIR=$DESTDIR/usr/sbin install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/keyutils.html",
   "category": "libraries",

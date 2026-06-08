@@ -10,13 +10,14 @@
   },
   "build": {
     "user": [
-      "./configure --prefix=/usr                        \\\n            --disable-static                     \\\n            --docdir=/usr/share/doc/potrace-1.16 \\\n            --enable-a4                          \\\n            --enable-metric                      \\\n            --with-libpotrace",
+      "./configure --prefix=/usr                        \\\n            --disable-static                     \\\n            --enable-a4                          \\\n            --enable-metric                      \\\n            --with-libpotrace",
       "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/potrace.html",
   "category": "graphics",

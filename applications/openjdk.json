@@ -30,22 +30,23 @@
       "jtreg/bin/jtreg -jdk:$JT_JAVA -automatic -ignore:quiet -v1 \\\n    test/jdk:tier1 test/langtools:tier1",
       "unset JT_JAVA",
       "export MAKEFLAGS=$MAKEFLAGS_HOLD",
-      "unset  MAKEFLAGS_HOLD",
-      "cp -Rv build/*/images/jdk/* /opt/jdk-21.0.10+6",
-      "chown -R root:root /opt/jdk-21.0.10+6",
-      "for s in 16 24 32 48; do\n  install -vDm644 src/java.desktop/unix/classes/sun/awt/X11/java-icon${s}.png \\\n                  /usr/share/icons/hicolor/${s}x${s}/apps/java.png\ndone",
-      "find /opt/jdk-21.0.10+6 -name *.debuginfo -delete",
-      "ln -v -nsf jdk-21.0.10+6 /opt/jdk",
-      "mkdir -pv /usr/share/applications",
-      "cat > /usr/share/applications/openjdk-java.desktop << \"EOF\"",
-      "[Desktop Entry]\nName=OpenJDK Java 21.0.10 Runtime\nComment=OpenJDK Java 21.0.10 Runtime\nExec=/opt/jdk/bin/java -jar\nTerminal=false\nType=Application\nIcon=java\nMimeType=application/x-java-archive;application/java-archive;application/x-jar;\nNoDisplay=true\nEOF\ncat > /usr/share/applications/openjdk-jconsole.desktop << \"EOF\"\n[Desktop Entry]\nName=OpenJDK Java 21.0.10 Console\nComment=OpenJDK Java 21.0.10 Console\nKeywords=java;console;monitoring\nExec=/opt/jdk/bin/jconsole\nTerminal=false\nType=Application\nIcon=java\nCategories=Application;System;\nEOF",
-      "ln -sfv /etc/pki/tls/java/cacerts /opt/jdk/lib/security/cacerts",
-      "cd /opt/jdk\nbin/keytool -list -cacerts"
+      "unset  MAKEFLAGS_HOLD"
     ],
     "package": [
-      "install -vdm755 $DESTDIR/opt/jdk-21.0.10+6"
+      "install -vdm755 $DESTDIR/opt/jdk-21.0.10+6",
+      "cp -Rv build/*/images/jdk/* $DESTDIR/opt/jdk-21.0.10+6",
+      "for s in 16 24 32 48; do\n  install -vDm644 src/java.desktop/unix/classes/sun/awt/X11/java-icon${s}.png \\\n                  $DESTDIR/usr/share/icons/hicolor/${s}x${s}/apps/java.png\ndone",
+      "install -vdm755 $DESTDIR/usr/share/applications",
+      "cat > $DESTDIR/usr/share/applications/openjdk-java.desktop << \"EOF\"\n[Desktop Entry]\nName=OpenJDK Java 21.0.10 Runtime\nComment=OpenJDK Java 21.0.10 Runtime\nExec=/opt/jdk/bin/java -jar\nTerminal=false\nType=Application\nIcon=java\nMimeType=application/x-java-archive;application/java-archive;application/x-jar;\nNoDisplay=true\nEOF",
+      "cat > $DESTDIR/usr/share/applications/openjdk-jconsole.desktop << \"EOF\"\n[Desktop Entry]\nName=OpenJDK Java 21.0.10 Console\nComment=OpenJDK Java 21.0.10 Console\nKeywords=java;console;monitoring\nExec=/opt/jdk/bin/jconsole\nTerminal=false\nType=Application\nIcon=java\nCategories=Application;System;\nEOF",
+      "ln -sfv jdk-21.0.10+6 $DESTDIR/opt/jdk"
     ]
   },
+  "post_install": [
+    "chown -R root:root /opt/jdk-21.0.10+6",
+    "find /opt/jdk-21.0.10+6 -name '*.debuginfo' -delete",
+    "ln -sfv /etc/pki/tls/java/cacerts /opt/jdk/lib/security/cacerts"
+  ],
   "meta": false,
   "book": "general/openjdk.html",
   "category": "programming",

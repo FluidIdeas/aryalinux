@@ -6,13 +6,14 @@
   "dependencies": {},
   "build": {
     "user": [
-      "./configure --prefix=/usr    \\\n            --disable-static \\\n            --with-doc-dir=/usr/share/doc/libexif-0.6.25",
+      "./configure --prefix=/usr    \\\n            --disable-static",
       "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/libexif.html",
   "category": "graphics",

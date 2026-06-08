@@ -20,15 +20,17 @@
       "if ! [ -e /usr/bin/gtkdocize ]; then\n  sed '/docs/d;/GTK_DOC/d' -i Makefile.am configure.ac\nfi",
       "SAVE_DIST_FILES=1 NOCONFIGURE=1 ./autogen.sh",
       "./configure --prefix=/usr          \\\n            --sysconfdir=/etc      \\\n            --disable-python2      \\\n            --disable-appindicator \\\n            --disable-gtk2         \\\n            --disable-emoji-dict",
-      "make",
-      "gtk-query-immodules-3.0 --update-cache",
-      "mkdir -p               /usr/share/unicode/ucd",
-      "unzip -o ../UCD.zip -d /usr/share/unicode/ucd"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make install DESTDIR=$DESTDIR",
+      "mkdir -p $DESTDIR/usr/share/unicode/ucd",
+      "unzip -o ../UCD.zip -d $DESTDIR/usr/share/unicode/ucd"
     ]
   },
+  "post_install": [
+    "gtk-query-immodules-3.0 --update-cache"
+  ],
   "meta": false,
   "book": "general/ibus.html",
   "category": "libraries",

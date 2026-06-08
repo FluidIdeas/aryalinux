@@ -7,13 +7,13 @@
   "build": {
     "user": [
       "./configure --prefix=/usr    \\\n            --with-ssl       \\\n            --enable-shared  \\\n            --disable-static",
-      "make",
-      "make docs"
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "basicnet/neon.html",
   "category": "networking",

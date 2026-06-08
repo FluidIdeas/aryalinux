@@ -11,14 +11,15 @@
   },
   "build": {
     "user": [
-      "./configure --prefix=/usr    \\\n            --disable-static \\\n            --docdir=/usr/share/doc/libqalculate-5.9.0",
-      "make",
-      "rm -v /usr/lib/libqalculate.la"
+      "./configure --prefix=/usr    \\\n            --disable-static",
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make install DESTDIR=$DESTDIR",
+      "rm -v $DESTDIR/usr/lib/libqalculate.la"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/libqalculate.html",
   "category": "libraries",

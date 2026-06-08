@@ -37,6 +37,7 @@
       "ln -sfv /usr/lib/thunderbird/chrome/icons/default/default256.png \\\n        $DESTDIR/usr/share/pixmaps/thunderbird.png"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "xsoft/thunderbird.html",
   "category": "applications",

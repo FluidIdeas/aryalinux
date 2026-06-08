@@ -13,16 +13,15 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr       \\\n            --buildtype=release \\\n            -D database=gdbm    \\\n            -D doxygen=false    \\\n            -D bluez5=disabled  \\\n            -D tests=false      \\\n            ..",
-      "ninja",
-      "rm /usr/share/dbus-1/system.d/pulseaudio-system.conf"
+      "meson setup build --prefix=/usr       \\\n            --buildtype=release \\\n            -D database=gdbm    \\\n            -D doxygen=false    \\\n            -D bluez5=disabled  \\\n            -D tests=false      \\\n            .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "rm -f $DESTDIR/usr/share/dbus-1/system.d/pulseaudio-system.conf"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "multimedia/pulseaudio.html",
   "category": "multimedia",

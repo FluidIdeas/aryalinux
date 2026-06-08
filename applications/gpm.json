@@ -10,25 +10,21 @@
       "patch -Np1 -i ../gpm-1.20.7-gcc15_fixes-1.patch",
       "./autogen.sh",
       "./configure --prefix=/usr --sysconfdir=/etc ac_cv_path_emacs=no",
-      "make",
-      "make -C doc gpm.{dvi,ps}",
-      "dvipdfm doc/gpm.dvi -o doc/gpm.pdf",
-      "cat > /etc/systemd/system/gpm.service.d/99-user.conf << EOF\n[Service]\nExecStart=\nExecStart=/usr/sbin/gpm <list of parameters>\nEOF",
-      "install-info --dir-file=/usr/share/info/dir           \\\n             /usr/share/info/gpm.info",
-      "rm -fv /usr/lib/libgpm.a",
-      "ln -sfv libgpm.so.2.1.0 /usr/lib/libgpm.so"
+      "make"
     ],
     "package": [
       "install -v -dm755 $DESTDIR/etc/systemd/system/gpm.service.d",
+      "cat > $DESTDIR/etc/systemd/system/gpm.service.d/99-user.conf << \"EOF\"\n[Service]\nExecStart=\nExecStart=/usr/sbin/gpm <list of parameters>\nEOF",
       "make install DESTDIR=$DESTDIR",
       "install -v -m644 conf/gpm-root.conf $DESTDIR/etc",
-      "install -v -m755 -d $DESTDIR/usr/share/doc/gpm-1.20.7/support",
-      "install -v -m644    doc/support/*                     \\\n                    $DESTDIR/usr/share/doc/gpm-1.20.7/support",
-      "install -v -m644    doc/{FAQ,HACK_GPM,README*}        \\\n                    $DESTDIR/usr/share/doc/gpm-1.20.7",
-      "install -vm644 doc/gpm.{dvi,ps,pdf} $DESTDIR/usr/share/doc/gpm-1.20.7",
-      "make install-gpm DESTDIR=$DESTDIR"
+      "make install-gpm DESTDIR=$DESTDIR",
+      "rm -fv $DESTDIR/usr/lib/libgpm.a"
     ]
   },
+  "post_install": [
+    "install-info --dir-file=/usr/share/info/dir /usr/share/info/gpm.info",
+    "ln -sfv libgpm.so.2.1.0 /usr/lib/libgpm.so"
+  ],
   "meta": false,
   "book": "general/gpm.html",
   "category": "libraries",

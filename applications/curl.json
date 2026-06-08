@@ -12,15 +12,13 @@
   "build": {
     "user": [
       "./configure --prefix=/usr    \\\n            --disable-static \\\n            --with-openssl   \\\n            --with-ca-path=/etc/ssl/certs",
-      "make",
-      "rm -rf docs/examples/.deps",
-      "find docs \\( -name Makefile\\* -o  \\\n             -name \\*.1       -o  \\\n             -name \\*.3       -o  \\\n             -name CMakeLists.txt \\) -delete",
-      "cp -v -R docs -T /usr/share/doc/curl-8.18.0"
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "basicnet/curl.html",
   "category": "networking",

@@ -3,6 +3,9 @@
   "version": "2.6.12",
   "description": "The OpenLDAP package provides an open source implementation of the Lightweight Directory Access Protocol.",
   "url": "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.6.12.tgz",
+  "urls": [
+    "https://www.linuxfromscratch.org/blfs/downloads/13.0-systemd/blfs-systemd-units-20251204.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "cyrus-sasl"
@@ -19,25 +22,25 @@
       "autoconf",
       "./configure --prefix=/usr         \\\n            --sysconfdir=/etc     \\\n            --localstatedir=/var  \\\n            --libexecdir=/usr/lib \\\n            --disable-static      \\\n            --disable-debug       \\\n            --with-tls=openssl    \\\n            --with-cyrus-sasl     \\\n            --without-systemd     \\\n            --enable-dynamic      \\\n            --enable-crypt        \\\n            --enable-spasswd      \\\n            --enable-slapd        \\\n            --enable-modules      \\\n            --enable-rlookups     \\\n            --enable-backends=mod \\\n            --disable-sql         \\\n            --disable-wt          \\\n            --enable-overlays=mod",
       "make depend",
-      "make",
-      "ldapsearch -x -b '' -s base '(objectclass=*)' namingContexts",
-      "groupadd -g 83 ldap",
-      "useradd  -c \"OpenLDAP Daemon Owner\" \\\n         -d /var/lib/openldap -u 83 \\\n         -g ldap -s /bin/false ldap",
-      "sed -e \"s/\\.la/.so/\" -i /etc/openldap/slapd.{conf,ldif}{,.default}",
-      "chmod   -v    640     /etc/openldap/slapd.{conf,ldif}",
-      "chown   -v  root:ldap /etc/openldap/slapd.{conf,ldif}",
-      "cp      -vfr      doc/{drafts,rfc,guide} \\\n                  /usr/share/doc/openldap-2.6.12",
-      "systemctl start slapd"
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
-      "make install DESTDIR=$DESTDIR",
-      "install -v -dm700 -o ldap -g ldap $DESTDIR/var$DESTDIR/lib/openldap",
-      "install -v -dm700 -o ldap -g ldap $DESTDIR/etc/openldap/slapd.d",
-      "install -v -dm755 $DESTDIR/usr/share/doc/openldap-2.6.12",
-      "make install-slapd DESTDIR=$DESTDIR"
+      "sed -e \"s/\\.la/.so/\" -i $DESTDIR/etc/openldap/slapd.{conf,ldif}{,.default}",
+      "install -v -dm700 $DESTDIR/var/lib/openldap",
+      "install -v -dm700 $DESTDIR/etc/openldap/slapd.d",
+      "chmod -v 640 $DESTDIR/etc/openldap/slapd.{conf,ldif}",
+      "tar -xf ../../blfs-systemd-units-20251204.tar.xz -C ../../",
+      "cd ../../blfs-systemd-units-20251204 && make install-slapd DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [
+    "getent group ldap >/dev/null || groupadd -g 83 ldap",
+    "id -u ldap >/dev/null 2>&1 || useradd -c \"OpenLDAP Daemon Owner\" -d /var/lib/openldap -u 83 -g ldap -s /bin/false ldap",
+    "chown -R ldap:ldap /var/lib/openldap /etc/openldap/slapd.d",
+    "chown root:ldap /etc/openldap/slapd.{conf,ldif}",
+    "systemctl enable slapd"
+  ],
   "meta": false,
   "book": "server/openldap.html",
   "category": "server",

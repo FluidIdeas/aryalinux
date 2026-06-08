@@ -7,14 +7,17 @@
   "build": {
     "user": [
       "./configure --bindir=/bin --mandir=/usr/share/man",
-      "make",
-      "ln -svf dash /bin/sh",
-      "cat >> /etc/shells << \"EOF\"\n/bin/dash\nEOF"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make install DESTDIR=$DESTDIR",
+      "ln -sf dash $DESTDIR/bin/sh",
+      "install -d $DESTDIR/etc",
+      "touch $DESTDIR/etc/shells",
+      "grep -qF '/bin/dash' $DESTDIR/etc/shells || echo '/bin/dash' >> $DESTDIR/etc/shells"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "postlfs/dash.html",
   "category": "system",

@@ -13,18 +13,14 @@
   },
   "build": {
     "user": [
-      "mkdir bld",
-      "cd    bld",
-      "meson setup --prefix=/usr --buildtype=release ..",
-      "ninja"
+      "meson setup bld --prefix=/usr --buildtype=release .",
+      "ninja -C bld"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install",
-      "install -v -m755 -d                         $DESTDIR/usr/share/gtk-doc/html/babl/graphics",
-      "install -v -m644 docs/*.{css,html}          $DESTDIR/usr/share/gtk-doc/html/babl",
-      "install -v -m644 docs/graphics/*.{html,svg} $DESTDIR/usr/share/gtk-doc/html/babl/graphics"
+      "DESTDIR=$DESTDIR ninja -C bld install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/babl.html",
   "category": "graphics",

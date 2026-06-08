@@ -12,13 +12,17 @@
   },
   "build": {
     "user": [
-      "./configure --prefix=/usr     \\\n            --sysconfdir=/etc \\\n            --docdir=/usr/share/doc/thunar-4.20.7",
+      "./configure --prefix=/usr --sysconfdir=/etc",
       "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [
+    "gtk-update-icon-cache -qtf /usr/share/icons/hicolor",
+    "update-desktop-database -q"
+  ],
   "meta": false,
   "book": "xfce/thunar.html",
   "category": "desktop-xfce",

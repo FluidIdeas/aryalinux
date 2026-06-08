@@ -17,6 +17,7 @@
       "rm $DESTDIR/usr/share/man/man8/ifconfig.8"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "basicnet/net-tools.html",
   "category": "networking",

@@ -6,17 +6,14 @@
   "dependencies": {},
   "build": {
     "user": [
-      "tar -xf ../nasm-3.01-xdoc.tar.xz --strip-components=1",
       "./configure --prefix=/usr",
       "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -m755 -d $DESTDIR/usr/share/doc/nasm-3.01/html",
-      "cp -v doc/html/*.html $DESTDIR/usr/share/doc/nasm-3.01/html",
-      "cp -v doc/*.{txt,ps,pdf} $DESTDIR/usr/share/doc/nasm-3.01"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/nasm.html",
   "category": "programming",

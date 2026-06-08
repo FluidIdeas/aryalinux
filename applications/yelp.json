@@ -12,16 +12,16 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr --buildtype=release ..",
-      "ninja",
-      "update-desktop-database"
+      "meson setup build --prefix=/usr --buildtype=release .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [
+    "update-desktop-database -q"
+  ],
   "meta": false,
   "book": "gnome/yelp.html",
   "category": "desktop-gnome",

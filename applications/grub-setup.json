@@ -9,6 +9,7 @@
     ]
   },
   "build": {},
+  "post_install": [],
   "meta": true,
   "book": "postlfs/grub-setup.html",
   "category": "system"

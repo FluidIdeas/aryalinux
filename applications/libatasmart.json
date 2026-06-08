@@ -10,9 +10,10 @@
       "make"
     ],
     "package": [
-      "make docdir=$DESTDIR/usr/share/doc/libatasmart-0.19 install DESTDIR=$DESTDIR"
+      "make docdir=/usr/share/doc/libatasmart-0.19 install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/libatasmart.html",
   "category": "libraries",

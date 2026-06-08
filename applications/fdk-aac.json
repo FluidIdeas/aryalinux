@@ -13,6 +13,7 @@
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "multimedia/fdk-aac.html",
   "category": "multimedia",

@@ -22,6 +22,7 @@
       "cat > $DESTDIR/etc/profile.d/ant.sh << 'EOF'\n# Begin /etc/profile.d/ant.sh\n\npathappend /opt/ant/bin\nexport ANT_HOME=/opt/ant\n\n# End /etc/profile.d/ant.sh\nEOF"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/apache-ant.html",
   "category": "programming",

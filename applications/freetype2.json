@@ -19,18 +19,16 @@
   },
   "build": {
     "user": [
-      "tar -xf ../freetype-doc-2.14.1.tar.xz --strip-components=2 -C docs",
       "sed -ri \"s:.*(AUX_MODULES.*valid):\\1:\" modules.cfg",
       "sed -r \"s:.*(#.*SUBPIXEL_RENDERING) .*:\\1:\" \\\n    -i include/freetype/config/ftoption.h",
       "./configure --prefix=/usr            \\\n            --disable-static         \\\n            --enable-freetype-config \\\n            --with-harfbuzz=dynamic",
-      "make",
-      "cp -v -R docs -T /usr/share/doc/freetype-2.14.1",
-      "rm -v /usr/share/doc/freetype-2.14.1/freetype-config.1"
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/freetype2.html",
   "category": "graphics",

@@ -14,12 +14,11 @@
     ],
     "package": [
       "make PREFIX=$DESTDIR/usr install",
-      "install -v -d -m755 $DESTDIR/usr/share/doc/mercurial-7.2",
-      "cp -R doc/html $DESTDIR/usr/share/doc/mercurial-7.2",
       "install -v -d -m755 $DESTDIR/etc/mercurial",
       "printf '%s\\n' '[web]' 'cacerts = /etc/pki/tls/certs/ca-bundle.crt' > $DESTDIR/etc/mercurial/hgrc"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/mercurial.html",
   "category": "programming",

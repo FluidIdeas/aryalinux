@@ -12,15 +12,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup ..            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D rpm=false",
-      "ninja"
+      "meson setup build            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D rpm=false .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/appstream-glib.html",
   "category": "libraries",

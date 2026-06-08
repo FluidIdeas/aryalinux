@@ -3,6 +3,9 @@
   "version": "0.60.8.2",
   "description": "The Aspell package contains an interactive spell checking program and the Aspell libraries. Aspell can either be used as a library or as an independent spell checker.",
   "url": "https://ftpmirror.gnu.org/aspell/aspell-0.60.8.2.tar.gz",
+  "urls": [
+    "https://ftpmirror.gnu.org/aspell/dict/en/aspell6-en-2020.12.07-0.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "which"
@@ -12,22 +15,18 @@
     "user": [
       "./configure --prefix=/usr",
       "make",
-      "tar xf ../aspell6-en-2020.12.07-0.tar.bz2",
-      "cd aspell6-en-2020.12.07-0",
-      "./configure",
-      "make",
-      "ln -svfn aspell-0.60 /usr/lib/aspell"
+      "tar xf ../../aspell6-en-2020.12.07-0.tar.bz2",
+      "cd aspell6-en-2020.12.07-0 && ./configure && make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
-      "install -v -m755 -d $DESTDIR/usr/share/doc/aspell-0.60.8.2/aspell{,-dev}.html",
-      "install -v -m644 manual/aspell.html/* \\\n    $DESTDIR/usr/share/doc/aspell-0.60.8.2/aspell.html",
-      "install -v -m644 manual/aspell-dev.html/* \\\n    $DESTDIR/usr/share/doc/aspell-0.60.8.2/aspell-dev.html",
-      "install -v -m 755 scripts/ispell $DESTDIR/usr/bin/",
-      "install -v -m 755 scripts/spell $DESTDIR/usr/bin/",
-      "make install DESTDIR=$DESTDIR"
+      "install -v -m755 scripts/ispell $DESTDIR/usr/bin/",
+      "install -v -m755 scripts/spell $DESTDIR/usr/bin/",
+      "cd aspell6-en-2020.12.07-0 && make install DESTDIR=$DESTDIR",
+      "ln -svfn aspell-0.60 $DESTDIR/usr/lib/aspell"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/aspell.html",
   "category": "libraries",

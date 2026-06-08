@@ -10,10 +10,10 @@
       "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -v -m644 -D README $DESTDIR/usr/share/doc$DESTDIR/libgpg-error-1.59/README"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/libgpg-error.html",
   "category": "libraries",

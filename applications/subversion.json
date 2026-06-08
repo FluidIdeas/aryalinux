@@ -14,15 +14,13 @@
     "user": [
       "patch -Np1 -i ../subversion-1.14.5-upstream_fixes-1.patch",
       "./configure --prefix=/usr            \\\n            --disable-static         \\\n            --with-apache-libexecdir \\\n            --with-utf8proc=internal",
-      "make",
-      "doxygen doc/doxygen.conf",
-      "cp      -v -R doc/* /usr/share/doc/subversion-1.14.5"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -v -m755 -d $DESTDIR/usr/share/doc/subversion-1.14.5"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/subversion.html",
   "category": "programming",

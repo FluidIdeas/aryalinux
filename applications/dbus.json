@@ -13,22 +13,19 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr          \\\n            --buildtype=release    \\\n            --wrap-mode=nofallback \\\n            ..",
-      "ninja",
-      "# Start the D-Bus session daemon\neval `dbus-launch`\nexport DBUS_SESSION_BUS_ADDRESS",
-      "# Kill the D-Bus session daemon\nkill $DBUS_SESSION_BUS_PID",
-      "chown -v root:messagebus /usr/libexec/dbus-daemon-launch-helper",
-      "chmod -v      4750       /usr/libexec/dbus-daemon-launch-helper",
-      "if [ -e /usr/share/doc/dbus ]; then\n  rm -rf /usr/share/doc/dbus-1.16.2",
-      "mv -v  /usr/share/doc/dbus{,-1.16.2}\nfi",
-      "cat > /etc/dbus-1/session-local.conf << \"EOF\"\n<!DOCTYPE busconfig PUBLIC\n \"-//freedesktop//DTD D-BUS Bus Configuration 1.0//EN\"\n \"http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd\">\n<busconfig>\n\n  <!-- Search for .service files in /usr/local -->\n  <servicedir>/usr/local/share/dbus-1/services</servicedir>\n\n</busconfig>\nEOF"
+      "meson setup build --prefix=/usr          \\\n            --buildtype=release    \\\n            --wrap-mode=nofallback \\\n            .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "install -d $DESTDIR/etc/dbus-1",
+      "cat > $DESTDIR/etc/dbus-1/session-local.conf << \"EOF\"\n<!DOCTYPE busconfig PUBLIC\n \"-//freedesktop//DTD D-BUS Bus Configuration 1.0//EN\"\n \"http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd\">\n<busconfig>\n\n  <!-- Search for .service files in /usr/local -->\n  <servicedir>/usr/local/share/dbus-1/services</servicedir>\n\n</busconfig>\nEOF"
     ]
   },
+  "post_install": [
+    "chown root:messagebus /usr/libexec/dbus-daemon-launch-helper",
+    "chmod 4750 /usr/libexec/dbus-daemon-launch-helper"
+  ],
   "meta": false,
   "book": "general/dbus.html",
   "category": "libraries",

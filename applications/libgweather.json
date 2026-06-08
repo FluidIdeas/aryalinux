@@ -14,18 +14,14 @@
   "build": {
     "user": [
       "patch -Np1 -i ../libgweather-4.4.4-upstream_fix-1.patch",
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr       \\\n            --buildtype=release \\\n            -D gtk_doc=false    \\\n            ..",
-      "ninja",
-      "sed \"s/libgweather_full_version/'libgweather-4.4.4'/\" \\\n    -i ../doc/meson.build",
-      "meson configure -D gtk_doc=true",
-      "ninja"
+      "meson setup build --prefix=/usr       \\\n            --buildtype=release \\\n            -D gtk_doc=false    .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "gnome/libgweather.html",
   "category": "desktop-gnome",

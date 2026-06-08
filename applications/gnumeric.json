@@ -22,6 +22,7 @@
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "xsoft/gnumeric.html",
   "category": "applications",

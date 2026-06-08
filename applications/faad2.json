@@ -10,17 +10,16 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "cmake -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D BUILD_SHARED_LIBS=ON      \\\n      ..",
-      "make",
-      "./faad -o sample.wav ../../sample.aac",
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D BUILD_SHARED_LIBS=ON      \\\n      .",
+      "make -C build",
+      "./build/frontend/faad -o sample.wav ../../sample.aac",
       "aplay sample.wav"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make -C build install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "multimedia/faad2.html",
   "category": "multimedia",

@@ -10,16 +10,15 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=$XORG_PREFIX ..",
-      "ninja",
-      "mv -v $XORG_PREFIX/share/doc/xorgproto{,-2025.1}"
+      "meson setup build --prefix=$XORG_PREFIX .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "mv -v $DESTDIR$XORG_PREFIX/share/doc/xorgproto{,-2025.1}"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/xorgproto.html",
   "category": "x11",

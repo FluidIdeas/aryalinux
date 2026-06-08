@@ -21,6 +21,11 @@
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [
+    "gtk-update-icon-cache -qtf /usr/share/icons/hicolor",
+    "update-desktop-database -q",
+    "update-mime-database /usr/share/mime"
+  ],
   "meta": false,
   "book": "xfce/xfdesktop.html",
   "category": "desktop-xfce",

@@ -16,20 +16,17 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup ..                  \\\n      --prefix=/usr             \\\n      --buildtype=release       \\\n      -D daemon_user=colord     \\\n      -D vapi=true              \\\n      -D systemd=true           \\\n      -D libcolordcompat=true   \\\n      -D argyllcms_sensor=false \\\n      -D bash_completion=false  \\\n      -D docs=false             \\\n      -D man=false",
-      "ninja",
-      "sed -e '/class=\"manual\"/i<refmiscinfo class=\"source\">colord</refmiscinfo>' \\\n    -i ../man/*.xml",
-      "meson configure -D man=true",
-      "ninja",
-      "groupadd -g 71 colord",
-      "useradd -c \"Color Daemon Owner\" -d /var/lib/colord -u 71 \\\n        -g colord -s /bin/false colord"
+      "meson setup build                  \\\n      --prefix=/usr             \\\n      --buildtype=release       \\\n      -D daemon_user=colord     \\\n      -D vapi=true              \\\n      -D systemd=true           \\\n      -D libcolordcompat=true   \\\n      -D argyllcms_sensor=false \\\n      -D bash_completion=false  \\\n      -D docs=false             \\\n      -D man=false              \\\n      .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [
+    "getent group colord >/dev/null || groupadd -g 71 colord",
+    "id -u colord >/dev/null 2>&1 || useradd -c \"Color Daemon Owner\" -d /var/lib/colord -u 71 -g colord -s /bin/false colord"
+  ],
   "meta": false,
   "book": "general/colord.html",
   "category": "libraries",

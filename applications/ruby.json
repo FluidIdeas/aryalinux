@@ -10,15 +10,14 @@
   },
   "build": {
     "user": [
-      "./configure --prefix=/usr         \\\n            --disable-rpath       \\\n            --enable-shared       \\\n            --without-valgrind    \\\n            --without-baseruby    \\\n            ac_cv_func_qsort_r=no \\\n            --docdir=/usr/share/doc/ruby-4.0.1",
-      "make",
-      "make capi",
-      "cd /path/to/web/app\nbundle update rake"
+      "./configure --prefix=/usr         \\\n            --disable-rpath       \\\n            --enable-shared       \\\n            --without-valgrind    \\\n            --without-baseruby    \\\n            ac_cv_func_qsort_r=no",
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/ruby.html",
   "category": "programming",

@@ -13,18 +13,14 @@
     "user": [
       "patch -Np1 -i ../libmusicbrainz-5.1.0-cmake_fixes-1.patch",
       "sed -e 's/xmlErrorPtr /const xmlError */'     \\\n    -i src/xmlParser.cc",
-      "mkdir build",
-      "cd    build",
-      "cmake -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D CMAKE_POLICY_VERSION_MINIMUM=3.5 ..",
-      "make",
-      "doxygen ../Doxyfile",
-      "rm -rf /usr/share/doc/libmusicbrainz-5.1.0",
-      "cp -vr docs/ /usr/share/doc/libmusicbrainz-5.1.0"
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D CMAKE_POLICY_VERSION_MINIMUM=3.5 .",
+      "make -C build"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make -C build install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "multimedia/libmusicbrainz5.html",
   "category": "multimedia",

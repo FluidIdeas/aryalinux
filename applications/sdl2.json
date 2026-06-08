@@ -11,21 +11,18 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "cmake -D CMAKE_INSTALL_PREFIX=/usr   \\\n      -D CMAKE_BUILD_TYPE=Release    \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON \\\n      -D SDL2COMPAT_STATIC=OFF       \\\n      -D SDL2COMPAT_TESTS=OFF        \\\n      -W no-dev -G Ninja ..",
-      "ninja",
-      "mkdir ../build-tests",
-      "cd    ../build-tests",
-      "cmake -D CMAKE_INSTALL_PREFIX=/usr   \\\n      -D CMAKE_BUILD_TYPE=Release    \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON \\\n      -D SDL2COMPAT_INSTALL_TESTS=ON \\\n      -D SDL2COMPAT_STATIC=OFF       \\\n      -D SDL2COMPAT_TESTS=ON         \\\n      -W no-dev -G Ninja ..",
-      "ninja",
-      "DESTDIR=$PWD/TESTS ninja install",
-      "rm -vf /usr/lib/libSDL2_test.a"
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr   \\\n      -D CMAKE_BUILD_TYPE=Release    \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON \\\n      -D SDL2COMPAT_STATIC=OFF       \\\n      -D SDL2COMPAT_TESTS=OFF        \\\n      -W no-dev -G Ninja ..",
+      "ninja -C build",
+      "cmake -B build-tests -D CMAKE_INSTALL_PREFIX=/usr   \\\n      -D CMAKE_BUILD_TYPE=Release    \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON \\\n      -D SDL2COMPAT_INSTALL_TESTS=ON \\\n      -D SDL2COMPAT_STATIC=OFF       \\\n      -D SDL2COMPAT_TESTS=ON         \\\n      -W no-dev -G Ninja ..",
+      "ninja -C build-tests",
+      "DESTDIR=$PWD/TESTS ninja -C build-tests install"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "rm -vf $DESTDIR/usr/lib/libSDL2_test.a"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "multimedia/sdl2.html",
   "category": "multimedia",

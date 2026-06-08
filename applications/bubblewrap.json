@@ -6,16 +6,15 @@
   "dependencies": {},
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr --buildtype=release ..",
-      "ninja",
-      "sed 's@symlink usr/lib64@ro-bind-try /lib64@' -i ../tests/libtest.sh"
+      "meson setup build --prefix=/usr --buildtype=release .",
+      "ninja -C build",
+      "sed 's@symlink usr/lib64@ro-bind-try /lib64@' -i tests/libtest.sh"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/bubblewrap.html",
   "category": "libraries",

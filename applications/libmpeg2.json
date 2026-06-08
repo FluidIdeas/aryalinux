@@ -11,11 +11,10 @@
       "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -v -m755 -d $DESTDIR/usr/share/doc$DESTDIR/libmpeg2-0.5.1",
-      "install -v -m644 README doc$DESTDIR/libmpeg2.txt \\\n                    $DESTDIR/usr/share/doc$DESTDIR/libmpeg2-0.5.1"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "multimedia/libmpeg2.html",
   "category": "multimedia",

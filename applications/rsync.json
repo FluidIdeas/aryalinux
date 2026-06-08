@@ -12,19 +12,18 @@
     "user": [
       "patch -Np1 -i ../rsync-3.4.1-security_fix-1.patch",
       "./configure --prefix=/usr    \\\n            --disable-xxhash \\\n            --without-included-zlib",
-      "make",
-      "doxygen",
-      "groupadd -g 48 rsyncd",
-      "useradd -c \"rsyncd Daemon\" -m -d /home/rsync -g rsyncd \\\n    -s /bin/false -u 48 rsyncd",
-      "cat > /etc/rsyncd.conf << \"EOF\"\n# This is a basic rsync configuration file\n# It exports a single module without user authentication.\n\nmotd file = /home/rsync/welcome.msg\nuse chroot = yes\n\n[localhost]\n    path = /home/rsync\n    comment = Default rsync module\n    read only = yes\n    list = yes\n    uid = rsyncd\n    gid = rsyncd\n\nEOF"
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
-      "install -v -m755 -d          $DESTDIR/usr/share/doc/rsync-3.4.1/api",
-      "install -v -m644 dox/html/*  $DESTDIR/usr/share/doc/rsync-3.4.1/api",
-      "make install-rsyncd DESTDIR=$DESTDIR"
+      "make install-rsyncd DESTDIR=$DESTDIR",
+      "cat > $DESTDIR/etc/rsyncd.conf << \"EOF\"\n# This is a basic rsync configuration file\n# It exports a single module without user authentication.\n\nmotd file = /home/rsync/welcome.msg\nuse chroot = yes\n\n[localhost]\n    path = /home/rsync\n    comment = Default rsync module\n    read only = yes\n    list = yes\n    uid = rsyncd\n    gid = rsyncd\n\nEOF"
     ]
   },
+  "post_install": [
+    "getent group rsyncd >/dev/null || groupadd -g 48 rsyncd",
+    "id -u rsyncd >/dev/null 2>&1 || useradd -c \"rsyncd Daemon\" -m -d /home/rsync -g rsyncd \\\n    -s /bin/false -u 48 rsyncd"
+  ],
   "meta": false,
   "book": "basicnet/rsync.html",
   "category": "networking",

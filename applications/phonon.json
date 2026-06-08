@@ -13,16 +13,18 @@
     ]
   },
   "build": {
+    "environment": {
+      "KF6_PREFIX": "/usr"
+    },
     "user": [
-      "mkdir build",
-      "cd    build",
-      "cmake -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D PHONON_BUILD_QT5=OFF      \\\n      -W no-dev ..",
-      "make"
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D PHONON_BUILD_QT5=OFF      \\\n      -W no-dev .",
+      "make -C build"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make -C build install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "kde/phonon.html",
   "category": "desktop-kde",

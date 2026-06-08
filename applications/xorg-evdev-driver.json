@@ -18,6 +18,7 @@
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/x7driver.html",
   "category": "x11",

@@ -13,13 +13,15 @@
   "build": {
     "user": [
       "./configure $XORG_CONFIG --with-xinitdir=/etc/X11/app-defaults",
-      "make",
-      "ldconfig"
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [
+    "ldconfig"
+  ],
   "meta": false,
   "book": "x/xinit.html",
   "category": "x11",

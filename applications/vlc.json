@@ -19,7 +19,7 @@
       "make"
     ],
     "package": [
-      "make docdir=$DESTDIR/usr/share/doc/vlc-3.0.23 install DESTDIR=$DESTDIR"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
   "post_install": [

@@ -13,16 +13,19 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "cmake -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D CMAKE_INSTALL_DOCDIR=/usr/share/doc/transmission-4.1.1 \\\n      ..",
-      "make",
-      "rsvg-convert                                                   \\\n   /usr/share/icons/hicolor/scalable/apps/transmission-gtk.svg \\\n   -o /usr/share/pixmaps/transmission.png"
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      ..",
+      "make -C build"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make -C build install DESTDIR=$DESTDIR",
+      "install -vdm755 $DESTDIR/usr/share/pixmaps",
+      "rsvg-convert                                                   \\\n   $DESTDIR/usr/share/icons/hicolor/scalable/apps/transmission-gtk.svg \\\n   -o $DESTDIR/usr/share/pixmaps/transmission.png"
     ]
   },
+  "post_install": [
+    "gtk-update-icon-cache -qtf /usr/share/icons/hicolor",
+    "update-desktop-database -q"
+  ],
   "meta": false,
   "book": "xsoft/transmission.html",
   "category": "applications",

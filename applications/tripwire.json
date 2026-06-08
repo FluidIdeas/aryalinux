@@ -13,20 +13,18 @@
       "./configure --prefix=/usr --sysconfdir=/etc/tripwire",
       "make CPPFLAGS=-std=c++11",
       "sed -e 's@installer/install.sh@& -n -s <site-password> -l <local-password>@' \\\n    -i Makefile",
-      "sed '/-t 0/,+3d' -i installer/install.sh",
-      "twprint --print-report -r /var/lib/tripwire/report/<report-name.twr>",
-      "tripwire --update --twrfile /var/lib/tripwire/report/<report-name.twr>",
-      "twadmin --create-polfile /etc/tripwire/twpol.txt",
-      "tripwire --init",
-      "cp -v policy/*.txt /usr/share/doc/tripwire-2.4.3.7",
-      "twadmin --create-polfile --site-keyfile /etc/tripwire/site.key \\\n    /etc/tripwire/twpol.txt",
-      "tripwire --init",
-      "tripwire --check > /etc/tripwire/report.txt"
+      "sed '/-t 0/,+3d' -i installer/install.sh"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m755 -d $DESTDIR/usr/share/doc/tripwire-2.4.3.7",
+      "cp -v policy/*.txt $DESTDIR/usr/share/doc/tripwire-2.4.3.7"
     ]
   },
+  "post_install": [
+    "twadmin --create-polfile --site-keyfile /etc/tripwire/site.key \\\n    /etc/tripwire/twpol.txt",
+    "tripwire --init"
+  ],
   "meta": false,
   "book": "postlfs/tripwire.html",
   "category": "security",

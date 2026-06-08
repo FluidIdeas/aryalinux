@@ -25,6 +25,7 @@
       "ln -sfv mupdf-x11 $DESTDIR/usr/bin/mupdf"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "pst/mupdf.html",
   "category": "printing",

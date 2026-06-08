@@ -5,6 +5,7 @@
   "url": "",
   "dependencies": {},
   "build": {},
+  "post_install": [],
   "meta": true,
   "book": "introduction/which.html",
   "category": "libraries"

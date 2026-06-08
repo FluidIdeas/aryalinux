@@ -12,18 +12,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr --buildtype=release ..",
-      "ninja",
-      "sed \"s/apiversion/'1.8.4'/\" -i ../doc/meson.build",
-      "meson configure -D documentation=true",
-      "ninja"
+      "meson setup build --prefix=/usr --buildtype=release \\\n      -D documentation=disabled .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/libadwaita.html",
   "category": "x11",

@@ -7,16 +7,13 @@
   "build": {
     "user": [
       "./configure --prefix=/usr --disable-static",
-      "make",
-      "find doc -name \"Makefile*\" -delete",
-      "rm -rf -v doc/{gdoc,idn.1,stamp-vti,man,texi}",
-      "mkdir -v       /usr/share/doc/libidn-1.43",
-      "cp -r -v doc/* /usr/share/doc/libidn-1.43"
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/libidn.html",
   "category": "libraries",

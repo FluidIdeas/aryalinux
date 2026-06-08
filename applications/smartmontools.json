@@ -6,14 +6,16 @@
   "dependencies": {},
   "build": {
     "user": [
-      "./configure --prefix=/usr     \\\n            --sysconfdir=/etc \\\n            --docdir=/usr/share/doc/smartmontools-7.5",
-      "make",
-      "systemctl enable smartd"
+      "./configure --prefix=/usr     \\\n            --sysconfdir=/etc",
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [
+    "systemctl enable smartd"
+  ],
   "meta": false,
   "book": "postlfs/smartmontools.html",
   "category": "system",

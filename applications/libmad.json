@@ -11,13 +11,14 @@
       "touch NEWS AUTHORS ChangeLog",
       "autoreconf -fi",
       "./configure --prefix=/usr --disable-static",
-      "make",
-      "cat > /usr/lib/pkgconfig/mad.pc << \"EOF\"\nprefix=/usr\nexec_prefix=${prefix}\nlibdir=${exec_prefix}/lib\nincludedir=${prefix}/include\n\nName: mad\nDescription: MPEG audio decoder\nRequires:\nVersion: 0.15.1b\nLibs: -L${libdir} -lmad\nCflags: -I${includedir}\nEOF"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make install DESTDIR=$DESTDIR",
+      "cat > $DESTDIR/usr/lib/pkgconfig/mad.pc << \"EOF\"\nprefix=/usr\nexec_prefix=${prefix}\nlibdir=${exec_prefix}/lib\nincludedir=${prefix}/include\n\nName: mad\nDescription: MPEG audio decoder\nRequires:\nVersion: 0.15.1b\nLibs: -L${libdir} -lmad\nCflags: -I${includedir}\nEOF"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "multimedia/libmad.html",
   "category": "multimedia",

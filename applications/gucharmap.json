@@ -15,21 +15,18 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "mkdir ucd",
-      "pushd ucd",
-      "unzip ../../../UCD.zip",
-      "cp -v ../../../Unihan.zip .",
-      "popd",
-      "meson setup --prefix=/usr       \\\n            --strip             \\\n            --buildtype=release \\\n            -D ucd_path=./ucd   \\\n            -D docs=false       \\\n            ..",
-      "ninja",
-      "rm  -fv /usr/share/glib-2.0/schemas/org.gnome.Charmap.enums.xml"
+      "(mkdir -p build/ucd && cd build/ucd && unzip -o ../../../UCD.zip && cp -v ../../../Unihan.zip .)",
+      "meson setup build --prefix=/usr --strip --buildtype=release -D ucd_path=./ucd -D docs=false .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "rm -fv $DESTDIR/usr/share/glib-2.0/schemas/org.gnome.Charmap.enums.xml"
     ]
   },
+  "post_install": [
+    "glib-compile-schemas /usr/share/glib-2.0/schemas"
+  ],
   "meta": false,
   "book": "gnome/gucharmap.html",
   "category": "desktop-gnome",

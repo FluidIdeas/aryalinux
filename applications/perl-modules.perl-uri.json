@@ -19,6 +19,7 @@
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/perl-modules.html",
   "category": "perl-module",

@@ -13,6 +13,7 @@
       "install -v -m644 pax.1 $DESTDIR/usr/share/man/man1"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/pax.html",
   "category": "libraries",

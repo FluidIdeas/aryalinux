@@ -15,10 +15,10 @@
       "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -v -m644 -D doc/startup-notification.txt \\\n    $DESTDIR/usr/share/doc/startup-notification-0.12/startup-notification.txt"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/startup-notification.html",
   "category": "x11",

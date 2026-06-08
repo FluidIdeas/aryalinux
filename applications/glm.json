@@ -7,10 +7,11 @@
   "build": {
     "user": [],
     "package": [
-      "cp -r glm $DESTDIR/usr/include/",
-      "cp -r doc $DESTDIR/usr/share/doc/glm-1.0.3"
+      "install -d $DESTDIR/usr/include",
+      "cp -r glm $DESTDIR/usr/include/"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/glm.html",
   "category": "graphics",

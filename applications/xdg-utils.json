@@ -5,20 +5,19 @@
   "url": "https://gitlab.freedesktop.org/xdg/xdg-utils/-/archive/v1.2.1/xdg-utils-v1.2.1.tar.gz",
   "dependencies": {
     "required": [
-      "xmlto",
-      "links",
       "x7app"
     ]
   },
   "build": {
     "user": [
       "./configure --prefix=/usr",
-      "make"
+      "make -C scripts scripts"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make -C scripts install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "xsoft/xdg-utils.html",
   "category": "applications",

@@ -16,25 +16,27 @@
   },
   "build": {
     "user": [
-      "sed '/mktemp/s/-t //' -i make-ca",
-      "wget http://www.cacert.org/certs/root.crt",
-      "wget http://www.cacert.org/certs/class3.crt",
-      "openssl x509 -in root.crt -text -fingerprint -setalias \"CAcert Class 1 root\" \\\n        -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning \\\n        > /etc/ssl/local/CAcert_Class_1_root.pem",
-      "openssl x509 -in class3.crt -text -fingerprint -setalias \"CAcert Class 3 root\" \\\n        -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning \\\n        > /etc/ssl/local/CAcert_Class_3_root.pem",
-      "/usr/sbin/make-ca -r",
-      "openssl x509 -in /etc/ssl/certs/Makebelieve_CA_Root.pem \\\n             -text \\\n             -fingerprint \\\n             -setalias \"Disabled Makebelieve CA Root\" \\\n             -addreject serverAuth \\\n             -addreject emailProtection \\\n             -addreject codeSigning \\\n       > /etc/ssl/local/Disabled_Makebelieve_CA_Root.pem",
-      "/usr/sbin/make-ca -r",
-      "export _PIP_STANDALONE_CERT=/etc/pki/tls/certs/ca-bundle.crt",
-      "/usr/sbin/make-ca -g",
-      "systemctl enable update-pki.timer",
-      "mkdir -pv /etc/profile.d",
-      "cat > /etc/profile.d/pythoncerts.sh << \"EOF\"\n# Begin /etc/profile.d/pythoncerts.sh\n\nexport _PIP_STANDALONE_CERT=/etc/pki/tls/certs/ca-bundle.crt\n\n# End /etc/profile.d/pythoncerts.sh\nEOF"
+      "sed '/mktemp/s/-t //' -i make-ca"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
-      "install -vdm755 $DESTDIR/etc/ssl/local"
+      "install -vdm755 $DESTDIR/etc/ssl/local",
+      "install -vdm755 $DESTDIR/etc/profile.d",
+      "cat > $DESTDIR/etc/profile.d/pythoncerts.sh << \"EOF\"\n# Begin /etc/profile.d/pythoncerts.sh\n\nexport _PIP_STANDALONE_CERT=/etc/pki/tls/certs/ca-bundle.crt\n\n# End /etc/profile.d/pythoncerts.sh\nEOF"
     ]
   },
+  "post_install": [
+    "wget -nc http://www.cacert.org/certs/root.crt",
+    "wget -nc http://www.cacert.org/certs/class3.crt",
+    "openssl x509 -in root.crt -text -fingerprint -setalias \"CAcert Class 1 root\" \\\n        -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning \\\n        > /etc/ssl/local/CAcert_Class_1_root.pem",
+    "openssl x509 -in class3.crt -text -fingerprint -setalias \"CAcert Class 3 root\" \\\n        -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning \\\n        > /etc/ssl/local/CAcert_Class_3_root.pem",
+    "/usr/sbin/make-ca -r",
+    "openssl x509 -in /etc/ssl/certs/Makebelieve_CA_Root.pem \\\n             -text \\\n             -fingerprint \\\n             -setalias \"Disabled Makebelieve CA Root\" \\\n             -addreject serverAuth \\\n             -addreject emailProtection \\\n             -addreject codeSigning \\\n       > /etc/ssl/local/Disabled_Makebelieve_CA_Root.pem",
+    "/usr/sbin/make-ca -r",
+    "export _PIP_STANDALONE_CERT=/etc/pki/tls/certs/ca-bundle.crt",
+    "/usr/sbin/make-ca -g",
+    "systemctl enable update-pki.timer"
+  ],
   "meta": false,
   "book": "postlfs/make-ca.html",
   "category": "security",

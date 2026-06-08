@@ -13,15 +13,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup ..            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D gtk_doc=false    \\\n      -D libnma_gtk4=true \\\n      -D mobile_broadband_provider_info=false",
-      "ninja"
+      "meson setup build --prefix=/usr       \\\n      --buildtype=release \\\n      -D gtk_doc=false    \\\n      -D libnma_gtk4=true \\\n      -D mobile_broadband_provider_info=false .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "basicnet/libnma.html",
   "category": "networking",

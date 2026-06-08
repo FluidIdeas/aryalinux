@@ -10,17 +10,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup ..              \\\n      --prefix=$XORG_PREFIX \\\n      --buildtype=release   \\\n      -D debug-gui=false    \\\n      -D tests=false        \\\n      -D libwacom=false     \\\n      -D udev-dir=/usr/lib/udev",
-      "ninja"
+      "meson setup build --prefix=$XORG_PREFIX \\\n      --buildtype=release   \\\n      -D debug-gui=false    \\\n      -D tests=false        \\\n      -D libwacom=false     \\\n      -D udev-dir=/usr/lib/udev .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install",
-      "install -v -dm755      $DESTDIR/usr/share/doc$DESTDIR/libinput-1.31.0/html",
-      "cp -rv Documentation/* $DESTDIR/usr/share/doc$DESTDIR/libinput-1.31.0/html"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/x7driver.html",
   "category": "x11",

@@ -3,21 +3,27 @@
   "version": "2.0.34",
   "description": "The acpid (Advanced Configuration and Power Interface event daemon) is a completely flexible, totally extensible daemon for delivering ACPI events. It listens on netlink interface and when an event occurs, executes programs to handle the event. The programs it executes are configured through a set of configuration files, which can be dropped into place by packages or by the user.",
   "url": "https://downloads.sourceforge.net/acpid2/acpid-2.0.34.tar.xz",
+  "urls": [
+    "https://www.linuxfromscratch.org/blfs/downloads/13.0-systemd/blfs-systemd-units-20251204.tar.xz"
+  ],
   "dependencies": {},
   "build": {
     "user": [
-      "./configure --prefix=/usr \\\n            --docdir=/usr/share/doc/acpid-2.0.34",
-      "make",
-      "cat > /etc/acpi/events/lid << \"EOF\"\nevent=button/lid\naction=/etc/acpi/lid.sh\nEOF\n\ncat > /etc/acpi/lid.sh << \"EOF\"\n#!/bin/sh\n/bin/grep -q open /proc/acpi/button/lid/LID/state",
-      "exit 0\n/usr/bin/systemctl suspend\nEOF\nchmod +x /etc/acpi/lid.sh\n\nmkdir -pv /etc/systemd/logind.conf.d\necho HandleLidSwitch=ignore > /etc/systemd/logind.conf.d/acpi.conf",
-      "cp -r samples /usr/share/doc/acpid-2.0.34"
+      "./configure --prefix=/usr",
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
-      "install -v -m755 -d $DESTDIR/etc/acpi/events",
-      "make install-acpid DESTDIR=$DESTDIR"
+      "install -vdm755 $DESTDIR/etc/acpi/events $DESTDIR/etc/acpi $DESTDIR/etc/systemd/logind.conf.d",
+      "cat > $DESTDIR/etc/acpi/events/lid << \"EOF\"\nevent=button/lid\naction=/etc/acpi/lid.sh\nEOF",
+      "cat > $DESTDIR/etc/acpi/lid.sh << \"EOF\"\n#!/bin/sh\n/bin/grep -q open /proc/acpi/button/lid/LID/state && exit 0\n/usr/bin/systemctl suspend\nEOF",
+      "chmod +x $DESTDIR/etc/acpi/lid.sh",
+      "echo HandleLidSwitch=ignore > $DESTDIR/etc/systemd/logind.conf.d/acpi.conf",
+      "tar -xf ../../blfs-systemd-units-20251204.tar.xz -C ../../",
+      "cd ../../blfs-systemd-units-20251204 && make install-acpid DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/acpid.html",
   "category": "libraries",

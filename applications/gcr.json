@@ -15,18 +15,14 @@
     "user": [
       "sed '/ssh.add/d; /ssh.agent/d' -i meson.build",
       "sed -i 's:\"/desktop:\"/org:' schema/*.xml",
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr       \\\n            --buildtype=release \\\n            -D gtk_doc=false    \\\n            -D ssh_agent=false  \\\n            ..",
-      "ninja",
-      "sed -e \"/install_dir/s@,\\$@ / 'gcr-3.41.2'&@\" \\\n    -i ../docs/*/meson.build",
-      "meson configure -D gtk_doc=true",
-      "ninja"
+      "meson setup build --prefix=/usr       \\\n            --buildtype=release \\\n            -D gtk_doc=false    \\\n            -D ssh_agent=false  \\\n            .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "gnome/gcr.html",
   "category": "desktop-gnome",

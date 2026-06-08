@@ -96,6 +96,7 @@
     ]
   },
   "build": {},
+  "post_install": [],
   "meta": true,
   "category": "metapackage",
   "install": {

@@ -9,10 +9,11 @@
       "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
     ],
     "package": [
-      "for f in $DESTDIR/usr/bin/rst*.py; do\n  rm -fv $DESTDIR/usr/bin/$(basename $f .py)\ndone",
-      "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user docutils"
+      "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user docutils",
+      "for f in $DESTDIR/usr/bin/rst*.py; do\n  rm -fv $DESTDIR/usr/bin/$(basename $f .py)\ndone"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/python-modules.html",
   "category": "python-module",

@@ -10,16 +10,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=$XORG_PREFIX --buildtype=release ..",
-      "ninja",
-      "if [ -d $XORG_PREFIX/share/X11/xkb ]; then\n  rm -rf $XORG_PREFIX/share/X11/xkb\n  rm -f  $XORG_PREFIX/share/man/man7/xkeyboard-config.7\n  rm -f  $XORG_PREFIX/share/pkgconfig/xkeyboard-config.pc\nfi"
+      "meson setup build --prefix=$XORG_PREFIX --buildtype=release .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/xkeyboard-config.html",
   "category": "x11",

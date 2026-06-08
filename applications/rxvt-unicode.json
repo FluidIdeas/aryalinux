@@ -11,18 +11,13 @@
   "build": {
     "user": [
       "./configure --prefix=/usr --enable-everything",
-      "make",
-      "xrdb -query",
-      "xrdb -merge ~/.Xresources",
-      "# Start the urxvtd daemon\nurxvtd -q -f -o &",
-      "cat >> /etc/X11/app-defaults/URxvt << \"EOF\"\n! Use the specified colour as the windows background colour [default white]\nURxvt*background: black\n\n! Use the specified colour as the windows foreground colour [default black]\nURxvt*foreground: yellow\n\n! Select the fonts to be used. This is a comma separated list of font names\nURxvt*font: xft:Monospace:pixelsize=18\n\n! Comma-separated list(s) of perl extension scripts (default: \"default\")\nURxvt*perl-ext: matcher\n\n! Specifies the program to be started with a URL argument. Used by\nURxvt*url-launcher: firefox\n\n! When clicked with the mouse button specified in the \"matcher.button\" resource\n! (default 2, or middle), the program specified in the \"matcher.launcher\"\n! resource (default, the \"url-launcher\" resource, \"sensible-browser\") will be\n! started with the matched text as first argument.\n! Below, default modified to mouse left button.\nURxvt*matcher.button:     1\nEOF",
-      "cat > /usr/share/applications/urxvt.desktop << \"EOF\"",
-      "[Desktop Entry]\nEncoding=UTF-8\nName=Rxvt-Unicode Terminal\nComment=Use the command line\nGenericName=Terminal\nExec=urxvt\nTerminal=false\nType=Application\nIcon=utilities-terminal\nCategories=GTK;Utility;TerminalEmulator;\n#StartupNotify=true\nKeywords=console;command line;execute;\nEOF\n\nupdate-desktop-database -q"
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "xsoft/rxvt-unicode.html",
   "category": "applications",

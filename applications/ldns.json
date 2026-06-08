@@ -7,15 +7,13 @@
   "build": {
     "user": [
       "./configure --prefix=/usr     \\\n            --sysconfdir=/etc \\\n            --disable-static  \\\n            --with-drill",
-      "make",
-      "make doc"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -v -m755 -d $DESTDIR/usr/share/doc/ldns-1.9.0",
-      "install -v -m644 doc/html/* $DESTDIR/usr/share/doc/ldns-1.9.0"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "basicnet/ldns.html",
   "category": "networking",

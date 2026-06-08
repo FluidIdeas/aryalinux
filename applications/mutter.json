@@ -23,17 +23,14 @@
     "user": [
       "sed \"/tests_c_args =/s/$/ + ['-U', 'G_DISABLE_ASSERT']/\" -i src/tests/meson.build",
       "sed \"/c_args:/a '-U', 'G_DISABLE_ASSERT',\" -i src/tests/cogl/unit/meson.build",
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr            \\\n            --buildtype=release      \\\n            -D tests=disabled        \\\n            -D profiler=false        \\\n            -D bash_completion=false \\\n            ..",
-      "ninja",
-      "mutter --wayland -- vte-2.91",
-      "MUTTER_DEBUG_DUMMY_MODE_SPECS=1920x1080 mutter --wayland --nested -- vte-2.91"
+      "meson setup build --prefix=/usr            \\\n            --buildtype=release      \\\n            -D tests=disabled        \\\n            -D profiler=false        \\\n            -D bash_completion=false \\\n            ..",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "gnome/mutter.html",
   "category": "desktop-gnome",

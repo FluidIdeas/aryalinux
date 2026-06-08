@@ -15,19 +15,14 @@
       "patch -Np1 -i ../openbox-3.6.1-py3-1.patch",
       "autoreconf -fi",
       "./configure --prefix=/usr     \\\n            --sysconfdir=/etc \\\n            --disable-static  \\\n            --docdir=/usr/share/doc/openbox-3.6.1",
-      "make",
-      "cp -rf /etc/xdg/openbox ~/.config",
-      "ls -d /usr/share/themes/*/openbox-3 | sed 's#.*es/##;s#/o.*##'",
-      "echo openbox > ~/.xinitrc",
-      "cat > ~/.xinitrc << \"EOF\"\ndisplay -backdrop -window root /path/to/beautiful/picture.jpeg\nexec openbox\nEOF",
-      "cat > ~/.xinitrc << \"EOF\"\n# make an array which lists the pictures:\npicture_list=(~/.config/backgrounds/*)\n# create a random integer between 0 and the number of pictures:\nrandom_number=$(( ${RANDOM} % ${#picture_list[@]} ))\n# display the chosen picture:\ndisplay -backdrop -window root \"${picture_list[${random_number}]}\"\nexec openbox\nEOF",
-      "cat > ~/.xinitrc << \"EOF\"\n. /etc/profile\npicture_list=(~/.config/backgrounds/*)\nrandom_number=$(( ${RANDOM} % ${#picture_list[*]} ))\ndisplay -backdrop -window root \"${picture_list[${random_number}]}\"\nnumlockx\neval $(dbus-launch --auto-syntax --exit-with-session)\nlxpanel &\nexec openbox\nEOF",
-      "rm -v /usr/share/xsessions/openbox-{gnome,kde}.desktop"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make install DESTDIR=$DESTDIR",
+      "rm -v $DESTDIR/usr/share/xsessions/openbox-{gnome,kde}.desktop"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/openbox.html",
   "category": "x11",

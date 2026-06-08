@@ -25,15 +25,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr       \\\n            --buildtype=release \\\n            -D tests=false      \\\n            ..",
-      "ninja"
+      "meson setup build --prefix=/usr       \\\n            --buildtype=release \\\n            -D tests=false      \\\n            .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "gnome/gnome-shell.html",
   "category": "desktop-gnome",

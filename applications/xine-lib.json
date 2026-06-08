@@ -16,16 +16,14 @@
       "patch -Np1 -i ../xine-lib-1.2.13-upstream_fixes-1.patch",
       "patch -Np1 -i ../xine-lib-1.2.13-gcc15_fixes-1.patch",
       "patch -Np1 -i ../xine-lib-1.2.13-ffmpeg8.patch",
-      "./configure --prefix=/usr          \\\n            --disable-vcd          \\\n            --disable-w32dll       \\\n            --with-external-dvdnav \\\n            --docdir=/usr/share/doc/xine-lib-1.2.13",
-      "make",
-      "doxygen doc/Doxyfile"
+      "./configure --prefix=/usr          \\\n            --disable-vcd          \\\n            --disable-w32dll       \\\n            --with-external-dvdnav",
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -v -m755 -d $DESTDIR/usr/share/doc/xine-lib-1.2.13/api",
-      "install -v -m644    doc/api/* \\\n                    $DESTDIR/usr/share/doc/xine-lib-1.2.13/api"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "multimedia/xine-lib.html",
   "category": "multimedia",

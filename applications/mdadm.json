@@ -13,6 +13,7 @@
       "make BINDIR=$DESTDIR/usr/sbin install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "postlfs/mdadm.html",
   "category": "system",

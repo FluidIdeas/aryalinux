@@ -7,22 +7,25 @@
   "build": {
     "user": [
       "sed -i -e 's/GROUP=\"render\"/GROUP=\"video\"/' \\\n       -e 's/GROUP=\"sgx\", //' rules.d/50-udev-default.rules.in",
-      "mkdir build",
-      "cd    build",
-      "meson setup ..                 \\\n      --prefix=/usr            \\\n      --buildtype=release      \\\n      -D default-dnssec=no     \\\n      -D firstboot=false       \\\n      -D install-tests=false   \\\n      -D ldconfig=false        \\\n      -D man=auto              \\\n      -D sysusers=false        \\\n      -D rpmmacrosdir=no       \\\n      -D homed=disabled        \\\n      -D mode=release          \\\n      -D pam=enabled           \\\n      -D pamconfdir=/etc/pam.d \\\n      -D dev-kvm-mode=0660     \\\n      -D nobody-group=nogroup  \\\n      -D sysupdate=disabled    \\\n      -D ukify=disabled        \\\n      -D docdir=/usr/share/doc/systemd-259.1",
-      "ninja",
-      "systemctl --user unset-environment \\\n  $(/etc/systemd/user-environment-generators/50-profile.sh | sed 's/=.*//')\nsystemctl --user daemon-reload",
-      "rm -fv /usr/lib/systemd/system/systemd-update-utmp-runlevel.service",
-      "grep 'pam_systemd' /etc/pam.d/system-session ||\ncat >> /etc/pam.d/system-session << \"EOF\"\n# Begin Systemd addition\n\nsession  required    pam_loginuid.so\nsession  optional    pam_systemd.so\n\n# End Systemd addition\nEOF\n\ncat > /etc/pam.d/systemd-user << \"EOF\"\n# Begin /etc/pam.d/systemd-user\n\naccount  required    pam_access.so\naccount  include     system-account\n\nsession  required    pam_env.so\nsession  required    pam_limits.so\nsession  required    pam_loginuid.so\nsession  optional    pam_keyinit.so force revoke\nsession  optional    pam_systemd.so\n\nauth     required    pam_deny.so\npassword required    pam_deny.so\n\n# End /etc/pam.d/systemd-user\nEOF",
-      "systemctl daemon-reexec",
-      "cat > /etc/systemd/user-environment-generators/50-profile.sh << \"EOF\"",
-      "#!/usr/bin/env -S -i /usr/bin/bash\n# SPDX-License-Identifier: MIT\n\n. /etc/profile\n\n# Systemd should have already set a better value for them.\nunset XDG_RUNTIME_DIR\nfor i in $(locale); do\n  unset ${i%=*}\ndone\n\n# Some shell magic that we don't want to expose.\nunset SHLVL\n\n# Systemd does not want to pass functions to the environment\nfor i in $(declare -pF | awk '{print $3}'); do\n  unset -f $i\ndone\n\npython3 << _EOF\nimport os\nfor var in os.environ:\n  # Simply unsetting them in shell does not work.\n  if var in ['LC_CTYPE', '_']:\n    continue\n\n  print(var + '=' + os.environ[var])\n_EOF\nEOF\n\nchmod -v 755 /etc/systemd/user-environment-generators/50-profile.sh"
+      "meson setup build                 \\\n      --prefix=/usr            \\\n      --buildtype=release      \\\n      -D default-dnssec=no     \\\n      -D firstboot=false       \\\n      -D install-tests=false   \\\n      -D ldconfig=false        \\\n      -D man=auto              \\\n      -D sysusers=false        \\\n      -D rpmmacrosdir=no       \\\n      -D homed=disabled        \\\n      -D mode=release          \\\n      -D pam=enabled           \\\n      -D pamconfdir=/etc/pam.d \\\n      -D dev-kvm-mode=0660     \\\n      -D nobody-group=nogroup  \\\n      -D sysupdate=disabled    \\\n      -D ukify=disabled        \\\n      -D docdir=/usr/share/doc/systemd-259.1 .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install",
-      "install -vdm755 $DESTDIR/etc/systemd/user-environment-generators"
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "rm -fv $DESTDIR/usr/lib/systemd/system/systemd-update-utmp-runlevel.service",
+      "install -vdm755 $DESTDIR/etc/systemd/user-environment-generators",
+      "cat > $DESTDIR/etc/systemd/user-environment-generators/50-profile.sh << \"EOF\"\n#!/usr/bin/env -S -i /usr/bin/bash\n# SPDX-License-Identifier: MIT\n\n. /etc/profile\n\n# Systemd should have already set a better value for them.\nunset XDG_RUNTIME_DIR\nfor i in $(locale); do\n  unset ${i%=*}\ndone\n\n# Some shell magic that we don't want to expose.\nunset SHLVL\n\n# Systemd does not want to pass functions to the environment\nfor i in $(declare -pF | awk '{print $3}'); do\n  unset -f $i\ndone\n\npython3 << _EOF\nimport os\nfor var in os.environ:\n  # Simply unsetting them in shell does not work.\n  if var in ['LC_CTYPE', '_']:\n    continue\n\n  print(var + '=' + os.environ[var])\n_EOF\nEOF",
+      "chmod -v 755 $DESTDIR/etc/systemd/user-environment-generators/50-profile.sh",
+      "install -vdm755 $DESTDIR/etc/pam.d",
+      "grep -q 'pam_systemd' $DESTDIR/etc/pam.d/system-session ||\ncat >> $DESTDIR/etc/pam.d/system-session << \"EOF\"\n# Begin Systemd addition\n\nsession  required    pam_loginuid.so\nsession  optional    pam_systemd.so\n\n# End Systemd addition\nEOF",
+      "cat > $DESTDIR/etc/pam.d/systemd-user << \"EOF\"\n# Begin /etc/pam.d/systemd-user\n\naccount  required    pam_access.so\naccount  include     system-account\n\nsession  required    pam_env.so\nsession  required    pam_limits.so\nsession  required    pam_loginuid.so\nsession  optional    pam_keyinit.so force revoke\nsession  optional    pam_systemd.so\n\nauth     required    pam_deny.so\npassword required    pam_deny.so\n\n# End /etc/pam.d/systemd-user\nEOF"
     ]
   },
+  "post_install": [
+    "systemctl --user unset-environment \\\n  $(/etc/systemd/user-environment-generators/50-profile.sh | sed 's/=.*//')",
+    "systemctl --user daemon-reload",
+    "systemctl daemon-reexec"
+  ],
   "meta": false,
   "book": "general/systemd.html",
   "category": "libraries",

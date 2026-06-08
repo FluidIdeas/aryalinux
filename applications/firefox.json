@@ -35,14 +35,12 @@
       "DESTDIR=$DESTDIR ./mach install",
       "mkdir -pv $DESTDIR/usr/share/applications",
       "mkdir -pv $DESTDIR/usr/share/pixmaps",
-      "MIMETYPE=\"text/xml;text/mml;text/html;\"",
-      "MIMETYPE+=\"application/xhtml+xml;application/vnd.mozilla.xul+xml;\"",
-      "MIMETYPE+=\"x-scheme-handler/http;x-scheme-handler/https\"",
-      "cat > $DESTDIR/usr/share/applications/firefox.desktop << EOF",
-      "[Desktop Entry]\nEncoding=UTF-8\nName=Firefox Web Browser\nComment=Browse the World Wide Web\nGenericName=Web Browser\nExec=firefox %u\nTerminal=false\nType=Application\nIcon=firefox\nCategories=GNOME;GTK;Network;WebBrowser;\nMimeType=$MIMETYPE\nStartupNotify=true\nStartupWMClass=firefox\nEOF",
-      "ln -sfv $DESTDIR/usr/lib/firefox/browser/chrome/icons/default/default128.png \\\n        $DESTDIR/usr/share/pixmaps/firefox.png"
+      "MIMETYPE=\"text/xml;text/mml;text/html;application/xhtml+xml;application/vnd.mozilla.xul+xml;x-scheme-handler/http;x-scheme-handler/https\"",
+      "cat > $DESTDIR/usr/share/applications/firefox.desktop << \"EOF\"\n[Desktop Entry]\nEncoding=UTF-8\nName=Firefox Web Browser\nComment=Browse the World Wide Web\nGenericName=Web Browser\nExec=firefox %u\nTerminal=false\nType=Application\nIcon=firefox\nCategories=GNOME;GTK;Network;WebBrowser;\nMimeType=$MIMETYPE\nStartupNotify=true\nStartupWMClass=firefox\nEOF",
+      "ln -sfv /usr/lib/firefox/browser/chrome/icons/default/default128.png \\\n        $DESTDIR/usr/share/pixmaps/firefox.png"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "xsoft/firefox.html",
   "category": "applications",

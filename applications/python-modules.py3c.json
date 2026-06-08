@@ -10,6 +10,7 @@
       "make prefix=$DESTDIR/usr install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/python-modules.html",
   "category": "python-module",

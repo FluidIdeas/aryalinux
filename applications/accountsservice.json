@@ -16,18 +16,18 @@
       "mv tests/dbusmock{,-tests}",
       "sed -e '/accounts_service\\.py/s/dbusmock/dbusmock-tests/' \\\n    -e 's/assertEquals/assertEqual/'                      \\\n    -i tests/test-libaccountsservice.py",
       "sed -i '/^SIMULATED_SYSTEM_LOCALE/s/en_IE.UTF-8/en_HK.iso88591/' tests/test-daemon.py",
-      "mkdir build",
-      "cd    build",
-      "meson setup ..            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D admin_group=adm",
-      "grep 'print_indent'     ../subprojects/mocklibc-1.0/src/netgroup.c \\\n     | sed 's/ {/;/' >> ../subprojects/mocklibc-1.0/src/netgroup.h",
-      "sed -i '1i#include <stdio.h>'                                      \\\n    ../subprojects/mocklibc-1.0/src/netgroup.h",
-      "ninja",
-      "cat > /etc/polkit-1/rules.d/40-adm.rules << \"EOF\"\npolkit.addAdminRule(function(action, subject) {\n   return [\"unix-group:adm\"];\n   });\nEOF"
+      "meson setup build            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D admin_group=adm .",
+      "grep 'print_indent' subprojects/mocklibc-1.0/src/netgroup.c \\\n     | sed 's/ {/;/' >> subprojects/mocklibc-1.0/src/netgroup.h",
+      "sed -i '1i#include <stdio.h>' subprojects/mocklibc-1.0/src/netgroup.h",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "install -vdm755 $DESTDIR/etc/polkit-1/rules.d",
+      "cat > $DESTDIR/etc/polkit-1/rules.d/40-adm.rules << \"EOF\"\npolkit.addAdminRule(function(action, subject) {\n   return [\"unix-group:adm\"];\n   });\nEOF"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/accountsservice.html",
   "category": "libraries",

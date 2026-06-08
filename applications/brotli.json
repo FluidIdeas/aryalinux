@@ -10,19 +10,17 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "cmake -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -G Ninja ..",
-      "ninja",
-      "cd ..",
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -G Ninja .",
+      "ninja -C build",
       "sed -e '/libraries +=/s/=.*/= [required_system_library[3:]]/' \\\n    -e '/package_configuration/d'                             \\\n    -e '/pkgconfig/d'                                         \\\n    -i setup.py",
-      "USE_SYSTEM_BROTLI=1 \\\npip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+      "USE_SYSTEM_BROTLI=1 pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install",
+      "DESTDIR=$DESTDIR ninja -C build install",
       "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user Brotli"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/brotli.html",
   "category": "libraries",

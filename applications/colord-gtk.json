@@ -13,18 +13,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr       \\\n            --buildtype=release \\\n            -D gtk4=true        \\\n            -D vapi=true        \\\n            -D docs=false       \\\n            -D man=false        \\\n            ..",
-      "ninja",
-      "sed '/class=\"manual\"/i \\\n     <refmiscinfo class=\"source\">colord-gtk</refmiscinfo>' \\\n    -i ../man/*.xml",
-      "meson configure -D man=true",
-      "ninja"
+      "meson setup build --prefix=/usr       \\\n            --buildtype=release \\\n            -D gtk4=true        \\\n            -D vapi=true        \\\n            -D docs=false       \\\n            -D man=false        \\\n            .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/colord-gtk.html",
   "category": "x11",

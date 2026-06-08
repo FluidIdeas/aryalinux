@@ -346,7 +346,6 @@
         "name": "python-deps.sc-jsmath",
         "version": "1.0.1",
         "url": "https://files.pythonhosted.org/packages/source/s/sphinxcontrib-jsmath/sphinxcontrib-jsmath-1.0.1.tar.gz",
-        "pre": [],
         "pre": [
           "patch -Np1 -i ../sphinxcontrib-jsmath-1.0.1-sphinx9_fixes-1.patch"
         ],
@@ -504,7 +503,8 @@
       }
     ]
   },
-  "meta": false,
+  "post_install": [],
+  "meta": true,
   "book": "general/python-dependencies.html",
   "category": "python",
   "install": {

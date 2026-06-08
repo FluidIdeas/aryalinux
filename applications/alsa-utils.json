@@ -11,15 +11,17 @@
   "build": {
     "user": [
       "./configure --disable-alsaconf \\\n            --disable-bat      \\\n            --disable-xmlto    \\\n            --with-curses=ncursesw",
-      "make",
-      "alsactl init",
-      "cat > /etc/asound.conf << \"EOF\"\n# Begin /etc/asound.conf\n\ndefaults.pcm.card 1\ndefaults.ctl.card 1\n\n# End /etc/asound.conf\nEOF",
-      "alsactl -L store"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make install DESTDIR=$DESTDIR",
+      "cat > $DESTDIR/etc/asound.conf << \"EOF\"\n# Begin /etc/asound.conf\n\ndefaults.pcm.card 1\ndefaults.ctl.card 1\n\n# End /etc/asound.conf\nEOF"
     ]
   },
+  "post_install": [
+    "alsactl init",
+    "alsactl -L store"
+  ],
   "meta": false,
   "book": "multimedia/alsa-utils.html",
   "category": "multimedia",

@@ -11,16 +11,15 @@
   "build": {
     "user": [
       "sed -i \"/get_option/s/libdvdnav/&-7.0.0/\" meson.build",
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr --buildtype=release ..",
-      "ninja",
-      "rm -fv /usr/lib/libdvdnav.a"
+      "meson setup build --prefix=/usr --buildtype=release .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "rm -fv $DESTDIR/usr/lib/libdvdnav.a"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "multimedia/libdvdnav.html",
   "category": "multimedia",

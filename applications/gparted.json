@@ -11,14 +11,16 @@
   "build": {
     "user": [
       "./configure --prefix=/usr    \\\n            --disable-doc    \\\n            --disable-static",
-      "make",
-      "cp -v /usr/share/applications/gparted.desktop /usr/share/applications/gparted.desktop.back",
-      "sed -i 's/Exec=/Exec=sudo -A /'               /usr/share/applications/gparted.desktop"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make install DESTDIR=$DESTDIR",
+      "sed -i 's/Exec=/Exec=sudo -A /' $DESTDIR/usr/share/applications/gparted.desktop"
     ]
   },
+  "post_install": [
+    "update-desktop-database -q"
+  ],
   "meta": false,
   "book": "xsoft/gparted.html",
   "category": "applications",

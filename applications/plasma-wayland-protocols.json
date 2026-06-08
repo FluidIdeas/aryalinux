@@ -10,14 +10,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "cmake -D CMAKE_INSTALL_PREFIX=/usr .."
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr .",
+      "make -C build"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make -C build install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "kde/plasma-wayland-protocols.html",
   "category": "desktop-kde",

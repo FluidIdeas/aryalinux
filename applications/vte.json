@@ -15,19 +15,15 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr --buildtype=release ..",
-      "ninja",
-      "sed -e \"/docdir =/s@\\$@/ 'vte-0.82.3'@\" \\\n    -i ../doc/reference/meson.build",
-      "meson configure -D docs=true",
-      "ninja",
-      "rm -v /etc/profile.d/vte.*"
+      "meson setup build --prefix=/usr --buildtype=release -D docs=false ..",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "rm -v $DESTDIR/etc/profile.d/vte.*"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "gnome/vte.html",
   "category": "desktop-gnome",

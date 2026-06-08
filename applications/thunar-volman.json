@@ -20,6 +20,10 @@
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [
+    "gtk-update-icon-cache -qtf /usr/share/icons/hicolor",
+    "update-desktop-database -q"
+  ],
   "meta": false,
   "book": "xfce/thunar-volman.html",
   "category": "desktop-xfce",

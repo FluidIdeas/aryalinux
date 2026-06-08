@@ -17,15 +17,14 @@
     "user": [
       "sed -i \"/GPGME_EVENT_NEXT_TRUSTITEM/d\" pgp/seahorse-gpgme.c",
       "sed -i -r 's:\"(/apps):\"/org/gnome\\1:' data/*.xml",
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr --buildtype=release ..",
-      "ninja"
+      "meson setup build --prefix=/usr --buildtype=release ..",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "gnome/seahorse.html",
   "category": "desktop-gnome",

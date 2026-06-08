@@ -3,6 +3,9 @@
   "version": "0.3.6",
   "description": "The AudioFile package contains the audio file libraries and two sound file support programs useful to support basic sound file formats.",
   "url": "https://download.gnome.org/sources/audiofile/0.3/audiofile-0.3.6.tar.xz",
+  "patches": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/audiofile-0.3.6-consolidated_patches-1.patch"
+  ],
   "dependencies": {
     "required": [
       "alsa-lib",
@@ -11,7 +14,7 @@
   },
   "build": {
     "user": [
-      "patch -Np1 -i ../audiofile-0.3.6-consolidated_patches-1.patch",
+      "patch -Np1 -i ../../audiofile-0.3.6-consolidated_patches-1.patch",
       "autoreconf -fiv",
       "./configure --prefix=/usr --disable-static",
       "make"
@@ -20,6 +23,7 @@
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "multimedia/audiofile.html",
   "category": "multimedia",

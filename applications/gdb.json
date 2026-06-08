@@ -11,19 +11,14 @@
   "build": {
     "user": [
       "mkdir build",
-      "cd    build",
-      "../configure --prefix=/usr          \\\n             --with-system-readline \\\n             --with-system-zlib     \\\n             --with-python=/usr/bin/python3",
-      "make",
-      "make -C gdb/doc doxy",
-      "make -C gdb install",
-      "make -C gdbserver install",
-      "rm -rf gdb/doc/doxy/xml",
-      "cp -Rv gdb/doc/doxy /usr/share/doc/gdb-17.1"
+      "(cd build && ../configure --prefix=/usr          \\\n             --with-system-readline \\\n             --with-system-zlib     \\\n             --with-python=/usr/bin/python3 && make)"
     ],
     "package": [
-      "install -d $DESTDIR/usr/share/doc/gdb-17.1"
+      "(cd build && make -C gdb install DESTDIR=$DESTDIR)",
+      "(cd build && make -C gdbserver install DESTDIR=$DESTDIR)"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/gdb.html",
   "category": "programming",

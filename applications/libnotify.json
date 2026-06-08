@@ -14,19 +14,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr       \\\n            --buildtype=release \\\n            -D gtk_doc=false    \\\n            -D man=false        \\\n            ..",
-      "ninja",
-      "sed \"/docs_dir =/s@\\$@ / 'libnotify'@\" \\\n    -i ../docs/reference/meson.build",
-      "meson configure -D gtk_doc=true",
-      "ninja",
-      "if [ -e /usr/share/doc/libnotify ]; then\n  rm -rf /usr/share/doc/libnotify-0.8.8\n  mv -v  /usr/share/doc/libnotify{,-0.8.8}\nfi"
+      "meson setup build --prefix=/usr       \\\n            --buildtype=release \\\n            -D gtk_doc=false    \\\n            -D man=false        .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/libnotify.html",
   "category": "x11",

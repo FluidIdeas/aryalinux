@@ -12,15 +12,15 @@
       "autoconf",
       "automake --add-missing --copy",
       "./configure --prefix=/usr --disable-static",
-      "make",
-      "cp doc/man/* /usr/share/man/man1"
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
-      "install -v -m755 -d $DESTDIR/usr/share/doc/id3lib-3.8.3",
-      "install -v -m644 doc/*.{gif,jpg,png,ico,css,txt,php,html} \\\n                    $DESTDIR/usr/share/doc/id3lib-3.8.3"
+      "install -v -m755 -d $DESTDIR/usr/share/man/man1",
+      "cp doc/man/* $DESTDIR/usr/share/man/man1"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "multimedia/id3lib.html",
   "category": "multimedia",

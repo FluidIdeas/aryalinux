@@ -12,15 +12,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "cmake -D CMAKE_INSTALL_PREFIX=/usr        \\\n      -D CMAKE_BUILD_TYPE=Release         \\\n      -D FREEGLUT_BUILD_DEMOS=OFF         \\\n      -D FREEGLUT_BUILD_STATIC_LIBS=OFF   \\\n      -W no-dev ..",
-      "make"
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr        \\\n      -D CMAKE_BUILD_TYPE=Release         \\\n      -D FREEGLUT_BUILD_DEMOS=OFF         \\\n      -D FREEGLUT_BUILD_STATIC_LIBS=OFF   \\\n      -W no-dev .",
+      "cmake --build build"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "cmake --install build --prefix=/usr --DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/freeglut.html",
   "category": "x11",

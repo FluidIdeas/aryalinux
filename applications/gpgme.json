@@ -12,14 +12,14 @@
   "build": {
     "user": [
       "mkdir build",
-      "cd    build",
-      "../configure --prefix=/usr --disable-static",
-      "make"
+      "(cd build && ../configure --prefix=/usr --disable-static)",
+      "make -C build"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make -C build install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "postlfs/gpgme.html",
   "category": "security",

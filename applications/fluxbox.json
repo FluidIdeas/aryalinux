@@ -12,26 +12,15 @@
     "user": [
       "sed -i '/text_prop.value > 0/s/>/!=/' util/fluxbox-remote.cc",
       "./configure --prefix=/usr",
-      "make",
-      "echo startfluxbox > ~/.xinitrc",
-      "mkdir -v ~/.fluxbox",
-      "cp -v /usr/share/fluxbox/init ~/.fluxbox/init",
-      "cp -v /usr/share/fluxbox/keys ~/.fluxbox/keys",
-      "cd ~/.fluxbox",
-      "fluxbox-generate_menu <user_options>",
-      "cp -v /usr/share/fluxbox/menu ~/.fluxbox/menu",
-      "cp -r /usr/share/fluxbox/styles/<theme> ~/.fluxbox/theme",
-      "sed -i 's,\\(session.styleFile:\\).*,\\1 ~/.fluxbox/theme,' ~/.fluxbox/init",
-      "[ -f ~/.fluxbox/theme ]",
-      "echo \"background.pixmap: </path/to/nice/image.ext>\" >> ~/.fluxbox/theme ||\n[ -d ~/.fluxbox/theme ]",
-      "echo \"background.pixmap: </path/to/nice/image.ext>\" >> ~/.fluxbox/theme/theme.cfg",
-      "mkdir -pv /usr/share/xsessions",
-      "cat > /usr/share/xsessions/fluxbox.desktop << \"EOF\"\n[Desktop Entry]\nEncoding=UTF-8\nName=Fluxbox\nComment=This session logs you into Fluxbox\nExec=startfluxbox\nType=Application\nEOF"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make install DESTDIR=$DESTDIR",
+      "install -d $DESTDIR/usr/share/xsessions",
+      "cat > $DESTDIR/usr/share/xsessions/fluxbox.desktop << \"EOF\"\n[Desktop Entry]\nEncoding=UTF-8\nName=Fluxbox\nComment=This session logs you into Fluxbox\nExec=startfluxbox\nType=Application\nEOF"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/fluxbox.html",
   "category": "x11",

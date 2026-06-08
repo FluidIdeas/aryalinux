@@ -16,15 +16,16 @@
   "build": {
     "user": [
       "sed -i -r 's:\"(/system):\"/org/gnome\\1:g' src/external.gschema.xml",
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr --buildtype=release ..",
-      "ninja"
+      "meson setup build --prefix=/usr --buildtype=release .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [
+    "glib-compile-schemas /usr/share/glib-2.0/schemas"
+  ],
   "meta": false,
   "book": "gnome/gnome-terminal.html",
   "category": "desktop-gnome",

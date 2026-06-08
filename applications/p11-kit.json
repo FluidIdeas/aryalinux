@@ -13,17 +13,16 @@
     "user": [
       "sed '20,$ d' -i trust/trust-extract-compat",
       "cat >> trust/trust-extract-compat << \"EOF\"\n# Copy existing anchor modifications to /etc/ssl/local\n/usr/libexec/make-ca/copy-trust-modifications\n\n# Update trust stores\n/usr/sbin/make-ca -r\nEOF",
-      "mkdir p11-build",
-      "cd    p11-build",
-      "meson setup ..            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D trust_paths=/etc/pki/anchors",
-      "ninja",
-      "ln -sfv /usr/libexec/p11-kit/trust-extract-compat \\\n        /usr/bin/update-ca-certificates",
-      "ln -sfv ./pkcs11/p11-kit-trust.so /usr/lib/libnssckbi.so"
+      "meson setup p11-build --prefix=/usr --buildtype=release -D trust_paths=/etc/pki/anchors .",
+      "ninja -C p11-build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C p11-build install",
+      "ln -sfv /usr/libexec/p11-kit/trust-extract-compat \\\n        $DESTDIR/usr/bin/update-ca-certificates",
+      "ln -sfv ./pkcs11/p11-kit-trust.so $DESTDIR/usr/lib/libnssckbi.so"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "postlfs/p11-kit.html",
   "category": "security",

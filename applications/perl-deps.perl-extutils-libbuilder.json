@@ -17,6 +17,7 @@
       "./Build install --destdir $DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/perl-deps.html",
   "category": "perl-dependency",

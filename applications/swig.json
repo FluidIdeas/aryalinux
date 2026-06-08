@@ -7,13 +7,13 @@
   "build": {
     "user": [
       "./configure --prefix=/usr",
-      "make",
-      "cp -v -R Doc -T /usr/share/doc/swig-4.4.1"
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/swig.html",
   "category": "programming",

@@ -15,19 +15,16 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "CPPFLAGS+=\" -I/opt/texlive/2025/include -DNO_DEBUG\" \\\nmeson setup --prefix=/usr                \\\n            --buildtype=release          \\\n            -D gtk_doc=false             \\\n            --wrap-mode=nodownload       \\\n            ..",
-      "ninja",
-      "sed \"/docs_dir/s@\\$@ / 'evince-48.1'@\" -i ../help/meson.build",
-      "meson configure -D gtk_doc=true",
-      "ninja",
-      "glib-compile-schemas /usr/share/glib-2.0/schemas"
+      "CPPFLAGS+=\" -I/opt/texlive/2025/include -DNO_DEBUG\" meson setup build --prefix=/usr                \\\n            --buildtype=release          \\\n            -D gtk_doc=false             \\\n            --wrap-mode=nodownload       \\\n            .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [
+    "glib-compile-schemas /usr/share/glib-2.0/schemas"
+  ],
   "meta": false,
   "book": "gnome/evince.html",
   "category": "desktop-gnome",

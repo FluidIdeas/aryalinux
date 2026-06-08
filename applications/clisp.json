@@ -10,15 +10,15 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "../configure --srcdir=../  \\\n             --prefix=/usr \\\n             --docdir=/usr/share/doc/clisp-2.49.95",
-      "make"
+      "mkdir -p build",
+      "(cd build && ../configure --srcdir=.. --prefix=/usr --docdir=/usr/share/doc/clisp-2.49.95)",
+      "(cd build && make)"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "(cd build && make install DESTDIR=$DESTDIR)"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/clisp.html",
   "category": "programming",

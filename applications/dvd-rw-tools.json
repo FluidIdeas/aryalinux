@@ -3,17 +3,20 @@
   "version": "7.1",
   "description": "The dvd+rw-tools package contains several utilities to master the DVD media, both +RW/+R and -R[W]. The principle tool is growisofs which provides a way to both lay down and grow an ISO9660 file system on (as well as to burn an arbitrary pre-mastered image to) all supported DVD media. This is useful for creating a new DVD or adding to an existing image on a partially burned DVD.",
   "url": "https://anduin.linuxfromscratch.org/BLFS/dvd+rw-tools/dvd+rw-tools-7.1.tar.gz",
+  "patches": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/dvd+rw-tools-7.1-consolidated_fixes-2.patch"
+  ],
   "dependencies": {},
   "build": {
     "user": [
-      "patch -Np1 -i ../dvd+rw-tools-7.1-consolidated_fixes-2.patch",
-      "make all rpl8 btcflash",
-      "make prefix=/usr install"
+      "patch -Np1 -i ../../dvd+rw-tools-7.1-consolidated_fixes-2.patch",
+      "make all rpl8 btcflash"
     ],
     "package": [
-      "install -v -m644 -D index.html \\\n    $DESTDIR/usr/share/doc/dvd+rw-tools-7.1/index.html"
+      "make prefix=/usr DESTDIR=$DESTDIR install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "multimedia/dvd-rw-tools.html",
   "category": "multimedia",

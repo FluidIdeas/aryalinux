@@ -13,17 +13,16 @@
   },
   "build": {
     "user": [
-      "cd contrib",
-      "make gnome-ssh-askpass3",
-      "ln -sv -f contrib/gnome-ssh-askpass3   /usr/libexec/openssh/ssh-askpass",
-      "cat >> /etc/sudo.conf << \"EOF\"",
-      "# Path to askpass helper program\nPath askpass /usr/libexec/openssh/ssh-askpass\nEOF\nchmod -v 0644 /etc/sudo.conf"
+      "make -C contrib gnome-ssh-askpass3"
     ],
     "package": [
-      "install -v -d -m755                    $DESTDIR/usr$DESTDIR/libexec/openssh/contrib",
-      "install -v -m755    gnome-ssh-askpass3 $DESTDIR/usr$DESTDIR/libexec/openssh/contrib"
+      "install -v -d -m755 $DESTDIR/usr/libexec/openssh",
+      "install -v -m755 contrib/gnome-ssh-askpass3 $DESTDIR/usr/libexec/openssh/ssh-askpass",
+      "cat >> $DESTDIR/etc/sudo.conf << \"EOF\"\n# Path to askpass helper program\nPath askpass /usr/libexec/openssh/ssh-askpass\nEOF",
+      "chmod -v 0644 $DESTDIR/etc/sudo.conf"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "postlfs/ssh-askpass.html",
   "category": "security",

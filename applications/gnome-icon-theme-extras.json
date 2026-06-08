@@ -17,6 +17,9 @@
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [
+    "gtk-update-icon-cache -qtf /usr/share/icons/gnome"
+  ],
   "meta": false,
   "book": "x/gnome-icon-theme-extras.html",
   "category": "x11",

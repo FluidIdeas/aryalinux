@@ -10,13 +10,15 @@
   },
   "build": {
     "user": [
-      "PYTHON=python3 ./configure $XORG_CONFIG",
-      "rm -f $XORG_PREFIX/lib/pkgconfig/xcb-proto.pc"
+      "PYTHON=python3 ./configure $XORG_CONFIG"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [
+    "rm -f $XORG_PREFIX/lib/pkgconfig/xcb-proto.pc"
+  ],
   "meta": false,
   "book": "x/xcb-proto.html",
   "category": "x11",

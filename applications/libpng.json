@@ -8,14 +8,13 @@
     "user": [
       "zcat ../libpng-1.6.54-apng.patch.gz | patch -p1",
       "./configure --prefix=/usr --disable-static",
-      "make",
-      "mkdir -v /usr/share/doc/libpng-1.6.55",
-      "cp -v README libpng-manual.txt /usr/share/doc/libpng-1.6.55"
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/libpng.html",
   "category": "graphics",

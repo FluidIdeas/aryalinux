@@ -12,6 +12,7 @@
       "install -v -m755 unrar $DESTDIR/usr/bin"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/unrar.html",
   "category": "libraries",

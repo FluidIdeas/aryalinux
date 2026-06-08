@@ -3,6 +3,9 @@
   "version": "2.0.1",
   "description": "The CUPS Filters package is only needed to adapt libcupsfilters-2.1.1 and libppd-2.1.1 filter functions for cups-2.x. It should not be needed for cups-3.x.",
   "url": "https://github.com/OpenPrinting/cups-filters/releases/download/2.0.1/cups-filters-2.0.1.tar.xz",
+  "patches": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/cups-filters-2.0.1-security_fix-1.patch"
+  ],
   "dependencies": {
     "required": [
       "libcupsfilters",
@@ -12,7 +15,7 @@
   "build": {
     "user": [
       "sed -i '/proc_func)()/s/()/(FILE*, FILE*, void*)/' filter/foomatic-rip/process.h",
-      "patch -Np1 -i ../cups-filters-2.0.1-security_fix-1.patch",
+      "patch -Np1 -i ../../cups-filters-2.0.1-security_fix-1.patch",
       "./configure --prefix=/usr    \\\n            --disable-static \\\n            --docdir=/usr/share/doc/cups-filters-2.0.1",
       "make"
     ],
@@ -20,6 +23,7 @@
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "pst/cups-filters.html",
   "category": "printing",

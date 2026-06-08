@@ -13,15 +13,14 @@
     "user": [
       "patch -Np1 -i ../gnome-nettool-42.0-ping_and_netstat_fixes-1.patch",
       "sed -i '/merge_file/s/(.*/(/' data/meson.build",
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr --buildtype=release",
-      "ninja"
+      "meson setup build --prefix=/usr --buildtype=release .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "gnome/gnome-nettool.html",
   "category": "desktop-gnome",

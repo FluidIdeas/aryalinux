@@ -9,22 +9,21 @@
     ]
   },
   "build": {
-    "user": [
-      "cp -v -af --no-preserve=ownership                      \\\n    catalog.xml docbook.cat *.dtd ent/ *.mod           \\\n    /usr/share/xml/docbook/xml-dtd-4.5",
-      "xmlcatalog --noout --add \"rewriteSystem\"        \\\n    \"http://www.oasis-open.org/docbook/xml/4.5\" \\\n    \"file:///usr/share/xml/docbook/xml-dtd-4.5\" \\\n    /usr/share/xml/docbook/xml-dtd-4.5/catalog.xml",
-      "xmlcatalog --noout --add \"rewriteURI\"           \\\n    \"http://www.oasis-open.org/docbook/xml/4.5\" \\\n    \"file:///usr/share/xml/docbook/xml-dtd-4.5\" \\\n    /usr/share/xml/docbook/xml-dtd-4.5/catalog.xml",
-      "if [ ! -e /etc/xml/catalog ]; then\n    xmlcatalog --noout --create /etc/xml/catalog\nfi",
-      "xmlcatalog --noout --add \"delegatePublic\"                   \\\n    \"-//OASIS//ENTITIES DocBook XML\"                        \\\n    \"file:///usr/share/xml/docbook/xml-dtd-4.5/catalog.xml\" \\\n    /etc/xml/catalog",
-      "xmlcatalog --noout --add \"delegatePublic\"                   \\\n    \"-//OASIS//DTD DocBook XML\"                             \\\n    \"file:///usr/share/xml/docbook/xml-dtd-4.5/catalog.xml\" \\\n    /etc/xml/catalog",
-      "xmlcatalog --noout --add \"delegateSystem\"                   \\\n    \"http://www.oasis-open.org/docbook/\"                    \\\n    \"file:///usr/share/xml/docbook/xml-dtd-4.5/catalog.xml\" \\\n    /etc/xml/catalog",
-      "xmlcatalog --noout --add \"delegateURI\"                      \\\n    \"http://www.oasis-open.org/docbook/\"                    \\\n    \"file:///usr/share/xml/docbook/xml-dtd-4.5/catalog.xml\" \\\n    /etc/xml/catalog",
-      "for DTDVERSION in 4.1.2 4.2 4.3 4.4\ndo\n  xmlcatalog --noout --add \"public\"                                  \\\n    \"-//OASIS//DTD DocBook XML V$DTDVERSION//EN\"                     \\\n    \"http://www.oasis-open.org/docbook/xml/$DTDVERSION/docbookx.dtd\" \\\n    /usr/share/xml/docbook/xml-dtd-4.5/catalog.xml\n\n  xmlcatalog --noout --add \"rewriteSystem\"              \\\n    \"http://www.oasis-open.org/docbook/xml/$DTDVERSION\" \\\n    \"file:///usr/share/xml/docbook/xml-dtd-4.5\"         \\\n    /usr/share/xml/docbook/xml-dtd-4.5/catalog.xml\n  \n  xmlcatalog --noout --add \"rewriteURI\"                 \\\n    \"http://www.oasis-open.org/docbook/xml/$DTDVERSION\" \\\n    \"file:///usr/share/xml/docbook/xml-dtd-4.5\"         \\\n    /usr/share/xml/docbook/xml-dtd-4.5/catalog.xml\ndone"
-    ],
+    "user": [],
     "package": [
-      "install -v -d -m755 $DESTDIR/usr/share/xml/docbook/xml-dtd-4.5",
-      "install -v -d -m755 $DESTDIR/etc/xml"
+      "install -d $DESTDIR/usr/share/xml/docbook/xml-dtd-4.5 $DESTDIR/etc/xml",
+      "cp -af catalog.xml docbook.cat *.dtd ent/ *.mod $DESTDIR/usr/share/xml/docbook/xml-dtd-4.5/",
+      "xmlcatalog --noout --add \"rewriteSystem\"        \\\n    \"http://www.oasis-open.org/docbook/xml/4.5\" \\\n    \"file://$DESTDIR/usr/share/xml/docbook/xml-dtd-4.5\" \\\n    $DESTDIR/usr/share/xml/docbook/xml-dtd-4.5/catalog.xml",
+      "xmlcatalog --noout --add \"rewriteURI\"           \\\n    \"http://www.oasis-open.org/docbook/xml/4.5\" \\\n    \"file://$DESTDIR/usr/share/xml/docbook/xml-dtd-4.5\" \\\n    $DESTDIR/usr/share/xml/docbook/xml-dtd-4.5/catalog.xml",
+      "xmlcatalog --noout --create $DESTDIR/etc/xml/catalog",
+      "xmlcatalog --noout --add \"delegatePublic\"                   \\\n    \"-//OASIS//ENTITIES DocBook XML\"                        \\\n    \"file://$DESTDIR/usr/share/xml/docbook/xml-dtd-4.5/catalog.xml\" \\\n    $DESTDIR/etc/xml/catalog",
+      "xmlcatalog --noout --add \"delegatePublic\"                   \\\n    \"-//OASIS//DTD DocBook XML\"                             \\\n    \"file://$DESTDIR/usr/share/xml/docbook/xml-dtd-4.5/catalog.xml\" \\\n    $DESTDIR/etc/xml/catalog",
+      "xmlcatalog --noout --add \"delegateSystem\"                   \\\n    \"http://www.oasis-open.org/docbook/\"                    \\\n    \"file://$DESTDIR/usr/share/xml/docbook/xml-dtd-4.5/catalog.xml\" \\\n    $DESTDIR/etc/xml/catalog",
+      "xmlcatalog --noout --add \"delegateURI\"                      \\\n    \"http://www.oasis-open.org/docbook/\"                    \\\n    \"file://$DESTDIR/usr/share/xml/docbook/xml-dtd-4.5/catalog.xml\" \\\n    $DESTDIR/etc/xml/catalog",
+      "for DTDVERSION in 4.1.2 4.2 4.3 4.4; do\n  xmlcatalog --noout --add \"public\"                                  \\\n    \"-//OASIS//DTD DocBook XML V$DTDVERSION//EN\"                     \\\n    \"http://www.oasis-open.org/docbook/xml/$DTDVERSION/docbookx.dtd\" \\\n    $DESTDIR/usr/share/xml/docbook/xml-dtd-4.5/catalog.xml\n  xmlcatalog --noout --add \"rewriteSystem\"              \\\n    \"http://www.oasis-open.org/docbook/xml/$DTDVERSION\" \\\n    \"file://$DESTDIR/usr/share/xml/docbook/xml-dtd-4.5\"         \\\n    $DESTDIR/usr/share/xml/docbook/xml-dtd-4.5/catalog.xml\n  xmlcatalog --noout --add \"rewriteURI\"                 \\\n    \"http://www.oasis-open.org/docbook/xml/$DTDVERSION\" \\\n    \"file://$DESTDIR/usr/share/xml/docbook/xml-dtd-4.5\"         \\\n    $DESTDIR/usr/share/xml/docbook/xml-dtd-4.5/catalog.xml\ndone"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "pst/docbook.html",
   "category": "printing",

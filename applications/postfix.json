@@ -3,6 +3,9 @@
   "version": "3.10.8",
   "description": "The Postfix package contains a Mail Transport Agent (MTA). This is useful for sending email to other users of your host machine. It can also be configured to be a central mail server for your domain, a mail relay agent or simply a mail delivery agent to your local Internet Service Provider.",
   "url": "https://ghostarchive.org/postfix/postfix-release/official/postfix-3.10.8.tar.gz",
+  "urls": [
+    "https://www.linuxfromscratch.org/blfs/downloads/13.0-systemd/blfs-systemd-units-20251204.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "cyrus-sasl",
@@ -21,27 +24,31 @@
       "if [ -r /usr/lib/libpq.so ]; then\n  CCARGS=\"$CCARGS -DHAS_PGSQL -I/usr/include/postgresql\"\n  AUXLIBS=\"$AUXLIBS -lpq -lz -lm\"\nfi",
       "if [ -r /usr/lib/libssl.so -a -r /usr/lib/libcrypto.so ]; then\n  CCARGS=\"$CCARGS -DUSE_TLS -I/usr/include/openssl/\"\n  AUXLIBS=\"$AUXLIBS -lssl -lcrypto\"\nfi",
       "make CC=\"gcc -std=gnu17\" CCARGS=\"$CCARGS\" AUXLIBS=\"$AUXLIBS\" makefiles",
-      "make",
-      "/usr/sbin/postfix -c /etc/postfix set-permissions",
-      "/usr/sbin/postfix upgrade-configuration",
-      "/usr/sbin/postfix check",
-      "/usr/sbin/postfix start",
-      "groupadd -g 32 postfix",
-      "groupadd -g 33 postdrop",
-      "useradd -c \"Postfix Daemon User\" -d /var/spool/postfix -g postfix \\\n        -s /bin/false -u 32 postfix",
-      "chown -v postfix:postfix /var/mail",
-      "sh postfix-install -non-interactive  \\\n   daemon_directory=/usr/lib/postfix \\\n   manpage_directory=/usr/share/man  \\\n   html_directory=/usr/share/doc/postfix-3.10.8/html \\\n   readme_directory=/usr/share/doc/postfix-3.10.8/readme",
-      "cat >> /etc/aliases << \"EOF\"\n# Begin /etc/aliases\n\nMAILER-DAEMON:    postmaster\npostmaster:       root\n\nroot:             <LOGIN>\n# End /etc/aliases\nEOF",
-      "echo 'default_database_type = lmdb'       >> /etc/postfix/main.cf",
-      "echo 'alias_database = lmdb:/etc/aliases' >> /etc/postfix/main.cf",
-      "echo 'alias_maps = lmdb:/etc/aliases'     >> /etc/postfix/main.cf",
-      "echo 'smtpd_forbid_bare_newline = normalize' >> /etc/postfix/main.cf",
-      "echo 'smtpd_forbid_bare_newline_exclusions = $mynetworks' >> /etc/postfix/main.cf"
+      "make"
     ],
     "package": [
-      "make install-postfix DESTDIR=$DESTDIR"
+      "sh postfix-install -non-interactive install_root=$DESTDIR \\\n   daemon_directory=/usr/lib/postfix \\\n   manpage_directory=/usr/share/man",
+      "tar -xf ../../blfs-systemd-units-20251204.tar.xz -C ../../",
+      "cd ../../blfs-systemd-units-20251204 && make install-postfix DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [
+    "getent group postfix >/dev/null || groupadd -g 32 postfix",
+    "getent group postdrop >/dev/null || groupadd -g 33 postdrop",
+    "id -u postfix >/dev/null 2>&1 || useradd -c \"Postfix Daemon User\" -d /var/spool/postfix -g postfix -s /bin/false -u 32 postfix",
+    "chown -v postfix:postfix /var/mail",
+    "/usr/sbin/postfix -c /etc/postfix set-permissions",
+    "/usr/sbin/postfix upgrade-configuration",
+    "/usr/sbin/postfix check",
+    "grep -q '^MAILER-DAEMON:' /etc/aliases 2>/dev/null || cat >> /etc/aliases << \"EOF\"\n# Begin /etc/aliases\n\nMAILER-DAEMON:    postmaster\npostmaster:       root\n\nroot:             <LOGIN>\n# End /etc/aliases\nEOF",
+    "grep -q '^default_database_type' /etc/postfix/main.cf 2>/dev/null || echo 'default_database_type = lmdb' >> /etc/postfix/main.cf",
+    "grep -q '^alias_database' /etc/postfix/main.cf 2>/dev/null || echo 'alias_database = lmdb:/etc/aliases' >> /etc/postfix/main.cf",
+    "grep -q '^alias_maps' /etc/postfix/main.cf 2>/dev/null || echo 'alias_maps = lmdb:/etc/aliases' >> /etc/postfix/main.cf",
+    "grep -q '^smtpd_forbid_bare_newline ' /etc/postfix/main.cf 2>/dev/null || echo 'smtpd_forbid_bare_newline = normalize' >> /etc/postfix/main.cf",
+    "grep -q '^smtpd_forbid_bare_newline_exclusions' /etc/postfix/main.cf 2>/dev/null || echo 'smtpd_forbid_bare_newline_exclusions = $mynetworks' >> /etc/postfix/main.cf",
+    "/usr/sbin/postfix start",
+    "systemctl enable postfix"
+  ],
   "meta": false,
   "book": "server/postfix.html",
   "category": "server",

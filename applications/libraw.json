@@ -12,13 +12,14 @@
   },
   "build": {
     "user": [
-      "./configure --prefix=/usr    \\\n            --enable-jpeg    \\\n            --enable-jasper  \\\n            --enable-lcms    \\\n            --disable-static \\\n            --docdir=/usr/share/doc/libraw-0.22.0",
+      "./configure --prefix=/usr    \\\n            --enable-jpeg    \\\n            --enable-jasper  \\\n            --enable-lcms    \\\n            --disable-static",
       "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/libraw.html",
   "category": "graphics",

@@ -12,23 +12,24 @@
     "user": [
       "cat > wpa_supplicant/.config << \"EOF\"\nCONFIG_BACKEND=file\nCONFIG_CTRL_IFACE=y\nCONFIG_DEBUG_FILE=y\nCONFIG_DEBUG_SYSLOG=y\nCONFIG_DEBUG_SYSLOG_FACILITY=LOG_DAEMON\nCONFIG_DRIVER_NL80211=y\nCONFIG_DRIVER_WEXT=y\nCONFIG_DRIVER_WIRED=y\nCONFIG_EAP_GTC=y\nCONFIG_EAP_LEAP=y\nCONFIG_EAP_MD5=y\nCONFIG_EAP_MSCHAPV2=y\nCONFIG_EAP_OTP=y\nCONFIG_EAP_PEAP=y\nCONFIG_EAP_TLS=y\nCONFIG_EAP_TTLS=y\nCONFIG_IEEE8021X_EAPOL=y\nCONFIG_IPV6=y\nCONFIG_LIBNL32=y\nCONFIG_PEERKEY=y\nCONFIG_PKCS12=y\nCONFIG_READLINE=y\nCONFIG_SMARTCARD=y\nCONFIG_WPS=y\nCFLAGS += -I/usr/include/libnl3\nEOF",
       "cat >> wpa_supplicant/.config << \"EOF\"\nCONFIG_CTRL_IFACE_DBUS=y\nCONFIG_CTRL_IFACE_DBUS_NEW=y\nCONFIG_CTRL_IFACE_DBUS_INTRO=y\nEOF",
-      "cd wpa_supplicant",
-      "make BINDIR=/usr/sbin LIBDIR=/usr/lib",
-      "wpa_passphrase SSID | sed '/^\\t#/d' > /etc/wpa_supplicant/wpa_supplicant-wifi0.conf",
-      "systemctl start wpa_supplicant@wlan0",
-      "systemctl enable wpa_supplicant@wlan0"
+      "make -C wpa_supplicant BINDIR=/usr/sbin LIBDIR=/usr/lib"
     ],
     "package": [
       "install -v -dm755 $DESTDIR/etc/wpa_supplicant",
-      "install -v -m755 wpa_{cli,passphrase,supplicant} $DESTDIR/usr/sbin/",
-      "install -v -m644 doc/docbook/wpa_supplicant.conf.5 $DESTDIR/usr/share/man/man5/",
-      "install -v -m644 doc/docbook/wpa_{cli,passphrase,supplicant}.8 $DESTDIR/usr/share/man/man8/",
-      "install -v -m644 systemd/*.service $DESTDIR/usr$DESTDIR/lib/systemd/system/",
-      "install -v -m644 dbus/fi.w1.wpa_supplicant1.service \\\n                 $DESTDIR/usr/share/dbus-1/system-services/",
+      "install -v -m755 wpa_supplicant/wpa_{cli,passphrase,supplicant} $DESTDIR/usr/sbin/",
+      "install -v -m644 wpa_supplicant/doc/docbook/wpa_supplicant.conf.5 $DESTDIR/usr/share/man/man5/",
+      "install -v -m644 wpa_supplicant/doc/docbook/wpa_{cli,passphrase,supplicant}.8 $DESTDIR/usr/share/man/man8/",
+      "install -v -m644 wpa_supplicant/systemd/*.service $DESTDIR/usr/lib/systemd/system/",
+      "install -v -m644 wpa_supplicant/dbus/fi.w1.wpa_supplicant1.service \\\n                 $DESTDIR/usr/share/dbus-1/system-services/",
       "install -v -d -m755 $DESTDIR/etc/dbus-1/system.d",
-      "install -v -m644 dbus/dbus-wpa_supplicant.conf \\\n                 $DESTDIR/etc/dbus-1/system.d/wpa_supplicant.conf"
+      "install -v -m644 wpa_supplicant/dbus/dbus-wpa_supplicant.conf \\\n                 $DESTDIR/etc/dbus-1/system.d/wpa_supplicant.conf"
     ]
   },
+  "post_install": [
+    "install -vdm755 /etc/wpa_supplicant",
+    "wpa_passphrase SSID | sed '/^\\t#/d' > /etc/wpa_supplicant/wpa_supplicant-wifi0.conf",
+    "systemctl enable wpa_supplicant@wlan0"
+  ],
   "meta": false,
   "book": "basicnet/wpa_supplicant.html",
   "category": "networking",

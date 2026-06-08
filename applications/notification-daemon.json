@@ -11,14 +11,13 @@
   "build": {
     "user": [
       "./configure --prefix=/usr     \\\n            --sysconfdir=/etc \\\n            --disable-static",
-      "make",
-      "pgrep -l notification-da",
-      "notify-send -i info Information \"Hi ${USER}, This is a Test\""
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/notification-daemon.html",
   "category": "libraries",

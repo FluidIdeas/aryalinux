@@ -16,16 +16,15 @@
   "build": {
     "user": [
       "patch -Np1 -i ../xorg-server-21.1.21-tearfree_backport-1.patch",
-      "mkdir build",
-      "cd    build",
-      "meson setup ..              \\\n      --prefix=$XORG_PREFIX \\\n      --localstatedir=/var  \\\n      -D glamor=true        \\\n      -D xkb_output_dir=/var/lib/xkb",
-      "ninja",
-      "mkdir -pv /etc/X11/xorg.conf.d"
+      "meson setup build              \\\n      --prefix=$XORG_PREFIX \\\n      --localstatedir=/var  \\\n      -D glamor=true        \\\n      -D xkb_output_dir=/var/lib/xkb .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "install -v -dm755 $DESTDIR/etc/X11/xorg.conf.d"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/xorg-server.html",
   "category": "x11",

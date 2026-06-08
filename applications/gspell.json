@@ -10,15 +10,14 @@
   },
   "build": {
     "user": [
-      "mkdir gspell-build",
-      "cd    gspell-build",
-      "meson setup --prefix=/usr --buildtype=release -D gtk_doc=false ..",
-      "ninja"
+      "meson setup gspell-build --prefix=/usr --buildtype=release -D gtk_doc=false .",
+      "ninja -C gspell-build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C gspell-build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/gspell.html",
   "category": "libraries",

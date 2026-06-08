@@ -12,16 +12,15 @@
   "build": {
     "user": [
       "sed -i '/^ir_bpf_enabled/s/=.*/= false/' utils/keytable/meson.build",
-      "mkdir build",
-      "cd    build",
-      "meson setup ..            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D gconv=disabled   \\\n      -D doxygen-doc=disabled",
-      "ninja",
-      "for prog in v4l2gl v4l2grab\ndo\n   cp -v contrib/test/$prog /usr/bin\ndone"
+      "meson setup build            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D gconv=disabled   \\\n      -D doxygen-doc=disabled \\\n      .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "for prog in v4l2gl v4l2grab\ndo\n   install -v -m755 contrib/test/$prog $DESTDIR/usr/bin\ndone"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "multimedia/v4l-utils.html",
   "category": "multimedia",

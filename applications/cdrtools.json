@@ -15,15 +15,13 @@
       "sed -i 's|INSDIR=\\s*sbin|INSDIR=bin|'   rscsi/Makefile",
       "export GMAKE_NOWARN=true",
       "export CFLAGS=\"$CFLAGS -std=gnu89 -fno-strict-aliasing\"",
-      "make -j1 INS_BASE=/usr  \\\n         DEFINSUSR=root \\\n         DEFINSGRP=root \\\n         VERSION_OS=\"LinuxFromScratch\"",
-      "GMAKE_NOWARN=true",
-      "make INS_BASE=/usr    \\\n     DEFINSUSR=root   \\\n     DEFINSGRP=root   \\\n     MANSUFF_LIB=3cdr \\\n     install"
+      "make -j1 INS_BASE=/usr  \\\n         DEFINSUSR=root \\\n         DEFINSGRP=root \\\n         VERSION_OS=\"LinuxFromScratch\""
     ],
     "package": [
-      "install -v -m755 -d $DESTDIR/usr/share/doc/cdrtools-3.02a09",
-      "install -v -m644 README.* READMEs/* ABOUT doc/*.ps \\\n                    $DESTDIR/usr/share/doc/cdrtools-3.02a09"
+      "GMAKE_NOWARN=true make INS_BASE=/usr    \\\n     DEFINSUSR=root   \\\n     DEFINSGRP=root   \\\n     MANSUFF_LIB=3cdr \\\n     DESTDIR=$DESTDIR install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "multimedia/cdrtools.html",
   "category": "multimedia",

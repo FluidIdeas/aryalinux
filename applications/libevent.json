@@ -8,15 +8,13 @@
     "user": [
       "sed -i 's/python/&3/' event_rpcgen.py",
       "./configure --prefix=/usr --disable-static",
-      "make",
-      "doxygen Doxyfile",
-      "cp      -v -R       doxygen/html/* \\\n                    /usr/share/doc/libevent-2.1.12/api"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -v -m755 -d $DESTDIR/usr/share/doc$DESTDIR/libevent-2.1.12/api"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "basicnet/libevent.html",
   "category": "networking",

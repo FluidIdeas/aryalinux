@@ -12,16 +12,15 @@
   "build": {
     "user": [
       "sed -r '/cmake_policy.*(0025|0054)/d' -i source/CMakeLists.txt",
-      "mkdir bld",
-      "cd    bld",
-      "cmake -D CMAKE_INSTALL_PREFIX=/usr        \\\n      -D GIT_ARCHETYPE=1                  \\\n      -D CMAKE_POLICY_VERSION_MINIMUM=3.5 \\\n      -W no-dev                           \\\n      ../source",
-      "make",
-      "rm -vf /usr/lib/libx265.a"
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr        \\\n      -D GIT_ARCHETYPE=1                  \\\n      -D CMAKE_POLICY_VERSION_MINIMUM=3.5 \\\n      -W no-dev                           \\\n      -S source",
+      "make -C build"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make -C build install DESTDIR=$DESTDIR",
+      "rm -vf $DESTDIR/usr/lib/libx265.a"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "multimedia/x265.html",
   "category": "multimedia",

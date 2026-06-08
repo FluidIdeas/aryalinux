@@ -23,21 +23,17 @@
   },
   "build": {
     "user": [
-      "mkdir -vp build",
-      "cd        build",
-      "cmake -D CMAKE_BUILD_TYPE=Release     \\\n      -D CMAKE_INSTALL_PREFIX=/usr    \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON  \\\n      -D PORT=GTK                     \\\n      -D LIB_INSTALL_DIR=/usr/lib     \\\n      -D USE_LIBBACKTRACE=OFF         \\\n      -D USE_LIBHYPHEN=OFF            \\\n      -D ENABLE_GAMEPAD=OFF           \\\n      -D ENABLE_MINIBROWSER=ON        \\\n      -D ENABLE_DOCUMENTATION=OFF     \\\n      -D ENABLE_WEBDRIVER=OFF         \\\n      -D USE_WOFF2=OFF                \\\n      -D USE_GTK4=OFF                 \\\n      -D ENABLE_BUBBLEWRAP_SANDBOX=ON \\\n      -D USE_SYSPROF_CAPTURE=NO       \\\n      -D ENABLE_SPEECH_SYNTHESIS=OFF  \\\n      -W no-dev -G Ninja ..",
-      "ninja",
-      "rm -rf * .[^.]*",
-      "cmake -D CMAKE_BUILD_TYPE=Release         \\\n      -D CMAKE_INSTALL_PREFIX=/usr        \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON      \\\n      -D PORT=GTK                         \\\n      -D LIB_INSTALL_DIR=/usr/lib         \\\n      -D USE_LIBBACKTRACE=OFF             \\\n      -D USE_LIBHYPHEN=OFF                \\\n      -D ENABLE_GAMEPAD=OFF               \\\n      -D ENABLE_MINIBROWSER=ON            \\\n      -D ENABLE_DOCUMENTATION=OFF         \\\n      -D USE_WOFF2=OFF                    \\\n      -D USE_GTK4=ON                      \\\n      -D ENABLE_BUBBLEWRAP_SANDBOX=ON     \\\n      -D USE_SYSPROF_CAPTURE=NO           \\\n      -D ENABLE_SPEECH_SYNTHESIS=OFF      \\\n      -W no-dev -G Ninja ..",
-      "ninja",
-      "cp -rv ../Documentation/* /usr/share/gtk-doc/html"
+      "cmake -B build-gtk3 -D CMAKE_BUILD_TYPE=Release     \\\n      -D CMAKE_INSTALL_PREFIX=/usr    \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON  \\\n      -D PORT=GTK                     \\\n      -D LIB_INSTALL_DIR=/usr/lib     \\\n      -D USE_LIBBACKTRACE=OFF         \\\n      -D USE_LIBHYPHEN=OFF            \\\n      -D ENABLE_GAMEPAD=OFF           \\\n      -D ENABLE_MINIBROWSER=ON        \\\n      -D ENABLE_DOCUMENTATION=OFF     \\\n      -D ENABLE_WEBDRIVER=OFF         \\\n      -D USE_WOFF2=OFF                \\\n      -D USE_GTK4=OFF                 \\\n      -D ENABLE_BUBBLEWRAP_SANDBOX=ON \\\n      -D USE_SYSPROF_CAPTURE=NO       \\\n      -D ENABLE_SPEECH_SYNTHESIS=OFF  \\\n      -W no-dev -G Ninja .",
+      "ninja -C build-gtk3",
+      "cmake -B build-gtk4 -D CMAKE_BUILD_TYPE=Release         \\\n      -D CMAKE_INSTALL_PREFIX=/usr        \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON      \\\n      -D PORT=GTK                         \\\n      -D LIB_INSTALL_DIR=/usr/lib         \\\n      -D USE_LIBBACKTRACE=OFF             \\\n      -D USE_LIBHYPHEN=OFF                \\\n      -D ENABLE_GAMEPAD=OFF               \\\n      -D ENABLE_MINIBROWSER=ON            \\\n      -D ENABLE_DOCUMENTATION=OFF         \\\n      -D USE_WOFF2=OFF                    \\\n      -D USE_GTK4=ON                      \\\n      -D ENABLE_BUBBLEWRAP_SANDBOX=ON     \\\n      -D USE_SYSPROF_CAPTURE=NO           \\\n      -D ENABLE_SPEECH_SYNTHESIS=OFF      \\\n      -W no-dev -G Ninja .",
+      "ninja -C build-gtk4"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install",
-      "DESTDIR=$DESTDIR ninja install",
-      "install -vdm755 $DESTDIR/usr/share/gtk-doc/html"
+      "DESTDIR=$DESTDIR ninja -C build-gtk3 install",
+      "DESTDIR=$DESTDIR ninja -C build-gtk4 install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/webkitgtk.html",
   "category": "x11",

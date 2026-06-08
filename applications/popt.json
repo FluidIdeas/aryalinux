@@ -7,16 +7,13 @@
   "build": {
     "user": [
       "./configure --prefix=/usr --disable-static",
-      "make",
-      "sed -i 's@\\./@src/@' Doxyfile",
-      "doxygen"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -v -m755 -d $DESTDIR/usr/share/doc/popt-1.19",
-      "install -v -m644 doxygen/html/* $DESTDIR/usr/share/doc/popt-1.19"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/popt.html",
   "category": "libraries",

@@ -12,20 +12,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr            \\\n            --buildtype=release      \\\n            --wrap-mode=nofallback   \\\n            -D introspection=enabled \\\n            ..",
-      "ninja",
-      "meson configure -D man-pages=true",
-      "ninja",
-      "sed \"/docs_dir =/s@\\$@ / 'pango-1.57.0'@\" -i ../docs/meson.build",
-      "meson configure -D documentation=true",
-      "ninja"
+      "meson setup build --prefix=/usr            \\\n            --buildtype=release      \\\n            --wrap-mode=nofallback   \\\n            -D introspection=enabled \\\n            .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/pango.html",
   "category": "x11",

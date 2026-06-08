@@ -18,17 +18,16 @@
       "mkdir font && cd font && grep -v '^#' ../font-7.md5 | awk '{print $2}' | wget -i- -c -B https://www.x.org/pub/individual/font/ && md5sum -c ../font-7.md5"
     ],
     "user": [
-      "cd font",
-      "for package in $(grep -v '^#' ../font-7.md5 | awk '{print $2}'); do\n  packagedir=${package%.tar.?z*}\n  tar -xf $package\n  pushd $packagedir\n    ./configure $XORG_CONFIG\n    make\n  popd\ndone"
+      "cd font && for package in $(grep -v '^#' ../font-7.md5 | awk '{print $2}'); do\n  packagedir=${package%.tar.?z*}\n  tar -xf $package\n  pushd $packagedir\n    ./configure $XORG_CONFIG\n    make\n  popd\ndone"
     ],
     "package": [
-      "cd font",
-      "for package in $(grep -v '^#' ../font-7.md5 | awk '{print $2}'); do\n  packagedir=${package%.tar.?z*}\n  pushd $packagedir\n    make install DESTDIR=$DESTDIR\n  popd\n  rm -rf $packagedir\ndone",
+      "cd font && for package in $(grep -v '^#' ../font-7.md5 | awk '{print $2}'); do\n  packagedir=${package%.tar.?z*}\n  pushd $packagedir\n    make install DESTDIR=$DESTDIR\n  popd\n  rm -rf $packagedir\ndone",
       "install -d $DESTDIR/usr/share/fonts",
       "ln -sf $XORG_PREFIX/share/fonts/X11/OTF $DESTDIR/usr/share/fonts/X11-OTF",
       "ln -sf $XORG_PREFIX/share/fonts/X11/TTF $DESTDIR/usr/share/fonts/X11-TTF"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/x7font.html",
   "category": "x11",

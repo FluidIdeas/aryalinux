@@ -12,6 +12,9 @@
     ]
   },
   "build": {
+    "environment": {
+      "TEXLIVE_PREFIX": "/opt/texlive/2025"
+    },
     "user": [
       "TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/')",
       "sed -i 's/python/&3/' tests/Makefile.in",
@@ -22,6 +25,7 @@
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "pst/dvisvgm.html",
   "category": "printing",

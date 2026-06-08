@@ -6,14 +6,13 @@
   "dependencies": {},
   "build": {
     "user": [
-      "cd libraries/liblmdb",
-      "make",
-      "sed -i 's| liblmdb.a||' Makefile"
+      "(cd libraries/liblmdb && make && sed -i 's| liblmdb.a||' Makefile)"
     ],
     "package": [
-      "make prefix=$DESTDIR/usr install"
+      "make -C libraries/liblmdb prefix=/usr install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "server/lmdb.html",
   "category": "server",

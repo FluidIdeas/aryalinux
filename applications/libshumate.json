@@ -11,18 +11,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr          \\\n            --buildtype=release    \\\n            --wrap-mode=nodownload \\\n            -D gtk_doc=false       \\\n            ..",
-      "ninja",
-      "sed -e 's/lib_version/version/' \\\n    -i ../docs/meson.build",
-      "meson configure -D gtk_doc=true",
-      "ninja"
+      "meson setup build --prefix=/usr          \\\n            --buildtype=release    \\\n            --wrap-mode=nodownload \\\n            -D gtk_doc=false       .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "gnome/libshumate.html",
   "category": "desktop-gnome",

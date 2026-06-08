@@ -12,14 +12,15 @@
   "build": {
     "user": [
       "./configure --prefix=/usr",
-      "make",
-      "gtk-update-icon-cache -qtf /usr/share/icons/hicolor",
-      "chown -v -R root:root /usr/share/emacs/30.2"
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [
+    "gtk-update-icon-cache -qtf /usr/share/icons/hicolor"
+  ],
   "meta": false,
   "book": "postlfs/emacs.html",
   "category": "system",

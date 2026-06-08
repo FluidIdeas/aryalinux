@@ -19,6 +19,7 @@
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "basicnet/cifsutils.html",
   "category": "networking",

@@ -15,6 +15,9 @@
     ]
   },
   "build": {
+    "environment": {
+      "TEXLIVE_PREFIX": "/opt/texlive/2025"
+    },
     "user": [
       "export TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/')",
       "./configure --prefix=$TEXLIVE_PREFIX                          \\\n            --bindir=$TEXLIVE_PREFIX/bin/$TEXARCH             \\\n            --datarootdir=$TEXLIVE_PREFIX/texmf-dist          \\\n            --infodir=$TEXLIVE_PREFIX/texmf-dist/doc/info     \\\n            --libdir=$TEXLIVE_PREFIX/texmf-dist               \\\n            --mandir=$TEXLIVE_PREFIX/texmf-dist/doc/man       \\\n            --disable-lsp                                     \\\n            --enable-gc=system                                \\\n            --with-latex=$TEXLIVE_PREFIX/texmf-dist/tex/latex \\\n            --with-context=$TEXLIVE_PREFIX/texmf-dist/tex/context/third",
@@ -24,6 +27,7 @@
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "pst/asymptote.html",
   "category": "printing",

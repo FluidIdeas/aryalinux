@@ -14,15 +14,14 @@
   "build": {
     "user": [
       "patch -Np1 -i ../gnome-bluetooth-47.1-build_fix-1.patch",
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr --buildtype=release ..",
-      "ninja"
+      "meson setup build --prefix=/usr --buildtype=release .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "gnome/gnome-bluetooth.html",
   "category": "desktop-gnome",

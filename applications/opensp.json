@@ -22,7 +22,7 @@
       "make pkgdatadir=/usr/share/sgml/OpenSP-1.5.2"
     ],
     "package": [
-      "make pkgdatadir=$DESTDIR/usr/share/sgml/OpenSP-1.5.2 \\\n     docdir=$DESTDIR/usr/share/doc/OpenSP-1.5.2      \\\n     install DESTDIR=$DESTDIR",
+      "make pkgdatadir=$DESTDIR/usr/share/sgml/OpenSP-1.5.2 install DESTDIR=$DESTDIR",
       "ln -v -sf onsgmls $DESTDIR/usr/bin/nsgmls",
       "ln -v -sf osgmlnorm $DESTDIR/usr/bin/sgmlnorm",
       "ln -v -sf ospam $DESTDIR/usr/bin/spam",
@@ -33,6 +33,7 @@
       "ln -v -sf libosp.so $DESTDIR/usr/lib/libsp.so"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "pst/opensp.html",
   "category": "printing",

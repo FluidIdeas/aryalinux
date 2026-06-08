@@ -11,16 +11,19 @@
   "build": {
     "user": [
       "./configure --with-daemon_username=atd        \\\n            --with-daemon_groupname=atd       \\\n            SENDMAIL=/usr/sbin/sendmail       \\\n            --with-jobdir=/var/spool/atjobs   \\\n            --with-atspool=/var/spool/atspool \\\n            --with-systemdsystemunitdir=/lib/systemd/system",
-      "make -j1",
-      "groupadd -g 17 atd",
-      "useradd -d /dev/null -c \"atd daemon\" -g atd -s /bin/false -u 17 atd",
-      "cat > /etc/pam.d/atd << \"EOF\"\n# Begin /etc/pam.d/atd\n\nauth     required pam_unix.so\naccount  required pam_unix.so\npassword required pam_unix.so\nsession  required pam_unix.so\n\n# End /etc/pam.d/atd\nEOF",
-      "systemctl enable atd"
+      "make -j1"
     ],
     "package": [
-      "make install docdir=/usr/share/doc/at-3.2.5 \\\n             atdocdir=/usr/share/doc/at-3.2.5 DESTDIR=$DESTDIR"
+      "make install DESTDIR=$DESTDIR",
+      "install -vdm755 $DESTDIR/etc/pam.d",
+      "cat > $DESTDIR/etc/pam.d/atd << \"EOF\"\n# Begin /etc/pam.d/atd\n\nauth     required pam_unix.so\naccount  required pam_unix.so\npassword required pam_unix.so\nsession  required pam_unix.so\n\n# End /etc/pam.d/atd\nEOF"
     ]
   },
+  "post_install": [
+    "getent group atd >/dev/null || groupadd -g 17 atd",
+    "id -u atd >/dev/null 2>&1 || useradd -d /dev/null -c \"atd daemon\" -g atd -s /bin/false -u 17 atd",
+    "systemctl enable atd"
+  ],
   "meta": false,
   "book": "general/at.html",
   "category": "libraries",

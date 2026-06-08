@@ -13,13 +13,17 @@
   "build": {
     "user": [
       "./configure --prefix=/usr --sysconfdir=/etc",
-      "make",
-      "notify-send -i info Information \"Hi ${USER}, This is a Test\""
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [
+    "gtk-update-icon-cache -qtf /usr/share/icons/hicolor",
+    "update-desktop-database -q",
+    "update-mime-database /usr/share/mime"
+  ],
   "meta": false,
   "book": "xfce/xfce4-notifyd.html",
   "category": "desktop-xfce",

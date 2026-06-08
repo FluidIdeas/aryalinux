@@ -11,21 +11,13 @@
   "build": {
     "user": [
       "./configure --prefix=/usr",
-      "make",
-      "make -C doc html",
-      "makeinfo --html --no-split -o doc/assuan_nochunks.html doc/assuan.texi",
-      "makeinfo --plaintext       -o doc/assuan.txt           doc/assuan.texi",
-      "make -C doc pdf ps"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -v -dm755   $DESTDIR/usr/share/doc$DESTDIR/libassuan-3.0.2/html",
-      "install -v -m644 doc/assuan.html/* \\\n                    $DESTDIR/usr/share/doc$DESTDIR/libassuan-3.0.2/html",
-      "install -v -m644 doc/assuan_nochunks.html \\\n                    $DESTDIR/usr/share/doc$DESTDIR/libassuan-3.0.2",
-      "install -v -m644 doc/assuan.{txt,texi} \\\n                    $DESTDIR/usr/share/doc$DESTDIR/libassuan-3.0.2",
-      "install -v -m644  doc/assuan.{pdf,ps,dvi} \\\n                  $DESTDIR/usr/share/doc$DESTDIR/libassuan-3.0.2"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/libassuan.html",
   "category": "libraries",

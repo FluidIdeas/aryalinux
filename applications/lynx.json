@@ -11,15 +11,16 @@
   "build": {
     "user": [
       "./configure --prefix=/usr           \\\n            --sysconfdir=/etc/lynx  \\\n            --with-zlib             \\\n            --with-bzlib            \\\n            --with-ssl              \\\n            --with-screen=ncursesw  \\\n            --enable-locale-charset \\\n            --datadir=/usr/share/doc/lynx-2.9.2",
-      "make",
-      "sed -e '/#LOCALE/     a LOCALE_CHARSET:TRUE'     \\\n    -i /etc/lynx/lynx.cfg",
-      "sed -e '/#DEFAULT_ED/ a DEFAULT_EDITOR:vi'       \\\n    -i /etc/lynx/lynx.cfg",
-      "sed -e '/#PERSIST/    a PERSISTENT_COOKIES:TRUE' \\\n    -i /etc/lynx/lynx.cfg"
+      "make"
     ],
     "package": [
-      "make install-full\nchgrp -v -R root /usr/share/doc/lynx-2.9.2/lynx_doc DESTDIR=$DESTDIR"
+      "make install-full DESTDIR=$DESTDIR",
+      "sed -e '/#LOCALE/     a LOCALE_CHARSET:TRUE'     \\\n    -i $DESTDIR/etc/lynx/lynx.cfg",
+      "sed -e '/#DEFAULT_ED/ a DEFAULT_EDITOR:vi'       \\\n    -i $DESTDIR/etc/lynx/lynx.cfg",
+      "sed -e '/#PERSIST/    a PERSISTENT_COOKIES:TRUE' \\\n    -i $DESTDIR/etc/lynx/lynx.cfg"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "basicnet/lynx.html",
   "category": "networking",

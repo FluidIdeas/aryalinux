@@ -11,16 +11,18 @@
   "build": {
     "user": [
       "./configure --prefix=/usr             \\\n            --with-mapdir=/etc/autofs \\\n            --with-libtirpc           \\\n            --with-systemd            \\\n            --without-openldap        \\\n            --mandir=/usr/share/man",
-      "make",
-      "mv /etc/autofs/auto.master /etc/autofs/auto.master.bak",
-      "cat > /etc/autofs/auto.master << \"EOF\"\n# Begin /etc/autofs/auto.master\n\n/media/auto  /etc/autofs/auto.misc  --ghost\n#/home        /etc/autofs/auto.home\n\n# End /etc/autofs/auto.master\nEOF",
-      "systemctl enable autofs"
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
-      "make install_samples"
+      "make install_samples DESTDIR=$DESTDIR",
+      "mv $DESTDIR/etc/autofs/auto.master $DESTDIR/etc/autofs/auto.master.bak",
+      "cat > $DESTDIR/etc/autofs/auto.master << \"EOF\"\n# Begin /etc/autofs/auto.master\n\n/media/auto  /etc/autofs/auto.misc  --ghost\n#/home        /etc/autofs/auto.home\n\n# End /etc/autofs/auto.master\nEOF"
     ]
   },
+  "post_install": [
+    "systemctl enable autofs"
+  ],
   "meta": false,
   "book": "general/autofs.html",
   "category": "libraries",

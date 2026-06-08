@@ -10,19 +10,20 @@
   },
   "build": {
     "user": [
-      "./configure --prefix=/usr    \\\n            --disable-static \\\n            --docdir=/usr/share/doc/speex-1.2.1",
+      "./configure --prefix=/usr    \\\n            --disable-static",
       "make",
-      "cd ..",
-      "tar -xf speexdsp-1.2.1.tar.gz",
-      "cd speexdsp-1.2.1",
-      "./configure --prefix=/usr    \\\n            --disable-static \\\n            --docdir=/usr/share/doc/speexdsp-1.2.1",
-      "make"
+      "tar -xf ../speexdsp-1.2.1.tar.gz",
+      "pushd speexdsp-1.2.1",
+      "./configure --prefix=/usr    \\\n            --disable-static",
+      "make",
+      "popd"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
-      "make install DESTDIR=$DESTDIR"
+      "make -C speexdsp-1.2.1 install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "multimedia/speex.html",
   "category": "multimedia",

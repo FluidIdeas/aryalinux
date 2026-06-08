@@ -3,6 +3,9 @@
   "version": "3.58.3",
   "description": "The Evolution Data Server package provides a unified backend for programs that work with contacts, tasks, and calendar information. It was originally developed for Evolution (hence the name), but is now used by other packages as well.",
   "url": "https://download.gnome.org/sources/evolution-data-server/3.58/evolution-data-server-3.58.3.tar.xz",
+  "patches": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/evolution-data-server-3.58.3-security_fixes-1.patch"
+  ],
   "dependencies": {
     "required": [
       "libical",
@@ -17,16 +20,15 @@
   },
   "build": {
     "user": [
-      "patch -Np1 -i ../evolution-data-server-3.58.3-security_fixes-1.patch",
-      "mkdir build",
-      "cd    build",
-      "cmake -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D SYSCONF_INSTALL_DIR=/etc  \\\n      -D ENABLE_VALA_BINDINGS=ON   \\\n      -D ENABLE_INSTALLED_TESTS=ON \\\n      -D WITH_OPENLDAP=OFF         \\\n      -D WITH_KRB5=OFF             \\\n      -D ENABLE_INTROSPECTION=ON   \\\n      -D ENABLE_GTK_DOC=OFF        \\\n      -D WITH_LIBDB=OFF            \\\n      -W no-dev -G Ninja ..",
-      "ninja"
+      "patch -Np1 -i ../../evolution-data-server-3.58.3-security_fixes-1.patch",
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D SYSCONF_INSTALL_DIR=/etc  \\\n      -D ENABLE_VALA_BINDINGS=ON   \\\n      -D ENABLE_INSTALLED_TESTS=ON \\\n      -D WITH_OPENLDAP=OFF         \\\n      -D WITH_KRB5=OFF             \\\n      -D ENABLE_INTROSPECTION=ON   \\\n      -D ENABLE_GTK_DOC=OFF        \\\n      -D WITH_LIBDB=OFF            \\\n      -W no-dev -G Ninja .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "gnome/evolution-data-server.html",
   "category": "desktop-gnome",

@@ -17,20 +17,14 @@
   },
   "build": {
     "user": [
-      "rm -fv /usr/lib/libnautilus-extension.so.4",
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr       \\\n            --buildtype=release \\\n            ..",
-      "ninja",
-      "sed \"/docdir =/s@\\$@ / 'nautilus-49.3'@\" -i ../meson.build",
-      "meson configure -D docs=true",
-      "ninja",
-      "glib-compile-schemas /usr/share/glib-2.0/schemas"
+      "meson setup build --prefix=/usr       \\\n            --buildtype=release \\\n            -D docs=false       \\\n            .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "gnome/nautilus.html",
   "category": "desktop-gnome",

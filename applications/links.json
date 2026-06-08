@@ -15,11 +15,10 @@
       "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -v -d -m755 $DESTDIR/usr/share/doc/links-2.30",
-      "install -v -m644 doc/links_cal/* KEYS BRAILLE_HOWTO \\\n    $DESTDIR/usr/share/doc/links-2.30"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "basicnet/links.html",
   "category": "networking",

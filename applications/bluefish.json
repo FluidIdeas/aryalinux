@@ -12,14 +12,16 @@
   "build": {
     "user": [
       "./configure --prefix=/usr --docdir=/usr/share/doc/bluefish-2.4.0",
-      "make",
-      "gtk-update-icon-cache -t -f --include-image-data /usr/share/icons/hicolor",
-      "update-desktop-database"
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [
+    "gtk-update-icon-cache -t -f --include-image-data /usr/share/icons/hicolor",
+    "update-desktop-database"
+  ],
   "meta": false,
   "book": "postlfs/bluefish.html",
   "category": "system",

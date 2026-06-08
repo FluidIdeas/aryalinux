@@ -10,18 +10,18 @@
   },
   "build": {
     "user": [
-      "sed -i -e '/ISO 8879/d' \\\n       -e '/gml/d' docbook.cat",
-      "chown -R root:root .",
-      "cp -v -af *.dtd *.mod *.dcl /usr/share/sgml/docbook/sgml-dtd-4.5",
-      "install-catalog --add /etc/sgml/sgml-docbook-dtd-4.5.cat \\\n    /usr/share/sgml/docbook/sgml-dtd-4.5/catalog",
-      "install-catalog --add /etc/sgml/sgml-docbook-dtd-4.5.cat \\\n    /etc/sgml/sgml-docbook.cat",
-      "cat >> /usr/share/sgml/docbook/sgml-dtd-4.5/catalog << \"EOF\"\n  -- Begin Single Major Version catalog changes --\n\nPUBLIC \"-//OASIS//DTD DocBook V4.4//EN\" \"docbook.dtd\"\nPUBLIC \"-//OASIS//DTD DocBook V4.3//EN\" \"docbook.dtd\"\nPUBLIC \"-//OASIS//DTD DocBook V4.2//EN\" \"docbook.dtd\"\nPUBLIC \"-//OASIS//DTD DocBook V4.1//EN\" \"docbook.dtd\"\nPUBLIC \"-//OASIS//DTD DocBook V4.0//EN\" \"docbook.dtd\"\n\n  -- End Single Major Version catalog changes --\nEOF"
+      "sed -i -e '/ISO 8879/d' \\\n       -e '/gml/d' docbook.cat"
     ],
     "package": [
-      "install -v -d $DESTDIR/usr/share/sgml/docbook/sgml-dtd-4.5",
-      "install -v docbook.cat $DESTDIR/usr/share/sgml/docbook/sgml-dtd-4.5/catalog"
+      "install -d $DESTDIR/usr/share/sgml/docbook/sgml-dtd-4.5 $DESTDIR/etc/sgml",
+      "install -m644 docbook.cat $DESTDIR/usr/share/sgml/docbook/sgml-dtd-4.5/catalog",
+      "cp -af *.dtd *.mod *.dcl $DESTDIR/usr/share/sgml/docbook/sgml-dtd-4.5/",
+      "install-catalog --add $DESTDIR/etc/sgml/sgml-docbook-dtd-4.5.cat $DESTDIR/usr/share/sgml/docbook/sgml-dtd-4.5/catalog",
+      "install-catalog --add $DESTDIR/etc/sgml/sgml-docbook-dtd-4.5.cat $DESTDIR/etc/sgml/sgml-docbook.cat",
+      "cat >> $DESTDIR/usr/share/sgml/docbook/sgml-dtd-4.5/catalog << \"EOF\"\n  -- Begin Single Major Version catalog changes --\n\nPUBLIC \"-//OASIS//DTD DocBook V4.4//EN\" \"docbook.dtd\"\nPUBLIC \"-//OASIS//DTD DocBook V4.3//EN\" \"docbook.dtd\"\nPUBLIC \"-//OASIS//DTD DocBook V4.2//EN\" \"docbook.dtd\"\nPUBLIC \"-//OASIS//DTD DocBook V4.1//EN\" \"docbook.dtd\"\nPUBLIC \"-//OASIS//DTD DocBook V4.0//EN\" \"docbook.dtd\"\n\n  -- End Single Major Version catalog changes --\nEOF"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "pst/docbook-4.5-dtd.html",
   "category": "printing",

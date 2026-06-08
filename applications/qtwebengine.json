@@ -12,15 +12,14 @@
   "build": {
     "user": [
       "sed -e '/ifndef SYS_SECCOMP/,+2 d' \\\n    -i src/3rdparty/chromium/sandbox/linux/system_headers/linux_seccomp.h",
-      "mkdir build",
-      "cd    build",
-      "cmake -D CMAKE_MESSAGE_LOG_LEVEL=STATUS             \\\n      -D QT_FEATURE_webengine_system_ffmpeg=ON      \\\n      -D QT_FEATURE_webengine_system_icu=ON         \\\n      -D QT_FEATURE_webengine_proprietary_codecs=ON \\\n      -D QT_FEATURE_webengine_webrtc_pipewire=ON    \\\n      -D QT_BUILD_EXAMPLES_BY_DEFAULT=OFF           \\\n      -D QT_GENERATE_SBOM=OFF                       \\\n      -G Ninja ..",
-      "ninja"
+      "cmake -B build -D CMAKE_MESSAGE_LOG_LEVEL=STATUS             \\\n      -D QT_FEATURE_webengine_system_ffmpeg=ON      \\\n      -D QT_FEATURE_webengine_system_icu=ON         \\\n      -D QT_FEATURE_webengine_proprietary_codecs=ON \\\n      -D QT_FEATURE_webengine_webrtc_pipewire=ON    \\\n      -D QT_BUILD_EXAMPLES_BY_DEFAULT=OFF           \\\n      -D QT_GENERATE_SBOM=OFF                       \\\n      -G Ninja ..",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/qtwebengine.html",
   "category": "x11",

@@ -13,23 +13,14 @@
   "build": {
     "user": [
       "mkdir build",
-      "cd    build",
-      "../configure --prefix=/usr        \\\n             --localstatedir=/var \\\n             --sysconfdir=/etc    \\\n             --docdir=/usr/share/doc/gnupg-2.5.17",
-      "make",
-      "makeinfo --html --no-split -I doc -o doc/gnupg_nochunks.html ../doc/gnupg.texi",
-      "makeinfo --plaintext       -I doc -o doc/gnupg.txt           ../doc/gnupg.texi",
-      "make -C doc html",
-      "make -C doc pdf"
+      "(cd build && ../configure --prefix=/usr        \\\n             --localstatedir=/var \\\n             --sysconfdir=/etc)",
+      "make -C build"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -v -m755 -d $DESTDIR/usr/share/doc/gnupg-2.5.17/html",
-      "install -v -m644    doc/gnupg_nochunks.html \\\n                    $DESTDIR/usr/share/doc/gnupg-2.5.17/html/gnupg.html",
-      "install -v -m644    ../doc/*.texi doc/gnupg.txt \\\n                    $DESTDIR/usr/share/doc/gnupg-2.5.17",
-      "install -v -m644    doc/gnupg.html/* \\\n                    $DESTDIR/usr/share/doc/gnupg-2.5.17/html",
-      "install -v -m644 doc/gnupg.pdf \\\n                 $DESTDIR/usr/share/doc/gnupg-2.5.17"
+      "make -C build install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "postlfs/gnupg.html",
   "category": "security",

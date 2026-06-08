@@ -15,6 +15,7 @@
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/yasm.html",
   "category": "programming",

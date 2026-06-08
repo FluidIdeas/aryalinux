@@ -12,6 +12,7 @@
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/dos2unix.html",
   "category": "libraries",

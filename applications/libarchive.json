@@ -7,13 +7,14 @@
   "build": {
     "user": [
       "./configure --prefix=/usr --disable-static",
-      "make",
-      "ln -sfv bsdunzip /usr/bin/unzip"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make install DESTDIR=$DESTDIR",
+      "ln -sfv bsdunzip $DESTDIR/usr/bin/unzip"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/libarchive.html",
   "category": "libraries",

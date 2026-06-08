@@ -12,20 +12,14 @@
   "build": {
     "user": [
       "patch -Np1 -i ../libportal-0.9.1-qt6.9_fixes-1.patch",
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr       \\\n            --buildtype=release \\\n            -D vapi=false       \\\n            -D docs=false       \\\n            ..",
-      "ninja",
-      "sed -i \"/output/s/-1/-0.9.1/\" ../doc/meson.build",
-      "meson configure -D docs=true",
-      "ninja",
-      "if [ -e /usr/include/libportal ]; then\n    rm -rf /usr/include/libportal.old",
-      "mv -vf /usr/include/libportal{,.old}\nfi"
+      "meson setup build --prefix=/usr       \\\n            --buildtype=release \\\n            -D vapi=false       \\\n            -D docs=false       .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/libportal.html",
   "category": "libraries",

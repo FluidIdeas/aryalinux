@@ -14,21 +14,21 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup ..             \\\n      --prefix=/usr        \\\n      --buildtype=release  \\\n      -D gdm-xsession=true \\\n      -D run-dir=/run/gdm",
-      "ninja",
-      "ln -s /dev/null /etc/udev/rules.d/61-gdm.rules",
-      "su gdm -s /bin/bash                                                \\\n       -c \"dbus-run-session                                        \\\n             gsettings set org.gnome.settings-daemon.plugins.power \\\n                           sleep-inactive-ac-type                  \\\n                           nothing\"",
-      "groupadd -g 21 gdm",
-      "useradd -c \"GDM Daemon Owner\" -d /var/lib/gdm -u 21 \\\n        -g gdm -s /bin/false gdm",
-      "passwd -ql gdm",
-      "systemctl enable gdm"
+      "meson setup build --prefix=/usr        \\\n      --buildtype=release  \\\n      -D gdm-xsession=true \\\n      -D run-dir=/run/gdm .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [
+    "getent group gdm >/dev/null || groupadd -g 21 gdm",
+    "id -u gdm >/dev/null 2>&1 || useradd -c \"GDM Daemon Owner\" -d /var/lib/gdm -u 21 -g gdm -s /bin/false gdm",
+    "passwd -ql gdm",
+    "ln -sf /dev/null /etc/udev/rules.d/61-gdm.rules",
+    "su gdm -s /bin/bash -c \"dbus-run-session gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type nothing\"",
+    "systemctl enable gdm"
+  ],
   "meta": false,
   "book": "x/gdm.html",
   "category": "x11",

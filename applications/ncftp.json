@@ -8,13 +8,14 @@
     "user": [
       "CC=/usr/bin/gcc \\\n./configure --prefix=/usr --sysconfdir=/etc",
       "make -C libncftp shared",
-      "make",
-      "make -C libncftp soinstall"
+      "make"
     ],
     "package": [
+      "make -C libncftp soinstall DESTDIR=$DESTDIR",
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "basicnet/ncftp.html",
   "category": "networking",

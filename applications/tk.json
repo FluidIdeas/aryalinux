@@ -10,19 +10,16 @@
   },
   "build": {
     "user": [
-      "cd unix",
-      "./configure --prefix=/usr \\\n            --mandir=/usr/share/man \\\n            $([ $(uname -m) = x86_64 ]",
-      "echo --enable-64bit)",
-      "make",
-      "sed -e \"s@^\\(TK_SRC_DIR='\\).*@\\1/usr/include'@\" \\\n    -e \"/TK_B/s@='\\(-L\\)\\?.*unix@='\\1/usr/lib@\" \\\n    -i tkConfig.sh",
-      "ln -v -sf wish8.6 /usr/bin/wish",
-      "chmod -v 755 /usr/lib/libtk8.6.so"
+      "(cd unix && ./configure --prefix=/usr \\\n            --mandir=/usr/share/man \\\n            $([ $(uname -m) = x86_64 ] && echo --enable-64bit) && make && sed -e \"s@^\\(TK_SRC_DIR='\\).*@\\1/usr/include'@\" \\\n    -e \"/TK_B/s@='\\(-L\\)\\?.*unix@='\\1/usr/lib@\" \\\n    -i tkConfig.sh)"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "make install-private-headers DESTDIR=$DESTDIR"
+      "make -C unix install DESTDIR=$DESTDIR",
+      "make -C unix install-private-headers DESTDIR=$DESTDIR",
+      "ln -v -sf wish8.6 $DESTDIR/usr/bin/wish",
+      "chmod -v 755 $DESTDIR/usr/lib/libtk8.6.so"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/tk.html",
   "category": "programming",

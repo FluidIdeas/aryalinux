@@ -12,19 +12,15 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr              \\\n            --buildtype=release        \\\n            -D man=false               \\\n            -D docbook=false           \\\n            ..",
-      "ninja",
-      "systemctl --user set-environment XDG_SESSION_TYPE=wayland XDG_SESSION_ID=1",
-      "systemctl --user start gnome-session-wayland@gnome.target",
-      "mv -v /usr/share/doc/gnome-session{,-49.2}",
-      "rm -v /usr/share/wayland-sessions/gnome.desktop"
+      "meson setup build --prefix=/usr              \\\n            --buildtype=release        \\\n            -D man=false               \\\n            -D docbook=false           \\\n            .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "rm -v $DESTDIR/usr/share/wayland-sessions/gnome.desktop"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "gnome/gnome-session.html",
   "category": "desktop-gnome",

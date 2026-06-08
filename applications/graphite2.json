@@ -16,18 +16,14 @@
       "find . -name CMakeLists.txt | xargs sed -i 's/VERSION 2.8.0 FATAL_ERROR/VERSION 4.0.0/'",
       "sed -i '/Font.h/i #include <cstdint>' tests/featuremap/featuremaptest.cpp",
       "mkdir build",
-      "cd    build",
-      "cmake -D CMAKE_INSTALL_PREFIX=/usr ..",
-      "make",
-      "make docs",
-      "cp      -v -f    doc/{GTF,manual}.html \\\n                    /usr/share/doc/graphite2-1.3.14",
-      "cp      -v -f    doc/{GTF,manual}.pdf \\\n                    /usr/share/doc/graphite2-1.3.14"
+      "(cd build && cmake -D CMAKE_INSTALL_PREFIX=/usr ..)",
+      "make -C build"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -v -d -m755 $DESTDIR/usr/share/doc/graphite2-1.3.14"
+      "make -C build install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/graphite2.html",
   "category": "graphics",

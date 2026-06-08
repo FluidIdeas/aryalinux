@@ -3,6 +3,9 @@
   "version": "2.86.4",
   "description": "The GLib package contains low-level libraries useful for providing data structure handling for C, portability wrappers and interfaces for runtime functionality such as an event loop, threads, dynamic loading and an object system.",
   "url": "https://download.gnome.org/sources/glib/2.86/glib-2.86.4.tar.xz",
+  "urls": [
+    "https://download.gnome.org/sources/gobject-introspection/1.86/gobject-introspection-1.86.0.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "python-modules.docutils"
@@ -12,27 +15,19 @@
     "user": [
       "patch -Np1 -i ../glib-skip_warnings-1.patch",
       "patch -Np1 -i ../glib-2.86.4-upstream_fixes-1.patch",
-      "mkdir build",
-      "cd    build",
-      "meson setup ..                  \\\n      --prefix=/usr             \\\n      --buildtype=release       \\\n      -D introspection=disabled \\\n      -D glib_debug=disabled    \\\n      -D man-pages=enabled      \\\n      -D sysprof=disabled",
-      "ninja",
-      "tar xf ../../gobject-introspection-1.86.0.tar.xz",
-      "meson setup gobject-introspection-1.86.0 gi-build \\\n            --prefix=/usr --buildtype=release",
-      "ninja -C gi-build",
-      "meson configure -D introspection=enabled",
-      "ninja",
-      "sed \"/docs_dir =/s|$| / 'glib-' + meson.project_version()|\" \\\n    -i ../docs/reference/meson.build",
-      "meson configure -D documentation=true",
-      "ninja",
-      "if [ -e /usr/include/glib-2.0 ]; then\n    rm -rf /usr/include/glib-2.0.old",
-      "mv -vf /usr/include/glib-2.0{,.old}\nfi",
-      "ninja -C gi-build install"
+      "meson setup build --prefix=/usr             \\\n      --buildtype=release       \\\n      -D introspection=disabled \\\n      -D glib_debug=disabled    \\\n      -D man-pages=enabled      \\\n      -D sysprof=disabled       \\\n      -D documentation=false    \\\n      .",
+      "ninja -C build",
+      "(cd build && DESTDIR=$PWD/stage ninja install)",
+      "(cd build && tar xf ../../gobject-introspection-1.86.0.tar.xz && PKG_CONFIG_PATH=$PWD/stage/usr/lib/pkgconfig meson setup gobject-introspection-1.86.0 gi-build --prefix=/usr --buildtype=release)",
+      "(cd build && ninja -C gi-build)",
+      "(cd build && DESTDIR=$PWD/stage ninja -C gi-build install)",
+      "(cd build && meson configure -D introspection=enabled && ninja)"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install",
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/glib2.html",
   "category": "libraries",

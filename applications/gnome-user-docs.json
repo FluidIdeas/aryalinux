@@ -17,6 +17,7 @@
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "gnome/gnome-user-docs.html",
   "category": "desktop-gnome",

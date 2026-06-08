@@ -21,15 +21,13 @@
   },
   "build": {
     "user": [
-      "for package in \\\n   libgedit-amtk-5.9.2.tar.bz2            \\\n   libgedit-gtksourceview-299.5.0.tar.bz2 \\\n   libgedit-gfls-0.3.1.tar.bz2            \\\n   libgedit-tepl-6.13.0.tar.bz2\ndo\n  packagedir=${package%.tar*}\n  echo \"Building $packagedir\"\n  tar -xf ../$package\n  pushd $packagedir\n    mkdir -p build\n    cd build\n    meson setup ..            \\\n          --prefix=/usr       \\\n          --buildtype=release \\\n          -D gtk_doc=false\n    ninja\n  popd\ndone",
-      "mkdir -p build",
-      "cd build",
-      "meson setup ..            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D gtk_doc=false",
-      "ninja"
+      "for package in \\\n   libgedit-amtk-5.9.2.tar.bz2            \\\n   libgedit-gtksourceview-299.5.0.tar.bz2 \\\n   libgedit-gfls-0.3.1.tar.bz2            \\\n   libgedit-tepl-6.13.0.tar.bz2\ndo\n  packagedir=${package%.tar*}\n  echo \"Building $packagedir\"\n  tar -xf ../$package\n  meson setup $packagedir/build --prefix=/usr       \\\n            --buildtype=release \\\n            -D gtk_doc=false $packagedir\n  ninja -C $packagedir/build\ndone",
+      "meson setup build --prefix=/usr       \\\n      --buildtype=release \\\n      -D gtk_doc=false .",
+      "ninja -C build"
     ],
     "package": [
-      "for package in \\\n   libgedit-amtk-5.9.2.tar.bz2            \\\n   libgedit-gtksourceview-299.5.0.tar.bz2 \\\n   libgedit-gfls-0.3.1.tar.bz2            \\\n   libgedit-tepl-6.13.0.tar.bz2\ndo\n  packagedir=${package%.tar*}\n  pushd $packagedir/build\n    DESTDIR=$DESTDIR ninja install\n  popd\n  rm -rf $packagedir\ndone",
-      "DESTDIR=$DESTDIR ninja install"
+      "for package in \\\n   libgedit-amtk-5.9.2.tar.bz2            \\\n   libgedit-gtksourceview-299.5.0.tar.bz2 \\\n   libgedit-gfls-0.3.1.tar.bz2            \\\n   libgedit-tepl-6.13.0.tar.bz2\ndo\n  packagedir=${package%.tar*}\n  DESTDIR=$DESTDIR ninja -C $packagedir/build install\ndone",
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
   "post_install": [

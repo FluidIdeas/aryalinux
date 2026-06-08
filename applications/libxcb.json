@@ -13,13 +13,13 @@
   "build": {
     "user": [
       "./configure $XORG_CONFIG      \\\n            --without-doxygen \\\n            --docdir='${datadir}'/doc/libxcb-1.17.0",
-      "LC_ALL=en_US.UTF-8 make",
-      "chown -Rv root:root $XORG_PREFIX/share/doc/libxcb-1.17.0"
+      "LC_ALL=en_US.UTF-8 make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/libxcb.html",
   "category": "x11",

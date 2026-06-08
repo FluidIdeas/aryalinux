@@ -10,9 +10,10 @@
       "make -j1 RPATH="
     ],
     "package": [
-      "make install_doc_dir=$DESTDIR/usr/share/doc/slang-2.3.3   \\\n     SLSH_DOC_DIR=$DESTDIR/usr/share/doc/slang-2.3.3/slsh \\\n     RPATH= install"
+      "make install DESTDIR=$DESTDIR RPATH="
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/slang.html",
   "category": "programming",

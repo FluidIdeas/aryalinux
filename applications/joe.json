@@ -6,7 +6,7 @@
   "dependencies": {},
   "build": {
     "user": [
-      "./configure --prefix=/usr     \\\n            --sysconfdir=/etc \\\n            --docdir=/usr/share/doc/joe-4.6",
+      "./configure --prefix=/usr     \\\n            --sysconfdir=/etc",
       "make"
     ],
     "package": [
@@ -14,6 +14,7 @@
       "install -vm 755 joe/util/{stringify,termidx,uniproc} $DESTDIR/usr/bin"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "postlfs/joe.html",
   "category": "system",

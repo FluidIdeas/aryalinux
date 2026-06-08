@@ -8,15 +8,13 @@
     "user": [
       "sed -i 's/catch_int ()/catch_int (int signum)/' test/poll.c",
       "./configure --prefix=/usr --disable-static",
-      "make",
-      "doxygen doc/doxygen.conf"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -v -dm755 $DESTDIR/usr/share/doc$DESTDIR/libburn-1.5.6",
-      "install -v -m644 doc/html/* $DESTDIR/usr/share/doc$DESTDIR/libburn-1.5.6"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "multimedia/libburn.html",
   "category": "multimedia",

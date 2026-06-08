@@ -3,6 +3,9 @@
   "version": "0.8",
   "description": "The Avahi package is a system which facilitates service discovery on a local network.",
   "url": "https://github.com/lathiat/avahi/releases/download/v0.8/avahi-0.8.tar.gz",
+  "patches": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/avahi-0.8-ipv6_race_condition_fix-1.patch"
+  ],
   "dependencies": {
     "required": [
       "glib2",
@@ -11,22 +14,24 @@
   },
   "build": {
     "user": [
-      "patch -Np1 -i ../avahi-0.8-ipv6_race_condition_fix-1.patch",
+      "patch -Np1 -i ../../avahi-0.8-ipv6_race_condition_fix-1.patch",
       "sed -i '426a if (events & AVAHI_WATCH_HUP) { \\\nclient_free(c); \\\nreturn; \\\n}' avahi-daemon/simple-protocol.c",
-      "./configure \\\n    --prefix=/usr        \\\n    --sysconfdir=/etc    \\\n    --localstatedir=/var \\\n    --disable-static     \\\n    --disable-libevent   \\\n    --disable-mono       \\\n    --disable-monodoc    \\\n    --disable-python     \\\n    --disable-qt3        \\\n    --disable-qt4        \\\n    --disable-qt5        \\\n    --enable-core-docs   \\\n    --with-distro=none   \\\n    --with-dbus-system-address='unix:path=/run/dbus/system_bus_socket'",
-      "make",
-      "mkdir -pv /etc/systemd/resolved.conf.d",
-      "cat > /etc/systemd/resolved.conf.d/no-mdns.conf << EOF",
-      "[Resolve]\nMulticastDNS=no\nEOF\nsystemctl enable avahi-daemon",
-      "systemctl enable avahi-dnsconfd",
-      "groupadd -fg 84 avahi",
-      "useradd -c \"Avahi Daemon Owner\" -d /run/avahi-daemon -u 84 \\\n        -g avahi -s /bin/false avahi",
-      "groupadd -fg 86 netdev"
+      "./configure \\\n    --prefix=/usr        \\\n    --sysconfdir=/etc    \\\n    --localstatedir=/var \\\n    --disable-static     \\\n    --disable-libevent   \\\n    --disable-mono       \\\n    --disable-monodoc    \\\n    --disable-python     \\\n    --disable-qt3        \\\n    --disable-qt4        \\\n    --disable-qt5        \\\n    --disable-core-docs  \\\n    --with-distro=none   \\\n    --with-dbus-system-address='unix:path=/run/dbus/system_bus_socket'",
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make install DESTDIR=$DESTDIR",
+      "install -d $DESTDIR/etc/systemd/resolved.conf.d",
+      "cat > $DESTDIR/etc/systemd/resolved.conf.d/no-mdns.conf << \"EOF\"\n[Resolve]\nMulticastDNS=no\nEOF"
     ]
   },
+  "post_install": [
+    "getent group avahi >/dev/null || groupadd -fg 84 avahi",
+    "id -u avahi >/dev/null 2>&1 || useradd -c \"Avahi Daemon Owner\" -d /run/avahi-daemon -u 84 -g avahi -s /bin/false avahi",
+    "getent group netdev >/dev/null || groupadd -fg 86 netdev",
+    "systemctl enable avahi-daemon",
+    "systemctl enable avahi-dnsconfd"
+  ],
   "meta": false,
   "book": "basicnet/avahi.html",
   "category": "networking",

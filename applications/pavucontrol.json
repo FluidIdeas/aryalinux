@@ -10,16 +10,15 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr --buildtype=release -D lynx=disabled ..",
-      "ninja",
-      "mv /usr/share/doc/pavucontrol /usr/share/doc/pavucontrol-6.2"
+      "meson setup build --prefix=/usr --buildtype=release -D lynx=disabled .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "mv $DESTDIR/usr/share/doc/pavucontrol $DESTDIR/usr/share/doc/pavucontrol-6.2"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "multimedia/pavucontrol.html",
   "category": "multimedia",

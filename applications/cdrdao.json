@@ -16,11 +16,10 @@
       "make CC=\"gcc -std=gnu17\""
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -v -m755 -d $DESTDIR/usr/share/doc/cdrdao-1.2.6",
-      "install -v -m644 README $DESTDIR/usr/share/doc/cdrdao-1.2.6"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "multimedia/cdrdao.html",
   "category": "multimedia",

@@ -11,25 +11,16 @@
   },
   "build": {
     "user": [
-      "./configure --prefix=/usr    \\\n            --disable-static \\\n            --docdir=/usr/share/doc/guile-3.0.11",
-      "make",
-      "make html",
-      "makeinfo --plaintext -o doc/r5rs/r5rs.txt doc/r5rs/r5rs.texi",
-      "makeinfo --plaintext -o doc/ref/guile.txt doc/ref/guile.texi",
-      "mkdir -p                       /usr/share/gdb/auto-load/usr/lib",
-      "mv /usr/lib/libguile-*-gdb.scm /usr/share/gdb/auto-load/usr/lib",
-      "mv /usr/share/doc/guile-3.0.11/{guile.html,ref}",
-      "mv /usr/share/doc/guile-3.0.11/r5rs{.html,}",
-      "find examples -name \"Makefile*\" -delete",
-      "cp -vR examples   /usr/share/doc/guile-3.0.11",
-      "for DIRNAME in r5rs ref; do\n  install -v -m644  doc/${DIRNAME}/*.txt \\\n                    /usr/share/doc/guile-3.0.11/${DIRNAME}\ndone",
-      "unset DIRNAME"
+      "./configure --prefix=/usr --disable-static",
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
-      "make install-html DESTDIR=$DESTDIR"
+      "mkdir -p $DESTDIR/usr/share/gdb/auto-load/usr/lib",
+      "mv $DESTDIR/usr/lib/libguile-*-gdb.scm $DESTDIR/usr/share/gdb/auto-load/usr/lib/"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/guile.html",
   "category": "programming",

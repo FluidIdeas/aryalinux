@@ -10,16 +10,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup ..            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D gst_debug=false",
-      "ninja",
-      "rm -rf /usr/bin/gst-* /usr/{lib,libexec}/gstreamer-1.0"
+      "meson setup build --prefix=/usr --buildtype=release -D gst_debug=false .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "multimedia/gstreamer10.html",
   "category": "multimedia",

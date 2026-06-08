@@ -15,13 +15,13 @@
     "user": [
       "patch -Np1 -i ../node-v22.22.0-python_build_fix-1.patch",
       "./configure --prefix=/usr          \\\n            --shared-brotli        \\\n            --shared-cares         \\\n            --shared-libuv         \\\n            --shared-openssl       \\\n            --shared-nghttp2       \\\n            --shared-zlib          \\\n            --with-intl=system-icu",
-      "make",
-      "ln -sf node /usr/share/doc/node-22.22.0"
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/nodejs.html",
   "category": "libraries",

@@ -13,18 +13,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr       \\\n            --buildtype=release \\\n            -D gtk_doc=false    \\\n            ..",
-      "ninja",
-      "sed -e \"/install_dir/s@,\\$@ / 'gcr-4.4.0.1'&@\" \\\n    -i ../docs/*/meson.build",
-      "meson configure -D gtk_doc=true",
-      "ninja"
+      "meson setup build --prefix=/usr       \\\n            --buildtype=release \\\n            -D gtk_doc=false    \\\n            .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "gnome/gcr4.html",
   "category": "desktop-gnome",

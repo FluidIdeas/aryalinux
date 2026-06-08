@@ -6,13 +6,14 @@
   "dependencies": {},
   "build": {
     "user": [
-      "./configure --prefix=/usr    \\\n            --enable-shared  \\\n            --disable-static \\\n            --docdir=/usr/share/doc/libatomic_ops-7.10.0",
+      "./configure --prefix=/usr    \\\n            --enable-shared  \\\n            --disable-static",
       "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/libatomic_ops.html",
   "category": "libraries",

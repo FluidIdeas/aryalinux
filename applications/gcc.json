@@ -7,19 +7,19 @@
   "build": {
     "user": [
       "sed -i 's/char [*]q/const &/' libgomp/affinity-fmt.c",
-      "case $(uname -m) in\n  x86_64)\n    sed -i.orig '/m64=/s/lib64/lib/' gcc/config/i386/t-linux64\n  ;;\nesac\n\nmkdir build",
-      "cd    build",
-      "../configure              \\\n    --prefix=/usr         \\\n    --disable-multilib    \\\n    --with-system-zlib    \\\n    --enable-default-pie  \\\n    --enable-default-ssp  \\\n    --enable-host-pie     \\\n    --disable-fixincludes \\\n    --enable-languages=c,c++,fortran,go,objc,obj-c++,m2",
-      "make",
-      "mkdir -pv /usr/share/gdb/auto-load/usr/lib",
-      "mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib",
-      "chown -v -R root:root \\\n    /usr/lib/gcc/*linux-gnu/15.2.0/include{,-fixed}",
-      "ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/15.2.0/liblto_plugin.so \\\n        /usr/lib/bfd-plugins/"
+      "case $(uname -m) in\n  x86_64)\n    sed -i.orig '/m64=/s/lib64/lib/' gcc/config/i386/t-linux64\n  ;;\nesac",
+      "mkdir build",
+      "(cd build && ../configure              \\\n    --prefix=/usr         \\\n    --disable-multilib    \\\n    --with-system-zlib    \\\n    --enable-default-pie  \\\n    --enable-default-ssp  \\\n    --enable-host-pie     \\\n    --disable-fixincludes \\\n    --enable-languages=c,c++,fortran,go,objc,obj-c++,m2 && make)"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make -C build install DESTDIR=$DESTDIR",
+      "mkdir -pv $DESTDIR/usr/share/gdb/auto-load/usr/lib",
+      "mv -v $DESTDIR/usr/lib/*gdb.py $DESTDIR/usr/share/gdb/auto-load/usr/lib",
+      "chown -v -R root:root \\\n    $DESTDIR/usr/lib/gcc/*linux-gnu/15.2.0/include{,-fixed}",
+      "ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/15.2.0/liblto_plugin.so \\\n        $DESTDIR/usr/lib/bfd-plugins/"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/gcc.html",
   "category": "programming",

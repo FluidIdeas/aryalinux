@@ -7,15 +7,13 @@
   "build": {
     "user": [
       "./configure --prefix=/usr              \\\n            --enable-shared            \\\n            --with-system-expat        \\\n            --enable-optimizations     \\\n            --without-static-libpython",
-      "make",
-      "ln -svfn python-3.14.3 /usr/share/doc/python-3",
-      "export PYTHONDOCS=/usr/share/doc/python-3/html"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -v -dm755 $DESTDIR/usr/share/doc/python-3.14.3/html\n\ntar --strip-components=1  \\\n    --no-same-owner       \\\n    --no-same-permissions \\\n    -C $DESTDIR/usr/share/doc/python-3.14.3/html \\\n    -xvf ../python-3.14.3-docs-html.tar.bz2"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/python3.html",
   "category": "programming",

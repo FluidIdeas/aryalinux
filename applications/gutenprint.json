@@ -12,16 +12,15 @@
     "user": [
       "sed -i 's|$(PACKAGE)/doc|doc/$(PACKAGE)-$(VERSION)|' \\\n       {,doc/,doc/developer/}Makefile.in",
       "./configure --prefix=/usr    \\\n            --disable-static \\\n            --without-gimp2  \\\n            --without-gimp2-as-gutenprint",
-      "make",
-      "systemctl restart cups"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -v -m755 -d $DESTDIR/usr/share/doc/gutenprint-5.3.5/api/gutenprint{,ui2}",
-      "install -v -m644    doc/gutenprint/html/* \\\n                    $DESTDIR/usr/share/doc/gutenprint-5.3.5/api/gutenprint",
-      "install -v -m644    doc/gutenprintui2/html/* \\\n                    $DESTDIR/usr/share/doc/gutenprint-5.3.5/api/gutenprintui2"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [
+    "systemctl restart cups"
+  ],
   "meta": false,
   "book": "pst/gutenprint.html",
   "category": "printing",

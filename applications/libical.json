@@ -12,18 +12,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "cmake -D CMAKE_INSTALL_PREFIX=/usr  \\\n      -D CMAKE_BUILD_TYPE=Release   \\\n      -D SHARED_ONLY=yes            \\\n      -D ICAL_BUILD_DOCS=false      \\\n      -D GOBJECT_INTROSPECTION=true \\\n      -D ICAL_GLIB_VAPI=true        \\\n      ..",
-      "make -j1",
-      "make docs",
-      "cp -vr apidocs/html/* /usr/share/doc/libical-3.0.20/html"
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr  \\\n      -D CMAKE_BUILD_TYPE=Release   \\\n      -D SHARED_ONLY=yes            \\\n      -D ICAL_BUILD_DOCS=false      \\\n      -D GOBJECT_INTROSPECTION=true \\\n      -D ICAL_GLIB_VAPI=true        \\\n      .",
+      "make -C build -j1"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -vdm755 $DESTDIR/usr/share/doc$DESTDIR/libical-3.0.20/html"
+      "make -C build install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/libical.html",
   "category": "libraries",

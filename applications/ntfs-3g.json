@@ -8,15 +8,15 @@
     "user": [
       "./autogen.sh",
       "./configure --prefix=/usr        \\\n            --disable-static     \\\n            --with-fuse=internal \\\n            --docdir=/usr/share/doc/ntfs-3g-2022.10.3",
-      "make",
-      "ln -svf ../bin/ntfs-3g /usr/sbin/mount.ntfs",
-      "ln -svf ntfs-3g.8 /usr/share/man/man8/mount.ntfs.8",
-      "chmod -v 777 /mnt/usb"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make install DESTDIR=$DESTDIR",
+      "ln -svf ../bin/ntfs-3g $DESTDIR/usr/sbin/mount.ntfs",
+      "ln -svf ntfs-3g.8 $DESTDIR/usr/share/man/man8/mount.ntfs.8"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "postlfs/ntfs-3g.html",
   "category": "system",

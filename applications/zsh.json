@@ -12,21 +12,15 @@
       "autoconf",
       "sed -e 's|/etc/z|/etc/zsh/z|g' \\\n    -i Doc/*.*",
       "./configure --prefix=/usr            \\\n            --sysconfdir=/etc/zsh    \\\n            --enable-etcdir=/etc/zsh \\\n            --enable-cap             \\\n            --enable-gdbm",
-      "make",
-      "makeinfo  Doc/zsh.texi --html      -o Doc/html",
-      "makeinfo  Doc/zsh.texi --plaintext -o zsh.txt",
-      "makeinfo  Doc/zsh.texi --html --no-split --no-headers -o zsh.html",
-      "texi2pdf  Doc/zsh.texi -o Doc/zsh.pdf",
-      "make infodir=/usr/share/info install.info",
-      "make htmldir=/usr/share/doc/zsh-5.9/html install.html",
-      "cat >> /etc/shells << \"EOF\"\n/bin/zsh\nEOF"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -v -m644 zsh.{html,txt} Etc/FAQ $DESTDIR/usr/share/doc/zsh-5.9",
-      "install -v -m644 Doc/zsh.pdf $DESTDIR/usr/share/doc/zsh-5.9"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [
+    "grep -qF '/bin/zsh' /etc/shells || echo '/bin/zsh' >> /etc/shells"
+  ],
   "meta": false,
   "book": "postlfs/zsh.html",
   "category": "system",

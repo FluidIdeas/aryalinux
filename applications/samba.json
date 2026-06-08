@@ -20,23 +20,23 @@
       "./pyvenv/bin/pip3 install cryptography pyasn1 iso8601",
       "PYTHON=$PWD/pyvenv/bin/python3             \\\n./configure                                \\\n    --prefix=/usr                          \\\n    --sysconfdir=/etc                      \\\n    --localstatedir=/var                   \\\n    --with-piddir=/run/samba               \\\n    --with-pammodulesdir=/usr/lib/security \\\n    --enable-fhs                           \\\n    --without-ad-dc                        \\\n    --with-system-mitkrb5                  \\\n    --enable-selftest                      \\\n    --disable-rpath-install",
       "make",
-      "sed '1s@^.*$@#!/usr/bin/python3@' \\\n    -i ./bin/default/source4/scripting/bin/*.inst",
-      "rm -rf /usr/lib/python3.14/site-packages/samba",
-      "sed -e \"s;log file =.*;log file = /var/log/samba/%m.log;\"   \\\n    -e \"s;path = /usr/spool/samba;path = /var/spool/samba;\" \\\n    -i /etc/samba/smb.conf.default",
-      "mkdir -pv /etc/openldap/schema",
-      "ln -v -sf /usr/bin/smbspool /usr/lib/cups/backend/smb"
+      "sed '1s@^.*$@#!/usr/bin/python3@' \\\n    -i ./bin/default/source4/scripting/bin/*.inst"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
       "install -v -m644 examples/smb.conf.default $DESTDIR/etc/samba",
+      "sed -e \"s;log file =.*;log file = /var/log/samba/%m.log;\"   \\\n    -e \"s;path = /usr/spool/samba;path = /var/spool/samba;\" \\\n    -i $DESTDIR/etc/samba/smb.conf.default",
+      "install -vdm755 $DESTDIR/etc/openldap/schema",
       "install -v -m644    examples/LDAP/README \\\n                    $DESTDIR/etc/openldap/schema/README.samba",
       "install -v -m644    examples/LDAP/samba* \\\n                    $DESTDIR/etc/openldap/schema",
       "install -v -m755    examples/LDAP/{get*,ol*} \\\n                    $DESTDIR/etc/openldap/schema",
-      "install -dvm 755 $DESTDIR/usr$DESTDIR/lib/cups/backend",
+      "install -dvm 755 $DESTDIR/usr/lib/cups/backend",
+      "ln -sfv /usr/bin/smbspool $DESTDIR/usr/lib/cups/backend/smb",
       "make install-samba DESTDIR=$DESTDIR",
       "make install-winbindd DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "basicnet/samba.html",
   "category": "networking",

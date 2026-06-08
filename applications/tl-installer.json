@@ -15,6 +15,7 @@
       "TEXLIVE_INSTALL_PREFIX=$DESTDIR/opt/texlive/2025 ./install-tl --no-interaction --scheme=medium"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "pst/tl-installer.html",
   "category": "printing",

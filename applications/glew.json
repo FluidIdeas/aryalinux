@@ -18,6 +18,7 @@
       "make install.all DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/glew.html",
   "category": "x11",

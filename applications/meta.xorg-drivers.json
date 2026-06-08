@@ -25,6 +25,7 @@
     ]
   },
   "build": {},
+  "post_install": [],
   "meta": true,
   "book": "x/x7driver.html",
   "category": "metapackage",

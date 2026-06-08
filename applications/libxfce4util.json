@@ -18,6 +18,7 @@
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "xfce/libxfce4util.html",
   "category": "desktop-xfce",

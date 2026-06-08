@@ -17,10 +17,11 @@
       "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
+      "make -C libsass-3.6.6 install DESTDIR=$DESTDIR",
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/sassc.html",
   "category": "graphics",

@@ -10,15 +10,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "cmake -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D BUILD_STATIC_LIBS=OFF     \\\n      -D CMAKE_INSTALL_DOCDIR=/usr/share/doc/qpdf-12.3.2 \\\n      ..",
-      "make"
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D BUILD_STATIC_LIBS=OFF     \\\n      ..",
+      "make -C build"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make -C build install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/qpdf.html",
   "category": "graphics",

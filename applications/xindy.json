@@ -21,6 +21,7 @@
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "pst/xindy.html",
   "category": "printing",

@@ -10,15 +10,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "cmake -D CMAKE_INSTALL_PREFIX=/usr        \\\n      -D CMAKE_POLICY_VERSION_MINIMUM=3.5 \\\n      -D BUILD_SHARED_LIBS=ON             \\\n      -D BUILD_TESTING=ON                 \\\n      ..",
-      "make"
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr        \\\n      -D CMAKE_POLICY_VERSION_MINIMUM=3.5 \\\n      -D BUILD_SHARED_LIBS=ON             \\\n      -D BUILD_TESTING=ON                 \\\n      .",
+      "make -C build"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make -C build install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/double-conversion.html",
   "category": "libraries",

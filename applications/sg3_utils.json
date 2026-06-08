@@ -13,6 +13,7 @@
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/sg3_utils.html",
   "category": "libraries",

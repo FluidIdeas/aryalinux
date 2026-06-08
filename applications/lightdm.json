@@ -17,26 +17,25 @@
       "./configure --prefix=/usr                 \\\n            --libexecdir=/usr/lib/lightdm \\\n            --localstatedir=/var          \\\n            --sbindir=/usr/bin            \\\n            --sysconfdir=/etc             \\\n            --disable-static              \\\n            --disable-tests               \\\n            --with-greeter-user=lightdm   \\\n            --with-greeter-session=lightdm-gtk-greeter \\\n            --docdir=/usr/share/doc/lightdm-1.32.0",
       "make",
       "tar -xf ../lightdm-gtk-greeter-2.0.9.tar.gz",
-      "cd lightdm-gtk-greeter-2.0.9",
-      "./configure --prefix=/usr                 \\\n            --libexecdir=/usr/lib/lightdm \\\n            --sbindir=/usr/bin            \\\n            --sysconfdir=/etc             \\\n            --with-libxklavier            \\\n            --enable-kill-on-sigterm      \\\n            --disable-libido              \\\n            --disable-libindicator        \\\n            --disable-static              \\\n            --disable-maintainer-mode     \\\n            --docdir=/usr/share/doc/lightdm-gtk-greeter-2.0.9",
-      "make",
-      "ln -sf /opt/xorg/bin/Xorg /usr/bin/X",
-      "groupadd -g 65 lightdm",
-      "useradd  -c \"Lightdm Daemon\" \\\n         -d /var/lib/lightdm \\\n         -u 65 -g lightdm    \\\n         -s /bin/false lightdm",
-      "cp tests/src/lightdm-session /usr/bin",
-      "sed -i '1 s/sh/bash --login/' /usr/bin/lightdm-session",
-      "rm -rf /etc/init"
+      "(cd lightdm-gtk-greeter-2.0.9 && ./configure --prefix=/usr                 \\\n            --libexecdir=/usr/lib/lightdm \\\n            --sbindir=/usr/bin            \\\n            --sysconfdir=/etc             \\\n            --with-libxklavier            \\\n            --enable-kill-on-sigterm      \\\n            --disable-libido              \\\n            --disable-libindicator        \\\n            --disable-static              \\\n            --disable-maintainer-mode     \\\n            --docdir=/usr/share/doc/lightdm-gtk-greeter-2.0.9 && make)"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
-      "install -v -dm755 -o lightdm -g lightdm $DESTDIR/var$DESTDIR/lib/lightdm",
-      "install -v -dm755 -o lightdm -g lightdm $DESTDIR/var$DESTDIR/lib/lightdm-data",
-      "install -v -dm755 -o lightdm -g lightdm $DESTDIR/var/cache/lightdm",
-      "install -v -dm770 -o lightdm -g lightdm $DESTDIR/var/log/lightdm",
-      "make install DESTDIR=$DESTDIR",
+      "install -v -m755 tests/src/lightdm-session $DESTDIR/usr/bin/lightdm-session",
+      "sed -i '1 s/sh/bash --login/' $DESTDIR/usr/bin/lightdm-session",
+      "rm -rf $DESTDIR/etc/init",
+      "install -v -dm755 $DESTDIR/var/lib/lightdm      \\\n        $DESTDIR/var/lib/lightdm-data \\\n        $DESTDIR/var/cache/lightdm    \\\n        $DESTDIR/var/log/lightdm",
+      "(cd lightdm-gtk-greeter-2.0.9 && make install DESTDIR=$DESTDIR)",
       "make install-lightdm DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [
+    "groupadd -g 65 lightdm",
+    "useradd  -c \"Lightdm Daemon\" \\\n         -d /var/lib/lightdm \\\n         -u 65 -g lightdm    \\\n         -s /bin/false lightdm",
+    "chown -R lightdm:lightdm /var/lib/lightdm /var/lib/lightdm-data /var/cache/lightdm /var/log/lightdm",
+    "ln -sf /opt/xorg/bin/Xorg /usr/bin/X",
+    "systemctl enable lightdm"
+  ],
   "meta": false,
   "book": "x/lightdm.html",
   "category": "x11",

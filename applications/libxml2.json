@@ -11,21 +11,15 @@
   "build": {
     "user": [
       "sed -i \"/'git'/,+3d\" meson.build",
-      "mkdir build",
-      "cd    build",
-      "meson setup ..           \\\n      --prefix=/usr      \\\n      -D history=enabled \\\n      -D icu=enabled",
-      "ninja",
-      "sed -e \"/^dir_doc/s/\\$/ + '-' + meson.project_version()/\" \\\n    -i ../meson.build",
-      "meson configure -D docs=enabled",
-      "ninja",
-      "tar xf ../../xmlts20130923.tar.gz -C ..",
-      "systemctl stop httpd.service",
-      "sed \"s/--static/--shared/\" -i /usr/bin/xml2-config"
+      "meson setup build --prefix=/usr      \\\n      -D history=enabled \\\n      -D icu=enabled .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "sed \"s/--static/--shared/\" -i $DESTDIR/usr/bin/xml2-config"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/libxml2.html",
   "category": "libraries",

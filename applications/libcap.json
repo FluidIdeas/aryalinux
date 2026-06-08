@@ -10,16 +10,17 @@
   },
   "build": {
     "user": [
-      "make -C pam_cap",
-      "mv -v /etc/pam.d/system-auth{,.bak}",
-      "cat > /etc/pam.d/system-auth << \"EOF\"",
-      "# Begin /etc/pam.d/system-auth\n\nauth      optional    pam_cap.so\nEOF\ntail -n +3 /etc/pam.d/system-auth.bak >> /etc/pam.d/system-auth"
+      "make -C pam_cap"
     ],
     "package": [
-      "install -v -m755 pam_cap/pam_cap.so      $DESTDIR/usr$DESTDIR/lib/security",
+      "install -v -m755 pam_cap/pam_cap.so      $DESTDIR/usr/lib/security",
       "install -v -m644 pam_cap/capability.conf $DESTDIR/etc/security"
     ]
   },
+  "post_install": [
+    "mv -v /etc/pam.d/system-auth{,.bak}",
+    "cat > /etc/pam.d/system-auth << \"EOF\"\n# Begin /etc/pam.d/system-auth\n\nauth      optional    pam_cap.so\nEOF\ntail -n +3 /etc/pam.d/system-auth.bak >> /etc/pam.d/system-auth"
+  ],
   "meta": false,
   "book": "postlfs/libcap.html",
   "category": "security",

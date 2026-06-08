@@ -10,13 +10,14 @@
   },
   "build": {
     "user": [
-      "gem build asciidoctor.gemspec",
-      "gem install asciidoctor-2.0.26.gem"
+      "gem build asciidoctor.gemspec"
     ],
     "package": [
+      "gem install --install-dir $DESTDIR/usr/lib/ruby/gems/4.0.0 \\\n            --bindir $DESTDIR/usr/bin \\\n            --no-document \\\n            --local asciidoctor-2.0.26.gem",
       "install -vm644 man/asciidoctor.1 $DESTDIR/usr/share/man/man1"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/asciidoctor.html",
   "category": "libraries",

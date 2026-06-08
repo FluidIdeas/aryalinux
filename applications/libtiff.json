@@ -10,15 +10,15 @@
   },
   "build": {
     "user": [
-      "mkdir -p libtiff-build",
-      "cd       libtiff-build",
-      "cmake -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -W no-dev -G Ninja ..\nninja",
-      "mv -v /usr/share/doc/{tiff,libtiff-4.7.1}"
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -W no-dev -G Ninja .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "mv -v $DESTDIR/usr/share/doc/{tiff,libtiff-4.7.1}"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/libtiff.html",
   "category": "graphics",

@@ -17,15 +17,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "cmake -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D SYSCONF_INSTALL_DIR=/etc  \\\n      -D ENABLE_INSTALLED_TESTS=ON \\\n      -D ENABLE_PST_IMPORT=OFF     \\\n      -D ENABLE_YTNEF=OFF          \\\n      -D ENABLE_CONTACT_MAPS=OFF   \\\n      -D ENABLE_MARKDOWN=OFF       \\\n      -D ENABLE_WEATHER=ON         \\\n      -G Ninja ..",
-      "ninja"
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D SYSCONF_INSTALL_DIR=/etc  \\\n      -D ENABLE_INSTALLED_TESTS=ON \\\n      -D ENABLE_PST_IMPORT=OFF     \\\n      -D ENABLE_YTNEF=OFF          \\\n      -D ENABLE_CONTACT_MAPS=OFF   \\\n      -D ENABLE_MARKDOWN=OFF       \\\n      -D ENABLE_WEATHER=ON         \\\n      -G Ninja .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "gnome/evolution.html",
   "category": "desktop-gnome",

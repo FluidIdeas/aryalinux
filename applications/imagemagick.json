@@ -14,9 +14,10 @@
       "make"
     ],
     "package": [
-      "make DOCUMENTATION_PATH=$DESTDIR/usr/share/doc/imagemagick-7.1.2 install DESTDIR=$DESTDIR"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/imagemagick.html",
   "category": "libraries",

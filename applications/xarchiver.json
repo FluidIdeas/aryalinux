@@ -11,15 +11,17 @@
   "build": {
     "user": [
       "sed '/TOGGLE.*prefer_unzip/s/TRUE/FALSE/' -i src/pref_dialog.c",
-      "./configure  --prefix=/usr               \\\n             --libexecdir=/usr/lib/xfce4 \\\n             --docdir=/usr/share/doc/xarchiver-0.5.4.26",
-      "make",
-      "gtk-update-icon-cache -qtf /usr/share/icons/hicolor",
-      "update-desktop-database -q"
+      "./configure  --prefix=/usr               \\\n             --libexecdir=/usr/lib/xfce4",
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [
+    "gtk-update-icon-cache -qtf /usr/share/icons/hicolor",
+    "update-desktop-database -q"
+  ],
   "meta": false,
   "book": "xsoft/xarchiver.html",
   "category": "applications",

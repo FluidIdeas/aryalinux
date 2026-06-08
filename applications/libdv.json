@@ -11,10 +11,11 @@
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
-      "install -v -m755 -d      $DESTDIR/usr/share/doc$DESTDIR/libdv-1.0.0",
-      "install -v -m644 README* $DESTDIR/usr/share/doc$DESTDIR/libdv-1.0.0"
+      "install -v -m755 -d      $DESTDIR/usr/share/doc/libdv-1.0.0",
+      "install -v -m644 README* $DESTDIR/usr/share/doc/libdv-1.0.0"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "multimedia/libdv.html",
   "category": "multimedia",

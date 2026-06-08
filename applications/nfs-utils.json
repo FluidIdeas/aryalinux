@@ -3,6 +3,9 @@
   "version": "2.8.5",
   "description": "The NFS Utilities package contains the userspace server and client tools necessary to use the kernel's NFS abilities. NFS is a protocol that allows sharing file systems over the network.",
   "url": "https://www.kernel.org/pub/linux/utils/nfs-utils/2.8.5/nfs-utils-2.8.5.tar.xz",
+  "urls": [
+    "https://www.linuxfromscratch.org/blfs/downloads/13.0-systemd/blfs-systemd-units-20251204.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "libevent",
@@ -14,19 +17,19 @@
   "build": {
     "user": [
       "./configure --prefix=/usr       \\\n            --sysconfdir=/etc   \\\n            --sbindir=/usr/sbin \\\n            --disable-nfsv4     \\\n            --disable-gss",
-      "make",
-      "cat >> /etc/exports << EOF\n/home 192.168.0.0/24(rw,subtree_check,anonuid=99,anongid=99)\nEOF",
-      "<server-name>:/home  /home nfs   rw,_netdev 0 0\n<server-name>:/usr   /usr  nfs   ro,_netdev 0 0",
-      "chmod u+w,go+r /usr/sbin/mount.nfs",
-      "chown nobody:nogroup /var/lib/nfs"
+      "make"
     ],
     "package": [
-      "make install-nfsv4-server DESTDIR=$DESTDIR",
       "make install DESTDIR=$DESTDIR",
-      "make install-nfs-server DESTDIR=$DESTDIR",
-      "make install-nfs-client DESTDIR=$DESTDIR"
+      "chmod u+w,go+r $DESTDIR/usr/sbin/mount.nfs",
+      "tar -xf ../../blfs-systemd-units-20251204.tar.xz -C ../../",
+      "cd ../../blfs-systemd-units-20251204 && make install-nfs-server DESTDIR=$DESTDIR",
+      "cd ../../blfs-systemd-units-20251204 && make install-nfs-client DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [
+    "chown nobody:nogroup /var/lib/nfs"
+  ],
   "meta": false,
   "book": "basicnet/nfs-utils.html",
   "category": "networking",

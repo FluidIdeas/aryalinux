@@ -7,19 +7,11 @@
   "build": {
     "user": [
       "sed -i '/^udev/,$ s/^/#/' util/meson.build",
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr --buildtype=release ..",
-      "ninja",
-      "pushd ..",
-      "doxygen doc/Doxyfile",
-      "popd"
+      "meson setup build --prefix=/usr --buildtype=release .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install",
-      "cd ..",
-      "cp -Rv doc/html -T $DESTDIR/usr/share/doc/fuse-3.18.1",
-      "install -v -m644 doc/{README.NFS,kernel.txt} $DESTDIR/usr/share/doc/fuse-3.18.1",
+      "DESTDIR=$DESTDIR ninja -C build install",
       "cat > $DESTDIR/etc/fuse.conf << \"EOF\"\n# Set the maximum number of FUSE mounts allowed to non-root users.\n# The default is 1000.\n#\n#mount_max = 1000\n\n# Allow non-root users to specify the 'allow_other' or 'allow_root'\n# mount options.\n#\n#user_allow_other\nEOF"
     ]
   },

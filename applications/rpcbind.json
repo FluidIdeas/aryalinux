@@ -12,16 +12,18 @@
     "user": [
       "sed -i \"/servname/s:rpcbind:sunrpc:\" src/rpcbind.c",
       "./configure --prefix=/usr       \\\n            --bindir=/usr/sbin  \\\n            --enable-warmstarts \\\n            --with-rpcuser=rpc",
-      "make",
-      "groupadd -g 28 rpc",
-      "useradd -c \"RPC Bind Daemon Owner\" -d /dev/null -g rpc \\\n        -s /bin/false -u 28 rpc",
-      "echo 'RPCBIND_OPTIONS=\"\"' > /etc/rpcbind.conf",
-      "systemctl enable rpcbind"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "make install DESTDIR=$DESTDIR",
+      "echo 'RPCBIND_OPTIONS=\"\"' > $DESTDIR/etc/rpcbind.conf"
     ]
   },
+  "post_install": [
+    "getent group rpc >/dev/null || groupadd -g 28 rpc",
+    "id -u rpc >/dev/null 2>&1 || useradd -c \"RPC Bind Daemon Owner\" -d /dev/null -g rpc \\\n        -s /bin/false -u 28 rpc",
+    "systemctl enable rpcbind"
+  ],
   "meta": false,
   "book": "basicnet/rpcbind.html",
   "category": "networking",

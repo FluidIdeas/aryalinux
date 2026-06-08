@@ -9,18 +9,17 @@
     ]
   },
   "build": {
-    "user": [
-      "cp -rv catalog.xml dtd rng sch xsd /usr/share/xml/docbook/xml-5.0",
-      "if [ ! -e /etc/xml/catalog ]; then\n    install -v -d -m755 /etc/xml",
-      "xmlcatalog --noout --create /etc/xml/catalog\nfi",
-      "xmlcatalog --noout --add \"delegatePublic\"             \\\n  \"-//OASIS//DTD DocBook XML 5.0//EN                \" \\\n  \"file:///usr/share/xml/docbook/xml-5.0/catalog.xml\" \\\n  /etc/xml/catalog",
-      "xmlcatalog --noout --add \"delegateSystem\"             \\\n  \"http://docbook.org/xml/5.0/dtd/\"                   \\\n  \"file:///usr/share/xml/docbook/xml-5.0/catalog.xml\" \\\n  /etc/xml/catalog",
-      "xmlcatalog --noout --add \"delegateURI\"                \\\n  \"http://docbook.org/xml/5.0\"                        \\\n  \"file:///usr/share/xml/docbook/xml-5.0/catalog.xml\" \\\n  /etc/xml/catalog"
-    ],
+    "user": [],
     "package": [
-      "install -vdm755 $DESTDIR/usr/share/xml/docbook/xml-5.0"
+      "install -d $DESTDIR/usr/share/xml/docbook/xml-5.0 $DESTDIR/etc/xml",
+      "cp -rv catalog.xml dtd rng sch xsd $DESTDIR/usr/share/xml/docbook/xml-5.0/",
+      "xmlcatalog --noout --create $DESTDIR/etc/xml/catalog",
+      "xmlcatalog --noout --add \"delegatePublic\" \"-//OASIS//DTD DocBook XML 5.0//EN\" \"file://$DESTDIR/usr/share/xml/docbook/xml-5.0/catalog.xml\" $DESTDIR/etc/xml/catalog",
+      "xmlcatalog --noout --add \"delegateSystem\" \"http://docbook.org/xml/5.0/dtd/\" \"file://$DESTDIR/usr/share/xml/docbook/xml-5.0/catalog.xml\" $DESTDIR/etc/xml/catalog",
+      "xmlcatalog --noout --add \"delegateURI\" \"http://docbook.org/xml/5.0\" \"file://$DESTDIR/usr/share/xml/docbook/xml-5.0/catalog.xml\" $DESTDIR/etc/xml/catalog"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "pst/docbook5.html",
   "category": "printing",

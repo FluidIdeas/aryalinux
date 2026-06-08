@@ -10,20 +10,14 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr --buildtype=release ..",
-      "ninja",
-      "meson configure -D man=true",
-      "ninja",
-      "sed \"/json_docdir =/s|$| / 'json-glib-1.10.8'|\" -i ../doc/meson.build",
-      "meson configure -D documentation=enabled",
-      "ninja"
+      "meson setup build --prefix=/usr --buildtype=release \\\n      -D documentation=disabled -D man=false .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/json-glib.html",
   "category": "libraries",

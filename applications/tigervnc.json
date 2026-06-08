@@ -18,32 +18,32 @@
     "user": [
       "patch -Np1 -i ../tigervnc-1.16.0-configuration_fixes-1.patch",
       "sed -i \"/FL_MINOR_VERSION/s/3/4/\" CMakeLists.txt",
-      "# Put code in place\nmkdir -p unix/xserver",
+      "mkdir -p unix/xserver",
       "tar -xf ../xorg-server-21.1.21.tar.xz \\\n    --strip-components=1              \\\n    -C unix/xserver",
-      "( cd unix/xserver",
-      "patch -Np1 -i ../xserver21.patch )",
-      "# Build viewer\ncmake -G \"Unix Makefiles\"          \\\n      -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -W no-dev .",
-      "make",
-      "# Build server\npushd unix/xserver",
+      "( cd unix/xserver && patch -Np1 -i ../xserver21.patch )",
+      "cmake -B build -G \"Unix Makefiles\"          \\\n      -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -W no-dev .",
+      "make -C build",
+      "pushd unix/xserver",
       "autoreconf -fiv",
       "CPPFLAGS=\"-I/usr/include/drm\"       \\\n  ./configure $XORG_CONFIG            \\\n      --disable-xwayland    --disable-dri        --disable-dmx         \\\n      --disable-xorg        --disable-xnest      --disable-xvfb        \\\n      --disable-xwin        --disable-xephyr     --disable-kdrive      \\\n      --disable-devel-docs  --disable-config-hal --disable-config-udev \\\n      --disable-unit-tests  --disable-selective-werror                 \\\n      --disable-static      --enable-dri3                              \\\n      --without-dtrace      --enable-dri2        --enable-glx          \\\n      --with-pic",
       "make",
-      "popd",
-      "cat > ~/.config/tigervnc/config << EOF\n# Begin ~/.config/tigervnc/config\n# The session must match one listed in /usr/share/xsessions.\n# Ensure that there are no spaces at the end of the lines.\n\nsession=lxqt\ngeometry=1024x768\n\n# End ~/.config/tigervnc/config\nEOF",
-      "#Install viewer\nmake install",
-      "mv  /usr/share/doc/tigervnc /usr/share/doc/tigervnc-1.16.0\n\n#Install server\n( cd unix/xserver/hw/vnc",
-      "[ -e /usr/bin/Xvnc ] || ln -svf $XORG_PREFIX/bin/Xvnc /usr/bin/Xvnc",
-      "echo \":1=$(whoami)\" >> /etc/tigervnc/vncserver.users",
-      "systemctl start vncserver@:1",
-      "systemctl enable vncserver@:1"
+      "popd"
     ],
     "package": [
-      "install -vdm 755 ~/.config/tigervnc",
-      "make install ) DESTDIR=$DESTDIR",
+      "make -C build install DESTDIR=$DESTDIR",
+      "mv $DESTDIR/usr/share/doc/tigervnc $DESTDIR/usr/share/doc/tigervnc-1.16.0",
+      "( cd unix/xserver/hw/vnc && make install DESTDIR=$DESTDIR )",
+      "[ -e $DESTDIR/usr/bin/Xvnc ] || ln -svf $XORG_PREFIX/bin/Xvnc $DESTDIR/usr/bin/Xvnc",
       "install -vdm755 $DESTDIR/etc/X11/tigervnc",
-      "install -v -m755 ../Xsession $DESTDIR/etc/X11/tigervnc"
+      "install -v -m755 Xsession $DESTDIR/etc/X11/tigervnc"
     ]
   },
+  "post_install": [
+    "install -vdm755 ~/.config/tigervnc",
+    "cat > ~/.config/tigervnc/config << \"EOF\"\n# Begin ~/.config/tigervnc/config\n# The session must match one listed in /usr/share/xsessions.\n# Ensure that there are no spaces at the end of the lines.\n\nsession=lxqt\ngeometry=1024x768\n\n# End ~/.config/tigervnc/config\nEOF",
+    "echo \":1=$(whoami)\" >> /etc/tigervnc/vncserver.users",
+    "systemctl enable vncserver@:1"
+  ],
   "meta": false,
   "book": "xsoft/tigervnc.html",
   "category": "applications",

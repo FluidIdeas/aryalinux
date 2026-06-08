@@ -18,20 +18,16 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "cmake -D CMAKE_BUILD_TYPE=Release   \\\n      -D CMAKE_INSTALL_PREFIX=/usr  \\\n      -D TESTDATADIR=$PWD/testfiles \\\n      -D ENABLE_QT5=OFF             \\\n      -D ENABLE_UNSTABLE_API_ABI_HEADERS=ON \\\n      -G Ninja ..",
-      "ninja",
-      "tar -xf ../../poppler-data-0.4.12.tar.gz",
-      "cd poppler-data-0.4.12",
-      "cp -vr ../glib/reference/html /usr/share/doc/poppler-26.02.0",
-      "make prefix=/usr install"
+      "cmake -B build -D CMAKE_BUILD_TYPE=Release   \\\n      -D CMAKE_INSTALL_PREFIX=/usr  \\\n      -D TESTDATADIR=$PWD/build/testfiles \\\n      -D ENABLE_QT5=OFF             \\\n      -D ENABLE_UNSTABLE_API_ABI_HEADERS=ON \\\n      -G Ninja .",
+      "ninja -C build",
+      "tar -xf ../../poppler-data-0.4.12.tar.gz"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install",
-      "install -v -m755 -d           $DESTDIR/usr/share/doc/poppler-26.02.0"
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "make -C poppler-data-0.4.12 prefix=/usr DESTDIR=$DESTDIR install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/poppler.html",
   "category": "graphics",

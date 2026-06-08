@@ -3,22 +3,27 @@
   "version": "2.10.3",
   "description": "The CrackLib package contains a library used to enforce strong passwords by comparing user selected passwords to words in chosen word lists.",
   "url": "https://github.com/cracklib/cracklib/releases/download/v2.10.3/cracklib-2.10.3.tar.xz",
+  "urls": [
+    "https://anduin.linuxfromscratch.org/BLFS/cracklib/cracklib-words-2.10.3.xz"
+  ],
   "dependencies": {},
   "build": {
     "user": [
       "./configure --prefix=/usr               \\\n            --disable-static            \\\n            --with-default-dict=/usr/lib/cracklib/pw_dict",
-      "make",
-      "python3 -c 'import cracklib; cracklib.test()'",
-      "xzcat ../cracklib-words-2.10.3.xz \\\n                       > /usr/share/dict/cracklib-words",
-      "ln -v -sf cracklib-words /usr/share/dict/words",
-      "echo $(hostname) >>      /usr/share/dict/cracklib-extra-words",
-      "create-cracklib-dict     /usr/share/dict/cracklib-words \\\n                         /usr/share/dict/cracklib-extra-words"
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
-      "install -v -m755 -d      $DESTDIR/usr$DESTDIR/lib/cracklib"
+      "install -d $DESTDIR/usr/share/dict $DESTDIR/usr/lib/cracklib",
+      "xzcat ../../cracklib-words-2.10.3.xz > $DESTDIR/usr/share/dict/cracklib-words",
+      "ln -sf cracklib-words $DESTDIR/usr/share/dict/words",
+      "touch $DESTDIR/usr/share/dict/cracklib-extra-words"
     ]
   },
+  "post_install": [
+    "echo $(hostname) >> /usr/share/dict/cracklib-extra-words",
+    "create-cracklib-dict /usr/share/dict/cracklib-words /usr/share/dict/cracklib-extra-words"
+  ],
   "meta": false,
   "book": "postlfs/cracklib.html",
   "category": "security",

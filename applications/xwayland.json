@@ -18,16 +18,15 @@
     },
     "user": [
       "sed -i '/install_man/,$d' meson.build",
-      "mkdir build",
-      "cd    build",
-      "meson setup ..              \\\n      --prefix=$XORG_PREFIX \\\n      --buildtype=release   \\\n      -D xkb_output_dir=/var/lib/xkb",
-      "ninja"
+      "meson setup build              \\\n      --prefix=$XORG_PREFIX \\\n      --buildtype=release   \\\n      -D xkb_output_dir=/var/lib/xkb .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install",
-      "install -vm755 hw/vfb/Xvfb $DESTDIR/usr/bin"
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "install -vm755 build/hw/vfb/Xvfb $DESTDIR/usr/bin"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/xwayland.html",
   "category": "x11",

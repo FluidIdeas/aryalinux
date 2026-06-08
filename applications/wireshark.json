@@ -14,25 +14,18 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "cmake -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D CMAKE_INSTALL_DOCDIR=/usr/share/doc/wireshark-4.6.3 \\\n      -G Ninja \\\n      ..",
-      "ninja",
-      "groupadd -g 62 wireshark",
-      "pushd /usr/share/doc/wireshark-4.6.3",
-      "for FILENAME in ../../wireshark/*.html; do\n      ln -s -v -f $FILENAME .\n   done",
-      "popd\nunset FILENAME",
-      "chown -v root:wireshark /usr/bin/tshark",
-      "chmod -v 6550 /usr/bin/tshark",
-      "usermod -a -G wireshark <username>"
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -G Ninja .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install",
-      "install -v -m755 -d $DESTDIR/usr/share/doc/wireshark-4.6.3",
-      "install -v -m644    ../README.linux ../doc/README.* ../doc/randpkt.txt \\\n                    $DESTDIR/usr/share/doc/wireshark-4.6.3",
-      "install -v -m644 <Downloaded_Files> \\\n                 $DESTDIR/usr/share/doc/wireshark-4.6.3"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [
+    "getent group wireshark >/dev/null || groupadd -g 62 wireshark",
+    "chown -v root:wireshark /usr/bin/tshark",
+    "chmod -v 6550 /usr/bin/tshark"
+  ],
   "meta": false,
   "book": "basicnet/wireshark.html",
   "category": "networking",

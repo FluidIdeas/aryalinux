@@ -6,18 +6,17 @@
   "dependencies": {},
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup ..                  \\\n      --prefix=$XORG_PREFIX     \\\n      --buildtype=release       \\\n      -D documentation=disabled \\\n      -D tests=disabled",
-      "ninja"
+      "meson setup build --prefix=$XORG_PREFIX     \\\n      --buildtype=release       \\\n      -D documentation=disabled \\\n      -D tests=disabled         \\\n      .",
+      "ninja -C build"
     ],
     "environment": {
       "XORG_PREFIX": "/usr"
     },
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/x7driver.html",
   "category": "x11",

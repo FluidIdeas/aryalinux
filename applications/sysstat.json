@@ -7,21 +7,23 @@
   "build": {
     "user": [
       "sa_lib_dir=/usr/lib/sa    \\\nsa_dir=/var/log/sa        \\\nconf_dir=/etc/sysstat     \\\n./configure --prefix=/usr \\\n            --disable-file-attr",
-      "make",
-      "sed -i \"/^Also=/d\" /usr/lib/systemd/system/sysstat.service",
-      "systemctl enable sysstat"
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
-      "install -v -m644 sysstat.service $DESTDIR/usr$DESTDIR/lib/systemd/system/sysstat.service",
-      "install -v -m644 cron/sysstat-collect.service $DESTDIR/usr$DESTDIR/lib/systemd/system/sysstat-collect.service",
-      "install -v -m644 cron/sysstat-collect.timer $DESTDIR/usr$DESTDIR/lib/systemd/system/sysstat-collect.timer",
-      "install -v -m644 cron/sysstat-rotate.service $DESTDIR/usr$DESTDIR/lib/systemd/system/sysstat-rotate.service",
-      "install -v -m644 cron/sysstat-rotate.timer $DESTDIR/usr$DESTDIR/lib/systemd/system/sysstat-rotate.timer",
-      "install -v -m644 cron/sysstat-summary.service $DESTDIR/usr$DESTDIR/lib/systemd/system/sysstat-summary.service",
-      "install -v -m644 cron/sysstat-summary.timer $DESTDIR/usr$DESTDIR/lib/systemd/system/sysstat-summary.timer"
+      "install -v -m644 sysstat.service $DESTDIR/usr/lib/systemd/system/sysstat.service",
+      "install -v -m644 cron/sysstat-collect.service $DESTDIR/usr/lib/systemd/system/sysstat-collect.service",
+      "install -v -m644 cron/sysstat-collect.timer $DESTDIR/usr/lib/systemd/system/sysstat-collect.timer",
+      "install -v -m644 cron/sysstat-rotate.service $DESTDIR/usr/lib/systemd/system/sysstat-rotate.service",
+      "install -v -m644 cron/sysstat-rotate.timer $DESTDIR/usr/lib/systemd/system/sysstat-rotate.timer",
+      "install -v -m644 cron/sysstat-summary.service $DESTDIR/usr/lib/systemd/system/sysstat-summary.service",
+      "install -v -m644 cron/sysstat-summary.timer $DESTDIR/usr/lib/systemd/system/sysstat-summary.timer",
+      "sed -i \"/^Also=/d\" $DESTDIR/usr/lib/systemd/system/sysstat.service"
     ]
   },
+  "post_install": [
+    "systemctl enable sysstat"
+  ],
   "meta": false,
   "book": "general/sysstat.html",
   "category": "libraries",

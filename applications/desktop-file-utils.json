@@ -10,18 +10,18 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr --buildtype=release ..",
-      "ninja",
-      "rm -fv /usr/bin/desktop-file-edit",
-      "update-desktop-database /usr/share/applications"
+      "meson setup build --prefix=/usr --buildtype=release .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install",
-      "install -vdm755 $DESTDIR/usr/share/applications"
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "rm -fv $DESTDIR/usr/bin/desktop-file-edit",
+      "install -d $DESTDIR/usr/share/applications"
     ]
   },
+  "post_install": [
+    "update-desktop-database /usr/share/applications"
+  ],
   "meta": false,
   "book": "general/desktop-file-utils.html",
   "category": "libraries",

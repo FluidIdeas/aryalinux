@@ -17,17 +17,15 @@
   },
   "build": {
     "user": [
-      "sed -e \"/OUTDIR/s|,| / 'librsvg-2.61.4', '--no-namespace-dir',|\" \\\n    -e '/output/s|Rsvg-2.0|librsvg-2.61.4|'                      \\\n    -i doc/meson.build",
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr --buildtype=release ..",
-      "ninja",
-      "meson test -v"
+      "meson setup build --prefix=/usr --buildtype=release .",
+      "ninja -C build",
+      "meson test -C build -v"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/librsvg.html",
   "category": "graphics",

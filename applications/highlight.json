@@ -13,13 +13,14 @@
     "user": [
       "sed -i '/GZIP/s/^/#/' makefile",
       "make",
-      "make doc_dir=/usr/share/doc/highlight-4.18/ gui",
-      "make doc_dir=/usr/share/doc/highlight-4.18/ install"
+      "make gui"
     ],
     "package": [
+      "make install DESTDIR=$DESTDIR",
       "make install-gui DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/highlight.html",
   "category": "libraries",

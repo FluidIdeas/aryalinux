@@ -12,15 +12,16 @@
     "user": [
       "tar -xf ../xdgmime.tar.xz",
       "make -C xdgmime",
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr --buildtype=release -D update-mimedb=true ..",
-      "ninja"
+      "meson setup build --prefix=/usr --buildtype=release -D update-mimedb=false ..",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [
+    "update-mime-database /usr/share/mime"
+  ],
   "meta": false,
   "book": "general/shared-mime-info.html",
   "category": "libraries",

@@ -21,20 +21,15 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr            \\\n            --buildtype=release      \\\n            -D broadway-backend=true \\\n            -D introspection=enabled \\\n            -D vulkan=enabled        \\\n            ..",
-      "ninja",
-      "sed \"s@'doc'@& / 'gtk-4.20.3'@\" -i ../docs/reference/meson.build",
-      "meson configure -D documentation=true",
-      "ninja",
-      "env -u{GALLIUM_DRIVER,MESA_LOADER_DRIVER_OVERRIDE}          \\\n    LIBGL_ALWAYS_SOFTWARE=1 VK_LOADER_DRIVERS_SELECT='lvp*' \\\n    dbus-run-session meson test --setup x11                 \\\n                                --no-suite=headless",
-      "mkdir -pv ~/.config/gtk-4.0\ncat > ~/.config/gtk-4.0/settings.ini << \"EOF\"\n[Settings]\ngtk-theme-name = Adwaita\ngtk-icon-theme-name = oxygen\ngtk-font-name = DejaVu Sans 12\ngtk-cursor-theme-size = 18\ngtk-xft-antialias = 1\ngtk-xft-hinting = 1\ngtk-xft-hintstyle = hintslight\ngtk-xft-rgba = rgb\ngtk-cursor-theme-name = Adwaita\nEOF"
+      "meson setup build --prefix=/usr --buildtype=release -D broadway-backend=true -D introspection=enabled -D vulkan=enabled .",
+      "ninja -C build",
+      "env -u{GALLIUM_DRIVER,MESA_LOADER_DRIVER_OVERRIDE}          \\\n    LIBGL_ALWAYS_SOFTWARE=1 VK_LOADER_DRIVERS_SELECT='lvp*' \\\n    dbus-run-session meson test -C build --setup x11 --no-suite=headless"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/gtk4.html",
   "category": "x11",

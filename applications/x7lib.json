@@ -21,14 +21,13 @@
       "mkdir lib && cd lib && grep -v '^#' ../lib-7.md5 | awk '{print $2}' | wget -i- -c -B https://www.x.org/pub/individual/lib/ && md5sum -c ../lib-7.md5"
     ],
     "user": [
-      "cd lib",
-      "for package in $(grep -v '^#' ../lib-7.md5 | awk '{print $2}'); do\n  packagedir=${package%.tar.?z*}\n  echo \"Building $packagedir\"\n  tar -xf $package\n  pushd $packagedir\n  docdir=\"--docdir=$XORG_PREFIX/share/doc/$packagedir\"\n  case $packagedir in\n    libXfont2-[0-9]* )\n      ./configure $XORG_CONFIG $docdir --disable-devel-docs\n      make\n    ;;\n    libXt-[0-9]* )\n      ./configure $XORG_CONFIG $docdir --with-appdefaultdir=/etc/X11/app-defaults\n      make\n    ;;\n    libXpm-[0-9]* )\n      ./configure $XORG_CONFIG $docdir --disable-open-zfile\n      make\n    ;;\n    libpciaccess* | libxkbfile* )\n      meson setup --prefix=$XORG_PREFIX --buildtype=release build\n      ninja -C build\n    ;;\n    * )\n      ./configure $XORG_CONFIG $docdir\n      make\n    ;;\n  esac\n  popd\ndone"
+      "cd lib && for package in $(grep -v '^#' ../lib-7.md5 | awk '{print $2}'); do\n  packagedir=${package%.tar.?z*}\n  echo \"Building $packagedir\"\n  tar -xf $package\n  pushd $packagedir\n  case $packagedir in\n    libXfont2-[0-9]* )\n      ./configure $XORG_CONFIG --disable-devel-docs\n      make\n    ;;\n    libXt-[0-9]* )\n      ./configure $XORG_CONFIG --with-appdefaultdir=/etc/X11/app-defaults\n      make\n    ;;\n    libXpm-[0-9]* )\n      ./configure $XORG_CONFIG --disable-open-zfile\n      make\n    ;;\n    libpciaccess* | libxkbfile* )\n      meson setup build --prefix=$XORG_PREFIX --buildtype=release\n      ninja -C build\n    ;;\n    * )\n      ./configure $XORG_CONFIG\n      make\n    ;;\n  esac\n  popd\ndone"
     ],
     "package": [
-      "cd lib",
-      "for package in $(grep -v '^#' ../lib-7.md5 | awk '{print $2}'); do\n  packagedir=${package%.tar.?z*}\n  pushd $packagedir\n  case $packagedir in\n    libpciaccess* | libxkbfile* )\n      DESTDIR=$DESTDIR ninja -C build install\n    ;;\n    * )\n      make install DESTDIR=$DESTDIR\n    ;;\n  esac\n  popd\n  rm -rf $packagedir\ndone"
+      "cd lib && for package in $(grep -v '^#' ../lib-7.md5 | awk '{print $2}'); do\n  packagedir=${package%.tar.?z*}\n  pushd $packagedir\n  case $packagedir in\n    libpciaccess* | libxkbfile* )\n      DESTDIR=$DESTDIR ninja -C build install\n    ;;\n    * )\n      make install DESTDIR=$DESTDIR\n    ;;\n  esac\n  popd\n  rm -rf $packagedir\ndone"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "x/x7lib.html",
   "category": "x11",

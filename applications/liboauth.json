@@ -12,15 +12,13 @@
     "user": [
       "patch -Np1 -i ../liboauth-1.0.3-openssl-1.1.0-3.patch",
       "./configure --prefix=/usr --disable-static",
-      "make",
-      "make dox",
-      "cp -rv doc/html/* /usr/share/doc/liboauth-1.0.3"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -v -dm755 $DESTDIR/usr/share/doc$DESTDIR/liboauth-1.0.3"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "postlfs/liboauth.html",
   "category": "security",

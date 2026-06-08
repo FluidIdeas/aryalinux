@@ -31,10 +31,12 @@
       "make -C bin/dig      install DESTDIR=$DESTDIR",
       "make -C bin/nsupdate install DESTDIR=$DESTDIR",
       "make -C bin/rndc     install DESTDIR=$DESTDIR",
+      "install -d $DESTDIR/usr/share/man/man1 $DESTDIR/usr/share/man/man8",
       "cp -v doc/man/{dig.1,host.1,nslookup.1,nsupdate.1} $DESTDIR/usr/share/man/man1",
       "cp -v doc/man/rndc.8 $DESTDIR/usr/share/man/man8"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "basicnet/bind-utils.html",
   "category": "networking",

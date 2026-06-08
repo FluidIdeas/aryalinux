@@ -12,16 +12,16 @@
   "build": {
     "user": [
       "patch -Np1 -i ../tidy-html5-5.8.0-cmake4_fixes-1.patch",
-      "cd build/cmake",
-      "cmake -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D BUILD_TAB2SPACE=ON        \\\n      ../..",
-      "make",
-      "rm -fv /usr/lib/libtidy.a"
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D BUILD_TAB2SPACE=ON        \\\n      -S build/cmake",
+      "make -C build"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -v -m755 tab2space $DESTDIR/usr/bin"
+      "make -C build install DESTDIR=$DESTDIR",
+      "rm -fv $DESTDIR/usr/lib/libtidy.a",
+      "install -v -m755 build/tab2space $DESTDIR/usr/bin"
     ]
   },
+  "post_install": [],
   "meta": false,
   "book": "general/tidy-html5.html",
   "category": "libraries",

@@ -17,7 +17,7 @@
       "make"
     ],
     "package": [
-      "make docdir=$DESTDIR/usr/share/doc install DESTDIR=$DESTDIR"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
   "post_install": [
