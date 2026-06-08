@@ -1,0 +1,28 @@
+{
+  "name": "wv",
+  "version": "1.2.9",
+  "description": "The wv package contains tools for reading information from an MS Word document.",
+  "url": "https://anduin.linuxfromscratch.org/BLFS/wv/wv-1.2.9.tar.gz",
+  "dependencies": {
+    "required": [
+      "libgsf"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --disable-static",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/wv.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

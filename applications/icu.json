@@ -1,0 +1,26 @@
+{
+  "name": "icu",
+  "version": "78.2",
+  "description": "The International Components for Unicode (ICU) package is a mature, widely used set of C/C++ libraries providing Unicode and Globalization support for software applications. ICU is widely portable and gives applications the same results on all platforms.",
+  "url": "https://github.com/unicode-org/icu/releases/download/release-78.2/icu4c-78.2-sources.tgz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "case $(uname -m) in\n  i?86) sed -e \"s/U_PLATFORM_IS_LINUX_BASED/__X86_64__ \\&\\& &/\" \\\n            -i source/test/intltest/ustrtest.cpp ;;\nesac",
+      "cd source",
+      "./configure --prefix=/usr",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/icu.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

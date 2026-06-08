@@ -1,0 +1,27 @@
+{
+  "name": "faac",
+  "version": "1.31.1",
+  "description": "The faac application is an encoder for a lossy sound compression scheme specified in MPEG-2 Part 7 and MPEG-4 Part 3 standards and known as Advanced Audio Coding (AAC). This encoder is useful for producing files that can be played back on an iPod. Moreover, the iPod does not understand other sound compression schemes used in video files.",
+  "url": "https://github.com/lfs-book/faac/archive/v1.31.1/faac-1.31.1.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./bootstrap",
+      "./configure --prefix=/usr --disable-static",
+      "make",
+      "./frontend/faac -o Front_Left.mp4 /usr/share/sounds/alsa/Front_Left.wav",
+      "faad Front_Left.mp4\naplay Front_Left.wav"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/faac.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

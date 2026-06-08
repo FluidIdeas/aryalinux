@@ -1,0 +1,25 @@
+{
+  "name": "lame",
+  "version": "3.100",
+  "description": "The LAME package contains an MP3 encoder and optionally, an MP3 frame analyzer. This is useful for creating and analyzing compressed audio files.",
+  "url": "https://downloads.sourceforge.net/lame/lame-3.100.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "sed -i -e 's/^\\(\\s*hardcode_libdir_flag_spec\\s*=\\).*/\\1/' configure",
+      "./configure --prefix=/usr --enable-mp3rtp --disable-static",
+      "make"
+    ],
+    "package": [
+      "make pkghtmldir=$DESTDIR/usr/share/doc/lame-3.100 install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/lame.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

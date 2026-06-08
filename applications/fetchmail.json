@@ -1,0 +1,32 @@
+{
+  "name": "fetchmail",
+  "version": "6.6.2",
+  "description": "The Fetchmail package contains a mail retrieval program. It retrieves mail from remote mail servers and forwards it to the local (client) machine's delivery system, so it can then be read by normal mail user agents.",
+  "url": "https://downloads.sourceforge.net/fetchmail/fetchmail-6.6.2.tar.xz",
+  "dependencies": {
+    "required": [
+      "procmail"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr",
+      "make",
+      "cat > ~/.fetchmailrc << \"EOF\"\n\n# The logfile needs to exist when fetchmail is invoked, otherwise it will\n# dump the details to the screen. As with all logs, you will need to rotate\n# or clear it from time to time.\nset logfile fetchmail.log\nset no bouncemail\n# You probably want to set your local username as the postmaster\nset postmaster <username>\n\npoll SERVERNAME :\n    user <isp_username> pass <password>;\n    mda \"/usr/bin/procmail -f %F -d %T\";\nEOF\n\ntouch ~/fetchmail.log",
+      "chmod -v 0600 ~/.fetchmailrc",
+      "useradd -c \"Fetchmail User\" -d /dev/null -g nogroup \\\n        -s /bin/false -u 38 fetchmail",
+      "chown -v fetchmail:nogroup /usr/bin/fetchmail"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "basicnet/fetchmail.html",
+  "category": "networking",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

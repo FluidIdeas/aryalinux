@@ -20,7 +20,7 @@
     "create_backups": "n",
     "install_xserver": "n",
     "install_desktop_environment": "n",
-    "desktop_environment": "2",
+    "desktop_environment": "1",
     "install_bootloader": "y",
     "create_live_iso": "y",
     "format_home": "n",

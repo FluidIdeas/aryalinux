@@ -1,0 +1,29 @@
+{
+  "name": "glew",
+  "version": "2.3.1",
+  "description": "GLEW is the OpenGL Extension Wrangler Library.",
+  "url": "https://downloads.sourceforge.net/glew/glew-2.3.1.tgz",
+  "dependencies": {
+    "required": [
+      "mesa"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i 's%lib64%lib%g' config/Makefile.linux",
+      "sed -e '/glew.lib.static:/d' \\\n    -e '/0644 .*STATIC/d'    \\\n    -e 's/glew.lib.static//' \\\n    -e 's|/local||'          \\\n    -i Makefile",
+      "make"
+    ],
+    "package": [
+      "make install.all DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "x/glew.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

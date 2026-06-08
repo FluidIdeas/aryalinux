@@ -1,0 +1,28 @@
+{
+  "name": "perl-deps.perl-test-fatal",
+  "version": "0.018",
+  "description": "Perl module perl::test::fatal providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Fatal-0.018.tar.gz",
+  "dependencies": {
+    "required": [
+      "perl-deps.perl-try-tiny"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

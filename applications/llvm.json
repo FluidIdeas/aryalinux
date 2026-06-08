@@ -1,0 +1,45 @@
+{
+  "name": "llvm",
+  "version": "21.1.8",
+  "description": "The LLVM package contains a collection of modular and reusable compiler and toolchain technologies. The Low Level Virtual Machine (LLVM) Core libraries provide a modern source and target-independent optimizer, along with code generation support for many popular CPUs (as well as some less common ones!). These libraries are built around a well specified code representation known as the LLVM intermediate representation (\"LLVM IR\").",
+  "url": "https://github.com/llvm/llvm-project/releases/download/llvmorg-21.1.8/llvm-21.1.8.src.tar.xz",
+  "dependencies": {
+    "required": [
+      "cmake"
+    ]
+  },
+  "build": {
+    "user": [
+      "tar -xf ../llvm-cmake-21.1.8.src.tar.xz",
+      "tar -xf ../llvm-third-party-21.1.8.src.tar.xz",
+      "sed '/LLVM_COMMON_CMAKE_UTILS/s@../cmake@cmake-21.1.8.src@'          \\\n    -i CMakeLists.txt",
+      "sed '/LLVM_THIRD_PARTY_DIR/s@../third-party@third-party-21.1.8.src@' \\\n    -i cmake/modules/HandleLLVMOptions.cmake",
+      "tar -xf ../clang-21.1.8.src.tar.xz -C tools",
+      "mv tools/clang-21.1.8.src tools/clang",
+      "tar -xf ../compiler-rt-21.1.8.src.tar.xz -C projects",
+      "mv projects/compiler-rt-21.1.8.src projects/compiler-rt",
+      "grep -rl '#!.*python' | xargs sed -i '1s/python$/python3/'",
+      "sed 's/utility/tool/' -i utils/FileCheck/CMakeLists.txt",
+      "mkdir -v build",
+      "cd       build",
+      "CC=gcc CXX=g++                               \\\ncmake -D CMAKE_INSTALL_PREFIX=/usr           \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON         \\\n      -D LLVM_ENABLE_FFI=ON                  \\\n      -D CMAKE_BUILD_TYPE=Release            \\\n      -D LLVM_BUILD_LLVM_DYLIB=ON            \\\n      -D LLVM_LINK_LLVM_DYLIB=ON             \\\n      -D LLVM_ENABLE_RTTI=ON                 \\\n      -D LLVM_TARGETS_TO_BUILD=\"host;AMDGPU\" \\\n      -D LLVM_BINUTILS_INCDIR=/usr/include   \\\n      -D LLVM_INCLUDE_BENCHMARKS=OFF         \\\n      -D CLANG_DEFAULT_PIE_ON_LINUX=ON       \\\n      -D CLANG_CONFIG_FILE_SYSTEM_DIR=/etc/clang \\\n      -W no-dev -G Ninja ..",
+      "ninja",
+      "sed -e 's/config.has_no_default_config_flag/True/' \\\n    -e 's/\"-fuse-ld=gold\"//'                       \\\n    -i ../projects/compiler-rt/test/lit.common.cfg.py",
+      "systemctl   --user start dbus",
+      "systemd-run --user --pty -d -G -p LimitCORE=0 ninja check-all",
+      "mkdir -pv /etc/clang",
+      "for i in clang clang++; do\n  echo -fstack-protector-strong > /etc/clang/$i.cfg\ndone"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "general/llvm.html",
+  "category": "programming",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

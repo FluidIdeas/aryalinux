@@ -1,0 +1,30 @@
+{
+  "name": "xscreensaver",
+  "version": "6.14",
+  "description": "The XScreenSaver package is a modular screen saver and locker for the X Window System. It is highly customizable and allows the use of any program that can draw on the root window as a display mode. The purpose of XScreenSaver is to display pretty pictures on your screen when it is not in use, in keeping with the philosophy that unattended monitors should always be doing something interesting, just like they do in the movies. However, XScreenSaver can also be used as a screen locker, to prevent others from using your terminal while you are away.",
+  "url": "https://www.jwz.org/xscreensaver/xscreensaver-6.14.tar.gz",
+  "dependencies": {
+    "required": [
+      "gtk3",
+      "glu"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --with-systemd",
+      "make",
+      "cat > /etc/pam.d/xscreensaver << \"EOF\"\n# Begin /etc/pam.d/xscreensaver\n\nauth    include system-auth\naccount include system-account\n\n# End /etc/pam.d/xscreensaver\nEOF"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "xsoft/xscreensaver.html",
+  "category": "applications",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

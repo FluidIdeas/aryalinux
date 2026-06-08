@@ -1,0 +1,24 @@
+{
+  "name": "libseccomp",
+  "version": "2.6.0",
+  "description": "The libseccomp package provides an easy to use and platform independent interface to the Linux kernel's syscall filtering mechanism.",
+  "url": "https://github.com/seccomp/libseccomp/releases/download/v2.6.0/libseccomp-2.6.0.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --disable-static",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/libseccomp.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

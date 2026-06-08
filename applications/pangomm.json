@@ -1,0 +1,31 @@
+{
+  "name": "pangomm",
+  "version": "2.46.4",
+  "description": "The Pangomm package provides a C++ interface to Pango.",
+  "url": "https://download.gnome.org/sources/pangomm/2.46/pangomm-2.46.4.tar.xz",
+  "dependencies": {
+    "required": [
+      "cairomm-1.0",
+      "glibmm"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "x/pangomm.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

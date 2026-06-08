@@ -1,0 +1,57 @@
+{
+  "name": "openjdk",
+  "version": "21.0.10",
+  "description": "OpenJDK is an open-source implementation of Oracle's Java Standard Edition platform. OpenJDK is useful for developing Java programs, and provides a complete runtime environment to run Java programs.",
+  "url": "https://github.com/openjdk/jdk21u/archive/jdk-21.0.10-ga.tar.gz",
+  "dependencies": {
+    "required": [
+      "java",
+      "ojdk-conf",
+      "libarchive",
+      "x7lib",
+      "zip",
+      "make-ca",
+      "harfbuzz",
+      "libjpeg",
+      "libpng",
+      "wget"
+    ]
+  },
+  "build": {
+    "user": [
+      "tar -xf ../jtreg-8.2.1+1.tar.gz",
+      "export MAKEFLAGS_HOLD=$MAKEFLAGS",
+      "unset  JAVA_HOME",
+      "unset  CLASSPATH",
+      "unset  MAKEFLAGS",
+      "bash configure --enable-unlimited-crypto    \\\n               --disable-warnings-as-errors \\\n               --with-stdc++lib=dynamic     \\\n               --with-giflib=system         \\\n               --with-harfbuzz=system       \\\n               --with-jtreg=$PWD/jtreg      \\\n               --with-lcms=system           \\\n               --with-libjpeg=system        \\\n               --with-libpng=system         \\\n               --with-zlib=system           \\\n               --with-version-build=\"6\"    \\\n               --with-version-pre=\"\"        \\\n               --with-version-opt=\"\"        \\\n               --with-jobs=$(nproc)         \\\n               --with-cacerts-file=/etc/pki/tls/java/cacerts",
+      "make images",
+      "export JT_JAVA=$(echo $PWD/build/*/jdk)",
+      "jtreg/bin/jtreg -jdk:$JT_JAVA -automatic -ignore:quiet -v1 \\\n    test/jdk:tier1 test/langtools:tier1",
+      "unset JT_JAVA",
+      "export MAKEFLAGS=$MAKEFLAGS_HOLD",
+      "unset  MAKEFLAGS_HOLD",
+      "cp -Rv build/*/images/jdk/* /opt/jdk-21.0.10+6",
+      "chown -R root:root /opt/jdk-21.0.10+6",
+      "for s in 16 24 32 48; do\n  install -vDm644 src/java.desktop/unix/classes/sun/awt/X11/java-icon${s}.png \\\n                  /usr/share/icons/hicolor/${s}x${s}/apps/java.png\ndone",
+      "find /opt/jdk-21.0.10+6 -name *.debuginfo -delete",
+      "ln -v -nsf jdk-21.0.10+6 /opt/jdk",
+      "mkdir -pv /usr/share/applications",
+      "cat > /usr/share/applications/openjdk-java.desktop << \"EOF\"",
+      "[Desktop Entry]\nName=OpenJDK Java 21.0.10 Runtime\nComment=OpenJDK Java 21.0.10 Runtime\nExec=/opt/jdk/bin/java -jar\nTerminal=false\nType=Application\nIcon=java\nMimeType=application/x-java-archive;application/java-archive;application/x-jar;\nNoDisplay=true\nEOF\ncat > /usr/share/applications/openjdk-jconsole.desktop << \"EOF\"\n[Desktop Entry]\nName=OpenJDK Java 21.0.10 Console\nComment=OpenJDK Java 21.0.10 Console\nKeywords=java;console;monitoring\nExec=/opt/jdk/bin/jconsole\nTerminal=false\nType=Application\nIcon=java\nCategories=Application;System;\nEOF",
+      "ln -sfv /etc/pki/tls/java/cacerts /opt/jdk/lib/security/cacerts",
+      "cd /opt/jdk\nbin/keytool -list -cacerts"
+    ],
+    "package": [
+      "install -vdm755 $DESTDIR/opt/jdk-21.0.10+6"
+    ]
+  },
+  "meta": false,
+  "book": "general/openjdk.html",
+  "category": "programming",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

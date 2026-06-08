@@ -1,0 +1,24 @@
+{
+  "name": "sbc",
+  "version": "2.2",
+  "description": "The SBC package is a digital audio encoder and decoder used to transfer data to Bluetooth audio output devices like headphones or loudspeakers.",
+  "url": "https://www.kernel.org/pub/linux/bluetooth/sbc-2.2.tar.xz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --disable-static --disable-tester",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/sbc.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

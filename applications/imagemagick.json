@@ -1,0 +1,28 @@
+{
+  "name": "imagemagick",
+  "version": "7.1.2",
+  "description": "ImageMagick is a collection of tools and libraries to read, write, and manipulate an image in various image formats. Image processing operations are available from the command line. Bindings for Perl and C++ are also available.",
+  "url": "https://www.imagemagick.org/archive/releases/ImageMagick-7.1.2-13.tar.xz",
+  "dependencies": {
+    "required": [
+      "x7lib"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr     \\\n            --sysconfdir=/etc \\\n            --enable-hdri     \\\n            --with-modules    \\\n            --with-perl       \\\n            --disable-static",
+      "make"
+    ],
+    "package": [
+      "make DOCUMENTATION_PATH=$DESTDIR/usr/share/doc/imagemagick-7.1.2 install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/imagemagick.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

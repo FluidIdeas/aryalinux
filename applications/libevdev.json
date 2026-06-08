@@ -1,0 +1,29 @@
+{
+  "name": "libevdev",
+  "version": "1.13.6",
+  "description": "The libevdev package contains common functions for Xorg input drivers.",
+  "url": "https://www.freedesktop.org/software/libevdev/libevdev-1.13.6.tar.xz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup ..                  \\\n      --prefix=$XORG_PREFIX     \\\n      --buildtype=release       \\\n      -D documentation=disabled \\\n      -D tests=disabled",
+      "ninja"
+    ],
+    "environment": {
+      "XORG_PREFIX": "/usr"
+    },
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "x/x7driver.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

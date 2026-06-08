@@ -1,0 +1,28 @@
+{
+  "name": "alsa-plugins",
+  "version": "1.2.12",
+  "description": "The ALSA Plugins package contains plugins for various audio libraries and sound servers.",
+  "url": "https://www.alsa-project.org/files/pub/plugins/alsa-plugins-1.2.12.tar.bz2",
+  "dependencies": {
+    "required": [
+      "alsa-lib"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --sysconfdir=/etc",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/alsa-plugins.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

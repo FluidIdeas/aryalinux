@@ -1,0 +1,41 @@
+{
+  "name": "php",
+  "version": "8.5.3",
+  "description": "PHP is the PHP Hypertext Preprocessor. Primarily used in dynamic web sites, it allows for programming code to be directly embedded into the HTML markup. It is also useful as a general purpose scripting language.",
+  "url": "https://www.php.net/distributions/php-8.5.3.tar.xz",
+  "dependencies": {
+    "required": [
+      "apache"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr                \\\n            --sysconfdir=/etc            \\\n            --localstatedir=/var         \\\n            --datadir=/usr/share/php     \\\n            --mandir=/usr/share/man      \\\n            --enable-fpm                 \\\n            --without-pear               \\\n            --with-fpm-user=apache       \\\n            --with-fpm-group=apache      \\\n            --with-fpm-systemd           \\\n            --with-config-file-path=/etc \\\n            --with-zlib                  \\\n            --enable-bcmath              \\\n            --with-bz2                   \\\n            --enable-calendar            \\\n            --enable-dba=shared          \\\n            --with-gdbm                  \\\n            --with-gmp                   \\\n            --enable-ftp                 \\\n            --with-gettext               \\\n            --enable-mbstring            \\\n            --disable-mbregex            \\\n            --with-readline",
+      "make",
+      "wget https://pear.php.net/go-pear.phar\nphp ./go-pear.phar",
+      "if [ -f /etc/php-fpm.conf.default ]; then\n  mv -v /etc/php-fpm.conf{.default,}",
+      "mv -v /etc/php-fpm.d/www.conf{.default,}\nfi",
+      "gunzip -v /usr/share/doc/php-8.5.3/php_manual_en.html.gz",
+      "tar -xvf ../php_manual_en.tar.gz \\\n    -C /usr/share/doc/php-8.5.3 --no-same-owner",
+      "sed -i 's@php/includes\"@&\\ninclude_path = \".:/usr/lib/php\"@' \\\n    /etc/php.ini",
+      "sed -i -e '/proxy_module/s/^#//'      \\\n       -e '/proxy_fcgi_module/s/^#//' \\\n       /etc/httpd/httpd.conf",
+      "echo \\\n'ProxyPassMatch ^/(.*\\.php)$ fcgi://127.0.0.1:9000/srv/www/$1' >> \\\n/etc/httpd/httpd.conf"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m644 php.ini-production $DESTDIR/etc/php.ini",
+      "install -v -m755 -d $DESTDIR/usr/share/doc/php-8.5.3",
+      "install -v -m644    CODING_STANDARDS* EXTENSIONS NEWS README* UPGRADING* \\\n                    $DESTDIR/usr/share/doc/php-8.5.3",
+      "install -v -m644 ../php_manual_en.html.gz \\\n    $DESTDIR/usr/share/doc/php-8.5.3",
+      "make install-php-fpm DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/php.html",
+  "category": "programming",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "gcc",
+  "version": "15.2.0",
+  "description": "The GCC package contains the GNU Compiler Collection. This page describes the installation of compilers for the following languages: C, C++, Fortran, Objective C, Objective C++, Go, and Modula2. Since C and C++ are installed in LFS, this page is either for upgrading C and C++, or for installing additional compilers.",
+  "url": "https://ftpmirror.gnu.org/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "sed -i 's/char [*]q/const &/' libgomp/affinity-fmt.c",
+      "case $(uname -m) in\n  x86_64)\n    sed -i.orig '/m64=/s/lib64/lib/' gcc/config/i386/t-linux64\n  ;;\nesac\n\nmkdir build",
+      "cd    build",
+      "../configure              \\\n    --prefix=/usr         \\\n    --disable-multilib    \\\n    --with-system-zlib    \\\n    --enable-default-pie  \\\n    --enable-default-ssp  \\\n    --enable-host-pie     \\\n    --disable-fixincludes \\\n    --enable-languages=c,c++,fortran,go,objc,obj-c++,m2",
+      "make",
+      "mkdir -pv /usr/share/gdb/auto-load/usr/lib",
+      "mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib",
+      "chown -v -R root:root \\\n    /usr/lib/gcc/*linux-gnu/15.2.0/include{,-fixed}",
+      "ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/15.2.0/liblto_plugin.so \\\n        /usr/lib/bfd-plugins/"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/gcc.html",
+  "category": "programming",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

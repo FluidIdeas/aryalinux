@@ -1,0 +1,24 @@
+{
+  "name": "perl-deps.perl-sub-quote",
+  "version": "2.006009",
+  "description": "Perl module perl::sub::quote providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Sub-Quote-2.006009.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

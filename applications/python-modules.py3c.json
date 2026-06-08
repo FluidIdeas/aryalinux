@@ -1,0 +1,21 @@
+{
+  "name": "python-modules.py3c",
+  "version": "1.4",
+  "description": "The Py3c package is a headers-only package and because of that, no configuration or compilation is required.",
+  "url": "https://github.com/encukou/py3c/archive/v1.4/py3c-1.4.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [],
+    "package": [
+      "make prefix=$DESTDIR/usr install"
+    ]
+  },
+  "meta": false,
+  "book": "general/python-modules.html",
+  "category": "python-module",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

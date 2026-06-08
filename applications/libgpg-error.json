@@ -1,0 +1,25 @@
+{
+  "name": "libgpg-error",
+  "version": "1.59",
+  "description": "The libgpg-error package contains a library that defines common error values for all GnuPG components.",
+  "url": "https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.59.tar.bz2",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --sysconfdir=/etc",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m644 -D README $DESTDIR/usr/share/doc$DESTDIR/libgpg-error-1.59/README"
+    ]
+  },
+  "meta": false,
+  "book": "general/libgpg-error.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

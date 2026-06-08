@@ -1,0 +1,36 @@
+{
+  "name": "colord-gtk",
+  "version": "0.3.1",
+  "description": "The Colord GTK package contains GTK+ bindings for Colord.",
+  "url": "https://www.freedesktop.org/software/colord/releases/colord-gtk-0.3.1.tar.xz",
+  "dependencies": {
+    "required": [
+      "colord",
+      "glib2",
+      "gtk4",
+      "vala"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr       \\\n            --buildtype=release \\\n            -D gtk4=true        \\\n            -D vapi=true        \\\n            -D docs=false       \\\n            -D man=false        \\\n            ..",
+      "ninja",
+      "sed '/class=\"manual\"/i \\\n     <refmiscinfo class=\"source\">colord-gtk</refmiscinfo>' \\\n    -i ../man/*.xml",
+      "meson configure -D man=true",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "x/colord-gtk.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

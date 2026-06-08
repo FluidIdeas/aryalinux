@@ -1,0 +1,24 @@
+{
+  "name": "slang",
+  "version": "2.3.3",
+  "description": "S-Lang (slang) is an interpreted language that may be embedded into an application to make the application extensible. It provides facilities required by interactive applications such as display/screen management, keyboard input and keymaps.",
+  "url": "https://www.jedsoft.org/releases/slang/slang-2.3.3.tar.bz2",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr       \\\n            --sysconfdir=/etc   \\\n            --with-readline=gnu",
+      "make -j1 RPATH="
+    ],
+    "package": [
+      "make install_doc_dir=$DESTDIR/usr/share/doc/slang-2.3.3   \\\n     SLSH_DOC_DIR=$DESTDIR/usr/share/doc/slang-2.3.3/slsh \\\n     RPATH= install"
+    ]
+  },
+  "meta": false,
+  "book": "general/slang.html",
+  "category": "programming",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

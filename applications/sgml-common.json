@@ -1,0 +1,37 @@
+{
+  "name": "sgml-common",
+  "version": "0.6.3",
+  "description": "The SGML Common package contains install-catalog. This is useful for creating and maintaining centralized SGML catalogs.",
+  "url": "https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/sgml-common-0.6.3.tgz",
+  "patches": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/sgml-common-0.6.3-manpage-1.patch"
+  ],
+  "dependencies": {},
+  "build": {
+    "pre": [
+      "patch -Np1 -i ../sgml-common-0.6.3-manpage-1.patch"
+    ],
+    "user": [
+      "autoreconf -f -i",
+      "./configure --prefix=/usr --sysconfdir=/etc",
+      "make"
+    ],
+    "package": [
+      "make docdir=$DESTDIR/usr/share/doc install DESTDIR=$DESTDIR"
+    ]
+  },
+  "post_install": [
+    "install-catalog --remove /etc/sgml/sgml-ent.cat /usr/share/sgml/sgml-iso-entities-8879.1986/catalog",
+    "install-catalog --remove /etc/sgml/sgml-docbook.cat /etc/sgml/sgml-ent.cat",
+    "install-catalog --add /etc/sgml/sgml-ent.cat /usr/share/sgml/sgml-iso-entities-8879.1986/catalog",
+    "install-catalog --add /etc/sgml/sgml-docbook.cat /etc/sgml/sgml-ent.cat"
+  ],
+  "meta": false,
+  "book": "pst/sgml-common.html",
+  "category": "printing",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

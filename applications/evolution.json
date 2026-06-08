@@ -1,0 +1,37 @@
+{
+  "name": "evolution",
+  "version": "3.58.3",
+  "description": "The Evolution package contains an integrated mail, calendar and address book suite designed for the GNOME environment.",
+  "url": "https://download.gnome.org/sources/evolution/3.58/evolution-3.58.3.tar.xz",
+  "dependencies": {
+    "required": [
+      "adwaita-icon-theme",
+      "evolution-data-server",
+      "gcr4",
+      "webkitgtk",
+      "bogofilter",
+      "highlight",
+      "libcanberra",
+      "libnotify"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "cmake -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D SYSCONF_INSTALL_DIR=/etc  \\\n      -D ENABLE_INSTALLED_TESTS=ON \\\n      -D ENABLE_PST_IMPORT=OFF     \\\n      -D ENABLE_YTNEF=OFF          \\\n      -D ENABLE_CONTACT_MAPS=OFF   \\\n      -D ENABLE_MARKDOWN=OFF       \\\n      -D ENABLE_WEATHER=ON         \\\n      -G Ninja ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/evolution.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

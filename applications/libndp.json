@@ -1,0 +1,24 @@
+{
+  "name": "libndp",
+  "version": "1.9",
+  "description": "The libndp package provides a wrapper for IPv6 Neighbor Discovery Protocol. It also provides a tool named ndptool for sending and receiving NDP messages.",
+  "url": "http://libndp.org/files/libndp-1.9.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr        \\\n            --sysconfdir=/etc    \\\n            --localstatedir=/var \\\n            --disable-static",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "basicnet/libndp.html",
+  "category": "networking",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

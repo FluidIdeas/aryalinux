@@ -1,0 +1,31 @@
+{
+  "name": "cairomm-1.0",
+  "version": "1.14.5",
+  "description": "The libcairomm-1.0 package provides a C++ interface to Cairo.",
+  "url": "https://www.cairographics.org/releases/cairomm-1.14.5.tar.xz",
+  "dependencies": {
+    "required": [
+      "cairo",
+      "boost"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir bld",
+      "cd    bld",
+      "meson setup ..             \\\n      --prefix=/usr        \\\n      --buildtype=release  \\\n      -D build-tests=true  \\\n      -D boost-shared=true",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "x/cairomm-1.0.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

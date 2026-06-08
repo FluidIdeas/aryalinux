@@ -1,0 +1,29 @@
+{
+  "name": "raptor",
+  "version": "2.0.16",
+  "description": "Raptor is a C library that provides a set of parsers and serializers that generate Resource Description Framework (RDF) triples.",
+  "url": "https://download.librdf.org/source/raptor2-2.0.16.tar.gz",
+  "dependencies": {
+    "required": [
+      "curl"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i 's/20627/20627 \\&\\& LIBXML_VERSION < 21100/' src/raptor_libxml.c",
+      "./configure --prefix=/usr --disable-static",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/raptor.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

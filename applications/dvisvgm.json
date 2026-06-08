@@ -1,0 +1,33 @@
+{
+  "name": "dvisvgm",
+  "version": "3.6",
+  "description": "The dvisvgm package converts DVI, EPS and PDF files to SVG format.",
+  "url": "https://github.com/mgieseki/dvisvgm/releases/download/3.6/dvisvgm-3.6.tar.gz",
+  "dependencies": {
+    "required": [
+      "brotli",
+      "gs",
+      "potrace",
+      "woff2"
+    ]
+  },
+  "build": {
+    "user": [
+      "TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/')",
+      "sed -i 's/python/&3/' tests/Makefile.in",
+      "./configure                                     \\\n    --bindir=$TEXLIVE_PREFIX/bin/${TEXARCH}     \\\n    --mandir=$TEXLIVE_PREFIX/texmf-dist/doc/man \\\n    --with-kpathsea=$TEXLIVE_PREFIX",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "pst/dvisvgm.html",
+  "category": "printing",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

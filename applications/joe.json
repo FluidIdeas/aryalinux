@@ -1,0 +1,25 @@
+{
+  "name": "joe",
+  "version": "4.6",
+  "description": "JOE (Joe's own editor) is a small text editor capable of emulating WordStar, Pico, and Emacs.",
+  "url": "https://downloads.sourceforge.net/joe-editor/joe-4.6.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr     \\\n            --sysconfdir=/etc \\\n            --docdir=/usr/share/doc/joe-4.6",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -vm 755 joe/util/{stringify,termidx,uniproc} $DESTDIR/usr/bin"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/joe.html",
+  "category": "system",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

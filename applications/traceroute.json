@@ -1,0 +1,26 @@
+{
+  "name": "traceroute",
+  "version": "2.1.6",
+  "description": "The Traceroute package contains a program which is used to display the network route that packets take to reach a specified host. This is a standard network troubleshooting tool. If you find yourself unable to connect to another system, traceroute can help pinpoint the problem.",
+  "url": "https://downloads.sourceforge.net/traceroute/traceroute-2.1.6.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "make"
+    ],
+    "package": [
+      "make prefix=$DESTDIR/usr install",
+      "ln -sv -f traceroute $DESTDIR/usr/bin/traceroute6",
+      "ln -sv -f traceroute.8 $DESTDIR/usr/share/man/man8/traceroute6.8",
+      "rm -fv $DESTDIR/usr/share/man/man1/traceroute.1"
+    ]
+  },
+  "meta": false,
+  "book": "basicnet/traceroute.html",
+  "category": "networking",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

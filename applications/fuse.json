@@ -1,0 +1,37 @@
+{
+  "name": "fuse",
+  "version": "3.18.1",
+  "description": "FUSE (Filesystem in Userspace) is a simple interface for userspace programs to export a virtual filesystem to the Linux kernel. Fuse also aims to provide a secure method for non privileged users to create and mount their own filesystem implementations.",
+  "url": "https://github.com/libfuse/libfuse/releases/download/fuse-3.18.1/fuse-3.18.1.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "sed -i '/^udev/,$ s/^/#/' util/meson.build",
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja",
+      "pushd ..",
+      "doxygen doc/Doxyfile",
+      "popd"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install",
+      "cd ..",
+      "cp -Rv doc/html -T $DESTDIR/usr/share/doc/fuse-3.18.1",
+      "install -v -m644 doc/{README.NFS,kernel.txt} $DESTDIR/usr/share/doc/fuse-3.18.1",
+      "cat > $DESTDIR/etc/fuse.conf << \"EOF\"\n# Set the maximum number of FUSE mounts allowed to non-root users.\n# The default is 1000.\n#\n#mount_max = 1000\n\n# Allow non-root users to specify the 'allow_other' or 'allow_root'\n# mount options.\n#\n#user_allow_other\nEOF"
+    ]
+  },
+  "post_install": [
+    "chmod u+s /usr/bin/fusermount3"
+  ],
+  "meta": false,
+  "book": "postlfs/fuse.html",
+  "category": "system",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

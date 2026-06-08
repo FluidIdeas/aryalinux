@@ -1,0 +1,32 @@
+{
+  "name": "stunnel",
+  "version": "5.77",
+  "description": "The stunnel package contains a program that allows you to encrypt arbitrary TCP connections inside SSL (Secure Sockets Layer) so you can easily communicate with clients over secure channels. stunnel can also be used to tunnel PPP over network sockets without changes to the server package source code.",
+  "url": "https://www.stunnel.org/downloads/archive/5.x/stunnel-5.77.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr        \\\n            --sysconfdir=/etc    \\\n            --localstatedir=/var",
+      "make",
+      "groupadd -g 51 stunnel",
+      "useradd -c \"stunnel Daemon\" -d /var/lib/stunnel \\\n        -g stunnel -s /bin/false -u 51 stunnel",
+      "make docdir=/usr/share/doc/stunnel-5.77 install",
+      "make cert",
+      "chown stunnel:stunnel /var/lib/stunnel",
+      "cat > /etc/stunnel/stunnel.conf << \"EOF\"\n; File: /etc/stunnel/stunnel.conf\n\n; Note: The pid and output locations are relative to the chroot location.\n\npid    = /run/stunnel.pid\nchroot = /var/lib/stunnel\nclient = no\nsetuid = stunnel\nsetgid = stunnel\ncert   = /etc/stunnel/stunnel.pem\n\n;debug = 7\n;output = stunnel.log\n\n;[https]\n;accept  = 443\n;connect = 80\n;; \"TIMEOUTclose = 0\" is a workaround for a design flaw in Microsoft SSL\n;; Microsoft implementations do not use SSL close-notify alert and thus\n;; they are vulnerable to truncation attacks\n;TIMEOUTclose = 0\n\nEOF",
+      "systemctl enable stunnel"
+    ],
+    "package": [
+      "install -v -m644 tools/stunnel.service $DESTDIR/usr$DESTDIR/lib/systemd/system",
+      "install -v -m750 -o stunnel -g stunnel -d $DESTDIR/var$DESTDIR/lib/stunnel/run"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/stunnel.html",
+  "category": "security",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

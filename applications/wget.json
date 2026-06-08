@@ -1,0 +1,29 @@
+{
+  "name": "wget",
+  "version": "1.25.0",
+  "description": "The Wget package contains a utility useful for non-interactive downloading of files from the Web.",
+  "url": "https://ftpmirror.gnu.org/wget/wget-1.25.0.tar.gz",
+  "dependencies": {
+    "required": [
+      "libpsl",
+      "make-ca"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr      \\\n            --sysconfdir=/etc  \\\n            --with-ssl=openssl",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "basicnet/wget.html",
+  "category": "networking",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "inih",
+  "version": "0",
+  "description": "This package is a simple .INI file parser written in C.",
+  "url": "https://github.com/benhoyt/inih/archive/r62/inih-r62.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "general/inih.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

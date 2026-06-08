@@ -1,0 +1,37 @@
+{
+  "name": "xine-lib",
+  "version": "1.2.13",
+  "description": "The Xine Libraries package contains xine libraries. These are useful for interfacing with external plug-ins that allow the flow of information from the source to the audio and video hardware.",
+  "url": "https://downloads.sourceforge.net/xine/xine-lib-1.2.13.tar.xz",
+  "dependencies": {
+    "required": [
+      "installing",
+      "ffmpeg",
+      "alsa-lib",
+      "libdvdnav"
+    ]
+  },
+  "build": {
+    "user": [
+      "patch -Np1 -i ../xine-lib-1.2.13-upstream_fixes-1.patch",
+      "patch -Np1 -i ../xine-lib-1.2.13-gcc15_fixes-1.patch",
+      "patch -Np1 -i ../xine-lib-1.2.13-ffmpeg8.patch",
+      "./configure --prefix=/usr          \\\n            --disable-vcd          \\\n            --disable-w32dll       \\\n            --with-external-dvdnav \\\n            --docdir=/usr/share/doc/xine-lib-1.2.13",
+      "make",
+      "doxygen doc/Doxyfile"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m755 -d $DESTDIR/usr/share/doc/xine-lib-1.2.13/api",
+      "install -v -m644    doc/api/* \\\n                    $DESTDIR/usr/share/doc/xine-lib-1.2.13/api"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/xine-lib.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

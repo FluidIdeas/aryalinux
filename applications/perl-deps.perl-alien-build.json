@@ -1,0 +1,29 @@
+{
+  "name": "perl-deps.perl-alien-build",
+  "version": "2.84",
+  "description": "Perl module perl::alien::build providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Build-2.84.tar.gz",
+  "dependencies": {
+    "required": [
+      "perl-deps.perl-capture-tiny",
+      "perl-deps.perl-file-chdir"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

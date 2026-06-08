@@ -1,0 +1,24 @@
+{
+  "name": "jansson",
+  "version": "2.15.0",
+  "description": "The Jansson package contains a library used to encode, decode, and manipulate JSON data.",
+  "url": "https://github.com/akheron/jansson/releases/download/v2.15.0/jansson-2.15.0.tar.bz2",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --disable-static",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/jansson.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

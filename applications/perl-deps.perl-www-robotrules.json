@@ -1,0 +1,28 @@
+{
+  "name": "perl-deps.perl-www-robotrules",
+  "version": "6.02",
+  "description": "Perl module perl::www::robotrules providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/G/GA/GAAS/WWW-RobotRules-6.02.tar.gz",
+  "dependencies": {
+    "required": [
+      "perl-modules.perl-libwww-perl"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

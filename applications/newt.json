@@ -1,0 +1,31 @@
+{
+  "name": "newt",
+  "version": "0.52.25",
+  "description": "Newt is a programming library for color text mode, widget based user interfaces. It can be used to add stacked windows, entry widgets, checkboxes, radio buttons, labels, plain text fields, scrollbars, etc., to text mode user interfaces. Newt is based on the S-Lang library.",
+  "url": "https://releases.pagure.org/newt/newt-0.52.25.tar.gz",
+  "dependencies": {
+    "required": [
+      "popt",
+      "slang",
+      "gpm"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -e '/install -m 644 $(LIBNEWT)/ s/^/#/' \\\n    -e '/$(LIBNEWT):/,/rv/ s/^/#/'          \\\n    -e 's/$(LIBNEWT)/$(LIBNEWTSH)/g'        \\\n    -i Makefile.in",
+      "./configure --prefix=/usr      \\\n            --with-gpm-support",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/newt.html",
+  "category": "graphics",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

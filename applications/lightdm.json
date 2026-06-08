@@ -1,0 +1,48 @@
+{
+  "name": "lightdm",
+  "version": "1.32.0",
+  "description": "The lightdm package contains a lightweight display manager based upon GTK.",
+  "url": "https://github.com/CanonicalLtd/lightdm/releases/download/1.32.0/lightdm-1.32.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "exo",
+      "libgcrypt",
+      "linux-pam",
+      "glib2",
+      "libxklavier"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr                 \\\n            --libexecdir=/usr/lib/lightdm \\\n            --localstatedir=/var          \\\n            --sbindir=/usr/bin            \\\n            --sysconfdir=/etc             \\\n            --disable-static              \\\n            --disable-tests               \\\n            --with-greeter-user=lightdm   \\\n            --with-greeter-session=lightdm-gtk-greeter \\\n            --docdir=/usr/share/doc/lightdm-1.32.0",
+      "make",
+      "tar -xf ../lightdm-gtk-greeter-2.0.9.tar.gz",
+      "cd lightdm-gtk-greeter-2.0.9",
+      "./configure --prefix=/usr                 \\\n            --libexecdir=/usr/lib/lightdm \\\n            --sbindir=/usr/bin            \\\n            --sysconfdir=/etc             \\\n            --with-libxklavier            \\\n            --enable-kill-on-sigterm      \\\n            --disable-libido              \\\n            --disable-libindicator        \\\n            --disable-static              \\\n            --disable-maintainer-mode     \\\n            --docdir=/usr/share/doc/lightdm-gtk-greeter-2.0.9",
+      "make",
+      "ln -sf /opt/xorg/bin/Xorg /usr/bin/X",
+      "groupadd -g 65 lightdm",
+      "useradd  -c \"Lightdm Daemon\" \\\n         -d /var/lib/lightdm \\\n         -u 65 -g lightdm    \\\n         -s /bin/false lightdm",
+      "cp tests/src/lightdm-session /usr/bin",
+      "sed -i '1 s/sh/bash --login/' /usr/bin/lightdm-session",
+      "rm -rf /etc/init"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -dm755 -o lightdm -g lightdm $DESTDIR/var$DESTDIR/lib/lightdm",
+      "install -v -dm755 -o lightdm -g lightdm $DESTDIR/var$DESTDIR/lib/lightdm-data",
+      "install -v -dm755 -o lightdm -g lightdm $DESTDIR/var/cache/lightdm",
+      "install -v -dm770 -o lightdm -g lightdm $DESTDIR/var/log/lightdm",
+      "make install DESTDIR=$DESTDIR",
+      "make install-lightdm DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "x/lightdm.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

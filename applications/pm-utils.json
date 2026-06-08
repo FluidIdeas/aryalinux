@@ -1,0 +1,30 @@
+{
+  "name": "pm-utils",
+  "version": "1.4.1",
+  "description": "The Power Management Utilities provide simple shell command line tools to suspend and hibernate the computer. They can be used to run user supplied scripts on suspend and resume.",
+  "url": "https://pm-utils.freedesktop.org/releases/pm-utils-1.4.1.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "patch -Np1 -i ../pm-utils-1.4.1-bugfixes-1.patch",
+      "./configure --prefix=/usr     \\\n            --sysconfdir=/etc \\\n            --docdir=/usr/share/doc/pm-utils-1.4.1",
+      "make",
+      "ln -sv pm-action.8 /usr/share/man/man8/pm-suspend.8",
+      "ln -sv pm-action.8 /usr/share/man/man8/pm-hibernate.8",
+      "ln -sv pm-action.8 /usr/share/man/man8/pm-suspend-hybrid.8"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m644 man/*.1 $DESTDIR/usr/share/man/man1",
+      "install -v -m644 man/*.8 $DESTDIR/usr/share/man/man8"
+    ]
+  },
+  "meta": false,
+  "book": "general/pm-utils.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

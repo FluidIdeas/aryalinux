@@ -1,0 +1,46 @@
+{
+  "name": "gtk4",
+  "version": "4.20.3",
+  "description": "The GTK 4 package contains libraries used for creating graphical user interfaces for applications.",
+  "url": "https://download.gnome.org/sources/gtk/4.20/gtk-4.20.3.tar.xz",
+  "dependencies": {
+    "required": [
+      "gdk-pixbuf",
+      "iso-codes",
+      "librsvg",
+      "pango",
+      "python-modules.pygobject3",
+      "glslc",
+      "gst10-plugins-good",
+      "libvpx",
+      "glib2"
+    ],
+    "post": [
+      "adwaita-icon-theme"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr            \\\n            --buildtype=release      \\\n            -D broadway-backend=true \\\n            -D introspection=enabled \\\n            -D vulkan=enabled        \\\n            ..",
+      "ninja",
+      "sed \"s@'doc'@& / 'gtk-4.20.3'@\" -i ../docs/reference/meson.build",
+      "meson configure -D documentation=true",
+      "ninja",
+      "env -u{GALLIUM_DRIVER,MESA_LOADER_DRIVER_OVERRIDE}          \\\n    LIBGL_ALWAYS_SOFTWARE=1 VK_LOADER_DRIVERS_SELECT='lvp*' \\\n    dbus-run-session meson test --setup x11                 \\\n                                --no-suite=headless",
+      "mkdir -pv ~/.config/gtk-4.0\ncat > ~/.config/gtk-4.0/settings.ini << \"EOF\"\n[Settings]\ngtk-theme-name = Adwaita\ngtk-icon-theme-name = oxygen\ngtk-font-name = DejaVu Sans 12\ngtk-cursor-theme-size = 18\ngtk-xft-antialias = 1\ngtk-xft-hinting = 1\ngtk-xft-hintstyle = hintslight\ngtk-xft-rgba = rgb\ngtk-cursor-theme-name = Adwaita\nEOF"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "x/gtk4.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

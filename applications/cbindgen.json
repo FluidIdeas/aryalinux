@@ -1,0 +1,27 @@
+{
+  "name": "cbindgen",
+  "version": "0.29.2",
+  "description": "Cbindgen can be used to generate C bindings for Rust code.",
+  "url": "https://github.com/mozilla/cbindgen/archive/v0.29.2/cbindgen-0.29.2.tar.gz",
+  "dependencies": {
+    "required": [
+      "rust"
+    ]
+  },
+  "build": {
+    "user": [
+      "cargo build --release"
+    ],
+    "package": [
+      "install -Dm755 target/release/cbindgen $DESTDIR/usr/bin/"
+    ]
+  },
+  "meta": false,
+  "book": "general/cbindgen.html",
+  "category": "programming",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

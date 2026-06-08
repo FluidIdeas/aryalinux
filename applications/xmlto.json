@@ -1,0 +1,30 @@
+{
+  "name": "xmlto",
+  "version": "0.0.29",
+  "description": "The xmlto package is a front-end to a XSL toolchain. It chooses an appropriate stylesheet for the conversion you want and applies it using an external XSLT processor. It also performs any necessary post-processing.",
+  "url": "https://pagure.io/xmlto/archive/0.0.29/xmlto-0.0.29.tar.gz",
+  "dependencies": {
+    "required": [
+      "docbook",
+      "libxslt"
+    ]
+  },
+  "build": {
+    "user": [
+      "autoreconf -fiv",
+      "LINKS=\"/usr/bin/links\" ./configure --prefix=/usr",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "pst/xmlto.html",
+  "category": "printing",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "epdfview",
+  "version": "0",
+  "description": "ePDFView-gtk3 is a fork of the old ePDFView program. Although the github repository https://github.com/Flow-It/epdfview_old.git names it as 'old', it is the gtk3 fork. It is a lightweight replacement for Evince as it does not rely upon GNOME libraries and is more capable than MuPDF.",
+  "url": "https://anduin.linuxfromscratch.org/BLFS/epdfview-gtk3/epdfview-gtk3-20200814.tar.xz",
+  "dependencies": {
+    "required": [
+      "gtk3"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr           \\\n            --buildtype=release     \\\n            -D enable-printing=true \\\n            ..",
+      "ninja",
+      "gtk-update-icon-cache -qtf /usr/share/icons/hicolor",
+      "update-desktop-database -q"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "pst/epdfview.html",
+  "category": "printing",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

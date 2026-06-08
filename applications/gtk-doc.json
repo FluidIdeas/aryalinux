@@ -1,0 +1,33 @@
+{
+  "name": "gtk-doc",
+  "version": "1.35.1",
+  "description": "The GTK-Doc package contains a code documenter. This is useful for extracting specially formatted comments from the code to create API documentation. This package is optional; if it is not installed, packages will not build the documentation. This does not mean that you will not have any documentation. If GTK-Doc is not available, the install process will copy any pre-built documentation to your system.",
+  "url": "https://download.gnome.org/sources/gtk-doc/1.35/gtk-doc-1.35.1.tar.xz",
+  "dependencies": {
+    "required": [
+      "docbook",
+      "glib2",
+      "itstool",
+      "python-modules.pygments"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir -p build",
+      "cd       build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "general/gtk-doc.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

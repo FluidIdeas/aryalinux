@@ -1,0 +1,31 @@
+{
+  "name": "libmng",
+  "version": "2.0.3",
+  "description": "The libmng libraries are used by programs wanting to read and write Multiple-image Network Graphics (MNG) files which are the animation equivalents to PNG files.",
+  "url": "https://downloads.sourceforge.net/libmng/libmng-2.0.3.tar.xz",
+  "dependencies": {
+    "required": [
+      "libjpeg",
+      "lcms2"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --disable-static",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m755 -d        $DESTDIR/usr/share/doc$DESTDIR/libmng-2.0.3",
+      "install -v -m644 doc/*.txt $DESTDIR/usr/share/doc$DESTDIR/libmng-2.0.3"
+    ]
+  },
+  "meta": false,
+  "book": "general/libmng.html",
+  "category": "graphics",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

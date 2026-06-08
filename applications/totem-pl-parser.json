@@ -1,0 +1,31 @@
+{
+  "name": "totem-pl-parser",
+  "version": "3.26.6",
+  "description": "The Totem PL Parser package contains a simple GObject-based library used to parse multiple playlist formats.",
+  "url": "https://download.gnome.org/sources/totem-pl-parser/3.26/totem-pl-parser-3.26.6.tar.xz",
+  "dependencies": {
+    "required": [
+      "glib2",
+      "libarchive"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/totem-pl-parser.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

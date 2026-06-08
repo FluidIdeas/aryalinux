@@ -1,0 +1,42 @@
+{
+  "name": "icewm",
+  "version": "4.0.0",
+  "description": "IceWM is a window manager with the goals of speed, simplicity, and not getting in the user's way.",
+  "url": "https://github.com/ice-wm/icewm/archive/4.0.0/icewm-4.0.0.tar.gz",
+  "dependencies": {
+    "required": [
+      "cmake",
+      "imlib2"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "cmake -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D CFGDIR=/etc               \\\n      -D ENABLE_LTO=ON             \\\n      -D DOCDIR=/usr/share/doc/icewm-4.0.0  \\\n      ..",
+      "make",
+      "echo icewm-session > ~/.xinitrc",
+      "mkdir -pv ~/.icewm",
+      "cp -v /usr/share/icewm/keys ~/.icewm/keys",
+      "cp -v /usr/share/icewm/menu ~/.icewm/menu",
+      "cp -v /usr/share/icewm/preferences ~/.icewm/preferences",
+      "cp -v /usr/share/icewm/toolbar ~/.icewm/toolbar",
+      "cp -v /usr/share/icewm/winoptions ~/.icewm/winoptions",
+      "icewm-menu-fdo >~/.icewm/menu",
+      "cat > ~/.icewm/startup << \"EOF\"\nrox -p Default &\nEOF",
+      "chmod +x ~/.icewm/startup",
+      "rm -v /usr/share/xsessions/icewm.desktop"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "x/icewm.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

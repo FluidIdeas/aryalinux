@@ -1,0 +1,30 @@
+{
+  "name": "gnome-power-manager",
+  "version": "43.0",
+  "description": "The GNOME Power Manager package contains a tool used to report on power management on the system.",
+  "url": "https://download.gnome.org/sources/gnome-power-manager/43/gnome-power-manager-43.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "gtk3"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/gnome-power-manager.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

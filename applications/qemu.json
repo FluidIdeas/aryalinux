@@ -1,0 +1,44 @@
+{
+  "name": "qemu",
+  "version": "10.2.1",
+  "description": "qemu is a full virtualization solution for Linux on x86 hardware containing virtualization extensions (Intel VT or AMD-V).",
+  "url": "https://download.qemu.org/qemu-10.2.1.tar.xz",
+  "dependencies": {
+    "required": [
+      "glib2",
+      "alsa-lib",
+      "libslirp"
+    ]
+  },
+  "build": {
+    "user": [
+      "if [ $(uname -m) = i686 ]; then\n   QEMU_ARCH=i386-softmmu\nelse\n   QEMU_ARCH=x86_64-softmmu\nfi\n\n\nmkdir -vp build",
+      "cd        build",
+      "../configure --prefix=/usr            \\\n             --sysconfdir=/etc        \\\n             --localstatedir=/var     \\\n             --target-list=$QEMU_ARCH \\\n             --audio-drv-list=alsa    \\\n             --disable-pa             \\\n             --enable-slirp           \\\n             --docdir=/usr/share/doc/qemu-10.2.1",
+      "unset QEMU_ARCH",
+      "make",
+      "VDISK_SIZE=50G\nVDISK_FILENAME=vdisk.img\nqemu-img create -f qcow2 $VDISK_FILENAME $VDISK_SIZE",
+      "qemu -enable-kvm                           \\\n     -drive file=$VDISK_FILENAME           \\\n     -cdrom Fedora-16-x86_64-Live-LXDE.iso \\\n     -boot d                               \\\n     -m 1G",
+      "qemu -enable-kvm                  \\\n     -smp 4                       \\\n     -cpu host                    \\\n     -m 1G                        \\\n     -drive file=$VDISK_FILENAME  \\\n     -cdrom grub-img.iso          \\\n     -boot order=c,once=d,menu=on \\\n     -net nic,netdev=net0         \\\n     -netdev user,id=net0         \\\n     -device ac97                 \\\n     -vga std                     \\\n     -serial mon:stdio            \\\n     -name \"fedora-16\"",
+      "usermod -a -G kvm <username>",
+      "chgrp kvm  /usr/libexec/qemu-bridge-helper",
+      "chmod 4750 /usr/libexec/qemu-bridge-helper",
+      "ln -sv qemu-system-`uname -m` /usr/bin/qemu",
+      "sysctl -w net.ipv4.ip_forward=1",
+      "cat >> /etc/sysctl.d/60-net-forward.conf << EOF\nnet.ipv4.ip_forward=1\nEOF",
+      "echo allow br0 > /etc/qemu/bridge.conf"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -vdm 755 $DESTDIR/etc/qemu"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/qemu.html",
+  "category": "system",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

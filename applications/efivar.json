@@ -1,0 +1,26 @@
+{
+  "name": "efivar",
+  "version": "0",
+  "description": "The efivar package provides tools and libraries to manipulate EFI variables.",
+  "url": "https://github.com/rhboot/efivar/archive/39/efivar-39.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "patch -Np1 -i ../efivar-39-upstream_fixes-1.patch",
+      "make ENABLE_DOCS=0"
+    ],
+    "package": [
+      "make install ENABLE_DOCS=0 LIBDIR=/usr/lib DESTDIR=$DESTDIR",
+      "install -vm644 docs/efivar.1 $DESTDIR/usr/share/man/man1",
+      "install -vm644 docs/*.3      $DESTDIR/usr/share/man/man3"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/efivar.html",
+  "category": "system",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

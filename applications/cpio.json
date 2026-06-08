@@ -1,0 +1,34 @@
+{
+  "name": "cpio",
+  "version": "2.15",
+  "description": "The cpio package contains tools for archiving.",
+  "url": "https://ftpmirror.gnu.org/cpio/cpio-2.15.tar.bz2",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "sed -e \"/^extern int (\\*xstat)/s/()/(const char * restrict,  struct stat * restrict)/\" \\\n    -i src/extern.h\nsed -e \"/^int (\\*xstat)/s/()/(const char * restrict,  struct stat * restrict)/\" \\\n    -i src/global.c",
+      "./configure --prefix=/usr \\\n            --enable-mt   \\\n            --with-rmt=/usr/libexec/rmt",
+      "make",
+      "makeinfo --html            -o doc/html      doc/cpio.texi",
+      "makeinfo --html --no-split -o doc/cpio.html doc/cpio.texi",
+      "makeinfo --plaintext       -o doc/cpio.txt  doc/cpio.texi",
+      "make -C doc pdf",
+      "make -C doc ps"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m755 -d $DESTDIR/usr/share/doc/cpio-2.15/html",
+      "install -v -m644    doc/html/* \\\n                    $DESTDIR/usr/share/doc/cpio-2.15/html",
+      "install -v -m644    doc/cpio.{html,txt} \\\n                    $DESTDIR/usr/share/doc/cpio-2.15",
+      "install -v -m644 doc/cpio.{pdf,ps,dvi} \\\n                 $DESTDIR/usr/share/doc/cpio-2.15"
+    ]
+  },
+  "meta": false,
+  "book": "general/cpio.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

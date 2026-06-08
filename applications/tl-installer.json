@@ -1,0 +1,26 @@
+{
+  "name": "tl-installer",
+  "version": "2025",
+  "description": "TeX Live network installer. Stages the TeX Live tree under /opt/texlive/2025.",
+  "url": "https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz",
+  "dependencies": {
+    "required": [
+      "gnupg",
+      "perl-modules.perl-libwww-perl"
+    ]
+  },
+  "build": {
+    "user": [],
+    "package": [
+      "TEXLIVE_INSTALL_PREFIX=$DESTDIR/opt/texlive/2025 ./install-tl --no-interaction --scheme=medium"
+    ]
+  },
+  "meta": false,
+  "book": "pst/tl-installer.html",
+  "category": "printing",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

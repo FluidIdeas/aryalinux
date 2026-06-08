@@ -1,0 +1,36 @@
+{
+  "name": "mupdf",
+  "version": "1.26.12",
+  "description": "MuPDF is a lightweight PDF and XPS viewer.",
+  "url": "https://www.mupdf.com/downloads/archive/mupdf-1.26.12-source.tar.gz",
+  "dependencies": {
+    "required": [
+      "x7lib",
+      "freeglut",
+      "openjpeg2"
+    ]
+  },
+  "build": {
+    "user": [
+      "cat > user.make << EOF\nUSE_SYSTEM_FREETYPE := yes\nUSE_SYSTEM_HARFBUZZ := yes\nUSE_SYSTEM_JBIG2DEC := no\nUSE_SYSTEM_JPEGXR := no\nUSE_SYSTEM_LCMS2 := no\nUSE_SYSTEM_LIBJPEG := yes\nUSE_SYSTEM_MUJS := no\nUSE_SYSTEM_OPENJPEG := yes\nUSE_SYSTEM_ZLIB := yes\nUSE_SYSTEM_GLUT := yes\nUSE_SYSTEM_CURL := yes\nUSE_SYSTEM_GUMBO := no\nEOF",
+      "export XCFLAGS=-fPIC",
+      "make build=release shared=yes verbose=yes",
+      "unset XCFLAGS"
+    ],
+    "package": [
+      "make prefix=$DESTDIR/usr                         \\\n     shared=yes                          \\\n     docdir=$DESTDIR/usr/share/doc/mupdf-1.26.12 \\\n     install",
+      "ln -sfv libmupdf.so.26.12 $DESTDIR/usr/lib/libmupdf.so.26",
+      "ln -sfv libmupdf.so.26 $DESTDIR/usr/lib/libmupdf.so",
+      "chmod 755 $DESTDIR/usr/lib/libmupdf.so.26.12",
+      "ln -sfv mupdf-x11 $DESTDIR/usr/bin/mupdf"
+    ]
+  },
+  "meta": false,
+  "book": "pst/mupdf.html",
+  "category": "printing",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

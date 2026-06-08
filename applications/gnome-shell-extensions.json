@@ -1,0 +1,29 @@
+{
+  "name": "gnome-shell-extensions",
+  "version": "49.0",
+  "description": "The GNOME Shell Extensions package contains a collection of extensions providing additional and optional functionality to the GNOME Shell.",
+  "url": "https://download.gnome.org/sources/gnome-shell-extensions/49/gnome-shell-extensions-49.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "libgtop"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr .."
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/gnome-shell-extensions.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

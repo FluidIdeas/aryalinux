@@ -1,0 +1,29 @@
+{
+  "name": "twm",
+  "version": "1.0.13.1",
+  "description": "The twm package contains a very minimal window manager.",
+  "url": "https://www.x.org/pub/individual/app/twm-1.0.13.1.tar.xz",
+  "dependencies": {
+    "required": [
+      "xorg-server"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i -e '/^rcdir =/s,^\\(rcdir = \\).*,\\1/etc/X11/app-defaults,' src/Makefile.in",
+      "./configure $XORG_CONFIG",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "x/twm.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

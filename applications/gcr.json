@@ -1,0 +1,38 @@
+{
+  "name": "gcr",
+  "version": "3.41.2",
+  "description": "The Gcr package contains libraries used for displaying certificates and accessing key stores. It also provides the viewer for crypto files on the GNOME Desktop.",
+  "url": "https://download.gnome.org/sources/gcr/3.41/gcr-3.41.2.tar.xz",
+  "dependencies": {
+    "required": [
+      "glib2",
+      "libgcrypt",
+      "gnupg",
+      "libsecret"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed '/ssh.add/d; /ssh.agent/d' -i meson.build",
+      "sed -i 's:\"/desktop:\"/org:' schema/*.xml",
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr       \\\n            --buildtype=release \\\n            -D gtk_doc=false    \\\n            -D ssh_agent=false  \\\n            ..",
+      "ninja",
+      "sed -e \"/install_dir/s@,\\$@ / 'gcr-3.41.2'&@\" \\\n    -i ../docs/*/meson.build",
+      "meson configure -D gtk_doc=true",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/gcr.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

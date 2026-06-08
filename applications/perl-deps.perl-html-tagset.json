@@ -1,0 +1,24 @@
+{
+  "name": "perl-deps.perl-html-tagset",
+  "version": "3.24",
+  "description": "Perl module perl::html::tagset providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/P/PE/PETDANCE/HTML-Tagset-3.24.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

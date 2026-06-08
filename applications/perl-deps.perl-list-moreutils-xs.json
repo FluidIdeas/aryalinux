@@ -1,0 +1,24 @@
+{
+  "name": "perl-deps.perl-list-moreutils-xs",
+  "version": "0.430",
+  "description": "Perl module perl::list::moreutils::xs providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/List-MoreUtils-XS-0.430.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

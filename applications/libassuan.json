@@ -1,0 +1,37 @@
+{
+  "name": "libassuan",
+  "version": "3.0.2",
+  "description": "The libassuan package contains an inter process communication library used by some of the other GnuPG related packages. libassuan's primary use is to allow a client to interact with a non-persistent server. libassuan is not, however, limited to use with GnuPG servers and clients. It was designed to be flexible enough to meet the demands of many transaction based environments with non-persistent servers.",
+  "url": "https://www.gnupg.org/ftp/gcrypt/libassuan/libassuan-3.0.2.tar.bz2",
+  "dependencies": {
+    "required": [
+      "libgpg-error"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr",
+      "make",
+      "make -C doc html",
+      "makeinfo --html --no-split -o doc/assuan_nochunks.html doc/assuan.texi",
+      "makeinfo --plaintext       -o doc/assuan.txt           doc/assuan.texi",
+      "make -C doc pdf ps"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -dm755   $DESTDIR/usr/share/doc$DESTDIR/libassuan-3.0.2/html",
+      "install -v -m644 doc/assuan.html/* \\\n                    $DESTDIR/usr/share/doc$DESTDIR/libassuan-3.0.2/html",
+      "install -v -m644 doc/assuan_nochunks.html \\\n                    $DESTDIR/usr/share/doc$DESTDIR/libassuan-3.0.2",
+      "install -v -m644 doc/assuan.{txt,texi} \\\n                    $DESTDIR/usr/share/doc$DESTDIR/libassuan-3.0.2",
+      "install -v -m644  doc/assuan.{pdf,ps,dvi} \\\n                  $DESTDIR/usr/share/doc$DESTDIR/libassuan-3.0.2"
+    ]
+  },
+  "meta": false,
+  "book": "general/libassuan.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

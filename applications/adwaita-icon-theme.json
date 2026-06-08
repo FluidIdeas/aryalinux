@@ -1,0 +1,35 @@
+{
+  "name": "adwaita-icon-theme",
+  "version": "49.0",
+  "description": "The Adwaita Icon Theme package contains an icon theme for GTK+ 3 and GTK 4 applications.",
+  "url": "https://download.gnome.org/sources/adwaita-icon-theme/49/adwaita-icon-theme-49.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "librsvg"
+    ],
+    "recommended": [
+      "gtk3",
+      "gtk4"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr ..",
+      "ninja",
+      "rm -rf /usr/share/icons/Adwaita/"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "x/adwaita-icon-theme.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

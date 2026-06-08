@@ -1,0 +1,31 @@
+{
+  "name": "xfce4-panel",
+  "version": "4.20.6",
+  "description": "The Xfce4 Panel package contains the Xfce4 Panel.",
+  "url": "https://archive.xfce.org/src/xfce/xfce4-panel/4.20/xfce4-panel-4.20.6.tar.bz2",
+  "dependencies": {
+    "required": [
+      "cairo",
+      "exo",
+      "libwnck",
+      "libxfce4windowing"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --sysconfdir=/etc",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "xfce/xfce4-panel.html",
+  "category": "desktop-xfce",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

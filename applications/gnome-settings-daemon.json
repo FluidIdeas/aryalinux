@@ -1,0 +1,38 @@
+{
+  "name": "gnome-settings-daemon",
+  "version": "49.1",
+  "description": "The GNOME Settings Daemon is responsible for setting various parameters of a GNOME Session and the applications that run under it.",
+  "url": "https://download.gnome.org/sources/gnome-settings-daemon/49/gnome-settings-daemon-49.1.tar.xz",
+  "dependencies": {
+    "required": [
+      "alsa-lib",
+      "geoclue2",
+      "gnome-desktop",
+      "libnotify",
+      "colord",
+      "networkmanager",
+      "ModemManager",
+      "nss",
+      "wayland"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/gnome-settings-daemon.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

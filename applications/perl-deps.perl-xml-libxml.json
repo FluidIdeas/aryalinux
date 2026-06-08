@@ -1,0 +1,35 @@
+{
+  "name": "perl-deps.perl-xml-libxml",
+  "version": "2.0210",
+  "description": "Perl module perl::xml::libxml providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0210.tar.gz",
+  "patches": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/XML-LibXML-2.0210-testsuite_fixes-2.patch"
+  ],
+  "dependencies": {
+    "required": [
+      "perl-deps.perl-alien-libxml2",
+      "perl-deps.perl-xml-sax"
+    ]
+  },
+  "build": {
+    "pre": [
+      "patch -Np1 -i ../XML-LibXML-2.0210-testsuite_fixes-2.patch"
+    ],
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

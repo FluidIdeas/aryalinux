@@ -1,0 +1,27 @@
+{
+  "name": "python3",
+  "version": "3.14.3",
+  "description": "The Python 3 package contains the Python development environment. This is useful for object-oriented programming, writing scripts, prototyping large programs or developing entire applications.",
+  "url": "https://www.python.org/ftp/python/3.14.3/Python-3.14.3.tar.xz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr              \\\n            --enable-shared            \\\n            --with-system-expat        \\\n            --enable-optimizations     \\\n            --without-static-libpython",
+      "make",
+      "ln -svfn python-3.14.3 /usr/share/doc/python-3",
+      "export PYTHONDOCS=/usr/share/doc/python-3/html"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -dm755 $DESTDIR/usr/share/doc/python-3.14.3/html\n\ntar --strip-components=1  \\\n    --no-same-owner       \\\n    --no-same-permissions \\\n    -C $DESTDIR/usr/share/doc/python-3.14.3/html \\\n    -xvf ../python-3.14.3-docs-html.tar.bz2"
+    ]
+  },
+  "meta": false,
+  "book": "general/python3.html",
+  "category": "programming",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

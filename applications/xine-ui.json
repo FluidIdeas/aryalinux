@@ -1,0 +1,32 @@
+{
+  "name": "xine-ui",
+  "version": "0.99.14",
+  "description": "The xine User Interface package contains a multimedia player. It plays back CDs, DVDs and VCDs. It also decodes multimedia files like AVI, MOV, WMV, MPEG and MP3 from local disk drives, and displays multimedia streamed over the Internet.",
+  "url": "https://downloads.sourceforge.net/xine/xine-ui-0.99.14.tar.xz",
+  "dependencies": {
+    "required": [
+      "xine-lib"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr",
+      "make CC=\"gcc -std=gnu17\""
+    ],
+    "package": [
+      "make docsdir=$DESTDIR/usr/share/doc/xine-ui-0.99.14 install DESTDIR=$DESTDIR"
+    ]
+  },
+  "post_install": [
+    "gtk-update-icon-cache -qtf /usr/share/icons/hicolor",
+    "update-desktop-database -q"
+  ],
+  "meta": false,
+  "book": "multimedia/xine-ui.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

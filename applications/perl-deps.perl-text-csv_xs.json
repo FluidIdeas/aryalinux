@@ -1,0 +1,24 @@
+{
+  "name": "perl-deps.perl-text-csv_xs",
+  "version": "1.61",
+  "description": "Perl module perl::text::csv_xs providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/H/HM/HMBRAND/Text-CSV_XS-1.61.tgz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

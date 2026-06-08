@@ -1,0 +1,32 @@
+{
+  "name": "vala",
+  "version": "0.56.18",
+  "description": "Vala is a new programming language that aims to bring modern programming language features to GNOME developers without imposing any additional runtime requirements and without using a different ABI compared to applications and libraries written in C.",
+  "url": "https://download.gnome.org/sources/vala/0.56/vala-0.56.18.tar.xz",
+  "dependencies": {
+    "required": [
+      "glib2"
+    ],
+    "post": [
+      "graphviz"
+    ]
+  },
+  "build": {
+    "user": [
+      "patch -Np1 -i ../vala-0.56.18-graphviz_13_fix-1.patch",
+      "./configure --prefix=/usr",
+      "make bootstrap"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/vala.html",
+  "category": "programming",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

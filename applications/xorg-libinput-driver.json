@@ -1,0 +1,28 @@
+{
+  "name": "xorg-libinput-driver",
+  "version": "1.5.0",
+  "description": "X.Org Libinput Driver is a thin wrapper around libinput and allows for libinput to be used for input devices in X. This driver can be used as drop-in replacement for evdev and synaptics.",
+  "url": "https://www.x.org/pub/individual/driver/xf86-input-libinput-1.5.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "x7driver"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure $XORG_CONFIG",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "x/x7driver.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

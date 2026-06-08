@@ -1,0 +1,28 @@
+{
+  "name": "valgrind",
+  "version": "3.26.0",
+  "description": "Valgrind is an instrumentation framework for building dynamic analysis tools. There are Valgrind tools that can automatically detect many memory management and threading bugs, and profile programs in detail. Valgrind can also be used to build new tools.",
+  "url": "https://sourceware.org/pub/valgrind/valgrind-3.26.0.tar.bz2",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "patch -Np1 -i ../valgrind-3.26.0-upstream_fixes-1.patch",
+      "autoreconf -fiv",
+      "sed -i 's|/doc/valgrind||' docs/Makefile.in",
+      "./configure --prefix=/usr \\\n            --datadir=/usr/share/doc/valgrind-3.26.0",
+      "make",
+      "sed -e 's@prereq:.*@prereq: false@' \\\n    -i {helgrind,drd}/tests/pth_cond_destroy_busy.vgtest"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/valgrind.html",
+  "category": "programming",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

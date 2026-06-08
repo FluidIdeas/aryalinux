@@ -1,0 +1,23 @@
+{
+  "name": "unrar",
+  "version": "7.2.4",
+  "description": "The UnRar package contains a RAR extraction utility used for extracting files from RAR archives. RAR archives are usually created with WinRAR, primarily in a Windows environment.",
+  "url": "https://www.rarlab.com/rar/unrarsrc-7.2.4.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "make -f makefile"
+    ],
+    "package": [
+      "install -v -m755 unrar $DESTDIR/usr/bin"
+    ]
+  },
+  "meta": false,
+  "book": "general/unrar.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

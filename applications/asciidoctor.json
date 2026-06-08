@@ -1,0 +1,28 @@
+{
+  "name": "asciidoctor",
+  "version": "2.0.26",
+  "description": "Asciidoctor is a fast, open source text processor and publishing toolchain for converting AsciiDoc content to HTML5, DocBook, PDF, and other formats.",
+  "url": "https://github.com/asciidoctor/asciidoctor/archive/v2.0.26/asciidoctor-2.0.26.tar.gz",
+  "dependencies": {
+    "required": [
+      "ruby"
+    ]
+  },
+  "build": {
+    "user": [
+      "gem build asciidoctor.gemspec",
+      "gem install asciidoctor-2.0.26.gem"
+    ],
+    "package": [
+      "install -vm644 man/asciidoctor.1 $DESTDIR/usr/share/man/man1"
+    ]
+  },
+  "meta": false,
+  "book": "general/asciidoctor.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "libcap",
+  "version": "2.77",
+  "description": "The libcap package was installed in LFS, but if Linux-PAM support is desired, the PAM module must be built (after installation of Linux-PAM).",
+  "url": "https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.77.tar.xz",
+  "dependencies": {
+    "required": [
+      "linux-pam"
+    ]
+  },
+  "build": {
+    "user": [
+      "make -C pam_cap",
+      "mv -v /etc/pam.d/system-auth{,.bak}",
+      "cat > /etc/pam.d/system-auth << \"EOF\"",
+      "# Begin /etc/pam.d/system-auth\n\nauth      optional    pam_cap.so\nEOF\ntail -n +3 /etc/pam.d/system-auth.bak >> /etc/pam.d/system-auth"
+    ],
+    "package": [
+      "install -v -m755 pam_cap/pam_cap.so      $DESTDIR/usr$DESTDIR/lib/security",
+      "install -v -m644 pam_cap/capability.conf $DESTDIR/etc/security"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/libcap.html",
+  "category": "security",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

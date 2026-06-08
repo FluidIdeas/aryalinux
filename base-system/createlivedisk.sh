@@ -57,12 +57,10 @@ if [ "x$INSTALL_DESKTOP_ENVIRONMENT" == "xy" ]; then
     if [ "x$DESKTOP_ENVIRONMENT" == "x1" ]; then
         DE="XFCE"
     elif [ "x$DESKTOP_ENVIRONMENT" == "x2" ]; then
-        DE="Mate";
-    elif [ "x$DESKTOP_ENVIRONMENT" == "x3" ]; then
         DE="KDE"
-    elif [ "x$DESKTOP_ENVIRONMENT" == "x4" ]; then
+    elif [ "x$DESKTOP_ENVIRONMENT" == "x3" ]; then
         DE="GNOME"
-    elif [ "x$DESKTOP_ENVIRONMENT" == "x5" ]; then
+    elif [ "x$DESKTOP_ENVIRONMENT" == "x4" ]; then
         DE="LxQT"
      else
         DE="Builder"
@@ -140,15 +138,13 @@ then
     mount $HOME_PART $LFS/home
 fi
 
-if grep "gnome-desktop-environment" /mnt/lfs/etc/alps/installed-list &> /dev/null; then
+if [ -f /mnt/lfs/var/lib/alps/installed/meta.gnome.json ]; then
 	autologin_session="gnome-xorg"
-elif grep "xfce-desktop-environment" /mnt/lfs/etc/alps/installed-list &> /dev/null; then
+elif [ -f /mnt/lfs/var/lib/alps/installed/meta.xfce.json ]; then
         autologin_session="xfce"
-elif grep "mate-desktop-environment" /mnt/lfs/etc/alps/installed-list &> /dev/null; then
-        autologin_session="mate"
-elif grep "kde-desktop-environment" /mnt/lfs/etc/alps/installed-list &> /dev/null; then
+elif [ -f /mnt/lfs/var/lib/alps/installed/meta.kde.json ]; then
         autologin_session="plasma"
-elif grep "lxqt-desktop-environment" /mnt/lfs/etc/alps/installed-list &> /dev/null; then
+elif [ -f /mnt/lfs/var/lib/alps/installed/meta.lxqt.json ]; then
         autologin_session="lxqt"
 fi
 

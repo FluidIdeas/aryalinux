@@ -1,0 +1,28 @@
+{
+  "name": "libdaemon",
+  "version": "0.14",
+  "description": "The libdaemon package is a lightweight C library that eases the writing of UNIX daemons.",
+  "url": "https://0pointer.de/lennart/projects/libdaemon/libdaemon-0.14.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --disable-static",
+      "make",
+      "make -C doc doxygen",
+      "make docdir=/usr/share/doc/libdaemon-0.14 install"
+    ],
+    "package": [
+      "install -v -m755 -d $DESTDIR/usr/share/doc$DESTDIR/libdaemon-0.14/reference/html",
+      "install -v -m644 doc/reference/html/* $DESTDIR/usr/share/doc$DESTDIR/libdaemon-0.14/reference/html",
+      "install -v -m644 doc/reference/man/man3/* $DESTDIR/usr/share/man/man3"
+    ]
+  },
+  "meta": false,
+  "book": "general/libdaemon.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

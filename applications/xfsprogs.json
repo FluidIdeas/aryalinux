@@ -1,0 +1,29 @@
+{
+  "name": "xfsprogs",
+  "version": "6.18.0",
+  "description": "The xfsprogs package contains administration and debugging tools for the XFS file system.",
+  "url": "https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-6.18.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "inih"
+    ]
+  },
+  "build": {
+    "user": [
+      "make DEBUG=-DNDEBUG     \\\n     INSTALL_USER=root  \\\n     INSTALL_GROUP=root \\\n     LOCAL_CONFIGURE_OPTIONS=\"--localstatedir=/var\""
+    ],
+    "package": [
+      "make PKG_DOC_DIR=$DESTDIR/usr/share/doc/xfsprogs-6.18.0 install DESTDIR=$DESTDIR",
+      "make PKG_DOC_DIR=$DESTDIR/usr/share/doc/xfsprogs-6.18.0 install-dev DESTDIR=$DESTDIR",
+      "rm -rfv $DESTDIR/usr/lib/libhandle.{a,la}"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/xfsprogs.html",
+  "category": "system",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

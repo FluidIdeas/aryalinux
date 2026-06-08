@@ -1,0 +1,39 @@
+{
+  "name": "evince",
+  "version": "48.1",
+  "description": "Evince is a document viewer for multiple document formats. It supports PDF, Postscript, DjVu, TIFF and DVI. It is useful for viewing documents of various types using one simple application instead of the multiple document viewers that once existed on the GNOME Desktop.",
+  "url": "https://download.gnome.org/sources/evince/48/evince-48.1.tar.xz",
+  "dependencies": {
+    "required": [
+      "adwaita-icon-theme",
+      "gsettings-desktop-schemas",
+      "gtk3",
+      "libhandy1",
+      "gnome-keyring",
+      "poppler"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "CPPFLAGS+=\" -I/opt/texlive/2025/include -DNO_DEBUG\" \\\nmeson setup --prefix=/usr                \\\n            --buildtype=release          \\\n            -D gtk_doc=false             \\\n            --wrap-mode=nodownload       \\\n            ..",
+      "ninja",
+      "sed \"/docs_dir/s@\\$@ / 'evince-48.1'@\" -i ../help/meson.build",
+      "meson configure -D gtk_doc=true",
+      "ninja",
+      "glib-compile-schemas /usr/share/glib-2.0/schemas"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/evince.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

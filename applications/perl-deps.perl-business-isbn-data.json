@@ -1,0 +1,24 @@
+{
+  "name": "perl-deps.perl-business-isbn-data",
+  "version": "20260214.001",
+  "description": "Perl module perl::business::isbn::data providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/B/BR/BRIANDFOY/Business-ISBN-Data-20260214.001.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

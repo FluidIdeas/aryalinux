@@ -1,0 +1,28 @@
+{
+  "name": "nghttp2",
+  "version": "1.68.0",
+  "description": "nghttp2 is an implementation of HTTP/2 and its header compression algorithm, HPACK.",
+  "url": "https://github.com/nghttp2/nghttp2/releases/download/v1.68.0/nghttp2-1.68.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "libxml2"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr     \\\n            --disable-static  \\\n            --enable-lib-only \\\n            --docdir=/usr/share/doc/nghttp2-1.68.0",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "basicnet/nghttp2.html",
+  "category": "networking",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "perl-deps.perl-alien-libxml2",
+  "version": "0.20",
+  "description": "Perl module perl::alien::libxml2 providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Libxml2-0.20.tar.gz",
+  "dependencies": {
+    "required": [
+      "libxml2",
+      "perl-deps.perl-test-simple"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

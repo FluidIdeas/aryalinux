@@ -1,0 +1,39 @@
+{
+  "name": "docbook-utils",
+  "version": "0.6.14",
+  "description": "The DocBook-utils package is a collection of utility scripts used to convert and analyze SGML documents in general, and DocBook files in particular. The scripts are used to convert from DocBook or other SGML formats into classical file formats like HTML, man, info, RTF and many more.",
+  "url": "https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/docbook-utils-0.6.14.tar.gz",
+  "patches": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/docbook-utils-0.6.14-grep_fix-1.patch"
+  ],
+  "dependencies": {
+    "required": [
+      "openjade",
+      "docbook-3.1-dtd",
+      "perl-modules.perl-sgmlspm",
+      "lynx"
+    ]
+  },
+  "build": {
+    "pre": [
+      "patch -Np1 -i ../docbook-utils-0.6.14-grep_fix-1.patch"
+    ],
+    "user": [
+      "sed -i 's:/html::' doc/HTML/Makefile.in",
+      "./configure --prefix=/usr --mandir=/usr/share/man",
+      "make"
+    ],
+    "package": [
+      "make docdir=$DESTDIR/usr/share/doc install DESTDIR=$DESTDIR",
+      "for doctype in html ps dvi man pdf rtf tex texi txt; do\n    ln -svf docbook2$doctype $DESTDIR/usr/bin/db2$doctype\ndone"
+    ]
+  },
+  "meta": false,
+  "book": "pst/docbook-utils.html",
+  "category": "printing",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

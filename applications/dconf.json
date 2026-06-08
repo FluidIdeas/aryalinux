@@ -1,0 +1,42 @@
+{
+  "name": "dconf",
+  "version": "49.0",
+  "description": "The DConf package contains a low-level configuration system. Its main purpose is to provide a backend to GSettings on platforms that don't already have configuration storage systems.",
+  "url": "https://download.gnome.org/sources/dconf/0.49/dconf-0.49.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "dbus",
+      "gtk3",
+      "libhandy1",
+      "libxml2",
+      "libxslt"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr            \\\n            --buildtype=release      \\\n            -D bash_completion=false \\\n            ..",
+      "ninja",
+      "cd ..",
+      "tar -xf ../dconf-editor-49.0.tar.xz",
+      "cd dconf-editor-49.0",
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install",
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/dconf.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

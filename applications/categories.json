@@ -1,0 +1,25 @@
+{
+  "categories": {
+    "metapackage": "Virtual packages that pull in dependency sets",
+    "system": "Core system configuration, boot, firmware, and base utilities",
+    "security": "Cryptography, authentication, PAM, and access control",
+    "libraries": "General-purpose libraries and utilities",
+    "graphics": "Graphics, imaging, and font libraries",
+    "x11": "X Window System server, libraries, drivers, and fonts",
+    "multimedia": "Audio, video, and media codecs",
+    "networking": "Network protocols, clients, and server components",
+    "printing": "Printing and scanning support",
+    "programming": "Compilers, build tools, and language runtimes",
+    "perl-module": "Perl modules from BLFS perl-modules",
+    "perl-dependency": "Perl build/runtime dependencies from BLFS perl-deps",
+    "python-module": "Python modules from BLFS python-modules",
+    "python-dependency": "Python dependencies from BLFS python-dependencies",
+    "python": "Bundled Python dependency builds",
+    "desktop-gnome": "GNOME desktop components and applications",
+    "desktop-kde": "KDE Plasma desktop components and applications",
+    "desktop-xfce": "Xfce desktop components and applications",
+    "desktop-lxqt": "LXQt desktop components and applications",
+    "applications": "End-user applications (browsers, office, tools)",
+    "server": "Server daemons and infrastructure software"
+  }
+}

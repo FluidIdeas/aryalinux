@@ -1,0 +1,32 @@
+{
+  "name": "libsndfile",
+  "version": "1.2.2",
+  "description": "Libsndfile is a library of C routines for reading and writing files containing sampled audio data.",
+  "url": "https://github.com/libsndfile/libsndfile/releases/download/1.2.2/libsndfile-1.2.2.tar.xz",
+  "dependencies": {
+    "required": [
+      "flac",
+      "opus",
+      "libvorbis"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i '/typedef enum/,/bool ;/d' src/ALAC/alac_{en,de}coder.c",
+      "./configure --prefix=/usr    \\\n            --docdir=/usr/share/doc/libsndfile-1.2.2",
+      "make",
+      "sed '/ogg_opus/,+1s/HAVE_[A-Z_]*/0/' -i tests/lossy_comp_test.c"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/libsndfile.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

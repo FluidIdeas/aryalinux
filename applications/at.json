@@ -1,0 +1,32 @@
+{
+  "name": "at",
+  "version": "3.2.5",
+  "description": "The at package provides delayed job execution and batch processing. It is required for Linux Standards Base (LSB) conformance.",
+  "url": "https://anduin.linuxfromscratch.org/BLFS/at/at_3.2.5.orig.tar.gz",
+  "dependencies": {
+    "required": [
+      "mail"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --with-daemon_username=atd        \\\n            --with-daemon_groupname=atd       \\\n            SENDMAIL=/usr/sbin/sendmail       \\\n            --with-jobdir=/var/spool/atjobs   \\\n            --with-atspool=/var/spool/atspool \\\n            --with-systemdsystemunitdir=/lib/systemd/system",
+      "make -j1",
+      "groupadd -g 17 atd",
+      "useradd -d /dev/null -c \"atd daemon\" -g atd -s /bin/false -u 17 atd",
+      "cat > /etc/pam.d/atd << \"EOF\"\n# Begin /etc/pam.d/atd\n\nauth     required pam_unix.so\naccount  required pam_unix.so\npassword required pam_unix.so\nsession  required pam_unix.so\n\n# End /etc/pam.d/atd\nEOF",
+      "systemctl enable atd"
+    ],
+    "package": [
+      "make install docdir=/usr/share/doc/at-3.2.5 \\\n             atdocdir=/usr/share/doc/at-3.2.5 DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/at.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

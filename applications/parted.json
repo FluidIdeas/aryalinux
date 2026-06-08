@@ -1,0 +1,40 @@
+{
+  "name": "parted",
+  "version": "3.6",
+  "description": "The Parted package is a disk partitioning and partition resizing tool.",
+  "url": "https://ftpmirror.gnu.org/parted/parted-3.6.tar.xz",
+  "dependencies": {
+    "required": [
+      "lvm2"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i 's/do_version ()/do_version (PedDevice** dev, PedDisk** diskp)/' parted/parted.c",
+      "./configure --prefix=/usr --disable-static",
+      "make",
+      "make -C doc html",
+      "makeinfo --html      -o doc/html       doc/parted.texi",
+      "makeinfo --plaintext -o doc/parted.txt doc/parted.texi",
+      "cp build-aux/texinfo.tex doc",
+      "texi2pdf -o doc/parted.pdf doc/parted.texi",
+      "texi2dvi -o doc/parted.dvi doc/parted.texi",
+      "dvips    -o doc/parted.ps  doc/parted.dvi"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m755 -d $DESTDIR/usr/share/doc/parted-3.6/html",
+      "install -v -m644    doc/html/* \\\n                    $DESTDIR/usr/share/doc/parted-3.6/html",
+      "install -v -m644    doc/{FAT,API,parted.{txt,html}} \\\n                    $DESTDIR/usr/share/doc/parted-3.6",
+      "install -v -m644 doc/FAT doc/API doc/parted.{pdf,ps,dvi} \\\n                    $DESTDIR/usr/share/doc/parted-3.6"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/parted.html",
+  "category": "system",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "libkcddb",
+  "version": "25.12.2",
+  "description": "The libkcddb package contains a library used to retrieve audio CD meta data from the internet.",
+  "url": "https://download.kde.org/stable/release-service/25.12.2/src/libkcddb-25.12.2.tar.xz",
+  "dependencies": {
+    "required": [
+      "frameworks6",
+      "libmusicbrainz5"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "cmake -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX \\\n      -D CMAKE_BUILD_TYPE=Release         \\\n      -D BUILD_TESTING=OFF                \\\n      -D QT_MAJOR_VERSION=6               \\\n      -W no-dev ..",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "kde/libkcddb.html",
+  "category": "desktop-kde",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

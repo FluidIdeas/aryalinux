@@ -1,0 +1,48 @@
+{
+  "name": "seamonkey",
+  "version": "2.53.23",
+  "description": "Seamonkey is a browser suite, a descendant of Netscape. It includes the browser, composer, mail and news clients, and an IRC client.",
+  "url": "https://archive.seamonkey-project.org/releases/2.53.23/source/seamonkey-2.53.23.source.tar.xz",
+  "dependencies": {
+    "required": [
+      "cbindgen",
+      "libarchive",
+      "zip",
+      "icu",
+      "llvm",
+      "nss"
+    ]
+  },
+  "build": {
+    "user": [
+      "cat > mozconfig << \"EOF\"\n# If you have a multicore machine, all cores will be used\n\n# If you have installed DBus-Glib comment out this line:\nac_add_options --disable-dbus\n\n# If you have installed dbus-glib, and you have installed (or will install)\n# wireless-tools, and you wish to use geolocation web services, comment out\n# this line\nac_add_options --disable-necko-wifi\n\n\n# If you wish to use libproxy to determine proxy server information, you will\n# need to install the libproxy package and then uncomment the option below:\n#ac_add_options --enable-libproxy\n\n# Uncomment these lines if you have installed optional dependencies:\n#ac_add_options --enable-system-hunspell\n\n# Uncomment the following option if you have not installed PulseAudio\n#ac_add_options --disable-pulseaudio\n# and uncomment this if you installed alsa-lib instead of PulseAudio\n#ac_add_options --enable-alsa\n\n# Comment out following options if you have not installed\n# recommended dependencies:\nac_add_options --with-system-icu\nac_add_options --with-system-libevent\nac_add_options --with-system-nspr\nac_add_options --with-system-nss\nac_add_options --with-system-webp\n\n# Disabling debug symbols makes the build much smaller and a little\n# faster. Comment this if you need to run a debugger.\nac_add_options --disable-debug-symbols\n\n# The elf-hack is reported to cause failed installs (after successful builds)\n# on some machines. It is supposed to improve startup time and it shrinks\n# libxul.so by a few MB.  With recent Binutils releases the linker already\n# supports a much safer and generic way for this.\nac_add_options --disable-elf-hack\nac_add_options --enable-linker=bfd\nexport LDFLAGS=\"$LDFLAGS -Wl,-z,pack-relative-relocs\"\n\n# Seamonkey has some additional features that are not turned on by default,\n# such as an IRC client, calendar, and DOM Inspector. The DOM Inspector\n# aids with designing web pages. Comment these options if you do not\n# desire these features.\nac_add_options --enable-calendar\nac_add_options --enable-dominspector\nac_add_options --enable-irc\n\n# The BLFS editors recommend not changing anything below this line:\nac_add_options --prefix=/usr\nac_add_options --enable-application=comm/suite\n\nac_add_options --disable-crashreporter\nac_add_options --disable-updater\nac_add_options --disable-tests\n\n# The SIMD code relies on the unmaintained packed_simd crate which\n# fails to build with Rustc >= 1.78.0.  We may re-enable it once\n# Mozilla ports the code to use std::simd and std::simd is stabilized.\nac_add_options --disable-rust-simd\n\nac_add_options --enable-strip\nac_add_options --enable-install-strip\n\n# You cannot distribute the binary if you do this.\nac_add_options --enable-official-branding\n\nac_add_options --enable-system-ffi\nac_add_options --enable-system-pixman\nac_add_options --with-system-jpeg\nac_add_options --with-system-png\nac_add_options --with-system-zlib\n\nexport CC=clang CXX=clang++\nEOF",
+      "mountpoint -q /dev/shm || mount -t tmpfs devshm /dev/shm",
+      "(for i in {43..48}; do\n   sed '/ZWJ/s/$/,CLASS_CHARACTER/' -i intl/lwbrk/LineBreaker.cpp || exit $?\ndone)",
+      "patch -Np1 -i ../seamonkey-2.53.23-cxx17-1.patch",
+      "patch -Np1 -i ../seamonkey-2.53.23-libvpx_security_fixes-1.patch",
+      "sed -i 's/icu-i18n/icu-uc &/' js/moz.configure",
+      "sed -e '/ExclusiveData(ExclusiveData",
+      "/,/^ *}/d' \\\n    -i js/src/threading/ExclusiveData.h",
+      "sed -e '1012 s/stderr=devnull/stderr=subprocess.DEVNULL/' \\\n    -e '1013 s/OSError/(OSError, subprocess.CalledProcessError)/' \\\n    -i third_party/python/distro/distro.py",
+      "export PATH_PY311=/opt/python3.11/bin:$PATH",
+      "export MOZBUILD_STATE_PATH=${PWD}/mozbuild",
+      "PATH=$PATH_PY311 AUTOCONF=true MACH_USE_SYSTEM_PYTHON=1 ./mach build",
+      "unset PATH_PY311 MOZBUILD_STATE_PATH"
+    ],
+    "package": [
+      "PATH=/opt/python3.11/bin:$PATH MACH_USE_SYSTEM_PYTHON=1 DESTDIR=$DESTDIR ./mach install",
+      "cp -v $(find -name seamonkey.1 | head -n1) $DESTDIR/usr/share/man/man1",
+      "mkdir -pv $DESTDIR/usr/share/{applications,pixmaps}",
+      "cat > $DESTDIR/usr/share/applications/seamonkey.desktop << \"EOF\"\n[Desktop Entry]\nEncoding=UTF-8\nType=Application\nName=Seamonkey\nComment=The Mozilla Suite\nIcon=seamonkey\nExec=seamonkey\nCategories=Network;GTK;Application;Email;Browser;WebBrowser;News;\nStartupNotify=true\nTerminal=false\nEOF",
+      "ln -sfv /usr/lib/seamonkey/chrome/icons/default/default128.png \\\n        $DESTDIR/usr/share/pixmaps/seamonkey.png"
+    ]
+  },
+  "meta": false,
+  "book": "xsoft/seamonkey.html",
+  "category": "applications",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

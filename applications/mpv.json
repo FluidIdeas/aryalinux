@@ -1,0 +1,40 @@
+{
+  "name": "mpv",
+  "version": "0.41.0",
+  "description": "mpv is a free media player for the command line. It supports a wide variety of media file formats, audio and video codecs, and subtitle types.",
+  "url": "https://github.com/mpv-player/mpv/archive/v0.41.0/mpv-0.41.0.tar.gz",
+  "dependencies": {
+    "required": [
+      "alsa-lib",
+      "libass",
+      "libplacebo",
+      "pulseaudio",
+      "libjpeg",
+      "libva",
+      "luajit"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr       \\\n            --buildtype=release \\\n            -D x11=enabled      \\\n            ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "post_install": [
+    "gtk-update-icon-cache -qtf /usr/share/icons/hicolor",
+    "update-desktop-database -q"
+  ],
+  "meta": false,
+  "book": "multimedia/mpv.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

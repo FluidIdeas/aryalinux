@@ -1,0 +1,32 @@
+{
+  "name": "gnome-screenshot",
+  "version": "41.0",
+  "description": "GNOME Screenshot is a utility used for taking screenshots of the entire screen, a window or a user-defined area of the screen, with optional beautifying border effects.",
+  "url": "https://download.gnome.org/sources/gnome-screenshot/41/gnome-screenshot-41.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "gtk3",
+      "libhandy1"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i '/merge_file/{n;d}' data/meson.build",
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/gnome-screenshot.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

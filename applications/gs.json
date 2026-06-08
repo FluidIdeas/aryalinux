@@ -1,0 +1,44 @@
+{
+  "name": "gs",
+  "version": "10.06.0",
+  "description": "Ghostscript is a versatile processor for PostScript data with the ability to render PostScript to different targets. It is a mandatory part of the cups printing stack.",
+  "url": "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10060/ghostscript-10.06.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "cups",
+      "libjpeg",
+      "libpng",
+      "openjpeg2"
+    ]
+  },
+  "build": {
+    "user": [
+      "rm -rf freetype lcms2mt jpeg libpng openjpeg",
+      "rm -rf zlib",
+      "./configure --prefix=/usr           \\\n            --disable-compile-inits \\\n            --with-system-libtiff   \\\n            CFLAGS=\"${CFLAGS:--g -O3} -fPIC\"",
+      "make",
+      "make so",
+      "gs -q -dBATCH /usr/share/ghostscript/10.06.0/examples/tiger.eps",
+      "make soinstall",
+      "ln -sfvn ghostscript /usr/include/ps",
+      "mv -v /usr/share/doc/ghostscript/10.06.0 /usr/share/doc/ghostscript-10.06.0",
+      "rmdir /usr/share/doc/ghostscript",
+      "cp -r examples/ -T /usr/share/ghostscript/10.06.0/examples",
+      "tar -xvf ../ghostscript-fonts-std-8.11.tar.gz -C /usr/share/ghostscript --no-same-owner",
+      "tar -xvf ../gnu-gs-fonts-other-6.0.tar.gz     -C /usr/share/ghostscript --no-same-owner",
+      "fc-cache -v /usr/share/ghostscript/fonts/"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m644 base/*.h $DESTDIR/usr/include/ghostscript"
+    ]
+  },
+  "meta": false,
+  "book": "pst/gs.html",
+  "category": "printing",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

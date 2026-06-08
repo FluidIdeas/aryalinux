@@ -1,0 +1,31 @@
+{
+  "name": "libsigc",
+  "version": "2.12.1",
+  "description": "The libsigc++ package implements a typesafe callback system for standard C++.",
+  "url": "https://download.gnome.org/sources/libsigc++/2.12/libsigc++-2.12.1.tar.xz",
+  "dependencies": {
+    "required": [
+      "boost"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i \"s/'system',//\" meson.build",
+      "mkdir bld",
+      "cd    bld",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "general/libsigc.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "p11-kit",
+  "version": "0.26.2",
+  "description": "The p11-kit package provides a way to load and enumerate PKCS #11 (a Cryptographic Token Interface Standard) modules.",
+  "url": "https://github.com/p11-glue/p11-kit/releases/download/0.26.2/p11-kit-0.26.2.tar.xz",
+  "dependencies": {
+    "required": [
+      "libtasn1",
+      "make-ca"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed '20,$ d' -i trust/trust-extract-compat",
+      "cat >> trust/trust-extract-compat << \"EOF\"\n# Copy existing anchor modifications to /etc/ssl/local\n/usr/libexec/make-ca/copy-trust-modifications\n\n# Update trust stores\n/usr/sbin/make-ca -r\nEOF",
+      "mkdir p11-build",
+      "cd    p11-build",
+      "meson setup ..            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D trust_paths=/etc/pki/anchors",
+      "ninja",
+      "ln -sfv /usr/libexec/p11-kit/trust-extract-compat \\\n        /usr/bin/update-ca-certificates",
+      "ln -sfv ./pkcs11/p11-kit-trust.so /usr/lib/libnssckbi.so"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/p11-kit.html",
+  "category": "security",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

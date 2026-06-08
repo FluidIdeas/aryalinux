@@ -1,0 +1,39 @@
+{
+  "name": "audacious",
+  "version": "4.5.1",
+  "description": "Audacious is an audio player.",
+  "url": "https://distfiles.audacious-media-player.org/audacious-4.5.1.tar.bz2",
+  "dependencies": {
+    "required": [
+      "gtk3",
+      "mpg123",
+      "neon"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup ..            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D gtk=true         \\\n      -D qt=true          \\\n      -D buildstamp=BLFS  \\\n      -D libarchive=true",
+      "ninja",
+      "tar -xf ../../audacious-plugins-4.5.1.tar.bz2",
+      "cd audacious-plugins-4.5.1",
+      "mkdir build",
+      "cd    build",
+      "meson setup ..            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D gtk=true         \\\n      -D qt=true          \\\n      -D opus=false       \\\n      -D wavpack=false",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install",
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/audacious.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

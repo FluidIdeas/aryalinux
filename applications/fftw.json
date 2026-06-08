@@ -1,0 +1,32 @@
+{
+  "name": "fftw",
+  "version": "3.3.10",
+  "description": "FFTW is a C subroutine library for computing the discrete Fourier transform (DFT) in one or more dimensions, of arbitrary input size, and of both real and complex data (as well as of even/odd data, i.e. the discrete cosine/sine transforms or DCT/DST).",
+  "url": "https://www.fftw.org/fftw-3.3.10.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr    \\\n            --enable-shared  \\\n            --disable-static \\\n            --enable-threads \\\n            --enable-sse2    \\\n            --enable-avx     \\\n            --enable-avx2",
+      "make",
+      "make clean",
+      "./configure --prefix=/usr    \\\n            --enable-shared  \\\n            --disable-static \\\n            --enable-threads \\\n            --enable-sse2    \\\n            --enable-avx     \\\n            --enable-avx2    \\\n            --enable-float",
+      "make",
+      "make clean",
+      "./configure --prefix=/usr    \\\n            --enable-shared  \\\n            --disable-static \\\n            --enable-threads \\\n            --enable-long-double",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "make install DESTDIR=$DESTDIR",
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/fftw.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

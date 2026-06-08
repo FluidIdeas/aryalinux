@@ -1,0 +1,28 @@
+{
+  "name": "tcsh",
+  "version": "6.24.16",
+  "description": "The Tcsh package contains “an enhanced but completely compatible version of the Berkeley Unix C shell (csh).” This is useful as an alternative shell for those who prefer C syntax to that of the bash shell, and also because some programs require the C shell in order to perform installation tasks.",
+  "url": "https://astron.com/pub/tcsh/tcsh-6.24.16.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr",
+      "make",
+      "cat > ~/.cshrc << \"EOF\"\n# Original at:\n# https://www.cs.umd.edu/~srhuang/teaching/code_snippets/prompt_color.tcsh.html\n\n# Modified by the BLFS Development Team.\n\n# Add these lines to your ~/.cshrc (or to /etc/csh.cshrc).\n\n# Colors!\nset     red=\"%{\\033[1;31m%}\"\nset   green=\"%{\\033[0;32m%}\"\nset  yellow=\"%{\\033[1;33m%}\"\nset    blue=\"%{\\033[1;34m%}\"\nset magenta=\"%{\\033[1;35m%}\"\nset    cyan=\"%{\\033[1;36m%}\"\nset   white=\"%{\\033[0;37m%}\"\nset     end=\"%{\\033[0m%}\" # This is needed at the end...\n\n# Setting the actual prompt.  Two separate versions for you to try, pick\n# whichever one you like better, and change the colors as you want.\n# Just don't mess with the ${end} guy in either line...  Comment out or\n# delete the prompt you don't use.\n\nset prompt=\"${green}%n${blue}@%m ${white}%~ ${green}%%${end} \"\nset prompt=\"[${green}%n${blue}@%m ${white}%~ ]${end} \"\n\n# This was not in the original URL above\n# Provides coloured ls\nalias ls ls --color=always\n\n# Clean up after ourselves...\nunset red green yellow blue magenta cyan yellow white end\nEOF",
+      "ln -v -sf tcsh   /bin/csh",
+      "ln -v -sf tcsh.1 /usr/share/man/man1/csh.1",
+      "cat >> /etc/shells << \"EOF\"\n/bin/tcsh\n/bin/csh\nEOF"
+    ],
+    "package": [
+      "make install install.man DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/tcsh.html",
+  "category": "system",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

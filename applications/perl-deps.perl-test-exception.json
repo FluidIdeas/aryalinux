@@ -1,0 +1,28 @@
+{
+  "name": "perl-deps.perl-test-exception",
+  "version": "0.43",
+  "description": "Perl module perl::test::exception providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Exception-0.43.tar.gz",
+  "dependencies": {
+    "required": [
+      "perl-deps.perl-sub-uplevel"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

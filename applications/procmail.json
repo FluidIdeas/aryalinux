@@ -1,0 +1,28 @@
+{
+  "name": "procmail",
+  "version": "3.24",
+  "description": "The Procmail package contains an autonomous mail processor. This is useful for filtering and sorting incoming mail.",
+  "url": "https://github.com/BuGlessRB/procmail/archive/v3.24/procmail-3.24.tar.gz",
+  "dependencies": {
+    "required": [
+      "mail"
+    ]
+  },
+  "build": {
+    "user": [
+      "patch -Np1 -i ../procmail-3.24-consolidated_fixes-1.patch",
+      "make CC=\"gcc -std=gnu17\" LOCKINGTEST=/tmp MANDIR=/usr/share/man install"
+    ],
+    "package": [
+      "make install-suid DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "basicnet/procmail.html",
+  "category": "networking",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

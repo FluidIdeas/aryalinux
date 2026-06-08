@@ -1,0 +1,33 @@
+{
+  "name": "polkit-gnome",
+  "version": "0.105",
+  "description": "The Polkit GNOME package provides an Authentication Agent for Polkit that integrates well with the GNOME Desktop environment.",
+  "url": "https://download.gnome.org/sources/polkit-gnome/0.105/polkit-gnome-0.105.tar.xz",
+  "dependencies": {
+    "required": [
+      "accountsservice",
+      "gtk3",
+      "polkit"
+    ]
+  },
+  "build": {
+    "user": [
+      "patch -Np1 -i ../polkit-gnome-0.105-consolidated_fixes-1.patch",
+      "./configure --prefix=/usr",
+      "make",
+      "mkdir -p /etc/xdg/autostart",
+      "cat > /etc/xdg/autostart/polkit-gnome-authentication-agent-1.desktop << \"EOF\"\n[Desktop Entry]\nName=PolicyKit Authentication Agent\nComment=PolicyKit Authentication Agent\nExec=/usr/libexec/polkit-gnome-authentication-agent-1\nTerminal=false\nType=Application\nCategories=\nNoDisplay=true\nOnlyShowIn=GNOME;XFCE;Unity;\nAutostartCondition=GNOME3 unless-session gnome\nEOF"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/polkit-gnome.html",
+  "category": "security",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

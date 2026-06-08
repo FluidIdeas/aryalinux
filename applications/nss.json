@@ -1,0 +1,40 @@
+{
+  "name": "nss",
+  "version": "3.120.1",
+  "description": "The Network Security Services (NSS) package is a set of libraries designed to support cross-platform development of security-enabled client and server applications. Applications built with NSS can support SSL v2 and v3, TLS, PKCS #5, PKCS #7, PKCS #11, PKCS #12, S/MIME, X.509 v3 certificates, and other security standards. This is useful for implementing SSL and S/MIME or other Internet security standards into an application.",
+  "url": "https://archive.mozilla.org/pub/security/nss/releases/NSS_3_120_1_RTM/src/nss-3.120.1.tar.gz",
+  "dependencies": {
+    "required": [
+      "nspr",
+      "p11-kit"
+    ]
+  },
+  "build": {
+    "user": [
+      "patch -Np1 -i ../nss-standalone-1.patch",
+      "cd nss",
+      "make BUILD_OPT=1                      \\\n  NSPR_INCLUDE_DIR=/usr/include/nspr  \\\n  USE_SYSTEM_ZLIB=1                   \\\n  ZLIB_LIBS=-lz                       \\\n  NSS_ENABLE_WERROR=0                 \\\n  NSS_USE_SYSTEM_SQLITE=1             \\\n  $([ $(uname -m) = x86_64 ]",
+      "echo USE_64=1)",
+      "cd tests",
+      "HOST=localhost DOMSUF=localdomain ./all.sh\ncd ../",
+      "cd ../dist",
+      "cp -v -RL {public,private}/nss/*              /usr/include/nss",
+      "ln -sfv ./pkcs11/p11-kit-trust.so /usr/lib/libnssckbi.so"
+    ],
+    "package": [
+      "install -v -m755 Linux*$DESTDIR/lib/*.so              $DESTDIR/usr$DESTDIR/lib",
+      "install -v -m644 Linux*$DESTDIR/lib/{*.chk,libcrmf.a} $DESTDIR/usr$DESTDIR/lib",
+      "install -v -m755 -d                           $DESTDIR/usr/include/nss",
+      "install -v -m755 Linux*/bin/{certutil,nss-config,pk12util} $DESTDIR/usr/bin",
+      "install -v -m644 Linux*$DESTDIR/lib/pkgconfig/nss.pc  $DESTDIR/usr$DESTDIR/lib/pkgconfig"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/nss.html",
+  "category": "security",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

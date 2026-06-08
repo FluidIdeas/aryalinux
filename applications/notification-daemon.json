@@ -1,0 +1,30 @@
+{
+  "name": "notification-daemon",
+  "version": "3.20.0",
+  "description": "The Notification Daemon package contains a daemon that displays passive pop-up notifications.",
+  "url": "https://download.gnome.org/sources/notification-daemon/3.20/notification-daemon-3.20.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "gtk3"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr     \\\n            --sysconfdir=/etc \\\n            --disable-static",
+      "make",
+      "pgrep -l notification-da",
+      "notify-send -i info Information \"Hi ${USER}, This is a Test\""
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/notification-daemon.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

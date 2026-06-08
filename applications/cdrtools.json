@@ -1,0 +1,35 @@
+{
+  "name": "cdrtools",
+  "version": "3.02a09",
+  "description": "The Cdrtools package contains CD recording utilities. These are useful for reading, creating or writing (burning) CDs, DVDs, and Blu-ray discs.",
+  "url": "https://downloads.sourceforge.net/cdrtools/cdrtools-3.02a09.tar.bz2",
+  "dependencies": {
+    "required": [
+      "alsa-lib"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i 's|/opt/schily|/usr|g'           DEFAULTS/Defaults.linux",
+      "sed -i 's|DEFINSGRP=.*|DEFINSGRP=root|' DEFAULTS/Defaults.linux",
+      "sed -i 's|INSDIR=\\s*sbin|INSDIR=bin|'   rscsi/Makefile",
+      "export GMAKE_NOWARN=true",
+      "export CFLAGS=\"$CFLAGS -std=gnu89 -fno-strict-aliasing\"",
+      "make -j1 INS_BASE=/usr  \\\n         DEFINSUSR=root \\\n         DEFINSGRP=root \\\n         VERSION_OS=\"LinuxFromScratch\"",
+      "GMAKE_NOWARN=true",
+      "make INS_BASE=/usr    \\\n     DEFINSUSR=root   \\\n     DEFINSGRP=root   \\\n     MANSUFF_LIB=3cdr \\\n     install"
+    ],
+    "package": [
+      "install -v -m755 -d $DESTDIR/usr/share/doc/cdrtools-3.02a09",
+      "install -v -m644 README.* READMEs/* ABOUT doc/*.ps \\\n                    $DESTDIR/usr/share/doc/cdrtools-3.02a09"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/cdrtools.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

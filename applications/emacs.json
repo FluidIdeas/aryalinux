@@ -1,0 +1,31 @@
+{
+  "name": "emacs",
+  "version": "30.2",
+  "description": "The Emacs package contains an extensible, customizable, self-documenting real-time display editor.",
+  "url": "https://ftpmirror.gnu.org/emacs/emacs-30.2.tar.xz",
+  "dependencies": {
+    "required": [
+      "harfbuzz",
+      "gnutls"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr",
+      "make",
+      "gtk-update-icon-cache -qtf /usr/share/icons/hicolor",
+      "chown -v -R root:root /usr/share/emacs/30.2"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/emacs.html",
+  "category": "system",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "libical",
+  "version": "3.0.20",
+  "description": "The libical package contains an implementation of the iCalendar protocols and data formats.",
+  "url": "https://github.com/libical/libical/releases/download/v3.0.20/libical-3.0.20.tar.gz",
+  "dependencies": {
+    "required": [
+      "cmake",
+      "glib2",
+      "libxml2"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "cmake -D CMAKE_INSTALL_PREFIX=/usr  \\\n      -D CMAKE_BUILD_TYPE=Release   \\\n      -D SHARED_ONLY=yes            \\\n      -D ICAL_BUILD_DOCS=false      \\\n      -D GOBJECT_INTROSPECTION=true \\\n      -D ICAL_GLIB_VAPI=true        \\\n      ..",
+      "make -j1",
+      "make docs",
+      "cp -vr apidocs/html/* /usr/share/doc/libical-3.0.20/html"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -vdm755 $DESTDIR/usr/share/doc$DESTDIR/libical-3.0.20/html"
+    ]
+  },
+  "meta": false,
+  "book": "general/libical.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

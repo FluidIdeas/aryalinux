@@ -1,0 +1,33 @@
+{
+  "name": "clucene",
+  "version": "2.3.3.4",
+  "description": "CLucene is a C++ version of Lucene, a high performance text search engine.",
+  "url": "https://downloads.sourceforge.net/clucene/clucene-core-2.3.3.4.tar.gz",
+  "dependencies": {
+    "required": [
+      "cmake",
+      "boost"
+    ]
+  },
+  "build": {
+    "user": [
+      "patch -Np1 -i ../clucene-2.3.3.4-contribs_lib-1.patch",
+      "sed -i '/Misc.h/a #include <ctime>' src/core/CLucene/document/DateTools.cpp",
+      "mkdir build",
+      "cd    build",
+      "cmake -D CMAKE_INSTALL_PREFIX=/usr        \\\n      -D CMAKE_POLICY_VERSION_MINIMUM=3.5 \\\n      -D BUILD_CONTRIBS_LIB=ON            \\\n      -W no-dev ..",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/clucene.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

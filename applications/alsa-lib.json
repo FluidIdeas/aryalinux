@@ -1,0 +1,29 @@
+{
+  "name": "alsa-lib",
+  "version": "1.2.15.3",
+  "description": "The ALSA Library package contains the ALSA library used by programs (including ALSA Utilities) requiring access to the ALSA sound interface.",
+  "url": "https://www.alsa-project.org/files/pub/lib/alsa-lib-1.2.15.3.tar.bz2",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure",
+      "make",
+      "make doc",
+      "tar -C /usr/share/alsa --strip-components=1 -xf ../alsa-ucm-conf-1.2.15.3.tar.bz2"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -d -m755 $DESTDIR/usr/share/doc/alsa-lib-1.2.15.3/html/search",
+      "install -v -m644 doc/doxygen/html/*.* \\\n                $DESTDIR/usr/share/doc/alsa-lib-1.2.15.3/html",
+      "install -v -m644 doc/doxygen/html/search/* \\\n                $DESTDIR/usr/share/doc/alsa-lib-1.2.15.3/html/search"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/alsa-lib.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

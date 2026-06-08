@@ -1,0 +1,35 @@
+{
+  "name": "libadwaita",
+  "version": "1.8.4",
+  "description": "The libadwaita package provides additional GTK4 UI widgets for use in developing user interfaces. It is used primarily for GNOME applications.",
+  "url": "https://download.gnome.org/sources/libadwaita/1.8/libadwaita-1.8.4.tar.xz",
+  "dependencies": {
+    "required": [
+      "appstream",
+      "sassc",
+      "vala"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja",
+      "sed \"s/apiversion/'1.8.4'/\" -i ../doc/meson.build",
+      "meson configure -D documentation=true",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "x/libadwaita.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

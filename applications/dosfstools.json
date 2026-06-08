@@ -1,0 +1,24 @@
+{
+  "name": "dosfstools",
+  "version": "4.2",
+  "description": "The dosfstools package contains various utilities for use with the FAT family of file systems.",
+  "url": "https://github.com/dosfstools/dosfstools/releases/download/v4.2/dosfstools-4.2.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr            \\\n            --enable-compat-symlinks \\\n            --mandir=/usr/share/man  \\\n            --docdir=/usr/share/doc/dosfstools-4.2",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/dosfstools.html",
+  "category": "system",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

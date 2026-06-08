@@ -1,0 +1,30 @@
+{
+  "name": "perl-deps.perl-mime-charset",
+  "version": "1.013.1",
+  "description": "Perl module perl::mime::charset providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/N/NE/NEZUMI/MIME-Charset-1.013.1.tar.gz",
+  "dependencies": {
+    "required": [
+      "perl-modules.perl-encode-eucjpascii",
+      "perl-modules.perl-encode-hanextra",
+      "perl-modules.perl-encode-jis2k"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

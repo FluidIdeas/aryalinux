@@ -1,0 +1,30 @@
+{
+  "name": "libwebp",
+  "version": "1.6.0",
+  "description": "The libwebp package contains a library and support programs to encode and decode images in WebP format.",
+  "url": "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.6.0.tar.gz",
+  "dependencies": {
+    "required": [
+      "libjpeg",
+      "libpng",
+      "libtiff"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr           \\\n            --enable-libwebpmux     \\\n            --enable-libwebpdemux   \\\n            --enable-libwebpdecoder \\\n            --enable-libwebpextras  \\\n            --enable-swap-16bit-csp \\\n            --disable-static",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/libwebp.html",
+  "category": "graphics",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

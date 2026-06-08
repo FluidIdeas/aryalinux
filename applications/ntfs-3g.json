@@ -1,0 +1,28 @@
+{
+  "name": "ntfs-3g",
+  "version": "2022.10.3",
+  "description": "The Ntfs-3g package contains a stable, read-write open source driver for NTFS partitions. NTFS partitions are used by most Microsoft operating systems. Ntfs-3g allows you to mount NTFS partitions in read-write mode from your Linux system. It uses the FUSE kernel module to be able to implement NTFS support in userspace. The package also contains various utilities useful for manipulating NTFS partitions.",
+  "url": "https://github.com/tuxera/ntfs-3g/archive/2022.10.3/ntfs-3g-2022.10.3.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./autogen.sh",
+      "./configure --prefix=/usr        \\\n            --disable-static     \\\n            --with-fuse=internal \\\n            --docdir=/usr/share/doc/ntfs-3g-2022.10.3",
+      "make",
+      "ln -svf ../bin/ntfs-3g /usr/sbin/mount.ntfs",
+      "ln -svf ntfs-3g.8 /usr/share/man/man8/mount.ntfs.8",
+      "chmod -v 777 /mnt/usb"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/ntfs-3g.html",
+  "category": "system",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "protobuf",
+  "version": "33.5",
+  "description": "The Protobuf package contains utilities and libraries for using data in Google's data interchange format.",
+  "url": "https://github.com/protocolbuffers/protobuf/releases/download/v33.5/protobuf-33.5.tar.gz",
+  "dependencies": {
+    "required": [
+      "abseil-cpp",
+      "cmake"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "cmake -D CMAKE_INSTALL_PREFIX=/usr      \\\n      -D CMAKE_BUILD_TYPE=Release       \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON    \\\n      -D protobuf_BUILD_TESTS=OFF       \\\n      -D protobuf_BUILD_SHARED_LIBS=ON  \\\n      -G Ninja ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "general/protobuf.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

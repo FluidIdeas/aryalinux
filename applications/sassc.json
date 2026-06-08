@@ -1,0 +1,32 @@
+{
+  "name": "sassc",
+  "version": "3.6.2",
+  "description": "SassC is a wrapper around libsass, a CSS pre-processor language.",
+  "url": "https://github.com/sass/sassc/archive/3.6.2/sassc-3.6.2.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "tar -xf ../libsass-3.6.6.tar.gz",
+      "pushd libsass-3.6.6",
+      "autoreconf -fi",
+      "./configure --prefix=/usr --disable-static",
+      "make",
+      "popd",
+      "autoreconf -fi",
+      "./configure --prefix=/usr",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/sassc.html",
+  "category": "graphics",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "gavl",
+  "version": "1.4.0",
+  "description": "Gavl is short for Gmerlin Audio Video Library. It is a low level library that handles the details of audio and video formats like colorspaces, samplerates, multichannel configurations etc. It provides standardized definitions for those formats as well as container structures for carrying audio samples or video images inside an application.",
+  "url": "https://downloads.sourceforge.net/gmerlin/gavl-1.4.0.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "sed -i \"/stdio/a #include <string.h>\" src/fill_test.c",
+      "LIBS=-lm                         \\\n./configure --prefix=/usr        \\\n            --without-doxygen    \\\n            --with-cpuflags=none \\\n            --docdir=/usr/share/doc/gavl-1.4.0",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/gavl.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "gedit",
+  "version": "48.1",
+  "description": "The Gedit package contains a lightweight UTF-8 text editor for the GNOME Desktop. It needs a group of packages to be installed before Gedit itself. This page will install all of them.",
+  "url": "https://download.gnome.org/sources/gedit/48/gedit-48.1.tar.xz",
+  "urls": [
+    "https://gitlab.gnome.org/World/gedit/libgedit-amtk/-/archive/5.9.2/libgedit-amtk-5.9.2.tar.bz2",
+    "https://gitlab.gnome.org/World/gedit/libgedit-gtksourceview/-/archive/299.5.0/libgedit-gtksourceview-299.5.0.tar.bz2",
+    "https://gitlab.gnome.org/World/gedit/libgedit-gfls/-/archive/0.3.1/libgedit-gfls-0.3.1.tar.bz2",
+    "https://gitlab.gnome.org/World/gedit/libgedit-tepl/-/archive/6.13.0/libgedit-tepl-6.13.0.tar.bz2"
+  ],
+  "dependencies": {
+    "required": [
+      "gsettings-desktop-schemas",
+      "gtk3",
+      "libhandy1",
+      "libxml2",
+      "gspell",
+      "iso-codes"
+    ]
+  },
+  "build": {
+    "user": [
+      "for package in \\\n   libgedit-amtk-5.9.2.tar.bz2            \\\n   libgedit-gtksourceview-299.5.0.tar.bz2 \\\n   libgedit-gfls-0.3.1.tar.bz2            \\\n   libgedit-tepl-6.13.0.tar.bz2\ndo\n  packagedir=${package%.tar*}\n  echo \"Building $packagedir\"\n  tar -xf ../$package\n  pushd $packagedir\n    mkdir -p build\n    cd build\n    meson setup ..            \\\n          --prefix=/usr       \\\n          --buildtype=release \\\n          -D gtk_doc=false\n    ninja\n  popd\ndone",
+      "mkdir -p build",
+      "cd build",
+      "meson setup ..            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D gtk_doc=false",
+      "ninja"
+    ],
+    "package": [
+      "for package in \\\n   libgedit-amtk-5.9.2.tar.bz2            \\\n   libgedit-gtksourceview-299.5.0.tar.bz2 \\\n   libgedit-gfls-0.3.1.tar.bz2            \\\n   libgedit-tepl-6.13.0.tar.bz2\ndo\n  packagedir=${package%.tar*}\n  pushd $packagedir/build\n    DESTDIR=$DESTDIR ninja install\n  popd\n  rm -rf $packagedir\ndone",
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "post_install": [
+    "glib-compile-schemas /usr/share/glib-2.0/schemas"
+  ],
+  "meta": false,
+  "book": "postlfs/gedit.html",
+  "category": "system",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "boost",
+  "version": "1.90.0",
+  "description": "Boost provides a set of free peer-reviewed portable C++ source libraries. It includes libraries for linear algebra, pseudorandom number generation, multithreading, image processing, regular expressions and unit testing.",
+  "url": "https://github.com/boostorg/boost/releases/download/boost-1.90.0/boost-1.90.0-b2-nodocs.tar.xz",
+  "dependencies": {
+    "required": [
+      "which"
+    ]
+  },
+  "build": {
+    "user": [
+      "case $(uname -m) in\n   i?86)\n      sed -e \"s/defined(__MINGW32__)/& || defined(__i386__)/\" \\\n          -i ./libs/stacktrace/src/exception_headers.h ;;\nesac",
+      "./bootstrap.sh --prefix=/usr --with-python=python3",
+      "./b2 stage -j$(nproc) threading=multi link=shared"
+    ],
+    "package": [
+      "rm -rf $DESTDIR/usr/lib/cmake/[Bb]oost*",
+      "./b2 install threading=multi link=shared --prefix=$DESTDIR/usr"
+    ]
+  },
+  "meta": false,
+  "book": "general/boost.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "perl-deps.perl-datetime-locale",
+  "version": "1.45",
+  "description": "Perl module perl::datetime::locale providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Locale-1.45.tar.gz",
+  "dependencies": {
+    "required": [
+      "perl-deps.perl-dist-checkconflicts",
+      "perl-deps.perl-file-sharedir",
+      "perl-deps.perl-namespace-autoclean",
+      "perl-deps.perl-cpan-meta-check",
+      "perl-deps.perl-ipc-system-simple",
+      "perl-deps.perl-test-file-sharedir"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "dolphin-plugins",
+  "version": "25.12.2",
+  "description": "The dolphin-plugins package provides extra plugins for the dolphin file manager.",
+  "url": "https://download.kde.org/stable/release-service/25.12.2/src/dolphin-plugins-25.12.2.tar.xz",
+  "dependencies": {
+    "required": [
+      "dolphin"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "cmake -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX \\\n      -D CMAKE_BUILD_TYPE=Release         \\\n      -D BUILD_TESTING=OFF                \\\n      -W no-dev ..",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "kde/dolphin-plugins.html",
+  "category": "desktop-kde",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

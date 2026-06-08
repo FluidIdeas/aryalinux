@@ -1,0 +1,38 @@
+{
+  "name": "evolution-data-server",
+  "version": "3.58.3",
+  "description": "The Evolution Data Server package provides a unified backend for programs that work with contacts, tasks, and calendar information. It was originally developed for Evolution (hence the name), but is now used by other packages as well.",
+  "url": "https://download.gnome.org/sources/evolution-data-server/3.58/evolution-data-server-3.58.3.tar.xz",
+  "dependencies": {
+    "required": [
+      "libical",
+      "nss",
+      "gnome-online-accounts",
+      "glib2",
+      "gtk3",
+      "icu",
+      "libcanberra",
+      "vala"
+    ]
+  },
+  "build": {
+    "user": [
+      "patch -Np1 -i ../evolution-data-server-3.58.3-security_fixes-1.patch",
+      "mkdir build",
+      "cd    build",
+      "cmake -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D SYSCONF_INSTALL_DIR=/etc  \\\n      -D ENABLE_VALA_BINDINGS=ON   \\\n      -D ENABLE_INSTALLED_TESTS=ON \\\n      -D WITH_OPENLDAP=OFF         \\\n      -D WITH_KRB5=OFF             \\\n      -D ENABLE_INTROSPECTION=ON   \\\n      -D ENABLE_GTK_DOC=OFF        \\\n      -D WITH_LIBDB=OFF            \\\n      -W no-dev -G Ninja ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/evolution-data-server.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

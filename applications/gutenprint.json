@@ -1,0 +1,33 @@
+{
+  "name": "gutenprint",
+  "version": "5.3.5",
+  "description": "The Gutenprint (formerly Gimp-Print) package contains high quality drivers for many brands and models of printers for use with Cups-2.4.16. See a list of supported printers at https://gimp-print.sourceforge.io/p_Supported_Printers.php.",
+  "url": "https://downloads.sourceforge.net/gimp-print/gutenprint-5.3.5.tar.xz",
+  "dependencies": {
+    "required": [
+      "cups"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i 's|$(PACKAGE)/doc|doc/$(PACKAGE)-$(VERSION)|' \\\n       {,doc/,doc/developer/}Makefile.in",
+      "./configure --prefix=/usr    \\\n            --disable-static \\\n            --without-gimp2  \\\n            --without-gimp2-as-gutenprint",
+      "make",
+      "systemctl restart cups"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m755 -d $DESTDIR/usr/share/doc/gutenprint-5.3.5/api/gutenprint{,ui2}",
+      "install -v -m644    doc/gutenprint/html/* \\\n                    $DESTDIR/usr/share/doc/gutenprint-5.3.5/api/gutenprint",
+      "install -v -m644    doc/gutenprintui2/html/* \\\n                    $DESTDIR/usr/share/doc/gutenprint-5.3.5/api/gutenprintui2"
+    ]
+  },
+  "meta": false,
+  "book": "pst/gutenprint.html",
+  "category": "printing",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "wireless-kernel",
+  "version": "0",
+  "description": "BLFS notes on wireless kernel drivers and firmware. User-space tools are provided by the listed dependencies; kernel options are configured at kernel build time.",
+  "url": "",
+  "dependencies": {
+    "required": [
+      "wireless_tools",
+      "iw",
+      "wpa_supplicant"
+    ]
+  },
+  "build": {},
+  "meta": true,
+  "book": "basicnet/wireless-kernel.html",
+  "category": "networking"
+}

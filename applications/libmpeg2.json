@@ -1,0 +1,27 @@
+{
+  "name": "libmpeg2",
+  "version": "0.5.1",
+  "description": "The libmpeg2 package contains a library for decoding MPEG-2 and MPEG-1 video streams. The library is able to decode all MPEG streams that conform to certain restrictions: “constrained parameters” for MPEG-1, and “main profile” for MPEG-2. This is useful for programs and applications needing to decode MPEG-2 and MPEG-1 video streams.",
+  "url": "https://download.videolan.org/contrib/libmpeg2/libmpeg2-0.5.1.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "sed -i 's/static const/static/' libmpeg2/idct_mmx.c",
+      "./configure --prefix=/usr    \\\n            --enable-shared  \\\n            --disable-static",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m755 -d $DESTDIR/usr/share/doc$DESTDIR/libmpeg2-0.5.1",
+      "install -v -m644 README doc$DESTDIR/libmpeg2.txt \\\n                    $DESTDIR/usr/share/doc$DESTDIR/libmpeg2-0.5.1"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/libmpeg2.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

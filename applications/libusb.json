@@ -1,0 +1,30 @@
+{
+  "name": "libusb",
+  "version": "1.0.29",
+  "description": "The libusb package contains a library used by some applications for USB device access.",
+  "url": "https://github.com/libusb/libusb/releases/download/v1.0.29/libusb-1.0.29.tar.bz2",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --disable-static",
+      "make",
+      "pushd doc",
+      "doxygen -u doxygen.cfg",
+      "make docs",
+      "popd"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -d -m755 $DESTDIR/usr/share/doc$DESTDIR/libusb-1.0.29/apidocs",
+      "install -v -m644    doc/api-1.0/* \\\n                    $DESTDIR/usr/share/doc$DESTDIR/libusb-1.0.29/apidocs"
+    ]
+  },
+  "meta": false,
+  "book": "general/libusb.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

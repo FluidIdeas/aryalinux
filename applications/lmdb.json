@@ -1,0 +1,25 @@
+{
+  "name": "lmdb",
+  "version": "0.9.35",
+  "description": "The lmdb package is a fast, compact, key-value embedded data store. It uses memory-mapped files, so it has the read performance of a pure in-memory database while still offering the persistence of standard disk-based databases, and is only limited to the size of the virtual address space.",
+  "url": "https://git.openldap.org/openldap/openldap/-/archive/LMDB_0.9.35/LMDB_0.9.35.tar.bz2",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "cd libraries/liblmdb",
+      "make",
+      "sed -i 's| liblmdb.a||' Makefile"
+    ],
+    "package": [
+      "make prefix=$DESTDIR/usr install"
+    ]
+  },
+  "meta": false,
+  "book": "server/lmdb.html",
+  "category": "server",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

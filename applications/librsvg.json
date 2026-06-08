@@ -1,0 +1,39 @@
+{
+  "name": "librsvg",
+  "version": "2.61.4",
+  "description": "The librsvg package contains a library and tools used to manipulate, convert and view Scalable Vector Graphic (SVG) images.",
+  "url": "https://download.gnome.org/sources/librsvg/2.61/librsvg-2.61.4.tar.xz",
+  "dependencies": {
+    "required": [
+      "cairo",
+      "pango",
+      "cargo-c"
+    ],
+    "recommended": [
+      "gdk-pixbuf",
+      "glib2",
+      "vala"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -e \"/OUTDIR/s|,| / 'librsvg-2.61.4', '--no-namespace-dir',|\" \\\n    -e '/output/s|Rsvg-2.0|librsvg-2.61.4|'                      \\\n    -i doc/meson.build",
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja",
+      "meson test -v"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "general/librsvg.html",
+  "category": "graphics",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

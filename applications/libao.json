@@ -1,0 +1,26 @@
+{
+  "name": "libao",
+  "version": "1.2.0",
+  "description": "The libao package contains a cross-platform audio library. This is useful to output audio on a wide variety of platforms. It currently supports WAV files, OSS (Open Sound System), ESD (Enlighten Sound Daemon), ALSA (Advanced Linux Sound Architecture), NAS (Network Audio system), aRTS (analog Real-Time Synthesizer), and PulseAudio (next generation GNOME sound architecture).",
+  "url": "https://downloads.xiph.org/releases/ao/libao-1.2.0.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "sed -i '/limits.h/a #include <time.h>' src/plugins/pulse/ao_pulse.c",
+      "./configure --prefix=/usr",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m644 README $DESTDIR/usr/share/doc$DESTDIR/libao-1.2.0"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/libao.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

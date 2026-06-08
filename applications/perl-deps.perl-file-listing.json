@@ -1,0 +1,28 @@
+{
+  "name": "perl-deps.perl-file-listing",
+  "version": "6.16",
+  "description": "Perl module perl::file::listing providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Listing-6.16.tar.gz",
+  "dependencies": {
+    "required": [
+      "perl-deps.perl-http-date"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

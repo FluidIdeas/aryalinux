@@ -1,0 +1,41 @@
+{
+  "name": "gnupg",
+  "version": "2.5.17",
+  "description": "The GnuPG package is GNU's tool for secure communication and data storage. It can be used to encrypt data and to create digital signatures. It includes an advanced key management facility and is compliant with the proposed OpenPGP Internet standard as described in RFC2440 and the S/MIME standard as described by several RFCs. GnuPG 2 is the stable version of GnuPG integrating support for OpenPGP and S/MIME.",
+  "url": "https://www.gnupg.org/ftp/gcrypt/gnupg/gnupg-2.5.17.tar.bz2",
+  "dependencies": {
+    "required": [
+      "libassuan",
+      "npth",
+      "gnutls"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "../configure --prefix=/usr        \\\n             --localstatedir=/var \\\n             --sysconfdir=/etc    \\\n             --docdir=/usr/share/doc/gnupg-2.5.17",
+      "make",
+      "makeinfo --html --no-split -I doc -o doc/gnupg_nochunks.html ../doc/gnupg.texi",
+      "makeinfo --plaintext       -I doc -o doc/gnupg.txt           ../doc/gnupg.texi",
+      "make -C doc html",
+      "make -C doc pdf"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m755 -d $DESTDIR/usr/share/doc/gnupg-2.5.17/html",
+      "install -v -m644    doc/gnupg_nochunks.html \\\n                    $DESTDIR/usr/share/doc/gnupg-2.5.17/html/gnupg.html",
+      "install -v -m644    ../doc/*.texi doc/gnupg.txt \\\n                    $DESTDIR/usr/share/doc/gnupg-2.5.17",
+      "install -v -m644    doc/gnupg.html/* \\\n                    $DESTDIR/usr/share/doc/gnupg-2.5.17/html",
+      "install -v -m644 doc/gnupg.pdf \\\n                 $DESTDIR/usr/share/doc/gnupg-2.5.17"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/gnupg.html",
+  "category": "security",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

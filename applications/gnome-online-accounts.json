@@ -1,0 +1,35 @@
+{
+  "name": "gnome-online-accounts",
+  "version": "3.56.4",
+  "description": "The GNOME Online Accounts package contains a framework used to access the user's online accounts.",
+  "url": "https://download.gnome.org/sources/gnome-online-accounts/3.56/gnome-online-accounts-3.56.4.tar.xz",
+  "dependencies": {
+    "required": [
+      "gcr4",
+      "vala",
+      "glib2"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup                                            \\\n      --prefix=/usr                                    \\\n      --buildtype=release                              \\\n      -D documentation=false                           \\\n      -D kerberos=false                                \\\n      -D google_client_secret=5ntt6GbbkjnTVXx-MSxbmx5e \\\n      -D google_client_id=595013732528-llk8trb03f0ldpqq6nprjp1s79596646.apps.googleusercontent.com \\\n      ..",
+      "ninja",
+      "meson configure -D documentation=true",
+      "sed \"s/project_name()/& + '-' + meson.project_version()/\" \\\n    -i ../doc/meson.build",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/gnome-online-accounts.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

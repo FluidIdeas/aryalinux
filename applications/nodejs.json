@@ -1,0 +1,33 @@
+{
+  "name": "nodejs",
+  "version": "22.22.0",
+  "description": "The Node.js package manager.",
+  "url": "https://nodejs.org/dist/v22.22.0/node-v22.22.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "which",
+      "brotli",
+      "icu",
+      "libuv"
+    ]
+  },
+  "build": {
+    "user": [
+      "patch -Np1 -i ../node-v22.22.0-python_build_fix-1.patch",
+      "./configure --prefix=/usr          \\\n            --shared-brotli        \\\n            --shared-cares         \\\n            --shared-libuv         \\\n            --shared-openssl       \\\n            --shared-nghttp2       \\\n            --shared-zlib          \\\n            --with-intl=system-icu",
+      "make",
+      "ln -sf node /usr/share/doc/node-22.22.0"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/nodejs.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

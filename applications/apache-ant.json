@@ -1,0 +1,33 @@
+{
+  "name": "apache-ant",
+  "version": "1.10.15",
+  "description": "The Apache Ant package is a Java-based build tool. In theory, it is like the make command, but without make's wrinkles. Ant is extended using Java classes and XML-based configuration files.",
+  "url": "https://archive.apache.org/dist/ant/source/apache-ant-1.10.15-src.tar.xz",
+  "dependencies": {
+    "required": [
+      "java",
+      "glib2"
+    ]
+  },
+  "build": {
+    "user": [
+      "./bootstrap.sh",
+      "bootstrap/bin/ant -f fetch.xml -Ddest=optional",
+      "./build.sh -Ddist.dir=$PWD/ant-1.10.15 dist"
+    ],
+    "package": [
+      "cp -rv ant-1.10.15 $DESTDIR/opt/",
+      "ln -sfv ant-1.10.15 $DESTDIR/opt/ant",
+      "install -d $DESTDIR/etc/profile.d",
+      "cat > $DESTDIR/etc/profile.d/ant.sh << 'EOF'\n# Begin /etc/profile.d/ant.sh\n\npathappend /opt/ant/bin\nexport ANT_HOME=/opt/ant\n\n# End /etc/profile.d/ant.sh\nEOF"
+    ]
+  },
+  "meta": false,
+  "book": "general/apache-ant.html",
+  "category": "programming",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

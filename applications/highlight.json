@@ -1,0 +1,31 @@
+{
+  "name": "highlight",
+  "version": "4.18",
+  "description": "Highlight is a utility that converts source code to formatted text with syntax highlighting.",
+  "url": "http://www.andre-simon.de/zip/highlight-4.18.tar.bz2",
+  "dependencies": {
+    "required": [
+      "boost",
+      "lua"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i '/GZIP/s/^/#/' makefile",
+      "make",
+      "make doc_dir=/usr/share/doc/highlight-4.18/ gui",
+      "make doc_dir=/usr/share/doc/highlight-4.18/ install"
+    ],
+    "package": [
+      "make install-gui DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/highlight.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

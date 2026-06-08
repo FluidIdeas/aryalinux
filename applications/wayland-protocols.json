@@ -1,0 +1,30 @@
+{
+  "name": "wayland-protocols",
+  "version": "1.47",
+  "description": "The Wayland-Protocols package contains additional Wayland protocols that add functionality outside of protocols already in the Wayland core.",
+  "url": "https://gitlab.freedesktop.org/wayland/wayland-protocols/-/releases/1.47/downloads/wayland-protocols-1.47.tar.xz",
+  "dependencies": {
+    "required": [
+      "wayland"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "general/wayland-protocols.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

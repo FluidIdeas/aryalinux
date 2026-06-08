@@ -1,0 +1,39 @@
+{
+  "name": "vte",
+  "version": "0.82.3",
+  "description": "The VTE package contains a virtual terminal widget for GTK applications.",
+  "url": "https://gitlab.gnome.org/GNOME/vte/-/archive/0.82.3/vte-0.82.3.tar.gz",
+  "dependencies": {
+    "required": [
+      "libxml2",
+      "fast_float",
+      "icu",
+      "gnutls",
+      "gtk3",
+      "vala"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja",
+      "sed -e \"/docdir =/s@\\$@/ 'vte-0.82.3'@\" \\\n    -i ../doc/reference/meson.build",
+      "meson configure -D docs=true",
+      "ninja",
+      "rm -v /etc/profile.d/vte.*"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/vte.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

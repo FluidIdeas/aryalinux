@@ -1,0 +1,30 @@
+{
+  "name": "libxklavier",
+  "version": "5.4",
+  "description": "The libxklavier package contains a utility library for X keyboard.",
+  "url": "https://people.freedesktop.org/~svu/libxklavier-5.4.tar.bz2",
+  "dependencies": {
+    "required": [
+      "glib2",
+      "iso-codes",
+      "x7lib"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --disable-static",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "x/libxklavier.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

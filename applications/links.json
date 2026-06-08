@@ -1,0 +1,31 @@
+{
+  "name": "links",
+  "version": "2.30",
+  "description": "Links is a text and graphics mode WWW browser. It includes support for rendering tables and frames, features background downloads, can display colors and has many other features.",
+  "url": "http://links.twibright.com/download/links-2.30.tar.bz2",
+  "dependencies": {
+    "required": [
+      "libevent"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed '/*strchr/s/cast_const_char //g' -i ftp.c",
+      "./configure --prefix=/usr --mandir=/usr/share/man",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -d -m755 $DESTDIR/usr/share/doc/links-2.30",
+      "install -v -m644 doc/links_cal/* KEYS BRAILLE_HOWTO \\\n    $DESTDIR/usr/share/doc/links-2.30"
+    ]
+  },
+  "meta": false,
+  "book": "basicnet/links.html",
+  "category": "networking",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

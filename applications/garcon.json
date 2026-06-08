@@ -1,0 +1,28 @@
+{
+  "name": "garcon",
+  "version": "4.20.0",
+  "description": "The Garcon package contains a freedesktop.org compliant menu implementation based on GLib and GIO.",
+  "url": "https://archive.xfce.org/src/xfce/garcon/4.20/garcon-4.20.0.tar.bz2",
+  "dependencies": {
+    "required": [
+      "libxfce4ui"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --sysconfdir=/etc",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "xfce/garcon.html",
+  "category": "desktop-xfce",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

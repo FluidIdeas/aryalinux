@@ -1,0 +1,33 @@
+{
+  "name": "yelp",
+  "version": "49.0",
+  "description": "The Yelp package contains a help browser used for viewing help files.",
+  "url": "https://download.gnome.org/sources/yelp/49/yelp-49.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "gsettings-desktop-schemas",
+      "libadwaita",
+      "desktop-file-utils"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja",
+      "update-desktop-database"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/yelp.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

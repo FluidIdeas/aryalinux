@@ -1,0 +1,24 @@
+{
+  "name": "perl-modules.perl-lingua-translit",
+  "version": "0.29",
+  "description": "Perl module perl::lingua::translit used by applications and other Perl packages on the system.",
+  "url": "https://www.cpan.org/authors/id/A/AL/ALINKE/Lingua-Translit-0.29.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-modules.html",
+  "category": "perl-module",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

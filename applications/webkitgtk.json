@@ -1,0 +1,49 @@
+{
+  "name": "webkitgtk",
+  "version": "2.50.5",
+  "description": "The WebKitGTK package is a port of the portable web rendering engine WebKit to the GTK-3 and GTK-4 platforms.",
+  "url": "https://webkitgtk.org/releases/webkitgtk-2.50.5.tar.xz",
+  "dependencies": {
+    "required": [
+      "cairo",
+      "gst10-plugins-base",
+      "gst10-plugins-bad",
+      "gtk3",
+      "gtk4",
+      "icu",
+      "libgudev",
+      "mesa",
+      "unifdef",
+      "bubblewrap",
+      "glib2",
+      "hicolor-icon-theme",
+      "libavif",
+      "libseccomp"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir -vp build",
+      "cd        build",
+      "cmake -D CMAKE_BUILD_TYPE=Release     \\\n      -D CMAKE_INSTALL_PREFIX=/usr    \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON  \\\n      -D PORT=GTK                     \\\n      -D LIB_INSTALL_DIR=/usr/lib     \\\n      -D USE_LIBBACKTRACE=OFF         \\\n      -D USE_LIBHYPHEN=OFF            \\\n      -D ENABLE_GAMEPAD=OFF           \\\n      -D ENABLE_MINIBROWSER=ON        \\\n      -D ENABLE_DOCUMENTATION=OFF     \\\n      -D ENABLE_WEBDRIVER=OFF         \\\n      -D USE_WOFF2=OFF                \\\n      -D USE_GTK4=OFF                 \\\n      -D ENABLE_BUBBLEWRAP_SANDBOX=ON \\\n      -D USE_SYSPROF_CAPTURE=NO       \\\n      -D ENABLE_SPEECH_SYNTHESIS=OFF  \\\n      -W no-dev -G Ninja ..",
+      "ninja",
+      "rm -rf * .[^.]*",
+      "cmake -D CMAKE_BUILD_TYPE=Release         \\\n      -D CMAKE_INSTALL_PREFIX=/usr        \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON      \\\n      -D PORT=GTK                         \\\n      -D LIB_INSTALL_DIR=/usr/lib         \\\n      -D USE_LIBBACKTRACE=OFF             \\\n      -D USE_LIBHYPHEN=OFF                \\\n      -D ENABLE_GAMEPAD=OFF               \\\n      -D ENABLE_MINIBROWSER=ON            \\\n      -D ENABLE_DOCUMENTATION=OFF         \\\n      -D USE_WOFF2=OFF                    \\\n      -D USE_GTK4=ON                      \\\n      -D ENABLE_BUBBLEWRAP_SANDBOX=ON     \\\n      -D USE_SYSPROF_CAPTURE=NO           \\\n      -D ENABLE_SPEECH_SYNTHESIS=OFF      \\\n      -W no-dev -G Ninja ..",
+      "ninja",
+      "cp -rv ../Documentation/* /usr/share/gtk-doc/html"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install",
+      "DESTDIR=$DESTDIR ninja install",
+      "install -vdm755 $DESTDIR/usr/share/gtk-doc/html"
+    ]
+  },
+  "meta": false,
+  "book": "x/webkitgtk.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

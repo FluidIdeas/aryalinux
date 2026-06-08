@@ -1,0 +1,33 @@
+{
+  "name": "libnma",
+  "version": "1.10.6",
+  "description": "The libnma package contains an implementation of the NetworkManager GUI functions.",
+  "url": "https://download.gnome.org/sources/libnma/1.10/libnma-1.10.6.tar.xz",
+  "dependencies": {
+    "required": [
+      "gcr",
+      "gtk3",
+      "networkmanager",
+      "gtk4"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup ..            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D gtk_doc=false    \\\n      -D libnma_gtk4=true \\\n      -D mobile_broadband_provider_info=false",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "basicnet/libnma.html",
+  "category": "networking",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

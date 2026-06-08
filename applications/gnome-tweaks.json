@@ -1,0 +1,33 @@
+{
+  "name": "gnome-tweaks",
+  "version": "49.0",
+  "description": "GNOME Tweaks is a simple program used to tweak advanced GNOME settings.",
+  "url": "https://download.gnome.org/sources/gnome-tweaks/49/gnome-tweaks-49.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "gtk4",
+      "libadwaita",
+      "python-modules.pygobject3",
+      "sound-theme-freedesktop"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/gnome-tweaks.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "perl-deps.perl-list-utilsby",
+  "version": "0.12",
+  "description": "Perl module perl::list::utilsby providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/List-UtilsBy-0.12.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

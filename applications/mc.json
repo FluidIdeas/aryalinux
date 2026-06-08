@@ -1,0 +1,29 @@
+{
+  "name": "mc",
+  "version": "4.8.33",
+  "description": "MC (Midnight Commander) is a text-mode full-screen file manager and visual shell. It provides a clear, user-friendly, and somewhat protected interface to a Unix system while making many frequent file operations more efficient and preserving the full power of the command prompt.",
+  "url": "http://ftp.midnight-commander.org/mc-4.8.33.tar.xz",
+  "dependencies": {
+    "required": [
+      "glib2",
+      "slang"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr     \\\n            --sysconfdir=/etc \\\n            --enable-charset",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/mc.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

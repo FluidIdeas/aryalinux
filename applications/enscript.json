@@ -1,0 +1,31 @@
+{
+  "name": "enscript",
+  "version": "1.6.6",
+  "description": "Enscript converts ASCII text files to PostScript, HTML, RTF, ANSI and overstrikes.",
+  "url": "https://ftpmirror.gnu.org/enscript/enscript-1.6.6.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr              \\\n            --sysconfdir=/etc/enscript \\\n            --localstatedir=/var       \\\n            --with-media=Letter",
+      "make CC=\"gcc -std=gnu17\"",
+      "pushd docs",
+      "makeinfo --plaintext -o enscript.txt enscript.texi",
+      "popd",
+      "make -j1 -C docs ps pdf"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m755 -d $DESTDIR/usr/share/doc/enscript-1.6.6",
+      "install -v -m644    README* *.txt docs/*.txt \\\n                    $DESTDIR/usr/share/doc/enscript-1.6.6",
+      "install -v -m644 docs/*.{dvi,pdf,ps} \\\n                 $DESTDIR/usr/share/doc/enscript-1.6.6"
+    ]
+  },
+  "meta": false,
+  "book": "pst/enscript.html",
+  "category": "printing",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

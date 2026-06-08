@@ -1,0 +1,29 @@
+{
+  "name": "menu-cache",
+  "version": "1.1.1",
+  "description": "The Menu Cache package contains a library for creating and utilizing caches to speed up the manipulation for freedesktop.org defined application menus.",
+  "url": "https://github.com/lxde/menu-cache/archive/1.1.1/menu-cache-1.1.1.tar.gz",
+  "dependencies": {
+    "required": [
+      "gtk-doc"
+    ]
+  },
+  "build": {
+    "user": [
+      "sh autogen.sh",
+      "./configure --prefix=/usr --disable-static",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "lxqt/menu-cache.html",
+  "category": "desktop-lxqt",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

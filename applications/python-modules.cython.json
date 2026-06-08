@@ -1,0 +1,23 @@
+{
+  "name": "python-modules.cython",
+  "version": "3.2.4",
+  "description": "The Cython package provides a compiler for writing C extensions for the Python language.",
+  "url": "https://github.com/cython/cython/releases/download/3.2.4/cython-3.2.4.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+    ],
+    "package": [
+      "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user Cython"
+    ]
+  },
+  "meta": false,
+  "book": "general/python-modules.html",
+  "category": "python-module",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

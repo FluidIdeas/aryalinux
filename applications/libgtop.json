@@ -1,0 +1,29 @@
+{
+  "name": "libgtop",
+  "version": "2.41.3",
+  "description": "The libgtop package contains a library for accessing system performance data.",
+  "url": "https://download.gnome.org/sources/libgtop/2.41/libgtop-2.41.3.tar.xz",
+  "dependencies": {
+    "required": [
+      "glib2",
+      "x7lib"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --disable-static",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/libgtop.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

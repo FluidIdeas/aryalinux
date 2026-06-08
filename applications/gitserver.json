@@ -1,0 +1,48 @@
+{
+  "name": "gitserver",
+  "version": "0",
+  "description": "Sets up a Git daemon for serving repositories over the network.",
+  "url": "",
+  "dependencies": {
+    "required": [
+      "git",
+      "openssh"
+    ]
+  },
+  "build": {
+    "user": [
+      "echo -n \"no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty \" >> /home/git/.ssh/authorized_keys",
+      "cat <user-ssh-key> >> /home/git/.ssh/authorized_keys",
+      "git config --system init.defaultBranch trunk",
+      "cat > ~/.gitconfig <<EOF\n[user]\n        name = <users-name>\n        email = <users-email-address>\nEOF",
+      "mkdir myproject\ncd myproject\ngit init --initial-branch=trunk\ngit remote add origin git@gitserver:/srv/git/project1.git\ncat >README <<EOF\nThis is the README file\nEOF\ngit add README\ngit commit -m 'Initial creation of README'\ngit push --set-upstream origin trunk",
+      "git push",
+      "git clone git@gitserver:/srv/git/project1.git\ncd project1\nvi README\ngit commit -am 'Fix for README file'\ngit push",
+      "ln -svf /srv/git/project1.git /home/git/",
+      "git clone git@gitserver:project1.git",
+      "git clone git://gitserver/project1.git",
+      "groupadd -g 58 git",
+      "useradd -c \"git Owner\" -d /home/git -m -g git -s /usr/bin/git-shell -u 58 git",
+      "sed -i '/^git:/s/^git:[^:]:/git:NP:/' /etc/shadow",
+      "echo \"/usr/bin/git-shell\" >> /etc/shells",
+      "cd /srv/git/project1.git",
+      "git init --bare",
+      "chown -R git:git .",
+      "touch /srv/git/project1.git/git-daemon-export-ok"
+    ],
+    "package": [
+      "install -o git -g git -dm0700 /home/git/.ssh",
+      "install -o git -g git -m0600 /dev/null /home/git/.ssh/authorized_keys",
+      "install -o git -g git -m755 -d /srv/git/project1.git",
+      "make install-git-daemon DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/gitserver.html",
+  "category": "programming",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

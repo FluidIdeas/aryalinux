@@ -1,0 +1,26 @@
+{
+  "name": "libdv",
+  "version": "1.0.0",
+  "description": "The Quasar DV Codec (libdv) is a software CODEC for DV video, the encoding format used by most digital camcorders. It can be used to copy videos from camcorders using a firewire (IEEE 1394) connection.",
+  "url": "https://downloads.sourceforge.net/libdv/libdv-1.0.0.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr    \\\n            --disable-xv     \\\n            --disable-static",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m755 -d      $DESTDIR/usr/share/doc$DESTDIR/libdv-1.0.0",
+      "install -v -m644 README* $DESTDIR/usr/share/doc$DESTDIR/libdv-1.0.0"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/libdv.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

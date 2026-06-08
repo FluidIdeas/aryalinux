@@ -1,0 +1,33 @@
+{
+  "name": "vim",
+  "version": "9.2.0078",
+  "description": "The Vim package, which is an abbreviation for VI IMproved, contains a vi clone with extra features as compared to the original vi.",
+  "url": "https://github.com/vim/vim/archive/v9.2.0078/vim-9.2.0078.tar.gz",
+  "dependencies": {
+    "required": [
+      "installing",
+      "gtk3"
+    ]
+  },
+  "build": {
+    "user": [
+      "echo '#define SYS_VIMRC_FILE  \"/etc/vimrc\"' >>  src/feature.h",
+      "echo '#define SYS_GVIMRC_FILE \"/etc/gvimrc\"' >> src/feature.h",
+      "./configure --prefix=/usr        \\\n            --with-features=huge \\\n            --enable-gui=gtk3    \\\n            --with-tlib=ncursesw",
+      "make",
+      "rsync -avzcP --exclude=\"/dos/\" --exclude=\"/spell/\" \\\n    ftp.nluug.nl::Vim/runtime/ ./runtime/",
+      "ln -snfv ../vim/vim92/doc /usr/share/doc/vim-9.2.0078"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/vim.html",
+  "category": "system",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

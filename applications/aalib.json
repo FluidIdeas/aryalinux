@@ -1,0 +1,32 @@
+{
+  "name": "aalib",
+  "version": "1.4rc5",
+  "description": "AAlib is a library to render any graphic into ASCII Art.",
+  "url": "https://downloads.sourceforge.net/aa-project/aalib-1.4rc5.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "sed -i -e '/AM_PATH_AALIB,/s/AM_PATH_AALIB/[&]/' aalib.m4",
+      "sed -e 's/8x13bold/-*-luxi mono-bold-r-normal--13-120-*-*-m-*-*-*/' \\\n    -i src/aax.c",
+      "sed 's/stdscr->_max\\([xy]\\) + 1/getmax\\1(stdscr)/' \\\n    -i src/aacurses.c",
+      "sed -i '1i#include <stdlib.h>'                            \\\n    src/aa{fire,info,lib,linuxkbd,savefont,test,regist}.c",
+      "sed -i '1i#include <string.h>'                            \\\n    src/aa{kbdreg,moureg,test,regist}.c",
+      "sed -i '/X11_KBDDRIVER/a#include <X11/Xutil.h>'           \\\n    src/aaxkbd.c",
+      "sed -i '/rawmode_init/,/^}/s/return;/return 0;/'          \\\n    src/aalinuxkbd.c",
+      "autoconf",
+      "./configure --prefix=/usr             \\\n            --infodir=/usr/share/info \\\n            --mandir=/usr/share/man   \\\n            --with-ncurses=/usr       \\\n            --disable-static",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/aalib.html",
+  "category": "graphics",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

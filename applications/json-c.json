@@ -1,0 +1,35 @@
+{
+  "name": "json-c",
+  "version": "0.18",
+  "description": "The JSON-C implements a reference counting object model that allows you to easily construct JSON objects in C, output them as JSON formatted strings and parse JSON formatted strings back into the C representation of JSON objects.",
+  "url": "https://s3.amazonaws.com/json-c_releases/releases/json-c-0.18.tar.gz",
+  "dependencies": {
+    "required": [
+      "cmake"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i 's/VERSION 2.8/VERSION 4.0/' apps/CMakeLists.txt",
+      "sed -i 's/VERSION 3.9/VERSION 4.0/' tests/CMakeLists.txt",
+      "mkdir build",
+      "cd    build",
+      "cmake -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D BUILD_STATIC_LIBS=OFF     \\\n      ..",
+      "make",
+      "doxygen doc/Doxyfile"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -d -vm755 $DESTDIR/usr/share/doc/json-c-0.18",
+      "install -v -m644 doc/html/* $DESTDIR/usr/share/doc/json-c-0.18"
+    ]
+  },
+  "meta": false,
+  "book": "general/json-c.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

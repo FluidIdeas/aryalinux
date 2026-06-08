@@ -1,0 +1,29 @@
+{
+  "name": "itstool",
+  "version": "2.0.7",
+  "description": "Itstool extracts messages from XML files and outputs PO template files, then merges translations from MO files to create translated XML files. It determines what to translate and how to chunk it into messages using the W3C Internationalization Tag Set (ITS).",
+  "url": "https://github.com/itstool/itstool/archive/2.0.7/itstool-2.0.7.tar.gz",
+  "dependencies": {
+    "required": [
+      "docbook"
+    ]
+  },
+  "build": {
+    "user": [
+      "patch -Np1 -i ../itstool-2.0.7-lxml-1.patch",
+      "PYTHON=/usr/bin/python3 ./autogen.sh --prefix=/usr",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "pst/itstool.html",
+  "category": "printing",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

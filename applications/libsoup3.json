@@ -1,0 +1,36 @@
+{
+  "name": "libsoup3",
+  "version": "3.6.6",
+  "description": "libsoup3 is a HTTP client/server library for GNOME. It uses GObject and the GLib main loop to integrate with GNOME applications and it also has an asynchronous API for use in threaded applications.",
+  "url": "https://download.gnome.org/sources/libsoup/3.6/libsoup-3.6.6.tar.xz",
+  "dependencies": {
+    "required": [
+      "glib-networking",
+      "libpsl",
+      "libxml2",
+      "glib2",
+      "vala"
+    ]
+  },
+  "build": {
+    "user": [
+      "patch -Np1 -i ../libsoup-3.6.6-upstream_fixes-1.patch",
+      "sed 's/apiversion/soup_version/' -i docs/reference/meson.build",
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr          \\\n            --buildtype=release    \\\n            --wrap-mode=nofallback \\\n            ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "basicnet/libsoup3.html",
+  "category": "networking",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

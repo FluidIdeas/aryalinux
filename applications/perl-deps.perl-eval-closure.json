@@ -1,0 +1,29 @@
+{
+  "name": "perl-deps.perl-eval-closure",
+  "version": "0.14",
+  "description": "Perl module perl::eval::closure providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/D/DO/DOY/Eval-Closure-0.14.tar.gz",
+  "dependencies": {
+    "required": [
+      "perl-deps.perl-test-fatal",
+      "perl-deps.perl-test-requires"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "fltk",
+  "version": "1.4.4",
+  "description": "FLTK (pronounced \"fulltick\") is a cross-platform C++ GUI toolkit. FLTK provides modern GUI functionality and supports 3D graphics via OpenGL and its built-in GLUT emulation libraries used for creating graphical user interfaces for applications.",
+  "url": "https://github.com/fltk/fltk/releases/download/release-1.4.4/fltk-1.4.4-source.tar.gz",
+  "urls": [
+    "https://github.com/fltk/fltk/releases/download/release-1.4.4/fltk-1.4.4-docs-html.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "x7lib",
+      "hicolor-icon-theme",
+      "libjpeg",
+      "libpng"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i -e '/cat./d' documentation/Makefile",
+      "./configure --prefix=/usr --enable-shared",
+      "make",
+      "make -C documentation html"
+    ],
+    "package": [
+      "make docdir=$DESTDIR/usr/share/doc/fltk-1.4.4 install DESTDIR=$DESTDIR",
+      "rm -vf $DESTDIR/usr/lib/libfltk*.a",
+      "tar -C $DESTDIR/usr/share/doc/fltk-1.4.4 --strip-components=4 -xf ../fltk-1.4.4-docs-html.tar.gz"
+    ]
+  },
+  "meta": false,
+  "book": "x/fltk.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

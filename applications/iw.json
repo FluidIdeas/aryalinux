@@ -1,0 +1,28 @@
+{
+  "name": "iw",
+  "version": "6.17",
+  "description": "iw is a new nl80211 based CLI configuration utility for wireless devices. It supports all new drivers that have been added to the kernel recently. The old tool iwconfig, which uses Wireless Extensions interface, is deprecated and it's strongly recommended to switch to iw and nl80211.",
+  "url": "https://www.kernel.org/pub/software/network/iw/iw-6.17.tar.xz",
+  "dependencies": {
+    "required": [
+      "libnl"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i \"/INSTALL.*gz/s/.gz//\" Makefile",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "basicnet/iw.html",
+  "category": "networking",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "liboauth",
+  "version": "1.0.3",
+  "description": "liboauth is a collection of POSIX-C functions implementing the OAuth Core RFC 5849 standard. Liboauth provides functions to escape and encode parameters according to OAuth specification and offers high-level functionality to sign requests or verify OAuth signatures as well as perform HTTP requests.",
+  "url": "https://downloads.sourceforge.net/liboauth/liboauth-1.0.3.tar.gz",
+  "dependencies": {
+    "required": [
+      "curl"
+    ]
+  },
+  "build": {
+    "user": [
+      "patch -Np1 -i ../liboauth-1.0.3-openssl-1.1.0-3.patch",
+      "./configure --prefix=/usr --disable-static",
+      "make",
+      "make dox",
+      "cp -rv doc/html/* /usr/share/doc/liboauth-1.0.3"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -dm755 $DESTDIR/usr/share/doc$DESTDIR/liboauth-1.0.3"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/liboauth.html",
+  "category": "security",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

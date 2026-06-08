@@ -1,0 +1,42 @@
+{
+  "name": "freetype2",
+  "version": "2.14.1",
+  "description": "The FreeType2 package contains a library which allows applications to properly render TrueType fonts.",
+  "url": "https://downloads.sourceforge.net/freetype/freetype-2.14.1.tar.xz",
+  "dependencies": {
+    "required": [
+      "libpng"
+    ],
+    "recommended": [
+      "which"
+    ],
+    "post": [
+      "harfbuzz"
+    ],
+    "rebuild_after": [
+      "harfbuzz"
+    ]
+  },
+  "build": {
+    "user": [
+      "tar -xf ../freetype-doc-2.14.1.tar.xz --strip-components=2 -C docs",
+      "sed -ri \"s:.*(AUX_MODULES.*valid):\\1:\" modules.cfg",
+      "sed -r \"s:.*(#.*SUBPIXEL_RENDERING) .*:\\1:\" \\\n    -i include/freetype/config/ftoption.h",
+      "./configure --prefix=/usr            \\\n            --disable-static         \\\n            --enable-freetype-config \\\n            --with-harfbuzz=dynamic",
+      "make",
+      "cp -v -R docs -T /usr/share/doc/freetype-2.14.1",
+      "rm -v /usr/share/doc/freetype-2.14.1/freetype-config.1"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/freetype2.html",
+  "category": "graphics",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

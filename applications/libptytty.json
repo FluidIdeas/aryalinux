@@ -1,0 +1,30 @@
+{
+  "name": "libptytty",
+  "version": "2.0",
+  "description": "The libptytty package provides a library that allows for OS independent and secure pty/tty and utmp/wtmp/lastlog handling.",
+  "url": "http://dist.schmorp.de/libptytty/libptytty-2.0.tar.gz",
+  "dependencies": {
+    "required": [
+      "cmake"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "cmake -D CMAKE_INSTALL_PREFIX=/usr     \\\n      -D CMAKE_BUILD_TYPE=Release      \\\n      -D PT_UTMP_FILE=/run/utmp        \\\n      ..",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/libptytty.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

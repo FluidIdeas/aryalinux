@@ -1,0 +1,30 @@
+{
+  "name": "libqalculate",
+  "version": "5.9.0",
+  "description": "The libqalculate package contains a library that provides functions for a multi-purpose calculator.",
+  "url": "https://github.com/Qalculate/libqalculate/releases/download/v5.9.0/libqalculate-5.9.0.tar.gz",
+  "dependencies": {
+    "required": [
+      "curl",
+      "icu"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr    \\\n            --disable-static \\\n            --docdir=/usr/share/doc/libqalculate-5.9.0",
+      "make",
+      "rm -v /usr/lib/libqalculate.la"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/libqalculate.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

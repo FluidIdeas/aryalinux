@@ -1,0 +1,34 @@
+{
+  "name": "fcron",
+  "version": "3.4.0",
+  "description": "The Fcron package contains a periodical command scheduler which aims at replacing Vixie Cron.",
+  "url": "http://fcron.free.fr/archives/fcron-3.4.0.src.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "find doc -type f -exec sed -i 's:/usr/local::g' {} \\;",
+      "./configure --prefix=/usr        \\\n            --sysconfdir=/etc    \\\n            --localstatedir=/var \\\n            --without-sendmail   \\\n            --with-piddir=/run   \\\n            --with-boot-install=no",
+      "make",
+      "groupadd -g 22 fcron",
+      "useradd -d /dev/null -c \"Fcron User\" -g fcron -s /bin/false -u 22 fcron",
+      "cat > /usr/bin/run-parts << \"EOF\"",
+      "#!/bin/sh\n# run-parts:  Runs all the scripts found in a directory.\n# from Slackware, by Patrick J. Volkerding with ideas borrowed\n# from the Red Hat and Debian versions of this utility.\n\n# keep going when something fails\nset +e\n\nif [ $# -lt 1 ]; then\n  echo \"Usage: run-parts <directory>\"\n  exit 1\nfi\n\nif [ ! -d $1 ]; then\n  echo \"Not a directory: $1\"\n  echo \"Usage: run-parts <directory>\"\n  exit 1\nfi\n\n# There are several types of files that we would like to\n# ignore automatically, as they are likely to be backups\n# of other scripts:\nIGNORE_SUFFIXES=\"~ ^ , .bak .new .rpmsave .rpmorig .rpmnew .swp\"\n\n# Main loop:\nfor SCRIPT in $1/* ; do\n  # If this is not a regular file, skip it:\n  if [ ! -f $SCRIPT ]; then\n    continue\n  fi\n  # Determine if this file should be skipped by suffix:\n  SKIP=false\n  for SUFFIX in $IGNORE_SUFFIXES ; do\n    if [ ! \"$(basename $SCRIPT $SUFFIX)\" = \"$(basename $SCRIPT)\" ]; then\n      SKIP=true\n      break\n    fi\n  done\n  if [ \"$SKIP\" = \"true\" ]; then\n    continue\n  fi\n  # If we've made it this far, then run the script if it's executable:\n  if [ -x $SCRIPT ]; then\n    $SCRIPT || echo \"$SCRIPT failed.\"\n  fi\ndone\n\nexit 0\nEOF\nchmod -v 755 /usr/bin/run-parts",
+      "cat > /var/spool/fcron/systab.orig << \"EOF\"\n&bootrun 01 * * * * root run-parts /etc/cron.hourly\n&bootrun 02 4 * * * root run-parts /etc/cron.daily\n&bootrun 22 4 * * 0 root run-parts /etc/cron.weekly\n&bootrun 42 4 1 * * root run-parts /etc/cron.monthly\nEOF",
+      "systemctl enable fcron",
+      "systemctl start fcron",
+      "fcrontab -z -u systab"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -vdm754 $DESTDIR/etc/cron.{hourly,daily,weekly,monthly}"
+    ]
+  },
+  "meta": false,
+  "book": "general/fcron.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

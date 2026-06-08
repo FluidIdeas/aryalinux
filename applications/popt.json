@@ -1,0 +1,28 @@
+{
+  "name": "popt",
+  "version": "1.19",
+  "description": "The popt package contains the popt libraries which are used by some programs to parse command-line options.",
+  "url": "https://ftp.osuosl.org/pub/rpm/popt/releases/popt-1.x/popt-1.19.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --disable-static",
+      "make",
+      "sed -i 's@\\./@src/@' Doxyfile",
+      "doxygen"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m755 -d $DESTDIR/usr/share/doc/popt-1.19",
+      "install -v -m644 doxygen/html/* $DESTDIR/usr/share/doc/popt-1.19"
+    ]
+  },
+  "meta": false,
+  "book": "general/popt.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

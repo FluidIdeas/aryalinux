@@ -1,0 +1,28 @@
+{
+  "name": "potrace",
+  "version": "1.16",
+  "description": "Potrace™ is a tool for transforming a bitmap (PBM, PGM, PPM, or BMP format) into one of several vector file formats.",
+  "url": "https://downloads.sourceforge.net/potrace/potrace-1.16.tar.gz",
+  "dependencies": {
+    "required": [
+      "llvm"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr                        \\\n            --disable-static                     \\\n            --docdir=/usr/share/doc/potrace-1.16 \\\n            --enable-a4                          \\\n            --enable-metric                      \\\n            --with-libpotrace",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/potrace.html",
+  "category": "graphics",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

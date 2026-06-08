@@ -1,0 +1,32 @@
+{
+  "name": "libinput",
+  "version": "1.31.0",
+  "description": "libinput is a library that handles input devices for display servers and other applications that need to directly deal with input devices.",
+  "url": "https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.31.0/libinput-1.31.0.tar.gz",
+  "dependencies": {
+    "required": [
+      "x7driver"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup ..              \\\n      --prefix=$XORG_PREFIX \\\n      --buildtype=release   \\\n      -D debug-gui=false    \\\n      -D tests=false        \\\n      -D libwacom=false     \\\n      -D udev-dir=/usr/lib/udev",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install",
+      "install -v -dm755      $DESTDIR/usr/share/doc$DESTDIR/libinput-1.31.0/html",
+      "cp -rv Documentation/* $DESTDIR/usr/share/doc$DESTDIR/libinput-1.31.0/html"
+    ]
+  },
+  "meta": false,
+  "book": "x/x7driver.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

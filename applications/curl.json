@@ -1,0 +1,32 @@
+{
+  "name": "curl",
+  "version": "8.18.0",
+  "description": "The cURL package contains a utility and a library used for transferring files with URL syntax to any of the following protocols: DICT, FILE, FTP, FTPS, GOPHER, GOPHERS, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, MQTT, POP3, POP3S, RTSP, SMB, SMBS, SMTP, SMPTS, TELNET, and TFTP. Its ability to both download and upload files can be incorporated into other programs to support functions like streaming media.",
+  "url": "https://curl.se/download/curl-8.18.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "libpsl",
+      "make-ca"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr    \\\n            --disable-static \\\n            --with-openssl   \\\n            --with-ca-path=/etc/ssl/certs",
+      "make",
+      "rm -rf docs/examples/.deps",
+      "find docs \\( -name Makefile\\* -o  \\\n             -name \\*.1       -o  \\\n             -name \\*.3       -o  \\\n             -name CMakeLists.txt \\) -delete",
+      "cp -v -R docs -T /usr/share/doc/curl-8.18.0"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "basicnet/curl.html",
+  "category": "networking",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

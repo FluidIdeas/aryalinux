@@ -1,0 +1,31 @@
+{
+  "name": "alsa-utils",
+  "version": "1.2.15.2",
+  "description": "The ALSA Utilities package contains various utilities which are useful for controlling your sound card.",
+  "url": "https://www.alsa-project.org/files/pub/utils/alsa-utils-1.2.15.2.tar.bz2",
+  "dependencies": {
+    "required": [
+      "alsa-lib"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --disable-alsaconf \\\n            --disable-bat      \\\n            --disable-xmlto    \\\n            --with-curses=ncursesw",
+      "make",
+      "alsactl init",
+      "cat > /etc/asound.conf << \"EOF\"\n# Begin /etc/asound.conf\n\ndefaults.pcm.card 1\ndefaults.ctl.card 1\n\n# End /etc/asound.conf\nEOF",
+      "alsactl -L store"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/alsa-utils.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

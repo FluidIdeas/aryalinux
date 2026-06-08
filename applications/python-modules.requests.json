@@ -1,0 +1,37 @@
+{
+  "name": "python-modules.requests",
+  "version": "2.32.5",
+  "description": "The Requests package is an elegant and simple HTTP library for Python, built for human beings. It allows sending HTTP/1.1 requests extremely easily.",
+  "url": "https://files.pythonhosted.org/packages/source/r/requests/requests-2.32.5.tar.gz",
+  "patches": [
+    "https://www.linuxfromscratch.org/patches/blfs/svn/requests-2.28.2-use_system_certs-1.patch"
+  ],
+  "dependencies": {
+    "required": [
+      "python-deps.charset-normalizer",
+      "python-deps.idna",
+      "python-deps.urllib3",
+      "make-ca",
+      "p11-kit"
+    ]
+  },
+  "build": {
+    "pre": [
+      "patch -Np1 -i ../requests-2.28.2-use_system_certs-1.patch"
+    ],
+    "user": [
+      "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+    ],
+    "package": [
+      "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user requests"
+    ]
+  },
+  "meta": false,
+  "book": "general/python-modules.html",
+  "category": "python-module",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

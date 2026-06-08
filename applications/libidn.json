@@ -1,0 +1,28 @@
+{
+  "name": "libidn",
+  "version": "1.43",
+  "description": "libidn is a package designed for internationalized string handling based on the Stringprep, Punycode and IDNA specifications defined by the Internet Engineering Task Force (IETF) Internationalized Domain Names (IDN) working group, used for internationalized domain names. This is useful for converting data from the system's native representation into UTF-8, transforming Unicode strings into ASCII strings, allowing applications to use certain ASCII name labels (beginning with a special prefix) to represent non-ASCII name labels, and converting entire domain names to and from the ASCII Compatible Encoding (ACE) form.",
+  "url": "https://ftpmirror.gnu.org/libidn/libidn-1.43.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --disable-static",
+      "make",
+      "find doc -name \"Makefile*\" -delete",
+      "rm -rf -v doc/{gdoc,idn.1,stamp-vti,man,texi}",
+      "mkdir -v       /usr/share/doc/libidn-1.43",
+      "cp -r -v doc/* /usr/share/doc/libidn-1.43"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/libidn.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

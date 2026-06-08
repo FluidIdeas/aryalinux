@@ -1,0 +1,39 @@
+{
+  "name": "accountsservice",
+  "version": "23.13.9",
+  "description": "The AccountsService package provides a set of D-Bus interfaces for querying and manipulating user account information and an implementation of those interfaces based on the usermod(8), useradd(8), and userdel(8) commands.",
+  "url": "https://www.freedesktop.org/software/accountsservice/accountsservice-23.13.9.tar.xz",
+  "dependencies": {
+    "required": [
+      "polkit",
+      "glib2",
+      "systemd",
+      "vala"
+    ]
+  },
+  "build": {
+    "user": [
+      "mv tests/dbusmock{,-tests}",
+      "sed -e '/accounts_service\\.py/s/dbusmock/dbusmock-tests/' \\\n    -e 's/assertEquals/assertEqual/'                      \\\n    -i tests/test-libaccountsservice.py",
+      "sed -i '/^SIMULATED_SYSTEM_LOCALE/s/en_IE.UTF-8/en_HK.iso88591/' tests/test-daemon.py",
+      "mkdir build",
+      "cd    build",
+      "meson setup ..            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D admin_group=adm",
+      "grep 'print_indent'     ../subprojects/mocklibc-1.0/src/netgroup.c \\\n     | sed 's/ {/;/' >> ../subprojects/mocklibc-1.0/src/netgroup.h",
+      "sed -i '1i#include <stdio.h>'                                      \\\n    ../subprojects/mocklibc-1.0/src/netgroup.h",
+      "ninja",
+      "cat > /etc/polkit-1/rules.d/40-adm.rules << \"EOF\"\npolkit.addAdminRule(function(action, subject) {\n   return [\"unix-group:adm\"];\n   });\nEOF"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "general/accountsservice.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

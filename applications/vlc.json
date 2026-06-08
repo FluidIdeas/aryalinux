@@ -1,0 +1,37 @@
+{
+  "name": "vlc",
+  "version": "3.0.23",
+  "description": "VLC is a media player, streamer, and encoder. It can play from many inputs, such as files, network streams, capture devices, desktops, or DVD, SVCD, VCD, and audio CD. It can use most audio and video codecs (MPEG 1/2/4, H264, VC-1, DivX, WMV, Vorbis, AC3, AAC, etc.), and it can also convert to different formats and/or send streams through the network.",
+  "url": "https://download.videolan.org/vlc/3.0.23/vlc-3.0.23.tar.xz",
+  "dependencies": {
+    "required": [
+      "alsa-lib",
+      "ffmpeg",
+      "liba52",
+      "lua",
+      "qt6"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i 's/gstvideopool.h/video.h/' modules/codec/gstreamer/gstvlcvideopool.h",
+      "BUILDCC=gcc ./configure --prefix=/usr",
+      "make"
+    ],
+    "package": [
+      "make docdir=$DESTDIR/usr/share/doc/vlc-3.0.23 install DESTDIR=$DESTDIR"
+    ]
+  },
+  "post_install": [
+    "gtk-update-icon-cache -qtf /usr/share/icons/hicolor",
+    "update-desktop-database -q"
+  ],
+  "meta": false,
+  "book": "multimedia/vlc.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "libblockdev",
+  "version": "3.4.0",
+  "description": "libblockdev is a C library supporting GObject Introspection for manipulation of block devices. It has a plugin-based architecture where each technology (like LVM, Btrfs, MD RAID, Swap,...) is implemented in a separate plugin, possibly with multiple implementations (e.g. using LVM CLI or the new LVM DBus API).",
+  "url": "https://github.com/storaged-project/libblockdev/releases/download/3.4.0/libblockdev-3.4.0.tar.gz",
+  "dependencies": {
+    "required": [
+      "glib2",
+      "cryptsetup",
+      "libatasmart",
+      "libnvme"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr      \\\n            --sysconfdir=/etc  \\\n            --with-python3     \\\n            --without-escrow   \\\n            --without-gtk-doc  \\\n            --without-lvm      \\\n            --without-lvm_dbus \\\n            --without-nvdimm   \\\n            --without-tools    \\\n            --without-smartmontools",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/libblockdev.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

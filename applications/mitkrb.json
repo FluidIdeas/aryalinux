@@ -1,0 +1,39 @@
+{
+  "name": "mitkrb",
+  "version": "1.22.2",
+  "description": "MIT Kerberos V5 is a free implementation of Kerberos 5. Kerberos is a network authentication protocol. It centralizes the authentication database and uses kerberized applications to work with servers or services that support Kerberos allowing single logins and encrypted communication over internal networks or the Internet.",
+  "url": "https://kerberos.org/dist/krb5/1.22/krb5-1.22.2.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "patch -Np1 -i ../mitkrb-1.22.2-upstream_fix-1.patch",
+      "cd src",
+      "sed -i -e '/eq 0/{N;s/12 //}' plugins/kdb/db2/libdb2/test/run.test",
+      "./configure --prefix=/usr            \\\n            --sysconfdir=/etc        \\\n            --localstatedir=/var/lib \\\n            --runstatedir=/run       \\\n            --with-system-et         \\\n            --with-system-ss         \\\n            --with-system-verto=no   \\\n            --enable-dns-for-realm   \\\n            --disable-rpath",
+      "make",
+      "kinit <loginname>",
+      "klist",
+      "cp -vfr ../doc -T /usr/share/doc/krb5-1.22.2",
+      "cat > /etc/krb5.conf << \"EOF\"\n# Begin /etc/krb5.conf\n\n[libdefaults]\n    default_realm = <EXAMPLE.ORG>\n    encrypt = true\n\n[realms]\n    <EXAMPLE.ORG> = {\n        kdc = <belgarath.example.org>\n        admin_server = <belgarath.example.org>\n        dict_file = /usr/share/dict/words\n    }\n\n[domain_realm]\n    .<example.org> = <EXAMPLE.ORG>\n\n[logging]\n    kdc = SYSLOG:INFO:AUTH\n    admin_server = SYSLOG:INFO:AUTH\n    default = SYSLOG:DEBUG:DAEMON\n\n# End /etc/krb5.conf\nEOF",
+      "kdb5_util create -r <EXAMPLE.ORG> -s",
+      "kadmin.local\nkadmin.local: add_policy dict-only\nkadmin.local: addprinc -policy dict-only <loginname>",
+      "kadmin.local: addprinc -randkey host/<belgarath.example.org>",
+      "kadmin.local: ktadd host/<belgarath.example.org>",
+      "/usr/sbin/krb5kdc",
+      "ktutil\nktutil: rkt /etc/krb5.keytab\nktutil: l",
+      "touch /var/lib/krb5kdc/kadm5.acl"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "make install-krb5 DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/mitkrb.html",
+  "category": "security",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

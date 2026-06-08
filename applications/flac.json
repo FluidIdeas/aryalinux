@@ -1,0 +1,24 @@
+{
+  "name": "flac",
+  "version": "1.5.0",
+  "description": "FLAC is an audio CODEC similar to MP3, but lossless, meaning that audio is compressed without losing any information.",
+  "url": "https://github.com/xiph/flac/releases/download/1.5.0/flac-1.5.0.tar.xz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr            \\\n            --disable-thorough-tests \\\n            --docdir=/usr/share/doc/flac-1.5.0",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/flac.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

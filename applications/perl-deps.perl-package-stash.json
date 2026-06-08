@@ -1,0 +1,31 @@
+{
+  "name": "perl-deps.perl-package-stash",
+  "version": "0.40",
+  "description": "Perl module perl::package::stash providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Package-Stash-0.40.tar.gz",
+  "dependencies": {
+    "required": [
+      "perl-deps.perl-dist-checkconflicts",
+      "perl-deps.perl-cpan-meta-check",
+      "perl-deps.perl-test-fatal",
+      "perl-deps.perl-test-needs"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

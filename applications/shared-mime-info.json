@@ -1,0 +1,32 @@
+{
+  "name": "shared-mime-info",
+  "version": "2.4",
+  "description": "The Shared Mime Info package contains a MIME database. This allows central updates of MIME information for all supporting applications.",
+  "url": "https://gitlab.freedesktop.org/xdg/shared-mime-info/-/archive/2.4/shared-mime-info-2.4.tar.gz",
+  "dependencies": {
+    "required": [
+      "glib2"
+    ]
+  },
+  "build": {
+    "user": [
+      "tar -xf ../xdgmime.tar.xz",
+      "make -C xdgmime",
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release -D update-mimedb=true ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "general/shared-mime-info.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "baobab",
+  "version": "49.1",
+  "description": "The Baobab package contains a graphical directory tree analyzer.",
+  "url": "https://download.gnome.org/sources/baobab/49/baobab-49.1.tar.xz",
+  "dependencies": {
+    "required": [
+      "adwaita-icon-theme",
+      "gtk4",
+      "itstool"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/baobab.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

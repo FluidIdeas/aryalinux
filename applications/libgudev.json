@@ -1,0 +1,30 @@
+{
+  "name": "libgudev",
+  "version": "0",
+  "description": "The libgudev package contains GObject bindings for libudev.",
+  "url": "https://download.gnome.org/sources/libgudev/238/libgudev-238.tar.xz",
+  "dependencies": {
+    "required": [
+      "glib2"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "general/libgudev.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

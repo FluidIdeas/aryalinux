@@ -1,0 +1,29 @@
+{
+  "name": "libass",
+  "version": "0.17.4",
+  "description": "libass is a portable subtitle renderer for the ASS/SSA (Advanced Substation Alpha/Substation Alpha) subtitle format that allows for more advanced subtitles than the conventional SRT and similar formats.",
+  "url": "https://github.com/libass/libass/releases/download/0.17.4/libass-0.17.4.tar.xz",
+  "dependencies": {
+    "required": [
+      "freetype2",
+      "fontconfig"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --disable-static",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/libass.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

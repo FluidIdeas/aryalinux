@@ -1,0 +1,28 @@
+{
+  "name": "icon-naming-utils",
+  "version": "0.8.90",
+  "description": "The icon-naming-utils package contains a Perl script used for maintaining backwards compatibility with current desktop icon themes, while migrating to the names specified in the Icon Naming Specification.",
+  "url": "https://tango.freedesktop.org/releases/icon-naming-utils-0.8.90.tar.bz2",
+  "dependencies": {
+    "required": [
+      "perl-modules.perl-xml-simple"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "x/icon-naming-utils.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

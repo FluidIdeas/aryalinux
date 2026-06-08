@@ -1,0 +1,28 @@
+{
+  "name": "xcb-util",
+  "version": "0.4.1",
+  "description": "The xcb-util package provides additional extensions to the XCB library, many that were previously found in Xlib, but are not part of core X protocol.",
+  "url": "https://xcb.freedesktop.org/dist/xcb-util-0.4.1.tar.xz",
+  "dependencies": {
+    "required": [
+      "libxcb"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure $XORG_CONFIG",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "x/xcb-util.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

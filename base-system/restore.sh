@@ -9,10 +9,9 @@ echo "Which backup you want to restore?"
 echo "1. Base System"
 echo "2. Base System with X Server"
 echo "3. Base System with XFCE"
-echo "4. Base System with Mate"
-echo "5. Base System with KDE"
-echo "6. Base System with Gnome"
-read -p "Enter your choice (1 - 6) : " CHOICE
+echo "4. Base System with KDE"
+echo "5. Base System with Gnome"
+read -p "Enter your choice (1 - 5) : " CHOICE
 
 if [ "x$BACKUP_DIR" == "x" ]; then
     BACKUP_DIR="/root/backup"
@@ -53,16 +52,11 @@ elif [ "x$CHOICE" == "x3" ]; then
     cp $BACKUP_DIR/aryalinux*base-system-with-xserver-x86_64.tar.gz $LFS/sources/
     cp $BACKUP_DIR/min/aryalinux*base-system-with-xfce-x86_64.tar.gz $LFS/sources/
 elif [ "x$CHOICE" == "x4" ]; then
-    tar xf $BACKUP_DIR/min/aryalinux*base-system-with-mate-x86_64.tar.gz -C /
-    cp $BACKUP_DIR/aryalinux*base-system-x86_64.tar.gz $LFS/sources/
-    cp $BACKUP_DIR/aryalinux*base-system-with-xserver-x86_64.tar.gz $LFS/sources/
-    cp $BACKUP_DIR/min/aryalinux*base-system-with-mate-x86_64.tar.gz $LFS/sources/
-elif [ "x$CHOICE" == "x5" ]; then
     tar xf $BACKUP_DIR/min/aryalinux*base-system-with-kde-x86_64.tar.gz -C /
     cp $BACKUP_DIR/aryalinux*base-system-x86_64.tar.gz $LFS/sources/
     cp $BACKUP_DIR/aryalinux*base-system-with-xserver-x86_64.tar.gz $LFS/sources/
     cp $BACKUP_DIR/min/aryalinux*base-system-with-kde-x86_64.tar.gz $LFS/sources/
-elif [ "x$CHOICE" == "x6" ]; then
+elif [ "x$CHOICE" == "x5" ]; then
     tar xf $BACKUP_DIR/min/aryalinux*base-system-with-gnome-x86_64.tar.gz -C /
     cp $BACKUP_DIR/aryalinux*base-system-x86_64.tar.gz $LFS/sources/
     cp $BACKUP_DIR/aryalinux*base-system-with-xserver-x86_64.tar.gz $LFS/sources/

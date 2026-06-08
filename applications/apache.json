@@ -1,0 +1,38 @@
+{
+  "name": "apache",
+  "version": "2.4.66",
+  "description": "The Apache HTTPD package contains an open-source HTTP server. It is useful for creating local intranet web sites or running huge web serving operations.",
+  "url": "https://archive.apache.org/dist/httpd/httpd-2.4.66.tar.bz2",
+  "dependencies": {
+    "required": [
+      "apr-util"
+    ]
+  },
+  "build": {
+    "user": [
+      "patch -Np1 -i ../httpd-blfs_layout-1.patch",
+      "sed '/dir.*CFG_PREFIX/s@^@#@' -i support/apxs.in",
+      "sed -e '/HTTPD_ROOT/s:${ap_prefix}:/etc/httpd:'       \\\n    -e '/SERVER_CONFIG_FILE/s:${rel_sysconfdir}/::'   \\\n    -e '/AP_TYPES_CONFIG_FILE/s:${rel_sysconfdir}/::' \\\n    -i configure",
+      "./configure --enable-authnz-fcgi                    \\\n            --enable-layout=BLFS                    \\\n            --enable-mods-shared=\"all cgi\"          \\\n            --enable-mpms-shared=all                \\\n            --enable-suexec=shared                  \\\n            --with-apr=/usr/bin/apr-1-config        \\\n            --with-apr-util=/usr/bin/apu-1-config   \\\n            --with-suexec-bin=/usr/lib/httpd/suexec \\\n            --with-suexec-caller=apache             \\\n            --with-suexec-docroot=/srv/www          \\\n            --with-suexec-uidmin=100                \\\n            --with-suexec-userdir=public_html       \\\n            --with-suexec-logfile=/var/log/httpd/suexec.log",
+      "make",
+      "groupadd -g 25 apache",
+      "useradd -c \"Apache Server\" -d /srv/www -g apache \\\n        -s /bin/false -u 25 apache",
+      "mv -v /usr/sbin/suexec /usr/lib/httpd/suexec",
+      "chgrp apache           /usr/lib/httpd/suexec",
+      "chmod 4754             /usr/lib/httpd/suexec",
+      "chown -v -R apache:apache /srv/www"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "make install-httpd DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "server/apache.html",
+  "category": "server",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

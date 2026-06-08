@@ -1,0 +1,36 @@
+{
+  "name": "gnome-terminal",
+  "version": "3.58.1",
+  "description": "The GNOME Terminal package contains the terminal emulator for GNOME Desktop.",
+  "url": "https://gitlab.gnome.org/GNOME/gnome-terminal/-/archive/3.58.1/gnome-terminal-3.58.1.tar.gz",
+  "dependencies": {
+    "required": [
+      "dconf",
+      "gnome-shell",
+      "gsettings-desktop-schemas",
+      "itstool",
+      "vte",
+      "nautilus"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i -r 's:\"(/system):\"/org/gnome\\1:g' src/external.gschema.xml",
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/gnome-terminal.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

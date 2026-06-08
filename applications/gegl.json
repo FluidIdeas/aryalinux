@@ -1,0 +1,39 @@
+{
+  "name": "gegl",
+  "version": "0.4.66",
+  "description": "This package provides the GEneric Graphics Library, which is a graph based image processing format.",
+  "url": "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.66.tar.xz",
+  "dependencies": {
+    "required": [
+      "babl",
+      "json-glib"
+    ],
+    "recommended": [
+      "glib2",
+      "python-modules.pygments"
+    ],
+    "post": [
+      "graphviz"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja",
+      "rm -f /usr/lib/gegl-0.4/vector-fill.so"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "general/gegl.html",
+  "category": "graphics",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

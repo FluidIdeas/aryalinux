@@ -1,0 +1,30 @@
+{
+  "name": "gparted",
+  "version": "1.8.0",
+  "description": "Gparted is the Gnome Partition Editor, a Gtk 3 GUI for other command line tools that can create, reorganise or delete disk partitions.",
+  "url": "https://downloads.sourceforge.net/gparted/gparted-1.8.0.tar.gz",
+  "dependencies": {
+    "required": [
+      "gtkmm3"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr    \\\n            --disable-doc    \\\n            --disable-static",
+      "make",
+      "cp -v /usr/share/applications/gparted.desktop /usr/share/applications/gparted.desktop.back",
+      "sed -i 's/Exec=/Exec=sudo -A /'               /usr/share/applications/gparted.desktop"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "xsoft/gparted.html",
+  "category": "applications",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

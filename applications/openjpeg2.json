@@ -1,0 +1,31 @@
+{
+  "name": "openjpeg2",
+  "version": "2.5.4",
+  "description": "OpenJPEG is an open-source implementation of the JPEG-2000 standard. OpenJPEG fully respects the JPEG-2000 specifications and can compress/decompress lossless 16-bit images.",
+  "url": "https://github.com/uclouvain/openjpeg/archive/v2.5.4/openjpeg-2.5.4.tar.gz",
+  "dependencies": {
+    "required": [
+      "cmake"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir -v build",
+      "cd       build",
+      "cmake -D CMAKE_BUILD_TYPE=Release  \\\n      -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D BUILD_STATIC_LIBS=OFF ..",
+      "make",
+      "cp -rv ../doc/man -T /usr/share/man"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/openjpeg2.html",
+  "category": "graphics",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

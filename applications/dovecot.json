@@ -1,0 +1,37 @@
+{
+  "name": "dovecot",
+  "version": "2.4.2",
+  "description": "Dovecot is an Internet Message Access Protocol (IMAP) and Post Office Protocol (POP) server, written primarily with security in mind. Dovecot aims to be lightweight, fast and easy to set up as well as highly configurable and easily extensible with plugins.",
+  "url": "https://www.dovecot.org/releases/2.4/dovecot-2.4.2.tar.gz",
+  "dependencies": {
+    "required": [
+      "libtirpc"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr                          \\\n            --sysconfdir=/etc                      \\\n            --localstatedir=/var                   \\\n            --docdir=/usr/share/doc/dovecot-2.4.2  \\\n            --disable-static",
+      "make",
+      "groupadd -g 42 dovecot",
+      "useradd -c \"Dovecot unprivileged user\" -d /dev/null -u 42 \\\n        -g dovecot -s /bin/false dovecot",
+      "groupadd -g 43 dovenull",
+      "useradd -c \"Dovecot login user\" -d /dev/null -u 43 \\\n        -g dovenull -s /bin/false dovenull",
+      "mv -v /etc/dovecot/dovecot.conf{,.orig}",
+      "chmod -v 1777 /var/mail",
+      "cat > /etc/dovecot/dovecot.conf << \"EOF\"\n\n# The dovecot configuration requires a minimum version to be set. The server\n# will refuse to start if the version set here is older than the version of\n# Dovecot installed. This option allows the Dovecot server to set reasonable\n# default values based on what version is set here.\ndovecot_config_version = 2.4.2\n\n# This option sets the minimum version that is able to read data files from\n# the Dovecot server. This is primarily for a cluster which may have several\n# different versions of Dovecot installed, but is required for the server to\n# run.\ndovecot_storage_version = 2.4.2\n\nprotocols = imap\nssl = no\n# The next line is only needed if you have no IPv6 network interfaces\nlisten = *\nmail_inbox_path = /var/mail/%{user}\nmail_driver = mbox\nmail_path = ~/Mail\nuserdb users {\n  driver = passwd\n}\npassdb passwords {\n  driver = pam\n}\nEOF",
+      "cat > /etc/pam.d/dovecot << \"EOF\"\n# Begin /etc/pam.d/dovecot\n\nauth     include system-auth\naccount  include system-account\npassword include system-password\n\n# End /etc/pam.d/dovecot\nEOF",
+      "systemctl enable dovecot"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "server/dovecot.html",
+  "category": "server",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

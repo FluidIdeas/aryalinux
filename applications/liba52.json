@@ -1,0 +1,26 @@
+{
+  "name": "liba52",
+  "version": "0.8.0",
+  "description": "liba52 is a free library for decoding ATSC A/52 (also known as AC-3) streams. The A/52 standard is used in a variety of applications, including digital television and DVD.",
+  "url": "https://distfiles.adelielinux.org/source/a52dec/a52dec-0.8.0.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr           \\\n            --mandir=/usr/share/man \\\n            --enable-shared         \\\n            --disable-static        \\\n            CFLAGS=\"${CFLAGS:--g -O3} -fPIC\"",
+      "make",
+      "cp liba52/a52_internal.h /usr/include/a52dec"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m644 -D doc$DESTDIR/liba52.txt \\\n    $DESTDIR/usr/share/doc$DESTDIR/liba52-0.8.0$DESTDIR/liba52.txt"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/liba52.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

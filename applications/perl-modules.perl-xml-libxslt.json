@@ -1,0 +1,28 @@
+{
+  "name": "perl-modules.perl-xml-libxslt",
+  "version": "2.003000",
+  "description": "Perl module perl::xml::libxslt used by applications and other Perl packages on the system.",
+  "url": "https://www.cpan.org/authors/id/S/SH/SHLOMIF/XML-LibXSLT-2.003000.tar.gz",
+  "dependencies": {
+    "required": [
+      "libxslt"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-modules.html",
+  "category": "perl-module",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

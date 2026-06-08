@@ -1,0 +1,31 @@
+{
+  "name": "imlib2",
+  "version": "1.12.6",
+  "description": "imlib2 is a graphics library for fast file loading, saving, rendering and manipulation.",
+  "url": "https://downloads.sourceforge.net/enlightenment/imlib2-1.12.6.tar.xz",
+  "dependencies": {
+    "required": [
+      "x7lib",
+      "giflib"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --disable-static",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m755 -d            $DESTDIR/usr/share/doc/imlib2-1.12.6/html",
+      "install -v -m644    doc/html/* $DESTDIR/usr/share/doc/imlib2-1.12.6/html"
+    ]
+  },
+  "meta": false,
+  "book": "x/imlib2.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

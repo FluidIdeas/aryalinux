@@ -1,0 +1,28 @@
+{
+  "name": "nasm",
+  "version": "3.01",
+  "description": "NASM (Netwide Assembler) is an 80x86 assembler designed for portability and modularity. It includes a disassembler as well.",
+  "url": "https://www.nasm.us/pub/nasm/releasebuilds/3.01/nasm-3.01.tar.xz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "tar -xf ../nasm-3.01-xdoc.tar.xz --strip-components=1",
+      "./configure --prefix=/usr",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -m755 -d $DESTDIR/usr/share/doc/nasm-3.01/html",
+      "cp -v doc/html/*.html $DESTDIR/usr/share/doc/nasm-3.01/html",
+      "cp -v doc/*.{txt,ps,pdf} $DESTDIR/usr/share/doc/nasm-3.01"
+    ]
+  },
+  "meta": false,
+  "book": "general/nasm.html",
+  "category": "programming",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

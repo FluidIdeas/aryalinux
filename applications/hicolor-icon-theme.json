@@ -1,0 +1,26 @@
+{
+  "name": "hicolor-icon-theme",
+  "version": "0.18",
+  "description": "The hicolor-icon-theme package contains a default fallback theme for implementations of the icon theme specification.",
+  "url": "https://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.18.tar.xz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "x/hicolor-icon-theme.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

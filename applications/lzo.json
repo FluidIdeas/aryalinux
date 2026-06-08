@@ -1,0 +1,24 @@
+{
+  "name": "lzo",
+  "version": "2.10",
+  "description": "LZO is a data compression library which is suitable for data decompression and compression in real-time. This means it favors speed over compression ratio.",
+  "url": "https://www.oberhumer.com/opensource/lzo/download/lzo-2.10.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr    \\\n            --enable-shared  \\\n            --disable-static \\\n            --docdir=/usr/share/doc/lzo-2.10",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/lzo.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

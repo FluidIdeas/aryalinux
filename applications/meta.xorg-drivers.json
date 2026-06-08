@@ -1,0 +1,36 @@
+{
+  "name": "meta.xorg-drivers",
+  "version": "1.0",
+  "description": "Metapackage that installs Xorg video and input drivers for hardware support.",
+  "url": "",
+  "dependencies": {
+    "required": [
+      "libevdev",
+      "xorg-evdev-driver",
+      "libinput",
+      "xorg-libinput-driver",
+      "xorg-synaptics-driver",
+      "xorg-wacom-driver",
+      "xorg-vmmouse-driver",
+      "xorg-amdgpu-driver",
+      "xorg-ati-driver",
+      "xorg-fbdev-driver",
+      "xorg-intel-driver",
+      "intel-hybrid-driver",
+      "xorg-nouveau-driver",
+      "xorg-vmware-driver",
+      "libva",
+      "libvdpau",
+      "libvdpau-va-gl"
+    ]
+  },
+  "build": {},
+  "meta": true,
+  "book": "x/x7driver.html",
+  "category": "metapackage",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

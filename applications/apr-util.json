@@ -1,0 +1,28 @@
+{
+  "name": "apr-util",
+  "version": "1.6.3",
+  "description": "The Apache Portable Runtime Utility Library provides a predictable and consistent interface to underlying client library interfaces. This application programming interface assures predictable if not identical behavior regardless of which libraries are available on a given platform.",
+  "url": "https://archive.apache.org/dist/apr/apr-util-1.6.3.tar.bz2",
+  "dependencies": {
+    "required": [
+      "apr"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr       \\\n            --with-apr=/usr     \\\n            --with-gdbm=/usr    \\\n            --with-openssl=/usr \\\n            --with-crypto",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/apr-util.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

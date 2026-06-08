@@ -1,0 +1,32 @@
+{
+  "name": "gsound",
+  "version": "1.0.3",
+  "description": "The gsound package contains a small library for playing system sounds.",
+  "url": "https://download.gnome.org/sources/gsound/1.0/gsound-1.0.3.tar.xz",
+  "dependencies": {
+    "required": [
+      "libcanberra",
+      "glib2",
+      "vala"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/gsound.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

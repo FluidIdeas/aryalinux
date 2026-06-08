@@ -1,0 +1,32 @@
+{
+  "name": "lvm2",
+  "version": "2.03.38",
+  "description": "The LVM2 package is a set of tools that manage logical partitions. It allows spanning of file systems across multiple physical disks and disk partitions and provides for dynamic growing or shrinking of logical partitions, mirroring and low storage footprint snapshots.",
+  "url": "https://sourceware.org/ftp/lvm2/LVM2.2.03.38.tgz",
+  "dependencies": {
+    "required": [
+      "libaio"
+    ]
+  },
+  "build": {
+    "user": [
+      "PATH+=:/usr/sbin                \\\n./configure --prefix=/usr       \\\n            --enable-cmdlib     \\\n            --enable-pkgconfig  \\\n            --enable-udev_sync",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "make install_systemd_units DESTDIR=$DESTDIR"
+    ]
+  },
+  "post_install": [
+    "sed -e '/locking_dir =/{s/#//;s/var/run/}' -i /etc/lvm/lvm.conf"
+  ],
+  "meta": false,
+  "book": "postlfs/lvm2.html",
+  "category": "system",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

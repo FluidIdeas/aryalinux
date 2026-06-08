@@ -1,0 +1,28 @@
+{
+  "name": "x264",
+  "version": "0",
+  "description": "x264 package provides a library for encoding video streams into the H.264/MPEG-4 AVC format.",
+  "url": "https://anduin.linuxfromscratch.org/BLFS/x264/x264-20250815.tar.xz",
+  "dependencies": {
+    "required": [
+      "nasm"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr   \\\n            --enable-shared \\\n            --disable-cli",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/x264.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

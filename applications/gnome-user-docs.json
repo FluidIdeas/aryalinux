@@ -1,0 +1,28 @@
+{
+  "name": "gnome-user-docs",
+  "version": "49.4",
+  "description": "The GNOME User Docs package contains documentation for GNOME.",
+  "url": "https://download.gnome.org/sources/gnome-user-docs/49/gnome-user-docs-49.4.tar.xz",
+  "dependencies": {
+    "required": [
+      "itstool"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/gnome-user-docs.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

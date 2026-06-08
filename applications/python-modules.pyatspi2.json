@@ -1,0 +1,32 @@
+{
+  "name": "python-modules.pyatspi2",
+  "version": "2.58.1",
+  "description": "The PyAtSpi2 package contains Python bindings for the core components of the GNOME Accessibility.",
+  "url": "https://download.gnome.org/sources/pyatspi/2.58/pyatspi-2.58.1.tar.xz",
+  "dependencies": {
+    "required": [
+      "python-modules.dbus-python",
+      "python-modules.pygobject3",
+      "at-spi2-core"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release -D enable_tests=true ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "general/python-modules.html",
+  "category": "python-module",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

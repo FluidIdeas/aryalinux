@@ -1,0 +1,29 @@
+{
+  "name": "libmad",
+  "version": "0.15.1b",
+  "description": "libmad is a high-quality MPEG audio decoder capable of 24-bit output.",
+  "url": "https://downloads.sourceforge.net/mad/libmad-0.15.1b.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "patch -Np1 -i ../libmad-0.15.1b-fixes-1.patch",
+      "sed \"s@AM_CONFIG_HEADER@AC_CONFIG_HEADERS@g\" -i configure.ac",
+      "touch NEWS AUTHORS ChangeLog",
+      "autoreconf -fi",
+      "./configure --prefix=/usr --disable-static",
+      "make",
+      "cat > /usr/lib/pkgconfig/mad.pc << \"EOF\"\nprefix=/usr\nexec_prefix=${prefix}\nlibdir=${exec_prefix}/lib\nincludedir=${prefix}/include\n\nName: mad\nDescription: MPEG audio decoder\nRequires:\nVersion: 0.15.1b\nLibs: -L${libdir} -lmad\nCflags: -I${includedir}\nEOF"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/libmad.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

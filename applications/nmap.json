@@ -1,0 +1,31 @@
+{
+  "name": "nmap",
+  "version": "7.98",
+  "description": "Nmap is a utility for network exploration and security auditing. It supports ping scanning, port scanning and TCP/IP fingerprinting.",
+  "url": "https://nmap.org/dist/nmap-7.98.tar.bz2",
+  "dependencies": {
+    "required": [
+      "python-modules.pypa-build"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -ri Makefile.in \\\n    -e 's#-m build#& --no-isolation#'  \\\n    -e '/pip install/s#(ZENMAP|NDIFF)DIR\\)/#&dist/*.whl#'",
+      "sed 's/, \"setuptools-gettext\"//' -i zenmap/pyproject.toml",
+      "./configure --prefix=/usr",
+      "make",
+      "sed -e '/import imp/d'                \\\n    -e 's/^ndiff = .*$/import ndiff/' \\\n    -i ndiff/ndifftest.py"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "basicnet/nmap.html",
+  "category": "networking",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

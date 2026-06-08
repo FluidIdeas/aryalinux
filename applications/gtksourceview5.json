@@ -1,0 +1,32 @@
+{
+  "name": "gtksourceview5",
+  "version": "5.18.0",
+  "description": "The GtkSourceView package contains a library used for extending the GTK text functions to include syntax highlighting.",
+  "url": "https://download.gnome.org/sources/gtksourceview/5.18/gtksourceview-5.18.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "gtk4",
+      "glib2",
+      "libxml2"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "x/gtksourceview5.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

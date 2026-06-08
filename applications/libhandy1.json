@@ -1,0 +1,31 @@
+{
+  "name": "libhandy1",
+  "version": "1.8.3",
+  "description": "The libhandy package provides additional GTK UI widgets for use in developing user interfaces.",
+  "url": "https://download.gnome.org/sources/libhandy/1.8/libhandy-1.8.3.tar.xz",
+  "dependencies": {
+    "required": [
+      "gtk3",
+      "vala"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "x/libhandy1.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

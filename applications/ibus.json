@@ -1,0 +1,40 @@
+{
+  "name": "ibus",
+  "version": "1.5.33",
+  "description": "ibus is an Intelligent Input Bus. It is a new input framework for the Linux OS. It provides a fully featured and user friendly input method user interface.",
+  "url": "https://github.com/ibus/ibus/archive/1.5.33/ibus-1.5.33.tar.gz",
+  "dependencies": {
+    "required": [
+      "iso-codes",
+      "libarchive",
+      "vala",
+      "dconf",
+      "glib2",
+      "gtk3",
+      "libnotify"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -e 's@/desktop/ibus@/org/freedesktop/ibus@g' \\\n    -i data/dconf/org.freedesktop.ibus.gschema.xml",
+      "if ! [ -e /usr/bin/gtkdocize ]; then\n  sed '/docs/d;/GTK_DOC/d' -i Makefile.am configure.ac\nfi",
+      "SAVE_DIST_FILES=1 NOCONFIGURE=1 ./autogen.sh",
+      "./configure --prefix=/usr          \\\n            --sysconfdir=/etc      \\\n            --disable-python2      \\\n            --disable-appindicator \\\n            --disable-gtk2         \\\n            --disable-emoji-dict",
+      "make",
+      "gtk-query-immodules-3.0 --update-cache",
+      "mkdir -p               /usr/share/unicode/ucd",
+      "unzip -o ../UCD.zip -d /usr/share/unicode/ucd"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/ibus.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

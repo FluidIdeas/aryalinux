@@ -1,0 +1,29 @@
+{
+  "name": "perl-deps.perl-file-find-rule",
+  "version": "0.35",
+  "description": "Perl module perl::file::find::rule providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/R/RC/RCLAMP/File-Find-Rule-0.35.tar.gz",
+  "dependencies": {
+    "required": [
+      "perl-deps.perl-number-compare",
+      "perl-deps.perl-text-glob"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "gdm",
+  "version": "49.2",
+  "description": "GDM is a system service that is responsible for providing graphical logins and managing local and remote displays.",
+  "url": "https://download.gnome.org/sources/gdm/49/gdm-49.2.tar.xz",
+  "dependencies": {
+    "required": [
+      "accountsservice",
+      "dconf",
+      "libcanberra",
+      "gtk3",
+      "linux-pam"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup ..             \\\n      --prefix=/usr        \\\n      --buildtype=release  \\\n      -D gdm-xsession=true \\\n      -D run-dir=/run/gdm",
+      "ninja",
+      "ln -s /dev/null /etc/udev/rules.d/61-gdm.rules",
+      "su gdm -s /bin/bash                                                \\\n       -c \"dbus-run-session                                        \\\n             gsettings set org.gnome.settings-daemon.plugins.power \\\n                           sleep-inactive-ac-type                  \\\n                           nothing\"",
+      "groupadd -g 21 gdm",
+      "useradd -c \"GDM Daemon Owner\" -d /var/lib/gdm -u 21 \\\n        -g gdm -s /bin/false gdm",
+      "passwd -ql gdm",
+      "systemctl enable gdm"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "x/gdm.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

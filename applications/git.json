@@ -1,0 +1,48 @@
+{
+  "name": "git",
+  "version": "2.53.0",
+  "description": "Git is a free and open source, distributed version control system designed to handle everything from small to very large projects with speed and efficiency. Every Git clone is a full-fledged repository with complete history and full revision tracking capabilities, not dependent on network access or a central server. Branching and merging are fast and easy to do. Git is used for version control of files, much like tools such as mercurial-7.2, Bazaar, Subversion-1.14.5, CVS, Perforce, and Team Foundation Server.",
+  "url": "https://www.kernel.org/pub/software/scm/git/git-2.53.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "curl"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr                   \\\n            --with-gitconfig=/etc/gitconfig \\\n            --with-python=python3           \\\n            --with-libpcre2",
+      "make",
+      "make html",
+      "make man",
+      "make perllibdir=/usr/lib/perl5/5.42/site_perl install",
+      "make htmldir=/usr/share/doc/git-2.53.0 install-html",
+      "tar -xf ../git-manpages-2.53.0.tar.xz \\\n    -C /usr/share/man --no-same-owner --no-overwrite-dir",
+      "mkdir -vp   /usr/share/doc/git-2.53.0",
+      "tar   -xf   ../git-htmldocs-2.53.0.tar.xz \\\n      -C    /usr/share/doc/git-2.53.0 --no-same-owner --no-overwrite-dir",
+      "find        /usr/share/doc/git-2.53.0 -type d -exec chmod 755 {} \\;",
+      "find        /usr/share/doc/git-2.53.0 -type f -exec chmod 644 {} \\;",
+      "mkdir -vp /usr/share/doc/git-2.53.0/man-pages/{html,text}",
+      "mv        /usr/share/doc/git-2.53.0/{git*.adoc,man-pages/text}",
+      "mv        /usr/share/doc/git-2.53.0/{git*.,index.,man-pages/}html",
+      "mkdir -vp /usr/share/doc/git-2.53.0/technical/{html,text}",
+      "mv        /usr/share/doc/git-2.53.0/technical/{*.adoc,text}",
+      "mv        /usr/share/doc/git-2.53.0/technical/{*.,}html",
+      "mkdir -vp /usr/share/doc/git-2.53.0/howto/{html,text}",
+      "mv        /usr/share/doc/git-2.53.0/howto/{*.adoc,text}",
+      "mv        /usr/share/doc/git-2.53.0/howto/{*.,}html",
+      "sed -i '/^<a href=/s|howto/|&html/|' /usr/share/doc/git-2.53.0/howto-index.html",
+      "sed -i '/^\\* link:/s|howto/|&html/|' /usr/share/doc/git-2.53.0/howto-index.adoc"
+    ],
+    "package": [
+      "make install-man DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/git.html",
+  "category": "programming",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "pciutils",
+  "version": "3.14.0",
+  "description": "The PCI Utils package contains a set of programs for listing PCI devices, inspecting their status and setting their configuration registers.",
+  "url": "https://mj.ucw.cz/download/linux/pci/pciutils-3.14.0.tar.gz",
+  "dependencies": {
+    "required": [
+      "hwdata"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -r '/INSTALL/{/PCI_IDS|update-pciids /d; s/update-pciids.8//}' \\\n    -i Makefile",
+      "make PREFIX=/usr                \\\n     SHAREDIR=/usr/share/hwdata \\\n     SHARED=yes"
+    ],
+    "package": [
+      "make PREFIX=$DESTDIR/usr                \\\n     SHAREDIR=$DESTDIR/usr/share/hwdata \\\n     SHARED=yes                 \\\n     install install-lib"
+    ]
+  },
+  "post_install": [
+    "chmod -v 755 /usr/lib/libpci.so"
+  ],
+  "meta": false,
+  "book": "general/pciutils.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

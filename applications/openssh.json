@@ -1,0 +1,40 @@
+{
+  "name": "openssh",
+  "version": "10.2p1",
+  "description": "The OpenSSH package contains ssh clients and the sshd daemon. This is useful for encrypting authentication and subsequent traffic over a network. The ssh and scp commands are secure implementations of telnet and rcp.",
+  "url": "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.2p1.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr                            \\\n            --sysconfdir=/etc/ssh                    \\\n            --with-privsep-path=/var/lib/sshd        \\\n            --with-default-path=/usr/bin             \\\n            --with-superuser-path=/usr/sbin:/usr/bin \\\n            --with-pid-dir=/run",
+      "make",
+      "ssh-keygen",
+      "ssh-copy-id -i ~/.ssh/id_ed25519.pub REMOTE_USERNAME@REMOTE_HOSTNAME",
+      "groupadd -g 50 sshd",
+      "useradd  -c 'sshd PrivSep' \\\n         -d /var/lib/sshd  \\\n         -g sshd           \\\n         -s /bin/false     \\\n         -u 50 sshd",
+      "echo \"PermitRootLogin no\" >> /etc/ssh/sshd_config",
+      "echo \"PasswordAuthentication no\" >> /etc/ssh/sshd_config",
+      "echo \"KbdInteractiveAuthentication no\" >> /etc/ssh/sshd_config",
+      "sed 's@d/login@d/sshd@g' /etc/pam.d/login > /etc/pam.d/sshd",
+      "chmod 644 /etc/pam.d/sshd",
+      "echo \"UsePAM yes\" >> /etc/ssh/sshd_config"
+    ],
+    "package": [
+      "install -v -g sys -m700 -d $DESTDIR/var$DESTDIR/lib/sshd",
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m755    contrib/ssh-copy-id $DESTDIR/usr/bin",
+      "install -v -m644    contrib/ssh-copy-id.1 \\\n                    $DESTDIR/usr/share/man/man1",
+      "install -v -m755 -d $DESTDIR/usr/share/doc/openssh-10.2p1",
+      "install -v -m644    INSTALL LICENCE OVERVIEW README* \\\n                    $DESTDIR/usr/share/doc/openssh-10.2p1",
+      "make install-sshd DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/openssh.html",
+  "category": "security",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

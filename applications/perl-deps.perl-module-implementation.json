@@ -1,0 +1,31 @@
+{
+  "name": "perl-deps.perl-module-implementation",
+  "version": "0.09",
+  "description": "Perl module perl::module::implementation providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Module-Implementation-0.09.tar.gz",
+  "dependencies": {
+    "required": [
+      "perl-deps.perl-module-runtime",
+      "perl-deps.perl-try-tiny",
+      "perl-deps.perl-test-fatal",
+      "perl-deps.perl-test-requires"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

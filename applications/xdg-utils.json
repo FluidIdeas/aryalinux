@@ -1,0 +1,30 @@
+{
+  "name": "xdg-utils",
+  "version": "1.2.1",
+  "description": "xdg-utils is a set of command line tools that assist applications with a variety of desktop integration tasks. It is required for Linux Standards Base (LSB) conformance.",
+  "url": "https://gitlab.freedesktop.org/xdg/xdg-utils/-/archive/v1.2.1/xdg-utils-v1.2.1.tar.gz",
+  "dependencies": {
+    "required": [
+      "xmlto",
+      "links",
+      "x7app"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "xsoft/xdg-utils.html",
+  "category": "applications",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

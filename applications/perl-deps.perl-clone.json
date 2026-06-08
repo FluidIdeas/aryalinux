@@ -1,0 +1,28 @@
+{
+  "name": "perl-deps.perl-clone",
+  "version": "0.47",
+  "description": "Perl module perl::clone providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/A/AT/ATOOMIC/Clone-0.47.tar.gz",
+  "dependencies": {
+    "required": [
+      "perl-deps.perl-b-cow"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

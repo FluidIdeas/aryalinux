@@ -1,0 +1,24 @@
+{
+  "name": "perl-deps.perl-module-pluggable",
+  "version": "6.3",
+  "description": "Perl module perl::module::pluggable providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/S/SI/SIMONW/Module-Pluggable-6.3.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

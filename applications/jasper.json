@@ -1,0 +1,31 @@
+{
+  "name": "jasper",
+  "version": "4.2.8",
+  "description": "The jasper Project is an open-source initiative to provide a free software-based reference implementation of the JPEG-2000 codec.",
+  "url": "https://github.com/jasper-software/jasper/archive/version-4.2.8/jasper-version-4.2.8.tar.gz",
+  "dependencies": {
+    "required": [
+      "cmake",
+      "libjpeg"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir BUILD",
+      "cd    BUILD",
+      "cmake -D CMAKE_INSTALL_PREFIX=/usr    \\\n      -D CMAKE_BUILD_TYPE=Release     \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON  \\\n      -D JAS_ENABLE_DOC=NO            \\\n      -D ALLOW_IN_SOURCE_BUILD=YES    \\\n      -D CMAKE_INSTALL_DOCDIR=/usr/share/doc/jasper-4.2.8 \\\n      ..",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/jasper.html",
+  "category": "graphics",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "xdg-dbus-proxy",
+  "version": "0.1.6",
+  "description": "The xdg-dbus-proxy package contains a filtering proxy for D-Bus connections. This is useful for forwarding data in and out of a sandbox.",
+  "url": "https://github.com/flatpak/xdg-dbus-proxy/releases/download/0.1.6/xdg-dbus-proxy-0.1.6.tar.xz",
+  "dependencies": {
+    "required": [
+      "glib2"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "general/xdg-dbus-proxy.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

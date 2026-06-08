@@ -1,0 +1,31 @@
+{
+  "name": "alsa-tools",
+  "version": "1.2.15",
+  "description": "The ALSA Tools package contains advanced tools for certain sound cards.",
+  "url": "https://www.alsa-project.org/files/pub/tools/alsa-tools-1.2.15.tar.bz2",
+  "dependencies": {
+    "required": [
+      "alsa-lib",
+      "gtk3",
+      "gtk4",
+      "fltk"
+    ]
+  },
+  "build": {
+    "user": [
+      "rm -rf qlo10k1 echomixer rmedigicontrol Makefile gitcompile",
+      "for tool in *; do\n  case $tool in\n    seq) tool_dir=seq/sbiload ;;\n    *) tool_dir=$tool ;;\n  esac\n  [ -d \"$tool_dir\" ] || continue\n  pushd $tool_dir\n    ./configure --prefix=/usr\n    make\n  popd\ndone"
+    ],
+    "package": [
+      "for tool in *; do\n  case $tool in\n    seq) tool_dir=seq/sbiload ;;\n    *) tool_dir=$tool ;;\n  esac\n  [ -d \"$tool_dir\" ] || continue\n  pushd $tool_dir\n    make install DESTDIR=$DESTDIR\n  popd\ndone"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/alsa-tools.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

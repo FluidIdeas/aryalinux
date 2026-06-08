@@ -1,0 +1,28 @@
+{
+  "name": "nspr",
+  "version": "4.38.2",
+  "description": "Netscape Portable Runtime (NSPR) provides a platform-neutral API for system level and libc like functions.",
+  "url": "https://archive.mozilla.org/pub/nspr/releases/v4.38.2/src/nspr-4.38.2.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "cd nspr",
+      "sed -i '/^RELEASE/s|^|#|' pr/src/misc/Makefile.in",
+      "sed -i 's|$(LIBRARY) ||'  config/rules.mk",
+      "./configure --prefix=/usr   \\\n            --with-mozilla  \\\n            --with-pthreads \\\n            $([ $(uname -m) = x86_64 ]",
+      "echo --enable-64bit)",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/nspr.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

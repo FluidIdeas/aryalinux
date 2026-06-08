@@ -1,0 +1,33 @@
+{
+  "name": "python-modules.pygobject3",
+  "version": "3.54.5",
+  "description": "Python module pygobject3 for scripts and applications that depend on it.",
+  "url": "https://download.gnome.org/sources/pygobject/3.54/pygobject-3.54.5.tar.gz",
+  "dependencies": {
+    "required": [
+      "glib2",
+      "python-modules.pycairo"
+    ]
+  },
+  "build": {
+    "user": [
+      "mv -v tests/test_gdbus.py{,.nouse}",
+      "mv -v tests/test_overrides_gtk.py{,.nouse}",
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "general/python-modules.html",
+  "category": "python-module",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

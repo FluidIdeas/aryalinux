@@ -1,0 +1,24 @@
+{
+  "name": "rpcsvc-proto",
+  "version": "1.4.4",
+  "description": "The rpcsvc-proto package contains the rcpsvc protocol files and headers, formerly included with glibc, that are not included in replacement libtirpc-1.3.7, along with the rpcgen program.",
+  "url": "https://github.com/thkukuk/rpcsvc-proto/releases/download/v1.4.4/rpcsvc-proto-1.4.4.tar.xz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --sysconfdir=/etc",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "basicnet/rpcsvc-proto.html",
+  "category": "networking",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

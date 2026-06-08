@@ -1,0 +1,26 @@
+{
+  "name": "sudo",
+  "version": "1.9.17p2",
+  "description": "The Sudo package allows a system administrator to give certain users (or groups of users) the ability to run some (or all) commands as root or another user while logging the commands and arguments.",
+  "url": "https://www.sudo.ws/dist/sudo-1.9.17p2.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr         \\\n            --libexecdir=/usr/lib \\\n            --with-secure-path    \\\n            --with-env-editor     \\\n            --docdir=/usr/share/doc/sudo-1.9.17p2 \\\n            --with-passprompt=\"[sudo] password for %p: \"",
+      "make",
+      "cat > /etc/sudoers.d/00-sudo << \"EOF\"\nDefaults secure_path=\"/usr/sbin:/usr/bin\"\n%wheel ALL=(ALL) ALL\nEOF",
+      "cat > /etc/pam.d/sudo << \"EOF\"\n# Begin /etc/pam.d/sudo\n\n# include the default auth settings\nauth      include     system-auth\n\n# include the default account settings\naccount   include     system-account\n\n# Set default environment variables for the service user\nsession   required    pam_env.so\n\n# include system session defaults\nsession   include     system-session\n\n# End /etc/pam.d/sudo\nEOF\nchmod 644 /etc/pam.d/sudo"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/sudo.html",
+  "category": "security",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

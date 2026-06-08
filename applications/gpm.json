@@ -1,0 +1,40 @@
+{
+  "name": "gpm",
+  "version": "1.20.7",
+  "description": "The GPM (General Purpose Mouse daemon) package contains a mouse server for the console and xterm. It not only provides cut and paste support generally, but its library component is used by various software such as Links to provide mouse support to the application. It is useful on desktops, especially if following (Beyond) Linux From Scratch instructions; it's often much easier (and less error prone) to cut and paste between two console windows than to type everything by hand!.",
+  "url": "https://anduin.linuxfromscratch.org/BLFS/gpm/gpm-1.20.7.tar.bz2",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "patch -Np1 -i ../gpm-1.20.7-consolidated-1.patch",
+      "patch -Np1 -i ../gpm-1.20.7-gcc15_fixes-1.patch",
+      "./autogen.sh",
+      "./configure --prefix=/usr --sysconfdir=/etc ac_cv_path_emacs=no",
+      "make",
+      "make -C doc gpm.{dvi,ps}",
+      "dvipdfm doc/gpm.dvi -o doc/gpm.pdf",
+      "cat > /etc/systemd/system/gpm.service.d/99-user.conf << EOF\n[Service]\nExecStart=\nExecStart=/usr/sbin/gpm <list of parameters>\nEOF",
+      "install-info --dir-file=/usr/share/info/dir           \\\n             /usr/share/info/gpm.info",
+      "rm -fv /usr/lib/libgpm.a",
+      "ln -sfv libgpm.so.2.1.0 /usr/lib/libgpm.so"
+    ],
+    "package": [
+      "install -v -dm755 $DESTDIR/etc/systemd/system/gpm.service.d",
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m644 conf/gpm-root.conf $DESTDIR/etc",
+      "install -v -m755 -d $DESTDIR/usr/share/doc/gpm-1.20.7/support",
+      "install -v -m644    doc/support/*                     \\\n                    $DESTDIR/usr/share/doc/gpm-1.20.7/support",
+      "install -v -m644    doc/{FAQ,HACK_GPM,README*}        \\\n                    $DESTDIR/usr/share/doc/gpm-1.20.7",
+      "install -vm644 doc/gpm.{dvi,ps,pdf} $DESTDIR/usr/share/doc/gpm-1.20.7",
+      "make install-gpm DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/gpm.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

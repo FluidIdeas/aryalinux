@@ -1,0 +1,37 @@
+{
+  "name": "libgweather",
+  "version": "4.4.4",
+  "description": "The libgweather package is a library used to access weather information from online services for numerous locations.",
+  "url": "https://download.gnome.org/sources/libgweather/4.4/libgweather-4.4.4.tar.xz",
+  "dependencies": {
+    "required": [
+      "geocode-glib",
+      "libsoup3",
+      "glib2",
+      "libxml2"
+    ]
+  },
+  "build": {
+    "user": [
+      "patch -Np1 -i ../libgweather-4.4.4-upstream_fix-1.patch",
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr       \\\n            --buildtype=release \\\n            -D gtk_doc=false    \\\n            ..",
+      "ninja",
+      "sed \"s/libgweather_full_version/'libgweather-4.4.4'/\" \\\n    -i ../doc/meson.build",
+      "meson configure -D gtk_doc=true",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/libgweather.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

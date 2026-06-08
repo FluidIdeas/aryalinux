@@ -1,0 +1,28 @@
+{
+  "name": "mpg123",
+  "version": "1.33.4",
+  "description": "The mpg123 package contains a console-based MP3 player. It claims to be the fastest MP3 decoder for Unix.",
+  "url": "https://downloads.sourceforge.net/mpg123/mpg123-1.33.4.tar.bz2",
+  "dependencies": {
+    "required": [
+      "alsa-lib"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/mpg123.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

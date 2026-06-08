@@ -1,0 +1,32 @@
+{
+  "name": "xindy",
+  "version": "2.5.1",
+  "description": "Xindy is an index processor that can be used to generate book-like indexes for arbitrary document-preparation systems. This includes systems such as TeX and LaTeX, the roff-family, and SGML/XML-based systems (e.g., HTML) that process some kind of text and generate indexing information.",
+  "url": "https://tug.ctan.org/support/xindy/base/xindy-2.5.1.tar.gz",
+  "dependencies": {
+    "required": [
+      "clisp"
+    ]
+  },
+  "build": {
+    "user": [
+      "export TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/')",
+      "sed -i \"s/ grep -v '^;'/ awk NF/\" make-rules/inputenc/Makefile.in",
+      "sed -i 's%\\(indexentry\\)%\\1\\\\%' make-rules/inputenc/make-inp-rules.pl",
+      "patch -Np1 -i ../xindy-2.5.1-upstream_fixes-2.patch",
+      "./configure --prefix=$TEXLIVE_PREFIX              \\\n            --bindir=$TEXLIVE_PREFIX/bin/$TEXARCH \\\n            --datarootdir=$TEXLIVE_PREFIX         \\\n            --includedir=/usr/include             \\\n            --libdir=$TEXLIVE_PREFIX/texmf-dist   \\\n            --mandir=$TEXLIVE_PREFIX/texmf-dist/doc/man",
+      "make LC_ALL=POSIX"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "pst/xindy.html",
+  "category": "printing",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "libtasn1",
+  "version": "4.21.0",
+  "description": "libtasn1 is a highly portable C library that encodes and decodes DER/BER data following an ASN.1 schema.",
+  "url": "https://ftpmirror.gnu.org/libtasn1/libtasn1-4.21.0.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --disable-static",
+      "make",
+      "make -C doc/reference install-data-local"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/libtasn1.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

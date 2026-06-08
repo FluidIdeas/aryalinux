@@ -1,0 +1,48 @@
+{
+  "name": "thunderbird",
+  "version": "140.8.0esr",
+  "description": "Thunderbird is a stand-alone mail/news client based on the Mozilla codebase. It uses the Gecko rendering engine to enable it to display and compose HTML emails.",
+  "url": "https://archive.mozilla.org/pub/thunderbird/releases/140.8.0esr/source/thunderbird-140.8.0esr.source.tar.xz",
+  "dependencies": {
+    "required": [
+      "cbindgen",
+      "libarchive",
+      "nodejs",
+      "startup-notification",
+      "dav1d",
+      "nasm",
+      "nss"
+    ]
+  },
+  "build": {
+    "user": [
+      "patch -Np1 -i ../thunderbird-140.8.0esr-python_3.14_fixes-1.patch",
+      "for crate in {minimal-lexical,lmdb-rkv,cubeb-sys,wasi,glslopt,sfv}; do\n  sed -e 's|,\"[^\"]*.gitmodules[^,]*[^,]||' \\\n      -e '$a\\'                             \\\n      -i comm/third_party/rust/$crate/.cargo-checksum.json\ndone",
+      "GLSL_PTHREAD=\"comm/third_party/rust/glslopt/glsl-optimizer/include/c11/threads_posix.h\"\nOLDSHA=`sha256sum $GLSL_PTHREAD | awk '{ print $1 }'`",
+      "patch -Np1 -i ../thunderbird-140.8.0esr-glibc-2.43.patch",
+      "NEWSHA=`sha256sum $GLSL_PTHREAD | awk '{ print $1 }'`",
+      "sed \"s/$OLDSHA/$NEWSHA/\" \\\n  -i comm/third_party/rust/glslopt/.cargo-checksum.json",
+      "cat > mozconfig << \"EOF\"\n# If you have a multicore machine, all cores will be used.\n\n# If you have installed wireless-tools comment out this line:\nac_add_options --disable-necko-wifi\n\n# If you wish to use libproxy to determine proxy server information, you will\n# need to install the libproxy package and then uncomment the option below:\n#ac_add_options --enable-libproxy\n\n# Uncomment the following option if you have not installed PulseAudio\n#ac_add_options --enable-audio-backends=alsa\n\n# Comment out following options if you have not installed\n# recommended dependencies:\nac_add_options --with-system-av1\nac_add_options --with-system-libevent\nac_add_options --with-system-libvpx\nac_add_options --with-system-nspr\nac_add_options --with-system-nss\nac_add_options --with-system-webp\n\n# Thunderbird provides a copy of dav1d if it has not been installed. If you\n# have not installed nasm and ffmpeg, uncomment the following line:\n#ac_add_options --disable-av1\n\n# The BLFS editors recommend not changing anything below this line:\nac_add_options --prefix=/usr\nac_add_options --enable-application=comm/mail\n\nac_add_options --disable-crashreporter\nac_add_options --disable-updater\nac_add_options --disable-debug\nac_add_options --disable-debug-symbols\nac_add_options --disable-tests\n\n# This enables SIMD optimization in the shipped encoding_rs crate.\nac_add_options --enable-rust-simd\n\nac_add_options --enable-strip\nac_add_options --enable-install-strip\n\n# You cannot distribute the binary if you do this.\nac_add_options --enable-official-branding\n\nac_add_options --enable-system-ffi\nac_add_options --enable-system-pixman\n\nac_add_options --with-system-jpeg\nac_add_options --with-system-png\nac_add_options --with-system-zlib\n\n# Using sandboxed wasm libraries has been moved to all builds instead\n# of only mozilla automation builds. It requires extra llvm packages\n# and was reported to seriously slow the build. Disable it.\nac_add_options --without-wasm-sandboxed-libraries\nEOF",
+      "mountpoint -q /dev/shm || mount -t tmpfs devshm /dev/shm",
+      "export MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE=none",
+      "export MOZBUILD_STATE_PATH=$(pwd)/mozbuild",
+      "./mach build",
+      "unset MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE",
+      "unset MOZBUILD_STATE_PATH"
+    ],
+    "package": [
+      "MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE=none DESTDIR=$DESTDIR ./mach install",
+      "mkdir -pv $DESTDIR/usr/share/{applications,pixmaps}",
+      "cat > $DESTDIR/usr/share/applications/thunderbird.desktop << \"EOF\"\n[Desktop Entry]\nName=Thunderbird Mail\nComment=Send and receive mail with Thunderbird\nGenericName=Mail Client\nExec=thunderbird %u\nTerminal=false\nType=Application\nIcon=thunderbird\nCategories=Network;Email;\nMimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/rss+xml;x-scheme-handler/mailto;\nStartupNotify=true\nEOF",
+      "ln -sfv /usr/lib/thunderbird/chrome/icons/default/default256.png \\\n        $DESTDIR/usr/share/pixmaps/thunderbird.png"
+    ]
+  },
+  "meta": false,
+  "book": "xsoft/thunderbird.html",
+  "category": "applications",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

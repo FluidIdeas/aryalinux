@@ -1,0 +1,24 @@
+{
+  "name": "mdadm",
+  "version": "4.4",
+  "description": "The mdadm package contains administration tools for software RAID.",
+  "url": "https://www.kernel.org/pub/linux/utils/raid/mdadm/mdadm-4.4.tar.xz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "sed -e \"s/__u8 signature\\[4\\]/& __attribute__ ((nonstring))/\" \\\n    -i platform-intel.h",
+      "make"
+    ],
+    "package": [
+      "make BINDIR=$DESTDIR/usr/sbin install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/mdadm.html",
+  "category": "system",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

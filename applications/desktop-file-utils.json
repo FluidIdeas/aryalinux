@@ -1,0 +1,33 @@
+{
+  "name": "desktop-file-utils",
+  "version": "0.28",
+  "description": "The Desktop File Utils package contains command line utilities for working with Desktop entries. These utilities are used by Desktop Environments and other applications to manipulate the MIME-types application databases and help adhere to the Desktop Entry Specification.",
+  "url": "https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.28.tar.xz",
+  "dependencies": {
+    "required": [
+      "glib2"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja",
+      "rm -fv /usr/bin/desktop-file-edit",
+      "update-desktop-database /usr/share/applications"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install",
+      "install -vdm755 $DESTDIR/usr/share/applications"
+    ]
+  },
+  "meta": false,
+  "book": "general/desktop-file-utils.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

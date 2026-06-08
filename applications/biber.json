@@ -1,0 +1,45 @@
+{
+  "name": "biber",
+  "version": "2.21",
+  "description": "Biber is a BibTeX replacement for users of biblatex, written in Perl, with full Unicode support.",
+  "url": "https://github.com/plk/biber/archive/v2.21/biber-2.21.tar.gz",
+  "dependencies": {
+    "required": [
+      "perl-modules.perl-business-isbn",
+      "perl-modules.perl-business-ismn",
+      "perl-modules.perl-business-issn",
+      "perl-modules.perl-class-accessor",
+      "perl-modules.perl-data-compare",
+      "perl-modules.perl-encode-hanextra",
+      "perl-modules.perl-encode-jis2k",
+      "perl-modules.perl-list-allutils",
+      "perl-modules.perl-log-log4perl",
+      "perl-modules.perl-module-build",
+      "perl-modules.perl-parse-recdescent",
+      "perl-modules.perl-regexp-common",
+      "perl-modules.perl-sort-key",
+      "perl-modules.perl-unicode-linebreak",
+      "perl-modules.perl-xml-libxslt",
+      "perl-modules.perl-xml-writer",
+      "perl-modules.perl-file-which",
+      "perl-modules.perl-test-differences"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl ./Build.PL",
+      "./Build"
+    ],
+    "package": [
+      "./Build install --destdir $DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "pst/biber.html",
+  "category": "printing",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

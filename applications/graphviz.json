@@ -1,0 +1,37 @@
+{
+  "name": "graphviz",
+  "version": "14.1.2",
+  "description": "The Graphviz package contains graph visualization software. Graph visualization is a way of representing structural information as diagrams of abstract graphs and networks. Graphviz has several main graph layout programs. It also has web and interactive graphical interfaces, auxiliary tools, libraries, and language bindings.",
+  "url": "https://gitlab.com/graphviz/graphviz/-/archive/14.1.2/graphviz-14.1.2.tar.bz2",
+  "dependencies": {
+    "required": [
+      "cmake"
+    ],
+    "recommended": [
+      "pango",
+      "x7lib",
+      "fontconfig"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed '/ORIGIN/d' -i lib/CMakeLists.txt",
+      "mkdir build",
+      "cd    build",
+      "cmake -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      ..",
+      "sed -i '/GZIP/s/:.*$/=/' CMakeCache.txt",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/graphviz.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

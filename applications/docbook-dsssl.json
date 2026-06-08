@@ -1,0 +1,41 @@
+{
+  "name": "docbook-dsssl",
+  "version": "1.79",
+  "description": "The DocBook DSSSL Stylesheets package contains DSSSL stylesheets. These are used by OpenJade or other tools to transform SGML and XML DocBook files.",
+  "url": "https://downloads.sourceforge.net/docbook/docbook-dsssl-1.79.tar.bz2",
+  "dependencies": {
+    "required": [
+      "sgml-common",
+      "docbook-3.1-dtd",
+      "opensp"
+    ]
+  },
+  "build": {
+    "user": [
+      "tar -xf ../docbook-dsssl-doc-1.79.tar.bz2 --strip-components=1",
+      "cp -v -R * /usr/share/sgml/docbook/dsssl-stylesheets-1.79",
+      "install-catalog --add /etc/sgml/dsssl-docbook-stylesheets.cat \\\n    /usr/share/sgml/docbook/dsssl-stylesheets-1.79/catalog",
+      "install-catalog --add /etc/sgml/dsssl-docbook-stylesheets.cat \\\n    /usr/share/sgml/docbook/dsssl-stylesheets-1.79/common/catalog",
+      "install-catalog --add /etc/sgml/sgml-docbook.cat              \\\n    /etc/sgml/dsssl-docbook-stylesheets.cat",
+      "cd /usr/share/sgml/docbook/dsssl-stylesheets-1.79/doc/testdata",
+      "openjade -t rtf -d jtest.dsl jtest.sgm",
+      "onsgmls -sv test.sgm",
+      "openjade -t rtf \\\n    -d /usr/share/sgml/docbook/dsssl-stylesheets-1.79/print/docbook.dsl \\\n    test.sgm",
+      "openjade -t sgml \\\n    -d /usr/share/sgml/docbook/dsssl-stylesheets-1.79/html/docbook.dsl \\\n    test.sgm",
+      "rm jtest.rtf test.rtf c1.htm"
+    ],
+    "package": [
+      "install -v -m755 bin/collateindex.pl $DESTDIR/usr/bin",
+      "install -v -m644 bin/collateindex.pl.1 $DESTDIR/usr/share/man/man1",
+      "install -v -d -m755 $DESTDIR/usr/share/sgml/docbook/dsssl-stylesheets-1.79"
+    ]
+  },
+  "meta": false,
+  "book": "pst/docbook-dsssl.html",
+  "category": "printing",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

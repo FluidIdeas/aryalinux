@@ -1,0 +1,28 @@
+{
+  "name": "perl-deps.perl-http-cookies",
+  "version": "6.11",
+  "description": "Perl module perl::http::cookies providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Cookies-6.11.tar.gz",
+  "dependencies": {
+    "required": [
+      "perl-deps.perl-http-message"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "cifsutils",
+  "version": "7.5",
+  "description": "The cifs-utils package provides a means for mounting SMB/CIFS shares on a Linux system.",
+  "url": "https://www.samba.org/ftp/linux-cifs/cifs-utils/cifs-utils-7.5.tar.bz2",
+  "dependencies": {
+    "required": [
+      "talloc",
+      "mitkrb"
+    ]
+  },
+  "build": {
+    "user": [
+      "autoreconf -fiv",
+      "./configure --prefix=/usr \\\n            --disable-pam",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "basicnet/cifsutils.html",
+  "category": "networking",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "libxcb",
+  "version": "1.17.0",
+  "description": "The libxcb package provides an interface to the X Window System protocol, which replaces the current Xlib interface. Xlib can also use XCB as a transport layer, allowing software to make requests and receive responses with both.",
+  "url": "https://xorg.freedesktop.org/archive/individual/lib/libxcb-1.17.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "libXau",
+      "libXdmcp",
+      "mesa"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure $XORG_CONFIG      \\\n            --without-doxygen \\\n            --docdir='${datadir}'/doc/libxcb-1.17.0",
+      "LC_ALL=en_US.UTF-8 make",
+      "chown -Rv root:root $XORG_PREFIX/share/doc/libxcb-1.17.0"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "x/libxcb.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

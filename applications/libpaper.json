@@ -1,0 +1,27 @@
+{
+  "name": "libpaper",
+  "version": "2.2.7",
+  "description": "This package is intended to provide a simple way for applications to take actions based on a system or user-specified paper size.",
+  "url": "https://github.com/rrthomas/libpaper/releases/download/v2.2.7/libpaper-2.2.7.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr     \\\n            --sysconfdir=/etc \\\n            --disable-static  \\\n            --docdir=/usr/share/doc/libpaper-2.2.7",
+      "make",
+      "mkdir -pv ~/.config",
+      "echo \"a4\" > ~/.config/papersize",
+      "echo \"PAPERSIZE=a4\" > /etc/profile.d/libpaper.sh"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/libpaper.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

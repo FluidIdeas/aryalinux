@@ -1,0 +1,29 @@
+{
+  "name": "perl-deps.perl-namespace-clean",
+  "version": "0.27",
+  "description": "Perl module perl::namespace::clean providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/R/RI/RIBASUSHI/namespace-clean-0.27.tar.gz",
+  "dependencies": {
+    "required": [
+      "perl-deps.perl-b-hooks-endofscope",
+      "perl-deps.perl-package-stash"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

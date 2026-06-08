@@ -1,0 +1,27 @@
+{
+  "name": "python-modules.scour",
+  "version": "0.38.2",
+  "description": "Scour is an SVG (Scalable Vector Graphics) optimizer/cleaner that reduces their size by optimizing structure and removing unnecessary data.",
+  "url": "https://github.com/scour-project/scour/archive/v0.38.2/scour-0.38.2.tar.gz",
+  "dependencies": {
+    "required": [
+      "python-modules.six"
+    ]
+  },
+  "build": {
+    "user": [
+      "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+    ],
+    "package": [
+      "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user scour"
+    ]
+  },
+  "meta": false,
+  "book": "general/python-modules.html",
+  "category": "python-module",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

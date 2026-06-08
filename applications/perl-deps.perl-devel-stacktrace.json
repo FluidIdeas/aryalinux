@@ -1,0 +1,24 @@
+{
+  "name": "perl-deps.perl-devel-stacktrace",
+  "version": "2.05",
+  "description": "Perl module perl::devel::stacktrace providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Devel-StackTrace-2.05.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

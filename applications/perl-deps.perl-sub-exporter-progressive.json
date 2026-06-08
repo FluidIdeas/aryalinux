@@ -1,0 +1,24 @@
+{
+  "name": "perl-deps.perl-sub-exporter-progressive",
+  "version": "0.001013",
+  "description": "Perl module perl::sub::exporter::progressive providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/F/FR/FREW/Sub-Exporter-Progressive-0.001013.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "name": "ffmpeg",
+  "version": "8.0.1",
+  "description": "FFmpeg is a solution to record, convert and stream audio and video. It is a very fast video and audio converter and it can also acquire from a live audio/video source. Designed to be intuitive, the command-line interface (ffmpeg) tries to figure out all the parameters, when possible. FFmpeg can also convert from any sample rate to any other, and resize video on the fly with a high quality polyphase filter. FFmpeg can use a Video4Linux compatible video source and any Open Sound System audio source.",
+  "url": "https://ffmpeg.org/releases/ffmpeg-8.0.1.tar.xz",
+  "dependencies": {
+    "required": [
+      "dav1d",
+      "libaom",
+      "libass",
+      "freetype2",
+      "libvorbis",
+      "libvpx",
+      "opus",
+      "x264",
+      "x265",
+      "alsa-lib",
+      "sdl2"
+    ]
+  },
+  "build": {
+    "user": [
+      "patch -Np1 -i ../ffmpeg-8.0.1-chromium_method-1.patch",
+      "sed -e '/adaptive/c\\ param->aq_mode = 0;' \\\n    -i libavcodec/libsvtav1.c",
+      "./configure --prefix=/usr        \\\n            --enable-gpl         \\\n            --enable-version3    \\\n            --enable-nonfree     \\\n            --disable-static     \\\n            --enable-shared      \\\n            --disable-debug      \\\n            --enable-libaom      \\\n            --enable-libass      \\\n            --enable-libfdk-aac  \\\n            --enable-libfreetype \\\n            --enable-libmp3lame  \\\n            --enable-libopus     \\\n            --enable-libvorbis   \\\n            --enable-libvpx      \\\n            --enable-libx264     \\\n            --enable-libx265     \\\n            --enable-openssl     \\\n            --enable-libdav1d    \\\n            --enable-libsvtav1   \\\n            --ignore-tests=enhanced-flv-av1,enhanced-flv-multitrack \\\n            --docdir=/usr/share/doc/ffmpeg-8.0.1",
+      "make",
+      "gcc tools/qt-faststart.c -o tools/qt-faststart",
+      "pushd doc",
+      "for DOCNAME in `basename -s .html *.html`\ndo\n    texi2pdf -b $DOCNAME.texi",
+      "texi2dvi -b $DOCNAME.texi",
+      "dvips    -o $DOCNAME.ps   \\\n                $DOCNAME.dvi\ndone",
+      "popd",
+      "unset DOCNAME",
+      "doxygen doc/Doxyfile",
+      "make fate-rsync SAMPLES=fate-suite/",
+      "rsync -vrltLW  --delete --timeout=60 --contimeout=60 \\\n      rsync://fate-suite.ffmpeg.org/fate-suite/ fate-suite/",
+      "make fate THREADS=N SAMPLES=fate-suite/ | tee ../fate.log",
+      "grep ^TEST ../fate.log | wc -l",
+      "cp -vr doc/doxy/html/* /usr/share/doc/ffmpeg-8.0.1/api",
+      "find /usr/share/doc/ffmpeg-8.0.1/api -type f -exec chmod -c 0644 \\{} \\;",
+      "find /usr/share/doc/ffmpeg-8.0.1/api -type d -exec chmod -c 0755 \\{} \\;"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m755    tools/qt-faststart $DESTDIR/usr/bin",
+      "install -v -m755 -d           $DESTDIR/usr/share/doc/ffmpeg-8.0.1",
+      "install -v -m644    doc/*.txt $DESTDIR/usr/share/doc/ffmpeg-8.0.1",
+      "install -v -m644 doc/*.pdf $DESTDIR/usr/share/doc/ffmpeg-8.0.1",
+      "install -v -m644 doc/*.ps  $DESTDIR/usr/share/doc/ffmpeg-8.0.1",
+      "install -v -m755 -d $DESTDIR/usr/share/doc/ffmpeg-8.0.1/api"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/ffmpeg.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

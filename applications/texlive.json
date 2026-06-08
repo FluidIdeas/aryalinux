@@ -1,0 +1,40 @@
+{
+  "name": "texlive",
+  "version": "0",
+  "description": "TeX Live distribution providing TeX, LaTeX, and related document preparation tools.",
+  "url": "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2025/texlive-20250308-source.tar.xz",
+  "dependencies": {
+    "required": [
+      "installing"
+    ]
+  },
+  "build": {
+    "user": [
+      "export TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/')",
+      "patch -Np1 -i ../texlive-20250308-source-upstream_fixes-1.patch",
+      "mkdir texlive-build",
+      "cd    texlive-build",
+      "../configure CC=\"gcc -std=gnu17\" -C               \\\n    --prefix=$TEXLIVE_PREFIX                      \\\n    --bindir=$TEXLIVE_PREFIX/bin/$TEXARCH         \\\n    --datarootdir=$TEXLIVE_PREFIX                 \\\n    --includedir=$TEXLIVE_PREFIX/include          \\\n    --infodir=$TEXLIVE_PREFIX/texmf-dist/doc/info \\\n    --libdir=$TEXLIVE_PREFIX/lib                  \\\n    --mandir=$TEXLIVE_PREFIX/texmf-dist/doc/man   \\\n    --disable-native-texlive-build                \\\n    --disable-static --enable-shared              \\\n    --disable-dvisvgm                             \\\n    --with-system-cairo                           \\\n    --with-system-fontconfig                      \\\n    --with-system-freetype2                       \\\n    --with-system-gmp                             \\\n    --with-system-graphite2                       \\\n    --with-system-harfbuzz                        \\\n    --with-system-icu                             \\\n    --with-system-libpaper                        \\\n    --with-system-libpng                          \\\n    --with-system-mpfr                            \\\n    --with-system-pixman                          \\\n    --with-system-zlib                            \\\n    --with-banner-add=\" - BLFS\"",
+      "make",
+      "make texlinks",
+      "mkdir -pv                                $TEXLIVE_PREFIX/tlpkg/TeXLive/",
+      "tar -xf ../../texlive-20250308-extra.tar.xz -C $TEXLIVE_PREFIX/tlpkg --strip-components=2",
+      "tar -xf ../../texlive-20250308-texmf.tar.xz -C $TEXLIVE_PREFIX --strip-components=1",
+      "mktexlsr",
+      "fmtutil-sys --all",
+      "ln -svf $TEXLIVE_PREFIX/lib/libkpathsea.so{,.6} /usr/lib"
+    ],
+    "package": [
+      "make install-strip DESTDIR=$DESTDIR",
+      "install -v -m644 ../texk/tests/TeXLive/* $TEXLIVE_PREFIX/tlpkg/TeXLive/"
+    ]
+  },
+  "meta": false,
+  "book": "pst/texlive.html",
+  "category": "printing",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

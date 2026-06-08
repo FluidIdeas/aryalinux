@@ -1,0 +1,37 @@
+{
+  "name": "seahorse",
+  "version": "47.0.1",
+  "description": "Seahorse is a graphical interface for managing and using encryption keys. Currently it supports PGP keys (using GPG/GPGME) and SSH keys.",
+  "url": "https://download.gnome.org/sources/seahorse/47/seahorse-47.0.1.tar.xz",
+  "dependencies": {
+    "required": [
+      "gcr",
+      "gnupg",
+      "itstool",
+      "libpwquality",
+      "vala",
+      "libsoup3"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i \"/GPGME_EVENT_NEXT_TRUSTITEM/d\" pgp/seahorse-gpgme.c",
+      "sed -i -r 's:\"(/apps):\"/org/gnome\\1:' data/*.xml",
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/seahorse.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

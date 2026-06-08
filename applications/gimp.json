@@ -1,0 +1,54 @@
+{
+  "name": "gimp",
+  "version": "3.0.6",
+  "description": "The Gimp package contains the GNU Image Manipulation Program which is useful for photo retouching, image composition and image authoring.",
+  "url": "https://download.gimp.org/gimp/v3.0/gimp-3.0.6.tar.xz",
+  "dependencies": {
+    "required": [
+      "appstream",
+      "gegl",
+      "gexiv2",
+      "gtk3",
+      "harfbuzz",
+      "libxml2",
+      "lcms2",
+      "poppler",
+      "graphviz",
+      "iso-codes",
+      "python-modules.pygobject3",
+      "xdg-utils"
+    ]
+  },
+  "build": {
+    "user": [
+      "patch -Np1 -i ../gimp-3.0.6-security_fixes-1.patch",
+      "mkdir gimp-build",
+      "cd    gimp-build",
+      "meson setup ..            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D headless-tests=disabled",
+      "ninja",
+      "gtk-update-icon-cache -qtf /usr/share/icons/hicolor",
+      "update-desktop-database -q",
+      "tar -xf ../../gimp-help-3.0.2.tar.bz2",
+      "cd gimp-help-3.0.2\n\nsed -i 's/import libxml2//' configure",
+      "ALL_LINGUAS=\"en\" \\\n./configure --prefix=/usr",
+      "make",
+      "rm -rf /usr/{lib,share}/gimp/3.0",
+      "rm -f  /usr/share/gir-1.0/Gimp-3.0.gir",
+      "rm -f  /usr/lib/girepository-1.0/Gimp-3.0.typelib",
+      "rm -f  /usr/lib/libgimp*-3.0.so*",
+      "chown -R root:root /usr/share/gimp/3.0/help"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install",
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "xsoft/gimp.html",
+  "category": "applications",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "xfce4-pulseaudio-plugin",
+  "version": "0.5.1",
+  "description": "Xfce4 Pulseaudio Plugin is a plugin for the Xfce panel which provides a convenient way to adjust the audio volume of the PulseAudio sound system and to an auto mixer tool like pavucontrol. It can optionally handle multimedia keys for controlling the audio volume.",
+  "url": "https://archive.xfce.org/src/panel-plugins/xfce4-pulseaudio-plugin/0.5/xfce4-pulseaudio-plugin-0.5.1.tar.xz",
+  "dependencies": {
+    "required": [
+      "libnotify",
+      "keybinder-3",
+      "libcanberra",
+      "pavucontrol"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup  --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "xfce/xfce4-pulseaudio-plugin.html",
+  "category": "desktop-xfce",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

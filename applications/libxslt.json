@@ -1,0 +1,29 @@
+{
+  "name": "libxslt",
+  "version": "1.1.45",
+  "description": "The libxslt package contains XSLT libraries used for extending libxml2 libraries to support XSLT files.",
+  "url": "https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.45.tar.xz",
+  "dependencies": {
+    "required": [
+      "libxml2",
+      "docbook"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr    \\\n            --disable-static \\\n            --without-python \\\n            --docdir=/usr/share/doc/libxslt-1.1.45",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/libxslt.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

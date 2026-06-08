@@ -1,0 +1,50 @@
+{
+  "name": "libreoffice",
+  "version": "26.2.1",
+  "description": "LibreOffice is a full-featured office suite. It is largely compatible with Microsoft Office and is descended from OpenOffice.org.",
+  "url": "",
+  "dependencies": {
+    "required": [
+      "which",
+      "zip"
+    ]
+  },
+  "build": {
+    "user": [
+      "patch -Np1 -i ../libreoffice-26.2.1.2-poppler_26.02-1.patch",
+      "sed -i '/icuuc \\\\/a zlib\\\\'           writerperfect/Library_wpftdraw.mk",
+      "sed -i \"/distro-install-file-lists/d\" Makefile.in",
+      "sed -e \"/gzip -f/d\"   \\\n    -e \"s|.1.gz|.1|g\" \\\n    -i bin/distro-install-desktop-integration",
+      "ln -sv ../../../libreoffice-dictionaries-26.2.1.2.tar.xz external/tarballs/",
+      "ln -sv ../../../libreoffice-help-26.2.1.2.tar.xz         external/tarballs/",
+      "ln -sv ../../../libreoffice-translations-26.2.1.2.tar.xz external/tarballs/",
+      "ln -sv src/libreoffice-help-26.2.1.2/helpcontent2/",
+      "ln -sv src/libreoffice-dictionaries-26.2.1.2/dictionaries/",
+      "ln -sv src/libreoffice-translations-26.2.1.2/translations/",
+      "export LO_PREFIX=<PREFIX>",
+      "case $(uname -m) in\n   i?86) sed /-Os/d -i solenv/gbuild/platform/LINUX_INTEL_GCC.mk ;;\nesac",
+      "./autogen.sh --prefix=$LO_PREFIX         \\\n             --sysconfdir=/etc           \\\n             --with-vendor=BLFS          \\\n             --with-lang='fr en-GB'      \\\n             --with-help=html            \\\n             --with-myspell-dicts        \\\n             --without-junit             \\\n             --without-system-dicts      \\\n             --disable-dconf             \\\n             --disable-odk               \\\n             --disable-mariadb-sdbc      \\\n             --enable-release-build=yes  \\\n             --enable-python=system      \\\n             --with-jdk-home=/opt/jdk    \\\n             --with-system-boost         \\\n             --with-system-clucene       \\\n             --with-system-curl          \\\n             --with-system-epoxy         \\\n             --with-system-expat         \\\n             --with-system-glm           \\\n             --with-system-gpgmepp       \\\n             --with-system-graphite      \\\n             --with-system-harfbuzz      \\\n             --with-system-icu           \\\n             --with-system-jpeg          \\\n             --with-system-lcms2         \\\n             --with-system-libatomic_ops \\\n             --with-system-libtiff       \\\n             --with-system-libpng        \\\n             --with-system-libxml        \\\n             --with-system-libwebp       \\\n             --with-system-nss           \\\n             --with-system-odbc          \\\n             --with-system-openldap      \\\n             --with-system-openssl       \\\n             --with-system-poppler       \\\n             --with-system-postgresql    \\\n             --with-system-redland       \\\n             --with-system-zlib          \\\n             --with-system-zstd",
+      "make build",
+      "make distro-pack-install",
+      "if [ \"$LO_PREFIX\" != \"/usr\" ]; then\n\n  # This symlink is necessary for the desktop menu entries\n  ln -svf $LO_PREFIX/lib/libreoffice/program/soffice /usr/bin/libreoffice",
+      "# Set up a generic location independent of version number\n  ln -sfv $LO_PREFIX /opt/libreoffice",
+      "# Icons\n  mkdir -vp /usr/share/pixmaps",
+      "for i in $LO_PREFIX/share/icons/hicolor/32x32/apps/*; do\n    ln -svf $i /usr/share/pixmaps\n  done",
+      "# Desktop menu entries\n  for i in $LO_PREFIX/lib/libreoffice/share/xdg/*; do\n    ln -svf $i /usr/share/applications/libreoffice-$(basename $i)\n  done",
+      "# Man pages\n  for i in $LO_PREFIX/share/man/man1/*; do\n    ln -svf $i /usr/share/man/man1/\n  done",
+      "unset i\nfi",
+      "update-desktop-database"
+    ],
+    "package": [
+      "install -dm755 external/tarballs"
+    ]
+  },
+  "meta": false,
+  "book": "xsoft/libreoffice.html",
+  "category": "applications",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "autofs",
+  "version": "5.1.9",
+  "description": "Autofs controls the operation of the automount daemons. The automount daemons automatically mount filesystems when they are accessed and unmount them after a period of inactivity. This is done based on a set of pre-configured maps.",
+  "url": "https://www.kernel.org/pub/linux/daemons/autofs/v5/autofs-5.1.9.tar.xz",
+  "dependencies": {
+    "required": [
+      "libtirpc"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr             \\\n            --with-mapdir=/etc/autofs \\\n            --with-libtirpc           \\\n            --with-systemd            \\\n            --without-openldap        \\\n            --mandir=/usr/share/man",
+      "make",
+      "mv /etc/autofs/auto.master /etc/autofs/auto.master.bak",
+      "cat > /etc/autofs/auto.master << \"EOF\"\n# Begin /etc/autofs/auto.master\n\n/media/auto  /etc/autofs/auto.misc  --ghost\n#/home        /etc/autofs/auto.home\n\n# End /etc/autofs/auto.master\nEOF",
+      "systemctl enable autofs"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "make install_samples"
+    ]
+  },
+  "meta": false,
+  "book": "general/autofs.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

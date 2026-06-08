@@ -1,0 +1,46 @@
+{
+  "name": "bind-utils",
+  "version": "9.20.19",
+  "description": "BIND Utilities is not a separate package, it is a collection of the client side programs that are included with BIND-9.20.19. The BIND package includes the client side programs nslookup, dig and host. If you install BIND server, these programs will be installed automatically. This section is for those users who don't need the complete BIND server, but need these client side applications.",
+  "url": "https://ftp.isc.org/isc/bind9/9.20.19/bind-9.20.19.tar.xz",
+  "dependencies": {
+    "required": [
+      "liburcu",
+      "json-c"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --sysconfdir=/etc",
+      "make -C lib/isc",
+      "make -C lib/dns",
+      "make -C lib/ns",
+      "make -C lib/isccfg",
+      "make -C lib/isccc",
+      "make -C bin/dig",
+      "make -C bin/nsupdate",
+      "make -C bin/rndc",
+      "make -C doc"
+    ],
+    "package": [
+      "make -C lib/isc      install DESTDIR=$DESTDIR",
+      "make -C lib/dns      install DESTDIR=$DESTDIR",
+      "make -C lib/ns       install DESTDIR=$DESTDIR",
+      "make -C lib/isccfg   install DESTDIR=$DESTDIR",
+      "make -C lib/isccc    install DESTDIR=$DESTDIR",
+      "make -C bin/dig      install DESTDIR=$DESTDIR",
+      "make -C bin/nsupdate install DESTDIR=$DESTDIR",
+      "make -C bin/rndc     install DESTDIR=$DESTDIR",
+      "cp -v doc/man/{dig.1,host.1,nslookup.1,nsupdate.1} $DESTDIR/usr/share/man/man1",
+      "cp -v doc/man/rndc.8 $DESTDIR/usr/share/man/man8"
+    ]
+  },
+  "meta": false,
+  "book": "basicnet/bind-utils.html",
+  "category": "networking",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

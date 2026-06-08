@@ -1,0 +1,36 @@
+{
+  "name": "mutt",
+  "version": "2.3.0",
+  "description": "The Mutt package contains a Mail User Agent. This is useful for reading, writing, replying to, saving, and deleting your email.",
+  "url": "http://ftp.mutt.org/pub/mutt/mutt-2.3.0.tar.gz",
+  "dependencies": {
+    "required": [
+      "lynx",
+      "links"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed  -e 's/ -with_backspaces//' \\\n     -e 's/elinks/links/'       \\\n     -e 's/-no-numbering -no-references//' \\\n     -i doc/Makefile.in",
+      "./configure --prefix=/usr                            \\\n            --sysconfdir=/etc                        \\\n            --with-docdir=/usr/share/doc/mutt-2.3.0 \\\n            --with-ssl                               \\\n            --enable-external-dotlock                \\\n            --enable-pop                             \\\n            --enable-imap                            \\\n            --enable-hcache                          \\\n            --enable-sidebar",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "post_install": [
+    "groupadd -g 34 mail 2>/dev/null || true",
+    "chown root:mail /usr/bin/mutt_dotlock",
+    "chmod -v 2755 /usr/bin/mutt_dotlock",
+    "chgrp -v mail /var/mail"
+  ],
+  "meta": false,
+  "book": "basicnet/mutt.html",
+  "category": "networking",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "libpcap",
+  "version": "1.10.6",
+  "description": "libpcap provides functions for user-level packet capture, used in low-level network monitoring.",
+  "url": "https://www.tcpdump.org/release/libpcap-1.10.6.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr",
+      "make",
+      "sed -i '/INSTALL_DATA.*libpcap.a\\|RANLIB.*libpcap.a/ s/^/#/' Makefile"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "basicnet/libpcap.html",
+  "category": "networking",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "gtkmm3",
+  "version": "3.24.10",
+  "description": "The Gtkmm package provides a C++ interface to GTK+ 3.",
+  "url": "https://download.gnome.org/sources/gtkmm/3.24/gtkmm-3.24.10.tar.xz",
+  "dependencies": {
+    "required": [
+      "atkmm",
+      "gtk3"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir gtkmm3-build",
+      "cd    gtkmm3-build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja",
+      "mv -v /usr/share/doc/gtkmm-3.0 /usr/share/doc/gtkmm-3.24.10"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "x/gtkmm3.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

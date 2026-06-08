@@ -1,0 +1,46 @@
+{
+  "name": "postgresql",
+  "version": "18.2",
+  "description": "PostgreSQL is an advanced object-relational database management system (ORDBMS), derived from the Berkeley Postgres database management system.",
+  "url": "https://ftp.postgresql.org/pub/source/v18.2/postgresql-18.2.tar.bz2",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "sed -e '/DEFAULT_PGSOCKET_DIR/s@/tmp@/run/postgresql@' \\\n    -i src/include/pg_config_manual.h",
+      "./configure --prefix=/usr \\\n            --docdir=/usr/share/doc/postgresql-18.2",
+      "make",
+      "make DESTDIR=$(pwd)/DESTDIR install",
+      "pushd $(pwd)/DESTDIR/tmp\nsystemctl stop postgresql\nsu postgres -c \"../usr/bin/initdb -D /srv/pgsql/newdata\"\nsu postgres -c \"../usr/bin/pg_upgrade \\\n                    -d /srv/pgsql/data    -b /usr/bin \\\n                    -D /srv/pgsql/newdata -B ../usr/bin\"\npopd",
+      "rm -rf /srv/pgsql/data\nmv /srv/pgsql/newdata /srv/pgsql/data",
+      "make -C contrib/<SUBDIR-NAME> install",
+      "groupadd -g 41 postgres",
+      "useradd -c \"PostgreSQL Server\" -g postgres -d /srv/pgsql/data \\\n        -u 41 postgres",
+      "chown -Rv postgres:postgres /srv/pgsql /run/postgresql",
+      "su - postgres -c '/usr/bin/initdb -D /srv/pgsql/data'",
+      "su - postgres -c '/usr/bin/postgres -D /srv/pgsql/data > \\\n                  /srv/pgsql/data/logfile 2>&1 &'",
+      "su - postgres -c '/usr/bin/createdb test'",
+      "echo \"create table t1 ( name varchar(20), state_province varchar(20) );\" \\\n    | (su - postgres -c '/usr/bin/psql test ')",
+      "echo \"insert into t1 values ('Billy', 'NewYork');\" \\\n    | (su - postgres -c '/usr/bin/psql test ')",
+      "echo \"insert into t1 values ('Evanidus', 'Quebec');\" \\\n    | (su - postgres -c '/usr/bin/psql test ')",
+      "echo \"insert into t1 values ('Jesse', 'Ontario');\" \\\n    | (su - postgres -c '/usr/bin/psql test ')",
+      "echo \"select * from t1;\" | (su - postgres -c '/usr/bin/psql test')",
+      "su - postgres -c \"/usr/bin/pg_ctl stop -D /srv/pgsql/data\""
+    ],
+    "package": [
+      "install -d -o postgres $(pwd)/DESTDIR/tmp",
+      "make install DESTDIR=$DESTDIR",
+      "make install-docs DESTDIR=$DESTDIR",
+      "install -v -dm700 /srv/pgsql/data",
+      "install -v -dm755 /run/postgresql",
+      "make install-postgresql DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "server/postgresql.html",
+  "category": "server",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

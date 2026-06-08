@@ -31,7 +31,7 @@ GZIP=-9 tar --exclude="$LFS/sources" \
 	--exclude="$LFS/root/.ccache" \
 	--exclude="$LFS/root/.cargo" \
 	--exclude="$LFS/home/$USERNAME/.ccache" \
-	--exclude="$LFS/var/cache/alps/binaries" \
+	--exclude="$LFS/var/cache/alps/packages" \
 	--exclude="$LFS/var/cache/alps/sources" \
 	--exclude="$LFS/usr/src/*" \
 	-czvf $LFS/sources/aryalinux-$OS_VERSION-$LABEL-$(uname -m).tar.gz $LFS

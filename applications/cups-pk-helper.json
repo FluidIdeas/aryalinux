@@ -1,0 +1,30 @@
+{
+  "name": "cups-pk-helper",
+  "version": "0.2.7",
+  "description": "The cups-pk-helper package contains a PolicyKit helper used to configure Cups with fine-grained privileges.",
+  "url": "https://www.freedesktop.org/software/cups-pk-helper/releases/cups-pk-helper-0.2.7.tar.xz",
+  "dependencies": {
+    "required": [
+      "cups"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "general/cups-pk-helper.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

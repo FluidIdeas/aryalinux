@@ -1,0 +1,36 @@
+{
+  "name": "gnome-session",
+  "version": "49.2",
+  "description": "The GNOME Session package contains the GNOME session manager.",
+  "url": "https://download.gnome.org/sources/gnome-session/49/gnome-session-49.2.tar.xz",
+  "dependencies": {
+    "required": [
+      "gnome-desktop",
+      "systemd",
+      "upower"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr              \\\n            --buildtype=release        \\\n            -D man=false               \\\n            -D docbook=false           \\\n            ..",
+      "ninja",
+      "systemctl --user set-environment XDG_SESSION_TYPE=wayland XDG_SESSION_ID=1",
+      "systemctl --user start gnome-session-wayland@gnome.target",
+      "mv -v /usr/share/doc/gnome-session{,-49.2}",
+      "rm -v /usr/share/wayland-sessions/gnome.desktop"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/gnome-session.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

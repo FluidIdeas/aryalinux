@@ -1,0 +1,29 @@
+{
+  "name": "plasma-wayland-protocols",
+  "version": "1.20.0",
+  "description": "This package provides a custom set of Wayland protocol definitions for KDE.",
+  "url": "https://download.kde.org/stable/plasma-wayland-protocols/plasma-wayland-protocols-1.20.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "extra-cmake-modules"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "cmake -D CMAKE_INSTALL_PREFIX=/usr .."
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "kde/plasma-wayland-protocols.html",
+  "category": "desktop-kde",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

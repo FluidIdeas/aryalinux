@@ -1,0 +1,30 @@
+{
+  "name": "exempi",
+  "version": "2.6.6",
+  "description": "Exempi is an implementation of XMP (Adobe's Extensible Metadata Platform).",
+  "url": "https://libopenraw.freedesktop.org/download/exempi-2.6.6.tar.xz",
+  "dependencies": {
+    "required": [
+      "boost"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i -r '/^\\s?testadobesdk/d' exempi/Makefile.am",
+      "autoreconf -fiv",
+      "./configure --prefix=/usr --disable-static",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/exempi.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

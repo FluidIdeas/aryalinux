@@ -1,0 +1,35 @@
+{
+  "name": "asymptote",
+  "version": "3.09",
+  "description": "Asymptote is a powerful descriptive vector graphics language that provides a natural coordinate-based framework for technical drawing. Labels and equations can be typeset with LaTeX. As well as EPS, PDF, and PNG output, it can produce WebGL 3D HTML rendering and (using dvisvgm) SVG output.",
+  "url": "https://downloads.sourceforge.net/asymptote/asymptote-3.09.src.tgz",
+  "dependencies": {
+    "required": [
+      "gs",
+      "texlive",
+      "curl",
+      "gc",
+      "glew",
+      "libtirpc",
+      "dvisvgm"
+    ]
+  },
+  "build": {
+    "user": [
+      "export TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/')",
+      "./configure --prefix=$TEXLIVE_PREFIX                          \\\n            --bindir=$TEXLIVE_PREFIX/bin/$TEXARCH             \\\n            --datarootdir=$TEXLIVE_PREFIX/texmf-dist          \\\n            --infodir=$TEXLIVE_PREFIX/texmf-dist/doc/info     \\\n            --libdir=$TEXLIVE_PREFIX/texmf-dist               \\\n            --mandir=$TEXLIVE_PREFIX/texmf-dist/doc/man       \\\n            --disable-lsp                                     \\\n            --enable-gc=system                                \\\n            --with-latex=$TEXLIVE_PREFIX/texmf-dist/tex/latex \\\n            --with-context=$TEXLIVE_PREFIX/texmf-dist/tex/context/third",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "pst/asymptote.html",
+  "category": "printing",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

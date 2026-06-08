@@ -1,0 +1,35 @@
+{
+  "name": "epiphany",
+  "version": "49.2",
+  "description": "Epiphany is a simple yet powerful GNOME web browser targeted at non-technical users. Its principles are simplicity and standards compliance.",
+  "url": "https://download.gnome.org/sources/epiphany/49/epiphany-49.2.tar.xz",
+  "dependencies": {
+    "required": [
+      "gcr4",
+      "json-glib",
+      "libadwaita",
+      "webkitgtk"
+    ]
+  },
+  "build": {
+    "user": [
+      "rm -rf /usr/lib/epiphany",
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja",
+      "glib-compile-schemas /usr/share/glib-2.0/schemas"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "xsoft/epiphany.html",
+  "category": "applications",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

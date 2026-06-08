@@ -1,0 +1,24 @@
+{
+  "name": "perl-deps.perl-test-without-module",
+  "version": "0.23",
+  "description": "Perl module perl::test::without::module providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/C/CO/CORION/Test-Without-Module-0.23.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

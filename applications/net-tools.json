@@ -1,0 +1,28 @@
+{
+  "name": "net-tools",
+  "version": "2.10",
+  "description": "The Net-tools package is a collection of programs for controlling the network subsystem of the Linux kernel.",
+  "url": "https://downloads.sourceforge.net/project/net-tools/net-tools-2.10.tar.xz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "export BINDIR='/usr/bin' SBINDIR='/usr/bin'",
+      "yes \"\" | make -j1"
+    ],
+    "package": [
+      "make DESTDIR=$DESTDIR -j1 install",
+      "rm $DESTDIR/usr/bin/{nis,yp}domainname",
+      "rm $DESTDIR/usr/bin/{hostname,dnsdomainname,domainname,ifconfig}",
+      "rm -r $DESTDIR/usr/share/man/man1",
+      "rm $DESTDIR/usr/share/man/man8/ifconfig.8"
+    ]
+  },
+  "meta": false,
+  "book": "basicnet/net-tools.html",
+  "category": "networking",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

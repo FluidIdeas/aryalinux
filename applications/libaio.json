@@ -1,0 +1,25 @@
+{
+  "name": "libaio",
+  "version": "0.3.113",
+  "description": "The libaio package is an asynchronous I/O facility (\"async I/O\", or \"aio\") that has a richer API and capability set than the simple POSIX async I/O facility. This library, libaio, provides the Linux-native API for async I/O. The POSIX async I/O facility requires this library in order to provide kernel-accelerated async I/O capabilities, as do applications which require the Linux-native async I/O API.",
+  "url": "https://pagure.io/libaio/archive/libaio-0.3.113/libaio-0.3.113.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "sed -i '/install.*libaio.a/s/^/#/' src/Makefile",
+      "case \"$(uname -m)\" in\n  i?86) sed -e \"s/off_t/off64_t/\" -i harness/cases/23.t ;;\nesac",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/libaio.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

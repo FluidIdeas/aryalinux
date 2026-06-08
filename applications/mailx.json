@@ -1,0 +1,33 @@
+{
+  "name": "mailx",
+  "version": "12.5",
+  "description": "The Heirloom mailx package (formerly known as the Nail package) contains mailx, a command-line Mail User Agent derived from Berkeley Mail. It is intended to provide the functionality of the POSIX mailx command with additional support for MIME messages, IMAP (including caching), POP3, SMTP, S/MIME, message threading/sorting, scoring, and filtering. Heirloom mailx is especially useful for writing scripts and batch processing.",
+  "url": "https://anduin.linuxfromscratch.org/BLFS/mailx/heirloom-mailx_12.5.orig.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "patch -Np1 -i ../heirloom-mailx-12.5-fixes-1.patch",
+      "sed 's@<openssl@<openssl-1.0/openssl@' \\\n    -i openssl.c fio.c makeconfig",
+      "make -j1 LDFLAGS+=\"-L /usr/lib/openssl/\" \\\n         SENDMAIL=/usr/sbin/sendmail",
+      "echo \"set PAGER=<more|less>\" >> /etc/nail.rc",
+      "echo \"set PAGER=<more|less>\" >> ~/.mailrc",
+      "echo \"set EDITOR=<vim|nano|...>\" >> /etc/nail.rc",
+      "echo \"set MAILDIR=Maildir\" >> /etc/nail.rc",
+      "make PREFIX=/usr UCBINSTALL=/usr/bin/install install",
+      "ln -v -sf mailx /usr/bin/mail",
+      "ln -v -sf mailx /usr/bin/nail"
+    ],
+    "package": [
+      "install -v -m755 -d     $DESTDIR/usr/share/doc/heirloom-mailx-12.5",
+      "install -v -m644 README $DESTDIR/usr/share/doc/heirloom-mailx-12.5"
+    ]
+  },
+  "meta": false,
+  "book": "basicnet/mailx.html",
+  "category": "networking",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

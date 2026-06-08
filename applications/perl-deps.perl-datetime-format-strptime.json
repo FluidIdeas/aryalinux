@@ -1,0 +1,28 @@
+{
+  "name": "perl-deps.perl-datetime-format-strptime",
+  "version": "1.80",
+  "description": "Perl module perl::datetime::format::strptime providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/DateTime-Format-Strptime-1.80.tar.gz",
+  "dependencies": {
+    "required": [
+      "perl-deps.perl-datetime"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

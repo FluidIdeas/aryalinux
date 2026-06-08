@@ -1,0 +1,30 @@
+{
+  "name": "udisks2",
+  "version": "2.11.1",
+  "description": "The UDisks package provides a daemon, tools and libraries to access and manipulate disks and storage devices.",
+  "url": "https://github.com/storaged-project/udisks/releases/download/udisks-2.11.1/udisks-2.11.1.tar.bz2",
+  "dependencies": {
+    "required": [
+      "libatasmart",
+      "libgudev",
+      "systemd"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr        \\\n            --sysconfdir=/etc    \\\n            --localstatedir=/var \\\n            --disable-static     \\\n            --enable-available-modules",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/udisks2.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

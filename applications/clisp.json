@@ -1,0 +1,30 @@
+{
+  "name": "clisp",
+  "version": "2.49.95",
+  "description": "GNU Clisp is a Common Lisp implementation which includes an interpreter, compiler, debugger, and many extensions.",
+  "url": "https://anduin.linuxfromscratch.org/BLFS/clisp/clisp-2.49.95.tar.xz",
+  "dependencies": {
+    "required": [
+      "libsigsegv"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "../configure --srcdir=../  \\\n             --prefix=/usr \\\n             --docdir=/usr/share/doc/clisp-2.49.95",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/clisp.html",
+  "category": "programming",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "babl",
+  "version": "0.1.122",
+  "description": "The Babl package is a dynamic, any to any, pixel format translation library.",
+  "url": "https://download.gimp.org/pub/babl/0.1/babl-0.1.122.tar.xz",
+  "dependencies": {
+    "recommended": [
+      "glib2"
+    ],
+    "post": [
+      "librsvg"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir bld",
+      "cd    bld",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install",
+      "install -v -m755 -d                         $DESTDIR/usr/share/gtk-doc/html/babl/graphics",
+      "install -v -m644 docs/*.{css,html}          $DESTDIR/usr/share/gtk-doc/html/babl",
+      "install -v -m644 docs/graphics/*.{html,svg} $DESTDIR/usr/share/gtk-doc/html/babl/graphics"
+    ]
+  },
+  "meta": false,
+  "book": "general/babl.html",
+  "category": "graphics",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

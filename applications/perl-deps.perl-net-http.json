@@ -1,0 +1,28 @@
+{
+  "name": "perl-deps.perl-net-http",
+  "version": "6.24",
+  "description": "Perl module perl::net::http providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/Net-HTTP-6.24.tar.gz",
+  "dependencies": {
+    "required": [
+      "perl-modules.perl-uri"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

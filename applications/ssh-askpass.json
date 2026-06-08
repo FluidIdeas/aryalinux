@@ -1,0 +1,35 @@
+{
+  "name": "ssh-askpass",
+  "version": "10.2p1",
+  "description": "ssh-askpass is a generic executable name for many packages, with similar names, that provide a interactive X service to grab password for packages requiring administrative privileges to be run. It prompts the user with a window box where the necessary password can be inserted. Here, we choose Damien Miller's package distributed in the OpenSSH tarball.",
+  "url": "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-10.2p1.tar.gz",
+  "dependencies": {
+    "required": [
+      "gtk3",
+      "sudo",
+      "x7lib",
+      "installing"
+    ]
+  },
+  "build": {
+    "user": [
+      "cd contrib",
+      "make gnome-ssh-askpass3",
+      "ln -sv -f contrib/gnome-ssh-askpass3   /usr/libexec/openssh/ssh-askpass",
+      "cat >> /etc/sudo.conf << \"EOF\"",
+      "# Path to askpass helper program\nPath askpass /usr/libexec/openssh/ssh-askpass\nEOF\nchmod -v 0644 /etc/sudo.conf"
+    ],
+    "package": [
+      "install -v -d -m755                    $DESTDIR/usr$DESTDIR/libexec/openssh/contrib",
+      "install -v -m755    gnome-ssh-askpass3 $DESTDIR/usr$DESTDIR/libexec/openssh/contrib"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/ssh-askpass.html",
+  "category": "security",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

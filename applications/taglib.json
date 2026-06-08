@@ -1,0 +1,30 @@
+{
+  "name": "taglib",
+  "version": "2.2",
+  "description": "Taglib is a library used for reading, writing and manipulating audio file tags and is used by applications such as VLC.",
+  "url": "https://taglib.org/releases/taglib-2.2.tar.gz",
+  "dependencies": {
+    "required": [
+      "cmake"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "cmake -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D BUILD_SHARED_LIBS=ON \\\n      ..",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/taglib.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

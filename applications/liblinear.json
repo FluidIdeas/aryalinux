@@ -1,0 +1,25 @@
+{
+  "name": "liblinear",
+  "version": "0",
+  "description": "This package provides a library for learning linear classifiers for large scale applications. It supports Support Vector Machines (SVM) with L2 and L1 loss, logistic regression, multi class classification and also Linear Programming Machines (L1-regularized SVMs). Its computational complexity scales linearly with the number of training examples making it one of the fastest SVM solvers around.",
+  "url": "https://github.com/cjlin1/liblinear/archive/v250/liblinear-250.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "make lib",
+      "ln -sfv liblinear.so.6 /usr/lib/liblinear.so"
+    ],
+    "package": [
+      "install -vm644 linear.h $DESTDIR/usr/include",
+      "install -vm755 liblinear.so.6 $DESTDIR/usr$DESTDIR/lib"
+    ]
+  },
+  "meta": false,
+  "book": "general/liblinear.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

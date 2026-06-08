@@ -1,0 +1,27 @@
+{
+  "name": "libpng",
+  "version": "1.6.55",
+  "description": "The libpng package contains libraries used by other programs for reading and writing PNG files. The PNG format was designed as a replacement for GIF and, to a lesser extent, TIFF, with many improvements and extensions and lack of patent problems.",
+  "url": "https://downloads.sourceforge.net/libpng/libpng-1.6.55.tar.xz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "zcat ../libpng-1.6.54-apng.patch.gz | patch -p1",
+      "./configure --prefix=/usr --disable-static",
+      "make",
+      "mkdir -v /usr/share/doc/libpng-1.6.55",
+      "cp -v README libpng-manual.txt /usr/share/doc/libpng-1.6.55"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/libpng.html",
+  "category": "graphics",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

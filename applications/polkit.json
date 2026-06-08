@@ -1,0 +1,35 @@
+{
+  "name": "polkit",
+  "version": "0",
+  "description": "Polkit is a toolkit for defining and handling authorizations. It is used for allowing unprivileged processes to communicate with privileged processes.",
+  "url": "https://github.com/polkit-org/polkit/archive/127/polkit-127.tar.gz",
+  "dependencies": {
+    "required": [
+      "duktape",
+      "libxslt",
+      "linux-pam",
+      "systemd"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup ..                   \\\n      --prefix=/usr              \\\n      --buildtype=release        \\\n      -D man=true                \\\n      -D session_tracking=logind \\\n      -D tests=true",
+      "ninja",
+      "groupadd -fg 27 polkitd",
+      "useradd -c \"PolicyKit Daemon Owner\" -d /etc/polkit-1 -u 27 \\\n        -g polkitd -s /bin/false polkitd"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/polkit.html",
+  "category": "security",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

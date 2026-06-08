@@ -1,0 +1,38 @@
+{
+  "name": "tripwire",
+  "version": "2.4.3.7",
+  "description": "The Tripwire package contains programs used to verify the integrity of the files on a given system.",
+  "url": "https://github.com/Tripwire/tripwire-open-source/releases/download/2.4.3.7/tripwire-open-source-2.4.3.7.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "sed -e '/^CLOBBER/s/false/true/'         \\\n    -e 's|TWDB=\"${prefix}|TWDB=\"/var|'   \\\n    -e '/TWMAN/ s|${prefix}|/usr/share|' \\\n    -e '/TWDOCS/s|${prefix}/doc/tripwire|/usr/share/doc/tripwire-2.4.3.7|' \\\n    -i installer/install.cfg",
+      "find . -name Makefile.am | xargs                           \\\n    sed -i 's/^[[:alpha:]_]*_HEADERS.*=/noinst_HEADERS =/'",
+      "sed '/dist/d' -i man/man?/Makefile.am",
+      "autoreconf -fi",
+      "./configure --prefix=/usr --sysconfdir=/etc/tripwire",
+      "make CPPFLAGS=-std=c++11",
+      "sed -e 's@installer/install.sh@& -n -s <site-password> -l <local-password>@' \\\n    -i Makefile",
+      "sed '/-t 0/,+3d' -i installer/install.sh",
+      "twprint --print-report -r /var/lib/tripwire/report/<report-name.twr>",
+      "tripwire --update --twrfile /var/lib/tripwire/report/<report-name.twr>",
+      "twadmin --create-polfile /etc/tripwire/twpol.txt",
+      "tripwire --init",
+      "cp -v policy/*.txt /usr/share/doc/tripwire-2.4.3.7",
+      "twadmin --create-polfile --site-keyfile /etc/tripwire/site.key \\\n    /etc/tripwire/twpol.txt",
+      "tripwire --init",
+      "tripwire --check > /etc/tripwire/report.txt"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/tripwire.html",
+  "category": "security",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

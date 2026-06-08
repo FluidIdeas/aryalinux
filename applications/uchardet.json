@@ -1,0 +1,30 @@
+{
+  "name": "uchardet",
+  "version": "0.0.8",
+  "description": "The Uchardet package contains an encoding detector library which takes a sequence of bytes in an unknown character encoding and attempts to determine the encoding of the text.",
+  "url": "https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.8.tar.xz",
+  "dependencies": {
+    "required": [
+      "cmake"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "cmake -D CMAKE_INSTALL_PREFIX=/usr        \\\n      -D BUILD_STATIC=OFF                 \\\n      -D CMAKE_POLICY_VERSION_MINIMUM=3.5 \\\n      -W no-dev ..",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/uchardet.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

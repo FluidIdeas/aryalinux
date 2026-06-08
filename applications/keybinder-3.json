@@ -1,0 +1,29 @@
+{
+  "name": "keybinder-3",
+  "version": "0.3.2",
+  "description": "The keybinder-3.0 package contains a utility library registering global X keyboard shortcuts for GTK+-3.",
+  "url": "https://github.com/kupferlauncher/keybinder/releases/download/keybinder-3.0-v0.3.2/keybinder-3.0-0.3.2.tar.gz",
+  "dependencies": {
+    "required": [
+      "gtk3",
+      "glib2"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "x/keybinder-3.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

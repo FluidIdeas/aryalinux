@@ -1,0 +1,41 @@
+{
+  "name": "fop",
+  "version": "2.11",
+  "description": "The FOP (Formatting Objects Processor) package contains a print formatter driven by XSL formatting objects (XSL-FO). It is a Java application that reads a formatting object tree and renders the resulting pages to a specified output. Output formats currently supported include PDF, PCL, PostScript, SVG, XML (area tree representation), print, AWT, MIF and ASCII text. The primary output target is PDF.",
+  "url": "https://archive.apache.org/dist/xmlgraphics/fop/source/fop-2.11-src.tar.gz",
+  "dependencies": {
+    "required": [
+      "apache-ant",
+      "libarchive"
+    ]
+  },
+  "build": {
+    "user": [
+      "unzip ../offo-hyphenation.zip",
+      "cp offo-hyphenation/hyph/* fop/hyph",
+      "rm -rf offo-hyphenation",
+      "tar -xf ../apache-maven-3.9.12-bin.tar.gz -C /tmp",
+      "sed -i '\\@</javad@i\\\n<arg value=\"-Xdoclint:none\"/>\\\n<arg value=\"--allow-script-in-comments\"/>\\\n<arg value=\"--ignore-source-errors\"/>' \\\n    fop/build.xml",
+      "cd fop",
+      "LC_ALL=en_US.UTF-8                     \\\nPATH=$PATH:/tmp/apache-maven-3.9.12/bin \\\nant package javadocs",
+      "mv build/javadocs .",
+      "rm -rf /tmp/apache-maven-3.9.12",
+      "cat > ~/.foprc << \"EOF\"\nFOP_OPTS=\"-Xmx<RAM_Installed>m\"\nFOP_HOME=\"/opt/fop\"\nEOF",
+      "cp -vR build conf examples fop* javadocs lib /opt/fop-2.11",
+      "chmod a+x /opt/fop-2.11/fop",
+      "ln -v -sfn fop-2.11 /opt/fop",
+      "cat > /etc/profile.d/fop.sh << \"EOF\"\n# Begin /etc/profile.d/fop.sh\n\npathappend /opt/fop\n\n# End /etc/profile.d/fop.sh\nEOF"
+    ],
+    "package": [
+      "install -v -d -m755 -o root -g root          $DESTDIR/opt/fop-2.11"
+    ]
+  },
+  "meta": false,
+  "book": "pst/fop.html",
+  "category": "printing",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

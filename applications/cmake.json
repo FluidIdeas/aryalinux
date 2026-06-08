@@ -1,0 +1,30 @@
+{
+  "name": "cmake",
+  "version": "4.2.3",
+  "description": "The CMake package contains a modern toolset used for generating Makefiles. It is a successor of the auto-generated configure script and aims to be platform- and compiler-independent. A significant user of CMake is KDE since version 4.",
+  "url": "https://cmake.org/files/v4.2/cmake-4.2.3.tar.gz",
+  "dependencies": {
+    "required": [
+      "curl",
+      "libuv"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i '/\"lib64\"/s/64//' Modules/GNUInstallDirs.cmake",
+      "./bootstrap --prefix=/usr        \\\n            --system-libs        \\\n            --mandir=/share/man  \\\n            --no-system-jsoncpp  \\\n            --no-system-cppdap   \\\n            --no-system-librhash \\\n            --docdir=/share/doc/cmake-4.2.3",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/cmake.html",
+  "category": "programming",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

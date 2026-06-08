@@ -1,0 +1,28 @@
+{
+  "name": "intel-vaapi-driver",
+  "version": "2.4.1",
+  "description": "The intel-vaapi-driver package contains a VA API driver for Intel GPUs that are provided with Haswell CPUs and earlier.",
+  "url": "https://github.com/intel/intel-vaapi-driver/releases/download/2.4.1/intel-vaapi-driver-2.4.1.tar.bz2",
+  "dependencies": {
+    "required": [
+      "libva"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure $XORG_CONFIG",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/intel-vaapi-driver.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "gnome-logs",
+  "version": "45.0",
+  "description": "The GNOME Logs package contains a log viewer for the systemd journal.",
+  "url": "https://download.gnome.org/sources/gnome-logs/45/gnome-logs-45.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "gtk4",
+      "itstool"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/gnome-logs.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "docbook5",
+  "version": "5.0",
+  "description": "The DocBook XML DTD and Schemas-5.0 package contains document type definitions and schemas for verification of XML data files against the DocBook rule set. These are useful for structuring books and software documentation to a standard allowing you to utilize transformations already written for that standard. In addition to providing a DTD, version 5 introduced the RelaxNG schema and Schematron rules, and is incompatible with previous versions of DocBook XML.",
+  "url": "https://archive.docbook.org/xml/5.0/docbook-5.0.zip",
+  "dependencies": {
+    "required": [
+      "libarchive"
+    ]
+  },
+  "build": {
+    "user": [
+      "cp -rv catalog.xml dtd rng sch xsd /usr/share/xml/docbook/xml-5.0",
+      "if [ ! -e /etc/xml/catalog ]; then\n    install -v -d -m755 /etc/xml",
+      "xmlcatalog --noout --create /etc/xml/catalog\nfi",
+      "xmlcatalog --noout --add \"delegatePublic\"             \\\n  \"-//OASIS//DTD DocBook XML 5.0//EN                \" \\\n  \"file:///usr/share/xml/docbook/xml-5.0/catalog.xml\" \\\n  /etc/xml/catalog",
+      "xmlcatalog --noout --add \"delegateSystem\"             \\\n  \"http://docbook.org/xml/5.0/dtd/\"                   \\\n  \"file:///usr/share/xml/docbook/xml-5.0/catalog.xml\" \\\n  /etc/xml/catalog",
+      "xmlcatalog --noout --add \"delegateURI\"                \\\n  \"http://docbook.org/xml/5.0\"                        \\\n  \"file:///usr/share/xml/docbook/xml-5.0/catalog.xml\" \\\n  /etc/xml/catalog"
+    ],
+    "package": [
+      "install -vdm755 $DESTDIR/usr/share/xml/docbook/xml-5.0"
+    ]
+  },
+  "meta": false,
+  "book": "pst/docbook5.html",
+  "category": "printing",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

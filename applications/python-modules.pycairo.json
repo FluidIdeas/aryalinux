@@ -1,0 +1,30 @@
+{
+  "name": "python-modules.pycairo",
+  "version": "1.29.0",
+  "description": "Python module pycairo for scripts and applications that depend on it.",
+  "url": "https://github.com/pygobject/pycairo/releases/download/v1.29.0/pycairo-1.29.0.tar.gz",
+  "dependencies": {
+    "required": [
+      "cairo"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "general/python-modules.html",
+  "category": "python-module",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

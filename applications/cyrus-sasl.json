@@ -1,0 +1,37 @@
+{
+  "name": "cyrus-sasl",
+  "version": "2.1.28",
+  "description": "The Cyrus SASL package contains a Simple Authentication and Security Layer implementation, a method for adding authentication support to connection-based protocols. To use SASL, a protocol includes a command for identifying and authenticating a user to a server and for optionally negotiating protection of subsequent protocol interactions. If its use is negotiated, a security layer is inserted between the protocol and the connection.",
+  "url": "https://github.com/cyrusimap/cyrus-sasl/releases/download/cyrus-sasl-2.1.28/cyrus-sasl-2.1.28.tar.gz",
+  "dependencies": {
+    "required": [
+      "lmdb"
+    ]
+  },
+  "build": {
+    "user": [
+      "patch -Np1 -i ../cyrus-sasl-2.1.28-gcc15_fixes-1.patch",
+      "autoreconf -fiv",
+      "sed '/saslint/a #include <time.h>'       -i lib/saslutil.c",
+      "sed '/plugin_common/a #include <time.h>' -i plugins/cram.c",
+      "./configure --prefix=/usr                       \\\n            --sysconfdir=/etc                   \\\n            --enable-auth-sasldb                \\\n            --with-dblib=lmdb                   \\\n            --with-dbpath=/var/lib/sasl/sasldb2 \\\n            --with-sphinx-build=no              \\\n            --with-saslauthd=/var/run/saslauthd",
+      "make -j1"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -dm755                          $DESTDIR/usr/share/doc/cyrus-sasl-2.1.28/html",
+      "install -v -m644  saslauthd/LDAP_SASLAUTHD $DESTDIR/usr/share/doc/cyrus-sasl-2.1.28",
+      "install -v -m644  doc/legacy/*.html        $DESTDIR/usr/share/doc/cyrus-sasl-2.1.28/html",
+      "install -v -dm700 $DESTDIR/var$DESTDIR/lib/sasl",
+      "make install-saslauthd DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/cyrus-sasl.html",
+  "category": "security",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

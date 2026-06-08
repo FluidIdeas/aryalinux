@@ -1,0 +1,33 @@
+{
+  "name": "gnome-keyring",
+  "version": "48.0",
+  "description": "The GNOME Keyring package contains a daemon that keeps passwords and other secrets for users.",
+  "url": "https://download.gnome.org/sources/gnome-keyring/48/gnome-keyring-48.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "dbus",
+      "gcr",
+      "linux-pam"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i 's:\"/desktop:\"/org:' schema/*.xml",
+      "mkdir build-gkr",
+      "cd    build-gkr",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/gnome-keyring.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

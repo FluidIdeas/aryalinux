@@ -1,0 +1,30 @@
+{
+  "name": "perl-deps.perl-b-hooks-endofscope",
+  "version": "0.28",
+  "description": "Perl module perl::b::hooks::endofscope providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.28.tar.gz",
+  "dependencies": {
+    "required": [
+      "perl-deps.perl-module-implementation",
+      "perl-deps.perl-variable-magic",
+      "perl-deps.perl-try-tiny"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

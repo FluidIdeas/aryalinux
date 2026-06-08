@@ -1,0 +1,27 @@
+{
+  "name": "ldns",
+  "version": "1.9.0",
+  "description": "ldns is a fast DNS library with the goal to simplify DNS programming and to allow developers to easily create software conforming to current RFCs and Internet drafts. This packages also includes the drill tool.",
+  "url": "https://www.nlnetlabs.nl/downloads/ldns/ldns-1.9.0.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr     \\\n            --sysconfdir=/etc \\\n            --disable-static  \\\n            --with-drill",
+      "make",
+      "make doc"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m755 -d $DESTDIR/usr/share/doc/ldns-1.9.0",
+      "install -v -m644 doc/html/* $DESTDIR/usr/share/doc/ldns-1.9.0"
+    ]
+  },
+  "meta": false,
+  "book": "basicnet/ldns.html",
+  "category": "networking",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

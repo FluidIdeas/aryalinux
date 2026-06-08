@@ -1,0 +1,30 @@
+{
+  "name": "umockdev",
+  "version": "0.19.4",
+  "description": "The Umockdev package contains a framework that allows a developer to mock devices for use in unit testing.",
+  "url": "https://github.com/martinpitt/umockdev/releases/download/0.19.4/umockdev-0.19.4.tar.xz",
+  "dependencies": {
+    "required": [
+      "libgudev"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "general/umockdev.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "goffice010",
+  "version": "0.10.60",
+  "description": "The GOffice package contains a library of GLib/GTK document centric objects and utilities. This is useful for performing common operations for document centric applications that are conceptually simple, but complex to implement fully. Some of the operations provided by the GOffice library include support for plugins, load/save routines for application documents and undo/redo functions.",
+  "url": "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.60.tar.xz",
+  "dependencies": {
+    "required": [
+      "gtk3",
+      "librsvg"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "x/goffice010.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

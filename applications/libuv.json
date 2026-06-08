@@ -1,0 +1,27 @@
+{
+  "name": "libuv",
+  "version": "1.52.0",
+  "description": "The libuv package is a multi-platform support library with a focus on asynchronous I/O.",
+  "url": "https://dist.libuv.org/dist/v1.52.0/libuv-v1.52.0.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "sh autogen.sh",
+      "./configure --prefix=/usr --disable-static",
+      "make",
+      "make man -C docs"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -Dm644 docs/build/man$DESTDIR/libuv.1 $DESTDIR/usr/share/man/man1"
+    ]
+  },
+  "meta": false,
+  "book": "general/libuv.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "rpcbind",
+  "version": "1.2.8",
+  "description": "The rpcbind program is a replacement for portmap. It is required for import or export of Network File System (NFS) shared directories.",
+  "url": "https://downloads.sourceforge.net/rpcbind/rpcbind-1.2.8.tar.bz2",
+  "dependencies": {
+    "required": [
+      "libtirpc"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i \"/servname/s:rpcbind:sunrpc:\" src/rpcbind.c",
+      "./configure --prefix=/usr       \\\n            --bindir=/usr/sbin  \\\n            --enable-warmstarts \\\n            --with-rpcuser=rpc",
+      "make",
+      "groupadd -g 28 rpc",
+      "useradd -c \"RPC Bind Daemon Owner\" -d /dev/null -g rpc \\\n        -s /bin/false -u 28 rpc",
+      "echo 'RPCBIND_OPTIONS=\"\"' > /etc/rpcbind.conf",
+      "systemctl enable rpcbind"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "basicnet/rpcbind.html",
+  "category": "networking",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

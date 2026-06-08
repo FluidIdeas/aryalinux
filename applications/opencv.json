@@ -1,0 +1,38 @@
+{
+  "name": "opencv",
+  "version": "4.13.0",
+  "description": "The opencv package contains graphics libraries mainly aimed at real-time computer vision.",
+  "url": "https://github.com/opencv/opencv/archive/4.13.0/opencv-4.13.0.tar.gz",
+  "dependencies": {
+    "required": [
+      "cmake",
+      "ffmpeg",
+      "gtk3",
+      "jasper",
+      "libexif",
+      "libpng",
+      "libwebp",
+      "openjpeg2"
+    ]
+  },
+  "build": {
+    "user": [
+      "tar -xf ../opencv_contrib-4.13.0.tar.gz",
+      "mkdir build",
+      "cd    build",
+      "cmake -D CMAKE_INSTALL_PREFIX=/usr      \\\n      -D CMAKE_BUILD_TYPE=Release       \\\n      -D ENABLE_CXX11=ON                \\\n      -D BUILD_PERF_TESTS=OFF           \\\n      -D WITH_XINE=ON                   \\\n      -D BUILD_TESTS=OFF                \\\n      -D ENABLE_PRECOMPILED_HEADERS=OFF \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON    \\\n      -D BUILD_WITH_DEBUG_INFO=OFF      \\\n      -D OPENCV_GENERATE_PKGCONFIG=ON   \\\n      -W no-dev  ..",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/opencv.html",
+  "category": "graphics",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

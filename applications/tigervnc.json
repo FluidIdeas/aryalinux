@@ -1,0 +1,55 @@
+{
+  "name": "tigervnc",
+  "version": "1.16.0",
+  "description": "Tigervnc is an advanced VNC (Virtual Network Computing) implementation. It allows creation of an Xorg server not tied to a physical console and also provides a client for viewing of the remote graphical desktop.",
+  "url": "https://github.com/TigerVNC/tigervnc/archive/v1.16.0/tigervnc-1.16.0.tar.gz",
+  "dependencies": {
+    "required": [
+      "cmake",
+      "gnutls",
+      "pixman",
+      "systemd",
+      "x7app",
+      "xinit",
+      "imagemagick"
+    ]
+  },
+  "build": {
+    "user": [
+      "patch -Np1 -i ../tigervnc-1.16.0-configuration_fixes-1.patch",
+      "sed -i \"/FL_MINOR_VERSION/s/3/4/\" CMakeLists.txt",
+      "# Put code in place\nmkdir -p unix/xserver",
+      "tar -xf ../xorg-server-21.1.21.tar.xz \\\n    --strip-components=1              \\\n    -C unix/xserver",
+      "( cd unix/xserver",
+      "patch -Np1 -i ../xserver21.patch )",
+      "# Build viewer\ncmake -G \"Unix Makefiles\"          \\\n      -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -W no-dev .",
+      "make",
+      "# Build server\npushd unix/xserver",
+      "autoreconf -fiv",
+      "CPPFLAGS=\"-I/usr/include/drm\"       \\\n  ./configure $XORG_CONFIG            \\\n      --disable-xwayland    --disable-dri        --disable-dmx         \\\n      --disable-xorg        --disable-xnest      --disable-xvfb        \\\n      --disable-xwin        --disable-xephyr     --disable-kdrive      \\\n      --disable-devel-docs  --disable-config-hal --disable-config-udev \\\n      --disable-unit-tests  --disable-selective-werror                 \\\n      --disable-static      --enable-dri3                              \\\n      --without-dtrace      --enable-dri2        --enable-glx          \\\n      --with-pic",
+      "make",
+      "popd",
+      "cat > ~/.config/tigervnc/config << EOF\n# Begin ~/.config/tigervnc/config\n# The session must match one listed in /usr/share/xsessions.\n# Ensure that there are no spaces at the end of the lines.\n\nsession=lxqt\ngeometry=1024x768\n\n# End ~/.config/tigervnc/config\nEOF",
+      "#Install viewer\nmake install",
+      "mv  /usr/share/doc/tigervnc /usr/share/doc/tigervnc-1.16.0\n\n#Install server\n( cd unix/xserver/hw/vnc",
+      "[ -e /usr/bin/Xvnc ] || ln -svf $XORG_PREFIX/bin/Xvnc /usr/bin/Xvnc",
+      "echo \":1=$(whoami)\" >> /etc/tigervnc/vncserver.users",
+      "systemctl start vncserver@:1",
+      "systemctl enable vncserver@:1"
+    ],
+    "package": [
+      "install -vdm 755 ~/.config/tigervnc",
+      "make install ) DESTDIR=$DESTDIR",
+      "install -vdm755 $DESTDIR/etc/X11/tigervnc",
+      "install -v -m755 ../Xsession $DESTDIR/etc/X11/tigervnc"
+    ]
+  },
+  "meta": false,
+  "book": "xsoft/tigervnc.html",
+  "category": "applications",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

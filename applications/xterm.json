@@ -1,0 +1,33 @@
+{
+  "name": "xterm",
+  "version": "0",
+  "description": "xterm is a terminal emulator for the X Window System.",
+  "url": "https://invisible-mirror.net/archives/xterm/xterm-407.tgz",
+  "dependencies": {
+    "required": [
+      "luit"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i '/v0/{n;s/new:/new:kb=^?:/}' termcap",
+      "printf '\\tkbs=\\\\177,\\n' >> terminfo",
+      "TERMINFO=/usr/share/terminfo \\\n./configure $XORG_CONFIG     \\\n            --with-app-defaults=/etc/X11/app-defaults",
+      "make",
+      "mkdir -pv /usr/share/applications",
+      "cp -v *.desktop /usr/share/applications/",
+      "cat >> /etc/X11/app-defaults/XTerm << \"EOF\"\n*VT100*locale: true\n*VT100*faceName: Monospace\n*VT100*faceSize: 10\n*backarrowKeyIsErase: true\n*ptyInitialErase: true\nEOF"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "x/xterm.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

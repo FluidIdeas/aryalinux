@@ -1,0 +1,32 @@
+{
+  "name": "fontforge",
+  "version": "0",
+  "description": "The FontForge package contains an outline font editor that lets you create your own postscript, truetype, opentype, cid-keyed, multi-master, cff, svg and bitmap (bdf, FON, NFNT) fonts, or edit existing ones.",
+  "url": "https://github.com/fontforge/fontforge/releases/download/20251009/fontforge-20251009.tar.xz",
+  "dependencies": {
+    "required": [
+      "gtkmm3",
+      "libxml2"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "cmake -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -W no-dev ..",
+      "make",
+      "ln -sv fontforge /usr/share/doc/fontforge-20251009"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "xsoft/fontforge.html",
+  "category": "applications",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

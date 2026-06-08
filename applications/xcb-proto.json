@@ -1,0 +1,28 @@
+{
+  "name": "xcb-proto",
+  "version": "1.17.0",
+  "description": "The xcb-proto package provides the XML-XCB protocol descriptions that libxcb uses to generate the majority of its code and API.",
+  "url": "https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.17.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "xorg7"
+    ]
+  },
+  "build": {
+    "user": [
+      "PYTHON=python3 ./configure $XORG_CONFIG",
+      "rm -f $XORG_PREFIX/lib/pkgconfig/xcb-proto.pc"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "x/xcb-proto.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

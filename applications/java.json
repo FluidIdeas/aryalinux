@@ -1,0 +1,25 @@
+{
+  "name": "java",
+  "version": "21.0.10",
+  "description": "OpenJDK Java runtime and development kit for running and building Java applications.",
+  "url": "",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "mv -v * /opt/OpenJDK-21.0.10-bin",
+      "chown -R root:root /opt/OpenJDK-21.0.10-bin",
+      "ln -sfn OpenJDK-21.0.10-bin /opt/jdk"
+    ],
+    "package": [
+      "install -vdm755 $DESTDIR/opt/OpenJDK-21.0.10-bin"
+    ]
+  },
+  "meta": false,
+  "book": "general/java.html",
+  "category": "programming",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

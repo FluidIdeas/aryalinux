@@ -72,7 +72,6 @@ unset BIN LIB save_usrlib online_usrbin online_usrlib
 
 DIRS="/opt/x-server
 /opt/gnome
-/opt/mate
 /opt/xfce
 /opt/qt5
 /opt/kf5"

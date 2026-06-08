@@ -1,0 +1,30 @@
+{
+  "name": "libraw",
+  "version": "0.22.0",
+  "description": "Libraw is a library for reading RAW files obtained from digital cameras (CRW/CR2, NEF, RAF, DNG, and others).",
+  "url": "https://www.libraw.org/data/LibRaw-0.22.0.tar.gz",
+  "dependencies": {
+    "required": [
+      "libjpeg",
+      "jasper",
+      "lcms2"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr    \\\n            --enable-jpeg    \\\n            --enable-jasper  \\\n            --enable-lcms    \\\n            --disable-static \\\n            --docdir=/usr/share/doc/libraw-0.22.0",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/libraw.html",
+  "category": "graphics",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

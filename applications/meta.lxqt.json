@@ -1,0 +1,49 @@
+{
+  "name": "meta.lxqt",
+  "version": "1.0",
+  "description": "Metapackage that installs the LXQt desktop environment and its core components.",
+  "url": "",
+  "dependencies": {
+    "required": [
+      "qt5",
+      "frameworks5",
+      "extra-cmake-modules",
+      "udisks2",
+      "upower",
+      "polkit",
+      "libexif",
+      "pulseaudio",
+      "xdg-user-dirs",
+      "libstatgrab",
+      "lm_sensors",
+      "json-glib",
+      "openbox",
+      "media-player-info",
+      "libdbusmenu-qt",
+      "polkit-qt",
+      "libfm",
+      "menu-cache",
+      "gtk2",
+      "gtk3",
+      "python-modules.pygobject2",
+      "python-modules.pygobject3",
+      "aryalinux-gtk-themes",
+      "aryalinux-icons",
+      "aryalinux-google-fonts",
+      "aryalinux-wallpapers",
+      "noto-fonts",
+      "muparser",
+      "libkscreen",
+      "libconfig",
+      "lightdm"
+    ]
+  },
+  "build": {},
+  "meta": true,
+  "category": "metapackage",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

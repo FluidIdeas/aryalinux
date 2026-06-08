@@ -1,0 +1,37 @@
+{
+  "name": "gvfs",
+  "version": "1.58.2",
+  "description": "The Gvfs package is a userspace virtual filesystem designed to work with the I/O abstractions of GLib's GIO library.",
+  "url": "https://download.gnome.org/sources/gvfs/1.58/gvfs-1.58.2.tar.xz",
+  "dependencies": {
+    "required": [
+      "dbus",
+      "gcr4",
+      "libsecret",
+      "gtk3",
+      "libsoup3",
+      "systemd",
+      "udisks2"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup               \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D onedrive=false   \\\n      -D fuse=false       \\\n      -D gphoto2=false    \\\n      -D afc=false        \\\n      -D bluray=false     \\\n      -D nfs=false        \\\n      -D mtp=false        \\\n      -D smb=false        \\\n      -D dnssd=false      \\\n      -D goa=false        \\\n      -D google=false     ..",
+      "ninja",
+      "glib-compile-schemas /usr/share/glib-2.0/schemas"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/gvfs.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

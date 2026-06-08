@@ -1,0 +1,28 @@
+{
+  "name": "libidn2",
+  "version": "2.3.8",
+  "description": "libidn2 is a package designed for internationalized string handling based on standards from the Internet Engineering Task Force (IETF)'s IDN working group, designed for internationalized domain names.",
+  "url": "https://ftpmirror.gnu.org/libidn/libidn2-2.3.8.tar.gz",
+  "dependencies": {
+    "required": [
+      "libunistring"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --disable-static",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/libidn2.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

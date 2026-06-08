@@ -1,0 +1,33 @@
+{
+  "name": "docbook-3.1-dtd",
+  "version": "3.1",
+  "description": "The DocBook SGML DTD package contains document type definitions for verification of SGML data files against the DocBook rule set. These are useful for structuring books and software documentation to a standard allowing you to utilize transformations already written for that standard.",
+  "url": "https://archive.docbook.org/sgml/3.1/docbk31.zip",
+  "dependencies": {
+    "required": [
+      "libarchive"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i -e '/ISO 8879/d' \\\n       -e 's|DTDDECL \"-//OASIS//DTD DocBook V3.1//EN\"|SGMLDECL|g' \\\n       docbook.cat",
+      "chown -R root:root .",
+      "cp -v -af *.dtd *.mod *.dcl /usr/share/sgml/docbook/sgml-dtd-3.1",
+      "install-catalog --add /etc/sgml/sgml-docbook-dtd-3.1.cat \\\n    /usr/share/sgml/docbook/sgml-dtd-3.1/catalog",
+      "install-catalog --add /etc/sgml/sgml-docbook-dtd-3.1.cat \\\n    /etc/sgml/sgml-docbook.cat",
+      "cat >> /usr/share/sgml/docbook/sgml-dtd-3.1/catalog << \"EOF\"\n  -- Begin Single Major Version catalog changes --\n\nPUBLIC \"-//Davenport//DTD DocBook V3.0//EN\" \"docbook.dtd\"\n\n  -- End Single Major Version catalog changes --\nEOF"
+    ],
+    "package": [
+      "install -v -d -m755 $DESTDIR/usr/share/sgml/docbook/sgml-dtd-3.1",
+      "install -v docbook.cat $DESTDIR/usr/share/sgml/docbook/sgml-dtd-3.1/catalog"
+    ]
+  },
+  "meta": false,
+  "book": "pst/docbook-3.1-dtd.html",
+  "category": "printing",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "sane",
+  "version": "1.4.0",
+  "description": "SANE is short for Scanner Access Now Easy. Scanner access, however, is far from easy, since every vendor has their own protocols. The only known protocol that should bring some unity into this chaos is the TWAIN interface, but this is too imprecise to allow a stable scanning framework. Therefore, SANE comes with its own protocol, and the vendor drivers can't be used.",
+  "url": "https://anduin.linuxfromscratch.org/BLFS/sane/sane-backends-1.4.0.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "sg scanner -c \"                                 \\\nPYTHON=python3 ./configure --prefix=/usr        \\\n                           --sysconfdir=/etc    \\\n                           --localstatedir=/var \\\n                           --with-lockdir=/run/lock \\\n                           --docdir=/usr/share/doc/sane-backends-1.4.0\"",
+      "make",
+      "groupadd -g 70 scanner",
+      "usermod -G scanner -a username",
+      "mkdir -p          /run/lock/sane",
+      "chgrp -v scanner  /run/lock/sane",
+      "cat >> /etc/sane.d/net.conf << \"EOF\"\nconnect_timeout = 60\n<server_ip>\nEOF"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -m 644 -v tools/udev$DESTDIR/libsane.rules           \\\n                  $DESTDIR/etc/udev/rules.d/65-scanner.rules"
+    ]
+  },
+  "meta": false,
+  "book": "pst/sane.html",
+  "category": "printing",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

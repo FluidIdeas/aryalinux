@@ -1,0 +1,28 @@
+{
+  "name": "lua",
+  "version": "5.4.8",
+  "description": "Lua is a powerful light-weight programming language designed for extending applications. It is also frequently used as a general-purpose, stand-alone language. Lua is implemented as a small library of C functions, written in ANSI C, and compiles unmodified in all known platforms. The implementation goals are simplicity, efficiency, portability, and low embedding cost. The result is a fast language engine with small footprint, making it ideal in embedded systems too.",
+  "url": "https://www.lua.org/ftp/lua-5.4.8.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "cat > lua.pc << \"EOF\"\nV=5.4\nR=5.4.8\n\nprefix=/usr\nINSTALL_BIN=${prefix}/bin\nINSTALL_INC=${prefix}/include\nINSTALL_LIB=${prefix}/lib\nINSTALL_MAN=${prefix}/share/man/man1\nINSTALL_LMOD=${prefix}/share/lua/${V}\nINSTALL_CMOD=${prefix}/lib/lua/${V}\nexec_prefix=${prefix}\nlibdir=${exec_prefix}/lib\nincludedir=${prefix}/include\n\nName: Lua\nDescription: An Extensible Extension Language\nVersion: ${R}\nRequires:\nLibs: -L${libdir} -llua -lm -ldl\nCflags: -I${includedir}\nEOF",
+      "patch -Np1 -i ../lua-5.4.8-shared_library-1.patch",
+      "make linux",
+      "make INSTALL_TOP=/usr                \\\n     INSTALL_DATA=\"cp -d\"            \\\n     INSTALL_MAN=/usr/share/man/man1 \\\n     TO_LIB=\"liblua.so liblua.so.5.4 liblua.so.5.4.8\" \\\n     install",
+      "mkdir -pv                      /usr/share/doc/lua-5.4.8",
+      "cp -v doc/*.{html,css,gif,png} /usr/share/doc/lua-5.4.8"
+    ],
+    "package": [
+      "install -v -m644 -D lua.pc $DESTDIR/usr$DESTDIR/lib/pkgconfig/lua.pc"
+    ]
+  },
+  "meta": false,
+  "book": "general/lua.html",
+  "category": "programming",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

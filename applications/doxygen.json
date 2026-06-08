@@ -1,0 +1,36 @@
+{
+  "name": "doxygen",
+  "version": "1.16.1",
+  "description": "The Doxygen package contains a documentation system for C++, C, Java, Objective-C, Corba IDL and to some extent PHP, C# and D. It is useful for generating HTML documentation and/or an off-line reference manual from a set of documented source files. There is also support for generating output in RTF, PostScript, hyperlinked PDF, compressed HTML, and Unix man pages. The documentation is extracted directly from the sources, which makes it much easier to keep the documentation consistent with the source code.",
+  "url": "https://doxygen.nl/files/doxygen-1.16.1.src.tar.gz",
+  "dependencies": {
+    "required": [
+      "cmake",
+      "git",
+      "qt6"
+    ]
+  },
+  "build": {
+    "user": [
+      "grep -rl '^#!.*python$' | xargs sed -i '1s/python/&3/'",
+      "mkdir -v build",
+      "cd       build",
+      "cmake -G \"Unix Makefiles\"          \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D build_wizard=ON           \\\n      -D force_qt=Qt6              \\\n      -W no-dev ..",
+      "make",
+      "cmake  -D build_doc=ON \\\n       -D DOC_INSTALL_DIR=share/doc/doxygen-1.16.1 \\\n       ..",
+      "make docs"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -vm644 ../doc/*.1 $DESTDIR/usr/share/man/man1"
+    ]
+  },
+  "meta": false,
+  "book": "general/doxygen.html",
+  "category": "programming",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

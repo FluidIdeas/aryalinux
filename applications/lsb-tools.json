@@ -1,0 +1,25 @@
+{
+  "name": "lsb-tools",
+  "version": "0.12",
+  "description": "The LSB-Tools package includes tools for Linux Standards Base (LSB) conformance.",
+  "url": "https://github.com/lfs-book/LSB-Tools/releases/download/v0.12/LSB-Tools-0.12.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "make",
+      "rm /usr/sbin/lsbinstall",
+      "rm /usr/sbin/{install,remove}_initd"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/lsb-tools.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

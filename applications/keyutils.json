@@ -1,0 +1,23 @@
+{
+  "name": "keyutils",
+  "version": "1.6.3",
+  "description": "Keyutils is a set of utilities for managing the key retention facility in the kernel, which can be used by filesystems, block devices and more to gain and retain the authorization and encryption keys required to perform secure operations.",
+  "url": "https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git/snapshot/keyutils-1.6.3.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "make"
+    ],
+    "package": [
+      "make NO_ARLIB=1 LIBDIR=$DESTDIR/usr/lib BINDIR=$DESTDIR/usr/bin SBINDIR=$DESTDIR/usr/sbin install"
+    ]
+  },
+  "meta": false,
+  "book": "general/keyutils.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

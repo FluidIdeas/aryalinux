@@ -1,0 +1,33 @@
+{
+  "name": "sysstat",
+  "version": "12.7.9",
+  "description": "The Sysstat package contains utilities to monitor system performance and usage activity. Sysstat contains the sar utility, common to many commercial Unixes, and tools you can schedule via cron to collect and historize performance and activity data.",
+  "url": "https://sysstat.github.io/sysstat-packages/sysstat-12.7.9.tar.xz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "sa_lib_dir=/usr/lib/sa    \\\nsa_dir=/var/log/sa        \\\nconf_dir=/etc/sysstat     \\\n./configure --prefix=/usr \\\n            --disable-file-attr",
+      "make",
+      "sed -i \"/^Also=/d\" /usr/lib/systemd/system/sysstat.service",
+      "systemctl enable sysstat"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m644 sysstat.service $DESTDIR/usr$DESTDIR/lib/systemd/system/sysstat.service",
+      "install -v -m644 cron/sysstat-collect.service $DESTDIR/usr$DESTDIR/lib/systemd/system/sysstat-collect.service",
+      "install -v -m644 cron/sysstat-collect.timer $DESTDIR/usr$DESTDIR/lib/systemd/system/sysstat-collect.timer",
+      "install -v -m644 cron/sysstat-rotate.service $DESTDIR/usr$DESTDIR/lib/systemd/system/sysstat-rotate.service",
+      "install -v -m644 cron/sysstat-rotate.timer $DESTDIR/usr$DESTDIR/lib/systemd/system/sysstat-rotate.timer",
+      "install -v -m644 cron/sysstat-summary.service $DESTDIR/usr$DESTDIR/lib/systemd/system/sysstat-summary.service",
+      "install -v -m644 cron/sysstat-summary.timer $DESTDIR/usr$DESTDIR/lib/systemd/system/sysstat-summary.timer"
+    ]
+  },
+  "meta": false,
+  "book": "general/sysstat.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

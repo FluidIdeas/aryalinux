@@ -1,0 +1,44 @@
+{
+  "name": "glib2",
+  "version": "2.86.4",
+  "description": "The GLib package contains low-level libraries useful for providing data structure handling for C, portability wrappers and interfaces for runtime functionality such as an event loop, threads, dynamic loading and an object system.",
+  "url": "https://download.gnome.org/sources/glib/2.86/glib-2.86.4.tar.xz",
+  "dependencies": {
+    "required": [
+      "python-modules.docutils"
+    ]
+  },
+  "build": {
+    "user": [
+      "patch -Np1 -i ../glib-skip_warnings-1.patch",
+      "patch -Np1 -i ../glib-2.86.4-upstream_fixes-1.patch",
+      "mkdir build",
+      "cd    build",
+      "meson setup ..                  \\\n      --prefix=/usr             \\\n      --buildtype=release       \\\n      -D introspection=disabled \\\n      -D glib_debug=disabled    \\\n      -D man-pages=enabled      \\\n      -D sysprof=disabled",
+      "ninja",
+      "tar xf ../../gobject-introspection-1.86.0.tar.xz",
+      "meson setup gobject-introspection-1.86.0 gi-build \\\n            --prefix=/usr --buildtype=release",
+      "ninja -C gi-build",
+      "meson configure -D introspection=enabled",
+      "ninja",
+      "sed \"/docs_dir =/s|$| / 'glib-' + meson.project_version()|\" \\\n    -i ../docs/reference/meson.build",
+      "meson configure -D documentation=true",
+      "ninja",
+      "if [ -e /usr/include/glib-2.0 ]; then\n    rm -rf /usr/include/glib-2.0.old",
+      "mv -vf /usr/include/glib-2.0{,.old}\nfi",
+      "ninja -C gi-build install"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install",
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "general/glib2.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

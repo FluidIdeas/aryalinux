@@ -1,0 +1,33 @@
+{
+  "name": "kdenlive",
+  "version": "25.12.2",
+  "description": "The Kdenlive package is a KDE Frameworks-based video editor that can handle numerous video and audio codecs.",
+  "url": "https://download.kde.org/stable/release-service/25.12.2/src/kdenlive-25.12.2.tar.xz",
+  "dependencies": {
+    "required": [
+      "git",
+      "frameworks6",
+      "mlt",
+      "breeze-icons"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "cmake -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX \\\n      -D CMAKE_BUILD_TYPE=Release         \\\n      -D BUILD_TESTING=OFF                \\\n      -D FETCH_OTIO=ON                    \\\n      -W no-dev ..",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "kde/kdenlive.html",
+  "category": "desktop-kde",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

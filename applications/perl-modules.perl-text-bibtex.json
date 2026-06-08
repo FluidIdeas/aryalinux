@@ -1,0 +1,29 @@
+{
+  "name": "perl-modules.perl-text-bibtex",
+  "version": "0.91",
+  "description": "Perl module perl::text::bibtex used by applications and other Perl packages on the system.",
+  "url": "https://www.cpan.org/authors/id/A/AM/AMBS/Text-BibTeX-0.91.tar.gz",
+  "dependencies": {
+    "required": [
+      "perl-deps.perl-config-autoconf",
+      "perl-deps.perl-extutils-libbuilder"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl Build.PL",
+      "./Build"
+    ],
+    "package": [
+      "./Build install --destdir $DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-modules.html",
+  "category": "perl-module",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

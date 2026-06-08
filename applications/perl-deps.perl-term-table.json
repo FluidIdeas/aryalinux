@@ -1,0 +1,28 @@
+{
+  "name": "perl-deps.perl-term-table",
+  "version": "0.028",
+  "description": "Perl module perl::term::table providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Term-Table-0.028.tar.gz",
+  "dependencies": {
+    "required": [
+      "perl-deps.perl-test-simple"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

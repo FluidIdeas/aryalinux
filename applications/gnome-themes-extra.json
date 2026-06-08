@@ -1,0 +1,28 @@
+{
+  "name": "gnome-themes-extra",
+  "version": "3.28",
+  "description": "The GNOME Themes Extra package, formerly known as GNOME Themes Standard, contains various components of the default GNOME theme.",
+  "url": "https://download.gnome.org/sources/gnome-themes-extra/3.28/gnome-themes-extra-3.28.tar.xz",
+  "dependencies": {
+    "required": [
+      "gtk3"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --disable-gtk2-engine",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "x/gnome-themes-extra.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "libwacom",
+  "version": "2.18.0",
+  "description": "The libwacom package contains a library used to identify graphics tablets from Wacom or various other vendors and their model-specific features.",
+  "url": "https://github.com/linuxwacom/libwacom/releases/download/libwacom-2.18.0/libwacom-2.18.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "x7driver",
+      "libxml2"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup ..            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D tests=disabled",
+      "ninja",
+      "rm -rf /usr/share/libwacom"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "general/libwacom.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

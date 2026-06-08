@@ -1,0 +1,35 @@
+{
+  "name": "gdb",
+  "version": "17.1",
+  "description": "GDB, the GNU Project debugger, allows you to see what is going on “inside” another program while it executes -- or what another program was doing at the moment it crashed. Note that GDB is most effective when tracing programs and libraries that were built with debugging symbols and not stripped.",
+  "url": "https://ftpmirror.gnu.org/gdb/gdb-17.1.tar.xz",
+  "dependencies": {
+    "required": [
+      "python-modules.six"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "../configure --prefix=/usr          \\\n             --with-system-readline \\\n             --with-system-zlib     \\\n             --with-python=/usr/bin/python3",
+      "make",
+      "make -C gdb/doc doxy",
+      "make -C gdb install",
+      "make -C gdbserver install",
+      "rm -rf gdb/doc/doxy/xml",
+      "cp -Rv gdb/doc/doxy /usr/share/doc/gdb-17.1"
+    ],
+    "package": [
+      "install -d $DESTDIR/usr/share/doc/gdb-17.1"
+    ]
+  },
+  "meta": false,
+  "book": "general/gdb.html",
+  "category": "programming",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

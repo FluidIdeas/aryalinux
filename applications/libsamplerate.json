@@ -1,0 +1,24 @@
+{
+  "name": "libsamplerate",
+  "version": "0.2.2",
+  "description": "libsamplerate is a sample rate converter for audio.",
+  "url": "https://github.com/libsndfile/libsamplerate/releases/download/0.2.2/libsamplerate-0.2.2.tar.xz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr    \\\n            --disable-static \\\n            --docdir=/usr/share/doc/libsamplerate-0.2.2",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/libsamplerate.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

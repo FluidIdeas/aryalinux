@@ -1,0 +1,28 @@
+{
+  "name": "perl-deps.perl-ffi-checklib",
+  "version": "0.31",
+  "description": "Perl module perl::ffi::checklib providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/FFI-CheckLib-0.31.tar.gz",
+  "dependencies": {
+    "required": [
+      "perl-deps.perl-capture-tiny"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "gtk3",
+  "version": "3.24.51",
+  "description": "The GTK3 package contains libraries used for creating graphical user interfaces for applications.",
+  "url": "https://download.gnome.org/sources/gtk/3.24/gtk-3.24.51.tar.xz",
+  "dependencies": {
+    "required": [
+      "at-spi2-core",
+      "gdk-pixbuf",
+      "pango",
+      "iso-codes",
+      "libxslt",
+      "wayland",
+      "glib2"
+    ],
+    "post": [
+      "adwaita-icon-theme"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup ..            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D man=true         \\\n      -D broadway_backend=true",
+      "ninja",
+      "mkdir -vp ~/.config/gtk-3.0\ncat > ~/.config/gtk-3.0/settings.ini << \"EOF\"\n[Settings]\ngtk-theme-name = Adwaita\ngtk-icon-theme-name = oxygen\ngtk-font-name = DejaVu Sans 12\ngtk-cursor-theme-size = 18\ngtk-toolbar-style = GTK_TOOLBAR_BOTH_HORIZ\ngtk-xft-antialias = 1\ngtk-xft-hinting = 1\ngtk-xft-hintstyle = hintslight\ngtk-xft-rgba = rgb\ngtk-cursor-theme-name = Adwaita\nEOF",
+      "cat > ~/.config/gtk-3.0/gtk.css << \"EOF\"\n*  {\n   -GtkScrollbar-has-backward-stepper: 1;\n   -GtkScrollbar-has-forward-stepper: 1;\n}\nEOF",
+      "gtk-query-immodules-3.0 --update-cache",
+      "glib-compile-schemas /usr/share/glib-2.0/schemas"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "x/gtk3.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

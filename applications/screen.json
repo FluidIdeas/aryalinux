@@ -1,0 +1,27 @@
+{
+  "name": "screen",
+  "version": "5.0.1",
+  "description": "Screen is a terminal multiplexor that runs several separate processes, typically interactive shells, on a single physical character-based terminal. Each virtual terminal emulates a DEC VT100 plus several ANSI X3.64 and ISO 2022 functions and also provides configurable input and output translation, serial port support, configurable logging, multi-user support, and many character encodings, including UTF-8. Screen sessions can be detached and resumed later on a different terminal.",
+  "url": "https://ftpmirror.gnu.org/screen/screen-5.0.1.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "sed 's/\\([a-z]\\)@opensuse/\\1@@opensuse/' -i doc/screen.texinfo",
+      "./configure --prefix=/usr                   \\\n            --infodir=/usr/share/info       \\\n            --mandir=/usr/share/man         \\\n            --disable-pam                   \\\n            --enable-socket-dir=/run/screen \\\n            --with-pty-group=5              \\\n            --with-system_screenrc=/etc/screenrc",
+      "sed -i -e \"s%/usr/local/etc/screenrc%/etc/screenrc%\" {etc,doc}/*",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -m 644 etc$DESTDIR/etcscreenrc $DESTDIR/etc/screenrc"
+    ]
+  },
+  "meta": false,
+  "book": "general/screen.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

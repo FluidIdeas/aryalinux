@@ -1,0 +1,37 @@
+{
+  "name": "xorg-server",
+  "version": "21.1.21",
+  "description": "The Xorg Server is the core of the X Window system.",
+  "url": "https://www.x.org/pub/individual/xserver/xorg-server-21.1.21.tar.xz",
+  "dependencies": {
+    "required": [
+      "libxcvt",
+      "x7font",
+      "libepoxy",
+      "libtirpc",
+      "systemd",
+      "x7driver"
+    ]
+  },
+  "build": {
+    "user": [
+      "patch -Np1 -i ../xorg-server-21.1.21-tearfree_backport-1.patch",
+      "mkdir build",
+      "cd    build",
+      "meson setup ..              \\\n      --prefix=$XORG_PREFIX \\\n      --localstatedir=/var  \\\n      -D glamor=true        \\\n      -D xkb_output_dir=/var/lib/xkb",
+      "ninja",
+      "mkdir -pv /etc/X11/xorg.conf.d"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "x/xorg-server.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

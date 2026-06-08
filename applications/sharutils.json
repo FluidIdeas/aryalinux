@@ -1,0 +1,26 @@
+{
+  "name": "sharutils",
+  "version": "4.15.2",
+  "description": "The Sharutils package contains utilities that can create 'shell' archives.",
+  "url": "https://ftpmirror.gnu.org/sharutils/sharutils-4.15.2.tar.xz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "patch -Np1 -i ../sharutils-4.15.2-consolidated-1.patch",
+      "autoreconf -fiv",
+      "./configure --prefix=/usr --disable-dependency-tracking",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/sharutils.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

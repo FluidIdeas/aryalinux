@@ -1,0 +1,43 @@
+{
+  "name": "poppler",
+  "version": "26.02.0",
+  "description": "The Poppler package contains a PDF rendering library and command line tools used to manipulate PDF files. This is useful for providing PDF rendering functionality as a shared library.",
+  "url": "https://poppler.freedesktop.org/poppler-26.02.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "cmake",
+      "glib2",
+      "boost",
+      "gpgmepp",
+      "libjpeg",
+      "libpng",
+      "libtiff",
+      "openjpeg2",
+      "okular"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "cmake -D CMAKE_BUILD_TYPE=Release   \\\n      -D CMAKE_INSTALL_PREFIX=/usr  \\\n      -D TESTDATADIR=$PWD/testfiles \\\n      -D ENABLE_QT5=OFF             \\\n      -D ENABLE_UNSTABLE_API_ABI_HEADERS=ON \\\n      -G Ninja ..",
+      "ninja",
+      "tar -xf ../../poppler-data-0.4.12.tar.gz",
+      "cd poppler-data-0.4.12",
+      "cp -vr ../glib/reference/html /usr/share/doc/poppler-26.02.0",
+      "make prefix=/usr install"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install",
+      "install -v -m755 -d           $DESTDIR/usr/share/doc/poppler-26.02.0"
+    ]
+  },
+  "meta": false,
+  "book": "general/poppler.html",
+  "category": "graphics",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

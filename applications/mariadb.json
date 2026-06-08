@@ -1,0 +1,43 @@
+{
+  "name": "mariadb",
+  "version": "11.8.6",
+  "description": "MariaDB is a community-developed fork and a drop-in replacement for the MySQL relational database management system.",
+  "url": "https://downloads.mariadb.org/interstitial/mariadb-11.8.6/source/mariadb-11.8.6.tar.gz",
+  "dependencies": {
+    "required": [
+      "cmake",
+      "libevent"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i 's/regex system/regex/' \\\n       storage/columnstore/columnstore/cmake/boost.cmake",
+      "mkdir build",
+      "cd    build",
+      "cmake -D CMAKE_BUILD_TYPE=Release                       \\\n      -D CMAKE_INSTALL_PREFIX=/usr                      \\\n      -D GRN_LOG_PATH=/var/log/groonga.log              \\\n      -D INSTALL_DOCDIR=share/doc/mariadb-11.8.6        \\\n      -D INSTALL_DOCREADMEDIR=share/doc/mariadb-11.8.6  \\\n      -D INSTALL_MANDIR=share/man                       \\\n      -D INSTALL_MYSQLSHAREDIR=share/mariadb            \\\n      -D INSTALL_MYSQLTESTDIR=share/mariadb/test        \\\n      -D INSTALL_PAMDIR=lib/security                    \\\n      -D INSTALL_PAMDATADIR=/etc/security               \\\n      -D INSTALL_PLUGINDIR=lib/mariadb/plugin           \\\n      -D INSTALL_SBINDIR=sbin                           \\\n      -D INSTALL_SCRIPTDIR=bin                          \\\n      -D INSTALL_SQLBENCHDIR=share/mariadb/bench        \\\n      -D INSTALL_SUPPORTFILESDIR=share/mariadb          \\\n      -D MYSQL_DATADIR=/srv/mariadb                     \\\n      -D MYSQL_UNIX_ADDR=/run/mariadb/mariadb.sock      \\\n      -D WITH_EXTRA_CHARSETS=complex                    \\\n      -D WITH_EMBEDDED_SERVER=ON                        \\\n      -D SKIP_TESTS=ON                                  \\\n      -D TOKUDB_OK=0                                    \\\n      -W no-dev                                         \\\n      ..",
+      "make",
+      "mariadb-upgrade",
+      "groupadd -g 40 mariadb",
+      "useradd -c \"MariaDB Server\" -d /srv/mariadb -g mariadb -s /bin/false -u 40 mariadb",
+      "cat > /etc/my.cnf << \"EOF\"\n# Begin /etc/my.cnf\n\n# The following options will be passed to all MySQL clients\n[client]\n#password       = your_password\nport            = 3306\nsocket          = /run/mariadb/mariadb.sock\n\n# The MySQL server\n[server]\nport            = 3306\nsocket          = /run/mariadb/mariadb.sock\ndatadir         = /srv/mariadb\nskip-external-locking\nkey_buffer_size = 16M\nmax_allowed_packet = 1M\nsort_buffer_size = 512K\nnet_buffer_length = 16K\nmyisam_sort_buffer_size = 8M\n\n# Don't listen on a TCP/IP port at all.\nskip-networking\n\n# required unique id between 1 and 2^32 - 1\nserver-id       = 1\n\n# Uncomment the following if you are using BDB tables\n#bdb_cache_size = 4M\n#bdb_max_lock = 10000\n\n# InnoDB tables are now used by default\ninnodb_data_home_dir = /srv/mariadb\ninnodb_log_group_home_dir = /srv/mariadb\n# All the innodb_xxx values below are the default ones:\ninnodb_data_file_path = ibdata1:12M:autoextend\n# You can set .._buffer_pool_size up to 50 - 80 %\n# of RAM but beware of setting memory usage too high\ninnodb_buffer_pool_size = 128M\ninnodb_log_file_size = 48M\ninnodb_log_buffer_size = 16M\ninnodb_flush_log_at_trx_commit = 1\ninnodb_lock_wait_timeout = 50\n\n[mariadbdump]\nquick\nmax_allowed_packet = 16M\n\n[mysql]\nno-auto-rehash\n# Remove the next comment character if you are not familiar with SQL\n#safe-updates\n\n[isamchk]\nkey_buffer = 20M\nsort_buffer_size = 20M\nread_buffer = 2M\nwrite_buffer = 2M\n\n[myisamchk]\nkey_buffer_size = 20M\nsort_buffer_size = 20M\nread_buffer = 2M\nwrite_buffer = 2M\n\n[mariadbhotcopy]\ninteractive-timeout\n\n# End /etc/my.cnf\nEOF",
+      "mariadb-install-db --basedir=/usr --datadir=/srv/mariadb --user=mariadb",
+      "chown -R mariadb:mariadb /srv/mariadb",
+      "mariadbd-safe --user=mariadb 2>&1 >/dev/null &",
+      "mariadb-admin -u root password",
+      "mariadb-admin -p shutdown"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m755 -o mariadb -g mariadb -d /run/mariadb",
+      "make install-mariadb DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "server/mariadb.html",
+  "category": "server",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

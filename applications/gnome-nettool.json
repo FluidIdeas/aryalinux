@@ -1,0 +1,33 @@
+{
+  "name": "gnome-nettool",
+  "version": "42.0",
+  "description": "The GNOME Nettool package is a network information tool which provides GUI interface for some of the most common command line network tools.",
+  "url": "https://download.gnome.org/sources/gnome-nettool/42/gnome-nettool-42.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "gtk3",
+      "libgtop"
+    ]
+  },
+  "build": {
+    "user": [
+      "patch -Np1 -i ../gnome-nettool-42.0-ping_and_netstat_fixes-1.patch",
+      "sed -i '/merge_file/s/(.*/(/' data/meson.build",
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/gnome-nettool.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

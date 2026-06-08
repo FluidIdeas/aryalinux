@@ -1,0 +1,31 @@
+{
+  "name": "libisoburn",
+  "version": "1.5.6",
+  "description": "libisoburn is a frontend for the libburn and libisofs libraries, which enables creation and expansion of ISO-9660 filesystems on all CD/DVD/BD media supported by libburn. This includes media like DVD+RW, which do not support multi-session management on the media level, and even plain disk files or block devices.",
+  "url": "https://files.libburnia-project.org/releases/libisoburn-1.5.6.tar.gz",
+  "dependencies": {
+    "required": [
+      "libburn"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr              \\\n            --disable-static           \\\n            --enable-pkg-check-modules",
+      "make",
+      "doxygen doc/doxygen.conf"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -dm755 $DESTDIR/usr/share/doc$DESTDIR/libisoburn-1.5.6",
+      "install -v -m644 doc/html/* $DESTDIR/usr/share/doc$DESTDIR/libisoburn-1.5.6"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/libisoburn.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

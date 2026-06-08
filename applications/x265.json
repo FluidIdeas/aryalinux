@@ -1,0 +1,33 @@
+{
+  "name": "x265",
+  "version": "4.1",
+  "description": "x265 package provides a library for encoding video streams into the H.265/HEVC format.",
+  "url": "https://bitbucket.org/multicoreware/x265_git/downloads/x265_4.1.tar.gz",
+  "dependencies": {
+    "required": [
+      "cmake",
+      "nasm"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -r '/cmake_policy.*(0025|0054)/d' -i source/CMakeLists.txt",
+      "mkdir bld",
+      "cd    bld",
+      "cmake -D CMAKE_INSTALL_PREFIX=/usr        \\\n      -D GIT_ARCHETYPE=1                  \\\n      -D CMAKE_POLICY_VERSION_MINIMUM=3.5 \\\n      -W no-dev                           \\\n      ../source",
+      "make",
+      "rm -vf /usr/lib/libx265.a"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/x265.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "grub-efi",
+  "version": "2.14",
+  "description": "The GRUB package provides GRand Unified Bootloader. In this page it will be built with UEFI support, which is not enabled for GRUB built in LFS.",
+  "url": "https://ftpmirror.gnu.org/grub/grub-2.14.tar.xz",
+  "dependencies": {
+    "required": [
+      "efibootmgr"
+    ]
+  },
+  "build": {
+    "user": [
+      "unset {C,CPP,CXX,LD}FLAGS",
+      "./configure --prefix=/usr        \\\n            --sysconfdir=/etc    \\\n            --disable-efiemu     \\\n            --with-platform=efi  \\\n            --target=x86_64      \\\n            --disable-werror",
+      "make",
+      "mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions",
+      "mkdir -pv /usr/share/fonts/unifont",
+      "zcat ../unifont-17.0.03.pcf.gz > /usr/share/fonts/unifont/unifont.pcf",
+      "make -C grub-core install"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -vm755 grub-mkfont $DESTDIR/usr/bin/",
+      "install -vm644 ascii.h widthspec.h *.pf2 $DESTDIR/usr/share/grub/",
+      "install -vm755 grub-mount $DESTDIR/usr/bin/"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/grub-efi.html",
+  "category": "system",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

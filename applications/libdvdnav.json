@@ -1,0 +1,32 @@
+{
+  "name": "libdvdnav",
+  "version": "7.0.0",
+  "description": "libdvdnav is a library that allows easy usage of sophisticated DVD navigation features including DVD menus, multiangle playback, and even interactive DVD games.",
+  "url": "https://get.videolan.org/libdvdnav/7.0.0/libdvdnav-7.0.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "libdvdread"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i \"/get_option/s/libdvdnav/&-7.0.0/\" meson.build",
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja",
+      "rm -fv /usr/lib/libdvdnav.a"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/libdvdnav.html",
+  "category": "multimedia",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

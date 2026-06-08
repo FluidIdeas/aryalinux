@@ -1,0 +1,41 @@
+{
+  "name": "exim",
+  "version": "4.99.1",
+  "description": "The Exim package contains a Mail Transport Agent written by the University of Cambridge, released under the GNU Public License.",
+  "url": "https://ftp.exim.org/pub/exim/exim4/exim-4.99.1.tar.xz",
+  "dependencies": {
+    "required": [
+      "libnsl"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -e 's,^BIN_DIR.*$,BIN_DIRECTORY=/usr/sbin,'    \\\n    -e 's,^CONF.*$,CONFIGURE_FILE=/etc/exim.conf,' \\\n    -e 's,^EXIM_USER.*$,EXIM_USER=exim,'           \\\n    -e '/# USE_OPENSSL/s,^#,,' src/EDITME > Local/Makefile",
+      "printf \"USE_GDBM = yes\\nDBMLIB = -lgdbm\\n\" >> Local/Makefile",
+      "sed -i '/# SUPPORT_PAM=yes/s,^#,,' Local/Makefile\necho \"EXTRALIBS=-lpam\" >> Local/Makefile",
+      "make",
+      "groupadd -g 31 exim",
+      "useradd -d /dev/null -c \"Exim Daemon\" -g exim -s /bin/false -u 31 exim",
+      "cp      -Rv doc/*   /usr/share/doc/exim-4.99.1",
+      "ln -sfv exim /usr/sbin/sendmail",
+      "chmod -v a+wt /var/mail",
+      "cat >> /etc/aliases << \"EOF\"\npostmaster: root\nMAILER-DAEMON: root\nEOF\n/usr/sbin/exim -bd -q15m",
+      "cat > /etc/pam.d/exim << \"EOF\"\n# Begin /etc/pam.d/exim\n\nauth    include system-auth\naccount include system-account\nsession include system-session\n\n# End /etc/pam.d/exim\nEOF"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m644 doc/exim.8 $DESTDIR/usr/share/man/man8",
+      "install -vdm 755    $DESTDIR/usr/share/doc/exim-4.99.1",
+      "install -v -d -m750 -o exim -g exim $DESTDIR/var/spool/exim",
+      "make install-exim DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "server/exim.html",
+  "category": "server",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

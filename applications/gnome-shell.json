@@ -1,0 +1,45 @@
+{
+  "name": "gnome-shell",
+  "version": "49.4",
+  "description": "The GNOME Shell is the core user interface of the GNOME Desktop environment.",
+  "url": "https://download.gnome.org/sources/gnome-shell/49/gnome-shell-49.4.tar.xz",
+  "dependencies": {
+    "required": [
+      "evolution-data-server",
+      "gcr4",
+      "gjs",
+      "mutter",
+      "startup-notification",
+      "desktop-file-utils",
+      "gnome-autoar",
+      "gst10-plugins-base",
+      "networkmanager",
+      "power-profiles-daemon",
+      "adwaita-icon-theme",
+      "dconf",
+      "gdm",
+      "gnome-control-center",
+      "libgweather",
+      "gnome-menus"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr       \\\n            --buildtype=release \\\n            -D tests=false      \\\n            ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/gnome-shell.html",
+  "category": "desktop-gnome",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "libnl",
+  "version": "3.12.0",
+  "description": "The libnl suite is a collection of libraries providing APIs to netlink protocol based Linux kernel interfaces.",
+  "url": "https://github.com/thom311/libnl/releases/download/libnl3_12_0/libnl-3.12.0.tar.gz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr     \\\n            --sysconfdir=/etc \\\n            --disable-static",
+      "make",
+      "mkdir -vp /usr/share/doc/libnl-3.12.0",
+      "tar -xf ../libnl-doc-3.12.0.tar.gz --strip-components=1 --no-same-owner \\\n    -C  /usr/share/doc/libnl-3.12.0"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "basicnet/libnl.html",
+  "category": "networking",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "gnome-icon-theme-symbolic",
+  "version": "3.12.0",
+  "description": "The GNOME Icon Theme Symbolic package contains symbolic icons for the default GNOME icon theme.",
+  "url": "https://download.gnome.org/sources/gnome-icon-theme-symbolic/3.12/gnome-icon-theme-symbolic-3.12.0.tar.xz",
+  "dependencies": {
+    "required": [
+      "gnome-icon-theme"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "x/gnome-icon-theme-symbolic.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

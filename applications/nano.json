@@ -1,0 +1,25 @@
+{
+  "name": "nano",
+  "version": "8.7.1",
+  "description": "The Nano package contains a small, simple text editor which aims to replace Pico, the default editor in the Pine package.",
+  "url": "https://www.nano-editor.org/dist/v8/nano-8.7.1.tar.xz",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr     \\\n            --sysconfdir=/etc \\\n            --enable-utf8     \\\n            --docdir=/usr/share/doc/nano-8.7.1",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -v -m644 doc/{nano.html,sample.nanorc} $DESTDIR/usr/share/doc/nano-8.7.1"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/nano.html",
+  "category": "system",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

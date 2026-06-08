@@ -1,0 +1,28 @@
+{
+  "name": "perl-deps.perl-lwp-mediatypes",
+  "version": "6.04",
+  "description": "Perl module perl::lwp::mediatypes providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/LWP-MediaTypes-6.04.tar.gz",
+  "dependencies": {
+    "required": [
+      "perl-deps.perl-test-fatal"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

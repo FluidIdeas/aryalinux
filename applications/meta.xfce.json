@@ -1,0 +1,59 @@
+{
+  "name": "meta.xfce",
+  "version": "1.0",
+  "description": "Metapackage that installs the Xfce desktop environment and its core applications.",
+  "url": "",
+  "dependencies": {
+    "required": [
+      "libxfce4util",
+      "xfconf",
+      "libxfce4ui",
+      "exo",
+      "garcon",
+      "libwnck2",
+      "xfce4-panel",
+      "udisks2",
+      "gvfs",
+      "thunar",
+      "thunar-volman",
+      "tumbler",
+      "xfce4-appfinder",
+      "xfce4-power-manager",
+      "xfce4-settings",
+      "xfdesktop",
+      "xfwm4",
+      "xfce4-session",
+      "parole",
+      "xfce4-terminal",
+      "xfburn",
+      "ristretto",
+      "xfce4-notifyd",
+      "aryalinux-gtk-themes",
+      "aryalinux-google-fonts",
+      "aryalinux-wallpapers",
+      "aryalinux-icons",
+      "lightdm",
+      "xfce4-dev-tools",
+      "network-manager-applet",
+      "cups",
+      "cups-filters",
+      "vpn-libs",
+      "plymouth",
+      "pnmixer",
+      "xdg-user-dirs",
+      "xdg-utils",
+      "mousepad",
+      "pavucontrol",
+      "galculator",
+      "epdfview"
+    ]
+  },
+  "build": {},
+  "meta": true,
+  "category": "metapackage",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

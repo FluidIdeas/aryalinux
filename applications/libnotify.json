@@ -1,0 +1,38 @@
+{
+  "name": "libnotify",
+  "version": "0.8.8",
+  "description": "The libnotify library is used to send desktop notifications to a notification daemon, as defined in the Desktop Notifications spec. These notifications can be used to inform the user about an event or display some form of information without getting in the user's way.",
+  "url": "https://download.gnome.org/sources/libnotify/0.8/libnotify-0.8.8.tar.xz",
+  "dependencies": {
+    "required": [
+      "gdk-pixbuf",
+      "gtk4"
+    ],
+    "post": [
+      "xfce4-notifyd"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr       \\\n            --buildtype=release \\\n            -D gtk_doc=false    \\\n            -D man=false        \\\n            ..",
+      "ninja",
+      "sed \"/docs_dir =/s@\\$@ / 'libnotify'@\" \\\n    -i ../docs/reference/meson.build",
+      "meson configure -D gtk_doc=true",
+      "ninja",
+      "if [ -e /usr/share/doc/libnotify ]; then\n  rm -rf /usr/share/doc/libnotify-0.8.8\n  mv -v  /usr/share/doc/libnotify{,-0.8.8}\nfi"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "meta": false,
+  "book": "x/libnotify.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

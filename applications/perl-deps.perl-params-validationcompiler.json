@@ -1,0 +1,30 @@
+{
+  "name": "perl-deps.perl-params-validationcompiler",
+  "version": "0.31",
+  "description": "Perl module perl::params::validationcompiler providing build-time or runtime support for other Perl packages.",
+  "url": "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Params-ValidationCompiler-0.31.tar.gz",
+  "dependencies": {
+    "required": [
+      "perl-deps.perl-exception-class",
+      "perl-deps.perl-specio",
+      "perl-deps.perl-test-without-module"
+    ]
+  },
+  "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "category": "perl-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

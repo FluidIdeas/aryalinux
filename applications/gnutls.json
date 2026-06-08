@@ -1,0 +1,29 @@
+{
+  "name": "gnutls",
+  "version": "3.8.12",
+  "description": "The GnuTLS package contains libraries and userspace tools which provide a secure layer over a reliable transport layer. Currently the GnuTLS library implements the proposed standards by the IETF's TLS working group. Quoting from the TLS 1.3 protocol specification :.",
+  "url": "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.8/gnutls-3.8.12.tar.xz",
+  "dependencies": {
+    "required": [
+      "nettle",
+      "make-ca"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr \\\n            --docdir=/usr/share/doc/gnutls-3.8.12 \\\n            --with-default-trust-store-pkcs11=\"pkcs11:\"",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/gnutls.html",
+  "category": "security",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}
