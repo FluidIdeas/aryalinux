@@ -60,6 +60,27 @@ def force_install_command(names: list[str]) -> str:
     return f"alps install --force {quoted}"
 
 
+def _cycle_warning_lines(cycles: list[list[str]], names: list[str]) -> list[str]:
+    lines = [
+        "WARNING: circular dependency detected "
+        "(packages in the cycle may fail to install):",
+    ]
+    for cycle in cycles:
+        lines.append(f"  {' -> '.join(cycle)}")
+    lines.append("")
+    lines.append(
+        "To install only the requested package(s) without dependencies "
+        "(not recorded by ALPS):"
+    )
+    lines.append(f"  {force_install_command(names)}")
+    return lines
+
+
+def _print_cycle_warnings(cycles: list[list[str]], names: list[str]) -> None:
+    for line in _cycle_warning_lines(cycles, names):
+        print(line)
+
+
 def _install_one_standalone(paths: dict[str, Path], name: str) -> None:
     """Build and install a single port without dependencies or ALPS tracking."""
     port = load_port(paths["ports"], name)
@@ -176,21 +197,15 @@ def format_install_plan(
         paths, names, include_recommended=include_recommended,
     )
     lines: list[str] = []
+    order = resolved.order
 
     if resolved.cycles:
-        lines.append("WARNING: circular dependency detected — install cannot proceed:")
-        for cycle in resolved.cycles:
-            lines.append(f"  {' -> '.join(cycle)}")
+        lines.extend(_cycle_warning_lines(resolved.cycles, names))
         lines.append("")
-        lines.append(
-            "To install only the requested package(s) without dependencies "
-            "(not recorded by ALPS):"
-        )
-        lines.append(f"  {force_install_command(names)}")
-        return InstallPlanReport(text="\n".join(lines), can_proceed=False)
 
-    order = resolved.order
     if not order and not rebuild:
+        if resolved.cycles:
+            return InstallPlanReport(text="\n".join(lines).rstrip(), can_proceed=False)
         return InstallPlanReport(
             text="All requested packages are already installed.",
             can_proceed=False,
@@ -284,10 +299,7 @@ def install_packages(
         paths["ports"], names, installed=installed, include_recommended=include_recommended,
     )
     if resolved.cycles:
-        cycle = resolved.cycles[0]
-        raise InstallError(
-            "circular dependency detected: " + " -> ".join(cycle)
-        )
+        _print_cycle_warnings(resolved.cycles, names)
     order = resolved.order
 
     explicit_targets = user_targets or set()

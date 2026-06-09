@@ -114,7 +114,7 @@ def resolve_install_plan(
         if name in already or name in order:
             return
         if name in visiting:
-            raise DependencyError(f"circular dependency involving {name}")
+            return
         visiting.add(name)
         port = load_port(ports_dir, name)
         for pre in port.dependencies.pre:
@@ -155,8 +155,6 @@ def resolve_packages_for_install(
         installed=installed,
         include_recommended=include_recommended,
     )
-    if cycles:
-        return ResolvedInstallPlan(order=[], deduplicated=[], cycles=cycles)
 
     result: list[str] = []
     seen: set[str] = set()
@@ -194,7 +192,7 @@ def resolve_packages_for_install(
             for name in post_plan.build_order + post_plan.pre:
                 add(name)
             add(post_name)
-    return ResolvedInstallPlan(order=result, deduplicated=deduplicated, cycles=[])
+    return ResolvedInstallPlan(order=result, deduplicated=deduplicated, cycles=cycles)
 
 
 def packages_for_install(

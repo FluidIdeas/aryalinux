@@ -111,7 +111,7 @@ def main(argv: list[str] | None = None) -> int:
                     )
                     print(report.text)
                     if not report.can_proceed:
-                        return 1 if "WARNING:" in report.text else 0
+                        return 0
                     answer = input("Continue? [y/N] ").strip().lower()
                     if answer not in ("y", "yes"):
                         print("Aborted.")
