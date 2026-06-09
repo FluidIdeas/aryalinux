@@ -129,6 +129,8 @@ sudo ln -svf $LFS/sources /
 
 cp -r * /home/lfs/
 cp -r * $LFS/sources/
+# cp does not delete renumbered extras from an older tree (e.g. 021-alps.sh).
+rm -f $LFS/sources/extras/021-alps.sh $LFS/sources/extras/022-profile.sh
 
 if [ -d ../applications ]
 then

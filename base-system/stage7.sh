@@ -230,6 +230,10 @@ then
 	/sources/kernel.sh
 fi
 
+# ALPS 3.0 uses extras/019-alps.sh; stage1 cp does not remove renumbered leftovers.
+rm -f /sources/extras/021-alps.sh /sources/extras/022-profile.sh
+rm -rf /var/cache/alps/scripts /var/cache/alps/binaries
+
 for script in /sources/extras/*.sh
 do
 	$script
