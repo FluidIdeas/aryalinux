@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 import shutil
 from pathlib import Path
 
@@ -14,7 +15,6 @@ from .util import (
     create_package_archive,
     extract_archive,
     package_commands_for,
-    restore_staging_ownership,
     run_cmd,
     url_filename,
     wget_all,
@@ -70,8 +70,20 @@ def _env_with_staging(staging: Path, extra: dict[str, str]) -> dict[str, str]:
 
 
 def _expand_destdir(cmd: str, staging: Path) -> str:
-    """Inline staging path — sudo does not preserve DESTDIR in the environment."""
+    """Inline staging path into the command string."""
     return cmd.replace("$DESTDIR", str(staging))
+
+
+def _prepare_package_cmd(cmd: str, staging: Path) -> str:
+    """Expand DESTDIR and adjust packaging commands for staging installs."""
+    expanded = _expand_destdir(cmd, staging)
+    if (
+        re.match(r"^pip3 install\b", expanded)
+        and "--root=" in expanded
+        and "--ignore-installed" not in expanded
+    ):
+        expanded = f"{expanded} --ignore-installed"
+    return expanded
 
 
 def _run_package_commands(
@@ -83,8 +95,9 @@ def _run_package_commands(
 ) -> None:
     merged = _env_with_staging(staging, env)
     for cmd in commands:
-        run_cmd(_expand_destdir(cmd, staging), cwd=cwd, env=merged, as_root=True)
-    restore_staging_ownership(staging)
+        # DESTDIR installs go into the build user's staging tree; sudo is not
+        # needed and breaks non-interactive builds when PAM/sudo require a tty.
+        run_cmd(_prepare_package_cmd(cmd, staging), cwd=cwd, env=merged, as_root=False)
 
 
 def _download_supplementary(port: Port, source_root: Path) -> None:

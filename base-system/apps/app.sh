@@ -3,14 +3,12 @@
 set -e
 set +h
 
-USERNAME="$1"
 PACKAGE="$2"
-
-. "$(dirname "$0")/as-user.sh"
 
 make-ca -g -f
 
-as_user "$USERNAME" "alps -ni install $PACKAGE"
+# alps install writes to / and must run as root in the chroot (no sudo/PAM).
+alps -ni install $PACKAGE
 if [ ! -f "/var/lib/alps/installed/${PACKAGE}.json" ]
 then
 	echo "Application installation incomplete ($PACKAGE). Aborting..."

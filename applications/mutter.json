@@ -25,7 +25,7 @@
     "user": [
       "sed \"/tests_c_args =/s/$/ + ['-U', 'G_DISABLE_ASSERT']/\" -i src/tests/meson.build",
       "sed \"/c_args:/a '-U', 'G_DISABLE_ASSERT',\" -i src/tests/cogl/unit/meson.build",
-      "meson setup build --prefix=/usr            \\\n            --buildtype=release      \\\n            -D tests=disabled        \\\n            -D profiler=false        \\\n            -D bash_completion=false \\\n            ..",
+      "meson setup build --prefix=/usr            \\\n            --buildtype=release      \\\n            -D tests=disabled        \\\n            -D profiler=false        \\\n            -D bash_completion=false \\\n            .",
       "ninja -C build"
     ],
     "package": [

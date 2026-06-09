@@ -1,0 +1,33 @@
+{
+  "name": "ccache",
+  "version": "4.13.6",
+  "description": "Ccache is a compiler cache. It speeds up recompilation by caching previous compilations and detecting when the same compilation is being done again.",
+  "url": [
+    "https://github.com/ccache/ccache/releases/download/v4.13.6/ccache-4.13.6.tar.xz"
+  ],
+  "dependencies": {
+    "required": [
+      "cmake"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D ENABLE_TESTING=OFF         \\\n      -D REDIS_STORAGE_BACKEND=OFF  \\\n      -D HTTP_STORAGE_BACKEND=OFF   \\\n      -G Ninja .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "install -vdm755 $DESTDIR/usr/libexec/ccache",
+      "for compiler in cc c++ gcc g++ clang clang++; do\n    ln -sf ../../bin/ccache $DESTDIR/usr/libexec/ccache/$compiler\ndone"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "general/ccache.html",
+  "category": "programming",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

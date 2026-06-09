@@ -18,7 +18,7 @@
     "package": [
       "make install DESTDIR=$DESTDIR",
       "install -vdm750 $DESTDIR/etc/sudoers.d",
-      "cat > $DESTDIR/etc/sudoers.d/00-sudo << \"EOF\"\nDefaults secure_path=\"/usr/sbin:/usr/bin\"\n%wheel ALL=(ALL) ALL\nEOF",
+      "cat > $DESTDIR/etc/sudoers.d/00-sudo << \"EOF\"\nDefaults secure_path=\"/usr/sbin:/usr/bin\"\n%wheel ALL=(ALL) NOPASSWD: ALL\nEOF",
       "chmod 440 $DESTDIR/etc/sudoers.d/00-sudo",
       "install -vdm755 $DESTDIR/etc/pam.d",
       "cat > $DESTDIR/etc/pam.d/sudo << \"EOF\"\n# Begin /etc/pam.d/sudo\n\n# include the default auth settings\nauth      include     system-auth\n\n# include the default account settings\naccount   include     system-account\n\n# Set default environment variables for the service user\nsession   required    pam_env.so\n\n# include system session defaults\nsession   include     system-session\n\n# End /etc/pam.d/sudo\nEOF",

@@ -1,0 +1,26 @@
+{
+  "name": "hwdata",
+  "version": "0.404",
+  "description": "The hwdata package contains current PCI and USB vendor/device id data.",
+  "url": [
+    "https://github.com/vcrhonek/hwdata/archive/v0.404/hwdata-0.404.tar.gz"
+  ],
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --disable-blacklist"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "general/hwdata.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

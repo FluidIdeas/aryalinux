@@ -37,7 +37,7 @@ make install
 install -vdm750 /etc/sudoers.d
 cat > /etc/sudoers.d/00-sudo << "EOF"
 Defaults secure_path="/usr/sbin:/usr/bin"
-%wheel ALL=(ALL) ALL
+%wheel ALL=(ALL) NOPASSWD: ALL
 EOF
 chmod 440 /etc/sudoers.d/00-sudo
 

@@ -1,0 +1,27 @@
+{
+  "name": "python-deps.trove-classifiers",
+  "version": "2026.1.14.14",
+  "description": "Python package trove-classifiers required as a dependency of other Python modules.",
+  "url": [
+    "https://files.pythonhosted.org/packages/source/t/trove_classifiers/trove_classifiers-2026.1.14.14.tar.gz"
+  ],
+  "dependencies": {},
+  "build": {
+    "user": [
+      "sed -i '/calver/s/^/#/;$iversion=\"2026.1.14.14\"' setup.py",
+      "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+    ],
+    "package": [
+      "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user trove-classifiers"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "general/python-dependencies.html",
+  "category": "python-dependency",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

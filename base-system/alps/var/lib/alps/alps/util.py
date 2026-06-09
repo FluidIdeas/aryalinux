@@ -73,12 +73,18 @@ def run_cmd(
     if env:
         full_env.update(env)
     if as_root and os.geteuid() != 0:
-        shell_cmd = ["sudo", "bash", "-lc", cmd]
+        shell_cmd = ["sudo", "-n", "bash", "-lc", cmd]
     else:
         shell_cmd = ["bash", "-lc", cmd]
     result = subprocess.run(shell_cmd, cwd=cwd, env=full_env)
     if result.returncode != 0:
-        raise RuntimeError(f"command failed ({result.returncode}): {cmd}")
+        hint = ""
+        if as_root and os.geteuid() != 0:
+            hint = (
+                "\nhint: run alps as root in the chroot, or enable wheel NOPASSWD "
+                "in /etc/sudoers.d and run pwconv/grpconv"
+            )
+        raise RuntimeError(f"command failed ({result.returncode}): {cmd}{hint}")
 
 
 def prepare_install_command(cmd: str, destdir: Path) -> str:
@@ -122,12 +128,36 @@ def url_filename(url: str) -> str:
     return url.rstrip("/").split("/")[-1].split("?")[0]
 
 
+def _wget_download(url: str, dest_dir: Path, dest: Path) -> bool:
+    """Download *url* into *dest* with a visible wget progress bar."""
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    if dest.is_file() and dest.stat().st_size > 0:
+        return True
+    print(f"downloading {url}", flush=True)
+    result = subprocess.run(
+        [
+            "wget",
+            "-c",
+            "--progress=bar:force",
+            "-O",
+            dest.name,
+            url,
+        ],
+        cwd=dest_dir,
+    )
+    return (
+        result.returncode == 0
+        and dest.is_file()
+        and dest.stat().st_size > 0
+    )
+
+
 def wget(url: str, dest_dir: Path) -> Path:
     dest_dir.mkdir(parents=True, exist_ok=True)
     dest = dest_dir / url_filename(url)
-    if dest.is_file():
-        return dest
-    run_cmd(f'wget -nc "{url}"', cwd=dest_dir)
+    if not _wget_download(url, dest_dir, dest):
+        dest.unlink(missing_ok=True)
+        raise RuntimeError(f"download failed: {url}")
     return dest
 
 
@@ -141,11 +171,7 @@ def wget_fallback(urls: list[str], dest_dir: Path) -> Path:
         dest = dest_dir / url_filename(url)
         if dest.is_file() and dest.stat().st_size > 0:
             return dest
-        result = subprocess.run(
-            ["wget", "-q", "-O", dest.name, url],
-            cwd=dest_dir,
-        )
-        if result.returncode == 0 and dest.is_file() and dest.stat().st_size > 0:
+        if _wget_download(url, dest_dir, dest):
             return dest
         dest.unlink(missing_ok=True)
         errors.append(url)
@@ -174,9 +200,15 @@ def extract_archive(archive: Path, dest_dir: Path) -> Path:
 
 
 def clear_staging(staging: Path) -> None:
-    """Remove a prior staging tree; package installs may leave root-owned files."""
+    """Remove a prior staging tree."""
     if staging.exists():
-        run_cmd(f'rm -rf "{staging}"', as_root=True)
+        if os.geteuid() == 0:
+            shutil.rmtree(staging)
+        else:
+            try:
+                shutil.rmtree(staging)
+            except OSError:
+                run_cmd(f'rm -rf "{staging}"', as_root=True)
     staging.mkdir(parents=True, exist_ok=True)
 
 

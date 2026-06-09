@@ -16,7 +16,7 @@
       "make PREFIX=/usr                \\\n     SHAREDIR=/usr/share/hwdata \\\n     SHARED=yes"
     ],
     "package": [
-      "make PREFIX=$DESTDIR/usr                \\\n     SHAREDIR=$DESTDIR/usr/share/hwdata \\\n     SHARED=yes                 \\\n     install install-lib"
+      "make PREFIX=/usr                \\\n     SHAREDIR=/usr/share/hwdata \\\n     SHARED=yes                 \\\n     install install-lib"
     ]
   },
   "post_install": [
