@@ -13,6 +13,7 @@
     "package": [
       "install -v -m755 -d $DESTDIR/etc/pam.d",
       "DESTDIR=$DESTDIR ninja -C build install",
+      "install -vdm755 $DESTDIR/etc/pam.d",
       "cat > $DESTDIR/etc/pam.d/system-account << \"EOF\"\n# Begin /etc/pam.d/system-account\n\naccount   required    pam_unix.so\n\n# End /etc/pam.d/system-account\nEOF",
       "cat > $DESTDIR/etc/pam.d/system-auth << \"EOF\"\n# Begin /etc/pam.d/system-auth\n\nauth      required    pam_unix.so\n\n# End /etc/pam.d/system-auth\nEOF",
       "cat > $DESTDIR/etc/pam.d/system-session << \"EOF\"\n# Begin /etc/pam.d/system-session\n\nsession   required    pam_unix.so\n\n# End /etc/pam.d/system-session\nEOF",

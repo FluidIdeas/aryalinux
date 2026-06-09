@@ -16,8 +16,10 @@
     "package": [
       "make install DESTDIR=$DESTDIR",
       "mv $DESTDIR/etc/dovecot/dovecot.conf $DESTDIR/etc/dovecot/dovecot.conf.orig",
+      "install -vdm755 $DESTDIR/etc/dovecot",
       "cat > $DESTDIR/etc/dovecot/dovecot.conf << \"EOF\"\n\n# The dovecot configuration requires a minimum version to be set. The server\n# will refuse to start if the version set here is older than the version of\n# Dovecot installed. This option allows the Dovecot server to set reasonable\n# default values based on what version is set here.\ndovecot_config_version = 2.4.2\n\n# This option sets the minimum version that is able to read data files from\n# the Dovecot server. This is primarily for a cluster which may have several\n# different versions of Dovecot installed, but is required for the server to\n# run.\ndovecot_storage_version = 2.4.2\n\nprotocols = imap\nssl = no\n# The next line is only needed if you have no IPv6 network interfaces\nlisten = *\nmail_inbox_path = /var/mail/%{user}\nmail_driver = mbox\nmail_path = ~/Mail\nuserdb users {\n  driver = passwd\n}\npassdb passwords {\n  driver = pam\n}\nEOF",
       "install -d $DESTDIR/etc/pam.d",
+      "install -vdm755 $DESTDIR/etc/pam.d",
       "cat > $DESTDIR/etc/pam.d/dovecot << \"EOF\"\n# Begin /etc/pam.d/dovecot\n\nauth     include system-auth\naccount  include system-account\npassword include system-password\n\n# End /etc/pam.d/dovecot\nEOF"
     ]
   },

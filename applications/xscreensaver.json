@@ -17,6 +17,7 @@
     "package": [
       "make install DESTDIR=$DESTDIR",
       "install -v -dm755 $DESTDIR/etc/pam.d",
+      "install -vdm755 $DESTDIR/etc/pam.d",
       "cat > $DESTDIR/etc/pam.d/xscreensaver << \"EOF\"\n# Begin /etc/pam.d/xscreensaver\n\nauth    include system-auth\naccount include system-account\n\n# End /etc/pam.d/xscreensaver\nEOF"
     ]
   },

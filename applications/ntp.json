@@ -19,6 +19,7 @@
     "package": [
       "make install DESTDIR=$DESTDIR",
       "install -v -d $DESTDIR/var/lib/ntp",
+      "install -vdm755 $DESTDIR/etc",
       "cat > $DESTDIR/etc/ntp.conf << \"EOF\"\n# Asia\nserver 0.asia.pool.ntp.org\n\n# Australia\nserver 0.oceania.pool.ntp.org\n\n# Europe\nserver 0.europe.pool.ntp.org\n\n# North America\nserver 0.north-america.pool.ntp.org\n\n# South America\nserver 2.south-america.pool.ntp.org\n\ndriftfile /var/lib/ntp/ntp.drift\npidfile   /run/ntpd.pid\n\n# Security session\nrestrict    default limited kod nomodify notrap nopeer noquery\nrestrict -6 default limited kod nomodify notrap nopeer noquery\n\nrestrict 127.0.0.1\nrestrict ::1\nEOF",
       "tar -xf ../../blfs-systemd-units-20251204.tar.xz -C ../../",
       "cd ../../blfs-systemd-units-20251204 && make install-ntpd DESTDIR=$DESTDIR"

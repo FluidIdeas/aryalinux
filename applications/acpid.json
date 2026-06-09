@@ -16,6 +16,7 @@
       "make install DESTDIR=$DESTDIR",
       "install -vdm755 $DESTDIR/etc/acpi/events $DESTDIR/etc/acpi $DESTDIR/etc/systemd/logind.conf.d",
       "cat > $DESTDIR/etc/acpi/events/lid << \"EOF\"\nevent=button/lid\naction=/etc/acpi/lid.sh\nEOF",
+      "install -vdm755 $DESTDIR/etc/acpi",
       "cat > $DESTDIR/etc/acpi/lid.sh << \"EOF\"\n#!/bin/sh\n/bin/grep -q open /proc/acpi/button/lid/LID/state && exit 0\n/usr/bin/systemctl suspend\nEOF",
       "chmod +x $DESTDIR/etc/acpi/lid.sh",
       "echo HandleLidSwitch=ignore > $DESTDIR/etc/systemd/logind.conf.d/acpi.conf",

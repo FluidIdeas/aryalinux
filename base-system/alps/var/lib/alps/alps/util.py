@@ -156,7 +156,51 @@ def restore_staging_ownership(staging: Path) -> None:
     run_cmd(f'chown -R {uid}:{gid} "{staging}"', as_root=True)
 
 
+_UNSAFE_PACKAGE_ROOTS = frozenset({"bin", "sbin", "lib", "lib64"})
+
+
+def assert_safe_staging_root(staging: Path) -> None:
+    """Reject layouts that would replace merged-usr symlinks when extracted to /."""
+    if not staging.is_dir():
+        return
+    unsafe = sorted(
+        p.name for p in staging.iterdir() if p.name in _UNSAFE_PACKAGE_ROOTS
+    )
+    if unsafe:
+        raise RuntimeError(
+            f"unsafe staging root entries {unsafe!r} under {staging} "
+            "(would overwrite /bin, /sbin, or /lib on merged-usr systems)"
+        )
+
+
+def assert_safe_package_archive(package_path: Path) -> None:
+    """Reject package tarballs with top-level bin/sbin/lib paths."""
+    result = subprocess.run(
+        ["tar", "-tJf", str(package_path)],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if result.returncode != 0:
+        raise RuntimeError(
+            f"unable to inspect package archive {package_path}: {result.stderr.strip()}"
+        )
+    roots: set[str] = set()
+    for line in result.stdout.splitlines():
+        name = line.lstrip("./")
+        if not name:
+            continue
+        roots.add(name.split("/", 1)[0])
+    unsafe = sorted(roots & _UNSAFE_PACKAGE_ROOTS)
+    if unsafe:
+        raise RuntimeError(
+            f"unsafe package root entries {unsafe!r} in {package_path} "
+            "(would overwrite /bin, /sbin, or /lib on merged-usr systems)"
+        )
+
+
 def create_package_archive(staging: Path, package_path: Path) -> None:
+    assert_safe_staging_root(staging)
     package_path.parent.mkdir(parents=True, exist_ok=True)
     if package_path.is_file():
         package_path.unlink()
@@ -164,6 +208,8 @@ def create_package_archive(staging: Path, package_path: Path) -> None:
 
 
 def extract_package(package_path: Path, target: Path = Path("/")) -> None:
+    if target == Path("/"):
+        assert_safe_package_archive(package_path)
     run_cmd(f'tar -xJf "{package_path}" -C "{target}"', as_root=True)
 
 
@@ -172,6 +218,8 @@ def run_install_extract(commands: list[str], *, package_path: Path) -> None:
     pkg = str(package_path)
     for cmd in commands:
         expanded = cmd.replace("$PACKAGE", pkg)
+        if " -C /" in expanded or expanded.rstrip().endswith("-C /"):
+            assert_safe_package_archive(package_path)
         run_cmd(expanded, as_root=True)
 
 

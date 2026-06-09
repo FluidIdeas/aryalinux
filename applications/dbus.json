@@ -19,6 +19,7 @@
     "package": [
       "DESTDIR=$DESTDIR ninja -C build install",
       "install -d $DESTDIR/etc/dbus-1",
+      "install -vdm755 $DESTDIR/etc/dbus-1",
       "cat > $DESTDIR/etc/dbus-1/session-local.conf << \"EOF\"\n<!DOCTYPE busconfig PUBLIC\n \"-//freedesktop//DTD D-BUS Bus Configuration 1.0//EN\"\n \"http://www.freedesktop.org/standards/dbus/1.0/busconfig.dtd\">\n<busconfig>\n\n  <!-- Search for .service files in /usr/local -->\n  <servicedir>/usr/local/share/dbus-1/services</servicedir>\n\n</busconfig>\nEOF"
     ]
   },

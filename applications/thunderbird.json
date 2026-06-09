@@ -33,6 +33,7 @@
     "package": [
       "MACH_BUILD_PYTHON_NATIVE_PACKAGE_SOURCE=none DESTDIR=$DESTDIR ./mach install",
       "mkdir -pv $DESTDIR/usr/share/{applications,pixmaps}",
+      "install -vdm755 $DESTDIR/usr/share/applications",
       "cat > $DESTDIR/usr/share/applications/thunderbird.desktop << \"EOF\"\n[Desktop Entry]\nName=Thunderbird Mail\nComment=Send and receive mail with Thunderbird\nGenericName=Mail Client\nExec=thunderbird %u\nTerminal=false\nType=Application\nIcon=thunderbird\nCategories=Network;Email;\nMimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/rss+xml;x-scheme-handler/mailto;\nStartupNotify=true\nEOF",
       "ln -sfv /usr/lib/thunderbird/chrome/icons/default/default256.png \\\n        $DESTDIR/usr/share/pixmaps/thunderbird.png"
     ]

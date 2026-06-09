@@ -19,6 +19,7 @@
     "package": [
       "make install DESTDIR=$DESTDIR",
       "install -d $DESTDIR/etc/xdg/autostart",
+      "install -vdm755 $DESTDIR/etc/xdg/autostart",
       "cat > $DESTDIR/etc/xdg/autostart/polkit-gnome-authentication-agent-1.desktop << \"EOF\"\n[Desktop Entry]\nName=PolicyKit Authentication Agent\nComment=PolicyKit Authentication Agent\nExec=/usr/libexec/polkit-gnome-authentication-agent-1\nTerminal=false\nType=Application\nCategories=\nNoDisplay=true\nOnlyShowIn=GNOME;XFCE;Unity;\nAutostartCondition=GNOME3 unless-session gnome\nEOF"
     ]
   },

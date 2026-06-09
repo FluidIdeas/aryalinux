@@ -13,6 +13,7 @@
     "package": [
       "install -d $DESTDIR/etc/profile.d",
       "TEXARCH=$(uname -m | sed -e 's/i.86/i386/' -e 's/$/-linux/')",
+      "install -vdm755 $DESTDIR/etc/profile.d",
       "cat > $DESTDIR/etc/profile.d/texlive.sh << EOF\n# Begin texlive setup\nTEXLIVE_PREFIX=/opt/texlive/2025\nexport TEXLIVE_PREFIX\n\npathappend \\$TEXLIVE_PREFIX/texmf-dist/doc/info INFOPATH\npathappend \\$TEXLIVE_PREFIX/bin/\\$TEXARCH\n\nTEXMFCNF=\\$TEXLIVE_PREFIX/texmf-dist/web2c\nexport TEXMFCNF\n\n# End texlive setup\nEOF"
     ]
   },

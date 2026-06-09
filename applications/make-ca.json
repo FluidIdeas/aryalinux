@@ -24,6 +24,7 @@
       "install -vdm755 $DESTDIR/etc/ssl/local",
       "install -vdm755 $DESTDIR/etc/profile.d",
       "cat > $DESTDIR/etc/profile.d/pythoncerts.sh << \"EOF\"\n# Begin /etc/profile.d/pythoncerts.sh\n\nexport _PIP_STANDALONE_CERT=/etc/pki/tls/certs/ca-bundle.crt\n\n# End /etc/profile.d/pythoncerts.sh\nEOF",
+      "install -vdm755 $DESTDIR/etc",
       "cat > $DESTDIR/etc/make-ca.conf << \"EOF\"\nCERTDATA=\"certdata.txt\"\nPKIDIR=\"/etc/pki\"\nSSLDIR=\"/etc/ssl\"\nCERTUTIL=\"/usr/bin/certutil\"\nKEYTOOL=\"${JAVA_HOME}/bin/keytool\"\nMD5SUM=\"/usr/bin/md5sum\"\nOPENSSL=\"/usr/bin/openssl\"\nTRUST=\"/usr/bin/trust\"\nANCHORDIR=\"${PKIDIR}/anchors\"\nANCHORLIST=\"${PKIDIR}/anchors.md5sums\"\nBUNDLEDIR=\"${PKIDIR}/tls/certs\"\nCABUNDLE=\"${BUNDLEDIR}/ca-bundle.crt\"\nSMBUNDLE=\"${BUNDLEDIR}/email-ca-bundle.crt\"\nCSBUNDLE=\"${BUNDLEDIR}/objsign-ca-bundle.crt\"\nCERTDIR=\"${SSLDIR}/certs\"\nKEYSTORE=\"${PKIDIR}/tls/java\"\nNSSDB=\"${PKIDIR}/nssdb\"\nLOCALDIR=\"${SSLDIR}/local\"\nDESTDIR=\"\"\nURL=\"https://hg-edge.mozilla.org/mozilla-central/raw-file/tip/security/nss/lib/ckfw/builtins/certdata.txt\"\nEOF"
     ]
   },

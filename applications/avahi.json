@@ -22,6 +22,7 @@
     "package": [
       "make install DESTDIR=$DESTDIR",
       "install -d $DESTDIR/etc/systemd/resolved.conf.d",
+      "install -vdm755 $DESTDIR/etc/systemd/resolved.conf.d",
       "cat > $DESTDIR/etc/systemd/resolved.conf.d/no-mdns.conf << \"EOF\"\n[Resolve]\nMulticastDNS=no\nEOF"
     ]
   },

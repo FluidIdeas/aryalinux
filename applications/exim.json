@@ -25,6 +25,7 @@
       "install -d -m750 $DESTDIR/var/spool/exim",
       "ln -sf exim $DESTDIR/usr/sbin/sendmail",
       "install -d $DESTDIR/etc/pam.d",
+      "install -vdm755 $DESTDIR/etc/pam.d",
       "cat > $DESTDIR/etc/pam.d/exim << \"EOF\"\n# Begin /etc/pam.d/exim\n\nauth    include system-auth\naccount include system-account\nsession include system-session\n\n# End /etc/pam.d/exim\nEOF",
       "tar -xf ../../blfs-systemd-units-20251204.tar.xz -C ../../",
       "cd ../../blfs-systemd-units-20251204 && make install-exim DESTDIR=$DESTDIR"

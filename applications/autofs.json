@@ -17,6 +17,7 @@
       "make install DESTDIR=$DESTDIR",
       "make install_samples DESTDIR=$DESTDIR",
       "mv $DESTDIR/etc/autofs/auto.master $DESTDIR/etc/autofs/auto.master.bak",
+      "install -vdm755 $DESTDIR/etc/autofs",
       "cat > $DESTDIR/etc/autofs/auto.master << \"EOF\"\n# Begin /etc/autofs/auto.master\n\n/media/auto  /etc/autofs/auto.misc  --ghost\n#/home        /etc/autofs/auto.home\n\n# End /etc/autofs/auto.master\nEOF"
     ]
   },

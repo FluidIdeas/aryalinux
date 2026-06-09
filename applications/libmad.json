@@ -15,6 +15,7 @@
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
+      "install -vdm755 $DESTDIR/usr/lib/pkgconfig",
       "cat > $DESTDIR/usr/lib/pkgconfig/mad.pc << \"EOF\"\nprefix=/usr\nexec_prefix=${prefix}\nlibdir=${exec_prefix}/lib\nincludedir=${prefix}/include\n\nName: mad\nDescription: MPEG audio decoder\nRequires:\nVersion: 0.15.1b\nLibs: -L${libdir} -lmad\nCflags: -I${includedir}\nEOF"
     ]
   },

@@ -20,8 +20,10 @@
       "chmod -v 0644 $DESTDIR/etc/logrotate.d/sys.log",
       "cat > $DESTDIR/etc/logrotate.d/example.log << EOF\nfile1\nfile2\nfile3 {\n   ...\n   postrotate\n    ...\n   endscript\n}\nEOF",
       "chmod -v 0644 $DESTDIR/etc/logrotate.d/example.log",
+      "install -vdm755 $DESTDIR/etc",
       "cat > $DESTDIR/etc/logrotate.conf << EOF\n# Begin /etc/logrotate.conf\n\n# Rotate log files weekly\nweekly\n\n# Don't mail logs to anybody\nnomail\n\n# If the log file is empty, it will not be rotated\nnotifempty\n\n# Number of backups that will be kept\n# This will keep the 2 newest backups only\nrotate 2\n\n# Create new empty files after rotating old ones\n# This will create empty log files, with owner\n# set to root, group set to sys, and permissions 664\ncreate 0664 root sys\n\n# Compress the backups with gzip\ncompress\n\n# No packages own lastlog or wtmp -- rotate them here\n/var/log/wtmp {\n    monthly\n    create 0664 root utmp\n    rotate 1\n}\n\n/var/log/lastlog {\n    monthly\n    rotate 1\n}\n\n# Some packages drop log rotation info in this directory\n# so we include any file in it.\ninclude /etc/logrotate.d\n\n# End /etc/logrotate.conf\nEOF",
       "chmod -v 0644 $DESTDIR/etc/logrotate.conf",
+      "install -vdm755 $DESTDIR/usr/lib/systemd/system",
       "cat > $DESTDIR/usr/lib/systemd/system/logrotate.service << \"EOF\"\n[Unit]\nDescription=Runs the logrotate command\nDocumentation=man:logrotate(8)\nDefaultDependencies=no\nAfter=local-fs.target\nBefore=shutdown.target\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\nExecStart=/usr/sbin/logrotate /etc/logrotate.conf\nEOF",
       "cat > $DESTDIR/usr/lib/systemd/system/logrotate.timer << \"EOF\"\n[Unit]\nDescription=Runs the logrotate command daily at 3:00 AM\n\n[Timer]\nOnCalendar=*-*-* 3:00:00\nPersistent=true\n\n[Install]\nWantedBy=timers.target\nEOF"
     ]

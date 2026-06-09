@@ -13,8 +13,10 @@
     "package": [
       "make install DESTDIR=$DESTDIR",
       "install -dm754 $DESTDIR/etc/cron.{hourly,daily,weekly,monthly}",
+      "install -vdm755 $DESTDIR/usr/bin",
       "cat > $DESTDIR/usr/bin/run-parts << \"EOF\"\n#!/bin/sh\n# run-parts:  Runs all the scripts found in a directory.\n\nset +e\n\nif [ $# -lt 1 ]; then\n  echo \"Usage: run-parts <directory>\"\n  exit 1\nfi\n\nif [ ! -d $1 ]; then\n  echo \"Not a directory: $1\"\n  echo \"Usage: run-parts <directory>\"\n  exit 1\nfi\n\nIGNORE_SUFFIXES=\"~ ^ , .bak .new .rpmsave .rpmorig .rpmnew .swp\"\n\nfor SCRIPT in $1/* ; do\n  if [ ! -f $SCRIPT ]; then\n    continue\n  fi\n  SKIP=false\n  for SUFFIX in $IGNORE_SUFFIXES ; do\n    if [ ! \"$(basename $SCRIPT $SUFFIX)\" = \"$(basename $SCRIPT)\" ]; then\n      SKIP=true\n      break\n    fi\n  done\n  if [ \"$SKIP\" = \"true\" ]; then\n    continue\n  fi\n  if [ -x $SCRIPT ]; then\n    $SCRIPT || echo \"$SCRIPT failed.\"\n  fi\ndone\n\nexit 0\nEOF",
       "chmod 755 $DESTDIR/usr/bin/run-parts",
+      "install -vdm755 $DESTDIR/var/spool/fcron",
       "cat > $DESTDIR/var/spool/fcron/systab.orig << \"EOF\"\n&bootrun 01 * * * * root run-parts /etc/cron.hourly\n&bootrun 02 4 * * * root run-parts /etc/cron.daily\n&bootrun 22 4 * * 0 root run-parts /etc/cron.weekly\n&bootrun 42 4 1 * * root run-parts /etc/cron.monthly\nEOF"
     ]
   },

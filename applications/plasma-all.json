@@ -51,6 +51,7 @@
       "install -d $DESTDIR/usr/share/xdg-desktop-portal/portals",
       "ln -sf $KF6_PREFIX/share/xdg-desktop-portal/portals/kde.portal $DESTDIR/usr/share/xdg-desktop-portal/portals/kde.portal",
       "install -d $DESTDIR/etc/pam.d",
+      "install -vdm755 $DESTDIR/etc/pam.d",
       "cat > $DESTDIR/etc/pam.d/kde << 'EOF'\n# Begin /etc/pam.d/kde\n\nauth     requisite      pam_nologin.so\nauth     required       pam_env.so\n\nauth     required       pam_succeed_if.so uid >= 1000 quiet\nauth     include        system-auth\n\naccount  include        system-account\npassword include        system-password\nsession  include        system-session\n\n# End /etc/pam.d/kde\nEOF",
       "cat > $DESTDIR/etc/pam.d/kde-np << 'EOF'\n# Begin /etc/pam.d/kde-np\n\nauth     requisite      pam_nologin.so\nauth     required       pam_env.so\n\nauth     required       pam_succeed_if.so uid >= 1000 quiet\nauth     required       pam_permit.so\n\naccount  include        system-account\npassword include        system-password\nsession  include        system-session\n\n# End /etc/pam.d/kde-np\nEOF",
       "cat > $DESTDIR/etc/pam.d/kscreensaver << 'EOF'\n# Begin /etc/pam.d/kscreensaver\n\nauth    include system-auth\naccount include system-account\n\n# End /etc/pam.d/kscreensaver\nEOF"

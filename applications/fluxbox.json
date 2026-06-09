@@ -17,6 +17,7 @@
     "package": [
       "make install DESTDIR=$DESTDIR",
       "install -d $DESTDIR/usr/share/xsessions",
+      "install -vdm755 $DESTDIR/usr/share/xsessions",
       "cat > $DESTDIR/usr/share/xsessions/fluxbox.desktop << \"EOF\"\n[Desktop Entry]\nEncoding=UTF-8\nName=Fluxbox\nComment=This session logs you into Fluxbox\nExec=startfluxbox\nType=Application\nEOF"
     ]
   },

@@ -25,6 +25,7 @@
       "chmod a+x $DESTDIR/opt/fop-2.11/fop",
       "ln -sfn fop-2.11 $DESTDIR/opt/fop",
       "install -d $DESTDIR/etc/profile.d",
+      "install -vdm755 $DESTDIR/etc/profile.d",
       "cat > $DESTDIR/etc/profile.d/fop.sh << \"EOF\"\n# Begin /etc/profile.d/fop.sh\n\npathappend /opt/fop\n\n# End /etc/profile.d/fop.sh\nEOF"
     ]
   },

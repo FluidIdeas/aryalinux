@@ -21,6 +21,7 @@
       "ln -sfv ../libexec/bluetooth/bluetoothd $DESTDIR/usr/sbin/bluetoothd",
       "install -d $DESTDIR/etc/bluetooth",
       "install -m644 src/main.conf $DESTDIR/etc/bluetooth/main.conf",
+      "install -vdm755 $DESTDIR/etc/bluetooth",
       "cat > $DESTDIR/etc/bluetooth/rfcomm.conf << \"EOF\"\n# Start rfcomm.conf\n# Set up the RFCOMM configuration of the Bluetooth subsystem in the Linux kernel.\n# Use one line per command\n# See the rfcomm man page for options\n\n\n# End of rfcomm.conf\nEOF",
       "cat > $DESTDIR/etc/bluetooth/uart.conf << \"EOF\"\n# Start uart.conf\n# Attach serial devices via UART HCI to BlueZ stack\n# Use one line per device\n# See the hciattach man page for options\n\n# End of uart.conf\nEOF"
     ]

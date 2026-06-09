@@ -12,6 +12,7 @@
     ],
     "package": [
       "DESTDIR=$DESTDIR ninja -C build install",
+      "install -vdm755 $DESTDIR/etc",
       "cat > $DESTDIR/etc/fuse.conf << \"EOF\"\n# Set the maximum number of FUSE mounts allowed to non-root users.\n# The default is 1000.\n#\n#mount_max = 1000\n\n# Allow non-root users to specify the 'allow_other' or 'allow_root'\n# mount options.\n#\n#user_allow_other\nEOF"
     ]
   },

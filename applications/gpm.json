@@ -14,6 +14,7 @@
     ],
     "package": [
       "install -v -dm755 $DESTDIR/etc/systemd/system/gpm.service.d",
+      "install -vdm755 $DESTDIR/etc/systemd/system/gpm.service.d",
       "cat > $DESTDIR/etc/systemd/system/gpm.service.d/99-user.conf << \"EOF\"\n[Service]\nExecStart=\nExecStart=/usr/sbin/gpm <list of parameters>\nEOF",
       "make install DESTDIR=$DESTDIR",
       "install -v -m644 conf/gpm-root.conf $DESTDIR/etc",

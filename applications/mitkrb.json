@@ -14,6 +14,7 @@
     ],
     "package": [
       "(cd src && make install DESTDIR=$DESTDIR)",
+      "install -vdm755 $DESTDIR/etc",
       "cat > $DESTDIR/etc/krb5.conf << \"EOF\"\n# Begin /etc/krb5.conf\n\n[libdefaults]\n    default_realm = <EXAMPLE.ORG>\n    encrypt = true\n\n[realms]\n    <EXAMPLE.ORG> = {\n        kdc = <belgarath.example.org>\n        admin_server = <belgarath.example.org>\n        dict_file = /usr/share/dict/words\n    }\n\n[domain_realm]\n    .<example.org> = <EXAMPLE.ORG>\n\n[logging]\n    kdc = SYSLOG:INFO:AUTH\n    admin_server = SYSLOG:INFO:AUTH\n    default = SYSLOG:DEBUG:DAEMON\n\n# End /etc/krb5.conf\nEOF",
       "tar -xf ../../blfs-systemd-units-20251204.tar.xz -C ../../",
       "cd ../../blfs-systemd-units-20251204 && make install-krb5 DESTDIR=$DESTDIR"

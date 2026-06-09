@@ -15,6 +15,7 @@
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
+      "install -vdm755 $DESTDIR/etc",
       "cat > $DESTDIR/etc/asound.conf << \"EOF\"\n# Begin /etc/asound.conf\n\ndefaults.pcm.card 1\ndefaults.ctl.card 1\n\n# End /etc/asound.conf\nEOF"
     ]
   },

@@ -26,6 +26,7 @@
       "cat > $DESTDIR/etc/NetworkManager/conf.d/no-dns-update.conf << \"EOF\"\n[main]\ndns=none\nEOF",
       "cat >> $DESTDIR/etc/NetworkManager/NetworkManager.conf << \"EOF\"\n[main]\nplugins=keyfile\nEOF",
       "cat > $DESTDIR/etc/NetworkManager/conf.d/polkit.conf << \"EOF\"\n[main]\nauth-polkit=true\nEOF",
+      "install -vdm755 $DESTDIR/usr/share/polkit-1/rules.d",
       "cat > $DESTDIR/usr/share/polkit-1/rules.d/org.freedesktop.NetworkManager.rules << \"EOF\"\npolkit.addRule(function(action, subject) {\n    if (action.id.indexOf(\"org.freedesktop.NetworkManager.\") == 0 && subject.isInGroup(\"netdev\")) {\n        return polkit.Result.YES;\n    }\n});\nEOF"
     ]
   },

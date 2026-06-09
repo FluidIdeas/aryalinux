@@ -18,6 +18,7 @@
     "package": [
       "DESTDIR=$DESTDIR ninja -C build install",
       "install -d $DESTDIR/etc/geoclue/conf.d",
+      "install -vdm755 $DESTDIR/etc/geoclue/conf.d",
       "cat > $DESTDIR/etc/geoclue/conf.d/90-lfs-google.conf << \"EOF\"\n# Begin /etc/geoclue/conf.d/90-lfs-google.conf\n\n# This configuration applies for the WiFi source.\n[wifi]\n\n# Set the URL to Google's Geolocation Service.\nurl=https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyDxKL42zsPjbke5O8_rPVpVrLrJ8aeE9rQ\n\n# End /etc/geoclue/conf.d/90-lfs-google.conf\nEOF"
     ]
   },

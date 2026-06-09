@@ -33,6 +33,7 @@
       "PATH=/opt/python3.11/bin:$PATH MACH_USE_SYSTEM_PYTHON=1 DESTDIR=$DESTDIR ./mach install",
       "cp -v $(find -name seamonkey.1 | head -n1) $DESTDIR/usr/share/man/man1",
       "mkdir -pv $DESTDIR/usr/share/{applications,pixmaps}",
+      "install -vdm755 $DESTDIR/usr/share/applications",
       "cat > $DESTDIR/usr/share/applications/seamonkey.desktop << \"EOF\"\n[Desktop Entry]\nEncoding=UTF-8\nType=Application\nName=Seamonkey\nComment=The Mozilla Suite\nIcon=seamonkey\nExec=seamonkey\nCategories=Network;GTK;Application;Email;Browser;WebBrowser;News;\nStartupNotify=true\nTerminal=false\nEOF",
       "ln -sfv /usr/lib/seamonkey/chrome/icons/default/default128.png \\\n        $DESTDIR/usr/share/pixmaps/seamonkey.png"
     ]

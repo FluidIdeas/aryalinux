@@ -17,6 +17,7 @@
     "package": [
       "make install DESTDIR=$DESTDIR",
       "make install-rsyncd DESTDIR=$DESTDIR",
+      "install -vdm755 $DESTDIR/etc",
       "cat > $DESTDIR/etc/rsyncd.conf << \"EOF\"\n# This is a basic rsync configuration file\n# It exports a single module without user authentication.\n\nmotd file = /home/rsync/welcome.msg\nuse chroot = yes\n\n[localhost]\n    path = /home/rsync\n    comment = Default rsync module\n    read only = yes\n    list = yes\n    uid = rsyncd\n    gid = rsyncd\n\nEOF"
     ]
   },

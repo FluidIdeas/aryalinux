@@ -19,6 +19,7 @@
       "cp -rv ant-1.10.15 $DESTDIR/opt/",
       "ln -sfv ant-1.10.15 $DESTDIR/opt/ant",
       "install -d $DESTDIR/etc/profile.d",
+      "install -vdm755 $DESTDIR/etc/profile.d",
       "cat > $DESTDIR/etc/profile.d/ant.sh << 'EOF'\n# Begin /etc/profile.d/ant.sh\n\npathappend /opt/ant/bin\nexport ANT_HOME=/opt/ant\n\n# End /etc/profile.d/ant.sh\nEOF"
     ]
   },

@@ -23,6 +23,7 @@
       "install -vdm 755 $DESTDIR/etc/qemu",
       "echo allow br0 > $DESTDIR/etc/qemu/bridge.conf",
       "install -vdm 755 $DESTDIR/etc/sysctl.d",
+      "install -vdm755 $DESTDIR/etc/sysctl.d",
       "cat > $DESTDIR/etc/sysctl.d/60-net-forward.conf << \"EOF\"\nnet.ipv4.ip_forward=1\nEOF",
       "ln -sv qemu-system-`uname -m` $DESTDIR/usr/bin/qemu"
     ]
