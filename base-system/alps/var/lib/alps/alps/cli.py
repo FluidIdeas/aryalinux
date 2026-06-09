@@ -9,7 +9,14 @@ from pathlib import Path
 from . import __version__
 from .config import load_config
 from .fetch import fetch_ports
-from .installer import install_packages, packages_needing_update, remove_package
+from .installer import (
+    format_force_install_plan,
+    format_install_plan,
+    force_install_packages,
+    install_packages,
+    packages_needing_update,
+    remove_package,
+)
 from .orphans import find_orphans, prompt_remove_orphans
 from .port import list_ports, load_port
 from .registry import list_installed
@@ -20,6 +27,7 @@ HELP = f"""alps {__version__} — AryaLinux Package System
 
 Commands:
   install [pkg ...]     Build and install packages (with dependencies)
+                        --force: install named packages only (no deps, not tracked)
   remove <pkg>          Remove an installed package by file list
   update [pkg ...]      Reinstall packages with newer port versions
   update-all            Update all outdated installed packages
@@ -47,6 +55,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("packages", nargs="*")
     parser.add_argument("-ni", "--no-interactive", action="store_true")
     parser.add_argument("-r", "--with-recommended", action="store_true")
+    parser.add_argument(
+        "-f", "--force",
+        action="store_true",
+        help="install named packages only; skip dependencies and ALPS tracking",
+    )
     parser.add_argument("--help", action="store_true")
     args = parser.parse_args(argv)
 
@@ -80,17 +93,34 @@ def main(argv: list[str] | None = None) -> int:
             if not pkgs:
                 print("usage: alps install <package> [package ...]", file=sys.stderr)
                 return 1
-            if not args.no_interactive:
-                print(f"Will install: {', '.join(pkgs)}")
-                answer = input("Continue? [y/N] ").strip().lower()
-                if answer not in ("y", "yes"):
-                    print("Aborted.")
-                    return 0
-            install_packages(
-                config, pkgs,
-                include_recommended=args.with_recommended,
-                user_targets=set(pkgs),
-            )
+            if args.force:
+                if not args.no_interactive:
+                    print(format_force_install_plan(config, pkgs))
+                    answer = input("Continue with force install? [y/N] ").strip().lower()
+                    if answer not in ("y", "yes"):
+                        print("Aborted.")
+                        return 0
+                force_install_packages(config, pkgs)
+            else:
+                if not args.no_interactive:
+                    report = format_install_plan(
+                        config,
+                        pkgs,
+                        include_recommended=args.with_recommended,
+                        user_targets=set(pkgs),
+                    )
+                    print(report.text)
+                    if not report.can_proceed:
+                        return 1 if "WARNING:" in report.text else 0
+                    answer = input("Continue? [y/N] ").strip().lower()
+                    if answer not in ("y", "yes"):
+                        print("Aborted.")
+                        return 0
+                install_packages(
+                    config, pkgs,
+                    include_recommended=args.with_recommended,
+                    user_targets=set(pkgs),
+                )
         elif cmd == "remove":
             if len(pkgs) != 1:
                 print("usage: alps remove <package>", file=sys.stderr)

@@ -16,6 +16,15 @@ class InstallPlan:
     post: list[str] = field(default_factory=list)
 
 
+@dataclass
+class ResolvedInstallPlan:
+    """Flattened install order with dependency analysis notes."""
+
+    order: list[str] = field(default_factory=list)
+    deduplicated: list[str] = field(default_factory=list)
+    cycles: list[list[str]] = field(default_factory=list)
+
+
 class DependencyError(Exception):
     pass
 
@@ -25,6 +34,65 @@ def _all_deps(port: Port, include_recommended: bool) -> list[str]:
     if include_recommended:
         deps.extend(port.dependencies.recommended)
     return deps
+
+
+def _port_dependency_names(port: Port, include_recommended: bool) -> list[str]:
+    names: list[str] = []
+    for name in port.dependencies.pre + _all_deps(port, include_recommended) + port.dependencies.post:
+        if name not in names:
+            names.append(name)
+    return names
+
+
+def _normalize_cycle(cycle: list[str]) -> tuple[str, ...]:
+    if len(cycle) < 2:
+        return tuple(cycle)
+    if cycle[0] == cycle[-1]:
+        body = cycle[:-1]
+    else:
+        body = cycle
+    if not body:
+        return tuple(cycle)
+    rotations = [tuple(body[index:] + body[:index]) for index in range(len(body))]
+    return min(rotations)
+
+
+def find_dependency_cycles(
+    ports_dir,
+    targets: list[str],
+    *,
+    installed: set[str],
+    include_recommended: bool = False,
+) -> list[list[str]]:
+    """Return circular dependency chains reachable from *targets*."""
+    found: dict[tuple[str, ...], list[str]] = {}
+    path: list[str] = []
+    on_path: set[str] = set()
+
+    def visit(name: str) -> None:
+        if name in installed:
+            return
+        if name in on_path:
+            start = path.index(name)
+            cycle = path[start:] + [name]
+            key = _normalize_cycle(cycle)
+            if key not in found:
+                found[key] = cycle
+            return
+        try:
+            port = load_port(ports_dir, name)
+        except FileNotFoundError:
+            return
+        path.append(name)
+        on_path.add(name)
+        for dep in _port_dependency_names(port, include_recommended):
+            visit(dep)
+        path.pop()
+        on_path.remove(name)
+
+    for target in targets:
+        visit(target)
+    return list(found.values())
 
 
 def resolve_install_plan(
@@ -73,19 +141,33 @@ def resolve_install_plan(
     return InstallPlan(build_order=order, pre=pre_all, post=post_all)
 
 
-def packages_for_install(
+def resolve_packages_for_install(
     ports_dir,
     targets: list[str],
     *,
     installed: set[str],
     include_recommended: bool = False,
-) -> list[str]:
-    """Flattened install order for multiple targets."""
+) -> ResolvedInstallPlan:
+    """Flattened install order for multiple targets with analysis notes."""
+    cycles = find_dependency_cycles(
+        ports_dir,
+        targets,
+        installed=installed,
+        include_recommended=include_recommended,
+    )
+    if cycles:
+        return ResolvedInstallPlan(order=[], deduplicated=[], cycles=cycles)
+
     result: list[str] = []
     seen: set[str] = set()
+    deduplicated: list[str] = []
 
     def add(name: str) -> None:
-        if name in seen or name in installed:
+        if name in installed:
+            return
+        if name in seen:
+            if name not in deduplicated:
+                deduplicated.append(name)
             return
         seen.add(name)
         result.append(name)
@@ -112,4 +194,20 @@ def packages_for_install(
             for name in post_plan.build_order + post_plan.pre:
                 add(name)
             add(post_name)
-    return result
+    return ResolvedInstallPlan(order=result, deduplicated=deduplicated, cycles=[])
+
+
+def packages_for_install(
+    ports_dir,
+    targets: list[str],
+    *,
+    installed: set[str],
+    include_recommended: bool = False,
+) -> list[str]:
+    """Flattened install order for multiple targets."""
+    return resolve_packages_for_install(
+        ports_dir,
+        targets,
+        installed=installed,
+        include_recommended=include_recommended,
+    ).order
