@@ -7,10 +7,13 @@ from pathlib import Path
 from .port import Port, PortBuildModule
 from .util import (
     arch_tag,
+    clear_directory,
+    clear_staging,
     collect_files,
     create_package_archive,
     extract_archive,
     package_commands_for,
+    restore_staging_ownership,
     run_cmd,
     wget,
 )
@@ -35,14 +38,7 @@ def build_port(
         return Path(), []
 
     staging = staging_dir / f"{port.name}-{port.version}"
-    if staging.exists():
-        for child in staging.iterdir():
-            if child.is_dir():
-                run_cmd(f'rm -rf "{child}"')
-            else:
-                child.unlink()
-    else:
-        staging.mkdir(parents=True, exist_ok=True)
+    clear_staging(staging)
 
     source_root = sources_dir / port.name
     source_root.mkdir(parents=True, exist_ok=True)
@@ -85,6 +81,7 @@ def _run_package_commands(
     merged = _env_with_staging(staging, env)
     for cmd in commands:
         run_cmd(_expand_destdir(cmd, staging), cwd=cwd, env=merged, as_root=True)
+    restore_staging_ownership(staging)
 
 
 def _download_patches(port: Port, source_root: Path) -> None:
@@ -99,6 +96,7 @@ def _build_single(port: Port, *, source_root: Path, staging: Path) -> None:
 
     if port.url:
         archive = wget(port.url, source_root)
+        clear_directory(build_dir)
         srcdir = extract_archive(archive, build_dir)
     else:
         srcdir = build_dir

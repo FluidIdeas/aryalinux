@@ -140,6 +140,22 @@ def extract_archive(archive: Path, dest_dir: Path) -> Path:
     return dest_dir
 
 
+def clear_staging(staging: Path) -> None:
+    """Remove a prior staging tree; package installs may leave root-owned files."""
+    if staging.exists():
+        run_cmd(f'rm -rf "{staging}"', as_root=True)
+    staging.mkdir(parents=True, exist_ok=True)
+
+
+def restore_staging_ownership(staging: Path) -> None:
+    """Hand staging back to the build user after sudo package commands."""
+    uid = os.getuid()
+    gid = os.getgid()
+    if uid == 0:
+        return
+    run_cmd(f'chown -R {uid}:{gid} "{staging}"', as_root=True)
+
+
 def create_package_archive(staging: Path, package_path: Path) -> None:
     package_path.parent.mkdir(parents=True, exist_ok=True)
     if package_path.is_file():

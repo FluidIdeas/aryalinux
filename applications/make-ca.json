@@ -23,20 +23,13 @@
       "chmod 755 $DESTDIR/usr/libexec/make-ca/copy-trust-modifications",
       "install -vdm755 $DESTDIR/etc/ssl/local",
       "install -vdm755 $DESTDIR/etc/profile.d",
-      "cat > $DESTDIR/etc/profile.d/pythoncerts.sh << \"EOF\"\n# Begin /etc/profile.d/pythoncerts.sh\n\nexport _PIP_STANDALONE_CERT=/etc/pki/tls/certs/ca-bundle.crt\n\n# End /etc/profile.d/pythoncerts.sh\nEOF"
+      "cat > $DESTDIR/etc/profile.d/pythoncerts.sh << \"EOF\"\n# Begin /etc/profile.d/pythoncerts.sh\n\nexport _PIP_STANDALONE_CERT=/etc/pki/tls/certs/ca-bundle.crt\n\n# End /etc/profile.d/pythoncerts.sh\nEOF",
+      "cat > $DESTDIR/etc/make-ca.conf << \"EOF\"\nCERTDATA=\"certdata.txt\"\nPKIDIR=\"/etc/pki\"\nSSLDIR=\"/etc/ssl\"\nCERTUTIL=\"/usr/bin/certutil\"\nKEYTOOL=\"${JAVA_HOME}/bin/keytool\"\nMD5SUM=\"/usr/bin/md5sum\"\nOPENSSL=\"/usr/bin/openssl\"\nTRUST=\"/usr/bin/trust\"\nANCHORDIR=\"${PKIDIR}/anchors\"\nANCHORLIST=\"${PKIDIR}/anchors.md5sums\"\nBUNDLEDIR=\"${PKIDIR}/tls/certs\"\nCABUNDLE=\"${BUNDLEDIR}/ca-bundle.crt\"\nSMBUNDLE=\"${BUNDLEDIR}/email-ca-bundle.crt\"\nCSBUNDLE=\"${BUNDLEDIR}/objsign-ca-bundle.crt\"\nCERTDIR=\"${SSLDIR}/certs\"\nKEYSTORE=\"${PKIDIR}/tls/java\"\nNSSDB=\"${PKIDIR}/nssdb\"\nLOCALDIR=\"${SSLDIR}/local\"\nDESTDIR=\"\"\nURL=\"https://hg-edge.mozilla.org/mozilla-central/raw-file/tip/security/nss/lib/ckfw/builtins/certdata.txt\"\nEOF"
     ]
   },
   "post_install": [
-    "wget -nc http://www.cacert.org/certs/root.crt",
-    "wget -nc http://www.cacert.org/certs/class3.crt",
-    "openssl x509 -in root.crt -text -fingerprint -setalias \"CAcert Class 1 root\" \\\n        -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning \\\n        > /etc/ssl/local/CAcert_Class_1_root.pem",
-    "openssl x509 -in class3.crt -text -fingerprint -setalias \"CAcert Class 3 root\" \\\n        -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning \\\n        > /etc/ssl/local/CAcert_Class_3_root.pem",
-    "/usr/sbin/make-ca -r",
-    "openssl x509 -in /etc/ssl/certs/Makebelieve_CA_Root.pem \\\n             -text \\\n             -fingerprint \\\n             -setalias \"Disabled Makebelieve CA Root\" \\\n             -addreject serverAuth \\\n             -addreject emailProtection \\\n             -addreject codeSigning \\\n       > /etc/ssl/local/Disabled_Makebelieve_CA_Root.pem",
-    "/usr/sbin/make-ca -r",
-    "export _PIP_STANDALONE_CERT=/etc/pki/tls/certs/ca-bundle.crt",
-    "/usr/sbin/make-ca -g",
-    "systemctl enable update-pki.timer"
+    "command -v trust >/dev/null || exit 0",
+    "mkdir -p /var/cache/alps/sources && cd /var/cache/alps/sources && wget -nc http://www.cacert.org/certs/root.crt && wget -nc http://www.cacert.org/certs/class3.crt && openssl x509 -in root.crt -text -fingerprint -setalias \"CAcert Class 1 root\" -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning > /etc/ssl/local/CAcert_Class_1_root.pem && openssl x509 -in class3.crt -text -fingerprint -setalias \"CAcert Class 3 root\" -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning > /etc/ssl/local/CAcert_Class_3_root.pem && /usr/sbin/make-ca -r && if [ -f /etc/ssl/certs/Makebelieve_CA_Root.pem ]; then openssl x509 -in /etc/ssl/certs/Makebelieve_CA_Root.pem -text -fingerprint -setalias \"Disabled Makebelieve CA Root\" -addreject serverAuth -addreject emailProtection -addreject codeSigning > /etc/ssl/local/Disabled_Makebelieve_CA_Root.pem; fi && /usr/sbin/make-ca -r && _PIP_STANDALONE_CERT=/etc/pki/tls/certs/ca-bundle.crt /usr/sbin/make-ca -g && systemctl enable update-pki.timer"
   ],
   "meta": false,
   "book": "postlfs/make-ca.html",
