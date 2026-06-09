@@ -2,7 +2,10 @@
   "name": "smartmontools",
   "version": "7.5",
   "description": "The smartmontools package contains utility programs (smartctl, smartd) to control/monitor storage systems using the Self-Monitoring, Analysis and Reporting Technology System (S.M.A.R.T.) built into most modern ATA and SCSI disks.",
-  "url": "https://downloads.sourceforge.net/smartmontools/smartmontools-7.5.tar.gz",
+  "url": [
+    "https://downloads.sourceforge.net/smartmontools/smartmontools-7.5.tar.gz",
+    "https://versaweb.dl.sourceforge.net/project/smartmontools/smartmontools/7.5/smartmontools-7.5.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

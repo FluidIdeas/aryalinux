@@ -2,7 +2,9 @@
   "name": "bluez",
   "version": "5.86",
   "description": "The BlueZ package contains the Bluetooth protocol stack for Linux.",
-  "url": "https://www.kernel.org/pub/linux/bluetooth/bluez-5.86.tar.xz",
+  "url": [
+    "https://www.kernel.org/pub/linux/bluetooth/bluez-5.86.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "dbus",

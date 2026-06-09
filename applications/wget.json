@@ -2,7 +2,9 @@
   "name": "wget",
   "version": "1.25.0",
   "description": "The Wget package contains a utility useful for non-interactive downloading of files from the Web.",
-  "url": "https://ftpmirror.gnu.org/wget/wget-1.25.0.tar.gz",
+  "url": [
+    "https://ftpmirror.gnu.org/wget/wget-1.25.0.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "libpsl",

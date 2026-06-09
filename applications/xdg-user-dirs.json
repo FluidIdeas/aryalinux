@@ -2,7 +2,9 @@
   "name": "xdg-user-dirs",
   "version": "0.19",
   "description": "Xdg-user-dirs is a tool to help manage “well known” user directories like the desktop folder and the music folder. It also handles localization (i.e. translation) of the filenames.",
-  "url": "https://gitlab.freedesktop.org/xdg/xdg-user-dirs/-/archive/v0.19/xdg-user-dirs-v0.19.tar.gz",
+  "url": [
+    "https://gitlab.freedesktop.org/xdg/xdg-user-dirs/-/archive/v0.19/xdg-user-dirs-v0.19.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

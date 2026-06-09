@@ -2,7 +2,6 @@
   "name": "java",
   "version": "21.0.10",
   "description": "OpenJDK Java runtime and development kit for running and building Java applications.",
-  "url": "",
   "dependencies": {},
   "build": {
     "user": [],

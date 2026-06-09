@@ -2,9 +2,8 @@
   "name": "avahi",
   "version": "0.8",
   "description": "The Avahi package is a system which facilitates service discovery on a local network.",
-  "url": "https://github.com/lathiat/avahi/releases/download/v0.8/avahi-0.8.tar.gz",
-  "patches": [
-    "https://www.linuxfromscratch.org/patches/blfs/13.0/avahi-0.8-ipv6_race_condition_fix-1.patch"
+  "url": [
+    "https://github.com/lathiat/avahi/releases/download/v0.8/avahi-0.8.tar.gz"
   ],
   "dependencies": {
     "required": [
@@ -40,5 +39,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/avahi-0.8-ipv6_race_condition_fix-1.patch"
+  ]
 }

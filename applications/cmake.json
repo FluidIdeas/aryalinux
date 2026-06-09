@@ -2,7 +2,9 @@
   "name": "cmake",
   "version": "4.2.3",
   "description": "The CMake package contains a modern toolset used for generating Makefiles. It is a successor of the auto-generated configure script and aims to be platform- and compiler-independent. A significant user of CMake is KDE since version 4.",
-  "url": "https://cmake.org/files/v4.2/cmake-4.2.3.tar.gz",
+  "url": [
+    "https://cmake.org/files/v4.2/cmake-4.2.3.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "curl",

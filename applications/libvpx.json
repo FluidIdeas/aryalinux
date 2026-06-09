@@ -2,7 +2,9 @@
   "name": "libvpx",
   "version": "1.16.0",
   "description": "This package, from the WebM project, provides the reference implementations of the VP8 Codec (used in most current HTML5 video) and of the next-generation VP9 Codec.",
-  "url": "https://github.com/webmproject/libvpx/archive/v1.16.0/libvpx-1.16.0.tar.gz",
+  "url": [
+    "https://github.com/webmproject/libvpx/archive/v1.16.0/libvpx-1.16.0.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "yasm",
@@ -29,5 +31,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/libvpx-1.16.0-security_fix-1.patch"
+  ]
 }

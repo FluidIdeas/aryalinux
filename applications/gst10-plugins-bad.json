@@ -2,7 +2,9 @@
   "name": "gst10-plugins-bad",
   "version": "1.28.1",
   "description": "The GStreamer Bad Plug-ins package contains a set of plug-ins that aren't up to par compared to the rest. They might be close to being good quality, but they're missing something - be it a good code review, some documentation, a set of tests, a real live maintainer, or some actual wide use.",
-  "url": "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.28.1.tar.xz",
+  "url": [
+    "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.28.1.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gst10-plugins-base",

@@ -2,7 +2,9 @@
   "name": "gcr",
   "version": "3.41.2",
   "description": "The Gcr package contains libraries used for displaying certificates and accessing key stores. It also provides the viewer for crypto files on the GNOME Desktop.",
-  "url": "https://download.gnome.org/sources/gcr/3.41/gcr-3.41.2.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gcr/3.41/gcr-3.41.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "glib2",

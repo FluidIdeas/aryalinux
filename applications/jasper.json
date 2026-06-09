@@ -2,7 +2,9 @@
   "name": "jasper",
   "version": "4.2.8",
   "description": "The jasper Project is an open-source initiative to provide a free software-based reference implementation of the JPEG-2000 codec.",
-  "url": "https://github.com/jasper-software/jasper/archive/version-4.2.8/jasper-version-4.2.8.tar.gz",
+  "url": [
+    "https://github.com/jasper-software/jasper/archive/version-4.2.8/jasper-version-4.2.8.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "cmake",

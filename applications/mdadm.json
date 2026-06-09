@@ -2,7 +2,9 @@
   "name": "mdadm",
   "version": "4.4",
   "description": "The mdadm package contains administration tools for software RAID.",
-  "url": "https://www.kernel.org/pub/linux/utils/raid/mdadm/mdadm-4.4.tar.xz",
+  "url": [
+    "https://www.kernel.org/pub/linux/utils/raid/mdadm/mdadm-4.4.tar.xz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

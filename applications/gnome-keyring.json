@@ -2,7 +2,9 @@
   "name": "gnome-keyring",
   "version": "48.0",
   "description": "The GNOME Keyring package contains a daemon that keeps passwords and other secrets for users.",
-  "url": "https://download.gnome.org/sources/gnome-keyring/48/gnome-keyring-48.0.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gnome-keyring/48/gnome-keyring-48.0.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "dbus",

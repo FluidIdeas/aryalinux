@@ -2,7 +2,9 @@
   "name": "qemu",
   "version": "10.2.1",
   "description": "qemu is a full virtualization solution for Linux on x86 hardware containing virtualization extensions (Intel VT or AMD-V).",
-  "url": "https://download.qemu.org/qemu-10.2.1.tar.xz",
+  "url": [
+    "https://download.qemu.org/qemu-10.2.1.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "glib2",

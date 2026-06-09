@@ -2,7 +2,9 @@
   "name": "popt",
   "version": "1.19",
   "description": "The popt package contains the popt libraries which are used by some programs to parse command-line options.",
-  "url": "https://ftp.osuosl.org/pub/rpm/popt/releases/popt-1.x/popt-1.19.tar.gz",
+  "url": [
+    "https://ftp.osuosl.org/pub/rpm/popt/releases/popt-1.x/popt-1.19.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

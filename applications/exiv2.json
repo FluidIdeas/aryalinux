@@ -2,7 +2,9 @@
   "name": "exiv2",
   "version": "0.28.7",
   "description": "Exiv2 contains a C++ library and a command line utility for managing image and video metadata.",
-  "url": "https://github.com/Exiv2/exiv2/archive/v0.28.7/exiv2-0.28.7.tar.gz",
+  "url": [
+    "https://github.com/Exiv2/exiv2/archive/v0.28.7/exiv2-0.28.7.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "cmake",

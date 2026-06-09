@@ -2,7 +2,9 @@
   "name": "parted",
   "version": "3.6",
   "description": "The Parted package is a disk partitioning and partition resizing tool.",
-  "url": "https://ftpmirror.gnu.org/parted/parted-3.6.tar.xz",
+  "url": [
+    "https://ftpmirror.gnu.org/parted/parted-3.6.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "lvm2"

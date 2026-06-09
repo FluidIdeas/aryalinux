@@ -2,7 +2,9 @@
   "name": "libburn",
   "version": "1.5.6",
   "description": "libburn is a library for writing preformatted data onto optical media: CD, DVD and BD (Blu-Ray).",
-  "url": "https://files.libburnia-project.org/releases/libburn-1.5.6.tar.gz",
+  "url": [
+    "https://files.libburnia-project.org/releases/libburn-1.5.6.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

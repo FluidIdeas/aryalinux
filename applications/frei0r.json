@@ -2,7 +2,9 @@
   "name": "frei0r",
   "version": "2.5.1",
   "description": "Frei0r is a minimalistic plugin API for video effects. Note that the 0 in the name is a zero, not a capital letter o.",
-  "url": "https://github.com/dyne/frei0r/archive/v2.5.1/frei0r-v2.5.1.tar.gz",
+  "url": [
+    "https://github.com/dyne/frei0r/archive/v2.5.1/frei0r-v2.5.1.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

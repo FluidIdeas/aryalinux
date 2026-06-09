@@ -2,7 +2,9 @@
   "name": "whois",
   "version": "5.6.6",
   "description": "Whois is a client-side application which queries the whois directory service for information pertaining to a particular domain name. This package will install two programs by default: whois and mkpasswd. The mkpasswd command is also installed by the expect package in LFS.",
-  "url": "https://github.com/rfc1036/whois/archive/v5.6.6/whois-5.6.6.tar.gz",
+  "url": [
+    "https://github.com/rfc1036/whois/archive/v5.6.6/whois-5.6.6.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

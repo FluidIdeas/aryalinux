@@ -2,7 +2,9 @@
   "name": "util-macros",
   "version": "1.20.2",
   "description": "The util-macros package contains the m4 macros used by all of the Xorg packages.",
-  "url": "https://www.x.org/pub/individual/util/util-macros-1.20.2.tar.xz",
+  "url": [
+    "https://www.x.org/pub/individual/util/util-macros-1.20.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "xorg7"

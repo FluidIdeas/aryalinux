@@ -2,7 +2,9 @@
   "name": "libpeas",
   "version": "1.36.0",
   "description": "libpeas is a GObject based plugins engine, and is targeted at giving every application the chance to assume its own extensibility.",
-  "url": "https://download.gnome.org/sources/libpeas/1.36/libpeas-1.36.0.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/libpeas/1.36/libpeas-1.36.0.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "glib2",

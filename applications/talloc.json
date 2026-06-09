@@ -2,7 +2,9 @@
   "name": "talloc",
   "version": "2.4.4",
   "description": "Talloc provides a hierarchical, reference counted memory pool system with destructors. It is the core memory allocator used in Samba.",
-  "url": "https://www.samba.org/ftp/talloc/talloc-2.4.4.tar.gz",
+  "url": [
+    "https://www.samba.org/ftp/talloc/talloc-2.4.4.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

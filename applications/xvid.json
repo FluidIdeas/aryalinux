@@ -2,7 +2,9 @@
   "name": "xvid",
   "version": "1.3.7",
   "description": "XviD is an MPEG-4 compliant video CODEC.",
-  "url": "https://downloads.xvid.com/downloads/xvidcore-1.3.7.tar.gz",
+  "url": [
+    "https://downloads.xvid.com/downloads/xvidcore-1.3.7.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

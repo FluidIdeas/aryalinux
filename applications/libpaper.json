@@ -2,7 +2,9 @@
   "name": "libpaper",
   "version": "2.2.7",
   "description": "This package is intended to provide a simple way for applications to take actions based on a system or user-specified paper size.",
-  "url": "https://github.com/rrthomas/libpaper/releases/download/v2.2.7/libpaper-2.2.7.tar.gz",
+  "url": [
+    "https://github.com/rrthomas/libpaper/releases/download/v2.2.7/libpaper-2.2.7.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

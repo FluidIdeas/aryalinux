@@ -2,7 +2,9 @@
   "name": "tumbler",
   "version": "4.20.1",
   "description": "The Tumbler package contains a D-Bus thumbnailing service based on the thumbnail management D-Bus specification. This is useful for generating thumbnail images of files.",
-  "url": "https://archive.xfce.org/src/xfce/tumbler/4.20/tumbler-4.20.1.tar.bz2",
+  "url": [
+    "https://archive.xfce.org/src/xfce/tumbler/4.20/tumbler-4.20.1.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "glib2"

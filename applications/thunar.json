@@ -2,7 +2,9 @@
   "name": "thunar",
   "version": "4.20.7",
   "description": "Thunar is the Xfce file manager, a GTK+ 3 GUI to organise the files on your computer.",
-  "url": "https://archive.xfce.org/src/xfce/thunar/4.20/thunar-4.20.7.tar.bz2",
+  "url": [
+    "https://archive.xfce.org/src/xfce/thunar/4.20/thunar-4.20.7.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "exo",

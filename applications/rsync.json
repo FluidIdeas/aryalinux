@@ -2,7 +2,9 @@
   "name": "rsync",
   "version": "3.4.1",
   "description": "The rsync package contains the rsync utility. This is useful for synchronizing large file archives over a network.",
-  "url": "https://www.samba.org/ftp/rsync/src/rsync-3.4.1.tar.gz",
+  "url": [
+    "https://www.samba.org/ftp/rsync/src/rsync-3.4.1.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "popt"
@@ -32,5 +34,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/rsync-3.4.1-security_fix-1.patch"
+  ]
 }

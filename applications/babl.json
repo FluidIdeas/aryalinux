@@ -2,7 +2,9 @@
   "name": "babl",
   "version": "0.1.122",
   "description": "The Babl package is a dynamic, any to any, pixel format translation library.",
-  "url": "https://download.gimp.org/pub/babl/0.1/babl-0.1.122.tar.xz",
+  "url": [
+    "https://download.gimp.org/pub/babl/0.1/babl-0.1.122.tar.xz"
+  ],
   "dependencies": {
     "recommended": [
       "glib2"

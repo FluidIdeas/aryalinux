@@ -2,7 +2,9 @@
   "name": "gnome-color-manager",
   "version": "3.36.2",
   "description": "GNOME Color Manager is a session framework for the GNOME desktop environment that makes it easy to manage, install and generate color profiles.",
-  "url": "https://download.gnome.org/sources/gnome-color-manager/3.36/gnome-color-manager-3.36.2.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gnome-color-manager/3.36/gnome-color-manager-3.36.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "colord",

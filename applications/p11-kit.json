@@ -2,7 +2,9 @@
   "name": "p11-kit",
   "version": "0.26.2",
   "description": "The p11-kit package provides a way to load and enumerate PKCS #11 (a Cryptographic Token Interface Standard) modules.",
-  "url": "https://github.com/p11-glue/p11-kit/releases/download/0.26.2/p11-kit-0.26.2.tar.xz",
+  "url": [
+    "https://github.com/p11-glue/p11-kit/releases/download/0.26.2/p11-kit-0.26.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "libtasn1",

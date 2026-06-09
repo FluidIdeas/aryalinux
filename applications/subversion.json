@@ -2,7 +2,9 @@
   "name": "subversion",
   "version": "1.14.5",
   "description": "Subversion is a version control system that is designed to be a compelling replacement for CVS in the open source community. It extends and enhances CVS' feature set, while maintaining a similar interface for those already familiar with CVS. These instructions install the client and server software used to manipulate a Subversion repository. Creation of a repository is covered at Running a Subversion Server.",
-  "url": "https://archive.apache.org/dist/subversion/subversion-1.14.5.tar.bz2",
+  "url": [
+    "https://archive.apache.org/dist/subversion/subversion-1.14.5.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "apr-util",
@@ -28,5 +30,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/subversion-1.14.5-upstream_fixes-1.patch"
+  ]
 }

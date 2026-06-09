@@ -2,7 +2,9 @@
   "name": "polkit-qt",
   "version": "0.200.0",
   "description": "Polkit-Qt provides an API to PolicyKit in the Qt environment.",
-  "url": "https://download.kde.org/stable/polkit-qt-1/polkit-qt-1-0.200.0.tar.xz",
+  "url": [
+    "https://download.kde.org/stable/polkit-qt-1/polkit-qt-1-0.200.0.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "cmake",

@@ -2,7 +2,9 @@
   "name": "gst10-libav",
   "version": "1.28.1",
   "description": "The GStreamer Libav package contains GStreamer plugins for Libav (a fork of FFmpeg).",
-  "url": "https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.28.1.tar.xz",
+  "url": [
+    "https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.28.1.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "ffmpeg",

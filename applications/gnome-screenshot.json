@@ -2,7 +2,9 @@
   "name": "gnome-screenshot",
   "version": "41.0",
   "description": "GNOME Screenshot is a utility used for taking screenshots of the entire screen, a window or a user-defined area of the screen, with optional beautifying border effects.",
-  "url": "https://download.gnome.org/sources/gnome-screenshot/41/gnome-screenshot-41.0.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gnome-screenshot/41/gnome-screenshot-41.0.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gtk3",

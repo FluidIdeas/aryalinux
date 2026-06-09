@@ -2,7 +2,9 @@
   "name": "gnome-settings-daemon",
   "version": "49.1",
   "description": "The GNOME Settings Daemon is responsible for setting various parameters of a GNOME Session and the applications that run under it.",
-  "url": "https://download.gnome.org/sources/gnome-settings-daemon/49/gnome-settings-daemon-49.1.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gnome-settings-daemon/49/gnome-settings-daemon-49.1.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "alsa-lib",

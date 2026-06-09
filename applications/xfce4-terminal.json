@@ -2,7 +2,9 @@
   "name": "xfce4-terminal",
   "version": "1.1.5",
   "description": "Xfce4 Terminal is a GTK+3 terminal emulator. This is useful for running commands or programs in the comfort of an Xorg window; you can drag and drop files into the Xfce4 Terminal or copy and paste text with your mouse.",
-  "url": "https://archive.xfce.org/src/apps/xfce4-terminal/1.1/xfce4-terminal-1.1.5.tar.xz",
+  "url": [
+    "https://archive.xfce.org/src/apps/xfce4-terminal/1.1/xfce4-terminal-1.1.5.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "libxfce4ui"

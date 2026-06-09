@@ -2,7 +2,9 @@
   "name": "libuv",
   "version": "1.52.0",
   "description": "The libuv package is a multi-platform support library with a focus on asynchronous I/O.",
-  "url": "https://dist.libuv.org/dist/v1.52.0/libuv-v1.52.0.tar.gz",
+  "url": [
+    "https://dist.libuv.org/dist/v1.52.0/libuv-v1.52.0.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

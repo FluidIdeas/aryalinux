@@ -2,7 +2,9 @@
   "name": "libusb",
   "version": "1.0.29",
   "description": "The libusb package contains a library used by some applications for USB device access.",
-  "url": "https://github.com/libusb/libusb/releases/download/v1.0.29/libusb-1.0.29.tar.bz2",
+  "url": [
+    "https://github.com/libusb/libusb/releases/download/v1.0.29/libusb-1.0.29.tar.bz2"
+  ],
   "dependencies": {},
   "build": {
     "user": [

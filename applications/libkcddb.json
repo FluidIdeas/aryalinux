@@ -2,7 +2,9 @@
   "name": "libkcddb",
   "version": "25.12.2",
   "description": "The libkcddb package contains a library used to retrieve audio CD meta data from the internet.",
-  "url": "https://download.kde.org/stable/release-service/25.12.2/src/libkcddb-25.12.2.tar.xz",
+  "url": [
+    "https://download.kde.org/stable/release-service/25.12.2/src/libkcddb-25.12.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "frameworks6",

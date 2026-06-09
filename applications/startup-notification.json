@@ -2,7 +2,9 @@
   "name": "startup-notification",
   "version": "0.12",
   "description": "The startup-notification package contains startup-notification libraries. These are useful for building a consistent manner to notify the user through the cursor that the application is loading.",
-  "url": "https://www.freedesktop.org/software/startup-notification/releases/startup-notification-0.12.tar.gz",
+  "url": [
+    "https://www.freedesktop.org/software/startup-notification/releases/startup-notification-0.12.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "x7lib",

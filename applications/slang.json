@@ -2,7 +2,9 @@
   "name": "slang",
   "version": "2.3.3",
   "description": "S-Lang (slang) is an interpreted language that may be embedded into an application to make the application extensible. It provides facilities required by interactive applications such as display/screen management, keyboard input and keymaps.",
-  "url": "https://www.jedsoft.org/releases/slang/slang-2.3.3.tar.bz2",
+  "url": [
+    "https://www.jedsoft.org/releases/slang/slang-2.3.3.tar.bz2"
+  ],
   "dependencies": {},
   "build": {
     "user": [

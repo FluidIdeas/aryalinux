@@ -2,7 +2,9 @@
   "name": "colord-gtk",
   "version": "0.3.1",
   "description": "The Colord GTK package contains GTK+ bindings for Colord.",
-  "url": "https://www.freedesktop.org/software/colord/releases/colord-gtk-0.3.1.tar.xz",
+  "url": [
+    "https://www.freedesktop.org/software/colord/releases/colord-gtk-0.3.1.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "colord",

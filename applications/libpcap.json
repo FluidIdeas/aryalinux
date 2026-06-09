@@ -2,7 +2,9 @@
   "name": "libpcap",
   "version": "1.10.6",
   "description": "libpcap provides functions for user-level packet capture, used in low-level network monitoring.",
-  "url": "https://www.tcpdump.org/release/libpcap-1.10.6.tar.gz",
+  "url": [
+    "https://www.tcpdump.org/release/libpcap-1.10.6.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

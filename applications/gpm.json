@@ -2,7 +2,9 @@
   "name": "gpm",
   "version": "1.20.7",
   "description": "The GPM (General Purpose Mouse daemon) package contains a mouse server for the console and xterm. It not only provides cut and paste support generally, but its library component is used by various software such as Links to provide mouse support to the application. It is useful on desktops, especially if following (Beyond) Linux From Scratch instructions; it's often much easier (and less error prone) to cut and paste between two console windows than to type everything by hand!.",
-  "url": "https://anduin.linuxfromscratch.org/BLFS/gpm/gpm-1.20.7.tar.bz2",
+  "url": [
+    "https://anduin.linuxfromscratch.org/BLFS/gpm/gpm-1.20.7.tar.bz2"
+  ],
   "dependencies": {},
   "build": {
     "user": [
@@ -33,5 +35,9 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/gpm-1.20.7-consolidated-1.patch",
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/gpm-1.20.7-gcc15_fixes-1.patch"
+  ]
 }

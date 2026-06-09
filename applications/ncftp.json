@@ -2,7 +2,9 @@
   "name": "ncftp",
   "version": "3.3.0",
   "description": "The NcFTP package contains a powerful and flexible interface to the Internet standard File Transfer Protocol. It is intended to replace or supplement the stock ftp program.",
-  "url": "https://www.ncftp.com/public_ftp/ncftp/ncftp-3.3.0-src.tar.gz",
+  "url": [
+    "https://www.ncftp.com/public_ftp/ncftp/ncftp-3.3.0-src.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

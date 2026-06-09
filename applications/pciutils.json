@@ -2,7 +2,9 @@
   "name": "pciutils",
   "version": "3.14.0",
   "description": "The PCI Utils package contains a set of programs for listing PCI devices, inspecting their status and setting their configuration registers.",
-  "url": "https://mj.ucw.cz/download/linux/pci/pciutils-3.14.0.tar.gz",
+  "url": [
+    "https://mj.ucw.cz/download/linux/pci/pciutils-3.14.0.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "hwdata"

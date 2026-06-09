@@ -2,7 +2,6 @@
   "name": "meta.kde",
   "version": "1.0",
   "description": "Metapackage that installs the KDE Plasma desktop environment and selected applications.",
-  "url": "",
   "dependencies": {
     "required": [
       "gtk2",

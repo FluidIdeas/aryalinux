@@ -2,7 +2,9 @@
   "name": "libgee",
   "version": "0.20.8",
   "description": "The libgee package is a collection library providing GObject based interfaces and classes for commonly used data structures.",
-  "url": "https://download.gnome.org/sources/libgee/0.20/libgee-0.20.8.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/libgee/0.20/libgee-0.20.8.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "glib2",

@@ -2,7 +2,9 @@
   "name": "gnome-nettool",
   "version": "42.0",
   "description": "The GNOME Nettool package is a network information tool which provides GUI interface for some of the most common command line network tools.",
-  "url": "https://download.gnome.org/sources/gnome-nettool/42/gnome-nettool-42.0.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gnome-nettool/42/gnome-nettool-42.0.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gtk3",
@@ -28,5 +30,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/gnome-nettool-42.0-ping_and_netstat_fixes-1.patch"
+  ]
 }

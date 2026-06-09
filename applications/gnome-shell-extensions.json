@@ -2,7 +2,9 @@
   "name": "gnome-shell-extensions",
   "version": "49.0",
   "description": "The GNOME Shell Extensions package contains a collection of extensions providing additional and optional functionality to the GNOME Shell.",
-  "url": "https://download.gnome.org/sources/gnome-shell-extensions/49/gnome-shell-extensions-49.0.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gnome-shell-extensions/49/gnome-shell-extensions-49.0.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "libgtop"

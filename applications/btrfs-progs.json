@@ -2,7 +2,9 @@
   "name": "btrfs-progs",
   "version": "6.17.1",
   "description": "The btrfs-progs package contains administration and debugging tools for the B-tree file system (btrfs).",
-  "url": "https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.17.1.tar.xz",
+  "url": [
+    "https://www.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.17.1.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "lzo"

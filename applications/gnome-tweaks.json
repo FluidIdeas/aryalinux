@@ -2,7 +2,9 @@
   "name": "gnome-tweaks",
   "version": "49.0",
   "description": "GNOME Tweaks is a simple program used to tweak advanced GNOME settings.",
-  "url": "https://download.gnome.org/sources/gnome-tweaks/49/gnome-tweaks-49.0.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gnome-tweaks/49/gnome-tweaks-49.0.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gtk4",

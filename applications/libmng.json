@@ -2,7 +2,10 @@
   "name": "libmng",
   "version": "2.0.3",
   "description": "The libmng libraries are used by programs wanting to read and write Multiple-image Network Graphics (MNG) files which are the animation equivalents to PNG files.",
-  "url": "https://downloads.sourceforge.net/libmng/libmng-2.0.3.tar.xz",
+  "url": [
+    "https://downloads.sourceforge.net/libmng/libmng-2.0.3.tar.xz",
+    "https://versaweb.dl.sourceforge.net/project/libmng/libmng/2.0.3/libmng-2.0.3.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "libjpeg",

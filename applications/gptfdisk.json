@@ -2,7 +2,10 @@
   "name": "gptfdisk",
   "version": "1.0.10",
   "description": "The gptfdisk package is a set of programs for creation and maintenance of GUID Partition Table (GPT) disk drives. A GPT partitioned disk is required for drives greater than 2 TB and is a modern replacement for legacy PC-BIOS partitioned disk drives that use a Master Boot Record (MBR). The main program, gdisk, has an interface similar to the classic fdisk program.",
-  "url": "https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.10.tar.gz",
+  "url": [
+    "https://downloads.sourceforge.net/gptfdisk/gptfdisk-1.0.10.tar.gz",
+    "https://versaweb.dl.sourceforge.net/project/gptfdisk/gptfdisk/1.0.10/gptfdisk-1.0.10.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "popt"
@@ -27,5 +30,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/gptfdisk-1.0.10-convenience-1.patch"
+  ]
 }

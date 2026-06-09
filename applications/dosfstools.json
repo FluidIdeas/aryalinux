@@ -2,7 +2,9 @@
   "name": "dosfstools",
   "version": "4.2",
   "description": "The dosfstools package contains various utilities for use with the FAT family of file systems.",
-  "url": "https://github.com/dosfstools/dosfstools/releases/download/v4.2/dosfstools-4.2.tar.gz",
+  "url": [
+    "https://github.com/dosfstools/dosfstools/releases/download/v4.2/dosfstools-4.2.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

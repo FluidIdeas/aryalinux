@@ -2,7 +2,9 @@
   "name": "kcolorpicker",
   "version": "0.3.1",
   "description": "kColorPicker is a QToolButton library with a color popup menu, which lets you select colors. The popup menu features a color dialog button which can be used to add custom colors to the popup menu.",
-  "url": "https://github.com/ksnip/kColorPicker/archive/v0.3.1/kColorPicker-0.3.1.tar.gz",
+  "url": [
+    "https://github.com/ksnip/kColorPicker/archive/v0.3.1/kColorPicker-0.3.1.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "cmake",

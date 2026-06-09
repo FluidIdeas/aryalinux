@@ -2,7 +2,9 @@
   "name": "duktape",
   "version": "2.7.0",
   "description": "duktape is an embeddable Javascript engine, with a focus on portability and compact footprint.",
-  "url": "https://duktape.org/duktape-2.7.0.tar.xz",
+  "url": [
+    "https://duktape.org/duktape-2.7.0.tar.xz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

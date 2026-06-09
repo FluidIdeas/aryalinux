@@ -2,7 +2,10 @@
   "name": "libpng",
   "version": "1.6.55",
   "description": "The libpng package contains libraries used by other programs for reading and writing PNG files. The PNG format was designed as a replacement for GIF and, to a lesser extent, TIFF, with many improvements and extensions and lack of patent problems.",
-  "url": "https://downloads.sourceforge.net/libpng/libpng-1.6.55.tar.xz",
+  "url": [
+    "https://downloads.sourceforge.net/libpng/libpng-1.6.55.tar.xz",
+    "https://versaweb.dl.sourceforge.net/project/libpng/libpng/1.6.55/libpng-1.6.55.tar.xz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

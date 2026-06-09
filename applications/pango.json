@@ -2,7 +2,9 @@
   "name": "pango",
   "version": "1.57.0",
   "description": "Pango is a library for laying out and rendering text, with an emphasis on internationalization. It can be used anywhere that text layout is needed, though most of the work on Pango so far has been done in the context of the GTK+ widget toolkit.",
-  "url": "https://download.gnome.org/sources/pango/1.57/pango-1.57.0.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/pango/1.57/pango-1.57.0.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "fontconfig",

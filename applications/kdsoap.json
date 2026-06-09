@@ -2,7 +2,9 @@
   "name": "kdsoap",
   "version": "2.2.0",
   "description": "The kdsoap is Qt-based client-side and server-side SOAP component. It can be used to create client applications for web services and also provides the means to create web services without the need for any further component such as a dedicated web server.",
-  "url": "https://github.com/KDAB/KDSoap/releases/download/kdsoap-2.2.0/kdsoap-2.2.0.tar.gz",
+  "url": [
+    "https://github.com/KDAB/KDSoap/releases/download/kdsoap-2.2.0/kdsoap-2.2.0.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "qt6"

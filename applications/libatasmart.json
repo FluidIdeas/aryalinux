@@ -2,7 +2,9 @@
   "name": "libatasmart",
   "version": "0.19",
   "description": "The libatasmart package is a disk reporting library. It only supports a subset of the ATA S.M.A.R.T. functionality.",
-  "url": "https://0pointer.de/public/libatasmart-0.19.tar.xz",
+  "url": [
+    "https://0pointer.de/public/libatasmart-0.19.tar.xz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

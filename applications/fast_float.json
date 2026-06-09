@@ -2,7 +2,9 @@
   "name": "fast_float",
   "version": "8.2.3",
   "description": "Fast_float provides a set of C++ header files for efficient string to float operations.",
-  "url": "https://github.com/fastfloat/fast_float/archive/v8.2.3/fast_float-8.2.3.tar.gz",
+  "url": [
+    "https://github.com/fastfloat/fast_float/archive/v8.2.3/fast_float-8.2.3.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "cmake"

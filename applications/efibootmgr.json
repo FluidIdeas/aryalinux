@@ -2,7 +2,9 @@
   "name": "efibootmgr",
   "version": "0",
   "description": "The efibootmgr package provides tools and libraries to manipulate EFI variables.",
-  "url": "https://github.com/rhboot/efibootmgr/archive/18/efibootmgr-18.tar.gz",
+  "url": [
+    "https://github.com/rhboot/efibootmgr/archive/18/efibootmgr-18.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "efivar",

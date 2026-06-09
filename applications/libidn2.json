@@ -2,7 +2,9 @@
   "name": "libidn2",
   "version": "2.3.8",
   "description": "libidn2 is a package designed for internationalized string handling based on standards from the Internet Engineering Task Force (IETF)'s IDN working group, designed for internationalized domain names.",
-  "url": "https://ftpmirror.gnu.org/libidn/libidn2-2.3.8.tar.gz",
+  "url": [
+    "https://ftpmirror.gnu.org/libidn/libidn2-2.3.8.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "libunistring"

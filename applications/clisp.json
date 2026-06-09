@@ -2,7 +2,9 @@
   "name": "clisp",
   "version": "2.49.95",
   "description": "GNU Clisp is a Common Lisp implementation which includes an interpreter, compiler, debugger, and many extensions.",
-  "url": "https://anduin.linuxfromscratch.org/BLFS/clisp/clisp-2.49.95.tar.xz",
+  "url": [
+    "https://anduin.linuxfromscratch.org/BLFS/clisp/clisp-2.49.95.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "libsigsegv"

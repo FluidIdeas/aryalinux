@@ -2,7 +2,9 @@
   "name": "gtkmm3",
   "version": "3.24.10",
   "description": "The Gtkmm package provides a C++ interface to GTK+ 3.",
-  "url": "https://download.gnome.org/sources/gtkmm/3.24/gtkmm-3.24.10.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gtkmm/3.24/gtkmm-3.24.10.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "atkmm",

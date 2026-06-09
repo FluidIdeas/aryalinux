@@ -2,7 +2,6 @@
   "name": "grub-setup",
   "version": "0",
   "description": "BLFS instructions for configuring GRUB on EFI systems after grub-efi is installed. These steps are performed manually on the target system.",
-  "url": "",
   "dependencies": {
     "required": [
       "grub-efi"

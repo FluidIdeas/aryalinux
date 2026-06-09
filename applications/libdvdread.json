@@ -2,7 +2,9 @@
   "name": "libdvdread",
   "version": "7.0.1",
   "description": "libdvdread is a library which provides a simple foundation for reading DVDs.",
-  "url": "https://get.videolan.org/libdvdread/7.0.1/libdvdread-7.0.1.tar.xz",
+  "url": [
+    "https://get.videolan.org/libdvdread/7.0.1/libdvdread-7.0.1.tar.xz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

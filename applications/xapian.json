@@ -2,7 +2,9 @@
   "name": "xapian",
   "version": "1.4.30",
   "description": "Xapian is an open source search engine library.",
-  "url": "https://oligarchy.co.uk/xapian/1.4.30/xapian-core-1.4.30.tar.xz",
+  "url": [
+    "https://oligarchy.co.uk/xapian/1.4.30/xapian-core-1.4.30.tar.xz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

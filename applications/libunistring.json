@@ -2,7 +2,9 @@
   "name": "libunistring",
   "version": "1.4.1",
   "description": "libunistring is a library that provides functions for manipulating Unicode strings and for manipulating C strings according to the Unicode standard.",
-  "url": "https://ftpmirror.gnu.org/libunistring/libunistring-1.4.1.tar.xz",
+  "url": [
+    "https://ftpmirror.gnu.org/libunistring/libunistring-1.4.1.tar.xz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

@@ -2,7 +2,9 @@
   "name": "gtk3",
   "version": "3.24.51",
   "description": "The GTK3 package contains libraries used for creating graphical user interfaces for applications.",
-  "url": "https://download.gnome.org/sources/gtk/3.24/gtk-3.24.51.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gtk/3.24/gtk-3.24.51.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "at-spi2-core",

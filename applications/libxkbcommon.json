@@ -2,7 +2,9 @@
   "name": "libxkbcommon",
   "version": "1.13.1",
   "description": "libxkbcommon is a keymap compiler and support library which processes a reduced subset of keymaps as defined by the XKB specification.",
-  "url": "https://github.com/lfs-book/libxkbcommon/archive/v1.13.1/libxkbcommon-1.13.1.tar.gz",
+  "url": [
+    "https://github.com/lfs-book/libxkbcommon/archive/v1.13.1/libxkbcommon-1.13.1.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "xkeyboard-config",

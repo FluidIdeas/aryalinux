@@ -2,7 +2,9 @@
   "name": "libhandy1",
   "version": "1.8.3",
   "description": "The libhandy package provides additional GTK UI widgets for use in developing user interfaces.",
-  "url": "https://download.gnome.org/sources/libhandy/1.8/libhandy-1.8.3.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/libhandy/1.8/libhandy-1.8.3.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gtk3",

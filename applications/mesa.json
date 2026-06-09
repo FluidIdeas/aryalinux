@@ -2,7 +2,9 @@
   "name": "mesa",
   "version": "25.3.5",
   "description": "Mesa contains several libraries and drivers for multiple APIs like OpenGL and Vulkan.",
-  "url": "https://mesa.freedesktop.org/archive/mesa-25.3.5.tar.xz",
+  "url": [
+    "https://mesa.freedesktop.org/archive/mesa-25.3.5.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "x7lib",
@@ -27,5 +29,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/mesa-add_xdemos-4.patch"
+  ]
 }

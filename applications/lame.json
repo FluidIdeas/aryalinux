@@ -2,7 +2,10 @@
   "name": "lame",
   "version": "3.100",
   "description": "The LAME package contains an MP3 encoder and optionally, an MP3 frame analyzer. This is useful for creating and analyzing compressed audio files.",
-  "url": "https://downloads.sourceforge.net/lame/lame-3.100.tar.gz",
+  "url": [
+    "https://downloads.sourceforge.net/lame/lame-3.100.tar.gz",
+    "https://versaweb.dl.sourceforge.net/project/lame/lame/3.100/lame-3.100.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

@@ -2,7 +2,9 @@
   "name": "tcsh",
   "version": "6.24.16",
   "description": "The Tcsh package contains “an enhanced but completely compatible version of the Berkeley Unix C shell (csh).” This is useful as an alternative shell for those who prefer C syntax to that of the bash shell, and also because some programs require the C shell in order to perform installation tasks.",
-  "url": "https://astron.com/pub/tcsh/tcsh-6.24.16.tar.gz",
+  "url": [
+    "https://astron.com/pub/tcsh/tcsh-6.24.16.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

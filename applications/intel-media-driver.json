@@ -2,7 +2,9 @@
   "name": "intel-media-driver",
   "version": "25.3.4",
   "description": "The intel-media-driver package provides a VA API driver for Intel GPUs that are provided with Broadwell CPUs and higher as well as the Intel Arc family of GPUs, like the B-Series. This includes support for a variety of codecs.",
-  "url": "https://github.com/lfs-book/intel-media-driver/archive/v25.3.4/intel-media-driver-25.3.4.tar.gz",
+  "url": [
+    "https://github.com/lfs-book/intel-media-driver/archive/v25.3.4/intel-media-driver-25.3.4.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "cmake",

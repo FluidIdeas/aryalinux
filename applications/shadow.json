@@ -2,7 +2,9 @@
   "name": "shadow",
   "version": "4.19.3",
   "description": "The Coreutils package installed during LFS is preferred.",
-  "url": "https://github.com/shadow-maint/shadow/releases/download/4.19.3/shadow-4.19.3.tar.xz",
+  "url": [
+    "https://github.com/shadow-maint/shadow/releases/download/4.19.3/shadow-4.19.3.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "linux-pam"
@@ -33,6 +35,7 @@
     ]
   },
   "post_install": [
+    "pwconv && grpconv",
     "for FUNCTION in FAIL_DELAY               \\\n                FAILLOG_ENAB             \\\n                LASTLOG_ENAB             \\\n                MAIL_CHECK_ENAB          \\\n                OBSCURE_CHECKS_ENAB      \\\n                PORTTIME_CHECKS_ENAB     \\\n                QUOTAS_ENAB              \\\n                CONSOLE MOTD_FILE        \\\n                FTMP_FILE NOLOGINS_FILE  \\\n                ENV_HZ PASS_MIN_LEN      \\\n                SU_WHEEL_ONLY            \\\n                PASS_CHANGE_TRIES        \\\n                PASS_ALWAYS_WARN         \\\n                CHFN_AUTH ENCRYPT_METHOD \\\n                ENVIRON_FILE\ndo\n    sed -i \"s/^${FUNCTION}/# &/\" /etc/login.defs\ndone",
     "if [ -f /etc/login.access ]; then mv -v /etc/login.access{,.NOUSE}; fi",
     "if [ -f /etc/limits ]; then mv -v /etc/limits{,.NOUSE}; fi"

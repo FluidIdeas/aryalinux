@@ -2,7 +2,9 @@
   "name": "jfsutils",
   "version": "1.1.15",
   "description": "The jfsutils package contains administration and debugging tools for the jfs file system.",
-  "url": "https://jfs.sourceforge.net/project/pub/jfsutils-1.1.15.tar.gz",
+  "url": [
+    "https://jfs.sourceforge.net/project/pub/jfsutils-1.1.15.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [
@@ -24,5 +26,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/jfsutils-1.1.15-gcc10_fix-1.patch"
+  ]
 }

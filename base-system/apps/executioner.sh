@@ -6,6 +6,8 @@ set +h
 USERNAME="$1"
 SCRIPT="$2"
 
+. "$(dirname "$0")/as-user.sh"
+
 make-ca -g -f
 
-su - $USERNAME -c "$SCRIPT"
+as_user "$USERNAME" "$SCRIPT"

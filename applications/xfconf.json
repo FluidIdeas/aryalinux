@@ -2,7 +2,9 @@
   "name": "xfconf",
   "version": "4.20.0",
   "description": "Xfconf is the configuration storage system for Xfce.",
-  "url": "https://archive.xfce.org/src/xfce/xfconf/4.20/xfconf-4.20.0.tar.bz2",
+  "url": [
+    "https://archive.xfce.org/src/xfce/xfconf/4.20/xfconf-4.20.0.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "libxfce4util"

@@ -2,9 +2,8 @@
   "name": "cyrus-sasl",
   "version": "2.1.28",
   "description": "The Cyrus SASL package contains a Simple Authentication and Security Layer implementation, a method for adding authentication support to connection-based protocols. To use SASL, a protocol includes a command for identifying and authenticating a user to a server and for optionally negotiating protection of subsequent protocol interactions. If its use is negotiated, a security layer is inserted between the protocol and the connection.",
-  "url": "https://github.com/cyrusimap/cyrus-sasl/releases/download/cyrus-sasl-2.1.28/cyrus-sasl-2.1.28.tar.gz",
-  "patches": [
-    "https://www.linuxfromscratch.org/patches/blfs/13.0/cyrus-sasl-2.1.28-gcc15_fixes-1.patch"
+  "url": [
+    "https://github.com/cyrusimap/cyrus-sasl/releases/download/cyrus-sasl-2.1.28/cyrus-sasl-2.1.28.tar.gz"
   ],
   "dependencies": {
     "required": [
@@ -34,5 +33,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/cyrus-sasl-2.1.28-gcc15_fixes-1.patch"
+  ]
 }

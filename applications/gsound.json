@@ -2,7 +2,9 @@
   "name": "gsound",
   "version": "1.0.3",
   "description": "The gsound package contains a small library for playing system sounds.",
-  "url": "https://download.gnome.org/sources/gsound/1.0/gsound-1.0.3.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gsound/1.0/gsound-1.0.3.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "libcanberra",

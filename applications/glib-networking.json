@@ -2,7 +2,9 @@
   "name": "glib-networking",
   "version": "2.80.1",
   "description": "The GLib Networking package contains Network related gio modules for GLib.",
-  "url": "https://download.gnome.org/sources/glib-networking/2.80/glib-networking-2.80.1.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/glib-networking/2.80/glib-networking-2.80.1.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "glib2",

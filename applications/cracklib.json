@@ -2,9 +2,9 @@
   "name": "cracklib",
   "version": "2.10.3",
   "description": "The CrackLib package contains a library used to enforce strong passwords by comparing user selected passwords to words in chosen word lists.",
-  "url": "https://github.com/cracklib/cracklib/releases/download/v2.10.3/cracklib-2.10.3.tar.xz",
-  "urls": [
-    "https://anduin.linuxfromscratch.org/BLFS/cracklib/cracklib-words-2.10.3.xz"
+  "url": [
+    "https://github.com/cracklib/cracklib/releases/download/v2.10.3/cracklib-2.10.3.tar.xz",
+    "https://github.com/cracklib/cracklib/releases/download/v2.10.3/cracklib-words-2.10.3.xz"
   ],
   "dependencies": {},
   "build": {
@@ -31,5 +31,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://anduin.linuxfromscratch.org/BLFS/cracklib/cracklib-words-2.10.3.xz"
+  ]
 }

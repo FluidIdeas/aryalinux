@@ -2,7 +2,10 @@
   "name": "fetchmail",
   "version": "6.6.2",
   "description": "The Fetchmail package contains a mail retrieval program. It retrieves mail from remote mail servers and forwards it to the local (client) machine's delivery system, so it can then be read by normal mail user agents.",
-  "url": "https://downloads.sourceforge.net/fetchmail/fetchmail-6.6.2.tar.xz",
+  "url": [
+    "https://downloads.sourceforge.net/fetchmail/fetchmail-6.6.2.tar.xz",
+    "https://versaweb.dl.sourceforge.net/project/fetchmail/fetchmail/6.6.2/fetchmail-6.6.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "procmail"

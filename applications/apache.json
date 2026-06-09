@@ -2,12 +2,8 @@
   "name": "apache",
   "version": "2.4.66",
   "description": "The Apache HTTPD package contains an open-source HTTP server. It is useful for creating local intranet web sites or running huge web serving operations.",
-  "url": "https://archive.apache.org/dist/httpd/httpd-2.4.66.tar.bz2",
-  "urls": [
-    "https://www.linuxfromscratch.org/blfs/downloads/13.0-systemd/blfs-systemd-units-20251204.tar.xz"
-  ],
-  "patches": [
-    "https://www.linuxfromscratch.org/patches/blfs/13.0/httpd-blfs_layout-1.patch"
+  "url": [
+    "https://archive.apache.org/dist/httpd/httpd-2.4.66.tar.bz2"
   ],
   "dependencies": {
     "required": [
@@ -46,5 +42,9 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/httpd-blfs_layout-1.patch",
+    "https://www.linuxfromscratch.org/blfs/downloads/13.0-systemd/blfs-systemd-units-20251204.tar.xz"
+  ]
 }

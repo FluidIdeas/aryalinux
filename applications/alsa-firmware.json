@@ -2,7 +2,9 @@
   "name": "alsa-firmware",
   "version": "1.2.4",
   "description": "The ALSA Firmware package contains firmware for certain sound cards.",
-  "url": "https://www.alsa-project.org/files/pub/firmware/alsa-firmware-1.2.4.tar.bz2",
+  "url": [
+    "https://www.alsa-project.org/files/pub/firmware/alsa-firmware-1.2.4.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "alsa-tools"

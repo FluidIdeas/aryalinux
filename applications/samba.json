@@ -2,7 +2,9 @@
   "name": "samba",
   "version": "4.23.5",
   "description": "The Samba package provides file and print services to SMB/CIFS clients and Windows networking to Linux clients. Samba can also be configured as a Windows Domain Controller replacement, a file/print server acting as a member of a Windows Active Directory domain and a NetBIOS (RFC1001/1002) nameserver (which among other things provides LAN browsing support).",
-  "url": "https://download.samba.org/pub/samba/stable/samba-4.23.5.tar.gz",
+  "url": [
+    "https://download.samba.org/pub/samba/stable/samba-4.23.5.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "gnutls",

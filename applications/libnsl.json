@@ -2,7 +2,9 @@
   "name": "libnsl",
   "version": "2.0.1",
   "description": "The libnsl package contains the public client interface for NIS(YP). It replaces the NIS library that used to be in glibc.",
-  "url": "https://github.com/thkukuk/libnsl/releases/download/v2.0.1/libnsl-2.0.1.tar.xz",
+  "url": [
+    "https://github.com/thkukuk/libnsl/releases/download/v2.0.1/libnsl-2.0.1.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "libtirpc"

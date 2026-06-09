@@ -2,7 +2,9 @@
   "name": "exempi",
   "version": "2.6.6",
   "description": "Exempi is an implementation of XMP (Adobe's Extensible Metadata Platform).",
-  "url": "https://libopenraw.freedesktop.org/download/exempi-2.6.6.tar.xz",
+  "url": [
+    "https://libopenraw.freedesktop.org/download/exempi-2.6.6.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "boost"

@@ -2,7 +2,10 @@
   "name": "dos2unix",
   "version": "7.5.4",
   "description": "The dos2unix package contains an any-to-any text format converter.",
-  "url": "https://downloads.sourceforge.net/dos2unix/dos2unix-7.5.4.tar.gz",
+  "url": [
+    "https://downloads.sourceforge.net/dos2unix/dos2unix-7.5.4.tar.gz",
+    "https://versaweb.dl.sourceforge.net/project/dos2unix/dos2unix/7.5.4/dos2unix-7.5.4.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

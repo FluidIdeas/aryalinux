@@ -2,7 +2,9 @@
   "name": "baobab",
   "version": "49.1",
   "description": "The Baobab package contains a graphical directory tree analyzer.",
-  "url": "https://download.gnome.org/sources/baobab/49/baobab-49.1.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/baobab/49/baobab-49.1.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "adwaita-icon-theme",

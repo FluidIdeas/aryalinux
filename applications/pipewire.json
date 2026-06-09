@@ -2,7 +2,9 @@
   "name": "pipewire",
   "version": "1.6.0",
   "description": "The pipewire package contains a server and userspace API to handle multimedia pipelines. This includes a universal API to connect to multimedia devices, as well as sharing multimedia files between applications.",
-  "url": "https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/1.6.0/pipewire-1.6.0.tar.bz2",
+  "url": [
+    "https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/1.6.0/pipewire-1.6.0.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "bluez",

@@ -118,14 +118,44 @@ def collect_files(root: Path) -> list[str]:
     return files
 
 
+def url_filename(url: str) -> str:
+    return url.rstrip("/").split("/")[-1].split("?")[0]
+
+
 def wget(url: str, dest_dir: Path) -> Path:
     dest_dir.mkdir(parents=True, exist_ok=True)
-    filename = url.rstrip("/").split("/")[-1]
-    dest = dest_dir / filename
+    dest = dest_dir / url_filename(url)
     if dest.is_file():
         return dest
     run_cmd(f'wget -nc "{url}"', cwd=dest_dir)
     return dest
+
+
+def wget_fallback(urls: list[str], dest_dir: Path) -> Path:
+    """Try each source URL until one downloads successfully."""
+    if not urls:
+        raise RuntimeError("no source URLs configured")
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    errors: list[str] = []
+    for url in urls:
+        dest = dest_dir / url_filename(url)
+        if dest.is_file() and dest.stat().st_size > 0:
+            return dest
+        result = subprocess.run(
+            ["wget", "-q", "-O", dest.name, url],
+            cwd=dest_dir,
+        )
+        if result.returncode == 0 and dest.is_file() and dest.stat().st_size > 0:
+            return dest
+        dest.unlink(missing_ok=True)
+        errors.append(url)
+    raise RuntimeError(f"all source downloads failed: {', '.join(errors)}")
+
+
+def wget_all(urls: list[str], dest_dir: Path) -> None:
+    """Download every supplementary URL (patches, extra tarballs, etc.)."""
+    for url in urls:
+        wget(url, dest_dir)
 
 
 def extract_archive(archive: Path, dest_dir: Path) -> Path:
@@ -135,6 +165,9 @@ def extract_archive(archive: Path, dest_dir: Path) -> Path:
     else:
         run_cmd(f'tar --no-overwrite-dir -xf "{archive}"', cwd=dest_dir)
     entries = [p for p in dest_dir.iterdir() if p.name not in (".", "..")]
+    dirs = [p for p in entries if p.is_dir()]
+    if len(dirs) == 1:
+        return dirs[0]
     if len(entries) == 1 and entries[0].is_dir():
         return entries[0]
     return dest_dir

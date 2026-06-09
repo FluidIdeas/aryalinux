@@ -2,7 +2,9 @@
   "name": "webkitgtk",
   "version": "2.50.5",
   "description": "The WebKitGTK package is a port of the portable web rendering engine WebKit to the GTK-3 and GTK-4 platforms.",
-  "url": "https://webkitgtk.org/releases/webkitgtk-2.50.5.tar.xz",
+  "url": [
+    "https://webkitgtk.org/releases/webkitgtk-2.50.5.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "cairo",

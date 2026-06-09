@@ -2,7 +2,9 @@
   "name": "libptytty",
   "version": "2.0",
   "description": "The libptytty package provides a library that allows for OS independent and secure pty/tty and utmp/wtmp/lastlog handling.",
-  "url": "http://dist.schmorp.de/libptytty/libptytty-2.0.tar.gz",
+  "url": [
+    "http://dist.schmorp.de/libptytty/libptytty-2.0.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "cmake"

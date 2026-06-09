@@ -2,7 +2,9 @@
   "name": "libyaml",
   "version": "0.2.5",
   "description": "The yaml package contains a C library for parsing and emitting YAML (YAML Ain't Markup Language) code.",
-  "url": "https://github.com/yaml/libyaml/releases/download/0.2.5/yaml-0.2.5.tar.gz",
+  "url": [
+    "https://github.com/yaml/libyaml/releases/download/0.2.5/yaml-0.2.5.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

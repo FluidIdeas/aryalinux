@@ -136,8 +136,10 @@ def main(argv: list[str] | None = None) -> int:
                 print(f"category: {port.category}")
             if port.description:
                 print(f"description: {port.description}")
-            if port.url:
-                print(f"url: {port.url}")
+            if port.source_urls:
+                print(f"url: {', '.join(port.source_urls)}")
+            if port.additional_urls:
+                print(f"additionalUrls: {', '.join(port.additional_urls)}")
             if port.dependencies.required:
                 print(f"required: {', '.join(port.dependencies.required)}")
             if port.dependencies.pre:

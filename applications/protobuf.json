@@ -2,7 +2,9 @@
   "name": "protobuf",
   "version": "33.5",
   "description": "The Protobuf package contains utilities and libraries for using data in Google's data interchange format.",
-  "url": "https://github.com/protocolbuffers/protobuf/releases/download/v33.5/protobuf-33.5.tar.gz",
+  "url": [
+    "https://github.com/protocolbuffers/protobuf/releases/download/v33.5/protobuf-33.5.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "abseil-cpp",

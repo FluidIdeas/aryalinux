@@ -2,7 +2,9 @@
   "name": "libxml2",
   "version": "2.15.1",
   "description": "The libxml2 package contains libraries and utilities used for parsing XML files.",
-  "url": "https://download.gnome.org/sources/libxml2/2.15/libxml2-2.15.1.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/libxml2/2.15/libxml2-2.15.1.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "icu"

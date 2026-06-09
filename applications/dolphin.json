@@ -2,7 +2,9 @@
   "name": "dolphin",
   "version": "25.12.2",
   "description": "The dolphin package is a KDE Frameworks-based file manager.",
-  "url": "https://download.kde.org/stable/release-service/25.12.2/src/dolphin-25.12.2.tar.xz",
+  "url": [
+    "https://download.kde.org/stable/release-service/25.12.2/src/dolphin-25.12.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "frameworks6",

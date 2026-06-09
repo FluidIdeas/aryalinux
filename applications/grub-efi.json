@@ -2,8 +2,8 @@
   "name": "grub-efi",
   "version": "2.14",
   "description": "The GRUB package provides GRand Unified Bootloader. In this page it will be built with UEFI support, which is not enabled for GRUB built in LFS.",
-  "url": "https://ftpmirror.gnu.org/grub/grub-2.14.tar.xz",
-  "urls": [
+  "url": [
+    "https://ftpmirror.gnu.org/grub/grub-2.14.tar.xz",
     "https://unifoundry.com/pub/unifont/unifont-17.0.03/font-builds/unifont-17.0.03.pcf.gz"
   ],
   "dependencies": {

@@ -2,7 +2,9 @@
   "name": "gnome-themes-extra",
   "version": "3.28",
   "description": "The GNOME Themes Extra package, formerly known as GNOME Themes Standard, contains various components of the default GNOME theme.",
-  "url": "https://download.gnome.org/sources/gnome-themes-extra/3.28/gnome-themes-extra-3.28.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gnome-themes-extra/3.28/gnome-themes-extra-3.28.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gtk3"

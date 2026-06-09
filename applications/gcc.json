@@ -2,7 +2,9 @@
   "name": "gcc",
   "version": "15.2.0",
   "description": "The GCC package contains the GNU Compiler Collection. This page describes the installation of compilers for the following languages: C, C++, Fortran, Objective C, Objective C++, Go, and Modula2. Since C and C++ are installed in LFS, this page is either for upgrading C and C++, or for installing additional compilers.",
-  "url": "https://ftpmirror.gnu.org/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz",
+  "url": [
+    "https://ftpmirror.gnu.org/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

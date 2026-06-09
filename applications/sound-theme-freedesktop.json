@@ -2,7 +2,9 @@
   "name": "sound-theme-freedesktop",
   "version": "0.8",
   "description": "The Sound Theme Freedesktop package contains sound themes for the desktop.",
-  "url": "https://people.freedesktop.org/~mccann/dist/sound-theme-freedesktop-0.8.tar.bz2",
+  "url": [
+    "https://people.freedesktop.org/~mccann/dist/sound-theme-freedesktop-0.8.tar.bz2"
+  ],
   "dependencies": {},
   "build": {
     "user": [

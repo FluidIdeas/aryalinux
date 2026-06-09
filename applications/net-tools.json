@@ -2,7 +2,9 @@
   "name": "net-tools",
   "version": "2.10",
   "description": "The Net-tools package is a collection of programs for controlling the network subsystem of the Linux kernel.",
-  "url": "https://downloads.sourceforge.net/project/net-tools/net-tools-2.10.tar.xz",
+  "url": [
+    "https://downloads.sourceforge.net/project/net-tools/net-tools-2.10.tar.xz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

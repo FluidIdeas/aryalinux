@@ -2,7 +2,9 @@
   "name": "systemd",
   "version": "259.1",
   "description": "The systemd package needs to be rebuilt to provide a working systemd-logind service, which provides many additional features for dependent packages.",
-  "url": "https://github.com/systemd/systemd/archive/v259.1/systemd-259.1.tar.gz",
+  "url": [
+    "https://github.com/systemd/systemd/archive/v259.1/systemd-259.1.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

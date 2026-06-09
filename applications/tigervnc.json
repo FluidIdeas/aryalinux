@@ -2,7 +2,9 @@
   "name": "tigervnc",
   "version": "1.16.0",
   "description": "Tigervnc is an advanced VNC (Virtual Network Computing) implementation. It allows creation of an Xorg server not tied to a physical console and also provides a client for viewing of the remote graphical desktop.",
-  "url": "https://github.com/TigerVNC/tigervnc/archive/v1.16.0/tigervnc-1.16.0.tar.gz",
+  "url": [
+    "https://github.com/TigerVNC/tigervnc/archive/v1.16.0/tigervnc-1.16.0.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "cmake",
@@ -51,5 +53,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/tigervnc-1.16.0-configuration_fixes-1.patch"
+  ]
 }

@@ -2,7 +2,9 @@
   "name": "dbus",
   "version": "1.16.2",
   "description": "Even though D-Bus was built in LFS, there are some features provided by the package that other BLFS packages need, but their dependencies didn't fit into LFS.",
-  "url": "https://dbus.freedesktop.org/releases/dbus/dbus-1.16.2.tar.xz",
+  "url": [
+    "https://dbus.freedesktop.org/releases/dbus/dbus-1.16.2.tar.xz"
+  ],
   "dependencies": {
     "post": [
       "x7lib"

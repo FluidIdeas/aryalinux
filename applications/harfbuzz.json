@@ -2,7 +2,9 @@
   "name": "harfbuzz",
   "version": "12.3.2",
   "description": "The HarfBuzz package contains an OpenType text shaping engine.",
-  "url": "https://github.com/harfbuzz/harfbuzz/releases/download/12.3.2/harfbuzz-12.3.2.tar.xz",
+  "url": [
+    "https://github.com/harfbuzz/harfbuzz/releases/download/12.3.2/harfbuzz-12.3.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "freetype2",

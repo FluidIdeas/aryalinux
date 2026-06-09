@@ -2,7 +2,9 @@
   "name": "iptables",
   "version": "1.8.12",
   "description": "iptables is a userspace command line program used to configure the Linux 2.4 and later kernel packet filtering ruleset.",
-  "url": "https://www.netfilter.org/projects/iptables/files/iptables-1.8.12.tar.xz",
+  "url": [
+    "https://www.netfilter.org/projects/iptables/files/iptables-1.8.12.tar.xz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

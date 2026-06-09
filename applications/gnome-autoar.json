@@ -2,7 +2,9 @@
   "name": "gnome-autoar",
   "version": "0.4.5",
   "description": "The gnome-autoar package provides a framework for automatic archive extraction, compression, and management.",
-  "url": "https://download.gnome.org/sources/gnome-autoar/0.4/gnome-autoar-0.4.5.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gnome-autoar/0.4/gnome-autoar-0.4.5.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "libarchive",

@@ -2,7 +2,9 @@
   "name": "libmbim",
   "version": "1.34.0",
   "description": "The libmbim package contains a GLib-based library for talking to WWAN modems and devices which speak the Mobile Interface Broadband Model (MBIM) protocol.",
-  "url": "https://gitlab.freedesktop.org/mobile-broadband/libmbim/-/archive/1.34.0/libmbim-1.34.0.tar.gz",
+  "url": [
+    "https://gitlab.freedesktop.org/mobile-broadband/libmbim/-/archive/1.34.0/libmbim-1.34.0.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "glib2"

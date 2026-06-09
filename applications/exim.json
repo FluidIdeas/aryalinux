@@ -2,9 +2,8 @@
   "name": "exim",
   "version": "4.99.1",
   "description": "The Exim package contains a Mail Transport Agent written by the University of Cambridge, released under the GNU Public License.",
-  "url": "https://ftp.exim.org/pub/exim/exim4/exim-4.99.1.tar.xz",
-  "urls": [
-    "https://www.linuxfromscratch.org/blfs/downloads/13.0-systemd/blfs-systemd-units-20251204.tar.xz"
+  "url": [
+    "https://ftp.exim.org/pub/exim/exim4/exim-4.99.1.tar.xz"
   ],
   "dependencies": {
     "required": [
@@ -46,5 +45,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/blfs/downloads/13.0-systemd/blfs-systemd-units-20251204.tar.xz"
+  ]
 }

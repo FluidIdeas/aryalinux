@@ -2,7 +2,9 @@
   "name": "zip",
   "version": "3.0",
   "description": "The Zip package contains Zip utilities. These are useful for compressing files into ZIP archives.",
-  "url": "https://downloads.sourceforge.net/infozip/zip30.tar.gz",
+  "url": [
+    "https://downloads.sourceforge.net/infozip/zip30.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

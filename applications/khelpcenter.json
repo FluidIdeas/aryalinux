@@ -2,7 +2,9 @@
   "name": "khelpcenter",
   "version": "25.12.2",
   "description": "Khelpcenter is an application that shows documentation for KDE Applications as well as displays manual and info pages.",
-  "url": "https://download.kde.org/stable/release-service/25.12.2/src/khelpcenter-25.12.2.tar.xz",
+  "url": [
+    "https://download.kde.org/stable/release-service/25.12.2/src/khelpcenter-25.12.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "frameworks6",

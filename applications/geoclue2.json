@@ -2,7 +2,9 @@
   "name": "geoclue2",
   "version": "2.8.0",
   "description": "The Avahi package and your local network has a NMEA server.",
-  "url": "https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.8.0/geoclue-2.8.0.tar.bz2",
+  "url": [
+    "https://gitlab.freedesktop.org/geoclue/geoclue/-/archive/2.8.0/geoclue-2.8.0.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "json-glib",

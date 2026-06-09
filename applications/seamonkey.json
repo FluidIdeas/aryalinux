@@ -2,7 +2,9 @@
   "name": "seamonkey",
   "version": "2.53.23",
   "description": "Seamonkey is a browser suite, a descendant of Netscape. It includes the browser, composer, mail and news clients, and an IRC client.",
-  "url": "https://archive.seamonkey-project.org/releases/2.53.23/source/seamonkey-2.53.23.source.tar.xz",
+  "url": [
+    "https://archive.seamonkey-project.org/releases/2.53.23/source/seamonkey-2.53.23.source.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "cbindgen",
@@ -46,5 +48,9 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/seamonkey-2.53.23-cxx17-1.patch",
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/seamonkey-2.53.23-libvpx_security_fixes-1.patch"
+  ]
 }

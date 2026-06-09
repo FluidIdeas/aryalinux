@@ -2,7 +2,9 @@
   "name": "usbutils",
   "version": "0",
   "description": "The USB Utils package contains utilities used to display information about USB buses in the system and the devices connected to them.",
-  "url": "https://kernel.org/pub/linux/utils/usb/usbutils/usbutils-019.tar.xz",
+  "url": [
+    "https://kernel.org/pub/linux/utils/usb/usbutils/usbutils-019.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "libusb",

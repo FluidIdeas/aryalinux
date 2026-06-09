@@ -2,7 +2,6 @@
   "name": "meta.gnome",
   "version": "1.0",
   "description": "Metapackage that installs the GNOME desktop environment and its core applications.",
-  "url": "",
   "dependencies": {
     "required": [
       "accountsservice",

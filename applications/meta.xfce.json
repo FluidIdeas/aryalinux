@@ -2,7 +2,6 @@
   "name": "meta.xfce",
   "version": "1.0",
   "description": "Metapackage that installs the Xfce desktop environment and its core applications.",
-  "url": "",
   "dependencies": {
     "required": [
       "libxfce4util",

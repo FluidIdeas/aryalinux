@@ -2,10 +2,6 @@
   "name": "gitserver",
   "version": "0",
   "description": "Sets up a Git daemon for serving repositories over the network.",
-  "url": "",
-  "urls": [
-    "https://www.linuxfromscratch.org/blfs/downloads/13.0-systemd/blfs-systemd-units-20251204.tar.xz"
-  ],
   "dependencies": {
     "required": [
       "git",
@@ -43,5 +39,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/blfs/downloads/13.0-systemd/blfs-systemd-units-20251204.tar.xz"
+  ]
 }

@@ -2,7 +2,9 @@
   "name": "xorg-server",
   "version": "21.1.21",
   "description": "The Xorg Server is the core of the X Window system.",
-  "url": "https://www.x.org/pub/individual/xserver/xorg-server-21.1.21.tar.xz",
+  "url": [
+    "https://www.x.org/pub/individual/xserver/xorg-server-21.1.21.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "libxcvt",
@@ -32,5 +34,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/xorg-server-21.1.21-tearfree_backport-1.patch"
+  ]
 }

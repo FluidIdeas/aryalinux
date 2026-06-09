@@ -2,7 +2,9 @@
   "name": "rxvt-unicode",
   "version": "9.31",
   "description": "rxvt-unicode is a clone of the terminal emulator rxvt, an X Window System terminal emulator which includes support for XFT and Unicode.",
-  "url": "http://dist.schmorp.de/rxvt-unicode/Attic/rxvt-unicode-9.31.tar.bz2",
+  "url": [
+    "http://dist.schmorp.de/rxvt-unicode/Attic/rxvt-unicode-9.31.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "libptytty"

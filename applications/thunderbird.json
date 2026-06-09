@@ -2,7 +2,9 @@
   "name": "thunderbird",
   "version": "140.8.0esr",
   "description": "Thunderbird is a stand-alone mail/news client based on the Mozilla codebase. It uses the Gecko rendering engine to enable it to display and compose HTML emails.",
-  "url": "https://archive.mozilla.org/pub/thunderbird/releases/140.8.0esr/source/thunderbird-140.8.0esr.source.tar.xz",
+  "url": [
+    "https://archive.mozilla.org/pub/thunderbird/releases/140.8.0esr/source/thunderbird-140.8.0esr.source.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "cbindgen",
@@ -46,5 +48,9 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/thunderbird-140.8.0esr-python_3.14_fixes-1.patch",
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/thunderbird-140.8.0esr-glibc-2.43.patch"
+  ]
 }

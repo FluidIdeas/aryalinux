@@ -2,7 +2,9 @@
   "name": "libgudev",
   "version": "0",
   "description": "The libgudev package contains GObject bindings for libudev.",
-  "url": "https://download.gnome.org/sources/libgudev/238/libgudev-238.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/libgudev/238/libgudev-238.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "glib2"

@@ -2,7 +2,10 @@
   "name": "sassc",
   "version": "3.6.2",
   "description": "SassC is a wrapper around libsass, a CSS pre-processor language.",
-  "url": "https://github.com/sass/sassc/archive/3.6.2/sassc-3.6.2.tar.gz",
+  "url": [
+    "https://github.com/sass/sassc/archive/3.6.2/sassc-3.6.2.tar.gz",
+    "https://github.com/sass/libsass/archive/3.6.6/libsass-3.6.6.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

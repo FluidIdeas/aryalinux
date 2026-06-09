@@ -2,7 +2,9 @@
   "name": "xfwm4",
   "version": "4.20.0",
   "description": "Xfwm4 is the window manager for Xfce.",
-  "url": "https://archive.xfce.org/src/xfce/xfwm4/4.20/xfwm4-4.20.0.tar.bz2",
+  "url": [
+    "https://archive.xfce.org/src/xfce/xfwm4/4.20/xfwm4-4.20.0.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "libwnck",

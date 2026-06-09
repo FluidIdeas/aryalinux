@@ -2,7 +2,9 @@
   "name": "mutt",
   "version": "2.3.0",
   "description": "The Mutt package contains a Mail User Agent. This is useful for reading, writing, replying to, saving, and deleting your email.",
-  "url": "http://ftp.mutt.org/pub/mutt/mutt-2.3.0.tar.gz",
+  "url": [
+    "http://ftp.mutt.org/pub/mutt/mutt-2.3.0.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "lynx",

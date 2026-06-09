@@ -2,7 +2,9 @@
   "name": "ldns",
   "version": "1.9.0",
   "description": "ldns is a fast DNS library with the goal to simplify DNS programming and to allow developers to easily create software conforming to current RFCs and Internet drafts. This packages also includes the drill tool.",
-  "url": "https://www.nlnetlabs.nl/downloads/ldns/ldns-1.9.0.tar.gz",
+  "url": [
+    "https://www.nlnetlabs.nl/downloads/ldns/ldns-1.9.0.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

@@ -2,7 +2,10 @@
   "name": "cdrdao",
   "version": "1.2.6",
   "description": "The Cdrdao package contains CD recording utilities. These are useful for burning a CD in disk-at-once mode.",
-  "url": "https://downloads.sourceforge.net/cdrdao/cdrdao-1.2.6.tar.bz2",
+  "url": [
+    "https://downloads.sourceforge.net/cdrdao/cdrdao-1.2.6.tar.bz2",
+    "https://versaweb.dl.sourceforge.net/project/cdrdao/cdrdao/1.2.6/cdrdao-1.2.6.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "gtkmm3",

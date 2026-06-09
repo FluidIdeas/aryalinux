@@ -2,9 +2,8 @@
   "name": "opensp",
   "version": "1.5.2",
   "description": "The OpenSP package contains a C++ library for using SGML/XML files. This is useful for validating, parsing and manipulating SGML and XML documents.",
-  "url": "https://downloads.sourceforge.net/openjade/OpenSP-1.5.2.tar.gz",
-  "patches": [
-    "https://www.linuxfromscratch.org/patches/blfs/13.0/OpenSP-1.5.2-gcc14-1.patch"
+  "url": [
+    "https://downloads.sourceforge.net/openjade/OpenSP-1.5.2.tar.gz"
   ],
   "dependencies": {
     "required": [
@@ -41,5 +40,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/OpenSP-1.5.2-gcc14-1.patch"
+  ]
 }

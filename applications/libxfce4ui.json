@@ -2,7 +2,9 @@
   "name": "libxfce4ui",
   "version": "4.20.2",
   "description": "The libxfce4ui package contains GTK+ 3 widgets that are used by other Xfce applications.",
-  "url": "https://archive.xfce.org/src/xfce/libxfce4ui/4.20/libxfce4ui-4.20.2.tar.bz2",
+  "url": [
+    "https://archive.xfce.org/src/xfce/libxfce4ui/4.20/libxfce4ui-4.20.2.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "gtk3",

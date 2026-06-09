@@ -2,7 +2,9 @@
   "name": "nautilus",
   "version": "49.3",
   "description": "The Nautilus package contains the GNOME file manager.",
-  "url": "https://download.gnome.org/sources/nautilus/49/nautilus-49.3.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/nautilus/49/nautilus-49.3.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gexiv2",

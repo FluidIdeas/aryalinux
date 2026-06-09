@@ -2,7 +2,9 @@
   "name": "libical",
   "version": "3.0.20",
   "description": "The libical package contains an implementation of the iCalendar protocols and data formats.",
-  "url": "https://github.com/libical/libical/releases/download/v3.0.20/libical-3.0.20.tar.gz",
+  "url": [
+    "https://github.com/libical/libical/releases/download/v3.0.20/libical-3.0.20.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "cmake",

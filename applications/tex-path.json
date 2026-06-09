@@ -2,7 +2,6 @@
   "name": "tex-path",
   "version": "0",
   "description": "Installs /etc/profile.d/texlive.sh so TeX Live binaries and documentation paths are available after tl-installer.",
-  "url": "",
   "dependencies": {
     "required": [
       "tl-installer"

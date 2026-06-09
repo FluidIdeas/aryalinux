@@ -2,7 +2,9 @@
   "name": "libatomic_ops",
   "version": "7.10.0",
   "description": "libatomic_ops provides implementations for atomic memory update operations on a number of architectures. This allows direct use of these in reasonably portable code. Unlike earlier similar packages, this one explicitly considers memory barrier semantics, and allows the construction of code that involves minimum overhead across a variety of architectures.",
-  "url": "https://github.com/bdwgc/libatomic_ops/releases/download/v7.10.0/libatomic_ops-7.10.0.tar.gz",
+  "url": [
+    "https://github.com/bdwgc/libatomic_ops/releases/download/v7.10.0/libatomic_ops-7.10.0.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

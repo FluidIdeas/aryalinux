@@ -2,7 +2,10 @@
   "name": "freeglut",
   "version": "3.8.0",
   "description": "Freeglut is intended to be a 100% compatible, completely opensourced clone of the GLUT library. GLUT is a window system independent toolkit for writing OpenGL programs, implementing a simple windowing API, which makes learning about and exploring OpenGL programming very easy.",
-  "url": "https://downloads.sourceforge.net/freeglut/freeglut-3.8.0.tar.gz",
+  "url": [
+    "https://downloads.sourceforge.net/freeglut/freeglut-3.8.0.tar.gz",
+    "https://versaweb.dl.sourceforge.net/project/freeglut/freeglut/3.8.0/freeglut-3.8.0.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "cmake",

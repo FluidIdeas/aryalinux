@@ -2,7 +2,9 @@
   "name": "gspell",
   "version": "1.14.2",
   "description": "The gspell package provides a flexible API to add spell checking to a GTK+ application.",
-  "url": "https://download.gnome.org/sources/gspell/1.14/gspell-1.14.2.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gspell/1.14/gspell-1.14.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "enchant"

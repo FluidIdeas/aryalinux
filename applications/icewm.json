@@ -2,7 +2,9 @@
   "name": "icewm",
   "version": "4.0.0",
   "description": "IceWM is a window manager with the goals of speed, simplicity, and not getting in the user's way.",
-  "url": "https://github.com/ice-wm/icewm/archive/4.0.0/icewm-4.0.0.tar.gz",
+  "url": [
+    "https://github.com/ice-wm/icewm/archive/4.0.0/icewm-4.0.0.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "cmake",

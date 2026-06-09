@@ -2,7 +2,9 @@
   "name": "gvfs",
   "version": "1.58.2",
   "description": "The Gvfs package is a userspace virtual filesystem designed to work with the I/O abstractions of GLib's GIO library.",
-  "url": "https://download.gnome.org/sources/gvfs/1.58/gvfs-1.58.2.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gvfs/1.58/gvfs-1.58.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "dbus",

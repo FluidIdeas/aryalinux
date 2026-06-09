@@ -20,3 +20,14 @@ python3 enrich-ports.py --blfs-book ../blfs-book-13.0-systemd-html --force
 ```
 
 Each port has `description` and `category` (see `categories.json` for the taxonomy).
+
+Download fields:
+
+- **`url`** — array of source tarball URLs (primary first, then mirrors; ALPS tries each until one succeeds)
+- **`additionalUrls`** — patches, extra tarballs, and other supplementary files (all are downloaded)
+
+Migrate existing ports after a book upgrade:
+
+```bash
+python3 migrate-port-urls.py --blfs-book ../blfs-book-13.0-systemd-html
+```

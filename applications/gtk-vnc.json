@@ -2,7 +2,9 @@
   "name": "gtk-vnc",
   "version": "1.5.0",
   "description": "The Gtk VNC package contains a VNC viewer widget for GTK+. It is built using coroutines allowing it to be completely asynchronous while remaining single threaded.",
-  "url": "https://download.gnome.org/sources/gtk-vnc/1.5/gtk-vnc-1.5.0.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gtk-vnc/1.5/gtk-vnc-1.5.0.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gnutls",

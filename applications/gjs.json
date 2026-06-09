@@ -2,7 +2,9 @@
   "name": "gjs",
   "version": "1.86.0",
   "description": "Gjs is a set of Javascript bindings for GNOME.",
-  "url": "https://download.gnome.org/sources/gjs/1.86/gjs-1.86.0.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gjs/1.86/gjs-1.86.0.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "cairo",

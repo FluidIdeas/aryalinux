@@ -2,7 +2,9 @@
   "name": "dolphin-plugins",
   "version": "25.12.2",
   "description": "The dolphin-plugins package provides extra plugins for the dolphin file manager.",
-  "url": "https://download.kde.org/stable/release-service/25.12.2/src/dolphin-plugins-25.12.2.tar.xz",
+  "url": [
+    "https://download.kde.org/stable/release-service/25.12.2/src/dolphin-plugins-25.12.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "dolphin"

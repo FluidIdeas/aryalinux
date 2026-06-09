@@ -2,9 +2,8 @@
   "name": "openldap",
   "version": "2.6.12",
   "description": "The OpenLDAP package provides an open source implementation of the Lightweight Directory Access Protocol.",
-  "url": "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.6.12.tgz",
-  "urls": [
-    "https://www.linuxfromscratch.org/blfs/downloads/13.0-systemd/blfs-systemd-units-20251204.tar.xz"
+  "url": [
+    "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.6.12.tgz"
   ],
   "dependencies": {
     "required": [
@@ -48,5 +47,9 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/blfs/downloads/13.0-systemd/blfs-systemd-units-20251204.tar.xz",
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/openldap-2.6.12-consolidated-1.patch"
+  ]
 }

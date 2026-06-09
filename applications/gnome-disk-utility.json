@@ -2,7 +2,9 @@
   "name": "gnome-disk-utility",
   "version": "46.1",
   "description": "The GNOME Disk Utility package provides applications used for dealing with storage devices.",
-  "url": "https://download.gnome.org/sources/gnome-disk-utility/46/gnome-disk-utility-46.1.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gnome-disk-utility/46/gnome-disk-utility-46.1.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gnome-settings-daemon",

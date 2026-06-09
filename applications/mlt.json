@@ -2,7 +2,9 @@
   "name": "mlt",
   "version": "7.36.1",
   "description": "The MLT package is the Media Lovin Toolkit. It is an open source multimedia framework, designed and developed for television broadcasting. It provides a toolkit for broadcasters, video editors, media players, transcoders, web streamers and many more types of applications.",
-  "url": "https://github.com/mltframework/mlt/releases/download/v7.36.1/mlt-7.36.1.tar.gz",
+  "url": [
+    "https://github.com/mltframework/mlt/releases/download/v7.36.1/mlt-7.36.1.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "ffmpeg",

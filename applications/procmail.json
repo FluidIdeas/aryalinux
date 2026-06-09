@@ -2,7 +2,9 @@
   "name": "procmail",
   "version": "3.24",
   "description": "The Procmail package contains an autonomous mail processor. This is useful for filtering and sorting incoming mail.",
-  "url": "https://github.com/BuGlessRB/procmail/archive/v3.24/procmail-3.24.tar.gz",
+  "url": [
+    "https://github.com/BuGlessRB/procmail/archive/v3.24/procmail-3.24.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "mail"
@@ -26,5 +28,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/procmail-3.24-consolidated_fixes-1.patch"
+  ]
 }

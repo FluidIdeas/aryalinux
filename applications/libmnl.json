@@ -2,7 +2,9 @@
   "name": "libmnl",
   "version": "1.0.5",
   "description": "The libmnl library provides a minimalistic userspace library oriented to Netlink developers. There are a lot of common tasks in the parsing, validating, and constructing of both the Netlink header and TLVs that are repetitive and easy to get wrong. This library aims to provide simple helpers that allow you to re-use code and to avoid re-inventing the wheel.",
-  "url": "https://netfilter.org/projects/libmnl/files/libmnl-1.0.5.tar.bz2",
+  "url": [
+    "https://netfilter.org/projects/libmnl/files/libmnl-1.0.5.tar.bz2"
+  ],
   "dependencies": {},
   "build": {
     "user": [

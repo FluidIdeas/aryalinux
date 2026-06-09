@@ -2,7 +2,12 @@
   "name": "freetype2",
   "version": "2.14.1",
   "description": "The FreeType2 package contains a library which allows applications to properly render TrueType fonts.",
-  "url": "https://downloads.sourceforge.net/freetype/freetype-2.14.1.tar.xz",
+  "url": [
+    "https://downloads.sourceforge.net/freetype/freetype-2.14.1.tar.xz",
+    "https://versaweb.dl.sourceforge.net/project/freetype/freetype/2.14.1/freetype-2.14.1.tar.xz",
+    "https://downloads.sourceforge.net/freetype/freetype-doc-2.14.1.tar.xz",
+    "https://versaweb.dl.sourceforge.net/project/freetype/freetype/doc-2.14.1/freetype-doc-2.14.1.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "libpng"

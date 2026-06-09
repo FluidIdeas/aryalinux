@@ -2,7 +2,9 @@
   "name": "xfsprogs",
   "version": "6.18.0",
   "description": "The xfsprogs package contains administration and debugging tools for the XFS file system.",
-  "url": "https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-6.18.0.tar.xz",
+  "url": [
+    "https://www.kernel.org/pub/linux/utils/fs/xfs/xfsprogs/xfsprogs-6.18.0.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "inih"

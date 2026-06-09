@@ -2,7 +2,9 @@
   "name": "patchelf",
   "version": "0.18.0",
   "description": "The patchelf package contains a small utility to modify the dynamic linker and RPATH of ELF executables.",
-  "url": "https://github.com/NixOS/patchelf/releases/download/0.18.0/patchelf-0.18.0.tar.gz",
+  "url": [
+    "https://github.com/NixOS/patchelf/releases/download/0.18.0/patchelf-0.18.0.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

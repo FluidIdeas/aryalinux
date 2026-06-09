@@ -2,7 +2,9 @@
   "name": "xcursor-themes",
   "version": "1.0.7",
   "description": "The xcursor-themes package contains the redglass and whiteglass animated cursor themes.",
-  "url": "https://www.x.org/pub/individual/data/xcursor-themes-1.0.7.tar.xz",
+  "url": [
+    "https://www.x.org/pub/individual/data/xcursor-themes-1.0.7.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "x7app"

@@ -2,7 +2,9 @@
   "name": "nodejs",
   "version": "22.22.0",
   "description": "The Node.js package manager.",
-  "url": "https://nodejs.org/dist/v22.22.0/node-v22.22.0.tar.xz",
+  "url": [
+    "https://nodejs.org/dist/v22.22.0/node-v22.22.0.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "which",
@@ -29,5 +31,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/node-v22.22.0-python_build_fix-1.patch"
+  ]
 }

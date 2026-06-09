@@ -2,7 +2,11 @@
   "name": "texlive",
   "version": "0",
   "description": "TeX Live distribution providing TeX, LaTeX, and related document preparation tools.",
-  "url": "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2025/texlive-20250308-source.tar.xz",
+  "url": [
+    "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2025/texlive-20250308-source.tar.xz",
+    "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2025/texlive-20250308-texmf.tar.xz",
+    "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2025/texlive-20250308-extra.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "installing"

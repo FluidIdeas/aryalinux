@@ -2,7 +2,9 @@
   "name": "pangomm",
   "version": "2.46.4",
   "description": "The Pangomm package provides a C++ interface to Pango.",
-  "url": "https://download.gnome.org/sources/pangomm/2.46/pangomm-2.46.4.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/pangomm/2.46/pangomm-2.46.4.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "cairomm-1.0",

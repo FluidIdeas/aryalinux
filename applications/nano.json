@@ -2,7 +2,9 @@
   "name": "nano",
   "version": "8.7.1",
   "description": "The Nano package contains a small, simple text editor which aims to replace Pico, the default editor in the Pine package.",
-  "url": "https://www.nano-editor.org/dist/v8/nano-8.7.1.tar.xz",
+  "url": [
+    "https://www.nano-editor.org/dist/v8/nano-8.7.1.tar.xz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

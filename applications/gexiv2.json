@@ -2,7 +2,9 @@
   "name": "gexiv2",
   "version": "0.14.6",
   "description": "gexiv2 is a GObject-based wrapper around the Exiv2 library.",
-  "url": "https://download.gnome.org/sources/gexiv2/0.14/gexiv2-0.14.6.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gexiv2/0.14/gexiv2-0.14.6.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "exiv2",

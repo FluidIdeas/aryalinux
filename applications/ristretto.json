@@ -2,7 +2,9 @@
   "name": "ristretto",
   "version": "0.13.4",
   "description": "Ristretto is a fast and lightweight image viewer for the Xfce desktop.",
-  "url": "https://archive.xfce.org/src/apps/ristretto/0.13/ristretto-0.13.4.tar.xz",
+  "url": [
+    "https://archive.xfce.org/src/apps/ristretto/0.13/ristretto-0.13.4.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "libexif"

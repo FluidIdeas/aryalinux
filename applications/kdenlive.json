@@ -2,7 +2,9 @@
   "name": "kdenlive",
   "version": "25.12.2",
   "description": "The Kdenlive package is a KDE Frameworks-based video editor that can handle numerous video and audio codecs.",
-  "url": "https://download.kde.org/stable/release-service/25.12.2/src/kdenlive-25.12.2.tar.xz",
+  "url": [
+    "https://download.kde.org/stable/release-service/25.12.2/src/kdenlive-25.12.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "git",

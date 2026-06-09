@@ -2,7 +2,10 @@
   "name": "fluxbox",
   "version": "1.3.7",
   "description": "The Fluxbox package contains a window manager.",
-  "url": "https://downloads.sourceforge.net/fluxbox/fluxbox-1.3.7.tar.xz",
+  "url": [
+    "https://downloads.sourceforge.net/fluxbox/fluxbox-1.3.7.tar.xz",
+    "https://versaweb.dl.sourceforge.net/project/fluxbox/fluxbox/1.3.7/fluxbox-1.3.7.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "installing"

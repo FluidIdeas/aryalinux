@@ -2,7 +2,9 @@
   "name": "dvisvgm",
   "version": "3.6",
   "description": "The dvisvgm package converts DVI, EPS and PDF files to SVG format.",
-  "url": "https://github.com/mgieseki/dvisvgm/releases/download/3.6/dvisvgm-3.6.tar.gz",
+  "url": [
+    "https://github.com/mgieseki/dvisvgm/releases/download/3.6/dvisvgm-3.6.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "brotli",

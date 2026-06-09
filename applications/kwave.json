@@ -2,7 +2,9 @@
   "name": "kwave",
   "version": "25.12.2",
   "description": "The KWave package contains a KDE Frameworks-based Sound Editor application.",
-  "url": "https://download.kde.org/stable/release-service/25.12.2/src/kwave-25.12.2.tar.xz",
+  "url": [
+    "https://download.kde.org/stable/release-service/25.12.2/src/kwave-25.12.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "audiofile",

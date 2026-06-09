@@ -2,7 +2,9 @@
   "name": "at-spi2-core",
   "version": "2.58.3",
   "description": "The At-Spi2 Core package contains a comprehensive accessibility framework for the Assistive Technologies available on the GNOME platform. This includes a set of interfaces which are implemented by other toolkits and applications.",
-  "url": "https://download.gnome.org/sources/at-spi2-core/2.58/at-spi2-core-2.58.3.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/at-spi2-core/2.58/at-spi2-core-2.58.3.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "dbus",

@@ -2,7 +2,9 @@
   "name": "xterm",
   "version": "0",
   "description": "xterm is a terminal emulator for the X Window System.",
-  "url": "https://invisible-mirror.net/archives/xterm/xterm-407.tgz",
+  "url": [
+    "https://invisible-mirror.net/archives/xterm/xterm-407.tgz"
+  ],
   "dependencies": {
     "required": [
       "luit"

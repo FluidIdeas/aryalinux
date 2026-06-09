@@ -2,7 +2,9 @@
   "name": "nspr",
   "version": "4.38.2",
   "description": "Netscape Portable Runtime (NSPR) provides a platform-neutral API for system level and libc like functions.",
-  "url": "https://archive.mozilla.org/pub/nspr/releases/v4.38.2/src/nspr-4.38.2.tar.gz",
+  "url": [
+    "https://archive.mozilla.org/pub/nspr/releases/v4.38.2/src/nspr-4.38.2.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

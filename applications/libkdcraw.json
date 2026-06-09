@@ -2,7 +2,9 @@
   "name": "libkdcraw",
   "version": "25.12.2",
   "description": "Libkdcraw is a KDE wrapper around the libraw-0.22.0 library for manipulating image metadata.",
-  "url": "https://download.kde.org/stable/release-service/25.12.2/src/libkdcraw-25.12.2.tar.xz",
+  "url": [
+    "https://download.kde.org/stable/release-service/25.12.2/src/libkdcraw-25.12.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "frameworks6",

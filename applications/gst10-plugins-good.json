@@ -2,7 +2,9 @@
   "name": "gst10-plugins-good",
   "version": "1.28.1",
   "description": "GStreamer Good Plug-ins is a set of plug-ins considered by the GStreamer developers to have good quality code, correct functionality, and the preferred license (LGPL for the plug-in code, LGPL or LGPL-compatible for the supporting library). A wide range of video and audio decoders, encoders, and filters are included.",
-  "url": "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.28.1.tar.xz",
+  "url": [
+    "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.28.1.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gst10-plugins-base",

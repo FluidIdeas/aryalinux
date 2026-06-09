@@ -2,7 +2,10 @@
   "name": "python3",
   "version": "3.14.3",
   "description": "The Python 3 package contains the Python development environment. This is useful for object-oriented programming, writing scripts, prototyping large programs or developing entire applications.",
-  "url": "https://www.python.org/ftp/python/3.14.3/Python-3.14.3.tar.xz",
+  "url": [
+    "https://www.python.org/ftp/python/3.14.3/Python-3.14.3.tar.xz",
+    "https://www.python.org/ftp/python/doc/3.14.3/python-3.14.3-docs-html.tar.bz2"
+  ],
   "dependencies": {},
   "build": {
     "user": [

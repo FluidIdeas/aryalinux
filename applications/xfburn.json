@@ -2,7 +2,9 @@
   "name": "xfburn",
   "version": "0.8.0",
   "description": "Xfburn is a GTK+ 3 GUI frontend for Libisoburn. This is useful for creating CDs and DVDs from files on your computer or ISO images downloaded from elsewhere.",
-  "url": "https://archive.xfce.org/src/apps/xfburn/0.8/xfburn-0.8.0.tar.bz2",
+  "url": [
+    "https://archive.xfce.org/src/apps/xfburn/0.8/xfburn-0.8.0.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "libburn"

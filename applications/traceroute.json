@@ -2,7 +2,10 @@
   "name": "traceroute",
   "version": "2.1.6",
   "description": "The Traceroute package contains a program which is used to display the network route that packets take to reach a specified host. This is a standard network troubleshooting tool. If you find yourself unable to connect to another system, traceroute can help pinpoint the problem.",
-  "url": "https://downloads.sourceforge.net/traceroute/traceroute-2.1.6.tar.gz",
+  "url": [
+    "https://downloads.sourceforge.net/traceroute/traceroute-2.1.6.tar.gz",
+    "https://versaweb.dl.sourceforge.net/project/traceroute/traceroute/2.1.6/traceroute-2.1.6.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

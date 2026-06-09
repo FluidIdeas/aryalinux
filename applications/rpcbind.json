@@ -2,7 +2,10 @@
   "name": "rpcbind",
   "version": "1.2.8",
   "description": "The rpcbind program is a replacement for portmap. It is required for import or export of Network File System (NFS) shared directories.",
-  "url": "https://downloads.sourceforge.net/rpcbind/rpcbind-1.2.8.tar.bz2",
+  "url": [
+    "https://downloads.sourceforge.net/rpcbind/rpcbind-1.2.8.tar.bz2",
+    "https://versaweb.dl.sourceforge.net/project/rpcbind/rpcbind/1.2.8/rpcbind-1.2.8.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "libtirpc"

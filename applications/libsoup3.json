@@ -2,7 +2,9 @@
   "name": "libsoup3",
   "version": "3.6.6",
   "description": "libsoup3 is a HTTP client/server library for GNOME. It uses GObject and the GLib main loop to integrate with GNOME applications and it also has an asynchronous API for use in threaded applications.",
-  "url": "https://download.gnome.org/sources/libsoup/3.6/libsoup-3.6.6.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/libsoup/3.6/libsoup-3.6.6.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "glib-networking",
@@ -30,5 +32,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/libsoup-3.6.6-upstream_fixes-1.patch"
+  ]
 }

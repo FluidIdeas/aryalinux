@@ -2,7 +2,10 @@
   "name": "libtirpc",
   "version": "1.3.7",
   "description": "The libtirpc package contains libraries that support programs that use the Remote Procedure Call (RPC) API. It replaces the RPC, but not the NIS library entries that used to be in glibc.",
-  "url": "https://downloads.sourceforge.net/libtirpc/libtirpc-1.3.7.tar.bz2",
+  "url": [
+    "https://downloads.sourceforge.net/libtirpc/libtirpc-1.3.7.tar.bz2",
+    "https://versaweb.dl.sourceforge.net/project/libtirpc/libtirpc/1.3.7/libtirpc-1.3.7.tar.bz2"
+  ],
   "dependencies": {},
   "build": {
     "user": [

@@ -2,7 +2,10 @@
   "name": "bogofilter",
   "version": "1.2.5",
   "description": "The Bogofilter application is a mail filter that classifies mail as spam or ham (non-spam) by a statistical analysis of the message's header and content (body).",
-  "url": "https://downloads.sourceforge.net/bogofilter/bogofilter-1.2.5.tar.xz",
+  "url": [
+    "https://downloads.sourceforge.net/bogofilter/bogofilter-1.2.5.tar.xz",
+    "https://versaweb.dl.sourceforge.net/project/bogofilter/bogofilter/1.2.5/bogofilter-1.2.5.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gsl",

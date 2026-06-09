@@ -2,7 +2,9 @@
   "name": "libbytesize",
   "version": "2.12",
   "description": "The libbytesize package is a library which facilitates the common operations with sizes in bytes.",
-  "url": "https://github.com/storaged-project/libbytesize/releases/download/2.12/libbytesize-2.12.tar.gz",
+  "url": [
+    "https://github.com/storaged-project/libbytesize/releases/download/2.12/libbytesize-2.12.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "python-modules.pygments"

@@ -2,7 +2,9 @@
   "name": "pnmixer",
   "version": "0.7.2",
   "description": "The Pnmixer package provides a lightweight volume control with a tray icon.",
-  "url": "https://github.com/nicklan/pnmixer/releases/download/v0.7.2/pnmixer-v0.7.2.tar.gz",
+  "url": [
+    "https://github.com/nicklan/pnmixer/releases/download/v0.7.2/pnmixer-v0.7.2.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "alsa-utils",

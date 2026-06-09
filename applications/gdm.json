@@ -2,7 +2,9 @@
   "name": "gdm",
   "version": "49.2",
   "description": "GDM is a system service that is responsible for providing graphical logins and managing local and remote displays.",
-  "url": "https://download.gnome.org/sources/gdm/49/gdm-49.2.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gdm/49/gdm-49.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "accountsservice",

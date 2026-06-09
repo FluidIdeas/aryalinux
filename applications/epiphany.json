@@ -2,7 +2,9 @@
   "name": "epiphany",
   "version": "49.2",
   "description": "Epiphany is a simple yet powerful GNOME web browser targeted at non-technical users. Its principles are simplicity and standards compliance.",
-  "url": "https://download.gnome.org/sources/epiphany/49/epiphany-49.2.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/epiphany/49/epiphany-49.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gcr4",

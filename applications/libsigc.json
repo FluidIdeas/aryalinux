@@ -2,7 +2,9 @@
   "name": "libsigc",
   "version": "2.12.1",
   "description": "The libsigc++ package implements a typesafe callback system for standard C++.",
-  "url": "https://download.gnome.org/sources/libsigc++/2.12/libsigc++-2.12.1.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/libsigc++/2.12/libsigc++-2.12.1.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "boost"

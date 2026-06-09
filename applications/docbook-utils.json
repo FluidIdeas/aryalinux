@@ -2,9 +2,8 @@
   "name": "docbook-utils",
   "version": "0.6.14",
   "description": "The DocBook-utils package is a collection of utility scripts used to convert and analyze SGML documents in general, and DocBook files in particular. The scripts are used to convert from DocBook or other SGML formats into classical file formats like HTML, man, info, RTF and many more.",
-  "url": "https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/docbook-utils-0.6.14.tar.gz",
-  "patches": [
-    "https://www.linuxfromscratch.org/patches/blfs/13.0/docbook-utils-0.6.14-grep_fix-1.patch"
+  "url": [
+    "https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/docbook-utils-0.6.14.tar.gz"
   ],
   "dependencies": {
     "required": [
@@ -36,5 +35,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/docbook-utils-0.6.14-grep_fix-1.patch"
+  ]
 }

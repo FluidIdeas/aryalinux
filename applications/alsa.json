@@ -2,7 +2,6 @@
   "name": "alsa",
   "version": "0",
   "description": "Metapackage for the BLFS ALSA chapter. Installs the core ALSA user-space components.",
-  "url": "",
   "dependencies": {
     "required": [
       "alsa-lib",

@@ -2,7 +2,9 @@
   "name": "itstool",
   "version": "2.0.7",
   "description": "Itstool extracts messages from XML files and outputs PO template files, then merges translations from MO files to create translated XML files. It determines what to translate and how to chunk it into messages using the W3C Internationalization Tag Set (ITS).",
-  "url": "https://github.com/itstool/itstool/archive/2.0.7/itstool-2.0.7.tar.gz",
+  "url": [
+    "https://github.com/itstool/itstool/archive/2.0.7/itstool-2.0.7.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "docbook"
@@ -26,5 +28,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/itstool-2.0.7-lxml-1.patch"
+  ]
 }

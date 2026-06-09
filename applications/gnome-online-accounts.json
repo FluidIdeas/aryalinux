@@ -2,7 +2,9 @@
   "name": "gnome-online-accounts",
   "version": "3.56.4",
   "description": "The GNOME Online Accounts package contains a framework used to access the user's online accounts.",
-  "url": "https://download.gnome.org/sources/gnome-online-accounts/3.56/gnome-online-accounts-3.56.4.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gnome-online-accounts/3.56/gnome-online-accounts-3.56.4.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gcr4",

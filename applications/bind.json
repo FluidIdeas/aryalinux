@@ -2,9 +2,8 @@
   "name": "bind",
   "version": "9.20.19",
   "description": "The BIND package provides a DNS server and client utilities. If you are only interested in the utilities, refer to the BIND Utilities-9.20.19.",
-  "url": "https://ftp.isc.org/isc/bind9/9.20.19/bind-9.20.19.tar.xz",
-  "urls": [
-    "https://www.linuxfromscratch.org/blfs/downloads/13.0-systemd/blfs-systemd-units-20251204.tar.xz"
+  "url": [
+    "https://ftp.isc.org/isc/bind9/9.20.19/bind-9.20.19.tar.xz"
   ],
   "dependencies": {
     "required": [
@@ -48,5 +47,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/blfs/downloads/13.0-systemd/blfs-systemd-units-20251204.tar.xz"
+  ]
 }

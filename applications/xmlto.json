@@ -2,7 +2,9 @@
   "name": "xmlto",
   "version": "0.0.29",
   "description": "The xmlto package is a front-end to a XSL toolchain. It chooses an appropriate stylesheet for the conversion you want and applies it using an external XSLT processor. It also performs any necessary post-processing.",
-  "url": "https://pagure.io/xmlto/archive/0.0.29/xmlto-0.0.29.tar.gz",
+  "url": [
+    "https://pagure.io/xmlto/archive/0.0.29/xmlto-0.0.29.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "docbook",

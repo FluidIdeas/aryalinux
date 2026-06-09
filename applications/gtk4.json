@@ -2,7 +2,9 @@
   "name": "gtk4",
   "version": "4.20.3",
   "description": "The GTK 4 package contains libraries used for creating graphical user interfaces for applications.",
-  "url": "https://download.gnome.org/sources/gtk/4.20/gtk-4.20.3.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gtk/4.20/gtk-4.20.3.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gdk-pixbuf",

@@ -2,8 +2,14 @@
   "name": "sudo",
   "version": "1.9.17p2",
   "description": "The Sudo package allows a system administrator to give certain users (or groups of users) the ability to run some (or all) commands as root or another user while logging the commands and arguments.",
-  "url": "https://www.sudo.ws/dist/sudo-1.9.17p2.tar.gz",
-  "dependencies": {},
+  "url": [
+    "https://www.sudo.ws/dist/sudo-1.9.17p2.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "linux-pam"
+    ]
+  },
   "build": {
     "user": [
       "./configure --prefix=/usr         \\\n            --libexecdir=/usr/lib \\\n            --with-secure-path    \\\n            --with-env-editor     \\\n            --with-passprompt=\"[sudo] password for %p: \"",

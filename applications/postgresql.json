@@ -2,9 +2,8 @@
   "name": "postgresql",
   "version": "18.2",
   "description": "PostgreSQL is an advanced object-relational database management system (ORDBMS), derived from the Berkeley Postgres database management system.",
-  "url": "https://ftp.postgresql.org/pub/source/v18.2/postgresql-18.2.tar.bz2",
-  "urls": [
-    "https://www.linuxfromscratch.org/blfs/downloads/13.0-systemd/blfs-systemd-units-20251204.tar.xz"
+  "url": [
+    "https://ftp.postgresql.org/pub/source/v18.2/postgresql-18.2.tar.bz2"
   ],
   "dependencies": {},
   "build": {
@@ -35,5 +34,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/blfs/downloads/13.0-systemd/blfs-systemd-units-20251204.tar.xz"
+  ]
 }

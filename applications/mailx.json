@@ -2,7 +2,9 @@
   "name": "mailx",
   "version": "12.5",
   "description": "The Heirloom mailx package (formerly known as the Nail package) contains mailx, a command-line Mail User Agent derived from Berkeley Mail. It is intended to provide the functionality of the POSIX mailx command with additional support for MIME messages, IMAP (including caching), POP3, SMTP, S/MIME, message threading/sorting, scoring, and filtering. Heirloom mailx is especially useful for writing scripts and batch processing.",
-  "url": "https://anduin.linuxfromscratch.org/BLFS/mailx/heirloom-mailx_12.5.orig.tar.gz",
+  "url": [
+    "https://anduin.linuxfromscratch.org/BLFS/mailx/heirloom-mailx_12.5.orig.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [
@@ -24,5 +26,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/heirloom-mailx-12.5-fixes-1.patch"
+  ]
 }

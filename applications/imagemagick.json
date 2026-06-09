@@ -2,7 +2,9 @@
   "name": "imagemagick",
   "version": "7.1.2",
   "description": "ImageMagick is a collection of tools and libraries to read, write, and manipulate an image in various image formats. Image processing operations are available from the command line. Bindings for Perl and C++ are also available.",
-  "url": "https://www.imagemagick.org/archive/releases/ImageMagick-7.1.2-13.tar.xz",
+  "url": [
+    "https://www.imagemagick.org/archive/releases/ImageMagick-7.1.2-13.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "x7lib"

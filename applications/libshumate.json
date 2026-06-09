@@ -2,7 +2,9 @@
   "name": "libshumate",
   "version": "1.5.3",
   "description": "The libshumate package contains a GTK-4 widget to display maps.",
-  "url": "https://download.gnome.org/sources/libshumate/1.5/libshumate-1.5.3.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/libshumate/1.5/libshumate-1.5.3.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gtk4",

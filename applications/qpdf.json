@@ -2,7 +2,9 @@
   "name": "qpdf",
   "version": "12.3.2",
   "description": "The Qpdf package contains command-line programs and a library that does structural, content-preserving transformations on PDF files.",
-  "url": "https://github.com/qpdf/qpdf/releases/download/v12.3.2/qpdf-12.3.2.tar.gz",
+  "url": [
+    "https://github.com/qpdf/qpdf/releases/download/v12.3.2/qpdf-12.3.2.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "libjpeg"

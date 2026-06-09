@@ -2,7 +2,9 @@
   "name": "libgpg-error",
   "version": "1.59",
   "description": "The libgpg-error package contains a library that defines common error values for all GnuPG components.",
-  "url": "https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.59.tar.bz2",
+  "url": [
+    "https://www.gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.59.tar.bz2"
+  ],
   "dependencies": {},
   "build": {
     "user": [

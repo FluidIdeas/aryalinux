@@ -2,7 +2,9 @@
   "name": "polkit",
   "version": "0",
   "description": "Polkit is a toolkit for defining and handling authorizations. It is used for allowing unprivileged processes to communicate with privileged processes.",
-  "url": "https://github.com/polkit-org/polkit/archive/127/polkit-127.tar.gz",
+  "url": [
+    "https://github.com/polkit-org/polkit/archive/127/polkit-127.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "duktape",

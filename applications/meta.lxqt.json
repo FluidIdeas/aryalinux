@@ -2,7 +2,6 @@
   "name": "meta.lxqt",
   "version": "1.0",
   "description": "Metapackage that installs the LXQt desktop environment and its core components.",
-  "url": "",
   "dependencies": {
     "required": [
       "qt5",

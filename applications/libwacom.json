@@ -2,7 +2,9 @@
   "name": "libwacom",
   "version": "2.18.0",
   "description": "The libwacom package contains a library used to identify graphics tablets from Wacom or various other vendors and their model-specific features.",
-  "url": "https://github.com/linuxwacom/libwacom/releases/download/libwacom-2.18.0/libwacom-2.18.0.tar.xz",
+  "url": [
+    "https://github.com/linuxwacom/libwacom/releases/download/libwacom-2.18.0/libwacom-2.18.0.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "x7driver",

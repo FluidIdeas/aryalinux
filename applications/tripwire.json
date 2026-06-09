@@ -2,7 +2,9 @@
   "name": "tripwire",
   "version": "2.4.3.7",
   "description": "The Tripwire package contains programs used to verify the integrity of the files on a given system.",
-  "url": "https://github.com/Tripwire/tripwire-open-source/releases/download/2.4.3.7/tripwire-open-source-2.4.3.7.tar.gz",
+  "url": [
+    "https://github.com/Tripwire/tripwire-open-source/releases/download/2.4.3.7/tripwire-open-source-2.4.3.7.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

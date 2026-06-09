@@ -2,7 +2,9 @@
   "name": "wireshark",
   "version": "4.6.3",
   "description": "The Wireshark package contains a network protocol analyzer, also known as a “sniffer.” This is useful for analyzing data captured “off the wire” from a live network connection, or data read from a capture file.",
-  "url": "https://www.wireshark.org/download/src/all-versions/wireshark-4.6.3.tar.xz",
+  "url": [
+    "https://www.wireshark.org/download/src/all-versions/wireshark-4.6.3.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "cmake",

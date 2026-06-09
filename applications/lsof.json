@@ -2,7 +2,9 @@
   "name": "lsof",
   "version": "4.99.5",
   "description": "The lsof package is useful to LiSt Open Files for a given running application or process.",
-  "url": "https://github.com/lsof-org/lsof/releases/download/4.99.5/lsof-4.99.5.tar.gz",
+  "url": [
+    "https://github.com/lsof-org/lsof/releases/download/4.99.5/lsof-4.99.5.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "libtirpc"

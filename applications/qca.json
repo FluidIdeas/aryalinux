@@ -2,7 +2,9 @@
   "name": "qca",
   "version": "2.3.10",
   "description": "Qca aims to provide a straightforward and cross-platform crypto API, using Qt datatypes and conventions. Qca separates the API from the implementation, using plugins known as Providers.",
-  "url": "https://download.kde.org/stable/qca/2.3.10/qca-2.3.10.tar.xz",
+  "url": [
+    "https://download.kde.org/stable/qca/2.3.10/qca-2.3.10.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "make-ca",

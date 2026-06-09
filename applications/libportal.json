@@ -2,7 +2,9 @@
   "name": "libportal",
   "version": "0.9.1",
   "description": "The libportal package provides a library that contains GIO-style async APIs for most Flatpak portals.",
-  "url": "https://github.com/flatpak/libportal/releases/download/0.9.1/libportal-0.9.1.tar.xz",
+  "url": [
+    "https://github.com/flatpak/libportal/releases/download/0.9.1/libportal-0.9.1.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "glib2",
@@ -27,5 +29,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/libportal-0.9.1-qt6.9_fixes-1.patch"
+  ]
 }

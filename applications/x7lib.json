@@ -2,7 +2,9 @@
   "name": "x7lib",
   "version": "7",
   "description": "The Xorg libraries provide library routines that are used within all X Window applications.",
-  "url": "",
+  "url": [
+    "https://www.x.org/pub/individual/lib/"
+  ],
   "dependencies": {
     "required": [
       "fontconfig"

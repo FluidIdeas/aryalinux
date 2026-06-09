@@ -2,7 +2,9 @@
   "name": "time",
   "version": "1.9",
   "description": "The time utility is a program that measures many of the CPU resources, such as time and memory, that other programs use. The GNU version can format the output in arbitrary ways by using a printf-style format string to include various resource measurements.",
-  "url": "https://ftpmirror.gnu.org/time/time-1.9.tar.gz",
+  "url": [
+    "https://ftpmirror.gnu.org/time/time-1.9.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

@@ -2,7 +2,10 @@
   "name": "xine-lib",
   "version": "1.2.13",
   "description": "The Xine Libraries package contains xine libraries. These are useful for interfacing with external plug-ins that allow the flow of information from the source to the audio and video hardware.",
-  "url": "https://downloads.sourceforge.net/xine/xine-lib-1.2.13.tar.xz",
+  "url": [
+    "https://downloads.sourceforge.net/xine/xine-lib-1.2.13.tar.xz",
+    "https://versaweb.dl.sourceforge.net/project/xine/xine/lib-1.2.13/xine-lib-1.2.13.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "installing",
@@ -31,5 +34,10 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/xine-lib-1.2.13-upstream_fixes-1.patch",
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/xine-lib-1.2.13-gcc15_fixes-1.patch",
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/xine-lib-1.2.13-ffmpeg8.patch"
+  ]
 }

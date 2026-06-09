@@ -2,7 +2,9 @@
   "name": "tk",
   "version": "8.6.17",
   "description": "The Tk package contains a TCL GUI Toolkit.",
-  "url": "https://downloads.sourceforge.net/tcl/tk8.6.17-src.tar.gz",
+  "url": [
+    "https://downloads.sourceforge.net/tcl/tk8.6.17-src.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "x7lib"

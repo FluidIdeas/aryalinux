@@ -2,7 +2,9 @@
   "name": "appstream-glib",
   "version": "0.8.3",
   "description": "The appstream-glib provides GObjects and helper methods to make it easy to read and write AppStream metadata. It also provides a simple DOM (Document Object Model) implementation that makes it easy to edit nodes and convert to and from the standardized XML representation.",
-  "url": "http://people.freedesktop.org/~hughsient/appstream-glib/releases/appstream-glib-0.8.3.tar.xz",
+  "url": [
+    "http://people.freedesktop.org/~hughsient/appstream-glib/releases/appstream-glib-0.8.3.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "curl",

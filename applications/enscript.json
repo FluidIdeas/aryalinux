@@ -2,7 +2,9 @@
   "name": "enscript",
   "version": "1.6.6",
   "description": "Enscript converts ASCII text files to PostScript, HTML, RTF, ANSI and overstrikes.",
-  "url": "https://ftpmirror.gnu.org/enscript/enscript-1.6.6.tar.gz",
+  "url": [
+    "https://ftpmirror.gnu.org/enscript/enscript-1.6.6.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 
+import shutil
 from pathlib import Path
 
-from .port import Port, PortBuildModule
+from .port import Port, PortBuildModule, _url_list
 from .util import (
     arch_tag,
     clear_directory,
@@ -15,7 +16,9 @@ from .util import (
     package_commands_for,
     restore_staging_ownership,
     run_cmd,
-    wget,
+    url_filename,
+    wget_all,
+    wget_fallback,
 )
 
 
@@ -84,25 +87,36 @@ def _run_package_commands(
     restore_staging_ownership(staging)
 
 
-def _download_patches(port: Port, source_root: Path) -> None:
-    for url in port.patches:
-        wget(url, source_root)
+def _download_supplementary(port: Port, source_root: Path) -> None:
+    if port.additional_urls:
+        wget_all(port.additional_urls, source_root)
+
+
+def _place_supplementary_beside_srcdir(
+    port: Port, *, source_root: Path, build_dir: Path,
+) -> None:
+    """Place patches next to the extracted tree (BLFS ../patch layout)."""
+    for url in port.additional_urls:
+        name = url_filename(url)
+        src = source_root / name
+        if src.is_file():
+            shutil.copy2(src, build_dir / name)
 
 
 def _build_single(port: Port, *, source_root: Path, staging: Path) -> None:
     build_dir = source_root / "build"
     build_dir.mkdir(parents=True, exist_ok=True)
-    _download_patches(port, source_root)
+    _download_supplementary(port, source_root)
 
-    if port.url:
-        archive = wget(port.url, source_root)
+    if port.source_urls:
+        archive = wget_fallback(port.source_urls, source_root)
         clear_directory(build_dir)
         srcdir = extract_archive(archive, build_dir)
+        _place_supplementary_beside_srcdir(
+            port, source_root=source_root, build_dir=build_dir,
+        )
     else:
         srcdir = build_dir
-
-    for url in port.urls:
-        wget(url, source_root)
 
     _run_commands(port.build.pre, cwd=srcdir, env=port.build.environment, as_root=False)
     _run_commands(port.build.user, cwd=srcdir, env=port.build.environment, as_root=False)
@@ -134,7 +148,7 @@ def _build_module(
 ) -> None:
     mod_dir = source_root / module.name.replace(".", "_")
     mod_dir.mkdir(parents=True, exist_ok=True)
-    archive = wget(module.url, mod_dir)
+    archive = wget_fallback(_url_list(module.url), mod_dir)
     srcdir = extract_archive(archive, mod_dir)
     _run_commands(module.pre, cwd=srcdir, env=env, as_root=False)
     _run_commands(module.user, cwd=srcdir, env=env, as_root=False)

@@ -2,7 +2,9 @@
   "name": "gnome-menus",
   "version": "3.38.1",
   "description": "The GNOME Menus package contains an implementation of the draft Desktop Menu Specification from freedesktop.org. It also contains the GNOME menu layout configuration files and .directory files.",
-  "url": "https://download.gnome.org/sources/gnome-menus/3.38/gnome-menus-3.38.1.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gnome-menus/3.38/gnome-menus-3.38.1.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "glib2"

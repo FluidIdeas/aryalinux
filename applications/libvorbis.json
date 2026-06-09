@@ -2,7 +2,9 @@
   "name": "libvorbis",
   "version": "1.3.7",
   "description": "The libvorbis package contains a general purpose audio and music encoding format. This is useful for creating (encoding) and playing (decoding) sound in an open (patent free) format.",
-  "url": "https://downloads.xiph.org/releases/vorbis/libvorbis-1.3.7.tar.xz",
+  "url": [
+    "https://downloads.xiph.org/releases/vorbis/libvorbis-1.3.7.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "libogg"

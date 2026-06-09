@@ -2,7 +2,9 @@
   "name": "firefox",
   "version": "140.8.0esr",
   "description": "Firefox is a stand-alone browser based on the Mozilla codebase.",
-  "url": "https://archive.mozilla.org/pub/firefox/releases/140.8.0esr/source/firefox-140.8.0esr.source.tar.xz",
+  "url": [
+    "https://archive.mozilla.org/pub/firefox/releases/140.8.0esr/source/firefox-140.8.0esr.source.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "cbindgen",
@@ -48,5 +50,10 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/firefox-140.8.0esr-ffmpeg-8.0.patch",
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/firefox-140.8.0esr-glibc-2.43.patch",
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/firefox-140.8.0esr-python_3.14_fixes-1.patch"
+  ]
 }

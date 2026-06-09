@@ -2,7 +2,9 @@
   "name": "librsvg",
   "version": "2.61.4",
   "description": "The librsvg package contains a library and tools used to manipulate, convert and view Scalable Vector Graphic (SVG) images.",
-  "url": "https://download.gnome.org/sources/librsvg/2.61/librsvg-2.61.4.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/librsvg/2.61/librsvg-2.61.4.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "cairo",

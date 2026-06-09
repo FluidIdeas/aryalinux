@@ -2,7 +2,9 @@
   "name": "liburcu",
   "version": "0.15.6",
   "description": "The userspace-rcu package provides a set of userspace RCU (read-copy-update) libraries. These data synchronization libraries provide read-side access which scales linearly with the number of cores. It does so by allowing multiples copies of a given data structure to live at the same time, and by monitoring the data structure accesses to detect grace periods after which memory reclamation is possible.",
-  "url": "https://lttng.org/files/urcu/userspace-rcu-0.15.6.tar.bz2",
+  "url": [
+    "https://lttng.org/files/urcu/userspace-rcu-0.15.6.tar.bz2"
+  ],
   "dependencies": {},
   "build": {
     "user": [

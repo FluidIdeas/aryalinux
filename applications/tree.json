@@ -2,7 +2,9 @@
   "name": "tree",
   "version": "2.3.1",
   "description": "The tree application is useful to display a dictionary tree's contents, including files, directories, and links.",
-  "url": "https://gitlab.com/OldManProgrammer/unix-tree/-/archive/2.3.1/unix-tree-2.3.1.tar.bz2",
+  "url": [
+    "https://gitlab.com/OldManProgrammer/unix-tree/-/archive/2.3.1/unix-tree-2.3.1.tar.bz2"
+  ],
   "dependencies": {},
   "build": {
     "user": [

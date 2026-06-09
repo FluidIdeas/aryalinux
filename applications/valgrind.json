@@ -2,7 +2,9 @@
   "name": "valgrind",
   "version": "3.26.0",
   "description": "Valgrind is an instrumentation framework for building dynamic analysis tools. There are Valgrind tools that can automatically detect many memory management and threading bugs, and profile programs in detail. Valgrind can also be used to build new tools.",
-  "url": "https://sourceware.org/pub/valgrind/valgrind-3.26.0.tar.bz2",
+  "url": [
+    "https://sourceware.org/pub/valgrind/valgrind-3.26.0.tar.bz2"
+  ],
   "dependencies": {},
   "build": {
     "user": [
@@ -25,5 +27,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/valgrind-3.26.0-upstream_fixes-1.patch"
+  ]
 }

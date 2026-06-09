@@ -2,7 +2,9 @@
   "name": "mutter",
   "version": "49.4",
   "description": "Mutter is the window manager for GNOME. It is not invoked directly, but from GNOME Session (on a machine with a hardware accelerated video driver).",
-  "url": "https://download.gnome.org/sources/mutter/49/mutter-49.4.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/mutter/49/mutter-49.4.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "at-spi2-core",

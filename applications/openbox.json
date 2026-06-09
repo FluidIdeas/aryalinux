@@ -2,7 +2,9 @@
   "name": "openbox",
   "version": "3.6.1",
   "description": "Openbox is a highly configurable desktop window manager with extensive standards support. It allows you to control almost every aspect of how you interact with your desktop.",
-  "url": "http://openbox.org/dist/openbox/openbox-3.6.1.tar.gz",
+  "url": [
+    "http://openbox.org/dist/openbox/openbox-3.6.1.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "installing",
@@ -30,5 +32,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/openbox-3.6.1-py3-1.patch"
+  ]
 }

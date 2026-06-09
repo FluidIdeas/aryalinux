@@ -2,7 +2,9 @@
   "name": "openjdk",
   "version": "21.0.10",
   "description": "OpenJDK is an open-source implementation of Oracle's Java Standard Edition platform. OpenJDK is useful for developing Java programs, and provides a complete runtime environment to run Java programs.",
-  "url": "https://github.com/openjdk/jdk21u/archive/jdk-21.0.10-ga.tar.gz",
+  "url": [
+    "https://github.com/openjdk/jdk21u/archive/jdk-21.0.10-ga.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "java",

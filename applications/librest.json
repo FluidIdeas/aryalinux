@@ -2,7 +2,9 @@
   "name": "librest",
   "version": "0.10.2",
   "description": "The librest package contains a library designed to make it easier to access web services that claim to be RESTful.",
-  "url": "https://download.gnome.org/sources/librest/0.10/librest-0.10.2.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/librest/0.10/librest-0.10.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "json-glib",

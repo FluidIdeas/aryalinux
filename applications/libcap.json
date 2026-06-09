@@ -2,7 +2,9 @@
   "name": "libcap",
   "version": "2.77",
   "description": "The libcap package was installed in LFS, but if Linux-PAM support is desired, the PAM module must be built (after installation of Linux-PAM).",
-  "url": "https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.77.tar.xz",
+  "url": [
+    "https://www.kernel.org/pub/linux/libs/security/linux-privs/libcap2/libcap-2.77.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "linux-pam"

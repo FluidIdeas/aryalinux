@@ -2,7 +2,9 @@
   "name": "gnome-weather",
   "version": "48.0",
   "description": "GNOME Weather is a small application that allows you to monitor the current weather conditions for your city, or anywhere in the world, and to access updated forecasts provided by various internet services.",
-  "url": "https://download.gnome.org/sources/gnome-weather/48/gnome-weather-48.0.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gnome-weather/48/gnome-weather-48.0.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "geoclue2",

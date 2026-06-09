@@ -2,7 +2,9 @@
   "name": "yelp",
   "version": "49.0",
   "description": "The Yelp package contains a help browser used for viewing help files.",
-  "url": "https://download.gnome.org/sources/yelp/49/yelp-49.0.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/yelp/49/yelp-49.0.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gsettings-desktop-schemas",

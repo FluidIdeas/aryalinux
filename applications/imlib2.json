@@ -2,7 +2,9 @@
   "name": "imlib2",
   "version": "1.12.6",
   "description": "imlib2 is a graphics library for fast file loading, saving, rendering and manipulation.",
-  "url": "https://downloads.sourceforge.net/enlightenment/imlib2-1.12.6.tar.xz",
+  "url": [
+    "https://downloads.sourceforge.net/enlightenment/imlib2-1.12.6.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "x7lib",

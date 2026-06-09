@@ -2,7 +2,9 @@
   "name": "libqmi",
   "version": "1.38.0",
   "description": "The libqmi package contains a GLib-based library for talking to WWAN modems and devices which speak the Qualcomm MSM Interface (QMI) protocol.",
-  "url": "https://gitlab.freedesktop.org/mobile-broadband/libqmi/-/archive/1.38.0/libqmi-1.38.0.tar.gz",
+  "url": [
+    "https://gitlab.freedesktop.org/mobile-broadband/libqmi/-/archive/1.38.0/libqmi-1.38.0.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "glib2",

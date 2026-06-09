@@ -2,7 +2,9 @@
   "name": "libdvdnav",
   "version": "7.0.0",
   "description": "libdvdnav is a library that allows easy usage of sophisticated DVD navigation features including DVD menus, multiangle playback, and even interactive DVD games.",
-  "url": "https://get.videolan.org/libdvdnav/7.0.0/libdvdnav-7.0.0.tar.xz",
+  "url": [
+    "https://get.videolan.org/libdvdnav/7.0.0/libdvdnav-7.0.0.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "libdvdread"

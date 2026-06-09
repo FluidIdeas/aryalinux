@@ -2,7 +2,10 @@
   "name": "lxde-icon-theme",
   "version": "0.5.1",
   "description": "The LXDE Icon Theme package contains nuoveXT 2.2 Icon Theme for LXDE.",
-  "url": "https://downloads.sourceforge.net/lxde/lxde-icon-theme-0.5.1.tar.xz",
+  "url": [
+    "https://downloads.sourceforge.net/lxde/lxde-icon-theme-0.5.1.tar.xz",
+    "https://versaweb.dl.sourceforge.net/project/lxde/lxde/icon-theme-0.5.1/lxde-icon-theme-0.5.1.tar.xz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

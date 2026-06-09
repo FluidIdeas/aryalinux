@@ -2,7 +2,9 @@
   "name": "libxslt",
   "version": "1.1.45",
   "description": "The libxslt package contains XSLT libraries used for extending libxml2 libraries to support XSLT files.",
-  "url": "https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.45.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.45.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "libxml2",

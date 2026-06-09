@@ -2,7 +2,9 @@
   "name": "apache-ant",
   "version": "1.10.15",
   "description": "The Apache Ant package is a Java-based build tool. In theory, it is like the make command, but without make's wrinkles. Ant is extended using Java classes and XML-based configuration files.",
-  "url": "https://archive.apache.org/dist/ant/source/apache-ant-1.10.15-src.tar.xz",
+  "url": [
+    "https://archive.apache.org/dist/ant/source/apache-ant-1.10.15-src.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "java",

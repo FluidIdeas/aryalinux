@@ -2,7 +2,9 @@
   "name": "gnome-calculator",
   "version": "49.2",
   "description": "GNOME Calculator is a powerful graphical calculator with financial, logical and scientific modes. It uses a multiple precision package to do its arithmetic to give a high degree of accuracy.",
-  "url": "https://download.gnome.org/sources/gnome-calculator/49/gnome-calculator-49.2.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gnome-calculator/49/gnome-calculator-49.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gtksourceview5",

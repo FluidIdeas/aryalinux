@@ -2,7 +2,9 @@
   "name": "xfce4-settings",
   "version": "4.20.3",
   "description": "The Xfce4 Settings package contains a collection of programs that are useful for adjusting your Xfce preferences.",
-  "url": "https://archive.xfce.org/src/xfce/xfce4-settings/4.20/xfce4-settings-4.20.3.tar.bz2",
+  "url": [
+    "https://archive.xfce.org/src/xfce/xfce4-settings/4.20/xfce4-settings-4.20.3.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "exo",

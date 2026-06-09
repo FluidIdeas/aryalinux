@@ -2,7 +2,9 @@
   "name": "bubblewrap",
   "version": "0.11.0",
   "description": "Bubblewrap is a setuid implementation of user namespaces, or sandboxing, that provides access to a subset of kernel user namespace features. Bubblewrap allows user owned processes to run in an isolated environment with limited access to the underlying filesystem.",
-  "url": "https://github.com/containers/bubblewrap/releases/download/v0.11.0/bubblewrap-0.11.0.tar.xz",
+  "url": [
+    "https://github.com/containers/bubblewrap/releases/download/v0.11.0/bubblewrap-0.11.0.tar.xz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

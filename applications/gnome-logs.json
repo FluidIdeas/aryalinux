@@ -2,7 +2,9 @@
   "name": "gnome-logs",
   "version": "45.0",
   "description": "The GNOME Logs package contains a log viewer for the systemd journal.",
-  "url": "https://download.gnome.org/sources/gnome-logs/45/gnome-logs-45.0.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gnome-logs/45/gnome-logs-45.0.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gtk4",

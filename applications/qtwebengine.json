@@ -2,7 +2,9 @@
   "name": "qtwebengine",
   "version": "6.10.2",
   "description": "Qt WebEngine embeds Chromium to render web content in Qt applications.",
-  "url": "https://download.qt.io/official_releases/qt/6.10/6.10.2/submodules/qtwebengine-everywhere-src-6.10.2.tar.xz",
+  "url": [
+    "https://download.qt.io/official_releases/qt/6.10/6.10.2/submodules/qtwebengine-everywhere-src-6.10.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "cups",

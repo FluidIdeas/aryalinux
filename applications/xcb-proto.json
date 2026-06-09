@@ -2,7 +2,9 @@
   "name": "xcb-proto",
   "version": "1.17.0",
   "description": "The xcb-proto package provides the XML-XCB protocol descriptions that libxcb uses to generate the majority of its code and API.",
-  "url": "https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.17.0.tar.xz",
+  "url": [
+    "https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.17.0.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "xorg7"

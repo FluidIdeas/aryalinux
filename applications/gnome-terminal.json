@@ -2,7 +2,9 @@
   "name": "gnome-terminal",
   "version": "3.58.1",
   "description": "The GNOME Terminal package contains the terminal emulator for GNOME Desktop.",
-  "url": "https://gitlab.gnome.org/GNOME/gnome-terminal/-/archive/3.58.1/gnome-terminal-3.58.1.tar.gz",
+  "url": [
+    "https://gitlab.gnome.org/GNOME/gnome-terminal/-/archive/3.58.1/gnome-terminal-3.58.1.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "dconf",

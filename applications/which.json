@@ -2,7 +2,6 @@
   "name": "which",
   "version": "0",
   "description": "BLFS chapter comparing GNU which and shell alternatives. No separate package is built; use coreutils which from LFS or install GNU which separately if needed.",
-  "url": "",
   "dependencies": {},
   "build": {},
   "post_install": [],

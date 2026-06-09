@@ -2,7 +2,9 @@
   "name": "sane",
   "version": "1.4.0",
   "description": "SANE is short for Scanner Access Now Easy. Scanner access, however, is far from easy, since every vendor has their own protocols. The only known protocol that should bring some unity into this chaos is the TWAIN interface, but this is too imprecise to allow a stable scanning framework. Therefore, SANE comes with its own protocol, and the vendor drivers can't be used.",
-  "url": "https://anduin.linuxfromscratch.org/BLFS/sane/sane-backends-1.4.0.tar.gz",
+  "url": [
+    "https://anduin.linuxfromscratch.org/BLFS/sane/sane-backends-1.4.0.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

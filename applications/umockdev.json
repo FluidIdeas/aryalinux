@@ -2,7 +2,9 @@
   "name": "umockdev",
   "version": "0.19.4",
   "description": "The Umockdev package contains a framework that allows a developer to mock devices for use in unit testing.",
-  "url": "https://github.com/martinpitt/umockdev/releases/download/0.19.4/umockdev-0.19.4.tar.xz",
+  "url": [
+    "https://github.com/martinpitt/umockdev/releases/download/0.19.4/umockdev-0.19.4.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "libgudev"

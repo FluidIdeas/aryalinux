@@ -2,7 +2,9 @@
   "name": "v4l-utils",
   "version": "1.32.0",
   "description": "v4l-utils provides a series of utilities for media devices, allowing the ability to handle the proprietary formats available from most webcams (libv4l), and providing tools to test V4L devices.",
-  "url": "https://www.linuxtv.org/downloads/v4l-utils/v4l-utils-1.32.0.tar.xz",
+  "url": [
+    "https://www.linuxtv.org/downloads/v4l-utils/v4l-utils-1.32.0.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "alsa-lib",

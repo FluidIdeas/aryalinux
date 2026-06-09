@@ -2,7 +2,9 @@
   "name": "gnome-system-monitor",
   "version": "49.1",
   "description": "The GNOME System Monitor package contains GNOME's replacement for gtop.",
-  "url": "https://download.gnome.org/sources/gnome-system-monitor/49/gnome-system-monitor-49.1.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gnome-system-monitor/49/gnome-system-monitor-49.1.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "adwaita-icon-theme",

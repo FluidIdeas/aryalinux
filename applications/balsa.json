@@ -2,7 +2,9 @@
   "name": "balsa",
   "version": "2.6.5",
   "description": "The Balsa package contains a lightweight GTK+-based mail client.",
-  "url": "https://gitlab.gnome.org/GNOME/balsa/-/archive/2.6.5/balsa-2.6.5.tar.gz",
+  "url": [
+    "https://gitlab.gnome.org/GNOME/balsa/-/archive/2.6.5/balsa-2.6.5.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "enchant",

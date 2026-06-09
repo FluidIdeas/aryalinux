@@ -2,7 +2,9 @@
   "name": "bluefish",
   "version": "2.4.0",
   "description": "Bluefish is a GTK+ text editor targeted towards programmers and web designers, with many options to write websites, scripts and programming code. Bluefish supports many programming and markup languages, and it focuses on editing dynamic and interactive websites.",
-  "url": "https://www.bennewitz.com/bluefish/stable/source/bluefish-2.4.0.tar.bz2",
+  "url": [
+    "https://www.bennewitz.com/bluefish/stable/source/bluefish-2.4.0.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "gtk3",

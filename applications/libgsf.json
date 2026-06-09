@@ -2,7 +2,9 @@
   "name": "libgsf",
   "version": "1.14.55",
   "description": "The libgsf package contains a library used for providing an extensible input/output abstraction layer for structured file formats.",
-  "url": "https://download.gnome.org/sources/libgsf/1.14/libgsf-1.14.55.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/libgsf/1.14/libgsf-1.14.55.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "glib2",

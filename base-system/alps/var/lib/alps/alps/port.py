@@ -44,15 +44,32 @@ class PortInstall:
     extract: list[str] = field(default_factory=lambda: ["tar -xJf $PACKAGE -C /"])
 
 
+def _url_list(value: Any) -> list[str]:
+    if isinstance(value, str):
+        return [value] if value else []
+    if isinstance(value, list):
+        return [u for u in value if isinstance(u, str) and u]
+    return []
+
+
+def _dedupe(urls: list[str]) -> list[str]:
+    seen: set[str] = set()
+    out: list[str] = []
+    for url in urls:
+        if url not in seen:
+            seen.add(url)
+            out.append(url)
+    return out
+
+
 @dataclass
 class Port:
     name: str
     version: str = ""
     description: str = ""
     category: str = ""
-    url: str = ""
-    urls: list[str] = field(default_factory=list)
-    patches: list[str] = field(default_factory=list)
+    source_urls: list[str] = field(default_factory=list)
+    additional_urls: list[str] = field(default_factory=list)
     dependencies: PortDependencies = field(default_factory=PortDependencies)
     build: PortBuild = field(default_factory=PortBuild)
     install: PortInstall = field(default_factory=PortInstall)
@@ -66,14 +83,19 @@ def _parse_port(data: dict[str, Any]) -> Port:
     build_raw = data.get("build", {})
     install_raw = data.get("install", {})
     modules = [PortBuildModule(**m) for m in build_raw.get("modules", [])]
+    source_urls = _dedupe(_url_list(data.get("url", "")))
+    additional_urls = _dedupe(
+        _url_list(data.get("additionalUrls", []))
+        + data.get("patches", [])
+        + data.get("urls", [])
+    )
     return Port(
         name=data["name"],
         version=data.get("version", ""),
         description=data.get("description", ""),
         category=data.get("category", data.get("section", "")),
-        url=data.get("url", ""),
-        urls=data.get("urls", []),
-        patches=data.get("patches", []),
+        source_urls=source_urls,
+        additional_urls=additional_urls,
         dependencies=PortDependencies(
             required=deps_raw.get("required", []),
             recommended=deps_raw.get("recommended", []),

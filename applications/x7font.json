@@ -2,7 +2,9 @@
   "name": "x7font",
   "version": "7",
   "description": "The Xorg font packages provide scalable fonts and supporting packages for Xorg applications.",
-  "url": "",
+  "url": [
+    "https://www.x.org/pub/individual/font/"
+  ],
   "dependencies": {
     "required": [
       "xcursor-themes"

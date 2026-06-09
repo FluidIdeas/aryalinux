@@ -2,7 +2,9 @@
   "name": "scons",
   "version": "4.10.1",
   "description": "SCons is a tool for building software (and other files) implemented in Python.",
-  "url": "https://downloads.sourceforge.net/scons/SCons-4.10.1.tar.gz",
+  "url": [
+    "https://downloads.sourceforge.net/scons/SCons-4.10.1.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

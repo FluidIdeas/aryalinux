@@ -2,7 +2,9 @@
   "name": "libtiff",
   "version": "4.7.1",
   "description": "The libtiff package contains the TIFF libraries and associated utilities. The libraries are used by many programs for reading and writing TIFF files and the utilities are used for general work with TIFF files.",
-  "url": "https://download.osgeo.org/libtiff/tiff-4.7.1.tar.gz",
+  "url": [
+    "https://download.osgeo.org/libtiff/tiff-4.7.1.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "cmake"

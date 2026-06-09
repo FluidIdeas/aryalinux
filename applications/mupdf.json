@@ -2,7 +2,9 @@
   "name": "mupdf",
   "version": "1.26.12",
   "description": "MuPDF is a lightweight PDF and XPS viewer.",
-  "url": "https://www.mupdf.com/downloads/archive/mupdf-1.26.12-source.tar.gz",
+  "url": [
+    "https://www.mupdf.com/downloads/archive/mupdf-1.26.12-source.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "x7lib",

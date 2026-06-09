@@ -2,7 +2,10 @@
   "name": "glew",
   "version": "2.3.1",
   "description": "GLEW is the OpenGL Extension Wrangler Library.",
-  "url": "https://downloads.sourceforge.net/glew/glew-2.3.1.tgz",
+  "url": [
+    "https://downloads.sourceforge.net/glew/glew-2.3.1.tgz",
+    "https://versaweb.dl.sourceforge.net/project/glew/glew/2.3.1.tgz/glew-2.3.1.tgz"
+  ],
   "dependencies": {
     "required": [
       "mesa"

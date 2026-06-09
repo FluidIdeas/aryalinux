@@ -2,7 +2,9 @@
   "name": "libkexiv2",
   "version": "25.12.2",
   "description": "Libkexiv2 is a KDE wrapper around the Exiv2 library for manipulating image metadata.",
-  "url": "https://download.kde.org/stable/release-service/25.12.2/src/libkexiv2-25.12.2.tar.xz",
+  "url": [
+    "https://download.kde.org/stable/release-service/25.12.2/src/libkexiv2-25.12.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "frameworks6",

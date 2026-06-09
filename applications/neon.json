@@ -2,7 +2,9 @@
   "name": "neon",
   "version": "0.36.0",
   "description": "neon is an HTTP and WebDAV client library, with a C interface.",
-  "url": "https://notroj.github.io/neon/neon-0.36.0.tar.gz",
+  "url": [
+    "https://notroj.github.io/neon/neon-0.36.0.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

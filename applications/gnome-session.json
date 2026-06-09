@@ -2,7 +2,9 @@
   "name": "gnome-session",
   "version": "49.2",
   "description": "The GNOME Session package contains the GNOME session manager.",
-  "url": "https://download.gnome.org/sources/gnome-session/49/gnome-session-49.2.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gnome-session/49/gnome-session-49.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gnome-desktop",

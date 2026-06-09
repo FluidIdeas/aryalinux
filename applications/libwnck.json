@@ -2,7 +2,9 @@
   "name": "libwnck",
   "version": "43.3",
   "description": "The libwnck package contains the Window Navigator Construction Kit.",
-  "url": "https://download.gnome.org/sources/libwnck/43/libwnck-43.3.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/libwnck/43/libwnck-43.3.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gtk3",

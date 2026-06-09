@@ -2,7 +2,9 @@
   "name": "x7legacy",
   "version": "7",
   "description": "Deprecated Xorg bitmap fonts and bdftopcf utility for legacy packages that still require them.",
-  "url": "",
+  "url": [
+    "https://www.x.org/pub/individual/"
+  ],
   "dependencies": {
     "required": [
       "x7font"

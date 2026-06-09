@@ -2,7 +2,9 @@
   "name": "cups-pk-helper",
   "version": "0.2.7",
   "description": "The cups-pk-helper package contains a PolicyKit helper used to configure Cups with fine-grained privileges.",
-  "url": "https://www.freedesktop.org/software/cups-pk-helper/releases/cups-pk-helper-0.2.7.tar.xz",
+  "url": [
+    "https://www.freedesktop.org/software/cups-pk-helper/releases/cups-pk-helper-0.2.7.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "cups"

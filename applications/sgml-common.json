@@ -2,9 +2,8 @@
   "name": "sgml-common",
   "version": "0.6.3",
   "description": "The SGML Common package contains install-catalog. This is useful for creating and maintaining centralized SGML catalogs.",
-  "url": "https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/sgml-common-0.6.3.tgz",
-  "patches": [
-    "https://www.linuxfromscratch.org/patches/blfs/13.0/sgml-common-0.6.3-manpage-1.patch"
+  "url": [
+    "https://sourceware.org/ftp/docbook-tools/new-trials/SOURCES/sgml-common-0.6.3.tgz"
   ],
   "dependencies": {},
   "build": {
@@ -33,5 +32,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/sgml-common-0.6.3-manpage-1.patch"
+  ]
 }

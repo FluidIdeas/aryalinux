@@ -2,7 +2,9 @@
   "name": "inkscape",
   "version": "1.4.3",
   "description": "Inkscape is a what you see is what you get Scalable Vector Graphics editor. It is useful for creating, viewing and changing SVG images.",
-  "url": "https://inkscape.org/gallery/item/58914/inkscape-1.4.3.tar.xz",
+  "url": [
+    "https://inkscape.org/gallery/item/58914/inkscape-1.4.3.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "boost",

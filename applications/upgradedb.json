@@ -2,7 +2,6 @@
   "name": "upgradedb",
   "version": "0",
   "description": "BLFS documentation on upgrading database server software when an existing database is in use. No package is built.",
-  "url": "",
   "dependencies": {},
   "build": {},
   "post_install": [],

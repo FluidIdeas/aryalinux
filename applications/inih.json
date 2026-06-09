@@ -2,7 +2,9 @@
   "name": "inih",
   "version": "0",
   "description": "This package is a simple .INI file parser written in C.",
-  "url": "https://github.com/benhoyt/inih/archive/r62/inih-r62.tar.gz",
+  "url": [
+    "https://github.com/benhoyt/inih/archive/r62/inih-r62.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

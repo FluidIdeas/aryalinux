@@ -2,7 +2,9 @@
   "name": "nmap",
   "version": "7.98",
   "description": "Nmap is a utility for network exploration and security auditing. It supports ping scanning, port scanning and TCP/IP fingerprinting.",
-  "url": "https://nmap.org/dist/nmap-7.98.tar.bz2",
+  "url": [
+    "https://nmap.org/dist/nmap-7.98.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "python-modules.pypa-build"

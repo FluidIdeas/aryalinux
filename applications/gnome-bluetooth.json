@@ -2,7 +2,9 @@
   "name": "gnome-bluetooth",
   "version": "47.1",
   "description": "The GNOME Bluetooth package contains tools for managing and manipulating Bluetooth devices using the GNOME Desktop.",
-  "url": "https://download.gnome.org/sources/gnome-bluetooth/47/gnome-bluetooth-47.1.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gnome-bluetooth/47/gnome-bluetooth-47.1.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gsound",
@@ -29,5 +31,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/gnome-bluetooth-47.1-build_fix-1.patch"
+  ]
 }

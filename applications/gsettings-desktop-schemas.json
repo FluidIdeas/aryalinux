@@ -2,7 +2,9 @@
   "name": "gsettings-desktop-schemas",
   "version": "49.1",
   "description": "The GSettings Desktop Schemas package contains a collection of GSettings schemas for settings shared by various components of a GNOME Desktop.",
-  "url": "https://download.gnome.org/sources/gsettings-desktop-schemas/49/gsettings-desktop-schemas-49.1.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gsettings-desktop-schemas/49/gsettings-desktop-schemas-49.1.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "glib2"

@@ -2,7 +2,9 @@
   "name": "opencv",
   "version": "4.13.0",
   "description": "The opencv package contains graphics libraries mainly aimed at real-time computer vision.",
-  "url": "https://github.com/opencv/opencv/archive/4.13.0/opencv-4.13.0.tar.gz",
+  "url": [
+    "https://github.com/opencv/opencv/archive/4.13.0/opencv-4.13.0.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "cmake",

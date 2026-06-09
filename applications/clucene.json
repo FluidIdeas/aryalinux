@@ -2,9 +2,9 @@
   "name": "clucene",
   "version": "2.3.3.4",
   "description": "CLucene is a C++ version of Lucene, a high performance text search engine.",
-  "url": "https://downloads.sourceforge.net/clucene/clucene-core-2.3.3.4.tar.gz",
-  "patches": [
-    "https://www.linuxfromscratch.org/patches/blfs/13.0/clucene-2.3.3.4-contribs_lib-1.patch"
+  "url": [
+    "https://downloads.sourceforge.net/clucene/clucene-core-2.3.3.4.tar.gz",
+    "https://versaweb.dl.sourceforge.net/project/clucene/clucene/core-2.3.3.4/clucene-core-2.3.3.4.tar.gz"
   ],
   "dependencies": {
     "required": [
@@ -31,5 +31,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/clucene-2.3.3.4-contribs_lib-1.patch"
+  ]
 }

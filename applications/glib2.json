@@ -2,9 +2,8 @@
   "name": "glib2",
   "version": "2.86.4",
   "description": "The GLib package contains low-level libraries useful for providing data structure handling for C, portability wrappers and interfaces for runtime functionality such as an event loop, threads, dynamic loading and an object system.",
-  "url": "https://download.gnome.org/sources/glib/2.86/glib-2.86.4.tar.xz",
-  "urls": [
-    "https://download.gnome.org/sources/gobject-introspection/1.86/gobject-introspection-1.86.0.tar.xz"
+  "url": [
+    "https://download.gnome.org/sources/glib/2.86/glib-2.86.4.tar.xz"
   ],
   "dependencies": {
     "required": [
@@ -35,5 +34,10 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://download.gnome.org/sources/gobject-introspection/1.86/gobject-introspection-1.86.0.tar.xz",
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/glib-skip_warnings-1.patch",
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/glib-2.86.4-upstream_fixes-1.patch"
+  ]
 }

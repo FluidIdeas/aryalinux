@@ -2,7 +2,9 @@
   "name": "rust",
   "version": "1.93.1",
   "description": "The Rust programming language is designed to be a safe, concurrent, practical language.",
-  "url": "https://static.rust-lang.org/dist/rustc-1.93.1-src.tar.xz",
+  "url": [
+    "https://static.rust-lang.org/dist/rustc-1.93.1-src.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "cmake",

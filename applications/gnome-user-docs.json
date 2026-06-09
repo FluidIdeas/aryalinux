@@ -2,7 +2,9 @@
   "name": "gnome-user-docs",
   "version": "49.4",
   "description": "The GNOME User Docs package contains documentation for GNOME.",
-  "url": "https://download.gnome.org/sources/gnome-user-docs/49/gnome-user-docs-49.4.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gnome-user-docs/49/gnome-user-docs-49.4.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "itstool"

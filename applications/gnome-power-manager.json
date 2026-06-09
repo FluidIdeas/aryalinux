@@ -2,7 +2,9 @@
   "name": "gnome-power-manager",
   "version": "43.0",
   "description": "The GNOME Power Manager package contains a tool used to report on power management on the system.",
-  "url": "https://download.gnome.org/sources/gnome-power-manager/43/gnome-power-manager-43.0.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gnome-power-manager/43/gnome-power-manager-43.0.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gtk3"

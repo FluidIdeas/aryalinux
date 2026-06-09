@@ -2,7 +2,9 @@
   "name": "at",
   "version": "3.2.5",
   "description": "The at package provides delayed job execution and batch processing. It is required for Linux Standards Base (LSB) conformance.",
-  "url": "https://anduin.linuxfromscratch.org/BLFS/at/at_3.2.5.orig.tar.gz",
+  "url": [
+    "https://anduin.linuxfromscratch.org/BLFS/at/at_3.2.5.orig.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "mail"

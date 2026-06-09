@@ -2,7 +2,9 @@
   "name": "vte",
   "version": "0.82.3",
   "description": "The VTE package contains a virtual terminal widget for GTK applications.",
-  "url": "https://gitlab.gnome.org/GNOME/vte/-/archive/0.82.3/vte-0.82.3.tar.gz",
+  "url": [
+    "https://gitlab.gnome.org/GNOME/vte/-/archive/0.82.3/vte-0.82.3.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "libxml2",

@@ -2,7 +2,9 @@
   "name": "sharutils",
   "version": "4.15.2",
   "description": "The Sharutils package contains utilities that can create 'shell' archives.",
-  "url": "https://ftpmirror.gnu.org/sharutils/sharutils-4.15.2.tar.xz",
+  "url": [
+    "https://ftpmirror.gnu.org/sharutils/sharutils-4.15.2.tar.xz"
+  ],
   "dependencies": {},
   "build": {
     "user": [
@@ -23,5 +25,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/sharutils-4.15.2-consolidated-1.patch"
+  ]
 }

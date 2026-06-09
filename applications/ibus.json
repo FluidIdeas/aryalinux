@@ -2,7 +2,9 @@
   "name": "ibus",
   "version": "1.5.33",
   "description": "ibus is an Intelligent Input Bus. It is a new input framework for the Linux OS. It provides a fully featured and user friendly input method user interface.",
-  "url": "https://github.com/ibus/ibus/archive/1.5.33/ibus-1.5.33.tar.gz",
+  "url": [
+    "https://github.com/ibus/ibus/archive/1.5.33/ibus-1.5.33.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "iso-codes",

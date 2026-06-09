@@ -2,7 +2,9 @@
   "name": "highlight",
   "version": "4.18",
   "description": "Highlight is a utility that converts source code to formatted text with syntax highlighting.",
-  "url": "http://www.andre-simon.de/zip/highlight-4.18.tar.bz2",
+  "url": [
+    "http://www.andre-simon.de/zip/highlight-4.18.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "boost",

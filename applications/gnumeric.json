@@ -2,7 +2,9 @@
   "name": "gnumeric",
   "version": "1.12.60",
   "description": "The Gnumeric package contains a spreadsheet program which is useful for mathematical analysis.",
-  "url": "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.60.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.60.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "goffice010",

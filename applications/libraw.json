@@ -2,7 +2,9 @@
   "name": "libraw",
   "version": "0.22.0",
   "description": "Libraw is a library for reading RAW files obtained from digital cameras (CRW/CR2, NEF, RAF, DNG, and others).",
-  "url": "https://www.libraw.org/data/LibRaw-0.22.0.tar.gz",
+  "url": [
+    "https://www.libraw.org/data/LibRaw-0.22.0.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "libjpeg",

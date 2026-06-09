@@ -2,7 +2,9 @@
   "name": "libsndfile",
   "version": "1.2.2",
   "description": "Libsndfile is a library of C routines for reading and writing files containing sampled audio data.",
-  "url": "https://github.com/libsndfile/libsndfile/releases/download/1.2.2/libsndfile-1.2.2.tar.xz",
+  "url": [
+    "https://github.com/libsndfile/libsndfile/releases/download/1.2.2/libsndfile-1.2.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "flac",

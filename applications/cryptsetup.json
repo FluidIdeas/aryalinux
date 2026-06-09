@@ -2,7 +2,9 @@
   "name": "cryptsetup",
   "version": "2.8.4",
   "description": "cryptsetup is used to set up transparent encryption of block devices using the kernel crypto API.",
-  "url": "https://www.kernel.org/pub/linux/utils/cryptsetup/v2.8/cryptsetup-2.8.4.tar.xz",
+  "url": [
+    "https://www.kernel.org/pub/linux/utils/cryptsetup/v2.8/cryptsetup-2.8.4.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "json-c",

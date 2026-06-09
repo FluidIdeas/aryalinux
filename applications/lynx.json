@@ -2,7 +2,9 @@
   "name": "lynx",
   "version": "2.9.2",
   "description": "Lynx is a text based web browser.",
-  "url": "https://invisible-mirror.net/archives/lynx/tarballs/lynx2.9.2.tar.bz2",
+  "url": [
+    "https://invisible-mirror.net/archives/lynx/tarballs/lynx2.9.2.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "brotli"

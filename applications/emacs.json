@@ -2,7 +2,9 @@
   "name": "emacs",
   "version": "30.2",
   "description": "The Emacs package contains an extensible, customizable, self-documenting real-time display editor.",
-  "url": "https://ftpmirror.gnu.org/emacs/emacs-30.2.tar.xz",
+  "url": [
+    "https://ftpmirror.gnu.org/emacs/emacs-30.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "harfbuzz",

@@ -2,7 +2,9 @@
   "name": "gsl",
   "version": "2.8",
   "description": "The GNU Scientific Library (GSL) is a numerical library for C and C++ programmers. It provides a wide range of mathematical routines such as random number generators, special functions and least-squares fitting.",
-  "url": "https://ftpmirror.gnu.org/gsl/gsl-2.8.tar.gz",
+  "url": [
+    "https://ftpmirror.gnu.org/gsl/gsl-2.8.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

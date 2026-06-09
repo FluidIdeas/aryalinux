@@ -2,7 +2,9 @@
   "name": "x7app",
   "version": "7",
   "description": "The Xorg applications provide the expected applications available in previous X Window implementations.",
-  "url": "",
+  "url": [
+    "https://www.x.org/pub/individual/app/"
+  ],
   "dependencies": {
     "required": [
       "libpng",

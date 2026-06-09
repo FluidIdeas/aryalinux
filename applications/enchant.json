@@ -2,7 +2,9 @@
   "name": "enchant",
   "version": "2.8.15",
   "description": "The enchant package provides a generic interface into various existing spell checking libraries.",
-  "url": "https://github.com/rrthomas/enchant/releases/download/v2.8.15/enchant-2.8.15.tar.gz",
+  "url": [
+    "https://github.com/rrthomas/enchant/releases/download/v2.8.15/enchant-2.8.15.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "aspell",

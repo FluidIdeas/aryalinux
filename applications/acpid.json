@@ -2,9 +2,8 @@
   "name": "acpid",
   "version": "2.0.34",
   "description": "The acpid (Advanced Configuration and Power Interface event daemon) is a completely flexible, totally extensible daemon for delivering ACPI events. It listens on netlink interface and when an event occurs, executes programs to handle the event. The programs it executes are configured through a set of configuration files, which can be dropped into place by packages or by the user.",
-  "url": "https://downloads.sourceforge.net/acpid2/acpid-2.0.34.tar.xz",
-  "urls": [
-    "https://www.linuxfromscratch.org/blfs/downloads/13.0-systemd/blfs-systemd-units-20251204.tar.xz"
+  "url": [
+    "https://downloads.sourceforge.net/acpid2/acpid-2.0.34.tar.xz"
   ],
   "dependencies": {},
   "build": {
@@ -32,5 +31,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/blfs/downloads/13.0-systemd/blfs-systemd-units-20251204.tar.xz"
+  ]
 }

@@ -2,7 +2,9 @@
   "name": "libxfce4util",
   "version": "4.20.1",
   "description": "The libxfce4util package is a basic utility library for the Xfce desktop environment.",
-  "url": "https://archive.xfce.org/src/xfce/libxfce4util/4.20/libxfce4util-4.20.1.tar.bz2",
+  "url": [
+    "https://archive.xfce.org/src/xfce/libxfce4util/4.20/libxfce4util-4.20.1.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "glib2",

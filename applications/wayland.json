@@ -2,7 +2,9 @@
   "name": "wayland",
   "version": "1.24.0",
   "description": "Wayland is a project to define a protocol for a compositor to talk to its clients as well as a library implementation of the protocol.",
-  "url": "https://gitlab.freedesktop.org/wayland/wayland/-/releases/1.24.0/downloads/wayland-1.24.0.tar.xz",
+  "url": [
+    "https://gitlab.freedesktop.org/wayland/wayland/-/releases/1.24.0/downloads/wayland-1.24.0.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "libxml2"

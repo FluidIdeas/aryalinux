@@ -2,7 +2,9 @@
   "name": "xkeyboard-config",
   "version": "2.46",
   "description": "The XKeyboardConfig package contains the keyboard configuration database for the X Window System.",
-  "url": "https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.46.tar.xz",
+  "url": [
+    "https://www.x.org/pub/individual/data/xkeyboard-config/xkeyboard-config-2.46.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "x7lib"

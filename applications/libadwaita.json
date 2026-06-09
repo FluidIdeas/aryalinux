@@ -2,7 +2,9 @@
   "name": "libadwaita",
   "version": "1.8.4",
   "description": "The libadwaita package provides additional GTK4 UI widgets for use in developing user interfaces. It is used primarily for GNOME applications.",
-  "url": "https://download.gnome.org/sources/libadwaita/1.8/libadwaita-1.8.4.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/libadwaita/1.8/libadwaita-1.8.4.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "appstream",

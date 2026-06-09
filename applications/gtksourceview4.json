@@ -2,7 +2,9 @@
   "name": "gtksourceview4",
   "version": "4.8.4",
   "description": "The GtkSourceView package contains libraries used for extending the GTK+ text functions to include syntax highlighting.",
-  "url": "https://download.gnome.org/sources/gtksourceview/4.8/gtksourceview-4.8.4.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/gtksourceview/4.8/gtksourceview-4.8.4.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gtk3",

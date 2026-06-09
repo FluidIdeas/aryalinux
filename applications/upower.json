@@ -2,7 +2,9 @@
   "name": "upower",
   "version": "1.91.1",
   "description": "The UPower package provides an interface for enumerating power devices, listening to device events, and querying history and statistics. Any application or service on the system can access the org.freedesktop.UPower service via the system message bus.",
-  "url": "https://gitlab.freedesktop.org/upower/upower/-/archive/v1.91.1/upower-v1.91.1.tar.bz2",
+  "url": [
+    "https://gitlab.freedesktop.org/upower/upower/-/archive/v1.91.1/upower-v1.91.1.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "libgudev"

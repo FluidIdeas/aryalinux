@@ -2,7 +2,10 @@
   "name": "hdparm",
   "version": "9.65",
   "description": "The Hdparm package contains a utility that is useful for obtaining information about, and controlling ATA/IDE controllers and hard drives. It allows to increase performance and sometimes to increase stability.",
-  "url": "https://downloads.sourceforge.net/hdparm/hdparm-9.65.tar.gz",
+  "url": [
+    "https://downloads.sourceforge.net/hdparm/hdparm-9.65.tar.gz",
+    "https://versaweb.dl.sourceforge.net/project/hdparm/hdparm/9.65/hdparm-9.65.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

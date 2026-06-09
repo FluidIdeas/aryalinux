@@ -2,7 +2,9 @@
   "name": "pulseaudio",
   "version": "17.0",
   "description": "PulseAudio is a sound system for POSIX OSes, meaning that it is a proxy for sound applications. It allows you to do advanced operations on your sound data as it passes between your application and your hardware. Operations such as transferring the audio to a different machine, changing the sample format or channel count, and mixing several sounds into one are easily achieved using a sound server.",
-  "url": "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-17.0.tar.xz",
+  "url": [
+    "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-17.0.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "libsndfile",

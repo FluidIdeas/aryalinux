@@ -2,7 +2,14 @@
   "name": "xorg-evdev-driver",
   "version": "2.11.0",
   "description": "The Xorg Evdev Driver package contains a Generic Linux input driver for the Xorg X server. It handles keyboard, mouse, touchpads and wacom devices, though for touchpad and wacom advanced handling, additional drivers are required.",
-  "url": "https://www.x.org/pub/individual/driver/xf86-input-evdev-2.11.0.tar.xz",
+  "url": [
+    "https://www.freedesktop.org/software/libevdev/libevdev-1.13.6.tar.xz",
+    "https://www.x.org/pub/individual/driver/xf86-input-evdev-2.11.0.tar.xz",
+    "https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.31.0/libinput-1.31.0.tar.gz",
+    "https://www.x.org/pub/individual/driver/xf86-input-libinput-1.5.0.tar.xz",
+    "https://www.x.org/pub/individual/driver/xf86-input-synaptics-1.10.0.tar.xz",
+    "https://github.com/linuxwacom/xf86-input-wacom/releases/download/xf86-input-wacom-1.2.4/xf86-input-wacom-1.2.4.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "x7driver",

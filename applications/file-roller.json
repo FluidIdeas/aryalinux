@@ -2,7 +2,9 @@
   "name": "file-roller",
   "version": "44.6",
   "description": "File Roller is an archive manager for GNOME with support for tar, bzip2, bzip3, gzip, zip, jar, compress, lzop, zstd, dmg, and many other archive formats.",
-  "url": "https://download.gnome.org/sources/file-roller/44/file-roller-44.6.tar.xz",
+  "url": [
+    "https://download.gnome.org/sources/file-roller/44/file-roller-44.6.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gtk4",

@@ -2,7 +2,9 @@
   "name": "guile",
   "version": "3.0.11",
   "description": "The Guile package contains the GNU Project's extension language library. Guile also contains a stand alone Scheme interpreter.",
-  "url": "https://ftpmirror.gnu.org/guile/guile-3.0.11.tar.xz",
+  "url": [
+    "https://ftpmirror.gnu.org/guile/guile-3.0.11.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gc",

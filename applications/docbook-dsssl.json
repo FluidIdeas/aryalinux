@@ -2,7 +2,12 @@
   "name": "docbook-dsssl",
   "version": "1.79",
   "description": "The DocBook DSSSL Stylesheets package contains DSSSL stylesheets. These are used by OpenJade or other tools to transform SGML and XML DocBook files.",
-  "url": "https://downloads.sourceforge.net/docbook/docbook-dsssl-1.79.tar.bz2",
+  "url": [
+    "https://downloads.sourceforge.net/docbook/docbook-dsssl-1.79.tar.bz2",
+    "https://versaweb.dl.sourceforge.net/project/docbook/docbook/dsssl-1.79/docbook-dsssl-1.79.tar.bz2",
+    "https://downloads.sourceforge.net/docbook/docbook-dsssl-doc-1.79.tar.bz2",
+    "https://versaweb.dl.sourceforge.net/project/docbook/docbook/dsssl-doc-1.79/docbook-dsssl-doc-1.79.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "sgml-common",

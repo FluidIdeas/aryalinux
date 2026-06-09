@@ -2,7 +2,9 @@
   "name": "kio-extras",
   "version": "25.12.2",
   "description": "The kio-extras package contains additional components to increase the functionality of the KDE resource and network access abstractions.",
-  "url": "https://download.kde.org/stable/release-service/25.12.2/src/kio-extras-25.12.2.tar.xz",
+  "url": [
+    "https://download.kde.org/stable/release-service/25.12.2/src/kio-extras-25.12.2.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "frameworks6",

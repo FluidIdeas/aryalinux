@@ -2,7 +2,9 @@
   "name": "exo",
   "version": "4.20.0",
   "description": "Exo is a support library used in the Xfce desktop. It also has some helper applications that are used throughout Xfce.",
-  "url": "https://archive.xfce.org/src/xfce/exo/4.20/exo-4.20.0.tar.bz2",
+  "url": [
+    "https://archive.xfce.org/src/xfce/exo/4.20/exo-4.20.0.tar.bz2"
+  ],
   "dependencies": {
     "required": [
       "gtk3",

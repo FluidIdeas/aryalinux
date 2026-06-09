@@ -2,7 +2,9 @@
   "name": "joe",
   "version": "4.6",
   "description": "JOE (Joe's own editor) is a small text editor capable of emulating WordStar, Pico, and Emacs.",
-  "url": "https://downloads.sourceforge.net/joe-editor/joe-4.6.tar.gz",
+  "url": [
+    "https://downloads.sourceforge.net/joe-editor/joe-4.6.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

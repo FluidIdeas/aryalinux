@@ -2,7 +2,9 @@
   "name": "giflib",
   "version": "5.2.2",
   "description": "The giflib package contains libraries for reading and writing GIFs as well as programs for converting and working with GIF files.",
-  "url": "https://sourceforge.net/projects/giflib/files/giflib-5.2.2.tar.gz",
+  "url": [
+    "https://sourceforge.net/projects/giflib/files/giflib-5.2.2.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [
@@ -24,5 +26,9 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/giflib-5.2.2-upstream_fixes-1.patch",
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/giflib-5.2.2-security_fixes-1.patch"
+  ]
 }

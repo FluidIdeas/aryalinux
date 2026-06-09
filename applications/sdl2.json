@@ -2,7 +2,9 @@
   "name": "sdl2",
   "version": "2.32.64",
   "description": "The sdl2-compat package provides a compatibility layer for packages that require SDL2, utilizing SDL3 as the backend.",
-  "url": "https://www.libsdl.org/release/sdl2-compat-2.32.64.tar.gz",
+  "url": [
+    "https://www.libsdl.org/release/sdl2-compat-2.32.64.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "cmake",

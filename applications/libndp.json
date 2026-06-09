@@ -2,7 +2,9 @@
   "name": "libndp",
   "version": "1.9",
   "description": "The libndp package provides a wrapper for IPv6 Neighbor Discovery Protocol. It also provides a tool named ndptool for sending and receiving NDP messages.",
-  "url": "http://libndp.org/files/libndp-1.9.tar.gz",
+  "url": [
+    "http://libndp.org/files/libndp-1.9.tar.gz"
+  ],
   "dependencies": {},
   "build": {
     "user": [

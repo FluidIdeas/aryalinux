@@ -2,7 +2,9 @@
   "name": "cpio",
   "version": "2.15",
   "description": "The cpio package contains tools for archiving.",
-  "url": "https://ftpmirror.gnu.org/cpio/cpio-2.15.tar.bz2",
+  "url": [
+    "https://ftpmirror.gnu.org/cpio/cpio-2.15.tar.bz2"
+  ],
   "dependencies": {},
   "build": {
     "user": [

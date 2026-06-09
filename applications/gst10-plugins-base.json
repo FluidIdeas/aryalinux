@@ -2,7 +2,9 @@
   "name": "gst10-plugins-base",
   "version": "1.28.1",
   "description": "GStreamer Base Plug-ins is a well-groomed and well-maintained collection of GStreamer plug-ins and elements, spanning the range of possible types of elements one would want to write for GStreamer. You will need at least one of Good, Bad, Ugly or Libav plugins for GStreamer applications to function properly.",
-  "url": "https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.28.1.tar.xz",
+  "url": [
+    "https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.28.1.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "gstreamer10",

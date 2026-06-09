@@ -2,7 +2,9 @@
   "name": "logrotate",
   "version": "3.22.0",
   "description": "The logrotate package allows automatic rotation, compression, removal, and mailing of log files.",
-  "url": "https://github.com/logrotate/logrotate/releases/download/3.22.0/logrotate-3.22.0.tar.xz",
+  "url": [
+    "https://github.com/logrotate/logrotate/releases/download/3.22.0/logrotate-3.22.0.tar.xz"
+  ],
   "dependencies": {
     "required": [
       "popt"

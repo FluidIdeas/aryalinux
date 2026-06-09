@@ -2,7 +2,9 @@
   "name": "xarchiver",
   "version": "0.5.4.26",
   "description": "XArchiver is a GTK+ archive manager with support for tar, xz, bzip2, gzip, zip, 7z, rar, lzo and many other archive formats.",
-  "url": "https://github.com/ib/xarchiver/archive/0.5.4.26/xarchiver-0.5.4.26.tar.gz",
+  "url": [
+    "https://github.com/ib/xarchiver/archive/0.5.4.26/xarchiver-0.5.4.26.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "gtk3"

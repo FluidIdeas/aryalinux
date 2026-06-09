@@ -2,7 +2,9 @@
   "name": "vim",
   "version": "9.2.0078",
   "description": "The Vim package, which is an abbreviation for VI IMproved, contains a vi clone with extra features as compared to the original vi.",
-  "url": "https://github.com/vim/vim/archive/v9.2.0078/vim-9.2.0078.tar.gz",
+  "url": [
+    "https://github.com/vim/vim/archive/v9.2.0078/vim-9.2.0078.tar.gz"
+  ],
   "dependencies": {
     "required": [
       "installing",
