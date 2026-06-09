@@ -62,6 +62,21 @@ def remove_state_file(path: Path) -> None:
         run_cmd(f'rm -f "{path}"', as_root=True)
 
 
+def _parallel_job_count() -> str:
+    return str(os.cpu_count() or 1)
+
+
+def _with_parallel_build_env(env: dict[str, str] | None = None) -> dict[str, str]:
+    """Apply LFS-style parallel build defaults unless a port overrides them."""
+    full_env = os.environ.copy()
+    if env:
+        full_env.update(env)
+    jobs = _parallel_job_count()
+    full_env.setdefault("MAKEFLAGS", f"-j{jobs}")
+    full_env.setdefault("CMAKE_BUILD_PARALLEL_LEVEL", jobs)
+    return full_env
+
+
 def run_cmd(
     cmd: str,
     *,
@@ -69,9 +84,7 @@ def run_cmd(
     env: dict[str, str] | None = None,
     as_root: bool = False,
 ) -> None:
-    full_env = os.environ.copy()
-    if env:
-        full_env.update(env)
+    full_env = _with_parallel_build_env(env)
     if as_root and os.geteuid() != 0:
         shell_cmd = ["sudo", "-n", "bash", "-lc", cmd]
     else:

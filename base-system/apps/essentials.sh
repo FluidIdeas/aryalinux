@@ -14,6 +14,12 @@ then
 	echo "Essentials incomplete (shadow). Aborting..."
 	exit 1
 fi
+# PAM su needs shadow in sync, setuid unix_chkpwd, and root-owned setuid /usr/bin/su.
+pwconv && grpconv
+chmod 600 /etc/shadow
+chmod 4755 /usr/sbin/unix_chkpwd
+chown root:root /usr/bin/su /usr/bin/sg
+chmod 4755 /usr/bin/su /usr/bin/sg
 alps -ni install sudo
 if [ ! -f /var/lib/alps/installed/sudo.json ]
 then

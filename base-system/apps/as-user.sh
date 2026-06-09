@@ -1,6 +1,4 @@
-# Run a command as the build user. After essentials installs sudo, prefer it over
-# su — PAM-enabled su may print "Authentication service cannot retrieve
-# authentication info (Ignored)" when invoked by root after shadow is upgraded.
+# Run a command as the build user. Prefer sudo/runuser over su after PAM shadow.
 as_user() {
 	local user="$1"
 	shift
@@ -8,6 +6,8 @@ as_user() {
 
 	if [ -x /usr/bin/sudo ]; then
 		sudo -Hiu "$user" -- bash -lc "$cmd"
+	elif [ -x /usr/bin/runuser ]; then
+		runuser -u "$user" -- bash -lc "$cmd"
 	else
 		su - "$user" -c "$cmd"
 	fi
