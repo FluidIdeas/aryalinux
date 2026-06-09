@@ -7,13 +7,12 @@
   ],
   "dependencies": {
     "required": [
-      "glib2"
+      "glib2",
+      "libxml2"
     ]
   },
   "build": {
     "user": [
-      "tar -xf ../xdgmime.tar.xz",
-      "make -C xdgmime",
       "meson setup build --prefix=/usr --buildtype=release -D update-mimedb=false .",
       "ninja -C build"
     ],
