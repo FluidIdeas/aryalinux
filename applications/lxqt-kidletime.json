@@ -1,0 +1,32 @@
+{
+  "name": "lxqt-kidletime",
+  "version": "6.23.0",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "extra-cmake-modules",
+      "plasma-wayland-protocols",
+      "qt6"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr        \\\n      -D CMAKE_BUILD_TYPE=Release         \\\n      -D CMAKE_INSTALL_LIBEXECDIR=libexec \\\n      -D KDE_INSTALL_USE_QT_SYS_PATHS=ON  \\\n      -D BUILD_TESTING=OFF                \\\n      -W no-dev .",
+      "make -C build"
+    ],
+    "package": [
+      "make -C build install DESTDIR=$DESTDIR"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "lxqt/lxqt-kidletime.html",
+  "url": [
+    "https://download.kde.org/stable/frameworks/6.23/kidletime-6.23.0.tar.xz"
+  ]
+}

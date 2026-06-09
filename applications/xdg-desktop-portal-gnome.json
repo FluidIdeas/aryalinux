@@ -1,0 +1,35 @@
+{
+  "name": "xdg-desktop-portal-gnome",
+  "version": "49.0",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "gnome-desktop",
+      "libadwaita",
+      "xdg-desktop-portal-gtk"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja",
+      "glib-compile-schemas /usr/share/glib-2.0/schemas"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/xdg-desktop-portal-gnome.html",
+  "url": [
+    "https://download.gnome.org/sources/xdg-desktop-portal-gnome/49/xdg-desktop-portal-gnome-49.0.tar.xz"
+  ]
+}

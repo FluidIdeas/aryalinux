@@ -1,0 +1,46 @@
+{
+  "name": "localsearch",
+  "version": "3.10.2",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "gexiv2",
+      "tinysparql",
+      "exempi",
+      "ffmpeg",
+      "libexif",
+      "libseccomp",
+      "poppler"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i s/120/200/ tests/functional-tests/meson.build",
+      "patch -Np1 -i ../localsearch-3.10.2-security_fixes-1.patch",
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr             \\\n            --buildtype=release       \\\n            -D man=false              \\\n            -D functional_tests=false \\\n            ..",
+      "ninja",
+      "rm -fv /etc/xdg/autostart/tracker-miner-fs-3.desktop",
+      "rm -fv /usr/lib/systemd/user/tracker-miner-fs-3.service",
+      "rm -fv /usr/lib/systemd/user/tracker-miner-fs-control-3.service",
+      "rm -fv /usr/share/dbus-1/services/org.freedesktop.Tracker3.Miner.Files.service",
+      "rm -fv /usr/share/dbus-1/services/org.freedesktop.Tracker3.Writeback.service",
+      "rm -fv /usr/share/dbus-1/services/org.freedesktop.Tracker3.Miner.Files.Control.service"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/localsearch.html",
+  "url": [
+    "https://download.gnome.org/sources/localsearch/3.10/localsearch-3.10.2.tar.xz"
+  ]
+}

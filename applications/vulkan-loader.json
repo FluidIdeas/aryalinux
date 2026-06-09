@@ -1,0 +1,32 @@
+{
+  "name": "vulkan-loader",
+  "version": "1.4.341.0",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "cmake",
+      "x7lib",
+      "wayland"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr   \\\n      -D CMAKE_BUILD_TYPE=Release    \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON \\\n      -G Ninja .",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "x/vulkan-loader.html",
+  "url": [
+    "https://github.com/KhronosGroup/Vulkan-Loader/archive/vulkan-sdk-1.4.341.0/Vulkan-Loader-vulkan-sdk-1.4.341.0.tar.gz"
+  ]
+}

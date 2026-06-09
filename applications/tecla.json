@@ -1,0 +1,32 @@
+{
+  "name": "tecla",
+  "version": "49.0",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "libadwaita"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/tecla.html",
+  "url": [
+    "https://download.gnome.org/sources/tecla/49/tecla-49.0.tar.xz"
+  ]
+}

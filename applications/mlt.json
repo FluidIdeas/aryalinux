@@ -14,7 +14,7 @@
   },
   "build": {
     "user": [
-      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D MOD_SOX=OFF               \\\n      -D MOD_MOVIT=OFF             \\\n      -D MOD_VIDSTAB=OFF           \\\n      -D MOD_JACKRACK=OFF          \\\n      -D MOD_RUBBERBAND=OFF        \\\n      -W no-dev ..",
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D MOD_SOX=OFF               \\\n      -D MOD_MOVIT=OFF             \\\n      -D MOD_VIDSTAB=OFF           \\\n      -D MOD_JACKRACK=OFF          \\\n      -D MOD_RUBBERBAND=OFF        \\\n      -W no-dev .",
       "make -C build"
     ],
     "package": [

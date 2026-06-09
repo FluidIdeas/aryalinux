@@ -1,0 +1,33 @@
+{
+  "name": "qtkeychain",
+  "version": "0.15.0",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "qt6"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=$QT6DIR \\\n      -D CMAKE_BUILD_TYPE=Release     \\\n      -D BUILD_WITH_QT6=ON            \\\n      -D BUILD_TESTING=OFF            \\\n      -W no-dev .",
+      "make -C build"
+    ],
+    "package": [
+      "make -C build install DESTDIR=$DESTDIR"
+    ],
+    "environment": {
+      "KF6_PREFIX": "/usr"
+    }
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "kde/qtkeychain.html",
+  "url": [
+    "https://github.com/frankosterfeld/qtkeychain/archive/0.15.0/qtkeychain-0.15.0.tar.gz"
+  ]
+}

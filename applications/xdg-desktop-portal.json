@@ -1,0 +1,36 @@
+{
+  "name": "xdg-desktop-portal",
+  "version": "1.20.3",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "fuse",
+      "json-glib",
+      "xdg-desktop-portal-gnome",
+      "xdg-desktop-portal-lxqt",
+      "bubblewrap"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release -D tests=disabled ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "x/xdg-desktop-portal.html",
+  "url": [
+    "https://github.com/flatpak/xdg-desktop-portal/releases/download/1.20.3/xdg-desktop-portal-1.20.3.tar.xz"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "lxqt-panel",
+  "version": "2.3.2",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "lxqt-layer-shell-qt",
+      "libdbusmenu-lxqt",
+      "liblxqt",
+      "lxqt-globalkeys",
+      "lxqt-menu-data",
+      "lxqt-solid",
+      "menu-cache",
+      "pulseaudio",
+      "libsysstat",
+      "libxkbcommon"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      .",
+      "make -C build"
+    ],
+    "package": [
+      "make -C build install DESTDIR=$DESTDIR"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "lxqt/lxqt-panel.html",
+  "url": [
+    "https://github.com/lxqt/lxqt-panel/releases/download/2.3.2/lxqt-panel-2.3.2.tar.xz"
+  ]
+}

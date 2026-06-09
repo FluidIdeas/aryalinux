@@ -1,0 +1,36 @@
+{
+  "name": "libproxy",
+  "version": "0.5.12",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "curl",
+      "duktape",
+      "python-modules.gi-docgen",
+      "vala"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup ..        \\\n      --prefix=/usr   \\\n      -D release=true",
+      "ninja",
+      "rm /usr/lib/libproxy.a"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "general/libproxy.html",
+  "url": [
+    "https://github.com/libproxy/libproxy/archive/0.5.12/libproxy-0.5.12.tar.gz"
+  ]
+}

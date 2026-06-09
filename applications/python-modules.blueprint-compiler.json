@@ -1,0 +1,32 @@
+{
+  "name": "python-modules.blueprint-compiler",
+  "version": "0.18.0",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "python-modules.pygobject3"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "general/python-modules.html",
+  "url": [
+    "https://download.gnome.org/sources/blueprint-compiler/0.18/blueprint-compiler-0.18.0.tar.xz"
+  ]
+}

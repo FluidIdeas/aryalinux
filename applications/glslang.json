@@ -1,0 +1,30 @@
+{
+  "name": "glslang",
+  "version": "16.2.0",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "cmake"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr     \\\n      -D CMAKE_BUILD_TYPE=Release      \\\n      -D ALLOW_EXTERNAL_SPIRV_TOOLS=ON \\\n      -D BUILD_SHARED_LIBS=ON          \\\n      -D GLSLANG_TESTS=ON              \\\n      -G Ninja .",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "x/glslang.html",
+  "url": [
+    "https://github.com/KhronosGroup/glslang/archive/16.2.0/glslang-16.2.0.tar.gz"
+  ]
+}

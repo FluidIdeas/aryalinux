@@ -7,7 +7,7 @@
   ],
   "dependencies": {
     "required": [
-      "unzip"
+      "libarchive"
     ]
   },
   "build": {

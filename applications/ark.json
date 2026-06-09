@@ -1,0 +1,36 @@
+{
+  "name": "ark",
+  "version": "25.12.2",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "frameworks6",
+      "libarchive",
+      "7zip",
+      "unrar"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX \\\n      -D CMAKE_BUILD_TYPE=Release         \\\n      -D BUILD_TESTING=OFF                \\\n      -W no-dev .",
+      "make -C build"
+    ],
+    "package": [
+      "make -C build install DESTDIR=$DESTDIR"
+    ],
+    "environment": {
+      "KF6_PREFIX": "/usr"
+    }
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "kde/ark.html",
+  "url": [
+    "https://download.kde.org/stable/release-service/25.12.2/src/ark-25.12.2.tar.xz"
+  ]
+}

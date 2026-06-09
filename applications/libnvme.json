@@ -1,0 +1,28 @@
+{
+  "name": "libnvme",
+  "version": "1.16.1",
+  "description": "",
+  "category": "",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release -D libdbus=auto ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "general/libnvme.html",
+  "url": [
+    "https://github.com/linux-nvme/libnvme/archive/v1.16.1/libnvme-1.16.1.tar.gz"
+  ]
+}

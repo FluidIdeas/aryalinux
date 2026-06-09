@@ -1,0 +1,30 @@
+{
+  "name": "xfce4-dev-tools",
+  "version": "4.20.0",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "glib2"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "xfce/xfce4-dev-tools.html",
+  "url": [
+    "http://archive.xfce.org/src/xfce/xfce4-dev-tools/4.20/xfce4-dev-tools-4.20.0.tar.bz2"
+  ]
+}

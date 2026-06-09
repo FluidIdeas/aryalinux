@@ -1,0 +1,20 @@
+{
+  "name": "x7driver",
+  "version": "1.0",
+  "description": "BLFS Xorg Input Drivers chapter \u2014 base libraries for input drivers.",
+  "category": "metapackage",
+  "dependencies": {
+    "required": [
+      "libevdev"
+    ]
+  },
+  "build": {},
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "post_install": [],
+  "meta": true,
+  "book": "x/x7driver.html"
+}

@@ -1,0 +1,37 @@
+{
+  "name": "power-profiles-daemon",
+  "version": "0.30",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "polkit",
+      "upower"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd build",
+      "meson setup                \\\n      --prefix=/usr        \\\n      --buildtype=release  \\\n      -D gtk_doc=false     \\\n      -D tests=false       \\\n      ..",
+      "ninja",
+      "powerprofilesctl",
+      "powerprofilesctl set performance",
+      "gov=performance\nfor CPUFREQ in /sys/devices/system/cpu/cpufreq/policy*/scaling_governor; do\n  echo -n ${gov} > ${CPUFREQ}\ndone",
+      "systemctl enable power-profiles-daemon"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "general/power-profiles-daemon.html",
+  "url": [
+    "https://gitlab.freedesktop.org/upower/power-profiles-daemon/-/archive/0.30/power-profiles-daemon-0.30.tar.gz"
+  ]
+}

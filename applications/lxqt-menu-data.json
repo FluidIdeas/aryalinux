@@ -1,0 +1,30 @@
+{
+  "name": "lxqt-menu-data",
+  "version": "2.3.0",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "lxqt-build-tools"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      .",
+      "make -C build"
+    ],
+    "package": [
+      "make -C build install DESTDIR=$DESTDIR"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "lxqt/lxqt-menu-data.html",
+  "url": [
+    "https://github.com/lxqt/lxqt-menu-data/releases/download/2.3.0/lxqt-menu-data-2.3.0.tar.xz"
+  ]
+}

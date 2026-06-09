@@ -43,7 +43,7 @@
       "while read -r line; do\n  if $(echo $line | grep -E -q '^ *$|^#' ); then continue; fi\n  file=$(echo $line | cut -d\" \" -f2)\n  packagedir=$(echo $file | sed 's|\\.tar.*||')\n  tar -xf $file\n  pushd $packagedir\n    cmake -B build -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX \\\n          -D CMAKE_INSTALL_LIBEXECDIR=libexec \\\n          -D CMAKE_BUILD_TYPE=Release \\\n          -D BUILD_QT5=OFF \\\n          -D BUILD_TESTING=OFF \\\n          -W no-dev .\n    make -C build\n  popd\ndone < plasma-6.6.1.md5"
     ],
     "package": [
-      "while read -r line; do\n  if $(echo $line | grep -E -q '^ *$|^#' ); then continue; fi\n  file=$(echo $line | cut -d\" \" -f2)\n  packagedir=$(echo $file | sed 's|\\.tar.*||')\n  pushd $packagedir/build\n    make install DESTDIR=$DESTDIR\n  popd\n  rm -rf $packagedir\ndone < plasma-6.6.1.md5",
+      "while read -r line; do\n  if $(echo $line | grep -E -q '^ *$|^#' ); then continue; fi\n  file=$(echo $line | cut -d\" \" -f2)\n  packagedir=$(echo $file | sed 's|\\.tar.*||')\n  pushd $packagedir/build\n    make -C build install DESTDIR=$DESTDIR\n  popd\n  rm -rf $packagedir\ndone < plasma-6.6.1.md5",
       "install -d $DESTDIR/usr/share/xsessions",
       "ln -sf $KF6_PREFIX/share/xsessions/plasmax11.desktop $DESTDIR/usr/share/xsessions/plasma.desktop",
       "install -d $DESTDIR/usr/share/wayland-sessions",

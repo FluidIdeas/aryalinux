@@ -1,0 +1,35 @@
+{
+  "name": "libjxl",
+  "version": "0.11.2",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "brotli",
+      "cmake",
+      "highway",
+      "lcms2",
+      "libjpeg",
+      "libpng"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr             \\\n      -D CMAKE_BUILD_TYPE=Release              \\\n      -D BUILD_TESTING=OFF                     \\\n      -D BUILD_SHARED_LIBS=ON                  \\\n      -D JPEGXL_ENABLE_SKCMS=OFF               \\\n      -D JPEGXL_ENABLE_SJPEG=OFF               \\\n      -D JPEGXL_ENABLE_PLUGINS=OFF             \\\n      -D JPEGXL_INSTALL_JARDIR=/usr/share/java \\\n      -G Ninja .",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "general/libjxl.html",
+  "url": [
+    "https://github.com/libjxl/libjxl/archive/v0.11.2/libjxl-0.11.2.tar.gz"
+  ]
+}

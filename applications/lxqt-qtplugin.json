@@ -1,0 +1,31 @@
+{
+  "name": "lxqt-qtplugin",
+  "version": "2.3.0",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "libfm-qt",
+      "libdbusmenu-lxqt"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      .",
+      "make -C build"
+    ],
+    "package": [
+      "make -C build install DESTDIR=$DESTDIR"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "lxqt/lxqt-qtplugin.html",
+  "url": [
+    "https://github.com/lxqt/lxqt-qtplugin/releases/download/2.3.0/lxqt-qtplugin-2.3.0.tar.xz"
+  ]
+}

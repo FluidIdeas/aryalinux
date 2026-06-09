@@ -1,0 +1,30 @@
+{
+  "name": "gpgmepp",
+  "version": "2.0.0",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "gpgme"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr .",
+      "make -C build"
+    ],
+    "package": [
+      "make -C build install DESTDIR=$DESTDIR"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "postlfs/gpgmepp.html",
+  "url": [
+    "https://www.gnupg.org/ftp/gcrypt/gpgmepp/gpgmepp-2.0.0.tar.xz"
+  ]
+}

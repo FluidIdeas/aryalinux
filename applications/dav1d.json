@@ -1,0 +1,32 @@
+{
+  "name": "dav1d",
+  "version": "1.5.3",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "nasm"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/dav1d.html",
+  "url": [
+    "https://code.videolan.org/videolan/dav1d/-/archive/1.5.3/dav1d-1.5.3.tar.gz"
+  ]
+}

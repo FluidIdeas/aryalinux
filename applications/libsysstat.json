@@ -1,0 +1,30 @@
+{
+  "name": "libsysstat",
+  "version": "1.1.0",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "lxqt-build-tools"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      .",
+      "make -C build"
+    ],
+    "package": [
+      "make -C build install DESTDIR=$DESTDIR"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "lxqt/libsysstat.html",
+  "url": [
+    "https://github.com/lxqt/libsysstat/releases/download/1.1.0/libsysstat-1.1.0.tar.xz"
+  ]
+}

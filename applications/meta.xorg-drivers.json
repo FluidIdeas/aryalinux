@@ -18,17 +18,7 @@
       "xorg-libinput-driver",
       "xorg-synaptics-driver",
       "xorg-wacom-driver",
-      "xorg-vmmouse-driver",
-      "xorg-amdgpu-driver",
-      "xorg-ati-driver",
-      "xorg-fbdev-driver",
-      "xorg-intel-driver",
-      "intel-hybrid-driver",
-      "xorg-nouveau-driver",
-      "xorg-vmware-driver",
-      "libva",
-      "libvdpau",
-      "libvdpau-va-gl"
+      "libva"
     ]
   },
   "build": {},

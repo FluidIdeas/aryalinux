@@ -1,0 +1,37 @@
+{
+  "name": "libcupsfilters",
+  "version": "2.1.1",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "cups",
+      "gs",
+      "mupdf",
+      "lcms2",
+      "TTF-and-OTF-fonts",
+      "libexif",
+      "libpng"
+    ]
+  },
+  "build": {
+    "user": [
+      "patch -Np1 -i ../libcupsfilters-2.1.1-security_fixes-1.patch",
+      "./configure --prefix=/usr    \\\n            --disable-static \\\n            --docdir=/usr/share/doc/libcupsfilters-2.1.1",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "pst/libcupsfilters.html",
+  "url": [
+    "https://github.com/OpenPrinting/libcupsfilters/releases/download/2.1.1/libcupsfilters-2.1.1.tar.xz"
+  ]
+}

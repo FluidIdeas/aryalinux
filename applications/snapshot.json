@@ -1,0 +1,35 @@
+{
+  "name": "snapshot",
+  "version": "49.1",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "libadwaita",
+      "rust",
+      "pipewire",
+      "xdg-user-dirs"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/snapshot.html",
+  "url": [
+    "https://download.gnome.org/sources/snapshot/49/snapshot-49.1.tar.xz"
+  ]
+}

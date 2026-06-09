@@ -1,0 +1,30 @@
+{
+  "name": "qcoro",
+  "version": "0.13.0",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "qt6"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=$QT6DIR \\\n      -D CMAKE_BUILD_TYPE=Release     \\\n      -D BUILD_TESTING=OFF            \\\n      -D QCORO_BUILD_EXAMPLES=OFF     \\\n      -D BUILD_SHARED_LIBS=ON         \\\n       .",
+      "make -C build"
+    ],
+    "package": [
+      "make -C build install DESTDIR=$DESTDIR"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "general/qcoro.html",
+  "url": [
+    "https://github.com/danvratil/qcoro/archive/v0.13.0/qcoro-0.13.0.tar.gz"
+  ]
+}

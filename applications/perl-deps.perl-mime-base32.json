@@ -1,0 +1,22 @@
+{
+  "name": "perl-deps.perl-mime-base32",
+  "version": "1.303",
+  "description": "",
+  "category": "",
+  "dependencies": {},
+  "build": {
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "url": [
+    "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/MIME-Base32-1.303.tar.gz"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "abseil-cpp",
+  "version": "20260107.1",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "cmake"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr   \\\n      -D CMAKE_BUILD_TYPE=Release    \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON \\\n      -D ABSL_PROPAGATE_CXX_STD=ON   \\\n      -D BUILD_SHARED_LIBS=ON        \\\n      -G Ninja .",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "general/abseil-cpp.html",
+  "url": [
+    "https://github.com/abseil/abseil-cpp/releases/download/20260107.1/abseil-cpp-20260107.1.tar.gz"
+  ]
+}

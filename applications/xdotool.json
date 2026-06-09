@@ -1,0 +1,29 @@
+{
+  "name": "xdotool",
+  "version": "4.20251130.1",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "x7lib"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i 's#/local##' libxdo.pc",
+      "make WITHOUT_RPATH_FIX=1",
+      "cd t\nmake all-headless\ncd ..",
+      "make PREFIX=/usr INSTALLMAN=/usr/share/man install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "general/xdotool.html",
+  "url": [
+    "https://github.com/jordansissel/xdotool/releases/download/v4.20251130.1/xdotool-4.20251130.1.tar.gz"
+  ]
+}

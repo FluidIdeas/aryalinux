@@ -1,0 +1,35 @@
+{
+  "name": "loupe",
+  "version": "49.2",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "glycin",
+      "libadwaita",
+      "libseccomp"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr       \\\n            --buildtype=release \\\n            ..",
+      "ninja",
+      "rm -fv /usr/share/applications/org.gnome.eog.desktop"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/loupe.html",
+  "url": [
+    "https://download.gnome.org/sources/loupe/49/loupe-49.2.tar.xz"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "name": "pavucontrol-qt",
+  "version": "2.3.0",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "liblxqt",
+      "glib2"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_BUILD_TYPE=Release  \\\n      -D CMAKE_INSTALL_PREFIX=/usr \\\n      .",
+      "make -C build"
+    ],
+    "package": [
+      "make -C build install DESTDIR=$DESTDIR"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "lxqt/pavucontrol-qt.html",
+  "url": [
+    "https://github.com/lxqt/pavucontrol-qt/releases/download/2.3.0/pavucontrol-qt-2.3.0.tar.xz"
+  ]
+}

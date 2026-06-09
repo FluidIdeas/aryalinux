@@ -28,13 +28,13 @@
       "pushd unix/xserver",
       "autoreconf -fiv",
       "CPPFLAGS=\"-I/usr/include/drm\"       \\\n  ./configure $XORG_CONFIG            \\\n      --disable-xwayland    --disable-dri        --disable-dmx         \\\n      --disable-xorg        --disable-xnest      --disable-xvfb        \\\n      --disable-xwin        --disable-xephyr     --disable-kdrive      \\\n      --disable-devel-docs  --disable-config-hal --disable-config-udev \\\n      --disable-unit-tests  --disable-selective-werror                 \\\n      --disable-static      --enable-dri3                              \\\n      --without-dtrace      --enable-dri2        --enable-glx          \\\n      --with-pic",
-      "make",
+      "make -C build",
       "popd"
     ],
     "package": [
       "make -C build install DESTDIR=$DESTDIR",
       "mv $DESTDIR/usr/share/doc/tigervnc $DESTDIR/usr/share/doc/tigervnc-1.16.0",
-      "( cd unix/xserver/hw/vnc && make install DESTDIR=$DESTDIR )",
+      "( cd unix/xserver/hw/vnc && make -C build install DESTDIR=$DESTDIR )",
       "[ -e $DESTDIR/usr/bin/Xvnc ] || ln -svf $XORG_PREFIX/bin/Xvnc $DESTDIR/usr/bin/Xvnc",
       "install -vdm755 $DESTDIR/etc/X11/tigervnc",
       "install -v -m755 Xsession $DESTDIR/etc/X11/tigervnc"

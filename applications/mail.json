@@ -1,0 +1,20 @@
+{
+  "name": "mail",
+  "version": "1.0",
+  "description": "BLFS mail server chapter \u2014 an MTA must be available at runtime.",
+  "category": "metapackage",
+  "dependencies": {
+    "required": [
+      "postfix"
+    ]
+  },
+  "build": {},
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "post_install": [],
+  "meta": true,
+  "book": "server/mail.html"
+}

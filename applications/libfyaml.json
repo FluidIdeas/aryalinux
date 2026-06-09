@@ -1,0 +1,30 @@
+{
+  "name": "libfyaml",
+  "version": "0.9.4",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "libyaml"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --disable-static",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "general/libfyaml.html",
+  "url": [
+    "https://github.com/pantoniou/libfyaml/releases/download/v0.9.4/libfyaml-0.9.4.tar.gz"
+  ]
+}

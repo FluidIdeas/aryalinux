@@ -1,0 +1,26 @@
+{
+  "name": "perl-deps.perl-test-simple",
+  "version": "1.302219",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "perl-deps.perl-term-table"
+    ]
+  },
+  "build": {
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "general/perl-deps.html",
+  "url": [
+    "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302219.tar.gz"
+  ]
+}

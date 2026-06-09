@@ -1,0 +1,31 @@
+{
+  "name": "lxqt-wayland-session",
+  "version": "0.3.1",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "lxqt-session",
+      "qtxdg-tools"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      .",
+      "make -C build"
+    ],
+    "package": [
+      "make -C build install DESTDIR=$DESTDIR"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "lxqt/lxqt-wayland-session.html",
+  "url": [
+    "https://github.com/lxqt/lxqt-wayland-session/releases/download/0.3.1/lxqt-wayland-session-0.3.1.tar.xz"
+  ]
+}

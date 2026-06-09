@@ -1,0 +1,32 @@
+{
+  "name": "glibmm2",
+  "version": "2.86.0",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "glib2"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir bld",
+      "cd    bld",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "general/glibmm2.html",
+  "url": [
+    "https://download.gnome.org/sources/glibmm/2.86/glibmm-2.86.0.tar.xz"
+  ]
+}

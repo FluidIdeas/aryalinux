@@ -1,0 +1,27 @@
+{
+  "name": "libheif",
+  "version": "1.21.2",
+  "description": "",
+  "category": "",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "patch -Np1 -i ../libheif-1.21.2-svt_av1_build_fix-1.patch",
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D WITH_GDK_PIXBUF=OFF       \\\n      -D WITH_OpenH264_DECODER=OFF \\\n      -G Ninja .",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "general/libheif.html",
+  "url": [
+    "https://github.com/strukturag/libheif/releases/download/v1.21.2/libheif-1.21.2.tar.gz"
+  ]
+}

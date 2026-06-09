@@ -23,7 +23,7 @@
       "patch -Np1 -i inkscape-1.4.3-poppler_26.02-1.patch",
       "sed -i 's/gfree/g_free/' src/extension/internal/pdfinput/pdf-input.cpp",
       "sed -e '/Stream.h/a#include <poppler/goo/gmem.h>' \\\n    -e 's/reset/rewind/'                          \\\n    -i src/extension/internal/pdfinput/svg-builder.cpp",
-      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release         \\\n      -W no-dev ..",
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release         \\\n      -W no-dev .",
       "make -C build"
     ],
     "package": [

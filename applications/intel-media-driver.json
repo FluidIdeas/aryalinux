@@ -14,7 +14,7 @@
   "build": {
     "user": [
       "grep -ri 'RegisterDevice(0x9a49'",
-      "cmake -B build -D CMAKE_INSTALL_PREFIX=$XORG_PREFIX \\\n      -D CMAKE_POLICY_VERSION_MINIMUM=3.5  \\\n      -D INSTALL_DRIVER_SYSCONF=OFF        \\\n      -D BUILD_TYPE=Release                \\\n      -D MEDIA_BUILD_FATAL_WARNINGS=OFF    \\\n      -G Ninja -W no-dev ..",
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=$XORG_PREFIX \\\n      -D CMAKE_POLICY_VERSION_MINIMUM=3.5  \\\n      -D INSTALL_DRIVER_SYSCONF=OFF        \\\n      -D BUILD_TYPE=Release                \\\n      -D MEDIA_BUILD_FATAL_WARNINGS=OFF    \\\n      -G Ninja -W no-dev .",
       "ninja -C build"
     ],
     "package": [

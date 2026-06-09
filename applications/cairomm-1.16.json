@@ -1,0 +1,33 @@
+{
+  "name": "cairomm-1.16",
+  "version": "1.18.0",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "cairo",
+      "boost"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir bld",
+      "cd    bld",
+      "meson setup ..             \\\n      --prefix=/usr        \\\n      --buildtype=release  \\\n      -D build-tests=true  \\\n      -D boost-shared=true",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "x/cairomm-1.16.html",
+  "url": [
+    "https://www.cairographics.org/releases/cairomm-1.18.0.tar.xz"
+  ]
+}

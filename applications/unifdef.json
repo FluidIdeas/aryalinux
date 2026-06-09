@@ -1,0 +1,25 @@
+{
+  "name": "unifdef",
+  "version": "2.12",
+  "description": "",
+  "category": "",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "sed -i 's/constexpr/unifdef_&/g' unifdef.c",
+      "sed -i 's/ln -s/ln -sf/' Makefile",
+      "make",
+      "make prefix=/usr install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "general/unifdef.html",
+  "url": [
+    "https://dotat.at/prog/unifdef/unifdef-2.12.tar.gz"
+  ]
+}

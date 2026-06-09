@@ -1,0 +1,32 @@
+{
+  "name": "libxfce4windowing",
+  "version": "4.20.5",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "gtk3",
+      "libwnck",
+      "xfce4-dev-tools"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr     \\\n            --sysconfdir=/etc \\\n            --enable-x11      \\\n            --disable-debug",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "xfce/libxfce4windowing.html",
+  "url": [
+    "https://archive.xfce.org/src/xfce/libxfce4windowing/4.20/libxfce4windowing-4.20.5.tar.bz2"
+  ]
+}

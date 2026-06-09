@@ -1,0 +1,43 @@
+{
+  "name": "wireplumber",
+  "version": "0.5.13",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "glib2",
+      "pipewire",
+      "systemd",
+      "linux-pam",
+      "lua"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release -D system-lua=true ..",
+      "ninja",
+      "mv -v /usr/share/doc/wireplumber{,-0.5.13}",
+      "rm -vf /etc/xdg/autostart/pulseaudio.desktop",
+      "rm -vf /etc/xdg/Xwayland-session.d/00-pulseaudio-x11",
+      "sed -e '$a autospawn = no' -i /etc/pulse/client.conf",
+      "systemctl enable --global pipewire.socket",
+      "systemctl enable --global pipewire-pulse.socket",
+      "systemctl enable --global wireplumber"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/wireplumber.html",
+  "url": [
+    "https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.5.13/wireplumber-0.5.13.tar.bz2"
+  ]
+}

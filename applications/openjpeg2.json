@@ -12,7 +12,7 @@
   },
   "build": {
     "user": [
-      "cmake -B build -D CMAKE_BUILD_TYPE=Release  \\\n      -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D BUILD_STATIC_LIBS=OFF ..",
+      "cmake -B build -D CMAKE_BUILD_TYPE=Release  \\\n      -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D BUILD_STATIC_LIBS=OFF .",
       "make -C build"
     ],
     "package": [

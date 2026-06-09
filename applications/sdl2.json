@@ -13,7 +13,7 @@
   },
   "build": {
     "user": [
-      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr   \\\n      -D CMAKE_BUILD_TYPE=Release    \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON \\\n      -D SDL2COMPAT_STATIC=OFF       \\\n      -D SDL2COMPAT_TESTS=OFF        \\\n      -W no-dev -G Ninja ..",
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr   \\\n      -D CMAKE_BUILD_TYPE=Release    \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON \\\n      -D SDL2COMPAT_STATIC=OFF       \\\n      -D SDL2COMPAT_TESTS=OFF        \\\n      -W no-dev -G Ninja .",
       "ninja -C build",
       "cmake -B build-tests -D CMAKE_INSTALL_PREFIX=/usr   \\\n      -D CMAKE_BUILD_TYPE=Release    \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON \\\n      -D SDL2COMPAT_INSTALL_TESTS=ON \\\n      -D SDL2COMPAT_STATIC=OFF       \\\n      -D SDL2COMPAT_TESTS=ON         \\\n      -W no-dev -G Ninja ..",
       "ninja -C build-tests",

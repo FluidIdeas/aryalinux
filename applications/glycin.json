@@ -1,0 +1,44 @@
+{
+  "name": "glycin",
+  "version": "2.0.8",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "bubblewrap",
+      "fontconfig",
+      "lcms2",
+      "rust",
+      "libheif",
+      "librsvg"
+    ]
+  },
+  "build": {
+    "user": [
+      "cargo vendor",
+      "patch -Np1 -i ../glycin-2.0.8-xorg_prefix-1.patch",
+      "patch -Np1 -i ../glycin-2.0.8-xbm_xpm-1.patch",
+      "cargo vendor",
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr           \\\n            --buildtype=release     \\\n            -D libglycin-gtk4=false \\\n            -D tests=false ..",
+      "ninja",
+      "sed \"/install_dir:.*doc/s|,$| / 'glycin-' + meson.project_version()&|\" \\\n    -i ../libglycin/meson.build",
+      "meson configure -D capi_docs=true",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "general/glycin.html",
+  "url": [
+    "https://download.gnome.org/sources/glycin/2.0/glycin-2.0.8.tar.xz"
+  ]
+}

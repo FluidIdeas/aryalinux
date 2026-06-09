@@ -1,0 +1,32 @@
+{
+  "name": "obconf-qt",
+  "version": "0.16.5",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "hicolor-icon-theme",
+      "lxqt-build-tools",
+      "openbox"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      .",
+      "make -C build"
+    ],
+    "package": [
+      "make -C build install DESTDIR=$DESTDIR"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "lxqt/obconf-qt.html",
+  "url": [
+    "https://github.com/lxqt/obconf-qt/releases/download/0.16.5/obconf-qt-0.16.5.tar.xz"
+  ]
+}

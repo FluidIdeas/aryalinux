@@ -1,0 +1,42 @@
+{
+  "name": "sdl3",
+  "version": "3.4.0",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "cmake",
+      "alsa-lib",
+      "libxkbcommon",
+      "mesa",
+      "pipewire",
+      "vulkan-loader",
+      "wayland-protocols",
+      "x7lib"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D SDL_TEST_LIBRARY=OFF      \\\n      -D SDL_STATIC=OFF            \\\n      -D SDL_RPATH=OFF             \\\n      -W no-dev -G Ninja .",
+      "ninja",
+      "mkdir ../build-tests",
+      "cd    ../build-tests",
+      "cmake -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D SDL_STATIC=OFF            \\\n      -D SDL_RPATH=OFF             \\\n      -D SDL_TESTS=ON              \\\n      -D SDL_INSTALL_TESTS=ON      \\\n      -W no-dev -G Ninja ..",
+      "ninja",
+      "DESTDIR=$PWD/TESTS ninja install"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/sdl3.html",
+  "url": [
+    "https://www.libsdl.org/release/SDL3-3.4.0.tar.gz"
+  ]
+}

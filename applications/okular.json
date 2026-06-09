@@ -1,0 +1,36 @@
+{
+  "name": "okular",
+  "version": "25.12.2",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "frameworks6",
+      "plasma-activities",
+      "libkexiv2",
+      "phonon"
+    ]
+  },
+  "build": {
+    "user": [
+      "SKIP_OPTIONAL='Discount;DjVuLibre;EPub;LibSpectre;LibZip'\n\ncmake -B build -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX \\\n      -D CMAKE_BUILD_TYPE=Release         \\\n      -D BUILD_TESTING=OFF                \\\n      -D FORCE_NOT_REQUIRED_DEPENDENCIES=\"$SKIP_OPTIONAL\" \\\n      -W no-dev .",
+      "make -C build"
+    ],
+    "package": [
+      "make -C build install DESTDIR=$DESTDIR"
+    ],
+    "environment": {
+      "KF6_PREFIX": "/usr"
+    }
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "kde/okular.html",
+  "url": [
+    "https://download.kde.org/stable/release-service/25.12.2/src/okular-25.12.2.tar.xz"
+  ]
+}

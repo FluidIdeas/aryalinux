@@ -15,7 +15,7 @@
   "build": {
     "user": [
       "sed -i 's@cert.pem@certs/ca-bundle.crt@' CMakeLists.txt",
-      "cmake -B build -D CMAKE_INSTALL_PREFIX=$QT6DIR            \\\n      -D CMAKE_BUILD_TYPE=Release                \\\n      -D QT6=ON                                  \\\n      -D QCA_INSTALL_IN_QT_PREFIX=ON             \\\n      -D QCA_MAN_INSTALL_DIR:PATH=/usr/share/man \\\n      ..",
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=$QT6DIR            \\\n      -D CMAKE_BUILD_TYPE=Release                \\\n      -D QT6=ON                                  \\\n      -D QCA_INSTALL_IN_QT_PREFIX=ON             \\\n      -D QCA_MAN_INSTALL_DIR:PATH=/usr/share/man \\\n      .",
       "make -C build"
     ],
     "package": [

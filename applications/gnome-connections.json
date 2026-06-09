@@ -1,0 +1,35 @@
+{
+  "name": "gnome-connections",
+  "version": "49.0",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "appstream",
+      "gtk-vnc",
+      "libhandy1",
+      "vala"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "gnome/gnome-connections.html",
+  "url": [
+    "https://download.gnome.org/sources/gnome-connections/49/gnome-connections-49.0.tar.xz"
+  ]
+}

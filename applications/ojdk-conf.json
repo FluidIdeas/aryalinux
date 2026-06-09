@@ -1,0 +1,25 @@
+{
+  "name": "ojdk-conf",
+  "version": "0",
+  "description": "",
+  "category": "",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "cat > /etc/profile.d/openjdk.sh << \"EOF\"\n# Begin /etc/profile.d/openjdk.sh\n\n# Set JAVA_HOME directory\nJAVA_HOME=/opt/jdk\n\n# Adjust PATH\npathappend $JAVA_HOME/bin\n\n# Auto Java CLASSPATH: Copy jar files to, or create symlinks in, the\n# /usr/share/java directory.\n\nAUTO_CLASSPATH_DIR=/usr/share/java\n\npathprepend . CLASSPATH\n\nfor dir in `find ${AUTO_CLASSPATH_DIR} -type d 2>/dev/null`; do\n    pathappend $dir CLASSPATH\ndone\n\nfor jar in `find ${AUTO_CLASSPATH_DIR} -name \"*.jar\" 2>/dev/null`; do\n    pathappend $jar CLASSPATH\ndone\n\nexport JAVA_HOME\n\n# By default, Java creates several files in a directory named\n# /tmp/hsperfdata_[username]. This directory contains files that are used for\n# performance monitoring and profiling, but aren't normally needed on a BLFS\n# system. This environment variable disables that feature.\n_JAVA_OPTIONS=\"-XX:-UsePerfData\"\n\nexport _JAVA_OPTIONS\n\nunset AUTO_CLASSPATH_DIR dir jar _JAVA_OPTIONS\n\n# End /etc/profile.d/openjdk.sh\nEOF",
+      "cat > /etc/sudoers.d/java << \"EOF\"\nDefaults env_keep += JAVA_HOME\nDefaults env_keep += CLASSPATH\nDefaults env_keep += _JAVA_OPTIONS\nEOF",
+      "cat >> /etc/man_db.conf << \"EOF\"",
+      "# Begin Java addition\nMANDATORY_MANPATH     /opt/jdk/man\nMANPATH_MAP           /opt/jdk/bin     /opt/jdk/man\nMANDB_MAP             /opt/jdk/man     /var/cache/man/jdk\n# End Java addition\nEOF\n\nmkdir -p /var/cache/man",
+      "mandb -c /opt/jdk/man",
+      "ln -sfv /etc/pki/tls/java/cacerts /opt/jdk/lib/security/cacerts",
+      "/opt/jdk/bin/keytool -list -cacerts"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "general/ojdk-conf.html"
+}

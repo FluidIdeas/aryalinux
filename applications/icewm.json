@@ -13,7 +13,7 @@
   },
   "build": {
     "user": [
-      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D CFGDIR=/etc               \\\n      -D ENABLE_LTO=ON             \\\n      -D DOCDIR=/usr/share/doc/icewm-4.0.0 ..",
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D CFGDIR=/etc               \\\n      -D ENABLE_LTO=ON             \\\n      -D DOCDIR=/usr/share/doc/icewm-4.0.0 .",
       "make -C build"
     ],
     "package": [

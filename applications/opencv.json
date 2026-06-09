@@ -20,7 +20,7 @@
   "build": {
     "user": [
       "tar -xf ../opencv_contrib-4.13.0.tar.gz",
-      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr      \\\n      -D CMAKE_BUILD_TYPE=Release       \\\n      -D ENABLE_CXX11=ON                \\\n      -D BUILD_PERF_TESTS=OFF           \\\n      -D WITH_XINE=ON                   \\\n      -D BUILD_TESTS=OFF                \\\n      -D ENABLE_PRECOMPILED_HEADERS=OFF \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON    \\\n      -D BUILD_WITH_DEBUG_INFO=OFF      \\\n      -D OPENCV_GENERATE_PKGCONFIG=ON   \\\n      -W no-dev  ..",
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr      \\\n      -D CMAKE_BUILD_TYPE=Release       \\\n      -D ENABLE_CXX11=ON                \\\n      -D BUILD_PERF_TESTS=OFF           \\\n      -D WITH_XINE=ON                   \\\n      -D BUILD_TESTS=OFF                \\\n      -D ENABLE_PRECOMPILED_HEADERS=OFF \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON    \\\n      -D BUILD_WITH_DEBUG_INFO=OFF      \\\n      -D OPENCV_GENERATE_PKGCONFIG=ON   \\\n      -W no-dev  .",
       "make -C build"
     ],
     "package": [

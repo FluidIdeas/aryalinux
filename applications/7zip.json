@@ -1,0 +1,28 @@
+{
+  "name": "7zip",
+  "version": "26.00",
+  "description": "",
+  "category": "",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "(for i in Bundles/{Alone,Alone7z,Format7zF,SFXCon} UI/Console; do\n    make -C CPP/7zip/$i -f ../../cmpl_gcc.mak || exit\ndone)",
+      "(for i in 7z 7za 7zr; do\n    cat > /usr/bin/$i << EOF || exit\n#!/bin/sh\nexec /usr/lib/7zip/$i \"\\$@\"\nEOF\n    chmod 755 /usr/bin/$i || exit\ndone)",
+      "cp -rv DOC -T /usr/share/doc/7zip-26.00"
+    ],
+    "package": [
+      "install -vDm755 CPP/7zip/Bundles/Alone{/b/g/7za,7z/b/g/7zr} \\\n                CPP/7zip/Bundles/Format7zF/b/g/7z.so        \\\n                CPP/7zip/UI/Console/b/g/7z                  \\\n                -t $DESTDIR/usr$DESTDIR/lib/7zip/",
+      "install -vm755 CPP/7zip/Bundles/SFXCon/b/g/7zCon \\\n               $DESTDIR/usr$DESTDIR/lib/7zip/7zCon.sfx"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "general/7zip.html",
+  "url": [
+    "https://github.com/ip7z/7zip/archive/26.00/7zip-26.00.tar.gz"
+  ]
+}

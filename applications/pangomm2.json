@@ -1,0 +1,31 @@
+{
+  "name": "pangomm2",
+  "version": "2.56.1",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "cairomm-1.16",
+      "glibmm2"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr --buildtype=release .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "x/pangomm2.html",
+  "url": [
+    "https://download.gnome.org/sources/pangomm/2.56/pangomm-2.56.1.tar.xz"
+  ]
+}

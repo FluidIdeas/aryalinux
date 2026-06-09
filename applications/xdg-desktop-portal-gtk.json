@@ -1,0 +1,33 @@
+{
+  "name": "xdg-desktop-portal-gtk",
+  "version": "1.15.3",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "gtk3",
+      "gnome-desktop"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup --prefix=/usr --buildtype=release ..",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "x/xdg-desktop-portal-gtk.html",
+  "url": [
+    "https://github.com/flatpak/xdg-desktop-portal-gtk/releases/download/1.15.3/xdg-desktop-portal-gtk-1.15.3.tar.xz"
+  ]
+}

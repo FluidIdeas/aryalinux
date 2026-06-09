@@ -1,0 +1,30 @@
+{
+  "name": "spirv-tools",
+  "version": "1.4.341.0",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "cmake"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr     \\\n      -D CMAKE_BUILD_TYPE=Release      \\\n      -D SPIRV_WERROR=OFF              \\\n      -D BUILD_SHARED_LIBS=ON          \\\n      -D SPIRV_TOOLS_BUILD_STATIC=OFF  \\\n      -D SPIRV-Headers_SOURCE_DIR=/usr \\\n      -G Ninja .",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "general/spirv-tools.html",
+  "url": [
+    "https://github.com/KhronosGroup/SPIRV-Tools/archive/vulkan-sdk-1.4.341.0/SPIRV-Tools-vulkan-sdk-1.4.341.0.tar.gz"
+  ]
+}

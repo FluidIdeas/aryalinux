@@ -1,0 +1,32 @@
+{
+  "name": "lxqt-session",
+  "version": "2.3.0",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "liblxqt",
+      "xdg-user-dirs"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -e '/TryExec/s|=|=/usr/bin/|' \\\n    -i xsession/lxqt.desktop.in",
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      .",
+      "make -C build"
+    ],
+    "package": [
+      "make -C build install DESTDIR=$DESTDIR"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "lxqt/lxqt-session.html",
+  "url": [
+    "https://github.com/lxqt/lxqt-session/releases/download/2.3.0/lxqt-session-2.3.0.tar.xz"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "ModemManager",
+  "version": "1.24.2",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "libgudev",
+      "glib2",
+      "libmbim",
+      "polkit",
+      "vala"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir build",
+      "cd    build",
+      "meson setup ..                 \\\n      --prefix=/usr            \\\n      --buildtype=release      \\\n      -D bash_completion=false \\\n      -D qrtr=false",
+      "ninja",
+      "systemctl enable ModemManager"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "general/ModemManager.html",
+  "url": [
+    "https://gitlab.freedesktop.org/mobile-broadband/ModemManager/-/archive/1.24.2/ModemManager-1.24.2.tar.gz"
+  ]
+}

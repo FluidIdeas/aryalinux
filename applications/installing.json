@@ -1,0 +1,23 @@
+{
+  "name": "installing",
+  "version": "1.0",
+  "description": "BLFS Graphical Environments chapter \u2014 core X11 stack prerequisites.",
+  "category": "metapackage",
+  "dependencies": {
+    "required": [
+      "fontconfig",
+      "mesa",
+      "x7lib",
+      "xorg-server"
+    ]
+  },
+  "build": {},
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "post_install": [],
+  "meta": true,
+  "book": "x/installing.html"
+}

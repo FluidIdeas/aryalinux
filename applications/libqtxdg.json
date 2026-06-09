@@ -1,0 +1,31 @@
+{
+  "name": "libqtxdg",
+  "version": "4.3.0",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "cmake",
+      "qt6"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      .",
+      "make -C build"
+    ],
+    "package": [
+      "make -C build install DESTDIR=$DESTDIR"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "lxqt/libqtxdg.html",
+  "url": [
+    "https://github.com/lxqt/libqtxdg/releases/download/4.3.0/libqtxdg-4.3.0.tar.xz"
+  ]
+}

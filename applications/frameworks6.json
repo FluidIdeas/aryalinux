@@ -1,0 +1,55 @@
+{
+  "name": "frameworks6",
+  "version": "6.23.0",
+  "description": "KDE Frameworks 6 (KF6) \u2014 bulk build of all KDE Frameworks libraries from BLFS.",
+  "url": [
+    "https://download.kde.org/stable/frameworks/6.23"
+  ],
+  "dependencies": {
+    "required": [
+      "extra-cmake-modules",
+      "breeze-icons",
+      "docbook",
+      "docbook-xsl",
+      "libcanberra",
+      "libgcrypt",
+      "libical",
+      "libsecret",
+      "libxslt",
+      "lmdb",
+      "qca",
+      "libqrencode",
+      "plasma-wayland-protocols",
+      "python-modules.PyYAML",
+      "shared-mime-info",
+      "perl-modules.perl-uri",
+      "wget",
+      "qt6"
+    ]
+  },
+  "build": {
+    "environment": {
+      "KF6_PREFIX": "/usr"
+    },
+    "pre": [
+      "url=https://download.kde.org/stable/frameworks/6.23/",
+      "wget -r -nH -nd -A '*.xz' -np $url",
+      "cat > frameworks-6.23.0.md5 << 'EOF'\n\nEOF"
+    ],
+    "user": [
+      "while read -r line; do\n  if $(echo $line | grep -E -q '^ *$|^#' ); then continue; fi\n  file=$(echo $line | cut -d\" \" -f2)\n  packagedir=$(echo $file | sed 's|\\.tar.*||')\n  name=$(basename \"$file\" | sed 's|-6.*$||')\n  tar -xf $file\n  pushd $packagedir\n  case $name in\n    kapidox)\n      pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD\n      pip3 install --root=$DESTDIR --no-index --find-links dist --no-user kapidox\n      popd\n      rm -rf $packagedir\n      continue\n      ;;\n  esac\n  cmake -B build -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX \\\n        -D CMAKE_INSTALL_LIBEXECDIR=libexec \\\n        -D CMAKE_PREFIX_PATH=$QT6DIR \\\n        -D CMAKE_SKIP_INSTALL_RPATH=ON \\\n        -D CMAKE_BUILD_TYPE=Release \\\n        -D BUILD_TESTING=OFF \\\n        -D BUILD_PYTHON_BINDINGS=OFF \\\n        -W no-dev .\n  make -C build\n  popd\ndone < frameworks-6.23.0.md5"
+    ],
+    "package": [
+      "while read -r line; do\n  if $(echo $line | grep -E -q '^ *$|^#' ); then continue; fi\n  file=$(echo $line | cut -d\" \" -f2)\n  packagedir=$(echo $file | sed 's|\\.tar.*||')\n  name=$(basename \"$file\" | sed 's|-6.*$||')\n  if [ \"$name\" = kapidox ]; then continue; fi\n  if [ -d \"$packagedir/build\" ]; then\n    make -C $packagedir/build install DESTDIR=$DESTDIR\n    rm -rf $packagedir\n  fi\ndone < frameworks-6.23.0.md5"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "kde/frameworks6.html",
+  "category": "desktop-kde",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

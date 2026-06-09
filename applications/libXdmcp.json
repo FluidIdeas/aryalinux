@@ -1,0 +1,33 @@
+{
+  "name": "libXdmcp",
+  "version": "1.1.5",
+  "description": "",
+  "category": "",
+  "dependencies": {
+    "required": [
+      "xorgproto"
+    ]
+  },
+  "build": {
+    "environment": {
+      "XORG_CONFIG": "--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
+    },
+    "user": [
+      "./configure $XORG_CONFIG --docdir='${datadir}'/doc/libXdmcp-1.1.5",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "x/libXdmcp.html",
+  "url": [
+    "https://www.x.org/pub/individual/lib/libXdmcp-1.1.5.tar.xz"
+  ]
+}
