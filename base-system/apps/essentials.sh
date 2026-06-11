@@ -8,7 +8,7 @@ USERNAME="$1"
 # make-ca -g -f
 
 # alps install writes to / and must run as root in the chroot (no sudo/PAM).
-alps -ni install bash-completion python3 nano which wget make-ca ntfs-3g fuse lvm2 parted gptfdisk linux-pam shadow libpwquality
+alps -ni install bash-completion python3 nano which wget make-ca ntfs-3g fuse lvm2 parted gptfdisk linux-pam shadow systemd
 if [ ! -f /var/lib/alps/installed/shadow.json ]
 then
 	echo "Essentials incomplete (shadow). Aborting..."

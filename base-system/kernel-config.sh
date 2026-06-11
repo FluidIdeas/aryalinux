@@ -95,7 +95,7 @@ kernel_apply_lfs_requirements() {
 		-e CONFIG_TMPFS_XATTR \
 		-d CONFIG_SYSFS_DEPRECATED \
 		-d CONFIG_SYSFS_DEPRECATED_V2 \
-		-d CONFIG_AUDIT \
+		-e CONFIG_AUDIT \
 		-e CONFIG_SECCOMP \
 		-e CONFIG_FHANDLE \
 		--set-str CONFIG_DRM_PANIC_SCREEN kmsg \

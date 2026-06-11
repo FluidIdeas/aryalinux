@@ -10,8 +10,7 @@
   "build": {
     "user": [
       "sed -e \"s/'elinks'/'lynx'/\"                       \\\n    -e \"s/'-no-numbering', '-no-references'/      \\\n          '-force-html', '-nonumbers', '-stdin'/\" \\\n    -i meson.build",
-      "meson setup build --prefix=/usr       \\\n  --buildtype=release \\\n  -D docdir=/usr/share/doc/Linux-PAM-1.7.2 .",
-      "ninja -C build"
+      "mkdir -p build && cd build &&\nmeson setup ..        \\\n  --prefix=/usr       \\\n  --buildtype=release \\\n  -D docdir=/usr/share/doc/Linux-PAM-1.7.2 &&\nninja"
     ],
     "package": [
       "install -v -m755 -d $DESTDIR/etc/pam.d",

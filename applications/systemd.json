@@ -5,12 +5,15 @@
   "url": [
     "https://github.com/systemd/systemd/archive/v259.1/systemd-259.1.tar.gz"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "required": [
+      "linux-pam"
+    ]
+  },
   "build": {
     "user": [
       "sed -i -e 's/GROUP=\"render\"/GROUP=\"video\"/' \\\n       -e 's/GROUP=\"sgx\", //' rules.d/50-udev-default.rules.in",
-      "meson setup build                 \\\n      --prefix=/usr            \\\n      --buildtype=release      \\\n      -D default-dnssec=no     \\\n      -D firstboot=false       \\\n      -D install-tests=false   \\\n      -D ldconfig=false        \\\n      -D man=auto              \\\n      -D sysusers=false        \\\n      -D rpmmacrosdir=no       \\\n      -D homed=disabled        \\\n      -D mode=release          \\\n      -D pam=enabled           \\\n      -D pamconfdir=/etc/pam.d \\\n      -D dev-kvm-mode=0660     \\\n      -D nobody-group=nogroup  \\\n      -D sysupdate=disabled    \\\n      -D ukify=disabled        \\\n      -D docdir=/usr/share/doc/systemd-259.1 .",
-      "ninja -C build"
+      "mkdir -p build && cd build &&\nmeson setup ..                 \\\n      --prefix=/usr            \\\n      --buildtype=release      \\\n      -D default-dnssec=no     \\\n      -D firstboot=false       \\\n      -D install-tests=false   \\\n      -D ldconfig=false        \\\n      -D man=auto              \\\n      -D sysusers=false        \\\n      -D rpmmacrosdir=no       \\\n      -D homed=disabled        \\\n      -D mode=release          \\\n      -D pam=enabled           \\\n      -D pamconfdir=/etc/pam.d \\\n      -D dev-kvm-mode=0660     \\\n      -D nobody-group=nogroup  \\\n      -D sysupdate=disabled    \\\n      -D ukify=disabled        \\\n      -D docdir=/usr/share/doc/systemd-259.1 &&\nninja"
     ],
     "package": [
       "DESTDIR=$DESTDIR ninja -C build install",
@@ -30,10 +33,10 @@
   ],
   "meta": false,
   "book": "general/systemd.html",
-  "category": "libraries",
+  "category": "sysutils",
   "install": {
     "extract": [
-      "tar -xJf $PACKAGE -C /"
+      "tar -xzf $PACKAGE -C /"
     ]
   }
 }
