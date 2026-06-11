@@ -31,7 +31,7 @@
     ]
   },
   "post_install": [
-    "command -v trust >/dev/null && mkdir -p /var/cache/alps/sources && cd /var/cache/alps/sources && wget -nc http://www.cacert.org/certs/root.crt && wget -nc http://www.cacert.org/certs/class3.crt && openssl x509 -in root.crt -text -fingerprint -setalias \"CAcert Class 1 root\" -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning > /etc/ssl/local/CAcert_Class_1_root.pem && openssl x509 -in class3.crt -text -fingerprint -setalias \"CAcert Class 3 root\" -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning > /etc/ssl/local/CAcert_Class_3_root.pem && /usr/sbin/make-ca -r && _PIP_STANDALONE_CERT=/etc/pki/tls/certs/ca-bundle.crt /usr/sbin/make-ca -g && systemctl enable update-pki.timer"
+    "command -v trust >/dev/null && rm -f /etc/ssl/local/Disabled_Makebelieve_CA_Root.pem && mkdir -p /var/cache/alps/sources && cd /var/cache/alps/sources && wget -nc http://www.cacert.org/certs/root.crt && wget -nc http://www.cacert.org/certs/class3.crt && openssl x509 -in root.crt -text -fingerprint -setalias \"CAcert Class 1 root\" -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning > /etc/ssl/local/CAcert_Class_1_root.pem && openssl x509 -in class3.crt -text -fingerprint -setalias \"CAcert Class 3 root\" -addtrust serverAuth -addtrust emailProtection -addtrust codeSigning > /etc/ssl/local/CAcert_Class_3_root.pem && /usr/sbin/make-ca -r && systemctl enable update-pki.timer"
   ],
   "meta": false,
   "book": "postlfs/make-ca.html",
