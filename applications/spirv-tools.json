@@ -1,6 +1,6 @@
 {
   "name": "spirv-tools",
-  "version": "1.4.341.0",
+  "version": "1.4.350.0",
   "description": "",
   "category": "",
   "dependencies": {
@@ -26,6 +26,6 @@
   "meta": false,
   "book": "general/spirv-tools.html",
   "url": [
-    "https://github.com/KhronosGroup/SPIRV-Tools/archive/vulkan-sdk-1.4.341.0/SPIRV-Tools-vulkan-sdk-1.4.341.0.tar.gz"
+    "https://github.com/KhronosGroup/SPIRV-Tools/archive/vulkan-sdk-1.4.350.0/SPIRV-Tools-vulkan-sdk-1.4.350.0.tar.gz"
   ]
 }

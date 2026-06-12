@@ -88,12 +88,11 @@ def _expand_destdir(cmd: str, staging: Path) -> str:
 def _prepare_package_cmd(cmd: str, staging: Path) -> str:
     """Expand DESTDIR and adjust packaging commands for staging installs."""
     expanded = _expand_destdir(cmd, staging)
-    if (
-        re.match(r"^pip3 install\b", expanded)
-        and "--root=" in expanded
-        and "--ignore-installed" not in expanded
-    ):
-        expanded = f"{expanded} --ignore-installed"
+    if re.match(r"^pip3 install\b", expanded) and "--root=" in expanded:
+        if "--no-index" in expanded and "--no-deps" not in expanded:
+            expanded = f"{expanded} --no-deps"
+        if "--ignore-installed" not in expanded:
+            expanded = f"{expanded} --ignore-installed"
     return expanded
 
 

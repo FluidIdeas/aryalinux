@@ -8,7 +8,9 @@
   "dependencies": {
     "required": [
       "cmake",
-      "glib2"
+      "extra-cmake-modules",
+      "glib2",
+      "qt6"
     ],
     "post": [
       "phonon-backend-vlc"
@@ -19,7 +21,7 @@
       "KF6_PREFIX": "/usr"
     },
     "user": [
-      "cmake -B build -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D PHONON_BUILD_QT5=OFF      \\\n      -W no-dev .",
+      "LD_LIBRARY_PATH=$QT6PREFIX/lib cmake -B build -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX \\\n      -D CMAKE_PREFIX_PATH=$QT6PREFIX        \\\n      -D CMAKE_BUILD_TYPE=Release            \\\n      -D PHONON_BUILD_QT5=OFF                \\\n      -W no-dev .",
       "make -C build"
     ],
     "package": [

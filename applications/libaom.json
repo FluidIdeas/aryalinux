@@ -12,13 +12,12 @@
     "user": [
       "patch -Np1 -i ../libaom-3.13.1-nasm3-1.patch",
       "sed -i 's/aom aom_static/aom/' build/cmake/aom_install.cmake",
-      "mkdir aom-build",
-      "cd    aom-build",
-      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D BUILD_SHARED_LIBS=1       \\\n      -D ENABLE_DOCS=no            \\\n      -G Ninja .",
-      "ninja"
+      "cmake -B aom-build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D BUILD_SHARED_LIBS=1       \\\n      -D ENABLE_DOCS=no            \\\n      -G Ninja .",
+      "ninja -C aom-build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C aom-build install",
+      "rm -f $DESTDIR/usr/lib/libaom.a"
     ]
   },
   "install": {
@@ -30,5 +29,8 @@
   "book": "multimedia/libaom.html",
   "url": [
     "https://storage.googleapis.com/aom-releases/libaom-3.13.1.tar.gz"
+  ],
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/libaom-3.13.1-nasm3-1.patch"
   ]
 }

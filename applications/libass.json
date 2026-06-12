@@ -7,8 +7,9 @@
   ],
   "dependencies": {
     "required": [
+      "fontconfig",
       "freetype2",
-      "fontconfig"
+      "fribidi"
     ]
   },
   "build": {

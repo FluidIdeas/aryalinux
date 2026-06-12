@@ -7,14 +7,16 @@
   ],
   "dependencies": {
     "required": [
-      "libarchive"
+      "libarchive",
+      "libxml2"
     ]
   },
   "build": {
-    "user": [],
+    "user": [
+      "ROOT=$(find \"$PWD\" \"$PWD/..\" -maxdepth 1 -name catalog.xml 2>/dev/null | head -1); test -n \"$ROOT\" && cd \"$(dirname \"$ROOT\")\" && pwd > \"$OLDPWD/.docbook-root\""
+    ],
     "package": [
-      "install -d $DESTDIR/usr/share/xml/docbook/xml-dtd-4.5 $DESTDIR/etc/xml",
-      "cp -af catalog.xml docbook.cat *.dtd ent/ *.mod $DESTDIR/usr/share/xml/docbook/xml-dtd-4.5/",
+      "D=$(cat .docbook-root); install -d $DESTDIR/usr/share/xml/docbook/xml-dtd-4.5 $DESTDIR/etc/xml; cp -af \"$D/catalog.xml\" \"$D/docbook.cat\" \"$D\"/*.dtd \"$D/ent\" \"$D\"/*.mod $DESTDIR/usr/share/xml/docbook/xml-dtd-4.5/",
       "xmlcatalog --noout --add \"rewriteSystem\"        \\\n    \"http://www.oasis-open.org/docbook/xml/4.5\" \\\n    \"file://$DESTDIR/usr/share/xml/docbook/xml-dtd-4.5\" \\\n    $DESTDIR/usr/share/xml/docbook/xml-dtd-4.5/catalog.xml",
       "xmlcatalog --noout --add \"rewriteURI\"           \\\n    \"http://www.oasis-open.org/docbook/xml/4.5\" \\\n    \"file://$DESTDIR/usr/share/xml/docbook/xml-dtd-4.5\" \\\n    $DESTDIR/usr/share/xml/docbook/xml-dtd-4.5/catalog.xml",
       "xmlcatalog --noout --create $DESTDIR/etc/xml/catalog",

@@ -12,14 +12,12 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr       \\\n            --buildtype=release \\\n            ..",
-      "ninja",
+      "meson setup build --prefix=/usr       \\\n            --buildtype=release \\\n            .",
+      "ninja -C build",
       "rm -fv /usr/share/applications/org.gnome.eog.desktop"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
   "install": {

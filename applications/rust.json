@@ -14,19 +14,22 @@
   },
   "build": {
     "user": [
-      "cat << EOF > bootstrap.toml\n# See bootstrap.toml.example for more possible options,\n# and see src/bootstrap/defaults/bootstrap.dist.toml for a few options\n# automatically set when building from a release tarball\n# (unfortunately, we have to override many of them).\n\n# Tell x.py that the editors have reviewed the content of this file\n# and updated it to follow the major changes of the building system,\n# so x.py will not warn users to review that information.\nchange-id = 148795\n\n[llvm]\n# When using the system installed copy of LLVM, prefer the shared libraries\nlink-shared = true\n\n# If building the shipped LLVM source, only enable the x86 target\n# instead of all the targets supported by LLVM.\ntargets = \"X86\"\n\n[build]\ndescription = \"for BLFS 13.0\"\n\n# Omit the documentation to save time and space (the default is to build them).\ndocs = false\n\n# Do not look for new versions of the dependencies online.\nlocked-deps = true\n\n# Only install these extended tools. Cargo, clippy, rustdoc, and rustfmt\n# are installed by a default rustup installation, and rust-src is needed\n# to build the Rust code in Linux kernel (in case you need such a kernel\n# feature).\ntools = [\"cargo\", \"clippy\", \"rustdoc\", \"rustfmt\", \"src\"]\n\n[install]\nprefix = \"/opt/rustc-1.93.1\"\ndocdir = \"share/doc/rustc-1.93.1\"\n\n[rust]\nchannel = \"stable\"\n\n# Enable the same optimizations as the official upstream build.\nlto = \"thin\"\ncodegen-units = 1\n\n# Don't build llvm-bitcode-linker which is only useful for the NVPTX\n# backend that we don't enable.\nllvm-bitcode-linker = false\n\n[target.x86_64-unknown-linux-gnu]\nllvm-config = \"/usr/bin/llvm-config\"\n\n[target.i686-unknown-linux-gnu]\nllvm-config = \"/usr/bin/llvm-config\"\nEOF",
-      "export LIBSSH2_SYS_USE_PKG_CONFIG=1\nexport LIBSQLITE3_SYS_USE_PKG_CONFIG=1\n./x.py build",
+      "cat << EOF > bootstrap.toml\n# See bootstrap.toml.example for more possible options,\n# and see src/bootstrap/defaults/bootstrap.dist.toml for a few options\n# automatically set when building from a release tarball\n# (unfortunately, we have to override many of them).\n\n# Tell x.py that the editors have reviewed the content of this file\n# and updated it to follow the major changes of the building system,\n# so x.py will not warn users to review that information.\nchange-id = 148795\n\n[llvm]\n# When using the system installed copy of LLVM, prefer the shared libraries\nlink-shared = true\n\n# If building the shipped LLVM source, only enable the x86 target\n# instead of all the targets supported by LLVM.\ntargets = \"X86\"\n\n[build]\ndescription = \"for BLFS 13.0\"\n\n# Omit the documentation to save time and space (the default is to build them).\ndocs = false\n\n# Do not look for new versions of the dependencies online.\nlocked-deps = true\n\n# Only install these extended tools. Cargo, clippy, rustdoc, and rustfmt\n# are installed by a default rustup installation, and rust-src is needed\n# to build the Rust code in Linux kernel (in case you need such a kernel\n# feature).\ntools = [\"cargo\", \"clippy\", \"rustdoc\", \"rustfmt\", \"src\"]\n\n[install]\nprefix = \"/opt/rustc-1.93.1\"\ndocdir = \"share/doc/rustc-1.93.1\"\n\n[rust]\nchannel = \"stable\"\n\n# Enable the same optimizations as the official upstream build.\nlto = \"thin\"\ncodegen-units = 1\n\n# Don't build lld (belongs in LLVM if needed).\nlld = false\n\n# Don't build llvm-bitcode-linker which is only useful for the NVPTX\n# backend that we don't enable.\nllvm-bitcode-linker = false\n\n[target.x86_64-unknown-linux-gnu]\nllvm-config = \"/usr/bin/llvm-config\"\n\n[target.i686-unknown-linux-gnu]\nllvm-config = \"/usr/bin/llvm-config\"\nEOF",
+      "[ ! -e /usr/include/libssh2.h ] || export LIBSSH2_SYS_USE_PKG_CONFIG=1",
+      "[ ! -e /usr/include/sqlite3.h ] || export LIBSQLITE3_SYS_USE_PKG_CONFIG=1",
+      "./x.py build",
       "unset LIB{SSH2,SQLITE3}_SYS_USE_PKG_CONFIG"
     ],
     "package": [
       "DESTDIR=$DESTDIR ./x.py install",
-      "rm -fv $DESTDIR/opt/rustc-1.93.1/share/doc/rustc-1.93.1/*.old",
-      "install -vdm755 $DESTDIR/opt/rustc",
-      "ln -svfn rustc-1.93.1 $DESTDIR/opt/rustc",
+      "rm -fv $DESTDIR/opt/rustc-1.93.1/share/doc/rustc-1.93.1/*.old 2>/dev/null || true",
+      "[ -f README.md ] && install -vm644 README.md $DESTDIR/opt/rustc-1.93.1/share/doc/rustc-1.93.1",
+      "install -vdm755 $DESTDIR/opt",
+      "rm -rf $DESTDIR/opt/rustc",
+      "(cd $DESTDIR/opt && ln -svfn rustc-1.93.1 rustc)",
       "install -vdm755 $DESTDIR/usr/share/zsh/site-functions",
-      "ln -sfv /opt/rustc/share/zsh/site-functions/_cargo \\\n        $DESTDIR/usr/share/zsh/site-functions/_cargo",
-      "install -vdm755 $DESTDIR/usr/share/bash-completion/completions",
-      "mv -v $DESTDIR/etc/bash_completion.d/cargo \\\n   $DESTDIR/usr/share/bash-completion/completions/cargo",
+      "ln -sfv /opt/rustc/share/zsh/site-functions/_cargo $DESTDIR/usr/share/zsh/site-functions/_cargo",
+      "if [ -f $DESTDIR/etc/bash_completion.d/cargo ]; then install -vdm755 $DESTDIR/usr/share/bash-completion/completions && mv -v $DESTDIR/etc/bash_completion.d/cargo $DESTDIR/usr/share/bash-completion/completions/; fi",
       "install -vdm755 $DESTDIR/etc/profile.d",
       "cat > $DESTDIR/etc/profile.d/rustc.sh << \"EOF\"\n# Begin /etc/profile.d/rustc.sh\n\npathprepend /opt/rustc/bin           PATH\n\n# End /etc/profile.d/rustc.sh\nEOF"
     ]

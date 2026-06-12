@@ -1,0 +1,30 @@
+{
+  "name": "libupnp",
+  "version": "1.18.5",
+  "description": "libupnp (pupnp) is a portable UPnP development kit.",
+  "category": "multimedia",
+  "dependencies": {
+    "required": [
+      "cmake"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D BUILD_SHARED_LIBS=ON      \\\n      -G Ninja .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/vlc.html",
+  "url": [
+    "https://github.com/pupnp/pupnp/archive/refs/tags/release-1.18.5.tar.gz"
+  ],
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

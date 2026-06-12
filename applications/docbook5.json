@@ -11,10 +11,11 @@
     ]
   },
   "build": {
-    "user": [],
+    "user": [
+      "ROOT=$(find \"$PWD\" \"$PWD/..\" -maxdepth 1 -name catalog.xml 2>/dev/null | head -1); test -n \"$ROOT\" && cd \"$(dirname \"$ROOT\")\" && pwd > \"$OLDPWD/.docbook-root\""
+    ],
     "package": [
-      "install -d $DESTDIR/usr/share/xml/docbook/xml-5.0 $DESTDIR/etc/xml",
-      "cp -rv catalog.xml dtd rng sch xsd $DESTDIR/usr/share/xml/docbook/xml-5.0/",
+      "D=$(cat .docbook-root); install -d $DESTDIR/usr/share/xml/docbook/xml-5.0 $DESTDIR/etc/xml; cp -rv \"$D/catalog.xml\" \"$D/dtd\" \"$D/rng\" \"$D/sch\" \"$D/xsd\" $DESTDIR/usr/share/xml/docbook/xml-5.0/",
       "xmlcatalog --noout --create $DESTDIR/etc/xml/catalog",
       "xmlcatalog --noout --add \"delegatePublic\" \"-//OASIS//DTD DocBook XML 5.0//EN\" \"file://$DESTDIR/usr/share/xml/docbook/xml-5.0/catalog.xml\" $DESTDIR/etc/xml/catalog",
       "xmlcatalog --noout --add \"delegateSystem\" \"http://docbook.org/xml/5.0/dtd/\" \"file://$DESTDIR/usr/share/xml/docbook/xml-5.0/catalog.xml\" $DESTDIR/etc/xml/catalog",

@@ -13,14 +13,12 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup ..        \\\n      --prefix=/usr   \\\n      -D release=true",
-      "ninja",
+      "meson setup build        \\\n      --prefix=/usr   \\\n      -D release=true .",
+      "ninja -C build",
       "rm /usr/lib/libproxy.a"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
   "install": {

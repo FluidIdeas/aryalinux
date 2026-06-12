@@ -12,12 +12,11 @@
   },
   "build": {
     "user": [
-      "sed -i -e '/ISO 8879/d' \\\n       -e '/gml/d' docbook.cat"
+      "ROOT=$(find \"$PWD\" \"$PWD/..\" -maxdepth 1 -name docbook.cat 2>/dev/null | head -1); test -n \"$ROOT\" && cd \"$(dirname \"$ROOT\")\" && pwd > \"$OLDPWD/.docbook-root\"",
+      "D=$(cat .docbook-root); sed -i -e '/ISO 8879/d' \\\n       -e '/gml/d' \"$D/docbook.cat\""
     ],
     "package": [
-      "install -d $DESTDIR/usr/share/sgml/docbook/sgml-dtd-4.5 $DESTDIR/etc/sgml",
-      "install -m644 docbook.cat $DESTDIR/usr/share/sgml/docbook/sgml-dtd-4.5/catalog",
-      "cp -af *.dtd *.mod *.dcl $DESTDIR/usr/share/sgml/docbook/sgml-dtd-4.5/",
+      "D=$(cat .docbook-root); install -d $DESTDIR/usr/share/sgml/docbook/sgml-dtd-4.5 $DESTDIR/etc/sgml; install -m644 \"$D/docbook.cat\" $DESTDIR/usr/share/sgml/docbook/sgml-dtd-4.5/catalog; cp -af \"$D\"/*.dtd \"$D\"/*.mod \"$D\"/*.dcl $DESTDIR/usr/share/sgml/docbook/sgml-dtd-4.5/",
       "install-catalog --add $DESTDIR/etc/sgml/sgml-docbook-dtd-4.5.cat $DESTDIR/usr/share/sgml/docbook/sgml-dtd-4.5/catalog",
       "install-catalog --add $DESTDIR/etc/sgml/sgml-docbook-dtd-4.5.cat $DESTDIR/etc/sgml/sgml-docbook.cat",
       "cat >> $DESTDIR/usr/share/sgml/docbook/sgml-dtd-4.5/catalog << \"EOF\"\n  -- Begin Single Major Version catalog changes --\n\nPUBLIC \"-//OASIS//DTD DocBook V4.4//EN\" \"docbook.dtd\"\nPUBLIC \"-//OASIS//DTD DocBook V4.3//EN\" \"docbook.dtd\"\nPUBLIC \"-//OASIS//DTD DocBook V4.2//EN\" \"docbook.dtd\"\nPUBLIC \"-//OASIS//DTD DocBook V4.1//EN\" \"docbook.dtd\"\nPUBLIC \"-//OASIS//DTD DocBook V4.0//EN\" \"docbook.dtd\"\n\n  -- End Single Major Version catalog changes --\nEOF"

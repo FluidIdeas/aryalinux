@@ -14,7 +14,7 @@
   },
   "build": {
     "user": [
-      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr  \\\n      -D CMAKE_BUILD_TYPE=Release   \\\n      -D SHARED_ONLY=yes            \\\n      -D ICAL_BUILD_DOCS=false      \\\n      -D GOBJECT_INTROSPECTION=true \\\n      -D ICAL_GLIB_VAPI=true        \\\n      .",
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr  \\\n      -D CMAKE_BUILD_TYPE=Release   \\\n      -D SHARED_ONLY=yes            \\\n      -D ICAL_BUILD_DOCS=false      \\\n      -D GOBJECT_INTROSPECTION=true \\\n      -D ICAL_GLIB_VAPI=false       \\\n      .",
       "make -C build -j1"
     ],
     "package": [

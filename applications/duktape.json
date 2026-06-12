@@ -12,10 +12,14 @@
       "make -f Makefile.sharedlibrary INSTALL_PREFIX=/usr"
     ],
     "package": [
-      "make -f Makefile.sharedlibrary INSTALL_PREFIX=$DESTDIR/usr install"
+      "make -f Makefile.sharedlibrary INSTALL_PREFIX=/usr DESTDIR=$DESTDIR install",
+      "test -f $DESTDIR/usr/include/duktape.h",
+      "test -f $DESTDIR/usr/lib/pkgconfig/duktape.pc"
     ]
   },
-  "post_install": [],
+  "post_install": [
+    "ldconfig"
+  ],
   "meta": false,
   "book": "general/duktape.html",
   "category": "libraries",

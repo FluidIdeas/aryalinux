@@ -21,6 +21,7 @@
     "recommended": [
       "alsa-lib",
       "cups",
+      "cups-filters",
       "ffmpeg",
       "glib2",
       "gst10-plugins-bad",
@@ -59,7 +60,9 @@
       "cat > $DESTDIR/etc/profile.d/qt6.sh << \"EOF\"\n# Begin /etc/profile.d/qt6.sh\n\nQT6DIR=/opt/qt6\n\npathappend $QT6DIR/bin           PATH\npathappend $QT6DIR/lib/pkgconfig PKG_CONFIG_PATH\n\nexport QT6DIR\n\n# End /etc/profile.d/qt6.sh\nEOF"
     ]
   },
-  "post_install": [],
+  "post_install": [
+    "ldconfig"
+  ],
   "meta": false,
   "book": "x/qt6.html",
   "category": "x11",

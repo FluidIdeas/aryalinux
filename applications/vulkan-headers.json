@@ -1,0 +1,31 @@
+{
+  "name": "vulkan-headers",
+  "version": "1.4.341.0",
+  "description": "Vulkan-Headers provides the header files and CMake package needed to build and link applications against the Vulkan API.",
+  "url": [
+    "https://github.com/KhronosGroup/Vulkan-Headers/archive/vulkan-sdk-1.4.341.0/Vulkan-Headers-vulkan-sdk-1.4.341.0.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "cmake"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr -G Ninja .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "x/vulkan-headers.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

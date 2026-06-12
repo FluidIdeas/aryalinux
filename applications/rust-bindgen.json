@@ -16,10 +16,10 @@
       "cargo build --release"
     ],
     "package": [
-      "install -Dm755 target/release/bindgen $DESTDIR/usr/bin/",
-      "bindgen --generate-shell-completions bash > bindgen.bash",
+      "install -Dm755 target/release/bindgen $DESTDIR/usr/bin/bindgen",
+      "target/release/bindgen --generate-shell-completions bash > bindgen.bash",
       "install -Dm644 bindgen.bash $DESTDIR/usr/share/bash-completion/completions/bindgen",
-      "bindgen --generate-shell-completions zsh > bindgen.zsh",
+      "target/release/bindgen --generate-shell-completions zsh > bindgen.zsh",
       "install -Dm644 bindgen.zsh $DESTDIR/usr/share/zsh/site-functions/_bindgen"
     ]
   },

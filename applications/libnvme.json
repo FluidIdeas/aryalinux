@@ -6,13 +6,11 @@
   "dependencies": {},
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr --buildtype=release -D libdbus=auto ..",
-      "ninja"
+      "meson setup build --prefix=/usr --buildtype=release -D libdbus=auto .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
   "install": {

@@ -12,14 +12,12 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr --buildtype=release ..",
-      "ninja",
+      "meson setup build --prefix=/usr --buildtype=release .",
+      "ninja -C build",
       "glib-compile-schemas /usr/share/glib-2.0/schemas"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
   "install": {

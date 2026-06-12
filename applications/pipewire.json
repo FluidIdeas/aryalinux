@@ -9,8 +9,7 @@
     "required": [
       "bluez",
       "gst10-plugins-base",
-      "pulseaudio",
-      "wireplumber"
+      "pulseaudio"
     ]
   },
   "build": {

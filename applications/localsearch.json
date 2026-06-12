@@ -18,10 +18,8 @@
     "user": [
       "sed -i s/120/200/ tests/functional-tests/meson.build",
       "patch -Np1 -i ../localsearch-3.10.2-security_fixes-1.patch",
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr             \\\n            --buildtype=release       \\\n            -D man=false              \\\n            -D functional_tests=false \\\n            ..",
-      "ninja",
+      "meson setup build --prefix=/usr             \\\n            --buildtype=release       \\\n            -D man=false              \\\n            -D functional_tests=false \\\n            .",
+      "ninja -C build",
       "rm -fv /etc/xdg/autostart/tracker-miner-fs-3.desktop",
       "rm -fv /usr/lib/systemd/user/tracker-miner-fs-3.service",
       "rm -fv /usr/lib/systemd/user/tracker-miner-fs-control-3.service",
@@ -30,7 +28,7 @@
       "rm -fv /usr/share/dbus-1/services/org.freedesktop.Tracker3.Miner.Files.Control.service"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
   "install": {

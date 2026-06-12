@@ -11,17 +11,15 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd build",
-      "meson setup                \\\n      --prefix=/usr        \\\n      --buildtype=release  \\\n      -D gtk_doc=false     \\\n      -D tests=false       \\\n      ..",
-      "ninja",
+      "meson setup build                \\\n      --prefix=/usr        \\\n      --buildtype=release  \\\n      -D gtk_doc=false     \\\n      -D tests=false       \\\n      .",
+      "ninja -C build",
       "powerprofilesctl",
       "powerprofilesctl set performance",
       "gov=performance\nfor CPUFREQ in /sys/devices/system/cpu/cpufreq/policy*/scaling_governor; do\n  echo -n ${gov} > ${CPUFREQ}\ndone",
       "systemctl enable power-profiles-daemon"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
   "install": {

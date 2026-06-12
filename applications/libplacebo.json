@@ -11,13 +11,11 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup ..            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D tests=true       \\\n      -D demos=false",
-      "ninja"
+      "meson setup build            \\\n      --prefix=/usr       \\\n      --buildtype=release \\\n      -D tests=true       \\\n      -D demos=false .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
   "install": {

@@ -11,10 +11,10 @@
   "build": {
     "user": [
       "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr   \\\n      -D CMAKE_BUILD_TYPE=Release    \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON \\\n      -D ABSL_PROPAGATE_CXX_STD=ON   \\\n      -D BUILD_SHARED_LIBS=ON        \\\n      -G Ninja .",
-      "ninja"
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
   "install": {

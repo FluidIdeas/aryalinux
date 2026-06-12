@@ -1,0 +1,26 @@
+{
+  "name": "libdca",
+  "version": "0.0.7",
+  "description": "libdca is a free library for decoding DTS Coherent Acoustics streams.",
+  "category": "multimedia",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr \\\n            --disable-static",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/vlc.html",
+  "url": [
+    "https://download.videolan.org/pub/videolan/libdca/0.0.7/libdca-0.0.7.tar.bz2"
+  ],
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

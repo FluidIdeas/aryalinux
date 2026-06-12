@@ -19,16 +19,14 @@
       "patch -Np1 -i ../glycin-2.0.8-xorg_prefix-1.patch",
       "patch -Np1 -i ../glycin-2.0.8-xbm_xpm-1.patch",
       "cargo vendor",
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr           \\\n            --buildtype=release     \\\n            -D libglycin-gtk4=false \\\n            -D tests=false ..",
-      "ninja",
-      "sed \"/install_dir:.*doc/s|,$| / 'glycin-' + meson.project_version()&|\" \\\n    -i ../libglycin/meson.build",
-      "meson configure -D capi_docs=true",
-      "ninja"
+      "meson setup build --prefix=/usr           \\\n            --buildtype=release     \\\n            -D libglycin-gtk4=false \\\n            -D tests=false .",
+      "ninja -C build",
+      "sed \"/install_dir:.*doc/s|,$| / 'glycin-' + meson.project_version()&|\" \\\n    -i libglycin/meson.build",
+      "meson configure build -D capi_docs=true",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
   "install": {

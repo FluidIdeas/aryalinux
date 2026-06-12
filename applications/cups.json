@@ -9,8 +9,11 @@
     "required": [
       "gnutls",
       "colord",
-      "libusb",
-      "cups-filters"
+      "libusb"
+    ],
+    "post": [
+      "cups-filters",
+      "gutenprint"
     ]
   },
   "build": {

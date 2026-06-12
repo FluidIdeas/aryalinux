@@ -15,13 +15,11 @@
     "user": [
       "rm -fv /usr/lib/systemd/user/tracker-xdg-portal-3.service",
       "sed -e \"s/'generate'/&, '--no-namespace-dir'/\"         \\\n    -e \"/--output-dir/s/@OUTPUT@/&\\/tinysparql-3.10.1/\" \\\n    -i docs/reference/meson.build",
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr       \\\n            --buildtype=release \\\n            -D man=false        \\\n            ..",
-      "ninja"
+      "meson setup build --prefix=/usr       \\\n            --buildtype=release \\\n            -D man=false        \\\n            .",
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
   "install": {

@@ -8,12 +8,15 @@
   "dependencies": {
     "required": [
       "dav1d",
+      "fdk-aac",
+      "lame",
       "libaom",
       "libass",
       "freetype2",
       "libvorbis",
       "libvpx",
       "opus",
+      "svt-av1",
       "x264",
       "x265",
       "alsa-lib",

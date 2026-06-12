@@ -18,15 +18,10 @@
   "build": {
     "user": [
       "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D SDL_TEST_LIBRARY=OFF      \\\n      -D SDL_STATIC=OFF            \\\n      -D SDL_RPATH=OFF             \\\n      -W no-dev -G Ninja .",
-      "ninja",
-      "mkdir ../build-tests",
-      "cd    ../build-tests",
-      "cmake -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D SDL_STATIC=OFF            \\\n      -D SDL_RPATH=OFF             \\\n      -D SDL_TESTS=ON              \\\n      -D SDL_INSTALL_TESTS=ON      \\\n      -W no-dev -G Ninja ..",
-      "ninja",
-      "DESTDIR=$PWD/TESTS ninja install"
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
   "install": {

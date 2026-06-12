@@ -1,0 +1,30 @@
+{
+  "name": "libtheora",
+  "version": "1.2.0",
+  "description": "libtheora is the reference implementation of the Theora video codec.",
+  "category": "multimedia",
+  "dependencies": {
+    "required": [
+      "libogg"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr \\\n            --disable-static",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/vlc.html",
+  "url": [
+    "https://downloads.xiph.org/releases/theora/libtheora-1.2.0.tar.xz"
+  ],
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

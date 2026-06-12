@@ -1,0 +1,30 @@
+{
+  "name": "libnfs",
+  "version": "5.0.2",
+  "description": "libnfs is a client library for accessing NFS shares over the network.",
+  "category": "multimedia",
+  "dependencies": {
+    "required": [
+      "cmake"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D BUILD_SHARED_LIBS=ON      \\\n      -G Ninja .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/vlc.html",
+  "url": [
+    "https://github.com/sahlberg/libnfs/archive/refs/tags/libnfs-5.0.2.tar.gz"
+  ],
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

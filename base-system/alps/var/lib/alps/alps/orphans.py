@@ -37,25 +37,19 @@ def find_orphans(ports_dir: Path, installed_dir: Path) -> list[str]:
     return sorted(orphans)
 
 
-def prompt_remove_orphans(
-    config: dict[str, str],
-    *,
-    no_interactive: bool,
-    remove_package,
-) -> None:
+def print_orphan_notice(config: dict[str, str]) -> None:
+    """Print installed dependency-only packages that nothing else requires."""
     paths = {
         "ports": Path(config["PORTS_DIR"]),
         "installed": Path(config["INSTALLED_DIR"]),
     }
     orphans = find_orphans(paths["ports"], paths["installed"])
-    if not orphans or no_interactive:
+    if not orphans:
         return
 
-    print("The following packages were installed only as dependencies and are no longer needed:")
-    for name in orphans:
-        print(f"  {name}")
-    answer = input("Remove them? [y/N] ").strip().lower()
-    if answer not in ("y", "yes"):
-        return
-    for name in orphans:
-        remove_package(config, name)
+    print(
+        "The following packages were installed only as dependencies and are no longer needed: "
+        + ", ".join(orphans)
+    )
+    print("Use 'alps orphans' to list them or 'alps remove <pkg>' to uninstall.")
+    print("")

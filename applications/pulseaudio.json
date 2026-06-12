@@ -15,11 +15,12 @@
   },
   "build": {
     "user": [
-      "meson setup build --prefix=/usr       \\\n            --buildtype=release \\\n            -D database=gdbm    \\\n            -D doxygen=false    \\\n            -D bluez5=disabled  \\\n            -D tests=false      \\\n            .",
+      "meson setup build --prefix=/usr       \\\n            --buildtype=release \\\n            -D libdir=lib         \\\n            -D database=gdbm    \\\n            -D doxygen=false    \\\n            -D bluez5=disabled  \\\n            -D tests=false      \\\n            .",
       "ninja -C build"
     ],
     "package": [
       "DESTDIR=$DESTDIR ninja -C build install",
+      "if [ -d $DESTDIR/lib ] && [ ! -L $DESTDIR/lib ]; then\n  mkdir -p $DESTDIR/usr/lib\n  cp -a $DESTDIR/lib/. $DESTDIR/usr/lib/\n  rm -rf $DESTDIR/lib\nfi",
       "rm -f $DESTDIR/usr/share/dbus-1/system.d/pulseaudio-system.conf"
     ]
   },

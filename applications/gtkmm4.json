@@ -11,14 +11,12 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup --prefix=/usr --buildtype=release ..",
-      "ninja",
+      "meson setup build --prefix=/usr --buildtype=release .",
+      "ninja -C build",
       "mv -v /usr/share/doc/gtkmm-4.0 /usr/share/doc/gtkmm-4.20.0"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
   "install": {

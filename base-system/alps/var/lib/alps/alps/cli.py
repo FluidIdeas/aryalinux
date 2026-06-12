@@ -17,7 +17,7 @@ from .installer import (
     packages_needing_update,
     remove_package,
 )
-from .orphans import find_orphans, prompt_remove_orphans
+from .orphans import find_orphans, print_orphan_notice
 from .port import list_ports, load_port
 from .registry import list_installed
 from .util import clear_directory, ensure_state_dir
@@ -47,6 +47,12 @@ def _config_paths(config: dict[str, str]) -> dict[str, Path]:
     return {k: Path(config[k]) for k in (
         "PORTS_DIR", "SOURCES_DIR", "PACKAGES_DIR", "STAGING_DIR", "INSTALLED_DIR",
     )}
+
+
+def _confirm_default_yes(prompt: str) -> bool:
+    """Return False only when the user explicitly answers no."""
+    answer = input(prompt).strip().lower()
+    return answer not in ("n", "no")
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -83,11 +89,6 @@ def main(argv: list[str] | None = None) -> int:
     cmd = args.command
     pkgs = args.packages
 
-    if cmd not in ("help", "-h", "orphans"):
-        prompt_remove_orphans(
-            config, no_interactive=args.no_interactive, remove_package=remove_package,
-        )
-
     try:
         if cmd == "install":
             if not pkgs:
@@ -96,8 +97,8 @@ def main(argv: list[str] | None = None) -> int:
             if args.force:
                 if not args.no_interactive:
                     print(format_force_install_plan(config, pkgs))
-                    answer = input("Continue with force install? [y/N] ").strip().lower()
-                    if answer not in ("y", "yes"):
+                    print_orphan_notice(config)
+                    if not _confirm_default_yes("Continue with force install? [Y/n] "):
                         print("Aborted.")
                         return 0
                 force_install_packages(config, pkgs)
@@ -112,8 +113,8 @@ def main(argv: list[str] | None = None) -> int:
                     print(report.text)
                     if not report.can_proceed:
                         return 0
-                    answer = input("Continue? [y/N] ").strip().lower()
-                    if answer not in ("y", "yes"):
+                    print_orphan_notice(config)
+                    if not _confirm_default_yes("Continue? [Y/n] "):
                         print("Aborted.")
                         return 0
                 install_packages(

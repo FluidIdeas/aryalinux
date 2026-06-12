@@ -1,0 +1,26 @@
+{
+  "name": "libcaca",
+  "version": "0.99.beta20",
+  "description": "libcaca is a graphics library that renders graphics into ASCII art.",
+  "category": "multimedia",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr \\\n            --disable-static",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/vlc.html",
+  "url": [
+    "https://github.com/cacalabs/libcaca/releases/download/v0.99.beta20/libcaca-0.99.beta20.tar.gz"
+  ],
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

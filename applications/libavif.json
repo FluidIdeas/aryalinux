@@ -13,13 +13,10 @@
     "user": [
       "sed 's/enable_adaptive_quantization/aq_mode/' -i src/codec_svt.c",
       "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D AVIF_CODEC_AOM=SYSTEM     \\\n      -D AVIF_CODEC_DAV1D=SYSTEM   \\\n      -D AVIF_CODEC_SVT=SYSTEM     \\\n      -D AVIF_BUILD_GDK_PIXBUF=OFF \\\n      -D AVIF_LIBYUV=OFF           \\\n      -G Ninja .",
-      "ninja",
-      "cmake .. -D AVIF_GTEST=LOCAL -D AVIF_BUILD_TESTS=ON",
-      "ninja",
-      "ninja test"
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
   "install": {

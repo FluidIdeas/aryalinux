@@ -9,6 +9,7 @@
     "required": [
       "dbus",
       "glib2",
+      "libical",
       "python-modules.docutils"
     ]
   },
@@ -20,6 +21,7 @@
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
+      "install -d $DESTDIR/usr/sbin",
       "ln -sfv ../libexec/bluetooth/bluetoothd $DESTDIR/usr/sbin/bluetoothd",
       "install -d $DESTDIR/etc/bluetooth",
       "install -m644 src/main.conf $DESTDIR/etc/bluetooth/main.conf",

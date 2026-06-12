@@ -12,12 +12,11 @@
   },
   "build": {
     "user": [
-      "sed -i -e '/ISO 8879/d' \\\n       -e 's|DTDDECL \"-//OASIS//DTD DocBook V3.1//EN\"|SGMLDECL|g' \\\n       docbook.cat"
+      "ROOT=$(find \"$PWD\" \"$PWD/..\" -maxdepth 1 -name docbook.cat 2>/dev/null | head -1); test -n \"$ROOT\" && cd \"$(dirname \"$ROOT\")\" && pwd > \"$OLDPWD/.docbook-root\"",
+      "D=$(cat .docbook-root); sed -i -e '/ISO 8879/d' \\\n       -e 's|DTDDECL \"-//OASIS//DTD DocBook V3.1//EN\"|SGMLDECL|g' \\\n       \"$D/docbook.cat\""
     ],
     "package": [
-      "install -d $DESTDIR/usr/share/sgml/docbook/sgml-dtd-3.1 $DESTDIR/etc/sgml",
-      "install -m644 docbook.cat $DESTDIR/usr/share/sgml/docbook/sgml-dtd-3.1/catalog",
-      "cp -af *.dtd *.mod *.dcl $DESTDIR/usr/share/sgml/docbook/sgml-dtd-3.1/",
+      "D=$(cat .docbook-root); install -d $DESTDIR/usr/share/sgml/docbook/sgml-dtd-3.1 $DESTDIR/etc/sgml; install -m644 \"$D/docbook.cat\" $DESTDIR/usr/share/sgml/docbook/sgml-dtd-3.1/catalog; cp -af \"$D\"/*.dtd \"$D\"/*.mod \"$D\"/*.dcl $DESTDIR/usr/share/sgml/docbook/sgml-dtd-3.1/",
       "install-catalog --add $DESTDIR/etc/sgml/sgml-docbook-dtd-3.1.cat $DESTDIR/usr/share/sgml/docbook/sgml-dtd-3.1/catalog",
       "install-catalog --add $DESTDIR/etc/sgml/sgml-docbook-dtd-3.1.cat $DESTDIR/etc/sgml/sgml-docbook.cat",
       "cat >> $DESTDIR/usr/share/sgml/docbook/sgml-dtd-3.1/catalog << \"EOF\"\n  -- Begin Single Major Version catalog changes --\n\nPUBLIC \"-//Davenport//DTD DocBook V3.0//EN\" \"docbook.dtd\"\n\n  -- End Single Major Version catalog changes --\nEOF"

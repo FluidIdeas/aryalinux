@@ -10,6 +10,7 @@
   "dependencies": {
     "required": [
       "cups",
+      "cups-filters",
       "libjpeg",
       "libpng",
       "openjpeg2"

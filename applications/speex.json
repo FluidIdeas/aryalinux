@@ -3,7 +3,9 @@
   "version": "1.2.1",
   "description": "Speex is an audio compression format designed specifically for speech. It is well-adapted to internet applications and provides useful features that are not present in most other CODECs.",
   "url": [
-    "https://downloads.xiph.org/releases/speex/speex-1.2.1.tar.gz",
+    "https://downloads.xiph.org/releases/speex/speex-1.2.1.tar.gz"
+  ],
+  "additionalUrls": [
     "https://downloads.xiph.org/releases/speex/speexdsp-1.2.1.tar.gz"
   ],
   "dependencies": {
@@ -16,10 +18,7 @@
       "./configure --prefix=/usr    \\\n            --disable-static",
       "make",
       "tar -xf ../speexdsp-1.2.1.tar.gz",
-      "pushd speexdsp-1.2.1",
-      "./configure --prefix=/usr    \\\n            --disable-static",
-      "make",
-      "popd"
+      "(cd speexdsp-1.2.1 && ./configure --prefix=/usr \\\n            --disable-static && make)"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",

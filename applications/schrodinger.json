@@ -1,0 +1,26 @@
+{
+  "name": "schrodinger",
+  "version": "1.0.11",
+  "description": "Schroedinger is an implementation of the Dirac video codec.",
+  "category": "multimedia",
+  "dependencies": {},
+  "build": {
+    "user": [
+      "./configure --prefix=/usr \\\n            --disable-static",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "meta": false,
+  "book": "multimedia/vlc.html",
+  "url": [
+    "https://code.videolan.org/videolan/schroedinger/-/archive/1.0.11/schroedinger-1.0.11.tar.bz2"
+  ],
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -14,14 +14,12 @@
   },
   "build": {
     "user": [
-      "mkdir build",
-      "cd    build",
-      "meson setup ..                 \\\n      --prefix=/usr            \\\n      --buildtype=release      \\\n      -D bash_completion=false \\\n      -D qrtr=false",
-      "ninja",
+      "meson setup build                 \\\n      --prefix=/usr            \\\n      --buildtype=release      \\\n      -D bash_completion=false \\\n      -D qrtr=false .",
+      "ninja -C build",
       "systemctl enable ModemManager"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
   "install": {

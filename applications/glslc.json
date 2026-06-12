@@ -15,10 +15,11 @@
       "sed '/third_party/d'     -i CMakeLists.txt",
       "sed 's|SPIRV|glslang/&|' -i libshaderc_util/src/compiler.cc",
       "echo '\"2026.1\"' > glslc/src/build-version.inc",
-      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D SHADERC_SKIP_TESTS=ON     \\\n      -G Ninja .\nninja glslc/glslc"
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -D SHADERC_SKIP_TESTS=ON     \\\n      -G Ninja .",
+      "ninja -C build glslc/glslc"
     ],
     "package": [
-      "install -vm755 glslc/glslc $DESTDIR/usr/bin"
+      "install -vm755 build/glslc/glslc $DESTDIR/usr/bin"
     ]
   },
   "install": {
