@@ -12,7 +12,7 @@
       "make"
     ],
     "package": [
-      "make docdir=/usr/share/doc/libdaemon-0.14 install DESTDIR=$DESTDIR"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
   "post_install": [],

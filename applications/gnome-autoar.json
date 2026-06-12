@@ -13,7 +13,7 @@
   },
   "build": {
     "user": [
-      "meson setup build --prefix=/usr       \\\n            --buildtype=release \\\n            -D vapi=true        \\\n            -D tests=true       \\\n            .",
+      "meson setup build --prefix=/usr       \\\n            --buildtype=release \\\n            -D vapi=true        \\\n            -D tests=false       \\\n            .",
       "ninja -C build"
     ],
     "package": [

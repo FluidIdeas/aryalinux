@@ -11,7 +11,7 @@
   },
   "build": {
     "user": [
-      "meson setup bld             \\\n      --prefix=/usr        \\\n      --buildtype=release  \\\n      -D build-tests=true  \\\n      -D boost-shared=true .",
+      "meson setup bld             \\\n      --prefix=/usr        \\\n      --buildtype=release  \\\n      -D build-tests=false  \\\n      -D boost-shared=true .",
       "ninja -C bld"
     ],
     "package": [

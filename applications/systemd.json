@@ -13,7 +13,7 @@
   "build": {
     "user": [
       "sed -i -e 's/GROUP=\"render\"/GROUP=\"video\"/' \\\n       -e 's/GROUP=\"sgx\", //' rules.d/50-udev-default.rules.in",
-      "mkdir -p build && cd build &&\nmeson setup ..                 \\\n      --prefix=/usr            \\\n      --buildtype=release      \\\n      -D default-dnssec=no     \\\n      -D firstboot=false       \\\n      -D install-tests=false   \\\n      -D ldconfig=false        \\\n      -D man=auto              \\\n      -D sysusers=false        \\\n      -D rpmmacrosdir=no       \\\n      -D homed=disabled        \\\n      -D mode=release          \\\n      -D pam=enabled           \\\n      -D pamconfdir=/etc/pam.d \\\n      -D dev-kvm-mode=0660     \\\n      -D nobody-group=nogroup  \\\n      -D sysupdate=disabled    \\\n      -D ukify=disabled        \\\n      -D docdir=/usr/share/doc/systemd-259.1 &&\nninja"
+      "mkdir -p build && cd build &&\nmeson setup ..                 \\\n      --prefix=/usr            \\\n      --buildtype=release      \\\n      -D default-dnssec=no     \\\n      -D firstboot=false       \\\n      -D install-tests=false   \\\n      -D ldconfig=false        \\\n      -D man=false              \\\n      -D sysusers=false        \\\n      -D rpmmacrosdir=no       \\\n      -D homed=disabled        \\\n      -D mode=release          \\\n      -D pam=enabled           \\\n      -D pamconfdir=/etc/pam.d \\\n      -D dev-kvm-mode=0660     \\\n      -D nobody-group=nogroup  \\\n      -D sysupdate=disabled    \\\n      -D ukify=disabled        \\\n      -D docdir=/usr/share/doc/systemd-259.1 &&\nninja"
     ],
     "package": [
       "DESTDIR=$DESTDIR ninja -C build install",

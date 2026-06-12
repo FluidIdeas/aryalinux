@@ -9,6 +9,10 @@
     ]
   },
   "build": {
+    "user": [
+      "perl Makefile.PL",
+      "make"
+    ],
     "package": [
       "make install DESTDIR=$DESTDIR"
     ]

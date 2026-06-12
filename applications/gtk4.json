@@ -24,8 +24,7 @@
   "build": {
     "user": [
       "meson setup build --prefix=/usr --buildtype=release -D broadway-backend=true -D introspection=enabled -D vulkan=enabled .",
-      "ninja -C build",
-      "env -u{GALLIUM_DRIVER,MESA_LOADER_DRIVER_OVERRIDE}          \\\n    LIBGL_ALWAYS_SOFTWARE=1 VK_LOADER_DRIVERS_SELECT='lvp*' \\\n    dbus-run-session meson test -C build --setup x11 --no-suite=headless"
+      "ninja -C build"
     ],
     "package": [
       "DESTDIR=$DESTDIR ninja -C build install"

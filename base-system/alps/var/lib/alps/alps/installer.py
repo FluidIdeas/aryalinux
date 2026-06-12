@@ -14,6 +14,7 @@ from .util import (
     remove_files,
     run_cmd,
     run_install_extract,
+    run_with_processing_indicator,
 )
 
 
@@ -200,64 +201,68 @@ def format_install_plan(
 ) -> InstallPlanReport:
     """Human-readable install plan for confirmation prompts."""
     paths = _paths(config)
-    resolved, rebuild = _resolve_install(
-        paths, names, include_recommended=include_recommended,
-    )
-    lines: list[str] = []
-    order = resolved.order
 
-    if resolved.cycles:
-        lines.extend(_cycle_warning_lines(resolved.cycles, names))
-        lines.append("")
+    def _build_report() -> InstallPlanReport:
+        resolved, rebuild = _resolve_install(
+            paths, names, include_recommended=include_recommended,
+        )
+        lines: list[str] = []
+        order = resolved.order
 
-    if not order and not rebuild:
         if resolved.cycles:
-            return InstallPlanReport(text="\n".join(lines).rstrip(), can_proceed=False)
-        return InstallPlanReport(
-            text="All requested packages are already installed.",
-            can_proceed=False,
-        )
+            lines.extend(_cycle_warning_lines(resolved.cycles, names))
+            lines.append("")
 
-    explicit = user_targets or set(names)
-    lines.append("The following packages will be installed (in build order):")
-    lines.append("")
-    for index, name in enumerate(order, 1):
-        port = load_port(paths["ports"], name)
-        role = "target" if name in explicit else "dependency"
-        version = port.version or "?"
-        suffix = " (metapackage)" if port.meta else ""
-        lines.append(f"  {index:3d}. {name} {version}  [{role}]{suffix}")
+        if not order and not rebuild:
+            if resolved.cycles:
+                return InstallPlanReport(text="\n".join(lines).rstrip(), can_proceed=False)
+            return InstallPlanReport(
+                text="All requested packages are already installed.",
+                can_proceed=False,
+            )
 
-    if resolved.deduplicated:
+        explicit = user_targets or set(names)
+        lines.append("The following packages will be installed (in build order):")
         lines.append("")
-        lines.append(
-            "Duplicate entries removed from the dependency chain "
-            "(shared by multiple targets or paths):"
-        )
-        for name in resolved.deduplicated:
-            lines.append(f"  - {name}")
-
-    if rebuild:
-        lines.append("")
-        lines.append(
-            "These installed packages will be rebuilt once dependencies are in place:"
-        )
-        for name in rebuild:
+        for index, name in enumerate(order, 1):
             port = load_port(paths["ports"], name)
-            triggers = ", ".join(port.dependencies.rebuild_after)
+            role = "target" if name in explicit else "dependency"
             version = port.version or "?"
-            lines.append(f"  - {name} {version}  (rebuild_after: {triggers})")
+            suffix = " (metapackage)" if port.meta else ""
+            lines.append(f"  {index:3d}. {name} {version}  [{role}]{suffix}")
 
-    total = len(order)
-    if rebuild:
-        lines.append("")
-        lines.append(
-            f"Total: {total} package(s) to install, {len(rebuild)} rebuild(s)"
-        )
-    else:
-        lines.append("")
-        lines.append(f"Total: {total} package(s)")
-    return InstallPlanReport(text="\n".join(lines), can_proceed=True)
+        if resolved.deduplicated:
+            lines.append("")
+            lines.append(
+                "Duplicate entries removed from the dependency chain "
+                "(shared by multiple targets or paths):"
+            )
+            for name in resolved.deduplicated:
+                lines.append(f"  - {name}")
+
+        if rebuild:
+            lines.append("")
+            lines.append(
+                "These installed packages will be rebuilt once dependencies are in place:"
+            )
+            for name in rebuild:
+                port = load_port(paths["ports"], name)
+                triggers = ", ".join(port.dependencies.rebuild_after)
+                version = port.version or "?"
+                lines.append(f"  - {name} {version}  (rebuild_after: {triggers})")
+
+        total = len(order)
+        if rebuild:
+            lines.append("")
+            lines.append(
+                f"Total: {total} package(s) to install, {len(rebuild)} rebuild(s)"
+            )
+        else:
+            lines.append("")
+            lines.append(f"Total: {total} package(s)")
+        return InstallPlanReport(text="\n".join(lines), can_proceed=True)
+
+    return run_with_processing_indicator(_build_report)
 
 
 def format_force_install_plan(

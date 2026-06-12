@@ -5,7 +5,6 @@
   "category": "",
   "dependencies": {
     "required": [
-      "doxygen",
       "kdsoap"
     ]
   },

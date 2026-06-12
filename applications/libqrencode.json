@@ -12,13 +12,10 @@
     "user": [
       "sh autogen.sh",
       "./configure --prefix=/usr",
-      "make",
-      "doxygen",
-      "mv html/*        /usr/share/doc/libqrencode-4.1.1"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -vdm 755 $DESTDIR/usr/share/doc$DESTDIR/libqrencode-4.1.1"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
   "install": {

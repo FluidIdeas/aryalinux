@@ -14,7 +14,7 @@
     "user": [
       "patch -Np1 -i ../glib-skip_warnings-1.patch",
       "patch -Np1 -i ../glib-2.86.4-upstream_fixes-1.patch",
-      "meson setup build --prefix=/usr             \\\n      --buildtype=release       \\\n      -D introspection=disabled \\\n      -D glib_debug=disabled    \\\n      -D man-pages=enabled      \\\n      -D sysprof=disabled       \\\n      -D documentation=false    \\\n      .",
+      "meson setup build --prefix=/usr             \\\n      --buildtype=release       \\\n      -D introspection=disabled \\\n      -D glib_debug=disabled    \\\n      -D man-pages=disabled      \\\n      -D sysprof=disabled       \\\n      -D documentation=false    \\\n      .",
       "ninja -C build",
       "(cd build && ninja install)",
       "(cd build && tar xf ../../gobject-introspection-1.86.0.tar.xz && meson setup gobject-introspection-1.86.0 gi-build --prefix=/usr --buildtype=release)",

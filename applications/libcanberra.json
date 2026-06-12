@@ -22,7 +22,7 @@
       "make"
     ],
     "package": [
-      "make docdir=/usr/share/doc/libcanberra-0.30 install DESTDIR=$DESTDIR"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
   "post_install": [],

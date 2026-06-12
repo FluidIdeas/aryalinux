@@ -14,8 +14,7 @@
     "package": [
       "make install DESTDIR=$DESTDIR",
       "install -v -dm755 $DESTDIR/usr/include/a52dec",
-      "install -v -m644 liba52/a52_internal.h $DESTDIR/usr/include/a52dec/",
-      "install -v -m644 -D doc/liba52.txt $DESTDIR/usr/share/doc/liba52-0.8.0/liba52.txt"
+      "install -v -m644 liba52/a52_internal.h $DESTDIR/usr/include/a52dec/"
     ]
   },
   "post_install": [],

@@ -29,8 +29,6 @@
       "make soinstall DESTDIR=$DESTDIR",
       "install -v -m644 base/*.h $DESTDIR/usr/include/ghostscript",
       "ln -sfvn ghostscript $DESTDIR/usr/include/ps",
-      "mv -v $DESTDIR/usr/share/doc/ghostscript/10.06.0 $DESTDIR/usr/share/doc/ghostscript-10.06.0",
-      "rmdir $DESTDIR/usr/share/doc/ghostscript",
       "cp -r examples/ -T $DESTDIR/usr/share/ghostscript/10.06.0/examples",
       "tar -xvf ../ghostscript-fonts-std-8.11.tar.gz -C $DESTDIR/usr/share/ghostscript --no-same-owner",
       "tar -xvf ../gnu-gs-fonts-other-6.0.tar.gz -C $DESTDIR/usr/share/ghostscript --no-same-owner"

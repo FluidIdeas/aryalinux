@@ -17,23 +17,7 @@
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
-      "make perllibdir=/usr/lib/perl5/5.42/site_perl install DESTDIR=$DESTDIR",
-      "tar -xf ../git-manpages-2.53.0.tar.xz \\\n    -C $DESTDIR/usr/share/man --no-same-owner --no-overwrite-dir",
-      "mkdir -vp $DESTDIR/usr/share/doc/git-2.53.0",
-      "tar -xf ../git-htmldocs-2.53.0.tar.xz \\\n    -C $DESTDIR/usr/share/doc/git-2.53.0 --no-same-owner --no-overwrite-dir",
-      "find $DESTDIR/usr/share/doc/git-2.53.0 -type d -exec chmod 755 {} \\;",
-      "find $DESTDIR/usr/share/doc/git-2.53.0 -type f -exec chmod 644 {} \\;",
-      "mkdir -vp $DESTDIR/usr/share/doc/git-2.53.0/man-pages/{html,text}",
-      "mv $DESTDIR/usr/share/doc/git-2.53.0/{git*.adoc,man-pages/text}",
-      "mv $DESTDIR/usr/share/doc/git-2.53.0/{git*.,index.,man-pages/}html",
-      "mkdir -vp $DESTDIR/usr/share/doc/git-2.53.0/technical/{html,text}",
-      "mv $DESTDIR/usr/share/doc/git-2.53.0/technical/{*.adoc,text}",
-      "mv $DESTDIR/usr/share/doc/git-2.53.0/technical/{*.,}html",
-      "mkdir -vp $DESTDIR/usr/share/doc/git-2.53.0/howto/{html,text}",
-      "mv $DESTDIR/usr/share/doc/git-2.53.0/howto/{*.adoc,text}",
-      "mv $DESTDIR/usr/share/doc/git-2.53.0/howto/{*.,}html",
-      "sed -i '/^<a href=/s|howto/|&html/|' $DESTDIR/usr/share/doc/git-2.53.0/howto-index.html",
-      "sed -i '/^\\* link:/s|howto/|&html/|' $DESTDIR/usr/share/doc/git-2.53.0/howto-index.adoc"
+      "make perllibdir=/usr/lib/perl5/5.42/site_perl install DESTDIR=$DESTDIR"
     ]
   },
   "post_install": [],
@@ -44,9 +28,5 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  },
-  "additionalUrls": [
-    "https://www.kernel.org/pub/software/scm/git/git-manpages-2.53.0.tar.xz",
-    "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.53.0.tar.xz"
-  ]
+  }
 }

@@ -22,7 +22,7 @@
   },
   "build": {
     "user": [
-      "meson setup build --prefix=/usr --buildtype=release -D man=true -D broadway_backend=true .",
+      "meson setup build --prefix=/usr --buildtype=release -D man=false -D broadway_backend=true .",
       "ninja -C build"
     ],
     "package": [

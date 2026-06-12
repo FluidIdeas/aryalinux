@@ -33,7 +33,6 @@
     ],
     "package": [
       "make -C build install DESTDIR=$DESTDIR",
-      "mv $DESTDIR/usr/share/doc/tigervnc $DESTDIR/usr/share/doc/tigervnc-1.16.0",
       "( cd unix/xserver/hw/vnc && make -C build install DESTDIR=$DESTDIR )",
       "[ -e $DESTDIR/usr/bin/Xvnc ] || ln -svf $XORG_PREFIX/bin/Xvnc $DESTDIR/usr/bin/Xvnc",
       "install -vdm755 $DESTDIR/etc/X11/tigervnc",

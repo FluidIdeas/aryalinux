@@ -18,9 +18,7 @@
       "sed '/-t 0/,+3d' -i installer/install.sh"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -v -m755 -d $DESTDIR/usr/share/doc/tripwire-2.4.3.7",
-      "cp -v policy/*.txt $DESTDIR/usr/share/doc/tripwire-2.4.3.7"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
   "post_install": [

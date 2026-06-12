@@ -19,8 +19,7 @@
       "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja -C build install",
-      "mv -v $DESTDIR$XORG_PREFIX/share/doc/xorgproto{,-2025.1}"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
   "post_install": [],

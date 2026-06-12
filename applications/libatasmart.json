@@ -12,7 +12,7 @@
       "make"
     ],
     "package": [
-      "make docdir=/usr/share/doc/libatasmart-0.19 install DESTDIR=$DESTDIR"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
   "post_install": [],

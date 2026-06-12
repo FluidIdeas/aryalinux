@@ -20,7 +20,7 @@
     "user": [
       "python3 -m venv --system-site-packages pyvenv",
       "./pyvenv/bin/pip3 install cryptography pyasn1 iso8601",
-      "PYTHON=$PWD/pyvenv/bin/python3             \\\n./configure                                \\\n    --prefix=/usr                          \\\n    --sysconfdir=/etc                      \\\n    --localstatedir=/var                   \\\n    --with-piddir=/run/samba               \\\n    --with-pammodulesdir=/usr/lib/security \\\n    --enable-fhs                           \\\n    --without-ad-dc                        \\\n    --with-system-mitkrb5                  \\\n    --enable-selftest                      \\\n    --disable-rpath-install",
+      "PYTHON=$PWD/pyvenv/bin/python3             \\\n./configure                                \\\n    --prefix=/usr                          \\\n    --sysconfdir=/etc                      \\\n    --localstatedir=/var                   \\\n    --with-piddir=/run/samba               \\\n    --with-pammodulesdir=/usr/lib/security \\\n    --enable-fhs                           \\\n    --without-ad-dc                        \\\n    --with-system-mitkrb5                  \\\n    --disable-selftest                      \\\n    --disable-rpath-install",
       "make",
       "sed '1s@^.*$@#!/usr/bin/python3@' \\\n    -i ./bin/default/source4/scripting/bin/*.inst"
     ],

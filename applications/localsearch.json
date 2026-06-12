@@ -16,7 +16,6 @@
   },
   "build": {
     "user": [
-      "sed -i s/120/200/ tests/functional-tests/meson.build",
       "patch -Np1 -i ../localsearch-3.10.2-security_fixes-1.patch",
       "meson setup build --prefix=/usr             \\\n            --buildtype=release       \\\n            -D man=false              \\\n            -D functional_tests=false \\\n            .",
       "ninja -C build",

@@ -23,7 +23,6 @@
     "package": [
       "DESTDIR=$DESTDIR ./x.py install",
       "rm -fv $DESTDIR/opt/rustc-1.93.1/share/doc/rustc-1.93.1/*.old 2>/dev/null || true",
-      "[ -f README.md ] && install -vm644 README.md $DESTDIR/opt/rustc-1.93.1/share/doc/rustc-1.93.1",
       "install -vdm755 $DESTDIR/opt",
       "rm -rf $DESTDIR/opt/rustc",
       "(cd $DESTDIR/opt && ln -svfn rustc-1.93.1 rustc)",

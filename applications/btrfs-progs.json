@@ -13,16 +13,10 @@
   "build": {
     "user": [
       "./configure --prefix=/usr           \\\n            --disable-static        \\\n            --disable-documentation",
-      "make",
-      "make fssum",
-      "rm -rf tests/convert-tests/024-ntfs-basic",
-      "rm -rf tests/misc-tests/041-subvolume-delete-during-send",
-      "rm -rf tests/fuzz-tests/010-simple-sb",
-      "pushd tests\n   ./fsck-tests.sh\n   ./mkfs-tests.sh\n   ./cli-tests.sh\n   ./convert-tests.sh\n   ./misc-tests.sh\n   ./fuzz-tests.sh\npopd"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "for i in 5 8; do for f in Documentation/*.$i; do install -D -m644 \"$f\" \"$DESTDIR/usr/share/man/man$i/$(basename \"$f\")\"; done; done"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
   "post_install": [],

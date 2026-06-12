@@ -1,0 +1,47 @@
+{
+  "name": "plasma-workspace",
+  "version": "6.6.1",
+  "description": "KDE Plasma component plasma-workspace.",
+  "category": "desktop-kde",
+  "url": [
+    "https://download.kde.org/stable/plasma/6.6.1/plasma-workspace-6.6.1.tar.xz"
+  ],
+  "dependencies": {
+    "required": [
+      "kpipewire"
+    ]
+  },
+  "build": {
+    "environment": {
+      "KF6_PREFIX": "/usr"
+    },
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX \\\n      -D CMAKE_INSTALL_LIBEXECDIR=libexec \\\n      -D CMAKE_BUILD_TYPE=Release \\\n      -D BUILD_QT5=OFF \\\n      -D BUILD_TESTING=OFF \\\n      -W no-dev .",
+      "make -C build"
+    ],
+    "package": [
+      "make -C build install DESTDIR=$DESTDIR"
+    ]
+  },
+  "post_install": [
+    "install -d /usr/share/xsessions",
+    "ln -sf /usr/share/xsessions/plasmax11.desktop /usr/share/xsessions/plasma.desktop",
+    "install -d /usr/share/wayland-sessions",
+    "ln -sf /usr/share/wayland-sessions/plasma.desktop /usr/share/wayland-sessions/plasmawayland.desktop",
+    "install -d /usr/share/xdg-desktop-portal",
+    "ln -sf /usr/share/xdg-desktop-portal/kde-portals.conf /usr/share/xdg-desktop-portal/kde-portals.conf",
+    "install -d /usr/share/xdg-desktop-portal/portals",
+    "ln -sf /usr/share/xdg-desktop-portal/portals/kde.portal /usr/share/xdg-desktop-portal/portals/kde.portal",
+    "install -vdm755 /etc/pam.d",
+    "cat > /etc/pam.d/kde << 'EOF'\n# Begin /etc/pam.d/kde\n\nauth     requisite      pam_nologin.so\nauth     required       pam_env.so\n\nauth     required       pam_succeed_if.so uid >= 1000 quiet\nauth     include        system-auth\n\naccount  include        system-account\npassword include        system-password\nsession  include        system-session\n\n# End /etc/pam.d/kde\nEOF",
+    "cat > /etc/pam.d/kde-np << 'EOF'\n# Begin /etc/pam.d/kde-np\n\nauth     requisite      pam_nologin.so\nauth     required       pam_env.so\n\nauth     required       pam_succeed_if.so uid >= 1000 quiet\nauth     required       pam_permit.so\n\naccount  include        system-account\npassword include        system-password\nsession  include        system-session\n\n# End /etc/pam.d/kde-np\nEOF",
+    "cat > /etc/pam.d/kscreensaver << 'EOF'\n# Begin /etc/pam.d/kscreensaver\n\nauth    include system-auth\naccount include system-account\n\n# End /etc/pam.d/kscreensaver\nEOF"
+  ],
+  "meta": false,
+  "book": "kde/plasma-all.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

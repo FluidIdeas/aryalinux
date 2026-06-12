@@ -13,8 +13,7 @@
       "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "install -v -m644 README $DESTDIR/usr/share/doc/libao-1.2.0"
+      "make install DESTDIR=$DESTDIR"
     ]
   },
   "post_install": [],

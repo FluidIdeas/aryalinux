@@ -7,13 +7,49 @@ import platform
 import re
 import shutil
 import subprocess
+import sys
 import tempfile
-from collections.abc import Iterable
+import threading
+from collections.abc import Callable, Iterable
 from pathlib import Path
+from typing import TypeVar
+
+T = TypeVar("T")
 
 
 def arch_tag() -> str:
     return platform.machine()
+
+
+def run_with_processing_indicator(work: Callable[[], T]) -> T:
+    """Run *work* while printing ``processing`` with an extra dot every second."""
+    result: list[T | None] = [None]
+    error: list[BaseException | None] = [None]
+    done = threading.Event()
+
+    def runner() -> None:
+        try:
+            result[0] = work()
+        except BaseException as exc:
+            error[0] = exc
+        finally:
+            done.set()
+
+    thread = threading.Thread(target=runner, daemon=True)
+    thread.start()
+
+    sys.stdout.write("processing")
+    sys.stdout.flush()
+    while not done.wait(timeout=1.0):
+        sys.stdout.write(".")
+        sys.stdout.flush()
+    sys.stdout.write("\n")
+    sys.stdout.flush()
+
+    if error[0] is not None:
+        raise error[0]
+    assert result[0] is not None
+    return result[0]
 
 
 def ensure_state_dir(path: Path) -> None:

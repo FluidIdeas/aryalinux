@@ -23,7 +23,7 @@
       "make"
     ],
     "package": [
-      "make docdir=$DESTDIR/usr/share/doc install DESTDIR=$DESTDIR",
+      "make install DESTDIR=$DESTDIR",
       "for doctype in html ps dvi man pdf rtf tex texi txt; do\n    ln -svf docbook2$doctype $DESTDIR/usr/bin/db2$doctype\ndone"
     ]
   },

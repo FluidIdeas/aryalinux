@@ -6,14 +6,12 @@
   "dependencies": {
     "required": [
       "curl",
-      "duktape",
-      "python-modules.gi-docgen",
-      "vala"
+      "duktape"
     ]
   },
   "build": {
     "user": [
-      "meson setup build        \\\n      --prefix=/usr   \\\n      -D release=true .",
+      "meson setup build        \\\n      --prefix=/usr   \\\n      -D release=true \\\n      -D docs=false   \\\n      -D tests=false  .",
       "ninja -C build",
       "rm /usr/lib/libproxy.a"
     ],

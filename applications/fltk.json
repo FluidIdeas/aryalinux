@@ -19,7 +19,7 @@
       "make"
     ],
     "package": [
-      "make docdir=$DESTDIR/usr/share/doc/fltk-1.4.4 install DESTDIR=$DESTDIR",
+      "make install DESTDIR=$DESTDIR",
       "rm -vf $DESTDIR/usr/lib/libfltk*.a"
     ]
   },

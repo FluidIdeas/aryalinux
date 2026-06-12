@@ -16,7 +16,6 @@
     "user": [
       "meson setup build --prefix=/usr --buildtype=release -D system-lua=true .",
       "ninja -C build",
-      "mv -v /usr/share/doc/wireplumber{,-0.5.13}",
       "rm -vf /etc/xdg/autostart/pulseaudio.desktop",
       "rm -vf /etc/xdg/Xwayland-session.d/00-pulseaudio-x11",
       "sed -e '$a autospawn = no' -i /etc/pulse/client.conf",
