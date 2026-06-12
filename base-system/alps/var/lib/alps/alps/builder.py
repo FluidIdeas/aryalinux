@@ -123,9 +123,11 @@ def _build_single(port: Port, *, source_root: Path, staging: Path) -> None:
     build_dir.mkdir(parents=True, exist_ok=True)
     _download_supplementary(port, source_root)
 
-    if port.source_urls:
-        archive = wget_fallback(port.source_urls, source_root)
-        clear_directory(build_dir)
+    archive = wget_fallback(port.source_urls, source_root) if port.source_urls else None
+    # Always start from a clean build tree so force reinstalls and chapter bundles
+    # (ports with no url, e.g. x7lib) do not fail on leftover mkdir/extract dirs.
+    clear_directory(build_dir)
+    if archive is not None:
         srcdir = extract_archive(archive, build_dir)
         _place_supplementary_beside_srcdir(
             port, source_root=source_root, build_dir=build_dir,
