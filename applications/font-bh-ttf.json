@@ -1,0 +1,35 @@
+{
+  "name": "font-bh-ttf",
+  "version": "1.0.4",
+  "description": "Xorg font font-bh-ttf (BLFS chapter).",
+  "url": [
+    "https://xorg.freedesktop.org/archive/individual/font/font-bh-ttf-1.0.4.tar.xz"
+  ],
+  "dependencies": {
+    "required": [
+      "font-adobe-utopia-type1"
+    ]
+  },
+  "build": {
+    "environment": {
+      "XORG_PREFIX": "/usr",
+      "XORG_CONFIG": "--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
+    },
+    "user": [
+      "./configure $XORG_CONFIG",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "x/font-bh-ttf.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -7,8 +7,11 @@
   ],
   "dependencies": {
     "required": [
-      "x7lib",
-      "libdrm"
+      "glslang",
+      "libdrm",
+      "wayland",
+      "wayland-protocols",
+      "x7lib"
     ]
   },
   "build": {

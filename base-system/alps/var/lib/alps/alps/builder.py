@@ -6,6 +6,7 @@ import re
 import shutil
 from pathlib import Path
 
+from .config import load_directories
 from .port import Port, PortBuildModule, _url_list
 from .util import (
     arch_tag,
@@ -31,6 +32,13 @@ def package_filename(name: str, version: str) -> str:
     return f"{name}-{version}-{arch_tag()}.tar.xz"
 
 
+def _port_build_env(port: Port) -> dict[str, str]:
+    """Merge /etc/alps/directories.conf into per-port build.environment."""
+    env = load_directories()
+    env.update(port.build.environment)
+    return env
+
+
 def build_port(
     port: Port,
     *,
@@ -47,11 +55,12 @@ def build_port(
     source_root = sources_dir / port.name
     source_root.mkdir(parents=True, exist_ok=True)
 
+    build_env = _port_build_env(port)
     if port.build.modules:
         for module in port.build.modules:
-            _build_module(module, source_root=source_root, staging=staging, env=port.build.environment)
+            _build_module(module, source_root=source_root, staging=staging, env=build_env)
     else:
-        _build_single(port, source_root=source_root, staging=staging)
+        _build_single(port, source_root=source_root, staging=staging, build_env=build_env)
 
     libtool_finish_tree(staging)
     files = collect_files(staging)
@@ -118,7 +127,7 @@ def _place_supplementary_beside_srcdir(
             shutil.copy2(src, build_dir / name)
 
 
-def _build_single(port: Port, *, source_root: Path, staging: Path) -> None:
+def _build_single(port: Port, *, source_root: Path, staging: Path, build_env: dict[str, str]) -> None:
     build_dir = source_root / "build"
     build_dir.mkdir(parents=True, exist_ok=True)
     _download_supplementary(port, source_root)
@@ -135,13 +144,13 @@ def _build_single(port: Port, *, source_root: Path, staging: Path) -> None:
     else:
         srcdir = build_dir
 
-    _run_commands(port.build.pre, cwd=srcdir, env=port.build.environment, as_root=False)
-    _run_commands(port.build.user, cwd=srcdir, env=port.build.environment, as_root=False)
+    _run_commands(port.build.pre, cwd=srcdir, env=build_env, as_root=False)
+    _run_commands(port.build.user, cwd=srcdir, env=build_env, as_root=False)
     package_cmds = package_commands_for(port.build)
     if not package_cmds:
         raise BuildError(f"{port.name}: no build.package commands defined")
     _run_package_commands(
-        package_cmds, cwd=srcdir, staging=staging, env=port.build.environment,
+        package_cmds, cwd=srcdir, staging=staging, env=build_env,
     )
 
 

@@ -8,6 +8,7 @@
   "dependencies": {
     "required": [
       "freetype2",
+      "graphite2",
       "icu"
     ],
     "recommended": [

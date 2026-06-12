@@ -7,33 +7,33 @@
   ],
   "dependencies": {
     "required": [
-      "x7lib"
+      "dbus",
+      "double-conversion",
+      "harfbuzz",
+      "libjpeg",
+      "libpng",
+      "libxkbcommon",
+      "mesa",
+      "wayland",
+      "x7lib",
+      "xcb-util"
     ],
     "recommended": [
       "alsa-lib",
       "cups",
-      "dbus",
-      "double-conversion",
       "ffmpeg",
       "glib2",
       "gst10-plugins-bad",
       "gst10-plugins-base",
       "gst10-plugins-good",
-      "harfbuzz",
       "icu",
       "jasper",
       "libinput",
-      "libjpeg",
       "libmng",
-      "libpng",
       "libtiff",
       "libwebp",
-      "libxkbcommon",
       "make-ca",
-      "mesa",
-      "mtdev",
-      "wayland",
-      "xcb-util"
+      "mtdev"
     ]
   },
   "build": {

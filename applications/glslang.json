@@ -5,16 +5,17 @@
   "category": "",
   "dependencies": {
     "required": [
-      "cmake"
+      "cmake",
+      "spirv-tools"
     ]
   },
   "build": {
     "user": [
       "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr     \\\n      -D CMAKE_BUILD_TYPE=Release      \\\n      -D ALLOW_EXTERNAL_SPIRV_TOOLS=ON \\\n      -D BUILD_SHARED_LIBS=ON          \\\n      -D GLSLANG_TESTS=ON              \\\n      -G Ninja .",
-      "ninja"
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja install"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
   "install": {
