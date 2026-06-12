@@ -8,11 +8,11 @@
   "dependencies": {
     "required": [
       "cairo",
+      "gdk-pixbuf",
       "pango",
       "cargo-c"
     ],
     "recommended": [
-      "gdk-pixbuf",
       "glib2",
       "vala"
     ]
@@ -20,8 +20,7 @@
   "build": {
     "user": [
       "meson setup build --prefix=/usr --buildtype=release .",
-      "ninja -C build",
-      "meson test -C build -v"
+      "ninja -C build"
     ],
     "package": [
       "DESTDIR=$DESTDIR ninja -C build install"

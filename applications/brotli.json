@@ -13,12 +13,12 @@
   "build": {
     "user": [
       "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -G Ninja .",
-      "ninja -C build",
-      "sed -e '/libraries +=/s/=.*/= [required_system_library[3:]]/' \\\n    -e '/package_configuration/d'                             \\\n    -e '/pkgconfig/d'                                         \\\n    -i setup.py",
-      "USE_SYSTEM_BROTLI=1 pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+      "ninja -C build"
     ],
     "package": [
       "DESTDIR=$DESTDIR ninja -C build install",
+      "sed -e '/libraries +=/s/=.*/= [required_system_library[3:]]/' -e '/package_configuration/d' -e '/pkgconfig/d' -i setup.py",
+      "CFLAGS=\"-I$DESTDIR/usr/include\" LDFLAGS=\"-L$DESTDIR/usr/lib -Wl,-rpath,$DESTDIR/usr/lib\" USE_SYSTEM_BROTLI=1 pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD",
       "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user Brotli"
     ]
   },

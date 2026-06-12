@@ -8,8 +8,10 @@
       "bubblewrap",
       "fontconfig",
       "lcms2",
+      "libseccomp",
       "rust",
       "libheif",
+      "libjxl",
       "librsvg"
     ]
   },
@@ -19,10 +21,7 @@
       "patch -Np1 -i ../glycin-2.0.8-xorg_prefix-1.patch",
       "patch -Np1 -i ../glycin-2.0.8-xbm_xpm-1.patch",
       "cargo vendor",
-      "meson setup build --prefix=/usr           \\\n            --buildtype=release     \\\n            -D libglycin-gtk4=false \\\n            -D tests=false .",
-      "ninja -C build",
-      "sed \"/install_dir:.*doc/s|,$| / 'glycin-' + meson.project_version()&|\" \\\n    -i libglycin/meson.build",
-      "meson configure build -D capi_docs=true",
+      "meson setup build --prefix=/usr           \\\n            --buildtype=release     \\\n            -D libglycin-gtk4=false \\\n            -D vapi=false          \\\n            -D capi_docs=false     \\\n            -D tests=false .",
       "ninja -C build"
     ],
     "package": [
@@ -38,5 +37,9 @@
   "book": "general/glycin.html",
   "url": [
     "https://download.gnome.org/sources/glycin/2.0/glycin-2.0.8.tar.xz"
+  ],
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/glycin-2.0.8-xorg_prefix-1.patch",
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/glycin-2.0.8-xbm_xpm-1.patch"
   ]
 }

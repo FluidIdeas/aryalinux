@@ -19,10 +19,13 @@
       "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja -C build install"
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "install -d $DESTDIR/usr/lib/gdk-pixbuf-2.0/2.10.0/loaders",
+      "GDK_PIXBUF_MODULEDIR=$DESTDIR/usr/lib/gdk-pixbuf-2.0/2.10.0/loaders GDK_PIXBUF_MODULE_FILE=$DESTDIR/usr/lib/gdk-pixbuf-2.0/2.10.0/loaders.cache $DESTDIR/usr/bin/gdk-pixbuf-query-loaders --update-cache"
     ]
   },
   "post_install": [
+    "install -d /usr/lib/gdk-pixbuf-2.0/2.10.0/loaders",
     "gdk-pixbuf-query-loaders --update-cache"
   ],
   "meta": false,
