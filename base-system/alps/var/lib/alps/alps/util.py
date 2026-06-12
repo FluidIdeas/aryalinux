@@ -8,6 +8,7 @@ import re
 import shutil
 import subprocess
 import tempfile
+from collections.abc import Iterable
 from pathlib import Path
 
 
@@ -77,6 +78,11 @@ def _with_parallel_build_env(env: dict[str, str] | None = None) -> dict[str, str
     return full_env
 
 
+def _bash_script(cmd: str) -> str:
+    """Run port commands with errexit so failed steps in loops abort the build."""
+    return f"set -eo pipefail\n{cmd}"
+
+
 def run_cmd(
     cmd: str,
     *,
@@ -85,10 +91,11 @@ def run_cmd(
     as_root: bool = False,
 ) -> None:
     full_env = _with_parallel_build_env(env)
+    script = _bash_script(cmd)
     if as_root and os.geteuid() != 0:
-        shell_cmd = ["sudo", "-n", "bash", "-lc", cmd]
+        shell_cmd = ["sudo", "-n", "bash", "-lc", script]
     else:
-        shell_cmd = ["bash", "-lc", cmd]
+        shell_cmd = ["bash", "-lc", script]
     result = subprocess.run(shell_cmd, cwd=cwd, env=full_env)
     if result.returncode != 0:
         hint = ""
@@ -125,6 +132,36 @@ def rewrite_system_paths(cmd: str, destdir: Path) -> str:
     for prefix in ("/opt", "/usr", "/etc", "/var", "/lib"):
         out = out.replace(prefix, f"{dest}{prefix}")
     return out
+
+
+_LIBTOOL_LIB_SUBDIRS = ("usr/lib", "usr/lib64", "lib", "lib64")
+
+
+def libtool_finish_libdirs(libdirs: Iterable[str | Path], *, as_root: bool = False) -> None:
+    """Complete libtool DESTDIR installs for directories that contain .la files."""
+    if shutil.which("libtool") is None:
+        return
+    seen: set[str] = set()
+    for item in libdirs:
+        libdir = Path(item)
+        key = str(libdir)
+        if key in seen:
+            continue
+        seen.add(key)
+        if not libdir.is_dir() or not any(libdir.glob("*.la")):
+            continue
+        run_cmd(f'libtool --finish "{libdir}"', as_root=as_root)
+
+
+def libtool_finish_tree(root: Path, *, as_root: bool = False) -> None:
+    """Run libtool --finish on standard libdirs under a staging tree or /."""
+    libtool_finish_libdirs((root / sub for sub in _LIBTOOL_LIB_SUBDIRS), as_root=as_root)
+
+
+def libtool_finish_installed_files(files: list[str], *, as_root: bool = False) -> None:
+    """Run libtool --finish on libdirs that received .la files from this package."""
+    libdirs = [str(Path(path).parent) for path in files if path.endswith(".la")]
+    libtool_finish_libdirs(libdirs, as_root=as_root)
 
 
 def collect_files(root: Path) -> list[str]:

@@ -9,7 +9,12 @@ from .builder import build_port, package_filename
 from .deps import ResolvedInstallPlan, packages_for_install, resolve_packages_for_install
 from .port import Port, load_port
 from .registry import InstalledPackage, is_installed, load_installed, remove_record, save_installed
-from .util import remove_files, run_cmd, run_install_extract
+from .util import (
+    libtool_finish_installed_files,
+    remove_files,
+    run_cmd,
+    run_install_extract,
+)
 
 
 class InstallError(Exception):
@@ -95,6 +100,7 @@ def _install_one_standalone(paths: dict[str, Path], name: str) -> None:
         packages_dir=paths["packages"],
     )
     run_install_extract(port.install.extract, package_path=package_path)
+    libtool_finish_installed_files(files, as_root=True)
     for cmd in port.post_install:
         run_cmd(cmd, as_root=True)
     print(f"force installed {name}: {len(files)} files (not recorded by ALPS)")
@@ -132,6 +138,7 @@ def _install_one(
         packages_dir=paths["packages"],
     )
     run_install_extract(port.install.extract, package_path=package_path)
+    libtool_finish_installed_files(files, as_root=True)
     for cmd in port.post_install:
         run_cmd(cmd, as_root=True)
     record = InstalledPackage.now(

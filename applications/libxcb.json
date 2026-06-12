@@ -9,10 +9,14 @@
     "required": [
       "libXau",
       "libXdmcp",
-      "mesa"
+      "xcb-proto"
     ]
   },
   "build": {
+    "environment": {
+      "XORG_PREFIX": "/usr",
+      "XORG_CONFIG": "--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
+    },
     "user": [
       "./configure $XORG_CONFIG      \\\n            --without-doxygen \\\n            --docdir='${datadir}'/doc/libxcb-1.17.0",
       "LC_ALL=en_US.UTF-8 make"

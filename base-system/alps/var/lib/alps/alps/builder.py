@@ -14,6 +14,7 @@ from .util import (
     collect_files,
     create_package_archive,
     extract_archive,
+    libtool_finish_tree,
     package_commands_for,
     run_cmd,
     url_filename,
@@ -52,6 +53,7 @@ def build_port(
     else:
         _build_single(port, source_root=source_root, staging=staging)
 
+    libtool_finish_tree(staging)
     files = collect_files(staging)
     if not files:
         raise BuildError(

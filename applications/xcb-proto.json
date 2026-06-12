@@ -11,6 +11,10 @@
     ]
   },
   "build": {
+    "environment": {
+      "XORG_PREFIX": "/usr",
+      "XORG_CONFIG": "--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"
+    },
     "user": [
       "PYTHON=python3 ./configure $XORG_CONFIG"
     ],
@@ -19,7 +23,7 @@
     ]
   },
   "post_install": [
-    "rm -f $XORG_PREFIX/lib/pkgconfig/xcb-proto.pc"
+    "rm -f /usr/lib/pkgconfig/xcb-proto.pc"
   ],
   "meta": false,
   "book": "x/xcb-proto.html",

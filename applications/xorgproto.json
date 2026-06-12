@@ -11,6 +11,9 @@
     ]
   },
   "build": {
+    "environment": {
+      "XORG_PREFIX": "/usr"
+    },
     "user": [
       "meson setup build --prefix=$XORG_PREFIX .",
       "ninja -C build"
