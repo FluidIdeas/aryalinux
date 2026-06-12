@@ -9,8 +9,6 @@
     "required": [
       "exo",
       "garcon",
-      "gnome-icon-theme",
-      "lxde-icon-theme",
       "libcanberra",
       "libxklavier"
     ]

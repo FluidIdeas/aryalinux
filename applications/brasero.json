@@ -12,8 +12,7 @@
       "glib2",
       "libburn",
       "tinysparql",
-      "totem-pl-parser",
-      "dvd-rw-tools"
+      "totem-pl-parser"
     ]
   },
   "build": {

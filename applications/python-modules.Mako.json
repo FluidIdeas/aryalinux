@@ -1,0 +1,26 @@
+{
+  "name": "python-modules.Mako",
+  "version": "1.3.10",
+  "description": "Mako is a template library for Python.",
+  "url": [
+    "https://files.pythonhosted.org/packages/source/M/Mako/mako-1.3.10.tar.gz"
+  ],
+  "dependencies": {},
+  "build": {
+    "user": [
+      "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+    ],
+    "package": [
+      "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user Mako"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "general/python-modules.html",
+  "category": "python-module",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

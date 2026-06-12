@@ -7,8 +7,16 @@
   ],
   "dependencies": {
     "required": [
+      "cbindgen",
       "glslang",
+      "libclc",
       "libdrm",
+      "llvm",
+      "python-modules.Mako",
+      "python-modules.PyYAML",
+      "python-modules.ply",
+      "rust",
+      "rust-bindgen",
       "wayland",
       "wayland-protocols",
       "x7lib"

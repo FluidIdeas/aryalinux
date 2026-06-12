@@ -9,8 +9,7 @@
     "required": [
       "libevent",
       "libtirpc",
-      "libxml2",
-      "rpcbind"
+      "libxml2"
     ]
   },
   "build": {

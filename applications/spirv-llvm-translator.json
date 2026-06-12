@@ -1,0 +1,35 @@
+{
+  "name": "spirv-llvm-translator",
+  "version": "21.1.8",
+  "description": "SPIRV-LLVM-Translator translates between SPIR-V and LLVM IR for OpenCL and Vulkan drivers.",
+  "url": [
+    "https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/v21.1.8/SPIRV-LLVM-Translator-v21.1.8.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "cmake",
+      "libxml2",
+      "llvm",
+      "spirv-headers",
+      "spirv-tools"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr                   \\\n      -D CMAKE_BUILD_TYPE=Release                    \\\n      -D BUILD_SHARED_LIBS=ON                        \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON                 \\\n      -D LLVM_EXTERNAL_SPIRV_HEADERS_SOURCE_DIR=/usr \\\n      -G Ninja .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "general/spirv-llvm-translator.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

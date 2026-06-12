@@ -75,6 +75,13 @@ def _with_parallel_build_env(env: dict[str, str] | None = None) -> dict[str, str
     jobs = _parallel_job_count()
     full_env.setdefault("MAKEFLAGS", f"-j{jobs}")
     full_env.setdefault("CMAKE_BUILD_PARALLEL_LEVEL", jobs)
+    full_env.setdefault("NINJAFLAGS", f"-j{jobs}")
+    rustc_bin = Path("/opt/rustc/bin")
+    if rustc_bin.is_dir():
+        path = full_env.get("PATH", "")
+        rustc = str(rustc_bin)
+        if rustc not in path.split(":"):
+            full_env["PATH"] = f"{rustc}:{path}" if path else rustc
     return full_env
 
 

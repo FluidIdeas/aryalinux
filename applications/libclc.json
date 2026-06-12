@@ -1,0 +1,33 @@
+{
+  "name": "libclc",
+  "version": "21.1.8",
+  "description": "libclc provides an open source library of OpenCL C built-in functions required by the Intel Mesa drivers.",
+  "url": [
+    "https://github.com/llvm/llvm-project/releases/download/llvmorg-21.1.8/libclc-21.1.8.src.tar.xz"
+  ],
+  "dependencies": {
+    "required": [
+      "cmake",
+      "llvm",
+      "spirv-llvm-translator"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      -G Ninja .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "general/libclc.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

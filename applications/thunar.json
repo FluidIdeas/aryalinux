@@ -8,7 +8,6 @@
   "dependencies": {
     "required": [
       "exo",
-      "hicolor-icon-theme",
       "libgudev"
     ]
   },

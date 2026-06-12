@@ -23,11 +23,7 @@
       "gsettings-desktop-schemas",
       "libcanberra",
       "libwacom",
-      "linux-pam",
-      "accountsservice",
-      "breeze-icons",
-      "smartmontools",
-      "xwayland"
+      "linux-pam"
     ]
   },
   "build": {

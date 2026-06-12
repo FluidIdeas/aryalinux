@@ -39,5 +39,11 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://anduin.linuxfromscratch.org/BLFS/llvm/llvm-cmake-21.1.8.src.tar.xz",
+    "https://anduin.linuxfromscratch.org/BLFS/llvm/llvm-third-party-21.1.8.src.tar.xz",
+    "https://github.com/llvm/llvm-project/releases/download/llvmorg-21.1.8/clang-21.1.8.src.tar.xz",
+    "https://github.com/llvm/llvm-project/releases/download/llvmorg-21.1.8/compiler-rt-21.1.8.src.tar.xz"
+  ]
 }

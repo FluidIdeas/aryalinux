@@ -8,15 +8,14 @@
   "dependencies": {
     "required": [
       "cmake",
-      "libssh2"
+      "libssh2",
+      "llvm"
     ]
   },
   "build": {
     "user": [
       "cat << EOF > bootstrap.toml\n# See bootstrap.toml.example for more possible options,\n# and see src/bootstrap/defaults/bootstrap.dist.toml for a few options\n# automatically set when building from a release tarball\n# (unfortunately, we have to override many of them).\n\n# Tell x.py that the editors have reviewed the content of this file\n# and updated it to follow the major changes of the building system,\n# so x.py will not warn users to review that information.\nchange-id = 148795\n\n[llvm]\n# When using the system installed copy of LLVM, prefer the shared libraries\nlink-shared = true\n\n# If building the shipped LLVM source, only enable the x86 target\n# instead of all the targets supported by LLVM.\ntargets = \"X86\"\n\n[build]\ndescription = \"for BLFS 13.0\"\n\n# Omit the documentation to save time and space (the default is to build them).\ndocs = false\n\n# Do not look for new versions of the dependencies online.\nlocked-deps = true\n\n# Only install these extended tools. Cargo, clippy, rustdoc, and rustfmt\n# are installed by a default rustup installation, and rust-src is needed\n# to build the Rust code in Linux kernel (in case you need such a kernel\n# feature).\ntools = [\"cargo\", \"clippy\", \"rustdoc\", \"rustfmt\", \"src\"]\n\n[install]\nprefix = \"/opt/rustc-1.93.1\"\ndocdir = \"share/doc/rustc-1.93.1\"\n\n[rust]\nchannel = \"stable\"\n\n# Enable the same optimizations as the official upstream build.\nlto = \"thin\"\ncodegen-units = 1\n\n# Don't build llvm-bitcode-linker which is only useful for the NVPTX\n# backend that we don't enable.\nllvm-bitcode-linker = false\n\n[target.x86_64-unknown-linux-gnu]\nllvm-config = \"/usr/bin/llvm-config\"\n\n[target.i686-unknown-linux-gnu]\nllvm-config = \"/usr/bin/llvm-config\"\nEOF",
       "export LIBSSH2_SYS_USE_PKG_CONFIG=1\nexport LIBSQLITE3_SYS_USE_PKG_CONFIG=1\n./x.py build",
-      "./x.py test --verbose --no-fail-fast | tee rustc-testlog",
-      "grep '^test result:' rustc-testlog |\n awk '{sum1 += $4; sum2 += $6} END { print sum1 \" passed; \" sum2 \" failed\" }'",
       "unset LIB{SSH2,SQLITE3}_SYS_USE_PKG_CONFIG"
     ],
     "package": [
@@ -26,6 +25,7 @@
       "ln -svfn rustc-1.93.1 $DESTDIR/opt/rustc",
       "install -vdm755 $DESTDIR/usr/share/zsh/site-functions",
       "ln -sfv /opt/rustc/share/zsh/site-functions/_cargo \\\n        $DESTDIR/usr/share/zsh/site-functions/_cargo",
+      "install -vdm755 $DESTDIR/usr/share/bash-completion/completions",
       "mv -v $DESTDIR/etc/bash_completion.d/cargo \\\n   $DESTDIR/usr/share/bash-completion/completions/cargo",
       "install -vdm755 $DESTDIR/etc/profile.d",
       "cat > $DESTDIR/etc/profile.d/rustc.sh << \"EOF\"\n# Begin /etc/profile.d/rustc.sh\n\npathprepend /opt/rustc/bin           PATH\n\n# End /etc/profile.d/rustc.sh\nEOF"

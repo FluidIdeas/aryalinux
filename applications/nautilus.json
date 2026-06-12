@@ -12,9 +12,7 @@
       "glib2",
       "gst10-plugins-base",
       "libcloudproviders",
-      "localsearch",
-      "adwaita-icon-theme",
-      "gvfs"
+      "localsearch"
     ]
   },
   "build": {

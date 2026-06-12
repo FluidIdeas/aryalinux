@@ -10,8 +10,7 @@
       "enchant",
       "gpgme",
       "libical",
-      "libsecret",
-      "mail"
+      "libsecret"
     ]
   },
   "build": {

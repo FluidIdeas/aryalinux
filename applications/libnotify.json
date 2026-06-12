@@ -9,9 +9,6 @@
     "required": [
       "gdk-pixbuf",
       "gtk4"
-    ],
-    "post": [
-      "xfce4-notifyd"
     ]
   },
   "build": {
