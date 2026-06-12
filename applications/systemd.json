@@ -22,21 +22,19 @@
       "cat > $DESTDIR/etc/systemd/user-environment-generators/50-profile.sh << \"EOF\"\n#!/usr/bin/env -S -i /usr/bin/bash\n# SPDX-License-Identifier: MIT\n\n. /etc/profile\n\n# Systemd should have already set a better value for them.\nunset XDG_RUNTIME_DIR\nfor i in $(locale); do\n  unset ${i%=*}\ndone\n\n# Some shell magic that we don't want to expose.\nunset SHLVL\n\n# Systemd does not want to pass functions to the environment\nfor i in $(declare -pF | awk '{print $3}'); do\n  unset -f $i\ndone\n\npython3 << _EOF\nimport os\nfor var in os.environ:\n  # Simply unsetting them in shell does not work.\n  if var in ['LC_CTYPE', '_']:\n    continue\n\n  print(var + '=' + os.environ[var])\n_EOF\nEOF",
       "chmod -v 755 $DESTDIR/etc/systemd/user-environment-generators/50-profile.sh",
       "install -vdm755 $DESTDIR/etc/pam.d",
-      "grep -q 'pam_systemd' $DESTDIR/etc/pam.d/system-session ||\ncat >> $DESTDIR/etc/pam.d/system-session << \"EOF\"\n# Begin Systemd addition\n\nsession  required    pam_loginuid.so\nsession  optional    pam_systemd.so\n\n# End Systemd addition\nEOF",
       "cat > $DESTDIR/etc/pam.d/systemd-user << \"EOF\"\n# Begin /etc/pam.d/systemd-user\n\naccount  required    pam_access.so\naccount  include     system-account\n\nsession  required    pam_env.so\nsession  required    pam_limits.so\nsession  required    pam_loginuid.so\nsession  optional    pam_keyinit.so force revoke\nsession  optional    pam_systemd.so\n\nauth     required    pam_deny.so\npassword required    pam_deny.so\n\n# End /etc/pam.d/systemd-user\nEOF"
     ]
   },
   "post_install": [
-    "systemctl --user unset-environment \\\n  $(/etc/systemd/user-environment-generators/50-profile.sh | sed 's/=.*//')",
-    "systemctl --user daemon-reload",
-    "systemctl daemon-reexec"
+    "grep -q 'pam_systemd' /etc/pam.d/system-session || cat >> /etc/pam.d/system-session << \"EOF\"\n# Begin Systemd addition\n\nsession  required    pam_loginuid.so\nsession  optional    pam_systemd.so\n\n# End Systemd addition\nEOF",
+    "if systemctl is-system-running --quiet 2>/dev/null; then systemctl --user unset-environment $(/etc/systemd/user-environment-generators/50-profile.sh | sed 's/=.*//'); systemctl --user daemon-reload; systemctl daemon-reexec; fi"
   ],
   "meta": false,
   "book": "general/systemd.html",
   "category": "sysutils",
   "install": {
     "extract": [
-      "tar -xzf $PACKAGE -C /"
+      "tar -xJf $PACKAGE -C /"
     ]
   }
 }
