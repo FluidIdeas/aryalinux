@@ -1,0 +1,40 @@
+{
+  "name": "deepin-anything",
+  "version": "7.0.5",
+  "description": "Deepin file search service (userspace; kernel module optional).",
+  "category": "desktop-deepin",
+  "dependencies": {
+    "required": [
+      "libnl",
+      "lucene++",
+      "qt5-base",
+      "spdlog"
+    ],
+    "optional": [
+      "deepin-anything-dkms"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i 's/cmake_minimum_required(VERSION 3\\.1\\.0)/cmake_minimum_required(VERSION 3.5)/' CMakeLists.txt src/kernelmod/CMakeLists.txt",
+      "sed -i 's/cmake_minimum_required(VERSION 3\\.1)/cmake_minimum_required(VERSION 3.5)/' src/server/CMakeLists.txt",
+      "sed -i 's/find_package(Boost REQUIRED COMPONENTS system)/find_package(Boost REQUIRED)/' src/server/CMakeLists.txt",
+      "cmake -B build -S deepin-anything -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -Wno-dev",
+      "cmake --build build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR cmake --install build"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "deepin/deepin-anything.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "url": [
+    "https://github.com/linuxdeepin/deepin-anything/archive/refs/tags/7.0.5.tar.gz"
+  ]
+}

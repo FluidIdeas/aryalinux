@@ -20,7 +20,7 @@
       "unset XCFLAGS"
     ],
     "package": [
-      "make prefix=$DESTDIR/usr shared=yes install",
+      "make prefix=/usr docdir=/usr/share/doc/mupdf-1.26.12 shared=yes install",
       "ln -sfv libmupdf.so.26.12 $DESTDIR/usr/lib/libmupdf.so.26",
       "ln -sfv libmupdf.so.26 $DESTDIR/usr/lib/libmupdf.so",
       "chmod 755 $DESTDIR/usr/lib/libmupdf.so.26.12",

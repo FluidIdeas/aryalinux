@@ -17,20 +17,17 @@
       "make -C wpa_supplicant BINDIR=/usr/sbin LIBDIR=/usr/lib"
     ],
     "package": [
-      "install -v -dm755 $DESTDIR/etc/wpa_supplicant",
+      "install -v -dm755 $DESTDIR/etc/wpa_supplicant \\\n                       $DESTDIR/usr/sbin \\\n                       $DESTDIR/usr/share/man/man5 \\\n                       $DESTDIR/usr/share/man/man8 \\\n                       $DESTDIR/usr/lib/systemd/system \\\n                       $DESTDIR/usr/share/dbus-1/system-services \\\n                       $DESTDIR/etc/dbus-1/system.d",
       "install -v -m755 wpa_supplicant/wpa_{cli,passphrase,supplicant} $DESTDIR/usr/sbin/",
       "install -v -m644 wpa_supplicant/doc/docbook/wpa_supplicant.conf.5 $DESTDIR/usr/share/man/man5/",
       "install -v -m644 wpa_supplicant/doc/docbook/wpa_{cli,passphrase,supplicant}.8 $DESTDIR/usr/share/man/man8/",
       "install -v -m644 wpa_supplicant/systemd/*.service $DESTDIR/usr/lib/systemd/system/",
       "install -v -m644 wpa_supplicant/dbus/fi.w1.wpa_supplicant1.service \\\n                 $DESTDIR/usr/share/dbus-1/system-services/",
-      "install -v -d -m755 $DESTDIR/etc/dbus-1/system.d",
       "install -v -m644 wpa_supplicant/dbus/dbus-wpa_supplicant.conf \\\n                 $DESTDIR/etc/dbus-1/system.d/wpa_supplicant.conf"
     ]
   },
   "post_install": [
-    "install -vdm755 /etc/wpa_supplicant",
-    "wpa_passphrase SSID | sed '/^\\t#/d' > /etc/wpa_supplicant/wpa_supplicant-wifi0.conf",
-    "systemctl enable wpa_supplicant@wlan0"
+    "install -vdm755 /etc/wpa_supplicant"
   ],
   "meta": false,
   "book": "basicnet/wpa_supplicant.html",

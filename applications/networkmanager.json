@@ -9,8 +9,11 @@
     "required": [
       "libndp",
       "curl",
+      "glib2",
       "newt",
+      "nss",
       "polkit",
+      "python-modules.pygobject3",
       "systemd",
       "wpa_supplicant"
     ]
@@ -18,7 +21,7 @@
   "build": {
     "user": [
       "grep -rl '^#!.*python$' | xargs sed -i '1s/python/&3/'",
-      "meson setup build                    \\\n      --prefix=/usr               \\\n      --buildtype=release         \\\n      -D libaudit=no              \\\n      -D nmtui=true               \\\n      -D ovs=false                \\\n      -D ppp=false                \\\n      -D nbft=false               \\\n      -D selinux=false            \\\n      -D qt=false                 \\\n      -D session_tracking=systemd \\\n      -D nm_cloud_setup=false     \\\n      -D modem_manager=false",
+      "meson setup build                    \\\n      --prefix=/usr               \\\n      --buildtype=release         \\\n      -D libaudit=no              \\\n      -D docs=false               \\\n      -D nmtui=true               \\\n      -D ovs=false                \\\n      -D ppp=false                \\\n      -D nbft=false               \\\n      -D selinux=false            \\\n      -D qt=false                 \\\n      -D session_tracking=systemd \\\n      -D nm_cloud_setup=false     \\\n      -D modem_manager=false",
       "ninja -C build"
     ],
     "package": [

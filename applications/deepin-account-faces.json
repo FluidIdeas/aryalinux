@@ -1,0 +1,27 @@
+{
+  "name": "deepin-account-faces",
+  "version": "1.0.18",
+  "description": "Default account avatar images for DDE.",
+  "category": "desktop-deepin",
+  "dependencies": {
+    "required": []
+  },
+  "build": {
+    "user": [],
+    "package": [
+      "make DESTDIR=$DESTDIR -C dde-account-faces-1.0.18 install",
+      "chmod 775 $DESTDIR/var/lib/AccountsService/icons"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "deepin/deepin-account-faces.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "url": [
+    "https://github.com/linuxdeepin/dde-account-faces/archive/1.0.18.tar.gz"
+  ]
+}

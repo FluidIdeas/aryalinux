@@ -1,0 +1,31 @@
+{
+  "name": "dejavu-fonts-ttf",
+  "version": "2.37",
+  "description": "The DejaVu fonts provide Latin, Cyrillic, Greek, Arabic, Hebrew, Armenian, Georgian, and other glyphs. BLFS documents installation under the TTF and OTF fonts chapter.",
+  "category": "x11",
+  "url": [
+    "https://sourceforge.net/projects/dejavu/files/dejavu/2.37/dejavu-fonts-ttf-2.37.tar.bz2"
+  ],
+  "dependencies": {
+    "required": [
+      "fontconfig"
+    ]
+  },
+  "build": {
+    "user": [],
+    "package": [
+      "install -dm755 $DESTDIR/usr/share/fonts/dejavu",
+      "install -m644 ttf/*.ttf $DESTDIR/usr/share/fonts/dejavu"
+    ]
+  },
+  "post_install": [
+    "fc-cache -v /usr/share/fonts/dejavu"
+  ],
+  "meta": false,
+  "book": "x/TTF-and-OTF-fonts.html#dejavu-fonts",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

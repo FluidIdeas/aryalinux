@@ -8,7 +8,8 @@
   ],
   "dependencies": {
     "required": [
-      "breeze-gtk"
+      "extra-cmake-modules",
+      "qt6"
     ]
   },
   "build": {

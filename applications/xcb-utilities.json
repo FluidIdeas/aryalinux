@@ -1,0 +1,24 @@
+{
+  "name": "xcb-utilities",
+  "version": "1.0",
+  "description": "Metapackage: installs all BLFS XCB utility libraries required by Qt6 and X11 clients.",
+  "category": "metapackage",
+  "dependencies": {
+    "required": [
+      "xcb-util-image",
+      "xcb-util-keysyms",
+      "xcb-util-renderutil",
+      "xcb-util-wm",
+      "xcb-util-cursor"
+    ]
+  },
+  "build": {},
+  "post_install": [],
+  "meta": true,
+  "book": "x/xcb-utilities.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -8,6 +8,8 @@
   ],
   "dependencies": {
     "required": [
+      "layer-shell-qt",
+      "libkscreen",
       "libplasma"
     ]
   },

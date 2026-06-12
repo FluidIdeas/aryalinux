@@ -3,17 +3,16 @@
   "version": "10.06.0",
   "description": "Ghostscript is a versatile processor for PostScript data with the ability to render PostScript to different targets. It is a mandatory part of the cups printing stack.",
   "url": [
-    "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10060/ghostscript-10.06.0.tar.xz",
-    "https://downloads.sourceforge.net/gs-fonts/ghostscript-fonts-std-8.11.tar.gz",
-    "https://downloads.sourceforge.net/gs-fonts/gnu-gs-fonts-other-6.0.tar.gz"
+    "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10060/ghostscript-10.06.0.tar.xz"
   ],
   "dependencies": {
     "required": [
-      "cups",
-      "cups-filters",
       "libjpeg",
       "libpng",
       "openjpeg2"
+    ],
+    "recommended": [
+      "cups"
     ]
   },
   "build": {
@@ -44,5 +43,9 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://downloads.sourceforge.net/gs-fonts/ghostscript-fonts-std-8.11.tar.gz",
+    "https://downloads.sourceforge.net/gs-fonts/gnu-gs-fonts-other-6.0.tar.gz"
+  ]
 }

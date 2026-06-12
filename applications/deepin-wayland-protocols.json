@@ -1,0 +1,29 @@
+{
+  "name": "deepin-wayland-protocols",
+  "version": "1.10.0.31",
+  "description": "Deepin-specific Wayland protocols.",
+  "category": "libraries",
+  "dependencies": {
+    "required": []
+  },
+  "build": {
+    "user": [
+      "cmake . -GNinja -DCMAKE_INSTALL_PREFIX=/usr",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "deepin/deepin-wayland-protocols.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "url": [
+    "https://github.com/linuxdeepin/deepin-wayland-protocols/archive/refs/tags/1.10.0.31.tar.gz"
+  ]
+}

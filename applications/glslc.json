@@ -19,7 +19,7 @@
       "ninja -C build glslc/glslc"
     ],
     "package": [
-      "install -vm755 build/glslc/glslc $DESTDIR/usr/bin"
+      "install -Dm755 build/glslc/glslc $DESTDIR/usr/bin/glslc"
     ]
   },
   "install": {

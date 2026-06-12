@@ -1,0 +1,41 @@
+{
+  "name": "startdde",
+  "version": "6.1.6",
+  "description": "Starter of Deepin Desktop Environment session.",
+  "category": "desktop-deepin",
+  "dependencies": {
+    "required": [
+      "dconf",
+      "glib2",
+      "gtk3",
+      "libgudev"
+    ]
+  },
+  "build": {
+    "environment": {
+      "CGO_CPPFLAGS": "$CPPFLAGS",
+      "CGO_CFLAGS": "$CFLAGS",
+      "CGO_CXXFLAGS": "$CXXFLAGS",
+      "CGO_LDFLAGS": "$LDFLAGS",
+      "GOFLAGS": "-buildmode=pie -trimpath -mod=readonly -modcacherw"
+    },
+    "user": [
+      "sed -i 's/sbin/bin/' Makefile",
+      "make"
+    ],
+    "package": [
+      "make DESTDIR=$DESTDIR install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "deepin/startdde.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "url": [
+    "https://github.com/linuxdeepin/startdde/archive/refs/tags/6.1.6.tar.gz"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "lshw",
+  "version": "B.02.20",
+  "description": "Hardware lister used by Deepin system services.",
+  "category": "system",
+  "dependencies": {
+    "required": [
+      "hwdata"
+    ],
+    "optional": [
+      "gtk3"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i 's|/usr/bin/gtk-lshw|/usr/sbin/gtk-lshw|' src/gui/integration/gtk-lshw.desktop",
+      "export VERSION=B.02.20",
+      "make SBINDIR=/usr/bin",
+      "make SBINDIR=/usr/bin gui"
+    ],
+    "package": [
+      "make DESTDIR=$DESTDIR SBINDIR=/usr/bin install",
+      "make DESTDIR=$DESTDIR SBINDIR=/usr/bin install-gui",
+      "install -Dm0644 src/gui/integration/gtk-lshw.desktop $DESTDIR/usr/share/applications/gtk-lshw.desktop",
+      "rm -f $DESTDIR/usr/share/lshw/pci.ids $DESTDIR/usr/share/lshw/usb.ids"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "deepin/lshw.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "url": [
+    "https://ezix.org/src/pkg/lshw.git/snapshot/4c6497c8b0a67cd9fa9693e9101a7cafd3297e81.tar.gz"
+  ]
+}

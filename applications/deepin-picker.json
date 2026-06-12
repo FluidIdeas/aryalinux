@@ -1,0 +1,33 @@
+{
+  "name": "deepin-picker",
+  "version": "6.0.11",
+  "description": "Color picker tool for deepin (Deepin Desktop Environment).",
+  "category": "desktop-deepin",
+  "dependencies": {
+    "required": [
+      "dtk6gui",
+      "dtk6widget",
+      "hicolor-icon-theme",
+      "qt6"
+    ]
+  },
+  "build": {
+    "user": [
+      "make"
+    ],
+    "package": [
+      "make DESTDIR=$DESTDIR install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "deepin/deepin-picker.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "url": [
+    "https://github.com/linuxdeepin/deepin-picker/archive/refs/tags/6.0.11.tar.gz"
+  ]
+}

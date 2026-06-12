@@ -10,7 +10,10 @@
       "frameworks6",
       "kdsoap-ws-discovery-client",
       "libproxy",
-      "qcoro",
+      "plasma-activities-stats",
+      "qcoro"
+    ],
+    "recommended": [
       "libkexiv2"
     ]
   },

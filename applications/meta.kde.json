@@ -37,6 +37,7 @@
       "libnotify",
       "oxygen-icons",
       "qt6",
+      "qtwebengine",
       "udisks2",
       "xdg-user-dirs"
     ]

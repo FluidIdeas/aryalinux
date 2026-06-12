@@ -8,8 +8,13 @@
   "dependencies": {
     "required": [
       "libassuan",
-      "npth",
-      "gnutls"
+      "libgcrypt",
+      "libksba",
+      "npth"
+    ],
+    "recommended": [
+      "gnutls",
+      "pinentry"
     ]
   },
   "build": {

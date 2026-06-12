@@ -8,6 +8,7 @@
       "libgudev",
       "glib2",
       "libmbim",
+      "libqmi",
       "polkit",
       "vala"
     ]
@@ -15,13 +16,15 @@
   "build": {
     "user": [
       "meson setup build                 \\\n      --prefix=/usr            \\\n      --buildtype=release      \\\n      -D bash_completion=false \\\n      -D qrtr=false .",
-      "ninja -C build",
-      "systemctl enable ModemManager"
+      "ninja -C build"
     ],
     "package": [
       "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
+  "post_install": [
+    "systemctl enable ModemManager"
+  ],
   "install": {
     "extract": [
       "tar -xJf $PACKAGE -C /"

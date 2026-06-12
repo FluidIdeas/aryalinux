@@ -1,0 +1,34 @@
+{
+  "name": "dtk6gui",
+  "version": "1:1:6.0.50",
+  "description": "Deepin Toolkit, gui module for DDE look and feel (Deepin Desktop Environment).",
+  "category": "desktop-deepin",
+  "dependencies": {
+    "required": [
+      "dtk6core",
+      "glib2",
+      "librsvg",
+      "qt6"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake . -GNinja -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_INSTALL_LIBEXECDIR=lib -DBUILD_DOCS=OFF -DBUILD_TESTING=OFF -DDTK_DISABLE_EX_IMAGE_FORMAT=ON",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "deepin/dtk6gui.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "url": [
+    "https://github.com/linuxdeepin/dtk6gui/archive/refs/tags/6.0.50.tar.gz"
+  ]
+}

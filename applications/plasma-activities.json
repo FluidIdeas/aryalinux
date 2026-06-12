@@ -8,7 +8,7 @@
   ],
   "dependencies": {
     "required": [
-      "layer-shell-qt"
+      "frameworks6"
     ]
   },
   "build": {

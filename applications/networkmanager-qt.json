@@ -8,7 +8,9 @@
   ],
   "dependencies": {
     "required": [
-      "kwindowsystem"
+      "kwindowsystem",
+      "networkmanager",
+      "glib2"
     ]
   },
   "build": {

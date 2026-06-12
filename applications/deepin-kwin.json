@@ -1,0 +1,88 @@
+{
+  "name": "deepin-kwin",
+  "version": "6.0.8",
+  "description": "DDE window manager forked from KWin.",
+  "category": "desktop-deepin",
+  "dependencies": {
+    "required": [
+      "deepin-qt6platform-plugins",
+      "freetype2",
+      "kauth",
+      "kcmutils",
+      "kcolorscheme",
+      "kconfig",
+      "kconfigwidgets",
+      "kcoreaddons",
+      "kcrash",
+      "kdbusaddons",
+      "kdeclarative",
+      "kglobalaccel",
+      "kglobalacceld",
+      "ki18n",
+      "kidletime",
+      "kitemmodels",
+      "kitemviews",
+      "knewstuff",
+      "knotifications",
+      "kpackage",
+      "kquickcharts",
+      "krunner",
+      "kscreenlocker",
+      "kservice",
+      "ktextwidgets",
+      "kwayland",
+      "kwidgetsaddons",
+      "kwindowsystem",
+      "kxmlgui",
+      "lcms2",
+      "libcap",
+      "libdrm",
+      "libepoxy",
+      "libinput",
+      "libkscreen",
+      "libqaccessibilityclient-qt6",
+      "libxcb",
+      "libxcvt",
+      "libxkbcommon",
+      "mesa",
+      "milou",
+      "pipewire",
+      "python3",
+      "qt6",
+      "wayland",
+      "xcb-util-cursor",
+      "xcb-util-keysyms",
+      "xcb-util-wm",
+      "xwayland"
+    ],
+    "rebuild_after": [
+      "frameworks6",
+      "qt6"
+    ]
+  },
+  "build": {
+    "environment": {
+      "KF6_PREFIX": "/usr",
+      "QT6DIR": "/usr"
+    },
+    "user": [
+      "sed -i 's|/usr/share/backgrounds/default_background.jpg|/usr/share/backgrounds/deepin/desktop.jpg|' src/effects/multitaskview/multitaskview.cpp",
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX -D CMAKE_INSTALL_LIBEXECDIR=libexec -D CMAKE_PREFIX_PATH=$QT6DIR -D CMAKE_BUILD_TYPE=Release -D BUILD_TESTING=OFF -W no-dev .",
+      "cmake --build build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR cmake --install build"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "deepin/deepin-kwin.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "url": [
+    "https://github.com/linuxdeepin/deepin-kwin/archive/refs/tags/6.0.8.tar.gz"
+  ]
+}

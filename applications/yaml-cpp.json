@@ -1,0 +1,29 @@
+{
+  "name": "yaml-cpp",
+  "version": "0.9.0",
+  "description": "YAML parser/emitter for C++ (dde-shell dependency).",
+  "category": "libraries",
+  "dependencies": {
+    "required": []
+  },
+  "build": {
+    "user": [
+      "cmake -B build -DCMAKE_INSTALL_PREFIX=/usr -DYAML_BUILD_SHARED_LIBS=ON",
+      "cmake --build build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR cmake --install build"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "deepin/yaml-cpp.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "url": [
+    "https://github.com/jbeder/yaml-cpp/archive/refs/tags/0.9.0.tar.gz"
+  ]
+}

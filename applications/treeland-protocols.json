@@ -1,0 +1,29 @@
+{
+  "name": "treeland-protocols",
+  "version": "0.5.8",
+  "description": "Wayland protocols for Treeland compositor.",
+  "category": "libraries",
+  "dependencies": {
+    "required": []
+  },
+  "build": {
+    "user": [
+      "cmake . -GNinja -DCMAKE_INSTALL_PREFIX=/usr",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "deepin/treeland-protocols.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "url": [
+    "https://github.com/linuxdeepin/treeland-protocols/archive/refs/tags/0.5.8.tar.gz"
+  ]
+}

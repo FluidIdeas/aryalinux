@@ -1,0 +1,33 @@
+{
+  "name": "gsettings-qt6",
+  "version": "1.1.1",
+  "description": "GSettings bindings for Qt6 (Deepin DTK dependency).",
+  "category": "libraries",
+  "dependencies": {
+    "required": [
+      "glib2",
+      "qt6"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i 's/debian_version/arch-release/' GSettings/CMakeLists.txt",
+      "cmake -Bbuild -GNinja -DENABLE_QT6=ON -DCMAKE_INSTALL_PREFIX=/usr .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "deepin/gsettings-qt6.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "url": [
+    "https://gitlab.com/ubports/development/core/gsettings-qt/-/archive/v1.1.1/gsettings-qt-v1.1.1.tar.gz"
+  ]
+}

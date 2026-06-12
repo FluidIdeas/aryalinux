@@ -16,8 +16,11 @@
     "environment": {
       "KF6_PREFIX": "/usr"
     },
+    "pre": [
+      "test -f /opt/qt6/lib/cmake/Qt6WebEngineWidgets/Qt6WebEngineWidgetsConfig.cmake || { echo \"khelpcenter: Qt6WebEngineWidgets is missing under /opt/qt6\" >&2; echo \"Rebuild WebEngine: alps install --force qtwebengine\" >&2; exit 1; }"
+    ],
     "user": [
-      "cmake -B build -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX \\\n      -D CMAKE_BUILD_TYPE=Release         \\\n      -D BUILD_TESTING=OFF                \\\n      -W no-dev .",
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX \\\n      -D CMAKE_PREFIX_PATH=$QT6DIR        \\\n      -D CMAKE_BUILD_TYPE=Release         \\\n      -D BUILD_TESTING=OFF                \\\n      -W no-dev .",
       "make -C build"
     ],
     "package": [

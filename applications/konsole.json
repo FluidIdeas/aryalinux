@@ -30,5 +30,8 @@
   "book": "kde/konsole.html",
   "url": [
     "https://download.kde.org/stable/release-service/25.12.2/src/konsole-25.12.2.tar.xz"
+  ],
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/konsole-adjust_scrollbar-1.patch"
   ]
 }

@@ -7,9 +7,7 @@
   ],
   "dependencies": {
     "required": [
-      "glib2"
-    ],
-    "post": [
+      "glib2",
       "graphviz"
     ]
   },

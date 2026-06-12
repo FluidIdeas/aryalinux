@@ -1,0 +1,44 @@
+{
+  "name": "wlroots0.19",
+  "version": "0.19.3",
+  "description": "Wayland compositor library 0.19 (Treeland dependency).",
+  "category": "libraries",
+  "dependencies": {
+    "required": [
+      "lcms2",
+      "libdisplay-info",
+      "libglvnd",
+      "libinput",
+      "libliftoff",
+      "libseat",
+      "libxcb",
+      "libxkbcommon",
+      "mesa",
+      "pixman",
+      "wayland",
+      "xcb-util-errors",
+      "xcb-util-renderutil",
+      "xcb-util-wm"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Ddefault_library=shared",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "deepin/wlroots0.19.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "url": [
+    "https://gitlab.freedesktop.org/wlroots/wlroots/-/archive/0.19.3/wlroots-0.19.3.tar.gz"
+  ]
+}

@@ -11,7 +11,7 @@
       "make -f makefile"
     ],
     "package": [
-      "install -v -m755 unrar $DESTDIR/usr/bin"
+      "install -Dm755 unrar $DESTDIR/usr/bin/unrar"
     ]
   },
   "post_install": [],

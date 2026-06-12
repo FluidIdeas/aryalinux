@@ -1,0 +1,39 @@
+{
+  "name": "meta.deepin-extra",
+  "version": "1.0",
+  "description": "Metapackage: installs optional Deepin Desktop Environment applications. Reference: Arch Linux deepin-extra group (Extra, 2026).",
+  "category": "metapackage",
+  "dependencies": {
+    "required": [
+      "deepin-terminal",
+      "deepin-compressor",
+      "deepin-calculator",
+      "deepin-draw",
+      "deepin-editor",
+      "deepin-font-manager",
+      "deepin-movie",
+      "deepin-camera",
+      "deepin-screen-recorder",
+      "deepin-voice-note",
+      "deepin-clipboard",
+      "deepin-picker",
+      "deepin-device-formatter",
+      "deepin-printer",
+      "deepin-boot-maker",
+      "deepin-gomoku",
+      "deepin-lianliankan",
+      "deepin-screensaver-pp",
+      "deepin-shortcut-viewer",
+      "deepin-image-editor"
+    ]
+  },
+  "build": {},
+  "post_install": [],
+  "meta": true,
+  "book": "deepin/meta.deepin-extra.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

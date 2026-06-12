@@ -1,0 +1,32 @@
+{
+  "name": "xcb-util-wm",
+  "version": "0.4.2",
+  "description": "XCB utility library for ICCCM and EWMH protocols.",
+  "category": "x11",
+  "url": [
+    "https://xorg.freedesktop.org/archive/individual/lib/xcb-util-wm-0.4.2.tar.xz"
+  ],
+  "dependencies": {
+    "required": [
+      "libxcb",
+      "xcb-util"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure $XORG_CONFIG",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "x/xcb-utilities.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

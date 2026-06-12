@@ -1,0 +1,33 @@
+{
+  "name": "deepin-qt6integration",
+  "version": "6.0.50",
+  "description": "Deepin Qt6 integration.",
+  "category": "desktop-deepin",
+  "dependencies": {
+    "required": [
+      "dtk6widget",
+      "libxcb",
+      "qt6"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake . -Bbuild-qt6 -GNinja -DDTK5=OFF -DCMAKE_INSTALL_PREFIX=/usr",
+      "cmake --build build-qt6"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build-qt6 install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "deepin/deepin-qt6integration.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "url": [
+    "https://github.com/linuxdeepin/dde-qt5integration/archive/refs/tags/6.0.50.tar.gz"
+  ]
+}

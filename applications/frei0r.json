@@ -12,7 +12,7 @@
       "cmake --build build"
     ],
     "package": [
-      "cmake --install build --prefix=/usr --DESTDIR=$DESTDIR"
+      "DESTDIR=$DESTDIR cmake --install build"
     ]
   },
   "post_install": [],

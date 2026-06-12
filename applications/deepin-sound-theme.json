@@ -1,0 +1,26 @@
+{
+  "name": "deepin-sound-theme",
+  "version": "15.10.6",
+  "description": "Deepin sound theme for DDE.",
+  "category": "desktop-deepin",
+  "dependencies": {
+    "required": []
+  },
+  "build": {
+    "user": [],
+    "package": [
+      "make PREFIX=/usr DESTDIR=$DESTDIR -C deepin-sound-theme-15.10.6 install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "deepin/deepin-sound-theme.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "url": [
+    "https://github.com/linuxdeepin/deepin-sound-theme/archive/15.10.6.tar.gz"
+  ]
+}

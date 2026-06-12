@@ -1,0 +1,29 @@
+{
+  "name": "wlr-protocols",
+  "version": "20260206",
+  "description": "Wayland protocol definitions for wlroots compositors.",
+  "category": "libraries",
+  "dependencies": {
+    "required": []
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "deepin/wlr-protocols.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "url": [
+    "https://gitlab.freedesktop.org/wlroots/wlr-protocols/-/archive/main/wlr-protocols-main.tar.gz"
+  ]
+}

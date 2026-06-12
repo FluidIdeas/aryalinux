@@ -8,7 +8,8 @@
   ],
   "dependencies": {
     "required": [
-      "ki18n"
+      "ki18n",
+      "plasma-wayland-protocols"
     ]
   },
   "build": {

@@ -1,0 +1,33 @@
+{
+  "name": "deepin-qt5platform-plugins",
+  "version": "6.7.42",
+  "description": "Deepin Qt5 platform plugins.",
+  "category": "desktop-deepin",
+  "dependencies": {
+    "required": [
+      "dtkwidget",
+      "libxcb",
+      "qt5-base"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake . -Bbuild-qt5 -GNinja -DDTK5=ON -DCMAKE_INSTALL_PREFIX=/usr",
+      "cmake --build build-qt5"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build-qt5 install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "deepin/deepin-qt5platform-plugins.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "url": [
+    "https://github.com/linuxdeepin/dde-qt5platform-plugins/archive/refs/tags/6.7.42.tar.gz"
+  ]
+}

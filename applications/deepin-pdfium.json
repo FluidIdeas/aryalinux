@@ -1,0 +1,38 @@
+{
+  "name": "deepin-pdfium",
+  "version": "1.0.2",
+  "description": "PDF rendering library for Deepin applications.",
+  "category": "desktop-deepin",
+  "dependencies": {
+    "required": [
+      "freetype2",
+      "icu",
+      "lcms2",
+      "libchardet",
+      "libjpeg",
+      "openjpeg2",
+      "qt5-base"
+    ]
+  },
+  "build": {
+    "user": [
+      "cd deepin-pdfium-1.0.2",
+      "qmake-qt5 PREFIX=/usr deepin-pdfium.pro",
+      "CXXFLAGS+=' -include cstdint' make"
+    ],
+    "package": [
+      "make INSTALL_ROOT=$DESTDIR install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "deepin/deepin-pdfium.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "url": [
+    "https://github.com/linuxdeepin/deepin-pdfium/archive/1.0.2/deepin-pdfium-1.0.2.tar.gz"
+  ]
+}

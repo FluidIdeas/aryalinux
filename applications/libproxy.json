@@ -12,11 +12,11 @@
   "build": {
     "user": [
       "meson setup build        \\\n      --prefix=/usr   \\\n      -D release=true \\\n      -D docs=false   \\\n      -D tests=false  .",
-      "ninja -C build",
-      "rm /usr/lib/libproxy.a"
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja -C build install"
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "rm -f $DESTDIR/usr/lib/libproxy.a"
     ]
   },
   "install": {

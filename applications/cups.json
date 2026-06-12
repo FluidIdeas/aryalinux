@@ -25,9 +25,9 @@
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
-      "install -d $DESTDIR/etc/cups $DESTDIR/etc/pam.d",
+      "install -dm755 $DESTDIR/etc/cups $DESTDIR/etc/pam.d",
       "echo \"ServerName /run/cups/cups.sock\" > $DESTDIR/etc/cups/client.conf",
-      "install -vdm755 $DESTDIR/etc/pam.d",
+      "rm -f $DESTDIR/etc/pam.d/cups $DESTDIR/etc/pam.d/cups.N",
       "cat > $DESTDIR/etc/pam.d/cups << \"EOF\"\n# Begin /etc/pam.d/cups\n\nauth    include system-auth\naccount include system-account\nsession include system-session\n\n# End /etc/pam.d/cups\nEOF"
     ]
   },

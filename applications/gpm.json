@@ -15,18 +15,19 @@
       "make"
     ],
     "package": [
-      "install -v -dm755 $DESTDIR/etc/systemd/system/gpm.service.d",
-      "install -vdm755 $DESTDIR/etc/systemd/system/gpm.service.d",
-      "cat > $DESTDIR/etc/systemd/system/gpm.service.d/99-user.conf << \"EOF\"\n[Service]\nExecStart=\nExecStart=/usr/sbin/gpm <list of parameters>\nEOF",
       "make install DESTDIR=$DESTDIR",
       "install -v -m644 conf/gpm-root.conf $DESTDIR/etc",
-      "make install-gpm DESTDIR=$DESTDIR",
+      "install -v -dm755 $DESTDIR/usr/share/doc/gpm-1.20.7/support",
+      "install -v -m644 doc/support/* $DESTDIR/usr/share/doc/gpm-1.20.7/support",
+      "install -v -m644 doc/FAQ doc/HACK_GPM doc/README* $DESTDIR/usr/share/doc/gpm-1.20.7",
       "rm -fv $DESTDIR/usr/lib/libgpm.a"
     ]
   },
   "post_install": [
     "install-info --dir-file=/usr/share/info/dir /usr/share/info/gpm.info",
-    "ln -sfv libgpm.so.2.1.0 /usr/lib/libgpm.so"
+    "ln -sfv libgpm.so.2.1.0 /usr/lib/libgpm.so",
+    "install -vdm755 /etc/systemd/system/gpm.service.d",
+    "cat > /etc/systemd/system/gpm.service.d/99-user.conf << \"EOF\"\n[Service]\nExecStart=\nExecStart=/usr/sbin/gpm <list of parameters>\nEOF"
   ],
   "meta": false,
   "book": "general/gpm.html",

@@ -1,0 +1,32 @@
+{
+  "name": "xcb-util-image",
+  "version": "0.4.1",
+  "description": "XCB utility library for XCB image manipulation.",
+  "category": "x11",
+  "url": [
+    "https://xorg.freedesktop.org/archive/individual/lib/xcb-util-image-0.4.1.tar.xz"
+  ],
+  "dependencies": {
+    "required": [
+      "libxcb",
+      "xcb-util"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure $XORG_CONFIG",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "x/xcb-utilities.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

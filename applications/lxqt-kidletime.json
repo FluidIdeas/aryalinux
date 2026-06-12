@@ -12,7 +12,7 @@
   },
   "build": {
     "user": [
-      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr        \\\n      -D CMAKE_BUILD_TYPE=Release         \\\n      -D CMAKE_INSTALL_LIBEXECDIR=libexec \\\n      -D KDE_INSTALL_USE_QT_SYS_PATHS=ON  \\\n      -D BUILD_TESTING=OFF                \\\n      -W no-dev .",
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr        \\\n      -D CMAKE_BUILD_TYPE=Release         \\\n      -D CMAKE_INSTALL_LIBEXECDIR=libexec \\\n      -D CMAKE_PREFIX_PATH=$QT6DIR      \\\n      -D KDE_INSTALL_USE_QT_SYS_PATHS=ON  \\\n      -D BUILD_TESTING=OFF                \\\n      -W no-dev .",
       "make -C build"
     ],
     "package": [

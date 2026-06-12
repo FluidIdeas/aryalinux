@@ -9,8 +9,10 @@
     "required": [
       "which",
       "brotli",
+      "c-ares",
       "icu",
-      "libuv"
+      "libuv",
+      "nghttp2"
     ]
   },
   "build": {

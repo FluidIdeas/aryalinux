@@ -18,7 +18,7 @@
   "build": {
     "user": [
       "sed '/ORIGIN/d' -i lib/CMakeLists.txt",
-      "(cd build && cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release  \\\n      .)",
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr \\\n      -D CMAKE_BUILD_TYPE=Release .",
       "sed -i '/GZIP/s/:.*$/=/' build/CMakeCache.txt",
       "make -C build"
     ],

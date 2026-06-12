@@ -13,16 +13,17 @@
   "build": {
     "user": [
       "./configure --prefix=/usr",
-      "make",
-      "tar xf ../../aspell6-en-2020.12.07-0.tar.bz2",
-      "cd aspell6-en-2020.12.07-0 && ./configure && make"
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
       "install -v -m755 scripts/ispell $DESTDIR/usr/bin/",
       "install -v -m755 scripts/spell $DESTDIR/usr/bin/",
-      "cd aspell6-en-2020.12.07-0 && make install DESTDIR=$DESTDIR",
-      "ln -svfn aspell-0.60 $DESTDIR/usr/lib/aspell"
+      "ln -svfn aspell-0.60 $DESTDIR/usr/lib/aspell",
+      "tar xf ../aspell6-en-2020.12.07-0.tar.bz2",
+      "cd aspell6-en-2020.12.07-0 && PATH=$DESTDIR/usr/bin:$PATH LD_LIBRARY_PATH=$DESTDIR/usr/lib:$DESTDIR/usr/lib/aspell-0.60 ./configure --vars ASPELL_FLAGS=--prefix=$DESTDIR/usr",
+      "cd aspell6-en-2020.12.07-0 && PATH=$DESTDIR/usr/bin:$PATH LD_LIBRARY_PATH=$DESTDIR/usr/lib:$DESTDIR/usr/lib/aspell-0.60 make",
+      "cd aspell6-en-2020.12.07-0 && make install DESTDIR=$DESTDIR"
     ]
   },
   "post_install": [],

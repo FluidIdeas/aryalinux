@@ -1,0 +1,33 @@
+{
+  "name": "deepin-service-manager",
+  "version": "1.0.22",
+  "description": "Manage DBus service on Deepin (Deepin Desktop Environment).",
+  "category": "desktop-deepin",
+  "dependencies": {
+    "required": [
+      "dtk6core",
+      "qt6",
+      "systemd"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake . -GNinja -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_INSTALL_LIBEXECDIR=lib -DCMAKE_INSTALL_SYSCONFDIR=/etc ",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "deepin/deepin-service-manager.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "url": [
+    "https://github.com/linuxdeepin/deepin-service-manager/archive/refs/tags/1.0.22.tar.gz"
+  ]
+}

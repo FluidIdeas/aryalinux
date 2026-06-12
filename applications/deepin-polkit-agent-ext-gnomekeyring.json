@@ -1,0 +1,33 @@
+{
+  "name": "deepin-polkit-agent-ext-gnomekeyring",
+  "version": "6.0.1",
+  "description": "GNOME keyring extension for dde-polkit-agent (Deepin Desktop Environment).",
+  "category": "desktop-deepin",
+  "dependencies": {
+    "required": [
+      "deepin-polkit-agent",
+      "deepin-qt5integration",
+      "libsecret"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake . -GNinja -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_INSTALL_LIBEXECDIR=lib -DCMAKE_INSTALL_SYSCONFDIR=/etc ",
+      "ninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "deepin/deepin-polkit-agent-ext-gnomekeyring.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "url": [
+    "https://github.com/linuxdeepin/deepin-polkit-agent-ext-gnomekeyring/archive/refs/tags/6.0.1.tar.gz"
+  ]
+}

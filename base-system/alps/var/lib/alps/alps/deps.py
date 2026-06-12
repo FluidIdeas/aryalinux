@@ -1,4 +1,4 @@
-"""Dependency resolution with pre/post variant support."""
+"""Dependency resolution with optional pre-dependency support."""
 
 from __future__ import annotations
 
@@ -13,7 +13,6 @@ class InstallPlan:
 
     build_order: list[str] = field(default_factory=list)
     pre: list[str] = field(default_factory=list)
-    post: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -38,7 +37,7 @@ def _all_deps(port: Port, include_recommended: bool) -> list[str]:
 
 def _port_dependency_names(port: Port, include_recommended: bool) -> list[str]:
     names: list[str] = []
-    for name in port.dependencies.pre + _all_deps(port, include_recommended) + port.dependencies.post:
+    for name in port.dependencies.pre + _all_deps(port, include_recommended):
         if name not in names:
             names.append(name)
     return names
@@ -95,6 +94,71 @@ def find_dependency_cycles(
     return list(found.values())
 
 
+def _collect_dependency_graph(
+    ports_dir,
+    names: list[str],
+    *,
+    already: set[str],
+    include_recommended: bool,
+) -> dict[str, set[str]]:
+    """Collect direct dependencies for *names* and their transitive deps."""
+    graph: dict[str, set[str]] = {}
+
+    def collect(name: str, stack: set[str]) -> None:
+        if name in already:
+            return
+        if name in stack:
+            return
+        try:
+            port = load_port(ports_dir, name)
+        except FileNotFoundError:
+            return
+        if name not in graph:
+            deps = {
+                dep for dep in _port_dependency_names(port, include_recommended)
+                if dep not in already
+            }
+            graph[name] = deps
+        stack.add(name)
+        for dep in graph[name]:
+            collect(dep, stack)
+        stack.remove(name)
+
+    for name in names:
+        collect(name, set())
+    return graph
+
+
+def _topological_sort(graph: dict[str, set[str]]) -> list[str]:
+    """Return *graph* keys so every dependency appears before its dependents."""
+    if not graph:
+        return []
+
+    in_degree = {
+        node: len([dep for dep in graph[node] if dep in graph])
+        for node in graph
+    }
+    ready = sorted(node for node, degree in in_degree.items() if degree == 0)
+    order: list[str] = []
+
+    while ready:
+        node = ready.pop(0)
+        order.append(node)
+        for other, deps in graph.items():
+            if node not in deps:
+                continue
+            in_degree[other] -= 1
+            if in_degree[other] == 0:
+                ready.append(other)
+                ready.sort()
+
+    if len(order) < len(graph):
+        for node in sorted(graph):
+            if node not in order:
+                order.append(node)
+    return order
+
+
 def resolve_install_plan(
     ports_dir,
     target: str,
@@ -104,41 +168,26 @@ def resolve_install_plan(
     satisfied: set[str] | None = None,
 ) -> InstallPlan:
     """Return packages that must be built/installed before *target*."""
-    visiting: set[str] = set()
-    order: list[str] = []
-    pre_all: list[str] = []
-    post_all: list[str] = []
     already = installed | (satisfied or set())
+    try:
+        target_port = load_port(ports_dir, target)
+    except FileNotFoundError:
+        return InstallPlan()
 
-    def visit(name: str) -> None:
-        if name in already or name in order:
-            return
-        if name in visiting:
-            return
-        visiting.add(name)
-        port = load_port(ports_dir, name)
-        for pre in port.dependencies.pre:
-            if pre not in already:
-                visit(pre)
-                if pre not in pre_all:
-                    pre_all.append(pre)
-        for dep in _all_deps(port, include_recommended):
-            if dep not in already:
-                visit(dep)
-                if dep not in order:
-                    order.append(dep)
-        visiting.remove(name)
-
-    visit(target)
-    target_port = load_port(ports_dir, target)
+    pre_all: list[str] = []
     for pre in target_port.dependencies.pre:
         if pre not in already and pre not in pre_all:
             pre_all.append(pre)
-    for post in target_port.dependencies.post:
-        if post not in already:
-            post_all.append(post)
 
-    return InstallPlan(build_order=order, pre=pre_all, post=post_all)
+    dep_names = _port_dependency_names(target_port, include_recommended)
+    graph = _collect_dependency_graph(
+        ports_dir,
+        dep_names + pre_all,
+        already=already,
+        include_recommended=include_recommended,
+    )
+    order = _topological_sort(graph)
+    return InstallPlan(build_order=order, pre=pre_all)
 
 
 def resolve_packages_for_install(
@@ -181,17 +230,6 @@ def resolve_packages_for_install(
         for name in plan.build_order + plan.pre:
             add(name)
         add(target)
-        for post_name in plan.post:
-            post_plan = resolve_install_plan(
-                ports_dir,
-                post_name,
-                installed=installed,
-                include_recommended=include_recommended,
-                satisfied=seen,
-            )
-            for name in post_plan.build_order + post_plan.pre:
-                add(name)
-            add(post_name)
     return ResolvedInstallPlan(order=result, deduplicated=deduplicated, cycles=cycles)
 
 

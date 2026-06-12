@@ -6,12 +6,15 @@
   "dependencies": {
     "required": [
       "cups",
+      "dejavu-fonts-ttf",
+      "glib2",
       "gs",
-      "mupdf",
       "lcms2",
-      "TTF-and-OTF-fonts",
       "libexif",
-      "libpng"
+      "libpng",
+      "mupdf",
+      "poppler",
+      "qpdf"
     ]
   },
   "build": {
@@ -33,5 +36,8 @@
   "book": "pst/libcupsfilters.html",
   "url": [
     "https://github.com/OpenPrinting/libcupsfilters/releases/download/2.1.1/libcupsfilters-2.1.1.tar.xz"
+  ],
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/libcupsfilters-2.1.1-security_fixes-1.patch"
   ]
 }

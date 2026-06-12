@@ -176,7 +176,10 @@ def main(argv: list[str] | None = None) -> int:
             if port.dependencies.pre:
                 print(f"pre: {', '.join(port.dependencies.pre)}")
             if port.dependencies.post:
-                print(f"post: {', '.join(port.dependencies.post)}")
+                print(
+                    f"post (manual, not auto-installed): "
+                    f"{', '.join(port.dependencies.post)}"
+                )
             if port.dependencies.rebuild_after:
                 print(f"rebuild_after: {', '.join(port.dependencies.rebuild_after)}")
             print(f"meta: {port.meta}")

@@ -1,0 +1,46 @@
+{
+  "name": "deepin-control-center",
+  "version": "6.1.42",
+  "description": "Control panel of Deepin Desktop Environment.",
+  "category": "desktop-deepin",
+  "dependencies": {
+    "required": [
+      "deepin-account-faces",
+      "deepin-api",
+      "deepin-daemon",
+      "deepin-desktop-theme",
+      "deepin-network-core",
+      "deepin-pw-check",
+      "dtk6core",
+      "dtk6declarative",
+      "dtk6gui",
+      "dtk6widget",
+      "icu",
+      "libpwquality",
+      "polkit-qt",
+      "qt6",
+      "startdde"
+    ]
+  },
+  "build": {
+    "user": [
+      "mkdir -p build",
+      "cmake -GNinja -S . -B build -DDISABLE_AUTHENTICATION=YES -DDISABLE_PRIVACY_PLUGIN=YES -DDISABLE_LANGUAGE=YES -DDISABLE_UPDATE=YES -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "deepin/deepin-control-center.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "url": [
+    "https://github.com/linuxdeepin/dde-control-center/archive/refs/tags/6.1.42.tar.gz"
+  ]
+}

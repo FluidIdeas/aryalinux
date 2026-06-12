@@ -3,12 +3,15 @@
   "version": "26.02.0",
   "description": "The Poppler package contains a PDF rendering library and command line tools used to manipulate PDF files. This is useful for providing PDF rendering functionality as a shared library.",
   "url": [
-    "https://poppler.freedesktop.org/poppler-26.02.0.tar.xz",
+    "https://poppler.freedesktop.org/poppler-26.02.0.tar.xz"
+  ],
+  "additionalUrls": [
     "https://poppler.freedesktop.org/poppler-data-0.4.12.tar.gz"
   ],
   "dependencies": {
     "required": [
       "cmake",
+      "fontconfig",
       "glib2",
       "boost",
       "gpgmepp",
@@ -16,7 +19,7 @@
       "libpng",
       "libtiff",
       "openjpeg2",
-      "okular"
+      "qt6"
     ]
   },
   "build": {

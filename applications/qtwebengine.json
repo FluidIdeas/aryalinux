@@ -9,17 +9,42 @@
     "required": [
       "cups",
       "cups-filters",
-      "pciutils"
+      "dbus",
+      "ffmpeg",
+      "fontconfig",
+      "icu",
+      "libwebp",
+      "libxslt",
+      "mesa",
+      "nodejs",
+      "nss",
+      "opus",
+      "pciutils",
+      "pipewire",
+      "python-modules.html5lib",
+      "qt6"
     ]
   },
   "build": {
+    "environment": {
+      "PATH": "/opt/qt6/bin:/usr/bin:/bin",
+      "QT6DIR": "/opt/qt6",
+      "QT6PREFIX": "/opt/qt6"
+    },
+    "pre": [
+      "command -v bison flex gperf ninja >/dev/null || { echo 'qtwebengine: bison, flex, gperf, and ninja must be installed (LFS ch5/ch6)' >&2; exit 1; }"
+    ],
     "user": [
       "sed -e '/ifndef SYS_SECCOMP/,+2 d' \\\n    -i src/3rdparty/chromium/sandbox/linux/system_headers/linux_seccomp.h",
-      "cmake -B build -D CMAKE_MESSAGE_LOG_LEVEL=STATUS             \\\n      -D QT_FEATURE_webengine_system_ffmpeg=ON      \\\n      -D QT_FEATURE_webengine_system_icu=ON         \\\n      -D QT_FEATURE_webengine_proprietary_codecs=ON \\\n      -D QT_FEATURE_webengine_webrtc_pipewire=ON    \\\n      -D QT_BUILD_EXAMPLES_BY_DEFAULT=OFF           \\\n      -D QT_GENERATE_SBOM=OFF                       \\\n      -G Ninja ..",
-      "ninja -C build"
+      "rm -rf build",
+      "mkdir build",
+      "(cd build && cmake -D CMAKE_PREFIX_PATH=$QT6DIR                    \\\n      -D CMAKE_MESSAGE_LOG_LEVEL=STATUS               \\\n      -D QT_FEATURE_webengine_system_ffmpeg=ON        \\\n      -D QT_FEATURE_webengine_system_icu=ON           \\\n      -D QT_FEATURE_webengine_proprietary_codecs=ON   \\\n      -D QT_FEATURE_webengine_webrtc_pipewire=ON      \\\n      -D QT_BUILD_EXAMPLES_BY_DEFAULT=OFF             \\\n      -D QT_GENERATE_SBOM=OFF                         \\\n      -G Ninja ..)",
+      "grep -Eq '^(QT_FEATURE_qtwebengine_build:(BOOL|INTERNAL)=ON|QT_CONFIGURE_CHECK_qtwebengine_build:BOOL=ON)$' build/CMakeCache.txt || { echo 'qtwebengine: configure disabled WebEngine (qtwebengine_build=OFF); check cmake output above for missing tools/libs' >&2; grep -E '^QT_FEATURE_qtwebengine|^QT_CONFIGURE_CHECK_' build/CMakeCache.txt 2>/dev/null | sort; exit 1; }",
+      "cmake --build build --parallel"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja -C build install"
+      "DESTDIR=$DESTDIR cmake --install build",
+      "test -f $DESTDIR/opt/qt6/lib/cmake/Qt6WebEngineWidgets/Qt6WebEngineWidgetsConfig.cmake || { echo \"qtwebengine: Qt6WebEngineWidgets cmake package not staged\" >&2; find $DESTDIR/opt/qt6 -name '*WebEngine*' 2>/dev/null | head -20; exit 1; }"
     ]
   },
   "post_install": [],

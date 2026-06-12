@@ -1,0 +1,26 @@
+{
+  "name": "deepin-gtk-theme",
+  "version": "1:1:25.3.7",
+  "description": "Deepin GTK theme for DDE.",
+  "category": "desktop-deepin",
+  "dependencies": {
+    "required": []
+  },
+  "build": {
+    "user": [],
+    "package": [
+      "make DESTDIR=$DESTDIR install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "deepin/deepin-gtk-theme.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "url": [
+    "https://github.com/linuxdeepin/deepin-gtk-theme/archive/refs/tags/25.3.7.tar.gz"
+  ]
+}
