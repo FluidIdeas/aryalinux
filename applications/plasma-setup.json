@@ -23,7 +23,12 @@
       "make -C build install DESTDIR=$DESTDIR"
     ]
   },
-  "post_install": [],
+  "post_install": [
+    "command -v systemd-sysusers >/dev/null && systemd-sysusers || true",
+    "getent group plasma-setup >/dev/null || groupadd -r plasma-setup",
+    "id -u plasma-setup >/dev/null 2>&1 || useradd -r -g plasma-setup -d /run/plasma-setup -s /bin/bash -c \"Plasma Setup\" plasma-setup",
+    "command -v systemd-tmpfiles >/dev/null && systemd-tmpfiles --create || install -d -o plasma-setup -g plasma-setup -m 750 /run/plasma-setup"
+  ],
   "meta": false,
   "book": "kde/plasma-all.html",
   "install": {

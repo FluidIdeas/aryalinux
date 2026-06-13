@@ -41,7 +41,9 @@
       "udisks2",
       "xdg-user-dirs",
       "dejavu-fonts-ttf",
-      "hicolor-icon-theme"
+      "hicolor-icon-theme",
+      "nouveau-firmware",
+      "plasma-graphics-tools"
     ]
   },
   "build": {},

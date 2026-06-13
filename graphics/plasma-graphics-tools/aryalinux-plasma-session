@@ -1,0 +1,200 @@
+#!/bin/bash
+# SPDX-License-Identifier: MIT
+# Configure Plasma Login Manager and Plasma sessions for X11 or Wayland.
+
+set -euo pipefail
+
+CONF_DIR="/etc/plasmalogin.conf.d"
+DROPIN="${CONF_DIR}/aryalinux-session.conf"
+REPORT="/var/log/aryalinux-plasma-session.log"
+
+log() { printf '%s\n' "$*" | tee -a "$REPORT"; }
+
+need_root() {
+    if [ "$(id -u)" -ne 0 ]; then
+        echo "This script must be run as root." >&2
+        exit 1
+    fi
+}
+
+detect_gpu_vendor() {
+    if command -v lspci >/dev/null 2>&1; then
+        if lspci -nn | grep -Eiq 'vga|3d|display'; then
+            lspci -nn | grep -Ei 'vga|3d|display' | head -3
+            return
+        fi
+    fi
+    echo "unknown"
+}
+
+list_sessions() {
+    echo "Available X11 sessions (/usr/share/xsessions):"
+    if [ -d /usr/share/xsessions ]; then
+        ls -1 /usr/share/xsessions/*.desktop 2>/dev/null | xargs -r -n1 basename || echo "  (none)"
+    else
+        echo "  (directory missing)"
+    fi
+    echo
+    echo "Available Wayland sessions (/usr/share/wayland-sessions):"
+    if [ -d /usr/share/wayland-sessions ]; then
+        ls -1 /usr/share/wayland-sessions/*.desktop 2>/dev/null | xargs -r -n1 basename || echo "  (none)"
+    else
+        echo "  (directory missing)"
+    fi
+}
+
+current_display_server() {
+    if [ -f "$DROPIN" ] && grep -q '^DisplayServer=' "$DROPIN"; then
+        sed -n 's/^DisplayServer=//p' "$DROPIN" | head -1
+        return
+    fi
+    if [ -f /etc/plasmalogin.conf ] && grep -q '^DisplayServer=' /etc/plasmalogin.conf; then
+        sed -n 's/^DisplayServer=//p' /etc/plasmalogin.conf | head -1
+        return
+    fi
+    echo "unset (plasmalogin default, usually wayland)"
+}
+
+write_dropin() {
+    local server="$1"
+    local session="${2:-}"
+
+    need_root
+    install -d -m 755 "$CONF_DIR"
+    {
+        echo "# Written by aryalinux-plasma-session on $(date -Iseconds)"
+        echo "[General]"
+        echo "DisplayServer=${server}"
+        if [ -n "$session" ]; then
+            echo "Session=${session}"
+        fi
+    } > "$DROPIN"
+    chmod 644 "$DROPIN"
+    log "Wrote ${DROPIN} with DisplayServer=${server}${session:+, Session=${session}}"
+}
+
+restart_display_manager() {
+    need_root
+    if systemctl is-enabled plasmalogin >/dev/null 2>&1; then
+        log "Restarting plasmalogin..."
+        systemctl restart plasmalogin
+    elif systemctl is-enabled sddm >/dev/null 2>&1; then
+        log "Restarting sddm..."
+        systemctl restart sddm
+    else
+        log "No plasmalogin/sddm service found; reboot to apply changes."
+    fi
+}
+
+recommend_server() {
+    if lspci -nn 2>/dev/null | grep -Eiq 'nvidia'; then
+        echo "x11"
+        return
+    fi
+    if [ -d /sys/module/nouveau ]; then
+        echo "x11"
+        return
+    fi
+    echo "wayland"
+}
+
+usage() {
+    cat <<'EOF'
+Usage: aryalinux-plasma-session [command]
+
+Commands:
+  status          Show current display server, GPU, and sessions
+  recommend       Print recommended display server for this hardware
+  x11             Force Plasma login/session stack to X11
+  wayland         Force Plasma login/session stack to Wayland
+  interactive     Guided setup (default)
+  help            Show this help
+
+Examples:
+  sudo aryalinux-plasma-session x11
+  sudo aryalinux-plasma-session status
+EOF
+}
+
+interactive() {
+    local gpu rec current choice session
+
+    log "=== aryalinux-plasma-session interactive setup ==="
+    gpu="$(detect_gpu_vendor)"
+    rec="$(recommend_server)"
+    current="$(current_display_server)"
+
+    echo "Detected GPU:"
+    echo "$gpu"
+    echo
+    echo "Current DisplayServer: $current"
+    echo "Recommended for this system: $rec"
+    echo
+    list_sessions
+    echo
+
+    if [ "$rec" = "x11" ]; then
+        echo "NVIDIA/nouveau systems often show a black screen on Wayland until"
+        echo "proprietary drivers or nouveau firmware are fully working."
+        echo "X11 is the safer first choice."
+        echo
+    fi
+
+    printf 'Choose display server [x11/wayland] (default %s): ' "$rec"
+    read -r choice
+    choice="${choice:-$rec}"
+    case "$choice" in
+        x11|wayland) ;;
+        *)
+            echo "Invalid choice: $choice" >&2
+            exit 1
+            ;;
+    esac
+
+    printf 'Optional default session .desktop name (Enter to skip): '
+    read -r session
+
+    write_dropin "$choice" "$session"
+    restart_display_manager
+    echo
+    echo "Done. If the greeter is still black, also run:"
+    echo "  sudo aryalinux-graphics-diagnose"
+    echo "  sudo alps install nouveau-firmware   # RTX 20xx/30xx with nouveau"
+}
+
+cmd="${1:-interactive}"
+
+case "$cmd" in
+    status)
+        echo "GPU:"
+        detect_gpu_vendor
+        echo
+        echo "DisplayServer: $(current_display_server)"
+        echo "Drop-in: $DROPIN"
+        [ -f "$DROPIN" ] && cat "$DROPIN" || echo "(not configured)"
+        echo
+        list_sessions
+        ;;
+    recommend)
+        recommend_server
+        ;;
+    x11)
+        write_dropin x11
+        restart_display_manager
+        ;;
+    wayland)
+        write_dropin wayland
+        restart_display_manager
+        ;;
+    interactive)
+        interactive
+        ;;
+    help|-h|--help)
+        usage
+        ;;
+    *)
+        echo "Unknown command: $cmd" >&2
+        usage >&2
+        exit 1
+        ;;
+esac

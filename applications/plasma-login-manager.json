@@ -32,7 +32,16 @@
     "cat > /etc/pam.d/plasmalogin-autologin << \"EOF\"\n# Begin /etc/pam.d/plasmalogin-autologin\n\nauth     requisite      pam_nologin.so\nauth     required       pam_env.so\n\nauth     required       pam_succeed_if.so uid >= 1000 quiet\nauth     required       pam_permit.so\n\naccount  include        system-account\n\npassword required       pam_deny.so\n\nsession  required       pam_limits.so\nsession  include        system-session\n\n# End /etc/pam.d/plasmalogin-autologin\nEOF",
     "cat > /etc/pam.d/plasmalogin-greeter << \"EOF\"\n# Begin /etc/pam.d/plasmalogin-greeter\n\nauth     required       pam_env.so\nauth     required       pam_permit.so\n\naccount  required       pam_permit.so\npassword required       pam_deny.so\nsession  required       pam_unix.so\n-session optional       pam_systemd.so\n\n# End /etc/pam.d/plasmalogin-greeter\nEOF",
     "command -v systemd-sysusers >/dev/null && systemd-sysusers || true",
-    "systemctl enable plasmalogin 2>/dev/null || true"
+    "getent group plasmalogin >/dev/null || groupadd -r plasmalogin",
+    "id -u plasmalogin >/dev/null 2>&1 || useradd -r -g plasmalogin -d /var/lib/plasmalogin -s /bin/false -c \"PLASMALOGIN Greeter Account\" plasmalogin",
+    "install -d -o plasmalogin -g plasmalogin -m 750 /var/lib/plasmalogin",
+    "command -v systemd-tmpfiles >/dev/null && systemd-tmpfiles --create || install -d -m 711 /run/plasmalogin",
+    "for dm in sddm lightdm gdm ddm; do systemctl disable \"$dm\" 2>/dev/null || true; done",
+    "systemctl enable plasmalogin",
+    "systemctl set-default graphical.target",
+    "test -e /etc/systemd/system/display-manager.service || ln -sfn /usr/lib/systemd/system/plasmalogin.service /etc/systemd/system/display-manager.service",
+    "test \"$(readlink -f /etc/systemd/system/default.target 2>/dev/null || echo)\" = \"$(readlink -f /usr/lib/systemd/system/graphical.target)\" || ln -sfn /usr/lib/systemd/system/graphical.target /etc/systemd/system/default.target",
+    "if command -v lspci >/dev/null && lspci -nn | grep -Eiq 'nvidia|10de'; then\n  install -d /etc/plasmalogin.conf.d\n  if [ ! -f /etc/plasmalogin.conf.d/aryalinux-session.conf ]; then\n    cat > /etc/plasmalogin.conf.d/aryalinux-nvidia-x11.conf << \"EOF\"\n# Prefer X11 on NVIDIA/nouveau until proprietary drivers or firmware are set up.\n[General]\nDisplayServer=x11\nEOF\n  fi\nfi"
   ],
   "meta": false,
   "book": "kde/plasma-all.html",

@@ -1,0 +1,130 @@
+#!/bin/bash
+# SPDX-License-Identifier: MIT
+# Collect graphics/display diagnostics for AryaLinux Plasma systems.
+
+set -euo pipefail
+
+REPORT="${1:-/var/log/aryalinux-graphics-diagnose.log}"
+mkdir -p "$(dirname "$REPORT")"
+
+section() {
+    {
+        echo
+        echo "======== $1 ========"
+    } | tee -a "$REPORT"
+}
+
+run() {
+    {
+        echo "\$ $*"
+        "$@" 2>&1 || echo "(exit $?)"
+    } | tee -a "$REPORT"
+}
+
+have() { command -v "$1" >/dev/null 2>&1; }
+
+: > "$REPORT"
+
+section "System"
+run date -Iseconds
+run uname -a
+run cat /etc/os-release 2>/dev/null || true
+
+section "Boot targets and display manager"
+run systemctl get-default 2>/dev/null || true
+run readlink -f /etc/systemd/system/display-manager.service 2>/dev/null || true
+for svc in plasmalogin sddm lightdm gdm; do
+    if have systemctl; then
+        run systemctl is-enabled "$svc" 2>/dev/null || true
+        run systemctl is-active "$svc" 2>/dev/null || true
+    fi
+done
+
+section "PCI graphics devices"
+if have lspci; then
+    run lspci -nnk | grep -A3 -Ei 'vga|3d|display'
+else
+    echo "lspci not installed" | tee -a "$REPORT"
+fi
+
+section "Kernel DRM / GPU modules"
+run ls -l /dev/dri 2>/dev/null || true
+for mod in nouveau nvidia drm_kms_helper drm; do
+    if [ -d "/sys/module/$mod" ]; then
+        echo "loaded: $mod" | tee -a "$REPORT"
+    fi
+done
+run cat /sys/module/nouveau/parameters/modeset 2>/dev/null || true
+
+section "NVIDIA nouveau firmware (GA10x/GA106)"
+for chip in ga106 ga102 gsp; do
+    if [ -d "/usr/lib/firmware/nvidia/$chip" ]; then
+        echo "present: /usr/lib/firmware/nvidia/$chip" | tee -a "$REPORT"
+        run find "/usr/lib/firmware/nvidia/$chip" -type f 2>/dev/null | head -10
+    else
+        echo "missing: /usr/lib/firmware/nvidia/$chip" | tee -a "$REPORT"
+    fi
+done
+
+section "Mesa / GL / Vulkan userspace"
+for lib in /usr/lib/libGL.so.1 /usr/lib/libEGL.so.1 /usr/lib/libvulkan.so.1; do
+    [ -e "$lib" ] && echo "found: $lib" | tee -a "$REPORT" || echo "missing: $lib" | tee -a "$REPORT"
+done
+if have glxinfo; then
+    run glxinfo -B
+else
+    echo "glxinfo not installed (install mesa demos / mesa-utils if available)" | tee -a "$REPORT"
+fi
+if have eglinfo; then
+    run eglinfo 2>/dev/null | head -40
+fi
+
+section "Plasma / session files"
+run ls -l /usr/share/xsessions 2>/dev/null || true
+run ls -l /usr/share/wayland-sessions 2>/dev/null || true
+run cat /etc/plasmalogin.conf 2>/dev/null || true
+for f in /etc/plasmalogin.conf.d/*; do
+    [ -f "$f" ] && run cat "$f"
+done
+
+section "Recent plasmalogin / greeter logs"
+if have journalctl; then
+    run journalctl -u plasmalogin -b --no-pager -n 80
+    run journalctl -u sddm -b --no-pager -n 40
+fi
+
+section "Recent Xorg log"
+xlog=""
+for f in "$HOME/.local/share/xorg/Xorg.0.log" /var/log/Xorg.0.log; do
+    [ -f "$f" ] && xlog="$f" && break
+done
+if [ -n "$xlog" ]; then
+    echo "Using $xlog" | tee -a "$REPORT"
+    grep -Ei 'EE|WW|nouveau|nvidia|glamor|modeset|fbdev|glx|dri|GPU' "$xlog" | tail -80 | tee -a "$REPORT" || true
+else
+    echo "No Xorg.0.log found yet" | tee -a "$REPORT"
+fi
+
+section "Recommendations"
+{
+    echo
+    if lspci -nn 2>/dev/null | grep -Eiq 'nvidia'; then
+        echo "- NVIDIA GPU detected."
+        if [ ! -d /usr/lib/firmware/nvidia/ga106 ] && [ ! -d /usr/lib/firmware/nvidia/ga102 ]; then
+            echo "  Install nouveau firmware: alps install nouveau-firmware"
+        fi
+        if [ ! -d /sys/module/nouveau ] && [ ! -d /sys/module/nvidia ]; then
+            echo "  No nouveau/nvidia kernel module loaded. Check kernel config and blacklist rules."
+        fi
+        if [ ! -f /etc/plasmalogin.conf.d/aryalinux-session.conf ]; then
+            echo "  Try X11 login screen: sudo aryalinux-plasma-session x11"
+        fi
+        echo "  Black screen + mouse cursor usually means Wayland/compositor failed on nouveau."
+        echo "  Switch to X11 first, then add firmware or proprietary drivers later."
+    fi
+    if [ ! -e /dev/dri/card0 ]; then
+        echo "- /dev/dri/card0 missing: DRM/kernel driver problem."
+    fi
+    echo
+    echo "Full report saved to: $REPORT"
+} | tee -a "$REPORT"

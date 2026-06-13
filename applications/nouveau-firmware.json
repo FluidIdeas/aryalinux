@@ -1,0 +1,36 @@
+{
+  "name": "nouveau-firmware",
+  "version": "1.0",
+  "description": "NVIDIA firmware blobs for the nouveau kernel driver (Ampere/RTX 30xx GA106 and related chips). Required for hardware acceleration before proprietary NVIDIA drivers are installed.",
+  "category": "hardware",
+  "url": [],
+  "dependencies": {
+    "required": [
+      "git"
+    ]
+  },
+  "build": {
+    "user": [
+      "rm -rf linux-firmware",
+      "git clone --depth 1 https://gitlab.com/kernel-firmware/linux-firmware.git",
+      "test -d linux-firmware/nvidia || { echo 'nouveau-firmware: nvidia tree missing in linux-firmware' >&2; exit 1; }"
+    ],
+    "package": [
+      "install -d $DESTDIR/usr/lib/firmware",
+      "cp -a linux-firmware/nvidia $DESTDIR/usr/lib/firmware/",
+      "test -d $DESTDIR/usr/lib/firmware/nvidia/ga106 || test -d $DESTDIR/usr/lib/firmware/nvidia/ga102 || { echo 'nouveau-firmware: GA10x firmware missing' >&2; exit 1; }",
+      "find $DESTDIR/usr/lib/firmware/nvidia -type f | head -1 | grep -q . || { echo 'nouveau-firmware: no firmware files installed' >&2; exit 1; }"
+    ]
+  },
+  "post_install": [
+    "echo 'Installed NVIDIA firmware under /usr/lib/firmware/nvidia for nouveau.'",
+    "echo 'Reboot or reload nouveau after install: modprobe -r nouveau; modprobe nouveau'"
+  ],
+  "meta": false,
+  "book": "postlfs/firmware.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}
