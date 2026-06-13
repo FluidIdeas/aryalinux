@@ -1,0 +1,37 @@
+{
+  "name": "bamf",
+  "version": "0.5.6",
+  "description": "Application matching framework (required by Plank).",
+  "category": "libraries",
+  "url": [
+    "https://launchpad.net/bamf/bamf/0.5.6/+download/bamf-0.5.6.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "gdk-pixbuf",
+      "glib2",
+      "gtk3",
+      "libX11",
+      "libgtop",
+      "libwnck",
+      "startup-notification"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --disable-static",
+      "make"
+    ],
+    "package": [
+      "make DESTDIR=$DESTDIR install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "pantheon/bamf.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

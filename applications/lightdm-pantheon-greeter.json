@@ -1,0 +1,36 @@
+{
+  "name": "lightdm-pantheon-greeter",
+  "version": "8.1.2",
+  "description": "Pantheon greeter for LightDM.",
+  "category": "applications",
+  "url": [
+    "https://github.com/elementary/lightdm-pantheon-greeter/archive/refs/tags/8.1.2.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "glib2",
+      "granite",
+      "libgee",
+      "libhandy",
+      "lightdm",
+      "mutter46"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "pantheon/lightdm-pantheon-greeter.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

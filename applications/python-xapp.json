@@ -1,0 +1,39 @@
+{
+  "name": "python-xapp",
+  "version": "3.0.3",
+  "description": "Python bindings for the X-App library.",
+  "category": "python-module",
+  "url": [
+    "https://github.com/linuxmint/python3-xapp/archive/refs/tags/3.0.3.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "glib2",
+      "gtk3",
+      "pango",
+      "python-modules.pygobject3",
+      "python3",
+      "xapp"
+    ],
+    "recommended": [
+      "python-modules.psutil"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release python3-xapp-3.0.3",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "cinnamon/python-xapp.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

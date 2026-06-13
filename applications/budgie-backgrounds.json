@@ -1,0 +1,29 @@
+{
+  "name": "budgie-backgrounds",
+  "version": "3.0",
+  "description": "Default background set for Budgie Desktop.",
+  "category": "desktop-budgie",
+  "url": [
+    "https://github.com/BuddiesOfBudgie/budgie-backgrounds/archive/refs/tags/v3.0.tar.gz"
+  ],
+  "dependencies": {
+    "required": []
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "budgie/budgie-backgrounds.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "xviewer",
+  "version": "3.4.16",
+  "description": "Image viewer from the Cinnamon X-Apps collection.",
+  "category": "applications",
+  "url": [
+    "https://github.com/linuxmint/xviewer/archive/refs/tags/3.4.16.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "at-spi2-core",
+      "cairo",
+      "cinnamon-desktop",
+      "dconf",
+      "exempi",
+      "gdk-pixbuf",
+      "glib2",
+      "gtk3",
+      "hicolor-icon-theme",
+      "lcms2",
+      "libexif",
+      "libjpeg",
+      "libpeas",
+      "librsvg",
+      "xapp"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "cinnamon/xviewer.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

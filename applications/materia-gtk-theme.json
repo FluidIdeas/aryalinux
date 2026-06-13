@@ -1,0 +1,35 @@
+{
+  "name": "materia-gtk-theme",
+  "version": "20210322",
+  "description": "Material Design GTK theme (Budgie default theme).",
+  "category": "applications",
+  "url": [
+    "https://github.com/nana-4/materia-theme/archive/v20210322/materia-gtk-theme-20210322.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "gtk3",
+      "gtk4"
+    ],
+    "recommended": [
+      "gnome-shell"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release materia-theme-20210322",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "budgie/materia-gtk-theme.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "bc",
+  "version": "1.08.2",
+  "description": "Arbitrary precision calculator (used by Enlightenment sysactions).",
+  "category": "programming",
+  "url": [
+    "https://ftp.gnu.org/gnu/bc/bc-1.08.2.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "readline"
+    ]
+  },
+  "build": {
+    "user": [
+      "cd bc-1.08.2 && ./configure --prefix=/usr --with-readline && make"
+    ],
+    "package": [
+      "make -C bc-1.08.2 DESTDIR=$DESTDIR install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "enlightenment/bc.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

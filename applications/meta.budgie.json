@@ -1,0 +1,45 @@
+{
+  "name": "meta.budgie",
+  "version": "1.0",
+  "description": "Metapackage: installs the Budgie Desktop Environment core stack. Reference: Arch Linux budgie group (Extra, 2026).",
+  "category": "metapackage",
+  "url": [],
+  "dependencies": {
+    "required": [
+      "budgie-backgrounds",
+      "budgie-control-center",
+      "budgie-desktop",
+      "budgie-desktop-services",
+      "budgie-desktop-view",
+      "budgie-session",
+      "gammastep",
+      "grim",
+      "gtk-layer-shell",
+      "gtk-session-lock",
+      "gtklock",
+      "labwc",
+      "libpeas-2",
+      "libsfdo",
+      "materia-gtk-theme",
+      "papirus-icon-theme",
+      "seatd",
+      "slurp",
+      "swaybg",
+      "swayidle",
+      "toml11",
+      "wdisplays",
+      "wlopm",
+      "wlroots0.20",
+      "xdg-desktop-portal-wlr"
+    ]
+  },
+  "build": {},
+  "post_install": [],
+  "meta": true,
+  "book": "budgie/meta.budgie.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

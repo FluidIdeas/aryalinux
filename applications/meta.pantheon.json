@@ -1,0 +1,57 @@
+{
+  "name": "meta.pantheon",
+  "version": "1.0",
+  "description": "Metapackage: Pantheon Desktop Environment core stack (support, Gala, Wingpanel, indicators, session). Reference: Arch Linux pantheon group (Extra, 2026).",
+  "category": "metapackage",
+  "url": [],
+  "dependencies": {
+    "required": [
+      "bamf",
+      "capnet-assist",
+      "contractor",
+      "elementary-icon-theme",
+      "elementary-wallpapers",
+      "gala",
+      "granite",
+      "granite7",
+      "gtk-theme-elementary",
+      "libgit2-glib",
+      "libhandy",
+      "mutter46",
+      "pantheon-applications-menu",
+      "pantheon-default-settings",
+      "pantheon-geoclue2-agent",
+      "pantheon-notifications",
+      "pantheon-polkit-agent",
+      "pantheon-print",
+      "pantheon-session",
+      "pantheon-settings-daemon",
+      "pantheon-shortcut-overlay",
+      "pantheon-wayland",
+      "plank",
+      "sound-theme-elementary",
+      "switchboard",
+      "wingpanel",
+      "wingpanel-indicator-a11y",
+      "wingpanel-indicator-bluetooth",
+      "wingpanel-indicator-datetime",
+      "wingpanel-indicator-keyboard",
+      "wingpanel-indicator-network",
+      "wingpanel-indicator-nightlight",
+      "wingpanel-indicator-notifications",
+      "wingpanel-indicator-power",
+      "wingpanel-indicator-session",
+      "wingpanel-indicator-sound",
+      "zeitgeist"
+    ]
+  },
+  "build": {},
+  "post_install": [],
+  "meta": true,
+  "book": "pantheon/meta.pantheon.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "elementary-icon-theme",
+  "version": "8.2.0",
+  "description": "Elementary icon theme.",
+  "category": "desktop-pantheon",
+  "url": [
+    "https://github.com/elementary/icons/archive/refs/tags/8.2.0.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "hicolor-icon-theme"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release -Dvolume_icons=false .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "pantheon/elementary-icon-theme.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "budgie-desktop-view",
+  "version": "10.10.2",
+  "description": "Desktop icons implementation for Budgie.",
+  "category": "desktop-budgie",
+  "url": [
+    "https://github.com/BuddiesOfBudgie/budgie-desktop-view/archive/refs/tags/v10.10.2.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "dconf",
+      "gdk-pixbuf",
+      "glib2",
+      "gtk-layer-shell",
+      "gtk3",
+      "libxfce4windowing"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "budgie/budgie-desktop-view.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

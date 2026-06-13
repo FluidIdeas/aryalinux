@@ -1,0 +1,36 @@
+{
+  "name": "granite7",
+  "version": "7.8.1",
+  "description": "Elementary GTK4 library extending GLib/GTK (libgranite-7).",
+  "category": "libraries",
+  "url": [
+    "https://github.com/elementary/granite/archive/refs/tags/7.8.1.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "cairo",
+      "gdk-pixbuf",
+      "glib2",
+      "gtk4",
+      "libgee",
+      "pango"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release -Db_pie=false .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "pantheon/granite7.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

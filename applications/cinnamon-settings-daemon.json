@@ -1,0 +1,54 @@
+{
+  "name": "cinnamon-settings-daemon",
+  "version": "6.6.4",
+  "description": "Settings daemon for Cinnamon (display, keyboard, color, power).",
+  "category": "desktop-cinnamon",
+  "url": [
+    "https://github.com/linuxmint/cinnamon-settings-daemon/archive/refs/tags/6.6.4.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "cairo",
+      "cinnamon-desktop",
+      "colord",
+      "cups",
+      "dconf",
+      "fontconfig",
+      "gdk-pixbuf",
+      "glib2",
+      "gtk3",
+      "hicolor-icon-theme",
+      "lcms2",
+      "libgudev",
+      "libnotify",
+      "libwacom",
+      "nspr",
+      "nss",
+      "pango",
+      "pipewire",
+      "polkit",
+      "systemd",
+      "upower"
+    ],
+    "optional": [
+      "cinnamon-translations"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr --libexecdir=lib/cinnamon-settings-daemon -Dbuildtype=release .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "cinnamon/cinnamon-settings-daemon.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

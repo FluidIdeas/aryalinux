@@ -1,0 +1,44 @@
+{
+  "name": "xed",
+  "version": "3.8.9",
+  "description": "Text editor from the Cinnamon X-Apps collection.",
+  "category": "applications",
+  "url": [
+    "https://github.com/linuxmint/xed/archive/refs/tags/3.8.9.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "at-spi2-core",
+      "cairo",
+      "dconf",
+      "gdk-pixbuf",
+      "glib2",
+      "gspell",
+      "gtk3",
+      "gtksourceview4",
+      "libpeas",
+      "libxml2",
+      "pango",
+      "python-modules.pygobject3",
+      "python3",
+      "xapp"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "cinnamon/xed.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

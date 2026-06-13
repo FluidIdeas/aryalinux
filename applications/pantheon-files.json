@@ -1,0 +1,58 @@
+{
+  "name": "pantheon-files",
+  "version": "7.3.1",
+  "description": "Pantheon file manager.",
+  "category": "applications",
+  "url": [
+    "https://github.com/elementary/files/archive/refs/tags/7.3.1.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "cairo",
+      "dconf",
+      "gdk-pixbuf",
+      "glib2",
+      "granite",
+      "gtk3",
+      "gvfs",
+      "libcanberra",
+      "libcloudproviders",
+      "libgee",
+      "libgit2-glib",
+      "libhandy",
+      "libnotify",
+      "libportal",
+      "pango",
+      "poppler",
+      "sqlite",
+      "zeitgeist"
+    ],
+    "optional": [
+      "contractor",
+      "tumbler"
+    ],
+    "recommended": [
+      "xdg-desktop-portal-gtk"
+    ]
+  },
+  "build": {
+    "environment": {
+      "CFLAGS": "$CFLAGS -Wno-implicit-function-declaration"
+    },
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "pantheon/pantheon-files.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

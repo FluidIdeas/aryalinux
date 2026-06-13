@@ -1,0 +1,37 @@
+{
+  "name": "gammastep",
+  "version": "2.0.11",
+  "description": "Adjust screen color temperature (Budgie night light).",
+  "category": "applications",
+  "url": [
+    "https://gitlab.com/chinstrap/gammastep/-/archive/v2.0.11/gammastep-v2.0.11.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "hicolor-icon-theme",
+      "libdrm",
+      "wayland"
+    ],
+    "optional": [
+      "geoclue2",
+      "gtk3",
+      "python-modules.pygobject3"
+    ]
+  },
+  "build": {
+    "user": [
+      "cd gammastep-v2.0.11 && ./bootstrap && ./configure --prefix=/usr && make"
+    ],
+    "package": [
+      "make DESTDIR=$DESTDIR -C gammastep-v2.0.11 install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "budgie/gammastep.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

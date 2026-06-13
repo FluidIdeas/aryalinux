@@ -1,0 +1,38 @@
+{
+  "name": "pantheon-applications-menu",
+  "version": "8.0.4",
+  "description": "Pantheon applications menu.",
+  "category": "desktop-pantheon",
+  "url": [
+    "https://github.com/elementary/applications-menu/archive/refs/tags/8.0.4.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "glib2",
+      "granite",
+      "gtk3",
+      "libgee",
+      "libhandy",
+      "plank",
+      "switchboard",
+      "wingpanel"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release  .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "pantheon/pantheon-applications-menu.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

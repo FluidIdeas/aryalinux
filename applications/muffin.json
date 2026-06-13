@@ -1,0 +1,56 @@
+{
+  "name": "muffin",
+  "version": "6.6.3",
+  "description": "Cinnamon window manager (Mutter fork).",
+  "category": "desktop-cinnamon",
+  "url": [
+    "https://github.com/linuxmint/muffin/archive/refs/tags/6.6.3.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "at-spi2-core",
+      "cairo",
+      "cinnamon-desktop",
+      "cinnamon-settings-daemon",
+      "dconf",
+      "fontconfig",
+      "fribidi",
+      "gdk-pixbuf",
+      "glib2",
+      "graphene",
+      "gtk3",
+      "json-glib",
+      "libcanberra",
+      "libdrm",
+      "libgudev",
+      "libinput",
+      "libwacom",
+      "libxkbcommon",
+      "mesa",
+      "pango",
+      "pipewire",
+      "startup-notification",
+      "systemd",
+      "wayland",
+      "xwayland",
+      "zenity"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release -Degl_device=true -Dwayland_eglstream=true .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "cinnamon/muffin.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

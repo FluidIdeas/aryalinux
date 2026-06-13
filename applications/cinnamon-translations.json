@@ -1,0 +1,28 @@
+{
+  "name": "cinnamon-translations",
+  "version": "6.6.2",
+  "description": "Translations for Cinnamon and Nemo.",
+  "category": "desktop-cinnamon",
+  "url": [
+    "https://github.com/linuxmint/cinnamon-translations/archive/refs/tags/6.6.2.tar.gz"
+  ],
+  "dependencies": {
+    "required": []
+  },
+  "build": {
+    "user": [
+      "make -C cinnamon-translations-6.6.2"
+    ],
+    "package": [
+      "cp -r cinnamon-translations-6.6.2/usr $DESTDIR/"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "cinnamon/cinnamon-translations.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "seatd",
+  "version": "0.9.3",
+  "description": "Seat management daemon and library for Wayland compositors.",
+  "category": "libraries",
+  "url": [
+    "https://git.sr.ht/~kennylevinsen/seatd/archive/0.9.3.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "systemd"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release -Dexamples=disabled -Dserver=enabled -Dlibseat-logind=systemd -Dman-pages=enabled seatd-0.9.3",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "install -Dm644 seatd-0.9.3/LICENSE $DESTDIR/usr/share/licenses/seatd/LICENSE",
+      "install -Dm644 seatd-0.9.3/contrib/systemd/seatd.service $DESTDIR/usr/lib/systemd/system/seatd.service"
+    ]
+  },
+  "post_install": [
+    "systemctl enable seatd 2>/dev/null || true"
+  ],
+  "meta": false,
+  "book": "budgie/seatd.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

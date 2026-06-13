@@ -1,0 +1,64 @@
+{
+  "name": "budgie-control-center",
+  "version": "2.1.1",
+  "description": "Budgie system settings and control panel.",
+  "category": "desktop-budgie",
+  "url": [
+    "https://github.com/BuddiesOfBudgie/budgie-control-center/archive/refs/tags/v2.1.1.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "accountsservice",
+      "at-spi2-core",
+      "cairo",
+      "cups",
+      "dconf",
+      "fontconfig",
+      "gcr",
+      "gdk-pixbuf",
+      "glib2",
+      "gnome-desktop",
+      "gnome-settings-daemon",
+      "gsound",
+      "gtk3",
+      "hicolor-icon-theme",
+      "libepoxy",
+      "libgtop",
+      "libgudev",
+      "libhandy1",
+      "libnma",
+      "libpwquality",
+      "libsecret",
+      "libwacom",
+      "libxml2",
+      "mitkrb",
+      "networkmanager",
+      "pango",
+      "polkit",
+      "pulseaudio",
+      "samba",
+      "udisks2",
+      "upower"
+    ],
+    "optional": [
+      "power-profiles-daemon"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release -Ddocumentation=false .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "budgie/budgie-control-center.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

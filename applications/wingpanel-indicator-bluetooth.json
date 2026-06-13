@@ -1,0 +1,33 @@
+{
+  "name": "wingpanel-indicator-bluetooth",
+  "version": "8.0.0",
+  "description": "Wingpanel Bluetooth indicator.",
+  "category": "desktop-pantheon",
+  "url": [
+    "https://github.com/elementary/wingpanel-indicator-bluetooth/archive/refs/tags/8.0.0.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "bluez",
+      "granite",
+      "wingpanel"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release  .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "pantheon/wingpanel-indicator-bluetooth.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

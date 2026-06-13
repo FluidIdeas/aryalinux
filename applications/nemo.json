@@ -1,0 +1,51 @@
+{
+  "name": "nemo",
+  "version": "6.6.4",
+  "description": "File manager for Cinnamon (Nautilus fork).",
+  "category": "applications",
+  "url": [
+    "https://github.com/linuxmint/nemo/archive/refs/tags/6.6.4.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "at-spi2-core",
+      "cairo",
+      "cinnamon-desktop",
+      "dconf",
+      "exempi",
+      "gdk-pixbuf",
+      "glib2",
+      "gtk3",
+      "gvfs",
+      "hicolor-icon-theme",
+      "json-glib",
+      "libexif",
+      "libxmlb",
+      "pango",
+      "python-modules.pycairo",
+      "python-modules.pygobject3",
+      "python3",
+      "xapp"
+    ],
+    "optional": [
+      "cinnamon-translations"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr --libexecdir=lib/nemo -Dbuildtype=release -Dgtk_doc=false .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "cinnamon/nemo.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

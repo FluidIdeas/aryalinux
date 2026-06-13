@@ -1,0 +1,38 @@
+{
+  "name": "timezonemap",
+  "version": "0.4.5.4",
+  "description": "GTK3 timezone map widget for Cinnamon clock settings.",
+  "category": "libraries",
+  "url": [
+    "https://codeberg.org/dashea/timezonemap/archive/0.4.5.4.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "cairo",
+      "gdk-pixbuf",
+      "glib2",
+      "gtk3",
+      "json-glib",
+      "librsvg",
+      "libsoup3"
+    ]
+  },
+  "build": {
+    "user": [
+      "cd timezonemap && autoreconf -fiv",
+      "./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var",
+      "make"
+    ],
+    "package": [
+      "make -C timezonemap DESTDIR=$DESTDIR install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "cinnamon/timezonemap.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

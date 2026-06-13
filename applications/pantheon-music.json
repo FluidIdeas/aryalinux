@@ -1,0 +1,34 @@
+{
+  "name": "pantheon-music",
+  "version": "8.1.0",
+  "description": "Pantheon music player.",
+  "category": "applications",
+  "url": [
+    "https://github.com/elementary/music/archive/refs/tags/8.1.0.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "glib2",
+      "granite7",
+      "gtk4",
+      "libadwaita"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release  .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "pantheon/pantheon-music.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

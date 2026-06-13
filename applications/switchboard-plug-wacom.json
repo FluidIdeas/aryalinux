@@ -1,0 +1,33 @@
+{
+  "name": "switchboard-plug-wacom",
+  "version": "8.0.2",
+  "description": "Switchboard Wacom tablet plug.",
+  "category": "desktop-pantheon",
+  "url": [
+    "https://github.com/elementary/switchboard-plug-wacom/archive/refs/tags/8.0.2.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "granite7",
+      "libwacom",
+      "switchboard"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release  .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "pantheon/switchboard-plug-wacom.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

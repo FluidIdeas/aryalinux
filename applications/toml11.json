@@ -1,0 +1,29 @@
+{
+  "name": "toml11",
+  "version": "4.4.0",
+  "description": "TOML parser library for C++ (budgie-desktop-services build dependency).",
+  "category": "libraries",
+  "url": [
+    "https://github.com/ToruNiina/toml11/archive/refs/tags/v4.4.0.tar.gz"
+  ],
+  "dependencies": {
+    "required": []
+  },
+  "build": {
+    "user": [
+      "cmake -S toml11-4.4.0 -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr",
+      "cmake --build build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR cmake --install build"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "budgie/toml11.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

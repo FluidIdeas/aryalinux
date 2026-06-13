@@ -1,0 +1,21 @@
+{
+  "name": "meta.pantheon-greeter",
+  "version": "1.0",
+  "description": "Metapackage: LightDM Pantheon greeter (optional).",
+  "category": "metapackage",
+  "url": [],
+  "dependencies": {
+    "required": [
+      "lightdm-pantheon-greeter"
+    ]
+  },
+  "build": {},
+  "post_install": [],
+  "meta": true,
+  "book": "pantheon/meta.pantheon-greeter.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

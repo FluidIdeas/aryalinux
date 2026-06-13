@@ -1,0 +1,79 @@
+{
+  "name": "mutter46",
+  "version": "46.9",
+  "description": "Mutter 46 compositor library for Pantheon Gala (conflicts with mutter).",
+  "category": "libraries",
+  "url": [
+    "https://gitlab.gnome.org/GNOME/mutter/-/archive/46.9/mutter-46.9.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "at-spi2-core",
+      "cairo",
+      "colord",
+      "dconf",
+      "fontconfig",
+      "fribidi",
+      "gdk-pixbuf",
+      "glib2",
+      "gnome-desktop",
+      "gnome-settings-daemon",
+      "graphene",
+      "gsettings-desktop-schemas",
+      "gtk4",
+      "harfbuzz",
+      "lcms2",
+      "libX11",
+      "libXcomposite",
+      "libXcursor",
+      "libXdamage",
+      "libXext",
+      "libXfixes",
+      "libXi",
+      "libXinerama",
+      "libXrandr",
+      "libXtst",
+      "libcanberra",
+      "libdisplay-info",
+      "libdrm",
+      "libei",
+      "libglvnd",
+      "libgudev",
+      "libinput",
+      "libwacom",
+      "libxcb",
+      "libxkbcommon",
+      "mesa",
+      "pango",
+      "pipewire",
+      "startup-notification",
+      "systemd",
+      "wayland",
+      "xwayland"
+    ],
+    "recommended": [
+      "egl-wayland"
+    ]
+  },
+  "build": {
+    "environment": {
+      "CFLAGS": "${CFLAGS/-O2/-O3} -fno-semantic-interposition",
+      "LDFLAGS": "$LDFLAGS -Wl,-Bsymbolic-functions"
+    },
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release -Ddocs=false -Degl_device=true -Dinstalled_tests=false -Dlibdisplay_info=enabled -Dtests=false -Dwayland_eglstream=true .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "pantheon/mutter46.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

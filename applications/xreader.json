@@ -1,0 +1,48 @@
+{
+  "name": "xreader",
+  "version": "4.6.5",
+  "description": "Document viewer from the Cinnamon X-Apps collection.",
+  "category": "applications",
+  "url": [
+    "https://github.com/linuxmint/xreader/archive/refs/tags/4.6.5.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "at-spi2-core",
+      "cairo",
+      "dconf",
+      "gdk-pixbuf",
+      "glib2",
+      "gtk3",
+      "hicolor-icon-theme",
+      "libarchive",
+      "libtiff",
+      "libxml2",
+      "pango",
+      "poppler",
+      "webkitgtk",
+      "xapp"
+    ],
+    "optional": [
+      "libgxps",
+      "libspectre"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr --libexecdir=lib/xreader -Dbuildtype=release -Dmathjax-directory=/usr/share/mathjax2 -Dcomics=true -Ddjvu=true -Dpixbuf=true -Dintrospection=true .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "cinnamon/xreader.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "contractor",
+  "version": "0.3.5",
+  "description": "Desktop service definitions for Pantheon.",
+  "category": "desktop-pantheon",
+  "url": [
+    "https://github.com/elementary/contractor/archive/refs/tags/0.3.5.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "glib2",
+      "libgee"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release  .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "pantheon/contractor.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

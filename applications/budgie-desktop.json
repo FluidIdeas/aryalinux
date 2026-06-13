@@ -1,0 +1,81 @@
+{
+  "name": "budgie-desktop",
+  "version": "10.10.2",
+  "description": "Budgie Desktop Environment — panel, Raven sidebar, and applets.",
+  "category": "desktop-budgie",
+  "url": [
+    "https://github.com/BuddiesOfBudgie/budgie-desktop/archive/refs/tags/v10.10.2.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "accountsservice",
+      "alsa-lib",
+      "budgie-backgrounds",
+      "budgie-control-center",
+      "budgie-desktop-services",
+      "budgie-session",
+      "cairo",
+      "dconf",
+      "gammastep",
+      "gdk-pixbuf",
+      "glib2",
+      "gnome-desktop",
+      "gnome-themes-extra",
+      "grim",
+      "gtk-layer-shell",
+      "gtk3",
+      "gtklock",
+      "hicolor-icon-theme",
+      "labwc",
+      "libcanberra",
+      "libgee",
+      "libnotify",
+      "libpeas-2",
+      "libxfce4windowing",
+      "materia-gtk-theme",
+      "mesa",
+      "mutter",
+      "pango",
+      "papirus-icon-theme",
+      "polkit",
+      "pulseaudio",
+      "python-modules.pygobject3",
+      "python3",
+      "slurp",
+      "swaybg",
+      "swayidle",
+      "upower",
+      "wdisplays",
+      "wlopm",
+      "xdg-desktop-portal-gtk",
+      "xdg-desktop-portal-wlr"
+    ],
+    "optional": [
+      "budgie-desktop-view",
+      "ibus",
+      "network-manager-applet",
+      "power-profiles-daemon"
+    ],
+    "recommended": [
+      "python-modules.psutil",
+      "python-modules.systemd"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "budgie/budgie-desktop.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

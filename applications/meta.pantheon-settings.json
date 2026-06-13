@@ -1,0 +1,40 @@
+{
+  "name": "meta.pantheon-settings",
+  "version": "1.0",
+  "description": "Metapackage: Switchboard settings plugs for Pantheon.",
+  "category": "metapackage",
+  "url": [],
+  "dependencies": {
+    "required": [
+      "switchboard-plug-about",
+      "switchboard-plug-applications",
+      "switchboard-plug-bluetooth",
+      "switchboard-plug-datetime",
+      "switchboard-plug-desktop",
+      "switchboard-plug-display",
+      "switchboard-plug-keyboard",
+      "switchboard-plug-locale",
+      "switchboard-plug-mouse-touchpad",
+      "switchboard-plug-network",
+      "switchboard-plug-notifications",
+      "switchboard-plug-online-accounts",
+      "switchboard-plug-parental-controls",
+      "switchboard-plug-power",
+      "switchboard-plug-printers",
+      "switchboard-plug-security-privacy",
+      "switchboard-plug-sharing",
+      "switchboard-plug-sound",
+      "switchboard-plug-user-accounts",
+      "switchboard-plug-wacom"
+    ]
+  },
+  "build": {},
+  "post_install": [],
+  "meta": true,
+  "book": "pantheon/meta.pantheon-settings.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

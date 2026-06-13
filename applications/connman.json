@@ -1,0 +1,47 @@
+{
+  "name": "connman",
+  "version": "2.0",
+  "description": "Connection manager for EFL network backend and Enlightenment.",
+  "category": "networking",
+  "url": [
+    "https://www.kernel.org/pub/linux/network/connman/connman-2.0.tar.xz"
+  ],
+  "dependencies": {
+    "required": [
+      "dbus",
+      "glib2",
+      "gnutls",
+      "iptables",
+      "libmnl"
+    ],
+    "optional": [
+      "bluez",
+      "iwd",
+      "openconnect",
+      "openvpn",
+      "wpa_supplicant"
+    ]
+  },
+  "build": {
+    "user": [
+      "cd connman-2.0",
+      "sed -i '/<allow own=\"net.connman\"\\/>/,+2 a\\    <policy group=\"network\">\\n       <allow send_interface=\"net.connman.Agent\"/>\\n    </policy>' src/connman-polkit.conf",
+      "./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --runstatedir=/run --bindir=/usr/bin --sbindir=/usr/bin --with-systemdunitdir=/usr/lib/systemd/system --with-tmpfilesdir=/usr/lib/tmpfiles.d --enable-pptp --enable-openconnect --enable-vpnc --enable-openvpn --enable-polkit --enable-client --enable-nmcompat --enable-pie --enable-iwd",
+      "make"
+    ],
+    "package": [
+      "make -C connman-2.0 DESTDIR=$DESTDIR install",
+      "install -vDm755 -t $DESTDIR/usr/bin connman-2.0/client/connmanctl",
+      "install -vDm644 -t $DESTDIR/etc/connman connman-2.0/src/main.conf",
+      "sed -i 's/ProtectSystem=full/ProtectSystem=true/' $DESTDIR/usr/lib/systemd/system/connman.service"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "enlightenment/connman.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

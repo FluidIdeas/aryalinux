@@ -1,0 +1,33 @@
+{
+  "name": "switchboard-plug-network",
+  "version": "8.2.0",
+  "description": "Switchboard network plug.",
+  "category": "desktop-pantheon",
+  "url": [
+    "https://github.com/elementary/switchboard-plug-network/archive/refs/tags/8.2.0.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "granite7",
+      "networkmanager",
+      "switchboard"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release  .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "pantheon/switchboard-plug-network.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

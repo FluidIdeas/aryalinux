@@ -1,0 +1,37 @@
+{
+  "name": "switchboard",
+  "version": "8.0.3",
+  "description": "Pantheon System Settings (control center shell).",
+  "category": "desktop-pantheon",
+  "url": [
+    "https://github.com/elementary/switchboard/archive/refs/tags/8.0.3.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "dconf",
+      "glib2",
+      "granite7",
+      "gtk4",
+      "hicolor-icon-theme",
+      "libadwaita",
+      "libgee"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release  .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "pantheon/switchboard.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

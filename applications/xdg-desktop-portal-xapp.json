@@ -1,0 +1,36 @@
+{
+  "name": "xdg-desktop-portal-xapp",
+  "version": "1.1.3",
+  "description": "xdg-desktop-portal backend for Cinnamon/MATE/Xfce.",
+  "category": "libraries",
+  "url": [
+    "https://github.com/linuxmint/xdg-desktop-portal-xapp/archive/refs/tags/1.1.3.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "glib2",
+      "gtk3",
+      "xapp",
+      "xapp-symbolic-icons",
+      "xdg-desktop-portal",
+      "xdg-desktop-portal-gtk"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "cinnamon/xdg-desktop-portal-xapp.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

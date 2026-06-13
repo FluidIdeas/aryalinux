@@ -1,0 +1,58 @@
+{
+  "name": "enlightenment",
+  "version": "0.27.1",
+  "description": "Enlightenment Desktop Environment — compositor, window manager, and shell.",
+  "category": "desktop-enlightenment",
+  "url": [
+    "https://download.enlightenment.org/rel/apps/enlightenment/enlightenment-0.27.1.tar.xz"
+  ],
+  "dependencies": {
+    "required": [
+      "alsa-lib",
+      "bc",
+      "bluez",
+      "connman",
+      "dejavu-fonts-ttf",
+      "efl",
+      "hicolor-icon-theme",
+      "libexif",
+      "librsvg",
+      "libxkbcommon",
+      "linux-pam",
+      "pipewire",
+      "pulseaudio",
+      "udisks2",
+      "util-linux",
+      "wayland",
+      "xwayland"
+    ],
+    "optional": [
+      "bluez",
+      "fprintd",
+      "geoclue",
+      "packagekit"
+    ]
+  },
+  "build": {
+    "environment": {
+      "CFLAGS": "$CFLAGS -fcommon -fvisibility=hidden"
+    },
+    "user": [
+      "rm -rf build && mkdir build",
+      "meson setup build --prefix=/usr -Dwl=true .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "install -Dm644 COPYING $DESTDIR/usr/share/licenses/enlightenment/COPYING"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "enlightenment/enlightenment.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

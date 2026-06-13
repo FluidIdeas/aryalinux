@@ -1,0 +1,36 @@
+{
+  "name": "granite",
+  "version": "6.2.0",
+  "description": "GTK library extending GLib/GTK (Ubuntu Budgie extras dependency).",
+  "category": "libraries",
+  "url": [
+    "https://github.com/elementary/granite/archive/refs/tags/6.2.0/granite-6.2.0.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "cairo",
+      "gdk-pixbuf",
+      "glib2",
+      "gtk3",
+      "libgee",
+      "pango"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "budgie/granite.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

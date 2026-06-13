@@ -1,0 +1,33 @@
+{
+  "name": "wingpanel-indicator-power",
+  "version": "8.0.2",
+  "description": "Wingpanel power/battery indicator.",
+  "category": "desktop-pantheon",
+  "url": [
+    "https://github.com/elementary/wingpanel-indicator-power/archive/refs/tags/8.0.2.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "granite",
+      "libgtop",
+      "wingpanel"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release  .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "pantheon/wingpanel-indicator-power.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

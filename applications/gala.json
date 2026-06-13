@@ -1,0 +1,48 @@
+{
+  "name": "gala",
+  "version": "8.5.1",
+  "description": "Pantheon window manager (Elementary Gala).",
+  "category": "desktop-pantheon",
+  "url": [
+    "https://github.com/elementary/gala/archive/refs/tags/8.5.1.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "cairo",
+      "dconf",
+      "gdk-pixbuf",
+      "glib2",
+      "gnome-desktop",
+      "granite",
+      "granite7",
+      "graphene",
+      "gtk3",
+      "gtk4",
+      "libXfixes",
+      "libcanberra",
+      "libgee",
+      "libhandy",
+      "mutter46",
+      "sqlite",
+      "systemd",
+      "wayland"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "pantheon/gala.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "wf-recorder",
+  "version": "0.6.0",
+  "description": "Screen recorder for wlroots-based compositors.",
+  "category": "applications",
+  "url": [
+    "https://github.com/ammen99/wf-recorder/archive/v0.6.0.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "ffmpeg",
+      "pulseaudio",
+      "wayland",
+      "wayland-protocols"
+    ],
+    "optional": [
+      "slurp"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release wf-recorder-0.6.0",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "budgie/wf-recorder.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "meta.enlightenment",
+  "version": "1.0",
+  "description": "Metapackage: installs the Enlightenment Desktop Environment (EFL + shell). Reference: Arch Linux enlightenment package (Extra, 2026).",
+  "category": "metapackage",
+  "url": [],
+  "dependencies": {
+    "required": [
+      "bc",
+      "connman",
+      "efl",
+      "enlightenment",
+      "lua52"
+    ]
+  },
+  "build": {},
+  "post_install": [],
+  "meta": true,
+  "book": "enlightenment/meta.enlightenment.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

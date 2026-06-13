@@ -1,0 +1,46 @@
+{
+  "name": "wlroots0.20",
+  "version": "0.20.1",
+  "description": "Wayland compositor library 0.20 (labwc dependency).",
+  "category": "libraries",
+  "url": [
+    "https://gitlab.freedesktop.org/wlroots/wlroots/-/archive/0.20.1/wlroots-0.20.1.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "lcms2",
+      "libdisplay-info",
+      "libglvnd",
+      "libinput",
+      "libliftoff",
+      "libxcb",
+      "libxkbcommon",
+      "mesa",
+      "pixman",
+      "seatd",
+      "wayland",
+      "wayland-protocols",
+      "xcb-util-errors",
+      "xcb-util-renderutil",
+      "xcb-util-wm",
+      "xwayland"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Ddefault_library=shared .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "budgie/wlroots0.20.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

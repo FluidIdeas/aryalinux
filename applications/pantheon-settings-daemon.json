@@ -1,0 +1,40 @@
+{
+  "name": "pantheon-settings-daemon",
+  "version": "8.5.0",
+  "description": "Pantheon settings daemon.",
+  "category": "desktop-pantheon",
+  "url": [
+    "https://github.com/elementary/settings-daemon/archive/refs/tags/8.5.0.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "accountsservice",
+      "dbus",
+      "fwupd",
+      "gdk-pixbuf",
+      "geoclue",
+      "glib2",
+      "granite",
+      "gtk3",
+      "libgexiv2",
+      "packagekit"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release  .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "pantheon/pantheon-settings-daemon.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

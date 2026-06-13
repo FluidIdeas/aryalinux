@@ -1,0 +1,86 @@
+{
+  "name": "cinnamon",
+  "version": "6.6.8",
+  "description": "Cinnamon Desktop Environment — panel, applets, and settings.",
+  "category": "desktop-cinnamon",
+  "url": [
+    "https://github.com/linuxmint/cinnamon/archive/refs/tags/6.6.8.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "accountsservice",
+      "at-spi2-core",
+      "cairo",
+      "cinnamon-control-center",
+      "cinnamon-desktop",
+      "cinnamon-menus",
+      "cinnamon-screensaver",
+      "cinnamon-session",
+      "cinnamon-settings-daemon",
+      "cinnamon-translations",
+      "cjs",
+      "dconf",
+      "evolution-data-server",
+      "gcr",
+      "gdk-pixbuf",
+      "glib2",
+      "gnome-backgrounds",
+      "gnome-themes-extra",
+      "gsound",
+      "gstreamer10",
+      "gtk3",
+      "hicolor-icon-theme",
+      "ibus",
+      "libical",
+      "libkeybinder3",
+      "libnotify",
+      "libsecret",
+      "muffin",
+      "nemo",
+      "network-manager-applet",
+      "networkmanager",
+      "pango",
+      "papirus-icon-theme",
+      "polkit",
+      "python-modules.pycairo",
+      "python-modules.pygobject3",
+      "python-xapp",
+      "python3",
+      "sound-theme-freedesktop",
+      "timezonemap",
+      "upower",
+      "xapp",
+      "xdg-desktop-portal-xapp"
+    ],
+    "optional": [
+      "blueman",
+      "gnome-keyring",
+      "power-profiles-daemon"
+    ],
+    "recommended": [
+      "python-deps.pytz",
+      "python-modules.pillow",
+      "python-modules.psutil",
+      "python-modules.requests"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i 's|/usr/share/cinnamon-background-properties|/usr/share/gnome-background-properties|' files/usr/share/cinnamon/cinnamon-settings/modules/cs_backgrounds.py",
+      "sed -i '/if .* in THEMES_BLACKLIST:/,+1 d' files/usr/share/cinnamon/cinnamon-settings/modules/cs_themes.py",
+      "meson setup build --prefix=/usr --libexecdir=lib/cinnamon -Dbuildtype=release -Ddocs=false .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "cinnamon/cinnamon.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

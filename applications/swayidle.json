@@ -1,0 +1,33 @@
+{
+  "name": "swayidle",
+  "version": "1.9.0",
+  "description": "Idle management daemon for Wayland compositors.",
+  "category": "applications",
+  "url": [
+    "https://github.com/swaywm/swayidle/releases/download/1.9.0/swayidle-1.9.0.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "libxkbcommon",
+      "systemd",
+      "wayland"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release swayidle-1.9.0",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "budgie/swayidle.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

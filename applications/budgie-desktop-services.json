@@ -1,0 +1,35 @@
+{
+  "name": "budgie-desktop-services",
+  "version": "1.0.2",
+  "description": "Logic orchestrator and labwc integration for Budgie.",
+  "category": "desktop-budgie",
+  "url": [
+    "https://forge.moderndesktop.dev/BuddiesOfBudgie/budgie-desktop-services/-/archive/1.0.2/budgie-desktop-services-1.0.2.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "extra-cmake-modules",
+      "kwayland",
+      "qt6",
+      "toml11",
+      "wayland"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -G Ninja -DCMAKE_INSTALL_PREFIX=/usr -DINSTALL_LABWC=true -Wno-dev .",
+      "cmake --build build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR cmake --install build"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "budgie/budgie-desktop-services.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

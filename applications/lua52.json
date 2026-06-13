@@ -1,0 +1,35 @@
+{
+  "name": "lua52",
+  "version": "5.2.4",
+  "description": "Lua 5.2 scripting language (required by EFL).",
+  "category": "programming",
+  "url": [
+    "https://www.lua.org/ftp/lua-5.2.4.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "readline"
+    ]
+  },
+  "build": {
+    "user": [
+      "cd lua-5.2.4",
+      "sed -r -e '/^LUA_(SO|A|T)=/ s/lua/lua5.2/' -e '/^LUAC_T=/ s/luac/luac5.2/' -i src/Makefile",
+      "make MYCFLAGS=\"$CFLAGS -fPIC\" MYLDFLAGS=\"$LDFLAGS\" linux"
+    ],
+    "package": [
+      "make TO_BIN='lua5.2 luac5.2' TO_LIB='liblua5.2.so liblua5.2.so.5.2 liblua5.2.so.5.2.4' INSTALL_DATA='cp -d' INSTALL_TOP=$DESTDIR/usr INSTALL_INC=$DESTDIR/usr/include/lua5.2 INSTALL_MAN=$DESTDIR/usr/share/man/man1 install",
+      "ln -sf liblua5.2.so $DESTDIR/usr/lib/liblua.so.5.2",
+      "ln -sf liblua5.2.so $DESTDIR/usr/lib/liblua.so.5.2.4",
+      "install -Dm644 doc/readme.html $DESTDIR/usr/share/doc/lua52/readme.html"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "enlightenment/lua52.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

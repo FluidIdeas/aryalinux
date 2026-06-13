@@ -1,0 +1,35 @@
+{
+  "name": "terminology",
+  "version": "1.14.0",
+  "description": "EFL-based terminal emulator for Enlightenment.",
+  "category": "applications",
+  "url": [
+    "https://download.enlightenment.org/rel/apps/terminology/terminology-1.14.0.tar.xz"
+  ],
+  "dependencies": {
+    "required": [
+      "efl"
+    ]
+  },
+  "build": {
+    "environment": {
+      "CFLAGS": "$CFLAGS -fvisibility=hidden"
+    },
+    "user": [
+      "meson setup builddir --prefix=/usr .",
+      "ninja -C builddir"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C builddir install",
+      "install -Dm644 COPYING $DESTDIR/usr/share/licenses/terminology/COPYING"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "enlightenment/terminology.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

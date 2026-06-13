@@ -1,0 +1,33 @@
+{
+  "name": "gtk-layer-shell",
+  "version": "0.10.1",
+  "description": "GTK Layer Shell protocol library for Wayland panels.",
+  "category": "libraries",
+  "url": [
+    "https://github.com/wmww/gtk-layer-shell/archive/v0.10.1.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "gtk3",
+      "wayland",
+      "wayland-protocols"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr --wrap-mode=nofallback -Dbuildtype=release -Dtests=false -Ddocs=false -Dintrospection=true gtk-layer-shell-0.10.1",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "budgie/gtk-layer-shell.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

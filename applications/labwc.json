@@ -1,0 +1,47 @@
+{
+  "name": "labwc",
+  "version": "0.20.0",
+  "description": "Stacking Wayland compositor used by Budgie (openbox-like).",
+  "category": "libraries",
+  "url": [
+    "https://github.com/labwc/labwc/archive/refs/tags/0.20.0.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "cairo",
+      "glib2",
+      "libinput",
+      "libpng",
+      "librsvg",
+      "libsfdo",
+      "libxcb",
+      "libxkbcommon",
+      "libxml2",
+      "pango",
+      "pixman",
+      "seatd",
+      "wayland",
+      "wlroots0.20"
+    ],
+    "recommended": [
+      "xwayland"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release -Dman-pages=enabled .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "budgie/labwc.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

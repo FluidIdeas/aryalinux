@@ -1,0 +1,33 @@
+{
+  "name": "switchboard-plug-desktop",
+  "version": "8.3.0",
+  "description": "Switchboard desktop/dock plug.",
+  "category": "desktop-pantheon",
+  "url": [
+    "https://github.com/elementary/switchboard-plug-pantheon-shell/archive/refs/tags/8.3.0.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "granite7",
+      "plank",
+      "switchboard"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release  .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "pantheon/switchboard-plug-desktop.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

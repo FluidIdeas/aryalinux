@@ -1,0 +1,89 @@
+{
+  "name": "efl",
+  "version": "1.28.1",
+  "description": "Enlightenment Foundation Libraries (widget toolkit, compositor, I/O).",
+  "category": "libraries",
+  "url": [
+    "https://download.enlightenment.org/rel/libs/efl/efl-1.28.1.tar.xz"
+  ],
+  "dependencies": {
+    "required": [
+      "connman",
+      "curl",
+      "dbus",
+      "dejavu-fonts-ttf",
+      "fontconfig",
+      "freetype2",
+      "fribidi",
+      "giflib",
+      "glib2",
+      "gst10-plugins-base",
+      "gstreamer10",
+      "harfbuzz",
+      "hicolor-icon-theme",
+      "libX11",
+      "libXScrnSaver",
+      "libXcomposite",
+      "libXcursor",
+      "libXdamage",
+      "libXext",
+      "libXfixes",
+      "libXi",
+      "libXinerama",
+      "libXrandr",
+      "libXrender",
+      "libXtst",
+      "libglvnd",
+      "libinput",
+      "libjpeg",
+      "libpng",
+      "libsndfile",
+      "libtiff",
+      "libunwind",
+      "libwebp",
+      "libxcb",
+      "libxkbcommon",
+      "lua52",
+      "mesa",
+      "openjpeg2",
+      "pulseaudio",
+      "shared-mime-info",
+      "systemd",
+      "util-linux",
+      "wayland",
+      "zlib"
+    ],
+    "optional": [
+      "gst10-plugins-bad",
+      "gst10-plugins-good",
+      "gst10-plugins-ugly",
+      "libraw",
+      "librsvg",
+      "libspectre",
+      "poppler"
+    ]
+  },
+  "build": {
+    "environment": {
+      "CFLAGS": "$CFLAGS -fvisibility=hidden"
+    },
+    "user": [
+      "rm -rf build && mkdir build",
+      "meson setup build --prefix=/usr -Dc_std=gnu99 -Dfb=true -Ddrm=true -Dwl=true -Dnetwork-backend=connman -Dlua-interpreter=lua -Dbindings= -Dbuild-examples=false -Dbuild-tests=false .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "install -Dm644 licenses/COPYING.BSD $DESTDIR/usr/share/licenses/efl/COPYING.BSD",
+      "install -Dm644 licenses/COPYING.SMALL $DESTDIR/usr/share/licenses/efl/COPYING.SMALL"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "enlightenment/efl.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

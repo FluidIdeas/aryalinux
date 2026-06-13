@@ -1,0 +1,31 @@
+{
+  "name": "wlopm",
+  "version": "1.0.0",
+  "description": "Wayland output power management utility.",
+  "category": "applications",
+  "url": [
+    "https://git.sr.ht/~leon_plickat/wlopm/archive/v1.0.0.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "wayland"
+    ]
+  },
+  "build": {
+    "user": [
+      "make -C wlopm-v1.0.0"
+    ],
+    "package": [
+      "make DESTDIR=$DESTDIR PREFIX=/usr -C wlopm-v1.0.0 install",
+      "install -Dm644 wlopm-v1.0.0/LICENSE $DESTDIR/usr/share/licenses/wlopm/LICENSE"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "budgie/wlopm.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

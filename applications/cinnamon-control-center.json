@@ -1,0 +1,54 @@
+{
+  "name": "cinnamon-control-center",
+  "version": "6.6.0",
+  "description": "Cinnamon system settings plugins.",
+  "category": "desktop-cinnamon",
+  "url": [
+    "https://github.com/linuxmint/cinnamon-control-center/archive/refs/tags/6.6.0.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "at-spi2-core",
+      "cairo",
+      "cinnamon-desktop",
+      "cinnamon-settings-daemon",
+      "colord",
+      "dconf",
+      "gdk-pixbuf",
+      "glib2",
+      "gnome-color-manager",
+      "gtk3",
+      "hicolor-icon-theme",
+      "libgudev",
+      "libnma",
+      "libwacom",
+      "networkmanager",
+      "pango",
+      "polkit",
+      "upower"
+    ],
+    "optional": [
+      "cinnamon-translations"
+    ],
+    "recommended": [
+      "nm-connection-editor"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "cinnamon/cinnamon-control-center.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

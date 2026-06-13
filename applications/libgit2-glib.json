@@ -1,0 +1,33 @@
+{
+  "name": "libgit2-glib",
+  "version": "1.2.1",
+  "description": "Git library bindings for GLib (Pantheon Files).",
+  "category": "libraries",
+  "url": [
+    "https://gitlab.gnome.org/GNOME/libgit2-glib/-/archive/v1.2.1/libgit2-glib-1.2.1.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "glib2",
+      "libgit2",
+      "libssh2"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "pantheon/libgit2-glib.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

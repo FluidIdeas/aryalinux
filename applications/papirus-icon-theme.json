@@ -1,0 +1,27 @@
+{
+  "name": "papirus-icon-theme",
+  "version": "20250501",
+  "description": "Papirus icon theme (Budgie default icons).",
+  "category": "applications",
+  "url": [
+    "https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/archive/20250501/papirus-icon-theme-20250501.tar.gz"
+  ],
+  "dependencies": {
+    "required": []
+  },
+  "build": {
+    "package": [
+      "make DESTDIR=$DESTDIR -C papirus-icon-theme-20250501 install"
+    ]
+  },
+  "post_install": [
+    "gtk-update-icon-cache /usr/share/icons/Papirus 2>/dev/null || true"
+  ],
+  "meta": false,
+  "book": "budgie/papirus-icon-theme.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "xdg-desktop-portal-wlr",
+  "version": "0.8.2",
+  "description": "xdg-desktop-portal backend for wlroots-based compositors.",
+  "category": "libraries",
+  "url": [
+    "https://github.com/emersion/xdg-desktop-portal-wlr/archive/v0.8.2/xdg-desktop-portal-wlr-0.8.2.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "grim",
+      "inih",
+      "libdrm",
+      "mesa",
+      "pipewire",
+      "slurp",
+      "systemd",
+      "wayland",
+      "xdg-desktop-portal"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release -Dsd-bus-provider=libsystemd xdg-desktop-portal-wlr-0.8.2",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "budgie/xdg-desktop-portal-wlr.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

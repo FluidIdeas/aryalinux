@@ -1,0 +1,43 @@
+{
+  "name": "xapp",
+  "version": "3.2.2",
+  "description": "Common library for Linux Mint X-Apps and Cinnamon session.",
+  "category": "desktop-cinnamon",
+  "url": [
+    "https://github.com/linuxmint/xapp/archive/refs/tags/3.2.2.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "cairo",
+      "dconf",
+      "gdk-pixbuf",
+      "glib2",
+      "gtk3",
+      "hicolor-icon-theme",
+      "libdbusmenu-gtk3",
+      "libgnomekbd",
+      "pango",
+      "python-modules.pygobject3",
+      "python3",
+      "xapp-symbolic-icons"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release -Ddocs=false .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "python3 -m compileall -o 0 -s $DESTDIR $DESTDIR/usr/lib/python3*/site-packages 2>/dev/null || true"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "cinnamon/xapp.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

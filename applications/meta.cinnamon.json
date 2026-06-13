@@ -1,0 +1,41 @@
+{
+  "name": "meta.cinnamon",
+  "version": "1.0",
+  "description": "Metapackage: installs the Cinnamon Desktop Environment core stack. Reference: Arch Linux cinnamon package (Extra, 2026).",
+  "category": "metapackage",
+  "url": [],
+  "dependencies": {
+    "required": [
+      "cinnamon",
+      "cinnamon-control-center",
+      "cinnamon-desktop",
+      "cinnamon-menus",
+      "cinnamon-screensaver",
+      "cinnamon-session",
+      "cinnamon-settings-daemon",
+      "cinnamon-translations",
+      "cjs",
+      "js128",
+      "libdbusmenu-glib",
+      "libdbusmenu-gtk3",
+      "libgnomekbd",
+      "libkeybinder3",
+      "muffin",
+      "nemo",
+      "python-xapp",
+      "timezonemap",
+      "xapp",
+      "xapp-symbolic-icons",
+      "xdg-desktop-portal-xapp"
+    ]
+  },
+  "build": {},
+  "post_install": [],
+  "meta": true,
+  "book": "cinnamon/meta.cinnamon.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

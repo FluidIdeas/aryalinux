@@ -1,0 +1,35 @@
+{
+  "name": "rage",
+  "version": "0.4.0",
+  "description": "EFL video and music player.",
+  "category": "applications",
+  "url": [
+    "https://download.enlightenment.org/rel/apps/rage/rage-0.4.0.tar.xz"
+  ],
+  "dependencies": {
+    "required": [
+      "efl"
+    ]
+  },
+  "build": {
+    "environment": {
+      "CFLAGS": "$CFLAGS -fvisibility=hidden"
+    },
+    "user": [
+      "meson setup build --prefix=/usr .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "install -Dm644 -t $DESTDIR/usr/share/licenses/rage/ AUTHORS"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "enlightenment/rage.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

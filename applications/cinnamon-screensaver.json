@@ -1,0 +1,47 @@
+{
+  "name": "cinnamon-screensaver",
+  "version": "6.6.1",
+  "description": "Screensaver for Cinnamon desktop.",
+  "category": "desktop-cinnamon",
+  "url": [
+    "https://github.com/linuxmint/cinnamon-screensaver/archive/refs/tags/6.6.1.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "accountsservice",
+      "cinnamon-desktop",
+      "gdk-pixbuf",
+      "glib2",
+      "gtk3",
+      "hicolor-icon-theme",
+      "linux-pam",
+      "pango",
+      "python-modules.pycairo",
+      "python-modules.pygobject3",
+      "python-xapp",
+      "python3",
+      "x7lib",
+      "xdotool"
+    ],
+    "optional": [
+      "cinnamon-translations"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "cinnamon/cinnamon-screensaver.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

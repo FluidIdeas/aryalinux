@@ -1,0 +1,67 @@
+{
+  "name": "budgie-extras",
+  "version": "2.2.3",
+  "description": "Additional Budgie applets and utilities from Ubuntu Budgie.",
+  "category": "desktop-budgie",
+  "url": [
+    "https://github.com/UbuntuBudgie/budgie-extras/archive/refs/tags/v2.2.3.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "budgie-desktop",
+      "cairo",
+      "dconf",
+      "gdk-pixbuf",
+      "glib2",
+      "gnome-menus",
+      "granite",
+      "gtk-layer-shell",
+      "gtk3",
+      "hicolor-icon-theme",
+      "json-glib",
+      "libgee",
+      "libhandy1",
+      "libnotify",
+      "libpeas-2",
+      "libsoup3",
+      "libxfce4windowing",
+      "networkmanager",
+      "pango",
+      "python-modules.pycairo",
+      "python3",
+      "sound-theme-freedesktop",
+      "vorbistools",
+      "wf-recorder",
+      "xdg-utils",
+      "xprintidle",
+      "zenity"
+    ],
+    "recommended": [
+      "python-modules.cairosvg",
+      "python-modules.dbus-python",
+      "python-modules.pillow",
+      "python-modules.psutil",
+      "python-modules.pygobject3",
+      "python-modules.pyudev",
+      "python-modules.svgwrite"
+    ]
+  },
+  "build": {
+    "user": [
+      "git clone --recurse-submodules --depth 1 --branch v2.2.3 https://github.com/UbuntuBudgie/budgie-extras.git budgie-extras-src",
+      "meson setup build --prefix=/usr -Dbuildtype=release -Dfor-wayland=true budgie-extras-src",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "budgie/budgie-extras.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

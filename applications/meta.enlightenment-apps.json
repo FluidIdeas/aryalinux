@@ -1,0 +1,25 @@
+{
+  "name": "meta.enlightenment-apps",
+  "version": "1.0",
+  "description": "Metapackage: installs Enlightenment EFL applications (terminal, media player, photo viewer, text editor, process viewer). Reference: Arch Linux Extra EFL apps (2026).",
+  "category": "metapackage",
+  "url": [],
+  "dependencies": {
+    "required": [
+      "ecrire",
+      "ephoto",
+      "evisum",
+      "rage",
+      "terminology"
+    ]
+  },
+  "build": {},
+  "post_install": [],
+  "meta": true,
+  "book": "enlightenment/meta.enlightenment-apps.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

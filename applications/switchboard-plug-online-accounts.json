@@ -1,0 +1,32 @@
+{
+  "name": "switchboard-plug-online-accounts",
+  "version": "8.0.2",
+  "description": "Switchboard online accounts plug.",
+  "category": "desktop-pantheon",
+  "url": [
+    "https://github.com/elementary/switchboard-plug-onlineaccounts/archive/refs/tags/8.0.2.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "granite7",
+      "switchboard"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release  .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "pantheon/switchboard-plug-online-accounts.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

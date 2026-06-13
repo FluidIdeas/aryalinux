@@ -1,0 +1,36 @@
+{
+  "name": "ephoto",
+  "version": "1.6.0",
+  "description": "EFL photo gallery viewer.",
+  "category": "applications",
+  "url": [
+    "https://download.enlightenment.org/rel/apps/ephoto/ephoto-1.6.0.tar.xz"
+  ],
+  "dependencies": {
+    "required": [
+      "efl",
+      "libexif"
+    ]
+  },
+  "build": {
+    "environment": {
+      "CFLAGS": "$CFLAGS -fvisibility=hidden"
+    },
+    "user": [
+      "meson setup build --prefix=/usr .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "install -Dm644 -t $DESTDIR/usr/share/licenses/ephoto/ AUTHORS"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "enlightenment/ephoto.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

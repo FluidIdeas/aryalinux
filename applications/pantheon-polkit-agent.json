@@ -1,0 +1,35 @@
+{
+  "name": "pantheon-polkit-agent",
+  "version": "8.0.2",
+  "description": "Pantheon PolicyKit authentication agent.",
+  "category": "desktop-pantheon",
+  "url": [
+    "https://github.com/elementary/polkit-agent/archive/refs/tags/8.0.2.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "glib2",
+      "granite7",
+      "gtk4",
+      "pantheon-wayland",
+      "polkit"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr -Dbuildtype=release  .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "pantheon/pantheon-polkit-agent.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}
