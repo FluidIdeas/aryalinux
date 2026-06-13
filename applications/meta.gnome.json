@@ -80,7 +80,8 @@
       "librsvg",
       "network-manager-applet",
       "polkit-gnome",
-      "xdg-user-dirs"
+      "xdg-user-dirs",
+      "dejavu-fonts-ttf"
     ]
   },
   "build": {},

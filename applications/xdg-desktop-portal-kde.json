@@ -8,15 +8,20 @@
   ],
   "dependencies": {
     "required": [
-      "plasma-integration"
+      "cups",
+      "frameworks6",
+      "plasma-integration",
+      "qt6-cups",
+      "xdg-desktop-portal"
     ]
   },
   "build": {
     "environment": {
-      "KF6_PREFIX": "/usr"
+      "KF6_PREFIX": "/usr",
+      "QT6DIR": "/opt/qt6"
     },
     "user": [
-      "cmake -B build -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX \\\n      -D CMAKE_INSTALL_LIBEXECDIR=libexec \\\n      -D CMAKE_BUILD_TYPE=Release \\\n      -D BUILD_QT5=OFF \\\n      -D BUILD_TESTING=OFF \\\n      -W no-dev .",
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX \\\n      -D CMAKE_PREFIX_PATH=$QT6DIR        \\\n      -D CMAKE_INSTALL_LIBEXECDIR=libexec \\\n      -D CMAKE_BUILD_TYPE=Release \\\n      -D BUILD_QT5=OFF \\\n      -D BUILD_TESTING=OFF \\\n      -W no-dev .",
       "make -C build"
     ],
     "package": [

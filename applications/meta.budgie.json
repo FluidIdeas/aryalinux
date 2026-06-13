@@ -30,7 +30,9 @@
       "wdisplays",
       "wlopm",
       "wlroots0.20",
-      "xdg-desktop-portal-wlr"
+      "xdg-desktop-portal-wlr",
+      "hicolor-icon-theme",
+      "dejavu-fonts-ttf"
     ]
   },
   "build": {},

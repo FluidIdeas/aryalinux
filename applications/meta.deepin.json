@@ -76,7 +76,9 @@
       "deepin-calendar",
       "deepin-system-monitor",
       "xdg-desktop-portal-dde",
-      "deepin-grand-search"
+      "deepin-grand-search",
+      "dejavu-fonts-ttf",
+      "hicolor-icon-theme"
     ]
   },
   "build": {},

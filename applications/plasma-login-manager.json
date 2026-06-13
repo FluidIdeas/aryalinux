@@ -8,22 +8,32 @@
   ],
   "dependencies": {
     "required": [
-      "spectacle"
+      "linux-pam",
+      "spectacle",
+      "systemd"
     ]
   },
   "build": {
     "environment": {
-      "KF6_PREFIX": "/usr"
+      "KF6_PREFIX": "/usr",
+      "QT6DIR": "/opt/qt6"
     },
     "user": [
-      "cmake -B build -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX \\\n      -D CMAKE_INSTALL_LIBEXECDIR=libexec \\\n      -D CMAKE_BUILD_TYPE=Release \\\n      -D BUILD_QT5=OFF \\\n      -D BUILD_TESTING=OFF \\\n      -W no-dev .",
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX \\\n      -D CMAKE_PREFIX_PATH=$QT6DIR        \\\n      -D CMAKE_INSTALL_LIBEXECDIR=libexec \\\n      -D CMAKE_BUILD_TYPE=Release \\\n      -D BUILD_QT5=OFF \\\n      -D BUILD_TESTING=OFF \\\n      -D INSTALL_PAM_CONFIGURATION=OFF \\\n      -D RUNTIME_DIR=/run/plasmalogin \\\n      -W no-dev .",
       "make -C build"
     ],
     "package": [
       "make -C build install DESTDIR=$DESTDIR"
     ]
   },
-  "post_install": [],
+  "post_install": [
+    "install -d /etc/pam.d",
+    "cat > /etc/pam.d/plasmalogin << \"EOF\"\n# Begin /etc/pam.d/plasmalogin\n\nauth     requisite      pam_nologin.so\nauth     required       pam_env.so\n\nauth     required       pam_succeed_if.so uid >= 1000 quiet\nauth     include        system-auth\n\naccount  include        system-account\npassword include        system-password\n\nsession  required       pam_limits.so\nsession  include        system-session\n\n# End /etc/pam.d/plasmalogin\nEOF",
+    "cat > /etc/pam.d/plasmalogin-autologin << \"EOF\"\n# Begin /etc/pam.d/plasmalogin-autologin\n\nauth     requisite      pam_nologin.so\nauth     required       pam_env.so\n\nauth     required       pam_succeed_if.so uid >= 1000 quiet\nauth     required       pam_permit.so\n\naccount  include        system-account\n\npassword required       pam_deny.so\n\nsession  required       pam_limits.so\nsession  include        system-session\n\n# End /etc/pam.d/plasmalogin-autologin\nEOF",
+    "cat > /etc/pam.d/plasmalogin-greeter << \"EOF\"\n# Begin /etc/pam.d/plasmalogin-greeter\n\nauth     required       pam_env.so\nauth     required       pam_permit.so\n\naccount  required       pam_permit.so\npassword required       pam_deny.so\nsession  required       pam_unix.so\n-session optional       pam_systemd.so\n\n# End /etc/pam.d/plasmalogin-greeter\nEOF",
+    "command -v systemd-sysusers >/dev/null && systemd-sysusers || true",
+    "systemctl enable plasmalogin 2>/dev/null || true"
+  ],
   "meta": false,
   "book": "kde/plasma-all.html",
   "install": {

@@ -26,7 +26,13 @@
       "timezonemap",
       "xapp",
       "xapp-symbolic-icons",
-      "xdg-desktop-portal-xapp"
+      "xdg-desktop-portal-xapp",
+      "adwaita-icon-theme",
+      "hicolor-icon-theme",
+      "papirus-icon-theme",
+      "gnome-themes-extra",
+      "gnome-backgrounds",
+      "dejavu-fonts-ttf"
     ]
   },
   "build": {},

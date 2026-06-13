@@ -5,7 +5,12 @@
   "category": "metapackage",
   "dependencies": {
     "required": [
-      "libevdev"
+      "libevdev",
+      "libinput",
+      "xorg-evdev-driver",
+      "xorg-libinput-driver",
+      "xorg-synaptics-driver",
+      "xorg-wacom-driver"
     ]
   },
   "build": {},

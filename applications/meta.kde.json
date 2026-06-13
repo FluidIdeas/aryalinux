@@ -39,7 +39,9 @@
       "qt6",
       "qtwebengine",
       "udisks2",
-      "xdg-user-dirs"
+      "xdg-user-dirs",
+      "dejavu-fonts-ttf",
+      "hicolor-icon-theme"
     ]
   },
   "build": {},

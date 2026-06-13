@@ -6,6 +6,9 @@
   "dependencies": {
     "required": [
       "gtk3",
+      "xdg-desktop-portal"
+    ],
+    "recommended": [
       "gnome-desktop"
     ]
   },

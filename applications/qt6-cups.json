@@ -1,0 +1,42 @@
+{
+  "name": "qt6-cups",
+  "version": "6.10.2",
+  "description": "Rebuilds Qt6 with CUPS PrintSupport enabled in /opt/qt6. Required by ports that use Qt PrintSupport private headers (for example xdg-desktop-portal-kde).",
+  "url": [
+    "https://download.qt.io/archive/qt/6.10/6.10.2/single/qt-everywhere-src-6.10.2.tar.xz"
+  ],
+  "dependencies": {
+    "required": [
+      "cups",
+      "qt6"
+    ],
+    "recommended": [
+      "ffmpeg"
+    ]
+  },
+  "build": {
+    "environment": {
+      "QT6PREFIX": "/opt/qt6"
+    },
+    "user": [
+      "if [ \"$(uname -m)\" = \"i686\" ]; then\n  sed -e \"/^#elif defined(Q_CC_GNU_ONLY)/s/.*/& && 0/\" \\\n      -i qtbase/src/corelib/global/qtypes.h &&\n  export CXXFLAGS+=\"-DDISABLE_SIMD -DPFFFT_SIMD_DISABLE\"\nfi",
+      "./configure -prefix $QT6PREFIX      \\\n            -sysconfdir /etc/xdg    \\\n            -dbus-linked            \\\n            -openssl-linked         \\\n            -system-sqlite          \\\n            -cups                   \\\n            -no-gstreamer           \\\n            -nomake examples        \\\n            -no-rpath               \\\n            -no-sbom                \\\n            -journald               \\\n            -skip qt3d              \\\n            -skip qtquick3dphysics  \\\n            -skip qtwebengine       &&\nninja"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja install",
+      "find $DESTDIR$QT6PREFIX/include -name qcups_p.h | grep -q . || { echo \"qt6-cups: CUPS private PrintSupport header missing\" >&2; exit 1; }",
+      "find $DESTDIR$QT6PREFIX/ -name '*.prl' \\\n   -exec sed -i -e '/^QMAKE_PRL_BUILD_DIR/d' {} \\;"
+    ]
+  },
+  "post_install": [
+    "ldconfig"
+  ],
+  "meta": false,
+  "book": "x/qt6.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

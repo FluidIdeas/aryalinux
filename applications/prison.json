@@ -8,12 +8,14 @@
   ],
   "dependencies": {
     "required": [
-      "krunner"
+      "krunner",
+      "zxing-cpp"
     ]
   },
   "build": {
     "environment": {
-      "KF6_PREFIX": "/usr"
+      "KF6_PREFIX": "/usr",
+      "QT6DIR": "/opt/qt6"
     },
     "user": [
       "cmake -B build -D CMAKE_INSTALL_PREFIX=$KF6_PREFIX \\\n      -D CMAKE_INSTALL_LIBEXECDIR=libexec \\\n      -D CMAKE_PREFIX_PATH=$QT6DIR \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON \\\n      -D CMAKE_BUILD_TYPE=Release \\\n      -D BUILD_TESTING=OFF \\\n      -D BUILD_PYTHON_BINDINGS=OFF \\\n      -W no-dev .",

@@ -42,7 +42,9 @@
       "wingpanel-indicator-power",
       "wingpanel-indicator-session",
       "wingpanel-indicator-sound",
-      "zeitgeist"
+      "zeitgeist",
+      "hicolor-icon-theme",
+      "dejavu-fonts-ttf"
     ]
   },
   "build": {},

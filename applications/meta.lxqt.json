@@ -54,7 +54,11 @@
       "qt6",
       "udisks2",
       "upower",
-      "xdg-user-dirs"
+      "xdg-user-dirs",
+      "hicolor-icon-theme",
+      "adwaita-icon-theme",
+      "papirus-icon-theme",
+      "dejavu-fonts-ttf"
     ]
   },
   "build": {},

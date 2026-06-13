@@ -5,10 +5,13 @@
   "category": "",
   "dependencies": {
     "required": [
+      "dbus",
       "fuse",
+      "gdk-pixbuf",
       "json-glib",
-      "xdg-desktop-portal-gnome",
-      "xdg-desktop-portal-lxqt",
+      "pipewire"
+    ],
+    "recommended": [
       "bubblewrap"
     ]
   },

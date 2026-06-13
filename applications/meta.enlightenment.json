@@ -10,7 +10,11 @@
       "connman",
       "efl",
       "enlightenment",
-      "lua52"
+      "lua52",
+      "hicolor-icon-theme",
+      "adwaita-icon-theme",
+      "gnome-backgrounds",
+      "dejavu-fonts-ttf"
     ]
   },
   "build": {},

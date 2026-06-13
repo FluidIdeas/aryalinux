@@ -6,7 +6,9 @@
   "dependencies": {
     "required": [
       "gnome-desktop",
+      "gtk4",
       "libadwaita",
+      "xdg-desktop-portal",
       "xdg-desktop-portal-gtk"
     ]
   },

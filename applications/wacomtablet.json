@@ -8,7 +8,9 @@
   ],
   "dependencies": {
     "required": [
-      "print-manager"
+      "libwacom",
+      "print-manager",
+      "xorg-wacom-driver"
     ]
   },
   "build": {
