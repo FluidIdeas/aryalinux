@@ -11,6 +11,10 @@
     ]
   },
   "build": {
+    "environment": {
+      "XORG_CONFIG": "--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static",
+      "XORG_PREFIX": "/usr"
+    },
     "user": [
       "./configure $XORG_CONFIG"
     ],

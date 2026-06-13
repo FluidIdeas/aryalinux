@@ -5,7 +5,14 @@
   "url": [
     "https://files.pythonhosted.org/packages/source/h/hatchling/hatchling-1.28.0.tar.gz"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "required": [
+      "python-deps.editables",
+      "python-deps.pathspec",
+      "python-deps.pluggy",
+      "python-deps.trove-classifiers"
+    ]
+  },
   "build": {
     "user": [
       "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"

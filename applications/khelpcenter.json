@@ -9,7 +9,8 @@
     "required": [
       "frameworks6",
       "libxml2",
-      "qtwebengine"
+      "qtwebengine",
+      "xapian"
     ]
   },
   "build": {

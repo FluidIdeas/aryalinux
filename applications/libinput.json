@@ -3,19 +3,18 @@
   "version": "1.31.0",
   "description": "libinput is a library that handles input devices for display servers and other applications that need to directly deal with input devices.",
   "url": [
-    "https://www.freedesktop.org/software/libevdev/libevdev-1.13.6.tar.xz",
-    "https://www.x.org/pub/individual/driver/xf86-input-evdev-2.11.0.tar.xz",
-    "https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.31.0/libinput-1.31.0.tar.gz",
-    "https://www.x.org/pub/individual/driver/xf86-input-libinput-1.5.0.tar.xz",
-    "https://www.x.org/pub/individual/driver/xf86-input-synaptics-1.10.0.tar.xz",
-    "https://github.com/linuxwacom/xf86-input-wacom/releases/download/xf86-input-wacom-1.2.4/xf86-input-wacom-1.2.4.tar.bz2"
+    "https://gitlab.freedesktop.org/libinput/libinput/-/archive/1.31.0/libinput-1.31.0.tar.gz"
   ],
   "dependencies": {
     "required": [
-      "x7driver"
+      "libevdev",
+      "mtdev"
     ]
   },
   "build": {
+    "environment": {
+      "XORG_PREFIX": "/usr"
+    },
     "user": [
       "meson setup build --prefix=$XORG_PREFIX \\\n      --buildtype=release   \\\n      -D debug-gui=false    \\\n      -D tests=false        \\\n      -D libwacom=false     \\\n      -D udev-dir=/usr/lib/udev .",
       "ninja -C build"

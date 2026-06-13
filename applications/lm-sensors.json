@@ -1,0 +1,28 @@
+{
+  "name": "lm-sensors",
+  "version": "3-6-2",
+  "description": "lm-sensors provides userspace support for hardware monitoring drivers in the Linux kernel.",
+  "url": [
+    "https://github.com/hramrach/lm-sensors/archive/V3-6-2/lm-sensors-3-6-2.tar.gz"
+  ],
+  "dependencies": {},
+  "build": {
+    "user": [
+      "make PREFIX=/usr BUILD_STATIC_LIB=0 MANDIR=/usr/share/man"
+    ],
+    "package": [
+      "make PREFIX=/usr BUILD_STATIC_LIB=0 MANDIR=/usr/share/man install DESTDIR=$DESTDIR",
+      "install -d $DESTDIR/usr/share/doc/lm-sensors-3-6-2",
+      "cp -r README INSTALL doc/* $DESTDIR/usr/share/doc/lm-sensors-3-6-2/"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "general/lm-sensors.html",
+  "category": "system",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

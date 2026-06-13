@@ -7,11 +7,14 @@
   ],
   "dependencies": {
     "required": [
+      "libepoxy",
+      "libtirpc",
       "libxcvt",
+      "mesa",
+      "pixman",
       "wayland-protocols",
       "x7app",
-      "x7font",
-      "libepoxy"
+      "x7font"
     ]
   },
   "build": {

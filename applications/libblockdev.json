@@ -7,9 +7,11 @@
   ],
   "dependencies": {
     "required": [
-      "glib2",
       "cryptsetup",
+      "glib2",
+      "keyutils",
       "libatasmart",
+      "libbytesize",
       "libnvme"
     ]
   },
