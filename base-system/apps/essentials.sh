@@ -5,6 +5,11 @@ set +h
 
 USERNAME="$1"
 
+# Refresh ALPS so port JSON url arrays work (older tarballs expected url: string).
+if [ -f /sources/upgrade-alps.sh ]; then
+	/sources/upgrade-alps.sh
+fi
+
 # make-ca -g -f
 
 # alps install writes to / and must run as root in the chroot (no sudo/PAM).
