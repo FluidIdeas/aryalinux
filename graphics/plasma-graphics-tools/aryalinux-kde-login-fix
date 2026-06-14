@@ -1,0 +1,196 @@
+#!/bin/bash
+# SPDX-License-Identifier: MIT
+# Fix KDE/SDDM black screen (nouveau, missing Qt6 session env, Wayland session).
+# Live system:  su -c aryalinux-kde-login-fix
+# Then reboot.
+
+set -euo pipefail
+
+LOG=/var/log/aryalinux-kde-login-fix.log
+MARKER="# aryalinux-kde-login-fix"
+
+need_root() {
+    [ "$(id -u)" -eq 0 ] || {
+        echo "Run as root: su -c aryalinux-kde-login-fix" >&2
+        exit 1
+    }
+}
+
+log() {
+    printf '%s\n' "$*" | tee -a "$LOG"
+}
+
+desktop_user() {
+    local u
+    if [ -n "${ARYALINUX_USER:-}" ] && id "$ARYALINUX_USER" >/dev/null 2>&1; then
+        echo "$ARYALINUX_USER"
+        return
+    fi
+    if id aryalinux >/dev/null 2>&1; then
+        echo aryalinux
+        return
+    fi
+    while IFS=: read -r u _ uid _ _ _ _; do
+        [ "$uid" -ge 1000 ] 2>/dev/null || continue
+        [ -d "/home/$u" ] || continue
+        echo "$u"
+        return
+    done </etc/passwd
+    echo ""
+}
+
+write_sddm_dropin() {
+    install -d /etc/sddm.conf.d
+    cat > /etc/sddm.conf.d/aryalinux-kde.conf << EOF
+$MARKER $(date -Iseconds)
+[General]
+DisplayServer=x11
+GreeterEnvironment=QT_QPA_PLATFORM=xcb,QT_PLUGIN_PATH=/opt/qt6/plugins,QML2_IMPORT_PATH=/opt/qt6/qml
+
+[Theme]
+Current=breeze
+
+[Users]
+DefaultPath=/usr/local/bin:/usr/bin:/bin:/opt/qt6/bin
+Session=plasmax11.desktop
+
+[X11]
+SessionCommand=/usr/share/sddm/scripts/Xsession
+EOF
+    chmod 644 /etc/sddm.conf.d/aryalinux-kde.conf
+    log "Wrote /etc/sddm.conf.d/aryalinux-kde.conf (X11 + breeze + Qt6 greeter)"
+}
+
+write_plasma_qt6_env() {
+    install -d /etc/xdg/plasma-workspace/env
+    cat > /etc/xdg/plasma-workspace/env/qt6.sh << 'EOF'
+# aryalinux-kde-login-fix — Qt6 paths for Plasma X11 sessions
+export QT_QPA_PLATFORM=xcb
+export QT_PLUGIN_PATH=/opt/qt6/plugins
+export QML2_IMPORT_PATH=/opt/qt6/qml
+export PATH="/opt/qt6/bin:${PATH}"
+EOF
+    chmod 755 /etc/xdg/plasma-workspace/env/qt6.sh
+
+    install -d /etc/profile.d
+    cat > /etc/profile.d/aryalinux-plasma-qt6.sh << 'EOF'
+# aryalinux-kde-login-fix — login shells and SDDM sessions
+export QT_QPA_PLATFORM=xcb
+export QT_PLUGIN_PATH=/opt/qt6/plugins
+export QML2_IMPORT_PATH=/opt/qt6/qml
+pathappend /opt/qt6/bin PATH
+EOF
+    chmod 644 /etc/profile.d/aryalinux-plasma-qt6.sh
+    log "Wrote Plasma/Qt6 session environment snippets"
+}
+
+disable_kwin_compositing() {
+    local user="$1"
+    local home kwinrc
+    [ -n "$user" ] || return 0
+    home="$(getent passwd "$user" | cut -d: -f6)"
+    [ -n "$home" ] && [ -d "$home" ] || return 0
+    kwinrc="$home/.config/kwinrc"
+    install -d -o "$user" -g "$user" "$home/.config"
+    if [ -f "$kwinrc" ] && grep -q '^\[Compositing\]' "$kwinrc"; then
+        if grep -q '^Enabled=' "$kwinrc"; then
+            sed -i '/^\[Compositing\]/,/^\[/ s/^Enabled=.*/Enabled=false/' "$kwinrc"
+        else
+            sed -i '/^\[Compositing\]/a Enabled=false' "$kwinrc"
+        fi
+    else
+        cat >>"$kwinrc" << 'EOF'
+
+[Compositing]
+Enabled=false
+EOF
+    fi
+    chown "$user:$user" "$kwinrc"
+    log "Disabled KWin compositing for $user (~/.config/kwinrc)"
+}
+
+remove_stale_plasmalogin() {
+    rm -f /etc/plasmalogin.conf.d/aryalinux-session.conf
+    log "Removed stale /etc/plasmalogin.conf.d/aryalinux-session.conf (SDDM ignores it)"
+}
+
+check_libxcb_cursor() {
+    if ldconfig -p 2>/dev/null | grep -q 'libxcb-cursor'; then
+        log "OK: libxcb-cursor is installed"
+        return 0
+    fi
+    if [ -f /usr/lib/libxcb-cursor.so.0 ] || [ -f /usr/lib64/libxcb-cursor.so.0 ]; then
+        log "OK: libxcb-cursor library file present"
+        return 0
+    fi
+    log "WARNING: libxcb-cursor missing — install xcb-util-cursor (or xcb-utilities) and rebuild qt6"
+    return 1
+}
+
+cmd_apply() {
+    local user
+
+    need_root
+    : >"$LOG"
+    log "=== aryalinux-kde-login-fix $(date -Iseconds) ==="
+    user="$(desktop_user)"
+    [ -n "$user" ] && log "Desktop user: $user" || log "WARNING: no desktop user found"
+
+    remove_stale_plasmalogin
+    write_sddm_dropin
+    write_plasma_qt6_env
+    [ -n "$user" ] && disable_kwin_compositing "$user"
+
+    if command -v aryalinux-graphics-setup >/dev/null; then
+        log "Running aryalinux-graphics-setup apply..."
+        aryalinux-graphics-setup apply >>"$LOG" 2>&1 || true
+    else
+        log "aryalinux-graphics-setup not installed — skipped"
+    fi
+
+    command -v ldconfig >/dev/null && ldconfig || true
+    check_libxcb_cursor || true
+
+    echo
+    echo "Done. Log: $LOG"
+    echo
+    echo "Reboot now, then log in and pick Plasma (X11)."
+    echo "Do NOT run plasmashell as root — use: su -c aryalinux-plasma-restart"
+    echo "If still black after reboot: su -c aryalinux-kde-login-diagnose"
+}
+
+cmd_status() {
+    echo "SDDM drop-in:"
+    [ -f /etc/sddm.conf.d/aryalinux-kde.conf ] && cat /etc/sddm.conf.d/aryalinux-kde.conf || echo "(missing)"
+    echo
+    echo "Plasma Qt6 env:"
+    [ -f /etc/xdg/plasma-workspace/env/qt6.sh ] && cat /etc/xdg/plasma-workspace/env/qt6.sh || echo "(missing)"
+    echo
+    check_libxcb_cursor || true
+}
+
+usage() {
+    cat <<'EOF'
+Usage: aryalinux-kde-login-fix [command]
+
+Commands:
+  apply     Apply KDE/SDDM black-screen fixes (default)
+  status    Show current AryaLinux KDE fix configuration
+  help      Show this help
+
+Live system:
+  su -c aryalinux-kde-login-fix
+  reboot
+EOF
+}
+
+case "${1:-apply}" in
+    apply) cmd_apply ;;
+    status) cmd_status ;;
+    help|-h|--help) usage ;;
+    *)
+        echo "Unknown command: $1" >&2
+        usage >&2
+        exit 1
+        ;;
+esac

@@ -65,5 +65,9 @@ fi
 
 cp ~/backup/build-log $LFS/sources
 echo "5" > $LFS/sources/currentstage
-cp -r ~/sources-apps /mnt/lfs/var/cache/alps/sources
+if [ -d ~/sources/alps ]; then
+    cp -r ~/sources/alps/* /mnt/lfs/var/cache/alps/sources
+elif [ -d ~/sources-apps ]; then
+    cp -r ~/sources-apps /mnt/lfs/var/cache/alps/sources
+fi
 chmod -R a+rw /mnt/lfs/var/cache/alps/sources/

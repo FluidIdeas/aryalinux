@@ -1,0 +1,98 @@
+#!/bin/bash
+# SPDX-License-Identifier: MIT
+# Restart Plasma shell/compositor for the desktop user from a text console.
+# Live system (TTY):  su -c aryalinux-plasma-restart
+# Never run plasmashell as root — it will crash (ABRT).
+
+set -euo pipefail
+
+need_root() {
+    [ "$(id -u)" -eq 0 ] || {
+        echo "Run as root: su -c aryalinux-plasma-restart" >&2
+        exit 1
+    }
+}
+
+desktop_user() {
+    local u
+    if [ -n "${ARYALINUX_USER:-}" ] && id "$ARYALINUX_USER" >/dev/null 2>&1; then
+        echo "$ARYALINUX_USER"
+        return
+    fi
+    if id aryalinux >/dev/null 2>&1; then
+        echo aryalinux
+        return
+    fi
+    if command -v loginctl >/dev/null; then
+        u="$(loginctl list-sessions --no-legend 2>/dev/null | awk '$3 ~ /^[a-z]/ {print $3; exit}')"
+        [ -n "$u" ] && echo "$u" && return
+    fi
+    while IFS=: read -r u _ uid _ _ _ _; do
+        [ "$uid" -ge 1000 ] 2>/dev/null || continue
+        [ -d "/home/$u" ] || continue
+        echo "$u"
+        return
+    done </etc/passwd
+}
+
+find_display() {
+    local d
+    for d in :0 :1; do
+        [ -S "/tmp/.X11-unix/X${d#:}" ] && echo "$d" && return
+    done
+    echo ":0"
+}
+
+run_as_user() {
+    local user="$1"
+    shift
+    if command -v runuser >/dev/null; then
+        runuser -u "$user" -- "$@"
+    else
+        su - "$user" -c "$(printf '%q ' "$@")"
+    fi
+}
+
+main() {
+    local user home display
+
+    need_root
+    user="$(desktop_user)"
+    [ -n "$user" ] || {
+        echo "No desktop user found. Set ARYALINUX_USER=yourname" >&2
+        exit 1
+    }
+    home="$(getent passwd "$user" | cut -d: -f6)"
+    display="$(find_display)"
+
+    echo "Restarting Plasma for user=$user DISPLAY=$display"
+    echo "(Do not run plasmashell as root.)"
+
+    export QT_QPA_PLATFORM=xcb
+    export QT_PLUGIN_PATH=/opt/qt6/plugins
+    export QML2_IMPORT_PATH=/opt/qt6/qml
+
+    run_as_user "$user" env \
+        DISPLAY="$display" \
+        XDG_RUNTIME_DIR="/run/user/$(id -u "$user")" \
+        QT_QPA_PLATFORM=xcb \
+        QT_PLUGIN_PATH=/opt/qt6/plugins \
+        QML2_IMPORT_PATH=/opt/qt6/qml \
+        PATH="/opt/qt6/bin:/usr/local/bin:/usr/bin:/bin" \
+        dbus-run-session -- kwin_x11 --replace &
+
+    sleep 2
+
+    run_as_user "$user" env \
+        DISPLAY="$display" \
+        XDG_RUNTIME_DIR="/run/user/$(id -u "$user")" \
+        QT_QPA_PLATFORM=xcb \
+        QT_PLUGIN_PATH=/opt/qt6/plugins \
+        QML2_IMPORT_PATH=/opt/qt6/qml \
+        PATH="/opt/qt6/bin:/usr/local/bin:/usr/bin:/bin" \
+        plasmashell --replace &
+
+    echo "Started kwin_x11 and plasmashell. Switch back to the graphical VT (often Ctrl+Alt+F1)."
+}
+
+main "$@"

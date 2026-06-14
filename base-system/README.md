@@ -78,6 +78,34 @@ To add or bump a package version, update the appropriate list. Patches under `pa
 
 Resume an interrupted build with `./build-arya` → option 2.
 
+## Source backup
+
+After a build (or before wiping the LFS partition), save downloaded tarballs to the
+build host with:
+
+```bash
+cd base-system
+./backup-sources.sh
+```
+
+The script reads `build-properties`, mounts `$ROOT_PART` at `$LFS` (usually
+`/mnt/lfs`), and copies archives to `~/sources`:
+
+| Path | Contents |
+|------|----------|
+| `~/sources/` | LFS/BLFS book tarballs (`*.tar.*`, patches, wget lists) |
+| `~/sources/alps/<port>/` | ALPS port download tarballs only (no `build/` trees) |
+
+Restore on a new tree:
+
+```bash
+cp -a ~/sources/alps/* /mnt/lfs/var/cache/alps/sources/
+cp -a ~/sources/*.tar.* /mnt/lfs/sources/    # as needed
+```
+
+Stage 1 also seeds the ALPS cache from `~/sources-apps/` if present; `backup-sources.sh`
+uses `~/sources/alps/` and still merges a legacy `~/sources-apps/` tree when found.
+
 ## Regenerating from a new LFS book
 
 The parser lives in a separate repo at `../parser/` (sibling to this `aryalinux/`

@@ -1,0 +1,35 @@
+#!/bin/bash
+# SPDX-License-Identifier: MIT
+# Copy KDE helper scripts into a chroot or live root (from your build host).
+# Usage:  ./install-kde-tools /mnt/lfs
+
+set -euo pipefail
+
+DEST="${1:-/mnt/lfs}"
+HERE="$(cd "$(dirname "$0")" && pwd)"
+
+install -d "$DEST/usr/local/bin"
+for tool in \
+    aryalinux-kde-login-fix \
+    aryalinux-kde-login-diagnose \
+    aryalinux-plasma-restart \
+    aryalinux-plasma-session \
+    aryalinux-graphics-setup \
+    aryalinux-graphics-diagnose
+do
+    if [ -f "$HERE/$tool" ]; then
+        install -m755 "$HERE/$tool" "$DEST/usr/local/bin/$tool"
+        echo "installed $tool"
+    elif [ -f "$HERE/../graphics-session-tools/$tool" ]; then
+        install -m755 "$HERE/../graphics-session-tools/$tool" "$DEST/usr/local/bin/$tool"
+        echo "installed $tool"
+    fi
+done
+
+echo
+echo "On the live AryaLinux system run:"
+echo "  su -c aryalinux-kde-login-fix"
+echo "  reboot"
+echo
+echo "If still black (from text console):"
+echo "  su -c aryalinux-plasma-restart"

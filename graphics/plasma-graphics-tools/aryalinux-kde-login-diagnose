@@ -1,0 +1,175 @@
+#!/bin/bash
+# SPDX-License-Identifier: MIT
+# KDE / Plasma login diagnostic — writes /var/log/aryalinux-kde-login-diagnose.txt
+# Run on the live AryaLinux system:  su -c aryalinux-kde-login-diagnose
+
+set -u
+
+REPORT=/var/log/aryalinux-kde-login-diagnose.txt
+mkdir -p "$(dirname "$REPORT")"
+: >"$REPORT"
+
+section() {
+    {
+        echo
+        echo "======== $1 ========"
+    } >>"$REPORT"
+}
+
+run() {
+    {
+        echo "\$ $*"
+        "$@" 2>&1 || echo "(exit $?)"
+    } >>"$REPORT"
+}
+
+have() { command -v "$1" >/dev/null 2>&1; }
+
+section "When / who"
+run date -Iseconds
+run uname -a
+run cat /etc/os-release
+
+section "Boot targets"
+run systemctl get-default
+run readlink -f /etc/systemd/system/display-manager.service
+
+section "Display managers (enabled / active)"
+for dm in sddm lightdm plasmalogin gdm; do
+    run systemctl is-enabled "$dm"
+    run systemctl is-active "$dm"
+done
+
+section "Display manager status (full)"
+for dm in sddm lightdm plasmalogin gdm; do
+    if systemctl is-active --quiet "$dm" 2>/dev/null; then
+        echo "--- systemctl status $dm ---" >>"$REPORT"
+        systemctl status "$dm" --no-pager -l >>"$REPORT" 2>&1 || true
+    fi
+done
+
+section "Multiple DM warning"
+enabled=""
+for dm in sddm lightdm plasmalogin gdm; do
+    if systemctl is-enabled "$dm" >/dev/null 2>&1; then
+        enabled="$enabled $dm"
+    fi
+done
+echo "enabled display managers:$enabled" >>"$REPORT"
+case "$enabled" in
+    *" "*) echo "WARNING: more than one display manager is enabled — pick one." >>"$REPORT" ;;
+esac
+
+section "Plasma sessions"
+run ls -la /usr/share/xsessions/
+run ls -la /usr/share/wayland-sessions/
+for bin in startplasma-x11 startplasma-wayland plasmashell; do
+    if [ -x "/usr/bin/$bin" ]; then
+        echo "found: /usr/bin/$bin" >>"$REPORT"
+    else
+        echo "missing: /usr/bin/$bin" >>"$REPORT"
+    fi
+done
+
+section "SDDM config"
+run cat /etc/sddm.conf
+for f in /etc/sddm.conf.d/*; do
+    [ -f "$f" ] || continue
+    echo "--- $f ---" >>"$REPORT"
+    cat "$f" >>"$REPORT" 2>&1
+done
+
+section "LightDM config"
+run cat /etc/lightdm/lightdm.conf 2>/dev/null
+for f in /etc/lightdm/lightdm.conf.d/*; do
+    [ -f "$f" ] || continue
+    echo "--- $f ---" >>"$REPORT"
+    cat "$f" >>"$REPORT" 2>&1
+done
+run ls -la /etc/lightdm/ 2>/dev/null
+
+section "plasmalogin config"
+run cat /etc/plasmalogin.conf 2>/dev/null
+for f in /etc/plasmalogin.conf.d/*; do
+    [ -f "$f" ] || continue
+    echo "--- $f ---" >>"$REPORT"
+    cat "$f" >>"$REPORT" 2>&1
+done
+
+section "GPU / drivers"
+if have lspci; then
+    lspci -nnk | grep -A3 -Ei 'vga|3d|display' >>"$REPORT" 2>&1 || true
+else
+    echo "lspci not installed" >>"$REPORT"
+fi
+for mod in nouveau nvidia amdgpu i915; do
+    [ -d "/sys/module/$mod" ] && echo "module loaded: $mod" >>"$REPORT"
+done
+run nvidia-smi 2>/dev/null
+run ls -la /dev/dri/ 2>/dev/null
+run ls -la /usr/lib/firmware/nvidia/ga106/ 2>/dev/null
+
+section "PAM"
+for f in sddm sddm-greeter lightdm lightdm-gtk-greeter system-auth system-session kde; do
+    [ -f "/etc/pam.d/$f" ] && echo "present: /etc/pam.d/$f" >>"$REPORT" \
+        || echo "missing: /etc/pam.d/$f" >>"$REPORT"
+done
+
+section "Qt6 (SDDM / greeters)"
+run ls -la /opt/qt6/plugins/platforms/libqxcb.so 2>/dev/null
+if have ldconfig; then
+    ldconfig -p 2>/dev/null | grep -i qt6 | head -20 >>"$REPORT" || true
+    ldconfig -p 2>/dev/null | grep -i xcb-cursor >>"$REPORT" || echo "missing: libxcb-cursor (Qt 6.5+ needs this for xcb)" >>"$REPORT"
+fi
+for f in /etc/xdg/plasma-workspace/env/qt6.sh /etc/sddm.conf.d/aryalinux-kde.conf; do
+    [ -f "$f" ] || continue
+    echo "--- $f ---" >>"$REPORT"
+    cat "$f" >>"$REPORT"
+done
+
+section "Plasma / KWin journal (this boot)"
+if have journalctl; then
+    journalctl -b --no-pager -n 80 2>/dev/null | grep -Ei 'plasmashell|kwin|qt\.qpa|xcb-cursor|ABRT|segfault' >>"$REPORT" || true
+fi
+
+section "X11 sockets"
+run ls -ld /tmp/.X11-unix /tmp/.ICE-unix 2>/dev/null
+
+section "Journal logs"
+if have journalctl; then
+    run journalctl -u sddm -b --no-pager -n 120
+    run journalctl -u lightdm -b --no-pager -n 120
+    run journalctl -u plasmalogin -b --no-pager -n 80
+    run journalctl -u display-manager -b --no-pager -n 40
+fi
+
+section "Xorg logs"
+for f in /var/log/Xorg.0.log /var/log/Xorg.1.log; do
+    [ -f "$f" ] || continue
+    echo "=== $f (errors) ===" >>"$REPORT"
+    grep -Ei 'EE|WW|fatal|nouveau|nvidia|glx|dri|modeset|No screens' "$f" | tail -60 >>"$REPORT" 2>&1 || true
+done
+for home in /home/*; do
+    [ -d "$home" ] || continue
+    for f in "$home/.local/share/xorg/Xorg.0.log" "$home/.xsession-errors"; do
+        [ -f "$f" ] || continue
+        echo "=== $f ===" >>"$REPORT"
+        tail -80 "$f" >>"$REPORT" 2>&1
+    done
+done
+for f in /var/lib/sddm/.local/share/xorg/Xorg.0.log /var/log/lightdm/*; do
+    [ -f "$f" ] || continue
+    echo "=== $f ===" >>"$REPORT"
+    tail -80 "$f" >>"$REPORT" 2>&1
+done
+
+section "Prior AryaLinux helper logs"
+for f in /var/log/aryalinux-graphics-diagnose.log /var/log/aryalinux-plasma-session.log; do
+    [ -f "$f" ] || continue
+    echo "=== $f ===" >>"$REPORT"
+    cat "$f" >>"$REPORT"
+done
+
+section "Done"
+echo "Report: $REPORT" >>"$REPORT"
+echo "Wrote $REPORT"

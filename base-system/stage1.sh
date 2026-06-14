@@ -109,6 +109,12 @@ then
 	chmod -R a+rw $LFS/var/cache/alps/sources
 fi
 
+if [ -d ~/sources/alps ]
+then
+	cp -r ~/sources/alps/* $LFS/var/cache/alps/sources/
+	chmod -R a+rw $LFS/var/cache/alps/sources
+fi
+
 # Removing lfs user if exists and creating again
 if grep lfs /etc/passwd
 then

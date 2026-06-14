@@ -13,6 +13,7 @@
       "qt6",
       "systemd",
       "xauth",
+      "xcb-util-cursor",
       "xorg-server"
     ],
     "recommended": [
