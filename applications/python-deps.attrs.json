@@ -5,7 +5,12 @@
   "url": [
     "https://files.pythonhosted.org/packages/source/a/attrs/attrs-25.4.0.tar.gz"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "required": [
+      "python-deps.hatchling",
+      "python-deps.hatch-fancy-pypi-readme"
+    ]
+  },
   "build": {
     "user": [
       "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"

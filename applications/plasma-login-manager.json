@@ -40,8 +40,7 @@
     "systemctl enable plasmalogin",
     "systemctl set-default graphical.target",
     "test -e /etc/systemd/system/display-manager.service || ln -sfn /usr/lib/systemd/system/plasmalogin.service /etc/systemd/system/display-manager.service",
-    "test \"$(readlink -f /etc/systemd/system/default.target 2>/dev/null || echo)\" = \"$(readlink -f /usr/lib/systemd/system/graphical.target)\" || ln -sfn /usr/lib/systemd/system/graphical.target /etc/systemd/system/default.target",
-    "if command -v lspci >/dev/null && lspci -nn | grep -Eiq 'nvidia|10de'; then\n  install -d /etc/plasmalogin.conf.d\n  if [ ! -f /etc/plasmalogin.conf.d/aryalinux-session.conf ]; then\n    cat > /etc/plasmalogin.conf.d/aryalinux-nvidia-x11.conf << \"EOF\"\n# Prefer X11 on NVIDIA/nouveau until proprietary drivers or firmware are set up.\n[General]\nDisplayServer=x11\nEOF\n  fi\nfi"
+    "test \"$(readlink -f /etc/systemd/system/default.target 2>/dev/null || echo)\" = \"$(readlink -f /usr/lib/systemd/system/graphical.target)\" || ln -sfn /usr/lib/systemd/system/graphical.target /etc/systemd/system/default.target"
   ],
   "meta": false,
   "book": "kde/plasma-all.html",

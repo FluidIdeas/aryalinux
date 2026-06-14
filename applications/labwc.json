@@ -19,6 +19,7 @@
       "libxml2",
       "pango",
       "pixman",
+      "scdoc",
       "seatd",
       "wayland",
       "wlroots0.20"

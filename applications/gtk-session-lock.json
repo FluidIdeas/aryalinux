@@ -15,7 +15,7 @@
   },
   "build": {
     "user": [
-      "meson setup build --prefix=/usr -Dbuildtype=release gtk-session-lock-0.2.0",
+      "meson setup build --prefix=/usr -Dbuildtype=release .",
       "ninja -C build"
     ],
     "package": [

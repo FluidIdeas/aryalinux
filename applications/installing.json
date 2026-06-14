@@ -9,6 +9,9 @@
       "mesa",
       "x7lib",
       "xorg-server"
+    ],
+    "recommended": [
+      "graphics-session-tools"
     ]
   },
   "build": {},

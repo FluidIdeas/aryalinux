@@ -1,0 +1,35 @@
+{
+  "name": "budgie-sddm-theme",
+  "version": "1.0",
+  "description": "Ubuntu Budgie slickSDDM login theme and helpers for SDDM (Wayland Budgie greeter).",
+  "category": "desktop-budgie",
+  "url": [
+    "https://github.com/UbuntuBudgie/slickSDDM/archive/refs/heads/main.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "accountsservice",
+      "budgie-backgrounds",
+      "sddm"
+    ]
+  },
+  "build": {
+    "user": [
+      "meson setup build --prefix=/usr --buildtype=release \\\n      -Dtheme_name=ubuntu-budgie-login \\\n      -Dtheme_display_name='AryaLinux Budgie Login' \\\n      -Dtheme_description='Budgie login screen for SDDM' \\\n      -Dtheme_author='AryaLinux' \\\n      -Dtheme_website='https://buddiesofbudgie.org' \\\n      -Ddefault_background=/usr/share/backgrounds/budgie/valley-midnight.jpg .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [
+    "systemctl enable sddm-backgrounds-cache.path 2>/dev/null || true"
+  ],
+  "meta": false,
+  "book": "budgie/budgie-sddm-theme.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

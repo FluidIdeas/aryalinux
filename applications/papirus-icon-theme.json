@@ -4,14 +4,16 @@
   "description": "Papirus icon theme (Budgie default icons).",
   "category": "applications",
   "url": [
-    "https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/archive/20250501/papirus-icon-theme-20250501.tar.gz"
+    "https://github.com/PapirusDevelopmentTeam/papirus-icon-theme/archive/refs/tags/20250501.tar.gz",
+    "https://sources.voidlinux.org/papirus-icon-theme-20250501/20250501.tar.gz",
+    "http://deb.debian.org/debian/pool/main/p/papirus-icon-theme/papirus-icon-theme_20250501.orig.tar.gz"
   ],
   "dependencies": {
     "required": []
   },
   "build": {
     "package": [
-      "make DESTDIR=$DESTDIR -C papirus-icon-theme-20250501 install"
+      "make DESTDIR=$DESTDIR install"
     ]
   },
   "post_install": [

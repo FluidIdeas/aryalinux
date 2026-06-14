@@ -16,7 +16,7 @@
   },
   "build": {
     "user": [
-      "meson setup build --prefix=/usr -Dbuildtype=release gtklock-4.0.0",
+      "meson setup build --prefix=/usr -Dbuildtype=release .",
       "ninja -C build"
     ],
     "package": [

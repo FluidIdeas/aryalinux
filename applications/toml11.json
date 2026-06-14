@@ -11,7 +11,7 @@
   },
   "build": {
     "user": [
-      "cmake -S toml11-4.4.0 -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr",
+      "cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr",
       "cmake --build build"
     ],
     "package": [

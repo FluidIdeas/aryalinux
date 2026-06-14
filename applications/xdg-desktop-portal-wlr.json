@@ -21,7 +21,7 @@
   },
   "build": {
     "user": [
-      "meson setup build --prefix=/usr -Dbuildtype=release -Dsd-bus-provider=libsystemd xdg-desktop-portal-wlr-0.8.2",
+      "meson setup build --prefix=/usr -Dbuildtype=release -Dsd-bus-provider=libsystemd .",
       "ninja -C build"
     ],
     "package": [

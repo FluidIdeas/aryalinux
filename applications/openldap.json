@@ -17,7 +17,6 @@
       "./configure --prefix=/usr     \\\n            --sysconfdir=/etc \\\n            --disable-static  \\\n            --enable-dynamic  \\\n            --disable-debug   \\\n            --disable-slapd",
       "make depend",
       "make",
-      "patch -Np1 -i ../openldap-2.6.12-consolidated-1.patch",
       "autoconf",
       "./configure --prefix=/usr         \\\n            --sysconfdir=/etc     \\\n            --localstatedir=/var  \\\n            --libexecdir=/usr/lib \\\n            --disable-static      \\\n            --disable-debug       \\\n            --with-tls=openssl    \\\n            --with-cyrus-sasl     \\\n            --without-systemd     \\\n            --enable-dynamic      \\\n            --enable-crypt        \\\n            --enable-spasswd      \\\n            --enable-slapd        \\\n            --enable-modules      \\\n            --enable-rlookups     \\\n            --enable-backends=mod \\\n            --disable-sql         \\\n            --disable-wt          \\\n            --enable-overlays=mod",
       "make depend",
@@ -30,15 +29,16 @@
       "install -v -dm700 $DESTDIR/etc/openldap/slapd.d",
       "chmod -v 640 $DESTDIR/etc/openldap/slapd.{conf,ldif}",
       "tar -xf ../../blfs-systemd-units-20251204.tar.xz -C ../../",
-      "cd ../../blfs-systemd-units-20251204 && make install-slapd DESTDIR=$DESTDIR"
+      "install -Dm644 ../../blfs-systemd-units-20251204/blfs/default/slapd $DESTDIR/etc/default/slapd",
+      "install -Dm644 ../../blfs-systemd-units-20251204/blfs/tmpfiles/slapd.conf $DESTDIR/usr/lib/tmpfiles.d/slapd.conf",
+      "install -Dm644 ../../blfs-systemd-units-20251204/blfs/units/slapd.service $DESTDIR/usr/lib/systemd/system/slapd.service"
     ]
   },
   "post_install": [
     "getent group ldap >/dev/null || groupadd -g 83 ldap",
     "id -u ldap >/dev/null 2>&1 || useradd -c \"OpenLDAP Daemon Owner\" -d /var/lib/openldap -u 83 -g ldap -s /bin/false ldap",
     "chown -R ldap:ldap /var/lib/openldap /etc/openldap/slapd.d",
-    "chown root:ldap /etc/openldap/slapd.{conf,ldif}",
-    "systemctl enable slapd"
+    "chown root:ldap /etc/openldap/slapd.{conf,ldif}"
   ],
   "meta": false,
   "book": "server/openldap.html",

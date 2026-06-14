@@ -4,7 +4,8 @@
   "description": "Idle management daemon for Wayland compositors.",
   "category": "applications",
   "url": [
-    "https://github.com/swaywm/swayidle/releases/download/1.9.0/swayidle-1.9.0.tar.gz"
+    "https://github.com/swaywm/swayidle/releases/download/v1.9.0/swayidle-1.9.0.tar.gz",
+    "https://github.com/swaywm/swayidle/archive/refs/tags/v1.9.0.tar.gz"
   ],
   "dependencies": {
     "required": [
@@ -15,7 +16,7 @@
   },
   "build": {
     "user": [
-      "meson setup build --prefix=/usr -Dbuildtype=release swayidle-1.9.0",
+      "meson setup build --prefix=/usr -Dbuildtype=release .",
       "ninja -C build"
     ],
     "package": [

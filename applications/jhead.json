@@ -1,0 +1,29 @@
+{
+  "name": "jhead",
+  "version": "3.08",
+  "description": "Command-line tool to display and manipulate Exif data in JPEG files.",
+  "category": "applications",
+  "url": [
+    "https://github.com/Matthias-Wandel/jhead/archive/refs/tags/3.08.tar.gz"
+  ],
+  "dependencies": {
+    "required": []
+  },
+  "build": {
+    "user": [
+      "make"
+    ],
+    "package": [
+      "install -Dm755 jhead $DESTDIR/usr/bin/jhead",
+      "install -Dm644 jhead.1 $DESTDIR/usr/share/man/man1/jhead.1"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "budgie/jhead.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -4,7 +4,7 @@
   "description": "Logic orchestrator and labwc integration for Budgie.",
   "category": "desktop-budgie",
   "url": [
-    "https://forge.moderndesktop.dev/BuddiesOfBudgie/budgie-desktop-services/-/archive/1.0.2/budgie-desktop-services-1.0.2.tar.gz"
+    "https://github.com/BuddiesOfBudgie/budgie-desktop-services/archive/refs/tags/1.0.2.tar.gz"
   ],
   "dependencies": {
     "required": [

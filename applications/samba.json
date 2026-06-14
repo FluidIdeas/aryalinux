@@ -12,6 +12,7 @@
       "rpcsvc-proto",
       "fuse",
       "icu",
+      "jansson",
       "mitkrb",
       "openldap"
     ]
@@ -20,7 +21,7 @@
     "user": [
       "python3 -m venv --system-site-packages pyvenv",
       "./pyvenv/bin/pip3 install cryptography pyasn1 iso8601",
-      "PYTHON=$PWD/pyvenv/bin/python3             \\\n./configure                                \\\n    --prefix=/usr                          \\\n    --sysconfdir=/etc                      \\\n    --localstatedir=/var                   \\\n    --with-piddir=/run/samba               \\\n    --with-pammodulesdir=/usr/lib/security \\\n    --enable-fhs                           \\\n    --without-ad-dc                        \\\n    --with-system-mitkrb5                  \\\n    --disable-selftest                      \\\n    --disable-rpath-install",
+      "PYTHON=$PWD/pyvenv/bin/python3             \\\n./configure                                \\\n    --prefix=/usr                          \\\n    --sysconfdir=/etc                      \\\n    --localstatedir=/var                   \\\n    --with-piddir=/run/samba               \\\n    --with-pammodulesdir=/usr/lib/security \\\n    --enable-fhs                           \\\n    --without-ad-dc                        \\\n    --with-system-mitkrb5                  \\\n    --disable-rpath-install",
       "make",
       "sed '1s@^.*$@#!/usr/bin/python3@' \\\n    -i ./bin/default/source4/scripting/bin/*.inst"
     ],
@@ -34,8 +35,15 @@
       "install -v -m755    examples/LDAP/{get*,ol*} \\\n                    $DESTDIR/etc/openldap/schema",
       "install -dvm 755 $DESTDIR/usr/lib/cups/backend",
       "ln -sfv /usr/bin/smbspool $DESTDIR/usr/lib/cups/backend/smb",
-      "make install-samba DESTDIR=$DESTDIR",
-      "make install-winbindd DESTDIR=$DESTDIR"
+      "tar -xf ../../blfs-systemd-units-20251204.tar.xz -C ../../",
+      "install -Dm644 ../../blfs-systemd-units-20251204/blfs/default/samba $DESTDIR/etc/default/samba",
+      "install -Dm644 ../../blfs-systemd-units-20251204/blfs/tmpfiles/samba.conf $DESTDIR/usr/lib/tmpfiles.d/samba.conf",
+      "install -Dm644 ../../blfs-systemd-units-20251204/blfs/units/nmbd.service $DESTDIR/usr/lib/systemd/system/nmbd.service",
+      "install -Dm644 ../../blfs-systemd-units-20251204/blfs/units/samba.service $DESTDIR/usr/lib/systemd/system/samba.service",
+      "install -Dm644 ../../blfs-systemd-units-20251204/blfs/units/smbd.service $DESTDIR/usr/lib/systemd/system/smbd.service",
+      "install -Dm644 ../../blfs-systemd-units-20251204/blfs/units/smbdat.service $DESTDIR/usr/lib/systemd/system/smbd@.service",
+      "install -Dm644 ../../blfs-systemd-units-20251204/blfs/units/smbd.socket $DESTDIR/usr/lib/systemd/system/smbd.socket",
+      "install -Dm644 ../../blfs-systemd-units-20251204/blfs/units/winbindd.service $DESTDIR/usr/lib/systemd/system/winbindd.service"
     ]
   },
   "post_install": [],
@@ -46,5 +54,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/blfs/downloads/13.0-systemd/blfs-systemd-units-20251204.tar.xz"
+  ]
 }

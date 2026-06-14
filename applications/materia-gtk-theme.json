@@ -9,7 +9,8 @@
   "dependencies": {
     "required": [
       "gtk3",
-      "gtk4"
+      "gtk4",
+      "sassc"
     ],
     "recommended": [
       "gnome-shell"
@@ -17,7 +18,7 @@
   },
   "build": {
     "user": [
-      "meson setup build --prefix=/usr -Dbuildtype=release materia-theme-20210322",
+      "meson setup build --prefix=/usr -Dbuildtype=release -Dgtk4_version=4.20 .",
       "ninja -C build"
     ],
     "package": [

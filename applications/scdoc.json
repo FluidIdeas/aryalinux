@@ -1,0 +1,27 @@
+{
+  "name": "scdoc",
+  "version": "1.11.3",
+  "description": "Small man page generator used at build time by Wayland and other projects.",
+  "category": "general",
+  "url": [
+    "http://ftp.debian.org/debian/pool/main/s/scdoc/scdoc_1.11.3.orig.tar.gz",
+    "https://git.sr.ht/~sircmpwn/scdoc/archive/1.11.3.tar.gz"
+  ],
+  "dependencies": {},
+  "build": {
+    "user": [
+      "make PREFIX=/usr LDFLAGS="
+    ],
+    "package": [
+      "make PREFIX=/usr LDFLAGS= install DESTDIR=$DESTDIR"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "general/scdoc.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

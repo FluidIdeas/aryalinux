@@ -1,11 +1,9 @@
 #!/bin/bash
 # SPDX-License-Identifier: MIT
-# Configure Plasma Login Manager and Plasma sessions for X11 or Wayland.
+# Configure SDDM (or plasmalogin) and Plasma sessions for X11 or Wayland.
 
 set -euo pipefail
 
-CONF_DIR="/etc/plasmalogin.conf.d"
-DROPIN="${CONF_DIR}/aryalinux-session.conf"
 REPORT="/var/log/aryalinux-plasma-session.log"
 
 log() { printf '%s\n' "$*" | tee -a "$REPORT"; }
@@ -15,6 +13,40 @@ need_root() {
         echo "This script must be run as root." >&2
         exit 1
     fi
+}
+
+active_display_manager() {
+    for dm in sddm plasmalogin lightdm gdm; do
+        if systemctl is-enabled "$dm" >/dev/null 2>&1; then
+            echo "$dm"
+            return
+        fi
+    done
+    if [ -L /etc/systemd/system/display-manager.service ]; then
+        basename "$(readlink -f /etc/systemd/system/display-manager.service)" .service
+        return
+    fi
+    echo "unknown"
+}
+
+configure_paths() {
+    local dm="$1"
+
+    case "$dm" in
+        sddm)
+            CONF_DIR="/etc/sddm.conf.d"
+            MAIN_CONF="/etc/sddm.conf"
+            ;;
+        plasmalogin)
+            CONF_DIR="/etc/plasmalogin.conf.d"
+            MAIN_CONF="/etc/plasmalogin.conf"
+            ;;
+        *)
+            CONF_DIR="/etc/sddm.conf.d"
+            MAIN_CONF="/etc/sddm.conf"
+            ;;
+    esac
+    DROPIN="${CONF_DIR}/aryalinux-session.conf"
 }
 
 detect_gpu_vendor() {
@@ -44,21 +76,30 @@ list_sessions() {
 }
 
 current_display_server() {
+    local dm="$1"
+    configure_paths "$dm"
+
     if [ -f "$DROPIN" ] && grep -q '^DisplayServer=' "$DROPIN"; then
         sed -n 's/^DisplayServer=//p' "$DROPIN" | head -1
         return
     fi
-    if [ -f /etc/plasmalogin.conf ] && grep -q '^DisplayServer=' /etc/plasmalogin.conf; then
-        sed -n 's/^DisplayServer=//p' /etc/plasmalogin.conf | head -1
+    if [ -f "$MAIN_CONF" ] && grep -q '^DisplayServer=' "$MAIN_CONF"; then
+        sed -n 's/^DisplayServer=//p' "$MAIN_CONF" | head -1
         return
     fi
-    echo "unset (plasmalogin default, usually wayland)"
+    case "$dm" in
+        sddm) echo "unset (SDDM default is usually x11)" ;;
+        plasmalogin) echo "unset (plasmalogin default is usually wayland)" ;;
+        *) echo "unset" ;;
+    esac
 }
 
 write_dropin() {
-    local server="$1"
-    local session="${2:-}"
+    local dm="$1"
+    local server="$2"
+    local session="${3:-}"
 
+    configure_paths "$dm"
     need_root
     install -d -m 755 "$CONF_DIR"
     {
@@ -73,17 +114,58 @@ write_dropin() {
     log "Wrote ${DROPIN} with DisplayServer=${server}${session:+, Session=${session}}"
 }
 
-restart_display_manager() {
+write_autologin() {
+    local dm="$1"
+    local user="$2"
+    local session="${3:-plasmax11.desktop}"
+
+    configure_paths "$dm"
     need_root
-    if systemctl is-enabled plasmalogin >/dev/null 2>&1; then
-        log "Restarting plasmalogin..."
-        systemctl restart plasmalogin
-    elif systemctl is-enabled sddm >/dev/null 2>&1; then
-        log "Restarting sddm..."
-        systemctl restart sddm
-    else
-        log "No plasmalogin/sddm service found; reboot to apply changes."
+    install -d -m 755 "$CONF_DIR"
+    {
+        echo "# Written by aryalinux-plasma-session on $(date -Iseconds)"
+        echo "[General]"
+        echo "DisplayServer=x11"
+        echo "Session=${session}"
+        echo
+        echo "[Autologin]"
+        echo "User=${user}"
+        echo "Session=${session}"
+    } > "$DROPIN"
+    chmod 644 "$DROPIN"
+    log "Wrote autologin for ${user} (${session}) to ${DROPIN}"
+}
+
+display_manager_note() {
+    local dm="$1"
+
+    case "$dm" in
+        sddm)
+            echo
+            echo "SDDM uses an X11 login greeter by default. Pick \"Plasma (X11)\" or"
+            echo "\"Plasma (Wayland)\" from the session menu on the login screen."
+            ;;
+        plasmalogin)
+            if [ -x /usr/bin/startplasma-login-wayland ] && [ ! -x /usr/bin/startplasma-login-x11 ]; then
+                echo
+                echo "plasmalogin only ships a Wayland login greeter. DisplayServer=x11 affects"
+                echo "sessions after login, not the greeter screen. If you see a black screen"
+                echo "with a mouse cursor, use: sudo aryalinux-plasma-session autologin USER"
+            fi
+            ;;
+    esac
+}
+
+restart_display_manager() {
+    local dm="$1"
+
+    need_root
+    if [ "$dm" != "unknown" ] && systemctl is-enabled "$dm" >/dev/null 2>&1; then
+        log "Restarting ${dm}..."
+        systemctl restart "$dm"
+        return
     fi
+    log "No enabled display manager found; reboot to apply changes."
 }
 
 recommend_server() {
@@ -98,32 +180,50 @@ recommend_server() {
     echo "wayland"
 }
 
+strip_autologin() {
+    local dm="$1"
+
+    configure_paths "$dm"
+    [ -f "$DROPIN" ] || return 0
+    awk '
+        /^\[Autologin\]/ { skip=1; next }
+        skip && /^\[/ { skip=0 }
+        !skip { print }
+    ' "$DROPIN" > "${DROPIN}.tmp" && mv "${DROPIN}.tmp" "$DROPIN"
+}
+
 usage() {
     cat <<'EOF'
 Usage: aryalinux-plasma-session [command]
 
 Commands:
-  status          Show current display server, GPU, and sessions
+  status          Show display manager, display server, GPU, and sessions
   recommend       Print recommended display server for this hardware
-  x11             Force Plasma login/session stack to X11
-  wayland         Force Plasma login/session stack to Wayland
+  x11             Prefer X11 (SDDM greeter + Plasma X11 sessions)
+  wayland         Prefer Wayland greeter/sessions
+  autologin USER [SESSION]  Boot into Plasma without the login greeter
+  clear-autologin Remove [Autologin] from the AryaLinux drop-in
   interactive     Guided setup (default)
   help            Show this help
 
 Examples:
   sudo aryalinux-plasma-session x11
+  sudo aryalinux-plasma-session autologin aryalinux plasmax11.desktop
   sudo aryalinux-plasma-session status
 EOF
 }
 
 interactive() {
-    local gpu rec current choice session
+    local dm gpu rec current choice session
 
+    dm="$(active_display_manager)"
+    configure_paths "$dm"
     log "=== aryalinux-plasma-session interactive setup ==="
     gpu="$(detect_gpu_vendor)"
     rec="$(recommend_server)"
-    current="$(current_display_server)"
+    current="$(current_display_server "$dm")"
 
+    echo "Display manager: $dm"
     echo "Detected GPU:"
     echo "$gpu"
     echo
@@ -154,22 +254,24 @@ interactive() {
     printf 'Optional default session .desktop name (Enter to skip): '
     read -r session
 
-    write_dropin "$choice" "$session"
-    restart_display_manager
+    write_dropin "$dm" "$choice" "$session"
+    restart_display_manager "$dm"
+    display_manager_note "$dm"
     echo
-    echo "Done. If the greeter is still black, also run:"
-    echo "  sudo aryalinux-graphics-diagnose"
-    echo "  sudo alps install nouveau-firmware   # RTX 20xx/30xx with nouveau"
+    echo "Also run: sudo aryalinux-graphics-setup apply"
 }
 
 cmd="${1:-interactive}"
+DM="$(active_display_manager)"
+configure_paths "$DM"
 
 case "$cmd" in
     status)
+        echo "Display manager: $DM"
         echo "GPU:"
         detect_gpu_vendor
         echo
-        echo "DisplayServer: $(current_display_server)"
+        echo "DisplayServer: $(current_display_server "$DM")"
         echo "Drop-in: $DROPIN"
         [ -f "$DROPIN" ] && cat "$DROPIN" || echo "(not configured)"
         echo
@@ -179,12 +281,26 @@ case "$cmd" in
         recommend_server
         ;;
     x11)
-        write_dropin x11
-        restart_display_manager
+        write_dropin "$DM" x11
+        restart_display_manager "$DM"
+        display_manager_note "$DM"
         ;;
     wayland)
-        write_dropin wayland
-        restart_display_manager
+        write_dropin "$DM" wayland
+        restart_display_manager "$DM"
+        ;;
+    autologin)
+        need_root
+        [ -n "${2:-}" ] || { echo "Usage: aryalinux-plasma-session autologin USER [SESSION]" >&2; exit 1; }
+        write_autologin "$DM" "$2" "${3:-plasmax11.desktop}"
+        restart_display_manager "$DM"
+        echo "Reboot to land in Plasma without the login greeter."
+        ;;
+    clear-autologin)
+        need_root
+        strip_autologin "$DM"
+        echo "Removed [Autologin] from $DROPIN"
+        restart_display_manager "$DM"
         ;;
     interactive)
         interactive

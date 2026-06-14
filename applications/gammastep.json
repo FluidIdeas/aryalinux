@@ -20,10 +20,12 @@
   },
   "build": {
     "user": [
-      "cd gammastep-v2.0.11 && ./bootstrap && ./configure --prefix=/usr && make"
+      "./bootstrap",
+      "./configure --prefix=/usr",
+      "make"
     ],
     "package": [
-      "make DESTDIR=$DESTDIR -C gammastep-v2.0.11 install"
+      "make DESTDIR=$DESTDIR install"
     ]
   },
   "post_install": [],

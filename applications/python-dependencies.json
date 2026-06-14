@@ -1,0 +1,515 @@
+{
+  "name": "python-dependencies",
+  "version": "1.0.0",
+  "description": "Builds Python modules that are dependencies of other BLFS python-modules packages but are not covered elsewhere in the book.",
+  "url": "https://files.pythonhosted.org/packages/source/a/alabaster/alabaster-1.0.0.tar.gz",
+  "dependencies": {},
+  "build": {
+    "modules": [
+      {
+        "name": "python-deps.alabaster",
+        "version": "1.0.0",
+        "url": "https://files.pythonhosted.org/packages/source/a/alabaster/alabaster-1.0.0.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user alabaster"
+        ]
+      },
+      {
+        "name": "python-deps.attrs",
+        "version": "25.4.0",
+        "url": "https://files.pythonhosted.org/packages/source/a/attrs/attrs-25.4.0.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user attrs"
+        ]
+      },
+      {
+        "name": "python-deps.babel",
+        "version": "2.18.0",
+        "url": "https://files.pythonhosted.org/packages/source/B/Babel/babel-2.18.0.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user Babel"
+        ]
+      },
+      {
+        "name": "python-deps.certifi",
+        "version": "2026.1.4",
+        "url": "https://files.pythonhosted.org/packages/source/c/certifi/certifi-2026.1.4.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user certifi"
+        ]
+      },
+      {
+        "name": "python-deps.chardet",
+        "version": "5.2.0",
+        "url": "https://files.pythonhosted.org/packages/source/c/chardet/chardet-5.2.0.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user chardet"
+        ]
+      },
+      {
+        "name": "python-deps.charset-normalizer",
+        "version": "3.4.4",
+        "url": "https://files.pythonhosted.org/packages/source/c/charset-normalizer/charset_normalizer-3.4.4.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user charset-normalizer"
+        ]
+      },
+      {
+        "name": "python-deps.commonmark",
+        "version": "0.9.1",
+        "url": "https://files.pythonhosted.org/packages/source/c/commonmark/commonmark-0.9.1.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user commonmark"
+        ]
+      },
+      {
+        "name": "python-deps.editables",
+        "version": "0.5",
+        "url": "https://files.pythonhosted.org/packages/source/e/editables/editables-0.5.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user editables"
+        ]
+      },
+      {
+        "name": "python-deps.hatch-fancy-pypi-readme",
+        "version": "25.1.0",
+        "url": "https://files.pythonhosted.org/packages/source/h/hatch-fancy-pypi-readme/hatch_fancy_pypi_readme-25.1.0.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user hatch-fancy-pypi-readme"
+        ]
+      },
+      {
+        "name": "python-deps.hatch-vcs",
+        "version": "0.5.0",
+        "url": "https://files.pythonhosted.org/packages/source/h/hatch-vcs/hatch_vcs-0.5.0.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user hatch_vcs"
+        ]
+      },
+      {
+        "name": "python-deps.hatchling",
+        "version": "1.28.0",
+        "url": "https://files.pythonhosted.org/packages/source/h/hatchling/hatchling-1.28.0.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user hatchling"
+        ]
+      },
+      {
+        "name": "python-deps.idna",
+        "version": "3.11",
+        "url": "https://files.pythonhosted.org/packages/source/i/idna/idna-3.11.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user idna"
+        ]
+      },
+      {
+        "name": "python-deps.imagesize",
+        "version": "1.4.1",
+        "url": "https://files.pythonhosted.org/packages/source/i/imagesize/imagesize-1.4.1.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user imagesize"
+        ]
+      },
+      {
+        "name": "python-deps.iniconfig",
+        "version": "2.3.0",
+        "url": "https://files.pythonhosted.org/packages/source/i/iniconfig/iniconfig-2.3.0.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user iniconfig"
+        ]
+      },
+      {
+        "name": "python-deps.markdown",
+        "version": "3.10.2",
+        "url": "https://files.pythonhosted.org/packages/source/M/Markdown/markdown-3.10.2.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user Markdown"
+        ]
+      },
+      {
+        "name": "python-deps.maturin",
+        "version": "1.12.3",
+        "url": "https://github.com/PyO3/maturin/archive/v1.12.3/maturin-1.12.3.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user maturin"
+        ]
+      },
+      {
+        "name": "python-deps.meson_python",
+        "version": "0.19.0",
+        "url": "https://files.pythonhosted.org/packages/source/m/meson_python/meson_python-0.19.0.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user meson_python"
+        ]
+      },
+      {
+        "name": "python-deps.msgpack",
+        "version": "1.1.2",
+        "url": "https://files.pythonhosted.org/packages/source/m/msgpack/msgpack-1.1.2.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user msgpack"
+        ]
+      },
+      {
+        "name": "python-deps.pathspec",
+        "version": "1.0.4",
+        "url": "https://files.pythonhosted.org/packages/source/p/pathspec/pathspec-1.0.4.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user pathspec"
+        ]
+      },
+      {
+        "name": "python-deps.pluggy",
+        "version": "1.6.0",
+        "url": "https://files.pythonhosted.org/packages/source/p/pluggy/pluggy-1.6.0.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user pluggy"
+        ]
+      },
+      {
+        "name": "python-deps.pyproject-hooks",
+        "version": "1.2.0",
+        "url": "https://files.pythonhosted.org/packages/source/p/pyproject-hooks/pyproject_hooks-1.2.0.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user pyproject_hooks"
+        ]
+      },
+      {
+        "name": "python-deps.pyproject-metadata",
+        "version": "0.11.0",
+        "url": "https://files.pythonhosted.org/packages/source/p/pyproject-metadata/pyproject_metadata-0.11.0.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user pyproject-metadata"
+        ]
+      },
+      {
+        "name": "python-deps.pytz",
+        "version": "2025.2",
+        "url": "https://files.pythonhosted.org/packages/source/p/pytz/pytz-2025.2.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user pytz"
+        ]
+      },
+      {
+        "name": "python-deps.roman-numerals",
+        "version": "4.1.0",
+        "url": "https://files.pythonhosted.org/packages/source/r/roman-numerals/roman_numerals-4.1.0.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user roman-numerals"
+        ]
+      },
+      {
+        "name": "python-deps.sc-applehelp",
+        "version": "2.0.0",
+        "url": "https://files.pythonhosted.org/packages/source/s/sphinxcontrib-applehelp/sphinxcontrib_applehelp-2.0.0.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user sphinxcontrib-applehelp"
+        ]
+      },
+      {
+        "name": "python-deps.sc-devhelp",
+        "version": "2.0.0",
+        "url": "https://files.pythonhosted.org/packages/source/s/sphinxcontrib-devhelp/sphinxcontrib_devhelp-2.0.0.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user sphinxcontrib-devhelp"
+        ]
+      },
+      {
+        "name": "python-deps.sc-htmlhelp",
+        "version": "2.1.0",
+        "url": "https://files.pythonhosted.org/packages/source/s/sphinxcontrib-htmlhelp/sphinxcontrib_htmlhelp-2.1.0.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user sphinxcontrib-htmlhelp"
+        ]
+      },
+      {
+        "name": "python-deps.sc-jquery",
+        "version": "4.1",
+        "url": "https://files.pythonhosted.org/packages/source/s/sphinxcontrib-jquery/sphinxcontrib-jquery-4.1.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user sphinxcontrib-jquery"
+        ]
+      },
+      {
+        "name": "python-deps.sc-jsmath",
+        "version": "1.0.1",
+        "url": "https://files.pythonhosted.org/packages/source/s/sphinxcontrib-jsmath/sphinxcontrib-jsmath-1.0.1.tar.gz",
+        "pre": [
+          "patch -Np1 -i ../sphinxcontrib-jsmath-1.0.1-sphinx9_fixes-1.patch"
+        ],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user sphinxcontrib-jsmath"
+        ]
+      },
+      {
+        "name": "python-deps.sc-qthelp",
+        "version": "2.0.0",
+        "url": "https://files.pythonhosted.org/packages/source/s/sphinxcontrib-qthelp/sphinxcontrib_qthelp-2.0.0.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user sphinxcontrib-qthelp"
+        ]
+      },
+      {
+        "name": "python-deps.sc-serializinghtml",
+        "version": "2.0.0",
+        "url": "https://files.pythonhosted.org/packages/source/s/sphinxcontrib_serializinghtml/sphinxcontrib_serializinghtml-2.0.0.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user sphinxcontrib-serializinghtml"
+        ]
+      },
+      {
+        "name": "python-deps.semantic_version",
+        "version": "2.10.0",
+        "url": "https://files.pythonhosted.org/packages/source/s/semantic_version/semantic_version-2.10.0.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user semantic_version"
+        ]
+      },
+      {
+        "name": "python-deps.setuptools_rust",
+        "version": "1.12.0",
+        "url": "https://files.pythonhosted.org/packages/source/s/setuptools_rust/setuptools_rust-1.12.0.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user setuptools_rust"
+        ]
+      },
+      {
+        "name": "python-deps.setuptools_scm",
+        "version": "9.2.2",
+        "url": "https://files.pythonhosted.org/packages/source/s/setuptools_scm/setuptools_scm-9.2.2.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user setuptools_scm"
+        ]
+      },
+      {
+        "name": "python-deps.smartypants",
+        "version": "2.0.2",
+        "url": "https://files.pythonhosted.org/packages/source/s/smartypants/smartypants-2.0.2.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user smartypants"
+        ]
+      },
+      {
+        "name": "python-deps.snowballstemmer",
+        "version": "3.0.1",
+        "url": "https://files.pythonhosted.org/packages/source/s/snowballstemmer/snowballstemmer-3.0.1.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user snowballstemmer"
+        ]
+      },
+      {
+        "name": "python-deps.trove-classifiers",
+        "version": "2026.1.14.14",
+        "url": "https://files.pythonhosted.org/packages/source/t/trove_classifiers/trove_classifiers-2026.1.14.14.tar.gz",
+        "pre": [],
+        "user": [
+          "sed -i '/calver/s/^/#/;$iversion=\"2026.1.14.14\"' setup.py",
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user trove-classifiers"
+        ]
+      },
+      {
+        "name": "python-deps.typogrify",
+        "version": "2.1.0",
+        "url": "https://files.pythonhosted.org/packages/source/t/typogrify/typogrify-2.1.0.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user typogrify"
+        ]
+      },
+      {
+        "name": "python-deps.urllib3",
+        "version": "2.6.3",
+        "url": "https://files.pythonhosted.org/packages/source/u/urllib3/urllib3-2.6.3.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user urllib3"
+        ]
+      },
+      {
+        "name": "python-deps.uv_build",
+        "version": "0.10.2",
+        "url": "https://files.pythonhosted.org/packages/source/u/uv_build/uv_build-0.10.2.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user uv_build"
+        ]
+      },
+      {
+        "name": "python-deps.webencodings",
+        "version": "0.5.1",
+        "url": "https://files.pythonhosted.org/packages/source/w/webencodings/webencodings-0.5.1.tar.gz",
+        "pre": [],
+        "user": [
+          "pip3 wheel -w dist --no-build-isolation --no-deps --no-cache-dir $PWD"
+        ],
+        "package": [
+          "pip3 install --root=$DESTDIR --no-index --find-links dist --no-user webencodings"
+        ]
+      }
+    ]
+  },
+  "post_install": [],
+  "meta": true,
+  "book": "general/python-dependencies.html",
+  "category": "python",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

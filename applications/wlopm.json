@@ -13,11 +13,12 @@
   },
   "build": {
     "user": [
-      "make -C wlopm-v1.0.0"
+      "make"
     ],
     "package": [
-      "make DESTDIR=$DESTDIR PREFIX=/usr -C wlopm-v1.0.0 install",
-      "install -Dm644 wlopm-v1.0.0/LICENSE $DESTDIR/usr/share/licenses/wlopm/LICENSE"
+      "install -d $DESTDIR/usr/share/bash-completion/completions",
+      "make DESTDIR=$DESTDIR PREFIX=/usr install",
+      "install -Dm644 LICENSE $DESTDIR/usr/share/licenses/wlopm/LICENSE"
     ]
   },
   "post_install": [],

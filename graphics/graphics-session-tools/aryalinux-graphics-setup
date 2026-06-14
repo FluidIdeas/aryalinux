@@ -1,0 +1,228 @@
+#!/bin/bash
+# SPDX-License-Identifier: MIT
+# Optional graphics tuning for AryaLinux (all DEs). Safe on non-NVIDIA systems.
+
+set -euo pipefail
+
+MARKER="# aryalinux-graphics-setup"
+XORG_SNIPPET="/etc/X11/xorg.conf.d/10-aryalinux-nouveau-safe.conf"
+PROFILE_SNIPPET="/etc/profile.d/aryalinux-nouveau-gl.sh"
+PLASMA_DROPIN="/etc/plasmalogin.conf.d/aryalinux-session.conf"
+SDDM_DROPIN="/etc/sddm.conf.d/aryalinux-session.conf"
+SOCKETS_UNIT="early-x11-sockets.service"
+
+need_root() {
+    [ "$(id -u)" -eq 0 ] || { echo "Run as root." >&2; exit 1; }
+}
+
+have_nvidia() {
+    command -v lspci >/dev/null 2>&1 && lspci -nn | grep -Eiq 'vga|3d|display.*10de|10de.*vga|10de.*3d'
+}
+
+using_nouveau() {
+    [ -d /sys/module/nouveau ] && [ ! -d /sys/module/nvidia ]
+}
+
+ensure_x11_sockets() {
+    if command -v systemd-tmpfiles >/dev/null && [ -f /usr/lib/tmpfiles.d/x11.conf ]; then
+        systemd-tmpfiles --create /usr/lib/tmpfiles.d/x11.conf
+    fi
+    install -d -m 1777 /tmp/.X11-unix /tmp/.ICE-unix /tmp/.XIM-unix /tmp/.font-unix
+    install_boot_units
+}
+
+install_boot_units() {
+    cat > /usr/lib/systemd/system/early-x11-sockets.service << 'EOF'
+[Unit]
+Description=Ensure X11 socket directories exist
+DefaultDependencies=no
+Before=display-manager.service
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/mkdir -p /tmp/.X11-unix /tmp/.ICE-unix /tmp/.XIM-unix /tmp/.font-unix
+ExecStart=/bin/chmod 1777 /tmp/.X11-unix /tmp/.ICE-unix /tmp/.XIM-unix /tmp/.font-unix
+RemainAfterExit=yes
+
+[Install]
+WantedBy=graphical.target
+EOF
+    if systemctl is-enabled sddm >/dev/null 2>&1; then
+        install -d /etc/systemd/system/sddm.service.d
+        cat > /etc/systemd/system/sddm.service.d/aryalinux-x11-sockets.conf << 'EOF'
+[Service]
+ExecStartPre=/bin/mkdir -p /tmp/.X11-unix /tmp/.ICE-unix /tmp/.XIM-unix /tmp/.font-unix
+ExecStartPre=/bin/chmod 1777 /tmp/.X11-unix /tmp/.ICE-unix /tmp/.XIM-unix /tmp/.font-unix
+EOF
+    elif systemctl is-enabled plasmalogin >/dev/null 2>&1; then
+        install -d /etc/systemd/system/plasmalogin.service.d
+        cat > /etc/systemd/system/plasmalogin.service.d/aryalinux-x11-sockets.conf << 'EOF'
+[Service]
+ExecStartPre=/bin/mkdir -p /tmp/.X11-unix /tmp/.ICE-unix /tmp/.XIM-unix /tmp/.font-unix
+ExecStartPre=/bin/chmod 1777 /tmp/.X11-unix /tmp/.ICE-unix /tmp/.XIM-unix /tmp/.font-unix
+EOF
+    fi
+    systemctl daemon-reload
+    systemctl enable early-x11-sockets.service 2>/dev/null || true
+}
+
+apply_nouveau_safe() {
+    install -d /etc/X11/xorg.conf.d
+    rm -f /etc/X11/xorg.conf.d/10-nouveau-safe.conf
+    cat > "$XORG_SNIPPET" << EOF
+# $MARKER — NVIDIA + nouveau only. Remove with: aryalinux-graphics-setup remove
+Section "Device"
+    Identifier "AryaLinuxNouveau"
+    Driver "modesetting"
+    Option "AccelMethod" "none"
+EndSection
+
+Section "Monitor"
+    Identifier "AryaLinuxMonitor0"
+    Option "PreferredMode" "1920x1080"
+EndSection
+EOF
+    install -d /etc/profile.d
+    cat > "$PROFILE_SNIPPET" << EOF
+# $MARKER — prefer classic nouveau DRI over NVK/zink on RTX 20xx/30xx
+export MESA_LOADER_DRIVER_OVERRIDE=nouveau
+EOF
+}
+
+remove_files() {
+    rm -f "$XORG_SNIPPET" "$PROFILE_SNIPPET" /etc/X11/xorg.conf.d/10-nouveau-safe.conf
+    rm -f /etc/plasmalogin.conf.d/aryalinux-nvidia-x11.conf
+}
+
+strip_autologin() {
+    local f="$1"
+    [ -f "$f" ] || return 0
+    awk '
+        /^\[Autologin\]/ { skip=1; next }
+        skip && /^\[/ { skip=0 }
+        !skip { print }
+    ' "$f" > "${f}.tmp" && mv "${f}.tmp" "$f"
+}
+
+restart_display_manager() {
+    for dm in plasmalogin sddm lightdm gdm; do
+        if systemctl is-active --quiet "$dm" 2>/dev/null; then
+            systemctl restart "$dm"
+            return
+        fi
+    done
+}
+
+usage() {
+    cat <<'EOF'
+Usage: aryalinux-graphics-setup <command>
+
+Commands:
+  apply     Ensure X11 sockets; apply NVIDIA/nouveau safe settings if detected
+  remove    Remove optional AryaLinux graphics snippets (keeps universal X11 sockets)
+  status    Show active AryaLinux graphics configuration
+  restore-display-manager   Stop manual Xorg and start the enabled display manager
+  help      Show this help
+
+Notes:
+  - apply/remove are safe on Intel/AMD systems (only universal socket setup runs)
+  - KDE session/display-server tweaks: aryalinux-plasma-session (plasma-graphics-tools)
+EOF
+}
+
+cmd_apply() {
+    need_root
+    ensure_x11_sockets
+    if have_nvidia && using_nouveau; then
+        echo "NVIDIA GPU with nouveau detected — applying safe X11/Mesa settings."
+        apply_nouveau_safe
+    elif have_nvidia; then
+        echo "NVIDIA GPU detected (not using nouveau) — only universal X11 setup applied."
+        remove_files
+    else
+        echo "Non-NVIDIA GPU — only universal X11 setup applied."
+        remove_files
+    fi
+    echo "Done."
+    if have_nvidia && using_nouveau && systemctl is-enabled sddm >/dev/null 2>&1; then
+        echo
+        echo "SDDM uses an X11 login greeter by default. Pick \"Plasma (X11)\" at login,"
+        echo "or run: sudo aryalinux-plasma-session x11"
+        echo "Then reboot or restart sddm."
+    elif have_nvidia && using_nouveau && systemctl is-enabled plasmalogin >/dev/null 2>&1; then
+        echo
+        echo "NOTE: plasmalogin shows a Wayland-only login greeter. On NVIDIA+nouveau"
+        echo "that greeter is often a black screen. Boot straight into Plasma with:"
+        echo "  sudo aryalinux-plasma-session autologin YOURUSER plasmax11.desktop"
+        echo "Then reboot."
+    else
+        echo "Reboot or restart your display manager."
+    fi
+}
+
+cmd_remove() {
+    need_root
+    remove_files
+    strip_autologin "$PLASMA_DROPIN"
+    strip_autologin "$SDDM_DROPIN"
+    echo "Removed optional AryaLinux graphics snippets."
+    echo "Universal X11 socket setup (xorg-server / early-x11-sockets) was kept."
+}
+
+cmd_status() {
+    echo "=== Universal ==="
+    for d in /tmp/.X11-unix /tmp/.ICE-unix; do
+        if [ -d "$d" ]; then
+            echo "  present: $d ($(stat -c '%a' "$d"))"
+        else
+            echo "  missing: $d"
+        fi
+    done
+    if systemctl is-enabled early-x11-sockets.service >/dev/null 2>&1; then
+        echo "  early-x11-sockets: $(systemctl is-enabled early-x11-sockets.service)"
+    fi
+    echo "=== Optional NVIDIA/nouveau ==="
+    for f in "$XORG_SNIPPET" "$PROFILE_SNIPPET"; do
+        [ -f "$f" ] && echo "  present: $f" || echo "  absent:  $f"
+    done
+    if have_nvidia; then
+        echo "  GPU: NVIDIA"
+        using_nouveau && echo "  driver: nouveau" || echo "  driver: not nouveau"
+    else
+        echo "  GPU: not NVIDIA (or lspci unavailable)"
+    fi
+    echo "=== Display manager ==="
+    readlink -f /etc/systemd/system/display-manager.service 2>/dev/null || echo "  (none)"
+    [ -f "$SDDM_DROPIN" ] && { echo "  $SDDM_DROPIN:"; cat "$SDDM_DROPIN"; }
+    [ -f "$PLASMA_DROPIN" ] && { echo "  $PLASMA_DROPIN:"; cat "$PLASMA_DROPIN"; }
+}
+
+cmd_restore_dm() {
+    need_root
+    ensure_x11_sockets
+    pkill -x Xorg 2>/dev/null || true
+    sleep 1
+    for dm in plasmalogin sddm lightdm gdm; do
+        if systemctl is-enabled "$dm" >/dev/null 2>&1; then
+            systemctl start "$dm"
+            echo "Started $dm. Switch to the graphical VT (often Ctrl+Alt+F1)."
+            return
+        fi
+    done
+    echo "No enabled display manager found." >&2
+    exit 1
+}
+
+case "${1:-help}" in
+    apply) cmd_apply ;;
+    remove) cmd_remove ;;
+    status) cmd_status ;;
+    restore-display-manager) cmd_restore_dm ;;
+    help|-h|--help) usage ;;
+    *)
+        echo "Unknown command: $1" >&2
+        usage >&2
+        exit 1
+        ;;
+esac

@@ -15,7 +15,7 @@
   },
   "build": {
     "user": [
-      "meson setup build --prefix=/usr --wrap-mode=nofallback -Dbuildtype=release -Dtests=false -Ddocs=false -Dintrospection=true gtk-layer-shell-0.10.1",
+      "meson setup build --prefix=/usr --wrap-mode=nofallback -Dbuildtype=release -Dtests=false -Ddocs=false -Dintrospection=true .",
       "ninja -C build"
     ],
     "package": [

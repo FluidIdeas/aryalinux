@@ -8,7 +8,8 @@
   ],
   "dependencies": {
     "required": [
-      "ksshaskpass"
+      "ksshaskpass",
+      "sddm"
     ]
   },
   "build": {

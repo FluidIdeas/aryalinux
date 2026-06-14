@@ -1,30 +1,21 @@
 # Plasma graphics tools
 
-Utilities for AryaLinux KDE systems with tricky GPU/display setups (especially NVIDIA + nouveau).
+KDE Plasma / SDDM session helpers. For GPU-agnostic X11 setup see `graphics-session-tools`.
 
 ## aryalinux-plasma-session
 
-Switch Plasma Login Manager between X11 and Wayland.
-
 ```bash
 sudo aryalinux-plasma-session status
-sudo aryalinux-plasma-session x11        # recommended first on RTX 30xx + nouveau
-sudo aryalinux-plasma-session wayland
+sudo aryalinux-plasma-session x11
+sudo aryalinux-plasma-session autologin aryalinux plasmax11.desktop
+sudo aryalinux-plasma-session clear-autologin
 sudo aryalinux-plasma-session interactive
 ```
 
-Writes `/etc/plasmalogin.conf.d/aryalinux-session.conf` and restarts `plasmalogin`.
-
-## aryalinux-graphics-diagnose
-
-Collects GPU, firmware, DRM, Mesa, session, and journal information.
-
-```bash
-sudo aryalinux-graphics-diagnose
-sudo aryalinux-graphics-diagnose /tmp/my-report.log
-```
+Writes `/etc/sddm.conf.d/aryalinux-session.conf` (or a plasmalogin drop-in if that DM is enabled).
 
 ## Related ports
 
-- `nouveau-firmware` — NVIDIA firmware for nouveau (RTX 20xx/30xx)
-- `plasma-login-manager` — display manager
+- `graphics-session-tools` — `aryalinux-graphics-setup`, `aryalinux-graphics-diagnose`
+- `sddm` — default KDE display manager (X11 greeter)
+- `nouveau-firmware` — NVIDIA firmware for nouveau (optional)

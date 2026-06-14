@@ -21,8 +21,7 @@
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
-      "install -dm700 $DESTDIR/var/lib/sasl",
-      "make install-saslauthd DESTDIR=$DESTDIR"
+      "install -dm700 $DESTDIR/var/lib/sasl"
     ]
   },
   "post_install": [],

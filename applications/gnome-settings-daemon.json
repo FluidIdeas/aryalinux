@@ -8,19 +8,32 @@
   "dependencies": {
     "required": [
       "alsa-lib",
-      "geoclue2",
-      "gnome-desktop",
-      "libnotify",
       "colord",
-      "networkmanager",
+      "cups",
+      "gcr",
+      "geoclue2",
+      "geocode-glib",
+      "gnome-desktop",
+      "gsettings-desktop-schemas",
+      "libcanberra",
+      "libgudev",
+      "libgweather",
+      "libnotify",
+      "libX11",
+      "libXfixes",
       "ModemManager",
+      "networkmanager",
       "nss",
+      "polkit",
+      "pulseaudio",
+      "systemd",
+      "upower",
       "wayland"
     ]
   },
   "build": {
     "user": [
-      "meson setup build --prefix=/usr --buildtype=release .",
+      "meson setup build --prefix=/usr       \\\n            --buildtype=release \\\n            -D gcr3=true        \\\n            .",
       "ninja -C build"
     ],
     "package": [

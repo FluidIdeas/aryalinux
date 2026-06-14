@@ -1,0 +1,61 @@
+{
+  "name": "sddm",
+  "version": "0.21.0",
+  "description": "SDDM is a lightweight Qt/QML display manager used by KDE Plasma on Debian and Ubuntu.",
+  "category": "x11",
+  "url": [
+    "https://github.com/sddm/sddm/archive/v0.21.0/sddm-0.21.0.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "linux-pam",
+      "libxkbcommon",
+      "qt6",
+      "systemd",
+      "xauth",
+      "xorg-server"
+    ],
+    "recommended": [
+      "upower"
+    ]
+  },
+  "build": {
+    "environment": {
+      "QT6DIR": "/opt/qt6"
+    },
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr        \\\n      -D CMAKE_BUILD_TYPE=Release         \\\n      -D CMAKE_POLICY_VERSION_MINIMUM=3.5 \\\n      -D CMAKE_PREFIX_PATH=$QT6DIR        \\\n      -D RUNTIME_DIR=/run/sddm            \\\n      -D BUILD_MAN_PAGES=ON               \\\n      -D BUILD_WITH_QT6=ON                \\\n      -D DATA_INSTALL_DIR=/usr/share/sddm \\\n      -D DBUS_CONFIG_FILENAME=sddm_org.freedesktop.DisplayManager.conf \\\n      -D INSTALL_PAM_CONFIGURATION=OFF    \\\n      -W no-dev .",
+      "make -C build"
+    ],
+    "package": [
+      "make -C build install DESTDIR=$DESTDIR",
+      "install -v -dm755 $DESTDIR/var/lib/sddm"
+    ]
+  },
+  "post_install": [
+    "install -d /etc/pam.d",
+    "cat > /etc/pam.d/sddm << \"EOF\"\n# Begin /etc/pam.d/sddm\n\nauth     requisite      pam_nologin.so\nauth     required       pam_env.so\n\nauth     required       pam_succeed_if.so uid >= 1000 quiet\nauth     include        system-auth\n\naccount  include        system-account\npassword include        system-password\n\nsession  required       pam_limits.so\nsession  include        system-session\n\n# End /etc/pam.d/sddm\nEOF",
+    "cat > /etc/pam.d/sddm-autologin << \"EOF\"\n# Begin /etc/pam.d/sddm-autologin\n\nauth     requisite      pam_nologin.so\nauth     required       pam_env.so\n\nauth     required       pam_succeed_if.so uid >= 1000 quiet\nauth     required       pam_permit.so\n\naccount  include        system-account\n\npassword required       pam_deny.so\n\nsession  required       pam_limits.so\nsession  include        system-session\n\n# End /etc/pam.d/sddm-autologin\nEOF",
+    "cat > /etc/pam.d/sddm-greeter << \"EOF\"\n# Begin /etc/pam.d/sddm-greeter\n\nauth     required       pam_env.so\nauth     required       pam_permit.so\n\naccount  required       pam_permit.so\npassword required       pam_deny.so\nsession  required       pam_unix.so\n-session optional       pam_systemd.so\n\n# End /etc/pam.d/sddm-greeter\nEOF",
+    "command -v systemd-sysusers >/dev/null && systemd-sysusers || true",
+    "getent group sddm >/dev/null || groupadd -g 64 sddm",
+    "id -u sddm >/dev/null 2>&1 || useradd -c \"SDDM Daemon\" -d /var/lib/sddm -u 64 -g sddm -s /bin/false sddm",
+    "install -d -o sddm -g sddm -m 755 /var/lib/sddm",
+    "command -v systemd-tmpfiles >/dev/null && systemd-tmpfiles --create || install -d -m 711 /run/sddm",
+    "if [ ! -f /etc/sddm.conf ]; then /usr/bin/sddm --example-config > /etc/sddm.conf; fi",
+    "if [ -x /opt/xorg/bin/Xorg ]; then sed -i '/^[[:space:]]*ServerPath=/ s|=.*|= /opt/xorg/bin/X|' /etc/sddm.conf; fi",
+    "if [ -x /opt/xorg/bin/Xorg ]; then ln -sf /opt/xorg/bin/Xorg /usr/bin/X; fi",
+    "for dm in plasmalogin lightdm gdm ddm; do systemctl disable \"$dm\" 2>/dev/null || true; done",
+    "systemctl enable sddm",
+    "systemctl set-default graphical.target",
+    "test -e /etc/systemd/system/display-manager.service || ln -sfn /usr/lib/systemd/system/sddm.service /etc/systemd/system/display-manager.service",
+    "test \"$(readlink -f /etc/systemd/system/default.target 2>/dev/null || echo)\" = \"$(readlink -f /usr/lib/systemd/system/graphical.target)\" || ln -sfn /usr/lib/systemd/system/graphical.target /etc/systemd/system/default.target"
+  ],
+  "meta": false,
+  "book": "x/sddm.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

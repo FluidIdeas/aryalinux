@@ -15,7 +15,7 @@
   },
   "build": {
     "user": [
-      "meson setup build --prefix=/usr -Dbuildtype=release swaybg-1.2.2",
+      "meson setup build --prefix=/usr -Dbuildtype=release .",
       "ninja -C build"
     ],
     "package": [

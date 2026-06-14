@@ -42,6 +42,7 @@
       "xdg-user-dirs",
       "dejavu-fonts-ttf",
       "hicolor-icon-theme",
+      "graphics-session-tools",
       "nouveau-firmware",
       "plasma-graphics-tools"
     ]

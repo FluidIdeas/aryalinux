@@ -20,9 +20,8 @@
     ]
   },
   "post_install": [
-    "touch /var/lib/krb5kdc/kadm5.acl",
-    "systemctl enable krb5kdc",
-    "systemctl enable kadmin"
+    "install -d -m 755 /var/lib/krb5kdc",
+    "touch /var/lib/krb5kdc/kadm5.acl"
   ],
   "meta": false,
   "book": "postlfs/mitkrb.html",
