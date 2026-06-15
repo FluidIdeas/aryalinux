@@ -7,8 +7,10 @@
   ],
   "dependencies": {
     "required": [
-      "libpng",
       "fontconfig",
+      "glib2",
+      "libpng",
+      "pixman",
       "x7lib"
     ]
   },

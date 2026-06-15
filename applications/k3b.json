@@ -7,10 +7,17 @@
   ],
   "dependencies": {
     "required": [
+      "cdrdao",
+      "cdrtools",
+      "dvd-rw-tools",
       "frameworks6",
+      "libburn",
+      "libdvdread",
       "libkcddb",
+      "libsamplerate",
       "shared-mime-info",
-      "libburn"
+      "taglib",
+      "udisks2"
     ]
   },
   "build": {

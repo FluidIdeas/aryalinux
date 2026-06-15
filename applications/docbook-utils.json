@@ -7,10 +7,9 @@
   ],
   "dependencies": {
     "required": [
-      "openjade",
-      "docbook-3.1-dtd",
-      "perl-modules.perl-sgmlspm",
-      "lynx"
+      "docbook",
+      "docbook-dsssl",
+      "openjade"
     ]
   },
   "build": {

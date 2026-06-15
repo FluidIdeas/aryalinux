@@ -8,6 +8,7 @@
   "dependencies": {
     "required": [
       "gtkmm3",
+      "libspiro",
       "libxml2"
     ]
   },

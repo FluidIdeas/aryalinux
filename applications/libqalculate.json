@@ -8,7 +8,8 @@
   "dependencies": {
     "required": [
       "curl",
-      "icu"
+      "icu",
+      "libxml2"
     ]
   },
   "build": {

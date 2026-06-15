@@ -7,12 +7,14 @@
   ],
   "dependencies": {
     "required": [
+      "desktop-file-utils",
       "libwnck",
       "libxfce4ui",
-      "desktop-file-utils",
-      "xscreensaver",
+      "libxfce4windowing",
       "polkit-gnome",
-      "xfdesktop"
+      "shared-mime-info",
+      "xfdesktop",
+      "xscreensaver"
     ]
   },
   "build": {

@@ -5,7 +5,8 @@
   "category": "",
   "dependencies": {
     "required": [
-      "cmake"
+      "cmake",
+      "qt6"
     ]
   },
   "build": {

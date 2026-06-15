@@ -7,11 +7,9 @@
   ],
   "dependencies": {
     "required": [
-      "python-deps.charset-normalizer",
-      "python-deps.idna",
-      "python-deps.urllib3",
       "make-ca",
-      "p11-kit"
+      "p11-kit",
+      "python-dependencies"
     ]
   },
   "build": {

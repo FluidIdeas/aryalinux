@@ -7,16 +7,22 @@
   ],
   "dependencies": {
     "required": [
-      "java",
-      "ojdk-conf",
-      "libarchive",
-      "x7lib",
-      "zip",
-      "make-ca",
+      "alsa-lib",
+      "cpio",
+      "gnome-cups",
+      "giflib",
       "harfbuzz",
+      "java",
+      "lcms2",
+      "libarchive",
       "libjpeg",
       "libpng",
-      "wget"
+      "make-ca",
+      "ojdk-conf",
+      "wget",
+      "which",
+      "x7lib",
+      "zip"
     ]
   },
   "build": {

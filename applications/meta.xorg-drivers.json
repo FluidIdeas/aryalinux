@@ -13,12 +13,12 @@
   "dependencies": {
     "required": [
       "libevdev",
-      "xorg-evdev-driver",
       "libinput",
+      "libva",
+      "xorg-evdev-driver",
       "xorg-libinput-driver",
       "xorg-synaptics-driver",
-      "xorg-wacom-driver",
-      "libva"
+      "xorg-wacom-driver"
     ]
   },
   "build": {},

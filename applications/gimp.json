@@ -9,15 +9,23 @@
   "dependencies": {
     "required": [
       "appstream",
+      "appstream-glib",
       "gegl",
       "gexiv2",
+      "glib-networking",
+      "graphviz",
+      "gnome-gs",
       "gtk3",
       "harfbuzz",
-      "libxml2",
-      "lcms2",
-      "poppler",
-      "graphviz",
       "iso-codes",
+      "lcms2",
+      "libgudev",
+      "libmypaint",
+      "librsvg",
+      "libtiff",
+      "libxml2",
+      "mypaint-brushes",
+      "gnome-poppler",
       "python-modules.pygobject3",
       "xdg-utils"
     ]

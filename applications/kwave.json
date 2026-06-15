@@ -7,9 +7,12 @@
   ],
   "dependencies": {
     "required": [
-      "audiofile",
-      "id3lib",
       "alsa-lib",
+      "audiofile",
+      "fftw",
+      "flac",
+      "frameworks6",
+      "id3lib",
       "libogg",
       "pulseaudio"
     ]

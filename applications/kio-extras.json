@@ -9,12 +9,10 @@
     "required": [
       "frameworks6",
       "kdsoap-ws-discovery-client",
+      "libkexiv2",
       "libproxy",
       "plasma-activities-stats",
       "qcoro"
-    ],
-    "recommended": [
-      "libkexiv2"
     ]
   },
   "build": {

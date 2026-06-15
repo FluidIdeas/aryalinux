@@ -5,14 +5,20 @@
   "category": "",
   "dependencies": {
     "required": [
-      "bubblewrap",
       "fontconfig",
+      "glib2",
       "lcms2",
       "libseccomp",
-      "rust",
+      "rust"
+    ],
+    "recommended": [
       "libheif",
       "libjxl",
-      "librsvg"
+      "librsvg",
+      "vala"
+    ],
+    "post": [
+      "gdk-pixbuf"
     ]
   },
   "build": {

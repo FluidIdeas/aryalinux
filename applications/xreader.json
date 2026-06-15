@@ -19,13 +19,9 @@
       "libtiff",
       "libxml2",
       "pango",
-      "poppler",
+      "gnome-poppler",
       "webkitgtk",
       "xapp"
-    ],
-    "optional": [
-      "libgxps",
-      "libspectre"
     ]
   },
   "build": {

@@ -7,8 +7,11 @@
   ],
   "dependencies": {
     "required": [
+      "giflib",
+      "gnutls",
       "harfbuzz",
-      "gnutls"
+      "jansson",
+      "libtiff"
     ]
   },
   "build": {

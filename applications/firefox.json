@@ -8,10 +8,21 @@
   "dependencies": {
     "required": [
       "cbindgen",
-      "libnotify",
       "dav1d",
+      "gtk3",
+      "icu",
       "libaom",
-      "nasm"
+      "libarchive",
+      "libevent",
+      "libnotify",
+      "libvpx",
+      "libwebp",
+      "llvm",
+      "nasm",
+      "nodejs",
+      "nss",
+      "pulseaudio",
+      "startup-notification"
     ]
   },
   "build": {

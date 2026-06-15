@@ -55,7 +55,7 @@
       "xcb-util-wm",
       "xwayland"
     ],
-    "rebuild_after": [
+    "post": [
       "frameworks6",
       "qt6"
     ]

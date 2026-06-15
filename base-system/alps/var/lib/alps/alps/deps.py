@@ -1,4 +1,9 @@
-"""Dependency resolution with optional pre-dependency support."""
+"""Dependency resolution for package installation.
+
+Only required (and optionally recommended) dependencies participate in the
+install dependency chain. Optional, runtime, and post dependencies are ignored
+when computing build order.
+"""
 
 from __future__ import annotations
 
@@ -28,7 +33,8 @@ class DependencyError(Exception):
     pass
 
 
-def _all_deps(port: Port, include_recommended: bool) -> list[str]:
+def _install_chain_deps(port: Port, include_recommended: bool) -> list[str]:
+    """Dependencies used when computing install order."""
     deps = list(port.dependencies.required)
     if include_recommended:
         deps.extend(port.dependencies.recommended)
@@ -37,7 +43,7 @@ def _all_deps(port: Port, include_recommended: bool) -> list[str]:
 
 def _port_dependency_names(port: Port, include_recommended: bool) -> list[str]:
     names: list[str] = []
-    for name in port.dependencies.pre + _all_deps(port, include_recommended):
+    for name in port.dependencies.pre + _install_chain_deps(port, include_recommended):
         if name not in names:
             names.append(name)
     return names
@@ -67,9 +73,10 @@ def find_dependency_cycles(
     found: dict[tuple[str, ...], list[str]] = {}
     path: list[str] = []
     on_path: set[str] = set()
+    finished: set[str] = set()
 
     def visit(name: str) -> None:
-        if name in installed:
+        if name in installed or name in finished:
             return
         if name in on_path:
             start = path.index(name)
@@ -81,6 +88,7 @@ def find_dependency_cycles(
         try:
             port = load_port(ports_dir, name)
         except FileNotFoundError:
+            finished.add(name)
             return
         path.append(name)
         on_path.add(name)
@@ -88,6 +96,7 @@ def find_dependency_cycles(
             visit(dep)
         path.pop()
         on_path.remove(name)
+        finished.add(name)
 
     for target in targets:
         visit(target)
@@ -103,15 +112,17 @@ def _collect_dependency_graph(
 ) -> dict[str, set[str]]:
     """Collect direct dependencies for *names* and their transitive deps."""
     graph: dict[str, set[str]] = {}
+    finished: set[str] = set()
 
     def collect(name: str, stack: set[str]) -> None:
-        if name in already:
+        if name in already or name in finished:
             return
         if name in stack:
             return
         try:
             port = load_port(ports_dir, name)
         except FileNotFoundError:
+            finished.add(name)
             return
         if name not in graph:
             deps = {
@@ -123,6 +134,7 @@ def _collect_dependency_graph(
         for dep in graph[name]:
             collect(dep, stack)
         stack.remove(name)
+        finished.add(name)
 
     for name in names:
         collect(name, set())

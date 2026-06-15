@@ -6,11 +6,6 @@
     "https://ftpmirror.gnu.org/grub/grub-2.14.tar.xz",
     "https://unifoundry.com/pub/unifont/unifont-17.0.03/font-builds/unifont-17.0.03.pcf.gz"
   ],
-  "dependencies": {
-    "required": [
-      "efibootmgr"
-    ]
-  },
   "build": {
     "user": [
       "unset {C,CPP,CXX,LD}FLAGS",

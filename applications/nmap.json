@@ -7,6 +7,11 @@
   ],
   "dependencies": {
     "required": [
+      "liblinear",
+      "libpcap",
+      "libssh2",
+      "lua",
+      "python-modules.pygobject3",
       "python-modules.pypa-build"
     ]
   },

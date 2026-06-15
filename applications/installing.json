@@ -1,17 +1,15 @@
 {
   "name": "installing",
   "version": "1.0",
-  "description": "BLFS Graphical Environments chapter \u2014 core X11 stack prerequisites.",
+  "description": "BLFS Graphical Environments chapter — core X11 stack prerequisites.",
   "category": "metapackage",
   "dependencies": {
     "required": [
       "fontconfig",
+      "graphics-session-tools",
       "mesa",
       "x7lib",
       "xorg-server"
-    ],
-    "recommended": [
-      "graphics-session-tools"
     ]
   },
   "build": {},

@@ -13,13 +13,6 @@
       "gnutls",
       "iptables",
       "libmnl"
-    ],
-    "optional": [
-      "bluez",
-      "iwd",
-      "openconnect",
-      "openvpn",
-      "wpa_supplicant"
     ]
   },
   "build": {

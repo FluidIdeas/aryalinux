@@ -5,8 +5,8 @@
   "category": "",
   "dependencies": {
     "required": [
-      "libgudev",
       "glib2",
+      "libgudev",
       "libmbim",
       "libqmi",
       "polkit",

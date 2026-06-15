@@ -7,8 +7,9 @@
   ],
   "dependencies": {
     "required": [
-      "perl-deps.perl-dist-checkconflicts",
       "perl-deps.perl-cpan-meta-check",
+      "perl-deps.perl-dist-checkconflicts",
+      "perl-deps.perl-module-implementation",
       "perl-deps.perl-test-fatal",
       "perl-deps.perl-test-needs"
     ]

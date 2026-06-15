@@ -7,8 +7,8 @@
   ],
   "dependencies": {
     "required": [
-      "java",
-      "glib2"
+      "glib2",
+      "java"
     ]
   },
   "build": {

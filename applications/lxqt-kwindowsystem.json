@@ -7,7 +7,8 @@
     "required": [
       "extra-cmake-modules",
       "plasma-wayland-protocols",
-      "qt6"
+      "qt6",
+      "x7lib"
     ]
   },
   "build": {

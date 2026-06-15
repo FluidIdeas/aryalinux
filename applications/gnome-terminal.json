@@ -11,8 +11,9 @@
       "gnome-shell",
       "gsettings-desktop-schemas",
       "itstool",
-      "vte",
-      "nautilus"
+      "libhandy1",
+      "nautilus",
+      "vte"
     ]
   },
   "build": {

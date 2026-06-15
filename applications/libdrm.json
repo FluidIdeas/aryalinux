@@ -6,7 +6,7 @@
     "https://dri.freedesktop.org/libdrm/libdrm-2.4.131.tar.xz"
   ],
   "dependencies": {
-    "required": [
+    "recommended": [
       "x7lib"
     ]
   },

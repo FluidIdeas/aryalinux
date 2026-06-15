@@ -8,8 +8,8 @@
   "dependencies": {
     "required": [
       "flac",
-      "opus",
-      "libvorbis"
+      "libvorbis",
+      "opus"
     ]
   },
   "build": {

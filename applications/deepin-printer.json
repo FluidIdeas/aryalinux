@@ -5,7 +5,8 @@
   "category": "desktop-deepin",
   "dependencies": {
     "required": [
-      "cups",
+      "gnome-cups",
+      "gnome-cups-filters",
       "dtkcore",
       "dtkgui",
       "dtkwidget",

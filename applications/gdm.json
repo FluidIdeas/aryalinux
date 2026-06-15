@@ -9,9 +9,14 @@
     "required": [
       "accountsservice",
       "dconf",
-      "libcanberra",
       "gtk3",
+      "libcanberra",
       "linux-pam"
+    ],
+    "runtime": [
+      "gnome-session",
+      "gnome-shell",
+      "systemd"
     ]
   },
   "build": {

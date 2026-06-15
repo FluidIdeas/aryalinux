@@ -5,8 +5,8 @@
   "category": "",
   "dependencies": {
     "required": [
-      "rust",
-      "libssh2"
+      "libssh2",
+      "rust"
     ]
   },
   "build": {

@@ -8,24 +8,24 @@
   ],
   "dependencies": {
     "required": [
-      "frameworks6",
       "boost",
+      "frameworks6",
+      "gsettings-desktop-schemas",
       "gtk3",
       "kirigami-addons",
       "kquickimageeditor",
+      "libcanberra",
       "libdisplay-info",
       "libpwquality",
+      "libwacom",
       "libxcvt",
-      "wayland",
+      "linux-pam",
       "phonon",
       "qcoro",
       "sassc",
-      "xdotool",
+      "wayland",
       "x7driver",
-      "gsettings-desktop-schemas",
-      "libcanberra",
-      "libwacom",
-      "linux-pam"
+      "xdotool"
     ]
   },
   "build": {

@@ -9,12 +9,14 @@
       "bamf",
       "capnet-assist",
       "contractor",
+      "dejavu-fonts-ttf",
       "elementary-icon-theme",
       "elementary-wallpapers",
       "gala",
       "granite",
       "granite7",
       "gtk-theme-elementary",
+      "hicolor-icon-theme",
       "libgit2-glib",
       "libhandy",
       "mutter46",
@@ -42,9 +44,7 @@
       "wingpanel-indicator-power",
       "wingpanel-indicator-session",
       "wingpanel-indicator-sound",
-      "zeitgeist",
-      "hicolor-icon-theme",
-      "dejavu-fonts-ttf"
+      "zeitgeist"
     ]
   },
   "build": {},

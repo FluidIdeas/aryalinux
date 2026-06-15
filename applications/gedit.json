@@ -8,11 +8,14 @@
   "dependencies": {
     "required": [
       "gsettings-desktop-schemas",
-      "gtk3",
-      "libhandy1",
-      "libxml2",
       "gspell",
-      "iso-codes"
+      "gtk3",
+      "iso-codes",
+      "itstool",
+      "libhandy1",
+      "libpeas",
+      "libxml2",
+      "python-modules.pygobject3"
     ]
   },
   "build": {

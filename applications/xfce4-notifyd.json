@@ -7,8 +7,10 @@
   ],
   "dependencies": {
     "required": [
-      "libnotify",
       "libcanberra",
+      "libnotify",
+      "libxfce4ui",
+      "xfce4-dev-tools",
       "xfce4-panel"
     ]
   },

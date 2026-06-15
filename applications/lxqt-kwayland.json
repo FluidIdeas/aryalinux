@@ -7,7 +7,9 @@
     "required": [
       "extra-cmake-modules",
       "mesa",
-      "qt6"
+      "plasma-wayland-protocols",
+      "qt6",
+      "wayland"
     ]
   },
   "build": {

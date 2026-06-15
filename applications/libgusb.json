@@ -7,9 +7,10 @@
   ],
   "dependencies": {
     "required": [
-      "json-glib",
       "glib2",
       "hwdata",
+      "json-glib",
+      "libusb",
       "vala"
     ]
   },

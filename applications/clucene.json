@@ -8,8 +8,8 @@
   ],
   "dependencies": {
     "required": [
-      "cmake",
-      "boost"
+      "boost",
+      "cmake"
     ]
   },
   "build": {

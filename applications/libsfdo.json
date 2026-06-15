@@ -6,9 +6,6 @@
   "url": [
     "https://gitlab.freedesktop.org/vyivel/libsfdo/-/archive/v0.1.4/libsfdo-0.1.4.tar.gz"
   ],
-  "dependencies": {
-    "required": []
-  },
   "build": {
     "user": [
       "meson setup build --prefix=/usr -Dbuildtype=release .",

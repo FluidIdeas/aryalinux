@@ -10,7 +10,7 @@
   ],
   "dependencies": {
     "required": [
-      "python-deps.webencodings",
+      "python-dependencies",
       "python-modules.six"
     ]
   },

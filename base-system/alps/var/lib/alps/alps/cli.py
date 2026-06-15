@@ -167,6 +167,8 @@ def main(argv: list[str] | None = None) -> int:
                 print(f"category: {port.category}")
             if port.description:
                 print(f"description: {port.description}")
+            if port.build_profile:
+                print(f"buildProfile: {port.build_profile}")
             if port.source_urls:
                 print(f"url: {', '.join(port.source_urls)}")
             if port.additional_urls:
@@ -175,13 +177,20 @@ def main(argv: list[str] | None = None) -> int:
                 print(f"required: {', '.join(port.dependencies.required)}")
             if port.dependencies.pre:
                 print(f"pre: {', '.join(port.dependencies.pre)}")
+            if port.dependencies.runtime:
+                print(
+                    f"runtime (not auto-installed): "
+                    f"{', '.join(port.dependencies.runtime)}"
+                )
             if port.dependencies.post:
                 print(
-                    f"post (manual, not auto-installed): "
+                    f"post (rebuild after install): "
                     f"{', '.join(port.dependencies.post)}"
                 )
-            if port.dependencies.rebuild_after:
-                print(f"rebuild_after: {', '.join(port.dependencies.rebuild_after)}")
+            if port.dependencies.recommended:
+                print(f"recommended: {', '.join(port.dependencies.recommended)}")
+            if port.dependencies.optional:
+                print(f"optional: {', '.join(port.dependencies.optional)}")
             print(f"meta: {port.meta}")
         elif cmd == "fetch-ports":
             if not pkgs:

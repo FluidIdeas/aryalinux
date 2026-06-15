@@ -5,7 +5,11 @@
   "url": [
     "https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p18.tar.gz"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "required": [
+      "perl-modules.perl-io-socket-ssl"
+    ]
+  },
   "build": {
     "user": [
       "sed -i 's/getclock/getclock memchr/'               sntp/m4/ntp_libntp.m4",

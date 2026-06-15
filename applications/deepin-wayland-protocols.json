@@ -3,9 +3,6 @@
   "version": "1.10.0.31",
   "description": "Deepin-specific Wayland protocols.",
   "category": "libraries",
-  "dependencies": {
-    "required": []
-  },
   "build": {
     "user": [
       "cmake . -GNinja -DCMAKE_INSTALL_PREFIX=/usr",

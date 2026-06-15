@@ -8,9 +8,10 @@
   "dependencies": {
     "required": [
       "curl",
+      "gtkmm4",
       "libevent",
-      "librsvg",
-      "gtkmm4"
+      "libpsl",
+      "librsvg"
     ]
   },
   "build": {

@@ -8,11 +8,11 @@
   "dependencies": {
     "required": [
       "cairo",
-      "gdk-pixbuf",
-      "pango",
-      "cargo-c"
+      "cargo-c",
+      "pango"
     ],
     "recommended": [
+      "gdk-pixbuf",
       "glib2",
       "vala"
     ]

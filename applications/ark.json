@@ -5,10 +5,12 @@
   "category": "",
   "dependencies": {
     "required": [
+      "7zip",
+      "cpio",
       "frameworks6",
       "libarchive",
-      "7zip",
-      "unrar"
+      "unrar",
+      "zip"
     ]
   },
   "build": {

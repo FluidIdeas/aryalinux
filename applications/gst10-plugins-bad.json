@@ -9,9 +9,11 @@
     "required": [
       "gst10-plugins-base",
       "libaom",
+      "libdvdnav",
       "libdvdread",
       "libva",
-      "soundtouch"
+      "soundtouch",
+      "svt-av1"
     ]
   },
   "build": {

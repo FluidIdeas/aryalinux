@@ -7,7 +7,8 @@
   ],
   "dependencies": {
     "required": [
-      "libtirpc"
+      "libtirpc",
+      "linux-pam"
     ]
   },
   "build": {

@@ -1,0 +1,51 @@
+{
+  "name": "gnome-cups",
+  "version": "2.4.16",
+  "description": "CUPS print spooler for the GNOME printing stack. Do not install alongside kde-cups.",
+  "category": "printing",
+  "url": [
+    "https://github.com/OpenPrinting/cups/releases/download/v2.4.16/cups-2.4.16-source.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "colord",
+      "dbus",
+      "gnutls",
+      "libusb",
+      "linux-pam",
+      "xdg-utils"
+    ],
+    "runtime": [
+      "gnome-cups-filters",
+      "gnome-gutenprint"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i 's#@CUPS_HTMLVIEW@#firefox#' desktop/cups.desktop.in",
+      "sed -i '/& ipp->prev)/s/prev/& \\&\\& ipp->prev->next == *attr/' cups/ipp.c",
+      "./configure --libdir=/usr/lib            \\\n            --with-rundir=/run/cups      \\\n            --with-system-groups=lpadmin \\\n            --with-docdir=/usr/share/cups/doc-2.4.16",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR",
+      "install -dm755 $DESTDIR/etc/cups $DESTDIR/etc/pam.d",
+      "echo \"ServerName /run/cups/cups.sock\" > $DESTDIR/etc/cups/client.conf",
+      "rm -f $DESTDIR/etc/pam.d/cups $DESTDIR/etc/pam.d/cups.N",
+      "cat > $DESTDIR/etc/pam.d/cups << \"EOF\"\n# Begin /etc/pam.d/cups\n\nauth    include system-auth\naccount include system-account\nsession include system-session\n\n# End /etc/pam.d/cups\nEOF"
+    ]
+  },
+  "post_install": [
+    "id -u lp >/dev/null 2>&1 || useradd -c \"Print Service User\" -d /var/spool/cups -g lp -s /bin/false -u 9 lp",
+    "getent group lpadmin >/dev/null || groupadd -g 19 lpadmin",
+    "gtk-update-icon-cache -qtf /usr/share/icons/hicolor",
+    "systemctl enable cups"
+  ],
+  "meta": false,
+  "book": "pst/cups.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

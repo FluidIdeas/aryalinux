@@ -37,12 +37,6 @@
       "udisks2",
       "upower",
       "xdg-utils"
-    ],
-    "optional": [
-      "bluez",
-      "iw",
-      "networkmanager",
-      "proxychains-ng"
     ]
   },
   "build": {

@@ -8,9 +8,11 @@
   "dependencies": {
     "required": [
       "glib2",
-      "shared-mime-info",
-      "python-modules.docutils",
-      "glycin"
+      "shared-mime-info"
+    ],
+    "recommended": [
+      "glycin",
+      "python-modules.docutils"
     ]
   },
   "build": {

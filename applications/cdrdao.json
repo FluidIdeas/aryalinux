@@ -9,8 +9,10 @@
   "dependencies": {
     "required": [
       "gtkmm3",
-      "libvorbis",
-      "libmad"
+      "lame",
+      "libao",
+      "libmad",
+      "libvorbis"
     ]
   },
   "build": {

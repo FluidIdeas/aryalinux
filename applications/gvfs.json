@@ -9,10 +9,13 @@
     "required": [
       "dbus",
       "gcr4",
-      "libsecret",
+      "glib2",
       "gtk3",
+      "libcdio",
+      "libgudev",
+      "libsecret",
       "libsoup3",
-      "systemd",
+      "libusb",
       "udisks2"
     ]
   },

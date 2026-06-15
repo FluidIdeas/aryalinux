@@ -5,11 +5,13 @@
   "category": "",
   "dependencies": {
     "required": [
-      "cmake",
       "alsa-lib",
+      "cmake",
+      "libusb",
       "libxkbcommon",
       "mesa",
       "pipewire",
+      "pulseaudio",
       "vulkan-loader",
       "wayland-protocols",
       "x7lib"

@@ -9,8 +9,8 @@
   "dependencies": {
     "required": [
       "cmake",
-      "mesa",
-      "glu"
+      "glu",
+      "mesa"
     ]
   },
   "build": {

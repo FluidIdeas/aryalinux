@@ -8,12 +8,20 @@
   "dependencies": {
     "required": [
       "cbindgen",
-      "libarchive",
-      "nodejs",
-      "startup-notification",
       "dav1d",
+      "gtk3",
+      "libaom",
+      "libarchive",
+      "libevent",
+      "libvpx",
+      "libwebp",
+      "llvm",
       "nasm",
-      "nss"
+      "nodejs",
+      "nspr",
+      "nss",
+      "pulseaudio",
+      "startup-notification"
     ]
   },
   "build": {

@@ -9,7 +9,8 @@
     "required": [
       "fontconfig",
       "freetype2",
-      "fribidi"
+      "fribidi",
+      "nasm"
     ]
   },
   "build": {

@@ -11,9 +11,6 @@
     ],
     "post": [
       "p11-kit"
-    ],
-    "rebuild_after": [
-      "p11-kit"
     ]
   },
   "build": {

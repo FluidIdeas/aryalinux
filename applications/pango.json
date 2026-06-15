@@ -7,9 +7,13 @@
   ],
   "dependencies": {
     "required": [
+      "cairo",
       "fontconfig",
       "freetype2",
-      "cairo"
+      "fribidi",
+      "glib2",
+      "harfbuzz",
+      "x7lib"
     ]
   },
   "build": {

@@ -8,6 +8,7 @@
   "dependencies": {
     "required": [
       "gtk3",
+      "libxfce4ui",
       "libxfce4util"
     ]
   },

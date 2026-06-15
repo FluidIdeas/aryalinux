@@ -6,6 +6,7 @@
   "dependencies": {
     "required": [
       "libfm-qt",
+      "lxqt-kwindowsystem",
       "xdg-desktop-portal"
     ]
   },

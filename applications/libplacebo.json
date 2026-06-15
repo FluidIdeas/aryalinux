@@ -6,7 +6,8 @@
   "dependencies": {
     "required": [
       "glad",
-      "glslang"
+      "glslang",
+      "vulkan-loader"
     ]
   },
   "build": {

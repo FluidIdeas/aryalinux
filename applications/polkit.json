@@ -8,6 +8,7 @@
   "dependencies": {
     "required": [
       "duktape",
+      "glib2",
       "libxslt",
       "linux-pam",
       "systemd"

@@ -4,13 +4,11 @@
   "description": "Metapackage for the BLFS ALSA chapter. Installs the core ALSA user-space components.",
   "dependencies": {
     "required": [
-      "alsa-lib",
-      "alsa-utils",
-      "alsa-plugins"
-    ],
-    "recommended": [
       "alsa-firmware",
-      "alsa-tools"
+      "alsa-lib",
+      "alsa-plugins",
+      "alsa-tools",
+      "alsa-utils"
     ]
   },
   "build": {},

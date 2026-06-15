@@ -5,8 +5,9 @@
   "category": "",
   "dependencies": {
     "required": [
+      "glib2",
       "liblxqt",
-      "glib2"
+      "pulseaudio"
     ]
   },
   "build": {

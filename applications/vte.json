@@ -7,11 +7,14 @@
   ],
   "dependencies": {
     "required": [
-      "libxml2",
       "fast_float",
-      "icu",
+      "fmt",
+      "glib2",
       "gnutls",
       "gtk3",
+      "gtk4",
+      "icu",
+      "libxml2",
       "vala"
     ]
   },

@@ -19,9 +19,7 @@
       "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
-  "post_install": [
-    "if command -v setcap >/dev/null; then\n  setcap cap_sys_nice,cap_net_bind_service,cap_net_admin+ep /usr/libexec/gstreamer-1.0/gst-ptp-helper 2>/dev/null ||\n    chmod u+s /usr/libexec/gstreamer-1.0/gst-ptp-helper\nfi"
-  ],
+  "post_install": [],
   "meta": false,
   "book": "multimedia/gstreamer10.html",
   "category": "multimedia",

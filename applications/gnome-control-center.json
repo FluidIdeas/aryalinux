@@ -7,18 +7,26 @@
   ],
   "dependencies": {
     "required": [
+      "ModemManager",
       "accountsservice",
-      "python-modules.blueprint-compiler",
       "colord-gtk",
+      "gnome-cups",
+      "gnome-cups-filters",
       "gnome-bluetooth",
       "gnome-online-accounts",
       "gnome-settings-daemon",
       "gsound",
+      "ibus",
+      "libadwaita",
+      "libgtop",
       "libnma",
+      "libpwquality",
+      "mitkrb",
+      "python-modules.blueprint-compiler",
       "samba",
+      "shared-mime-info",
       "tecla",
-      "udisks2",
-      "ibus"
+      "udisks2"
     ]
   },
   "build": {

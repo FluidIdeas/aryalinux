@@ -9,7 +9,10 @@
     "required": [
       "adwaita-icon-theme",
       "gtkmm4",
-      "libgtop"
+      "itstool",
+      "libadwaita",
+      "libgtop",
+      "librsvg"
     ]
   },
   "build": {

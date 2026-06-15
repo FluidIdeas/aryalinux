@@ -9,9 +9,6 @@
       "lucene++",
       "qt5-base",
       "spdlog"
-    ],
-    "optional": [
-      "deepin-anything-dkms"
     ]
   },
   "build": {

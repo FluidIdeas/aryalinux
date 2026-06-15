@@ -7,9 +7,15 @@
   ],
   "dependencies": {
     "required": [
-      "gtk4",
       "cpio",
-      "json-glib"
+      "desktop-file-utils",
+      "gtk4",
+      "itstool",
+      "json-glib",
+      "libadwaita",
+      "libarchive",
+      "libportal",
+      "nautilus"
     ]
   },
   "build": {

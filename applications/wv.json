@@ -7,7 +7,8 @@
   ],
   "dependencies": {
     "required": [
-      "libgsf"
+      "libgsf",
+      "libpng"
     ]
   },
   "build": {

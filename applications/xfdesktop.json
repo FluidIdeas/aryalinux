@@ -8,9 +8,10 @@
   "dependencies": {
     "required": [
       "exo",
-      "libxfce4windowing",
-      "libwnck",
       "libnotify",
+      "libwnck",
+      "libxfce4windowing",
+      "startup-notification",
       "thunar"
     ]
   },

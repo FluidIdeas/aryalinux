@@ -6,6 +6,8 @@
   "dependencies": {
     "required": [
       "cmake",
+      "libexif",
+      "menu-cache",
       "qt6"
     ]
   },

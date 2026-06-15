@@ -6,7 +6,8 @@
   "dependencies": {
     "required": [
       "dav1d",
-      "libaom"
+      "libaom",
+      "svt-av1"
     ]
   },
   "build": {

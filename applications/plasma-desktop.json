@@ -9,14 +9,12 @@
   "dependencies": {
     "required": [
       "frameworks6",
+      "ibus",
       "libinput",
       "powerdevil",
       "qt6",
       "x7lib",
       "xorg-libinput-driver"
-    ],
-    "recommended": [
-      "ibus"
     ]
   },
   "build": {

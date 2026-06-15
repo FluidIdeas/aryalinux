@@ -1,0 +1,61 @@
+{
+  "description": "Full build profile: enable the widest practical hardware and feature coverage at configure time. Ports with buildProfile \"full\" should match these expectations. Run scripts/audit-build-profiles.py to verify.",
+  "packages": {
+    "mesa": {
+      "summary": "All Gallium/Vulkan drivers (auto), VA-API after libva rebuild, video codecs",
+      "requiredMarkers": [
+        "gallium-drivers=auto",
+        "vulkan-drivers=auto",
+        "video-codecs=all",
+        "llvm=enabled"
+      ],
+      "requiredDeps": [
+        "llvm",
+        "glslang",
+        "libclc",
+        "vulkan-loader",
+        "wayland-protocols",
+        "python-modules.Mako",
+        "python-modules.PyYAML",
+        "cbindgen",
+        "make-ca",
+        "rust-bindgen"
+      ]
+    },
+    "libva": {
+      "summary": "Rebuild mesa after libva so Mesa gallium drivers gain VA-API",
+      "postRebuilds": ["mesa"]
+    },
+    "qtwebengine": {
+      "summary": "System multimedia stacks, proprietary codecs, PipeWire WebRTC",
+      "requiredMarkers": [
+        "QT_FEATURE_webengine_system_ffmpeg=ON",
+        "QT_FEATURE_webengine_proprietary_codecs=ON",
+        "QT_FEATURE_webengine_webrtc_pipewire=ON",
+        "QT_FEATURE_webengine_system_libwebp=ON",
+        "QT_FEATURE_webengine_system_libxslt=ON",
+        "QT_FEATURE_webengine_system_opus=ON"
+      ],
+      "requiredDeps": ["pulseaudio"]
+    },
+    "ffmpeg": {
+      "summary": "Hardware decode/encode and wide codec set",
+      "requiredMarkers": [
+        "--enable-vaapi",
+        "--enable-libdrm",
+        "--enable-libpulse"
+      ]
+    },
+    "mpv": {
+      "summary": "X11, Wayland, Vulkan, optical media",
+      "requiredMarkers": [
+        "x11=enabled",
+        "wayland=enabled",
+        "vulkan=enabled",
+        "dvdnav=enabled",
+        "cdda=enabled",
+        "sdl2=enabled"
+      ]
+    }
+  }
+}

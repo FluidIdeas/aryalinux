@@ -7,7 +7,7 @@
   ],
   "dependencies": {
     "required": [
-      "python-deps.setuptools_scm"
+      "python-dependencies"
     ]
   },
   "build": {

@@ -23,15 +23,10 @@
       "libnma",
       "libwacom",
       "networkmanager",
+      "nm-connection-editor",
       "pango",
       "polkit",
       "upower"
-    ],
-    "optional": [
-      "cinnamon-translations"
-    ],
-    "recommended": [
-      "nm-connection-editor"
     ]
   },
   "build": {

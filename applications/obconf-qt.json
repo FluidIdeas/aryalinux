@@ -7,7 +7,8 @@
     "required": [
       "hicolor-icon-theme",
       "lxqt-build-tools",
-      "openbox"
+      "openbox",
+      "qt6"
     ]
   },
   "build": {

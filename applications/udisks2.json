@@ -10,8 +10,7 @@
       "libatasmart",
       "libblockdev",
       "libgudev",
-      "polkit",
-      "systemd"
+      "polkit"
     ]
   },
   "build": {

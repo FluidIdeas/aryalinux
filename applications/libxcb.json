@@ -8,8 +8,10 @@
   "dependencies": {
     "required": [
       "libXau",
-      "libXdmcp",
       "xcb-proto"
+    ],
+    "recommended": [
+      "libXdmcp"
     ]
   },
   "build": {

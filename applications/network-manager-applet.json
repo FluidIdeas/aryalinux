@@ -7,10 +7,11 @@
   ],
   "dependencies": {
     "required": [
+      "ModemManager",
+      "glib2",
       "gtk3",
       "libnma",
-      "glib2",
-      "ModemManager"
+      "libsecret"
     ]
   },
   "build": {

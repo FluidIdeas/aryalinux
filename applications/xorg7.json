@@ -3,9 +3,6 @@
   "version": "1.0",
   "description": "BLFS Xorg-7 introduction chapter marker (no files to install).",
   "category": "metapackage",
-  "dependencies": {
-    "required": []
-  },
   "build": {},
   "install": {
     "extract": [

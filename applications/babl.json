@@ -6,8 +6,10 @@
     "https://download.gimp.org/pub/babl/0.1/babl-0.1.122.tar.xz"
   ],
   "dependencies": {
-    "recommended": [
-      "glib2"
+    "required": [
+      "glib2",
+      "lcms2",
+      "librsvg"
     ],
     "post": [
       "librsvg"

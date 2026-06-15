@@ -8,10 +8,13 @@
   "dependencies": {
     "required": [
       "perl-deps.perl-clone",
+      "perl-deps.perl-encode-locale",
       "perl-deps.perl-http-date",
-      "perl-modules.perl-uri",
+      "perl-deps.perl-io-html",
+      "perl-deps.perl-lwp-mediatypes",
       "perl-deps.perl-test-needs",
-      "perl-deps.perl-try-tiny"
+      "perl-deps.perl-try-tiny",
+      "perl-modules.perl-uri"
     ]
   },
   "build": {

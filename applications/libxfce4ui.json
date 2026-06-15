@@ -8,7 +8,8 @@
   "dependencies": {
     "required": [
       "gtk3",
-      "startup-notification"
+      "startup-notification",
+      "xfconf"
     ]
   },
   "build": {

@@ -8,7 +8,8 @@
   "dependencies": {
     "required": [
       "glib2",
-      "libarchive"
+      "libarchive",
+      "libgcrypt"
     ]
   },
   "build": {

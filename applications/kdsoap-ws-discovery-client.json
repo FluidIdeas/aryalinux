@@ -5,6 +5,8 @@
   "category": "",
   "dependencies": {
     "required": [
+      "doxygen",
+      "extra-cmake-modules",
       "kdsoap"
     ]
   },

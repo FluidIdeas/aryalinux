@@ -7,7 +7,8 @@
   ],
   "dependencies": {
     "required": [
-      "python-deps.commonmark"
+      "python-dependencies",
+      "python-modules.sphinx"
     ]
   },
   "build": {

@@ -5,7 +5,8 @@
   "category": "",
   "dependencies": {
     "required": [
-      "liblxqt"
+      "liblxqt",
+      "polkit"
     ]
   },
   "build": {

@@ -6,13 +6,11 @@
   "dependencies": {
     "required": [
       "frameworks6",
-      "plasma-activities",
-      "poppler"
-    ],
-    "recommended": [
       "libkexiv2",
       "libtiff",
-      "phonon"
+      "phonon",
+      "plasma-activities",
+      "kde-poppler"
     ]
   },
   "build": {

@@ -8,8 +8,11 @@
   "dependencies": {
     "required": [
       "gcr4",
-      "vala",
-      "glib2"
+      "glib2",
+      "json-glib",
+      "libadwaita",
+      "librest",
+      "vala"
     ]
   },
   "build": {

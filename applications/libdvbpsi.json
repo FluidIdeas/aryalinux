@@ -3,7 +3,19 @@
   "version": "1.3.3",
   "description": "libdvbpsi decodes and generates MPEG TS and DVB PSI tables.",
   "category": "multimedia",
-  "dependencies": {},
+  "dependencies": {
+    "required": [
+      "alsa-lib",
+      "desktop-file-utils",
+      "ffmpeg",
+      "installing",
+      "liba52",
+      "libgcrypt",
+      "libmad",
+      "lua",
+      "qt6"
+    ]
+  },
   "build": {
     "user": [
       "./configure --prefix=/usr \\\n            --disable-static",

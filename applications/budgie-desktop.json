@@ -39,7 +39,9 @@
       "papirus-icon-theme",
       "polkit",
       "pulseaudio",
+      "python-modules.psutil",
       "python-modules.pygobject3",
+      "python-modules.systemd",
       "python3",
       "slurp",
       "swaybg",
@@ -49,16 +51,6 @@
       "wlopm",
       "xdg-desktop-portal-gtk",
       "xdg-desktop-portal-wlr"
-    ],
-    "optional": [
-      "budgie-desktop-view",
-      "ibus",
-      "network-manager-applet",
-      "power-profiles-daemon"
-    ],
-    "recommended": [
-      "python-modules.psutil",
-      "python-modules.systemd"
     ]
   },
   "build": {

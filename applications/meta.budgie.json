@@ -12,11 +12,13 @@
       "budgie-desktop-services",
       "budgie-desktop-view",
       "budgie-session",
+      "dejavu-fonts-ttf",
       "gammastep",
       "grim",
       "gtk-layer-shell",
       "gtk-session-lock",
       "gtklock",
+      "hicolor-icon-theme",
       "labwc",
       "libpeas-2",
       "libsfdo",
@@ -30,9 +32,7 @@
       "wdisplays",
       "wlopm",
       "wlroots0.20",
-      "xdg-desktop-portal-wlr",
-      "hicolor-icon-theme",
-      "dejavu-fonts-ttf"
+      "xdg-desktop-portal-wlr"
     ]
   },
   "build": {},

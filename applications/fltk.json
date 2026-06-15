@@ -7,10 +7,10 @@
   ],
   "dependencies": {
     "required": [
-      "x7lib",
       "hicolor-icon-theme",
       "libjpeg",
-      "libpng"
+      "libpng",
+      "x7lib"
     ]
   },
   "build": {

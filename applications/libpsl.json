@@ -7,7 +7,8 @@
   ],
   "dependencies": {
     "required": [
-      "libidn2"
+      "libidn2",
+      "libunistring"
     ]
   },
   "build": {

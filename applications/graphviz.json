@@ -7,12 +7,12 @@
   ],
   "dependencies": {
     "required": [
-      "cmake"
-    ],
-    "recommended": [
+      "cairo",
+      "cmake",
+      "fontconfig",
+      "libpng",
       "pango",
-      "x7lib",
-      "fontconfig"
+      "x7lib"
     ]
   },
   "build": {

@@ -13,7 +13,6 @@
       "mesa",
       "pixman",
       "wayland-protocols",
-      "x7app",
       "x7font"
     ]
   },

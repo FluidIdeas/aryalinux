@@ -8,10 +8,10 @@
   "dependencies": {
     "required": [
       "glib-networking",
+      "glib2",
       "libpsl",
       "libxml2",
       "nghttp2",
-      "glib2",
       "vala"
     ]
   },

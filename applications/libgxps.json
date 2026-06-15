@@ -9,6 +9,7 @@
     "required": [
       "gtk3",
       "lcms2",
+      "libarchive",
       "libjpeg",
       "libtiff",
       "libxslt"

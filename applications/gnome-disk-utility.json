@@ -9,7 +9,10 @@
     "required": [
       "gnome-settings-daemon",
       "itstool",
+      "libdvdread",
+      "libhandy1",
       "libpwquality",
+      "libsecret",
       "udisks2"
     ]
   },

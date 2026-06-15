@@ -7,12 +7,16 @@
   ],
   "dependencies": {
     "required": [
-      "gst10-plugins-base",
       "cairo",
       "flac",
+      "gdk-pixbuf",
+      "gst10-plugins-base",
+      "lame",
       "libsoup3",
+      "libvpx",
       "mpg123",
-      "nasm"
+      "nasm",
+      "pulseaudio"
     ]
   },
   "build": {

@@ -7,9 +7,11 @@
   ],
   "dependencies": {
     "required": [
+      "desktop-file-utils",
       "gsettings-desktop-schemas",
       "libadwaita",
-      "desktop-file-utils"
+      "webkitgtk",
+      "yelp-xsl"
     ]
   },
   "build": {

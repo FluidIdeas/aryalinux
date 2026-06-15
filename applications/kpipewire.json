@@ -8,8 +8,8 @@
   ],
   "dependencies": {
     "required": [
-      "frameworks6",
       "ffmpeg",
+      "frameworks6",
       "libdrm",
       "libepoxy",
       "libva",

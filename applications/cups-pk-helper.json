@@ -7,8 +7,8 @@
   ],
   "dependencies": {
     "required": [
-      "cups",
-      "cups-filters"
+      "gnome-cups",
+      "polkit"
     ]
   },
   "build": {

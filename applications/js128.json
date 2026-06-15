@@ -8,12 +8,10 @@
   ],
   "dependencies": {
     "required": [
-      "readline",
-      "zlib"
-    ],
-    "recommended": [
       "llvm",
-      "rust"
+      "readline",
+      "rust",
+      "zlib"
     ]
   },
   "build": {

@@ -7,14 +7,18 @@
   ],
   "dependencies": {
     "required": [
-      "libical",
-      "nss",
-      "gnome-online-accounts",
       "glib2",
+      "gnome-online-accounts",
       "gtk3",
+      "gtk4",
       "icu",
       "libcanberra",
-      "vala"
+      "libgweather",
+      "libical",
+      "libsecret",
+      "nss",
+      "vala",
+      "webkitgtk"
     ]
   },
   "build": {

@@ -7,8 +7,8 @@
   ],
   "dependencies": {
     "required": [
-      "installing",
-      "gtk3"
+      "gtk3",
+      "installing"
     ]
   },
   "build": {

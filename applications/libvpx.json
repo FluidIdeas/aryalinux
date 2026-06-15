@@ -7,8 +7,8 @@
   ],
   "dependencies": {
     "required": [
-      "yasm",
-      "which"
+      "which",
+      "yasm"
     ]
   },
   "build": {

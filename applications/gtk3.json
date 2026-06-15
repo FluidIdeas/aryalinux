@@ -8,15 +8,19 @@
   "dependencies": {
     "required": [
       "at-spi2-core",
+      "docbook-xsl",
       "gdk-pixbuf",
-      "libepoxy",
-      "pango",
+      "glib2",
+      "hicolor-icon-theme",
       "iso-codes",
+      "libepoxy",
+      "libxkbcommon",
       "libxslt",
+      "pango",
       "wayland",
-      "glib2"
+      "wayland-protocols"
     ],
-    "post": [
+    "runtime": [
       "adwaita-icon-theme"
     ]
   },

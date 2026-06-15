@@ -8,7 +8,8 @@
   "dependencies": {
     "required": [
       "gnome-desktop",
-      "systemd",
+      "json-glib",
+      "mesa",
       "upower"
     ]
   },

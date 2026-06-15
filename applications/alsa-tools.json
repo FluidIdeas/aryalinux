@@ -8,9 +8,9 @@
   "dependencies": {
     "required": [
       "alsa-lib",
+      "fltk",
       "gtk3",
-      "gtk4",
-      "fltk"
+      "gtk4"
     ]
   },
   "build": {

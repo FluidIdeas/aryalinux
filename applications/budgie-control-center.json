@@ -11,7 +11,8 @@
       "accountsservice",
       "at-spi2-core",
       "cairo",
-      "cups",
+      "gnome-cups",
+      "gnome-cups-filters",
       "dconf",
       "fontconfig",
       "gcr",
@@ -39,9 +40,6 @@
       "samba",
       "udisks2",
       "upower"
-    ],
-    "optional": [
-      "power-profiles-daemon"
     ]
   },
   "build": {

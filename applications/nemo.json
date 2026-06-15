@@ -26,9 +26,6 @@
       "python-modules.pygobject3",
       "python3",
       "xapp"
-    ],
-    "optional": [
-      "cinnamon-translations"
     ]
   },
   "build": {

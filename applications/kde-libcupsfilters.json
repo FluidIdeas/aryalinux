@@ -1,19 +1,20 @@
 {
-  "name": "libcupsfilters",
+  "name": "kde-libcupsfilters",
   "version": "2.1.1",
-  "description": "",
-  "category": "",
+  "description": "libcupsfilters built against kde-poppler (Qt6 PDF bindings). Do not install alongside gnome-libcupsfilters.",
+  "category": "printing",
   "dependencies": {
     "required": [
-      "cups",
-      "dejavu-fonts-ttf",
+      "TTF-and-OTF-fonts",
+      "kde-cups",
       "glib2",
-      "gs",
+      "kde-gs",
+      "kde-poppler",
       "lcms2",
       "libexif",
+      "libjpeg",
       "libpng",
-      "mupdf",
-      "poppler",
+      "libtiff",
       "qpdf"
     ]
   },

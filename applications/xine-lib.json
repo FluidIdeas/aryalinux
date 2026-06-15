@@ -8,10 +8,11 @@
   ],
   "dependencies": {
     "required": [
-      "installing",
-      "ffmpeg",
       "alsa-lib",
-      "libdvdnav"
+      "ffmpeg",
+      "installing",
+      "libdvdnav",
+      "pulseaudio"
     ]
   },
   "build": {

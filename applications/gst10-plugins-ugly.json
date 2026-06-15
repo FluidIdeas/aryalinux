@@ -9,7 +9,8 @@
     "required": [
       "gst10-plugins-base",
       "liba52",
-      "libdvdread"
+      "libdvdread",
+      "x264"
     ]
   },
   "build": {

@@ -7,8 +7,8 @@
   ],
   "dependencies": {
     "required": [
-      "libcanberra",
       "glib2",
+      "libcanberra",
       "vala"
     ]
   },

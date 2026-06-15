@@ -8,6 +8,7 @@
   "dependencies": {
     "required": [
       "cmake",
+      "libxml2",
       "neon"
     ]
   },

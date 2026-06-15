@@ -8,14 +8,14 @@
   "dependencies": {
     "required": [
       "dbus",
-      "libxml2",
+      "glib2",
       "libxslt",
-      "systemd"
+      "vala"
     ]
   },
   "build": {
     "user": [
-      "meson setup build --prefix=/usr            \\\n            --buildtype=release      \\\n            -D bash_completion=false \\\n            .",
+      "meson setup build --prefix=/usr            \\\n            --buildtype=release      \\\n            -D bash_completion=false \\\n            -D vapi=false           \\\n            -D man=false            \\\n            .",
       "ninja -C build"
     ],
     "package": [

@@ -7,13 +7,10 @@
   ],
   "dependencies": {
     "required": [
-      "python-deps.alabaster",
-      "python-deps.snowballstemmer",
-      "python-deps.sc-applehelp",
-      "python-deps.sc-devhelp",
-      "python-deps.sc-htmlhelp",
-      "python-deps.sc-jsmath",
-      "python-deps.sc-qthelp"
+      "python-dependencies",
+      "python-modules.docutils",
+      "python-modules.pygments",
+      "python-modules.requests"
     ]
   },
   "build": {

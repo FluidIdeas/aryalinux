@@ -7,7 +7,8 @@
   ],
   "dependencies": {
     "required": [
-      "libgudev"
+      "libgudev",
+      "libusb"
     ]
   },
   "build": {

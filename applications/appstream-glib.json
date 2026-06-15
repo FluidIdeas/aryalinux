@@ -8,7 +8,10 @@
   "dependencies": {
     "required": [
       "curl",
+      "gdk-pixbuf",
+      "gtk3",
       "json-glib",
+      "libarchive",
       "libyaml"
     ]
   },

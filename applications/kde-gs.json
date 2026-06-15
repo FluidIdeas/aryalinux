@@ -1,18 +1,21 @@
 {
-  "name": "gs",
+  "name": "kde-gs",
   "version": "10.06.0",
-  "description": "Ghostscript is a versatile processor for PostScript data with the ability to render PostScript to different targets. It is a mandatory part of the cups printing stack.",
+  "description": "Ghostscript for the KDE printing stack. Do not install alongside gnome-gs.",
+  "category": "printing",
   "url": [
     "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10060/ghostscript-10.06.0.tar.xz"
   ],
   "dependencies": {
     "required": [
+      "kde-cups",
+      "fontconfig",
+      "freetype2",
+      "lcms2",
       "libjpeg",
       "libpng",
+      "libtiff",
       "openjpeg2"
-    ],
-    "recommended": [
-      "cups"
     ]
   },
   "build": {
@@ -38,7 +41,6 @@
   ],
   "meta": false,
   "book": "pst/gs.html",
-  "category": "printing",
   "install": {
     "extract": [
       "tar -xJf $PACKAGE -C /"

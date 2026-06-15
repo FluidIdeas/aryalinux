@@ -7,8 +7,10 @@
   ],
   "dependencies": {
     "required": [
+      "ModemManager",
       "json-glib",
       "libnotify",
+      "libsoup3",
       "vala"
     ]
   },

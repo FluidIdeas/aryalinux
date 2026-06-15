@@ -7,11 +7,14 @@
   ],
   "dependencies": {
     "required": [
-      "gsettings-desktop-schemas",
-      "iso-codes",
-      "gtk3",
       "bubblewrap",
-      "glib2"
+      "glib2",
+      "gsettings-desktop-schemas",
+      "gtk3",
+      "gtk4",
+      "iso-codes",
+      "libseccomp",
+      "xkeyboard-config"
     ]
   },
   "build": {

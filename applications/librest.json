@@ -7,12 +7,10 @@
   ],
   "dependencies": {
     "required": [
+      "glib2",
       "json-glib",
       "libsoup3",
       "make-ca"
-    ],
-    "recommended": [
-      "glib2"
     ]
   },
   "build": {

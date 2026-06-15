@@ -8,8 +8,9 @@
   "dependencies": {
     "required": [
       "perl-deps.perl-module-implementation",
-      "perl-deps.perl-variable-magic",
-      "perl-deps.perl-try-tiny"
+      "perl-deps.perl-sub-exporter-progressive",
+      "perl-deps.perl-try-tiny",
+      "perl-deps.perl-variable-magic"
     ]
   },
   "build": {

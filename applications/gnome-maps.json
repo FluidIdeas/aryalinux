@@ -9,9 +9,12 @@
     "required": [
       "desktop-file-utils",
       "geoclue2",
+      "geocode-glib",
       "gjs",
       "libadwaita",
+      "libgweather",
       "libportal",
+      "librest",
       "libshumate"
     ]
   },

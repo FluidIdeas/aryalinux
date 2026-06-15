@@ -14,12 +14,10 @@
   "build": {
     "user": [
       "sed -i '/GZIP/s/^/#/' makefile",
-      "make",
-      "make gui"
+      "make"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "make install-gui DESTDIR=$DESTDIR"
+      "make doc_dir=/usr/share/doc/highlight-4.18/ install DESTDIR=$DESTDIR"
     ]
   },
   "post_install": [],

@@ -5,7 +5,8 @@
   "category": "",
   "dependencies": {
     "required": [
-      "glib2"
+      "glib2",
+      "libsigc3"
     ]
   },
   "build": {

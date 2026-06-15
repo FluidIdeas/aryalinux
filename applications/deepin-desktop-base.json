@@ -3,9 +3,6 @@
   "version": "2:2026.05.25",
   "description": "Base component for Deepin Desktop Environment.",
   "category": "desktop-deepin",
-  "dependencies": {
-    "required": []
-  },
   "build": {
     "user": [
       "make"

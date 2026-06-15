@@ -7,10 +7,13 @@
   ],
   "dependencies": {
     "required": [
-      "libnotify",
       "keybinder-3",
       "libcanberra",
-      "pavucontrol"
+      "libnotify",
+      "libxfce4windowing",
+      "pavucontrol",
+      "pulseaudio",
+      "xfce4-panel"
     ]
   },
   "build": {

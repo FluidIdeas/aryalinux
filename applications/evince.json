@@ -8,11 +8,17 @@
   "dependencies": {
     "required": [
       "adwaita-icon-theme",
+      "glib2",
+      "gnome-keyring",
       "gsettings-desktop-schemas",
       "gtk3",
+      "itstool",
+      "libarchive",
       "libhandy1",
-      "gnome-keyring",
-      "poppler"
+      "libsecret",
+      "libxml2",
+      "openjpeg2",
+      "gnome-poppler"
     ]
   },
   "build": {

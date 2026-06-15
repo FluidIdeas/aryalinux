@@ -8,6 +8,7 @@
   ],
   "dependencies": {
     "required": [
+      "shared-mime-info",
       "xine-lib"
     ]
   },

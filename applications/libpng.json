@@ -9,7 +9,7 @@
   "dependencies": {},
   "build": {
     "user": [
-      "zcat ../libpng-1.6.54-apng.patch.gz | patch -p1",
+      "zcat ../libpng-1.6.55-apng.patch.gz | patch -p1",
       "./configure --prefix=/usr --disable-static",
       "make"
     ],
@@ -25,5 +25,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://downloads.sourceforge.net/sourceforge/libpng-apng/libpng-1.6.55-apng.patch.gz"
+  ]
 }

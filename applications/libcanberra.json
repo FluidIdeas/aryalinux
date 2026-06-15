@@ -7,9 +7,10 @@
   ],
   "dependencies": {
     "required": [
-      "libvorbis",
       "alsa-lib",
+      "gstreamer10",
       "gtk3",
+      "libvorbis",
       "sound-theme-freedesktop"
     ]
   },

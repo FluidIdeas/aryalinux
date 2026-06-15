@@ -7,8 +7,6 @@
   ],
   "dependencies": {
     "required": [
-      "cmake",
-      "llvm",
       "spirv-llvm-translator"
     ]
   },

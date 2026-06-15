@@ -8,9 +8,11 @@
   "dependencies": {
     "required": [
       "dbus-glib",
+      "gst10-plugins-base",
       "gst10-plugins-good",
+      "libnotify",
       "libxfce4ui",
-      "libnotify"
+      "taglib"
     ]
   },
   "build": {

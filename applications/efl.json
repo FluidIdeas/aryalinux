@@ -52,15 +52,6 @@
       "util-linux",
       "wayland",
       "zlib"
-    ],
-    "optional": [
-      "gst10-plugins-bad",
-      "gst10-plugins-good",
-      "gst10-plugins-ugly",
-      "libraw",
-      "librsvg",
-      "libspectre",
-      "poppler"
     ]
   },
   "build": {

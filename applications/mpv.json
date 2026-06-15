@@ -2,23 +2,32 @@
   "name": "mpv",
   "version": "0.41.0",
   "description": "mpv is a free media player for the command line. It supports a wide variety of media file formats, audio and video codecs, and subtitle types.",
+  "buildProfile": "full",
   "url": [
     "https://github.com/mpv-player/mpv/archive/v0.41.0/mpv-0.41.0.tar.gz"
   ],
   "dependencies": {
     "required": [
       "alsa-lib",
+      "ffmpeg",
       "libass",
-      "libplacebo",
-      "pulseaudio",
+      "libcdio",
+      "libdvdnav",
       "libjpeg",
+      "libplacebo",
       "libva",
-      "luajit"
+      "luajit",
+      "mesa",
+      "pulseaudio",
+      "sdl2",
+      "uchardet",
+      "vulkan-loader",
+      "wayland"
     ]
   },
   "build": {
     "user": [
-      "meson setup build --prefix=/usr       \\\n            --buildtype=release \\\n            -D x11=enabled      \\\n            .",
+      "meson setup build --prefix=/usr       \\\n            --buildtype=release \\\n            -D x11=enabled      \\\n            -D wayland=enabled  \\\n            -D vulkan=enabled   \\\n            -D dvdnav=enabled   \\\n            -D cdda=enabled     \\\n            -D sdl2=enabled     \\\n            .",
       "ninja -C build"
     ],
     "package": [

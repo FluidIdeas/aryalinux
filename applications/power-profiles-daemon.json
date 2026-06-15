@@ -6,6 +6,7 @@
   "dependencies": {
     "required": [
       "polkit",
+      "python-modules.pygobject3",
       "upower"
     ]
   },

@@ -7,9 +7,9 @@
   ],
   "dependencies": {
     "required": [
+      "make-ca",
       "perl-modules.perl-io-socket-ssl",
-      "perl-modules.perl-libwww-perl",
-      "make-ca"
+      "perl-modules.perl-libwww-perl"
     ]
   },
   "build": {

@@ -3,7 +3,19 @@
   "version": "1.0.11",
   "description": "Schroedinger is an implementation of the Dirac video codec.",
   "category": "multimedia",
-  "dependencies": {},
+  "dependencies": {
+    "required": [
+      "alsa-lib",
+      "desktop-file-utils",
+      "ffmpeg",
+      "installing",
+      "liba52",
+      "libgcrypt",
+      "libmad",
+      "lua",
+      "qt6"
+    ]
+  },
   "build": {
     "user": [
       "./configure --prefix=/usr \\\n            --disable-static",

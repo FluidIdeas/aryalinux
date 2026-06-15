@@ -5,16 +5,18 @@
   "category": "",
   "dependencies": {
     "required": [
-      "lxqt-layer-shell-qt",
       "libdbusmenu-lxqt",
       "liblxqt",
+      "libstatgrab",
+      "libsysstat",
+      "libxkbcommon",
+      "lm-sensors",
       "lxqt-globalkeys",
+      "lxqt-layer-shell-qt",
       "lxqt-menu-data",
       "lxqt-solid",
       "menu-cache",
-      "pulseaudio",
-      "libsysstat",
-      "libxkbcommon"
+      "pulseaudio"
     ]
   },
   "build": {

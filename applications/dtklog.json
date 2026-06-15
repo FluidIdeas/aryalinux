@@ -5,9 +5,9 @@
   "category": "desktop-deepin",
   "dependencies": {
     "required": [
+      "fmt",
       "qt5-base",
-      "spdlog",
-      "fmt"
+      "spdlog"
     ]
   },
   "build": {

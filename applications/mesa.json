@@ -2,30 +2,33 @@
   "name": "mesa",
   "version": "25.3.5",
   "description": "Mesa contains several libraries and drivers for multiple APIs like OpenGL and Vulkan.",
+  "buildProfile": "full",
   "url": [
     "https://mesa.freedesktop.org/archive/mesa-25.3.5.tar.xz"
   ],
   "dependencies": {
     "required": [
-      "cbindgen",
-      "glslang",
-      "libclc",
       "libdrm",
-      "llvm",
+      "x7lib",
       "python-modules.Mako",
       "python-modules.PyYAML",
-      "python-modules.ply",
-      "rust",
-      "rust-bindgen",
-      "wayland",
+      "llvm",
+      "glslang",
+      "libclc",
+      "vulkan-loader",
       "wayland-protocols",
-      "x7lib"
+      "cbindgen",
+      "make-ca",
+      "rust-bindgen"
+    ],
+    "post": [
+      "libva"
     ]
   },
   "build": {
     "user": [
       "patch -Np1 -i ../mesa-add_xdemos-4.patch",
-      "meson setup build                 \\\n      --prefix=$XORG_PREFIX    \\\n      --buildtype=release      \\\n      -D platforms=x11,wayland \\\n      -D gallium-drivers=auto  \\\n      -D vulkan-drivers=auto   \\\n      -D valgrind=disabled     \\\n      -D video-codecs=all      \\\n      -D libunwind=disabled",
+      "meson setup build                 \\\n      --prefix=$XORG_PREFIX    \\\n      --buildtype=release      \\\n      -D platforms=x11,wayland \\\n      -D gallium-drivers=auto  \\\n      -D vulkan-drivers=auto   \\\n      -D llvm=enabled          \\\n      -D egl=enabled           \\\n      -D gbm=enabled           \\\n      -D glx=dri               \\\n      -D gles1=enabled         \\\n      -D gles2=enabled         \\\n      -D shared-glapi=enabled  \\\n      -D valgrind=disabled     \\\n      -D video-codecs=all      \\\n      -D libunwind=disabled",
       "ninja -C build"
     ],
     "package": [

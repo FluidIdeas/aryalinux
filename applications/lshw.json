@@ -6,9 +6,6 @@
   "dependencies": {
     "required": [
       "hwdata"
-    ],
-    "optional": [
-      "gtk3"
     ]
   },
   "build": {

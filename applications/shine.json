@@ -3,7 +3,19 @@
   "version": "3.1.1",
   "description": "Shine is a fixed-point MP3 encoder.",
   "category": "multimedia",
-  "dependencies": {},
+  "dependencies": {
+    "required": [
+      "alsa-lib",
+      "desktop-file-utils",
+      "ffmpeg",
+      "installing",
+      "liba52",
+      "libgcrypt",
+      "libmad",
+      "lua",
+      "qt6"
+    ]
+  },
   "build": {
     "user": [
       "./configure --prefix=/usr \\\n            --disable-static",

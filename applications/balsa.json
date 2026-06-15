@@ -8,8 +8,11 @@
   "dependencies": {
     "required": [
       "enchant",
+      "gmime3",
       "gpgme",
+      "gtk3",
       "libical",
+      "libnotify",
       "libsecret"
     ]
   },

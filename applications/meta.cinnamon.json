@@ -6,6 +6,7 @@
   "url": [],
   "dependencies": {
     "required": [
+      "adwaita-icon-theme",
       "cinnamon",
       "cinnamon-control-center",
       "cinnamon-desktop",
@@ -15,6 +16,10 @@
       "cinnamon-settings-daemon",
       "cinnamon-translations",
       "cjs",
+      "dejavu-fonts-ttf",
+      "gnome-backgrounds",
+      "gnome-themes-extra",
+      "hicolor-icon-theme",
       "js128",
       "libdbusmenu-glib",
       "libdbusmenu-gtk3",
@@ -22,17 +27,12 @@
       "libkeybinder3",
       "muffin",
       "nemo",
+      "papirus-icon-theme",
       "python-xapp",
       "timezonemap",
       "xapp",
       "xapp-symbolic-icons",
-      "xdg-desktop-portal-xapp",
-      "adwaita-icon-theme",
-      "hicolor-icon-theme",
-      "papirus-icon-theme",
-      "gnome-themes-extra",
-      "gnome-backgrounds",
-      "dejavu-fonts-ttf"
+      "xdg-desktop-portal-xapp"
     ]
   },
   "build": {},

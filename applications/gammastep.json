@@ -11,11 +11,6 @@
       "hicolor-icon-theme",
       "libdrm",
       "wayland"
-    ],
-    "optional": [
-      "geoclue2",
-      "gtk3",
-      "python-modules.pygobject3"
     ]
   },
   "build": {

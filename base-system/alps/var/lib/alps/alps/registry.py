@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import sys
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
@@ -44,18 +45,37 @@ def _record_from_dict(data: dict) -> InstalledPackage:
     return InstalledPackage(**data)
 
 
+def _read_record(path: Path) -> InstalledPackage | None:
+    try:
+        text = path.read_text(encoding="utf-8").strip()
+    except OSError:
+        return None
+    if not text:
+        print(f"warning: ignoring empty ALPS record {path}", file=sys.stderr)
+        return None
+    try:
+        data = json.loads(text)
+    except json.JSONDecodeError as exc:
+        print(f"warning: ignoring invalid ALPS record {path}: {exc}", file=sys.stderr)
+        return None
+    return _record_from_dict(data)
+
+
 def record_path(installed_dir: Path, name: str) -> Path:
     return installed_dir / f"{name}.json"
 
 
 def is_installed(installed_dir: Path, name: str) -> bool:
-    return record_path(installed_dir, name).is_file()
+    path = record_path(installed_dir, name)
+    return _read_record(path) is not None
 
 
 def load_installed(installed_dir: Path, name: str) -> InstalledPackage:
     path = record_path(installed_dir, name)
-    data = json.loads(path.read_text(encoding="utf-8"))
-    return _record_from_dict(data)
+    record = _read_record(path)
+    if record is None:
+        raise FileNotFoundError(f"Installed record missing or invalid: {name} ({path})")
+    return record
 
 
 def save_installed(installed_dir: Path, record: InstalledPackage) -> None:
@@ -73,6 +93,7 @@ def list_installed(installed_dir: Path) -> list[InstalledPackage]:
         return []
     records = []
     for path in sorted(installed_dir.glob("*.json")):
-        data = json.loads(path.read_text(encoding="utf-8"))
-        records.append(_record_from_dict(data))
+        record = _read_record(path)
+        if record is not None:
+            records.append(record)
     return records

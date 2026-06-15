@@ -7,8 +7,8 @@
   ],
   "dependencies": {
     "required": [
-      "gtk3",
-      "desktop-file-utils"
+      "desktop-file-utils",
+      "gtk3"
     ]
   },
   "build": {

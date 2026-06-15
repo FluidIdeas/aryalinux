@@ -7,8 +7,8 @@
   ],
   "dependencies": {
     "required": [
-      "gtk4",
       "glib2",
+      "gtk4",
       "libxml2"
     ]
   },

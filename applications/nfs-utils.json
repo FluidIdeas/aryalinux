@@ -8,8 +8,10 @@
   "dependencies": {
     "required": [
       "libevent",
+      "libnl",
       "libtirpc",
-      "libxml2"
+      "libxml2",
+      "rpcsvc-proto"
     ]
   },
   "build": {

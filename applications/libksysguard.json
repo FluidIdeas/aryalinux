@@ -11,11 +11,9 @@
       "frameworks6",
       "libdrm",
       "libkscreen",
+      "libpcap",
       "lm-sensors",
       "qt6"
-    ],
-    "recommended": [
-      "libpcap"
     ]
   },
   "build": {

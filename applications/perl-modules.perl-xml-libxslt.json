@@ -7,7 +7,8 @@
   ],
   "dependencies": {
     "required": [
-      "libxslt"
+      "libxslt",
+      "perl-deps.perl-xml-libxml"
     ]
   },
   "build": {

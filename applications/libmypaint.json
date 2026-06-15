@@ -7,8 +7,8 @@
   ],
   "dependencies": {
     "required": [
-      "json-c",
-      "glib2"
+      "glib2",
+      "json-c"
     ]
   },
   "build": {

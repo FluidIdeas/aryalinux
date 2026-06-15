@@ -7,10 +7,12 @@
   ],
   "dependencies": {
     "required": [
-      "libsndfile",
       "alsa-lib",
+      "dbus",
       "glib2",
-      "speex"
+      "libsndfile",
+      "speex",
+      "x7lib"
     ]
   },
   "build": {

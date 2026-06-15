@@ -2,25 +2,23 @@
   "name": "qtwebengine",
   "version": "6.10.2",
   "description": "Qt WebEngine embeds Chromium to render web content in Qt applications.",
+  "buildProfile": "full",
   "url": [
     "https://download.qt.io/official_releases/qt/6.10/6.10.2/submodules/qtwebengine-everywhere-src-6.10.2.tar.xz"
   ],
   "dependencies": {
     "required": [
-      "cups",
-      "cups-filters",
-      "dbus",
+      "alsa-lib",
       "ffmpeg",
-      "fontconfig",
       "icu",
       "libwebp",
       "libxslt",
-      "mesa",
       "nodejs",
       "nss",
       "opus",
       "pciutils",
       "pipewire",
+      "pulseaudio",
       "python-modules.html5lib",
       "qt6"
     ]
@@ -40,7 +38,7 @@
       "sed -e '/ifndef SYS_SECCOMP/,+2 d' \\\n    -i src/3rdparty/chromium/sandbox/linux/system_headers/linux_seccomp.h",
       "rm -rf build",
       "mkdir build",
-      "(cd build && $QT6DIR/bin/qt-configure-module .. -- \\\n      -D CMAKE_MESSAGE_LOG_LEVEL=STATUS               \\\n      -D QT_FEATURE_webengine_system_ffmpeg=ON        \\\n      -D QT_FEATURE_webengine_system_icu=ON           \\\n      -D QT_FEATURE_webengine_proprietary_codecs=ON   \\\n      -D QT_FEATURE_webengine_webrtc_pipewire=ON      \\\n      -D QT_BUILD_EXAMPLES_BY_DEFAULT=OFF             \\\n      -D QT_GENERATE_SBOM=OFF                         \\\n      -D QT_SHOW_EXTRA_IDE_SOURCES=OFF                \\\n      -D QT_NO_FEATURE_AUTO_RESET=ON                  \\\n      && cmake .. && touch build.ninja)",
+      "(cd build && $QT6DIR/bin/qt-configure-module .. -- \\\n      -D CMAKE_MESSAGE_LOG_LEVEL=STATUS               \\\n      -D QT_FEATURE_webengine_system_ffmpeg=ON        \\\n      -D QT_FEATURE_webengine_system_icu=ON           \\\n      -D QT_FEATURE_webengine_system_libwebp=ON     \\\n      -D QT_FEATURE_webengine_system_libxslt=ON     \\\n      -D QT_FEATURE_webengine_system_opus=ON        \\\n      -D QT_FEATURE_webengine_proprietary_codecs=ON   \\\n      -D QT_FEATURE_webengine_webrtc_pipewire=ON      \\\n      -D QT_BUILD_EXAMPLES_BY_DEFAULT=OFF             \\\n      -D QT_GENERATE_SBOM=OFF                         \\\n      -D QT_SHOW_EXTRA_IDE_SOURCES=OFF                \\\n      -D QT_NO_FEATURE_AUTO_RESET=ON                  \\\n      && cmake .. && touch build.ninja)",
       "grep -Eq '^(QT_FEATURE_qtwebengine_build:(BOOL|INTERNAL)=ON|QT_CONFIGURE_CHECK_qtwebengine_build:BOOL=ON)$' build/CMakeCache.txt || { echo 'qtwebengine: configure disabled WebEngine (qtwebengine_build=OFF); check cmake output above for missing tools/libs' >&2; grep -E '^QT_FEATURE_qtwebengine|^QT_CONFIGURE_CHECK_' build/CMakeCache.txt 2>/dev/null | sort; exit 1; }",
       "ninja -C build"
     ],

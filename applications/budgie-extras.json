@@ -27,7 +27,14 @@
       "libxfce4windowing",
       "networkmanager",
       "pango",
+      "python-modules.cairosvg",
+      "python-modules.dbus-python",
+      "python-modules.pillow",
+      "python-modules.psutil",
       "python-modules.pycairo",
+      "python-modules.pygobject3",
+      "python-modules.pyudev",
+      "python-modules.svgwrite",
       "python3",
       "sound-theme-freedesktop",
       "vorbistools",
@@ -35,15 +42,6 @@
       "xdg-utils",
       "xprintidle",
       "zenity"
-    ],
-    "recommended": [
-      "python-modules.cairosvg",
-      "python-modules.dbus-python",
-      "python-modules.pillow",
-      "python-modules.psutil",
-      "python-modules.pygobject3",
-      "python-modules.pyudev",
-      "python-modules.svgwrite"
     ]
   },
   "build": {

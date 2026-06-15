@@ -8,8 +8,9 @@
   "dependencies": {
     "required": [
       "libnotify",
-      "xfce4-panel",
-      "polkit"
+      "polkit",
+      "upower",
+      "xfce4-panel"
     ]
   },
   "build": {

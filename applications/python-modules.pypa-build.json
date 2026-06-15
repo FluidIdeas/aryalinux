@@ -5,7 +5,7 @@
   "category": "",
   "dependencies": {
     "required": [
-      "python-deps.pyproject-hooks"
+      "python-dependencies"
     ]
   },
   "build": {

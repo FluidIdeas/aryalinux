@@ -8,8 +8,10 @@
   "dependencies": {
     "required": [
       "colord",
+      "desktop-file-utils",
+      "gtk3",
       "itstool",
-      "desktop-file-utils"
+      "lcms2"
     ]
   },
   "build": {

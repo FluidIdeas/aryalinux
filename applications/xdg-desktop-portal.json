@@ -5,14 +5,15 @@
   "category": "",
   "dependencies": {
     "required": [
-      "dbus",
+      "bubblewrap",
       "fuse",
       "gdk-pixbuf",
       "json-glib",
-      "pipewire"
+      "pipewire",
+      "python-modules.docutils"
     ],
-    "recommended": [
-      "bubblewrap"
+    "runtime": [
+      "dbus"
     ]
   },
   "build": {

@@ -7,8 +7,7 @@
   ],
   "dependencies": {
     "required": [
-      "libtasn1",
-      "make-ca"
+      "libtasn1"
     ]
   },
   "build": {

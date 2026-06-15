@@ -8,9 +8,9 @@ from .port import Port, load_port
 from .registry import InstalledPackage, list_installed
 
 
-def _runtime_deps(port: Port) -> set[str]:
+def _install_chain_deps(port: Port) -> set[str]:
     deps = port.dependencies
-    return set(deps.required) | set(deps.pre) | set(deps.post) | set(deps.rebuild_after)
+    return set(deps.required) | set(deps.pre)
 
 
 def find_orphans(ports_dir: Path, installed_dir: Path) -> list[str]:
@@ -26,7 +26,7 @@ def find_orphans(ports_dir: Path, installed_dir: Path) -> list[str]:
             port = load_port(ports_dir, record.name)
         except FileNotFoundError:
             continue
-        depended_on |= _runtime_deps(port) & installed_names
+        depended_on |= _install_chain_deps(port) & installed_names
 
     orphans: list[str] = []
     for record in records:

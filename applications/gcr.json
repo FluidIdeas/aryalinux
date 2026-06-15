@@ -8,9 +8,13 @@
   "dependencies": {
     "required": [
       "glib2",
-      "libgcrypt",
       "gnupg",
-      "libsecret"
+      "gtk3",
+      "libgcrypt",
+      "libsecret",
+      "libxslt",
+      "p11-kit",
+      "vala"
     ]
   },
   "build": {

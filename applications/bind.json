@@ -7,8 +7,10 @@
   ],
   "dependencies": {
     "required": [
-      "liburcu",
       "json-c",
+      "libcap",
+      "liburcu",
+      "libuv",
       "nghttp2"
     ]
   },

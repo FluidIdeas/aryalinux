@@ -5,7 +5,11 @@
   "url": [
     "https://github.com/hramrach/lm-sensors/archive/V3-6-2/lm-sensors-3-6-2.tar.gz"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "required": [
+      "which"
+    ]
+  },
   "build": {
     "user": [
       "make PREFIX=/usr BUILD_STATIC_LIB=0 MANDIR=/usr/share/man"

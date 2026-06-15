@@ -7,13 +7,14 @@
   ],
   "dependencies": {
     "required": [
-      "iso-codes",
-      "libarchive",
-      "vala",
       "dconf",
       "glib2",
       "gtk3",
-      "libnotify"
+      "gtk4",
+      "iso-codes",
+      "libarchive",
+      "libnotify",
+      "vala"
     ]
   },
   "build": {

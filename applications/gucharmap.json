@@ -8,10 +8,11 @@
   "dependencies": {
     "required": [
       "desktop-file-utils",
+      "glib2",
       "gsettings-desktop-schemas",
       "gtk3",
+      "itstool",
       "libarchive",
-      "glib2",
       "vala"
     ]
   },

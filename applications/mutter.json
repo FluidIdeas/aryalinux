@@ -8,16 +8,21 @@
   "dependencies": {
     "required": [
       "at-spi2-core",
-      "python-modules.docutils",
-      "graphene",
-      "libei",
-      "libxcvt",
-      "pipewire",
       "desktop-file-utils",
       "glib2",
+      "gnome-settings-daemon",
+      "graphene",
+      "gtk4",
       "libdisplay-info",
+      "libei",
+      "libinput",
+      "libxcvt",
+      "libxkbcommon",
+      "pipewire",
+      "python-modules.docutils",
       "startup-notification",
-      "x7driver",
+      "wayland",
+      "wayland-protocols",
       "xwayland"
     ]
   },

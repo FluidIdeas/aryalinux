@@ -8,7 +8,9 @@
   "dependencies": {
     "required": [
       "perl-deps.perl-capture-tiny",
-      "perl-deps.perl-file-chdir"
+      "perl-deps.perl-ffi-checklib",
+      "perl-deps.perl-file-chdir",
+      "perl-modules.perl-file-which"
     ]
   },
   "build": {

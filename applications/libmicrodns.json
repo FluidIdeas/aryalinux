@@ -3,7 +3,19 @@
   "version": "0.2.0",
   "description": "libmicrodns is a minimal mDNS resolver library.",
   "category": "multimedia",
-  "dependencies": {},
+  "dependencies": {
+    "required": [
+      "alsa-lib",
+      "desktop-file-utils",
+      "ffmpeg",
+      "installing",
+      "liba52",
+      "libgcrypt",
+      "libmad",
+      "lua",
+      "qt6"
+    ]
+  },
   "build": {
     "user": [
       "meson setup build --prefix=/usr --buildtype=release .",

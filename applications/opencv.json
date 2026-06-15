@@ -9,12 +9,19 @@
     "required": [
       "cmake",
       "ffmpeg",
+      "gst10-plugins-base",
       "gtk3",
       "jasper",
+      "libarchive",
+      "libavif",
       "libexif",
+      "libjpeg",
       "libpng",
+      "libtiff",
       "libwebp",
-      "openjpeg2"
+      "openjpeg2",
+      "v4l-utils",
+      "xine-lib"
     ]
   },
   "build": {

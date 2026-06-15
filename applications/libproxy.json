@@ -6,7 +6,11 @@
   "dependencies": {
     "required": [
       "curl",
-      "duktape"
+      "duktape",
+      "glib2",
+      "gsettings-desktop-schemas",
+      "python-modules.gi-docgen",
+      "vala"
     ]
   },
   "build": {

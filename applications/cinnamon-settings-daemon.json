@@ -11,7 +11,7 @@
       "cairo",
       "cinnamon-desktop",
       "colord",
-      "cups",
+      "gnome-cups",
       "dconf",
       "fontconfig",
       "gdk-pixbuf",
@@ -29,9 +29,6 @@
       "polkit",
       "systemd",
       "upower"
-    ],
-    "optional": [
-      "cinnamon-translations"
     ]
   },
   "build": {

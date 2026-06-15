@@ -7,14 +7,18 @@
   ],
   "dependencies": {
     "required": [
-      "gstreamer10",
       "alsa-lib",
+      "cdparanoia",
       "glib2",
+      "gstreamer10",
       "iso-codes",
+      "libgudev",
       "libjpeg",
       "libogg",
       "libpng",
+      "libvorbis",
       "mesa",
+      "pango",
       "wayland-protocols",
       "x7lib"
     ]

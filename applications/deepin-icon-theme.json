@@ -3,12 +3,6 @@
   "version": "2026.02.27",
   "description": "Icon theme for Deepin Desktop Environment.",
   "category": "desktop-deepin",
-  "dependencies": {
-    "required": [],
-    "optional": [
-      "papirus-icon-theme"
-    ]
-  },
   "build": {
     "user": [
       "make hicolor-links"

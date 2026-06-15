@@ -7,8 +7,9 @@
   ],
   "dependencies": {
     "required": [
+      "gdk-pixbuf",
       "glib2",
-      "gdk-pixbuf"
+      "libxml2"
     ]
   },
   "build": {

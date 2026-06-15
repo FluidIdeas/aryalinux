@@ -7,10 +7,15 @@
   ],
   "dependencies": {
     "required": [
+      "glib2",
       "gst10-plugins-base",
       "itstool",
-      "glib2",
       "libburn",
+      "libcanberra",
+      "libisoburn",
+      "libisofs",
+      "libnotify",
+      "nautilus",
       "tinysparql",
       "totem-pl-parser"
     ]

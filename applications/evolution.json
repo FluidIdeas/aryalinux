@@ -8,13 +8,22 @@
   "dependencies": {
     "required": [
       "adwaita-icon-theme",
+      "bogofilter",
+      "enchant",
       "evolution-data-server",
       "gcr4",
-      "webkitgtk",
-      "bogofilter",
+      "gnome-autoar",
+      "gnome-desktop",
+      "gspell",
       "highlight",
+      "itstool",
       "libcanberra",
-      "libnotify"
+      "libgweather",
+      "libnotify",
+      "openldap",
+      "seahorse",
+      "shared-mime-info",
+      "webkitgtk"
     ]
   },
   "build": {

@@ -7,12 +7,17 @@
   ],
   "dependencies": {
     "required": [
-      "gexiv2",
       "desktop-file-utils",
+      "gexiv2",
       "glib2",
+      "gnome-autoar",
+      "gnome-desktop",
       "gst10-plugins-base",
+      "libadwaita",
       "libcloudproviders",
-      "localsearch"
+      "libportal",
+      "libseccomp",
+      "tinysparql"
     ]
   },
   "build": {

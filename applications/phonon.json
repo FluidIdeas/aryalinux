@@ -12,7 +12,7 @@
       "glib2",
       "qt6"
     ],
-    "post": [
+    "runtime": [
       "phonon-backend-vlc"
     ]
   },

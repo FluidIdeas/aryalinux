@@ -6,8 +6,9 @@
   "dependencies": {
     "required": [
       "liblxqt",
+      "lxqt-kconfig",
       "lxqt-libkscreen",
-      "x7driver"
+      "xorg-libinput-driver"
     ]
   },
   "build": {

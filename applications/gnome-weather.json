@@ -8,7 +8,9 @@
   "dependencies": {
     "required": [
       "geoclue2",
-      "gjs"
+      "gjs",
+      "libadwaita",
+      "libgweather"
     ]
   },
   "build": {

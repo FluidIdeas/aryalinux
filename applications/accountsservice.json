@@ -7,8 +7,8 @@
   ],
   "dependencies": {
     "required": [
-      "polkit",
       "glib2",
+      "polkit",
       "systemd",
       "vala"
     ]

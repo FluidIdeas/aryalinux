@@ -7,9 +7,10 @@
   ],
   "dependencies": {
     "required": [
-      "libpng",
+      "curl",
       "giflib",
-      "curl"
+      "imlib2",
+      "libpng"
     ]
   },
   "build": {

@@ -8,9 +8,9 @@
   "dependencies": {
     "required": [
       "perl-deps.perl-module-runtime",
-      "perl-deps.perl-try-tiny",
       "perl-deps.perl-test-fatal",
-      "perl-deps.perl-test-requires"
+      "perl-deps.perl-test-requires",
+      "perl-deps.perl-try-tiny"
     ]
   },
   "build": {

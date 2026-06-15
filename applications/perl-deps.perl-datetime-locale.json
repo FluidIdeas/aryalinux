@@ -7,11 +7,12 @@
   ],
   "dependencies": {
     "required": [
+      "perl-deps.perl-cpan-meta-check",
       "perl-deps.perl-dist-checkconflicts",
       "perl-deps.perl-file-sharedir",
-      "perl-deps.perl-namespace-autoclean",
-      "perl-deps.perl-cpan-meta-check",
       "perl-deps.perl-ipc-system-simple",
+      "perl-deps.perl-namespace-autoclean",
+      "perl-deps.perl-params-validationcompiler",
       "perl-deps.perl-test-file-sharedir"
     ]
   },

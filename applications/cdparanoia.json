@@ -13,8 +13,8 @@
       "make -j1"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR",
-      "chmod -v 755 $DESTDIR/usr/lib/libcdda_*.so.0.10.2",
+      "make install prefix=$DESTDIR/usr exec_prefix=$DESTDIR/usr MANDIR=$DESTDIR/usr/share/man LIBDIR=$DESTDIR/usr/lib BINDIR=$DESTDIR/usr/bin INCLUDEDIR=$DESTDIR/usr/include",
+      "chmod -v 755 $DESTDIR/usr/lib/libcdda_interface.so.0.10.2 $DESTDIR/usr/lib/libcdda_paranoia.so.0.10.2",
       "rm -fv $DESTDIR/usr/lib/libcdda_*.a"
     ]
   },

@@ -7,7 +7,8 @@
   ],
   "dependencies": {
     "required": [
-      "libexif"
+      "libexif",
+      "libxfce4ui"
     ]
   },
   "build": {

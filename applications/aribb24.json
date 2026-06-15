@@ -3,7 +3,19 @@
   "version": "1.0.3",
   "description": "aribb24 is a library for ARIB STD-B24 caption decoding.",
   "category": "multimedia",
-  "dependencies": {},
+  "dependencies": {
+    "required": [
+      "alsa-lib",
+      "desktop-file-utils",
+      "ffmpeg",
+      "installing",
+      "liba52",
+      "libgcrypt",
+      "libmad",
+      "lua",
+      "qt6"
+    ]
+  },
   "build": {
     "user": [
       "./configure --prefix=/usr \\\n            --disable-static",

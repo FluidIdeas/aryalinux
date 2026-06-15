@@ -8,6 +8,7 @@
   "dependencies": {
     "required": [
       "libxml2",
+      "perl-deps.perl-xml-namespacesupport",
       "perl-deps.perl-xml-sax-base"
     ]
   },

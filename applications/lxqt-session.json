@@ -6,6 +6,7 @@
   "dependencies": {
     "required": [
       "liblxqt",
+      "qtxdg-tools",
       "xdg-user-dirs"
     ]
   },

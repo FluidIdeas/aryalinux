@@ -6,9 +6,6 @@
   "url": [
     "https://github.com/Matthias-Wandel/jhead/archive/refs/tags/3.08.tar.gz"
   ],
-  "dependencies": {
-    "required": []
-  },
   "build": {
     "user": [
       "make"

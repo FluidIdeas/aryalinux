@@ -10,7 +10,9 @@
       "gtksourceview5",
       "itstool",
       "libadwaita",
+      "libgee",
       "libsoup3",
+      "python-modules.blueprint-compiler",
       "vala"
     ]
   },

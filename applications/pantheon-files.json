@@ -23,16 +23,10 @@
       "libnotify",
       "libportal",
       "pango",
-      "poppler",
+      "gnome-poppler",
       "sqlite",
+      "xdg-desktop-portal-gtk",
       "zeitgeist"
-    ],
-    "optional": [
-      "contractor",
-      "tumbler"
-    ],
-    "recommended": [
-      "xdg-desktop-portal-gtk"
     ]
   },
   "build": {

@@ -7,11 +7,13 @@
   ],
   "dependencies": {
     "required": [
-      "cmake",
       "c-ares",
+      "cmake",
+      "glib2",
       "libgcrypt",
-      "speex",
-      "libpcap"
+      "libpcap",
+      "qt6",
+      "speex"
     ]
   },
   "build": {

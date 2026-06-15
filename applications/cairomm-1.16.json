@@ -5,8 +5,9 @@
   "category": "",
   "dependencies": {
     "required": [
+      "boost",
       "cairo",
-      "boost"
+      "libsigc3"
     ]
   },
   "build": {

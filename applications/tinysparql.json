@@ -5,10 +5,12 @@
   "category": "",
   "dependencies": {
     "required": [
-      "json-glib",
       "glib2",
       "icu",
-      "python-modules.pygobject3"
+      "json-glib",
+      "libsoup3",
+      "python-modules.pygobject3",
+      "vala"
     ]
   },
   "build": {

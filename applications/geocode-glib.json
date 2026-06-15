@@ -7,8 +7,9 @@
   ],
   "dependencies": {
     "required": [
+      "glib2",
       "json-glib",
-      "glib2"
+      "libsoup3"
     ]
   },
   "build": {

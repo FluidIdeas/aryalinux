@@ -6,6 +6,7 @@
   "dependencies": {
     "required": [
       "cmake",
+      "glslang",
       "spirv-tools"
     ]
   },

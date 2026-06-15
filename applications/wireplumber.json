@@ -6,10 +6,9 @@
   "dependencies": {
     "required": [
       "glib2",
-      "pipewire",
-      "systemd",
       "linux-pam",
-      "lua"
+      "lua",
+      "pipewire"
     ]
   },
   "build": {

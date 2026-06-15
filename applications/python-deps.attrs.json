@@ -7,8 +7,8 @@
   ],
   "dependencies": {
     "required": [
-      "python-deps.hatchling",
-      "python-deps.hatch-fancy-pypi-readme"
+      "python-deps.hatch-fancy-pypi-readme",
+      "python-deps.hatchling"
     ]
   },
   "build": {

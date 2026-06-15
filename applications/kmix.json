@@ -5,8 +5,8 @@
   "category": "",
   "dependencies": {
     "required": [
-      "frameworks6",
-      "alsa-lib"
+      "alsa-lib",
+      "frameworks6"
     ]
   },
   "build": {

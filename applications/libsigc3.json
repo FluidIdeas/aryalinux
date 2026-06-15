@@ -1,0 +1,33 @@
+{
+  "name": "libsigc3",
+  "version": "3.6.0",
+  "description": "Typesafe callback system for C++ (sigc++-3.0 API for glibmm2/gtkmm4).",
+  "category": "libraries",
+  "url": [
+    "https://download.gnome.org/sources/libsigc++/3.6/libsigc++-3.6.0.tar.xz"
+  ],
+  "dependencies": {
+    "required": [
+      "boost",
+      "libxslt"
+    ]
+  },
+  "build": {
+    "user": [
+      "sed -i \"s/'system',//\" meson.build",
+      "meson setup bld --prefix=/usr --buildtype=release .",
+      "ninja -C bld"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C bld install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "general/libsigc3.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -8,6 +8,7 @@
   "dependencies": {
     "required": [
       "cyrus-sasl",
+      "libnsl",
       "lmdb"
     ]
   },

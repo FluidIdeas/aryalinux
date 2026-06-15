@@ -14,8 +14,8 @@ class PortDependencies:
     recommended: list[str] = field(default_factory=list)
     optional: list[str] = field(default_factory=list)
     pre: list[str] = field(default_factory=list)
+    runtime: list[str] = field(default_factory=list)
     post: list[str] = field(default_factory=list)
-    rebuild_after: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -62,6 +62,17 @@ def _dedupe(urls: list[str]) -> list[str]:
     return out
 
 
+def _merge_dep_lists(*lists: list[str]) -> list[str]:
+    merged: list[str] = []
+    seen: set[str] = set()
+    for items in lists:
+        for item in items:
+            if item not in seen:
+                seen.add(item)
+                merged.append(item)
+    return merged
+
+
 @dataclass
 class Port:
     name: str
@@ -76,6 +87,7 @@ class Port:
     post_install: list[str] = field(default_factory=list)
     meta: bool = False
     book: str = ""
+    build_profile: str = ""
 
 
 def _parse_port(data: dict[str, Any]) -> Port:
@@ -101,8 +113,11 @@ def _parse_port(data: dict[str, Any]) -> Port:
             recommended=deps_raw.get("recommended", []),
             optional=deps_raw.get("optional", []),
             pre=deps_raw.get("pre", []),
-            post=deps_raw.get("post", []),
-            rebuild_after=deps_raw.get("rebuild_after", []),
+            runtime=deps_raw.get("runtime", []),
+            post=_merge_dep_lists(
+                deps_raw.get("post", []),
+                deps_raw.get("rebuild_after", []),
+            ),
         ),
         build=PortBuild(
             pre=build_raw.get("pre", []),
@@ -118,6 +133,7 @@ def _parse_port(data: dict[str, Any]) -> Port:
         post_install=data.get("post_install", []),
         meta=data.get("meta", False),
         book=data.get("book", ""),
+        build_profile=data.get("buildProfile", ""),
     )
 
 

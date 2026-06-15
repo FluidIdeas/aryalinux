@@ -7,8 +7,8 @@
   ],
   "dependencies": {
     "required": [
-      "talloc",
-      "mitkrb"
+      "mitkrb",
+      "talloc"
     ]
   },
   "build": {

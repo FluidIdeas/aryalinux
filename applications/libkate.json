@@ -5,7 +5,15 @@
   "category": "multimedia",
   "dependencies": {
     "required": [
-      "libogg"
+      "alsa-lib",
+      "desktop-file-utils",
+      "ffmpeg",
+      "installing",
+      "liba52",
+      "libgcrypt",
+      "libmad",
+      "lua",
+      "qt6"
     ]
   },
   "build": {

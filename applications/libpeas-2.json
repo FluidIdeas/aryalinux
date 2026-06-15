@@ -9,9 +9,6 @@
   "dependencies": {
     "required": [
       "glib2"
-    ],
-    "optional": [
-      "python-modules.pygobject3"
     ]
   },
   "build": {

@@ -7,10 +7,12 @@
   ],
   "dependencies": {
     "required": [
-      "gsound",
-      "libnotify",
       "glib2",
-      "libadwaita"
+      "gsound",
+      "gtk4",
+      "libadwaita",
+      "libnotify",
+      "upower"
     ]
   },
   "build": {

@@ -9,7 +9,8 @@
     "required": [
       "dbus",
       "glib2",
-      "patchelf"
+      "patchelf",
+      "python-dependencies"
     ]
   },
   "build": {

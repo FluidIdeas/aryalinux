@@ -6,6 +6,7 @@
   "dependencies": {
     "required": [
       "libqtxdg",
+      "lxqt-kwindowsystem",
       "polkit-qt"
     ]
   },

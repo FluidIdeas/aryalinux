@@ -3,9 +3,6 @@
   "version": "1.0.44",
   "description": "Service collection of DDE applications, including dconfig-center (Deepin Desktop Environment).",
   "category": "desktop-deepin",
-  "dependencies": {
-    "required": []
-  },
   "build": {
     "user": [
       "cmake . -GNinja -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_INSTALL_LIBEXECDIR=lib -DCMAKE_INSTALL_SYSCONFDIR=/etc ",

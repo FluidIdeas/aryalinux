@@ -7,8 +7,8 @@
   ],
   "dependencies": {
     "required": [
-      "frameworks6",
-      "exiv2"
+      "exiv2",
+      "frameworks6"
     ]
   },
   "build": {

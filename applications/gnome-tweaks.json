@@ -7,8 +7,10 @@
   ],
   "dependencies": {
     "required": [
+      "gsettings-desktop-schemas",
       "gtk4",
       "libadwaita",
+      "libgudev",
       "python-modules.pygobject3",
       "sound-theme-freedesktop"
     ]

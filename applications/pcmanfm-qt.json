@@ -5,10 +5,11 @@
   "category": "",
   "dependencies": {
     "required": [
-      "lxqt-layer-shell-qt",
+      "libfm-qt",
       "liblxqt",
+      "lxqt-layer-shell-qt",
       "lxqt-menu-data",
-      "gvfs"
+      "oxygen-icons"
     ]
   },
   "build": {

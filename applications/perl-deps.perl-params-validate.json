@@ -7,10 +7,10 @@
   ],
   "dependencies": {
     "required": [
-      "perl-modules.perl-module-build",
       "perl-deps.perl-module-implementation",
       "perl-deps.perl-test-fatal",
-      "perl-deps.perl-test-requires"
+      "perl-deps.perl-test-requires",
+      "perl-modules.perl-module-build"
     ]
   },
   "build": {

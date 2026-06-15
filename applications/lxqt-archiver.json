@@ -5,8 +5,9 @@
   "category": "",
   "dependencies": {
     "required": [
+      "json-glib",
       "libfm-qt",
-      "json-glib"
+      "liblxqt"
     ]
   },
   "build": {

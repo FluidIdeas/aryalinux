@@ -7,15 +7,16 @@
   ],
   "dependencies": {
     "required": [
-      "libndp",
       "curl",
       "glib2",
+      "iptables",
+      "libndp",
+      "libpsl",
       "newt",
       "nss",
-      "polkit",
       "python-modules.pygobject3",
       "systemd",
-      "wpa_supplicant"
+      "vala"
     ]
   },
   "build": {

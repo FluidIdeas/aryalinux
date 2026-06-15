@@ -12,6 +12,7 @@
       "cairo",
       "colord",
       "dconf",
+      "egl-wayland",
       "fontconfig",
       "fribidi",
       "gdk-pixbuf",
@@ -50,9 +51,6 @@
       "systemd",
       "wayland",
       "xwayland"
-    ],
-    "recommended": [
-      "egl-wayland"
     ]
   },
   "build": {

@@ -7,8 +7,8 @@
   ],
   "dependencies": {
     "required": [
-      "perl-deps.perl-text-diff",
-      "perl-deps.perl-capture-tiny"
+      "perl-deps.perl-capture-tiny",
+      "perl-deps.perl-text-diff"
     ]
   },
   "build": {

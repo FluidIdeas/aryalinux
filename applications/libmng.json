@@ -8,8 +8,8 @@
   ],
   "dependencies": {
     "required": [
-      "libjpeg",
-      "lcms2"
+      "lcms2",
+      "libjpeg"
     ]
   },
   "build": {

@@ -8,11 +8,9 @@
   "dependencies": {
     "required": [
       "freetype2",
+      "glib2",
       "graphite2",
       "icu"
-    ],
-    "recommended": [
-      "glib2"
     ]
   },
   "build": {

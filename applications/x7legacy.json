@@ -1,18 +1,11 @@
 {
   "name": "x7legacy",
   "version": "7",
-  "description": "BLFS Xorg Legacy Fonts chapter \u2014 bitmap fonts and bdftopcf for packages that still require them.",
+  "description": "BLFS Xorg Legacy Fonts chapter — bitmap fonts and bdftopcf for packages that still require them.",
   "category": "metapackage",
   "dependencies": {
     "required": [
-      "x7font",
-      "bdftopcf",
-      "font-adobe-100dpi",
-      "font-adobe-75dpi",
-      "font-jis-misc",
-      "font-daewoo-misc",
-      "font-isas-misc",
-      "font-misc-misc"
+      "x7font"
     ]
   },
   "build": {},

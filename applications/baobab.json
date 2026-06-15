@@ -9,7 +9,9 @@
     "required": [
       "adwaita-icon-theme",
       "gtk4",
-      "itstool"
+      "itstool",
+      "libadwaita",
+      "vala"
     ]
   },
   "build": {

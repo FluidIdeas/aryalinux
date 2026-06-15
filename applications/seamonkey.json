@@ -8,11 +8,17 @@
   "dependencies": {
     "required": [
       "cbindgen",
-      "libarchive",
-      "zip",
+      "gtk3",
       "icu",
+      "libarchive",
+      "libevent",
+      "libwebp",
       "llvm",
-      "nss"
+      "nasm",
+      "nspr",
+      "nss",
+      "pulseaudio",
+      "zip"
     ]
   },
   "build": {

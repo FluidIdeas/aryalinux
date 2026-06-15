@@ -9,7 +9,16 @@
   ],
   "dependencies": {
     "required": [
-      "installing"
+      "cairo",
+      "fontconfig",
+      "freetype2",
+      "graphite2",
+      "harfbuzz",
+      "icu",
+      "installing",
+      "libpaper",
+      "libpng",
+      "tex-path"
     ]
   },
   "build": {

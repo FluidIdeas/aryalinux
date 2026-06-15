@@ -9,7 +9,8 @@
     "required": [
       "perl-deps.perl-exception-class",
       "perl-deps.perl-specio",
-      "perl-deps.perl-test-without-module"
+      "perl-deps.perl-test-without-module",
+      "perl-deps.perl-test2-plugin-nowarnings"
     ]
   },
   "build": {

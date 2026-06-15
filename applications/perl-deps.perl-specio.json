@@ -9,11 +9,13 @@
     "required": [
       "perl-deps.perl-devel-stacktrace",
       "perl-deps.perl-eval-closure",
+      "perl-deps.perl-module-runtime",
+      "perl-deps.perl-mro-compat",
       "perl-deps.perl-role-tiny",
       "perl-deps.perl-sub-quote",
-      "perl-deps.perl-try-tiny",
-      "perl-deps.perl-mro-compat",
-      "perl-deps.perl-test-needs"
+      "perl-deps.perl-test-fatal",
+      "perl-deps.perl-test-needs",
+      "perl-deps.perl-try-tiny"
     ]
   },
   "build": {

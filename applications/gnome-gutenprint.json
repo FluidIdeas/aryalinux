@@ -1,14 +1,14 @@
 {
-  "name": "gutenprint",
+  "name": "gnome-gutenprint",
   "version": "5.3.5",
-  "description": "The Gutenprint (formerly Gimp-Print) package contains high quality drivers for many brands and models of printers for use with Cups-2.4.16. See a list of supported printers at https://gimp-print.sourceforge.io/p_Supported_Printers.php.",
+  "description": "Gutenprint drivers for the GNOME CUPS stack. Do not install alongside kde-gutenprint.",
+  "category": "printing",
   "url": [
     "https://downloads.sourceforge.net/gimp-print/gutenprint-5.3.5.tar.xz"
   ],
   "dependencies": {
     "required": [
-      "cups",
-      "cups-filters"
+      "gnome-cups"
     ]
   },
   "build": {
@@ -26,7 +26,6 @@
   ],
   "meta": false,
   "book": "pst/gutenprint.html",
-  "category": "printing",
   "install": {
     "extract": [
       "tar -xJf $PACKAGE -C /"

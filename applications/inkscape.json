@@ -8,14 +8,21 @@
   "dependencies": {
     "required": [
       "boost",
+      "double-conversion",
       "gc",
       "gsl",
       "gtkmm3",
-      "imagemagick",
       "lcms2",
-      "potrace",
+      "libcanberra",
+      "libxslt",
+      "gnome-poppler",
+      "popt",
       "python-modules.cachecontrol",
-      "python-modules.cssselect"
+      "python-modules.cssselect",
+      "python-modules.lxml",
+      "python-modules.numpy",
+      "python-modules.pyserial",
+      "python-modules.scour"
     ]
   },
   "build": {

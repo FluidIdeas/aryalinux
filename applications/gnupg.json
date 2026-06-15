@@ -7,13 +7,12 @@
   ],
   "dependencies": {
     "required": [
+      "gnutls",
       "libassuan",
       "libgcrypt",
       "libksba",
-      "npth"
-    ],
-    "recommended": [
-      "gnutls",
+      "npth",
+      "openldap",
       "pinentry"
     ]
   },

@@ -8,15 +8,11 @@
   ],
   "dependencies": {
     "required": [
+      "cmake",
+      "extra-cmake-modules",
       "linux-pam",
-      "libxkbcommon",
+      "python-modules.docutils",
       "qt6",
-      "systemd",
-      "xauth",
-      "xcb-util-cursor",
-      "xorg-server"
-    ],
-    "recommended": [
       "upower"
     ]
   },

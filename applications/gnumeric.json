@@ -7,10 +7,11 @@
   ],
   "dependencies": {
     "required": [
+      "adwaita-icon-theme",
       "goffice010",
-      "oxygen-icons",
-      "gnome-icon-theme",
       "installing",
+      "itstool",
+      "oxygen-icons",
       "yelp"
     ]
   },

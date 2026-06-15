@@ -5,9 +5,11 @@
   "category": "",
   "dependencies": {
     "required": [
+      "gst10-plugins-bad",
       "libadwaita",
-      "rust",
       "pipewire",
+      "rust",
+      "xdg-desktop-portal-gnome",
       "xdg-user-dirs"
     ]
   },

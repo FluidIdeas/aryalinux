@@ -8,8 +8,10 @@
   "dependencies": {
     "required": [
       "docbook",
+      "docbook-xsl",
       "glib2",
       "itstool",
+      "libxslt",
       "python-modules.pygments"
     ]
   },

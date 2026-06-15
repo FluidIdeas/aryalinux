@@ -8,7 +8,8 @@
   "dependencies": {
     "required": [
       "atkmm",
-      "gtk3"
+      "gtk3",
+      "pangomm"
     ]
   },
   "build": {

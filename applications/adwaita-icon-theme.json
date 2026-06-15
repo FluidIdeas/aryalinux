@@ -7,11 +7,9 @@
   ],
   "dependencies": {
     "required": [
-      "librsvg"
-    ],
-    "recommended": [
       "gtk3",
-      "gtk4"
+      "gtk4",
+      "librsvg"
     ]
   },
   "build": {

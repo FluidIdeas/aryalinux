@@ -5,7 +5,7 @@
   "category": "",
   "dependencies": {
     "required": [
-      "python-deps.attrs"
+      "python-dependencies"
     ]
   },
   "build": {

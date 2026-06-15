@@ -8,8 +8,10 @@
   "dependencies": {
     "required": [
       "perl-deps.perl-class-tiny",
+      "perl-deps.perl-file-copy-recursive",
       "perl-deps.perl-file-sharedir",
       "perl-deps.perl-path-tiny",
+      "perl-deps.perl-scope-guard",
       "perl-deps.perl-test-fatal"
     ]
   },

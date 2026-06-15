@@ -6,7 +6,8 @@
   "dependencies": {
     "required": [
       "cairomm-1.16",
-      "glibmm2"
+      "glibmm2",
+      "pango"
     ]
   },
   "build": {

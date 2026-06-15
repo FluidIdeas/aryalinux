@@ -6,6 +6,7 @@
   "dependencies": {
     "required": [
       "liblxqt",
+      "lxqt-kidletime",
       "lxqt-solid",
       "upower"
     ]

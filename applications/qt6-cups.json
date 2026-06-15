@@ -7,11 +7,30 @@
   ],
   "dependencies": {
     "required": [
-      "cups",
-      "qt6"
-    ],
-    "recommended": [
-      "ffmpeg"
+      "alsa-lib",
+      "kde-cups",
+      "double-conversion",
+      "ffmpeg",
+      "glib2",
+      "gst10-plugins-bad",
+      "gst10-plugins-base",
+      "gst10-plugins-good",
+      "harfbuzz",
+      "icu",
+      "jasper",
+      "libinput",
+      "libjpeg",
+      "libmng",
+      "libpng",
+      "libtiff",
+      "libwebp",
+      "libxkbcommon",
+      "make-ca",
+      "mesa",
+      "mtdev",
+      "wayland",
+      "x7lib",
+      "xcb-utilities"
     ]
   },
   "build": {

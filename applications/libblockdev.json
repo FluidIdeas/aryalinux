@@ -12,7 +12,8 @@
       "keyutils",
       "libatasmart",
       "libbytesize",
-      "libnvme"
+      "libnvme",
+      "lvm2"
     ]
   },
   "build": {

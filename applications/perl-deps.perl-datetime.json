@@ -7,10 +7,11 @@
   ],
   "dependencies": {
     "required": [
+      "perl-deps.perl-cpan-meta-check",
       "perl-deps.perl-datetime-locale",
       "perl-deps.perl-datetime-timezone",
-      "perl-deps.perl-cpan-meta-check",
       "perl-deps.perl-test-fatal",
+      "perl-deps.perl-test-warnings",
       "perl-deps.perl-test-without-module"
     ]
   },

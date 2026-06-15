@@ -3,9 +3,6 @@
   "version": "0.9.0",
   "description": "YAML parser/emitter for C++ (dde-shell dependency).",
   "category": "libraries",
-  "dependencies": {
-    "required": []
-  },
   "build": {
     "user": [
       "cmake -B build -DCMAKE_INSTALL_PREFIX=/usr -DYAML_BUILD_SHARED_LIBS=ON",

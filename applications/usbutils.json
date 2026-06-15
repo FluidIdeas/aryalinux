@@ -7,8 +7,7 @@
   ],
   "dependencies": {
     "required": [
-      "libusb",
-      "hwdata"
+      "libusb"
     ]
   },
   "build": {

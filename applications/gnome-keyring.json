@@ -9,7 +9,9 @@
     "required": [
       "dbus",
       "gcr",
-      "linux-pam"
+      "libxslt",
+      "linux-pam",
+      "openssh"
     ]
   },
   "build": {

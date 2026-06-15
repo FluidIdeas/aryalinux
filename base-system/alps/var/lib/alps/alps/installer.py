@@ -38,27 +38,37 @@ def _installed_set(installed_dir: Path) -> set[str]:
     return {p.stem for p in installed_dir.glob("*.json")}
 
 
-def _rebuild_candidates(
-    ports_dir: Path,
-    *,
-    order: list[str],
-    available: set[str],
+def _run_post_rebuilds(
+    paths: dict[str, Path],
+    parent: str,
+    post_deps: list[str],
 ) -> list[str]:
-    """Ports that should be rebuilt now that bootstrap partners are available."""
-    candidates: list[str] = []
-    seen: set[str] = set()
-    for name in order:
-        if name in seen:
+    """Rebuild packages listed in *parent*'s post dependencies."""
+    rebuilt: list[str] = []
+    for dep in post_deps:
+        if dep == parent:
             continue
-        seen.add(name)
+        print(f"=== post rebuild {dep} (after {parent}) ===")
+        _install_one(paths, dep, force=True, rebuilding=True)
+        rebuilt.append(dep)
+    return rebuilt
+
+
+def _collect_post_rebuilds(
+    ports_dir: Path,
+    order: list[str],
+) -> list[tuple[str, str]]:
+    """Return (parent, post_dep) pairs for packages in *order*."""
+    pairs: list[tuple[str, str]] = []
+    for name in order:
         try:
             port = load_port(ports_dir, name)
         except FileNotFoundError:
             continue
-        triggers = port.dependencies.rebuild_after
-        if triggers and all(trigger in available for trigger in triggers):
-            candidates.append(name)
-    return candidates
+        for dep in port.dependencies.post:
+            if dep != name:
+                pairs.append((name, dep))
+    return pairs
 
 
 def force_install_command(names: list[str]) -> str:
@@ -113,6 +123,7 @@ def _install_one(
     *,
     force: bool,
     requested: bool = False,
+    rebuilding: bool = False,
 ) -> None:
     keep_requested = False
     if is_installed(paths["installed"], name):
@@ -125,7 +136,7 @@ def _install_one(
             remove_files(old.files)
         remove_record(paths["installed"], name)
     port = load_port(paths["ports"], name)
-    label = "rebuilding" if force and port.dependencies.rebuild_after else "installing"
+    label = "rebuilding" if rebuilding else "installing"
     print(f"=== {label} {name} {port.version} ===")
     user_requested = requested or keep_requested
     if port.meta:
@@ -160,7 +171,7 @@ def _resolve_install(
     names: list[str],
     *,
     include_recommended: bool,
-) -> tuple[ResolvedInstallPlan, list[str]]:
+) -> tuple[ResolvedInstallPlan, list[tuple[str, str]]]:
     installed = _installed_set(paths["installed"])
     resolved = resolve_packages_for_install(
         paths["ports"],
@@ -168,12 +179,8 @@ def _resolve_install(
         installed=installed,
         include_recommended=include_recommended,
     )
-    rebuild = _rebuild_candidates(
-        paths["ports"],
-        order=resolved.order,
-        available=installed | set(resolved.order),
-    )
-    return resolved, rebuild
+    post_rebuilds = _collect_post_rebuilds(paths["ports"], resolved.order)
+    return resolved, post_rebuilds
 
 
 def preview_install_plan(
@@ -182,14 +189,14 @@ def preview_install_plan(
     *,
     include_recommended: bool = False,
     user_targets: set[str] | None = None,
-) -> tuple[list[str], list[str]]:
-    """Return packages to install and any bootstrap rebuilds, in build order."""
+) -> tuple[list[str], list[tuple[str, str]]]:
+    """Return packages to install and planned post rebuilds, in build order."""
     del user_targets
     paths = _paths(config)
-    resolved, rebuild = _resolve_install(
+    resolved, post_rebuilds = _resolve_install(
         paths, names, include_recommended=include_recommended,
     )
-    return resolved.order, rebuild
+    return resolved.order, post_rebuilds
 
 
 def format_install_plan(
@@ -203,7 +210,7 @@ def format_install_plan(
     paths = _paths(config)
 
     def _build_report() -> InstallPlanReport:
-        resolved, rebuild = _resolve_install(
+        resolved, post_rebuilds = _resolve_install(
             paths, names, include_recommended=include_recommended,
         )
         lines: list[str] = []
@@ -213,7 +220,7 @@ def format_install_plan(
             lines.extend(_cycle_warning_lines(resolved.cycles, names))
             lines.append("")
 
-        if not order and not rebuild:
+        if not order and not post_rebuilds:
             if resolved.cycles:
                 return InstallPlanReport(text="\n".join(lines).rstrip(), can_proceed=False)
             return InstallPlanReport(
@@ -240,22 +247,22 @@ def format_install_plan(
             for name in resolved.deduplicated:
                 lines.append(f"  - {name}")
 
-        if rebuild:
+        if post_rebuilds:
             lines.append("")
             lines.append(
-                "These installed packages will be rebuilt once dependencies are in place:"
+                "These packages will be rebuilt after their parent installs:"
             )
-            for name in rebuild:
-                port = load_port(paths["ports"], name)
-                triggers = ", ".join(port.dependencies.rebuild_after)
+            for parent, dep in post_rebuilds:
+                port = load_port(paths["ports"], dep)
                 version = port.version or "?"
-                lines.append(f"  - {name} {version}  (rebuild_after: {triggers})")
+                lines.append(f"  - {dep} {version}  (post after {parent})")
 
         total = len(order)
-        if rebuild:
+        if post_rebuilds:
             lines.append("")
             lines.append(
-                f"Total: {total} package(s) to install, {len(rebuild)} rebuild(s)"
+                f"Total: {total} package(s) to install, "
+                f"{len(post_rebuilds)} post rebuild(s)"
             )
         else:
             lines.append("")
@@ -321,13 +328,11 @@ def install_packages(
         _install_one(paths, name, force=force, requested=name in explicit_targets)
         if not already or force:
             session_installed.append(name)
-
-    available = installed | set(session_installed)
-    for name in _rebuild_candidates(paths["ports"], order=order, available=available):
-        print(f"=== bootstrap rebuild {name} (after {', '.join(load_port(paths['ports'], name).dependencies.rebuild_after)}) ===")
-        _install_one(paths, name, force=True)
-        if name not in session_installed:
-            session_installed.append(name)
+        port = load_port(paths["ports"], name)
+        if port.dependencies.post:
+            for rebuilt in _run_post_rebuilds(paths, name, port.dependencies.post):
+                if rebuilt not in session_installed:
+                    session_installed.append(rebuilt)
 
 
 def remove_package(config: dict[str, str], name: str) -> None:

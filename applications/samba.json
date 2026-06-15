@@ -7,14 +7,20 @@
   ],
   "dependencies": {
     "required": [
-      "gnutls",
-      "perl-modules.perl-parse-yapp",
-      "rpcsvc-proto",
       "fuse",
+      "gnutls",
+      "gpgme",
       "icu",
       "jansson",
+      "libtasn1",
+      "libtirpc",
+      "libxslt",
+      "linux-pam",
+      "lmdb",
       "mitkrb",
-      "openldap"
+      "openldap",
+      "perl-modules.perl-parse-yapp",
+      "rpcsvc-proto"
     ]
   },
   "build": {

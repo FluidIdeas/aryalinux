@@ -6,9 +6,6 @@
   "url": [
     "https://github.com/elementary/sound-theme/archive/refs/tags/1.1.0.tar.gz"
   ],
-  "dependencies": {
-    "required": []
-  },
   "build": {
     "user": [
       "meson setup build --prefix=/usr -Dbuildtype=release  .",

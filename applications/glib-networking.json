@@ -8,7 +8,9 @@
   "dependencies": {
     "required": [
       "glib2",
-      "gsettings-desktop-schemas"
+      "gnutls",
+      "gsettings-desktop-schemas",
+      "make-ca"
     ]
   },
   "build": {

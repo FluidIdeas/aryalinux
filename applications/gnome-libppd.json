@@ -1,0 +1,30 @@
+{
+  "name": "gnome-libppd",
+  "version": "2.1.1",
+  "description": "libppd built against gnome-libcupsfilters. Do not install alongside kde-libppd.",
+  "category": "printing",
+  "dependencies": {
+    "required": [
+      "gnome-libcupsfilters"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr                \\\n            --disable-static             \\\n            --with-cups-rundir=/run/cups \\\n            --enable-ppdc-utils          \\\n            --docdir=/usr/share/doc/libppd-2.1.1",
+      "make"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  },
+  "meta": false,
+  "book": "pst/libppd.html",
+  "url": [
+    "https://github.com/OpenPrinting/libppd/releases/download/2.1.1/libppd-2.1.1.tar.xz"
+  ]
+}

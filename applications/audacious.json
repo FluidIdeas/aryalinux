@@ -8,9 +8,11 @@
   ],
   "dependencies": {
     "required": [
+      "ffmpeg",
       "gtk3",
       "mpg123",
-      "neon"
+      "neon",
+      "qt6"
     ]
   },
   "build": {

@@ -7,9 +7,11 @@
   ],
   "dependencies": {
     "required": [
-      "glib2",
       "alsa-lib",
-      "libslirp"
+      "glib2",
+      "libslirp",
+      "pixman",
+      "sdl2"
     ]
   },
   "build": {

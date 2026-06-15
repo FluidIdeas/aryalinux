@@ -7,7 +7,8 @@
   ],
   "dependencies": {
     "required": [
-      "libassuan"
+      "libassuan",
+      "libgpg-error"
     ]
   },
   "build": {

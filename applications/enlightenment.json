@@ -25,12 +25,6 @@
       "util-linux",
       "wayland",
       "xwayland"
-    ],
-    "optional": [
-      "bluez",
-      "fprintd",
-      "geoclue",
-      "packagekit"
     ]
   },
   "build": {

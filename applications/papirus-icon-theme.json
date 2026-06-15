@@ -8,9 +8,6 @@
     "https://sources.voidlinux.org/papirus-icon-theme-20250501/20250501.tar.gz",
     "http://deb.debian.org/debian/pool/main/p/papirus-icon-theme/papirus-icon-theme_20250501.orig.tar.gz"
   ],
-  "dependencies": {
-    "required": []
-  },
   "build": {
     "package": [
       "make DESTDIR=$DESTDIR install"

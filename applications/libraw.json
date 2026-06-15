@@ -7,9 +7,9 @@
   ],
   "dependencies": {
     "required": [
-      "libjpeg",
       "jasper",
-      "lcms2"
+      "lcms2",
+      "libjpeg"
     ]
   },
   "build": {

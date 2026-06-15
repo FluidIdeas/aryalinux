@@ -9,7 +9,10 @@
     "required": [
       "bluez",
       "gst10-plugins-base",
-      "pulseaudio"
+      "gstreamer10",
+      "pulseaudio",
+      "sbc",
+      "v4l-utils"
     ]
   },
   "build": {

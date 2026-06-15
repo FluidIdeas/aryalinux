@@ -7,9 +7,12 @@
   ],
   "dependencies": {
     "required": [
-      "x7lib",
+      "curl",
       "freeglut",
-      "openjpeg2"
+      "harfbuzz",
+      "libjpeg",
+      "openjpeg2",
+      "x7lib"
     ]
   },
   "build": {

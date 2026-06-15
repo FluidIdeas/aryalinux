@@ -11,12 +11,10 @@
       "glib2",
       "gtk3",
       "pango",
+      "python-modules.psutil",
       "python-modules.pygobject3",
       "python3",
       "xapp"
-    ],
-    "recommended": [
-      "python-modules.psutil"
     ]
   },
   "build": {

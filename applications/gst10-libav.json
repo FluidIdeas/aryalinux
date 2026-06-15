@@ -8,6 +8,7 @@
   "dependencies": {
     "required": [
       "ffmpeg",
+      "gst10-plugins-base",
       "yasm"
     ]
   },

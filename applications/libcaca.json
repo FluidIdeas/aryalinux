@@ -3,7 +3,19 @@
   "version": "0.99.beta20",
   "description": "libcaca is a graphics library that renders graphics into ASCII art.",
   "category": "multimedia",
-  "dependencies": {},
+  "dependencies": {
+    "required": [
+      "alsa-lib",
+      "desktop-file-utils",
+      "ffmpeg",
+      "installing",
+      "liba52",
+      "libgcrypt",
+      "libmad",
+      "lua",
+      "qt6"
+    ]
+  },
   "build": {
     "user": [
       "./configure --prefix=/usr \\\n            --disable-static",

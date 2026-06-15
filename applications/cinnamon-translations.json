@@ -6,9 +6,6 @@
   "url": [
     "https://github.com/linuxmint/cinnamon-translations/archive/refs/tags/6.6.2.tar.gz"
   ],
-  "dependencies": {
-    "required": []
-  },
   "build": {
     "user": [
       "make -C cinnamon-translations-6.6.2"

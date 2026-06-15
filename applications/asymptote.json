@@ -8,13 +8,14 @@
   ],
   "dependencies": {
     "required": [
-      "gs",
-      "texlive",
       "curl",
+      "freeglut",
       "gc",
       "glew",
+      "glm",
+      "gnome-gs",
       "libtirpc",
-      "dvisvgm"
+      "texlive"
     ]
   },
   "build": {

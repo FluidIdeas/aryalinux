@@ -8,12 +8,10 @@
   ],
   "dependencies": {
     "required": [
+      "gnome-shell",
       "gtk3",
       "gtk4",
       "sassc"
-    ],
-    "recommended": [
-      "gnome-shell"
     ]
   },
   "build": {

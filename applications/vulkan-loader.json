@@ -7,8 +7,8 @@
     "required": [
       "cmake",
       "vulkan-headers",
-      "x7lib",
-      "wayland"
+      "wayland",
+      "x7lib"
     ]
   },
   "build": {

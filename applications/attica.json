@@ -8,23 +8,23 @@
   ],
   "dependencies": {
     "required": [
-      "extra-cmake-modules",
       "breeze-icons",
       "docbook",
       "docbook-xsl",
+      "extra-cmake-modules",
       "libcanberra",
       "libgcrypt",
       "libical",
+      "libqrencode",
       "libsecret",
       "libxslt",
       "lmdb",
-      "qca",
-      "libqrencode",
+      "perl-modules.perl-uri",
       "plasma-wayland-protocols",
       "python-modules.PyYAML",
-      "shared-mime-info",
-      "perl-modules.perl-uri",
-      "qt6"
+      "qca",
+      "qt6",
+      "shared-mime-info"
     ]
   },
   "build": {

@@ -7,8 +7,8 @@
   ],
   "dependencies": {
     "required": [
-      "perl-deps.perl-module-implementation",
-      "perl-deps.perl-list-someutils-xs"
+      "perl-deps.perl-list-someutils-xs",
+      "perl-deps.perl-module-implementation"
     ]
   },
   "build": {

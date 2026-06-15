@@ -12,9 +12,6 @@
       "pulseaudio",
       "wayland",
       "wayland-protocols"
-    ],
-    "optional": [
-      "slurp"
     ]
   },
   "build": {

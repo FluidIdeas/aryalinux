@@ -7,8 +7,11 @@
   ],
   "dependencies": {
     "required": [
+      "libtasn1",
+      "libunistring",
+      "make-ca",
       "nettle",
-      "make-ca"
+      "p11-kit"
     ]
   },
   "build": {

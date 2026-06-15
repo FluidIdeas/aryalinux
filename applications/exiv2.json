@@ -7,8 +7,9 @@
   ],
   "dependencies": {
     "required": [
-      "cmake",
       "brotli",
+      "cmake",
+      "curl",
       "inih"
     ]
   },

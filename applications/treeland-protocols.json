@@ -3,9 +3,6 @@
   "version": "0.5.8",
   "description": "Wayland protocols for Treeland compositor.",
   "category": "libraries",
-  "dependencies": {
-    "required": []
-  },
   "build": {
     "user": [
       "cmake . -GNinja -DCMAKE_INSTALL_PREFIX=/usr",

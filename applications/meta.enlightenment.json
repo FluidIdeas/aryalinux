@@ -6,15 +6,15 @@
   "url": [],
   "dependencies": {
     "required": [
+      "adwaita-icon-theme",
       "bc",
       "connman",
+      "dejavu-fonts-ttf",
       "efl",
       "enlightenment",
-      "lua52",
-      "hicolor-icon-theme",
-      "adwaita-icon-theme",
       "gnome-backgrounds",
-      "dejavu-fonts-ttf"
+      "hicolor-icon-theme",
+      "lua52"
     ]
   },
   "build": {},

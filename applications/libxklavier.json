@@ -9,6 +9,7 @@
     "required": [
       "glib2",
       "iso-codes",
+      "libxml2",
       "x7lib"
     ]
   },

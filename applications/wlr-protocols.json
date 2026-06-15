@@ -3,9 +3,6 @@
   "version": "20260206",
   "description": "Wayland protocol definitions for wlroots compositors.",
   "category": "libraries",
-  "dependencies": {
-    "required": []
-  },
   "build": {
     "user": [
       "meson setup build --prefix=/usr",

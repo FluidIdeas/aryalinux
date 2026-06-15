@@ -10,19 +10,28 @@
       "evolution-data-server",
       "gcr4",
       "gjs",
+      "gnome-desktop",
+      "ibus",
       "mutter",
-      "startup-notification",
+      "polkit",
+      "startup-notification"
+    ],
+    "recommended": [
       "desktop-file-utils",
       "gnome-autoar",
+      "gnome-bluetooth",
       "gst10-plugins-base",
       "networkmanager",
-      "power-profiles-daemon",
+      "power-profiles-daemon"
+    ],
+    "runtime": [
       "adwaita-icon-theme",
       "dconf",
       "gdm",
       "gnome-control-center",
+      "gnome-menus",
       "libgweather",
-      "gnome-menus"
+      "systemd"
     ]
   },
   "build": {

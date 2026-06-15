@@ -5,7 +5,8 @@
   "category": "",
   "dependencies": {
     "required": [
-      "libadwaita"
+      "libadwaita",
+      "libxkbcommon"
     ]
   },
   "build": {

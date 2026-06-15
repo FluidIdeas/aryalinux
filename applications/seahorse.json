@@ -8,11 +8,16 @@
   "dependencies": {
     "required": [
       "gcr",
+      "gnome-keyring",
       "gnupg",
+      "gpgme",
       "itstool",
+      "libhandy1",
       "libpwquality",
-      "vala",
-      "libsoup3"
+      "libsecret",
+      "libsoup3",
+      "openssh",
+      "vala"
     ]
   },
   "build": {

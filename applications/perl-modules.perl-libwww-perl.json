@@ -9,9 +9,15 @@
     "required": [
       "perl-deps.perl-file-listing",
       "perl-deps.perl-http-cookies",
-      "perl-modules.perl-html-parser",
+      "perl-deps.perl-http-negotiate",
+      "perl-deps.perl-net-http",
       "perl-deps.perl-test-fatal",
-      "perl-deps.perl-test-requiresinternet"
+      "perl-deps.perl-test-needs",
+      "perl-deps.perl-test-requiresinternet",
+      "perl-deps.perl-try-tiny",
+      "perl-deps.perl-www-robotrules",
+      "perl-modules.perl-html-parser",
+      "perl-modules.perl-http-daemon"
     ]
   },
   "build": {

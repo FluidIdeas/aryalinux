@@ -8,7 +8,8 @@
   "dependencies": {
     "required": [
       "cmake",
-      "libva"
+      "libva",
+      "xorg7"
     ]
   },
   "build": {

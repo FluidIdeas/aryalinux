@@ -22,9 +22,7 @@
       "scdoc",
       "seatd",
       "wayland",
-      "wlroots0.20"
-    ],
-    "recommended": [
+      "wlroots0.20",
       "xwayland"
     ]
   },

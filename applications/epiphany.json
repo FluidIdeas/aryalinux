@@ -8,8 +8,13 @@
   "dependencies": {
     "required": [
       "gcr4",
+      "gnome-desktop",
+      "iso-codes",
       "json-glib",
       "libadwaita",
+      "libportal",
+      "nettle",
+      "python-modules.blueprint-compiler",
       "webkitgtk"
     ]
   },

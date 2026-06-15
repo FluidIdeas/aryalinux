@@ -10,9 +10,10 @@
   ],
   "dependencies": {
     "required": [
-      "sgml-common",
-      "docbook-3.1-dtd",
-      "opensp"
+      "docbook",
+      "openjade",
+      "opensp",
+      "sgml-common"
     ]
   },
   "build": {

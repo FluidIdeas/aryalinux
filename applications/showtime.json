@@ -6,7 +6,9 @@
   "dependencies": {
     "required": [
       "gst10-plugins-base",
-      "libadwaita"
+      "libadwaita",
+      "python-modules.blueprint-compiler",
+      "python-modules.pygobject3"
     ]
   },
   "build": {

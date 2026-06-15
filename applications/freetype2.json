@@ -10,15 +10,10 @@
   ],
   "dependencies": {
     "required": [
-      "libpng"
-    ],
-    "recommended": [
+      "libpng",
       "which"
     ],
-    "post": [
-      "harfbuzz"
-    ],
-    "rebuild_after": [
+    "runtime": [
       "harfbuzz"
     ]
   },

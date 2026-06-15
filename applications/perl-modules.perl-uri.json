@@ -9,6 +9,7 @@
     "required": [
       "perl-deps.perl-mime-base32",
       "perl-deps.perl-test-fatal",
+      "perl-deps.perl-test-needs",
       "perl-deps.perl-test-warnings"
     ]
   },

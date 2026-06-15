@@ -8,7 +8,8 @@
   ],
   "dependencies": {
     "required": [
-      "cups",
+      "kde-cups",
+      "kde-cups-filters",
       "frameworks6",
       "plasma-integration",
       "qt6-cups",

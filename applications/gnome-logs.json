@@ -7,8 +7,10 @@
   ],
   "dependencies": {
     "required": [
+      "gsettings-desktop-schemas",
       "gtk4",
-      "itstool"
+      "itstool",
+      "libadwaita"
     ]
   },
   "build": {

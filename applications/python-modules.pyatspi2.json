@@ -7,9 +7,9 @@
   ],
   "dependencies": {
     "required": [
+      "at-spi2-core",
       "python-modules.dbus-python",
-      "python-modules.pygobject3",
-      "at-spi2-core"
+      "python-modules.pygobject3"
     ]
   },
   "build": {

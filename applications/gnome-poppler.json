@@ -1,0 +1,47 @@
+{
+  "name": "gnome-poppler",
+  "version": "26.02.0",
+  "description": "Poppler PDF library built without Qt bindings for GNOME and other GTK stacks. Do not install alongside kde-poppler (same install paths).",
+  "category": "desktop-gnome",
+  "url": [
+    "https://poppler.freedesktop.org/poppler-26.02.0.tar.xz"
+  ],
+  "additionalUrls": [
+    "https://poppler.freedesktop.org/poppler-data-0.4.12.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "boost",
+      "cairo",
+      "cmake",
+      "fontconfig",
+      "glib2",
+      "gpgmepp",
+      "lcms2",
+      "libjpeg",
+      "libpng",
+      "libtiff",
+      "nss",
+      "openjpeg2"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_BUILD_TYPE=Release   \\\n      -D CMAKE_INSTALL_PREFIX=/usr  \\\n      -D TESTDATADIR=$PWD/build/testfiles \\\n      -D ENABLE_QT5=OFF             \\\n      -D ENABLE_QT6=OFF             \\\n      -D ENABLE_UNSTABLE_API_ABI_HEADERS=ON \\\n      -G Ninja .",
+      "ninja -C build",
+      "tar -xf ../../poppler-data-0.4.12.tar.gz"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "make -C poppler-data-0.4.12 prefix=/usr DESTDIR=$DESTDIR install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "general/poppler.html",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

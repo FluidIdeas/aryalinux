@@ -6,9 +6,6 @@
   "url": [
     "https://github.com/elementary/wallpapers/archive/refs/tags/8.0.0.tar.gz"
   ],
-  "dependencies": {
-    "required": []
-  },
   "build": {
     "user": [
       "meson setup build --prefix=/usr -Dbuildtype=release  .",

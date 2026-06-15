@@ -8,12 +8,17 @@
   "dependencies": {
     "required": [
       "cmake",
+      "fltk",
       "gnutls",
+      "imagemagick",
+      "libgcrypt",
+      "libjpeg",
+      "linux-pam",
       "pixman",
       "systemd",
       "x7app",
-      "xinit",
-      "imagemagick"
+      "x7legacy",
+      "xinit"
     ]
   },
   "build": {

@@ -8,14 +8,9 @@
   "dependencies": {
     "required": [
       "babl",
-      "json-glib"
-    ],
-    "recommended": [
       "glib2",
+      "json-glib",
       "python-modules.pygments"
-    ],
-    "post": [
-      "graphviz"
     ]
   },
   "build": {

@@ -7,12 +7,12 @@
   ],
   "dependencies": {
     "required": [
-      "which",
       "brotli",
       "c-ares",
       "icu",
       "libuv",
-      "nghttp2"
+      "nghttp2",
+      "which"
     ]
   },
   "build": {

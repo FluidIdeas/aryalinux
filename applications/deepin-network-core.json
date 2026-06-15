@@ -3,9 +3,6 @@
   "version": "2.0.70",
   "description": "DDE network library and plugins (Deepin Desktop Environment).",
   "category": "desktop-deepin",
-  "dependencies": {
-    "required": []
-  },
   "build": {
     "user": [
       "cmake . -GNinja -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib -DCMAKE_INSTALL_LIBEXECDIR=lib -DCMAKE_INSTALL_SYSCONFDIR=/etc ",

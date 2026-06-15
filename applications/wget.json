@@ -7,8 +7,7 @@
   ],
   "dependencies": {
     "required": [
-      "libpsl",
-      "make-ca"
+      "libpsl"
     ]
   },
   "build": {

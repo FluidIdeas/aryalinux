@@ -8,9 +8,9 @@
   "dependencies": {
     "required": [
       "exo",
+      "gvfs",
       "libgudev",
-      "libnotify",
-      "gvfs"
+      "libnotify"
     ]
   },
   "build": {

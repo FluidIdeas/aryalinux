@@ -7,9 +7,9 @@
   ],
   "dependencies": {
     "required": [
+      "gspell",
       "gtksourceview4",
-      "libxfce4ui",
-      "gspell"
+      "libxfce4ui"
     ]
   },
   "build": {

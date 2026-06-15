@@ -8,6 +8,8 @@
   "dependencies": {
     "required": [
       "libxml2",
+      "perl-deps.perl-alien-build-plugin-download-gitlab",
+      "perl-deps.perl-path-tiny",
       "perl-deps.perl-test-simple"
     ]
   },

@@ -65,24 +65,11 @@ def ensure_state_dir(path: Path) -> None:
 
 
 def write_state_file(path: Path, content: str, *, mode: str = "644") -> None:
-    if os.geteuid() == 0:
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(content, encoding="utf-8")
-        path.chmod(int(mode, 8))
-        return
-    try:
-        path.write_text(content, encoding="utf-8")
-        return
-    except OSError as exc:
-        if exc.errno != 13:
-            raise
-    with tempfile.NamedTemporaryFile("w", encoding="utf-8", delete=False) as tmp:
-        tmp.write(content)
-        tmp_path = tmp.name
-    try:
-        run_cmd(f'install -m {mode} "{tmp_path}" "{path}"', as_root=True)
-    finally:
-        os.unlink(tmp_path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_name(f".{path.name}.tmp")
+    tmp.write_text(content, encoding="utf-8")
+    tmp.replace(path)
+    path.chmod(int(mode, 8))
 
 
 def remove_state_file(path: Path) -> None:

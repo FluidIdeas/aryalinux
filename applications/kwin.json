@@ -10,13 +10,11 @@
     "required": [
       "frameworks6",
       "kwin-x11",
+      "libei",
       "libinput",
       "qt6",
       "wayland",
       "xwayland"
-    ],
-    "recommended": [
-      "libei"
     ]
   },
   "build": {

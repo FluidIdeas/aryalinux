@@ -8,7 +8,10 @@
   "dependencies": {
     "required": [
       "gtk3",
-      "librsvg"
+      "libgsf",
+      "librsvg",
+      "libxslt",
+      "which"
     ]
   },
   "build": {

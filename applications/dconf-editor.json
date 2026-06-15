@@ -8,10 +8,12 @@
   ],
   "dependencies": {
     "required": [
-      "dconf",
+      "dbus",
+      "glib2",
       "gtk3",
       "libhandy1",
       "libxml2",
+      "libxslt",
       "vala"
     ]
   },

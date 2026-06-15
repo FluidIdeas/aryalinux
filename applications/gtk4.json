@@ -8,16 +8,22 @@
   "dependencies": {
     "required": [
       "gdk-pixbuf",
+      "glib2",
+      "glslc",
+      "graphene",
+      "gst10-plugins-bad",
+      "hicolor-icon-theme",
       "iso-codes",
+      "libepoxy",
       "librsvg",
+      "libvpx",
+      "libxkbcommon",
       "pango",
       "python-modules.pygobject3",
-      "glslc",
-      "gst10-plugins-good",
-      "libvpx",
-      "glib2"
+      "vulkan-loader",
+      "wayland-protocols"
     ],
-    "post": [
+    "runtime": [
       "adwaita-icon-theme"
     ]
   },

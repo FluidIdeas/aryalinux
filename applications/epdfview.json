@@ -7,7 +7,11 @@
   ],
   "dependencies": {
     "required": [
-      "gtk3"
+      "gnome-cups",
+      "desktop-file-utils",
+      "gtk3",
+      "hicolor-icon-theme",
+      "gnome-poppler"
     ]
   },
   "build": {

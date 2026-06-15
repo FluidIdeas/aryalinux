@@ -7,8 +7,9 @@
   ],
   "dependencies": {
     "required": [
+      "glu",
       "gtk3",
-      "glu"
+      "x7app"
     ]
   },
   "build": {

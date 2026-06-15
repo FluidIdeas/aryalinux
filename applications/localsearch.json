@@ -5,13 +5,19 @@
   "category": "",
   "dependencies": {
     "required": [
-      "gexiv2",
-      "tinysparql",
       "exempi",
       "ffmpeg",
+      "gexiv2",
+      "giflib",
+      "gst10-plugins-base",
+      "icu",
       "libexif",
+      "libgxps",
       "libseccomp",
-      "poppler"
+      "libwebp",
+      "gnome-poppler",
+      "tinysparql",
+      "upower"
     ]
   },
   "build": {

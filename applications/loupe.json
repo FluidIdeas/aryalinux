@@ -5,9 +5,11 @@
   "category": "",
   "dependencies": {
     "required": [
-      "glycin",
+      "lcms2",
       "libadwaita",
-      "libseccomp"
+      "libgweather",
+      "libseccomp",
+      "rust"
     ]
   },
   "build": {

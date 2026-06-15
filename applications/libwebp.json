@@ -9,7 +9,8 @@
     "required": [
       "libjpeg",
       "libpng",
-      "libtiff"
+      "libtiff",
+      "sdl2"
     ]
   },
   "build": {

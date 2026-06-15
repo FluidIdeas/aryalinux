@@ -9,8 +9,7 @@
   "dependencies": {
     "required": [
       "libxcb",
-      "xcb-util",
-      "xcb-util-image"
+      "xcb-util"
     ]
   },
   "build": {

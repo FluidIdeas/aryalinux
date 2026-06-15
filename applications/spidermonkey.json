@@ -6,7 +6,9 @@
   "dependencies": {
     "required": [
       "cbindgen",
-      "llvm"
+      "icu",
+      "llvm",
+      "which"
     ]
   },
   "build": {

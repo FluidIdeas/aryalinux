@@ -5,7 +5,13 @@
   "url": [
     "https://gitlab.freedesktop.org/xdg/xdg-utils/-/archive/v1.2.1/xdg-utils-v1.2.1.tar.gz"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "required": [
+      "links",
+      "lynx",
+      "xmlto"
+    ]
+  },
   "build": {
     "user": [
       "./configure --prefix=/usr",

@@ -6,9 +6,6 @@
   "url": [
     "https://github.com/ToruNiina/toml11/archive/refs/tags/v4.4.0.tar.gz"
   ],
-  "dependencies": {
-    "required": []
-  },
   "build": {
     "user": [
       "cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr",

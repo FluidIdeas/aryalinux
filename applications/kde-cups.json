@@ -1,19 +1,23 @@
 {
-  "name": "cups",
+  "name": "kde-cups",
   "version": "2.4.16",
-  "description": "The Common Unix Printing System (CUPS) is a print spooler and associated utilities. It is based on the \"Internet Printing Protocol\" and provides printing services to most PostScript and raster printers.",
+  "description": "CUPS print spooler for the KDE printing stack. Do not install alongside gnome-cups.",
+  "category": "printing",
   "url": [
     "https://github.com/OpenPrinting/cups/releases/download/v2.4.16/cups-2.4.16-source.tar.gz"
   ],
   "dependencies": {
     "required": [
-      "gnutls",
       "colord",
-      "libusb"
+      "dbus",
+      "gnutls",
+      "libusb",
+      "linux-pam",
+      "xdg-utils"
     ],
-    "post": [
-      "cups-filters",
-      "gutenprint"
+    "runtime": [
+      "kde-cups-filters",
+      "kde-gutenprint"
     ]
   },
   "build": {
@@ -39,7 +43,6 @@
   ],
   "meta": false,
   "book": "pst/cups.html",
-  "category": "printing",
   "install": {
     "extract": [
       "tar -xJf $PACKAGE -C /"

@@ -8,6 +8,7 @@
   "dependencies": {
     "required": [
       "make-ca",
+      "perl-deps.perl-net-ssleay",
       "perl-modules.perl-uri"
     ]
   },

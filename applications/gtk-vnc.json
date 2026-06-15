@@ -7,9 +7,11 @@
   ],
   "dependencies": {
     "required": [
+      "glib2",
       "gnutls",
       "gtk3",
-      "glib2",
+      "libgcrypt",
+      "pulseaudio",
       "vala"
     ]
   },

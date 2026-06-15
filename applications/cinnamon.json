@@ -42,8 +42,12 @@
       "pango",
       "papirus-icon-theme",
       "polkit",
+      "python-deps.pytz",
+      "python-modules.pillow",
+      "python-modules.psutil",
       "python-modules.pycairo",
       "python-modules.pygobject3",
+      "python-modules.requests",
       "python-xapp",
       "python3",
       "sound-theme-freedesktop",
@@ -51,17 +55,6 @@
       "upower",
       "xapp",
       "xdg-desktop-portal-xapp"
-    ],
-    "optional": [
-      "blueman",
-      "gnome-keyring",
-      "power-profiles-daemon"
-    ],
-    "recommended": [
-      "python-deps.pytz",
-      "python-modules.pillow",
-      "python-modules.psutil",
-      "python-modules.requests"
     ]
   },
   "build": {

@@ -7,8 +7,9 @@
   ],
   "dependencies": {
     "required": [
-      "x7lib",
-      "giflib"
+      "giflib",
+      "librsvg",
+      "x7lib"
     ]
   },
   "build": {

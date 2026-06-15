@@ -18,10 +18,6 @@
       "plank",
       "wingpanel",
       "xdg-user-dirs-gtk"
-    ],
-    "optional": [
-      "orca",
-      "pantheon-default-settings"
     ]
   },
   "build": {

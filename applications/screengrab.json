@@ -5,9 +5,9 @@
   "category": "",
   "dependencies": {
     "required": [
+      "libqtxdg",
       "lxqt-build-tools",
-      "lxqt-kwindowsystem",
-      "libqtxdg"
+      "lxqt-kwindowsystem"
     ]
   },
   "build": {

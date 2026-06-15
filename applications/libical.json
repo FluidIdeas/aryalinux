@@ -9,7 +9,8 @@
     "required": [
       "cmake",
       "glib2",
-      "libxml2"
+      "libxml2",
+      "vala"
     ]
   },
   "build": {

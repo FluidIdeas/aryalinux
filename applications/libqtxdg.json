@@ -6,6 +6,7 @@
   "dependencies": {
     "required": [
       "cmake",
+      "lxqt-build-tools",
       "qt6"
     ]
   },

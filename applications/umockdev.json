@@ -7,7 +7,9 @@
   ],
   "dependencies": {
     "required": [
-      "libgudev"
+      "libgudev",
+      "libpcap",
+      "vala"
     ]
   },
   "build": {

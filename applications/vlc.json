@@ -8,37 +8,14 @@
   "dependencies": {
     "required": [
       "alsa-lib",
+      "desktop-file-utils",
       "ffmpeg",
+      "installing",
       "liba52",
+      "libgcrypt",
+      "libmad",
       "lua",
       "qt6"
-    ],
-    "recommended": [
-      "aribb24",
-      "fluidsynth",
-      "game-music-emu",
-      "libcaca",
-      "libbluray",
-      "libdca",
-      "libdvbpsi",
-      "libebml",
-      "libkate",
-      "libmatroska",
-      "libmicrodns",
-      "libmodplug",
-      "libmtp",
-      "libnfs",
-      "libshout",
-      "libspatialaudio",
-      "libtheora",
-      "libupnp",
-      "libvncserver",
-      "schrodinger",
-      "sdl12-compat",
-      "shine",
-      "srt",
-      "twolame",
-      "zvbi"
     ]
   },
   "build": {

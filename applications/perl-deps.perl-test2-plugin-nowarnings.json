@@ -7,6 +7,7 @@
   ],
   "dependencies": {
     "required": [
+      "perl-deps.perl-module-pluggable",
       "perl-deps.perl-test-simple",
       "perl-modules.perl-ipc-run3"
     ]

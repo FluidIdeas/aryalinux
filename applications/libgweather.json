@@ -8,9 +8,11 @@
   "dependencies": {
     "required": [
       "geocode-glib",
-      "libsoup3",
       "glib2",
-      "libxml2"
+      "libsoup3",
+      "libxml2",
+      "python-modules.pygobject3",
+      "vala"
     ]
   },
   "build": {

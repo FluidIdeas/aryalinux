@@ -1,11 +1,11 @@
 {
-  "name": "libppd",
+  "name": "kde-libppd",
   "version": "2.1.1",
-  "description": "",
-  "category": "",
+  "description": "libppd built against kde-libcupsfilters. Do not install alongside gnome-libppd.",
+  "category": "printing",
   "dependencies": {
     "required": [
-      "libcupsfilters"
+      "kde-libcupsfilters"
     ]
   },
   "build": {

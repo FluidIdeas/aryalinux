@@ -8,7 +8,9 @@
   "dependencies": {
     "required": [
       "curl",
-      "libuv"
+      "libarchive",
+      "libuv",
+      "nghttp2"
     ]
   },
   "build": {

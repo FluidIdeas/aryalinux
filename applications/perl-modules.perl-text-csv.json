@@ -7,7 +7,6 @@
   ],
   "dependencies": {
     "required": [
-      "perl-deps.perl-text-csv_xs",
       "biber"
     ]
   },

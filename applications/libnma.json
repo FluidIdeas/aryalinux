@@ -9,8 +9,10 @@
     "required": [
       "gcr",
       "gtk3",
+      "gtk4",
+      "iso-codes",
       "networkmanager",
-      "gtk4"
+      "vala"
     ]
   },
   "build": {

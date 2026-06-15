@@ -18,9 +18,6 @@
       "python3",
       "systemd",
       "xapp"
-    ],
-    "optional": [
-      "cinnamon-translations"
     ]
   },
   "build": {

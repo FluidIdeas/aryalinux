@@ -5,8 +5,9 @@
   "category": "",
   "dependencies": {
     "required": [
+      "libdbusmenu-lxqt",
       "libfm-qt",
-      "libdbusmenu-lxqt"
+      "liblxqt"
     ]
   },
   "build": {

@@ -7,7 +7,9 @@
   ],
   "dependencies": {
     "required": [
-      "enchant"
+      "enchant",
+      "gtk3",
+      "icu"
     ]
   },
   "build": {

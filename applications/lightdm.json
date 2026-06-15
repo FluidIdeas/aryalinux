@@ -9,10 +9,12 @@
   "dependencies": {
     "required": [
       "exo",
-      "libgcrypt",
-      "linux-pam",
       "glib2",
-      "libxklavier"
+      "itstool",
+      "libgcrypt",
+      "libxklavier",
+      "linux-pam",
+      "vala"
     ]
   },
   "build": {

@@ -8,7 +8,8 @@
   ],
   "dependencies": {
     "required": [
-      "gtkmm3"
+      "gtkmm3",
+      "parted"
     ]
   },
   "build": {
