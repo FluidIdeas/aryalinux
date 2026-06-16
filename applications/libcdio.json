@@ -8,15 +8,14 @@
   "dependencies": {},
   "build": {
     "user": [
-      "case $(uname -m) in\n   i?86)\n      sed '/CDIO_LSEEK/s/lseek64/lseek/'  -i lib/driver/_cdio_generic.c",
-      "sed '/CDIO_FSEEK/s/fseeko64/fseek/' -i lib/driver/_cdio_stdio.c   ;;\nesac",
+      "case $(uname -m) in\n   i?86)\n      sed '/CDIO_LSEEK/s/lseek64/lseek/' -i lib/driver/_cdio_generic.c &&\n      sed '/CDIO_FSEEK/s/fseeko64/fseek/' -i lib/driver/_cdio_stdio.c ;;\nesac",
       "./configure --prefix=/usr --disable-static",
-      "make",
-      "tar -xf ../libcdio-paranoia-10.2+2.0.2.tar.bz2",
-      "(cd libcdio-paranoia-10.2+2.0.2 && ./configure --prefix=/usr --disable-static && make)"
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR",
+      "tar -xf ../libcdio-paranoia-10.2+2.0.2.tar.bz2",
+      "(cd libcdio-paranoia-10.2+2.0.2 && PKG_CONFIG_PATH=$DESTDIR/usr/lib/pkgconfig CPPFLAGS=\"-I$DESTDIR/usr/include\" LDFLAGS=\"-L$DESTDIR/usr/lib\" ./configure --prefix=/usr --disable-static && make)",
       "make -C libcdio-paranoia-10.2+2.0.2 install DESTDIR=$DESTDIR"
     ]
   },
@@ -28,5 +27,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://ftpmirror.gnu.org/libcdio/libcdio-paranoia-10.2+2.0.2.tar.bz2"
+  ]
 }
