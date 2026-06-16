@@ -1,14 +1,45 @@
 {
   "name": "x7lib",
   "version": "7",
-  "description": "BLFS Xorg Libraries chapter — metapackage installing all lib* components in dependency order.",
+  "description": "BLFS Xorg Libraries chapter \u2014 metapackage installing all lib* components in dependency order.",
   "category": "metapackage",
   "dependencies": {
     "required": [
       "fontconfig",
-      "libxcb"
+      "xtrans",
+      "libX11",
+      "libXext",
+      "libFS",
+      "libICE",
+      "libSM",
+      "libXScrnSaver",
+      "libXt",
+      "libXmu",
+      "libXpm",
+      "libXaw",
+      "libXfixes",
+      "libXcomposite",
+      "libXrender",
+      "libXcursor",
+      "libXdamage",
+      "libfontenc",
+      "libXfont2",
+      "libXft",
+      "libXi",
+      "libXinerama",
+      "libXrandr",
+      "libXres",
+      "libXtst",
+      "libXv",
+      "libXvMC",
+      "libXxf86dga",
+      "libXxf86vm",
+      "libpciaccess",
+      "libxkbfile",
+      "libxshmfence",
+      "libXpresent"
     ],
-    "runtime": [
+    "recommended": [
       "dbus"
     ]
   },

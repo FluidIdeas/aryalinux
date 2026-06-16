@@ -7,8 +7,8 @@
   ],
   "dependencies": {
     "required": [
-      "libxcb",
-      "xtrans"
+      "xtrans",
+      "libxcb"
     ]
   },
   "build": {

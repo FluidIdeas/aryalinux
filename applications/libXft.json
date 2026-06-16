@@ -7,8 +7,8 @@
   ],
   "dependencies": {
     "required": [
-      "fontconfig",
-      "libXfont2"
+      "libXfont2",
+      "fontconfig"
     ]
   },
   "build": {

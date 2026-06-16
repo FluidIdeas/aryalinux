@@ -9,8 +9,8 @@
     "required": [
       "libpng",
       "mesa",
-      "x7lib",
-      "xcb-util"
+      "xcb-util",
+      "x7lib"
     ]
   },
   "build": {

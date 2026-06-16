@@ -1,11 +1,19 @@
 {
   "name": "x7font",
   "version": "7",
-  "description": "BLFS Xorg Fonts chapter — metapackage installing scalable font packages in dependency order.",
+  "description": "BLFS Xorg Fonts chapter \u2014 metapackage installing scalable font packages in dependency order.",
   "category": "metapackage",
   "dependencies": {
     "required": [
-      "xcursor-themes"
+      "font-util",
+      "encodings",
+      "font-alias",
+      "font-adobe-utopia-type1",
+      "font-bh-ttf",
+      "font-bh-type1",
+      "font-ibm-type1",
+      "font-misc-ethiopic",
+      "font-xfree86-type1"
     ]
   },
   "build": {},

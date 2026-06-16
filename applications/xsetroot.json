@@ -7,8 +7,6 @@
   ],
   "dependencies": {
     "required": [
-      "x7lib",
-      "xbitmaps",
       "xset"
     ]
   },
