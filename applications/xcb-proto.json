@@ -5,11 +5,7 @@
   "url": [
     "https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.17.0.tar.xz"
   ],
-  "dependencies": {
-    "required": [
-      "xorg7"
-    ]
-  },
+  "dependencies": {},
   "build": {
     "environment": {
       "XORG_PREFIX": "/usr",

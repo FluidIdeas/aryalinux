@@ -18,6 +18,9 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 SKIP_PORT_FILES = {"categories.json", "port-audit.json"}
+# BLFS xorg7.html is documentation for XORG_PREFIX/XORG_CONFIG only (see
+# /etc/alps/directories.conf); not a real package dependency.
+IGNORE_DEP_PORTS = frozenset({"xorg7", "xorg-env"})
 BUNDLE_BOOKS = {
     "kde/frameworks6.html",
     "kde/plasma-all.html",
@@ -345,7 +348,7 @@ def resolve_dep_list(
     seen: set[str] = set()
     for href, title in links:
         port = resolve_href(href, title, port_names, book_page)
-        if port and port != self_name and port not in seen:
+        if port and port not in IGNORE_DEP_PORTS and port != self_name and port not in seen:
             seen.add(port)
             resolved.append(port)
     return sorted(resolved)

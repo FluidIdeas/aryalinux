@@ -8,8 +8,7 @@
   ],
   "dependencies": {
     "required": [
-      "libdrm",
-      "xorg7"
+      "libdrm"
     ],
     "recommended": [
       "mesa"

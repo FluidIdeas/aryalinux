@@ -7,8 +7,7 @@
   ],
   "dependencies": {
     "required": [
-      "libva",
-      "xorg7"
+      "libva"
     ]
   },
   "build": {

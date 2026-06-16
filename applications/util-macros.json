@@ -5,11 +5,7 @@
   "url": [
     "https://www.x.org/pub/individual/util/util-macros-1.20.2.tar.xz"
   ],
-  "dependencies": {
-    "required": [
-      "xorg7"
-    ]
-  },
+  "dependencies": {},
   "build": {
     "environment": {
       "XORG_CONFIG": "--prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-static"

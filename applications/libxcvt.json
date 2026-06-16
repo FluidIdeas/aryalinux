@@ -5,11 +5,7 @@
   "url": [
     "https://www.x.org/pub/individual/lib/libxcvt-0.1.3.tar.xz"
   ],
-  "dependencies": {
-    "required": [
-      "xorg7"
-    ]
-  },
+  "dependencies": {},
   "build": {
     "user": [
       "meson setup build --prefix=$XORG_PREFIX --buildtype=release .",
