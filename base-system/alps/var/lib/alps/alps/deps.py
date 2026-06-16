@@ -1,8 +1,8 @@
 """Dependency resolution for package installation.
 
-Only required (and optionally recommended) dependencies participate in the
-install dependency chain. Optional, runtime, and post dependencies are ignored
-when computing build order.
+Required and recommended dependencies participate in the install dependency
+chain by default. Optional, runtime, and post dependencies are ignored when
+computing build order.
 """
 
 from __future__ import annotations
@@ -67,7 +67,7 @@ def find_dependency_cycles(
     targets: list[str],
     *,
     installed: set[str],
-    include_recommended: bool = False,
+    include_recommended: bool = True,
 ) -> list[list[str]]:
     """Return circular dependency chains reachable from *targets*."""
     found: dict[tuple[str, ...], list[str]] = {}
@@ -176,7 +176,7 @@ def resolve_install_plan(
     target: str,
     *,
     installed: set[str],
-    include_recommended: bool = False,
+    include_recommended: bool = True,
     satisfied: set[str] | None = None,
 ) -> InstallPlan:
     """Return packages that must be built/installed before *target*."""
@@ -207,7 +207,7 @@ def resolve_packages_for_install(
     targets: list[str],
     *,
     installed: set[str],
-    include_recommended: bool = False,
+    include_recommended: bool = True,
 ) -> ResolvedInstallPlan:
     """Flattened install order for multiple targets with analysis notes."""
     cycles = find_dependency_cycles(
@@ -250,7 +250,7 @@ def packages_for_install(
     targets: list[str],
     *,
     installed: set[str],
-    include_recommended: bool = False,
+    include_recommended: bool = True,
 ) -> list[str]:
     """Flattened install order for multiple targets."""
     return resolve_packages_for_install(

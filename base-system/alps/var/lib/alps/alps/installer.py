@@ -187,7 +187,7 @@ def preview_install_plan(
     config: dict[str, str],
     names: list[str],
     *,
-    include_recommended: bool = False,
+    include_recommended: bool = True,
     user_targets: set[str] | None = None,
 ) -> tuple[list[str], list[tuple[str, str]]]:
     """Return packages to install and planned post rebuilds, in build order."""
@@ -203,7 +203,7 @@ def format_install_plan(
     config: dict[str, str],
     names: list[str],
     *,
-    include_recommended: bool = False,
+    include_recommended: bool = True,
     user_targets: set[str] | None = None,
 ) -> InstallPlanReport:
     """Human-readable install plan for confirmation prompts."""
@@ -305,7 +305,7 @@ def install_packages(
     config: dict[str, str],
     names: list[str],
     *,
-    include_recommended: bool = False,
+    include_recommended: bool = True,
     force: bool = False,
     user_targets: set[str] | None = None,
 ) -> None:

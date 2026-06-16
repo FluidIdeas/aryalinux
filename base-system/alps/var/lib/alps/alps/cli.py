@@ -27,6 +27,8 @@ HELP = f"""alps {__version__} — AryaLinux Package System
 
 Commands:
   install [pkg ...]     Build and install packages (with dependencies)
+                        Recommended deps are installed by default
+                        --no-recommended: skip recommended dependencies
                         --force: install named packages only (no deps, not tracked)
   remove <pkg>          Remove an installed package by file list
   update [pkg ...]      Reinstall packages with newer port versions
@@ -60,7 +62,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("command", nargs="?", default="help")
     parser.add_argument("packages", nargs="*")
     parser.add_argument("-ni", "--no-interactive", action="store_true")
-    parser.add_argument("-r", "--with-recommended", action="store_true")
+    parser.add_argument(
+        "--no-recommended",
+        action="store_true",
+        help="do not install recommended dependencies",
+    )
     parser.add_argument(
         "-f", "--force",
         action="store_true",
@@ -88,6 +94,7 @@ def main(argv: list[str] | None = None) -> int:
 
     cmd = args.command
     pkgs = args.packages
+    include_recommended = not args.no_recommended
 
     try:
         if cmd == "install":
@@ -107,7 +114,7 @@ def main(argv: list[str] | None = None) -> int:
                     report = format_install_plan(
                         config,
                         pkgs,
-                        include_recommended=args.with_recommended,
+                        include_recommended=include_recommended,
                         user_targets=set(pkgs),
                     )
                     print(report.text)
@@ -119,7 +126,7 @@ def main(argv: list[str] | None = None) -> int:
                         return 0
                 install_packages(
                     config, pkgs,
-                    include_recommended=args.with_recommended,
+                    include_recommended=include_recommended,
                     user_targets=set(pkgs),
                 )
         elif cmd == "remove":
@@ -132,13 +139,13 @@ def main(argv: list[str] | None = None) -> int:
             if not targets:
                 print("No packages need updating.")
                 return 0
-            install_packages(config, targets, force=True, include_recommended=args.with_recommended)
+            install_packages(config, targets, force=True, include_recommended=include_recommended)
         elif cmd == "update-all":
             targets = packages_needing_update(config)
             if not targets:
                 print("No packages need updating.")
                 return 0
-            install_packages(config, targets, force=True, include_recommended=args.with_recommended)
+            install_packages(config, targets, force=True, include_recommended=include_recommended)
         elif cmd == "list-installed":
             for rec in list_installed(paths["INSTALLED_DIR"]):
                 reason = "user" if rec.requested else "dependency"
