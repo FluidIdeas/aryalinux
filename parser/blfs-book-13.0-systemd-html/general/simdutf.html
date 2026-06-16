@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      simdutf-8.0.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL-NS Stylesheets Vsnapshot" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-13.0">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch <span class=
+        "phrase">(systemd</span> Edition) - Version 13.0
+      </h4>
+      <h3>
+        Chapter&nbsp;9.&nbsp;General Libraries
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="qcoro.html" title="qcoro-0.13.0">Prev</a>
+          <p>
+            qcoro-0.13.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="spidermonkey.html" title=
+          "SpiderMonkey from firefox-140.8.0">Next</a>
+          <p>
+            SpiderMonkey from firefox-140.8.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genlib.html" title=
+          "Chapter&nbsp;9.&nbsp;General Libraries">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch  (systemd  Edition) - Version 13.0">Home</a>
+        </li>
+      </ul>
+    </div>
+    <h1 class="sect1">
+      <a id="simdutf" name="simdutf"></a>simdutf-8.0.0
+    </h1>
+    <div class="sect1" lang="en" xml:lang="en">
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to simdutf
+        </h2>
+        <p>
+          The <span class="application">simdutf</span> package contains a
+          library used for processing Unicode characters with SIMD
+          optimizations. This includes the SSE2 and AVX2 instruction sets and
+          more.
+        </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            <span class="phrase">This package is known to build and work
+            properly using an LFS 13.0 platform.</span>
+          </p>
+        </div>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "https://github.com/simdutf/simdutf/archive/v8.0.0/simdutf-8.0.0.tar.gz">
+                https://github.com/simdutf/simdutf/archive/v8.0.0/simdutf-8.0.0.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download MD5 sum: da16902283c2f7af81687ebadf44c4da
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download size: 2.3 MB
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated disk space required: 56 MB
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated build time: 0.3 SBU (add 1.1 SBU for tests)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          simdutf Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="cmake.html" title=
+          "CMake-4.2.3">CMake-4.2.3</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of simdutf
+        </h2>
+        <p>
+          Install <span class="application">simdutf</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput"><kbd class="command">mkdir build &amp;&amp;
+cd    build &amp;&amp;
+
+cmake -D CMAKE_INSTALL_PREFIX=/usr  \
+      -D CMAKE_BUILD_TYPE=Release   \
+      -D BUILD_SHARED_LIBS=ON       \
+      -G Ninja ..                   &amp;&amp;
+ninja</kbd></pre>
+        <p>
+          To test the results, issue: <span class="command"><strong>ninja
+          test</strong></span>. One test fails because the extracted tarball
+          is not a git repository.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root"><kbd class="command">ninja install</kbd></pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">fastbase64 and sutf8</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">libsimdutf.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/usr/include/simdutf and
+              /usr/lib/cmake/simdutf</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="fastbase64" name="fastbase64"></a><span class=
+                    "term"><span class=
+                    "command"><strong>fastbase64</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    encodes and decodes base64 with optimizations
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="sutf" name="sutf"></a><span class=
+                    "term"><span class=
+                    "command"><strong>sutf</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    converts the encoding of an input file from one encoding
+                    to another using the simdutf library
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libsimdutf" name="libsimdutf"></a><span class=
+                    "term"><code class="filename">libsimdutf.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contains functions that process Unicode characters with
+                    SIMD optimizations
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="qcoro.html" title="qcoro-0.13.0">Prev</a>
+          <p>
+            qcoro-0.13.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="spidermonkey.html" title=
+          "SpiderMonkey from firefox-140.8.0">Next</a>
+          <p>
+            SpiderMonkey from firefox-140.8.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="genlib.html" title=
+          "Chapter&nbsp;9.&nbsp;General Libraries">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch  (systemd  Edition) - Version 13.0">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

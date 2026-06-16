@@ -244,7 +244,7 @@ def freshBuild(startFrom):
         print('Installing essentials...')
         runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/essentials.sh', getParamValue('USERNAME')])
         print('Installing xserver...')
-        runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'xserver-meta'])
+        runScriptWithArgs('/sources/enteral.sh', '/sources', ['/sources/apps/app.sh', getParamValue('USERNAME'), 'meta.xserver'])
         startFrom = startFrom + 1
         if getParamValue('CREATE_BACKUPS') == 'y' or getParamValue('CREATE_BACKUPS') == 'Y':
           try:

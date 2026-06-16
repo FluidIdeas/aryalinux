@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      sdl2-compat-2.32.64
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL-NS Stylesheets Vsnapshot" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-13.0">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch <span class=
+        "phrase">(systemd</span> Edition) - Version 13.0
+      </h4>
+      <h3>
+        Chapter&nbsp;42.&nbsp;Multimedia Libraries and Drivers
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="sbc.html" title="SBC-2.2">Prev</a>
+          <p>
+            SBC-2.2
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="sdl3.html" title="SDL3-3.4.0">Next</a>
+          <p>
+            SDL3-3.4.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="libdriv.html" title=
+          "Chapter&nbsp;42.&nbsp;Multimedia Libraries and Drivers">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch  (systemd  Edition) - Version 13.0">Home</a>
+        </li>
+      </ul>
+    </div>
+    <h1 class="sect1">
+      <a id="sdl2" name="sdl2"></a>sdl2-compat-2.32.64
+    </h1>
+    <div class="sect1" lang="en" xml:lang="en">
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to sdl2-compat
+        </h2>
+        <p>
+          The sdl2-compat package provides a compatibility layer for packages
+          that require SDL2, utilizing SDL3 as the backend.
+        </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            <span class="phrase">This package is known to build and work
+            properly using an LFS 13.0 platform.</span>
+          </p>
+        </div>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "https://www.libsdl.org/release/sdl2-compat-2.32.64.tar.gz">https://www.libsdl.org/release/sdl2-compat-2.32.64.tar.gz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download MD5 sum: 67f7e69cfacc25c51496f2702ce32654
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download size: 2.7 MB
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated disk space required: 60 MB (add 29 MB for tests)
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated build time: less than 0.1 SBU (add 0.1 SBU for
+                tests)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          sdl2-compat Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="../general/cmake.html" title=
+          "CMake-4.2.3">CMake-4.2.3</a> and <a class="xref" href="sdl3.html"
+          title="SDL3-3.4.0">SDL3-3.4.0</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of sdl2-compat
+        </h2>
+        <p>
+          Install <span class="application">sdl2-compat</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput"><kbd class="command">mkdir build &amp;&amp;
+cd    build &amp;&amp;
+
+cmake -D CMAKE_INSTALL_PREFIX=/usr   \
+      -D CMAKE_BUILD_TYPE=Release    \
+      -D CMAKE_SKIP_INSTALL_RPATH=ON \
+      -D SDL2COMPAT_STATIC=OFF       \
+      -D SDL2COMPAT_TESTS=OFF        \
+      -W no-dev -G Ninja ..          &amp;&amp;
+
+ninja</kbd></pre>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root"><kbd class="command">ninja install &amp;&amp;
+rm -vf /usr/lib/libSDL2_test.a</kbd></pre>
+      </div>
+      <div class="testing" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Testing sdl2-compat
+        </h2>
+        <p>
+          If you want to build the tests, issue the following commands:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">mkdir ../build-tests &amp;&amp;
+cd    ../build-tests &amp;&amp;
+
+cmake -D CMAKE_INSTALL_PREFIX=/usr   \
+      -D CMAKE_BUILD_TYPE=Release    \
+      -D CMAKE_SKIP_INSTALL_RPATH=ON \
+      -D SDL2COMPAT_INSTALL_TESTS=ON \
+      -D SDL2COMPAT_STATIC=OFF       \
+      -D SDL2COMPAT_TESTS=ON         \
+      -W no-dev -G Ninja ..          &amp;&amp;
+
+ninja &amp;&amp;
+DESTDIR=$PWD/TESTS ninja install</kbd></pre>
+        <p>
+          Now you will be able to run the tests in <code class=
+          "filename">TESTS/usr/libexec/installed-tests/SDL2_compat</code>.
+          You will have to run the tests individually. Some of them may need
+          to be manually killed and audio will need to be working so that you
+          can hear from the default audio output.
+        </p>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <em class="parameter"><code>-D
+          CMAKE_SKIP_INSTALL_RPATH=ON</code></em>: This switch makes
+          <span class="command"><strong>cmake</strong></span> remove
+          hardcoded library search paths (rpath) when installing a binary
+          executable file or a shared library. This package does not need
+          rpath once it's installed into the standard location, and rpath may
+          sometimes cause unwanted effects or even security issues.
+        </p>
+        <p>
+          <em class="parameter"><code>-D SDL2COMPAT_STATIC=OFF</code></em>:
+          This parameter disables building the static libraries.
+        </p>
+        <p>
+          <em class="parameter"><code>-D SDL2COMPAT_TESTS=OFF</code></em>:
+          This parameter disables building the tests.
+        </p>
+        <p>
+          <span class="command"><strong>rm -vf
+          /usr/lib/libSDL2_test.a</strong></span>: This command removes a
+          useless static library.
+        </p>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Program:</strong>
+              <span class="segbody">sdl2-config</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">libSDL2.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/usr/include/SDL2 and
+              /usr/lib/cmake/SDL2</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="sdl2-config" name="sdl2-config"></a><span class=
+                    "term"><span class=
+                    "command"><strong>sdl2-config</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    determines the compile and linker flags that should be
+                    used to compile and link programs that use <code class=
+                    "filename">libSDL2</code>
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libsdl2" name="libsdl2"></a><span class=
+                    "term"><code class="filename">libSDL2.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    provides compatibility functions for SDL2 applications
+                    using SDL3
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="sbc.html" title="SBC-2.2">Prev</a>
+          <p>
+            SBC-2.2
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="sdl3.html" title="SDL3-3.4.0">Next</a>
+          <p>
+            SDL3-3.4.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="libdriv.html" title=
+          "Chapter&nbsp;42.&nbsp;Multimedia Libraries and Drivers">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch  (systemd  Edition) - Version 13.0">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

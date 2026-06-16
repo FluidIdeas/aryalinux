@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      Gnumeric-1.12.60
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL-NS Stylesheets Vsnapshot" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+  </head>
+  <body class="blfs" id="blfs-13.0">
+    <div class="navheader">
+      <h4>
+        Beyond Linux<sup>®</sup> From Scratch <span class=
+        "phrase">(systemd</span> Edition) - Version 13.0
+      </h4>
+      <h3>
+        Chapter&nbsp;39.&nbsp;Office Programs
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="office.html" title=
+          "Office Programs">Prev</a>
+          <p>
+            Office Programs
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libreoffice.html" title=
+          "LibreOffice-26.2.1">Next</a>
+          <p>
+            LibreOffice-26.2.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="office.html" title=
+          "Chapter&nbsp;39.&nbsp;Office Programs">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch  (systemd  Edition) - Version 13.0">Home</a>
+        </li>
+      </ul>
+    </div>
+    <h1 class="sect1">
+      <a id="gnumeric" name="gnumeric"></a>Gnumeric-1.12.60
+    </h1>
+    <div class="sect1" lang="en" xml:lang="en">
+      <div class="package" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Introduction to Gnumeric
+        </h2>
+        <p>
+          The <span class="application">Gnumeric</span> package contains a
+          spreadsheet program which is useful for mathematical analysis.
+        </p>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            <span class="phrase">This package is known to build and work
+            properly using an LFS 13.0 platform.</span>
+          </p>
+        </div>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Download (HTTP): <a class="ulink" href=
+                "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.60.tar.xz">
+                https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.60.tar.xz</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download MD5 sum: 6fef90fa329332b8776bd66e98473f27
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download size: 17 MB
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated disk space required: 251 MB (add 7 MB for tests)
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated build time: 1.7 SBU (add 2.6 SBU for tests; both
+                using parallelism=4)
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Gnumeric Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p class="required">
+          <a class="xref" href="../x/goffice010.html" title=
+          "GOffice-0.10.60">GOffice-0.10.60</a> and <a class="xref" href=
+          "../pst/itstool.html" title="itstool-2.0.7">itstool-2.0.7</a>
+        </p>
+        <h4>
+          Recommended Runtime
+        </h4>
+        <p class="recommended">
+          An icon theme such as <a class="xref" href=
+          "../x/adwaita-icon-theme.html" title=
+          "adwaita-icon-theme-49.0">adwaita-icon-theme-49.0</a>, <a class=
+          "xref" href="../x/oxygen-icons.html" title=
+          "oxygen-icons-6.1.0">oxygen-icons-6.1.0</a>, or <a class="xref"
+          href="../x/gnome-icon-theme.html" title=
+          "gnome-icon-theme-3.12.0">gnome-icon-theme-3.12.0</a>, <a class=
+          "xref" href="../x/installing.html" title=
+          "Chapter&nbsp;24.&nbsp;Graphical Environments">a graphical
+          environment</a>, and <a class="xref" href="../gnome/yelp.html"
+          title="Yelp-49.0">Yelp-49.0</a> for the built-in help functionality
+        </p>
+        <h4>
+          Optional
+        </h4>
+        <p class="optional">
+          <a class="xref" href="../gnome/dconf.html" title=
+          "DConf-0.49.0 / DConf-Editor-49.0">DConf-0.49.0</a> (to prevent
+          some test failures), <a class="xref" href="../general/glib2.html"
+          title="GLib-2.86.4">GLib-2.86.4</a> (with GObject Introspection),
+          <a class="xref" href="../general/python-modules.html#pygobject3"
+          title="PyGObject-3.54.5">PyGObject-3.54.5</a>, <a class="xref"
+          href="../general/valgrind.html" title=
+          "Valgrind-3.26.0">Valgrind-3.26.0</a> (for some tests), <a class=
+          "ulink" href="https://dblatex.sourceforge.net/">dblatex</a> (for
+          PDF docs), <a class="ulink" href=
+          "https://www.gnome-db.org/">libgda</a>, <a class="ulink" href=
+          "https://www.mono-project.com/">Mono</a>, <a class="ulink" href=
+          "https://pxlib.sourceforge.net/">pxlib</a>, and <a class="ulink"
+          href="https://frodo.looijaard.name/project/psiconv">Psiconv</a>
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Installation of Gnumeric
+        </h2>
+        <p>
+          There is a conflict between the latest libxml2 package and the
+          German help xml file that prevents the build from completing. Do
+          not try to build it:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">sed -i '/HELP_LINGUAS/s/de//' doc/Makefile.in</kbd></pre>
+        <p>
+          Install <span class="application">Gnumeric</span> by running the
+          following commands:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">./configure --prefix=/usr  &amp;&amp;
+make</kbd></pre>
+        <p>
+          This package must be installed before the test suite is run.
+        </p>
+        <p>
+          Now, as the <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root"><kbd class="command">make install</kbd></pre>
+        <p>
+          To run the tests, issue <span class="command"><strong>make
+          check</strong></span>. Tests should be run from an active X
+          session, and <a class="xref" href="../gnome/dconf.html" title=
+          "DConf-0.49.0 / DConf-Editor-49.0">DConf-0.49.0</a> should be
+          installed to prevent some failures. Four tests are known to fail.
+          Additional failures may occur if valgrind is installed.
+        </p>
+      </div>
+      <div class="commands" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Command Explanations
+        </h2>
+        <p>
+          <code class="option">--enable-pdfdocs</code>: Use this switch if
+          you have installed dblatex and wish to create PDF docs.
+        </p>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          Contents
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed Programs:</strong>
+              <span class="segbody">gnumeric (symlink), gnumeric-1.12.60,
+              ssconvert, ssdiff, ssgrep, and ssindex</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Libraries:</strong>
+              <span class="segbody">libspreadsheet.so</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed Directories:</strong>
+              <span class="segbody">/usr/include/libspreadsheet-1.12,
+              /usr/lib/gnumeric, /usr/lib/goffice/0.10/plugins/gnumeric,
+              /usr/share/gnumeric, and
+              /usr/share/help/{C,cs,de,es}/gnumeric</span>
+            </div>
+          </div>
+        </div>
+        <div class="variablelist">
+          <h3>
+            Short Descriptions
+          </h3>
+          <table border="0" class="variablelist">
+            <colgroup>
+              <col align="left" valign="top" />
+              <col />
+            </colgroup>
+            <tbody>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gnumeric-prog" name=
+                    "gnumeric-prog"></a><span class="term"><span class=
+                    "command"><strong>gnumeric</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a symlink to <span class=
+                    "command"><strong>gnumeric-1.12.60</strong></span>
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="gnumeric-1" name="gnumeric-1"></a><span class=
+                    "term"><span class=
+                    "command"><strong>gnumeric-1.12.60</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is <span class="application">GNOME</span>'s spreadsheet
+                    application
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ssconvert" name="ssconvert"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ssconvert</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a command line utility to convert spreadsheet files
+                    between various spreadsheet file formats
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ssdiff" name="ssdiff"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ssdiff</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a command line utility to compare two spreadsheets
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ssgrep" name="ssgrep"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ssgrep</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a command line utility to search spreadsheets for
+                    strings
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="ssindex" name="ssindex"></a><span class=
+                    "term"><span class=
+                    "command"><strong>ssindex</strong></span></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    is a command line utility to generate index data for
+                    spreadsheet files
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p>
+                    <a id="libspreadsheet" name=
+                    "libspreadsheet"></a><span class="term"><code class=
+                    "filename">libspreadsheet.so</code></span>
+                  </p>
+                </td>
+                <td>
+                  <p>
+                    contains the gnumeric API functions
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="office.html" title=
+          "Office Programs">Prev</a>
+          <p>
+            Office Programs
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="libreoffice.html" title=
+          "LibreOffice-26.2.1">Next</a>
+          <p>
+            LibreOffice-26.2.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="office.html" title=
+          "Chapter&nbsp;39.&nbsp;Office Programs">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Beyond Linux® From Scratch  (systemd  Edition) - Version 13.0">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
