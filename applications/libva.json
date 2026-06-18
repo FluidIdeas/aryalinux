@@ -10,7 +10,7 @@
     "required": [
       "libdrm"
     ],
-    "recommended": [
+    "runtime": [
       "mesa"
     ]
   },

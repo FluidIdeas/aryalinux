@@ -223,9 +223,11 @@ def write_meta(
     post_install: list[str] | None = None,
     book: str,
 ) -> None:
-    deps: dict[str, list[str]] = {"required": required}
+    deps: dict[str, list[str]] = {"required": list(required)}
     if recommended:
-        deps["recommended"] = recommended
+        for item in recommended:
+            if item not in deps["required"]:
+                deps["required"].append(item)
     meta: dict[str, Any] = {
         "name": name,
         "version": version,
@@ -327,7 +329,6 @@ def main() -> None:
             "components in dependency order."
         ),
         required=["fontconfig", *lib_names],
-        recommended=["dbus"],
         book="x/x7lib.html",
     )
 

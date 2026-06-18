@@ -142,6 +142,11 @@ def _install_one(
     if port.meta:
         record = InstalledPackage.now(name, port.version, [], "", requested=user_requested)
         save_installed(paths["installed"], record)
+        dep_count = len(port.dependencies.required) + len(port.dependencies.pre)
+        print(
+            f"installed {name}: metapackage "
+            f"({dep_count} declared dependencies, no files to install)"
+        )
         return
     package_path, files = build_port(
         port,
@@ -169,15 +174,12 @@ class InstallPlanReport:
 def _resolve_install(
     paths: dict[str, Path],
     names: list[str],
-    *,
-    include_recommended: bool,
 ) -> tuple[ResolvedInstallPlan, list[tuple[str, str]]]:
     installed = _installed_set(paths["installed"])
     resolved = resolve_packages_for_install(
         paths["ports"],
         names,
         installed=installed,
-        include_recommended=include_recommended,
     )
     post_rebuilds = _collect_post_rebuilds(paths["ports"], resolved.order)
     return resolved, post_rebuilds
@@ -187,15 +189,12 @@ def preview_install_plan(
     config: dict[str, str],
     names: list[str],
     *,
-    include_recommended: bool = True,
     user_targets: set[str] | None = None,
 ) -> tuple[list[str], list[tuple[str, str]]]:
     """Return packages to install and planned post rebuilds, in build order."""
     del user_targets
     paths = _paths(config)
-    resolved, post_rebuilds = _resolve_install(
-        paths, names, include_recommended=include_recommended,
-    )
+    resolved, post_rebuilds = _resolve_install(paths, names)
     return resolved.order, post_rebuilds
 
 
@@ -203,16 +202,13 @@ def format_install_plan(
     config: dict[str, str],
     names: list[str],
     *,
-    include_recommended: bool = True,
     user_targets: set[str] | None = None,
 ) -> InstallPlanReport:
     """Human-readable install plan for confirmation prompts."""
     paths = _paths(config)
 
     def _build_report() -> InstallPlanReport:
-        resolved, post_rebuilds = _resolve_install(
-            paths, names, include_recommended=include_recommended,
-        )
+        resolved, post_rebuilds = _resolve_install(paths, names)
         lines: list[str] = []
         order = resolved.order
 
@@ -305,7 +301,6 @@ def install_packages(
     config: dict[str, str],
     names: list[str],
     *,
-    include_recommended: bool = True,
     force: bool = False,
     user_targets: set[str] | None = None,
 ) -> None:
@@ -315,7 +310,7 @@ def install_packages(
 
     installed = _installed_set(paths["installed"])
     resolved = resolve_packages_for_install(
-        paths["ports"], names, installed=installed, include_recommended=include_recommended,
+        paths["ports"], names, installed=installed,
     )
     if resolved.cycles:
         _print_cycle_warnings(resolved.cycles, names)

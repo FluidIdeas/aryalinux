@@ -14,9 +14,7 @@
       "ibus",
       "mutter",
       "polkit",
-      "startup-notification"
-    ],
-    "recommended": [
+      "startup-notification",
       "desktop-file-utils",
       "gnome-autoar",
       "gnome-bluetooth",

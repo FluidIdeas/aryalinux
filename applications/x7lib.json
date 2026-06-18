@@ -39,7 +39,7 @@
       "libxshmfence",
       "libXpresent"
     ],
-    "recommended": [
+    "optional": [
       "dbus"
     ]
   },

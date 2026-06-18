@@ -9,9 +9,7 @@
       "glib2",
       "lcms2",
       "libseccomp",
-      "rust"
-    ],
-    "recommended": [
+      "rust",
       "libheif",
       "libjxl",
       "librsvg",

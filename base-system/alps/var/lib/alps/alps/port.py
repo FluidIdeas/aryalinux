@@ -101,6 +101,10 @@ def _parse_port(data: dict[str, Any]) -> Port:
         + data.get("patches", [])
         + data.get("urls", [])
     )
+    required = _merge_dep_lists(
+        deps_raw.get("required", []),
+        deps_raw.get("recommended", []),
+    )
     return Port(
         name=data["name"],
         version=data.get("version", ""),
@@ -109,8 +113,8 @@ def _parse_port(data: dict[str, Any]) -> Port:
         source_urls=source_urls,
         additional_urls=additional_urls,
         dependencies=PortDependencies(
-            required=deps_raw.get("required", []),
-            recommended=deps_raw.get("recommended", []),
+            required=required,
+            recommended=[],
             optional=deps_raw.get("optional", []),
             pre=deps_raw.get("pre", []),
             runtime=deps_raw.get("runtime", []),

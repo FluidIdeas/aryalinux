@@ -1,0 +1,16 @@
+#!/bin/bash
+# SPDX-License-Identifier: MIT
+# Install aryalinux-xserver-test into a chroot or live root from the build host.
+# Usage:  ./install-xserver-test /mnt/lfs
+
+set -euo pipefail
+
+DEST="${1:-/mnt/lfs}"
+HERE="$(cd "$(dirname "$0")" && pwd)"
+
+install -d "$DEST/usr/bin"
+install -m755 "$HERE/aryalinux-xserver-test" "$DEST/usr/bin/aryalinux-xserver-test"
+install -d "$DEST/usr/share/doc/xserver-test-1.0"
+install -m644 "$HERE/README.md" "$DEST/usr/share/doc/xserver-test-1.0/README.md"
+
+echo "installed aryalinux-xserver-test to $DEST/usr/bin/"

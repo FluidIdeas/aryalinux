@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Sync ALPS port dependencies from the BLFS HTML book.
 
-Maps BLFS Required build-time dependencies to dependencies.required,
-Recommended to dependencies.recommended, and runtime headings/qualifiers to
-dependencies.runtime. Post (rebuild-after-install) is never inferred from BLFS;
-existing post/pre keys on ports are preserved manually.
+Maps BLFS Required and Recommended build-time dependencies to
+dependencies.required (recommended is required in AryaLinux). Circular
+recommended pairs from BLFS go to dependencies.runtime instead. Runtime
+headings/qualifiers map to dependencies.runtime. Post (rebuild-after-install)
+is never inferred from BLFS; existing post/pre keys on ports are preserved
+manually.
 """
 
 from __future__ import annotations
@@ -330,7 +332,10 @@ def parse_dependency_block(block_html: str) -> BlfsDependencySet:
                 section_runtime=section_runtime,
             )
             if section_recommended and not section_runtime:
-                result.recommended.extend(build_links)
+                if is_circular_recommended(paragraph_html):
+                    result.runtime.extend(build_links)
+                else:
+                    result.build.extend(build_links)
             else:
                 result.build.extend(build_links)
             result.runtime.extend(runtime_links)
@@ -405,8 +410,15 @@ def merge_unique(existing: list[str], extra: list[str]) -> list[str]:
 
 
 def merge_recommended_into_required(deps: dict) -> dict:
-    """Keep BLFS recommended deps separate; they are not install-chain deps by default."""
+    """Fold legacy dependencies.recommended into required; drop optional."""
     merged = dict(deps)
+    required = list(merged.get("required", []))
+    for item in merged.get("recommended", []):
+        if item not in required:
+            required.append(item)
+    if required:
+        merged["required"] = required
+    merged.pop("recommended", None)
     merged.pop("optional", None)
     return merged
 
@@ -436,12 +448,6 @@ def sync_port(
                 new_deps = {}
                 if blfs_deps.build:
                     new_deps["required"] = blfs_deps.build
-                recommended = merge_unique(
-                    list(old_deps.get("recommended", [])),
-                    blfs_deps.recommended,
-                )
-                if recommended:
-                    new_deps["recommended"] = recommended
                 runtime = merge_unique(
                     list(old_deps.get("runtime", [])),
                     blfs_deps.runtime,

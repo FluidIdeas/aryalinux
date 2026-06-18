@@ -113,7 +113,8 @@
       "font-daewoo-misc",
       "font-isas-misc",
       "font-misc-misc",
-      "graphics-session-tools"
+      "graphics-session-tools",
+      "xserver-test"
     ]
   },
   "build": {},

@@ -7,6 +7,7 @@
   ],
   "dependencies": {
     "required": [
+      "font-util",
       "libepoxy",
       "libtirpc",
       "libxcvt",
@@ -26,11 +27,12 @@
     ]
   },
   "post_install": [
-    "command -v systemd-tmpfiles >/dev/null && systemd-tmpfiles --create /usr/lib/tmpfiles.d/x11.conf || install -d -m 1777 /tmp/.X11-unix /tmp/.ICE-unix /tmp/.XIM-unix /tmp/.font-unix",
-    "cat > /usr/lib/systemd/system/early-x11-sockets.service << \"EOF\"\n[Unit]\nDescription=Ensure X11 socket directories exist\nDefaultDependencies=no\nBefore=display-manager.service\nAfter=local-fs.target\n\n[Service]\nType=oneshot\nExecStart=/bin/mkdir -p /tmp/.X11-unix /tmp/.ICE-unix /tmp/.XIM-unix /tmp/.font-unix\nExecStart=/bin/chmod 1777 /tmp/.X11-unix /tmp/.ICE-unix /tmp/.XIM-unix /tmp/.font-unix\nRemainAfterExit=yes\n\n[Install]\nWantedBy=graphical.target\nEOF",
+    "install -d -m 1777 /tmp/.X11-unix /tmp/.ICE-unix /tmp/.XIM-unix /tmp/.font-unix",
+    "systemd-tmpfiles --create /usr/lib/tmpfiles.d/x11.conf 2>/dev/null || true",
+    "cat > /usr/lib/systemd/system/early-x11-sockets.service << \"EOF\"\n[Unit]\nDescription=Ensure X11 socket directories exist\nDefaultDependencies=no\nAfter=local-fs.target\nBefore=display-manager.service\n\n[Service]\nType=oneshot\nExecStart=/bin/mkdir -p /tmp/.X11-unix /tmp/.ICE-unix /tmp/.XIM-unix /tmp/.font-unix\nExecStart=/bin/chmod 1777 /tmp/.X11-unix /tmp/.ICE-unix /tmp/.XIM-unix /tmp/.font-unix\nRemainAfterExit=yes\n\n[Install]\nWantedBy=multi-user.target\nEOF",
     "systemctl daemon-reload",
     "systemctl enable early-x11-sockets.service 2>/dev/null || true",
-    "systemd-tmpfiles --create /usr/lib/tmpfiles.d/x11.conf 2>/dev/null || true"
+    "systemctl start early-x11-sockets.service 2>/dev/null || true"
   ],
   "meta": false,
   "book": "x/xorg-server.html",

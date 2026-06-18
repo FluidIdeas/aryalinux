@@ -9,9 +9,7 @@
     "required": [
       "cairo",
       "cargo-c",
-      "pango"
-    ],
-    "recommended": [
+      "pango",
       "gdk-pixbuf",
       "glib2",
       "vala"
