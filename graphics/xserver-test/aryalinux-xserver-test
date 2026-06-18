@@ -20,7 +20,7 @@ Usage: aryalinux-xserver-test [options]
 
 Start Xorg as the current user to verify graphics stack installation.
 
-Default (no --session): opens xclock, xterm, and glxgears without overlap.
+Default (no --session): starts twm, xclock, glxgears, and xterm without overlap.
   Close the xterm window (type exit or Ctrl+D) to stop the test server.
 
 Options:
@@ -67,12 +67,12 @@ have() { command -v "$1" >/dev/null 2>&1; }
 
 require_cmds() {
     local missing=()
-    for cmd in startx xinit Xorg xterm xclock; do
+    for cmd in startx xinit Xorg xterm xclock twm; do
         have "$cmd" || missing+=("$cmd")
     done
     if [ ${#missing[@]} -gt 0 ]; then
         echo "Missing required commands: ${missing[*]}" >&2
-        echo "Install meta.xserver (or xorg-server, xinit, xterm, xclock)." >&2
+        echo "Install meta.xserver (or xorg-server, xinit, twm, xterm, xclock)." >&2
         exit 1
     fi
 }
@@ -189,22 +189,32 @@ shutdown() {
 }
 trap shutdown EXIT INT TERM
 
-xclock -geometry 140x140-16+16 &
+twm &
+pids="$pids $!"
+sleep 0.3
+
+# Layout for a 1024x768-or-larger screen (no overlap):
+#   xterm     — upper-left
+#   xclock    — upper-right
+#   glxgears  — lower-left (below xterm)
+xclock -geometry 120x120-24+24 &
 pids="$pids $!"
 
 if command -v glxgears >/dev/null 2>&1; then
-    glxgears &
+    glxgears -geometry 300x300+24+300 &
     pids="$pids $!"
     sleep 0.5
     if command -v xdotool >/dev/null 2>&1; then
-        xdotool search --name glxgears windowmove 24 200 2>/dev/null || true
+        xdotool search --name glxgears windowmove 24 300 2>/dev/null || true
+        xdotool search --name glxgears windowsize 300 300 2>/dev/null || true
     fi
 fi
 
-xterm -geometry 90x26+24+24 -title "AryaLinux X test" -fs 10 \
-    -e "${SHELL:-bash}" -lic "echo 'Xorg test session'; echo; \
-echo '  xclock   — top-right corner'; \
-echo '  glxgears — OpenGL / GLX demo (if mesa xdemos installed)'; \
+xterm -geometry 78x16+24+24 -title "AryaLinux X test" -fs 10 \
+    -e "${SHELL:-bash}" -lic "echo 'Xorg test session (twm)'; echo; \
+echo '  xclock   — top-right'; \
+echo '  glxgears — lower-left (OpenGL / GLX)'; \
+echo '  twm      — click title bars to move/resize windows'; \
 echo; \
 echo 'Type exit or press Ctrl+D here to stop the X server.'; \
 echo; exec \"\${SHELL:-bash}\" -i" &

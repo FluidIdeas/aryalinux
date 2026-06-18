@@ -31,7 +31,7 @@ port = {
     "category": "x11",
     "url": [],
     "dependencies": {
-        "required": ["mesa", "xclock", "xinit", "xorg-server", "xterm"],
+        "required": ["mesa", "twm", "xclock", "xinit", "xorg-server", "xterm"],
         "optional": ["xdotool"],
     },
     "build": {"package": [install_script]},

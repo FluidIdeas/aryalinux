@@ -22,8 +22,8 @@ aryalinux-xserver-test
 aryalinux-xserver-test --help
 ```
 
-Starts display `:1` with xclock (top-right), glxgears, and an xterm (left).
-Type `exit` in the xterm (or close it) to stop the X server.
+Starts display `:1` with **twm**, xclock (top-right), glxgears (lower-left), and an
+xterm (upper-left). Type `exit` in the xterm (or close it) to stop the X server.
 
 ## Desktop session test
 
@@ -47,7 +47,7 @@ aryalinux-xserver-test --cleanup
 ## Dependencies
 
 Installed automatically by the `xserver-test` port: `xorg-server`, `xinit`,
-`xterm`, `xclock`, and `mesa` (for `glxgears` via the BLFS xdemos patch).
+`twm`, `xterm`, `xclock`, and `mesa` (for `glxgears` via the BLFS xdemos patch).
 
 Desktop sessions require the corresponding environment metapackage
 (`meta.xfce`, `meta.gnome`, `meta.kde`, etc.).
