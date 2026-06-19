@@ -9,7 +9,9 @@
     "required": [
       "make-ca",
       "p11-kit",
-      "python-dependencies"
+      "python-deps.charset-normalizer",
+      "python-deps.idna",
+      "python-deps.urllib3"
     ]
   },
   "build": {

@@ -7,8 +7,10 @@
   ],
   "dependencies": {
     "required": [
-      "python-dependencies",
-      "python-modules.pygments"
+      "python-modules.pygments",
+      "python-deps.iniconfig",
+      "python-deps.pluggy",
+      "python-deps.setuptools_scm"
     ]
   },
   "build": {

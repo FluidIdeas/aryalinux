@@ -7,8 +7,9 @@
   ],
   "dependencies": {
     "required": [
-      "python-dependencies",
-      "python-modules.requests"
+      "python-modules.requests",
+      "python-deps.msgpack",
+      "python-deps.uv_build"
     ]
   },
   "build": {

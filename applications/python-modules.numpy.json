@@ -7,8 +7,9 @@
   ],
   "dependencies": {
     "required": [
-      "python-dependencies",
-      "python-modules.cython"
+      "python-modules.cython",
+      "python-deps.meson_python",
+      "python-deps.pyproject-metadata"
     ]
   },
   "build": {

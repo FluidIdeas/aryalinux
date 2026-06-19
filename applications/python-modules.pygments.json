@@ -7,7 +7,7 @@
   ],
   "dependencies": {
     "required": [
-      "python-dependencies"
+      "python-deps.hatchling"
     ]
   },
   "build": {

@@ -117,6 +117,7 @@ LEGACY_PACKAGES: list[tuple[str, str, str, str]] = [
 LIB_EXTRA_DEPS: dict[str, list[str]] = {
     "xtrans": ["libxcb"],
     "libX11": ["libxcb"],
+    "libXfont2": ["freetype2"],
     "libXft": ["fontconfig"],
     "libxkbfile": ["libxcb"],
 }

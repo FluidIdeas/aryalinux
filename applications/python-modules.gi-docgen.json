@@ -7,8 +7,9 @@
   ],
   "dependencies": {
     "required": [
-      "python-dependencies",
-      "python-modules.pygments"
+      "python-modules.pygments",
+      "python-deps.markdown",
+      "python-deps.typogrify"
     ]
   },
   "build": {

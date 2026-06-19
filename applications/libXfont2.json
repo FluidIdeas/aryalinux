@@ -7,6 +7,7 @@
   ],
   "dependencies": {
     "required": [
+      "freetype2",
       "libfontenc"
     ]
   },

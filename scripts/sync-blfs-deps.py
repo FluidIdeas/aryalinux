@@ -143,6 +143,15 @@ def resolve_href(
     base = normalize_key(Path(path).stem)
     candidates: list[str] = []
 
+    if base == "python-dependencies" and fragment:
+        frag = normalize_key(fragment)
+        for cand in (
+            f"python-deps.{frag}",
+            f"python-deps.{frag.replace('_', '-')}",
+        ):
+            if cand in port_names:
+                return cand
+
     if fragment:
         frag = normalize_key(fragment)
         candidates.extend(

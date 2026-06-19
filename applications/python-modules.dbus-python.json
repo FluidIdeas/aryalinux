@@ -10,7 +10,7 @@
       "dbus",
       "glib2",
       "patchelf",
-      "python-dependencies"
+      "python-deps.meson_python"
     ]
   },
   "build": {
