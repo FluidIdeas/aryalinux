@@ -15,7 +15,7 @@
   },
   "build": {
     "user": [
-      "meson setup build --prefix=/usr              \\\n            --buildtype=release        \\\n            -D man=false               \\\n            -D docbook=false           \\\n            .",
+      "meson setup build --prefix=/usr              \\\n            --buildtype=release        \\\n            -D man=false               \\\n            -D docbook=false           \\\n            -D x11=true                \\\n            .",
       "ninja -C build"
     ],
     "package": [

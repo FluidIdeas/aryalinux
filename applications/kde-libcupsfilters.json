@@ -15,6 +15,7 @@
       "libjpeg",
       "libpng",
       "libtiff",
+      "mupdf",
       "qpdf"
     ]
   },

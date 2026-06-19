@@ -1,7 +1,7 @@
 {
   "name": "webkitgtk",
   "version": "2.50.5",
-  "description": "The WebKitGTK package is a port of the portable web rendering engine WebKit to the GTK-3 and GTK-4 platforms.",
+  "description": "The WebKitGTK package is a port of the portable web rendering engine WebKit to the GTK-3 and GTK-4 platforms. BLFS: some compile jobs need >4 GiB RAM each; this port limits ninja parallelism to MemAvailable/4 GiB to avoid OOM freezes.",
   "url": [
     "https://webkitgtk.org/releases/webkitgtk-2.50.5.tar.xz"
   ],
@@ -36,15 +36,21 @@
     ]
   },
   "build": {
+    "environment": {
+      "CMAKE_BUILD_PARALLEL_LEVEL": "4",
+      "MAKEFLAGS": "-j4",
+      "NINJAFLAGS": "-j4"
+    },
     "user": [
-      "cmake -B build-gtk3 -D CMAKE_BUILD_TYPE=Release     \\\n      -D CMAKE_INSTALL_PREFIX=/usr    \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON  \\\n      -D PORT=GTK                     \\\n      -D LIB_INSTALL_DIR=/usr/lib     \\\n      -D USE_LIBBACKTRACE=OFF         \\\n      -D USE_LIBHYPHEN=OFF            \\\n      -D ENABLE_GAMEPAD=OFF           \\\n      -D ENABLE_MINIBROWSER=ON        \\\n      -D ENABLE_DOCUMENTATION=OFF     \\\n      -D ENABLE_WEBDRIVER=OFF         \\\n      -D USE_WOFF2=OFF                \\\n      -D USE_GTK4=OFF                 \\\n      -D ENABLE_BUBBLEWRAP_SANDBOX=ON \\\n      -D USE_SYSPROF_CAPTURE=NO       \\\n      -D ENABLE_SPEECH_SYNTHESIS=OFF  \\\n      -W no-dev -G Ninja .",
-      "ninja -C build-gtk3",
-      "cmake -B build-gtk4 -D CMAKE_BUILD_TYPE=Release         \\\n      -D CMAKE_INSTALL_PREFIX=/usr        \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON      \\\n      -D PORT=GTK                         \\\n      -D LIB_INSTALL_DIR=/usr/lib         \\\n      -D USE_LIBBACKTRACE=OFF             \\\n      -D USE_LIBHYPHEN=OFF                \\\n      -D ENABLE_GAMEPAD=OFF               \\\n      -D ENABLE_MINIBROWSER=ON            \\\n      -D ENABLE_DOCUMENTATION=OFF         \\\n      -D USE_WOFF2=OFF                    \\\n      -D USE_GTK4=ON                      \\\n      -D ENABLE_BUBBLEWRAP_SANDBOX=ON     \\\n      -D USE_SYSPROF_CAPTURE=NO           \\\n      -D ENABLE_SPEECH_SYNTHESIS=OFF      \\\n      -W no-dev -G Ninja .",
-      "ninja -C build-gtk4"
+      "WEBKIT_JOBS=${WEBKIT_JOBS:-$(awk '/MemAvailable:/ {j=int($2/4194304)} END { if (j<1) print 1; else print j }' /proc/meminfo)}; echo \"webkitgtk: limiting ninja to -j${WEBKIT_JOBS} (~4 GiB RAM per job; export WEBKIT_JOBS to override)\"; echo \"${WEBKIT_JOBS}\" > .webkit-jobs",
+      "cmake -B build-gtk3 -D CMAKE_BUILD_TYPE=Release     \\\n      -D CMAKE_INSTALL_PREFIX=/usr    \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON  \\\n      -D PORT=GTK                     \\\n      -D LIB_INSTALL_DIR=/usr/lib     \\\n      -D USE_LIBBACKTRACE=OFF         \\\n      -D USE_LIBHYPHEN=OFF            \\\n      -D ENABLE_GAMEPAD=OFF           \\\n      -D ENABLE_MINIBROWSER=OFF       \\\n      -D ENABLE_DOCUMENTATION=OFF     \\\n      -D ENABLE_WEBDRIVER=OFF         \\\n      -D USE_WOFF2=OFF                \\\n      -D USE_GTK4=OFF                 \\\n      -D ENABLE_BUBBLEWRAP_SANDBOX=ON \\\n      -D USE_SYSPROF_CAPTURE=NO       \\\n      -D ENABLE_SPEECH_SYNTHESIS=OFF  \\\n      -W no-dev -G Ninja .",
+      "ninja -C build-gtk3 -j$(cat .webkit-jobs)",
+      "cmake -B build-gtk4 -D CMAKE_BUILD_TYPE=Release         \\\n      -D CMAKE_INSTALL_PREFIX=/usr        \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON      \\\n      -D PORT=GTK                         \\\n      -D LIB_INSTALL_DIR=/usr/lib         \\\n      -D USE_LIBBACKTRACE=OFF             \\\n      -D USE_LIBHYPHEN=OFF                \\\n      -D ENABLE_GAMEPAD=OFF               \\\n      -D ENABLE_MINIBROWSER=OFF           \\\n      -D ENABLE_DOCUMENTATION=OFF         \\\n      -D USE_WOFF2=OFF                    \\\n      -D USE_GTK4=ON                      \\\n      -D ENABLE_BUBBLEWRAP_SANDBOX=ON     \\\n      -D USE_SYSPROF_CAPTURE=NO           \\\n      -D ENABLE_SPEECH_SYNTHESIS=OFF      \\\n      -W no-dev -G Ninja .",
+      "ninja -C build-gtk4 -j$(cat .webkit-jobs)"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja -C build-gtk3 install",
-      "DESTDIR=$DESTDIR ninja -C build-gtk4 install"
+      "DESTDIR=$DESTDIR ninja -C build-gtk3 -j$(cat .webkit-jobs) install",
+      "DESTDIR=$DESTDIR ninja -C build-gtk4 -j$(cat .webkit-jobs) install"
     ]
   },
   "post_install": [],

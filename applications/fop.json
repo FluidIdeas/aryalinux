@@ -39,5 +39,9 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://archive.apache.org/dist/maven/maven-3/3.9.12/binaries/apache-maven-3.9.12-bin.tar.gz",
+    "https://downloads.sourceforge.net/offo/2.2/offo-hyphenation.zip"
+  ]
 }

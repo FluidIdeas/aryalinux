@@ -22,7 +22,8 @@
       "sed -e 's@/desktop/ibus@/org/freedesktop/ibus@g' \\\n    -i data/dconf/org.freedesktop.ibus.gschema.xml",
       "if ! [ -e /usr/bin/gtkdocize ]; then\n  sed '/docs/d;/GTK_DOC/d' -i Makefile.am configure.ac\nfi",
       "SAVE_DIST_FILES=1 NOCONFIGURE=1 ./autogen.sh",
-      "./configure --prefix=/usr          \\\n            --sysconfdir=/etc      \\\n            --disable-python2      \\\n            --disable-appindicator \\\n            --disable-gtk2         \\\n            --disable-emoji-dict",
+      "mkdir -p ucd && unzip -o ../UCD.zip -d ucd",
+      "./configure --prefix=/usr          \\\n            --sysconfdir=/etc      \\\n            --disable-python2      \\\n            --disable-appindicator \\\n            --disable-gtk2         \\\n            --disable-emoji-dict   \\\n            --with-ucd-dir=$(pwd)/ucd",
       "make"
     ],
     "package": [
@@ -41,5 +42,8 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.unicode.org/Public/17.0.0/ucd/UCD.zip"
+  ]
 }

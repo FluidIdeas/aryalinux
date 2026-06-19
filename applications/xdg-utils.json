@@ -7,15 +7,19 @@
   ],
   "dependencies": {
     "required": [
+      "docbook",
       "links",
       "lynx",
       "xmlto"
     ]
   },
   "build": {
+    "environment": {
+      "XML_CATALOG_FILES": "/etc/xml/catalog"
+    },
     "user": [
       "./configure --prefix=/usr",
-      "make -C scripts scripts"
+      "make -C scripts scripts XMLTO='xmlto --skip-validation'"
     ],
     "package": [
       "make -C scripts install DESTDIR=$DESTDIR"

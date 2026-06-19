@@ -45,5 +45,8 @@
   "book": "gnome/localsearch.html",
   "url": [
     "https://download.gnome.org/sources/localsearch/3.10/localsearch-3.10.2.tar.xz"
+  ],
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/localsearch-3.10.2-security_fixes-1.patch"
   ]
 }

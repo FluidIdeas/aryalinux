@@ -15,17 +15,15 @@
     "user": [
       "patch -Np1 -i ../spidermonkey-140.8.0-python_3.14_fixes-1.patch",
       "mountpoint -q /dev/shm || mount -t tmpfs devshm /dev/shm",
-      "mkdir obj",
-      "cd    obj",
-      "../js/src/configure --prefix=/usr            \\\n                    --disable-debug-symbols  \\\n                    --disable-jemalloc       \\\n                    --enable-readline        \\\n                    --enable-rust-simd       \\\n                    --with-intl-api          \\\n                    --with-system-icu        \\\n                    --with-system-zlib",
-      "make",
-      "rm -fv /usr/lib/libmozjs-140.so",
-      "rm -v /usr/lib/libjs_static.ajs",
-      "sed -i '/@NSPR_CFLAGS@/d' /usr/bin/js140-config",
-      "sed '$i#define XP_UNIX' -i /usr/include/mozjs-140/js-config.h"
+      "mkdir -p obj",
+      "(cd obj && ../js/src/configure --prefix=/usr            \\\n                    --disable-debug-symbols  \\\n                    --disable-jemalloc       \\\n                    --enable-readline        \\\n                    --enable-rust-simd       \\\n                    --with-intl-api          \\\n                    --with-system-icu        \\\n                    --with-system-zlib && make)"
     ],
     "package": [
-      "make install DESTDIR=$DESTDIR"
+      "rm -fv $DESTDIR/usr/lib/libmozjs-140.so",
+      "(cd obj && make install DESTDIR=$DESTDIR)",
+      "rm -v $DESTDIR/usr/lib/libjs_static.ajs",
+      "sed -i '/@NSPR_CFLAGS@/d' $DESTDIR/usr/bin/js140-config",
+      "sed '$i#define XP_UNIX' -i $DESTDIR/usr/include/mozjs-140/js-config.h"
     ]
   },
   "install": {
@@ -37,5 +35,8 @@
   "book": "general/spidermonkey.html",
   "url": [
     "https://archive.mozilla.org/pub/firefox/releases/140.8.0esr/source/firefox-140.8.0esr.source.tar.xz"
+  ],
+  "additionalUrls": [
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/spidermonkey-140.8.0-python_3.14_fixes-1.patch"
   ]
 }

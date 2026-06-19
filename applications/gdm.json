@@ -25,16 +25,17 @@
       "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja -C build install"
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "install -d $DESTDIR/etc/gdm",
+      "if grep -q '^#WaylandEnable=false' $DESTDIR/etc/gdm/custom.conf; then\n  sed -i 's/^#WaylandEnable=false/WaylandEnable=false/' $DESTDIR/etc/gdm/custom.conf\nfi"
     ]
   },
   "post_install": [
     "getent group gdm >/dev/null || groupadd -g 21 gdm",
     "id -u gdm >/dev/null 2>&1 || useradd -c \"GDM Daemon Owner\" -d /var/lib/gdm -u 21 -g gdm -s /bin/false gdm",
     "passwd -ql gdm",
-    "ln -sf /dev/null /etc/udev/rules.d/61-gdm.rules",
-    "su gdm -s /bin/bash -c \"dbus-run-session gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type nothing\"",
-    "systemctl enable gdm"
+    "systemctl enable gdm",
+    "systemctl set-default graphical.target"
   ],
   "meta": false,
   "book": "x/gdm.html",

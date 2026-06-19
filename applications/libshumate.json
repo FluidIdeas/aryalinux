@@ -10,7 +10,7 @@
       "glib2",
       "gtk4",
       "libsoup3",
-      "protobuf"
+      "protobuf-c"
     ]
   },
   "build": {

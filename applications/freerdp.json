@@ -1,0 +1,41 @@
+{
+  "name": "freerdp",
+  "version": "3.22.0",
+  "description": "FreeRDP provides libraries and utilities for the Remote Desktop Protocol.",
+  "url": [
+    "https://github.com/freerdp/freerdp/archive/3.22.0/FreeRDP-3.22.0.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "cairo",
+      "docbook-xsl",
+      "ffmpeg",
+      "fuse",
+      "icu",
+      "json-c",
+      "libusb",
+      "libxkbcommon",
+      "mitkrb",
+      "wayland",
+      "x7lib"
+    ]
+  },
+  "build": {
+    "user": [
+      "cmake -B build -D CMAKE_INSTALL_PREFIX=/usr   \\\n      -D CMAKE_SKIP_INSTALL_RPATH=ON \\\n      -D CMAKE_BUILD_TYPE=Release    \\\n      -D WITH_CAIRO=ON               \\\n      -D WITH_CLIENT_SDL=OFF         \\\n      -D WITH_DSP_FFMPEG=ON          \\\n      -D WITH_FFMPEG=ON              \\\n      -D WITH_PCSC=OFF               \\\n      -D WITH_SERVER=ON              \\\n      -D WITH_SERVER_CHANNELS=ON     \\\n      -D DOCBOOKXSL_DIR=/usr/share/xml/docbook/xsl-stylesheets-nons-1.79.2 \\\n      -W no-dev                      \\\n      -G Ninja .",
+      "ninja -C build"
+    ],
+    "package": [
+      "DESTDIR=$DESTDIR ninja -C build install"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "xsoft/freerdp.html",
+  "category": "x11",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -59,6 +59,7 @@
     ]
   },
   "additionalUrls": [
-    "https://www.linuxfromscratch.org/patches/blfs/13.0/tigervnc-1.16.0-configuration_fixes-1.patch"
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/tigervnc-1.16.0-configuration_fixes-1.patch",
+    "https://www.x.org/pub/individual/xserver/xorg-server-21.1.21.tar.xz"
   ]
 }

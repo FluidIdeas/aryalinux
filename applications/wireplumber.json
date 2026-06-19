@@ -1,8 +1,8 @@
 {
   "name": "wireplumber",
   "version": "0.5.13",
-  "description": "",
-  "category": "",
+  "description": "WirePlumber is a session and policy manager for PipeWire.",
+  "category": "multimedia",
   "dependencies": {
     "required": [
       "glib2",
@@ -14,26 +14,33 @@
   "build": {
     "user": [
       "meson setup build --prefix=/usr --buildtype=release -D system-lua=true .",
-      "ninja -C build",
-      "rm -vf /etc/xdg/autostart/pulseaudio.desktop",
-      "rm -vf /etc/xdg/Xwayland-session.d/00-pulseaudio-x11",
-      "sed -e '$a autospawn = no' -i /etc/pulse/client.conf",
-      "systemctl enable --global pipewire.socket",
-      "systemctl enable --global pipewire-pulse.socket",
-      "systemctl enable --global wireplumber"
+      "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja -C build install"
+      "DESTDIR=$DESTDIR ninja -C build install",
+      "if [ -d $DESTDIR/usr/share/doc/wireplumber ] && [ ! -e $DESTDIR/usr/share/doc/wireplumber-0.5.13 ]; then mv $DESTDIR/usr/share/doc/wireplumber $DESTDIR/usr/share/doc/wireplumber-0.5.13; fi"
     ]
   },
-  "install": {
-    "extract": [
-      "tar -xJf $PACKAGE -C /"
-    ]
-  },
+  "post_install": [
+    "rm -vf /etc/xdg/autostart/pulseaudio.desktop",
+    "rm -vf /etc/xdg/Xwayland-session.d/00-pulseaudio-x11",
+    "grep -qxF 'autospawn = no' /etc/pulse/client.conf 2>/dev/null || echo 'autospawn = no' >> /etc/pulse/client.conf",
+    "test -f /usr/lib/systemd/user/pipewire.socket",
+    "test -f /usr/lib/systemd/user/pipewire-pulse.socket",
+    "test -f /usr/lib/systemd/user/wireplumber.service",
+    "install -d /etc/systemd/user/sockets.target.wants /etc/systemd/user/pipewire.service.wants",
+    "ln -sfn /usr/lib/systemd/user/pipewire.socket /etc/systemd/user/sockets.target.wants/pipewire.socket",
+    "ln -sfn /usr/lib/systemd/user/pipewire-pulse.socket /etc/systemd/user/sockets.target.wants/pipewire-pulse.socket",
+    "ln -sfn /usr/lib/systemd/user/wireplumber.service /etc/systemd/user/pipewire.service.wants/wireplumber.service"
+  ],
   "meta": false,
   "book": "multimedia/wireplumber.html",
   "url": [
     "https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/0.5.13/wireplumber-0.5.13.tar.bz2"
-  ]
+  ],
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
 }

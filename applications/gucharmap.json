@@ -37,5 +37,9 @@
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
-  }
+  },
+  "additionalUrls": [
+    "https://www.unicode.org/Public/17.0.0/ucd/UCD.zip",
+    "https://www.unicode.org/Public/17.0.0/ucd/Unihan.zip"
+  ]
 }

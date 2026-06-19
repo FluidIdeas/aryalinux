@@ -1,0 +1,31 @@
+{
+  "name": "protobuf-c",
+  "version": "1.5.2",
+  "description": "Protobuf-c provides a C implementation of the Google Protocol Buffers data serialization format.",
+  "url": [
+    "https://github.com/protobuf-c/protobuf-c/releases/download/v1.5.2/protobuf-c-1.5.2.tar.gz"
+  ],
+  "dependencies": {
+    "required": [
+      "protobuf"
+    ]
+  },
+  "build": {
+    "user": [
+      "./configure --prefix=/usr --disable-static",
+      "make -j1"
+    ],
+    "package": [
+      "make install DESTDIR=$DESTDIR"
+    ]
+  },
+  "post_install": [],
+  "meta": false,
+  "book": "general/protobuf-c.html",
+  "category": "libraries",
+  "install": {
+    "extract": [
+      "tar -xJf $PACKAGE -C /"
+    ]
+  }
+}

@@ -9,6 +9,7 @@
     "required": [
       "fast_float",
       "fmt",
+      "simdutf",
       "glib2",
       "gnutls",
       "gtk3",
@@ -20,7 +21,7 @@
   },
   "build": {
     "user": [
-      "meson setup build --prefix=/usr --buildtype=release -D docs=false .",
+      "meson setup build --prefix=/usr --buildtype=release --wrap-mode=nodownload -D docs=false .",
       "ninja -C build"
     ],
     "package": [

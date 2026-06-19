@@ -17,7 +17,7 @@
   },
   "build": {
     "user": [
-      "meson setup build                  \\\n      --prefix=/usr            \\\n      --buildtype=release      \\\n      -D session-managers=\"[]\" \\\n      .",
+      "meson setup build                  \\\n      --prefix=/usr            \\\n      --buildtype=release      \\\n      -D session-managers=\"[]\" \\\n      -D systemd-user-service=enabled \\\n      -D systemd-system-service=enabled \\\n      .",
       "ninja -C build"
     ],
     "package": [

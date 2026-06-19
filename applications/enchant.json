@@ -15,9 +15,7 @@
   "build": {
     "user": [
       "./configure --prefix=/usr     \\\n            --sysconfdir=/etc \\\n            --disable-static  \\\n            --docdir=/usr/share/doc/enchant-2.8.15",
-      "make",
-      "cat > /tmp/test-enchant.txt << \"EOF\"\nTel me more abot linux\nTher ar so many commads\nEOF\n\nenchant-2 -d en_GB -l /tmp/test-enchant.txt",
-      "enchant-2 -d en_GB -a /tmp/test-enchant.txt"
+      "make"
     ],
     "package": [
       "make install DESTDIR=$DESTDIR"

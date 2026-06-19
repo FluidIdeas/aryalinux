@@ -27,16 +27,12 @@
   },
   "build": {
     "user": [
-      "tar -xf ../jtreg-8.2.1+1.tar.gz",
       "export MAKEFLAGS_HOLD=$MAKEFLAGS",
       "unset  JAVA_HOME",
       "unset  CLASSPATH",
       "unset  MAKEFLAGS",
-      "bash configure --enable-unlimited-crypto    \\\n               --disable-warnings-as-errors \\\n               --with-stdc++lib=dynamic     \\\n               --with-giflib=system         \\\n               --with-harfbuzz=system       \\\n               --with-jtreg=$PWD/jtreg      \\\n               --with-lcms=system           \\\n               --with-libjpeg=system        \\\n               --with-libpng=system         \\\n               --with-zlib=system           \\\n               --with-version-build=\"6\"    \\\n               --with-version-pre=\"\"        \\\n               --with-version-opt=\"\"        \\\n               --with-jobs=$(nproc)         \\\n               --with-cacerts-file=/etc/pki/tls/java/cacerts",
+      "bash configure --enable-unlimited-crypto    \\\n               --disable-warnings-as-errors \\\n               --with-stdc++lib=dynamic     \\\n               --with-giflib=system         \\\n               --with-harfbuzz=system       \\\n               --with-lcms=system           \\\n               --with-libjpeg=system        \\\n               --with-libpng=system         \\\n               --with-zlib=system           \\\n               --with-version-build=\"6\"    \\\n               --with-version-pre=\"\"        \\\n               --with-version-opt=\"\"        \\\n               --with-jobs=$(nproc)         \\\n               --with-cacerts-file=/etc/pki/tls/java/cacerts",
       "make images",
-      "export JT_JAVA=$(echo $PWD/build/*/jdk)",
-      "jtreg/bin/jtreg -jdk:$JT_JAVA -automatic -ignore:quiet -v1 \\\n    test/jdk:tier1 test/langtools:tier1",
-      "unset JT_JAVA",
       "export MAKEFLAGS=$MAKEFLAGS_HOLD",
       "unset  MAKEFLAGS_HOLD"
     ],

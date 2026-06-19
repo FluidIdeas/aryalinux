@@ -13,7 +13,7 @@
   },
   "build": {
     "user": [
-      "meson setup build --prefix=/usr       \\\n            --buildtype=release \\\n            -D gtk_doc=false    \\\n            -D man=false        .",
+      "meson setup build --prefix=/usr       \\\n            --buildtype=release \\\n            -D gtk_doc=false    \\\n            -D man=false        \\\n            -D docbook_docs=disabled .",
       "ninja -C build"
     ],
     "package": [

@@ -6,6 +6,7 @@
   "dependencies": {
     "required": [
       "appstream",
+      "freerdp",
       "gtk-vnc",
       "itstool",
       "libhandy1",

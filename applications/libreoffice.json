@@ -69,12 +69,18 @@
   "meta": false,
   "book": "xsoft/libreoffice.html",
   "category": "applications",
+  "url": [
+    "https://download.documentfoundation.org/libreoffice/src/26.2.1/libreoffice-26.2.1.2.tar.xz"
+  ],
   "install": {
     "extract": [
       "tar -xJf $PACKAGE -C /"
     ]
   },
   "additionalUrls": [
-    "https://www.linuxfromscratch.org/patches/blfs/13.0/libreoffice-26.2.1.2-poppler_26.02-1.patch"
+    "https://www.linuxfromscratch.org/patches/blfs/13.0/libreoffice-26.2.1.2-poppler_26.02-1.patch",
+    "https://download.documentfoundation.org/libreoffice/src/26.2.1/libreoffice-dictionaries-26.2.1.2.tar.xz",
+    "https://download.documentfoundation.org/libreoffice/src/26.2.1/libreoffice-help-26.2.1.2.tar.xz",
+    "https://download.documentfoundation.org/libreoffice/src/26.2.1/libreoffice-translations-26.2.1.2.tar.xz"
   ]
 }

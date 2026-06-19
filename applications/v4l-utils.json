@@ -19,8 +19,7 @@
       "ninja -C build"
     ],
     "package": [
-      "DESTDIR=$DESTDIR ninja -C build install",
-      "for prog in v4l2gl v4l2grab\ndo\n   install -v -m755 contrib/test/$prog $DESTDIR/usr/bin\ndone"
+      "DESTDIR=$DESTDIR ninja -C build install"
     ]
   },
   "post_install": [],
